@@ -1,0 +1,568 @@
+{
+  "code": "NB-099",
+  "title": "Cool Houses Without Electricity",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 394,
+  "passage": "Long before air conditioners hummed in every window, people in Arabia built homes that stayed surprisingly cool during scorching summers. They had no electricity, yet they knew how heat, shade and moving air behave. Today, by studying the old parts of cities such as Jeddah and Riyadh, architects are learning from this old wisdom and asking how it might help the cities of tomorrow.\n\nIn Historic Jeddah, known as Al-Balad, the main challenge was not only heat but also humidity, because the city lies on the shore of the Red Sea. Builders therefore cut blocks of coral stone, a light material full of tiny holes, and raised tall houses, some of them five or six storeys high. The most famous feature of these houses is the roshan, a large wooden window box carved with delicate patterns. Its narrow openings let the sea breeze flow through the rooms while blocking the harsh sunlight. They also allow families to look out onto the street without being seen. Because the houses stood close together along narrow lanes, they shaded one another and the alleys beneath them for most of the day. In 2014, Historic Jeddah was added to UNESCO's World Heritage List.\n\nInland, in the dry heart of Najd, builders faced a different problem: blazing days followed by chilly nights. Their solution was mud brick made from local clay mixed with straw. The thick walls absorbed the sun's heat so slowly that the rooms remained cool until evening, when the stored warmth was released inside just as the desert air turned cold. Windows were small and placed high, and many homes were arranged around an open courtyard, which collected cool night air and provided a shaded space for daily life. The mud-brick district of At-Turaif in Diriyah became a World Heritage Site in 2010.\n\nAlthough these two styles look very different, they share the same principle: they work with the local climate instead of fighting it. Today, many buildings depend almost entirely on machines, which use enormous amounts of energy and pump hot air outside. As a result, some architects are now designing new buildings with shaded courtyards, thick walls and carved screens inspired by the roshan.\n\nOld houses remind us that clever design can sometimes achieve what powerful machines cannot. Perhaps the most sustainable cities of the future will borrow their best ideas from the past.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “scorching” as it is used in paragraph 1?",
+      "options": [
+        "very windy",
+        "extremely hot",
+        "very short",
+        "very damp"
+      ],
+      "answer": "B",
+      "why": "Homes stayed “surprisingly cool during scorching summers,” so “scorching” means extremely hot."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is the opposite of “blazing”?",
+      "options": [
+        "burning",
+        "bright",
+        "dusty",
+        "chilly"
+      ],
+      "answer": "D",
+      "why": "Najd has “blazing days followed by chilly nights”: blazing (very hot) is contrasted with chilly (cold)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “Perhaps the most sustainable cities of the future will borrow their best ideas from the past.” What does “sustainable” mean?",
+      "options": [
+        "able to last without harming the environment",
+        "full of very tall and modern towers",
+        "crowded with millions of people",
+        "built very quickly and very cheaply"
+      ],
+      "answer": "A",
+      "why": "The text praises designs that need little energy, so a sustainable city can continue for a long time without damaging the environment."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an adjective?",
+      "options": [
+        "shore",
+        "therefore",
+        "delicate",
+        "beneath"
+      ],
+      "answer": "C",
+      "why": "“Delicate” describes the carved patterns; “shore” is a noun, “therefore” an adverb and “beneath” a preposition."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a PLURAL noun?",
+      "options": [
+        "humidity",
+        "storeys",
+        "feature",
+        "sunlight"
+      ],
+      "answer": "B",
+      "why": "“Storeys” means more than one floor of a building; the others are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “humidity” in paragraph 2?",
+      "options": [
+        "humid",
+        "human",
+        "humble",
+        "humour"
+      ],
+      "answer": "A",
+      "why": "“Humid” (damp and warm) is the adjective that “humidity” comes from; the others only begin with “hum”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “inspired” in a meaningful sentence of your own.",
+      "model": "The colourful patterns of the old mosque inspired my sister to start drawing.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “inspired” with its meaning (gave someone an idea or the wish to do something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Inspired” means gave someone a new idea or the desire to create or do something."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "“Storeys” in paragraph 2 is the plural of “storey”. Which word forms its plural in the SAME way?",
+      "options": [
+        "city",
+        "family",
+        "lady",
+        "alley"
+      ],
+      "answer": "D",
+      "why": "Words ending in a vowel + y just add -s: storey → storeys, alley → alleys. The others change y to -ies."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Perhaps the most sustainable cities of the future will borrow their best ideas from the past.”?",
+      "options": [
+        "a question",
+        "a command",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "It gives an idea and ends with a full stop; “Perhaps” shows uncertainty but does not make it a question."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The History of the Air Conditioner",
+        "Keeping Cool Before Air Conditioning",
+        "Fishing on the Red Sea Coast",
+        "How to Make Bricks from Clay"
+      ],
+      "answer": "B",
+      "why": "The text explains how old houses stayed cool without electricity and what modern builders can learn."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to move to Historic Jeddah",
+        "to tell the life story of a famous architect",
+        "to explain how old houses stayed cool and what we can learn",
+        "to describe how coral reefs grow in the Red Sea"
+      ],
+      "answer": "C",
+      "why": "The text describes two traditional styles and ends by suggesting future cities borrow their ideas."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Najd is the wettest region of the Arabian Peninsula.",
+        "Straw is the most important building material in the world.",
+        "At-Turaif is the oldest city in Saudi Arabia.",
+        "Najdi homes used thick walls and courtyards to suit the climate."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 explains how mud-brick walls, small high windows and courtyards solved Najd's climate problem."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why was humidity a challenge for builders in Jeddah?",
+      "options": [
+        "The city lies on the shore of the Red Sea.",
+        "The city is surrounded by high mountains.",
+        "The houses were built from wet mud.",
+        "It rains in Jeddah every day."
+      ],
+      "answer": "A",
+      "why": "Humidity was a problem “because the city lies on the shore of the Red Sea.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a narrative story",
+        "a biography of an architect",
+        "a friendly letter",
+        "an expository text"
+      ],
+      "answer": "D",
+      "why": "It explains a topic with facts and examples, without characters or a plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What was the purpose of the roshan's narrow openings?",
+      "options": [
+        "to let smoke out of the kitchen",
+        "to let in breeze but block sunlight",
+        "to collect rainwater for the family",
+        "to make the house look taller"
+      ],
+      "answer": "B",
+      "why": "“Its narrow openings let the sea breeze flow through the rooms while blocking the harsh sunlight.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Historic Jeddah was added to the World Heritage List.",
+        "At-Turaif in Diriyah became a World Heritage Site.",
+        "Some architects began designing buildings inspired by the roshan.",
+        "Historic Jeddah was described in this text."
+      ],
+      "answer": "B",
+      "why": "At-Turaif was listed in 2010 and Historic Jeddah in 2014, even though the text mentions Jeddah first."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does the writer discuss immediately AFTER describing the houses of Najd?",
+      "options": [
+        "the idea both styles share",
+        "how coral stone is cut from the reef",
+        "why Jeddah is humid",
+        "how the roshan protects family privacy"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4, which follows the Najd paragraph, explains the shared principle and modern architecture."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, when did the warmth stored in the mud walls reach the inside of the rooms?",
+      "options": [
+        "at noon, when the sun was strongest",
+        "early in the morning, before sunrise",
+        "in the evening, as the desert air turned cold",
+        "only in the rainy season"
+      ],
+      "answer": "C",
+      "why": "The walls kept rooms cool “until evening, when the stored warmth was released inside just as the desert air turned cold.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why were the alleys of Al-Balad shaded for most of the day?",
+      "options": [
+        "Builders covered them with wooden roofs.",
+        "Trees grew along both sides.",
+        "The sea breeze blew the sunlight away.",
+        "The houses stood close and shaded them."
+      ],
+      "answer": "D",
+      "why": "“Because the houses stood close together along narrow lanes, they shaded one another and the alleys beneath them.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "a list of the dates when houses were built",
+        "curiosity about how homes stayed cool with no electricity",
+        "a story about the writer's grandfather",
+        "a warning about the dangers of air conditioners"
+      ],
+      "answer": "B",
+      "why": "The writer says homes stayed cool without electricity, so readers want to know how."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe the writer's attitude toward the traditional builders?",
+      "options": [
+        "admiring and respectful",
+        "amused and mocking",
+        "angry and critical",
+        "bored and uninterested"
+      ],
+      "answer": "A",
+      "why": "The writer praises their “wisdom” and says clever design can achieve “what powerful machines cannot.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the main climate problem in Najd different from the problem in Jeddah?",
+      "options": [
+        "Najd had heavy rain; Jeddah had sandstorms.",
+        "Najd had cold winters only; Jeddah had cold summers.",
+        "Najd had hot days and cold nights; Jeddah had heat with humidity.",
+        "Najd had strong sea breezes; Jeddah had no wind at all."
+      ],
+      "answer": "C",
+      "why": "Jeddah's challenge was “heat but also humidity,” while Najd had “blazing days followed by chilly nights.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the thick mud walls absorbing heat very slowly?",
+      "options": [
+        "The walls cracked every afternoon.",
+        "The rooms became hotter than the street at noon.",
+        "The houses needed large windows.",
+        "The rooms stayed cool by day and became warmer at night."
+      ],
+      "answer": "D",
+      "why": "The walls kept rooms cool “until evening,” then released the stored warmth as the air turned cold."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the Jeddah roshan and the Najdi courtyard have in common?",
+      "options": [
+        "Both are made of coral stone from the reef.",
+        "Both use shade and air to keep homes comfortable without machines.",
+        "Both were added to houses in 2014.",
+        "Both let families see the street without being seen."
+      ],
+      "answer": "B",
+      "why": "The roshan brings in breeze and blocks sun; the courtyard collects cool night air and gives shade."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the old houses “work with the local climate instead of fighting it”?",
+      "options": [
+        "The builders liked to argue about the weather.",
+        "The houses were built only in mild climates.",
+        "They make use of breeze and shade instead of machines.",
+        "The houses were destroyed by storms."
+      ],
+      "answer": "C",
+      "why": "Both styles take advantage of their climate, while modern machines try to defeat the heat using energy."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which of these ideas from the text is the writer's OPINION rather than a fact?",
+      "options": [
+        "Future cities may borrow their best ideas from the past.",
+        "Historic Jeddah was added to UNESCO's World Heritage List in 2014.",
+        "Najdi mud brick was made from local clay mixed with straw.",
+        "Some houses in Al-Balad were five or six storeys high."
+      ],
+      "answer": "A",
+      "why": "The writer's “Perhaps” shows a personal view about the future; the others can be checked."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer describe Jeddah and Najd in two separate paragraphs?",
+      "options": [
+        "to show that Jeddah is more important than Najd",
+        "to tell a story in the order it happened",
+        "to prove that both places have the same climate",
+        "to show how two climates led to two solutions"
+      ],
+      "answer": "D",
+      "why": "Each paragraph presents one climate problem and its solution, which prepares for the comparison in paragraph 4."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which design idea from the text would be MOST useful for a new school in hot, dry Riyadh?",
+      "options": [
+        "large glass walls facing the afternoon sun",
+        "a shaded courtyard with thick walls around it",
+        "thin metal walls that heat up quickly",
+        "more air conditioners on every wall"
+      ],
+      "answer": "B",
+      "why": "The Najdi solutions — thick walls and shaded courtyards — suit a hot, dry climate and save energy."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a plan to sell coral stone to builders",
+        "a belief that people should stop living in cities",
+        "a wish to show that old designs can save energy",
+        "a wish to describe the history of the Red Sea"
+      ],
+      "answer": "C",
+      "why": "The text ends by saying clever design can do what machines cannot and that future cities can borrow ideas from the past."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "respect for the past and hope for the future",
+        "fear of modern machines",
+        "sadness that old houses have disappeared",
+        "anger at modern architects"
+      ],
+      "answer": "A",
+      "why": "The writer admires old designs and hopefully suggests future cities will learn from them."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "why Jeddah is humid",
+        "what a roshan looks like",
+        "when At-Turaif became a World Heritage Site",
+        "how exactly a courtyard collects cool night air"
+      ],
+      "answer": "D",
+      "why": "The writer says the courtyard “collected cool night air” but never explains how; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mud-brick house in Najd stays completely cold all summer without any shade.",
+        "On a summer afternoon, a room behind thick mud walls feels cooler than the street.",
+        "A roshan turns sunlight into electricity for the house.",
+        "Coral stone grows new blocks on the walls of houses."
+      ],
+      "answer": "B",
+      "why": "The text explains that thick walls absorb heat slowly, keeping rooms cool by day. The other events are impossible or contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "A Day at the Beach in Jeddah",
+        "The Inventor of the Roshan",
+        "Lessons from Old Arabian Homes",
+        "Modern Machines for Modern Cities"
+      ],
+      "answer": "C",
+      "why": "The text shows how old houses stayed cool and what today's builders can learn from them."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that propose ONE idea from the old houses that a family could use in its home today, and explain how it would help.",
+      "model": "A family could fit wooden screens with narrow openings, like a small roshan, over their sunniest windows. The screens would block the harsh afternoon sun but still let fresh air in. As a result, the rooms would stay cooler and the family could use the air conditioner less often.",
+      "rubric": [
+        "2 = a clear new ending with an idea taken from the text (roshan, thick walls, courtyard, shade, small high windows) and an explanation of how it helps",
+        "1 = an idea is given but it is not linked to the text or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any idea that follows the principles in the text and is explained is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A family in Jeddah wants to use less air conditioning. Which solution fits the ideas in the text?",
+      "options": [
+        "Shade sunny windows with screens that let air in.",
+        "Close every window tightly so no sea breeze can enter.",
+        "Paint the outside walls a dark colour.",
+        "Remove the shade trees in front of the house."
+      ],
+      "answer": "A",
+      "why": "Like the roshan, screens block sunlight while letting the breeze cool the rooms; the other choices would trap or add heat."
+    }
+  ]
+}

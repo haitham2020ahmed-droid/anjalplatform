@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useT } from "@/i18n/client";
 import type { RemovedRow } from "@/server/questions/dedupe";
 import { fillHashesAction, findDuplicatesAction, missingHashesAction, removeDuplicatesAction, type ClientPlan } from "./actions";
+import { LineIcon } from "@/components/ui/line-icon";
 
 /** questions per remove call (the server accepts 500) */
 const MAX_IDS = 400;
@@ -87,8 +88,8 @@ export function DuplicatesTool() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-3">
-        <button type="button" onClick={() => void find()} disabled={busy} className={`${btn} bg-brand-navy text-white hover:bg-brand-purple`}>🔎 {t("Find duplicates")}</button>
-        {plan && plan.toRemove > 0 && step !== "done" && <button type="button" onClick={() => void remove()} disabled={busy} className={`${btn} bg-red-700 text-white hover:bg-red-800`}>🗑 {t("Remove {n} duplicates", { n: plan.toRemove.toLocaleString("en") })}</button>}
+        <button type="button" onClick={() => void find()} disabled={busy} className={`${btn} bg-brand-navy text-white hover:bg-brand-purple`}><LineIcon name="search" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Find duplicates")}</button>
+        {plan && plan.toRemove > 0 && step !== "done" && <button type="button" onClick={() => void remove()} disabled={busy} className={`${btn} bg-red-700 text-white hover:bg-red-800`}><LineIcon name="trash" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Remove {n} duplicates", { n: plan.toRemove.toLocaleString("en") })}</button>}
         {step === "finding" && <span role="status" className="text-slate-600">{t("Checking every question…")}</span>}
       </div>
       {progress && (
@@ -101,9 +102,9 @@ export function DuplicatesTool() {
 
       {report && (
         <section className="rounded-2xl bg-teal-50 p-4 ring-1 ring-teal-200" aria-labelledby="dup-report">
-          <h2 id="dup-report" className="text-lg font-semibold text-teal-950">✅ {t("Removed {n} duplicate questions, moved {m} student answers.", { n: report.removed.toLocaleString("en"), m: report.moved.toLocaleString("en") })}</h2>
+          <h2 id="dup-report" className="text-lg font-semibold text-teal-950"><LineIcon name="check" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Removed {n} duplicate questions, moved {m} student answers.", { n: report.removed.toLocaleString("en"), m: report.moved.toLocaleString("en") })}</h2>
           {bySkill.length > 0 && <ul className="mt-2 grid gap-1 text-sm text-teal-950 sm:grid-cols-2">{bySkill.slice(0, 40).map(([k, n]) => <li key={k}>{k}: <b>{n}</b></li>)}</ul>}
-          {report.rows.length > 0 && <button type="button" onClick={download} className="mt-3 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">⬇ {t("Download the report (CSV)")}</button>}
+          {report.rows.length > 0 && <button type="button" onClick={download} className="mt-3 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="download" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Download the report (CSV)")}</button>}
         </section>
       )}
 
@@ -115,7 +116,7 @@ export function DuplicatesTool() {
               <div key={String(k)} className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{k}</dt><dd className="text-2xl font-bold tabular-nums text-brand-navy">{Number(v).toLocaleString("en")}</dd></div>
             ))}
           </dl>
-          {plan.toRemove === 0 && <p className="mt-3 text-slate-700">{t("No exact duplicates. ✅")}</p>}
+          {plan.toRemove === 0 && <p className="mt-3 text-slate-700">{t("No exact duplicates.")}</p>}
           {plan.bySkill.length > 0 && (
             <details className="mt-3" open>
               <summary className="cursor-pointer font-semibold text-slate-700">{t("By skill")}</summary>

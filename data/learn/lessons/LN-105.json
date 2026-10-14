@@ -1,0 +1,483 @@
+{
+ "code": "LN-105",
+ "title": "Finding details in a text",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.1.3",
+  "RI.2.3",
+  "RI.2.5",
+  "RI.3.3",
+  "RI.4.3",
+  "RI.5.3",
+  "RI.7.3"
+ ],
+ "families": [
+  "text-evidence"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0046",
+  "R-0095",
+  "R-0111",
+  "R-0179",
+  "R-0202",
+  "R-0306",
+  "R-0355",
+  "R-0533",
+  "R-0734",
+  "R-0920",
+  "R-1044"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a detail?",
+     "text": "A **detail** is a small fact in a text.\n\nIt can tell **who**, **what**, **where**, **when** or **how many**."
+    },
+    {
+     "title": "Questions point the way",
+     "text": "A question tells you what to look for.\n\n**Where?** Look for a place.\n**When?** Look for a time.\n**How many?** Look for a number."
+    },
+    {
+     "title": "How to find a detail",
+     "text": "1. Read the question.\n2. Find the **key word** in it.\n3. Look for that word in the text.\n4. Read that sentence. The answer is there."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the text**.\n\n1. Find the sentence with the answer.\n2. Put your finger on it.\n\nIf you cannot point to it, it is **not** the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Noura has a cat.",
+      "role": "other"
+     },
+     {
+      "t": "The cat is white.",
+      "role": "detail"
+     },
+     {
+      "t": "It sleeps on a red mat.",
+      "role": "key"
+     },
+     {
+      "t": "It eats fish.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **Where does the cat sleep?**\n\nThe key word is **sleeps**. Sentence 3 has it: **It sleeps on a red mat.** So the cat sleeps on a red mat."
+   },
+   "together": {
+    "passage": "Our class went to the zoo on Monday. We saw two big lions. We saw a tall giraffe. Then we ate lunch under a tree.",
+    "stem": "How many lions did the class see?",
+    "options": [
+     "One",
+     "Two",
+     "Three",
+     "Ten"
+    ],
+    "answer": 1,
+    "hint": "Find the word lions in the text. What number is next to it?",
+    "good": "Yes! The text says: We saw two big lions."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class went to the zoo on Monday.",
+     "We saw two big lions.",
+     "We saw a tall giraffe.",
+     "Then we ate lunch under a tree."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: two lions. Tap the sentence that tells how many lions.",
+    "wrong": "This sentence does not tell about the lions. Find the sentence with the word lions."
+   },
+   "checks": [
+    {
+     "passage": "Sami has a new bike. It is blue. He rides it to the park. He rides it after school.",
+     "stem": "What color is the bike?",
+     "options": [
+      "Red",
+      "Green",
+      "Black",
+      "Blue"
+     ],
+     "answer": 3,
+     "why": "The text says: It is blue."
+    },
+    {
+     "passage": "The market opens at eight. People buy fruit and bread. Ahmad sells fresh dates there. He gives his helper water when it is hot.",
+     "stem": "What does Ahmad sell?",
+     "options": [
+      "Dates",
+      "Bread",
+      "Water",
+      "Fish"
+     ],
+     "answer": 0,
+     "why": "The text says: Ahmad sells fresh dates there."
+    },
+    {
+     "passage": "Lina plants seeds in a pot. She puts the pot by the window. She waters it every day. Soon a green plant grows.",
+     "stem": "Where does Lina put the pot?",
+     "options": [
+      "In the garden",
+      "On the table",
+      "By the window",
+      "Under the bed"
+     ],
+     "answer": 2,
+     "why": "The text says: She puts the pot by the window."
+    }
+   ],
+   "again": {
+    "title": "Match the question word",
+    "text": "Each question word wants one kind of answer.\n\n**Who** wants a person. **Where** wants a place. **When** wants a time.\n\nLook for that kind of word in the text.",
+    "example": "Text: Omar swims at the pool on Friday.\n\nWhere does Omar swim? You need a **place**: **at the pool**.\nWhen does he swim? You need a **time**: **on Friday**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Details answer questions",
+     "text": "Informational texts are full of **details**: names, numbers, places, times and facts.\n\nWhen a question asks about one fact, you do not need to read everything again. You **scan** for it."
+    },
+    {
+     "title": "Scan like a searchlight",
+     "text": "To **scan** means to move your eyes quickly over the text, looking for one thing.\n\nLook for the **key word** from the question, a number, or a name. Stop when you find it, then read that sentence slowly."
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Read the question and pick its **key word**.\n2. Scan the text for that word or an idea like it.\n3. Read the sentence carefully and choose the answer it gives.\n\nTip: other details in the text may look right but answer a **different** question."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Every detail answer can be **pointed to**.\n\n1. Find the key word of the question.\n2. Find the sentence in the passage that answers it.\n3. Check that the answer choice says the **same thing** as that sentence.\n\nIf no sentence says it, it is not the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Arabian oryx is a white antelope with long, straight horns.",
+      "role": "detail"
+     },
+     {
+      "t": "It lives in the desert and can go for weeks without drinking.",
+      "role": "detail"
+     },
+     {
+      "t": "It gets water from the plants it eats.",
+      "role": "key"
+     },
+     {
+      "t": "Herds of oryx now live in protected areas in Saudi Arabia.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **How does the oryx get water?**\n\nThe key word is **water**. Sentence 3 answers it: the oryx gets water **from the plants it eats**. Sentence 2 also talks about drinking, but it does not tell **how** the oryx gets water."
+   },
+   "together": {
+    "passage": "The school book fair opens on Sunday in the main hall. Students can buy books, posters and bookmarks. Every book costs ten riyals or less. The fair stays open for three days. Money from the fair will pay for new books for the school library.",
+    "stem": "Where is the book fair held?",
+    "options": [
+     "In the school library",
+     "In a bookshop",
+     "In the main hall",
+     "In each classroom"
+    ],
+    "answer": 2,
+    "hint": "The library is in the text, but it tells where the money goes. Scan for the sentence that tells where the fair opens.",
+    "good": "Yes! The first sentence says the fair opens in the main hall."
+   },
+   "evidence": {
+    "sentences": [
+     "The school book fair opens on Sunday in the main hall.",
+     "Students can buy books, posters and bookmarks.",
+     "Every book costs ten riyals or less.",
+     "The fair stays open for three days.",
+     "Money from the fair will pay for new books for the school library."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: in the main hall. Tap the sentence that tells where the fair is.",
+    "wrong": "This sentence gives a different detail. Find the sentence that names the place of the fair."
+   },
+   "checks": [
+    {
+     "passage": "Honeybees live together in a hive. The queen bee lays the eggs. Worker bees collect nectar from flowers and make honey. In one summer, a strong hive can make more than twenty kilograms of honey.",
+     "stem": "Which bees collect nectar from flowers?",
+     "options": [
+      "Worker bees",
+      "The queen bee",
+      "Young bees",
+      "All the bees in the hive"
+     ],
+     "answer": 0,
+     "why": "The text says: Worker bees collect nectar from flowers and make honey."
+    },
+    {
+     "passage": "The Riyadh Metro carries passengers across the city. Its trains have no drivers. Computers control their speed and stops. The stations are cooled, so riders can wait comfortably even in summer.",
+     "stem": "What controls the speed of the trains?",
+     "options": [
+      "Drivers",
+      "Passengers",
+      "Computers",
+      "Station workers"
+     ],
+     "answer": 2,
+     "why": "The text says: Computers control their speed and stops."
+    },
+    {
+     "passage": "Yousef wanted to help birds in hot weather. He filled a wide dish with water. He put it in the shade of a tree so the water would stay cool. By the next morning, sparrows and doves were drinking from it.",
+     "stem": "Why did Yousef put the dish in the shade?",
+     "options": [
+      "Doves like trees.",
+      "To hide it from cats.",
+      "Sparrows asked for it.",
+      "To keep the water cool."
+     ],
+     "answer": 3,
+     "why": "The text says he put it in the shade of a tree so the water would stay cool."
+    }
+   ],
+   "again": {
+    "title": "Turn the question into a hunt",
+    "text": "Make the question into a short **hunt list**.\n\n1. What am I looking for? (a place, a number, a name, a reason)\n2. Which word will help me find it?\n3. Go and find that word.",
+    "example": "Question: How long does the fair stay open?\n\nLooking for: **a time**. Helper words: **stays open**. Found: The fair stays open **for three days**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Same idea, different words",
+     "text": "Often the question does **not** use the same words as the text.\n\nThe question may say **build**, while the text says **make**. The question may say **large**, while the text says **huge**. You must look for the **idea**, not only the word."
+    },
+    {
+     "title": "Watch out for traps",
+     "text": "Wrong answers are often **real details** from the text, but they answer a different question.\n\nOthers mix two details together, or change one small word. Read the choice and the sentence side by side."
+    },
+    {
+     "title": "Find, read, match",
+     "text": "1. Decide what kind of detail the question wants.\n2. Scan for the word or an idea like it.\n3. Read the sentence **and** the one around it.\n4. Choose the answer that means the same as the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "You prove a detail answer by putting it **next to the sentence** that says it.\n\n1. Find the sentence.\n2. Say the answer in the text's words.\n3. Check the choice means the same, with nothing changed or added.\n\nA choice with one wrong word or number is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sea turtles return to the beach where they hatched.",
+      "role": "detail"
+     },
+     {
+      "t": "A female crawls onto the sand at night and digs a deep hole.",
+      "role": "detail"
+     },
+     {
+      "t": "She lays around one hundred eggs, covers them, and returns to the sea.",
+      "role": "key"
+     },
+     {
+      "t": "About two months later, the babies dig their way out.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **What does the turtle do right after she lays her eggs?**\n\nThe question says **right after**, so look at what follows **lays**. Sentence 3 says she **covers them, and returns to the sea**. Digging a hole (sentence 2) happens **before**, so it is a trap."
+   },
+   "together": {
+    "passage": "In many towns, old buildings are being given new jobs. In Jeddah's historic district, some houses made of coral stone have been repaired and turned into small museums. Their tall wooden windows, called rawasheen, let breezes in while keeping out the strong sun. Workers repaired the windows by hand, using the same kinds of wood and patterns as the first builders. Now visitors can walk through the rooms and see how families lived long ago.",
+    "stem": "According to the passage, how were the windows fixed?",
+    "options": [
+     "Workers used new metal frames and glass.",
+     "Workers copied the old wood and patterns by hand.",
+     "Builders replaced them with coral stone.",
+     "Visitors helped paint them."
+    ],
+    "answer": 1,
+    "hint": "Find the word repaired near the word windows. What does that sentence say the workers used?",
+    "good": "Yes! Workers repaired the windows by hand with the same wood and patterns as the first builders."
+   },
+   "evidence": {
+    "sentences": [
+     "In many towns, old buildings are being given new jobs.",
+     "In Jeddah's historic district, some houses made of coral stone have been repaired and turned into small museums.",
+     "Their tall wooden windows, called rawasheen, let breezes in while keeping out the strong sun.",
+     "Workers repaired the windows by hand, using the same kinds of wood and patterns as the first builders.",
+     "Now visitors can walk through the rooms and see how families lived long ago."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: workers copied the old wood and patterns by hand. Tap the sentence that proves it.",
+    "wrong": "This sentence is about the buildings or the visitors. Find the sentence that tells how the windows were repaired."
+   },
+   "checks": [
+    {
+     "passage": "The Ahmed family wanted to waste less food. They began writing a shopping list before every trip to the market. Leftover rice was used the next day to make a new meal. Fruit that was getting soft went into smoothies. After one month, the family was throwing away half as much food as before.",
+     "stem": "What happened to leftover rice?",
+     "options": [
+      "It was put into smoothies.",
+      "It was given to neighbors.",
+      "It was used to make a new meal.",
+      "It was added to the shopping list."
+     ],
+     "answer": 2,
+     "why": "The text says leftover rice was used the next day to make a new meal. Smoothies were for soft fruit."
+    },
+    {
+     "passage": "Mount Everest is the highest mountain on Earth above sea level. It rises about 8,849 meters on the border between Nepal and China. Climbers usually try to reach the top in May, when the winds are calmer. Many carry bottled oxygen because the air near the top is so thin.",
+     "stem": "Why do climbers often carry oxygen?",
+     "options": [
+      "The mountain is on a border.",
+      "The winds are calm in May.",
+      "The mountain is the tallest in the world.",
+      "There is very little air near the top."
+     ],
+     "answer": 3,
+     "why": "The text says climbers carry oxygen because the air near the top is so thin, which means there is very little air."
+    },
+    {
+     "passage": "A volunteer group in Abha cleans hiking trails each spring. Members bring gloves, bags and water. They collect litter along the paths and report any broken signs to the park office. Last year, they filled more than two hundred bags.",
+     "stem": "What do the volunteers do about broken signs?",
+     "options": [
+      "They tell the park office.",
+      "They fix the signs themselves.",
+      "They put them in bags.",
+      "They take them home."
+     ],
+     "answer": 0,
+     "why": "The text says they report any broken signs to the park office, which means they tell the office."
+    }
+   ],
+   "again": {
+    "title": "Say it in the text's words",
+    "text": "Before you look at the choices, answer the question **using the words of the text**.\n\nThen find the choice that means the same thing.",
+    "example": "Text: The library closes early on Thursdays.\nQuestion: On which day does the library shut sooner?\n\nIn the text's words: **closes early on Thursdays**. Choice that matches: **Thursday**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Details in longer texts",
+     "text": "In a long text, the detail you need may be **anywhere**, and it may be spread across **two sentences**.\n\nThe question may also use a synonym or a summary word, so you must understand the text, not only spot a word."
+    },
+    {
+     "title": "Know what the question asks",
+     "text": "Read the question closely. **According to the passage** means the answer is stated. Words like **first**, **only**, **most** or **before** change which detail is correct.\n\nMany wrong choices are true details that do not answer **this** question."
+    },
+    {
+     "title": "A careful method",
+     "text": "1. Underline the exact thing the question asks.\n2. Scan for words and ideas linked to it.\n3. Read the full sentence and its neighbors.\n4. Remove choices that are not stated, are about a different part, or change a word like **all** or **never**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A strong reader can quote the line.\n\n1. Locate the sentence or sentences that state the detail.\n2. Check every part of the answer choice against them.\n3. If part of a choice is missing from the text, or contradicts it, reject it.\n\nThe correct answer is fully supported, not only partly."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The first public weather forecasts were printed in newspapers in the 1860s.",
+      "role": "detail"
+     },
+     {
+      "t": "Forecasters used reports sent by telegraph from towns across the country.",
+      "role": "key"
+     },
+     {
+      "t": "Today, satellites and computer models supply far more information.",
+      "role": "detail"
+     },
+     {
+      "t": "Even so, forecasts beyond about ten days remain uncertain.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **According to the passage, how did early forecasters get their information?**\n\nThe word **early** points to the past. Sentence 2 answers it: **reports sent by telegraph**. Satellites (sentence 3) are a real detail, but they belong to **today**."
+   },
+   "together": {
+    "passage": "For centuries, pearl diving was one of the main sources of income along the coasts of the Arabian Gulf. Each summer, crews sailed out for about four months. Divers wore a clip on the nose and tied a stone to one foot so they could sink quickly to the sea floor. They held their breath for a minute or more while they filled a basket with oysters. A partner on the boat, called the saib, pulled the diver up by a rope when he tugged on it. In the 1930s, cultured pearls grown on farms in Japan became cheap and common, and the old pearling trade slowly came to an end.",
+    "stem": "According to the passage, how did a diver return to the boat?",
+    "options": [
+     "He swam up holding the stone.",
+     "He waited until the basket was full of oysters.",
+     "His partner pulled him up after a signal.",
+     "He climbed a rope tied to his foot."
+    ],
+    "answer": 2,
+    "hint": "Find the sentence about the partner on the boat. What did the diver do, and what did the partner do?",
+    "good": "Yes! The diver tugged the rope, and the saib pulled him up."
+   },
+   "evidence": {
+    "sentences": [
+     "For centuries, pearl diving was one of the main sources of income along the coasts of the Arabian Gulf.",
+     "Each summer, crews sailed out for about four months.",
+     "Divers wore a clip on the nose and tied a stone to one foot so they could sink quickly to the sea floor.",
+     "They held their breath for a minute or more while they filled a basket with oysters.",
+     "A partner on the boat, called the saib, pulled the diver up by a rope when he tugged on it.",
+     "In the 1930s, cultured pearls grown on farms in Japan became cheap and common, and the old pearling trade slowly came to an end."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: his partner pulled him up after a signal. Tap the sentence that proves it.",
+    "wrong": "This sentence tells about another part of pearl diving. Find the sentence that explains how the diver came back up."
+   },
+   "checks": [
+    {
+     "passage": "Vaccines train the body to defend itself. Most contain a weakened or harmless part of a germ. The body's defenders learn to recognize it and remember it. If the real germ enters later, the body can fight it off quickly, often before the person feels ill. Some vaccines need a second dose to make this memory stronger.",
+     "stem": "According to the passage, why do some vaccines need a second dose?",
+     "options": [
+      "The first dose contains the real germ.",
+      "It makes the body's memory of the germ stronger.",
+      "The person often feels ill after the first.",
+      "The body forgets every vaccine after a year."
+     ],
+     "answer": 1,
+     "why": "The last sentence says a second dose makes this memory stronger. The other choices are not stated or contradict the text."
+    },
+    {
+     "passage": "When the engineer Hassan Fathy designed the village of New Gourna in Egypt in the 1940s, he chose mud brick instead of concrete. Mud brick was cheap and made from local earth. Its thick walls kept rooms cool during the day and released warmth at night. Fathy also used domes and courtyards that helped air move through the houses.",
+     "stem": "Which detail explains why the houses stayed cool in the day?",
+     "options": [
+      "The thick mud-brick walls",
+      "The low cost of the bricks",
+      "The village being in Egypt",
+      "The use of local earth"
+     ],
+     "answer": 0,
+     "why": "The text says the thick walls kept rooms cool during the day. Low cost and local earth are reasons he chose the brick, not why rooms stayed cool."
+    },
+    {
+     "passage": "The Arabic numerals used in much of the world today started as numerals in India. Scholars in Baghdad learned them and wrote books about them in the 800s. These books were later translated into Latin. Traders and teachers in Europe slowly began to use the new numbers instead of Roman numerals, which made it much easier to multiply and divide.",
+     "stem": "According to the passage, how did the numerals reach Europe?",
+     "options": [
+      "Traders from India carried them directly to Europe.",
+      "Roman scholars invented them in the 800s.",
+      "Books from Baghdad were translated into Latin.",
+      "They were first used to measure land in Europe."
+     ],
+     "answer": 2,
+     "why": "The text says scholars in Baghdad wrote books, and these were later translated into Latin and used in Europe."
+    }
+   ],
+   "again": {
+    "title": "Split the question in two",
+    "text": "For a hard detail question, ask:\n\n1. **Which part** of the text is this about? (a time, a person, a step)\n2. **What exactly** does it ask about that part?\n\nGo to that part first, then find the exact answer.",
+    "example": "Question: What did divers tie to their foot?\n\nPart of the text: how divers **went down**. Exact thing: **tied to the foot**. Sentence: they tied **a stone** to one foot. Answer: **a stone**."
+   }
+  }
+ }
+}

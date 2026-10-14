@@ -329,12 +329,12 @@ describe("practice: a submit after the session ended is a friendly no-op", () =>
     const q = view.question!;
     const item = (await loadSkillItems(repo, sid)).find((i) => i.questionId === q.questionId)!;
     const right = rightAnswer(item);
-    const r1 = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: q.questionId, response: right }, new Date(T0.getTime() + 20_000));
+    const r1 = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: q.questionId, response: right }, new Date(T0.getTime() + 180_000)); // r67: a reader's time (the first question of a passage under a third of its reading time is a rapid guess)
     // tab A leaves (the session ends); tab B still shows the answered question and submits it again
-    await endPractice(repo, lina, view.sessionId, new Date(T0.getTime() + 30_000));
+    await endPractice(repo, lina, view.sessionId, new Date(T0.getTime() + 190_000));
     const counts = async () => ({ attempts: await repo.count("QuestionAttempt", { sessionId: view.sessionId }), xp: await repo.count("XpEvent", { studentId: lina.studentId }), mastery: Number((await repo.findUnique("StudentSkillMastery", { studentId: lina.studentId, skillId: sid }))!.score) });
     const before = await counts();
-    const dup = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: q.questionId, response: right }, new Date(T0.getTime() + 40_000));
+    const dup = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: q.questionId, response: right }, new Date(T0.getTime() + 200_000));
     assert.equal(dup.feedback.alreadyEnded, true);
     assert.equal(r1.feedback.correct, true);
     assert.equal(dup.feedback.correct, r1.feedback.correct, "the same result as the first submit");
@@ -347,7 +347,7 @@ describe("practice: a submit after the session ended is a friendly no-op", () =>
     assert.deepEqual(await counts(), before, "no attempt, XP or mastery change");
     // a question that was never answered in the ended session: also a no-op (blank result)
     const next = (await loadSkillItems(repo, sid)).find((i) => i.questionId !== q.questionId)!;
-    const dup2 = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: next.questionId, response: "A" }, new Date(T0.getTime() + 50_000));
+    const dup2 = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: next.questionId, response: "A" }, new Date(T0.getTime() + 210_000));
     assert.equal(dup2.feedback.alreadyEnded, true);
     assert.deepEqual(await counts(), before);
     assert.equal((await currentQuestion(repo, lina, view.sessionId)).ended, true);

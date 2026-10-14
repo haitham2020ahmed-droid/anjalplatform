@@ -1,0 +1,568 @@
+{
+  "code": "NB-026",
+  "title": "Lighter Than Air: The Montgolfier Balloons",
+  "kind": "INFORMATIONAL",
+  "genre": "expository / history",
+  "words": 420,
+  "passage": "For thousands of years, people watched birds glide overhead and wondered whether humans could ever join them. The first real answer did not come from wings, however, but from a gigantic bag filled with hot air. In 1783, two French brothers, Joseph and Etienne Montgolfier, launched a new age of flight from the small town of Annonay.\n\nThe brothers ran a family business that manufactured paper, so they understood light materials well. According to a popular story, Joseph noticed that smoke and sparks from a fire rose upward, and he wondered whether the same force could lift an object. When he held a small bag of light cloth over a fire, it rose to the ceiling. The brothers wrongly believed that the smoke contained a special gas with lifting power, but the true explanation was simpler. When air is heated, it expands and becomes lighter than the same amount of cooler air around it, so it rises, carrying the balloon with it.\n\nOn 4 June 1783, the Montgolfiers demonstrated a large balloon of cloth and paper in the town square. Before a surprised crowd, it climbed high into the sky and travelled about two kilometres before it came down. News of the experiment spread rapidly, and soon the brothers were invited to Versailles, near Paris, to show their invention to the king.\n\nNobody knew, however, whether a living creature could survive high in the air. For this reason, the brothers' next balloon carried three unusual passengers: a sheep, a duck and a rooster. After a flight of about eight minutes, the animals landed safely in a nearby forest. Their survival convinced the inventors that it was finally time for people to fly.\n\nOn 21 November 1783, two brave Frenchmen, Pilatre de Rozier and the Marquis d'Arlandes, climbed into a balloon in Paris. They fed a fire beneath the opening to keep the air hot, and they carried wet sponges to put out any sparks that landed on the fabric. For about twenty-five minutes, they drifted across the city before landing safely several kilometres away. They had become the first humans to make a free flight in a balloon.\n\nModern hot-air balloons use gas burners instead of open fires, but the principle remains the same. Interestingly, pilots still cannot steer a balloon directly; instead, they rise or sink to find winds blowing in the direction they wish to travel. More than two centuries later, the dream that began with a little bag above a fire still floats gracefully over the world.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “rapidly” as it is used in paragraph 3?",
+      "options": [
+        "slowly",
+        "quickly",
+        "quietly",
+        "widely"
+      ],
+      "answer": "B",
+      "why": "News that “spread rapidly” spread quickly. “Widely” describes how far, not how fast."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “survive” as it is used in paragraph 4?",
+      "options": [
+        "perish",
+        "recover",
+        "escape",
+        "land"
+      ],
+      "answer": "A",
+      "why": "To survive is to stay alive; to perish is to die."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 6: “Modern hot-air balloons use gas burners instead of open fires, but the principle remains the same.” What does “principle” mean here?",
+      "options": [
+        "the head teacher in charge of a school",
+        "a large amount of money",
+        "a basic rule that explains how something works",
+        "the very first flight that people ever made"
+      ],
+      "answer": "C",
+      "why": "The scientific rule (heated air rises) is still the same. “Principal” (head teacher) is a different word."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is a verb?",
+      "options": [
+        "fabric",
+        "brave",
+        "safely",
+        "drifted"
+      ],
+      "answer": "D",
+      "why": "“Drifted” is an action (“they drifted across the city”); “fabric” is a noun, “brave” an adjective and “safely” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 4 has the SAME form in the singular and the plural?",
+      "options": [
+        "duck",
+        "sheep",
+        "rooster",
+        "forest"
+      ],
+      "answer": "B",
+      "why": "We say one sheep and ten sheep; the other nouns add -s (ducks, roosters, forests)."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “demonstrated” in paragraph 3?",
+      "options": [
+        "demonstration",
+        "democracy",
+        "demolish",
+        "monster"
+      ],
+      "answer": "A",
+      "why": "“Demonstration” is the noun form of the verb “demonstrate”; the others only share some letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “convinced” in a meaningful sentence of your own.",
+      "model": "After watching the experiment twice, Nasser was finally convinced that warm water dissolves sugar faster than cold water.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “convinced” with its meaning (made to feel sure that something is true)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Convinced” means made sure that something is true."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 5 uses the plural “Frenchmen”. Which is the correct plural of “fireman”, which follows the same pattern?",
+      "options": [
+        "firemans",
+        "firemens",
+        "firemen",
+        "firemanes"
+      ],
+      "answer": "C",
+      "why": "Words ending in -man change to -men in the plural: Frenchman → Frenchmen, fireman → firemen."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Nobody knew, however, whether a living creature could survive high in the air.” (paragraph 4)?",
+      "options": [
+        "a question",
+        "a statement",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "B",
+      "why": "Although it contains the word “whether”, it reports a fact and ends with a full stop, so it is a statement, not a question."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "A Farm Visit in France",
+        "Birds That Taught Us to Fly",
+        "The King's Favourite Animals",
+        "Lighter Than Air: The First Balloons"
+      ],
+      "answer": "D",
+      "why": "The text tells how the first hot-air balloons were invented and flown; the other titles are off-topic or cover a small detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to explain how the first hot-air balloons were developed",
+        "to persuade readers to take a balloon ride soon",
+        "to describe the family's paper business in Annonay",
+        "to tell a funny story about three farm animals"
+      ],
+      "answer": "A",
+      "why": "The text explains the invention, the science and the first flights of hot-air balloons."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "The Montgolfiers proved that smoke contains a lifting gas.",
+        "Joseph was the first person ever to light a fire.",
+        "Watching fire gave Joseph an idea, and heated air explains it.",
+        "Paper is too heavy to be used for balloons."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 describes how the idea began with a fire and gives the true explanation: heated air becomes lighter and rises. The smoke idea was wrong."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why did the brothers send animals up in a balloon?",
+      "options": [
+        "Nobody knew whether living creatures could survive up high.",
+        "The king asked to see animals flying in the sky.",
+        "The animals were lighter than any human passengers.",
+        "They wanted to sell the animals at Versailles."
+      ],
+      "answer": "A",
+      "why": "“Nobody knew, however, whether a living creature could survive high in the air. For this reason…”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a short play script",
+        "an informational text",
+        "a play",
+        "a diary"
+      ],
+      "answer": "B",
+      "why": "It presents real historical events and a scientific explanation; it has no invented characters, scenes or diary entries."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, why did the two men carry wet sponges?",
+      "options": [
+        "to cool the hot air inside the balloon",
+        "to wash the fabric after landing",
+        "to drink from during the long flight",
+        "to put out sparks that landed on the fabric"
+      ],
+      "answer": "D",
+      "why": "“they carried wet sponges to put out any sparks that landed on the fabric.” Cooling the air would have made the balloon sink."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which event came immediately AFTER the brothers' demonstration in the town square of Annonay?",
+      "options": [
+        "Joseph held a small bag over a fire.",
+        "Two brave men drifted in a balloon across Paris.",
+        "A sheep, a duck and a rooster flew in a balloon.",
+        "Gas burners replaced open fires."
+      ],
+      "answer": "C",
+      "why": "After the June demonstration, the brothers went to Versailles, where the animals flew. The men's flight came in November."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who were Pilatre de Rozier and the Marquis d'Arlandes?",
+      "options": [
+        "the first humans to make a free balloon flight",
+        "the brothers who owned the paper business",
+        "the officials who invited the brothers to Versailles",
+        "the farmers who owned the sheep and the duck"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: “They had become the first humans to make a free flight in a balloon.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why balloon pilots rise or sink during a flight?",
+      "options": [
+        "Balloons were first made of cloth and paper.",
+        "The first human passengers carried wet sponges with them.",
+        "Modern balloons use gas burners.",
+        "Pilots cannot steer directly, so they look for helpful winds."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 explains that pilots rise or sink to find winds blowing where they want to go."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What convinced the inventors that it was time for people to fly?",
+      "options": [
+        "the king's request at Versailles",
+        "the animals' safe landing after their flight",
+        "the discovery of a special gas in smoke",
+        "the success of the gas burners"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “Their survival convinced the inventors that it was finally time for people to fly.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did the two men keep feeding the fire during their flight?",
+      "options": [
+        "to cook a meal high above Paris",
+        "to signal to the crowds below",
+        "to keep the air hot so the balloon stayed up",
+        "to dry out the wet sponges they had carried"
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: “They fed a fire beneath the opening to keep the air hot”; hot air is what lifts the balloon."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word best describes the way the inventors tested whether flight was safe for humans?",
+      "options": [
+        "careless",
+        "impatient",
+        "secretive",
+        "cautious"
+      ],
+      "answer": "D",
+      "why": "They sent animals first and waited to see if they survived before risking human lives."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How are modern hot-air balloons different from the first ones?",
+      "options": [
+        "They use gas burners instead of open fires.",
+        "They rise because of a special gas in smoke.",
+        "Pilots can steer them directly like cars.",
+        "They can only carry animals, not people."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6: “Modern hot-air balloons use gas burners instead of open fires.” Pilots still cannot steer directly."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the news of the Annonay experiment spreading so rapidly?",
+      "options": [
+        "The brothers closed their paper business.",
+        "The crowd refused to believe the story.",
+        "The brothers were invited to show their invention to the king.",
+        "Other inventors in France copied the balloon at once."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: news spread rapidly, “and soon the brothers were invited to Versailles … to show their invention to the king.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the 1783 fire and a modern gas burner have in common?",
+      "options": [
+        "Both produce the special gas the brothers believed in.",
+        "Both heat the air inside the balloon so it rises.",
+        "Both allow the pilot to steer the balloon directly.",
+        "Both were tested first on a sheep, a duck and a rooster."
+      ],
+      "answer": "B",
+      "why": "Each one heats the air, which expands and becomes lighter; “the principle remains the same.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying that the dream “still floats gracefully over the world”?",
+      "options": [
+        "The first Montgolfier balloon is still flying today.",
+        "People no longer dream about flying.",
+        "Hot-air balloons are allowed to fly only over France.",
+        "Balloon flight, which began long ago, is still enjoyed today."
+      ],
+      "answer": "D",
+      "why": "The phrase is figurative: the dream of balloon flight lives on in modern balloons around the world."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer mention that the brothers “wrongly believed” smoke contained a special gas?",
+      "options": [
+        "to show that inventors can succeed before fully understanding why",
+        "to prove that the brothers were poor scientists",
+        "to explain that smoke is the best way to lift a balloon",
+        "to suggest that the balloon in Annonay never really flew"
+      ],
+      "answer": "A",
+      "why": "The brothers' balloons worked even though their explanation was wrong; the writer then gives the correct science."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text describes something that may NOT be completely certain?",
+      "options": [
+        "The brothers ran a family business that manufactured paper.",
+        "On 4 June 1783, the Montgolfiers demonstrated a large balloon of cloth and paper in the town square.",
+        "According to a popular story, Joseph noticed that smoke and sparks from a fire rose upward.",
+        "Modern hot-air balloons use gas burners instead of open fires."
+      ],
+      "answer": "C",
+      "why": "The words “According to a popular story” warn readers that this detail is a story people tell, not a proven fact."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which decision by the inventors was the wisest?",
+      "options": [
+        "testing the balloon with animals before risking human lives",
+        "making their first balloon from cloth and paper",
+        "travelling to Versailles to show their invention to the king",
+        "believing that smoke had special lifting power"
+      ],
+      "answer": "A",
+      "why": "Testing safety first protected human life; the smoke belief was wrong."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best describes the writer's view of the Montgolfier brothers?",
+      "options": [
+        "They were careless inventors who were simply lucky.",
+        "They began a new age of flight, though they misread the science.",
+        "Their balloons were less important than the wings of birds.",
+        "They should have built wings instead of balloons."
+      ],
+      "answer": "B",
+      "why": "The writer says they “launched a new age of flight” but also that they “wrongly believed” in a special gas."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text as a whole?",
+      "options": [
+        "fear of flying",
+        "sadness about the past",
+        "anger at the inventors",
+        "excitement about discovery"
+      ],
+      "answer": "D",
+      "why": "The text celebrates surprising experiments, brave flights and a dream that “still floats gracefully over the world.”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how long the first human flight lasted",
+        "which animals flew at Versailles",
+        "how high the first human flight rose",
+        "what modern balloons use instead of fires"
+      ],
+      "answer": "C",
+      "why": "The text gives the time of the flight, the animals and the burners, but never the height reached."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A balloon pilot rises higher to catch a wind blowing toward a chosen town.",
+        "A balloon filled with cold air rises faster than one filled with hot air.",
+        "A pilot steers a balloon against the wind using a steering wheel.",
+        "A duck pilots a hot-air balloon across Paris by itself."
+      ],
+      "answer": "A",
+      "why": "Pilots really do change height to find winds going their way; the other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the text?",
+      "options": [
+        "The Balloon That Never Rose",
+        "A Duck's Long Journey Home",
+        "The Smoke Gas Mystery Solved",
+        "From a Bag Above a Fire to the Sky"
+      ],
+      "answer": "D",
+      "why": "The text traces the journey from Joseph's small bag over a fire to the first human flights."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences that end it by describing a modern use of hot-air balloons and explaining why the Montgolfiers would be proud.",
+      "model": "Today, colourful balloons rise over deserts and valleys at sunrise, carrying visitors who want to see the land from above. Scientists also use balloons to carry instruments high into the sky to study the weather. The Montgolfiers would be proud to see that their simple idea still helps people explore and learn.",
+      "rubric": [
+        "2 = a clear new ending that describes a believable modern use of balloons and links it to the Montgolfiers' invention",
+        "1 = an ending is given but the modern use or the link to the inventors is unclear or does not fit the text",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that describes a real modern use of balloons and links it to the inventors is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A balloon pilot wants to travel east, but the wind near the ground is blowing west. Based on the text, what should she do?",
+      "options": [
+        "Put out the burner and wait on the ground for a week.",
+        "Steer the balloon east using a rudder.",
+        "Rise or sink to find a wind that is blowing east.",
+        "Add wet sponges to make the balloon heavier."
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 explains that pilots “rise or sink to find winds blowing in the direction they wish to travel.”"
+    }
+  ]
+}

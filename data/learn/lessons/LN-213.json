@@ -1,0 +1,481 @@
+{
+ "code": "LN-213",
+ "title": "Connotation",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.1.5.d",
+  "L.2.5.b",
+  "L.3.5.c",
+  "L.6.5.c",
+  "L.7.5.c",
+  "L.8.5.c",
+  "RI.6.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4"
+ ],
+ "families": [
+  "connotation"
+ ],
+ "skillNames": [
+  "Connotation and Denotation"
+ ],
+ "statements": [
+  "R-0226",
+  "R-0241",
+  "R-0367",
+  "R-0388",
+  "R-0556",
+  "R-0589",
+  "R-0593",
+  "R-0771",
+  "R-0795",
+  "R-0799",
+  "R-0946",
+  "R-0955",
+  "R-1059"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words have feelings",
+     "text": "Some words mean almost the same thing but **feel** different.\n\n“smell” feels **plain**.\n“scent” feels **good**.\n“stink” feels **bad**."
+    },
+    {
+     "title": "Good feeling or bad feeling?",
+     "text": "**Positive** words make us feel good: delicious, cosy, brave.\n\n**Negative** words make us feel bad: yucky, cramped, rude."
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Find the word.\n2. Ask: does it make me feel **good** or **bad**?\n3. Read the other sentences. Do they feel the same way?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences show the feeling too.\n\n1. Find the word.\n2. Look at what happens next.\n3. Tap the sentences that show if it is **good** or **bad**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our new flat is cosy.",
+      "role": "main"
+     },
+     {
+      "t": "It is small and warm.",
+      "role": "key"
+     },
+     {
+      "t": "We love to sit there together.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Cosy** is a good word for small. The flat is small, but it is **warm** and we **love** it.\n\nThe writer likes the flat."
+   },
+   "together": {
+    "passage": "Faris walked into the kitchen. The bread smelled lovely. Mum had baked it that morning. He smiled and took a piece.",
+    "stem": "How does the word “lovely” make the bread seem?",
+    "options": [
+     "bad",
+     "good",
+     "old",
+     "hard"
+    ],
+    "answer": 1,
+    "hint": "Look at what Faris does. Would he smile at bad bread?",
+    "good": "Yes! **Lovely** is a good word. Faris smiles and takes a piece."
+   },
+   "evidence": {
+    "sentences": [
+     "Faris walked into the kitchen.",
+     "The bread smelled lovely.",
+     "Mum had baked it that morning.",
+     "He smiled and took a piece."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: good. Tap 2 sentences that show the bread is good.",
+    "wrong": "This sentence tells where Faris went, or it holds the word itself. Find sentences that SHOW the bread is good."
+   },
+   "checks": [
+    {
+     "passage": "Our classroom is crowded. There are too many desks. We bump into each other.",
+     "stem": "Does “crowded” feel good or bad here?",
+     "options": [
+      "bad: the room is too full",
+      "good: the room is fun",
+      "good: the room is big",
+      "bad: the room is cold"
+     ],
+     "answer": 0,
+     "why": "Too many desks and bumping into each other feel bad. The room is too full."
+    },
+    {
+     "passage": "Our cat has soft, clean fur. We love to pet it.",
+     "stem": "Which word could replace “soft” and keep a good feeling?",
+     "options": [
+      "scratchy",
+      "dirty",
+      "silky",
+      "rough"
+     ],
+     "answer": 2,
+     "why": "Silky means soft and smooth. It feels nice. The other words feel bad."
+    },
+    {
+     "passage": "Tariq is a brave boy. He helped his little sister climb down from the high rock.",
+     "stem": "What feeling does “brave” give?",
+     "options": [
+      "a bad feeling",
+      "an angry feeling",
+      "a sad feeling",
+      "a good feeling"
+     ],
+     "answer": 3,
+     "why": "Brave is a good word. Tariq helped his sister, which is a good thing to do."
+    }
+   ],
+   "again": {
+    "title": "Thumbs up or down",
+    "text": "Read the word and show a thumb.\n\n👍 It makes you feel good.\n👎 It makes you feel bad.\n\nThen check the other sentences. They should feel the same.",
+    "example": "“The soup was yummy. I ate it all.”\n\n**Yummy** → 👍. “I ate it all” agrees. The soup was good."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Same meaning, different feeling",
+     "text": "Some words have almost the same **dictionary meaning** but a different **feeling**.\n\nThe dictionary meaning is the **denotation**. The feeling a word carries is its **connotation**."
+    },
+    {
+     "title": "Word pairs",
+     "text": "**curious** 👍 / **nosy** 👎: both want to know things.\n**thrifty** 👍 / **cheap** 👎: both spend little money.\n**confident** 👍 / **arrogant** 👎: both feel sure of themselves."
+    },
+    {
+     "title": "Writers choose on purpose",
+     "text": "Writers choose words to show what they **think**.\n\n“her **childlike** joy” → sweet and innocent 👍\n“his **childish** behaviour” → silly for his age 👎\n\nAsk: what does this word show about the writer's feeling?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the other sentences.\n\n1. If the writer **praises** the person or thing, the word is positive.\n2. If the writer **complains**, it is negative.\n3. Tap the sentences that show the writer's feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My neighbour is very thrifty.",
+      "role": "main"
+     },
+     {
+      "t": "She fixes old toys instead of buying new ones.",
+      "role": "key"
+     },
+     {
+      "t": "With the money she saves, she helps families in need.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Thrifty** and **cheap** both mean spending little. But this writer **admires** the neighbour: she saves money to help others.\n\nSo the writer chose the **positive** word."
+   },
+   "together": {
+    "passage": "Nawaf asks questions about everything. In science class, he wants to know why the sky is blue and how planes stay in the air. He reads extra books at home and shares what he learns with us. Our teacher says Nawaf is curious, and she is glad to have him in her class.",
+    "stem": "Why did the teacher call Nawaf “curious” and not “nosy”?",
+    "options": [
+     "Nawaf asks about other people's secrets.",
+     "His questions are about learning, and she likes them.",
+     "Nawaf never asks any questions.",
+     "Nawaf talks too much in class."
+    ],
+    "answer": 1,
+    "hint": "Nosy is a negative word. Does the text show Nawaf doing anything bad? What are his questions about?",
+    "good": "Yes! His questions are about science and learning, and the teacher is glad. That is the positive word: curious."
+   },
+   "evidence": {
+    "sentences": [
+     "Nawaf asks questions about everything.",
+     "In science class, he wants to know why the sky is blue and how planes stay in the air.",
+     "He reads extra books at home and shares what he learns with us.",
+     "Our teacher says Nawaf is curious, and she is glad to have him in her class."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: his questions are about learning, and the teacher likes them. Tap 2 sentences that prove it.",
+    "wrong": "This sentence says he asks a lot, but not WHAT about. Find sentences that show his questions are about learning or that the teacher is happy."
+   },
+   "checks": [
+    {
+     "passage": "Hessa spends little money on herself. She saves it to buy books for her school library.",
+     "stem": "Which word describes Hessa in a POSITIVE way?",
+     "options": [
+      "stingy",
+      "greedy",
+      "thrifty",
+      "cheap"
+     ],
+     "answer": 2,
+     "why": "Thrifty means careful with money, in a good way. Hessa saves to help her school."
+    },
+    {
+     "passage": "The new building was huge and grey. It blocked the sunlight from the small houses around it, and people missed their view of the hills.",
+     "stem": "Which word best matches the writer's feeling about the building?",
+     "options": [
+      "grand",
+      "impressive",
+      "elegant",
+      "monstrous"
+     ],
+     "answer": 3,
+     "why": "The writer complains: it blocks sunlight and the view. Monstrous is the only negative word."
+    },
+    {
+     "passage": "When Saleh's little brother cried because he could not have a second dessert, Saleh said, “Stop being so childish!”",
+     "stem": "What does “childish” suggest?",
+     "options": [
+      "acting young in a silly way",
+      "being kind like a child",
+      "being small",
+      "being happy"
+     ],
+     "answer": 0,
+     "why": "Childish is negative. Saleh is annoyed that his brother is acting in a silly way."
+    }
+   ],
+   "again": {
+    "title": "Twin words",
+    "text": "Think of these words as **twins**: they look alike but act differently.\n\n1. Name the plain meaning they share.\n2. Ask which twin is **nice** and which is **not nice**.\n3. Check the passage: is the writer pleased or annoyed?",
+    "example": "**firm** and **stubborn** both mean not changing your mind.\n\n“Dad was **firm**: no phones at dinner.” → fair and steady 👍\n“Dad was **stubborn** and would not listen.” → annoying 👎"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Context changes the feeling",
+     "text": "The same word can feel different in different places.\n\n“The house was **quiet**” after a busy day feels **peaceful**.\n“The house was **quiet**” when someone is missing feels **worrying**.\n\nThe sentences around the word decide its connotation."
+    },
+    {
+     "title": "Word choice shows attitude",
+     "text": "Writers show what they or their characters think through their word choices.\n\n“The crowd **gathered**” is neutral.\n“The crowd **swarmed**” makes the crowd seem out of control."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find the word.\n2. Name its plain meaning.\n3. Read the context: what is happening, and how do the characters feel?\n4. Decide: positive, negative or neutral? Explain what it shows."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a connotation with **other words in the passage** that carry the same feeling.\n\nA positive word usually sits among positive details. A negative word usually sits among negative details. Tap those details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The guests had gone home, and the dishes were washed.",
+      "role": "detail"
+     },
+     {
+      "t": "Finally the house was quiet.",
+      "role": "main"
+     },
+     {
+      "t": "Mother sat down with a cup of tea and closed her eyes with a smile.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Quiet** here is **positive**: it means peaceful rest after hard work.\n\nThe word “Finally” and Mother's smile prove the feeling."
+   },
+   "together": {
+    "passage": "The market opened at dawn. Within minutes, shoppers flooded the narrow lanes, pushing past each other to reach the fruit stalls. Sellers shouted prices over the noise, and carts squeezed between people's legs. Kareem's grandmother held his hand tightly so they would not be separated. By the time they reached the vegetable stall, the best tomatoes were already gone, and Kareem's feet were sore from being stepped on.",
+    "stem": "What does the word “flooded” suggest about the shoppers?",
+    "options": [
+     "They were calm and moved slowly.",
+     "They came in great numbers and filled the lanes uncomfortably.",
+     "They were wet from the morning rain.",
+     "They were happy to help each other."
+    ],
+    "answer": 1,
+    "hint": "The passage never mentions rain or calm shoppers. What do the other details make the market feel like?",
+    "good": "Yes! Like water in a flood, the shoppers poured in and filled every space. Pushing, shouting and sore feet show it was uncomfortable."
+   },
+   "evidence": {
+    "sentences": [
+     "The market opened at dawn.",
+     "Within minutes, shoppers flooded the narrow lanes, pushing past each other to reach the fruit stalls.",
+     "Sellers shouted prices over the noise, and carts squeezed between people's legs.",
+     "Kareem's grandmother held his hand tightly so they would not be separated.",
+     "By the time they reached the vegetable stall, the best tomatoes were already gone, and Kareem's feet were sore from being stepped on."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the shoppers came in great numbers and filled the lanes uncomfortably. Tap 2 OTHER sentences with details that show this.",
+    "wrong": "This sentence tells when the market opened, or it holds the word itself. Find OTHER details that show the crowd was uncomfortable."
+   },
+   "checks": [
+    {
+     "passage": "After weeks of rain, the farmers watched the sky. When the clouds finally broke, sunshine spilled over the wet fields, and the young wheat seemed to stand taller.",
+     "stem": "What feeling does “spilled” give to the sunshine here?",
+     "options": [
+      "generous and welcome",
+      "careless and messy",
+      "weak and pale",
+      "dangerous and harsh"
+     ],
+     "answer": 0,
+     "why": "After weeks of rain, the sunshine is welcome. The wheat “standing taller” shows a happy, generous feeling."
+    },
+    {
+     "passage": "The new manager called the old staff room “cramped”. The workers who had used it for years called it “snug”.",
+     "stem": "What do the two words show?",
+     "options": [
+      "The room had grown smaller.",
+      "The manager liked the room more than the workers did.",
+      "The manager saw the small room negatively; the workers saw it positively.",
+      "Both groups thought the room was too big."
+     ],
+     "answer": 2,
+     "why": "Both words mean small. Cramped is negative (too tight). Snug is positive (small and comfortable)."
+    },
+    {
+     "passage": "Rakan's teacher wrote on his report: “Rakan is determined. When a problem is difficult, he keeps trying until he solves it.”",
+     "stem": "Which word could say the same thing in a NEGATIVE way?",
+     "options": [
+      "hard-working",
+      "persistent",
+      "stubborn",
+      "patient"
+     ],
+     "answer": 2,
+     "why": "Stubborn also means not giving up, but it suggests refusing to listen. The other words are positive."
+    }
+   ],
+   "again": {
+    "title": "Find the feeling family",
+    "text": "Words in a passage are like a **family**: they usually share the same feeling.\n\n1. Find the word.\n2. Look for its family: other words nearby.\n3. If the family is happy, the word is positive. If the family is upset, it is negative.",
+    "example": "“The old man's laugh **rumbled** like distant thunder, and the children giggled and crowded closer.”\n\nFamily: giggled, crowded closer → happy. So **rumbled** feels warm and friendly here, not scary."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Connotation as a tool",
+     "text": "Writers who want to persuade choose words with strong connotations.\n\nA plan to change a park can be called a **renewal** or a **destruction**. Both name the same event, but each pushes the reader toward a different opinion."
+    },
+    {
+     "title": "Shades of meaning",
+     "text": "Similar words sit on a scale.\n\n**firm → strict → harsh**\n**careful → cautious → timid**\n\nThe closer a word is to the end of the scale, the stronger its feeling. Precise readers notice the exact shade."
+    },
+    {
+     "title": "Analyse the effect",
+     "text": "1. Identify the loaded word.\n2. Give a neutral word with the same denotation.\n3. Explain what the loaded word adds: approval, disapproval, fear, respect?\n4. Connect it to the writer's purpose."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a connotation, show that the writer's other choices **point the same way**.\n\nA writer arguing for or against something usually uses **several** loaded words and details, not just one. Find them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Supporters of the new highway say it will cut travel time to the city.",
+      "role": "other"
+     },
+     {
+      "t": "But residents warn that it will slice through the valley and swallow farmland that families have worked for generations.",
+      "role": "key"
+     },
+     {
+      "t": "They are asking the council to protect the land.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Neutral version: the road will **go through** the valley and **use** farmland.\n\n**Slice** and **swallow** make the highway sound violent and hungry. These words show the residents' strong opposition."
+   },
+   "together": {
+    "passage": "The city council plans to replace the old covered market with a modern shopping centre. Officials describe the market as outdated, pointing to its narrow passages and old wiring. Many shopkeepers see it differently. For them, the market is a place of tradition, where the same families have sold spices, cloth and copper pots for generations. They call the council's plan a demolition of the city's memory. Visitors, too, say they come for the scent of cardamom and the friendly bargaining, not for air-conditioned corridors. Before the council decides, it should listen to the people who have kept the market alive.",
+    "stem": "Why does the writer report the phrase “a demolition of the city's memory” instead of simply “a building project”?",
+    "options": [
+     "To show the plan would destroy something precious.",
+     "To explain how the old market will be taken apart.",
+     "To suggest that the city has forgotten its history.",
+     "To praise the council for its modern ideas."
+    ],
+    "answer": 0,
+    "hint": "Think about the connotation of “demolition” and “memory”. How do the other details describe the market?",
+    "good": "Yes! “Demolition” sounds violent, and “memory” sounds precious. Tradition, generations and friendly bargaining show what would be lost."
+   },
+   "evidence": {
+    "sentences": [
+     "The city council plans to replace the old covered market with a modern shopping centre.",
+     "Officials describe the market as outdated, pointing to its narrow passages and old wiring.",
+     "Many shopkeepers see it differently.",
+     "For them, the market is a place of tradition, where the same families have sold spices, cloth and copper pots for generations.",
+     "They call the council's plan a demolition of the city's memory.",
+     "Visitors, too, say they come for the scent of cardamom and the friendly bargaining, not for air-conditioned corridors.",
+     "Before the council decides, it should listen to the people who have kept the market alive."
+    ],
+    "proof": [
+     3,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the plan would destroy something precious. Tap 2 sentences whose words show the market is precious.",
+    "wrong": "This sentence gives the officials' view, introduces the plan, or holds the phrase itself. Find details that show WHY the market is precious."
+   },
+   "checks": [
+    {
+     "passage": "A travel article describes a mountain village: “The village is remote, reached only by a winding road. There is no shopping mall, no traffic and no noise, only terraced fields, clear streams and neighbours who greet every visitor.”",
+     "stem": "Here “remote” is used positively. Which word would make the same village sound NEGATIVE?",
+     "options": [
+      "peaceful",
+      "cut off",
+      "hidden away",
+      "tranquil"
+     ],
+     "answer": 1,
+     "why": "“Cut off” has the same basic meaning (far from other places) but suggests being trapped and alone."
+    },
+    {
+     "passage": "Report A: “The coach trusted his young players.”\nReport B: “The coach risked the match on his inexperienced players.”",
+     "stem": "How do the two reports differ?",
+     "options": [
+      "Report A is about a different match.",
+      "Both reports praise the coach equally.",
+      "Report B says the players were older.",
+      "Report A sounds approving; Report B sounds critical."
+     ],
+     "answer": 3,
+     "why": "“Trusted” and “young” are positive. “Risked” and “inexperienced” suggest a poor decision."
+    },
+    {
+     "passage": "Dr Amal is known for being ______ with her research: she checks every result three times before she shares it, and other scientists rely on her findings.",
+     "stem": "Which word fits the writer's admiring tone best?",
+     "options": [
+      "fussy",
+      "obsessive",
+      "nervous",
+      "meticulous"
+     ],
+     "answer": 3,
+     "why": "Meticulous means very careful and thorough, in a good way. The other words make her care sound like a fault."
+    }
+   ],
+   "again": {
+    "title": "Neutral swap",
+    "text": "1. Replace the loaded word with a **plain** word.\n2. Read both versions.\n3. Ask: what feeling disappeared? That feeling is the connotation, and it shows what the writer wants you to think.",
+    "example": "“The factory **dumped** waste into the river.”\n\nPlain swap: **put**. What disappeared? Carelessness and blame. The writer wants you to see the factory as **careless and wrong**."
+   }
+  }
+ }
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-062",
+  "title": "The Houbara: A Desert Survivor",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 462,
+  "passage": "For centuries, the houbara bustard has been one of the most admired birds of the Arabian Peninsula. It is about the size of a chicken but has a longer neck and longer legs. Its sandy-brown feathers are speckled with darker marks, which allow it to vanish almost completely against the gravel and dry grass of the open desert. When danger approaches, a houbara often freezes and presses itself flat against the ground. Instead of flying away, it trusts its camouflage to protect it.\n\nThe houbara is well adapted to a land where rain is scarce and temperatures are extreme. It is an omnivore, which means that it eats both plants and animals. Its diet includes leaves, shoots, seeds and flowers, as well as beetles, locusts and sometimes small lizards. Because it obtains much of the moisture it needs from this food, a houbara can survive for long periods without drinking. This ability is extremely valuable in a desert where pools may disappear for years.\n\nMany houbaras are also long-distance travellers. Some populations breed in the cold grasslands of Central Asia during spring and summer. When autumn arrives, they fly south to spend the winter in the milder deserts of Arabia and southern Asia. Every year, these birds cross mountains and wide stretches of desert, often covering thousands of kilometres in a single season.\n\nDuring the twentieth century, however, the number of houbaras fell dramatically. Hunting with trained falcons had once been practised in a limited and careful way. Once cars made it possible to reach even the most distant areas quickly, the hunting became far more intense. At the same time, overgrazing, new roads and growing towns destroyed much of the habitat that the birds depended on for food and shelter. By the 1980s, scientists warned that the houbara might disappear from parts of the region entirely.\n\nSaudi Arabia responded with practical action. In 1986, a wildlife research centre was established near Taif. There, specialists began breeding houbaras in captivity and raising the chicks carefully before releasing them into protected areas such as the Mahazat as-Sayd reserve. Researchers also attached small satellite transmitters to some birds. These devices enabled them to follow the birds' migration routes and to identify the places where they rested and fed. This information helps the countries along the routes to cooperate in protecting those important sites.\n\nThe story of the houbara shows that the survival of a species often depends on human decisions. Traditions such as falconry are a valuable part of Arabian heritage. However, they can only continue if hunting is carefully controlled and natural habitats are preserved. By combining science, sensible laws and respect for nature, people can make sure that future generations will still glimpse this graceful bird running across the desert at dawn.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “scarce” as it is used in paragraph 2?",
+      "options": [
+        "limited",
+        "plentiful",
+        "seasonal",
+        "gentle"
+      ],
+      "answer": "A",
+      "why": "In a desert rain is rare and in short supply, so “scarce” means limited; “plentiful” is its opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “intense” in paragraph 4 (“the hunting became far more intense”)?",
+      "options": [
+        "strong",
+        "mild",
+        "popular",
+        "rapid"
+      ],
+      "answer": "B",
+      "why": "“Intense” means very strong or extreme; its opposite is “mild”. “Strong” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “camouflage” mean in paragraph 1?",
+      "options": [
+        "a loud warning call that frightens away enemies",
+        "the ability to run very fast across open ground",
+        "colouring that helps an animal blend into its surroundings",
+        "a hiding place under the ground"
+      ],
+      "answer": "C",
+      "why": "The speckled sandy feathers let the bird “vanish” against the gravel, so camouflage is colouring that blends in."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a NOUN?",
+      "options": [
+        "obtains",
+        "omnivore",
+        "extremely",
+        "valuable"
+      ],
+      "answer": "B",
+      "why": "“Omnivore” names a kind of animal; “obtains” is a verb, “extremely” an adverb and “valuable” an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "The word “species” in paragraph 6 has the SAME form in the singular and the plural. Which other word also does this?",
+      "options": [
+        "goose",
+        "mouse",
+        "bird",
+        "sheep"
+      ],
+      "answer": "D",
+      "why": "One sheep, many sheep; goose → geese and mouse → mice change form, and bird → birds adds -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “preserved” in paragraph 6?",
+      "options": [
+        "present",
+        "reserved",
+        "preservation",
+        "pressure"
+      ],
+      "answer": "C",
+      "why": "“Preservation” comes from “preserve”; “reserved” and “present” only look similar and have different roots."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “cooperate” in a meaningful sentence of your own.",
+      "model": "If all the students in our class cooperate, we can clean the school garden in less than an hour.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “cooperate” with its meaning (to work together towards the same goal)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Cooperate” means to work together with others towards a shared goal."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “country”, as in “the countries along the routes” in paragraph 5?",
+      "options": [
+        "countrys",
+        "countries",
+        "countryes",
+        "country's"
+      ],
+      "answer": "B",
+      "why": "A consonant + y changes to -ies: country → countries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a COMMAND?",
+      "options": [
+        "Respect the desert and its wildlife.",
+        "The houbara is an omnivore.",
+        "Why did the houbara become rare?",
+        "What a graceful bird it is!"
+      ],
+      "answer": "A",
+      "why": "It tells the reader to do something; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Falconry: A Desert Sport",
+        "The Cold Grasslands of Central Asia",
+        "How to Train a Falcon",
+        "A Desert Bird Given a Second Chance"
+      ],
+      "answer": "D",
+      "why": "The text describes the houbara, its decline and the efforts that are helping it recover; the other titles focus on side details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to inform readers about the houbara, why it declined and how it is being protected",
+        "to persuade readers that falconry should be practised more often in Arabia",
+        "to describe a family hunting trip in the desert near Taif",
+        "to compare the houbara with other desert birds such as falcons"
+      ],
+      "answer": "A",
+      "why": "The text explains the bird's features, its decline and the conservation work, ending with a message about protecting it."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Falconry has always been practised in a careful way.",
+        "Cars and roads help scientists reach the desert.",
+        "Hunting and habitat loss caused houbara numbers to fall sharply.",
+        "Scientists study houbaras in Central Asia."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 explains the dramatic fall: more intense hunting and destroyed habitat."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why can a houbara survive for long periods without drinking?",
+      "options": [
+        "It stores extra water inside its long neck and legs.",
+        "It drinks only at dawn, when the desert air is cool.",
+        "It sleeps underground through the hottest months.",
+        "It gets much of the moisture it needs from its food."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: “Because it obtains much of the moisture it needs from this food, a houbara can survive for long periods without drinking.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a fable",
+        "an informational text",
+        "a letter",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It presents facts about a real bird, its history and conservation."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why did hunting become far more intense in the twentieth century?",
+      "options": [
+        "Cars made it possible to reach distant areas quickly.",
+        "Falcons were trained to fly faster and farther.",
+        "The houbara stopped migrating and stayed in one place.",
+        "New laws encouraged people to hunt more often."
+      ],
+      "answer": "A",
+      "why": "“Once cars made it possible to reach even the most distant areas quickly, the hunting became far more intense.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "A research centre was established near Taif.",
+        "Satellite transmitters were attached to some birds.",
+        "Scientists warned that the houbara might disappear.",
+        "Captive-bred chicks were released into protected areas."
+      ],
+      "answer": "C",
+      "why": "The warnings came “by the 1980s”, and Saudi Arabia then responded by founding the centre in 1986; the breeding, releases and tracking came after."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why some houbaras appear in Arabia only in winter?",
+      "options": [
+        "They eat beetles, locusts and sometimes small lizards.",
+        "Their sandy feathers are speckled with darker marks.",
+        "They freeze and press themselves flat when danger approaches.",
+        "They breed in Central Asia and fly south when autumn arrives."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 explains that migrating populations breed in Central Asia and spend the winter in Arabia."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what did the satellite transmitters help researchers to do?",
+      "options": [
+        "breed more chicks in captivity",
+        "follow migration routes and find resting and feeding places",
+        "stop hunters from using cars",
+        "measure the temperature of the desert"
+      ],
+      "answer": "B",
+      "why": "The devices “enabled them to follow the birds' migration routes and to identify the places where they rested and fed.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does a houbara often press itself flat against the ground instead of flying away?",
+      "options": [
+        "It trusts its camouflage to hide it.",
+        "It is too heavy to fly.",
+        "It is searching for seeds.",
+        "It is resting after a long migration."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says it does this “instead of flying away”, trusting its camouflage to protect it."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what was the effect of overgrazing, new roads and growing towns?",
+      "options": [
+        "They made the houbara migrate farther north.",
+        "They gave the birds more places to shelter.",
+        "They destroyed much of the birds' habitat.",
+        "They reduced the number of falcons."
+      ],
+      "answer": "C",
+      "why": "They “destroyed much of the habitat that the birds depended on for food and shelter.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe the writer's attitude towards falconry?",
+      "options": [
+        "The writer thinks it should be banned completely.",
+        "The writer believes it is the only reason houbaras survive.",
+        "The writer has no opinion about it.",
+        "The writer respects it as heritage but believes it must be controlled."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 calls falconry “a valuable part of Arabian heritage” that can continue only “if hunting is carefully controlled”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was hunting with falcons in earlier times DIFFERENT from hunting in the twentieth century?",
+      "options": [
+        "Earlier hunting used cars; later hunting was on foot.",
+        "Earlier hunting was limited and careful; later hunting was far more intense.",
+        "Earlier hunting happened only in Central Asia.",
+        "Earlier hunting used satellite transmitters."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 contrasts the “limited and careful way” of the past with the more intense hunting that cars made possible."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of the information gathered by tracking the birds?",
+      "options": [
+        "It helps countries along the routes cooperate to protect important sites.",
+        "It allows hunters to find the birds more easily.",
+        "It stops the birds from migrating.",
+        "It proves that houbaras never drink water."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: “This information helps the countries along the routes to cooperate in protecting those important sites.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the houbara's speckled feathers and its ability to get water from food have in common?",
+      "options": [
+        "Both help it fly long distances during migration.",
+        "Both were developed by scientists at the centre in Taif.",
+        "Both are adaptations that help it survive in the desert.",
+        "Both make it attractive to hunters."
+      ],
+      "answer": "C",
+      "why": "One hides it from danger and the other lets it live where water is rare; both suit desert life."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the houbara can “vanish almost completely against the gravel”?",
+      "options": [
+        "It digs a hole quickly and disappears underground.",
+        "It flies away so fast that nobody can follow it.",
+        "It changes the colour of its feathers to match the gravel.",
+        "It becomes very hard to see because it matches its background."
+      ],
+      "answer": "D",
+      "why": "“Vanish” is used expressively: the bird does not disappear, but its colours blend in so well that it seems to."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is exclamatory?",
+      "options": [
+        "The houbara is an omnivore.",
+        "What a clever disguise the houbara has!",
+        "Many houbaras are also long-distance travellers.",
+        "Saudi Arabia responded with practical action."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling, begins with “What a …” and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the text with the picture of the bird “running across the desert at dawn”?",
+      "options": [
+        "to leave readers with a hopeful image of what can still be saved",
+        "to show that houbaras are only active in the early morning",
+        "to explain how fast houbaras can run",
+        "to describe a hunting trip"
+      ],
+      "answer": "A",
+      "why": "The final image shows readers what future generations could still enjoy if people protect the bird."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action would be MOST beneficial for the houbara's future?",
+      "options": [
+        "building more roads so that people can visit the open desert",
+        "allowing hunting at any time of year to protect tradition",
+        "keeping protected reserves and controlling hunting seasons",
+        "keeping all houbaras in cages"
+      ],
+      "answer": "C",
+      "why": "The text shows that protected areas and controlled hunting help the species recover; the others would harm it."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, how have houbaras been brought back to protected areas such as Mahazat as-Sayd?",
+      "options": [
+        "Hunters stopped using cars.",
+        "The weather became cooler.",
+        "The birds learned to avoid falcons.",
+        "Captive-bred chicks were released into reserves."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 describes breeding houbaras and releasing the chicks into protected areas such as Mahazat as-Sayd."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which viewpoint does the writer express in paragraph 6?",
+      "options": [
+        "Traditions are less important than science.",
+        "Heritage and conservation can exist together if people act wisely.",
+        "Only scientists can protect wild animals.",
+        "Houbaras will certainly disappear whatever people do."
+      ],
+      "answer": "B",
+      "why": "The writer says falconry can continue if hunting is controlled and habitats are preserved, combining science, laws and respect."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "how many houbaras live in Saudi Arabia today",
+        "what the houbara eats",
+        "why hunting increased in the twentieth century",
+        "where the research centre was built"
+      ],
+      "answer": "A",
+      "why": "The text never gives present-day numbers; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A houbara drinks only once in its whole life.",
+        "A houbara changes its feathers to green when it enters a garden.",
+        "A houbara flies from Central Asia to spend the winter in Saudi Arabia.",
+        "A houbara chick is raised by a falcon."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 describes this migration; the other events are impossible or contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the text?",
+      "options": [
+        "The Endless Hunt",
+        "A Bird That Never Travels",
+        "Life in a Falcon's Nest",
+        "From Decline to Recovery"
+      ],
+      "answer": "D",
+      "why": "The text moves from the houbara's sharp decline to the actions that are helping it recover."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a solution to protect the houbara's desert habitat, and explain in two or three sentences how it would help.",
+      "model": "The government could mark certain areas of desert as protected zones where cars, grazing animals and building are not allowed during the winter. This would keep the plants and insects that houbaras eat safe and give the birds quiet places to rest after their long migration. Signs and school visits could teach people why these areas matter.",
+      "rubric": [
+        "2 = a clear, sensible solution linked to habitat loss or hunting in the text, with an explanation of how it helps",
+        "1 = a solution is given but it is vague, or the explanation is missing or weak",
+        "0 = no answer, an unrelated idea, or text copied without a solution"
+      ],
+      "why": "Any reasonable, explained solution (protected zones, limits on driving or grazing, controlled hunting seasons, awareness) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, how can people keep the houbara from disappearing?",
+      "options": [
+        "by controlling hunting",
+        "by preserving natural habitats",
+        "by breeding and releasing chicks",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "The text mentions all three: controlled hunting, preserved habitats and captive breeding with releases."
+    }
+  ]
+}

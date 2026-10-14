@@ -1,0 +1,475 @@
+{
+ "code": "LN-162",
+ "title": "Narrator: first and third person",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.1.6",
+  "RL.2.6",
+  "RL.3.6",
+  "RL.4.6",
+  "RL.5.6",
+  "RL.6.6"
+ ],
+ "families": [
+  "point-of-view"
+ ],
+ "skillNames": [
+  "Point of View and Perspective"
+ ],
+ "statements": [
+  "R-0140",
+  "R-0250",
+  "R-0266",
+  "R-0413",
+  "R-0431",
+  "R-0436",
+  "R-0614"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who tells the story?",
+     "text": "Every story has a **narrator**. The narrator is the one who **tells** the story."
+    },
+    {
+     "title": "I or he/she",
+     "text": "Sometimes the narrator is **in** the story. The narrator says **I**, **me** and **my**.\n\nSometimes the narrator is **outside** the story. The narrator says **he**, **she** and **they**."
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Look for **I, me, my**.\n2. If you find them outside quotation marks, a character tells the story.\n3. If you only find **he, she, they**, someone outside tells it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **clue words**.\n\n**I, me, my, we** = a character tells it.\n**he, she, they** = someone outside tells it.\n\nTap the sentences with those words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I have a little brother.",
+      "role": "key"
+     },
+     {
+      "t": "His name is Fahd.",
+      "role": "other"
+     },
+     {
+      "t": "I help him tie his shoes.",
+      "role": "key"
+     }
+    ],
+    "explain": "The narrator says **I**. So the narrator is a character in the story: Fahd's big brother or sister."
+   },
+   "together": {
+    "passage": "Every Friday, I visit my grandma. She makes tea with mint. I tell her about my week. Her cat sits on her lap.",
+    "stem": "Who is telling this story?",
+    "options": [
+     "Grandma",
+     "A girl in the story",
+     "The dog",
+     "Someone outside the story"
+    ],
+    "answer": 1,
+    "hint": "Look for the words I and my. Who is talking?",
+    "good": "Yes! The narrator says I and my. She is a girl who visits her grandma."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Friday, I visit my grandma.",
+     "She makes tea with mint.",
+     "I tell her about my week.",
+     "Her cat sits on her lap."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a girl in the story tells it. Tap 2 sentences with the words I or my.",
+    "wrong": "This sentence uses she or her. Find the sentences where the narrator says I or my."
+   },
+   "checks": [
+    {
+     "passage": "Ben ran to the park. He saw his friends. They played tag.",
+     "stem": "Who tells this story?",
+     "options": [
+      "Ben, the boy who ran",
+      "Ben's friend at the park",
+      "The park",
+      "Someone outside the story"
+     ],
+     "answer": 3,
+     "why": "The story uses he and they, not I. Someone outside the story tells it."
+    },
+    {
+     "passage": "I lost my tooth today. I put it under my pillow. My mom smiled.",
+     "stem": "Who tells this story?",
+     "options": [
+      "A child who lost a tooth",
+      "The child's mom",
+      "The tooth under the pillow",
+      "A teacher at school"
+     ],
+     "answer": 0,
+     "why": "The narrator says I and my. The child who lost the tooth tells the story."
+    },
+    {
+     "passage": "Sara planted a seed. She gave it water. It grew into a big plant.",
+     "stem": "Which word shows that someone outside the story tells it?",
+     "options": [
+      "I",
+      "my",
+      "She",
+      "me"
+     ],
+     "answer": 2,
+     "why": "She is about Sara. The narrator does not say I, so the narrator is outside the story."
+    }
+   ],
+   "again": {
+    "title": "Point to the speaker",
+    "text": "Ask: **Is the narrator talking about herself or himself?**\n\nIf yes (I, my) = a character tells it.\nIf no (he, she) = someone outside tells it.",
+    "example": "\"I like rice.\" The narrator talks about **himself**. A character tells it.\n\n\"He likes rice.\" The narrator talks about **someone else**. Someone outside tells it."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "First-person point of view",
+     "text": "In **first-person** point of view, a **character** tells the story. The narrator uses **I, me, my, we, our**.\n\nWe see events through that character's eyes."
+    },
+    {
+     "title": "Third-person point of view",
+     "text": "In **third-person** point of view, a narrator **outside** the story tells it. The narrator uses **he, she, they** and characters' names."
+    },
+    {
+     "title": "Be careful with dialogue",
+     "text": "Characters may say **I** inside quotation marks. That does **not** make the story first person.\n\nLook at the words **outside** the quotation marks."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Cover the words inside quotation marks.\n2. Read the rest of the sentence.\n3. Does the narrator say **I** or **my**? Then it is **first person**.\n\nTap the sentences that show who the narrator is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"I am so tired,\" said Hamad.",
+      "role": "other"
+     },
+     {
+      "t": "He sat down on the bench.",
+      "role": "key"
+     },
+     {
+      "t": "His father gave him a bottle of water.",
+      "role": "key"
+     }
+    ],
+    "explain": "Hamad says **I**, but only inside the quotation marks.\n\nThe narrator says **he** and **his**. This is **third person**."
+   },
+   "together": {
+    "passage": "My uncle Saleh took me fishing on his small boat. \"Be patient,\" Uncle Saleh said. I held the line for almost an hour. Then something pulled hard, and I shouted with joy. We took home three big fish for dinner.",
+    "stem": "From which point of view is this story told?",
+    "options": [
+     "Third person, by someone outside the story",
+     "Third person, by Uncle Saleh",
+     "First person, by a child on the boat",
+     "First person, by the fish"
+    ],
+    "answer": 2,
+    "hint": "Look at the words outside the quotation marks. Does the narrator say I or my?",
+    "good": "Yes! The narrator says my and I. A child on the boat tells the story in first person."
+   },
+   "evidence": {
+    "sentences": [
+     "My uncle Saleh took me fishing on his small boat.",
+     "\"Be patient,\" Uncle Saleh said.",
+     "I held the line for almost an hour.",
+     "Then something pulled hard, and I shouted with joy.",
+     "We took home three big fish for dinner."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: first person, by a child on the boat. Tap 2 sentences where the narrator says I, my or we.",
+    "wrong": "This sentence tells what the uncle says. Find sentences where the narrator talks about himself with I, my or we."
+   },
+   "checks": [
+    {
+     "passage": "We moved to Abha last summer. At first I missed my old friends. Now I love the cool mountain air and my new school.",
+     "stem": "Which words show that this is first-person point of view?",
+     "options": [
+      "Abha, summer",
+      "We, I, my",
+      "mountain air",
+      "new school"
+     ],
+     "answer": 1,
+     "why": "We, I and my show that a character is telling the story."
+    },
+    {
+     "passage": "\"I can carry it,\" said Maha. She lifted the heavy box and walked slowly to the car. Her mother smiled.",
+     "stem": "What is the point of view?",
+     "options": [
+      "First person, because Maha says I",
+      "First person, told by Maha's mother",
+      "First person, told by the heavy box",
+      "Third person, because the narrator uses she"
+     ],
+     "answer": 3,
+     "why": "Maha says I only in the quotation marks. The narrator uses she and her, so it is third person."
+    },
+    {
+     "passage": "My little sister found a lost kitten in our garden. I wanted to keep it, but she wanted to find its owner. We made posters together.",
+     "stem": "Who is the narrator?",
+     "options": [
+      "The older sibling of the girl",
+      "The owner of the lost kitten",
+      "The little sister who found it",
+      "Someone outside the story"
+     ],
+     "answer": 0,
+     "why": "The narrator says my little sister, I and we. The narrator is her older brother or sister."
+    }
+   ],
+   "again": {
+    "title": "Cover the quotes",
+    "text": "Put your finger over any words in quotation marks.\n\nNow read only what is left. Is there **I** or **my**? First person. Only **he, she, they**? Third person.",
+    "example": "\"I won!\" shouted Yara. She ran to tell her dad.\n\nCover \"I won!\". What is left: shouted Yara. She ran to tell her dad. Only **she** and **her**, so it is **third person**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Two ways to tell a story",
+     "text": "**First person:** a character tells the story. We know only what **that character** sees, thinks and feels.\n\n**Third person:** a narrator outside tells it. The narrator may share the thoughts of **one** character or of **many**."
+    },
+    {
+     "title": "What first person gives",
+     "text": "First person feels **close** and personal. We hear the character's own voice.\n\nBut the narrator may not know what others think, and may even be **wrong** about them."
+    },
+    {
+     "title": "What third person gives",
+     "text": "Third person can show the **bigger picture**. It can move between places and characters.\n\nIt can tell the reader things that the characters do not know."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To compare first and third person:\n\n1. Find the pronouns the narrator uses outside dialogue.\n2. Ask: whose **thoughts** does the narrator share?\n3. Ask: does the narrator know things **no single character** could know?\n\nThose details prove the point of view and its effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I was sure that Noura was angry with me, because she did not wave at the bus stop.",
+      "role": "key"
+     },
+     {
+      "t": "All day I wondered what I had done wrong.",
+      "role": "key"
+     },
+     {
+      "t": "After school, she ran up and said she had forgotten her glasses and could not see anyone that morning.",
+      "role": "detail"
+     }
+    ],
+    "explain": "This is **first person**. We know only the narrator's thoughts, so we also believe Noura is angry.\n\nIn third person, the narrator could have told us right away that Noura had forgotten her glasses."
+   },
+   "together": {
+    "passage": "The judges were three tables away, and my heart was racing. I checked the wires on our robot for the tenth time. What if it did not move when they pressed the button? My partner, Rawan, looked calm, but I could not tell what she was thinking. Then the judges stopped at our table, and I held my breath.",
+    "stem": "Why does the author tell this story in first person?",
+    "options": [
+     "So the reader feels the narrator's worry from the inside",
+     "So the reader knows what the judges think",
+     "So the reader can see what happens at every table",
+     "So the reader learns how the robot was built in a factory"
+    ],
+    "answer": 0,
+    "hint": "First person shares one character's thoughts. Whose thoughts does this story share?",
+    "good": "Yes! We hear the narrator's racing heart and worries. First person lets us feel the worry from inside."
+   },
+   "evidence": {
+    "sentences": [
+     "The judges were three tables away, and my heart was racing.",
+     "I checked the wires on our robot for the tenth time.",
+     "What if it did not move when they pressed the button?",
+     "My partner, Rawan, looked calm, but I could not tell what she was thinking.",
+     "Then the judges stopped at our table, and I held my breath."
+    ],
+    "proof": [
+     0,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: so the reader feels the narrator's worry from the inside. Tap 2 sentences that show the narrator's inner feelings.",
+    "wrong": "This sentence shows an action or what the narrator cannot know. Find sentences that show the narrator's worried thoughts and feelings."
+   },
+   "checks": [
+    {
+     "passage": "Hassan smiled at his little brother and said the test was easy. Inside, he was worried that he had failed. His brother, Ali, believed him and felt proud. Neither boy knew that their teacher was already writing a kind note about Hassan's hard work.",
+     "stem": "What can this third-person narrator do that a first-person narrator could not?",
+     "options": [
+      "Use the word I to tell the story",
+      "Tell only what Ali sees and hears",
+      "Share several characters' thoughts and secrets",
+      "Tell the story only through dialogue"
+     ],
+     "answer": 2,
+     "why": "The narrator shares Hassan's worry, Ali's pride and the teacher's note, which neither boy knows about."
+    },
+    {
+     "passage": "I think my neighbour Mr. Fawzi does not like children. He never smiles when we play football in the street. Yesterday he came out of his house holding our ball, which had gone over his wall.",
+     "stem": "What is one effect of this first-person point of view?",
+     "options": [
+      "The reader knows exactly what Mr. Fawzi thinks.",
+      "We only get the narrator's opinion, which may be wrong.",
+      "The reader sees the whole street from above.",
+      "The reader learns that the ball is new and expensive."
+     ],
+     "answer": 1,
+     "why": "We only see the narrator's view. The narrator thinks Mr. Fawzi dislikes children, but that may not be true."
+    },
+    {
+     "passage": "Version A: I opened the box and gasped. It was the camera I had wanted for a year!\nVersion B: Laila opened the box and gasped. It was the camera she had wanted for a year.",
+     "stem": "How are the two versions different?",
+     "options": [
+      "Version A is about a different gift.",
+      "Version B shows Laila's thoughts more closely.",
+      "Both versions are told in third person.",
+      "Version A is first person, and Version B is third person."
+     ],
+     "answer": 3,
+     "why": "Version A uses I. Version B uses Laila and she."
+    }
+   ],
+   "again": {
+    "title": "Camera inside or outside",
+    "text": "**First person** is like a camera **inside** one character's head. You see only what they see.\n\n**Third person** is like a camera **outside**. It can look at many characters.",
+    "example": "Inside: I did not know why everyone was whispering.\n\nOutside: Everyone whispered about the surprise party. Rayan had no idea."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Third person: two kinds",
+     "text": "**Third-person limited:** the narrator follows **one** character and shares only that character's thoughts.\n\n**Third-person all-knowing (omniscient):** the narrator knows the thoughts and feelings of **all** characters."
+    },
+    {
+     "title": "Spot the difference",
+     "text": "Ask: How many characters' **inner thoughts** do we get?\n\nOne character's: limited.\nSeveral characters', plus facts no one in the story knows: all-knowing."
+    },
+    {
+     "title": "Why it matters",
+     "text": "Limited keeps some **mystery**: we learn things when the character does.\n\nAll-knowing can build **suspense** by showing the reader what a character does not know yet."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the point of view:\n\n1. Confirm third person: **he, she, they** outside dialogue.\n2. Mark every sentence that shows a character's **thoughts or feelings**.\n3. Count whose thoughts appear.\n\nThoughts from several characters = all-knowing. One character's only = limited."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem walked into the exam room, wondering if she had studied the right chapters.",
+      "role": "key"
+     },
+     {
+      "t": "Across the room, Ms. Hala hoped that this year's questions were not too hard.",
+      "role": "key"
+     },
+     {
+      "t": "The boy beside the window was secretly thinking about the football match that evening.",
+      "role": "key"
+     },
+     {
+      "t": "None of them knew that the electricity would go out in ten minutes.",
+      "role": "detail"
+     }
+    ],
+    "explain": "We get the thoughts of **Reem**, **Ms. Hala** and **the boy**, plus a fact **none of them** knows.\n\nThis is third-person **all-knowing**. It builds suspense because we know what is coming."
+   },
+   "together": {
+    "passage": "Faris stood at the edge of the diving board, staring down at the blue water. He wondered whether his legs would stop shaking if he waited one more minute. From the side of the pool, his sister waved both arms, though he could not tell if she was cheering or laughing. The coach folded his arms and looked at his watch. Faris told himself that the fall would last only a second, and then he jumped.",
+    "stem": "Which statement best describes the narrator's point of view?",
+    "options": [
+     "First person, told by Faris",
+     "First person, told by Faris's sister",
+     "Third-person all-knowing, sharing every character's thoughts",
+     "Third-person limited, sharing only Faris's thoughts"
+    ],
+    "answer": 3,
+    "hint": "Count whose thoughts we learn. Do we ever learn what the sister or the coach is thinking?",
+    "good": "Yes! The narrator uses he and shares only Faris's thoughts. We see others only from the outside."
+   },
+   "evidence": {
+    "sentences": [
+     "Faris stood at the edge of the diving board, staring down at the blue water.",
+     "He wondered whether his legs would stop shaking if he waited one more minute.",
+     "From the side of the pool, his sister waved both arms, though he could not tell if she was cheering or laughing.",
+     "The coach folded his arms and looked at his watch.",
+     "Faris told himself that the fall would last only a second, and then he jumped."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: third-person limited, with only Faris's thoughts. Tap 2 sentences that show we are inside Faris's head.",
+    "wrong": "This sentence describes a place or what someone does from the outside. Find sentences that show Faris's thoughts or what he cannot tell."
+   },
+   "checks": [
+    {
+     "passage": "The old fisherman believed the sea had taken his luck. His granddaughter believed the sea would give it back. Out past the reef, unseen by either of them, a great school of fish was already turning toward the shore.",
+     "stem": "How does the narrator's point of view create suspense?",
+     "options": [
+      "It shows the fish coming, which the characters cannot see.",
+      "It hides everything important from the reader.",
+      "It shows only the granddaughter's thoughts.",
+      "It lets the fisherman tell his own story as I."
+     ],
+     "answer": 0,
+     "why": "The all-knowing narrator shows the fish coming, which neither character can see. We wait to see what happens."
+    },
+    {
+     "passage": "Suha read the letter twice. Her hands felt cold. Was it bad news, or was she reading it wrong? She could hear her father in the next room, talking on the phone, but she could not make out the words.",
+     "stem": "Which detail best shows that this is third-person limited?",
+     "options": [
+      "Suha read the letter twice.",
+      "Her father was in the next room.",
+      "She could not make out her father's words.",
+      "The letter was written on paper."
+     ],
+     "answer": 2,
+     "why": "We only know what Suha knows. Like her, we cannot hear her father's words, so we stay inside her view."
+    },
+    {
+     "passage": "I watched Omar pick up the wallet from the pavement. He looked left and right. I was sure he was going to keep it. Then he walked straight into the police station on the corner.",
+     "stem": "How would the story change if it were told in third-person all-knowing?",
+     "options": [
+      "The narrator would still not know what Omar was thinking.",
+      "The reader could learn Omar's real plan from the start.",
+      "The story would have to be told by Omar.",
+      "The wallet would not be in the story."
+     ],
+     "answer": 1,
+     "why": "An all-knowing narrator can share Omar's thoughts, so readers would know he planned to return the wallet."
+    }
+   ],
+   "again": {
+    "title": "Whose head are we in?",
+    "text": "In third person, ask: **Whose head can the narrator get into?**\n\n1. Only one person's head = limited.\n2. Everyone's head = all-knowing.",
+    "example": "Sami hoped Dad would say yes. Dad was thinking about the cost. Mom was already planning the trip.\n\nWe are in **three** heads, so the narrator is **all-knowing**."
+   }
+  }
+ }
+}

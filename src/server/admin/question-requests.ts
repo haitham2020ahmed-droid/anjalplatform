@@ -2,12 +2,14 @@
  * Teachers change the bank only through admin approval:
  *   - new questions and edits of published ones are drafts / revisions an admin publishes (existing flow);
  *   - removing a question is a request (with a reason) kept on the question (tags.deletionRequest); an admin
- *     approves it (deleted if never answered, else archived so students' history stays) or rejects it.
+ *     approves it (deleted; once answered it is removed from the whole platform while students' answers stay —
+ *     question-delete.ts) or rejects it.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { archiveQuestions, deleteQuestions } from "./question-delete";
+import { keptWhileUnchanged } from "../cache/kept";
 
 const s = (v: unknown) => String(v ?? "");
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
@@ -55,11 +57,25 @@ export async function requestDeletion(repo: Repo, actor: Actor, questionId: stri
 
 export interface DeletionRequestRow { id: string; stem: string; status: string; request: DeletionRequest }
 
+const hasEditRequest = (q: Row) => Boolean((tagsOf(q).editRequest as { input?: unknown } | undefined)?.input);
+
+/**
+ * ⚡ The school's questions that carry a teacher request (a deletion or a change waiting). Finding them means reading the
+ * tags of every question of the school (15,000+ rows): one scan, kept while the bank is unchanged (any write to a
+ * question bumps the counters, so a new request or a decision is seen at once), shared by the Requests page, the
+ * Questions page badge and the admin home.
+ */
+export function requestRows(repo: Repo, schoolId: string): Promise<Row[]> {
+  return keptWhileUnchanged(repo, `qrequests|${schoolId}`, ["Question", "Skill", "Curriculum", "Grade"], 5 * 60_000, async () => {
+    const skills = await schoolSkillIds(repo, schoolId);
+    if (!skills.length) return [];
+    const qs = await repo.findMany("Question", { skillId: { in: skills }, deletedAt: null }, { select: ["id", "stem", "status", "tags", "skillId", "difficultyLevel"] });
+    return qs.filter((q) => deletionRequestOf(q) || hasEditRequest(q));
+  });
+}
+
 async function pendingRows(repo: Repo, schoolId: string): Promise<Row[]> {
-  const skills = await schoolSkillIds(repo, schoolId);
-  if (!skills.length) return [];
-  const qs = await repo.findMany("Question", { skillId: { in: skills }, deletedAt: null }, { select: ["id", "stem", "status", "tags"] });
-  return qs.filter((q) => deletionRequestOf(q) && q.status !== "ARCHIVED");
+  return (await requestRows(repo, schoolId)).filter((q) => deletionRequestOf(q) && q.status !== "ARCHIVED");
 }
 
 export async function listDeletionRequests(repo: Repo, actor: Actor): Promise<DeletionRequestRow[]> {
@@ -71,11 +87,9 @@ export async function listDeletionRequests(repo: Repo, actor: Actor): Promise<De
 /** For badges: admins see how many requests wait (others: 0). */
 export async function countDeletionRequests(repo: Repo, actor: Actor): Promise<number> {
   if (!isAdmin(actor)) return 0;
-  // one light scan (id + tags only) for both kinds of teacher requests: deletions and ✏️ changes waiting
-  const skills = await schoolSkillIds(repo, actor.schoolId!);
-  if (!skills.length) return 0;
-  const qs = await repo.findMany("Question", { skillId: { in: skills }, deletedAt: null }, { select: ["id", "status", "tags"] });
-  return qs.filter((q) => (deletionRequestOf(q) && q.status !== "ARCHIVED") || Boolean((tagsOf(q).editRequest as { input?: unknown } | undefined)?.input)).length;
+  // one kept scan for both kinds of teacher requests: deletions and ✏️ changes waiting
+  const qs = await requestRows(repo, actor.schoolId!);
+  return qs.filter((q) => (deletionRequestOf(q) && q.status !== "ARCHIVED") || hasEditRequest(q)).length;
 }
 
 export async function decideDeletion(repo: Repo, actor: Actor, questionId: string, approve: boolean, now = new Date()): Promise<"deleted" | "archived" | "rejected"> {
@@ -89,7 +103,8 @@ export async function decideDeletion(repo: Repo, actor: Actor, questionId: strin
     await repo.create("AuditLog", { actorId: actor.userId, action: "question.deletion.reject", entityType: "Question", entityId: questionId, after: { reason: req.reason }, createdAt: now });
     return "rejected";
   }
-  // never answered → deleted; answered by students → archived (their answers and reports stay intact)
+  // never answered → deleted; answered by students → removed from the platform, their answers and reports intact
+  // (r67: the admin's delete). The archive below is only for a question the delete could not take.
   const res = await deleteQuestions(repo, actor, [questionId], now);
   if (res.deleted) return "deleted";
   await repo.updateMany("Question", { id: questionId }, { tags: rest });

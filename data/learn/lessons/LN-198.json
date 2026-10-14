@@ -1,0 +1,467 @@
+{
+ "code": "LN-198",
+ "title": "Roots and affixes",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.c",
+  "L.3.4.c",
+  "L.4.4.b",
+  "L.5.4.b",
+  "L.6.4.b"
+ ],
+ "families": [
+  "greek-latin-roots",
+  "prefixes",
+  "suffixes"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0060",
+  "R-0235",
+  "R-0394",
+  "R-0404",
+  "R-0573",
+  "R-0769"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words have parts",
+     "text": "Many words are built from **parts**.\n\n**re** + **paint** = **repaint**\n\nIf you know the parts, you can work out the word."
+    },
+    {
+     "title": "Prefixes",
+     "text": "A **prefix** goes at the **start** of a word.\n\n**re-** means **again**. To **repaint** is to paint **again**.\n\n**un-** means **not**. **Unhappy** means **not** happy."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Find the part you know.\n2. Say what the part means.\n3. Put it with the rest of the word.\n\n**un** (not) + **safe** = **not safe**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text often **tells you** what the part means.\n\n1. Find the sentence that says what the part means.\n2. Use it to work out the word.\n3. Check: does your meaning make sense in the sentence?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The prefix un- means not.",
+      "role": "key"
+     },
+     {
+      "t": "The road was unsafe after the rain.",
+      "role": "main"
+     },
+     {
+      "t": "Dad drove very slowly.",
+      "role": "other"
+     }
+    ],
+    "explain": "**un-** means **not**. So **unsafe** means **not safe**.\n\nThat is why Dad drove slowly."
+   },
+   "together": {
+    "passage": "Omar's soup got cold. His mom said, \"Let's reheat it.\" The prefix re- means again. So she put it on the stove one more time.",
+    "stem": "What does reheat mean?",
+    "options": [
+     "To make cold",
+     "To heat again",
+     "To eat fast",
+     "To heat for the first time"
+    ],
+    "answer": 1,
+    "hint": "Find the sentence that tells what re- means. Put that meaning with 'heat'.",
+    "good": "Yes! re- means again, so reheat means to heat again."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar's soup got cold.",
+     "His mom said, \"Let's reheat it.\"",
+     "The prefix re- means again.",
+     "So she put it on the stove one more time."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: to heat again. Tap a sentence that proves it.",
+    "wrong": "This sentence is part of the story, but it does not show what re- means."
+   },
+   "checks": [
+    {
+     "passage": "The prefix un- means not. The box was unlocked, so Reem opened it.",
+     "stem": "What does unlocked mean?",
+     "options": [
+      "Locked again",
+      "Very locked",
+      "Not locked",
+      "Locked by a key"
+     ],
+     "answer": 2,
+     "why": "un- means not, so unlocked means not locked. That is why Reem could open it."
+    },
+    {
+     "passage": "The suffix -er can mean a person who does something. Majid is a good reader.",
+     "stem": "What does reader mean?",
+     "options": [
+      "A book",
+      "A person who reads",
+      "To read again",
+      "Not able to read"
+     ],
+     "answer": 1,
+     "why": "-er means a person who does something. A reader is a person who reads."
+    },
+    {
+     "passage": "The prefix re- means again. Lina's tower fell down, so she had to rebuild it.",
+     "stem": "What does rebuild mean?",
+     "options": [
+      "To build again",
+      "To knock down",
+      "To build very tall",
+      "Not to build"
+     ],
+     "answer": 0,
+     "why": "re- means again. Lina built the tower, then she built it again."
+    }
+   ],
+   "again": {
+    "title": "Cover and say",
+    "text": "1. Cover the prefix with your finger.\n2. Read the word that is left.\n3. Now add the prefix meaning to the front.",
+    "example": "**untidy**: cover **un**. You see **tidy**. un- means **not**. So untidy means **not tidy**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Prefix, base, suffix",
+     "text": "A word can have three parts:\n\n**pre** + **view** + (nothing) = preview\n**help** + **ful** = helpful\n\nThe **base** is the main part. A **prefix** comes before it. A **suffix** comes after it."
+    },
+    {
+     "title": "Useful parts",
+     "text": "**pre-** = before\n**mis-** = wrongly\n**micro-** = very small\n**-ful** = full of\n**-less** = without\n\nA **microscope** is a tool for looking at **very small** things."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Split the word into parts.\n2. Use the meaning the text gives you for each part.\n3. Join the meanings.\n4. Check the meaning fits the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look for the sentence that **defines the part**. It may say \"means\", or give the meaning in brackets.\n\nThen find the sentence where the **word is used**. Your answer must fit there too."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Before the trip, our teacher gave us a pretest.",
+      "role": "main"
+     },
+     {
+      "t": "The prefix pre- means before.",
+      "role": "key"
+     },
+     {
+      "t": "It showed what we already knew about birds.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**pre-** means **before**. A **pretest** is a test you take **before** you learn something.\n\nThe last sentence fits: the test showed what students knew already."
+   },
+   "together": {
+    "passage": "In science class, Noura looked at a drop of pond water through a microscope. The prefix micro- means very small. At first, the drop looked empty. Then she saw tiny living things swimming in it. They were microorganisms, too small to see with her eyes alone.",
+    "stem": "What are microorganisms?",
+    "options": [
+     "Large fish in a pond",
+     "Plants that grow near water",
+     "Very small living things",
+     "Tools for looking at water"
+    ],
+    "answer": 2,
+    "hint": "Find what micro- means. An organism is a living thing. Put the two together.",
+    "good": "Yes! micro- means very small, so microorganisms are very small living things."
+   },
+   "evidence": {
+    "sentences": [
+     "In science class, Noura looked at a drop of pond water through a microscope.",
+     "The prefix micro- means very small.",
+     "At first, the drop looked empty.",
+     "Then she saw tiny living things swimming in it.",
+     "They were microorganisms, too small to see with her eyes alone."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: very small living things. Tap 2 sentences that prove it.",
+    "wrong": "This sentence is part of the story, but it does not tell what micro- means or how small the living things are."
+   },
+   "checks": [
+    {
+     "passage": "The suffix -less means without. The night was cloudless, so we could see every star.",
+     "stem": "What does cloudless mean?",
+     "options": [
+      "Full of clouds",
+      "Without clouds",
+      "Before the clouds",
+      "A little cloudy"
+     ],
+     "answer": 1,
+     "why": "-less means without. We could see the stars because there were no clouds."
+    },
+    {
+     "passage": "The prefix mis- means wrongly. Hamad misread the time and arrived at the station an hour early.",
+     "stem": "What does misread mean?",
+     "options": [
+      "Read again",
+      "Read quickly",
+      "Did not read",
+      "Read wrongly"
+     ],
+     "answer": 3,
+     "why": "mis- means wrongly. He read the time wrongly, so he came too early."
+    },
+    {
+     "passage": "The suffix -ful means full of. The playful kitten chased a ball of string around the room.",
+     "stem": "What does playful mean?",
+     "options": [
+      "Full of fun and play",
+      "Without play",
+      "Tired of play",
+      "Playing alone"
+     ],
+     "answer": 0,
+     "why": "-ful means full of. Chasing the ball shows the kitten is full of play."
+    }
+   ],
+   "again": {
+    "title": "Read it backwards",
+    "text": "Sometimes it helps to say the meaning starting from the **end** of the word.",
+    "example": "**careless** = care + less. -less means without. Say it from the end: **without care**.\n\n**preheat** = pre + heat. Say: **heat before**. Mom preheats the oven before she bakes."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Roots",
+     "text": "A **root** is a word part that carries the main meaning. Many English roots come from **Greek** or **Latin**.\n\n**bio** = life\n**graph** = write\n**port** = carry"
+    },
+    {
+     "title": "Roots plus affixes",
+     "text": "Prefixes and suffixes change a root's meaning.\n\n**port** (carry) + **-able** (can be) = **portable**: can be **carried**.\n\n**ex-** (out) + **port** (carry) = **export**: to carry goods **out** of a country to sell them."
+    },
+    {
+     "title": "Combine in order",
+     "text": "1. Find the root and say its meaning.\n2. Add the prefix meaning.\n3. Add the suffix meaning.\n4. Make a sentence that sounds natural, then test it in the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Texts often define the **root or affix** in one place and use the **word** in another.\n\n1. Find both sentences.\n2. Join the meanings.\n3. Check another clue in the text that agrees with your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ahmad's grandfather wrote his autobiography last year.",
+      "role": "main"
+     },
+     {
+      "t": "The Greek part auto means self, bio means life, and graph means write.",
+      "role": "key"
+     },
+     {
+      "t": "In the book, he tells the story of his own childhood in Taif.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**auto** (self) + **bio** (life) + **graph** (write) = **a life story written by the person himself**.\n\nThe last sentence proves it: he tells **his own** story."
+   },
+   "together": {
+    "passage": "Our school is collecting gifts for children in a hospital. The Latin root port means carry, and the suffix -able means can be. We wanted every gift to be portable, so the children could take it from room to room. Some students made small puzzle boxes, and others packed light story books. Nobody sent anything heavy, like a big desk or a large television.",
+    "stem": "What does portable mean?",
+    "options": [
+     "Very expensive",
+     "Made by hand",
+     "Able to be carried easily",
+     "Fixed in one place"
+    ],
+    "answer": 2,
+    "hint": "Join the two meanings from sentence 2: carry + can be. Then check the gifts the students chose.",
+    "good": "Yes! port means carry and -able means can be, so portable means able to be carried. The light gifts prove it."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school is collecting gifts for children in a hospital.",
+     "The Latin root port means carry, and the suffix -able means can be.",
+     "We wanted every gift to be portable, so the children could take it from room to room.",
+     "Some students made small puzzle boxes, and others packed light story books.",
+     "Nobody sent anything heavy, like a big desk or a large television."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: able to be carried easily. Tap 2 sentences that prove it.",
+    "wrong": "This sentence tells about the gifts or the reason for them, but not what makes them portable."
+   },
+   "checks": [
+    {
+     "passage": "The Greek root tele means far, and scope means look at. With a telescope, scientists study planets millions of kilometres away.",
+     "stem": "What is a telescope?",
+     "options": [
+      "A tool for looking at things far away",
+      "A tool for writing letters",
+      "A tool for hearing sounds",
+      "A tool for seeing tiny things up close"
+     ],
+     "answer": 0,
+     "why": "tele (far) + scope (look at) = a tool for looking at faraway things, like planets."
+    },
+    {
+     "passage": "The root aqua means water. The new aquarium has a tunnel where visitors walk while sharks and rays swim above their heads.",
+     "stem": "What is an aquarium?",
+     "options": [
+      "A park with tall trees",
+      "A place where water animals are kept",
+      "A shop that sells cold drinks",
+      "A pool for swimming races"
+     ],
+     "answer": 1,
+     "why": "aqua means water, and the sharks and rays swimming above show that it is a place for water animals."
+    },
+    {
+     "passage": "The root bio means life, and -logy means the study of. Dana wants to study biology at university because she loves learning about plants and animals.",
+     "stem": "What is biology?",
+     "options": [
+      "The study of numbers",
+      "The study of rocks",
+      "The study of past events",
+      "The study of living things"
+     ],
+     "answer": 3,
+     "why": "bio (life) + -logy (study of) = the study of life. Plants and animals are living things."
+    }
+   ],
+   "again": {
+    "title": "Build a word sum",
+    "text": "Write the word as a sum, one part at a time, with the meanings under each part.",
+    "example": "**geography** = **geo** + **graph** + **y**\nmeanings: earth + write + (thing)\nSum: **writing about the earth**: the study of land, seas and places."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Many parts, one meaning",
+     "text": "Academic words can stack three or four parts.\n\n**inter-** (between) + **rupt** (break) + **-ion** (act of) = **interruption**: the act of breaking in between."
+    },
+    {
+     "title": "Meanings shift a little",
+     "text": "The joined meaning is a **starting point**, not always the dictionary definition.\n\n**contradict** = **contra-** (against) + **dict** (say). Literally \"say against\". In use, it means to say the **opposite** of what someone said."
+    },
+    {
+     "title": "Steps for hard words",
+     "text": "1. Find every part you know.\n2. Write a literal meaning.\n3. Read the sentence around the word.\n4. Adjust your literal meaning so it fits the context."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Two kinds of proof work together:\n\n1. The **part meanings** the text gives you.\n2. **Context clues** that show the word in action.\n\nThe best answer fits both. If an answer matches the parts but not the context, or the context but not the parts, reject it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Latin prefix bene- means good or well, and fact comes from a root that means do or make.",
+      "role": "key"
+     },
+     {
+      "t": "An unknown benefactor paid for the new reading room at the village school.",
+      "role": "main"
+     },
+     {
+      "t": "The donor asked that no sign with their name be put on the wall.",
+      "role": "key"
+     }
+    ],
+    "explain": "**bene** (good) + **fact** (do) + **-or** (person) = a person who does good.\n\nThe context adds detail: this person **paid for** something to help others. A **benefactor** is someone who gives money or help."
+   },
+   "together": {
+    "passage": "Engineers sometimes travel to remote places with no power lines. To help them, a team designed a lamp that runs on a renewable source: sunlight. The prefix re- means again, and the base new means fresh. With the suffix -able, which means can be, renewable describes something that can be made fresh again. Unlike coal or oil, which take millions of years to form, sunlight returns each morning. The lamp charges during the day and shines all night.",
+    "stem": "Based on the word parts and the passage, what is a renewable source?",
+    "options": [
+     "A source of power that is very cheap to buy",
+     "A source of power that is found deep underground",
+     "A source of power that keeps coming back and will not run out",
+     "A source of power that took millions of years to form"
+    ],
+    "answer": 2,
+    "hint": "Join the parts: again + fresh + can be. Then check the sentence that compares sunlight with coal and oil.",
+    "good": "Yes! renewable means can be made fresh again, and sunlight returns every morning, unlike coal and oil."
+   },
+   "evidence": {
+    "sentences": [
+     "Engineers sometimes travel to remote places with no power lines.",
+     "To help them, a team designed a lamp that runs on a renewable source: sunlight.",
+     "The prefix re- means again, and the base new means fresh.",
+     "With the suffix -able, which means can be, renewable describes something that can be made fresh again.",
+     "Unlike coal or oil, which take millions of years to form, sunlight returns each morning.",
+     "The lamp charges during the day and shines all night."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a source that keeps coming back. Tap 2 sentences that prove it.",
+    "wrong": "This sentence gives background or tells what the lamp does, but it does not explain what renewable means."
+   },
+   "checks": [
+    {
+     "passage": "The prefix trans- means across, and the root port means carry. After the storm damaged the bridge, the government arranged boats to transport food and medicine to the island.",
+     "stem": "What does transport mean in this passage?",
+     "options": [
+      "To carry across from one place to another",
+      "To store in a safe place",
+      "To repair after damage",
+      "To sell at a market"
+     ],
+     "answer": 0,
+     "why": "trans (across) + port (carry): the boats carried supplies across the water to the island."
+    },
+    {
+     "passage": "The prefix in- can mean not, and the root aud means hear. The speaker's microphone stopped working, and her voice became inaudible to the people in the back rows.",
+     "stem": "What does inaudible mean?",
+     "options": [
+      "Too loud to enjoy",
+      "Not able to be heard",
+      "Easy to understand",
+      "Heard far away"
+     ],
+     "answer": 1,
+     "why": "in (not) + aud (hear) + -ible (able to be) = not able to be heard. The broken microphone is the context clue."
+    },
+    {
+     "passage": "The Greek root chron means time. Before the exam, Salem made a chronological list of the battles he had studied, starting with the earliest and ending with the most recent.",
+     "stem": "What does chronological mean?",
+     "options": [
+      "Sorted by importance",
+      "Sorted by the letters of the alphabet",
+      "Grouped by place",
+      "Arranged in order of time"
+     ],
+     "answer": 3,
+     "why": "chron means time, and the list starts with the earliest and ends with the most recent: order of time."
+    }
+   ],
+   "again": {
+    "title": "Literal, then real",
+    "text": "First write the **literal** meaning from the parts. Then write the **real** meaning from the sentence.",
+    "example": "**spectator** = spect (look) + -ator (one who)\nLiteral: **one who looks**.\nSentence: Thousands of spectators cheered as the runners finished.\nReal meaning: **a person who watches an event**."
+   }
+  }
+ }
+}

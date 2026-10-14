@@ -55,6 +55,19 @@ export async function initialLevel(repo: Repo, studentId: string): Promise<{ lev
   return { level: defaultLevel(st ? await studentGrade(repo, st) : 5), source: "DEFAULT", mapLexile: null };
 }
 
+/**
+ * 🎯 Has the student a REAL ReadRise level? Only after the placement test (source PLACEMENT, or a completed
+ * RRPlacement) or when a teacher set the level by hand (source TEACHER). The row that ensureRRStudent creates on
+ * first use (the MAP Lexile or the grade's default, e.g. 950 in Grade 6: source MAP / DEFAULT) is only a working start
+ * for picking article versions: it is never shown as a level (student pages, home gauge, teacher / admin reports
+ * say "No placement yet"). Students who had such a row before this rule are treated the same; nothing is deleted.
+ */
+export function readRisePlaced(rr: Row | null | undefined, completedPlacement = false): boolean {
+  if (!rr) return false;
+  const src = s(rr.source);
+  return src === "PLACEMENT" || src === "TEACHER" || completedPlacement;
+}
+
 /** The RRStudent row, created on first use (MAP Lexile or the grade default). */
 export async function ensureRRStudent(repo: Repo, studentId: string, now = new Date()): Promise<Row> {
   const have = await repo.findUnique("RRStudent", { studentId });
@@ -246,7 +259,7 @@ export async function studentReadRiseSummary(repo: Repo, studentId: string, now 
   const firstTryAvg = main.length ? Math.round(main.reduce((a, r) => a + Number(r.score), 0) / main.length) : null;
   const g = goalStats(runs.filter((r) => Number(r.score) >= ENGINE.up && r.completedAt).map((r) => toDate(r.completedAt)), Number(rr.weeklyGoal), now);
   const { points } = await levelHistory(repo, studentId);
-  const placed = (await repo.count("RRPlacement", { studentId, completedAt: { not: null } })) > 0;
+  const placed = readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null } })) > 0);
   return {
     level: Number(rr.level), startLevel: Number(rr.startLevel), source: s(rr.source), growth: Number(rr.level) - Number(rr.startLevel),
     articlesDone: Number(rr.articlesDone ?? 0), firstTryAvg, weeklyGoal: g.goal, thisWeek: g.thisWeek, goalMet: g.met, streak: g.streak, weeksMet: g.weeksMet,

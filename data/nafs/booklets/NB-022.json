@@ -1,0 +1,568 @@
+{
+  "code": "NB-022",
+  "title": "Living Aboard the International Space Station",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 439,
+  "passage": "Imagine a home where breakfast floats away if you forget to hold it, where you sleep standing up, and where the sun rises sixteen times every day. For the astronauts aboard the International Space Station, this strange way of life is quite normal. Since November 2000, people have lived on the station without a single break, carrying out tests that could not be done on the ground.\n\nThe station is a remarkable example of international cooperation. Space agencies from the United States, Russia, Europe, Japan and Canada worked together to build it, launching its sections one by one and joining them in orbit. Today, the finished structure is roughly as long as a football field. It circles the Earth about 400 kilometres above the surface at nearly 28,000 kilometres per hour, so it completes one orbit in roughly ninety minutes. As a result, the crew sees about sixteen sunrises and sixteen sunsets every day.\n\nMany people believe that astronauts float because there is no gravity in space, but this explanation is incorrect. At the height of the station, gravity is still almost as strong as it is on the ground. The astronauts float because the station and everything inside it are constantly falling toward the Earth. However, they are also moving forward so fast that they keep missing it. Scientists call this condition microgravity.\n\nMicrogravity makes simple tasks surprisingly complicated. Astronauts sleep in small cabins inside sleeping bags fastened to the wall, so that they do not drift around and bump into equipment. They eat tortillas instead of bread, since crumbs could float into delicate machines or into someone's eyes. Even water behaves strangely, forming wobbling balls that will not pour into a cup. Every drop is precious, because carrying supplies from Earth is extremely expensive. For this reason, the station recycles almost all of its water, including the moisture in the crew's breath and sweat.\n\nLiving without gravity also affects the human body. Because muscles and bones no longer have to support the body's weight, they gradually become weaker. To protect their health, astronauts exercise for about two hours every day on a treadmill, an exercise bicycle and a special weightlifting machine. Doctors on Earth study these astronauts carefully, and their findings help patients with weak bones on the ground.\n\nThe space station is far more than a floating laboratory; it is a training ground for the future. The lessons learned there about recycling, health and teamwork will be essential when explorers travel to the Moon again and, one day, to Mars. Who knows which of today's students will be the first to call such a place home?",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “precious” as it is used in paragraph 4?",
+      "options": [
+        "heavy",
+        "plentiful",
+        "frozen",
+        "valuable"
+      ],
+      "answer": "D",
+      "why": "Every drop is precious because supplies are very expensive to carry, so water is valuable. “Plentiful” is nearly the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “gradually” as it is used in paragraph 5?",
+      "options": [
+        "slowly",
+        "steadily",
+        "suddenly",
+        "carefully"
+      ],
+      "answer": "C",
+      "why": "“Gradually” means little by little; “suddenly” means all at once. “Slowly” and “steadily” are close in meaning, not opposites."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “The station is a remarkable example of international cooperation.” What does “cooperation” mean?",
+      "options": [
+        "competition between rival countries",
+        "a race to reach space first",
+        "a large building made of metal",
+        "working together toward a shared goal"
+      ],
+      "answer": "D",
+      "why": "The next sentence explains that five space agencies “worked together to build it.”"
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a noun?",
+      "options": [
+        "condition",
+        "constantly",
+        "incorrect",
+        "strong"
+      ],
+      "answer": "A",
+      "why": "“Condition” names a thing (“this condition”); “constantly” is an adverb, and “incorrect” and “strong” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 4 is PLURAL?",
+      "options": [
+        "equipment",
+        "water",
+        "bread",
+        "crumbs"
+      ],
+      "answer": "D",
+      "why": "“Crumbs” means more than one crumb. “Equipment”, “water” and “bread” are uncountable nouns with no -s plural here."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “explanation” in paragraph 3?",
+      "options": [
+        "explain",
+        "explore",
+        "expensive",
+        "exercise"
+      ],
+      "answer": "A",
+      "why": "“Explanation” is the noun form of the verb “explain”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “essential” in a meaningful sentence of your own.",
+      "model": "Drinking enough water is essential on a hot summer day, because without it you can quickly become ill.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “essential” with its meaning (absolutely necessary or extremely important)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Essential” means absolutely necessary."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 1 mentions an unusual “way of life”. What is the correct plural of the noun “life”?",
+      "options": [
+        "lives",
+        "lifes",
+        "lifies",
+        "lifeses"
+      ],
+      "answer": "A",
+      "why": "Many nouns ending in -fe change to -ves in the plural: life → lives, knife → knives."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is the first sentence of the text, which begins “Imagine a home”?",
+      "options": [
+        "a statement",
+        "a question",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "It begins with the verb “Imagine” and tells the reader to do something, so it is a command (imperative), even though it ends with a full stop."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Building Rockets in Russia",
+        "Why Astronauts Eat Tortillas",
+        "A Short History of the Moon",
+        "Everyday Life in Microgravity"
+      ],
+      "answer": "D",
+      "why": "The text describes how astronauts live, sleep, eat and exercise in microgravity; the tortilla title covers only one detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to become astronauts",
+        "to entertain readers with an invented space adventure",
+        "to explain how astronauts live on the station and why it matters",
+        "to compare the space programmes of the five countries that built it"
+      ],
+      "answer": "C",
+      "why": "The text informs readers about life aboard the station and ends by explaining its value for the future."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Astronauts float because they are always falling, not because gravity is absent.",
+        "There is no gravity at all 400 kilometres above the Earth.",
+        "Scientists still do not fully understand why astronauts float in the station.",
+        "The station moves so fast that it will soon leave its orbit."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 corrects a common belief: gravity is still strong, but the station is constantly falling and missing the Earth."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why do astronauts eat tortillas instead of bread?",
+      "options": [
+        "Tortillas stay fresh for many years.",
+        "Bread is far too heavy and bulky to send into space.",
+        "Crumbs could float into machines or someone's eyes.",
+        "Tortillas need less water to prepare."
+      ],
+      "answer": "C",
+      "why": "The text says “crumbs could float into delicate machines or into someone's eyes.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "an informational (expository) text",
+        "a science-fiction story",
+        "a personal diary of an astronaut",
+        "a poem about the stars"
+      ],
+      "answer": "A",
+      "why": "It explains real facts about the space station in clear sections; there are no invented characters, diary entries or verses."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why does the station recycle almost all of its water?",
+      "options": [
+        "Water from Earth is not clean enough to drink.",
+        "The crew's sweat contains special minerals.",
+        "Water cannot be carried into space at all.",
+        "Carrying supplies from Earth is extremely expensive."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: “Every drop is precious, because carrying supplies from Earth is extremely expensive. For this reason, the station recycles almost all of its water.” Water can be carried, but at great cost."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which topic does the writer discuss immediately BEFORE explaining how living without gravity affects muscles and bones?",
+      "options": [
+        "how the station was built in orbit",
+        "how simple tasks such as sleeping and eating are done",
+        "why astronauts float",
+        "how the station will help explorers reach Mars"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 describes sleeping, eating and water; paragraph 5 then turns to muscles and bones."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why the crew sees about sixteen sunrises every day?",
+      "options": [
+        "The station is roughly as long as a football field.",
+        "Five space agencies built the station together.",
+        "The station completes one orbit in roughly ninety minutes.",
+        "People have lived on the station since November 2000."
+      ],
+      "answer": "C",
+      "why": "A day has 24 hours; one orbit every 90 minutes means about 16 trips around the Earth, each with a sunrise."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, how was the station built?",
+      "options": [
+        "Its sections were launched one by one and joined in orbit.",
+        "It was built on the ground and launched in one piece.",
+        "One country built it and then invited the others.",
+        "Astronauts built it on the Moon and moved it."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: the agencies launched “its sections one by one and joining them in orbit.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, why do astronauts' muscles and bones become weaker?",
+      "options": [
+        "They eat food without enough vitamins.",
+        "They no longer have to support the body's weight.",
+        "They spend too much time on the treadmill.",
+        "They are exposed to the heat of sixteen sunrises."
+      ],
+      "answer": "B",
+      "why": "“Because muscles and bones no longer have to support the body's weight, they gradually become weaker.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why are the astronauts' sleeping bags fastened to the wall?",
+      "options": [
+        "so that the astronauts can sleep standing up for comfort",
+        "so that the bags stay warm during the night",
+        "so that the astronauts do not drift and bump into equipment",
+        "so that the bags can be used for exercise"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 gives the reason: “so that they do not drift around and bump into equipment.” “Sleep standing up” in paragraph 1 is a playful description, not the reason."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with “Imagine a home where breakfast floats away”?",
+      "options": [
+        "to warn readers that space food is often wasted",
+        "to spark curiosity with surprising details from daily life",
+        "to prove that astronauts are careless at mealtimes",
+        "to tell the story of one particular astronaut"
+      ],
+      "answer": "B",
+      "why": "Unusual, everyday images make readers curious to learn how such a life is possible; the other options are not supported by the text."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is water on the station different from water on Earth?",
+      "options": [
+        "It is always frozen into ice.",
+        "It is never recycled.",
+        "It forms wobbling balls that will not pour into a cup.",
+        "It is much heavier and therefore harder for astronauts to drink."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: water forms “wobbling balls that will not pour into a cup”; it is actually recycled, not wasted."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on paragraph 3, what would most likely happen if the station were NOT moving forward so fast?",
+      "options": [
+        "Gravity at that height would disappear completely.",
+        "It would fall toward the Earth instead of missing it.",
+        "The astronauts would float even more freely.",
+        "The crew would see more sunrises each day."
+      ],
+      "answer": "B",
+      "why": "The station keeps missing the Earth only because it moves forward so fast; without that speed, its fall would bring it down."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the fastened sleeping bags and the tortillas have in common?",
+      "options": [
+        "Both are used during exercise.",
+        "Both were invented by doctors on Earth to protect astronauts' bones.",
+        "Both are recycled after every use.",
+        "Both solve problems caused by things floating in microgravity."
+      ],
+      "answer": "D",
+      "why": "Fastened bags stop sleepers drifting, and tortillas avoid floating crumbs: both deal with floating objects."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by calling the station “a training ground for the future”?",
+      "options": [
+        "It is a school where children learn about space.",
+        "It prepares people for future journeys to the Moon and Mars.",
+        "It is a sports field that astronauts use for exercise.",
+        "It will be moved to Mars after it is finished."
+      ],
+      "answer": "B",
+      "why": "The next sentence explains that lessons learned there “will be essential when explorers travel to the Moon again and, one day, to Mars.”"
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer mention that “Many people believe that astronauts float because there is no gravity in space”?",
+      "options": [
+        "to agree with what most people already believe",
+        "to correct a common misunderstanding with the true explanation",
+        "to show that scientists still strongly disagree about how gravity works",
+        "to make the text sound like a story"
+      ],
+      "answer": "B",
+      "why": "The writer immediately says “this explanation is incorrect” and then gives the correct reason."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text includes the writer's OPINION?",
+      "options": [
+        "The station is a remarkable example of international cooperation.",
+        "Since November 2000, people have lived on the station without a single break.",
+        "It circles the Earth about 400 kilometres above the surface.",
+        "Scientists call this condition microgravity."
+      ],
+      "answer": "A",
+      "why": "“Remarkable” is the writer's judgement; the other sentences give facts that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which result of life on the station is MOST useful to people on Earth, according to the text?",
+      "options": [
+        "Astronauts eat tortillas instead of bread.",
+        "The crew sees sixteen sunrises every day.",
+        "Findings about astronauts' bones help patients on the ground.",
+        "Astronauts sleep in sleeping bags that are fastened to the cabin wall."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 says doctors' findings “help patients with weak bones on the ground”; the other details matter only on the station."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best describes the writer's view of the space station?",
+      "options": [
+        "It is too expensive to be worth keeping.",
+        "It is mainly a place for astronauts to rest.",
+        "It is valuable for science and for future exploration.",
+        "It is less useful than laboratories on the ground."
+      ],
+      "answer": "C",
+      "why": "The writer calls it “a remarkable example” and “a training ground for the future,” and describes research that helps people on Earth."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "fear of the dangers of space",
+        "hopeful excitement about the future",
+        "sadness that the station is old",
+        "anger at the cost of space travel"
+      ],
+      "answer": "B",
+      "why": "The writer looks forward to journeys to the Moon and Mars and asks which students will one day live in space."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how high above the Earth the station orbits",
+        "how many hours a day astronauts spend on exercise",
+        "since when people have lived on the station",
+        "how the station turns breath and sweat into drinking water"
+      ],
+      "answer": "D",
+      "why": "The text says the station recycles moisture from breath and sweat but never explains how; the other facts are given clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An astronaut floats on the station because gravity has vanished.",
+        "An astronaut watches a drop of water form a wobbling ball in the air.",
+        "The station stops in the sky so the crew can rest.",
+        "An astronaut walks home from the station to Earth."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 describes water forming wobbling balls; the text explains that gravity has not vanished, and the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "Falling Around the World: Life in Orbit",
+        "The Last Sunset",
+        "A Journey to the Bottom of the Sea",
+        "How to Bake Bread in Space"
+      ],
+      "answer": "A",
+      "why": "The station is always falling while it circles the Earth, and the text describes how people live there."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences that end it by describing one problem astronauts might face on a long journey to Mars and how ideas from the station could help solve it.",
+      "model": "On a journey to Mars lasting many months, astronauts could not receive fresh supplies of water from Earth. However, the station has shown that almost all water, even the moisture in breath and sweat, can be recycled. Using this system, explorers could carry far less water and still stay healthy.",
+      "rubric": [
+        "2 = a clear new ending that names a realistic problem of a long space journey and solves it with an idea from the text (recycling, exercise, teamwork, etc.)",
+        "1 = an ending is given but the problem or the solution is unclear or not linked to the text",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that links a real problem of long space journeys to a solution described in the text is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Astronauts on a two-year trip to Mars want to keep their bones strong. Which solution fits the text best?",
+      "options": [
+        "Rest as much as possible to save energy.",
+        "Exercise for about two hours every day.",
+        "Sleep in bags fastened to the wall.",
+        "Eat tortillas instead of bread."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5 explains that daily exercise protects muscles and bones in microgravity; resting would make the weakness worse."
+    }
+  ]
+}

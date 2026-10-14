@@ -84,9 +84,9 @@ const many = (k: string, list: string[]) => list.map((v) => [k, v] as [string, s
 export function practiceHref(classId: string, codes: string[], studentIds: string[] = []): string {
   return `/teacher/nafs?${new URLSearchParams([["tab", "practice"], ["class", classId], ...many("target", codes), ...many("sid", studentIds)])}#give`;
 }
-/** "Make a test on these standards": the test builder (Automatic), prefilled with the standards and the class. */
+/** "Make a test on these standards": the ONE test builder (start: standards I choose), prefilled with them and the class. */
 export function testHref(classId: string, codes: string[]): string {
-  return `/teacher/nafs/tests/new?${new URLSearchParams([["mode", "AUTO"], ["class", classId], ["codes", codes.join(",")]])}`;
+  return `/teacher/nafs/tests/new?${new URLSearchParams([["start", "CHOOSE"], ["class", classId], ["codes", codes.join(",")]])}`;
 }
 export const studentHref = (studentId: string, r?: Range | null) => `/teacher/nafs/students/${encodeURIComponent(studentId)}${r && (r.from || r.to) ? `?${new URLSearchParams([...(r.from ? [["from", r.from]] : []), ...(r.to ? [["to", r.to]] : [])])}` : ""}`;
 

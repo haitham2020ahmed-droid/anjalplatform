@@ -1,0 +1,463 @@
+{
+ "code": "LN-077",
+ "title": "Spelling endings: -ion, -al, -ous, -able/-ible",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0008",
+  "L-0038",
+  "L-0109",
+  "L-0225",
+  "L-0226",
+  "L-0333"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "The -tion ending",
+     "text": "Many words end with the sound **shun**.\n\nMost of the time, we spell it **-tion**.\n\nsta**tion**, ac**tion**, na**tion**, lo**tion**"
+    },
+    {
+     "title": "Add -ion to a verb",
+     "text": "Some verbs end in **t**. Add **-ion** to make a noun.\n\nact → act**ion**\ninvent → invent**ion**\ncollect → collect**ion**"
+    },
+    {
+     "title": "Not -shun",
+     "text": "The sound is **shun**, but we never spell it **s-h-u-n** at the end of these words.\n\nRight: **station**\nWrong: stashun"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Say the word. Does it end with the **shun** sound?\n2. Look in the text for other words with the same ending.\n3. See how they are spelled. Use the same ending."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went to the bus station.",
+      "role": "key"
+     },
+     {
+      "t": "A man gave us directions.",
+      "role": "key"
+     },
+     {
+      "t": "We got on the bus.",
+      "role": "other"
+     }
+    ],
+    "explain": "**station** and **directions** both end with **-tion**. The shun sound is spelled **t-i-o-n**."
+   },
+   "together": {
+    "passage": "Our class went to the train station. Our teacher gave us one direction: stay together. We saw a big ___ of old trains. It was a great day.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "collecshun",
+     "collectoin",
+     "collection",
+     "colecsion"
+    ],
+    "answer": 2,
+    "hint": "Look at the other shun words in the text. How do they end?",
+    "good": "Yes! **collect** + **ion** = **collection**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class went to the train station.",
+     "Our teacher gave us one direction: stay together.",
+     "We saw a big ___ of old trains.",
+     "It was a great day."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: collection. Tap 2 sentences with other words that end in -tion.",
+    "wrong": "This sentence has no word ending in -tion. Look again."
+   },
+   "checks": [
+    {
+     "passage": "We learned about our ___ in class today.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "nation",
+      "nashun",
+      "naton",
+      "nasion"
+     ],
+     "answer": 0,
+     "why": "The shun sound is spelled **-tion**: **nation**."
+    },
+    {
+     "passage": "Mom put sun ___ on my arms.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "loshun",
+      "lotoin",
+      "loshon",
+      "lotion"
+     ],
+     "answer": 3,
+     "why": "The shun sound is spelled **-tion**: **lotion**."
+    },
+    {
+     "passage": "The ___ of the light bulb changed the world.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "invenshun",
+      "invention",
+      "inventoin",
+      "invension"
+     ],
+     "answer": 1,
+     "why": "**invent** + **ion** = **invention**."
+    }
+   ],
+   "again": {
+    "title": "Find the verb inside",
+    "text": "Many -tion words have a verb inside them. Find it, then add **-ion**.",
+    "example": "direct → direct**ion**\nprotect → protect**ion**\nselect → select**ion**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Three ways to spell shun",
+     "text": "The **shun** sound at the end of a word can be:\n\n**-tion**: action, celebration\n**-sion**: decision, television\n**-ssion**: discussion, permission"
+    },
+    {
+     "title": "Look at the verb",
+     "text": "The base verb usually gives a clue.\n\nEnds in **-t** or **-ate**: use **-tion**. (create → creation)\nEnds in **-de** or **-se**: use **-sion**. (decide → decision, revise → revision)\nEnds in **-ss**: use **-ssion**. (discuss → discussion)"
+    },
+    {
+     "title": "Drop the e",
+     "text": "If the verb ends in **e**, drop it before adding the ending.\n\ncreate → creat**ion**\ncelebrate → celebrat**ion**\nrevise → revis**ion**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the base verb inside the word.\n2. Look at its last letters: t, de, se or ss?\n3. Look for other words in the text with the same ending. Do they follow the same rule?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our teacher gave us permission to go outside.",
+      "role": "key"
+     },
+     {
+      "t": "We had a quick discussion about the game.",
+      "role": "key"
+     },
+     {
+      "t": "Then we made a decision.",
+      "role": "key"
+     }
+    ],
+    "explain": "**permit** → permi**ssion** (a special change)\n**discuss** → discu**ssion** (ends in ss)\n**decide** → deci**sion** (ends in de)"
+   },
+   "together": {
+    "passage": "Our class had a long discussion about where to go on our trip. Some students wanted to visit the science museum, and others wanted to see a new exhibition of photographs. Everyone gave an opinion. Our teacher made the final ___ after a class vote. On the trip, we even watched a short television film about volcanoes.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "decition",
+     "decision",
+     "desision",
+     "decishun"
+    ],
+    "answer": 1,
+    "hint": "The base verb is **decide**. It ends in **-de**. Which ending does that take?",
+    "good": "Yes! **decide** ends in **-de**, so it becomes **decision**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class had a long discussion about where to go on our trip.",
+     "Some students wanted to visit the science museum, and others wanted to see a new exhibition of photographs.",
+     "Everyone gave an opinion.",
+     "Our teacher made the final ___ after a class vote.",
+     "On the trip, we even watched a short television film about volcanoes."
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: decision. Tap 2 sentences with other words that end in -sion or -ssion.",
+    "wrong": "This word ends in -tion or -ion, not -sion. Look for another sion word."
+   },
+   "checks": [
+    {
+     "passage": "The school held a big ___ for the national day.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "celebrasion",
+      "celebration",
+      "celebrashun",
+      "celebrassion"
+     ],
+     "answer": 1,
+     "why": "**celebrate** ends in **-ate**: drop the e and add **-ion**: **celebration**."
+    },
+    {
+     "passage": "Before the test, we did some ___ at home.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "revition",
+      "revishun",
+      "revision",
+      "revission"
+     ],
+     "answer": 2,
+     "why": "**revise** ends in **-se**, so it becomes **revision**."
+    },
+    {
+     "passage": "Can I have ___ to leave early?",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "permition",
+      "permision",
+      "permishun",
+      "permission"
+     ],
+     "answer": 3,
+     "why": "**permission** is spelled with **-ssion**, like discussion."
+    }
+   ],
+   "again": {
+    "title": "Listen to the verb",
+    "text": "Say the verb first, then the noun.\n\nIf the verb ends with a **t** sound → **-tion**\nIf it ends with a **d** or **z** sound → **-sion**\nIf it ends with **ss** → **-ssion**",
+    "example": "invent → inven**tion**\nexplode → explo**sion**\nimpress → impre**ssion**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The -al ending",
+     "text": "**-al** turns a noun into a describing word, or a verb into a noun.\n\nnature → natur**al**\nmusic → music**al**\nnation → nation**al**\narrive → arriv**al**\n\nIt is spelled **-al**, not -el or -le."
+    },
+    {
+     "title": "-able or -ible?",
+     "text": "Both mean **can be done**.\n\nIf the base is a **whole word**, usually use **-able**: read**able**, enjoy**able**, comfort**able**.\n\nIf the base is **not** a whole word, usually use **-ible**: vis**ible**, poss**ible**, terr**ible**, ed**ible**."
+    },
+    {
+     "title": "Watch the e",
+     "text": "Drop a final **e** before -able or -al: valu**e** → valu**able**, arriv**e** → arriv**al**.\n\nBut keep the **e** after a soft **c** or **g**: notic**e**able, chang**e**able."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Remove the ending. Is what is left a **whole word**?\n2. Whole word → usually **-able**. Not a whole word → usually **-ible**.\n3. Find other words with the same ending in the passage. Check that they follow the rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sofa is very comfortable.",
+      "role": "key"
+     },
+     {
+      "t": "The tiny insect was barely visible.",
+      "role": "key"
+     },
+     {
+      "t": "Reading by the window is a natural habit for me.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**comfort** is a whole word → comfort**able**.\n**vis** is not a word → vis**ible**.\n**nature** → drop e → natur**al**."
+   },
+   "together": {
+    "passage": "Our class visited a tall tower in the capital last spring. The lift moved so fast that it felt almost impossible. From the viewing deck, the whole city was ___. Even the distant hills looked incredible in the clear air. Our guide was very knowledgeable and told us many interesting facts. It was a memorable and educational trip.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "visable",
+     "vissible",
+     "visibel",
+     "visible"
+    ],
+    "answer": 3,
+    "hint": "Take off the ending. Is **vis** a whole word? Which ending fits?",
+    "good": "Yes! **vis** is not a whole word, so it takes **-ible**: **visible**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class visited a tall tower in the capital last spring.",
+     "The lift moved so fast that it felt almost impossible.",
+     "From the viewing deck, the whole city was ___.",
+     "Even the distant hills looked incredible in the clear air.",
+     "Our guide was very knowledgeable and told us many interesting facts.",
+     "It was a memorable and educational trip."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: visible. Tap 2 sentences with other words that end in -ible.",
+    "wrong": "This word ends in -able or -al, or there is no such word here. Find words ending in -ible."
+   },
+   "checks": [
+    {
+     "passage": "The trip to the farm was very ___.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "enjoyable",
+      "enjoyible",
+      "enjoyabel",
+      "enjoiable"
+     ],
+     "answer": 0,
+     "why": "**enjoy** is a whole word, so it takes **-able**."
+    },
+    {
+     "passage": "Mangroves are a ___ home for many fish.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "naturel",
+      "natural",
+      "naturle",
+      "naturall"
+     ],
+     "answer": 1,
+     "why": "**nature** → drop the e → add **-al**: **natural**."
+    },
+    {
+     "passage": "Grandmother's old ring is very ___.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "valueable",
+      "valuible",
+      "valuable",
+      "valubel"
+     ],
+     "answer": 2,
+     "why": "**value** ends in e. Drop it before **-able**: **valuable**."
+    }
+   ],
+   "again": {
+    "title": "Cover the ending",
+    "text": "Put your finger over the ending.\n\nCan you still read a real word? → **-able**\nIs it just a piece of a word? → **-ible**",
+    "example": "depend|able → **depend** is a word → depend**able**\nhorr|ible → **horr** is not a word → horr**ible**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "The -ous ending",
+     "text": "**-ous** means **full of** or **having**. It turns nouns into describing words.\n\nfame → fam**ous**\ndanger → danger**ous**\nmountain → mountain**ous**\npoison → poison**ous**"
+    },
+    {
+     "title": "Changes before -ous",
+     "text": "Drop a final **e**: fame → fam**ous**, nerve → nerv**ous**\nChange **y** to **i**: vary → var**ious**, glory → glor**ious**\nKeep **e** after a soft **g**: courage → courag**eous**, outrage → outrag**eous**\nDrop the **u** in **-our**: humour → hum**orous**"
+    },
+    {
+     "title": "-cious and -tious",
+     "text": "Some words end in the sound **shus**. It is spelled **-cious** or **-tious**, never -shus.\n\ndeli**cious**, pre**cious**\ncau**tious**, ambi**tious**\n\nTip: caution → cau**tious**, space → spa**cious**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the base word.\n2. Decide what changes: drop e, y to i, keep e, or -cious/-tious?\n3. Look for other -ous words in the passage. Check how each one changed its base."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The singer is famous in our country.",
+      "role": "key"
+     },
+     {
+      "t": "Her songs are about various places.",
+      "role": "key"
+     },
+     {
+      "t": "She is courageous on stage.",
+      "role": "key"
+     }
+    ],
+    "explain": "fame → drop e → **famous**\nvary → y to i → **various**\ncourage → keep e after soft g → **courageous**"
+   },
+   "together": {
+    "passage": "The mountain road up to Abha is famous for its sharp bends and wide views. In winter, thick fog can make the drive ___. Drivers must be cautious and slow down on every curve. Along the way, visitors can stop at various lookout points. Some travellers feel nervous at first, but most agree the scenery is worth it. At the top, the cool air is a welcome change from the summer heat of the lowlands.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "dangerus",
+     "dangerouse",
+     "dangrous",
+     "dangerous"
+    ],
+    "answer": 3,
+    "hint": "The base word is **danger**. Add the ending that means 'full of'.",
+    "good": "Yes! **danger** + **ous** = **dangerous**. Nothing changes in the base word."
+   },
+   "evidence": {
+    "sentences": [
+     "The mountain road up to Abha is famous for its sharp bends and wide views.",
+     "In winter, thick fog can make the drive ___.",
+     "Drivers must be cautious and slow down on every curve.",
+     "Along the way, visitors can stop at various lookout points.",
+     "Some travellers feel nervous at first, but most agree the scenery is worth it.",
+     "At the top, the cool air is a welcome change from the summer heat of the lowlands."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: dangerous. Tap 2 sentences with other words that end in -ous.",
+    "wrong": "This sentence has no -ous word. Look again."
+   },
+   "checks": [
+    {
+     "passage": "The firefighter was ___ during the rescue.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "couragous",
+      "courageous",
+      "couragious",
+      "curageous"
+     ],
+     "answer": 1,
+     "why": "**courage** keeps its **e** after the soft g: **courageous**."
+    },
+    {
+     "passage": "My uncle told a ___ story that made everyone laugh.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "humourous",
+      "humerous",
+      "humorous",
+      "humorus"
+     ],
+     "answer": 2,
+     "why": "**humour** drops the **u** before -ous: **humorous**."
+    },
+    {
+     "passage": "Grandma's date cake is ___.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "delicious",
+      "delishus",
+      "delitious",
+      "delicous"
+     ],
+     "answer": 0,
+     "why": "The shus sound here is spelled **-cious**: **delicious**."
+    }
+   ],
+   "again": {
+    "title": "Base word first",
+    "text": "Write the base word first. Then make the change it needs.",
+    "example": "glory → glor**i** + ous → **glorious**\nnerve → nerv + ous → **nervous**\nmountain → mountain + ous → **mountainous**"
+   }
+  }
+ }
+}

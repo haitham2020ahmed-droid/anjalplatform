@@ -13,6 +13,7 @@ import { ReportsTab } from "./reports-tab";
 import { OverviewView } from "./overview";
 import { PlanTab } from "./plan-tab";
 import { TestTab } from "./test-tab";
+import { YearTab } from "./year-tab";
 
 export const metadata = { title: "MAP" };
 
@@ -55,23 +56,25 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   // MAP reports belong to Reports and the MAP plan to Plans: their own title and way back, no MAP tabs
   const head = tab === "reports" ? { back: { href: "/teacher/reports", label: "Reports" }, title: one(sp.view) === "overview" ? "Grade and school overview" : "MAP Growth Report", subtitle: "Every student's RIT and who reached the expected growth." }
     : tab === "plan" ? { back: { href: "/teacher/plans", label: "Plans" }, title: TABS[2][1], subtitle: "Skills suggested from the lowest MAP sub-areas, for the class, a group or each student." }
+    : tab === "year" ? { back: { href: home, label: "Home" }, title: "MAP", subtitle: "Year plan: the skills your class shares, 2–3 a week over 40 weeks." }
     : { back: { href: home, label: "Home" }, title: "MAP", subtitle: tab === "test" ? "MAP-style tests for your classes: automatic (adapts like MAP Growth) or manual (your own items)." : "Your class's MAP scores, the score upload and the MAP Test." };
   const navLink = (on: boolean) => `inline-flex min-h-10 items-center rounded-lg px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   return (
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={head.back} title={head.title} print={tab !== "plan"} subtitle={t(head.subtitle)}
         filters={<div className="flex flex-col gap-3">
-          {(tab === "results" || tab === "test") && (
+          {(tab === "results" || tab === "test" || tab === "year") && (
             <nav aria-label={t("MAP")} className="flex flex-wrap gap-2">
               <Link href={`/teacher/map-center?${new URLSearchParams({ tab: "results", classId, subject })}`} aria-current={tab === "results" ? "page" : undefined} className={navLink(tab === "results")}>{t(TABS[0][1])}</Link>
               <Link href={`/teacher/map-center?${new URLSearchParams({ tab: "test", classId, subject })}`} aria-current={tab === "test" ? "page" : undefined} className={navLink(tab === "test")}>{t("MAP Test")}</Link>
+              <Link href={`/teacher/map-center?${new URLSearchParams({ tab: "year", classId, subject })}`} aria-current={tab === "year" ? "page" : undefined} className={navLink(tab === "year")}>🗓️ {t("Year plan")}</Link>
               <Link href={`/teacher/map-entry${classId ? `?classId=${classId}` : ""}`} className={navLink(false)}>{t("Upload MAP Scores")}</Link>
             </nav>
           )}
           {tab !== "plan" && classes.length > 0 && (
             <div className="flex flex-wrap items-center gap-2">
-              {tab === "results" && classes.length > 1 && classes.map((c) => <Link key={c.id} href={href({ classId: c.id })} aria-current={c.id === classId ? "page" : undefined} className={pill(c.id === classId)}>{c.name}</Link>)}
-              {tab === "results" && classes.length > 1 && <span aria-hidden="true" className="mx-1 h-6 w-px bg-slate-300" />}
+              {(tab === "results" || tab === "year") && classes.length > 1 && classes.map((c) => <Link key={c.id} href={href({ classId: c.id })} aria-current={c.id === classId ? "page" : undefined} className={pill(c.id === classId)}>{c.name}</Link>)}
+              {(tab === "results" || tab === "year") && classes.length > 1 && <span aria-hidden="true" className="mx-1 h-6 w-px bg-slate-300" />}
               <Link href={href({ subject: "READING" })} className={pill(subject === "READING")}>{t("Reading")}</Link>
               <Link href={href({ subject: "LANGUAGE" })} className={pill(subject === "LANGUAGE")}>{t("Language Usage")}</Link>
             </div>
@@ -80,6 +83,7 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
       {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{msg}</p>}
       {!classes.length ? <EmptyState icon="🗺️" title="No classes yet" text="When the admin adds you to a class, its MAP scores appear here." /> :
         tab === "results" ? <ResultsTab actor={actor} t={t} classId={classId} subject={subject} /> :
+        tab === "year" ? <YearTab actor={actor} t={t} classId={classId} /> :
         tab === "test" ? <TestTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} /> :
         tab === "reports" ? (one(sp.view) === "overview" ? <OverviewView actor={actor} t={t} subject={subject} term={one(sp.term) || undefined} classId={classId} /> : <ReportsTab actor={actor} t={t} classId={classId} subject={subject} />) :
         <PlanTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} />}

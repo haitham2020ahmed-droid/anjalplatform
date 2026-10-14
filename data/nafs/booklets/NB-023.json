@@ -1,0 +1,568 @@
+{
+  "code": "NB-023",
+  "title": "When the Moon Hides the Sun: Solar Eclipses",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 444,
+  "passage": "Imagine standing outside on a clear afternoon when, without warning, the daylight begins to fade. Birds fall silent, the air grows cooler, and within a few minutes the sky darkens as if night has arrived early. This astonishing event is a total solar eclipse, and it is one of the most spectacular sights in nature.\n\nA solar eclipse happens when the Moon passes directly between the Sun and the Earth, blocking the Sun's light and casting a shadow on our planet. This might seem impossible, because the Sun is about four hundred times wider than the Moon. However, the Sun is also about four hundred times farther away from us. Thanks to this remarkable coincidence, the two appear almost exactly the same size in our sky, so the Moon can cover the Sun's bright face perfectly.\n\nNot every eclipse is total. The Moon's orbit is not a perfect circle, so its distance from the Earth changes slightly. When an eclipse happens while the Moon is a little farther away, it looks too small to cover the Sun completely, and a brilliant ring of sunlight remains around its dark edge. Scientists call this an annular eclipse, and many people describe it as a \"ring of fire.\" On 26 December 2019, observers in the Eastern Province of Saudi Arabia enjoyed exactly this view.\n\nA total eclipse never lasts long. The darkest stage, called totality, usually continues for only two or three minutes, and it can never last longer than about seven and a half minutes. During those precious moments, observers can see the Sun's corona, a pale, glowing outer atmosphere that is normally hidden by the Sun's glare. Furthermore, totality is visible only along a narrow path on the Earth's surface, so many people travel great distances to stand inside it.\n\nWatching an eclipse safely is essential. Looking directly at the Sun, even when most of it is covered, can permanently damage the eyes. Observers must therefore use special eclipse glasses or project the Sun's image onto a sheet of paper through a tiny hole.\n\nLong ago, many people feared eclipses and believed that they announced disasters. When an eclipse occurred in Madinah on the day that Ibrahim, the young son of the Prophet Muhammad (peace be upon him), died, some people said that it had happened because of his death. The Prophet corrected them, teaching that the Sun and the Moon are two signs of Allah and do not darken for the death or birth of anyone. Instead, he encouraged people to pray. Today, scientists can predict eclipses many years ahead, and one total eclipse will cross parts of Saudi Arabia on 2 August 2027.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “permanently” as it is used in paragraph 5?",
+      "options": [
+        "briefly",
+        "forever",
+        "slightly",
+        "suddenly"
+      ],
+      "answer": "B",
+      "why": "Damage that is permanent lasts forever; “briefly” is nearly the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “visible” as it is used in paragraph 4?",
+      "options": [
+        "hidden",
+        "clear",
+        "bright",
+        "famous"
+      ],
+      "answer": "A",
+      "why": "“Visible” means able to be seen; “hidden” means unable to be seen. The same paragraph says the corona is “normally hidden”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 2: “Thanks to this remarkable coincidence, the two appear almost exactly the same size”. What does “coincidence” mean?",
+      "options": [
+        "a careful plan made by scientists",
+        "a kind of shadow on the Earth",
+        "a surprising match that happens by chance",
+        "a mistake in measuring a distance"
+      ],
+      "answer": "C",
+      "why": "Nobody planned that the Sun is both 400 times wider and 400 times farther away; it is a surprising match by chance."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a noun?",
+      "options": [
+        "pale",
+        "visible",
+        "usually",
+        "corona"
+      ],
+      "answer": "D",
+      "why": "“Corona” names a thing (the Sun's outer atmosphere); “pale” and “visible” are adjectives and “usually” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 5 is PLURAL?",
+      "options": [
+        "image",
+        "sheet",
+        "glasses",
+        "hole"
+      ],
+      "answer": "C",
+      "why": "“Glasses” (eclipse glasses) is a plural noun; the other nouns are singular (“the Sun's image”, “a sheet”, “a tiny hole”)."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “predict” in paragraph 6?",
+      "options": [
+        "prediction",
+        "pretend",
+        "precious",
+        "preserve"
+      ],
+      "answer": "A",
+      "why": "“Prediction” is the noun form of “predict”; the others only begin with pre-."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “spectacular” in a meaningful sentence of your own.",
+      "model": "The fireworks over the Corniche on National Day were so spectacular that the whole crowd cheered at once.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “spectacular” with its meaning (extremely impressive and exciting to see)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Spectacular” means extremely impressive to see."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “people” in paragraph 3 is plural. What is its usual singular form?",
+      "options": [
+        "peoples",
+        "person",
+        "peopler",
+        "persons"
+      ],
+      "answer": "B",
+      "why": "“People” is the irregular plural of “person”; “persons” and “peoples” are plurals, not singular forms."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence turns the advice in paragraph 5 into a COMMAND?",
+      "options": [
+        "Looking at the Sun can damage the eyes.",
+        "Is it safe to look directly at the Sun?",
+        "What a danger the Sun can be to our eyes!",
+        "Never look directly at the Sun."
+      ],
+      "answer": "D",
+      "why": "A command tells someone what to do or not to do; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Night That Never Ended",
+        "When the Moon Hides the Sun",
+        "How the Sun Was Formed",
+        "A Journey to the Moon"
+      ],
+      "answer": "B",
+      "why": "The text explains eclipses, when the Moon blocks the Sun; the other titles do not match its topic."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to become astronomers",
+        "to tell a frightening story from long ago",
+        "to explain solar eclipses and how to watch them safely",
+        "to describe the weather of the Eastern Province"
+      ],
+      "answer": "C",
+      "why": "The text explains what eclipses are, their types, how to watch them safely and how they were once misunderstood."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "The Moon can cover the Sun because their sizes and distances match.",
+        "The Moon is actually much larger than the Sun but farther away.",
+        "The Sun is close enough to touch the Moon.",
+        "The Earth casts its shadow on the Sun."
+      ],
+      "answer": "A",
+      "why": "The Sun is 400 times wider but also 400 times farther away, so the two look the same size and the Moon can cover the Sun."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why does a ring of sunlight remain during an annular eclipse?",
+      "options": [
+        "The Sun becomes larger during that season.",
+        "Clouds block the centre of the Sun.",
+        "The Earth's shadow falls on the Moon.",
+        "The Moon is farther away and looks too small."
+      ],
+      "answer": "D",
+      "why": "When the Moon is a little farther away, “it looks too small to cover the Sun completely.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "an informational text",
+        "a fairy tale",
+        "a personal letter",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It explains real scientific facts and historical events about eclipses."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why do many people travel great distances to see a total eclipse?",
+      "options": [
+        "Eclipses happen only in other countries.",
+        "Totality can be seen only along a narrow path.",
+        "Special glasses are sold only in certain cities.",
+        "The corona can be seen only from mountains."
+      ],
+      "answer": "B",
+      "why": "“totality is visible only along a narrow path on the Earth's surface, so many people travel great distances to stand inside it.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which topic does the writer discuss immediately AFTER explaining annular eclipses?",
+      "options": [
+        "how people long ago reacted to eclipses",
+        "why the Moon can cover the Sun",
+        "how long totality lasts and what can be seen",
+        "how to watch an eclipse safely"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4, which follows the paragraph on annular eclipses, describes how long totality lasts and the corona."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "When can observers see the Sun's corona?",
+      "options": [
+        "at every sunrise and sunset",
+        "whenever the Moon is full",
+        "during an annular eclipse only",
+        "during the short stage of totality"
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: during totality, “observers can see the Sun's corona … that is normally hidden by the Sun's glare.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, what did the Prophet do when people linked the eclipse to Ibrahim's death?",
+      "options": [
+        "He corrected them and encouraged people to pray.",
+        "He agreed that the eclipse was a sign of disaster.",
+        "He asked scientists to predict the next eclipse.",
+        "He told everyone to stay inside their homes."
+      ],
+      "answer": "A",
+      "why": "“The Prophet corrected them … Instead, he encouraged people to pray.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What causes a solar eclipse?",
+      "options": [
+        "The Earth passes between the Sun and the Moon.",
+        "The Moon passes directly between the Sun and the Earth.",
+        "The Sun moves behind a large cloud of dust.",
+        "The Moon grows larger and hotter."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2: a solar eclipse happens “when the Moon passes directly between the Sun and the Earth.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, why did many people long ago fear eclipses?",
+      "options": [
+        "They could not see the Moon at night.",
+        "Eclipses always damaged their crops.",
+        "They believed eclipses announced disasters.",
+        "Scientists had warned them about the corona."
+      ],
+      "answer": "C",
+      "why": "“Long ago, many people feared eclipses and believed that they announced disasters.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with “Imagine standing outside on a clear afternoon”?",
+      "options": [
+        "to explain how to find a good place to stand",
+        "to describe the weather in Madinah long ago",
+        "to give the exact time of the next eclipse",
+        "to let readers feel the surprise of an eclipse"
+      ],
+      "answer": "D",
+      "why": "Asking readers to imagine the fading light, silent birds and cool air helps them experience the event's surprise."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is an annular eclipse different from a total eclipse?",
+      "options": [
+        "A ring of sunlight stays visible around the Moon.",
+        "The Earth, not the Moon, blocks the Sun.",
+        "It lasts for several hours instead of minutes.",
+        "It is safe to look at with no protection."
+      ],
+      "answer": "A",
+      "why": "In an annular eclipse the Moon looks too small, so “a brilliant ring of sunlight remains around its dark edge.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of looking directly at the Sun during an eclipse?",
+      "options": [
+        "It helps the eyes adjust to the darkness.",
+        "It can permanently damage the eyes.",
+        "It makes the corona appear brighter.",
+        "It causes the eclipse to end more quickly."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: looking directly at the Sun “can permanently damage the eyes.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the Prophet's teaching and modern science have in common, according to the text?",
+      "options": [
+        "Both say that eclipses should be feared as warnings of disaster.",
+        "Both say that eclipses happen once in a lifetime.",
+        "Both reject the idea that eclipses are caused by people's deaths.",
+        "Both say that the corona is visible every day."
+      ],
+      "answer": "C",
+      "why": "The Prophet taught that the Sun and Moon do not darken for anyone's death, and science explains eclipses as natural events that can be predicted."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the expression “ring of fire” describe?",
+      "options": [
+        "the bright ring of sunlight around the Moon",
+        "a fire lit by observers during an eclipse",
+        "the heat that people feel during totality",
+        "the red colour of the Moon at night"
+      ],
+      "answer": "A",
+      "why": "It describes the brilliant ring of sunlight left around the dark Moon during an annular eclipse; it is not real fire."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer mention the eclipses of 26 December 2019 and 2 August 2027?",
+      "options": [
+        "to prove that eclipses happen every year in the same place",
+        "to connect the topic to readers' own country",
+        "to show that eclipses are becoming more dangerous",
+        "to explain how the Moon's orbit was discovered"
+      ],
+      "answer": "B",
+      "why": "Both dates link eclipses to Saudi Arabia, making the topic closer to readers' lives."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text expresses the writer's OPINION?",
+      "options": [
+        "The Moon's orbit is not a perfect circle.",
+        "A total eclipse never lasts long.",
+        "Observers must use special eclipse glasses.",
+        "It is one of the most spectacular sights in nature."
+      ],
+      "answer": "D",
+      "why": "Calling an eclipse “one of the most spectacular sights” is a personal judgement; the other sentences give facts or rules."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which piece of advice in the text is the MOST important for someone watching an eclipse?",
+      "options": [
+        "Travel to the Eastern Province to watch it.",
+        "Watch only during the two minutes of totality.",
+        "Use eclipse glasses or a pinhole to protect the eyes.",
+        "Look at the Sun when most of it is covered."
+      ],
+      "answer": "C",
+      "why": "Eye damage can be permanent, so protecting the eyes is most important; the last option is exactly what the text warns against."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best describes the writer's view of eclipses?",
+      "options": [
+        "They are warnings that should frighten people.",
+        "They are too rare to be worth studying.",
+        "They are less impressive than people say.",
+        "They are natural events to understand, not fear."
+      ],
+      "answer": "D",
+      "why": "The writer explains eclipses scientifically and shows how old fears were corrected."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text as a whole?",
+      "options": [
+        "wonder",
+        "anger",
+        "sadness",
+        "boredom"
+      ],
+      "answer": "A",
+      "why": "Words such as “astonishing” and “spectacular” and the description of the corona create a sense of wonder."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what causes a solar eclipse",
+        "how scientists predict eclipses years ahead",
+        "what the corona is and when it can be seen",
+        "how long totality can last"
+      ],
+      "answer": "B",
+      "why": "The text says scientists can predict eclipses but never explains how; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The Moon covers the Sun completely for an entire day and night.",
+        "A total eclipse is seen at night under the stars.",
+        "A family in Saudi Arabia watches the 2027 eclipse through eclipse glasses.",
+        "The Sun shrinks until it is smaller than the Moon."
+      ],
+      "answer": "C",
+      "why": "The text says a total eclipse will cross parts of Saudi Arabia in 2027; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "Two Signs in the Sky: Understanding Eclipses",
+        "The Day the Sun Disappeared Forever",
+        "The Moon's Long Holiday",
+        "How to Build a Telescope"
+      ],
+      "answer": "A",
+      "why": "The title reflects both the science of eclipses and the teaching that the Sun and Moon are two signs."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences that end it with advice for a family planning to watch the eclipse of 2 August 2027.",
+      "model": "A family planning to watch the eclipse should first find out whether their city lies inside the narrow path of totality. They should buy proper eclipse glasses early or make a simple pinhole viewer, and never look straight at the Sun. When totality arrives, they can enjoy the corona and remember that the eclipse is one of Allah's signs.",
+      "rubric": [
+        "2 = a clear new ending that gives sensible advice based on the text (narrow path, safe viewing, totality, etc.)",
+        "1 = an ending is given but the advice is unclear, unsafe or not linked to the text",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that gives safe, accurate advice drawn from the text is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A student wants to watch the next eclipse but has no eclipse glasses. Based on the text, what should he do?",
+      "options": [
+        "Look at the Sun through a pair of ordinary sunglasses.",
+        "Look quickly when most of the Sun is covered.",
+        "Stare at the Sun only for a few seconds.",
+        "Project the Sun's image onto paper through a tiny hole."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 names projecting the Sun's image through a tiny hole as a safe method; the other options mean looking at the Sun, which can damage the eyes."
+    }
+  ]
+}

@@ -277,8 +277,18 @@ function passageOf(p: Row): NonNullable<NafsQuestion["passage"]> {
 // ------------------------------------------------------------------ the Question bank tab
 
 export type BankSource = "ALL" | "PLATFORM" | "OWN" | "DRAFT" | "HIDDEN";
-export interface BankFilter { domain?: string | null; code?: string | null; source?: BankSource | null; passage?: "WITH" | "WITHOUT" | null; q?: string | null; page?: number; standard?: string | null; kind?: NafsKind | null; difficulty?: number | string | null }
-export interface BankRow { id: string; stem: string; nafsCode: string; skill: string; process: NafsProcess; own: boolean; hidden: boolean; draft: boolean; copy: boolean; passageTitle: string | null; hasPassage: boolean; standard: string | null; kind: NafsKind; booklet: string | null; practiceSet: string | null; difficulty: Difficulty }
+export interface BankFilter {
+  domain?: string | null; code?: string | null; source?: BankSource | null; passage?: "WITH" | "WITHOUT" | null; q?: string | null; page?: number; standard?: string | null; kind?: NafsKind | null; difficulty?: number | string | null;
+  /** any of these NAFS skills / Ministry standards (the checklists' "questions behind the selection") */
+  targets?: string[] | null;
+  /** one model booklet (NB-…) or practice set (NP-…) */
+  set?: string | null;
+  /** rows per page (default BANK_PAGE, at most 50) */
+  size?: number | null;
+}
+export interface BankRow { id: string; stem: string; nafsCode: string; skill: string; process: NafsProcess; own: boolean; hidden: boolean; draft: boolean; copy: boolean; passageTitle: string | null; hasPassage: boolean; standard: string | null; kind: NafsKind; booklet: string | null; practiceSet: string | null; difficulty: Difficulty;
+  /** the options A–D (empty for a short written answer) and the key — for the preview */
+  options: string[]; correct: number }
 export interface BankPage { rows: BankRow[]; total: number; page: number; pages: number }
 
 export async function nafsBankPage(repo: Repo, actor: Actor, f: BankFilter = {}): Promise<BankPage> {
@@ -292,6 +302,10 @@ export async function nafsBankPage(repo: Repo, actor: Actor, f: BankFilter = {})
   if (f.passage === "WITH") list = list.filter((e) => e.passageId); else if (f.passage === "WITHOUT") list = list.filter((e) => !e.passageId);
   if (f.standard === "NONE") list = list.filter((e) => !e.standard); else if (isMoeCode(f.standard)) list = list.filter((e) => e.standard === f.standard);
   if (f.kind === "MCQ" || f.kind === "WRITTEN") list = list.filter((e) => e.kind === f.kind);
+  const targets = (Array.isArray(f.targets) ? f.targets : []).map(s).filter(isTargetCode);
+  if (targets.length) list = list.filter((e) => targets.some((t) => matchesTarget(e, t)));
+  const set = s(f.set).trim();
+  if (/^N[BP]-[A-Za-z0-9-]{1,12}$/.test(set)) list = list.filter((e) => e.booklet === set || e.practiceSet === set);
   const dif = Number(f.difficulty);
   if (isDifficulty(dif)) list = list.filter((e) => e.difficulty === dif);
   const q = s(f.q).trim().slice(0, 80);
@@ -303,15 +317,16 @@ export async function nafsBankPage(repo: Repo, actor: Actor, f: BankFilter = {})
   // own questions first, then by skill
   const order = new Map(NAFS_SKILLS.map((k, i) => [k.code, i]));
   list = [...list].sort((a, b) => Number(b.own) - Number(a.own) || (order.get(a.nafsCode) ?? 0) - (order.get(b.nafsCode) ?? 0) || a.id.localeCompare(b.id));
-  const pages = Math.max(1, Math.ceil(list.length / BANK_PAGE));
+  const size = Math.max(5, Math.min(50, Math.floor(Number(f.size) || BANK_PAGE)));
+  const pages = Math.max(1, Math.ceil(list.length / size));
   const page = Math.min(pages, Math.max(1, Math.floor(Number(f.page) || 1)));
-  const slice = list.slice((page - 1) * BANK_PAGE, page * BANK_PAGE);
+  const slice = list.slice((page - 1) * size, page * size);
   const qs = await loadNafsQuestions(repo, slice.map((e) => e.id));
   return {
     total: list.length, page, pages,
     rows: slice.map((e) => {
       const x = qs.find((y) => y.id === e.id);
-      return { id: e.id, stem: s(x?.stem).slice(0, 220), nafsCode: e.nafsCode, skill: SKILL_BY_CODE.get(e.nafsCode)?.name ?? "", process: e.process, own: e.own, hidden: e.hidden, draft: e.draft, copy: Boolean(e.copyOfId), passageTitle: x?.passage ? x.passage.title || null : null, hasPassage: Boolean(e.passageId), standard: e.standard, kind: e.kind, booklet: e.booklet, practiceSet: e.practiceSet, difficulty: e.difficulty };
+      return { id: e.id, stem: s(x?.stem).slice(0, 220), nafsCode: e.nafsCode, skill: SKILL_BY_CODE.get(e.nafsCode)?.name ?? "", process: e.process, own: e.own, hidden: e.hidden, draft: e.draft, copy: Boolean(e.copyOfId), passageTitle: x?.passage ? x.passage.title || null : null, hasPassage: Boolean(e.passageId), standard: e.standard, kind: e.kind, booklet: e.booklet, practiceSet: e.practiceSet, difficulty: e.difficulty, options: x?.options ?? [], correct: x?.correct ?? -1 };
     }),
   };
 }

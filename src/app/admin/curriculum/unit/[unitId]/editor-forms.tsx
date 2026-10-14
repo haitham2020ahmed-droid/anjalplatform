@@ -1,6 +1,7 @@
 "use client";
 import { useActionState } from "react";
 import { addLessonAction, linkSkillAction, renameUnitAction } from "../../actions";
+import { Combo } from "@/components/ui/combo";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 const btn = "rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-60";
@@ -38,10 +39,7 @@ export function LinkSkillForm({ unitId, lessonId, pool }: { unitId: string; less
       <input type="hidden" name="unitId" value={unitId} />
       <input type="hidden" name="lessonId" value={lessonId} />
       <label className="block text-sm font-medium">Add a skill
-        <select name="skillId" className={input} required defaultValue="">
-          <option value="" disabled>Choose a skill</option>
-          {pool.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}
-        </select>
+        <Combo name="skillId" required label="Choose a skill" options={pool.map((k) => ({ value: k.id, label: k.name }))} placeholder="Choose a skill" className="min-w-64" />
       </label>
       <label className="block text-sm font-medium">Taught as
         <select name="role" className={input} defaultValue="COMPREHENSION_SKILL">

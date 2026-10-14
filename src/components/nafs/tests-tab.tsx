@@ -3,34 +3,35 @@ import type { TFn } from "@/i18n";
 import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { listNafsTests, MODE_NAME } from "@/server/nafs/tests";
-import { FullTestTile } from "./home-tab";
+import { builderHref } from "@/server/nafs/center";
+import { STARTS } from "./builder-starts";
 
-const NEW: { mode: string; icon: string; title: string; text: string }[] = [
-  { mode: "SIMULATION", icon: "🎯", title: "NAFS simulation", text: "20 questions, 35 minutes, 2–3 passages, the PIRLS mix. Change any number and any question." },
-  { mode: "MINISTRY", icon: "📘", title: "Ministry booklet model", text: "Questions grouped by the 13 Ministry standards (3 each, 1 for S11 and S12), or a whole model booklet." },
-  { mode: "AUTO", icon: "⚡", title: "Automatic", text: "Choose NAFS skills and the number of questions; the platform builds it, you change it." },
-  { mode: "MANUAL", icon: "✋", title: "Manual", text: "Pick the questions one by one from the NAFS bank." },
-  { mode: "AI", icon: "✨", title: "Generate new questions with AI", text: "Drafts of new questions for chosen skills, for you to review before use." },
-];
-
-/** 🇸🇦 Tests: the school's NAFS tests and the four ways to make a new one. */
+/**
+ * 🇸🇦 Tests: ONE way to make a NAFS test — the builder, started from a model booklet, all 13 standards, or standards /
+ * skills the teacher chooses (then the same options and the same question list for every start) — and the school's
+ * NAFS tests. Bubble sheets and typed answers live under Marking; results under Reports.
+ */
 export async function TestsTab({ actor, t }: { actor: Actor; t: TFn }) {
   const tests = await listNafsTests(repo, actor);
   return (
     <div className="grid gap-4">
-      <FullTestTile t={t} />
-      <p className="text-sm text-ink-2">{t("Every test is made from ALL the NAFS questions gathered here (platform questions, model booklets and your school's own). You set the number of questions and the time in every mode.")}</p>
-      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-        {NEW.map((x) => (
-          <Link key={x.mode} href={`/teacher/nafs/tests/new?mode=${x.mode}`} className="lift rounded-2xl bg-surface p-4 shadow-card ring-1 ring-line">
-            <p className="font-semibold text-ink"><span aria-hidden="true">{x.icon} </span>{t(x.title)}</p>
-            <p className="mt-1 text-sm text-ink-2">{t(x.text)}</p>
-          </Link>
-        ))}
+      <section className="rounded-2xl bg-surface p-5 shadow-card ring-2 ring-teal-200" aria-labelledby="new-h">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 id="new-h" className="text-lg font-semibold text-ink">📝 {t("New NAFS test")}</h2>
+          <p className="text-sm text-ink-2">{t("Start from one of these; then set the questions, the time, the difficulty and test or practice.")}</p>
+        </div>
+        <div className="mt-3 grid gap-3 md:grid-cols-3">
+          {STARTS.map((x) => (
+            <Link key={x.key} href={builderHref({ start: x.key })} className="lift rounded-2xl bg-surface-2 p-4 ring-1 ring-line hover:ring-teal-300">
+              <p className="font-semibold text-ink"><span aria-hidden="true">{x.icon} </span>{t(x.title)}</p>
+              <p className="mt-1 text-sm text-ink-2">{t(x.text)}</p>
+            </Link>
+          ))}
+        </div>
       </section>
       <section className="rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line">
         <h2 className="text-lg font-semibold text-ink">{t("NAFS tests")}</h2>
-        {!tests.length ? <p className="mt-3 rounded-xl bg-surface-2 p-4 text-center text-sm text-muted">{t("No NAFS tests yet. Start with a NAFS simulation.")}</p> : (
+        {!tests.length ? <p className="mt-3 rounded-xl bg-surface-2 p-4 text-center text-sm text-muted">{t("No NAFS tests yet. Start with a model booklet or all 13 standards.")}</p> : (
           <ul className="mt-2 divide-y divide-line">
             {tests.map((x) => (
               <li key={x.id} className="flex flex-wrap items-center justify-between gap-3 py-3">

@@ -103,6 +103,24 @@ async function rowsFor(repo: Repo, ids: string[], grade: number, subject: Subjec
 
 const avg = (xs: number[]) => (xs.length ? Math.round(xs.reduce((t, x) => t + x, 0) / xs.length) : null);
 
+/** classId → its teachers' names ("A, B"), three reads for any number of classes. */
+async function teacherNamesOf(repo: Repo, classIds: string[]): Promise<Map<string, string>> {
+  const out = new Map<string, string>();
+  if (!classIds.length) return out;
+  const links = await repo.findMany("ClassTeacher", { classId: { in: classIds } }, { select: ["classId", "teacherId"] });
+  const teachers = links.length ? await repo.findMany("Teacher", { id: { in: [...new Set(links.map((l) => s(l.teacherId)))] } }, { select: ["id", "userId"] }) : [];
+  const users = teachers.length ? await repo.findMany("User", { id: { in: teachers.map((t) => s(t.userId)) } }, { select: ["id", "displayName"] }) : [];
+  const nameOfUser = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
+  const nameOfTeacher = new Map(teachers.map((t) => [s(t.id), nameOfUser.get(s(t.userId)) ?? ""]));
+  for (const l of links) {
+    const n = nameOfTeacher.get(s(l.teacherId));
+    if (!n) continue;
+    const k = s(l.classId), was = out.get(k);
+    out.set(k, was ? `${was}, ${n}` : n);
+  }
+  return out;
+}
+
 export async function classProgress(repo: Repo, actor: Actor, classId: string, subject: Subject = "READING", now = new Date()): Promise<ClassProgress> {
   assertCan(actor, "reports:read");
   const klass = await assertClassRead(repo, actor, classId);
@@ -253,23 +271,35 @@ export async function gradeSummary(repo: Repo, actor: Actor, subject: Subject = 
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN" && actor.role !== "TEACHER") throw new ForbiddenError();
   const grades = await coordinatorGrades(repo, actor);
   if (!grades.length) throw new ForbiddenError("The grade summary is for admins and grade coordinators.");
-  const gradeRows = (await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => grades.includes(Number(g.level)));
-  const out: GradeSummary[] = [];
+  const gradeRows = (await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] })).filter((g) => grades.includes(Number(g.level))).sort((a, b) => Number(a.level) - Number(b.level));
   const week = now.getTime() - 7 * 86_400_000;
-  for (const g of gradeRows.sort((a, b) => Number(a.level) - Number(b.level))) {
-    const classes = (await repo.findMany("Class", { schoolId: actor.schoolId, gradeId: g.id, deletedAt: null })).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  // ⚡ Update 57: the classes, their students and their teachers in a few reads for every grade at once, then each
+  // grade's students in one batch (rowsFor) — side by side (before: 6 reads one after another for every class)
+  const classesAll = gradeRows.length ? await repo.findMany("Class", { schoolId: actor.schoolId, gradeId: { in: gradeRows.map((g) => g.id) }, deletedAt: null }, { select: ["id", "name", "gradeId"] }) : [];
+  const classIds = classesAll.map((c) => s(c.id));
+  const [members, teacherOf] = await Promise.all([
+    classIds.length ? repo.findMany("ClassMembership", { classId: { in: classIds }, leftAt: null }, { select: ["classId", "studentId"] }) : Promise.resolve([] as Row[]),
+    teacherNamesOf(repo, classIds),
+  ]);
+  const membersOf = new Map<string, string[]>();
+  for (const m of members) { const k = s(m.classId); const l = membersOf.get(k); if (l) l.push(s(m.studentId)); else membersOf.set(k, [s(m.studentId)]); }
+  const perGrade = await Promise.all(gradeRows.map((g) => {
+    const ids = [...new Set(classesAll.filter((c) => s(c.gradeId) === s(g.id)).flatMap((c) => membersOf.get(s(c.id)) ?? []))];
+    return rowsFor(repo, ids, Number(g.level), subject, actor.schoolId, now);
+  }));
+  const out: GradeSummary[] = [];
+  for (const [gi, g] of gradeRows.entries()) {
+    const classes = classesAll.filter((c) => s(c.gradeId) === s(g.id)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+    const byId = new Map(perGrade[gi].map((r) => [r.studentId, r]));
     const list: GradeSummary["classes"] = [];
     for (const c of classes) {
-      const ids = await classMembers(repo, s(c.id));
-      const rows = await rowsFor(repo, ids, Number(g.level), subject, actor.schoolId, now);
-      const links = await repo.findMany("ClassTeacher", { classId: c.id });
-      const teachers = links.length ? await repo.findMany("Teacher", { id: { in: links.map((l) => l.teacherId) } }, { select: ["userId"] }) : [];
-      const users = teachers.length ? await repo.findMany("User", { id: { in: teachers.map((t) => t.userId) } }, { select: ["displayName"] }) : [];
+      const ids = membersOf.get(s(c.id)) ?? [];
+      const rows = ids.map((id) => byId.get(id)!).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
       const answers = rows.reduce((t, r) => t + r.practice.answers, 0), correct = rows.reduce((t, r) => t + r.practice.correct, 0);
       const levels: Record<Level | "NONE", number> = { BELOW: 0, ON: 0, ABOVE: 0, NONE: 0 };
       for (const r of rows) levels[r.level ?? "NONE"]++;
       list.push({
-        classId: s(c.id), className: s(c.name), teacher: users.map((u) => s(u.displayName)).join(", ") || "—", students: rows.length, tested: rows.filter((r) => r.map).length,
+        classId: s(c.id), className: s(c.name), teacher: teacherOf.get(s(c.id)) || "—", students: rows.length, tested: rows.filter((r) => r.map).length,
         avgFall: avg(rows.filter((r) => r.map?.fall).map((r) => r.map!.fall!.rit)), avgTarget: avg(rows.filter((r) => r.map?.springTarget).map((r) => r.map!.springTarget!)),
         onTrack: rows.filter((r) => r.status === "ON_TRACK" || r.status === "MET").length, atRisk: rows.filter((r) => r.status === "AT_RISK" || r.status === "MISSED").length,
         activeWeek: rows.filter((r) => r.practice.lastActive && time(r.practice.lastActive) >= week).length, accuracy: answers ? Math.round((correct / answers) * 100) : null,

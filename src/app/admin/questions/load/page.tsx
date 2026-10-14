@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { explainLoadError, loadStatus, type LoadStatus } from "@/server/admin/load-questions";
 import { LoadRunner, type RunnerPack } from "./load-runner";
+import { LineIcon } from "@/components/ui/line-icon";
 
 export const metadata = { title: "Load new questions" };
 
@@ -29,9 +30,9 @@ export default async function LoadQuestionsPage() {
   }));
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin/questions", label: "Questions" }} icon="⬇️" title="Load new questions"
+      <PageHeader back={{ href: "/admin/questions", label: "Questions" }} icon="download" title="Load new questions"
         subtitle="The platform's new question sets, loaded here instead of from a terminal. Questions already in the bank are skipped, so Load is safe to press again. At the end the Question Check hides any question with a definite error from students.">
-        <Link href="/admin/item-quality" prefetch={false} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🔬 {t("Question Check")}</Link>
+        <Link href="/admin/item-quality" prefetch={false} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="search" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Question Check")}</Link>
       </PageHeader>
       <BankTabs />
       {failed ? <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-900 ring-1 ring-red-200" dir="auto">{failed}</p>

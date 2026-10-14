@@ -795,7 +795,14 @@
     "name": "Amigo Brothers",
     "genre": "Realistic Fiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "affect",
+     "bout",
+     "clarify",
+     "emerge",
+     "improvise",
+     "pensively"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Determine Theme",
@@ -808,7 +815,14 @@
     "name": "Never Too Young to Change the World",
     "genre": "Biography",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "demonstrate",
+     "pose",
+     "reject",
+     "relieve",
+     "supervision",
+     "unique"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Central Idea",
@@ -821,7 +835,13 @@
     "name": "Cocoon",
     "genre": "Fiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "chrysalis",
+     "compulsion",
+     "contrary",
+     "crave",
+     "thrill"
+    ],
     "vocabularySkill": "Multiple Meaning Words",
     "readingSkills": [
      "Word Choice and Tone",
@@ -834,7 +854,15 @@
     "name": "My Mother Pieced Quilts",
     "genre": "Poetry",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "artillery",
+     "frayed",
+     "oblong",
+     "plunge",
+     "ripen",
+     "somber",
+     "taut"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Author’s Style",
@@ -847,7 +875,14 @@
     "name": "The Circuit",
     "genre": "Realistic Fiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "acquire",
+     "circuit",
+     "detect",
+     "foreman",
+     "hesitantly",
+     "savor"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Elements of a Short Story: Plot",
@@ -861,7 +896,14 @@
     "name": "Personal Statement: Individual Twin",
     "genre": "Personal Narrative",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "attribute",
+     "diverge",
+     "merit",
+     "subvert",
+     "sundry",
+     "vehemently"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Author’s Point of View",
@@ -874,7 +916,13 @@
     "name": "Everybody Jump",
     "genre": "Informational Text",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "capacity",
+     "coalesce",
+     "compatible",
+     "rigid",
+     "scenario"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Central Idea",
@@ -887,7 +935,14 @@
     "name": "Bullying in Schools",
     "genre": "Informational Text",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "civility",
+     "perceive",
+     "persist",
+     "repercussion",
+     "severe",
+     "tolerance"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Part-Whole Relationship",
@@ -902,7 +957,13 @@
     "name": "I Am Malala",
     "genre": "Memoir / Autobiography",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "flogging",
+     "heritage",
+     "represent",
+     "siege",
+     "westernize"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Author’s Purpose and Point of View",
@@ -915,7 +976,13 @@
     "name": "All Summer in a Day",
     "genre": "Science Fiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "consequence",
+     "immense",
+     "resilient",
+     "savagely",
+     "vital"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Point of View and Theme",
@@ -928,7 +995,13 @@
     "name": "Celebrities as Heroes",
     "genre": "Informational Text",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "civil",
+     "conservation",
+     "indulge",
+     "influence",
+     "notoriety"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Claim and Evidence",
@@ -941,7 +1014,12 @@
     "name": "Famous",
     "genre": "Poetry",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "bosom",
+     "briefly",
+     "inherit",
+     "spectacular"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Poetic Structure",
@@ -967,7 +1045,13 @@
     "name": "Mandatory Volunteer Work for Teenagers",
     "genre": "Argumentative Text",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "mandatory",
+     "propensity",
+     "extracurricular",
+     "allocate",
+     "grudgingly"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Compare and Contrast",
@@ -981,7 +1065,13 @@
     "name": "The Treasure of Lemon Brown",
     "genre": "Short Story",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "stoop",
+     "impromptu",
+     "tentatively",
+     "involuntary",
+     "commence"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Story Structure",
@@ -995,7 +1085,13 @@
     "name": "The Day I Saved a Life",
     "genre": "Personal Narrative",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "ecstatic",
+     "keystone",
+     "conceded",
+     "vivisection",
+     "lobbying"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Textual Evidence",
@@ -1009,7 +1105,13 @@
     "name": "Warriors Don’t Cry",
     "genre": "Memoir",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "bayonet",
+     "distraught",
+     "eerie",
+     "imposing",
+     "integration"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Context Clues and Impact",
@@ -1023,7 +1125,13 @@
     "name": "The Story of My Life",
     "genre": "Autobiography",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "groped",
+     "reveal",
+     "institution",
+     "confounding",
+     "sentiment"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Textual Evidence",
@@ -1037,7 +1145,13 @@
     "name": "Listen, Slowly",
     "genre": "Fiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "anoint",
+     "meticulously",
+     "pungent",
+     "react",
+     "vow"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Tone",
@@ -1051,7 +1165,14 @@
     "name": "The Miracle Worker",
     "genre": "Drama",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "bound",
+     "contemplate",
+     "deliberately",
+     "incline",
+     "retrieve",
+     "vigorously"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Dramatic Elements and Structure",
@@ -1065,7 +1186,14 @@
     "name": "Letter to His Daughter",
     "genre": "Letter / Nonfiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "conquer",
+     "crinkly",
+     "desert",
+     "master",
+     "merit",
+     "pine"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Figurative Language",
@@ -1078,7 +1206,13 @@
     "name": "I Never Had It Made: An Autobiography of Jackie Robinson",
     "genre": "Autobiography",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "bigoted",
+     "bond",
+     "coincide",
+     "hostile",
+     "participate"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Main Idea",
@@ -1092,7 +1226,13 @@
     "name": "Elena",
     "genre": "Fiction",
     "textIdea": null,
-    "vocabulary": [],
+    "vocabulary": [
+     "plots",
+     "frowned",
+     "embarrassed",
+     "mispronouncing",
+     "deaf"
+    ],
     "vocabularySkill": null,
     "readingSkills": [
      "Story Structure",

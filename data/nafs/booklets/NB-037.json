@@ -1,0 +1,568 @@
+{
+  "code": "NB-037",
+  "title": "The Incense Road: Arabia's Ancient Highway",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 466,
+  "passage": "Long before oil wells and highways crossed the Arabian Peninsula, one of the most precious goods in the ancient world was a pale, fragrant resin. It seeped from the bark of small, twisted trees. Frankincense came from Boswellia trees, which grow in the dry hills of southern Arabia, in lands that now belong to Oman and Yemen. They also grow across the sea in the Horn of Africa. Harvesters cut the bark carefully so that a milky sap leaked out. After several weeks, the sap hardened into droplets, sometimes called \"tears,\" that could be scraped off and packed. Because frankincense gave off a sweet, smoky perfume when it was burned, it was used in temples, palaces and homes, and doctors also valued it as a medicine.\n\nDemand for frankincense, and for a similar resin called myrrh, was enormous in Egypt and Mesopotamia and, later, in Greece and Rome. However, the trees grew only in a narrow region, so the resin had to travel thousands of kilometres to reach its buyers. The solution was a network of desert tracks that historians now call the Incense Road. Merchants loaded their goods onto camels, which could survive for days between distant wells, and then they led long caravans north along the western side of the peninsula.\n\nThe journey from the southern hills to the ports of the Mediterranean could take around two months. Caravans moved from one oasis to the next. They stopped at towns such as Najran in the south and Dedan and Hegra in the north-west, near present-day AlUla, before going on to Petra in modern Jordan and finally to Gaza. Every stop offered water, food and rest, but it also demanded payment. Local rulers charged taxes in exchange for protecting the travellers. Consequently, the price of frankincense rose at every step, and the towns along the route grew remarkably prosperous.\n\nOne of the most impressive of these towns was Qaryat al-Faw, a caravan city on the edge of the Empty Quarter. In the 1970s, archaeologists from King Saud University began to dig at the site. They uncovered a market, houses, temples, painted walls, coins and inscriptions, which together revealed a busy, well-organised community. In 2024, the site was added to the UNESCO World Heritage List, so that its story could be protected for future generations.\n\nEventually, the Incense Road lost its importance. Sailors learned to use the seasonal monsoon winds to carry goods across the Indian Ocean and up the Red Sea. Because ships could carry heavier loads more cheaply than camels, many merchants abandoned the long desert route. Nevertheless, the road had already changed Arabia for ever. It had linked distant peoples, spread new ideas and styles of writing, and turned quiet oases into wealthy cities. It proved that trade carries far more than goods.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “prosperous” as it is used in paragraph 3?",
+      "options": [
+        "wealthy",
+        "crowded",
+        "peaceful",
+        "ancient"
+      ],
+      "answer": "A",
+      "why": "The towns grew prosperous because they collected taxes and sold supplies, so “prosperous” means wealthy and successful."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is the OPPOSITE of “abandoned” as it is used in paragraph 5?",
+      "options": [
+        "deserted completely",
+        "continued to use",
+        "travelled quickly along",
+        "were afraid of"
+      ],
+      "answer": "B",
+      "why": "Merchants “abandoned” (stopped using and left) the desert route; the opposite is to continue to use it. “Deserted completely” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 1: “It seeped from the bark of small, twisted trees.” What does “seeped” mean?",
+      "options": [
+        "burst out with great force",
+        "dried up and fell away",
+        "was cut away with a knife",
+        "flowed out slowly in small amounts"
+      ],
+      "answer": "D",
+      "why": "The resin is a sap that “leaked out” slowly through cuts in the bark, so “seeped” means flowed out slowly."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a VERB?",
+      "options": [
+        "payment",
+        "prosperous",
+        "demanded",
+        "remarkably"
+      ],
+      "answer": "C",
+      "why": "“Demanded” is an action (every stop demanded payment); “payment” is a noun, “prosperous” an adjective and “remarkably” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 5 says the road turned “quiet oases into wealthy cities”. What is the singular form of “oases”?",
+      "options": [
+        "oase",
+        "oasis",
+        "oasi",
+        "oasises"
+      ],
+      "answer": "B",
+      "why": "“Oasis” has an irregular plural: the ending -is changes to -es (oasis → oases), like crisis → crises."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “protected” in paragraph 4?",
+      "options": [
+        "protection",
+        "product",
+        "protest",
+        "project"
+      ],
+      "answer": "A",
+      "why": "“Protection” comes from the same root as “protect”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “precious” in a meaningful sentence of your own.",
+      "model": "My grandmother's old Quran is precious to our family, so we keep it on the highest shelf, wrapped in soft cloth.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “precious” with its meaning (very valuable, worth a great deal)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Precious” means very valuable and important, so it must be treated with care."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "“Community” in paragraph 4 forms its plural as “communities”. Which word forms its plural in the SAME way?",
+      "options": [
+        "valley",
+        "journey",
+        "city",
+        "highway"
+      ],
+      "answer": "C",
+      "why": "A consonant + y changes to -ies (city → cities, community → communities); a vowel + y just adds -s (valleys, journeys, highways)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Eventually, the Incense Road lost its importance.”?",
+      "options": [
+        "a question",
+        "a statement",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "B",
+      "why": "It tells a fact and ends with a full stop, so it is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole passage?",
+      "options": [
+        "The Discovery of Qaryat al-Faw",
+        "Why Sailors Feared the Monsoon Winds",
+        "Medicines and Perfumes of the Ancient World",
+        "Camels, Resin and Riches: An Ancient Route"
+      ],
+      "answer": "D",
+      "why": "The passage follows frankincense from the trees to the camel caravans and the wealthy towns; the other titles fit only one paragraph or are not in the text."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to explain how an ancient trade route worked and why it mattered",
+        "to persuade readers to visit Qaryat al-Faw during the holidays",
+        "to prove that ships have always been better than camels",
+        "to teach readers how to harvest frankincense from trees at home"
+      ],
+      "answer": "A",
+      "why": "Each paragraph informs readers about the Incense Road: its goods, route, towns, decline and lasting importance."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Camels could survive for days between distant wells in the desert.",
+        "Stops and taxes along the route raised prices and enriched the towns.",
+        "Petra was the richest and most powerful town on the Incense Road.",
+        "Caravans began and ended every journey in the southern city of Najran."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 describes the two-month journey from oasis to oasis, the taxes charged at each stop and the result: higher prices and prosperous towns."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, why was frankincense burned in temples, palaces and homes?",
+      "options": [
+        "It was the cheapest fuel available.",
+        "It kept insects away from the food.",
+        "Rulers ordered people to burn it.",
+        "It gave off a sweet, smoky perfume."
+      ],
+      "answer": "D",
+      "why": "The text says it was used “because frankincense gave off a sweet, smoky perfume when it was burned.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a story with invented characters",
+        "a persuasive advertisement",
+        "an informational text about history",
+        "a letter from a merchant"
+      ],
+      "answer": "C",
+      "why": "It gives facts, dates and places about a real trade route, with no invented characters or letter form."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the resin have to travel thousands of kilometres?",
+      "options": [
+        "The trees grew only in a narrow region far from the buyers.",
+        "Merchants wanted to avoid paying taxes in the nearby towns.",
+        "The resin needed to dry for two months during the journey.",
+        "Rome refused to buy resin that came from nearby lands."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “the trees grew only in a narrow region, so the resin had to travel thousands of kilometres to reach its buyers.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Archaeologists began to dig at Qaryat al-Faw.",
+        "Caravans stopped to rest at Hegra near AlUla.",
+        "Qaryat al-Faw joined the UNESCO World Heritage List.",
+        "Sailors learned to use the seasonal monsoon winds."
+      ],
+      "answer": "C",
+      "why": "The UNESCO listing happened in 2024, after the digging began in the 1970s; the caravans and the sailors belong to ancient times."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In which order would a caravan travelling north reach these places?",
+      "options": [
+        "Petra → Najran → Hegra → Gaza",
+        "Najran → Hegra → Petra → Gaza",
+        "Hegra → Najran → Gaza → Petra",
+        "Najran → Petra → Hegra → Gaza"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 names Najran in the south, then Dedan and Hegra in the north-west, then Petra and finally Gaza."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, how long did it take the sap to harden into droplets?",
+      "options": [
+        "a few hours",
+        "about two months",
+        "a single day",
+        "several weeks"
+      ],
+      "answer": "D",
+      "why": "“After several weeks, the sap hardened into droplets.” Two months is the length of the caravan journey, not the hardening time."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the price of frankincense to rise at every step of the journey?",
+      "options": [
+        "Local rulers charged taxes for protecting the travellers.",
+        "The resin slowly lost its sweet smell as it travelled.",
+        "Hungry camels ate part of every load along the way.",
+        "Buyers in Rome always paid the merchants in advance."
+      ],
+      "answer": "A",
+      "why": "“Local rulers charged taxes in exchange for protecting the travellers. Consequently, the price … rose at every step.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did many merchants stop using the long desert route?",
+      "options": [
+        "The wells along the route dried up.",
+        "The towns refused to let caravans stop.",
+        "Ships could carry heavier loads more cheaply.",
+        "People no longer wanted frankincense."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: “Because ships could carry heavier loads more cheaply than camels, many merchants abandoned the long desert route.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Based on paragraph 2, why were camels the best choice for carrying the goods?",
+      "options": [
+        "They were faster than any ship on the open sea.",
+        "They could survive long distances between water sources.",
+        "They could find frankincense trees by their sweet smell.",
+        "They did not need any rest during the long journey."
+      ],
+      "answer": "B",
+      "why": "Camels “could survive for days between distant wells”, which made the long, dry desert crossing possible."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the passage, how was transport by sea DIFFERENT from transport by camel?",
+      "options": [
+        "Ships could only travel along the western side of the peninsula.",
+        "Ships needed to stop at every oasis for water.",
+        "Ships carried only myrrh, while camels carried frankincense.",
+        "Ships could carry heavier loads at a lower cost."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 compares them: ships “could carry heavier loads more cheaply than camels.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Dedan, Hegra and Petra have in common in the passage?",
+      "options": [
+        "They were all stops on the Incense Road.",
+        "They were all ports on the Mediterranean Sea.",
+        "They were all in southern Arabia.",
+        "They were all dug up by King Saud University."
+      ],
+      "answer": "A",
+      "why": "All three are towns where caravans stopped on the way north; Gaza was the port, and only Qaryat al-Faw's excavation is described."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of the archaeologists' work at Qaryat al-Faw?",
+      "options": [
+        "The caravans started to use the old desert route again.",
+        "It showed that a busy, organised community once lived there.",
+        "The price of frankincense fell in markets around the world.",
+        "The town became the capital of a new kingdom in Arabia."
+      ],
+      "answer": "B",
+      "why": "The market, houses, temples, painted walls, coins and inscriptions “together revealed a busy, well-organised community.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with “Long before oil wells and highways crossed the Arabian Peninsula”?",
+      "options": [
+        "to explain how the first oil wells in Arabia were built",
+        "to argue that modern highways have harmed the desert",
+        "to contrast modern Arabia with the distant past",
+        "to show that frankincense trees grew beside oil wells"
+      ],
+      "answer": "C",
+      "why": "The opening places the familiar present beside the ancient past, inviting readers to imagine a time when resin, not oil, was precious."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by the final sentence, “It proved that trade carries far more than goods”?",
+      "options": [
+        "Camels carried heavier loads than anyone expected.",
+        "Trade also spreads ideas, culture and connections between people.",
+        "Merchants always carried more goods than they could sell.",
+        "Taxes were the most important result of trade."
+      ],
+      "answer": "B",
+      "why": "The sentence before it lists what else the road spread: links between peoples, new ideas and styles of writing."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage includes the writer's OPINION rather than only a fact?",
+      "options": [
+        "In 2024, the site was added to the UNESCO World Heritage List.",
+        "One of the most impressive of these towns was Qaryat al-Faw.",
+        "Caravans moved from one oasis to the next.",
+        "Every stop offered water, food and rest, but it also demanded payment."
+      ],
+      "answer": "B",
+      "why": "“Most impressive” is the writer's judgement; the other sentences state facts that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which detail BEST supports the writer's claim that the road “changed Arabia for ever”?",
+      "options": [
+        "Doctors valued frankincense as a medicine.",
+        "The journey could take around two months.",
+        "Frankincense trees also grow in the Horn of Africa.",
+        "Quiet oases were turned into wealthy cities."
+      ],
+      "answer": "D",
+      "why": "Turning oases into wealthy cities is a lasting change to Arabia itself; the other details describe the resin or the journey."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "to help readers appreciate how trade shaped Arabia's history",
+        "to complain about the high price of perfume today",
+        "to encourage readers to travel by camel",
+        "to show that archaeology is a waste of time"
+      ],
+      "answer": "A",
+      "why": "The passage ends by praising the road's lasting effects, showing the writer wants readers to value this part of Arabia's history."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which attitude does the writer show towards the Incense Road?",
+      "options": [
+        "disapproval",
+        "fear",
+        "admiration",
+        "boredom"
+      ],
+      "answer": "C",
+      "why": "Words such as “remarkably prosperous”, “most impressive” and “changed Arabia for ever” show admiration."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "why frankincense was valuable",
+        "how much tax a caravan paid at each stop",
+        "why the desert route lost its importance",
+        "which towns the caravans passed through"
+      ],
+      "answer": "B",
+      "why": "The passage says rulers charged taxes but never says how much; the other points are explained clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A camel caravan crosses from Oman to Gaza in a single afternoon.",
+        "Frankincense resin changes into gold when it is burned.",
+        "A camel carries a load of resin for several days between two wells.",
+        "A tree grows droplets of perfume that sing at night."
+      ],
+      "answer": "C",
+      "why": "Camels really can travel for days between wells carrying loads; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the information in the passage?",
+      "options": [
+        "From Southern Hills to Mediterranean Ports",
+        "The Day the Camels Refused to Walk",
+        "Life Under the Red Sea",
+        "Building Modern Highways"
+      ],
+      "answer": "A",
+      "why": "The passage traces frankincense from the southern hills to the Mediterranean ports and explains what happened along the way."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the passage: imagine that sailors had never learned to use the monsoon winds. Write two or three sentences explaining what might have happened to the Incense Road and its towns.",
+      "model": "Without the monsoon winds, ships could not have competed with the caravans, so merchants would have kept using the desert route for many more centuries. Towns such as Hegra and Qaryat al-Faw would have continued to grow rich from taxes and trade, and perhaps some of them would still be busy cities today.",
+      "rubric": [
+        "2 = a clear, logical alternative ending that uses ideas from the passage (caravans, taxes, towns, ships)",
+        "1 = an ending is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any logical ending that uses the cause-and-effect information in the passage (sea trade replaced the camel route) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how can we help protect heritage sites such as Qaryat al-Faw?",
+      "options": [
+        "Visit them respectfully and never damage or remove anything.",
+        "Support the experts who study and look after them.",
+        "Take small coins home from the site as souvenirs.",
+        "A and B"
+      ],
+      "answer": "D",
+      "why": "Respectful visiting and supporting archaeologists and UNESCO protection both help; removing coins damages the site."
+    }
+  ]
+}

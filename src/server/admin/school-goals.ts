@@ -9,6 +9,7 @@ import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { sendCurriculumPlan } from "../curriculum-map/curriculum-plan";
 import { weekStart } from "../student/weekly";
+import { mapLimit } from "../db/parallel";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -45,8 +46,8 @@ export async function goalProgress(repo: Repo, actor: Actor, classes: Row[], now
   assertCan(actor, "reports:read");
   const goals = await schoolGoals(repo, s(actor.schoolId));
   const since = weekStart(now);
-  const rows: ClassGoalRow[] = [];
-  for (const c of classes) {
+  // ⚡ the classes a few at a time (was one class after another: ~6 round trips each, in a row); same rows, same order
+  const rows: ClassGoalRow[] = await mapLimit(classes, async (c): Promise<ClassGoalRow> => {
     const grade = Number((await repo.findUnique("Grade", { id: c.gradeId }))?.level ?? 0);
     const ids = (await repo.findMany("ClassMembership", { classId: c.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
     const n = ids.length || 1;
@@ -66,8 +67,8 @@ export async function goalProgress(repo: Repo, actor: Actor, classes: Row[], now
       const finished = inUnit.length ? ids.filter((id) => inUnit.every((it) => { const v = typeof it.assignmentIds === "string" ? JSON.parse(s(it.assignmentIds)) : it.assignmentIds; const set = new Set(Array.isArray(v) ? v.map(String) : []); return rowsU.some((r) => s(r.studentId) === id && set.has(s(r.assignmentId))); })).length : 0;
       units.push({ unit: u.unit, pct: Math.round((100 * finished) / n), target: u.pct, by: u.by, done: finished, daysLeft: Math.ceil((new Date(`${u.by}T23:59:59`).getTime() - now.getTime()) / 86_400_000) });
     }
-    rows.push({ classId: s(c.id), className: s(c.name), grade, students: ids.length, minutes, parts, units });
-  }
+    return { classId: s(c.id), className: s(c.name), grade, students: ids.length, minutes, parts, units };
+  });
   return { goals, rows };
 }
 

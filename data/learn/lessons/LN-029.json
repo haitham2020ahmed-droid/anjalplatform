@@ -1,0 +1,441 @@
+{
+ "code": "LN-029",
+ "title": "Paraphrasing and summarizing sources",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.8"
+ ],
+ "families": [
+  "writing-research"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0186",
+  "L-0339"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Say it your way",
+     "text": "When you **paraphrase**, you tell what a text says **in your own words**.\n\nThe words change. The **meaning stays the same**."
+    },
+    {
+     "title": "Don't just copy",
+     "text": "Copying the same words is **not** a paraphrase.\n\nRead the text. Look away. Then say it **your way**."
+    },
+    {
+     "title": "Check it",
+     "text": "1. Read the text.\n2. Say it in new words.\n3. Look back. Did you keep the **same meaning**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good paraphrase matches the text.\n\n1. Read your new sentence.\n2. Find the sentences in the text that say **the same thing**.\n3. If the text does not say it, it is **not** a good paraphrase."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text: Camels can walk for days without water.",
+      "role": "main"
+     },
+     {
+      "t": "My words: A camel can travel a long time before it needs a drink.",
+      "role": "key"
+     }
+    ],
+    "explain": "The words are new: **travel**, **a long time**, **a drink**.\n\nBut the meaning is the **same**. That is a good paraphrase."
+   },
+   "together": {
+    "passage": "Owls hunt at night. Their big eyes help them see in the dark. Some owls are white.",
+    "stem": "Which sentence tells the first two sentences in new words?",
+    "options": [
+     "Owls hunt at night.",
+     "Owls sleep all night long.",
+     "Owls look for food after dark, and large eyes help them see.",
+     "White owls are very pretty."
+    ],
+    "answer": 2,
+    "hint": "Is it the same words, or new words with the same meaning?",
+    "good": "Yes! New words, same meaning: owls hunt at night and see well in the dark."
+   },
+   "evidence": {
+    "sentences": [
+     "Owls hunt at night.",
+     "Their big eyes help them see in the dark.",
+     "Some owls are white."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: Owls look for food after dark, and large eyes help them see. Tap 2 sentences that say the same thing.",
+    "wrong": "The paraphrase does not talk about color. Find the sentences about hunting and seeing."
+   },
+   "checks": [
+    {
+     "passage": "Text: Bees make honey from flowers.",
+     "stem": "Which is the best paraphrase?",
+     "options": [
+      "Bees make honey from flowers.",
+      "Bees eat flowers all day.",
+      "Honey is sweet and yellow.",
+      "Bees use flowers to make honey."
+     ],
+     "answer": 3,
+     "why": "It uses new word order and keeps the same meaning. The first choice just copies."
+    },
+    {
+     "passage": "Text: The sun gives Earth light and heat.",
+     "stem": "Which is the best paraphrase?",
+     "options": [
+      "Earth gets light and warmth from the sun.",
+      "The sun is far away.",
+      "The sun gives Earth light and heat.",
+      "Earth is cold at night."
+     ],
+     "answer": 0,
+     "why": "Light and warmth from the sun means the same thing in new words."
+    },
+    {
+     "passage": "Text: Sara reads a book every night.",
+     "stem": "Which sentence changes the meaning?",
+     "options": [
+      "Each night, Sara reads a book.",
+      "Sara never reads at night.",
+      "Sara reads a book nightly.",
+      "Every evening, Sara reads a book."
+     ],
+     "answer": 1,
+     "why": "Never reads is the opposite of the text. A paraphrase must keep the meaning."
+    }
+   ],
+   "again": {
+    "title": "Tell a friend",
+    "text": "Imagine you tell a friend what the text said.\n\n1. Read it.\n2. Close the book.\n3. Tell it with **your** words.\n4. Open the book and check.",
+    "example": "Text: **Fish breathe with gills.**\n\nTell a friend: **Fish use gills to get air under water.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Paraphrase or summary?",
+     "text": "A **paraphrase** retells **one idea** in your own words. It is about the same length as the source.\n\nA **summary** gives only the **main points** of a longer text. It is much **shorter**."
+    },
+    {
+     "title": "Not copying",
+     "text": "Using a writer's exact words without quotation marks is **copying**, even if you change one or two words.\n\nWhen you paraphrase or summarize, change the **words** and the **sentence shape**, but keep the **facts**."
+    },
+    {
+     "title": "Steps to follow",
+     "text": "1. Read the source twice.\n2. Note the key ideas in a few words.\n3. Write from your notes, **not** from the source.\n4. Check facts against the source.\n5. Say where it came from: **According to…**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Every fact in a paraphrase or summary must come **from the source**.\n\n1. Read each choice.\n2. Find the source sentence that says the same thing.\n3. Reject choices that **add**, **change** or **copy** the words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Source: The Arabian leopard is one of the rarest big cats in the world, and it lives in the mountains of the Arabian Peninsula.",
+      "role": "main"
+     },
+     {
+      "t": "Paraphrase: Very few Arabian leopards are left, and they make their home in the region's mountains.",
+      "role": "key"
+     }
+    ],
+    "explain": "The words and sentence shape are new, but every fact matches the source: **rare** and **mountains**.\n\nIt is a paraphrase, not a summary, because it retells one idea at about the same length."
+   },
+   "together": {
+    "passage": "Source: Sea turtles return to the beach where they were born to lay their eggs. The mother digs a hole in the sand at night and lays about one hundred eggs. After about two months, the baby turtles hatch and crawl toward the sea. Many dangers wait for them along the way.",
+    "stem": "Which is the best paraphrase of the second sentence?",
+    "options": [
+     "The mother digs a hole in the sand at night and lays one hundred eggs.",
+     "At night, the female turtle makes a nest in the sand and leaves around a hundred eggs in it.",
+     "The baby turtles crawl into the sea at night.",
+     "Turtles are the most amazing animals in the ocean."
+    ],
+    "answer": 1,
+    "hint": "Which choice uses new words but keeps the same facts? Watch out for copying.",
+    "good": "Yes! New words, same facts: at night, a hole in the sand, about a hundred eggs."
+   },
+   "evidence": {
+    "sentences": [
+     "Source: Sea turtles return to the beach where they were born to lay their eggs.",
+     "The mother digs a hole in the sand at night and lays about one hundred eggs.",
+     "After about two months, the baby turtles hatch and crawl toward the sea.",
+     "Many dangers wait for them along the way."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: At night, the female turtle makes a nest in the sand and leaves around a hundred eggs in it. Tap the source sentence it retells.",
+    "wrong": "This sentence is about a different part of the turtles' life. Find the one about digging and laying eggs."
+   },
+   "checks": [
+    {
+     "passage": "Source: Plants need sunlight, water and air to make their own food. Without sunlight, leaves turn yellow, and the plant becomes weak. Gardeners place plants near windows or outside so they get enough light.",
+     "stem": "Which is the best summary of the source?",
+     "options": [
+      "Plants need sunlight, water and air to make their own food.",
+      "Gardeners like windows.",
+      "Plants need light to make food and stay healthy, so gardeners give them plenty of sun.",
+      "Yellow is a nice color for leaves."
+     ],
+     "answer": 2,
+     "why": "It is short and covers the main points of the whole source. The first choice copies one sentence."
+    },
+    {
+     "passage": "Source: The library will be closed on Thursday for cleaning.",
+     "stem": "Which choice is copying, not paraphrasing?",
+     "options": [
+      "The library will be closed on Thursday for cleaning.",
+      "On Thursday, the library will shut so it can be cleaned.",
+      "Nobody can use the library on Thursday because of cleaning.",
+      "Cleaning will keep the library closed this Thursday."
+     ],
+     "answer": 0,
+     "why": "It uses exactly the same words as the source, so it is copying."
+    },
+    {
+     "passage": "A student wrote: According to the school newsletter, the science fair will take place in the main hall next month.",
+     "stem": "Why did the student write According to the school newsletter?",
+     "options": [
+      "To make the sentence longer",
+      "To show the information is an opinion",
+      "To copy the newsletter's exact words",
+      "To tell where the information came from"
+     ],
+     "answer": 3,
+     "why": "Naming the source tells readers where the facts came from."
+    }
+   ],
+   "again": {
+    "title": "Read, hide, write",
+    "text": "1. **Read** the source sentence.\n2. **Hide** it with your hand.\n3. **Write** the idea in your own words.\n4. **Uncover** it and check the facts.",
+    "example": "Source: **Rain fell all day, so the match was cancelled.**\n\nHide it. Write: **The game did not happen because it rained from morning to night.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "A good paraphrase",
+     "text": "A good paraphrase is:\n\n1. **Accurate**: the same facts and meaning\n2. **Original**: new words and a new sentence shape\n3. **Complete**: no important part left out\n4. **Neutral**: no added opinions"
+    },
+    {
+     "title": "The word-swap trap",
+     "text": "Swapping a few words for synonyms while keeping the writer's sentence shape is **not** a real paraphrase. It is too close to the source.\n\nRebuild the sentence: start with a different part, combine ideas, or split one long sentence into two."
+    },
+    {
+     "title": "Summaries for research",
+     "text": "When you take notes from several sources, **summarize** each one in two or three sentences.\n\nKeep the main idea and the most important supporting points. Leave out examples, numbers and side details unless your topic needs them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Test each choice against the **exact source sentence**.\n\n1. Does it keep every key fact? Point to it in the source.\n2. Does it **change** a fact or add an opinion? Reject it.\n3. Does it copy the source's sentence shape? Reject it.\n\nThe best paraphrase passes all three tests."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Source: Because the soil in the region holds little water, farmers have turned to drip irrigation, which delivers water directly to the roots of each plant.",
+      "role": "main"
+     },
+     {
+      "t": "Word swap: Because the earth in the area keeps little water, farmers have turned to drip watering, which brings water straight to the roots of every plant.",
+      "role": "other"
+     },
+     {
+      "t": "Paraphrase: Drip irrigation sends water right to plant roots, so local farmers use it to cope with dry soil.",
+      "role": "key"
+     }
+    ],
+    "explain": "The word swap keeps the source's sentence shape, so it is too close.\n\nThe real paraphrase **rebuilds** the sentence and keeps every fact: dry soil, drip irrigation, water to the roots."
+   },
+   "together": {
+    "passage": "Source: For centuries, pearl diving was one of the main jobs along the coasts of the Arabian Gulf. Divers held their breath for long periods and searched the sea floor for oysters. The work was dangerous and tiring, yet a single fine pearl could bring a family a good income. In the twentieth century, cultured pearls from other countries became cheap, and the old pearl trade slowly ended.",
+    "stem": "Which is the best paraphrase of the third sentence?",
+    "options": [
+     "The work was dangerous and exhausting, yet one fine pearl could bring a family a good income.",
+     "Pearl diving was the most dangerous job in the world, and divers became very rich.",
+     "Although diving for pearls was risky and hard, finding just one good pearl could earn a family a lot of money.",
+     "Divers searched the sea floor for oysters while holding their breath."
+    ],
+    "answer": 2,
+    "hint": "One choice only swaps a word. One changes the facts. One retells another sentence. Which rebuilds the third sentence with the same facts?",
+    "good": "Yes! It uses a new structure and keeps every fact: risky, hard, and one pearl could earn good money."
+   },
+   "evidence": {
+    "sentences": [
+     "Source: For centuries, pearl diving was one of the main jobs along the coasts of the Arabian Gulf.",
+     "Divers held their breath for long periods and searched the sea floor for oysters.",
+     "The work was dangerous and tiring, yet a single fine pearl could bring a family a good income.",
+     "In the twentieth century, cultured pearls from other countries became cheap, and the old pearl trade slowly ended."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the source sentence that the paraphrase must match.",
+    "wrong": "This sentence gives different facts. Find the sentence about danger and the value of one pearl."
+   },
+   "checks": [
+    {
+     "passage": "Source: Regular exercise strengthens the heart and helps people sleep better at night.",
+     "stem": "Which paraphrase is accurate and original?",
+     "options": [
+      "Regular exercise strengthens the heart and helps people sleep well at night.",
+      "Exercise is the only way to have a healthy heart.",
+      "People who work out often have stronger hearts and get better rest.",
+      "Sleeping well makes people want to exercise."
+     ],
+     "answer": 2,
+     "why": "It keeps both facts in new words. The first is a word swap; the second and fourth change the meaning."
+    },
+    {
+     "passage": "Source: Although the city has grown quickly, it has kept many of its old mud-brick buildings, which attract visitors from around the world.",
+     "stem": "Which paraphrase adds an opinion that is not in the source?",
+     "options": [
+      "The city has grown fast but still has old mud-brick buildings that draw tourists.",
+      "Many visitors come to see the city's old mud-brick houses, which survived its fast growth.",
+      "The city's old mud-brick buildings are far more beautiful than its new towers.",
+      "Despite rapid growth, the city has saved old mud-brick buildings that bring in visitors."
+     ],
+     "answer": 2,
+     "why": "The source never compares old and new buildings. Far more beautiful is the writer's own opinion."
+    },
+    {
+     "passage": "A student is writing a report on recycling and has a long article about plastic waste.",
+     "stem": "Which note is the best summary for the report?",
+     "options": [
+      "The article has many interesting facts about bottles.",
+      "Plastic takes hundreds of years to break down, so recycling it reduces waste in landfills and the sea.",
+      "Plastic is bad.",
+      "The article was written by a scientist in 2020 and has six pages and three charts."
+     ],
+     "answer": 1,
+     "why": "It keeps the main idea and the key reason in the student's own words. The others are too vague or off-topic."
+    }
+   ],
+   "again": {
+    "title": "Change the shape",
+    "text": "A paraphrase is like rebuilding a house with the same bricks.\n\n1. Keep the **facts** (the bricks).\n2. Change the **shape**: start with a different idea, or join two ideas with because or although.\n3. Use your own everyday words.",
+    "example": "Source: **Heavy rain flooded the road, so the school bus was late.**\n\nRebuilt: **The school bus arrived late because water covered the road after a storm.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Summarizing a source",
+     "text": "A strong summary of a source:\n\n1. states the source's **central idea**\n2. includes only the **key supporting points**\n3. is written **in your own words**\n4. stays **objective**: no opinions or judgments\n5. is much **shorter** than the original"
+    },
+    {
+     "title": "Paraphrase, summarize or quote?",
+     "text": "**Quote** when the exact words matter (a powerful phrase, a definition).\n\n**Paraphrase** when you need one detailed idea in your own words.\n\n**Summarize** when you need the big picture of a whole passage or article."
+    },
+    {
+     "title": "Credit the source",
+     "text": "Paraphrases and summaries still use someone else's ideas. Always **credit** the source with a signal phrase, such as **According to…**, **The article explains…** or **As the researcher notes…**\n\nPresenting another writer's ideas as your own is plagiarism."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To judge a summary, map it to the source.\n\n1. Find the sentence or sentences that state the **central idea**.\n2. Find the **main supporting points**.\n3. Check that the summary covers them, adds nothing new and leaves out minor details.\n\nA summary built on minor details, or one that adds opinion, fails."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Source: Many cities are planting rooftop gardens. These gardens cool buildings, reduce the need for air conditioning, and give birds and insects new places to live. Some even grow vegetables for local restaurants.",
+      "role": "other"
+     },
+     {
+      "t": "Summary: According to the source, rooftop gardens help cities by cooling buildings, saving energy and supporting wildlife.",
+      "role": "key"
+     }
+    ],
+    "explain": "The summary keeps the central idea and the key benefits, credits the source, and leaves out the minor point about restaurants.\n\nIt adds no opinion and is in new words."
+   },
+   "together": {
+    "passage": "Source: Sleep is often treated as a waste of time by busy students, but scientists have found that it plays a vital role in learning. During deep sleep, the brain replays and strengthens the memories formed during the day. Students who sleep fewer than seven hours a night tend to perform worse on tests of memory and attention. Phones and tablets make the problem worse, because their bright screens can delay the body's natural signal to fall asleep. Some schools have responded by starting classes later in the morning. Researchers argue that protecting sleep may be one of the simplest ways to help students succeed.",
+    "stem": "Which is the best summary of the source?",
+    "options": [
+     "Students should never use phones or tablets at night because screens are harmful.",
+     "Scientists report that sleep helps the brain store memories, so too little sleep, often worsened by screens, can hurt students' learning.",
+     "Some schools now start classes later in the morning, which students enjoy.",
+     "Sleep is often treated as a waste of time by busy students, but scientists have found it plays a vital role in learning."
+    ],
+    "answer": 1,
+    "hint": "Reject the choice that adds an opinion, the one built on a minor detail, and the one that copies the source.",
+    "good": "Yes! It states the central idea and the key points in new words, with no added opinion."
+   },
+   "evidence": {
+    "sentences": [
+     "Source: Sleep is often treated as a waste of time by busy students, but scientists have found that it plays a vital role in learning.",
+     "During deep sleep, the brain replays and strengthens the memories formed during the day.",
+     "Students who sleep fewer than seven hours a night tend to perform worse on tests of memory and attention.",
+     "Phones and tablets make the problem worse, because their bright screens can delay the body's natural signal to fall asleep.",
+     "Some schools have responded by starting classes later in the morning.",
+     "Researchers argue that protecting sleep may be one of the simplest ways to help students succeed."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 source sentences that give key points the summary includes.",
+    "wrong": "The summary leaves this point out because it is a minor detail or a closing remark. Find the central idea or a key supporting point."
+   },
+   "checks": [
+    {
+     "passage": "Source: Desert locusts usually live alone, but after heavy rains, food becomes plentiful and their numbers grow. When they become crowded, they change color and behavior and form huge swarms that can travel long distances and destroy crops in a single day.",
+     "stem": "Which summary is objective and accurate?",
+     "options": [
+      "Locusts are the worst insects on Earth and should be wiped out.",
+      "After heavy rains, crowded desert locusts can form swarms that travel far and quickly ruin crops.",
+      "Desert locusts usually live alone, but after heavy rains, food becomes plentiful.",
+      "Locusts change color, which is very interesting to scientists."
+     ],
+     "answer": 1,
+     "why": "It covers the central idea in new words without opinion. The others add opinion, copy, or focus on a detail."
+    },
+    {
+     "passage": "A student is writing about a famous engineer and wants to include the engineer's exact definition of good design.",
+     "stem": "Which method should the student use for the definition?",
+     "options": [
+      "Quote it and name the engineer",
+      "Summarize the engineer's whole life",
+      "Paraphrase it and leave out the name",
+      "Change a few words and not credit it"
+     ],
+     "answer": 0,
+     "why": "When the exact words matter, quote them and credit the speaker."
+    },
+    {
+     "passage": "Student paragraph: Coral reefs protect coasts by breaking the force of waves. They are also home to about a quarter of all ocean species. (The student read both facts in an online science article.)",
+     "stem": "What is the main problem with the student's paragraph?",
+     "options": [
+      "It uses too many quotation marks.",
+      "The facts are not about coral reefs.",
+      "It is written in the wrong tense.",
+      "It does not credit the article the ideas came from."
+     ],
+     "answer": 3,
+     "why": "The facts came from a source, so the student should add a signal phrase such as According to the article."
+    }
+   ],
+   "again": {
+    "title": "Three-question summary",
+    "text": "When a source feels long, answer three questions in your own words:\n\n1. **What** is it mostly about?\n2. **What** are the two or three most important points?\n3. **Who** wrote or published it?\n\nJoin your answers into one or two sentences.",
+    "example": "Article about Saudi solar farms.\n\n1. Saudi Arabia is building large solar farms.\n2. They use strong sunshine and reduce oil use for power.\n3. An energy magazine.\n\nSummary: **According to an energy magazine, Saudi Arabia is building large solar farms that use its strong sunshine to produce power and reduce oil use.**"
+   }
+  }
+ }
+}

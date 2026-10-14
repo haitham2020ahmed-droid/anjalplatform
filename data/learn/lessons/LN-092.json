@@ -1,0 +1,450 @@
+{
+ "code": "LN-092",
+ "title": "Hyphens, dashes and ellipses",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "commas"
+ ],
+ "skillNames": [
+  "Hyphens, Dashes and Ellipses",
+  "Punctuation for Effect"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Little marks, big jobs",
+     "text": "Some marks look like small lines or dots.\n\nA **hyphen** ( - ) is short. A **dash** ( — ) is long. An **ellipsis** ( ... ) is three dots."
+    },
+    {
+     "title": "The hyphen joins",
+     "text": "A hyphen **joins words** so they work as one.\n\n**twenty-one**  **ice-cold**  **a six-year-old boy**"
+    },
+    {
+     "title": "Dots make you wait",
+     "text": "An ellipsis ( ... ) shows a **pause**.\n\nThe reader slows down and waits.\n\nThe box opened... and out came a kitten!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the words **next to** the mark.\n\n1. Find the hyphen, dash or dots.\n2. Ask: does it **join** words or make a **pause**?\n3. Point to the sentence that shows it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hamad is nine years old.",
+      "role": "other"
+     },
+     {
+      "t": "He has a seven-year-old sister.",
+      "role": "key"
+     },
+     {
+      "t": "She is very kind.",
+      "role": "other"
+     }
+    ],
+    "explain": "**seven-year-old** has two hyphens. They join three words into one describing word for the sister."
+   },
+   "together": {
+    "passage": "My brother got a red bike today. He rode it twenty one times around the yard. Then he sat down on the grass.",
+    "stem": "Which words need a hyphen?",
+    "options": [
+     "twenty one",
+     "red bike",
+     "the yard",
+     "sat down"
+    ],
+    "answer": 0,
+    "hint": "Look for a number made of two words. Numbers from 21 to 99 use a hyphen.",
+    "good": "Yes! It should be **twenty-one**. The hyphen joins the two number words."
+   },
+   "evidence": {
+    "sentences": [
+     "My brother got a red bike today.",
+     "He rode it twenty one times around the yard.",
+     "Then he sat down on the grass."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: twenty one needs a hyphen. Tap the sentence with those words.",
+    "wrong": "This sentence has no words that need joining. Find the sentence with a number."
+   },
+   "checks": [
+    {
+     "passage": "It was a very hot day. Mom made ice cold juice. We drank it in the shade.",
+     "stem": "Which words need a hyphen?",
+     "options": [
+      "hot day",
+      "ice cold",
+      "the shade",
+      "we drank"
+     ],
+     "answer": 1,
+     "why": "**ice-cold** joins two words to make one describing word for the juice."
+    },
+    {
+     "passage": "Sara opened the box slowly. Inside was... a tiny kitten!",
+     "stem": "Why does the writer use the dots ( ... )?",
+     "options": [
+      "to ask a question",
+      "to show a list",
+      "to join two words",
+      "to make the reader wait"
+     ],
+     "answer": 3,
+     "why": "The dots make a pause, so the reader waits to find out what is in the box."
+    },
+    {
+     "passage": "Our class has thirty two students. Each student has a desk.",
+     "stem": "How should the number be written?",
+     "options": [
+      "thirty two",
+      "thirty...two",
+      "thirty-two",
+      "thirty—two"
+     ],
+     "answer": 2,
+     "why": "Two-word numbers from 21 to 99 use a short hyphen: **thirty-two**."
+    }
+   ],
+   "again": {
+    "title": "Join or wait?",
+    "text": "Ask one question about the mark.\n\n1. Is it **short** and between two words? It **joins** them.\n2. Is it **three dots**? It makes you **wait**.",
+    "example": "We ate forty-two dates.  → the hyphen joins **forty** and **two**.\n\nI think... yes!  → the dots make a pause."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Three marks",
+     "text": "1. **Hyphen** ( - ): joins words into one idea.\n2. **Dash** ( — ): adds a strong break or extra information.\n3. **Ellipsis** ( ... ): shows a pause or words that trail off."
+    },
+    {
+     "title": "Hyphens before a noun",
+     "text": "When two words describe a noun **together**, join them with a hyphen.\n\na **well-known** museum\na **two-hour** trip\na **sugar-free** drink"
+    },
+    {
+     "title": "Dash and ellipsis",
+     "text": "A dash makes the reader **notice** what comes next.\n\nThe winner was — Huda!\n\nAn ellipsis shows someone **stopping** or **thinking**.\n\n\"I left my bag at...\" Noor stopped."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what a mark does:\n\n1. Find the mark in the text.\n2. Read the words **before and after** it.\n3. Ask: is it joining words, giving a strong break, or showing a pause?\n\nThe sentence with the mark is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went on a two-hour boat trip.",
+      "role": "key"
+     },
+     {
+      "t": "The sea was calm.",
+      "role": "other"
+     },
+     {
+      "t": "We saw dolphins near the coast.",
+      "role": "other"
+     }
+    ],
+    "explain": "**two** and **hour** describe the trip together, so a hyphen joins them: **two-hour** trip."
+   },
+   "together": {
+    "passage": "Khalid had trained for weeks. On the day of the race, the sun was burning. He passed one runner, then another. At the finish line he saw someone he did not expect — his grandfather, cheering louder than anyone. Khalid smiled all the way home.",
+    "stem": "Why does the writer use a dash ( — ) in the text?",
+    "options": [
+     "to join two numbers",
+     "to set up a surprise",
+     "to show missing words",
+     "to end a question"
+    ],
+    "answer": 1,
+    "hint": "Find the dash. What comes right after it? Is it something Khalid expected?",
+    "good": "Yes! The dash makes us stop for a moment before the surprise: his grandfather."
+   },
+   "evidence": {
+    "sentences": [
+     "Khalid had trained for weeks.",
+     "On the day of the race, the sun was burning.",
+     "He passed one runner, then another.",
+     "At the finish line he saw someone he did not expect — his grandfather, cheering louder than anyone.",
+     "Khalid smiled all the way home."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: the dash sets up a surprise. Tap the sentence with the dash.",
+    "wrong": "This sentence has no dash. Find the sentence where the dash comes before the surprise."
+   },
+   "checks": [
+    {
+     "passage": "Last week we visited a well known museum in Riyadh. We saw old coins and maps.",
+     "stem": "Which words need a hyphen?",
+     "options": [
+      "visited a",
+      "in Riyadh",
+      "well known",
+      "old coins"
+     ],
+     "answer": 2,
+     "why": "**well** and **known** describe the museum together, so they need a hyphen: a **well-known** museum."
+    },
+    {
+     "passage": "\"I think I left my lunch at...\" Noor stopped. She was not sure where she had left it.",
+     "stem": "What does the ellipsis ( ... ) show?",
+     "options": [
+      "Noor stops before she finishes speaking.",
+      "Noor asks a question.",
+      "Noor is giving a list.",
+      "Noor is shouting."
+     ],
+     "answer": 0,
+     "why": "The dots show Noor's words trail off. The next sentences say she stopped and was not sure."
+    },
+    {
+     "passage": "The oldest tree in our garden — a sidr tree — gives shade all summer.",
+     "stem": "What do the two dashes do?",
+     "options": [
+      "They join two numbers.",
+      "They show a pause in speech.",
+      "They end the sentence.",
+      "They add extra information about the tree."
+     ],
+     "answer": 3,
+     "why": "The words between the dashes tell what kind of tree it is. That is extra information."
+    }
+   ],
+   "again": {
+    "title": "Short, long, dots",
+    "text": "Look at the **size** of the mark.\n\n**Short line** = joins words.\n**Long line** = big break, look here!\n**Three dots** = pause or unfinished words.",
+    "example": "a sugar-free drink → joins **sugar** and **free**.\n\nThe prize went to — our class! → a big break before the news.\n\n\"Well...\" → a thinking pause."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Hyphens follow rules",
+     "text": "Use a hyphen in a describing group **before** a noun:\n\na **ten-year-old** girl\n\nBut not when the words are **not** before a noun:\n\nThe girl is **ten years old**.\n\nIn a group like ten-year-old, **every** word is joined."
+    },
+    {
+     "title": "Dashes for a strong break",
+     "text": "A pair of dashes can hold **extra information** in the middle of a sentence.\n\nA single dash can add a **strong ending** or an **interruption** in speech:\n\n\"Wait, I need to —\" The bell rang."
+    },
+    {
+     "title": "The ellipsis has two jobs",
+     "text": "1. It shows **hesitation** or words that trail off.\n2. In a quotation, it shows that **some words were left out**.\n\n\"The fort ... has stood for over a century.\""
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you edit for these marks:\n\n1. Find every hyphen, dash and ellipsis.\n2. Check each against the rule: Is the describing group **before** a noun? Is the break **strong**? Is a pause or a gap really needed?\n3. The sentence that breaks a rule is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our team made a five-minute film.",
+      "role": "other"
+     },
+     {
+      "t": "The film was five minutes long.",
+      "role": "other"
+     },
+     {
+      "t": "It showed a one hundred year-old house.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 1 and 2 are correct. Sentence 3 is wrong: every word in the group must be joined: **one-hundred-year-old** house."
+   },
+   "together": {
+    "passage": "Our school held a three-day science fair. Fatima built a solar-powered fan. Her twelve year-old brother helped her test it. The judges said it was the most useful project in the hall. Visitors lined up all afternoon to watch it spin. She hopes to make a bigger one next year.",
+    "stem": "Which change corrects the text?",
+    "options": [
+     "Change \"twelve year-old\" to \"twelve-year-old\".",
+     "Change \"three-day\" to \"three day\".",
+     "Change \"solar-powered\" to \"solar powered\".",
+     "Change \"next year\" to \"next-year\"."
+    ],
+    "answer": 0,
+    "hint": "Check each hyphen group that comes before a noun. Is every word in the group joined?",
+    "good": "Yes! In twelve-year-old, all three words describe the brother, so all are joined with hyphens."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school held a three-day science fair.",
+     "Fatima built a solar-powered fan.",
+     "Her twelve year-old brother helped her test it.",
+     "The judges said it was the most useful project in the hall.",
+     "Visitors lined up all afternoon to watch it spin.",
+     "She hopes to make a bigger one next year."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: twelve-year-old needs a second hyphen. Tap the sentence with the mistake.",
+    "wrong": "This sentence is correct. Find the sentence where a describing group is only half joined."
+   },
+   "checks": [
+    {
+     "passage": "The trip took six hours. It was a six hour drive to the coast. We passed farms and small towns. By sunset we reached the sea.",
+     "stem": "Which sentence is missing a hyphen?",
+     "options": [
+      "The trip took six hours.",
+      "We passed farms and small towns.",
+      "By sunset we reached the sea.",
+      "It was a six hour drive to the coast."
+     ],
+     "answer": 3,
+     "why": "In \"a six-hour drive\" the words describe the noun **drive**, so they need a hyphen. \"took six hours\" has no noun after it, so it needs none."
+    },
+    {
+     "passage": "Grandmother held up the old photo. \"This was taken when I was — \" She stopped and smiled. \"Well, a very long time ago.\"",
+     "stem": "Why does the writer use a dash after \"I was\"?",
+     "options": [
+      "to add a list of dates",
+      "to show she breaks off her sentence",
+      "to join two describing words",
+      "to show a quotation was shortened"
+     ],
+     "answer": 1,
+     "why": "The dash shows an interruption: she stops in the middle and starts again."
+    },
+    {
+     "passage": "The museum sign says: \"The fort was built from mud bricks and palm trunks, and it has stood for more than a century.\" A student wrote: \"The fort ... has stood for more than a century.\"",
+     "stem": "What does the ellipsis in the student's sentence show?",
+     "options": [
+      "The speaker is unsure.",
+      "The fort is very old.",
+      "Some words from the sign were left out.",
+      "The sentence is a question."
+     ],
+     "answer": 2,
+     "why": "Compare the two: the words about mud bricks and palm trunks are missing. The ellipsis marks that gap."
+    }
+   ],
+   "again": {
+    "title": "Before the noun? Hyphen.",
+    "text": "Point to the noun the words describe.\n\n1. Do the words come **right before** the noun as one group? Join them all.\n2. Do they come **after** a verb? No hyphen.",
+    "example": "a **three-day** fair (before **fair**)\n\nThe fair lasted **three days**. (no noun after it)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Punctuation for effect",
+     "text": "Writers choose hyphens, dashes and ellipses to control **how a reader reads**.\n\nA comma gives a small pause. A **dash** gives a sharp break. An **ellipsis** gives a slow, uncertain pause."
+    },
+    {
+     "title": "Dash or parentheses?",
+     "text": "Both can hold extra information.\n\n**Dashes** make the extra words stand out.\n**Parentheses** make them quiet, like a side note.\n\nThe guide — who had climbed it twenty times — went first.\nThe guide (a local teacher) went first."
+    },
+    {
+     "title": "Ellipsis in quotations",
+     "text": "When you quote a source, you may cut words that are not needed. An ellipsis shows the cut.\n\nYou must not change the meaning. If the missing words change what the source said, the quotation is unfair."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain the effect of a mark:\n\n1. Find the mark and read the sentence aloud in your head.\n2. Ask what would change with a comma or a full stop instead.\n3. Name the effect: emphasis, interruption, hesitation, or a gap in a quotation.\n\nPoint to the exact sentence where the mark creates that effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The storm hit at midnight.",
+      "role": "other"
+     },
+     {
+      "t": "By morning, the road, the bridge, and the old market were under water.",
+      "role": "other"
+     },
+     {
+      "t": "Only one building stayed dry — the school on the hill.",
+      "role": "key"
+     }
+    ],
+    "explain": "The dash creates a sharp break, so the reader's attention lands on **the school on the hill**. A comma would make it feel like just another detail."
+   },
+   "together": {
+    "passage": "The report on the new library began with a short quotation from the city planner. Her full words were: \"The library will open in March, although the reading garden will not be finished until summer.\" The newspaper printed: \"The library will open in March ...\" Many families planned their first visit for the opening day. Some of them were disappointed when they found the garden still closed.",
+    "stem": "What is the problem with how the newspaper used the ellipsis?",
+    "options": [
+     "It shows the planner was unsure.",
+     "It should have been a hyphen.",
+     "It cuts words that change the meaning.",
+     "It adds words the planner never said."
+    ],
+    "answer": 2,
+    "hint": "Compare the full words with the printed words. What did readers not learn?",
+    "good": "Yes! The cut words said the garden would not be ready. Without them, readers got the wrong idea."
+   },
+   "evidence": {
+    "sentences": [
+     "The report on the new library began with a short quotation from the city planner.",
+     "Her full words were: \"The library will open in March, although the reading garden will not be finished until summer.\"",
+     "The newspaper printed: \"The library will open in March ...\"",
+     "Many families planned their first visit for the opening day.",
+     "Some of them were disappointed when they found the garden still closed."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the ellipsis cut words that changed the meaning. Tap 2 sentences that prove it.",
+    "wrong": "This sentence does not show what was cut. Compare the planner's full words with what was printed."
+   },
+   "checks": [
+    {
+     "passage": "The desert seemed empty. Then, as the sun went down, the sand came alive — foxes, beetles, and tiny jumping mice.",
+     "stem": "What is the effect of the dash?",
+     "options": [
+      "It makes the list of animals stand out as a surprise.",
+      "It shows that words were left out.",
+      "It joins two words into one adjective.",
+      "It shows the writer is unsure."
+     ],
+     "answer": 0,
+     "why": "The sharp break after \"came alive\" makes the reader stop, then notice the surprise list of animals."
+    },
+    {
+     "passage": "Faisal looked at the last question on the test. He knew the answer yesterday. He was sure he did. \"The capital of ... the capital of ...\" he whispered.",
+     "stem": "Why does the writer use ellipses in Faisal's words?",
+     "options": [
+      "to show words from a book were cut",
+      "to show his mind going blank",
+      "to add extra information",
+      "to show he is shouting"
+     ],
+     "answer": 1,
+     "why": "The repeated, broken words and the pauses show Faisal hesitating as he tries to remember."
+    },
+    {
+     "passage": "Writer A: The new bridge (which took four years to build) opened on Sunday. Writer B: The new bridge — which took four years to build — opened on Sunday.",
+     "stem": "How is Writer B's sentence different in effect?",
+     "options": [
+      "It shows a quotation was shortened.",
+      "It hides the building time as a quiet side note.",
+      "It makes the bridge sound smaller.",
+      "It makes the four years stand out more."
+     ],
+     "answer": 3,
+     "why": "Dashes call attention to the words between them; parentheses make them sound like a quiet side note."
+    }
+   ],
+   "again": {
+    "title": "Swap and listen",
+    "text": "Replace the mark with a **comma** and read it again.\n\nIf the sentence suddenly feels flat, the mark was adding **emphasis**. If the gap disappears, it was showing **hesitation** or **cut words**.",
+    "example": "We opened the door — nothing.\nWe opened the door, nothing.\n\nThe dash makes the empty room feel sudden. The comma does not."
+   }
+  }
+ }
+}

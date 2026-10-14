@@ -1,0 +1,459 @@
+{
+ "code": "LN-066",
+ "title": "Order of adjectives",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "adjectives"
+ ],
+ "skillNames": [
+  "Order of Adjectives",
+  "Adjectives, Articles and Order of Adjectives"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Describing words",
+     "text": "An **adjective** tells about a noun: **big**, **red**, **nice**.\n\nSometimes we put **two** adjectives before one noun: a **big red** ball."
+    },
+    {
+     "title": "Size before colour",
+     "text": "Say how **big** first. Then say the **colour**.\n\nRight: a **small black** cat\nWrong: a black small cat"
+    },
+    {
+     "title": "What you think comes first",
+     "text": "Words that tell what you **think** (nice, pretty, funny) go first of all.\n\na **nice big** house\na **pretty little** bird"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look for the **same pattern** in the text.\n\n1. Find two describing words next to each other.\n2. Ask: which one is size? Which one is colour?\n3. Is size first? Then the text shows the rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went to the beach.",
+      "role": "other"
+     },
+     {
+      "t": "I saw a big white boat.",
+      "role": "key"
+     },
+     {
+      "t": "It had a long blue flag.",
+      "role": "key"
+     },
+     {
+      "t": "My brother found a pretty little shell.",
+      "role": "key"
+     }
+    ],
+    "explain": "**big white**: size, then colour.\n**long blue**: size, then colour.\n**pretty little**: what you think, then size.\n\nAll three use the right order."
+   },
+   "together": {
+    "passage": "Mona has a new bike. It has a small black seat. It has a shiny silver bell. She rides it to the park.",
+    "stem": "Mona wants to add one more sentence about her bike. Which sentence is correct?",
+    "options": [
+     "It is a red big bike.",
+     "It is a big red bike.",
+     "It is red a big bike.",
+     "It is a big bike red."
+    ],
+    "answer": 1,
+    "hint": "Which word tells the size? Which tells the colour? Put the size first.",
+    "good": "Yes! **Big** is the size and **red** is the colour. Size comes first."
+   },
+   "evidence": {
+    "sentences": [
+     "Mona has a new bike.",
+     "It has a small black seat.",
+     "It has a shiny silver bell.",
+     "She rides it to the park."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a big red bike. Tap 2 sentences that also put two describing words in the right order.",
+    "wrong": "This sentence does not have two describing words next to each other. Look for a sentence that does."
+   },
+   "checks": [
+    {
+     "passage": "Look at the tree. I see a ___ bird.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "blue little",
+      "blue a little",
+      "little blue",
+      "littles blue"
+     ],
+     "answer": 2,
+     "why": "**Little** is the size and **blue** is the colour. Size comes first."
+    },
+    {
+     "passage": "Grandma made a cake for us. It was a ___ cake.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "nice big",
+      "big nice",
+      "nice a big",
+      "bigs nice"
+     ],
+     "answer": 0,
+     "why": "**Nice** tells what we think. It comes before the size word **big**."
+    },
+    {
+     "passage": "Ahmed has two pets. One is a fat grey cat. The other is a green small fish.",
+     "stem": "Which words are in the wrong order?",
+     "options": [
+      "fat grey",
+      "two pets",
+      "the other",
+      "green small"
+     ],
+     "answer": 3,
+     "why": "**Small** is the size. It must come before the colour: a **small green** fish."
+    }
+   ],
+   "again": {
+    "title": "Say it out loud",
+    "text": "Try both orders. The right one sounds smooth.\n\nThe order is:\n1. What you think\n2. How big\n3. What colour",
+    "example": "a red big apple? a big red apple?\n\n**Big** (size) comes before **red** (colour). So it is **a big red apple**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A fixed order",
+     "text": "When two or more adjectives come before a noun, English uses a **fixed order**.\n\nIf the order is wrong, the sentence sounds strange to English speakers."
+    },
+    {
+     "title": "The order to remember",
+     "text": "1. **Opinion**: lovely, ugly\n2. **Size**: huge, tiny\n3. **Age**: old, new, young\n4. **Shape**: round, square\n5. **Colour**: brown, golden\n\nThen the **noun**."
+    },
+    {
+     "title": "Small words go first",
+     "text": "Words like **a, the, my, two, some** come before all the adjectives.\n\n**two** tiny new kittens\n**my** lovely old chair"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each adjective before the noun.\n2. Name its group: opinion, size, age, shape or colour.\n3. Check the groups are in order.\n\nThen look for other phrases in the text that follow the **same order**. They prove your choice."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dad bought a beautiful old rug.",
+      "role": "key"
+     },
+     {
+      "t": "He put it in the living room.",
+      "role": "other"
+     },
+     {
+      "t": "Now we sit on it every evening.",
+      "role": "other"
+     }
+    ],
+    "explain": "**beautiful** = opinion, **old** = age.\n\nOpinion comes before age, so **a beautiful old rug** is correct."
+   },
+   "together": {
+    "passage": "On Friday, our family visited the old market in our city. My uncle sells carpets there. He showed us a ___ carpet that came from his grandfather. Next to it was a tiny round mirror with a golden frame. My sister liked a lovely new lamp, so Dad bought it for her.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "red huge old",
+     "old red huge",
+     "huge old red",
+     "huge red old"
+    ],
+    "answer": 2,
+    "hint": "Name the group of each word: size, age, colour. Which group comes first?",
+    "good": "Yes! **Huge** (size), then **old** (age), then **red** (colour)."
+   },
+   "evidence": {
+    "sentences": [
+     "On Friday, our family visited the old market in our city.",
+     "My uncle sells carpets there.",
+     "He showed us a ___ carpet that came from his grandfather.",
+     "Next to it was a tiny round mirror with a golden frame.",
+     "My sister liked a lovely new lamp, so Dad bought it for her."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a huge old red carpet. Tap 2 sentences that also have two adjectives in the right order.",
+    "wrong": "This sentence has only one adjective before a noun, or none. Find two adjectives together."
+   },
+   "checks": [
+    {
+     "passage": "Our teacher held up a ___ box.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "small square white",
+      "white small square",
+      "square white small",
+      "small white square"
+     ],
+     "answer": 0,
+     "why": "Size (**small**), then shape (**square**), then colour (**white**)."
+    },
+    {
+     "passage": "Our neighbour has a cute young cat. It sleeps in a round little basket. Its bowl is a small blue dish.",
+     "stem": "Which phrase is in the wrong order?",
+     "options": [
+      "cute young cat",
+      "round little basket",
+      "small blue dish",
+      "our neighbour"
+     ],
+     "answer": 1,
+     "why": "Size comes before shape. It should be **a little round basket**."
+    },
+    {
+     "passage": "Faisal wrote about his trip to the mountains near Abha.",
+     "stem": "Which sentence is written correctly?",
+     "options": [
+      "He saw an old tall tree.",
+      "He saw a tree tall old.",
+      "He saw old a tall tree.",
+      "He saw a tall old tree."
+     ],
+     "answer": 3,
+     "why": "Size (**tall**) comes before age (**old**)."
+    }
+   ],
+   "again": {
+    "title": "Opinion first, colour last",
+    "text": "You do not need to learn everything at once. Remember two things:\n\n1. What you **think** goes first.\n2. **Colour** goes last, right before the noun.",
+    "example": "a ___ shirt: blue, nice, new\n\nOpinion first: **nice**. Colour last: **blue**. Age in the middle: **a nice new blue shirt**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The full order",
+     "text": "1. Opinion\n2. Size\n3. Age\n4. Shape\n5. Colour\n6. **Origin** (where it is from)\n7. **Material** (what it is made of)\n8. **Purpose** (what it is for)\n\nThen the noun."
+    },
+    {
+     "title": "Closest to the noun",
+     "text": "Origin, material and purpose sit **right next to the noun**.\n\na **Chinese silk** scarf (origin, material)\nleather **riding** boots (material, purpose)\na wooden **writing** desk"
+    },
+    {
+     "title": "Not too many",
+     "text": "Two or three adjectives is usually enough.\n\nIf you need more, move some **after** the noun:\na tall chair **made of olive wood**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Put a number on each adjective: 1 for opinion up to 8 for purpose.\n2. The numbers must go **up** as you read toward the noun.\n3. Look for phrases in the text with the same pattern. They show the rule in action."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sami packed for the camping trip.",
+      "role": "other"
+     },
+     {
+      "t": "He rolled up his new green sleeping bag.",
+      "role": "key"
+     },
+     {
+      "t": "Then he checked the map.",
+      "role": "other"
+     }
+    ],
+    "explain": "**new** = age (3), **green** = colour (5), **sleeping** = purpose (8).\n\nThe numbers go up, so the order is correct."
+   },
+   "together": {
+    "passage": "Last week, our class visited a small museum about life in the past. In the first room, we saw a ___ that people once used to carry water. Next to it stood a beautiful old wooden door with bright painted flowers. A guide showed us a long brown camel-hair rope. At the end, each of us tried on a soft woollen cloak.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "large old clay pot",
+     "clay large old pot",
+     "old clay large pot",
+     "large clay old pot"
+    ],
+    "answer": 0,
+    "hint": "Material words like **clay** go right next to the noun. Which comes first, size or age?",
+    "good": "Yes! Size (**large**), age (**old**), material (**clay**), then the noun."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week, our class visited a small museum about life in the past.",
+     "In the first room, we saw a ___ that people once used to carry water.",
+     "Next to it stood a beautiful old wooden door with bright painted flowers.",
+     "A guide showed us a long brown camel-hair rope.",
+     "At the end, each of us tried on a soft woollen cloak."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a large old clay pot. Tap 2 sentences where THREE adjectives come before one noun in the correct order.",
+    "wrong": "This sentence has one or two adjectives before the noun, not three. Look again."
+   },
+   "checks": [
+    {
+     "passage": "For the school race, Lina bought a pair of ___.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "running new white shoes",
+      "white running new shoes",
+      "new white running shoes",
+      "new running white shoes"
+     ],
+     "answer": 2,
+     "why": "Age (**new**), colour (**white**), then purpose (**running**) right next to the noun."
+    },
+    {
+     "passage": "Grandmother gave me a lovely silver Omani necklace. She keeps her jewellery in a small wooden box on a big old table.",
+     "stem": "Which phrase is in the wrong order?",
+     "options": [
+      "lovely silver Omani necklace",
+      "small wooden box",
+      "big old table",
+      "Grandmother gave me"
+     ],
+     "answer": 0,
+     "why": "Origin comes before material. It should be **a lovely Omani silver necklace**."
+    },
+    {
+     "passage": "After our visit to the park, we stopped for a drink.",
+     "stem": "Which sentence is written correctly?",
+     "options": [
+      "We sat in a Turkish small cosy café.",
+      "We sat in a cosy small Turkish café.",
+      "We sat in a small cosy Turkish café.",
+      "We sat in a cosy Turkish small café."
+     ],
+     "answer": 1,
+     "why": "Opinion (**cosy**), size (**small**), then origin (**Turkish**)."
+    }
+   ],
+   "again": {
+    "title": "Start from the noun",
+    "text": "Work **backwards** from the noun.\n\n1. What is it for? Put that next to the noun.\n2. What is it made of? Put that before.\n3. Where is it from? Before that.\n4. Then colour, age, size and opinion.",
+    "example": "a ___ bag: school, leather, black\n\nFor? **school**. Made of? **leather**. Colour? **black**. So: **a black leather school bag**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Two kinds of pairs",
+     "text": "**Cumulative** adjectives come from **different groups**. Each one builds on the next. No comma:\nan old stone bridge\n\n**Coordinate** adjectives come from the **same group** and describe the noun equally. Use a comma:\na calm, patient teacher"
+    },
+    {
+     "title": "Two quick tests",
+     "text": "1. **Swap** them. Does it still sound right?\n2. Put **and** between them. Does it still sound right?\n\nYes to both: use a comma.\nNo: no comma, and keep the fixed order."
+    },
+    {
+     "title": "Choose with care",
+     "text": "Strong writers pick a few **precise** adjectives instead of a long stack.\n\nA long stack can be split:\na sturdy, well-made chair **carved from olive wood**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each group of adjectives before a noun.\n2. Test it: swap the words and add **and**.\n3. Compare with other phrases in the passage.\n\nPhrases from **different groups** with no comma show the fixed order. Phrases with a comma should pass both tests."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old fishing village woke early.",
+      "role": "key"
+     },
+     {
+      "t": "A cool, salty breeze blew from the sea.",
+      "role": "main"
+     },
+     {
+      "t": "Small wooden boats waited by the shore.",
+      "role": "key"
+     }
+    ],
+    "explain": "**old fishing**, **small wooden**: different groups, no comma. You cannot say 'fishing and old village'.\n\n**cool, salty**: you can say 'salty, cool' or 'cool and salty', so a comma is right."
+   },
+   "together": {
+    "passage": "Along the waterfront in Jeddah, a few craftsmen still build boats by hand. On a hot, humid morning, our class arrived at their boatyard. The men were shaping a long wooden hull. One craftsman, a quiet, patient man with grey hair, told us he had learned the work from his father. He showed us a set of ___ that had belonged to his grandfather. Their handles were smooth and dark from years of use. Before we left, he gave each of us a small carved camel.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "iron old Indian tools",
+     "old, Indian, iron tools",
+     "Indian old iron tools",
+     "old Indian iron tools"
+    ],
+    "answer": 3,
+    "hint": "These adjectives come from different groups, so they need the fixed order and no commas. Age, origin, material.",
+    "good": "Yes! Age (**old**), origin (**Indian**), material (**iron**). Different groups, so no commas."
+   },
+   "evidence": {
+    "sentences": [
+     "Along the waterfront in Jeddah, a few craftsmen still build boats by hand.",
+     "On a hot, humid morning, our class arrived at their boatyard.",
+     "The men were shaping a long wooden hull.",
+     "One craftsman, a quiet, patient man with grey hair, told us he had learned the work from his father.",
+     "He showed us a set of ___ that had belonged to his grandfather.",
+     "Their handles were smooth and dark from years of use.",
+     "Before we left, he gave each of us a small carved camel."
+    ],
+    "proof": [
+     2,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: old Indian iron tools. Tap 2 sentences with adjectives from DIFFERENT groups and no comma between them.",
+    "wrong": "This sentence has no pair of adjectives, or its pair passes the 'and' test and needs a comma. Find pairs from different groups."
+   },
+   "checks": [
+    {
+     "passage": "Reem described the view from her window.",
+     "stem": "Which sentence uses a comma correctly?",
+     "options": [
+      "She saw a tall, palm tree.",
+      "She saw a peaceful, sunny garden.",
+      "She saw a small, stone fountain.",
+      "She saw an old, brick wall."
+     ],
+     "answer": 1,
+     "why": "**Peaceful** and **sunny** pass both tests: 'a sunny, peaceful garden' and 'peaceful and sunny' both work. The others are from different groups."
+    },
+    {
+     "passage": "The guide told us about the history of the fort.",
+     "stem": "Which phrase is written correctly?",
+     "options": [
+      "a mud-brick huge ancient fort",
+      "an ancient huge mud-brick fort",
+      "a huge ancient mud-brick fort",
+      "a huge, ancient, mud-brick, fort"
+     ],
+     "answer": 2,
+     "why": "Size, age, then material, with no commas, because the words come from different groups."
+    },
+    {
+     "passage": "Our science teacher is a kind, clever woman. She brought in a heavy, glass jar full of seawater. Inside it swam two tiny silver fish.",
+     "stem": "Which phrase has a comma that should be removed?",
+     "options": [
+      "kind, clever woman",
+      "heavy, glass jar",
+      "two tiny silver fish",
+      "science teacher"
+     ],
+     "answer": 1,
+     "why": "'A glass and heavy jar' sounds wrong. **Heavy** and **glass** are from different groups, so no comma."
+    }
+   ],
+   "again": {
+    "title": "The 'and' test",
+    "text": "When you are not sure about a comma, say the phrase with **and** in the middle.\n\nSounds fine? Use a comma.\nSounds odd? No comma.",
+    "example": "a bright, cheerful room: 'bright and cheerful room' sounds fine, so use a **comma**.\n\na big brick house: 'big and brick house' sounds odd, so **no comma**."
+   }
+  }
+ }
+}

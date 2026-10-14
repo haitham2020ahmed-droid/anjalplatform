@@ -15,5 +15,5 @@ export async function assignReviewAction(f: FormData): Promise<void> {
     const r = await assignRecommendations(repo, actor, classId, skills.map((skillId) => ({ studentId, skillId })));
     msg = `🔁 ${r.assignments} review assignment(s) sent.`;
   } catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; msg = e.message; }
-  redirect(`/teacher/intervention?flag=REVIEW&msg=${encodeURIComponent(msg)}`);
+  redirect(`/teacher/alerts?view=flags&flag=REVIEW&msg=${encodeURIComponent(msg)}`);
 }

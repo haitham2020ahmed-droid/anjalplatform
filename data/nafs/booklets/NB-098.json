@@ -1,0 +1,568 @@
+{
+  "code": "NB-098",
+  "title": "Glass: Recycled Again and Again",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 429,
+  "passage": "Every day, families throw away jars and bottles without a second thought. Yet glass is one of the most remarkable materials that people have ever made. Unlike paper or plastic, which become weaker each time they are recycled, glass can be melted and reshaped again and again without losing any of its strength or clarity. In theory, a jam jar from your kitchen could return as a new jar, a drinking glass or a perfume bottle an unlimited number of times.\n\nTo understand why recycling glass matters, it helps to know how glass is made in the first place. Manufacturers combine three main raw materials: silica sand, soda ash and limestone. This mixture is heated in a furnace to around 1,500 degrees Celsius, which is hot enough to turn solid grains into a glowing orange liquid. The liquid is then blown or pressed into moulds and cooled carefully so that it does not crack. Producing such intense heat requires a tremendous amount of energy, usually from burning fuel.\n\nThis is precisely where recycling helps. Old glass that has been crushed into small pieces is called cullet, and it melts at a lower temperature than the raw ingredients. Consequently, every tonne of cullet added to a furnace reduces the amount of fuel needed, lowers the pollution released into the air and saves sand, which must otherwise be dug from the ground.\n\nHowever, recycling glass successfully depends on careful sorting. Clear, green and brown glass are usually separated, because their colours cannot easily be removed once they have been melted together. Furthermore, some items must never go in glass recycling bins. Mirrors, window panes, light bulbs, ceramic cups and heat-resistant cookware may look similar to bottles, but they are made differently and melt at different temperatures. Even a small piece of ceramic can leave hard lumps or weak spots in a whole batch of new bottles, forcing the factory to reject them.\n\nWhen glass is not recycled, the consequences last for an extraordinarily long time. A bottle buried in a landfill does not rot like food or paper; it may remain there, almost unchanged, for thousands of years. Broken glass left in parks, beaches or the desert can also injure people and animals.\n\nFortunately, everyone can contribute to the solution. Rinse jars and bottles, remove their metal or plastic lids, and place them in the correct recycling container. Better still, reuse sturdy jars at home for storing spices, dates or pencils before recycling them. Small habits like these, repeated by millions of households, can keep a precious material circulating for generations.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “tremendous” as it is used in paragraph 2?",
+      "options": [
+        "tiny",
+        "careful",
+        "enormous",
+        "sudden"
+      ],
+      "answer": "C",
+      "why": "Heating sand to 1,500 °C needs “a tremendous amount of energy,” that is, an enormous amount."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “sturdy” as it is used in paragraph 6?",
+      "options": [
+        "fragile",
+        "strong",
+        "heavy",
+        "useful"
+      ],
+      "answer": "A",
+      "why": "“Sturdy” jars are strong and hard to break; the opposite is “fragile” (easily broken). “Strong” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “Even a small piece of ceramic can leave hard lumps or weak spots in a whole batch of new bottles, forcing the factory to reject them.” What does “reject” mean here?",
+      "options": [
+        "sell at a higher price",
+        "wash and dry carefully",
+        "send to another country",
+        "refuse to accept or use"
+      ],
+      "answer": "D",
+      "why": "Bottles with lumps or weak spots are faulty, so the factory refuses to accept them."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an adverb?",
+      "options": [
+        "intense",
+        "carefully",
+        "glowing",
+        "mixture"
+      ],
+      "answer": "B",
+      "why": "“Carefully” tells how the glass is cooled; “intense” and “glowing” are adjectives and “mixture” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a noun?",
+      "options": [
+        "separated",
+        "similar",
+        "batch",
+        "differently"
+      ],
+      "answer": "C",
+      "why": "“Batch” names a group of bottles made together; “separated” is a verb form, “similar” an adjective and “differently” an adverb."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “circulating” in paragraph 6?",
+      "options": [
+        "calculation",
+        "celebration",
+        "collection",
+        "circulation"
+      ],
+      "answer": "D",
+      "why": "“Circulating” and “circulation” both come from the verb “circulate”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “consequences” in a meaningful sentence of your own.",
+      "model": "If you stay up too late, one of the consequences is feeling tired in class the next day.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “consequences” with its meaning (the results or effects of an action)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Consequences” are the results of an action, often unwanted ones."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “glass” when it means a container for drinking?",
+      "options": [
+        "glass",
+        "glasss",
+        "glasses",
+        "glassies"
+      ],
+      "answer": "C",
+      "why": "Nouns ending in -s, -ss, -sh, -ch or -x add -es: glass → glasses."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Rinse jars and bottles, remove their metal or plastic lids, and place them in the correct recycling container.”?",
+      "options": [
+        "a command",
+        "a question",
+        "an exclamation",
+        "a statement of fact"
+      ],
+      "answer": "A",
+      "why": "It begins with verbs that tell the reader what to do (“Rinse … remove … place”), so it is a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "How to Build a Glass Furnace",
+        "The Dangers of Desert Picnics",
+        "Why Paper Is Better Than Glass",
+        "A Material That Can Be Reborn Forever"
+      ],
+      "answer": "D",
+      "why": "The text explains that glass can be recycled “an unlimited number of times” and how to recycle it properly."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to describe the history of the first glass bottles",
+        "to explain how glass is made and why and how it should be recycled",
+        "to persuade readers to stop using glass completely",
+        "to compare the prices of glass, paper and plastic"
+      ],
+      "answer": "B",
+      "why": "The text explains glass-making, the benefits of cullet, sorting rules, the harm of not recycling and what readers can do."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 4?",
+      "options": [
+        "Glass must be sorted, and some look-alike items kept out.",
+        "Mirrors and light bulbs are the most useful kinds of glass.",
+        "Brown glass is stronger than clear or green glass.",
+        "Factories prefer ceramic cups to glass bottles."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 explains sorting by colour and lists items that must never go in glass bins."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why are clear, green and brown glass usually separated?",
+      "options": [
+        "Brown glass melts at a much lower temperature.",
+        "Clear glass is more valuable than coloured glass.",
+        "Their colours cannot easily be removed once melted together.",
+        "Green glass contains pieces of ceramic."
+      ],
+      "answer": "C",
+      "why": "The writer says they are separated “because their colours cannot easily be removed once they have been melted together.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a narrative story",
+        "a friendly letter",
+        "a poem",
+        "an expository text"
+      ],
+      "answer": "D",
+      "why": "It explains a topic with facts, causes, effects and advice, without characters or a plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why must ceramic cups never be put in glass recycling bins?",
+      "options": [
+        "They are too heavy for the recycling lorries.",
+        "They melt at a different temperature from bottles.",
+        "They can be recycled with paper instead.",
+        "They always contain metal lids."
+      ],
+      "answer": "B",
+      "why": "Such items “are made differently and melt at different temperatures,” leaving lumps or weak spots in new bottles."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which list shows the steps of making glass in the correct order?",
+      "options": [
+        "mix sand, soda ash and limestone → heat in a furnace → shape in moulds → cool carefully",
+        "heat in a furnace → cool carefully → mix the raw materials → shape in moulds",
+        "shape in moulds → mix the raw materials → cool carefully → heat in a furnace",
+        "cool carefully → shape in moulds → heat in a furnace → mix the raw materials"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 describes mixing, heating to 1,500 °C, blowing or pressing into moulds and then careful cooling."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Based on the text, which item CAN be placed in a glass recycling bin?",
+      "options": [
+        "a broken mirror from a bathroom",
+        "an old light bulb from a lamp",
+        "a rinsed jam jar with its lid removed",
+        "a cracked ceramic coffee cup"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 says to rinse jars and remove lids; mirrors, light bulbs and ceramic cups are on the “never” list."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What does the writer discuss immediately AFTER explaining the benefits of cullet?",
+      "options": [
+        "how hot a furnace must be",
+        "what happens to glass in a landfill",
+        "how to reuse jars at home",
+        "how glass must be sorted for recycling"
+      ],
+      "answer": "D",
+      "why": "Cullet is explained in paragraph 3; sorting follows in paragraph 4."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why does adding cullet to a furnace reduce the fuel needed?",
+      "options": [
+        "Cullet melts at a lower temperature.",
+        "Cullet burns and gives off its own heat.",
+        "Cullet is much lighter than sand and soda ash.",
+        "Cullet cools the inside of the furnace down."
+      ],
+      "answer": "A",
+      "why": "The writer says cullet “melts at a lower temperature than the raw ingredients,” so less heat (and fuel) is needed."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by saying that families throw away jars “without a second thought”?",
+      "options": [
+        "to blame families for every kind of pollution",
+        "to contrast a careless habit with glass's real value",
+        "to explain how jars are made in factories",
+        "to describe the writer's own family"
+      ],
+      "answer": "B",
+      "why": "The next sentence calls glass “remarkable,” so the opening makes readers rethink a careless habit."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe the writer's attitude toward glass?",
+      "options": [
+        "bored and uninterested",
+        "worried and fearful",
+        "admiring and appreciative",
+        "angry and disappointed"
+      ],
+      "answer": "C",
+      "why": "The writer calls glass “remarkable” and “a precious material” that can be recycled endlessly."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is recycling glass different from recycling paper or plastic, according to paragraph 1?",
+      "options": [
+        "Glass must be recycled by hand, but paper and plastic use machines.",
+        "Paper and plastic can be recycled forever, but glass only once.",
+        "Glass weakens each time, but paper and plastic stay strong.",
+        "Glass keeps its strength each time, but paper and plastic grow weaker."
+      ],
+      "answer": "D",
+      "why": "Unlike paper and plastic, “which become weaker each time,” glass can be reshaped “without losing any of its strength.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of a small piece of ceramic in a batch of melted glass?",
+      "options": [
+        "The new bottles become clearer and stronger.",
+        "The bottles may be weak and get rejected.",
+        "The furnace needs less fuel than before.",
+        "The glass changes colour from clear to brown."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: it “can leave hard lumps or weak spots … forcing the factory to reject them.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do a bottle buried in a landfill and broken glass left in the desert have in common?",
+      "options": [
+        "Both cause lasting harm because the glass was not recycled.",
+        "Both slowly turn into rich soil within a few months.",
+        "Both can easily be melted again without any fuel.",
+        "Both are completely safe for people and animals."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5 describes both as consequences of not recycling: buried bottles last thousands of years and broken glass injures people and animals."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “keep a precious material circulating for generations”?",
+      "options": [
+        "sell glass in shops all over the world",
+        "move glass bottles around in a circle",
+        "keep glass in use again and again for years",
+        "store glass safely in museums"
+      ],
+      "answer": "C",
+      "why": "“Circulating” means moving around and returning; recycled glass keeps coming back as new products for many years."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer give the example of a jam jar returning as “a new jar, a drinking glass or a perfume bottle”?",
+      "options": [
+        "to advertise a brand of perfume",
+        "to list the only three things glass can become",
+        "to show that jam jars are better than other glass",
+        "to make the idea of endless recycling easy to picture"
+      ],
+      "answer": "D",
+      "why": "A familiar object turning into other objects helps readers imagine glass being recycled over and over."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which of these ideas from the text is a FACT that could be checked, rather than an opinion?",
+      "options": [
+        "Glass is one of the most remarkable materials that people have ever made.",
+        "Glass is heated in a furnace to around 1,500 degrees Celsius.",
+        "Reusing sturdy jars is even better than recycling them.",
+        "Glass is a precious material."
+      ],
+      "answer": "B",
+      "why": "A temperature can be measured and checked; “remarkable,” “better” and “precious” are the writer's judgements."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the BEST thing to do with an empty honey jar, according to the text?",
+      "options": [
+        "Rinse it, reuse it, then recycle it later.",
+        "Throw it in the general rubbish bin with its lid on.",
+        "Bury it in the garden so that it can rot.",
+        "Break it into pieces before putting it in the bin."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 advises rinsing, reusing sturdy jars and then recycling them; glass does not rot when buried."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a plan to open a new glass factory",
+        "a belief that glass is too dangerous to use",
+        "a wish to help readers recycle glass correctly",
+        "a wish to explain the history of perfume bottles"
+      ],
+      "answer": "C",
+      "why": "The text explains why recycling glass matters and ends with clear steps that everyone can follow."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "anger at households that waste glass",
+        "sadness about glass in landfills",
+        "fear of broken glass in parks",
+        "hopeful encouragement that small habits can help"
+      ],
+      "answer": "D",
+      "why": "It begins “Fortunately, everyone can contribute” and says small habits repeated by millions can make a difference."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what cullet is",
+        "what to do with the lids after removing them",
+        "why glass colours are separated",
+        "how hot a glass furnace must be"
+      ],
+      "answer": "B",
+      "why": "The writer says to remove lids but never explains what to do with them; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A glass bottle buried in a landfill rots away within a month.",
+        "A light bulb in the glass bin makes the bottles stronger.",
+        "A bottle left in the desert is found 200 years later.",
+        "Glass melts on a kitchen table on a warm afternoon."
+      ],
+      "answer": "C",
+      "why": "The text says glass may remain “almost unchanged, for thousands of years.” The other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "The Glass That Never Wears Out",
+        "My Favourite Perfume Bottle",
+        "Building Sandcastles",
+        "How Paper Is Made"
+      ],
+      "answer": "A",
+      "why": "The text is about glass and how it can be recycled endlessly without losing its strength."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that propose ONE idea to help your school or neighbourhood recycle more glass, and explain why it would work.",
+      "model": "Our school could place a bright, clearly labelled glass bin next to the canteen, with pictures of what is allowed and what is not. Students would see it every day and would know exactly which items belong inside. As a result, more glass would be recycled and fewer batches would be rejected.",
+      "rubric": [
+        "2 = a clear new ending with a realistic idea and a reason that links to the text (sorting, cullet, saving energy, safety)",
+        "1 = an idea is given but it is unclear or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any realistic, explained idea that fits the text is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A school's glass bin keeps being rejected because students put mirrors and ceramic mugs in it. Which solution fits the text?",
+      "options": [
+        "Put a clear sign on the bin listing the items that are not allowed.",
+        "Teach students why ceramics and mirrors spoil a batch of new glass.",
+        "Remove the glass bin from the school completely.",
+        "A and B"
+      ],
+      "answer": "D",
+      "why": "Both a clear sign and an explanation of the rule help students sort correctly; removing the bin would stop recycling altogether."
+    }
+  ]
+}

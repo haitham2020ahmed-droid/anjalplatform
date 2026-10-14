@@ -1,0 +1,568 @@
+{
+  "code": "NB-028",
+  "title": "The Balance Point",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 405,
+  "passage": "When Mr Khalid announced the Science Week challenge, Faris could barely remain in his seat. Each pair of students would build a small glider from balsa wood, and the glider that travelled farthest across the school courtyard would win. Faris, who had spent countless evenings sketching aeroplanes in the margins of his notebooks, was absolutely certain that victory belonged to him. Unfortunately, his partner was Saud, a quiet, methodical boy who generally preferred measuring to talking.\n\n\"We need enormous wings,\" Faris declared during their first meeting, \"and bright red stripes, so that everyone notices our glider immediately.\"\n\nSaud examined the instructions thoughtfully. \"Bigger wings also mean more weight,\" he replied cautiously. \"Perhaps we should test a simple design first and improve it step by step.\"\n\nFaris dismissed the suggestion with a wave of his hand, and for three afternoons he worked almost entirely alone, carving the wide wings and painting every stripe with great care. By Wednesday the glider looked magnificent; however, when Faris launched it proudly across the courtyard, it climbed steeply, hesitated in mid-air like a startled bird, and then dropped onto the ground only a few metres away.\n\n\"It was the wind,\" Faris muttered, although the palm trees around the courtyard stood perfectly still. He tried again, and then again, but each flight ended in the same embarrassing way.\n\nSaud picked up the glider and balanced it carefully on one finger. \"Look, it tips backward because the tail is heavier than the nose,\" he explained softly. \"If the balance point is too far back, the glider keeps lifting its nose until it loses speed and falls. A small lump of clay on the nose might move the balance point forward.\"\n\nFor a long moment, Faris said nothing, because admitting that he was wrong felt like swallowing a stone. Finally, he handed Saud the clay, and with the extra weight pressed onto its nose, the glider slid smoothly through the air and landed gently near the far wall of the courtyard.\n\nOn Thursday, their red-striped glider finished second out of fourteen, and when Mr Khalid praised Faris for the beautiful design, Faris shook his head firmly. \"The design was mine, sir,\" he said, \"but the flight belongs to Saud. Without his careful testing, our glider would still be crashing.\"\n\nSaud smiled shyly, and Faris understood that the most valuable thing he had built that week was not made of balsa wood at all.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “dismissed” as it is used in paragraph 4?",
+      "options": [
+        "rejected",
+        "repeated",
+        "praised",
+        "copied"
+      ],
+      "answer": "A",
+      "why": "Faris waved the suggestion away and worked alone, so he rejected it."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “magnificent” as it is used in paragraph 4?",
+      "options": [
+        "splendid",
+        "plain",
+        "heavy",
+        "colourful"
+      ],
+      "answer": "B",
+      "why": "“Magnificent” means extremely impressive and beautiful; “plain” is its opposite. “Splendid” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 1: “a quiet, methodical boy who generally preferred measuring to talking”. What does “methodical” mean?",
+      "options": [
+        "noisy and playful",
+        "lazy and slow",
+        "careful and orderly",
+        "angry and impatient"
+      ],
+      "answer": "C",
+      "why": "A boy who prefers measuring and wants to improve a design “step by step” works in a careful, orderly way."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is an adverb?",
+      "options": [
+        "muttered",
+        "palm",
+        "embarrassing",
+        "perfectly"
+      ],
+      "answer": "D",
+      "why": "“Perfectly” tells how still the trees stood; “muttered” is a verb, “palm” a noun and “embarrassing” an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 1 is PLURAL?",
+      "options": [
+        "pair",
+        "margins",
+        "glider",
+        "victory"
+      ],
+      "answer": "B",
+      "why": "“Margins” means more than one margin; the other nouns are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “admitting” in paragraph 7?",
+      "options": [
+        "admission",
+        "admiral",
+        "admire",
+        "adventure"
+      ],
+      "answer": "A",
+      "why": "“Admission” is the noun form of “admit”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “cautiously” in a meaningful sentence of your own.",
+      "model": "The hikers walked cautiously along the narrow mountain path, because one wrong step could send them sliding down the slope.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “cautiously” with its meaning (carefully, in order to avoid danger or mistakes)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Cautiously” means carefully, to avoid danger or mistakes."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of the noun “victory” in paragraph 1?",
+      "options": [
+        "victorys",
+        "victoryes",
+        "victories",
+        "victoris"
+      ],
+      "answer": "C",
+      "why": "A noun ending in a consonant + y changes y to i and adds -es: victory → victories."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Perhaps we should test a simple design first and improve it step by step.” (paragraph 3)?",
+      "options": [
+        "a statement",
+        "a command",
+        "a question",
+        "an exclamation"
+      ],
+      "answer": "A",
+      "why": "Saud makes a polite suggestion as a statement ending with a full stop; it does not begin with a command verb or ask a question."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Fastest Glider in Riyadh",
+        "Red Stripes for Victory",
+        "A Windy Day in the Courtyard",
+        "Learning to Share the Credit"
+      ],
+      "answer": "D",
+      "why": "Faris learns to listen to Saud and gives him credit for the flight; the wind was only an excuse."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to teach readers how to paint a glider",
+        "to show how a proud boy learns to value teamwork",
+        "to explain the rules of a school competition",
+        "to describe the trees in a school courtyard"
+      ],
+      "answer": "B",
+      "why": "The story follows Faris from working alone and blaming the wind to giving Saud credit."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 4?",
+      "options": [
+        "Faris's beautiful glider, built alone, fails its first test.",
+        "Saud carves the wings while Faris paints the stripes.",
+        "The glider flies across the whole courtyard on Wednesday.",
+        "Faris asks Saud to help him paint the stripes."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 describes Faris working alone on a magnificent glider that drops after a few metres."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did Saud want to test a simple design first?",
+      "options": [
+        "He did not like the colour red.",
+        "He wanted to finish the project quickly.",
+        "He knew that bigger wings also add weight.",
+        "Mr Khalid had told him to use small wings."
+      ],
+      "answer": "C",
+      "why": "“Bigger wings also mean more weight,” he replied cautiously."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a news article",
+        "a fable with talking animals",
+        "a set of instructions",
+        "a realistic story with dialogue"
+      ],
+      "answer": "D",
+      "why": "It tells an invented but believable school story through characters' conversations."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Saud, why did the glider keep falling?",
+      "options": [
+        "Its red paint was too heavy for the wings.",
+        "Its tail was heavier than its nose.",
+        "The wind in the courtyard was too strong.",
+        "Its wings were too small to lift it."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6: “it tips backward because the tail is heavier than the nose.” The trees show there was no wind."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Faris painted the red stripes.",
+        "Saud balanced the glider on one finger.",
+        "Mr Khalid praised the design.",
+        "Faris handed Saud the clay."
+      ],
+      "answer": "A",
+      "why": "Faris painted the stripes during the three afternoons before Wednesday's test; the other events came later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells the story?",
+      "options": [
+        "Faris",
+        "Saud",
+        "Mr Khalid",
+        "a narrator who is not a character"
+      ],
+      "answer": "D",
+      "why": "The story uses “he” for Faris and Saud and never “I”, so it is told by an outside narrator."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main problem in the story?",
+      "options": [
+        "The school courtyard is too small for the competition.",
+        "Mr Khalid forgets to announce the winner.",
+        "The glider keeps crashing, and Faris is too proud to listen.",
+        "Saud refuses to help Faris build the glider."
+      ],
+      "answer": "C",
+      "why": "The glider fails repeatedly, and Faris blames the wind instead of accepting Saud's ideas."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Faris most likely say, “It was the wind”?",
+      "options": [
+        "He had noticed a strong wind shaking the trees.",
+        "He did not want to admit his design had a problem.",
+        "Saud had told him the wind was too strong.",
+        "He wanted Mr Khalid to stop the competition."
+      ],
+      "answer": "B",
+      "why": "The palm trees “stood perfectly still”, so there was no wind; Faris was making an excuse."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Faris feel when he had to admit that he was wrong?",
+      "options": [
+        "It was difficult and uncomfortable for him.",
+        "He was delighted and relieved at once.",
+        "He felt nothing at all about it.",
+        "He was angry with Mr Khalid."
+      ],
+      "answer": "A",
+      "why": "The writer says admitting he was wrong “felt like swallowing a stone,” something hard and unpleasant."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 5?",
+      "options": [
+        "finding out what colour the next glider will be",
+        "learning how balsa wood is grown",
+        "wondering whether Faris will accept help and fix the glider",
+        "discovering how many students are in the class"
+      ],
+      "answer": "C",
+      "why": "Faris keeps failing and blaming the wind, so readers want to see if he will change."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How were Faris's and Saud's ways of working different?",
+      "options": [
+        "Faris measured everything; Saud only painted.",
+        "Faris cared mostly about looks; Saud tested and measured.",
+        "Faris wanted small wings; Saud wanted enormous wings.",
+        "Faris asked for help; Saud refused to share ideas."
+      ],
+      "answer": "B",
+      "why": "Faris wanted enormous wings and bright stripes; Saud preferred measuring and testing step by step."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of adding clay to the glider's nose?",
+      "options": [
+        "The glider climbed higher and then crashed.",
+        "The red paint began to peel off.",
+        "Faris decided to build a new glider.",
+        "The glider flew smoothly to the far wall."
+      ],
+      "answer": "D",
+      "why": "Paragraph 7: “the glider slid smoothly through the air and landed gently near the far wall.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Faris handing Saud the clay and Faris's words to Mr Khalid have in common?",
+      "options": [
+        "Both show Faris putting teamwork before his pride.",
+        "Both show Faris trying to win the prize alone.",
+        "Both happen before the first test flight.",
+        "Both show Faris blaming the weather."
+      ],
+      "answer": "A",
+      "why": "In each moment Faris sets aside his pride: first by accepting Saud's idea, then by giving him credit."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the simile “hesitated in mid-air like a startled bird” show about the glider?",
+      "options": [
+        "It flew higher than any real bird.",
+        "It was shaped and painted like a bird.",
+        "It paused suddenly before it dropped.",
+        "It made a loud noise as it flew."
+      ],
+      "answer": "C",
+      "why": "A startled bird stops suddenly; the glider likewise seemed to pause before falling."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is “the most valuable thing he had built that week” that was “not made of balsa wood at all”?",
+      "options": [
+        "a second, larger glider",
+        "a friendship and teamwork with Saud",
+        "a wooden model of the courtyard",
+        "a box for storing the clay"
+      ],
+      "answer": "B",
+      "why": "The ending suggests that Faris built a real partnership with Saud, which matters more than the glider."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer mention that “the palm trees around the courtyard stood perfectly still”?",
+      "options": [
+        "to describe the beauty of the school",
+        "to show that it was a very hot day",
+        "to explain why the glider was painted red",
+        "to show readers that Faris's excuse was untrue"
+      ],
+      "answer": "D",
+      "why": "Still trees mean there was no wind, so readers realise Faris is making an excuse."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the BEST decision Faris made in the story?",
+      "options": [
+        "painting every stripe with great care",
+        "working almost entirely alone",
+        "giving Saud credit in front of Mr Khalid",
+        "blaming the wind for the failed flights"
+      ],
+      "answer": "C",
+      "why": "Giving honest credit shows respect and fairness; working alone and blaming the wind caused problems."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Listening to others works better than pride.",
+        "Beautiful designs always win competitions.",
+        "It is best to work alone on difficult tasks.",
+        "Quiet people should speak more loudly."
+      ],
+      "answer": "A",
+      "why": "Faris succeeds only after he listens to Saud and sets aside his pride."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does Faris show toward Saud at the end of the story?",
+      "options": [
+        "jealousy",
+        "boredom",
+        "respect",
+        "fear"
+      ],
+      "answer": "C",
+      "why": "He tells Mr Khalid that “the flight belongs to Saud,” showing respect for his partner's careful testing."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "what the glider was made of",
+        "how far the glider flew in the competition",
+        "what colour the stripes were",
+        "who suggested adding clay"
+      ],
+      "answer": "B",
+      "why": "The story gives the material (balsa wood), the colour (red) and who suggested the clay (Saud), but not the distance flown."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A glider flies more smoothly after a little weight is added to its nose.",
+        "A balsa glider flies around the whole city and returns by itself.",
+        "A glider changes colour from red to blue while it flies.",
+        "A glider talks to Faris and explains why it fell."
+      ],
+      "answer": "A",
+      "why": "Moving the balance point forward with a small weight really can fix a glider that climbs and stalls."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Wind That Stole the Prize",
+        "Faris Wins Alone",
+        "The Last Day of School",
+        "The Glider That Needed a Partner"
+      ],
+      "answer": "D",
+      "why": "The glider only flew well once Faris accepted Saud's help; the wind was not the cause."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that still show what Faris learned.",
+      "model": "On Thursday, a gust of wind pushed their glider into a wall, and it finished last. Even so, Faris told Mr Khalid that Saud's idea had fixed their glider, and he asked Saud to be his partner again next year. He realised that winning mattered less than learning to listen.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and events and shows what Faris learned (teamwork, listening, honesty)",
+        "1 = an ending is given but it is unclear, does not fit the story, or does not show what Faris learned",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Faris and Saud and shows Faris's lesson is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A classmate's paper glider keeps diving straight into the ground nose first. Based on Saud's explanation, what should she try?",
+      "options": [
+        "Add more clay to the nose.",
+        "Remove some weight from the nose.",
+        "Paint the glider in brighter colours.",
+        "Throw the glider much harder."
+      ],
+      "answer": "B",
+      "why": "Saud explains that the balance point controls the flight. A nose-heavy glider has its balance point too far forward, so removing nose weight moves it back."
+    }
+  ]
+}

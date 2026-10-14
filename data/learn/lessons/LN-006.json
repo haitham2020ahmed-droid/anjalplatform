@@ -1,0 +1,464 @@
+{
+ "code": "LN-006",
+ "title": "Supporting a topic with relevant details",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.2.b"
+ ],
+ "families": [
+  "writing-informative"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0016",
+  "L-0075",
+  "L-0077",
+  "L-0176",
+  "L-0177",
+  "L-0279",
+  "L-0280",
+  "L-0323"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Topic and details",
+     "text": "The **topic** is what you write about.\n\nThe **details** tell more about the topic."
+    },
+    {
+     "title": "A detail must help",
+     "text": "A good detail helps the reader **understand** the topic.\n\nTopic: **Bees are busy.**\nGood detail: **They fly from flower to flower.**"
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Read the topic sentence.\n2. Read the detail.\n3. Ask: **Does this tell more about the topic?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look back at the **topic sentence**.\n\n1. Find the sentence that tells the topic.\n2. Check each detail against it.\n3. The right detail tells more about **that** topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Milk is good for you.",
+      "role": "main"
+     },
+     {
+      "t": "It helps your bones grow strong.",
+      "role": "key"
+     },
+     {
+      "t": "Cows say moo.",
+      "role": "other"
+     }
+    ],
+    "explain": "The topic is: milk is **good for you**. **Strong bones** tells why. **Cows say moo** does not."
+   },
+   "together": {
+    "passage": "Exercise is good for you. It makes your heart strong. It makes your legs strong too. ___",
+    "stem": "Which detail best supports the topic?",
+    "options": [
+     "It helps you sleep well.",
+     "My shoes are blue.",
+     "TV shows are fun.",
+     "Some days are cold."
+    ],
+    "answer": 0,
+    "hint": "That detail does not tell why exercise is good for you.",
+    "good": "Yes! Sleeping well is another way exercise is good for you."
+   },
+   "evidence": {
+    "sentences": [
+     "Exercise is good for you.",
+     "It makes your heart strong.",
+     "It makes your legs strong too.",
+     "It helps you sleep well."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: It helps you sleep well. Tap the sentence that tells the topic this detail supports.",
+    "wrong": "This sentence is a detail. Find the sentence that tells the topic."
+   },
+   "checks": [
+    {
+     "passage": "Dogs can be good helpers. Some dogs help people who cannot see. ___",
+     "stem": "Which detail best supports the topic?",
+     "options": [
+      "Cats like to sleep.",
+      "Dogs have long tails.",
+      "Some dogs help find lost people.",
+      "I like hot milk."
+     ],
+     "answer": 2,
+     "why": "Finding lost people is another way dogs help."
+    },
+    {
+     "passage": "Our town park is a fun place. ___",
+     "stem": "Which detail best supports the topic?",
+     "options": [
+      "The bus is red.",
+      "My aunt cooks rice.",
+      "It has slides and swings.",
+      "The park has a gate."
+     ],
+     "answer": 2,
+     "why": "Slides and swings show that the park is fun. A gate does not."
+    },
+    {
+     "passage": "Trees help us. They give us shade. ___",
+     "stem": "Which detail best supports the topic?",
+     "options": [
+      "They give us fruit.",
+      "Trees can be tall.",
+      "Leaves fall down.",
+      "Birds can fly."
+     ],
+     "answer": 0,
+     "why": "Fruit is another way trees help us."
+    }
+   ],
+   "again": {
+    "title": "The because test",
+    "text": "Say the topic. Then say **because** and the detail.\n\nIf it makes sense, the detail fits!",
+    "example": "Topic: Summer is fun.\n\"Summer is fun **because** we can swim.\" ✔\n\"Summer is fun **because** my bag is old.\" ✘"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Details that support",
+     "text": "In a report, the **topic sentence** gives the main point. **Supporting details** prove or explain it.\n\nA detail that is not about the main point does not support it."
+    },
+    {
+     "title": "Kinds of details",
+     "text": "- **Facts**: things that can be checked\n- **Numbers**: how many, how fast, how big\n- **Examples**: one case that shows the point\n- **Definitions**: what a hard word means\n- **Expert words**: what a scientist or doctor says"
+    },
+    {
+     "title": "Pick the right kind",
+     "text": "1. Read the topic sentence.\n2. Ask: **What would prove this?**\n3. A number proves \"fastest\". A definition explains a new word. An example shows what something looks like."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The best detail is the one that supports **the exact point** of the paragraph.\n\n1. Find the sentences that state the point.\n2. Test each detail: does it prove or explain **that** point?\n3. Point to the sentences that show the point."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The cheetah is the fastest land animal.",
+      "role": "main"
+     },
+     {
+      "t": "It can run about 100 kilometres an hour.",
+      "role": "key"
+     },
+     {
+      "t": "Cheetahs have black spots.",
+      "role": "other"
+     }
+    ],
+    "explain": "The point is **fastest**. A **number** about speed proves it. Spots are true, but they do not prove speed."
+   },
+   "together": {
+    "passage": "Reading every day helps students do better in school. When students read, they learn many new words. They also practise understanding big ideas. ___ This is why many teachers ask students to read at home.",
+    "stem": "Which detail would best support the topic sentence?",
+    "options": [
+     "Many town libraries are open on weekends too.",
+     "My favourite book has a bright green cover.",
+     "Some of the books in our library are very long.",
+     "Students who read daily often get higher test scores."
+    ],
+    "answer": 3,
+    "hint": "That detail does not show reading helping students in school. Look at the first sentence again.",
+    "good": "Yes! Higher test scores show that reading helps students do better in school."
+   },
+   "evidence": {
+    "sentences": [
+     "Reading every day helps students do better in school.",
+     "When students read, they learn many new words.",
+     "They also practise understanding big ideas.",
+     "Students who read daily often get higher test scores.",
+     "This is why many teachers ask students to read at home."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Students who read daily often get higher test scores. Tap 2 sentences that show the point this detail supports.",
+    "wrong": "This sentence is the new detail or the ending. Find the sentences that show how reading helps in school."
+   },
+   "checks": [
+    {
+     "passage": "Lina writes: \"The cheetah is the fastest land animal.\" She wants to prove it.",
+     "stem": "Which detail best supports her sentence?",
+     "options": [
+      "Cheetahs have dark spots all over their fur.",
+      "A cheetah can run about 100 kilometres an hour.",
+      "Most cheetahs live in Africa.",
+      "Lina once saw a cheetah at the city zoo."
+     ],
+     "answer": 1,
+     "why": "Her point is about speed. A number showing speed proves it."
+    },
+    {
+     "passage": "Omar's report says: \"Many desert plants are succulents.\" His readers may not know this word.",
+     "stem": "Which detail should he add?",
+     "options": [
+      "Succulents are sold in many plant shops.",
+      "Omar likes to grow green plants at home.",
+      "Some deserts are very large and dry.",
+      "A succulent stores water in thick leaves or stems."
+     ],
+     "answer": 3,
+     "why": "A **definition** explains the new word so readers understand the point."
+    },
+    {
+     "passage": "Recycling can turn old things into useful new things.",
+     "stem": "Which detail is the best example?",
+     "options": [
+      "Recycling bins are often painted blue.",
+      "Old plastic bottles can be made into jackets.",
+      "Some people forget to recycle at home.",
+      "Rubbish trucks come every Monday."
+     ],
+     "answer": 1,
+     "why": "It is an **example** of an old thing becoming a useful new thing."
+    }
+   ],
+   "again": {
+    "title": "Ask the question",
+    "text": "Turn the topic sentence into a question: **How do you know?** or **What does that mean?**\n\nThe best detail answers that question.",
+    "example": "Topic: Dates give quick energy.\nQuestion: How do you know?\nDetail: **Dates are full of natural sugar that the body uses fast.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Thesis and support",
+     "text": "In an essay, the **thesis** is the writer's main claim. Each detail should give a **reason** or **evidence** for it.\n\nA detail can be true and interesting and still not support the thesis."
+    },
+    {
+     "title": "Strong kinds of support",
+     "text": "- **Research and numbers** show that something is true for many people.\n- **Expert opinions** add trust.\n- **Specific examples** make an idea clear.\n\nA personal story or an opinion is weaker when you need to prove a claim."
+    },
+    {
+     "title": "Watch for these",
+     "text": "1. Details about the **topic** but not the **claim**\n2. Details that support the **opposite** side\n3. Details that are too **vague** to prove anything"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a detail supports the thesis, first find the **claim** itself.\n\n1. Find the sentence that states the claim, and any sentence that restates it.\n2. Ask: does this detail give a reason or evidence for **that** claim?\n3. Reject details that are only about the topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Thesis: Every classroom should have plants.",
+      "role": "main"
+     },
+     {
+      "t": "Plants can make a room feel calmer.",
+      "role": "key"
+     },
+     {
+      "t": "Some plants have flowers.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim is that classrooms **should have** plants. A calmer room is a reason for it. Having flowers is about plants but gives no reason."
+   },
+   "together": {
+    "passage": "Schools should give students more time outdoors. Time outside lets children move their bodies, which keeps them healthy. Natural light also helps the body keep a regular sleep pattern. Playing outside gives students a chance to rest their minds, too. ___ For these reasons, an extra outdoor break would be a smart change.",
+    "stem": "Which detail would best fill the gap and support the writer's claim?",
+    "options": [
+     "The first playgrounds were built more than a hundred years ago.",
+     "My cousin's school has a red slide and two swings.",
+     "Studies suggest students focus better after a break outdoors.",
+     "Some students prefer to stay inside and read during breaks."
+    ],
+    "answer": 2,
+    "hint": "That detail is about schools or breaks, but does it give a reason for MORE outdoor time?",
+    "good": "Yes! Better focus is a strong reason for more outdoor time, and it is based on research."
+   },
+   "evidence": {
+    "sentences": [
+     "Schools should give students more time outdoors.",
+     "Time outside lets children move their bodies, which keeps them healthy.",
+     "Natural light also helps the body keep a regular sleep pattern.",
+     "Playing outside gives students a chance to rest their minds, too.",
+     "Studies suggest students focus better after a break outdoors.",
+     "For these reasons, an extra outdoor break would be a smart change."
+    ],
+    "proof": [
+     0,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Studies suggest students focus better after a break outdoors. Tap the 2 sentences that state the writer's main claim.",
+    "wrong": "This sentence is a supporting detail. Find the sentences that state the claim itself."
+   },
+   "checks": [
+    {
+     "passage": "Hamad's report begins: \"The Rub' al Khali, or Empty Quarter, is one of the largest sand deserts in the world.\" He needs a detail that proves this.",
+     "stem": "Which kind of detail would best support his claim?",
+     "options": [
+      "A fact giving the desert's size",
+      "A story about a camel trip",
+      "A poem about the desert sunset",
+      "His opinion that deserts are beautiful"
+     ],
+     "answer": 0,
+     "why": "The claim is about size. A fact that measures the size proves it."
+    },
+    {
+     "passage": "Topic sentence: Volunteering helps young people build useful skills.",
+     "stem": "Which detail best supports this topic sentence?",
+     "options": [
+      "Food bank volunteers learn to plan and work in teams.",
+      "Volunteering is often done at weekends.",
+      "Many charities were started a long time ago.",
+      "Some volunteers wear matching T-shirts and caps."
+     ],
+     "answer": 0,
+     "why": "Planning and teamwork are useful skills. The other details are about volunteering but not about skills."
+    },
+    {
+     "passage": "Dana's paragraph argues that children should drink water instead of sugary drinks. She has found four details.",
+     "stem": "Which detail gives the strongest support?",
+     "options": [
+      "Sugary drinks come in many bright colours.",
+      "Dana's brother likes orange juice with his lunch.",
+      "A dentist explains that sugary drinks can damage teeth.",
+      "Water can be stored in glass or metal bottles."
+     ],
+     "answer": 2,
+     "why": "An expert gives a reason to avoid sugary drinks. That supports Dana's claim."
+    }
+   ],
+   "again": {
+    "title": "Claim, then reason",
+    "text": "Say the claim out loud. Then say **This is true because...** and read the detail.\n\nIf the sentence makes sense and gives a real reason, the detail supports the claim.",
+    "example": "Claim: Cities need more buses.\n\"This is true because **buses reduce traffic on busy roads**.\" ✔\n\"This is true because **buses are painted green**.\" ✘"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Relevant and sufficient",
+     "text": "Strong support is **relevant**, meaning it proves the exact claim, and **specific**, meaning it gives clear facts, names or numbers.\n\nVague details like \"lots of people like it\" prove very little."
+    },
+    {
+     "title": "The right type for the claim",
+     "text": "Match the support to the kind of claim:\n\n- A claim about **cause** needs evidence of how one thing leads to another.\n- A claim about **size or amount** needs measurements.\n- A claim about **people's experience** needs surveys or examples."
+    },
+    {
+     "title": "Close but not relevant",
+     "text": "The hardest wrong answers are about the **same subject** but support a **different claim**.\n\nIf the thesis is \"trees cool cities\", a detail about trees giving homes to birds is true but off the claim."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a detail is the best support, identify the **precise claim** the paragraph is making.\n\n1. Find the sentences that state or explain the claim.\n2. Name the claim in a few words.\n3. Pick the detail that gives evidence for **that** claim, not just the topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: Fast fashion harms the environment.",
+      "role": "main"
+     },
+     {
+      "t": "Making one pair of jeans can use thousands of litres of water.",
+      "role": "key"
+     },
+     {
+      "t": "Fast fashion stores change their styles every few weeks.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim is about **harm to the environment**. Water use is direct evidence. Changing styles describes fast fashion but proves no harm."
+   },
+   "together": {
+    "passage": "Many cities in hot climates are turning to an old solution for a modern problem: trees. Streets covered in concrete and asphalt soak up the sun's heat during the day and release it at night, making cities hotter than the countryside around them. Trees fight this effect in two ways. Their leaves block sunlight before it reaches the ground, and they release water vapour that cools the air. ___ For this reason, planners in Riyadh and other cities have begun large tree-planting programmes.",
+    "stem": "Which detail would best support the paragraph's central claim?",
+    "options": [
+     "Trees also provide homes for many birds and insects in the city.",
+     "Shaded streets can measure several degrees cooler than open ones.",
+     "Some kinds of trees can live for hundreds of years.",
+     "Planting trees can make a neighbourhood look more attractive."
+    ],
+    "answer": 1,
+    "hint": "That detail is about trees, but is it about heat? Reread what the paragraph says trees fight.",
+    "good": "Yes! The claim is that trees cool cities. A measured drop in temperature is direct evidence for that claim."
+   },
+   "evidence": {
+    "sentences": [
+     "Many cities in hot climates are turning to an old solution for a modern problem: trees.",
+     "Streets covered in concrete and asphalt soak up the sun's heat during the day and release it at night, making cities hotter than the countryside around them.",
+     "Trees fight this effect in two ways.",
+     "Their leaves block sunlight before it reaches the ground, and they release water vapour that cools the air.",
+     "Shaded streets can measure several degrees cooler than open ones.",
+     "For this reason, planners in Riyadh and other cities have begun large tree-planting programmes."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: shaded streets can be several degrees cooler. Tap 2 sentences that show the claim this detail supports: trees reduce city heat.",
+    "wrong": "This sentence introduces the topic, gives the answer, or tells a result. Find sentences about city heat and how trees fight it."
+   },
+   "checks": [
+    {
+     "passage": "Claim: Using social media late at night can make it harder for teenagers to sleep.",
+     "stem": "Which detail best supports this claim?",
+     "options": [
+      "Many teenagers use social media to talk to friends.",
+      "Social media companies earn money from adverts.",
+      "Some teenagers post photos of their meals online.",
+      "Bright screens at night can delay the body's sleep hormone."
+     ],
+     "answer": 3,
+     "why": "It explains a cause: screens at night affect the body's sleep signal. The rest are about social media but not sleep."
+    },
+    {
+     "passage": "Claim: Saudi Arabia's ancient sites attract visitors from around the world. Draft detail: \"Lots of people go to old places.\"",
+     "stem": "Which revision makes the detail more specific and relevant?",
+     "options": [
+      "Old places are very interesting to see and to learn about.",
+      "Visitors from many countries come to see the tombs of Hegra in AlUla.",
+      "Many people like to travel during the school holidays.",
+      "AlUla has very hot summers and cool, pleasant winters."
+     ],
+     "answer": 1,
+     "why": "It names a real site and shows visitors from many countries, which is exactly the claim."
+    },
+    {
+     "passage": "Thesis: Schools should teach students how to manage money.",
+     "stem": "Which detail gives the most relevant support?",
+     "options": [
+      "Long ago, money was first made from small metal coins.",
+      "Some students already get pocket money from their parents.",
+      "Banks open early in the morning in most cities.",
+      "Surveys show many young adults struggle to plan a monthly budget."
+     ],
+     "answer": 3,
+     "why": "It shows a real need that money lessons would meet. The other details are about money but not about why schools should teach it."
+    }
+   ],
+   "again": {
+    "title": "Shrink the claim",
+    "text": "Shrink the thesis to **three key words**. Then check that the detail touches **all three**.",
+    "example": "Thesis: Trees cool hot cities.\nKey words: **trees, cool, cities**.\nShaded streets are cooler → trees ✔ cool ✔ cities ✔\nTrees shelter birds → trees ✔ cool ✘ cities ✘"
+   }
+  }
+ }
+}

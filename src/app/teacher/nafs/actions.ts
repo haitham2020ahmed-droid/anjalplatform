@@ -6,10 +6,10 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
 import { getT } from "@/i18n/server";
-import { builderRows, buildNafsAutomatic, buildNafsFull, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, createFullNafsPractice, moreForStandard, replaceNafsQuestion, saveFullNafsTest, type BuilderRow, type FullSettings, type MinistrySettings } from "@/server/nafs/build";
+import { assignNafsTestOnline, builderPractice, builderRows, buildNafsAutomatic, buildNafsFull, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, createFullNafsPractice, moreForStandard, replaceNafsQuestion, saveFullNafsTest, type BuilderRow, type FullSettings, type MinistrySettings } from "@/server/nafs/build";
 import { createNafsPractice, deleteNafsPractice } from "@/server/nafs/practice";
 import { nafsBankPage, retagNafsQuestion, reviewNafsDraft, saveNafsQuestion, setNafsFamilyLink, setNafsHidden, type BankPage, type BankSource, type NafsQuestionInput } from "@/server/nafs/bank";
-import { assignNafsOnline, deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
+import { deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
 import { generateNafsDrafts, type AiNafsInput } from "@/server/nafs/ai";
 import type { SimulationSettings } from "@/server/nafs/framework";
 
@@ -79,17 +79,53 @@ export async function linkFamilyAction(form: FormData): Promise<void> {
 }
 
 /** The builder's "Add from the bank" list (a page at a time). */
-export async function bankSearchAction(input: { code?: string | null; q?: string | null; page?: number; source?: BankSource; standard?: string | null; difficulty?: number | null }): Promise<{ ok?: BankPage; error?: string }> {
+export async function bankSearchAction(input: { code?: string | null; q?: string | null; page?: number; source?: BankSource; standard?: string | null; difficulty?: number | null; set?: string | null }): Promise<{ ok?: BankPage; error?: string }> {
   const actor = await requireActor(STAFF);
-  return wrap(() => nafsBankPage(repo, actor, { code: input?.code ? String(input.code) : null, q: input?.q ? String(input.q) : null, page: Number(input?.page) || 1, source: input?.source === "OWN" || input?.source === "PLATFORM" ? input.source : "ALL", standard: input?.standard ? String(input.standard) : null, difficulty: input?.difficulty ? Number(input.difficulty) : null }));
+  return wrap(() => nafsBankPage(repo, actor, { code: input?.code ? String(input.code) : null, q: input?.q ? String(input.q) : null, page: Number(input?.page) || 1, source: input?.source === "OWN" || input?.source === "PLATFORM" ? input.source : "ALL", standard: input?.standard ? String(input.standard) : null, difficulty: input?.difficulty ? Number(input.difficulty) : null, set: input?.set ? String(input.set) : null }));
+}
+
+/**
+ * The questions behind a checklist's selection (Adaptive practice, the builder): the chosen standards / skills, a
+ * difficulty, words — a page at a time, each with its options for the preview.
+ */
+export async function targetQuestionsAction(input: { targets: string[]; difficulty?: number | null; q?: string | null; page?: number; mcqOnly?: boolean }): Promise<{ ok?: BankPage; error?: string }> {
+  const actor = await requireActor(STAFF);
+  const targets = Array.isArray(input?.targets) ? input.targets.map(String).slice(0, 40) : [];
+  if (!targets.length) return { ok: { rows: [], total: 0, page: 1, pages: 1 } };
+  return wrap(() => nafsBankPage(repo, actor, { targets, difficulty: input?.difficulty ? Number(input.difficulty) : null, q: input?.q ? String(input.q) : null, page: Number(input?.page) || 1, size: 10, kind: input?.mcqOnly ? "MCQ" : null }));
+}
+
+/** "✨ Write new with AI" in the builder: approve the drafts the teacher kept and add them to the list. */
+export async function approveDraftsAction(ids: string[]): Promise<{ ok?: BuilderRow[]; error?: string }> {
+  const actor = await requireActor(STAFF);
+  return wrap(async () => {
+    const list = (Array.isArray(ids) ? ids.map(String) : []).slice(0, 8);
+    for (const id of list) await reviewNafsDraft(repo, actor, id, true);
+    return builderRows(repo, actor, list);
+  });
+}
+
+/** The builder's "Practice" purpose: adaptive practice on the list's standards / skills. */
+export async function builderPracticeAction(input: { title: string; classId: string; targets?: string[] | null; studentIds?: string[] | null; questionIds?: string[] | null; wholeBank?: boolean; full?: boolean; maxQuestions?: number | null; timeLimitMin?: number | null; dueAt?: string | null; difficulty?: unknown; confirmUncovered?: boolean }): Promise<{ ok?: { id: string; students: number }; error?: string }> {
+  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+  return wrap(async () => {
+    const r = await builderPractice(repo, actor, {
+      title: String(input?.title ?? ""), classId: String(input?.classId ?? ""), targets: Array.isArray(input?.targets) ? input.targets.map(String) : null,
+      studentIds: Array.isArray(input?.studentIds) ? input.studentIds.map(String).filter(Boolean) : null, questionIds: Array.isArray(input?.questionIds) ? input.questionIds.map(String) : null,
+      wholeBank: Boolean(input?.wholeBank), full: Boolean(input?.full), maxQuestions: input?.maxQuestions ? Number(input.maxQuestions) : null, timeLimitMin: input?.timeLimitMin ? Number(input.timeLimitMin) : null,
+      dueAt: dateOf(input?.dueAt, true), difficulty: input?.difficulty ?? null, confirmUncovered: Boolean(input?.confirmUncovered),
+    });
+    revalidatePath("/teacher/nafs");
+    return r;
+  });
 }
 
 // ------------------------------------------------------------------ tests: build, change, save
 
-export async function simulationAction(input: { settings?: Partial<SimulationSettings>; classId?: string | null; seed?: string; difficulty?: unknown }): Promise<{ ok?: { rows: BuilderRow[]; notes: string[]; settings: SimulationSettings }; error?: string }> {
+export async function simulationAction(input: { settings?: Partial<SimulationSettings>; classId?: string | null; seed?: string; difficulty?: unknown; codes?: string[] | null }): Promise<{ ok?: { rows: BuilderRow[]; notes: string[]; settings: SimulationSettings }; error?: string }> {
   const actor = await requireActor(STAFF);
   return wrap(async () => {
-    const b = await buildNafsSimulation(repo, actor, { settings: input?.settings ?? null, classId: input?.classId ? String(input.classId) : null, seed: String(input?.seed ?? Date.now()), difficulty: cleanDifficultyMix(input?.difficulty) });
+    const b = await buildNafsSimulation(repo, actor, { settings: input?.settings ?? null, classId: input?.classId ? String(input.classId) : null, seed: String(input?.seed ?? Date.now()), difficulty: cleanDifficultyMix(input?.difficulty), codes: Array.isArray(input?.codes) ? input.codes.map(String) : null });
     return { rows: await builderRows(repo, actor, b.questionIds), notes: b.notes, settings: b.settings };
   });
 }
@@ -123,6 +159,7 @@ export async function createPracticeAction(form: FormData): Promise<void> {
       title: str(form.get("title")), targets: form.getAll("target").map(String), questionIds: form.getAll("pick").map(String).filter(Boolean),
       classId: str(form.get("classId")), studentIds: form.getAll("sid").map(String).filter(Boolean),
       maxQuestions: str(form.get("max")) ? Number(form.get("max")) : null, timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null, dueAt: dateOf(form.get("dueAt"), true),
+      difficulty: str(form.get("difficulty")) || null,
     });
     id = r.id;
     revalidatePath("/teacher/nafs");
@@ -229,7 +266,8 @@ export async function assignOnlineAction(form: FormData): Promise<void> {
   const who = str(form.get("who")) === "some" ? form.getAll("sid").map(String).filter(Boolean) : null;
   if (who && !who.length) back(ret, t("Choose at least one student."));
   try {
-    const r = await assignNafsOnline(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null, studentIds: who });
+    const r = await assignNafsTestOnline(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null, studentIds: who });
+    if (r.adaptive) back(`/teacher/nafs?tab=practice&open=${encodeURIComponent(r.practiceId ?? "")}`, t("Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice.", { n: r.students }));
     back(ret, t("Given online to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
   } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
 }
@@ -270,8 +308,15 @@ export async function releaseAction(form: FormData): Promise<void> {
  * Saves one student's answers from a bubble sheet (read in the browser) or the "type answers" grid:
  * { testId, studentId, answers[] } — answers only (0–3 or null), never an image. Graded at once.
  */
-export async function saveAnswersAction(input: { testId: string; studentId: string; answers: (number | null)[]; source: "SHEET" | "TYPED" }): Promise<{ ok?: { correct: number; points: number; maxPoints: number }; error?: string }> {
+export async function saveAnswersAction(input: { testId: string; studentId: string; answers: (number | null)[]; source: "SHEET" | "TYPED"; review?: { unresolved: number; confidence: string; checkedAll: boolean } }): Promise<{ ok?: { correct: number; points: number; maxPoints: number }; error?: string }> {
   const actor = await requireActor(STAFF);
+  // 📷 a photo read is saved only after the teacher's review: no answer still to check, and a low-confidence sheet
+  // checked answer by answer (the review screen enforces it; this is the server's side of the same rule)
+  if (input?.source !== "TYPED") {
+    const r = input?.review;
+    if (!r || Number(r.unresolved) > 0) return { error: "Some answers still need checking: pick an answer (or No answer) for every highlighted question." };
+    if (r.confidence === "LOW" && r.checkedAll !== true) return { error: "This photo was read with low confidence: check every answer against the paper first." };
+  }
   return wrap(async () => {
     const g = await saveNafsAnswers(repo, actor, { testId: String(input?.testId ?? ""), studentId: String(input?.studentId ?? ""), answers: input?.answers, source: input?.source === "TYPED" ? "TYPED" : "SHEET" });
     return { correct: g.correct, points: g.points, maxPoints: g.maxPoints };

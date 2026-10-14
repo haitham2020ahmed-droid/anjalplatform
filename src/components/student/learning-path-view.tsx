@@ -15,7 +15,7 @@ export function LearningPathView({ p, classId }: { p: LearningPath; classId: str
         <h2 id="lp" className="text-xl font-extrabold text-brand-navy">🧭 My Learning Path</h2>
         <div className="flex flex-wrap gap-2 text-sm">
           {classId && <Link href={`/teacher/personal-plan?classId=${classId}`} className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📋 Class plan</Link>}
-          <Link href="/teacher/intervention" className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link>
+          <Link href="/teacher/alerts?view=flags" className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link>
           <Link href="/teacher/map-rit" className="rounded-xl bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🗺️ MAP</Link>
         </div>
       </div>

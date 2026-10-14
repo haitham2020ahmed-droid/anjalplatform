@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classLessonProgress, classLessonSkills, lessonRoster, qarReport, scriptCard } from "@/server/lessons/teacher";
 import { assignLessonAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Lessons" };
 
@@ -46,7 +47,7 @@ export default async function TeacherLessonsPage({ searchParams }: { searchParam
               <form action={assignLessonAction} className="space-y-3">
                 <input type="hidden" name="classId" value={classId} />
                 <label className="block text-sm font-semibold">Skill
-                  <select name="skillId" defaultValue={skillId} className="mt-1 block w-full max-w-md rounded-lg border-slate-300">{skills.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}</select>
+                  <Combo name="skillId" required label="Skill" defaultValue={skillId} options={skills.map((k) => ({ value: k.id, label: k.name }))} className="mt-1 max-w-md" />
                 </label>
                 <fieldset>
                   <legend className="text-sm font-semibold">Students <span className="font-normal text-slate-500">(none chosen = the whole class)</span></legend>
@@ -82,7 +83,7 @@ export default async function TeacherLessonsPage({ searchParams }: { searchParam
           </Section>
 
           {card && (
-            <Section title={`15-minute small-group script: ${card.skillName}`} icon="⏱️" hint={<form className="flex flex-wrap items-center gap-2" action="/teacher/lessons"><input type="hidden" name="class" value={classId} /><label className="text-sm">Skill <select name="skill" defaultValue={card.skillId} className="rounded-lg border-slate-300 text-sm">{skills.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}</select></label><button className="rounded-lg bg-white px-3 py-1 text-sm font-semibold ring-1 ring-slate-300">Show</button></form>}>
+            <Section title={`15-minute small-group script: ${card.skillName}`} icon="⏱️" hint={<form className="flex flex-wrap items-center gap-2" action="/teacher/lessons"><input type="hidden" name="class" value={classId} /><label className="text-sm">Skill <Combo name="skill" label="Skill" defaultValue={card.skillId} submitOnChange options={skills.map((k) => ({ value: k.id, label: k.name }))} className="inline-block w-64 align-middle" /></label><button className="rounded-lg bg-white px-3 py-1 text-sm font-semibold ring-1 ring-slate-300">Show</button></form>}>
               <div className="grid gap-4 lg:grid-cols-2">
                 <article className="rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200"><h3 className="font-bold">1 · Warm-up ({card.minutes.warmUp} min)</h3><p className="mt-1">{card.warmUp}</p></article>
                 <article className="rounded-xl bg-sky-50 p-4 ring-1 ring-sky-200">

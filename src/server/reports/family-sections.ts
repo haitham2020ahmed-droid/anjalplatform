@@ -101,6 +101,8 @@ export async function readRiseSection(repo: Repo, studentId: string, now = new D
   const { studentReadRiseSummary } = await import("../readrise/engine");
   const rr = await studentReadRiseSummary(repo, studentId, now);
   if (!rr) return null;
+  // 🎯 no level before the placement test (the first visit's working start is not a level)
+  if (!rr.placed) return { heading: "Reading level (ReadRise)", icon: "🚀", lines: ["No placement yet: the ReadRise placement test finds the reading level."] };
   const st = await repo.findUnique("Student", { id: studentId });
   const from = await termStart(repo, s(st?.schoolId), now);
   const done = await repo.findMany("RRRun", { studentId, completedAt: { gte: from } }, { select: ["articleId"], take: 500 });

@@ -1,0 +1,480 @@
+{
+ "code": "LN-102",
+ "title": "Venn diagrams and graphic organizers",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.7",
+  "RI.3.7",
+  "RI.4.7",
+  "RI.5.7"
+ ],
+ "families": [
+  "compare-contrast"
+ ],
+ "skillNames": [
+  "Maps, Timelines and Graphic Organizers"
+ ],
+ "statements": [
+  "R-0039",
+  "R-0103",
+  "R-0190"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a Venn diagram?",
+     "text": "A **Venn diagram** has **two circles** that overlap.\n\nIt helps us compare **two things**.\n\nIn these lessons, each part of the diagram is written out in words."
+    },
+    {
+     "title": "Three parts",
+     "text": "**Left circle**: only the first thing.\n**Right circle**: only the second thing.\n**Middle**, where they overlap: **both** things."
+    },
+    {
+     "title": "How to read it",
+     "text": "1. Read the names on the circles.\n2. Read the **middle** to see what is the same.\n3. Read the **sides** to see what is different."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the part of the diagram the question is about: left, right or middle.\n2. Read what is written there.\n3. Point to that line."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Venn diagram: apples and bananas.",
+      "role": "other"
+     },
+     {
+      "t": "Apples only: red or green, round.",
+      "role": "other"
+     },
+     {
+      "t": "Bananas only: yellow, long.",
+      "role": "other"
+     },
+     {
+      "t": "Both: fruits, sweet.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **middle** shows what apples and bananas have in common: they are both **sweet fruits**."
+   },
+   "together": {
+    "passage": "A Venn diagram compares the sun and the moon. The left circle is for the sun only: it is very hot, and we see it in the day. The right circle is for the moon only: it seems to change shape, and we often see it at night. The middle part is for both: they are round, and they are in the sky.",
+    "stem": "What does the middle part show?",
+    "options": [
+     "what the sun and moon share",
+     "what only the sun has",
+     "what only the moon has",
+     "the day and the night"
+    ],
+    "answer": 0,
+    "hint": "The middle is where the two circles overlap. What does that mean?",
+    "good": "Yes! The middle shows what is true for **both**: round and in the sky."
+   },
+   "evidence": {
+    "sentences": [
+     "A Venn diagram compares the sun and the moon.",
+     "The left circle is for the sun only: it is very hot, and we see it in the day.",
+     "The right circle is for the moon only: it seems to change shape, and we often see it at night.",
+     "The middle part is for both: they are round, and they are in the sky."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: what both share. Tap the line that tells about the middle.",
+    "wrong": "This line is about one side only. Find the line about the middle part."
+   },
+   "checks": [
+    {
+     "passage": "Venn diagram: lions and house cats. Lions only: live in groups, very big. Cats only: live with people, small. Both: have whiskers, eat meat.",
+     "stem": "Where is \"have whiskers\" written?",
+     "options": [
+      "Lions only",
+      "Cats only",
+      "outside the circles",
+      "in the middle, for both"
+     ],
+     "answer": 3,
+     "why": "\"Have whiskers\" is in the **Both** part, the middle."
+    },
+    {
+     "passage": "Venn diagram: rain and snow. Rain only: water drops. Snow only: white flakes. Both: fall from clouds.",
+     "stem": "Which is true only of snow?",
+     "options": [
+      "water drops",
+      "white flakes",
+      "fall from clouds",
+      "they are hot"
+     ],
+     "answer": 1,
+     "why": "**White flakes** is in the Snow only circle."
+    },
+    {
+     "passage": "Venn diagram: a pencil and a pen. Pencil only: can be erased. Pen only: uses ink. Both: help us write.",
+     "stem": "What do a pencil and a pen both do?",
+     "options": [
+      "can be erased",
+      "use ink",
+      "help us write",
+      "need batteries"
+     ],
+     "answer": 2,
+     "why": "The middle part says both **help us write**."
+    }
+   ],
+   "again": {
+    "title": "Two hula hoops",
+    "text": "Put two hula hoops on the floor so they overlap.\n\nStand in the **left** hoop: only thing one. Stand in the **right** hoop: only thing two. Stand in the **middle**: you are in **both**!",
+    "example": "Hoops: cats and dogs.\nMiddle: both have fur.\nLeft only: cats climb trees."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sorting facts",
+     "text": "A Venn diagram **sorts** facts.\n\nTo place a new fact, ask:\n\n1. Is it true for the first thing only?\n2. The second thing only?\n3. **Both**? Then it goes in the middle."
+    },
+    {
+     "title": "Numbers in a Venn",
+     "text": "Some Venn diagrams use **numbers**.\n\nFootball only: 8\nBoth: 3\n\nHow many play football in total? Add the circle **and** the middle: 8 + 3 = **11**."
+    },
+    {
+     "title": "Other organizers",
+     "text": "A **T-chart** has two columns, like Facts and Opinions, or Before and After.\n\nIt sorts information into **two groups**, but has no middle part."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove where a fact belongs:\n\n1. Find what the text says about the new fact.\n2. Check: is it true for one thing, or both?\n3. Point to the sentence that tells you."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "T-chart: Living and Non-living.",
+      "role": "other"
+     },
+     {
+      "t": "Living: a tree, a goat.",
+      "role": "other"
+     },
+     {
+      "t": "Non-living: a rock, a chair.",
+      "role": "other"
+     },
+     {
+      "t": "New item: a fish.",
+      "role": "key"
+     }
+    ],
+    "explain": "A fish breathes, eats and grows, so it goes in the **Living** column."
+   },
+   "together": {
+    "passage": "Hana read about two Saudi cities and made a Venn diagram. Riyadh only: the capital city, in the middle of the country. Jeddah only: on the Red Sea coast, a major port. Both: large cities with busy airports. Then her book told her that both cities have old souqs that visitors enjoy. It also said that only Jeddah has a long seaside walk called a corniche.",
+    "stem": "Where should Hana write \"has a corniche\"?",
+    "options": [
+     "Riyadh only",
+     "Both",
+     "Jeddah only",
+     "outside the circles"
+    ],
+    "answer": 2,
+    "hint": "Is the corniche in one city or in both? Find what the book says.",
+    "good": "Yes! The book says **only Jeddah** has a corniche, so it goes in the Jeddah only circle."
+   },
+   "evidence": {
+    "sentences": [
+     "Hana read about two Saudi cities and made a Venn diagram.",
+     "Riyadh only: the capital city, in the middle of the country.",
+     "Jeddah only: on the Red Sea coast, a major port.",
+     "Both: large cities with busy airports.",
+     "Then her book told her that both cities have old souqs that visitors enjoy.",
+     "It also said that only Jeddah has a long seaside walk called a corniche."
+    ],
+    "proof": [
+     5
+    ],
+    "need": 1,
+    "stem": "The answer was: Jeddah only. Tap the sentence that proves it.",
+    "wrong": "This sentence does not tell about the corniche. Find the one that does."
+   },
+   "checks": [
+    {
+     "passage": "T-chart about our school trip. Facts: We went to the zoo. We left at 8 a.m. Opinions: The lions were the best part.",
+     "stem": "Which sentence belongs in the Opinions column?",
+     "options": [
+      "The bus ride was too long.",
+      "There were 30 students.",
+      "We came back at 2 p.m.",
+      "We saw five giraffes."
+     ],
+     "answer": 0,
+     "why": "\"Too long\" is what someone **thinks**. The others can be checked, so they are facts."
+    },
+    {
+     "passage": "Venn diagram: planes and trains. Planes only: fly in the air. Trains only: run on tracks. Both: carry passengers.",
+     "stem": "Which fact could also go in the middle?",
+     "options": [
+      "fly above the clouds",
+      "run on rails",
+      "have wings",
+      "can carry bags"
+     ],
+     "answer": 3,
+     "why": "Planes and trains can **both** carry bags. The others are true for only one."
+    },
+    {
+     "passage": "Venn diagram: students who play football (left) and students who swim (right). Football only: 8 students. Swim only: 5 students. Both: 3 students.",
+     "stem": "How many students play football in total?",
+     "options": [
+      "8",
+      "11",
+      "3",
+      "16"
+     ],
+     "answer": 1,
+     "why": "Add the football circle and the middle: 8 + 3 = **11**."
+    }
+   ],
+   "again": {
+    "title": "The \"both\" test",
+    "text": "Before you write a fact in the middle, say it twice: once for each thing.\n\nIf both sentences are true, it belongs in the middle.",
+    "example": "\"Riyadh has an airport.\" True. \"Jeddah has an airport.\" True. → **middle**.\n\n\"Riyadh is on the coast.\" False. → **not** the middle."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Many kinds of organizers",
+     "text": "**Flow chart**: shows steps in **order**.\n**Cause-and-effect chart**: shows what happened and **why**.\n**Idea web**: a main idea in the **centre** with details around it.\n**Problem-solution chart**: a problem and ways to fix it."
+    },
+    {
+     "title": "Reading arrows and boxes",
+     "text": "In a flow chart, **arrows** show what comes next.\n\nIn a cause-and-effect chart, the arrow goes **from** the cause **to** the effect.\n\nIn a web, every outer circle must support the **centre** idea."
+    },
+    {
+     "title": "Filling a gap",
+     "text": "If a box is empty, use the **boxes before and after** it, and the text, to work out what belongs there.\n\nThe missing piece must fit the **order** or the **link** the organizer shows."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what fills a gap:\n\n1. Look at the boxes **around** the empty one.\n2. Find the sentence in the text that explains the missing step or link.\n3. Point to that sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Flow chart: making tea.",
+      "role": "other"
+     },
+     {
+      "t": "Box 1: Boil the water.",
+      "role": "other"
+     },
+     {
+      "t": "Box 2: ____",
+      "role": "other"
+     },
+     {
+      "t": "Box 3: Wait three minutes, then pour.",
+      "role": "other"
+     },
+     {
+      "t": "The text says: put the tea leaves in the pot, then pour the hot water over them.",
+      "role": "key"
+     }
+    ],
+    "explain": "Box 2 must come after boiling and before waiting. The text tells us: **put the leaves in and pour the water over them**."
+   },
+   "together": {
+    "passage": "Faisal is making a flow chart about the life cycle of a butterfly. Box 1: An adult butterfly lays eggs on a leaf. Box 2: A tiny caterpillar hatches from each egg. Box 3 is still empty. Box 4: An adult butterfly comes out and dries its wings. His science book says that the caterpillar eats and grows for a few weeks. Then it forms a hard case called a chrysalis, and inside it, its body changes.",
+    "stem": "What should go in Box 3?",
+    "options": [
+     "The butterfly lays eggs.",
+     "The caterpillar forms a chrysalis.",
+     "The egg falls off the leaf.",
+     "The butterfly flies away."
+    ],
+    "answer": 1,
+    "hint": "What happens after the caterpillar hatches but before the adult comes out? Check the science book.",
+    "good": "Yes! Between the caterpillar and the adult, the caterpillar forms a **chrysalis** and changes inside it."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal is making a flow chart about the life cycle of a butterfly.",
+     "Box 1: An adult butterfly lays eggs on a leaf.",
+     "Box 2: A tiny caterpillar hatches from each egg.",
+     "Box 3 is still empty.",
+     "Box 4: An adult butterfly comes out and dries its wings.",
+     "His science book says that the caterpillar eats and grows for a few weeks.",
+     "Then it forms a hard case called a chrysalis, and inside it, its body changes."
+    ],
+    "proof": [
+     6
+    ],
+    "need": 1,
+    "stem": "The answer was: the caterpillar forms a chrysalis. Tap the sentence that proves it.",
+    "wrong": "This sentence does not explain the missing step. Find what the book says happens after the caterpillar grows."
+   },
+   "checks": [
+    {
+     "passage": "Idea web. Centre: Ways to save water at home. Outer circles: Turn off the tap while brushing. Fix leaks. Take shorter showers.",
+     "stem": "Which idea belongs in another outer circle?",
+     "options": [
+      "Leave the hose running.",
+      "Buy more bottles of juice.",
+      "Water plants early in the morning.",
+      "Wash the car every day."
+     ],
+     "answer": 2,
+     "why": "Watering early, when it is cool, means less water dries up. It supports the centre idea: **saving water**."
+    },
+    {
+     "passage": "Cause-and-effect chart. Cause: A storm knocked down power lines. Effect 1: Homes lost electricity. Effect 2: ____",
+     "stem": "Which best fits Effect 2?",
+     "options": [
+      "Food in some fridges started to spoil.",
+      "The storm began to form.",
+      "The sun came out the next day.",
+      "Power lines are made of metal."
+     ],
+     "answer": 0,
+     "why": "Without electricity, fridges stop working, so food spoils. It is a result of the cause."
+    },
+    {
+     "passage": "Problem-solution chart. Problem: The school library is too noisy. Solution 1: Make a quiet corner with soft chairs. Solution 2: ____",
+     "stem": "Which best fits Solution 2?",
+     "options": [
+      "Open all the windows wide.",
+      "Play music in the library.",
+      "Allow phone calls inside.",
+      "Put up signs asking for quiet."
+     ],
+     "answer": 3,
+     "why": "Signs asking for quiet help **solve** the problem of noise. The others would make it worse or do nothing."
+    }
+   ],
+   "again": {
+    "title": "Read the shape",
+    "text": "The **shape** of an organizer tells you how ideas connect.\n\n**Boxes in a row** → order.\n**Arrow from one box to another** → cause and effect.\n**Circle in the middle** → main idea and details.",
+    "example": "A centre circle says \"Healthy breakfast\". Outer circles: fruit, eggs, bread.\n\nEach outer circle is a **detail** of the main idea."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Choosing the right organizer",
+     "text": "The best organizer depends on what you need to **show**:\n\n**Compare two things** → Venn diagram or T-chart\n**Events in order** → timeline or flow chart\n**Why something happened** → cause-and-effect chart\n**A main idea and its details** → idea web"
+    },
+    {
+     "title": "Checking an organizer",
+     "text": "Organizers can contain **mistakes**: a fact in the wrong circle, a step in the wrong order, or a detail that does not support the main idea.\n\nCheck each entry against what you know and what the text says."
+    },
+    {
+     "title": "Drawing conclusions",
+     "text": "An organizer can help you reach **new conclusions**.\n\nIn a Venn diagram with numbers, add all the parts, including anyone **outside** the circles, to find the total."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your analysis:\n\n1. Name what the writer or reader needs to show.\n2. Match that need to the organizer that shows it best.\n3. Point to the sentences that reveal the need, such as dates for a timeline or two things for a Venn diagram."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Notes: Falcons and eagles are both birds of prey.",
+      "role": "other"
+     },
+     {
+      "t": "Falcons are faster divers; eagles are larger and stronger.",
+      "role": "other"
+     },
+     {
+      "t": "Goal: show how they are alike and different.",
+      "role": "key"
+     }
+    ],
+    "explain": "The goal is to compare **two** birds, so a **Venn diagram** fits best: differences on the sides, similarities in the middle."
+   },
+   "together": {
+    "passage": "A student is writing a report on how the Arabian oryx was saved. Her notes say that by the early 1970s, the oryx had disappeared from the wild because people had hunted it. Zoos then bred oryx in safe, protected herds. In 1982, oryx were released into the desert in Oman, and in 1990, into Saudi Arabia. Today, herds live in the wild again. A classmate suggests a Venn diagram, but she is not comparing two things. She wants an organizer that shows these events in the order they happened.",
+    "stem": "Which graphic organizer fits her goal best?",
+    "options": [
+     "a Venn diagram",
+     "an idea web",
+     "a T-chart",
+     "a timeline"
+    ],
+    "answer": 3,
+    "hint": "What does she want to show? Look at the last sentence and the dates in her notes.",
+    "good": "Yes! She wants to show events **in order**, with dates, so a **timeline** fits best."
+   },
+   "evidence": {
+    "sentences": [
+     "A student is writing a report on how the Arabian oryx was saved.",
+     "Her notes say that by the early 1970s, the oryx had disappeared from the wild because people had hunted it.",
+     "Zoos then bred oryx in safe, protected herds.",
+     "In 1982, oryx were released into the desert in Oman, and in 1990, into Saudi Arabia.",
+     "Today, herds live in the wild again.",
+     "A classmate suggests a Venn diagram, but she is not comparing two things.",
+     "She wants an organizer that shows these events in the order they happened."
+    ],
+    "proof": [
+     1,
+     3,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: a timeline. Tap 2 sentences that show she needs to show events in order.",
+    "wrong": "This sentence does not show events in time order. Find sentences with dates or her goal."
+   },
+   "checks": [
+    {
+     "passage": "A Venn diagram compares whales and sharks. Whales only: breathe air, feed milk to their young. Sharks only: breathe with gills, have skeletons made of cartilage. Both: live in the ocean, are fish.",
+     "stem": "Which entry is a mistake?",
+     "options": [
+      "\"breathe air\" for whales only",
+      "\"are fish\" in the middle",
+      "\"breathe with gills\" for sharks only",
+      "\"live in the ocean\" in the middle"
+     ],
+     "answer": 1,
+     "why": "Whales are **mammals**, not fish, so \"are fish\" should not be in the middle."
+    },
+    {
+     "passage": "Venn diagram from a class survey. Likes reading only: 12. Likes drawing only: 9. Both: 6. Written outside both circles (likes neither): 3.",
+     "stem": "How many students took the survey?",
+     "options": [
+      "27",
+      "21",
+      "30",
+      "18"
+     ],
+     "answer": 2,
+     "why": "Add every part: 12 + 9 + 6 + 3 = **30**."
+    },
+    {
+     "passage": "A writer wants to show the main idea \"Exercise is good for you\" with four supporting details placed around it.",
+     "stem": "Which organizer fits best?",
+     "options": [
+      "an idea web",
+      "a timeline",
+      "a Venn diagram",
+      "a flow chart"
+     ],
+     "answer": 0,
+     "why": "An **idea web** puts the main idea in the centre with details around it."
+    }
+   ],
+   "again": {
+    "title": "Match the question word",
+    "text": "Ask what question the organizer must answer:\n\n**When?** → timeline\n**How alike or different?** → Venn diagram\n**Why?** → cause-and-effect chart\n**What are the parts?** → idea web",
+    "example": "\"How did a seed become a tree, step by step?\" → **when / in what order** → flow chart or timeline."
+   }
+  }
+ }
+}

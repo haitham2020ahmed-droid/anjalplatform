@@ -94,7 +94,7 @@ export const DEFAULT_ADAPTIVE: AdaptiveConfig = {
   diagnosticTargetP: 0.5,
   prereqRouteAfterWrong: 3,
   recentWindow: 10,
-  rapidGuessMinMs: 2500,
+  rapidGuessMinMs: 3000, // r67: the owner's 3-second rule (the server also applies the passage and item-time rules)
   rapidGuessFraction: 0.12,
   // Update 39B: a rapid guess (faster than anyone can read the item) is answered at chance and says nothing about the
   // skill — effort-moderated scoring leaves it out entirely (it was 0.2: 30 fast lucky clicks gave mastery 44.6)

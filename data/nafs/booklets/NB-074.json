@@ -1,0 +1,568 @@
+{
+  "code": "NB-074",
+  "title": "Four Names on the Cover",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 432,
+  "passage": "\"This is completely unfair,\" Dana declared, dropping a thick folder onto the library table. \"The project about traditional Saudi crafts is due on Thursday, and Rana has not contributed a single paragraph. Ghada wrote the introduction, Shahad designed the map, and I have been researching pottery and weaving every evening for two weeks.\"\n\nGhada looked up from her laptop. \"She did promise to prepare the section about Sadu weaving,\" she said cautiously, \"but I agree that she has been unusually silent in our group chat.\"\n\n\"Then I suggest we simply remove her name from the cover,\" Dana replied firmly. \"Ms. Amal said that only students who participate fairly should receive the group mark, and I do not see why we should share credit with someone who has done nothing.\"\n\nShahad, who had been quietly colouring the border of the map, put down her pencil. \"Before we decide anything so serious, shouldn't we ask Rana what is happening? She used to be the most enthusiastic person in our class, so something must have changed.\"\n\nDana sighed impatiently, but she eventually agreed, and the next morning the three girls found Rana sitting alone on a bench near the science laboratory. When Dana asked, as politely as she could manage, why Rana had not sent her section, Rana's eyes filled with tears.\n\n\"My grandmother broke her hip last month and moved in with us,\" Rana explained in a low voice. \"My mother works until evening, so I look after Grandmother every afternoon, preparing her medicine and helping her walk. I have been too embarrassed to tell anyone that I have fallen behind with everything.\"\n\nThere was an awkward silence. Dana felt her cheeks grow hot, because she realised how harshly she had judged a friend without knowing the facts. \"Rana, why didn't you tell us?\" she asked gently. \"We would have understood immediately.\"\n\nTogether, the four girls rearranged the work. Since Rana could not attend evening meetings, she offered to draw detailed illustrations of Sadu patterns while sitting beside her grandmother, whose own mother had once woven tents in the traditional way. In fact, Rana's grandmother remembered the meanings of several patterns that none of the girls had found in any book, and those memories became the most original part of the project.\n\nOn Thursday, the project was submitted with four names on the cover. When Ms. Amal returned it, she had written across the top: \"Excellent research, and an outstanding example of genuine teamwork.\" Dana smiled at Rana, knowing that the most valuable lesson of the project had not been about crafts at all.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “cautiously” as it is used in paragraph 2?",
+      "options": [
+        "angrily",
+        "proudly",
+        "carefully",
+        "carelessly"
+      ],
+      "answer": "C",
+      "why": "Ghada speaks carefully because Dana is upset; “carelessly” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Shahad says that Rana “used to be the most enthusiastic person in our class” (paragraph 4). Which word is the OPPOSITE of “enthusiastic”?",
+      "options": [
+        "energetic",
+        "talkative",
+        "uninterested",
+        "affectionate"
+      ],
+      "answer": "C",
+      "why": "“Enthusiastic” means full of eager interest; its opposite is “uninterested”. “Energetic” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “original” mean in the phrase “the most original part of the project” in paragraph 8?",
+      "options": [
+        "the oldest and most traditional part",
+        "new and not copied from elsewhere",
+        "the longest and most detailed",
+        "the first one to be finished"
+      ],
+      "answer": "B",
+      "why": "The grandmother's memories were not found “in any book”, so they made the project fresh and new."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is a VERB?",
+      "options": [
+        "grandmother",
+        "evening",
+        "low",
+        "explained"
+      ],
+      "answer": "D",
+      "why": "“Explained” is the action Rana does; “grandmother” and “evening” are nouns, and “low” is an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “participate” in paragraph 3?",
+      "options": [
+        "participation",
+        "particular",
+        "partner",
+        "parties"
+      ],
+      "answer": "A",
+      "why": "“Participation” is the noun formed from “participate”; the others only share a few letters."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is a PLURAL noun?",
+      "options": [
+        "illustrations",
+        "teamwork",
+        "pottery",
+        "laboratory"
+      ],
+      "answer": "A",
+      "why": "“Illustrations” means more than one illustration; the other nouns are singular here."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “contribute” in a meaningful sentence of your own.",
+      "model": "Every student in our class agreed to contribute one book to the new reading corner.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “contribute” with its meaning (to give or add something, such as work, ideas or money, to a shared effort)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Contribute” means to give your share to a group effort; Dana says Rana had not “contributed a single paragraph”."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Rana's grandmother remembered “several patterns”. Which noun has an IRREGULAR plural?",
+      "options": [
+        "pattern",
+        "pencil",
+        "folder",
+        "woman"
+      ],
+      "answer": "D",
+      "why": "One woman, many women: the plural changes the vowel instead of adding -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a QUESTION?",
+      "options": [
+        "This is completely unfair.",
+        "Then I suggest we simply remove her name from the cover.",
+        "Rana, why didn't you tell us?",
+        "We would have understood immediately."
+      ],
+      "answer": "C",
+      "why": "It asks for information and ends with a question mark; the others are statements."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Ask Before You Judge",
+        "The History of Sadu Weaving",
+        "Dana Works Alone",
+        "A Map of Saudi Crafts"
+      ],
+      "answer": "A",
+      "why": "The girls nearly removed Rana's name before learning the facts; Shahad's advice to ask first changes everything."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to teach readers how to weave Sadu patterns by hand",
+        "to show why we should learn the facts before judging others",
+        "to explain how teachers give marks to students for group projects",
+        "to describe the history of traditional Saudi pottery"
+      ],
+      "answer": "B",
+      "why": "Dana judged Rana harshly “without knowing the facts” and learns an important lesson."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 8?",
+      "options": [
+        "Rana's grandmother teaches all four girls how to weave a traditional Bedouin tent.",
+        "The girls find all the meanings of the Sadu patterns in library books.",
+        "The girls share the work fairly, and Rana's grandmother helps make the project special.",
+        "Rana decides to leave the group because she cannot attend meetings."
+      ],
+      "answer": "C",
+      "why": "They rearrange the work so Rana can draw at home, and the grandmother's memories become the most original part."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why had Rana fallen behind with the project?",
+      "options": [
+        "She did not know anything about Sadu weaving.",
+        "She had been ill and absent from school for weeks.",
+        "She was busy with a different project for Ms. Amal.",
+        "She was caring for her grandmother every afternoon."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6: her grandmother broke her hip and Rana looks after her every afternoon."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a story told mainly through dialogue",
+        "an informational text about crafts",
+        "a letter from a student to her teacher",
+        "a poem about friendship and teamwork"
+      ],
+      "answer": "A",
+      "why": "Most of the story is told through what the girls say to each other."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did Dana want to remove Rana's name?",
+      "options": [
+        "Rana had copied another group's work about weaving.",
+        "Ms. Amal had asked Dana to choose the three best students in the group.",
+        "Rana had told the group she did not want to take part.",
+        "Only students who participated fairly should get the group mark."
+      ],
+      "answer": "D",
+      "why": "Dana repeats what Ms. Amal said: “only students who participate fairly should receive the group mark”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The girls found Rana sitting on a bench.",
+        "Shahad suggested asking Rana what was happening.",
+        "Rana explained to the girls about her grandmother's injury.",
+        "Ms. Amal returned the project with a comment."
+      ],
+      "answer": "B",
+      "why": "Shahad's suggestion (paragraph 4) came before they found Rana the next morning."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which character first suggests talking to Rana before deciding anything?",
+      "options": [
+        "Dana",
+        "Ghada",
+        "Shahad",
+        "Ms. Amal"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: Shahad asks, “shouldn't we ask Rana what is happening?”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which part of the project had Shahad prepared before the meeting in the library?",
+      "options": [
+        "the introduction",
+        "the pottery research",
+        "the Sadu drawings",
+        "the map"
+      ],
+      "answer": "D",
+      "why": "Paragraph 1: “Ghada wrote the introduction, Shahad designed the map”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Dana's cheeks to grow hot in paragraph 7?",
+      "options": [
+        "She was angry that Rana had been crying.",
+        "She had run to find Rana before the bell.",
+        "She was embarrassed by the comment Ms. Amal wrote on the project.",
+        "She realised she had judged a friend too harshly."
+      ],
+      "answer": "D",
+      "why": "“She realised how harshly she had judged a friend without knowing the facts.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why had Rana kept her problem secret from her friends?",
+      "options": [
+        "She thought her friends would laugh at her.",
+        "Her mother had told her to keep it private.",
+        "She felt embarrassed about falling behind.",
+        "She wanted to finish the work all by herself."
+      ],
+      "answer": "C",
+      "why": "Rana says, “I have been too embarrassed to tell anyone that I have fallen behind.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Dana's feelings in paragraphs 1 and 3?",
+      "options": [
+        "frustrated and impatient",
+        "calm and patient",
+        "sad and lonely",
+        "jealous and afraid of Rana"
+      ],
+      "answer": "A",
+      "why": "She calls the situation “completely unfair” and wants to remove Rana's name “firmly”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Dana's attitude to Rana in paragraph 7 different from her attitude in paragraph 3?",
+      "options": [
+        "She is harsh and angry with Rana instead of understanding.",
+        "She is gentle and understanding instead of harsh.",
+        "She is jealous of Rana instead of feeling sorry.",
+        "She is bored with Rana instead of interested."
+      ],
+      "answer": "B",
+      "why": "In paragraph 3 she wants to remove Rana's name; in paragraph 7 she asks “gently” why Rana didn't tell them."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Rana drawing her illustrations beside her grandmother?",
+      "options": [
+        "Her grandmother asked her to stop working on the project.",
+        "Rana finished her drawings too late for the deadline.",
+        "Her grandmother added memories that improved the project.",
+        "Rana copied the Sadu patterns from a library book."
+      ],
+      "answer": "C",
+      "why": "The grandmother “remembered the meanings of several patterns”, which became the most original part of the project."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Ghada and Shahad have in common in paragraphs 2 and 4?",
+      "options": [
+        "Both agree at once to remove Rana's name.",
+        "Both speak carefully and do not rush to blame Rana.",
+        "Both admit that they have not finished their own work.",
+        "Both refuse to work with Dana any longer."
+      ],
+      "answer": "B",
+      "why": "Ghada speaks “cautiously”, and Shahad suggests asking Rana before deciding."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In paragraph 7, “There was an awkward silence.” What does this show about the girls?",
+      "options": [
+        "They were angry and refused to speak to Rana.",
+        "They were busy reading their project quietly.",
+        "They were happy and wanted to celebrate the project together.",
+        "They felt uncomfortable and unsure what to say."
+      ],
+      "answer": "D",
+      "why": "After hearing Rana's explanation, the girls felt uneasy about how they had judged her."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer let readers hear Dana's angry words in paragraph 1 before the reason for Rana's silence?",
+      "options": [
+        "so readers know from the start why Rana is silent",
+        "so readers judge Rana too, then learn the truth with Dana",
+        "so readers believe Rana is lazy right until the very end of the story",
+        "so readers can learn how to make a map of crafts"
+      ],
+      "answer": "B",
+      "why": "Readers first share Dana's view, so the surprise of Rana's situation teaches them the same lesson."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Ms. Amal's comment “an outstanding example of genuine teamwork” suggest?",
+      "options": [
+        "The group truly worked together and supported each other.",
+        "Only one girl in the group had done most of the hard work by herself.",
+        "The project was finished much earlier than the deadline.",
+        "The girls had copied their ideas from another team."
+      ],
+      "answer": "A",
+      "why": "“Genuine” teamwork means real cooperation, which happened after the girls shared the work fairly."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what should a group do FIRST when one member is not doing their share?",
+      "options": [
+        "talk to the member to find out why",
+        "remove the member's name without asking",
+        "complain to the whole class about it",
+        "do the member's work and say nothing"
+      ],
+      "answer": "A",
+      "why": "The story shows that asking first, as Shahad suggested, revealed the real reason and solved the problem."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Group projects are always unfair to at least one student.",
+        "Kindness and understanding make teamwork stronger.",
+        "Students should never work in groups.",
+        "Grandparents know more than any book."
+      ],
+      "answer": "B",
+      "why": "Understanding Rana's situation led to fair teamwork and the best project."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the END of the story?",
+      "options": [
+        "bitter regret",
+        "nervous worry about marks",
+        "hidden anger",
+        "warm satisfaction"
+      ],
+      "answer": "D",
+      "why": "The project succeeds with four names, and Dana smiles at Rana."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "what mark the group received for the project",
+        "why Rana had fallen behind with her work",
+        "which part of the project Ghada had written herself",
+        "what topic the group project was about"
+      ],
+      "answer": "A",
+      "why": "Ms. Amal's comment is given, but the actual mark is not; the other details are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A Sadu tent weaves itself in a single afternoon.",
+        "A grandmother remembers the meanings of old weaving patterns.",
+        "A group chat answers itself whenever one of its members is silent.",
+        "A map colours its own border while the girls talk."
+      ],
+      "answer": "B",
+      "why": "Older people often remember traditions not written in books; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Missing Section",
+        "Dana's Perfect Project",
+        "The Broken Loom",
+        "A Trip to the Museum"
+      ],
+      "answer": "A",
+      "why": "The story begins with Rana's missing Sadu section and shows how the problem is solved."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences showing what might have happened if the girls had removed Rana's name without asking her.",
+      "model": "When Ms. Amal saw only three names, she asked Rana what had happened, and Rana explained about her grandmother. Dana felt ashamed, apologised to Rana, and asked Ms. Amal for one more day so that Rana could add her drawings and her name.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and deals fairly with Rana's situation",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that fits the characters and deals with the unfair decision is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could the group have avoided this problem from the beginning?",
+      "options": [
+        "Check on each member regularly, not only through the group chat.",
+        "Share the work in a way that suits each member's time.",
+        "A and B",
+        "Let the fastest member do all of the work alone."
+      ],
+      "answer": "C",
+      "why": "Checking in personally and sharing work fairly both solve the problem in the story; one member doing everything is not teamwork."
+    }
+  ]
+}

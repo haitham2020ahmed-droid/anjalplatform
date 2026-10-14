@@ -24,10 +24,11 @@ import { audit } from "../audit";
 import { assertNafs } from "../teacher/nafs-access";
 import { seededShuffle } from "../practice/items";
 import { hideLevels } from "../../lib/hide-levels";
-import { DIFFICULTY_NAME, MAX_NAFS_MINUTES, MOE_BY_CODE, SKILL_BY_CODE, type Difficulty } from "./framework";
+import { DIFFICULTIES, DIFFICULTY_NAME, isAdaptiveChoice, MAX_NAFS_MINUTES, MOE_BY_CODE, SKILL_BY_CODE, type Difficulty, type DifficultyMix } from "./framework";
 import { isTargetCode, loadNafsQuestions, matchesTarget, nafsIndex, usable, type NafsEntry } from "./bank";
 import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
+import { isRapidGuess } from "../practice/guessing";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -121,7 +122,55 @@ export function pickNext(pool: NafsEntry[], order: string[], state: RunState, op
 function schoolOf(actor: Actor): string { if (!actor.schoolId) throw new ForbiddenError("No school."); return actor.schoolId; }
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
 
-export interface PracticeInput { title: string; targets: string[]; questionIds?: string[] | null; classId: string; studentIds?: string[] | null; maxQuestions?: number | null; timeLimitMin?: number | null; dueAt?: Date | null }
+export interface PracticeInput { title: string; targets: string[]; questionIds?: string[] | null; classId: string; studentIds?: string[] | null; maxQuestions?: number | null; timeLimitMin?: number | null; dueAt?: Date | null;
+  /** the teacher's difficulty: Adaptive / Any (default: the engine moves over Easy · Medium · Hard), one level, or a mix */
+  difficulty?: unknown }
+
+/** The practice's difficulty: null = adaptive over every level; else one level (100) or a mix of percentages. */
+export function practiceMix(v: unknown): DifficultyMix | null {
+  if (v === null || v === undefined || v === "" || v === "ANY" || isAdaptiveChoice(v)) return null;
+  if (v === 1 || v === 2 || v === 3 || v === "1" || v === "2" || v === "3") { const k = Number(v) as Difficulty; return { 1: 0, 2: 0, 3: 0, [k]: 100 } as DifficultyMix; }
+  let o: unknown = v;
+  if (typeof v === "string") { try { o = JSON.parse(v); } catch { return null; } }
+  if (!o || typeof o !== "object") return null;
+  const r = o as Record<string, unknown>;
+  const pct = (x: unknown) => { const n = Math.round(Number(x)); return Number.isFinite(n) ? Math.max(0, Math.min(100, n)) : 0; };
+  const mix = { 1: pct(r[1] ?? r["1"]), 2: pct(r[2] ?? r["2"]), 3: pct(r[3] ?? r["3"]) } as DifficultyMix;
+  return mix[1] + mix[2] + mix[3] > 0 ? mix : null;
+}
+
+/**
+ * The questions of a practice with a fixed difficulty: at most `cap`, shared over the levels by the mix (largest
+ * remainder) and over the targets (round robin), passage questions of a chosen passage first; levels the center lacks
+ * are filled from the nearest level. Pure.
+ */
+export function questionsForMix(pool: NafsEntry[], targets: string[], mix: DifficultyMix, cap: number, seed: string): string[] {
+  const sum = DIFFICULTIES.reduce((a, k) => a + mix[k], 0) || 1;
+  const raw = DIFFICULTIES.map((k) => ({ k, v: (cap * mix[k]) / sum }));
+  const want = Object.fromEntries(raw.map((r) => [r.k, Math.floor(r.v)])) as Record<Difficulty, number>;
+  let left = cap - raw.reduce((a, r) => a + Math.floor(r.v), 0);
+  for (const r of [...raw].sort((a, b) => (b.v - Math.floor(b.v)) - (a.v - Math.floor(a.v)))) { if (left <= 0) break; if (mix[r.k] > 0) { want[r.k]++; left--; } }
+  const taken = new Set<string>();
+  const out: string[] = [];
+  const order = targets.length ? targets : ["*"];
+  for (const k of DIFFICULTIES) {
+    if (!want[k]) continue;
+    const queues = order.map((t) => seededShuffle(pool.filter((e) => e.difficulty === k && (t === "*" || matchesTarget(e, t))), `${seed}:${t}:${k}`));
+    let n = 0, moved = true;
+    while (n < want[k] && moved) {
+      moved = false;
+      for (const q of queues) {
+        const e = q.find((x) => !taken.has(x.id));
+        if (!e || n >= want[k]) continue;
+        taken.add(e.id); out.push(e.id); n++; moved = true;
+      }
+    }
+  }
+  // the center lacks some level: the nearest levels fill the rest (a single level stays strict)
+  const one = DIFFICULTIES.filter((k) => mix[k] > 0);
+  if (out.length < cap && one.length > 1) for (const e of seededShuffle(pool, `${seed}:fill`)) { if (out.length >= cap) break; if (!taken.has(e.id) && mix[e.difficulty] > 0) { taken.add(e.id); out.push(e.id); } }
+  return out;
+}
 
 /** The pool a practice draws from: usable multiple-choice questions of the center, of its targets or its chosen ids. */
 export async function practicePool(repo: Repo, schoolId: string, p: { targets: string[]; questionIds: string[] | null }): Promise<NafsEntry[]> {
@@ -162,13 +211,22 @@ export async function createNafsPractice(repo: Repo, actor: Actor, input: Practi
   const timeLimitMin = num(input.timeLimitMin, MAX_NAFS_MINUTES, "The time (minutes)");
   const dueAt = d(input.dueAt);
   if (dueAt && dueAt <= now) throw new ValidationError("The due date must be in the future.");
-  const pool = await practicePool(repo, schoolId, { targets, questionIds });
+  let pool = await practicePool(repo, schoolId, { targets, questionIds });
+  // a fixed difficulty (one level or a mix): the practice adapts inside the questions of that difficulty
+  const mix = practiceMix(input.difficulty);
+  if (mix && pool.length) {
+    const ids = questionsForMix(pool, targets, mix, MAX_PRACTICE_QUESTIONS * 2, `${title}:${klass.id}`);
+    if (!ids.length) throw new ValidationError("The NAFS center has no question of this difficulty for these skills yet.");
+    questionIds = ids;
+    const keep = new Set(ids);
+    pool = pool.filter((e) => keep.has(e.id));
+  }
   if (!pool.length) throw new ValidationError("The NAFS center has no multiple-choice question for these skills yet.");
   const p = await repo.create("NafsPractice", { schoolId, createdById: actor.userId, title, targets, questionIds, classId: klass.id, studentIds: chosen, maxQuestions, timeLimitMin, dueAt, createdAt: now });
   const who = chosen ?? members;
   const st = who.length ? await repo.findMany("Student", { id: { in: who } }, { select: ["userId"] }) : [];
   if (st.length) await repo.createMany("Notification", st.map((x) => ({ userId: x.userId, type: "NEW_ASSIGNMENT", title: "New NAFS practice", body: `${title}.${dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : ""}`, link: "/student/nafs?part=practice", createdAt: now })));
-  await audit(repo, { actorId: actor.userId, action: "nafs.practice.create", entityType: "NafsPractice", entityId: s(p.id), after: { targets, questions: questionIds?.length ?? null, classId: klass.id, students: who.length }, at: now });
+  await audit(repo, { actorId: actor.userId, action: "nafs.practice.create", entityType: "NafsPractice", entityId: s(p.id), after: { targets, questions: questionIds?.length ?? null, classId: klass.id, students: who.length, difficulty: mix ?? "ADAPTIVE" }, at: now });
   return { id: s(p.id), students: who.length };
 }
 
@@ -371,8 +429,11 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
   const started = d(state.cur.at);
   const ms = started ? Math.min(MAX_ANSWER_MS, Math.max(0, now.getTime() - started.getTime())) : 0;
   await repo.create("NafsPracticeAnswer", { runId: s(r.id), practiceId: s(p.id), studentId, questionId: q.id, target: state.cur.target, difficulty: state.cur.difficulty, choice, correct, ms, at: now });
-  let next = afterAnswer(state, state.cur.target, state.cur.difficulty, correct, ms);
-  const asked = Number(r.asked ?? 0) + 1, right = Number(r.correct ?? 0) + (correct ? 1 : 0), seconds = Number(r.seconds ?? 0) + Math.round(ms / 1000);
+  // 🎲 r67: a rapid guess (under 3 s) is only logged (the answer row above) — it counts for nothing: no level move,
+  // no mastery, not toward the question count or accuracy
+  const rapid = started !== null && isRapidGuess(ms);
+  let next = rapid ? { ...state, cur: null } : afterAnswer(state, state.cur.target, state.cur.difficulty, correct, ms);
+  const asked = Number(r.asked ?? 0) + (rapid ? 0 : 1), right = Number(r.correct ?? 0) + (correct && !rapid ? 1 : 0), seconds = Number(r.seconds ?? 0) + Math.round(ms / 1000);
   const max = p.maxQuestions ? Number(p.maxQuestions) : DEFAULT_PRACTICE_QUESTIONS;
   const limit = p.timeLimitMin ? Number(p.timeLimitMin) * 60 : null;
   const why: RunState["end"] | null = targets.every((t) => next.targets[t]?.mastered) ? "MASTERED" : asked >= max ? "COUNT" : limit && seconds >= limit ? "TIME" : null;

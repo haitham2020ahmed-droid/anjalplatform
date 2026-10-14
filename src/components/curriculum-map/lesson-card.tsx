@@ -100,6 +100,8 @@ function CompactLesson({ lesson, canAssign, canSend, sent, isRtr, rtrCode, rtrRe
                 {!s.ready && <span className={`${pill} bg-slate-100 text-slate-500 ring-slate-200`}>{t("Not ready")}</span>}
                 {sentOn && <span data-testid="map-sent" title={sentOn} className={`${pill} bg-emerald-50 text-emerald-800 ring-emerald-200`}>✓ {t("Sent")} {sentOn.slice(5).replace("-", "/")}</span>}
                 {canReview && <Link href={`/teacher/preview?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-white text-brand-navy ring-slate-300 hover:bg-slate-50`}>👁 {t("Review")}</Link>}
+                {/* 🔁 the teacher's own Review: edit, add, remove, order, how many (src/app/teacher/curriculum-review) */}
+                {canAssign && s.kind === "REVIEW" && <Link data-testid="map-review-edit" href={`/teacher/curriculum-review?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-violet-50 text-violet-900 ring-violet-200 hover:bg-violet-100`}>✏️ {t("My Review")}</Link>}
                 {canAssign && isRtr(s) && rtrReady(s) && respondClassId
                   ? <Link href={`/teacher/respond/assign?classId=${encodeURIComponent(respondClassId)}&code=${encodeURIComponent(rtrCode(s))}`} prefetch={false} className={`${pill} bg-amber-100 text-amber-900 ring-amber-300 hover:bg-amber-200`}>⭐ {t("Assign")}</Link>
                   : canAssign && s.ready && !isRtr(s) && (ASSIGNABLE.has(String(s.kind ?? "")) || ASSIGNABLE_TITLE.test(s.title)) && <MapAssignButton code={s.code} label={t(sentOn ? "Send again" : "Assign")} levels />}

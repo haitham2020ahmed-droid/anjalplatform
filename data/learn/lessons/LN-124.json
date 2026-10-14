@@ -1,0 +1,495 @@
+{
+ "code": "LN-124",
+ "title": "Details that support the main idea",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.2.2",
+  "RI.4.2",
+  "RI.5.2",
+  "RI.6.2",
+  "RI.7.2",
+  "RI.8.2"
+ ],
+ "families": [
+  "central-idea"
+ ],
+ "skillNames": [
+  "Central Idea and Relevant Details"
+ ],
+ "statements": [
+  "R-0339",
+  "R-0539",
+  "R-0547",
+  "R-0728",
+  "R-0747",
+  "R-0755",
+  "R-0911",
+  "R-0926"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Main idea and details",
+     "text": "The **main idea** is the big idea of a text.\n\n**Details** are small facts that **tell more** about the main idea."
+    },
+    {
+     "title": "Details hold it up",
+     "text": "Think of a table. The **top** is the main idea. The **legs** are the details.\n\nThe legs **hold up** the top. Details hold up the main idea."
+    },
+    {
+     "title": "Find a supporting detail",
+     "text": "1. Find the main idea.\n2. Read each sentence.\n3. Ask: **Does this tell more about the main idea?** If yes, it is a supporting detail."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A supporting detail must **match** the main idea.\n\n1. Read the main idea.\n2. Tap a sentence that **tells more** about it.\n\nA sentence about something else is **not** a supporting detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dogs are good helpers.",
+      "role": "main"
+     },
+     {
+      "t": "Some dogs help people who cannot see.",
+      "role": "detail"
+     },
+     {
+      "t": "Some dogs help find lost people.",
+      "role": "detail"
+     },
+     {
+      "t": "My cousin has a cat.",
+      "role": "other"
+     }
+    ],
+    "explain": "The main idea is: **Dogs are good helpers.**\n\nHelping people who cannot see and finding lost people **support** it. The cat sentence does not."
+   },
+   "together": {
+    "passage": "Milk is good for you. It helps your bones grow strong. It helps your teeth too. My sister likes cold milk. Milk also gives you energy.",
+    "stem": "Which detail supports the idea that milk is good for you?",
+    "options": [
+     "My sister likes cold milk.",
+     "Milk is white.",
+     "It helps your bones grow strong.",
+     "Milk comes in a box."
+    ],
+    "answer": 2,
+    "hint": "Does that sentence tell how milk is good for you?",
+    "good": "Yes! Strong bones is one way milk is good for you."
+   },
+   "evidence": {
+    "sentences": [
+     "Milk is good for you.",
+     "It helps your bones grow strong.",
+     "It helps your teeth too.",
+     "My sister likes cold milk.",
+     "Milk also gives you energy."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The main idea is: milk is good for you. Tap 2 sentences that tell how.",
+    "wrong": "This sentence does not tell how milk is good for you. Find a sentence that does."
+   },
+   "checks": [
+    {
+     "passage": "Trees help us. They give us shade. They give us fruit. They make the air clean.",
+     "stem": "Which detail supports the main idea?",
+     "options": [
+      "They give us shade.",
+      "Trees are tall.",
+      "Birds sing.",
+      "I climb trees."
+     ],
+     "answer": 0,
+     "why": "Giving shade is one way trees help us."
+    },
+    {
+     "passage": "Winter is cold in the north. People wear coats. Snow falls on the roads. The lakes freeze.",
+     "stem": "Which detail does NOT support the main idea?",
+     "options": [
+      "Snow falls on the roads.",
+      "Some people like hot soup.",
+      "The lakes freeze.",
+      "People wear coats."
+     ],
+     "answer": 1,
+     "why": "Liking soup does not show that winter is cold. The other details do."
+    },
+    {
+     "passage": "Our teacher is kind. She helps us when we are stuck. She smiles at us. She listens to our ideas.",
+     "stem": "Which detail supports the idea that the teacher is kind?",
+     "options": [
+      "She has a blue pen.",
+      "She is tall.",
+      "She drives a car.",
+      "She helps us when we are stuck."
+     ],
+     "answer": 3,
+     "why": "Helping students when they are stuck shows that she is kind."
+    }
+   ],
+   "again": {
+    "title": "Does it belong?",
+    "text": "Read the main idea. Then read each sentence and say: **Yes, it belongs** or **No, it does not.**\n\nThe sentences that belong are the supporting details.",
+    "example": "Main idea: Fruit is a healthy snack.\nApples have vitamins. **Yes.**\nBananas give energy. **Yes.**\nMy bag is red. **No.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Supporting details",
+     "text": "**Supporting details** are facts, examples and reasons that **explain** or **prove** the main idea.\n\nWithout them, the main idea is just a statement. With them, the reader understands and believes it."
+    },
+    {
+     "title": "Kinds of details",
+     "text": "1. **Facts**: Camels can drink about 100 litres in a short time.\n2. **Examples**: For example, the fennec fox has huge ears.\n3. **Reasons**: because, so, this is why."
+    },
+    {
+     "title": "Strong or weak?",
+     "text": "Not every detail in a text supports the main idea.\n\nSome details are **interesting extras**. Ask: **If I removed this sentence, would the main idea be less clear?** If yes, it is a key supporting detail."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Match each detail to the main idea.\n\n1. Say the main idea in your own words.\n2. For each sentence, ask: **Does this explain or prove it?**\n3. Tap the sentences that do. Skip extras and introductions."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Red Sea is famous for its colourful coral reefs.",
+      "role": "main"
+     },
+     {
+      "t": "More than 200 kinds of coral grow there.",
+      "role": "detail"
+     },
+     {
+      "t": "Bright fish such as clownfish and butterflyfish swim among the reefs.",
+      "role": "detail"
+     },
+     {
+      "t": "The Red Sea lies between Africa and the Arabian Peninsula.",
+      "role": "other"
+     }
+    ],
+    "explain": "The main idea is about **colourful coral reefs**. The coral types and bright fish **support** it.\n\nWhere the Red Sea lies is a true fact, but it does not support the idea about reefs."
+   },
+   "together": {
+    "passage": "Walking is one of the easiest ways to stay healthy. It makes your heart and lungs stronger. Walking also helps keep your weight healthy. My uncle walks to the mosque every evening. In addition, a short walk outside can help you feel calmer and happier. You don't need any special equipment, just comfortable shoes.",
+    "stem": "Which detail best supports the main idea that walking helps you stay healthy?",
+    "options": [
+     "My uncle walks to the mosque every evening.",
+     "You don't need any special equipment.",
+     "Comfortable shoes are important.",
+     "It makes your heart and lungs stronger."
+    ],
+    "answer": 3,
+    "hint": "The main idea is about HEALTH. Which choice tells a health benefit?",
+    "good": "Yes! A stronger heart and lungs is a health benefit, so it supports the main idea."
+   },
+   "evidence": {
+    "sentences": [
+     "Walking is one of the easiest ways to stay healthy.",
+     "It makes your heart and lungs stronger.",
+     "Walking also helps keep your weight healthy.",
+     "My uncle walks to the mosque every evening.",
+     "In addition, a short walk outside can help you feel calmer and happier.",
+     "You don't need any special equipment, just comfortable shoes."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was a health benefit of walking. Tap 2 sentences that give health benefits.",
+    "wrong": "This sentence is true, but it does not give a health benefit. Find sentences that tell how walking keeps you healthy."
+   },
+   "checks": [
+    {
+     "passage": "Libraries offer much more than books. Many have computers that visitors can use for free. Some hold storytelling hours for children. Others run classes in reading, art and coding. The library near my home has a large window.",
+     "stem": "Which detail does NOT support the main idea?",
+     "options": [
+      "Many have computers that visitors can use for free.",
+      "The library near my home has a large window.",
+      "Some hold storytelling hours for children.",
+      "Others run classes in reading, art and coding."
+     ],
+     "answer": 1,
+     "why": "A large window is not a service the library offers. The other details show that libraries offer more than books."
+    },
+    {
+     "passage": "Honeybees work as a team. Worker bees collect nectar and pollen. Other bees guard the entrance to the hive. Some bees fan their wings to keep the hive cool.",
+     "stem": "Which detail best supports the main idea?",
+     "options": [
+      "Other bees guard the entrance to the hive.",
+      "Honey tastes sweet.",
+      "Bees can sting.",
+      "Flowers have nectar."
+     ],
+     "answer": 0,
+     "why": "Guarding the hive is one job bees do as part of the team."
+    },
+    {
+     "passage": "Al-Ula is a place full of history. Ancient tombs are carved into its sandstone cliffs. Old inscriptions show writing from long ago. Today, visitors also enjoy hot-air balloon rides there.",
+     "stem": "Which detail best supports the main idea that Al-Ula is full of history?",
+     "options": [
+      "Visitors enjoy hot-air balloon rides.",
+      "Sandstone is a type of rock.",
+      "Ancient tombs are carved into its cliffs.",
+      "Al-Ula has many visitors."
+     ],
+     "answer": 2,
+     "why": "Ancient tombs are part of Al-Ula's history. Balloon rides are a modern activity."
+    }
+   ],
+   "again": {
+    "title": "The because test",
+    "text": "Say the main idea, then add **because** and the detail.\n\nIf it makes sense, the detail supports the main idea.",
+    "example": "Main idea: Owls are good night hunters.\nOwls are good night hunters **because** they can see well in the dark. **Makes sense: supports it.**\nOwls are good night hunters **because** some are brown. **Does not make sense.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Details in true stories",
+     "text": "In **literary nonfiction**, such as a biography or a true account, the main idea is often a **message about a person or event**: she never gave up, the town came together.\n\nThe details are **actions, events and quotes** that show it."
+    },
+    {
+     "title": "How details shape the idea",
+     "text": "Details do not just support; they **shape** the main idea.\n\nA detail about failure followed by a detail about trying again shapes the idea of **persistence**. Choosing different details would create a different message."
+    },
+    {
+     "title": "Analyze the details",
+     "text": "1. What does the author want us to understand about the person or event?\n2. Which **actions or events** show it?\n3. How would the main idea change **without** that detail?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove which details shape the main idea.\n\n1. Find the sentences that show the person's actions or the key events.\n2. Ask how each one adds to the message.\n3. Skip details about time, place or background that do not build the message."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Marie Curie was born in Warsaw, Poland, in 1867.",
+      "role": "other"
+     },
+     {
+      "t": "Women were not allowed to attend university there, so she studied in secret classes.",
+      "role": "detail"
+     },
+     {
+      "t": "Later, she moved to Paris and often studied late into the night in a cold attic room.",
+      "role": "detail"
+     },
+     {
+      "t": "Her hard work led to two Nobel Prizes, the first person ever to win two.",
+      "role": "key"
+     }
+    ],
+    "explain": "The secret classes and the cold attic show **determination**. The Nobel Prizes show where it led.\n\nTogether these details shape the main idea: **Marie Curie overcame obstacles through hard work.** Her birthplace is background."
+   },
+   "together": {
+    "passage": "When Ibrahim joined the school's robotics team, he could barely hold a screwdriver steady. The first robot he helped build fell apart during testing. Instead of quitting, he stayed after school every day to practise wiring and coding. He asked older students to explain what he did not understand. The team's practice room was on the second floor. By the end of the year, Ibrahim was the one teaching new members how to build a robot that worked.",
+    "stem": "Which detail best shows how Ibrahim grew through hard work?",
+    "options": [
+     "The team's practice room was on the second floor.",
+     "He stayed after school every day to practise wiring and coding.",
+     "When Ibrahim joined, he was new to the team.",
+     "The robot was built by the whole team."
+    ],
+    "answer": 1,
+    "hint": "The main idea is about growth through hard work. Which choice shows an ACTION of hard work?",
+    "good": "Yes! Practising every day after school is the hard work that helped him grow."
+   },
+   "evidence": {
+    "sentences": [
+     "When Ibrahim joined the school's robotics team, he could barely hold a screwdriver steady.",
+     "The first robot he helped build fell apart during testing.",
+     "Instead of quitting, he stayed after school every day to practise wiring and coding.",
+     "He asked older students to explain what he did not understand.",
+     "The team's practice room was on the second floor.",
+     "By the end of the year, Ibrahim was the one teaching new members how to build a robot that worked."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was a detail showing hard work. Tap 2 sentences that show how Ibrahim changed or what he did to improve.",
+    "wrong": "This sentence is background or about the robot, not Ibrahim's effort. Find his actions or how he changed."
+   },
+   "checks": [
+    {
+     "passage": "In 1955, Rosa Parks refused to give up her bus seat to a white passenger in Montgomery, Alabama. She was arrested. In response, the city's Black residents stopped riding the buses for more than a year. The protest helped end the unfair rule.",
+     "stem": "How does the detail about people refusing to ride the buses shape the main idea?",
+     "options": [
+      "It shows one action led many people to stand together for fairness.",
+      "It explains how buses work.",
+      "It shows that Rosa Parks was arrested.",
+      "It tells the year the protest began."
+     ],
+     "answer": 0,
+     "why": "The bus protest shows how her single act grew into a group effort, which shapes the idea that standing up for fairness can bring change."
+    },
+    {
+     "passage": "Grandmother Noura opened a small bakery after her husband passed away. She woke at three every morning to knead dough. When customers could not pay, she let them pay later. Today the bakery is famous in the neighbourhood, and her grandchildren run it.",
+     "stem": "Which detail best supports the idea that Noura was generous?",
+     "options": [
+      "She woke at three every morning to knead dough.",
+      "Her grandchildren run it today.",
+      "The bakery is famous in the neighbourhood.",
+      "When customers could not pay, she let them pay later."
+     ],
+     "answer": 3,
+     "why": "Letting customers pay later shows generosity. Waking early shows hard work, a different idea."
+    },
+    {
+     "passage": "Before the first hospital opened in the village, families travelled two days to see a doctor. A local teacher started collecting donations door to door. After four years, enough money had been raised. The hospital still serves the village today.",
+     "stem": "Which detail best shows the teacher's determination?",
+     "options": [
+      "The hospital still serves the village today.",
+      "Families travelled two days to see a doctor.",
+      "She collected donations door to door for four years.",
+      "The village is far from the city."
+     ],
+     "answer": 2,
+     "why": "Collecting for four years shows determination. The travel time explains the need, not the teacher's quality."
+    }
+   ],
+   "again": {
+    "title": "What does it show?",
+    "text": "For each detail about a person, finish this sentence: **This shows that the person is...**\n\nDetails that point to the same quality shape the main idea.",
+    "example": "Hessa read every book in the class library. She asked her teacher for more. She saved money to buy new books.\n\nEach shows that Hessa **loves reading**. That is the main idea."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Central idea in literary nonfiction",
+     "text": "Memoirs, biographies and narrative histories develop a **central idea** across the whole text: a lesson, an insight or an argument about a life or event.\n\nThe author selects and arranges details so that the reader reaches that idea."
+    },
+    {
+     "title": "Relevant vs. interesting",
+     "text": "A **relevant** detail directly develops the central idea. An **interesting** detail adds colour but could be removed without changing the idea.\n\nStrong readers can tell the difference, even when both are vivid."
+    },
+    {
+     "title": "Determine the key support",
+     "text": "1. State the central idea precisely.\n2. Find details that **show** it from different angles: actions, results, others' reactions.\n3. Reject details that are only background, setting or colour.\n4. Choose the detail that develops the idea **most directly**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Cite the details that **develop** the central idea.\n\n1. Find each sentence that shows the idea in action or its consequence.\n2. Ask: would removing this sentence weaken the central idea?\n3. Background, dates and vivid but unrelated description are not key support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The village of my childhood sat at the edge of the desert, where the wind carried sand into every room.",
+      "role": "other"
+     },
+     {
+      "t": "My father could not read, yet every evening he asked me to read the newspaper aloud to him.",
+      "role": "detail"
+     },
+     {
+      "t": "When I stumbled over a word, he made me sound it out until I got it right.",
+      "role": "detail"
+     },
+     {
+      "t": "Years later, when I received my teaching certificate, I understood that those evenings had been his way of giving me what he never had.",
+      "role": "key"
+     }
+    ],
+    "explain": "The central idea is **a father's quiet investment in his child's education**. The reading evenings and the patient correction develop it, and the final realization states it.\n\nThe sandy village is vivid setting, but it does not develop that idea."
+   },
+   "together": {
+    "passage": "Few people noticed when the old fisherman began clearing plastic from the beach near our town. Each morning before dawn, he walked the shore with a sack, collecting bottles and nets. The beach was long and curved, with pale sand and a lighthouse at the far end. At first, people walked past him, some even laughing. Then a group of students joined him on a Friday morning. Within a year, hundreds of volunteers came every month, and the town council placed recycling bins along the shore. When reporters asked why he had started, he simply said, \"Someone had to go first.\"",
+    "stem": "Which detail most directly develops the central idea that one person's steady example can inspire a community?",
+    "options": [
+     "The beach was long and curved, with pale sand and a lighthouse at the far end.",
+     "Few people noticed when the fisherman began clearing the beach.",
+     "He collected bottles and nets in a sack.",
+     "Within a year, hundreds of volunteers came every month."
+    ],
+    "answer": 3,
+    "hint": "The central idea is about INSPIRING A COMMUNITY. Which detail shows the community responding?",
+    "good": "Yes! Hundreds of volunteers joining shows how his example inspired the community."
+   },
+   "evidence": {
+    "sentences": [
+     "Few people noticed when the old fisherman began clearing plastic from the beach near our town.",
+     "Each morning before dawn, he walked the shore with a sack, collecting bottles and nets.",
+     "The beach was long and curved, with pale sand and a lighthouse at the far end.",
+     "At first, people walked past him, some even laughing.",
+     "Then a group of students joined him on a Friday morning.",
+     "Within a year, hundreds of volunteers came every month, and the town council placed recycling bins along the shore.",
+     "When reporters asked why he had started, he simply said, \"Someone had to go first.\""
+    ],
+    "proof": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: hundreds of volunteers came every month. Tap 2 sentences that develop the idea of one person's example inspiring others.",
+    "wrong": "This sentence describes the setting or people's first reaction. Find sentences showing his steady example, others joining, or his reason."
+   },
+   "checks": [
+    {
+     "passage": "As a girl, the astronomer Maryam spent nights on the roof of her family's house, drawing the positions of stars in a notebook. Her notebook had a green cover. Teachers told her that such careful records were a waste of time. Twenty years later, her detailed observations helped her team discover a planet orbiting a distant star.",
+     "stem": "Which detail is interesting but NOT relevant to the central idea that early curiosity can grow into important discoveries?",
+     "options": [
+      "She spent nights on the roof drawing star positions.",
+      "Her notebook had a green cover.",
+      "Her observations helped her team discover a planet.",
+      "Teachers called her records a waste of time."
+     ],
+     "answer": 1,
+     "why": "The colour of the notebook adds colour but does not develop the idea about curiosity leading to discovery."
+    },
+    {
+     "passage": "During the long drought, the farmers of the valley argued over every drop of water. Then an elder proposed a schedule: each family would water on a set day. Neighbours who had not spoken for years began to share tools and meals on watering days. By the time the rains returned, the valley had become a closer community than before.",
+     "stem": "Which detail best develops the central idea that a shared hardship can bring people closer?",
+     "options": [
+      "Neighbours who had not spoken for years began to share tools and meals.",
+      "The drought lasted a long time.",
+      "An elder proposed a watering schedule.",
+      "The rains eventually returned."
+     ],
+     "answer": 0,
+     "why": "Former strangers sharing tools and meals is direct evidence that the hardship brought them closer."
+    },
+    {
+     "passage": "The percussionist Evelyn Glennie had lost most of her hearing by the age of twelve. She was born in Scotland. Rather than give up music, she learned to sense sound as vibration, often performing barefoot to feel it through the floor. She went on to become one of the world's best-known solo percussionists.",
+     "stem": "Which detail most directly shows Glennie's refusal to let hearing loss stop her?",
+     "options": [
+      "She was born in Scotland.",
+      "She lost most of her hearing by the age of twelve.",
+      "She performs in many concert halls.",
+      "She learned to sense sound as vibration, often performing barefoot."
+     ],
+     "answer": 3,
+     "why": "Learning a new way to sense music shows how she refused to be stopped. Her birthplace is background, not support."
+    }
+   ],
+   "again": {
+    "title": "Remove and see",
+    "text": "Imagine **removing** a sentence from the text.\n\nIf the central idea becomes weaker or less clear, the sentence is a **key supporting detail**. If nothing changes, it was only colour.",
+    "example": "Central idea: The nurse never gave up on her patients.\nRemove: She stayed past midnight with a sick child. → **Weaker. Key detail.**\nRemove: Her uniform was blue. → **No change. Only colour.**"
+   }
+  }
+ }
+}

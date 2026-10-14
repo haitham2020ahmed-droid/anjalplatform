@@ -24,6 +24,8 @@ export interface PlanForm {
   /** page options that change the suggestion (subject, areas…) */
   extra: string[];
   key: string;
+  /** ⭐ "N students already mastered … — exclude them?": Yes (the default) leaves them out; xm=0 = No */
+  excludeMastered: boolean;
 }
 
 /** The form field that carries the questions the teacher picked for one skill (the picker's hidden JSON field). */
@@ -60,6 +62,7 @@ export function readPlanForm(get: (k: string) => string | null, getAll: (k: stri
     note: String(get("note") ?? "").slice(0, 1000),
     dueText: /^\d{4}-\d{2}-\d{2}$/.test(due) ? due : "",
     dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null,
+    excludeMastered: get("xm") !== "0",
   };
 }
 

@@ -1,0 +1,568 @@
+{
+  "code": "NB-075",
+  "title": "My Notebook of Mistakes",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 436,
+  "passage": "For most of Grade 5, I was convinced that my brain simply had not been designed for mathematics. Whenever our teacher wrote a long division problem on the board, the numbers seemed to rearrange themselves into a confusing puzzle, and I would sit frozen while my classmates confidently raised their hands. After I received a disappointing mark on the first test of Grade 6, I hid the paper at the bottom of my bag and told my mother that the results had not been returned yet.\n\nOf course, the truth emerged eventually, because my teacher, Ms. Lamia, telephoned my mother to arrange a meeting. I expected a lecture, but instead Ms. Lamia opened her drawer and handed me an ordinary green notebook. \"This will be your notebook of mistakes, Joud,\" she announced, smiling at my puzzled expression. \"Every time you get a problem wrong, copy it here, write down exactly where your thinking went wrong, and then solve it correctly underneath.\"\n\nAt first, the notebook felt like a punishment, since it seemed to collect evidence of everything I could not do. During the first week alone, I filled six pages with errors, and I almost cried as I wrote them. Gradually, however, I began to notice something surprising. My mistakes were not random at all; most of them came from the same two habits. I frequently forgot to bring down the next digit in long division, and I rushed through the subtraction steps because I was anxious to finish quickly.\n\nOnce I recognised these patterns, I could finally do something about them. I wrote two reminders on a sticky note and attached it to the inside cover: \"Bring it down\" and \"Slow is smooth.\" Before every test or quiz, instead of rereading the textbook, I reviewed my notebook, carefully studying the problems that had defeated me before.\n\nThe improvement did not happen overnight. My second test was only slightly better than the first, and I felt discouraged for several days. Nevertheless, by the end of the term, my marks had risen from fifty-five to eighty-seven, and, more importantly, I no longer panicked when I saw a difficult problem on the board.\n\nYesterday, my younger cousin Hessa complained that she was \"terrible at mathematics\" and would never understand fractions. I smiled, because I recognised that hopeless tone immediately. I went to my room, took out a fresh green notebook, and wrote on the first page: \"Mistakes are not the opposite of learning; they are the map that shows you the way.\" Then I handed it to her, exactly as Ms. Lamia had once handed one to me.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “emerged” as it is used in paragraph 2?",
+      "options": [
+        "was forgotten",
+        "was hidden",
+        "grew worse",
+        "came out"
+      ],
+      "answer": "D",
+      "why": "“The truth emerged eventually” means the truth came out and became known; “was hidden” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 1, the narrator says her classmates raised their hands “confidently”. Which word is the OPPOSITE of “confidently”?",
+      "options": [
+        "proudly",
+        "uncertainly",
+        "quickly",
+        "thoughtfully"
+      ],
+      "answer": "B",
+      "why": "Acting confidently means feeling sure of yourself; the opposite is acting uncertainly, as the narrator did when she sat “frozen”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “anxious” mean in the phrase “I was anxious to finish quickly” in paragraph 3?",
+      "options": [
+        "calm and fully relaxed",
+        "bored and sleepy",
+        "nervous and eager",
+        "proud and happy"
+      ],
+      "answer": "C",
+      "why": "She rushed the subtraction because she felt nervous and wanted to be finished."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a NOUN?",
+      "options": [
+        "recognised",
+        "carefully",
+        "finally",
+        "reminders"
+      ],
+      "answer": "D",
+      "why": "“Reminders” names things; “recognised” is a verb and “carefully” and “finally” are adverbs."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “disappointing” in paragraph 1?",
+      "options": [
+        "disappear",
+        "disappearance",
+        "disappointment",
+        "dispatch"
+      ],
+      "answer": "C",
+      "why": "“Disappointment” comes from the same verb, “disappoint”; “appointment” and “disappear” only look similar."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a PLURAL noun?",
+      "options": [
+        "notebook",
+        "evidence",
+        "habits",
+        "punishment"
+      ],
+      "answer": "C",
+      "why": "“Habits” means more than one habit; the other words are singular."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “improvement” in a meaningful sentence of your own.",
+      "model": "After a month of daily practice, there was a clear improvement in my brother's handwriting.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “improvement” with its meaning (the act of becoming better)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Improvement” means getting better, as in the narrator's improvement in paragraph 5."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 4, the narrator reviews her notebook before every test or “quiz”. What is the correct plural of “quiz”?",
+      "options": [
+        "quizzes",
+        "quizs",
+        "quizes",
+        "quizies"
+      ],
+      "answer": "A",
+      "why": "“Quiz” doubles the z and adds -es: quiz → quizzes."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Bring it down” in paragraph 4?",
+      "options": [
+        "a command",
+        "a question",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "A",
+      "why": "It tells the narrator what to do, so it is a command (an instruction to herself)."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Learning from My Errors",
+        "The Day I Lost My Notebook",
+        "My Favourite Subject",
+        "Hessa's Fraction Test"
+      ],
+      "answer": "A",
+      "why": "The whole text shows how writing down and studying mistakes helped the narrator improve."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to teach readers the full method of long division",
+        "to describe the narrator's favourite school teacher",
+        "to warn students never to hide their test results from parents",
+        "to share how studying mistakes helped the narrator succeed"
+      ],
+      "answer": "D",
+      "why": "The narrator tells how her notebook of mistakes changed her mathematics results and her attitude."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "The narrator filled six pages and decided that the notebook was completely useless.",
+        "Writing down her mistakes helped the narrator see they followed patterns.",
+        "The narrator's teacher punished her by giving her extra homework.",
+        "The narrator learned to do long division in a single week."
+      ],
+      "answer": "B",
+      "why": "At first the notebook felt like a punishment, but she gradually noticed her mistakes came from two habits."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Ms. Lamia telephone the narrator's mother?",
+      "options": [
+        "to arrange a meeting about the narrator",
+        "to complain that the narrator had cheated",
+        "to ask her to buy a green notebook",
+        "to tell her that the narrator was ill"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: Ms. Lamia “telephoned my mother to arrange a meeting”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a mathematics textbook",
+        "a newspaper interview",
+        "a fable with a moral",
+        "a personal narrative"
+      ],
+      "answer": "D",
+      "why": "The narrator tells about her own real-life experience using “I” and reflects on what she learned."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what were the TWO habits that caused most of the narrator's mistakes?",
+      "options": [
+        "copying wrong numbers and forgetting the multiplication facts",
+        "writing too slowly and leaving questions unanswered",
+        "forgetting to bring down a digit and rushing subtraction",
+        "forgetting her notebook and not revising at home"
+      ],
+      "answer": "C",
+      "why": "She “frequently forgot to bring down the next digit” and “rushed through the subtraction steps”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The narrator hid her test paper in her bag.",
+        "Ms. Lamia gave the narrator a green notebook.",
+        "The narrator wrote two reminders on a sticky note.",
+        "The narrator gave Hessa a new notebook."
+      ],
+      "answer": "A",
+      "why": "Hiding the paper (paragraph 1) came before the meeting, the sticky note and the gift to Hessa."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of this text?",
+      "options": [
+        "Ms. Lamia, a mathematics teacher",
+        "Hessa, the narrator's younger cousin",
+        "the narrator's mother, who went to the meeting at school",
+        "Joud, a Grade 6 student who found mathematics hard"
+      ],
+      "answer": "D",
+      "why": "The narrator says “I”, Ms. Lamia calls her “Joud”, and she calls Hessa “my younger cousin”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Ms. Lamia ask the narrator to write UNDER each copied mistake?",
+      "options": [
+        "the correct solution",
+        "the date of the test",
+        "a promise to work harder",
+        "her mother's signature"
+      ],
+      "answer": "A",
+      "why": "Write where your thinking went wrong, “and then solve it correctly underneath”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did the narrator hide her test paper at the bottom of her bag?",
+      "options": [
+        "She was ashamed of her disappointing mark.",
+        "She wanted to surprise her mother with it later that week.",
+        "Ms. Lamia had told her to keep it secret.",
+        "She had forgotten to show it to anyone."
+      ],
+      "answer": "A",
+      "why": "After “a disappointing mark” she hid the paper and pretended the results had not been returned."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did the notebook feel like a punishment at first?",
+      "options": [
+        "Ms. Lamia gave it to her as a punishment instead of a prize.",
+        "It seemed to collect proof of everything she could not do.",
+        "It had to be finished before every school break.",
+        "Her mother checked it angrily every evening."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: it “seemed to collect evidence of everything I could not do”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe the narrator's feelings after her second test?",
+      "options": [
+        "discouraged",
+        "overconfident",
+        "careless",
+        "furious"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: “My second test was only slightly better than the first, and I felt discouraged for several days.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the narrator's way of preparing for tests different after she received the notebook?",
+      "options": [
+        "She reread the textbook many times instead of looking at her mistakes.",
+        "She reviewed her own past mistakes instead of rereading the textbook.",
+        "She stopped revising and relied on her memory instead.",
+        "She studied with her classmates instead of studying alone."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “instead of rereading the textbook, I reviewed my notebook”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the narrator recognising the patterns in her mistakes?",
+      "options": [
+        "She stopped using the notebook immediately.",
+        "She could finally do something to correct them.",
+        "She decided that mathematics was simply not for her.",
+        "She asked Ms. Lamia for an easier test."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “Once I recognised these patterns, I could finally do something about them.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the narrator in Grade 5 and Hessa at the end of the text have in common?",
+      "options": [
+        "Both receive a mark of eighty-seven.",
+        "Both are taught by Ms. Lamia every day.",
+        "Both hide their test papers from their mothers.",
+        "Both believe they are hopeless at mathematics."
+      ],
+      "answer": "D",
+      "why": "The narrator once believed her brain was not “designed for mathematics”; Hessa says she is “terrible at mathematics”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the narrator mean by “the numbers seemed to rearrange themselves into a confusing puzzle” in paragraph 1?",
+      "options": [
+        "The teacher kept changing the numbers.",
+        "The board was too far away to read.",
+        "Long division felt very confusing to her.",
+        "The numbers kept moving around on the board by themselves."
+      ],
+      "answer": "C",
+      "why": "The numbers did not really move; the expression shows how confusing the problems felt."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the reminder “Slow is smooth” mean?",
+      "options": [
+        "Slow students always get the best marks.",
+        "Working carefully leads to fewer mistakes.",
+        "Tests should be written in neat handwriting.",
+        "Mathematics problems become easier at night."
+      ],
+      "answer": "B",
+      "why": "She made mistakes by rushing; working slowly makes the work go smoothly and correctly."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the text with the narrator giving a notebook to Hessa?",
+      "options": [
+        "to show that Hessa is already better at fractions than her",
+        "to explain how to buy a notebook cheaply",
+        "to show that Ms. Lamia has left the school",
+        "to show that the lesson is now being passed on"
+      ],
+      "answer": "D",
+      "why": "The narrator hands Hessa a notebook “exactly as Ms. Lamia had once handed one to me”, so the lesson continues."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the MOST useful idea in the text for a student who keeps making mistakes?",
+      "options": [
+        "Hide your test papers until you feel better about them.",
+        "Avoid difficult problems so you cannot fail.",
+        "Look for patterns in your mistakes and fix them.",
+        "Reread the textbook many times before tests."
+      ],
+      "answer": "C",
+      "why": "The narrator improved by finding the two habits behind most of her mistakes."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the text?",
+      "options": [
+        "Mistakes can guide us towards learning.",
+        "Some brains are not designed for mathematics.",
+        "Teachers should give easier tests to students.",
+        "Only clever students can learn long division."
+      ],
+      "answer": "A",
+      "why": "Her note to Hessa says mistakes are “the map that shows you the way”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "hopeless worry about Hessa",
+        "confident kindness",
+        "angry impatience",
+        "secret shame"
+      ],
+      "answer": "B",
+      "why": "The narrator now understands Hessa's hopeless tone and kindly shares what she has learned."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "what colour the notebook was",
+        "how the narrator's mother reacted to the hidden test",
+        "what the two sticky-note reminders said",
+        "how the narrator's marks changed by the end of the term"
+      ],
+      "answer": "B",
+      "why": "The text never says what her mother thought about the lie; the other details are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Numbers on a board rearrange themselves into a puzzle.",
+        "A notebook solves all of the mathematics problems by itself overnight.",
+        "A student's marks rise after she studies her own mistakes.",
+        "A sticky note reads its reminders aloud before tests."
+      ],
+      "answer": "C",
+      "why": "Studying one's mistakes is a real and effective way to improve; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the text?",
+      "options": [
+        "The Lost Green Notebook",
+        "Hessa's First Difficult Mathematics Test",
+        "A Lecture from Ms. Lamia",
+        "From Fifty-Five to Eighty-Seven"
+      ],
+      "answer": "D",
+      "why": "The title sums up the narrator's progress; she was never given a lecture and never lost the notebook."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences showing what might have happened if Hessa had refused to use the notebook.",
+      "model": "Hessa pushed the notebook away, so the narrator sat beside her and showed her the pages from her own first week, full of crossed-out answers. Hessa laughed in surprise, picked up a pencil and copied her first fraction mistake into the new notebook.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and solves the problem of Hessa's refusal",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that fits the narrator and Hessa and deals with Hessa's refusal is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could a student who feels “terrible at mathematics” begin to improve?",
+      "options": [
+        "Keep a notebook of mistakes and their corrections.",
+        "Work slowly through each step instead of rushing.",
+        "A and B",
+        "Stop attempting difficult problems in class."
+      ],
+      "answer": "C",
+      "why": "Both strategies helped the narrator improve; avoiding difficult problems would prevent learning."
+    }
+  ]
+}

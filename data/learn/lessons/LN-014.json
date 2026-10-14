@@ -1,0 +1,481 @@
+{
+ "code": "LN-014",
+ "title": "Opening an argument: claim and thesis",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.a",
+  "W.5.4"
+ ],
+ "families": [
+  "writing-argument"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0052",
+  "L-0136",
+  "L-0163",
+  "L-0251",
+  "L-0252",
+  "L-0268"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Say what you think",
+     "text": "When you want to change someone's mind, you write to **persuade**.\n\nYour first sentence should say **what you think**. This is your **claim**."
+    },
+    {
+     "title": "Strong or weak?",
+     "text": "**Weak:** I want to talk about pets.\n\n**Strong:** Every class should have a fish tank.\n\nThe strong one tells the reader your opinion right away."
+    },
+    {
+     "title": "How to start",
+     "text": "1. Think: **What do I want?**\n2. Say it in one clear sentence.\n3. Use strong words like **should** or **must**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The best opening must **match the rest of the writing**.\n\n1. Read the other sentences.\n2. Ask: **What do they ask for?**\n3. Pick the opening that says that.\n\nIf the opening talks about something else, it is **not** the best one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school should have a reading corner.",
+      "role": "main"
+     },
+     {
+      "t": "Students could read there at break.",
+      "role": "detail"
+     },
+     {
+      "t": "It would be quiet and calm.",
+      "role": "detail"
+     },
+     {
+      "t": "More students would enjoy books.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence says what the writer wants: **a reading corner**.\n\nThe other sentences give reasons. So the opening is strong and clear."
+   },
+   "together": {
+    "passage": "Kids could run and play there. Parents could sit and talk. Small children would be safe. It would bring our street together.",
+    "stem": "These sentences are from a letter. Which opening sentence is best?",
+    "options": [
+     "Our street has many houses.",
+     "Our street needs a small park.",
+     "I like to play.",
+     "Parks are green."
+    ],
+    "answer": 1,
+    "hint": "That does not say what the writer wants. What do the other sentences ask for?",
+    "good": "Yes! It says the writer's opinion, and the other sentences give reasons for a park."
+   },
+   "evidence": {
+    "sentences": [
+     "Kids could run and play there.",
+     "Parents could sit and talk.",
+     "Small children would be safe.",
+     "It would bring our street together."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Our street needs a small park. Tap 2 sentences that tell who would use the park.",
+    "wrong": "This sentence tells what the park would do for the whole street. Find sentences that name the people who would use it."
+   },
+   "checks": [
+    {
+     "passage": "____ It would keep the class cool. We could think better. Hot rooms make us tired.",
+     "stem": "Which sentence is the best opening?",
+     "options": [
+      "Our class needs a fan.",
+      "Summer is long.",
+      "I like my class.",
+      "Fans can be white."
+     ],
+     "answer": 0,
+     "why": "The other sentences give reasons for a fan, so the opening should ask for a fan."
+    },
+    {
+     "passage": "____ It would help us read more. We could take books home. Reading is good for us.",
+     "stem": "Which sentence is the best opening?",
+     "options": [
+      "Books have many pages inside them.",
+      "I read a book at home last night.",
+      "We should have a class library.",
+      "Homework is hard."
+     ],
+     "answer": 2,
+     "why": "All the reasons are about books and reading, so the opening asks for a class library."
+    },
+    {
+     "passage": "____ Water keeps us healthy. Juice has a lot of sugar. Water is free at school.",
+     "stem": "Which sentence is the best opening?",
+     "options": [
+      "Juice is sweet and comes in many flavours.",
+      "I am thirsty.",
+      "Lunch is at noon.",
+      "Students should drink water, not juice."
+     ],
+     "answer": 3,
+     "why": "It gives a clear opinion, and the other sentences give reasons for it."
+    }
+   ],
+   "again": {
+    "title": "Finish this sentence",
+    "text": "Start with: **We should…** or **Our school needs…**\n\nThen add the thing you want. Now you have a strong opening!",
+    "example": "Reasons: Plants make the room pretty. They give clean air.\n\nOpening: **Our classroom should have plants.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Your opening statement",
+     "text": "A persuasive letter or essay tries to make the reader **agree** or **act**.\n\nThe **opening statement** tells the reader exactly what you want. It should be clear, sure and easy to remember."
+    },
+    {
+     "title": "What makes it strong?",
+     "text": "A strong opening:\n\n1. Gives a **clear opinion**, not just a topic.\n2. Sounds **sure**: \"should\", not \"maybe\".\n3. Fits the **reasons** that come after it."
+    },
+    {
+     "title": "Avoid these",
+     "text": "**Just a topic:** This letter is about recycling.\n\n**Unsure:** Maybe recycling could be okay.\n\n**Strong:** Our school should start a recycling program this year."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best opening, look at the **body** of the letter.\n\n1. Read every reason in the letter.\n2. Ask: **What is the writer asking for?**\n3. Choose the opening that names it clearly and confidently.\n\nAn opening that is only a topic, or about something else, does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Principal, our school should add a short exercise break to every morning.",
+      "role": "main"
+     },
+     {
+      "t": "Moving for ten minutes wakes up our bodies and minds.",
+      "role": "detail"
+     },
+     {
+      "t": "Students who exercise often pay better attention.",
+      "role": "detail"
+     },
+     {
+      "t": "A break would also help us feel less stressed before tests.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The opening says **exactly what the writer wants**: a morning exercise break. It sounds sure (\"should\").\n\nEach detail gives a reason for the break, so the opening and the body match."
+   },
+   "together": {
+    "passage": "Dear Principal, Many students spend the long breaks sitting on the steps with nothing to do. With a few balls and ropes, they could play together instead. Playing outside builds friendships and keeps students active. The equipment would not cost much, and older students could look after it.",
+    "stem": "Which sentence would be the strongest opening for this letter?",
+    "options": [
+     "Breaks at our school are thirty minutes long.",
+     "Maybe some students would like to play sometimes.",
+     "Our school should buy play equipment for the breaks.",
+     "Ropes and balls come in many colours."
+    ],
+    "answer": 2,
+    "hint": "Is that a clear opinion that fits the reasons? Read what the letter asks for.",
+    "good": "Yes! It is clear and sure, and every reason in the letter supports buying play equipment."
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Principal,",
+     "Many students spend the long breaks sitting on the steps with nothing to do.",
+     "With a few balls and ropes, they could play together instead.",
+     "Playing outside builds friendships and keeps students active.",
+     "The equipment would not cost much, and older students could look after it."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Our school should buy play equipment. Tap 2 sentences that give reasons for it.",
+    "wrong": "This sentence greets the reader or describes the problem. Find sentences that say why the equipment is a good idea."
+   },
+   "checks": [
+    {
+     "passage": "____ Many families throw away clothes that still fit. Others could use them. A clothes drive would help people in need.",
+     "stem": "Which is the strongest opening?",
+     "options": [
+      "Our class should hold a clothes drive.",
+      "Clothes come in many sizes.",
+      "I have a lot of clothes.",
+      "This letter is about clothes."
+     ],
+     "answer": 0,
+     "why": "It gives a clear opinion, and every sentence supports a clothes drive."
+    },
+    {
+     "passage": "____ Shade would protect us from the strong sun. We could eat lunch outside again. Trees would also make the yard beautiful.",
+     "stem": "Which is the strongest opening?",
+     "options": [
+      "The sun is very hot in summer.",
+      "I think trees are kind of nice, maybe.",
+      "Our school should plant trees in the yard.",
+      "Lunch starts at twelve."
+     ],
+     "answer": 2,
+     "why": "It is a sure, clear opinion. The reasons (shade, lunch outside, beauty) all support planting trees."
+    },
+    {
+     "passage": "____ Students forget things they learned in June. A few pages of reading each week would keep their skills strong. It would make the new year easier.",
+     "stem": "Which is the strongest opening?",
+     "options": [
+      "Summer holidays are fun.",
+      "This letter is about summer.",
+      "Some students go to the beach with their families.",
+      "Students should read during the summer holiday."
+     ],
+     "answer": 3,
+     "why": "It states the writer's opinion. The other options are only topics or small details."
+    }
+   ],
+   "again": {
+    "title": "Opinion, not topic",
+    "text": "A **topic** is just a thing: \"school lunches\".\n\nAn **opinion** says what should happen: \"School lunches should include more fruit.\"\n\nYour opening must be an opinion.",
+    "example": "Topic: **homework**.\n\nOpening statement: **Students should have no homework on weekends.** Now the reader knows what you want."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Purpose first",
+     "text": "Before you write the opening, ask: **What is my purpose?** Who is my reader, and what do I want them to think or do?\n\nYour opening **strategy** is how you grab that reader."
+    },
+    {
+     "title": "Opening strategies",
+     "text": "1. **A surprising fact:** \"Each person in a city can make more than a kilogram of rubbish a day.\"\n2. **A question:** \"What if every student had a quiet place to study?\"\n3. **A short story:** \"Last week, my little brother waited an hour for the bus.\"\n4. **A direct claim:** \"The city should add a bus stop near our school.\""
+    },
+    {
+     "title": "Choose what fits",
+     "text": "A fact works when you want readers to see a **serious problem**. A question makes them **imagine**. A short story makes them **care**.\n\nWhatever you choose, your **claim** must come soon after the hook."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To pick the best strategy, look at the **purpose and the details** in the draft.\n\n1. Find what the writer wants the reader to feel or do.\n2. Find the kind of details the writer uses (numbers? people? feelings?).\n3. Choose the opening that suits those details and leads to the claim.\n\nAn opening that is off topic or a different purpose does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Imagine walking into a library where you can borrow a robot kit, a microscope or a telescope.",
+      "role": "key"
+     },
+     {
+      "t": "Our public library should start lending science equipment.",
+      "role": "main"
+     },
+     {
+      "t": "Many families cannot buy these tools.",
+      "role": "detail"
+     },
+     {
+      "t": "Borrowing them would let every child try real experiments at home.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer wants readers to **picture** something new, so the opening uses an **\"Imagine…\"** strategy.\n\nRight after the hook comes the **claim**: the library should lend science equipment. The details support it."
+   },
+   "together": {
+    "passage": "Our city's beaches are a place for families to relax and enjoy the sea. Yet after busy weekends, plastic bottles and bags are left on the sand. These bags can blow into the water, where sea turtles may mistake them for food. More bins and a monthly clean-up day would protect the beach and the animals that live there. I hope the council will act before next summer.",
+    "stem": "The writer of this letter to the city council wants readers to see how serious the problem is. Which opening fits that purpose best?",
+    "options": [
+     "Sea turtles have lived in the oceans for millions of years.",
+     "Do you like going to the beach on weekends?",
+     "Every weekend, plastic left on our beaches puts sea life in danger.",
+     "I am writing a letter today."
+    ],
+    "answer": 2,
+    "hint": "That opening is off topic or too weak. Which one shows a serious problem the way the letter does?",
+    "good": "Yes! It hooks the reader with the problem and leads straight to the writer's purpose: protect the beach and sea life."
+   },
+   "evidence": {
+    "sentences": [
+     "Our city's beaches are a place for families to relax and enjoy the sea.",
+     "Yet after busy weekends, plastic bottles and bags are left on the sand.",
+     "These bags can blow into the water, where sea turtles may mistake them for food.",
+     "More bins and a monthly clean-up day would protect the beach and the animals that live there.",
+     "I hope the council will act before next summer."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was the opening about plastic putting sea life in danger. Tap the 2 sentences that show this danger.",
+    "wrong": "That sentence describes the beach, offers the solution, or closes the letter. Find the sentences that show the danger."
+   },
+   "checks": [
+    {
+     "passage": "Purpose: persuade classmates to join the school's tree-planting day. Details: the writer describes how a small tree she planted at age six now gives her family shade.",
+     "stem": "Which opening strategy fits best?",
+     "options": [
+      "A list of tree types",
+      "A short personal story",
+      "A dictionary definition of 'tree'",
+      "A joke about homework"
+     ],
+     "answer": 1,
+     "why": "The writer has a personal memory that makes readers care, so a short story suits the purpose."
+    },
+    {
+     "passage": "Purpose: convince the principal that the school needs a water fountain on every floor. Details: students on the top floor walk down three floors to drink, and some skip drinking water all day.",
+     "stem": "Which opening is most effective?",
+     "options": [
+      "Water is made of hydrogen and oxygen.",
+      "Students on our top floor must walk down three floors just to drink water.",
+      "Some people prefer cold water.",
+      "I am going to talk about many different things."
+     ],
+     "answer": 1,
+     "why": "It opens with a real fact from the draft that shows the problem, then the claim can follow."
+    },
+    {
+     "passage": "Purpose: persuade parents to support a weekly family reading night. Details: the writer wants parents to picture a calm evening with no screens, everyone reading together.",
+     "stem": "Which opening fits best?",
+     "options": [
+      "Picture a quiet evening: no screens, just your family and a stack of good books.",
+      "Reading nights are on Thursdays.",
+      "Screens are made in factories.",
+      "My essay has three parts, and each part talks about a different book."
+     ],
+     "answer": 0,
+     "why": "The purpose is to make parents imagine the evening, so a picture-making opening works best."
+    }
+   ],
+   "again": {
+    "title": "Hook, then claim",
+    "text": "Think of your opening as **two steps**:\n\n1. **Hook** the reader with something that fits your purpose.\n2. **Claim**: say clearly what you want.",
+    "example": "Hook: **Every morning, cars crowd the road outside our school gate.**\n\nClaim: **The school needs a safe drop-off zone.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "The thesis statement",
+     "text": "In an argumentative essay, the **thesis** is one sentence that states your **position** and often previews your main **reasons**.\n\nIt usually comes at the end of the introduction, after the hook."
+    },
+    {
+     "title": "Test a thesis",
+     "text": "A strong thesis is:\n\n1. **Arguable**: a reasonable person could disagree.\n2. **Specific**: it names who, what and what should happen.\n3. **Supportable**: the essay can back it with evidence.\n\nA fact (\"Phones have cameras.\") is not a thesis. Neither is an announcement (\"This essay is about phones.\")."
+    },
+    {
+     "title": "Matching the essay",
+     "text": "The thesis is a promise. Every body paragraph must **keep it**.\n\nIf the body paragraphs discuss cost, safety and learning, a thesis about only one of them is too narrow, and a thesis about \"technology\" in general is too broad."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose a thesis, read the **body of the essay** first.\n\n1. Name the topic of each body paragraph.\n2. Find the position they all defend.\n3. Choose the thesis that states that position and covers **all** the reasons.\n\nReject choices that are facts, announcements, too narrow or too broad."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many schools now ask older students to help younger ones read.",
+      "role": "other"
+     },
+     {
+      "t": "Schools should make peer tutoring a regular part of the week, because it helps both the tutor and the younger student.",
+      "role": "main"
+     },
+     {
+      "t": "Younger students get patient, one-to-one practice.",
+      "role": "detail"
+     },
+     {
+      "t": "Tutors deepen their own understanding by explaining ideas.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence gives **background**. The second is the **thesis**: it takes a position (schools should…) and previews the reasons (it helps both students).\n\nThe body details each match one part of that promise."
+   },
+   "together": {
+    "passage": "Every year, more young people volunteer in their communities. Some help at food banks, sorting donations for families in need. Others clean parks or read to elderly neighbours. Studies of volunteering suggest that young volunteers often build confidence and teamwork skills that help them later at school and at work. Volunteering also connects students with adults and neighbours they might never meet otherwise. Because of these benefits, some educators suggest that community service should be part of school life. Critics worry that it would take time away from lessons. However, even a few hours a term could make a real difference.",
+    "stem": "Which thesis statement best fits this introduction and the essay it begins?",
+    "options": [
+     "Young people help at food banks.",
+     "Schools should include a few hours of community service each term because it builds skills and connects students to their community.",
+     "This essay will talk about volunteering.",
+     "Everyone in the world should volunteer every day."
+    ],
+    "answer": 1,
+    "hint": "Check the choice: is it a fact, an announcement, or too broad? A thesis must take a clear, reasonable position.",
+    "good": "Yes! It takes an arguable position and previews both benefits the essay discusses: skills and community."
+   },
+   "evidence": {
+    "sentences": [
+     "Every year, more young people volunteer in their communities.",
+     "Some help at food banks, sorting donations for families in need.",
+     "Others clean parks or read to elderly neighbours.",
+     "Studies of volunteering suggest that young volunteers often build confidence and teamwork skills that help them later at school and at work.",
+     "Volunteering also connects students with adults and neighbours they might never meet otherwise.",
+     "Because of these benefits, some educators suggest that community service should be part of school life.",
+     "Critics worry that it would take time away from lessons.",
+     "However, even a few hours a term could make a real difference."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer previewed two benefits: skills and connection to the community. Tap the 2 sentences that give these benefits.",
+    "wrong": "This sentence gives background, an example or the other side. Find the sentences that name the benefits of volunteering."
+   },
+   "checks": [
+    {
+     "passage": "Body paragraphs: (1) Cycling lanes cut traffic near schools. (2) Cycling keeps students fit. (3) Fewer cars mean cleaner air.",
+     "stem": "Which is the most effective thesis?",
+     "options": [
+      "Bicycles have two wheels and pedals, and many people in different cities ride them to work.",
+      "The city should build cycle lanes near schools to reduce traffic, improve health and clean the air.",
+      "I will now write about bicycles.",
+      "Cycling keeps students fit."
+     ],
+     "answer": 1,
+     "why": "It takes a position and covers all three body paragraphs. The last choice is only one reason."
+    },
+    {
+     "passage": "Body paragraphs: (1) Uniforms save families money. (2) Uniforms reduce pressure to wear expensive clothes. (3) Uniforms help students focus on learning.",
+     "stem": "Which thesis is too narrow for this essay?",
+     "options": [
+      "Uniforms benefit students and families in several ways.",
+      "Schools should keep uniforms because they save money, ease pressure and support learning.",
+      "Uniforms save families money.",
+      "Uniforms are good for schools, students and families."
+     ],
+     "answer": 2,
+     "why": "It only covers the first body paragraph, so it does not promise what the whole essay delivers."
+    },
+    {
+     "passage": "An essay argues that schools should teach basic first aid, giving evidence that it saves lives, builds confidence and is quick to learn.",
+     "stem": "Which thesis is the strongest?",
+     "options": [
+      "Some people know first aid.",
+      "First aid is important, and many things in life are important too.",
+      "This essay is about first aid.",
+      "Every school should teach basic first aid, a quick lesson that builds confidence and can save lives."
+     ],
+     "answer": 3,
+     "why": "It is arguable and specific, and it previews all three supports in the essay."
+    }
+   ],
+   "again": {
+    "title": "Position + because",
+    "text": "Build a thesis with a frame:\n\n**[Who] should [do what] because [reason 1] and [reason 2].**\n\nThen check: could someone disagree? Does the essay prove each reason?",
+    "example": "Essay reasons: less waste, lower cost.\n\nThesis: **Our school should use refillable water bottles because they reduce plastic waste and save money.**"
+   }
+  }
+ }
+}

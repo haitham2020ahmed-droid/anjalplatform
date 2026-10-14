@@ -58,7 +58,7 @@ export function StudentList({ classes, initialQuery = "", manage = false, help =
               <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {c.students.map((x) => (
                   <li key={x.id}>
-                    <Link prefetch={false} href={`/admin/student-file/${x.id}`} className="flex min-h-14 items-center justify-between gap-2 rounded-2xl bg-slate-50 px-4 py-2 ring-1 ring-slate-200 hover:bg-white hover:ring-brand-teal">
+                    <Link prefetch={false} href={`/teacher/students/${x.id}`} className="flex min-h-14 items-center justify-between gap-2 rounded-2xl bg-slate-50 px-4 py-2 ring-1 ring-slate-200 hover:bg-white hover:ring-brand-teal">
                       <span className="min-w-0">
                         <bdi className="block truncate font-semibold text-slate-900">{x.name || x.username}</bdi>
                         <span dir="ltr" className="block truncate text-xs text-slate-500">{x.number}{x.username ? ` · ${x.username}` : ""}</span>

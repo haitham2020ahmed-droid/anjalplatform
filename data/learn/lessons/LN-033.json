@@ -1,0 +1,454 @@
+{
+ "code": "LN-033",
+ "title": "Using text evidence in your writing",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [],
+ "families": [
+  "text-evidence"
+ ],
+ "skillNames": [
+  "Drawing Evidence from Texts for Writing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Use the text",
+     "text": "When you write about a text, use **details from the text** to show you are right.\n\nThese details are called **evidence**."
+    },
+    {
+     "title": "Find the detail",
+     "text": "1. Read what you want to say.\n2. Look back at the text.\n3. Find a sentence that **shows** it."
+    },
+    {
+     "title": "Say where it is",
+     "text": "Start with words like:\n\n**The text says…**\n**In the story…**\n\nThen tell the detail."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Good evidence **matches** your idea.\n\n1. Read your idea.\n2. Find the sentences that show it.\n3. A sentence about something else is **not** good evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My idea: The boy is happy.",
+      "role": "main"
+     },
+     {
+      "t": "The text says: He smiled and jumped up and down.",
+      "role": "key"
+     }
+    ],
+    "explain": "Smiling and jumping show a **happy** boy.\n\nSo this detail is good evidence for the idea."
+   },
+   "together": {
+    "passage": "Nora's garden is busy. Bees fly around the flowers. Birds drink from a small bowl. The grass is green.",
+    "stem": "Nora writes: Many animals visit my garden. Which detail from the text supports this?",
+    "options": [
+     "The grass is green.",
+     "Bees fly around the flowers.",
+     "Nora has a garden.",
+     "Flowers are pretty."
+    ],
+    "answer": 1,
+    "hint": "Which sentence tells about an animal?",
+    "good": "Yes! Bees are animals that visit the garden."
+   },
+   "evidence": {
+    "sentences": [
+     "Nora's garden is busy.",
+     "Bees fly around the flowers.",
+     "Birds drink from a small bowl.",
+     "The grass is green."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show animals visit the garden.",
+    "wrong": "This sentence does not name an animal. Find the sentences about animals."
+   },
+   "checks": [
+    {
+     "passage": "Text: Sami ran fast. He was first in the race. Everyone clapped.\n\nIdea: Sami won the race.",
+     "stem": "Which detail is the best evidence?",
+     "options": [
+      "Everyone clapped.",
+      "Sami ran.",
+      "He was first in the race.",
+      "It was a race."
+     ],
+     "answer": 2,
+     "why": "Being first shows that Sami won."
+    },
+    {
+     "passage": "Text: It rained all day. The streets were wet. People used umbrellas.\n\nIdea: It was a rainy day.",
+     "stem": "Which detail is the best evidence?",
+     "options": [
+      "People used umbrellas.",
+      "The streets were long.",
+      "The day was Monday.",
+      "Sami had a cat."
+     ],
+     "answer": 0,
+     "why": "Umbrellas show that it was raining."
+    },
+    {
+     "passage": "Text: Huda wore a coat. She put on a hat. Her hands were cold.\n\nIdea: The weather was cold.",
+     "stem": "How should the evidence start?",
+     "options": [
+      "I think maybe Huda was a bit cold.",
+      "Once upon a time, there was a girl.",
+      "The end of the story is very good.",
+      "The text says Huda's hands were cold."
+     ],
+     "answer": 3,
+     "why": "The text says tells the reader the detail comes from the text."
+    }
+   ],
+   "again": {
+    "title": "Point and say",
+    "text": "Think of evidence like **pointing**.\n\n1. Say your idea.\n2. **Point** to the sentence in the text.\n3. Say: **The text says…**",
+    "example": "Idea: **The cat is hungry.**\n\nPoint: **The cat cried by its bowl.**\n\nSay: **The text says the cat cried by its bowl.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Quote or paraphrase",
+     "text": "You can use evidence in two ways:\n\n1. **Quote**: copy the exact words inside quotation marks. The text says, \"Camels can close their noses.\"\n2. **Paraphrase**: tell the detail in your own words. The text explains that camels can shut their noses."
+    },
+    {
+     "title": "Introduce your evidence",
+     "text": "Use a **lead-in** so readers know where the evidence comes from:\n\n**According to the article,…**\n**The author writes,…**\n**In paragraph 2,…**"
+    },
+    {
+     "title": "Choose relevant evidence",
+     "text": "Not every detail is good evidence. Pick the one that **best proves** your point.\n\nAsk: Does this detail **really show** what I said?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the claim the writer wants to support.\n2. Read each sentence in the source.\n3. Tap the ones that **directly** prove the claim.\n\nDetails that are true but about something else are **not** evidence for this claim."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: Camels are built for sandstorms.",
+      "role": "main"
+     },
+     {
+      "t": "The text says, \"Camels have long eyelashes and can close their noses to keep sand out.\"",
+      "role": "key"
+     },
+     {
+      "t": "The text also says camels are used in races.",
+      "role": "other"
+     }
+    ],
+    "explain": "The quote about eyelashes and noses **proves** the claim about sandstorms.\n\nCamel races are true, but they do not prove this claim."
+   },
+   "together": {
+    "passage": "Source: The Arabian oryx disappeared from the wild in the 1970s. People began to protect the animals in reserves. Scientists raised young oryx and released them into safe areas. Today, there are many more oryx in the wild. The oryx has long, straight horns.",
+    "stem": "A student writes: People helped the Arabian oryx come back. Which evidence best supports this?",
+    "options": [
+     "The oryx has long, straight horns.",
+     "The oryx disappeared from the wild in the 1970s.",
+     "Scientists raised young oryx and released them into safe areas.",
+     "Oryx live in Arabia."
+    ],
+    "answer": 2,
+    "hint": "Which detail shows people DOING something to help?",
+    "good": "Yes! Raising and releasing young oryx shows people helping them come back."
+   },
+   "evidence": {
+    "sentences": [
+     "Source: The Arabian oryx disappeared from the wild in the 1970s.",
+     "People began to protect the animals in reserves.",
+     "Scientists raised young oryx and released them into safe areas.",
+     "Today, there are many more oryx in the wild.",
+     "The oryx has long, straight horns."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show people helping the oryx.",
+    "wrong": "This sentence is true, but it does not show people helping. Find what people did."
+   },
+   "checks": [
+    {
+     "passage": "Source: Honey does not spoil easily. Jars of honey thousands of years old have been found in ancient Egyptian tombs, and it was still safe to eat.",
+     "stem": "Which is a correct quote from the source?",
+     "options": [
+      "The source says honey is the best food.",
+      "The source says, \"Honey does not spoil easily.\"",
+      "The source says, \"Honey is sweet and yellow.\"",
+      "The source says that honey is new."
+     ],
+     "answer": 1,
+     "why": "It copies the exact words inside quotation marks."
+    },
+    {
+     "passage": "Claim: Ali was nervous before his speech.\n\nStory: Ali's hands shook as he held his notes. He had a new blue shirt. He kept checking the clock.",
+     "stem": "Which detail is NOT good evidence for the claim?",
+     "options": [
+      "He kept checking the clock.",
+      "His hands shook.",
+      "He held his notes.",
+      "He had a new blue shirt."
+     ],
+     "answer": 3,
+     "why": "A new shirt does not show that he was nervous."
+    },
+    {
+     "passage": "A student wants to paraphrase this source sentence: Penguins cannot fly, but they are excellent swimmers.",
+     "stem": "Which is the best paraphrase with a lead-in?",
+     "options": [
+      "According to the text, penguins do not fly, yet they swim very well.",
+      "Penguins cannot fly, but they are excellent swimmers.",
+      "I think penguins are cute and funny birds to watch at the zoo.",
+      "According to the text, penguins fly very well over the sea."
+     ],
+     "answer": 0,
+     "why": "It names the source and uses new words with the same meaning."
+    }
+   ],
+   "again": {
+    "title": "Claim, then proof",
+    "text": "Write in two steps:\n\n1. **Claim**: what you think.\n2. **Proof**: a detail from the text that shows it, with a lead-in.",
+    "example": "Claim: **The village was poor.**\n\nProof: **The story says the houses had no windows and the children had no shoes.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Claim, evidence, explanation",
+     "text": "Strong writing uses **C-E-E**:\n\n1. **Claim**: your point\n2. **Evidence**: a quote or paraphrase from the text\n3. **Explanation**: **how** the evidence proves your point\n\nWithout the explanation, the reader may not see the link."
+    },
+    {
+     "title": "The strongest evidence",
+     "text": "Some evidence is stronger than other evidence. The strongest evidence is:\n\n1. **specific** (names, numbers, exact actions)\n2. **directly** connected to your claim\n3. from a **reliable** part of the text, not a character's guess"
+    },
+    {
+     "title": "Blend quotes smoothly",
+     "text": "Don't drop a quote alone. **Blend** it into your sentence:\n\n**Weak:** The girl was brave. \"She stepped into the dark cave.\"\n**Better:** The girl shows courage when she **\"stepped into the dark cave\"** alone to find her brother."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best evidence:\n\n1. Read the claim carefully. Underline its key word (brave, worried, important).\n2. Find every detail that relates to that key word.\n3. Choose the one that proves it **most directly and specifically**.\n\nThen explain the link in your own words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: Grandfather values hard work.",
+      "role": "main"
+     },
+     {
+      "t": "Evidence: He tells his grandson, \"Every date on this farm grew because someone woke before sunrise.\"",
+      "role": "key"
+     },
+     {
+      "t": "Explanation: He shows that the farm's success comes from daily effort.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **claim** is stated, the **evidence** is quoted and blended in, and the **explanation** connects them.\n\nThis is a full C-E-E paragraph."
+   },
+   "together": {
+    "passage": "Story: When the storm knocked out the power, the whole street went dark. Layla's younger brothers began to cry. Layla found a flashlight in the kitchen drawer and gathered them on the sofa. She told them stories about their grandmother's village until they laughed. When their parents came home, both boys were asleep, and Layla was still holding the light.",
+    "stem": "A student claims: Layla is responsible and caring. Which evidence best supports this claim?",
+    "options": [
+     "The storm knocked out the power.",
+     "Layla gathered her crying brothers and told them stories until they laughed.",
+     "The whole street went dark.",
+     "Their grandmother lived in a village."
+    ],
+    "answer": 1,
+    "hint": "Which detail shows Layla's actions toward her brothers?",
+    "good": "Yes! Comforting her brothers and telling them stories shows she is caring and responsible."
+   },
+   "evidence": {
+    "sentences": [
+     "Story: When the storm knocked out the power, the whole street went dark.",
+     "Layla's younger brothers began to cry.",
+     "Layla found a flashlight in the kitchen drawer and gathered them on the sofa.",
+     "She told them stories about their grandmother's village until they laughed.",
+     "When their parents came home, both boys were asleep, and Layla was still holding the light."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show Layla being responsible and caring.",
+    "wrong": "This sentence describes the situation, not Layla's actions. Find what Layla did."
+   },
+   "checks": [
+    {
+     "passage": "Claim: Recycling helps protect wildlife.\n\nEvidence: The article says, \"Many sea turtles mistake plastic bags for jellyfish and swallow them.\"",
+     "stem": "Which explanation best links the evidence to the claim?",
+     "options": [
+      "Jellyfish are soft sea animals that float in the water.",
+      "Turtles live in the sea and lay eggs on beaches.",
+      "Plastic bags are cheap and easy to carry home.",
+      "Recycling bags keeps them out of the sea, where turtles could swallow them."
+     ],
+     "answer": 3,
+     "why": "It explains HOW the evidence supports the claim about recycling and wildlife."
+    },
+    {
+     "passage": "Claim: The new park has made the town healthier.",
+     "stem": "Which evidence is the strongest?",
+     "options": [
+      "The park is very nice, and everyone says it is beautiful.",
+      "Many people in many countries like to visit parks.",
+      "Since the park opened, a town survey shows daily walkers have doubled.",
+      "My friend went there once and said it was fun."
+     ],
+     "answer": 2,
+     "why": "It is specific, uses a number and comes from a survey."
+    },
+    {
+     "passage": "Claim: The boy was scared of the dog.\n\nQuote: \"he hid behind his mother\"",
+     "stem": "Which sentence blends the quote most smoothly?",
+     "options": [
+      "The boy was scared. \"he hid behind his mother\"",
+      "The boy's fear is clear when \"he hid behind his mother\" as the dog came closer.",
+      "Here is a quote from the story: \"he hid behind his mother.\"",
+      "Quote: \"he hid behind his mother.\" That is the end of my answer."
+     ],
+     "answer": 1,
+     "why": "The quote is part of the student's own sentence and connects to the claim."
+    }
+   ],
+   "again": {
+    "title": "Say, show, so",
+    "text": "Use three simple words:\n\n1. **Say** your point.\n2. **Show** the evidence.\n3. **So**: explain why it proves your point.",
+    "example": "Say: **The desert is harsh.**\n\nShow: The text says, **\"Daytime temperatures can pass 50 degrees.\"**\n\nSo: **Such heat makes it very hard for living things to survive.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Sufficient and relevant",
+     "text": "Evidence must be **relevant** (it proves this exact claim) and **sufficient** (there is enough of it).\n\nA single example rarely proves a broad claim. Two or three pieces from different parts of the text make your case stronger."
+    },
+    {
+     "title": "Analyse, don't summarize",
+     "text": "After your evidence, **analyse** it: explain what specific words suggest, why the author included the detail, and how it connects to your claim.\n\nRetelling the plot is not analysis."
+    },
+    {
+     "title": "Quote with care",
+     "text": "1. Quote only the **most powerful words**, not whole paragraphs.\n2. Use **ellipses (…)** to cut words you don't need, without changing the meaning.\n3. Never twist a quote to mean something the author did not say."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When choosing evidence for an argument or analysis:\n\n1. Test each piece: does it prove the **whole** claim or only part of it?\n2. Combine pieces that support the claim from **different angles**.\n3. Reject evidence that is vague, off-topic or taken out of context.\n\nThe best response points to several sentences across the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: The author presents the city as both welcoming and overwhelming.",
+      "role": "main"
+     },
+     {
+      "t": "Evidence 1: Strangers \"waved the newcomer toward the best tea stalls.\"",
+      "role": "key"
+     },
+     {
+      "t": "Evidence 2: Yet the streets were \"a river of horns and voices that never slept.\"",
+      "role": "key"
+     },
+     {
+      "t": "Analysis: The friendly gesture and the endless noise together show a place that is warm but exhausting.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The claim has **two parts**, so the writer uses **two pieces** of evidence, one for each.\n\nThe analysis explains how the words create this double picture."
+   },
+   "together": {
+    "passage": "Article: Many families now spend more time indoors than ever before. In one national survey, children reported spending less than an hour a day outside, far less than their parents did at the same age. Doctors warn that too little outdoor time is linked to poorer sleep and weaker eyesight. Some schools have responded by holding lessons in their courtyards and gardens. Teachers at these schools report that students seem calmer and more focused after outdoor lessons. However, the article notes that more research is needed to know whether outdoor lessons improve test scores.",
+    "stem": "A student argues: Schools should hold more lessons outdoors because it benefits students' health and learning. Which pair of evidence gives the most relevant and sufficient support?",
+    "options": [
+     "Families spend more time indoors, and some schools have courtyards.",
+     "More research is needed, and children spend less than an hour outside.",
+     "Doctors link low outdoor time to poor sleep and weak eyesight, and teachers say students are calmer and more focused after outdoor lessons.",
+     "Parents spent more time outside, and schools have gardens."
+    ],
+    "answer": 2,
+    "hint": "The claim has two parts: health and learning. Which pair supports both?",
+    "good": "Yes! The doctors' warning supports the health part, and the teachers' report supports the learning part."
+   },
+   "evidence": {
+    "sentences": [
+     "Article: Many families now spend more time indoors than ever before.",
+     "In one national survey, children reported spending less than an hour a day outside, far less than their parents did at the same age.",
+     "Doctors warn that too little outdoor time is linked to poorer sleep and weaker eyesight.",
+     "Some schools have responded by holding lessons in their courtyards and gardens.",
+     "Teachers at these schools report that students seem calmer and more focused after outdoor lessons.",
+     "However, the article notes that more research is needed to know whether outdoor lessons improve test scores."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: one that supports the health part and one that supports the learning part.",
+    "wrong": "This sentence gives background or a limit. Find the evidence about health and about learning."
+   },
+   "checks": [
+    {
+     "passage": "In the same article, the last sentence says more research is needed to know whether outdoor lessons improve test scores.",
+     "stem": "How should a careful writer handle this sentence in an argument for outdoor lessons?",
+     "options": [
+      "Ignore it completely so that the argument looks stronger",
+      "Acknowledge it and keep the claim to calmness and health",
+      "Change it to say outdoor lessons definitely raise test scores",
+      "Use it as the main piece of evidence for the claim"
+     ],
+     "answer": 1,
+     "why": "Honest writers acknowledge limits and keep their claim within what the evidence shows."
+    },
+    {
+     "passage": "Original: \"The river, once wide and fast, had become a thin line of water by late summer.\"",
+     "stem": "Which use of ellipses keeps the original meaning?",
+     "options": [
+      "\"The river … had become a thin line of water by late summer.\"",
+      "\"The river … wide and fast … by late summer.\"",
+      "\"The river … had become … fast.\"",
+      "\"… once wide … summer.\""
+     ],
+     "answer": 0,
+     "why": "It cuts extra words but keeps the author's meaning that the river had shrunk."
+    },
+    {
+     "passage": "Claim: The narrator slowly changes his opinion of his new neighbour.\n\nA student uses only this evidence: In the first chapter, the narrator calls the neighbour \"rude and loud.\"",
+     "stem": "What is the biggest problem with the evidence?",
+     "options": [
+      "It is not an exact quote from the story.",
+      "It is far too long to use in an essay.",
+      "It only shows the starting opinion, not the change.",
+      "It comes from the wrong chapter of the book."
+     ],
+     "answer": 2,
+     "why": "To prove a change, the writer needs evidence from early AND later in the story."
+    }
+   ],
+   "again": {
+    "title": "Match the parts",
+    "text": "Break your claim into **parts**, then find evidence for **each part**.\n\n1. Write the claim.\n2. Circle each key idea in it.\n3. Find at least one piece of evidence for every circle.",
+    "example": "Claim: **The festival brings joy and money to the town.**\n\nCircle 1, joy: **\"children danced in the square.\"**\n\nCircle 2, money: **hotels were fully booked all week.**"
+   }
+  }
+ }
+}

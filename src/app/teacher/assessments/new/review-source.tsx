@@ -13,6 +13,7 @@ import type { MapSourceQuestion, MapSourceTree } from "@/server/tests/map-source
 import type { BankResults, ReviewSelection, ReviewSuggestion } from "@/server/tests/review";
 import { bankSearchAction, mapTreeAction, reviewStandardsAction, reviewSuggestAction } from "../actions";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
+import { Combo } from "@/components/ui/combo";
 
 const LEVELS = [{ id: "MIXED", label: "Mixed levels" }, { id: "BELOW", label: "Approaching" }, { id: "ON", label: "Meeting" }, { id: "ABOVE", label: "Exceeding" }] as const;
 const TYPES = [
@@ -188,6 +189,7 @@ function BankSearch({ skills, pickedIds, onAdd, onRemove }: { skills: BuilderSki
   const [level, setLevel] = useState("");
   const [passage, setPassage] = useState<"" | "WITH" | "WITHOUT">("");
   const [q, setQ] = useState("");
+  const [mine, setMine] = useState(false);
   const [res, setRes] = useState<BankResults | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -195,7 +197,7 @@ function BankSearch({ skills, pickedIds, onAdd, onRemove }: { skills: BuilderSki
   const withQuestions = useMemo(() => skills.filter((k) => k.available > 0).sort((a, b) => a.name.localeCompare(b.name)), [skills]);
   async function search(page = 1) {
     setBusy(true); setError(null);
-    const r = await bankSearchAction({ skillId: skillId || null, type: type || null, level: level || null, passage, q, page });
+    const r = await bankSearchAction({ skillId: skillId || null, type: type || null, level: level || null, passage, q, page, mine });
     setBusy(false);
     if (r.error) return setError(t(r.error));
     setRes(r.results!); setViewAt(null);
@@ -204,12 +206,14 @@ function BankSearch({ skills, pickedIds, onAdd, onRemove }: { skills: BuilderSki
     <section className="rounded-xl bg-white p-3 ring-1 ring-slate-200" aria-label={t("From the question bank")}>
       <p className="font-semibold text-brand-navy">🔎 {t("From the question bank")}</p>
       <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        <label className="text-sm font-semibold text-slate-700">{t("Skill")}<select value={skillId} onChange={(e) => setSkillId(e.target.value)} className={`${field} mt-1 block w-full font-normal`}><option value="">{t("Any skill")}</option>{withQuestions.map((k) => <option key={k.id} value={k.id}>{k.name} · G{k.grade}</option>)}</select></label>
+        <label className="text-sm font-semibold text-slate-700">{t("Skill")}<Combo label={t("Skill")} value={skillId} onChange={setSkillId} options={[{ value: "", label: t("Any skill") }, ...withQuestions.map((k) => ({ value: k.id, label: k.name, hint: `G${k.grade}` }))]} className="mt-1 font-normal" dir="ltr" /></label>
         <label className="text-sm font-semibold text-slate-700">{t("Question type")}<select value={type} onChange={(e) => setType(e.target.value)} className={`${field} mt-1 block w-full font-normal`}>{TYPES.map(([c, l]) => <option key={c} value={c}>{t(l)}</option>)}</select></label>
         <label className="text-sm font-semibold text-slate-700">{t("Difficulty")}<select value={level} onChange={(e) => setLevel(e.target.value)} className={`${field} mt-1 block w-full font-normal`}><option value="">{t("Any")}</option><option value="BELOW">{t("Approaching")}</option><option value="ON">{t("Meeting")}</option><option value="ABOVE">{t("Exceeding")}</option></select></label>
         <label className="text-sm font-semibold text-slate-700">{t("Passage")}<select value={passage} onChange={(e) => setPassage(e.target.value as "" | "WITH" | "WITHOUT")} className={`${field} mt-1 block w-full font-normal`}><option value="">{t("Any")}</option><option value="WITH">{t("With a passage")}</option><option value="WITHOUT">{t("No passage")}</option></select></label>
         <label className="text-sm font-semibold text-slate-700 lg:col-span-2">{t("Words in the question")}<input type="search" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); void search(1); } }} className={`${field} mt-1 block w-full font-normal`} /></label>
       </div>
+      {/* ✏️ the teacher's own edited copies are private: only here, never in the shared bank */}
+      <label className="mt-2 flex min-h-11 items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={mine} onChange={(e) => setMine(e.target.checked)} className="h-4 w-4" /> ✏️ {t("Only my edited copies (private to me)")}</label>
       <button type="button" disabled={busy} onClick={() => void search(1)} className="mt-2 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white disabled:opacity-50">{busy ? t("Working…") : t("Search the bank")}</button>
       {error && <p role="alert" className="mt-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
       {res && (

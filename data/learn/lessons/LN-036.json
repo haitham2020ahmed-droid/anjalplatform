@@ -1,0 +1,468 @@
+{
+ "code": "LN-036",
+ "title": "Writing an informative report",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [],
+ "families": [
+  "writing-informative"
+ ],
+ "skillNames": [
+  "Informative / Expository Writing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A report gives facts",
+     "text": "An **informative report** teaches the reader about **one topic**.\n\nIt gives **facts**: things that are true."
+    },
+    {
+     "title": "Stay on the topic",
+     "text": "Every sentence should be about the **topic**.\n\nA report about **bees** tells about bees, not about your bike."
+    },
+    {
+     "title": "Three parts",
+     "text": "1. **Start**: name the topic.\n2. **Middle**: give facts.\n3. **End**: say one last thing about the topic."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentence that names the **topic**.\n2. Read each other sentence.\n3. Does it tell a **fact about the topic**? If not, it does not belong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Turtles are reptiles.",
+      "role": "main"
+     },
+     {
+      "t": "They have hard shells.",
+      "role": "detail"
+     },
+     {
+      "t": "Some turtles live in the sea.",
+      "role": "detail"
+     },
+     {
+      "t": "Turtles are interesting animals.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **start** names the topic: turtles.\n\nThe **middle** gives facts. The **end** says one last thing about turtles."
+   },
+   "together": {
+    "passage": "Frogs are amphibians. They can live in water and on land. Frogs eat insects. My uncle has a big car. Frogs lay their eggs in water.",
+    "stem": "Which sentence does NOT belong in this report about frogs?",
+    "options": [
+     "Frogs eat insects.",
+     "Frogs lay their eggs in water.",
+     "My uncle has a big car.",
+     "Frogs are amphibians."
+    ],
+    "answer": 2,
+    "hint": "Which sentence is not about frogs?",
+    "good": "Yes! A car is not about frogs. It does not belong."
+   },
+   "evidence": {
+    "sentences": [
+     "Frogs are amphibians.",
+     "They can live in water and on land.",
+     "Frogs eat insects.",
+     "My uncle has a big car.",
+     "Frogs lay their eggs in water."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that names the topic of the report.",
+    "wrong": "This sentence gives a fact or is off topic. Find the first sentence that tells what the report is about."
+   },
+   "checks": [
+    {
+     "passage": "Report topic: the moon.",
+     "stem": "Which sentence is a fact for this report?",
+     "options": [
+      "I like to eat pizza at night.",
+      "The moon goes around the Earth.",
+      "My best friend is very tall.",
+      "Cats can climb up tall trees."
+     ],
+     "answer": 1,
+     "why": "It is a true fact about the moon."
+    },
+    {
+     "passage": "Camels live in the desert. They can go a long time without water. Camels have humps.",
+     "stem": "What is the topic of this report?",
+     "options": [
+      "Camels",
+      "Water",
+      "The sea",
+      "Trees"
+     ],
+     "answer": 0,
+     "why": "Every sentence tells a fact about camels."
+    },
+    {
+     "passage": "Apples grow on trees. They can be red, green or yellow. ___",
+     "stem": "Which is the best ending for the report?",
+     "options": [
+      "I have a red bag for school.",
+      "Trees are tall and have leaves.",
+      "It is very hot and sunny today.",
+      "Apples are a tasty and healthy fruit."
+     ],
+     "answer": 3,
+     "why": "It says one last thing about the topic: apples."
+    }
+   ],
+   "again": {
+    "title": "The topic test",
+    "text": "Hold up the **topic word**. Read each sentence.\n\n1. Is it about the topic? **Keep it**.\n2. Is it about something else? **Take it out**.",
+    "example": "Topic: **sharks**.\n\nSharks have many teeth. **Keep**.\n\nI went to the shop. **Take it out**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Plan your report",
+     "text": "An informative report has:\n\n1. An **introduction** that names the topic and catches interest\n2. **Body paragraphs**, each about one **part** of the topic\n3. A **conclusion** that sums up"
+    },
+    {
+     "title": "Group your facts",
+     "text": "Sort your facts into groups, like **what it looks like**, **where it lives**, **what it eats**.\n\nEach group becomes **one paragraph** with its own **heading**."
+    },
+    {
+     "title": "Facts, not opinions",
+     "text": "A **fact** can be checked: **Falcons can dive very fast.**\n\nAn **opinion** is what someone thinks: **Falcons are the coolest birds.**\n\nReports use facts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To decide where a fact belongs:\n\n1. Read the **heading** or first sentence of each paragraph.\n2. Ask: which part of the topic does my fact describe?\n3. Put it with the facts that talk about the same thing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Heading: What Bees Eat",
+      "role": "main"
+     },
+     {
+      "t": "Bees drink sweet nectar from flowers.",
+      "role": "detail"
+     },
+     {
+      "t": "They also eat pollen, which gives them protein.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both facts are about **food**, so they belong under the heading **What Bees Eat**."
+   },
+   "together": {
+    "passage": "Heading: Where Dolphins Live. Dolphins live in oceans all over the world. Some kinds of dolphins even live in rivers. Many dolphins like warm, shallow water near the coast. Heading: What Dolphins Eat. Dolphins eat fish and squid. They often hunt in groups.",
+    "stem": "Where does this fact belong? Fact: Some dolphins swim in the Red Sea.",
+    "options": [
+     "Under What Dolphins Eat",
+     "At the end of the report as an opinion",
+     "Under Where Dolphins Live",
+     "Nowhere: it is not about dolphins"
+    ],
+    "answer": 2,
+    "hint": "Is the fact about food or about places?",
+    "good": "Yes! The Red Sea is a place, so the fact belongs under Where Dolphins Live."
+   },
+   "evidence": {
+    "sentences": [
+     "Heading: Where Dolphins Live.",
+     "Dolphins live in oceans all over the world.",
+     "Some kinds of dolphins even live in rivers.",
+     "Many dolphins like warm, shallow water near the coast.",
+     "Heading: What Dolphins Eat.",
+     "Dolphins eat fish and squid.",
+     "They often hunt in groups."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the first section is about places where dolphins live.",
+    "wrong": "This sentence is about food or hunting. Find sentences about where dolphins live."
+   },
+   "checks": [
+    {
+     "passage": "A report about the date palm.",
+     "stem": "Which sentence is an opinion, not a fact?",
+     "options": [
+      "Date palms grow in hot, dry places.",
+      "Dates are the best fruit in the world.",
+      "Date palms can grow very tall.",
+      "Dates grow in large bunches."
+     ],
+     "answer": 1,
+     "why": "Best fruit in the world is what someone thinks. It cannot be checked."
+    },
+    {
+     "passage": "Introduction: Have you ever wondered how a tiny seed becomes a giant tree? This report explains how trees grow.",
+     "stem": "What does this introduction do well?",
+     "options": [
+      "It gives the conclusion first.",
+      "It lists every fact in the report.",
+      "It tells a story about the writer's family.",
+      "It catches interest with a question and names the topic."
+     ],
+     "answer": 3,
+     "why": "A good introduction hooks the reader and tells the topic."
+    },
+    {
+     "passage": "Facts: Owls hunt at night. Owls have soft feathers. Owls eat mice. Owls have large eyes.",
+     "stem": "Which two facts belong in a paragraph called How Owls Hunt?",
+     "options": [
+      "Owls hunt at night and owls eat mice.",
+      "Owls have soft feathers and large eyes.",
+      "Owls have soft feathers and eat mice.",
+      "Owls have large eyes and soft feathers."
+     ],
+     "answer": 0,
+     "why": "Hunting at night and catching mice are both about how owls hunt."
+    }
+   ],
+   "again": {
+    "title": "Sort into boxes",
+    "text": "Imagine a few **boxes**, each with a label.\n\n1. Write each fact on a card.\n2. Put each card in the box where it fits.\n3. Each box becomes one paragraph.",
+    "example": "Topic: **The Arabian horse**\n\nBox 1, **Looks**: small head, high tail.\n\nBox 2, **History**: bred in Arabia long ago.\n\nBox 3, **Uses today**: racing, shows."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Topic sentences",
+     "text": "Each body paragraph starts with a **topic sentence** that tells what the paragraph is about.\n\nThe other sentences give **facts, examples and definitions** that support it."
+    },
+    {
+     "title": "Precise words and definitions",
+     "text": "Use the **exact** words experts use: **habitat**, **erosion**, **predator**.\n\nWhen a word may be new to readers, **define** it: **A predator, an animal that hunts others for food, …**"
+    },
+    {
+     "title": "Text features",
+     "text": "Reports help readers with:\n\n1. **headings** for each section\n2. **pictures** with **captions**\n3. **diagrams** or **charts**\n4. **bold** key words and a **glossary**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the best topic sentence or the right place for a fact:\n\n1. Read all the supporting sentences in the paragraph.\n2. Ask: what **one idea** do they all explain?\n3. Choose the sentence that names that idea.\n\nThe supporting sentences are your evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Wind and water slowly shape the rocks of the desert.",
+      "role": "main"
+     },
+     {
+      "t": "Strong winds carry sand that scrapes rock surfaces, a process called erosion.",
+      "role": "detail"
+     },
+     {
+      "t": "Over thousands of years, this can carve rocks into arches and strange shapes.",
+      "role": "detail"
+     },
+     {
+      "t": "Rare floods also wear away soft rock and form deep valleys.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **topic sentence** names the idea: wind and water shape rocks.\n\nEach detail supports it, and **erosion** is **defined** for the reader."
+   },
+   "together": {
+    "passage": "___ First, the city has many large solar farms that turn sunlight into electricity. Second, new buildings must use special glass and insulation that keep heat out, so they need less air conditioning. In addition, a new metro system lets thousands of people travel without cars, which reduces air pollution. Finally, the city plans to plant millions of trees to provide shade and cooler air.",
+    "stem": "Which topic sentence best fits the blank at the start of this paragraph?",
+    "options": [
+     "Solar farms are very large.",
+     "The city is working in several ways to save energy and protect the environment.",
+     "Many people like to travel by metro.",
+     "Trees are beautiful in every season."
+    ],
+    "answer": 1,
+    "hint": "Read all the supporting sentences. What one idea do they all explain?",
+    "good": "Yes! Solar farms, buildings, the metro and trees are all ways to save energy and protect the environment."
+   },
+   "evidence": {
+    "sentences": [
+     "___",
+     "First, the city has many large solar farms that turn sunlight into electricity.",
+     "Second, new buildings must use special glass and insulation that keep heat out, so they need less air conditioning.",
+     "In addition, a new metro system lets thousands of people travel without cars, which reduces air pollution.",
+     "Finally, the city plans to plant millions of trees to provide shade and cooler air."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 supporting sentences that show the city is protecting the environment in different ways.",
+    "wrong": "This is the blank for the topic sentence. Tap the supporting sentences."
+   },
+   "checks": [
+    {
+     "passage": "Report sentence: The fennec fox has huge ears.",
+     "stem": "Which revision adds a precise explanation for the reader?",
+     "options": [
+      "The fennec fox has really, really, really huge ears on its head.",
+      "The fennec fox's huge ears release body heat and help it hear prey.",
+      "The fennec fox is a small fox, and it has two ears.",
+      "The fennec fox's ears are the cutest ears of any animal."
+     ],
+     "answer": 1,
+     "why": "It explains what the ears do with precise facts. The others repeat, are vague, or give an opinion."
+    },
+    {
+     "passage": "A report explains the water cycle: evaporation, condensation and precipitation.",
+     "stem": "Which text feature would help readers most?",
+     "options": [
+      "A diagram with arrows showing each stage",
+      "A photo of the writer",
+      "A list of the writer's favourite drinks",
+      "A bigger font for the title"
+     ],
+     "answer": 0,
+     "why": "A labelled diagram shows how the stages connect in a cycle."
+    },
+    {
+     "passage": "Paragraph topic sentence: Coral reefs are home to many living things.",
+     "stem": "Which sentence best supports this topic sentence?",
+     "options": [
+      "Coral reefs are found in warm, shallow seas.",
+      "Many tourists visit coral reefs every year.",
+      "Reefs can be damaged by pollution.",
+      "Thousands of kinds of fish, crabs and sea stars live among the coral."
+     ],
+     "answer": 3,
+     "why": "It gives examples of living things that make their home in the reef."
+    }
+   ],
+   "again": {
+    "title": "Umbrella sentence",
+    "text": "A topic sentence is an **umbrella**.\n\n1. Read the facts under it.\n2. Ask: what umbrella is big enough to cover **all** of them?\n3. Write that as one sentence.",
+    "example": "Facts: **Camels store fat in their humps. Their thick lips let them eat thorny plants. They can close their noses in sandstorms.**\n\nUmbrella: **Camels have special features that help them survive in the desert.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "A focused introduction",
+     "text": "A strong introduction does three things:\n\n1. engages the reader (a striking fact or question)\n2. gives needed **background**\n3. states the **focus** of the report: what exactly it will explain"
+    },
+    {
+     "title": "Choose a structure",
+     "text": "Organize the body to fit the information:\n\n**Categories** (types of…), **cause and effect** (why something happens), **compare and contrast** (how two things differ), **problem and solution**, or **sequence** (steps or history).\n\nThe structure should match your focus."
+    },
+    {
+     "title": "Objective style and a strong conclusion",
+     "text": "Keep a **formal, objective** tone: no personal opinions, no slang, sources credited.\n\nThe conclusion should **synthesize** the main points and explain their **significance**: why does this topic matter?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To evaluate a report:\n\n1. Identify its **focus** from the introduction.\n2. Check each body sentence: does it develop that focus objectively?\n3. Look for sentences that drift **off focus** or slip into **opinion**.\n\nPoint to the introduction to prove what the focus is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every year, the Arabian Peninsula loses fertile land to the spreading desert.",
+      "role": "other"
+     },
+     {
+      "t": "This process, called desertification, is caused by both natural and human factors.",
+      "role": "detail"
+     },
+     {
+      "t": "This report examines its main causes and the solutions being tested today.",
+      "role": "key"
+     }
+    ],
+    "explain": "The introduction engages with a striking fact, gives background with a **definition**, and states a clear **focus**: causes and solutions.\n\nThe body would follow a **problem and solution** structure."
+   },
+   "together": {
+    "passage": "Introduction: Long before refrigerators existed, people around the world found ways to keep food from spoiling. This report compares two traditional methods used in the Arabian Peninsula: drying and salting. Drying removes water from food, so bacteria cannot grow. Dates, for example, were dried in the sun and could be stored for months. Salting also draws water out and makes the food too salty for most bacteria. Fishermen along the coast salted their catch so it could be traded inland. Personally, I think dried dates taste much better than salted fish. Both methods allowed communities to survive long journeys and seasons with little fresh food.",
+    "stem": "Which sentence should be removed to keep the report focused and objective?",
+    "options": [
+     "Dates, for example, were dried in the sun and could be stored for months.",
+     "Fishermen along the coast salted their catch so it could be traded inland.",
+     "Personally, I think dried dates taste much better than salted fish.",
+     "Drying removes water from food, so bacteria cannot grow."
+    ],
+    "answer": 2,
+    "hint": "Which sentence gives the writer's personal opinion instead of information?",
+    "good": "Yes! It is a personal opinion, which breaks the objective tone of an informative report."
+   },
+   "evidence": {
+    "sentences": [
+     "Introduction: Long before refrigerators existed, people around the world found ways to keep food from spoiling.",
+     "This report compares two traditional methods used in the Arabian Peninsula: drying and salting.",
+     "Drying removes water from food, so bacteria cannot grow.",
+     "Dates, for example, were dried in the sun and could be stored for months.",
+     "Salting also draws water out and makes the food too salty for most bacteria.",
+     "Fishermen along the coast salted their catch so it could be traded inland.",
+     "Personally, I think dried dates taste much better than salted fish.",
+     "Both methods allowed communities to survive long journeys and seasons with little fresh food."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that states the report's focus, which proves the opinion does not belong.",
+    "wrong": "This sentence gives information or background. Find the sentence that tells exactly what the report will do."
+   },
+   "checks": [
+    {
+     "passage": "A student is writing a report explaining why sandstorms happen and what effects they have on cities.",
+     "stem": "Which structure best fits this focus?",
+     "options": [
+      "Sequence of a person's life",
+      "Compare and contrast of two animals",
+      "Cause and effect",
+      "A list of favourite places"
+     ],
+     "answer": 2,
+     "why": "The focus is why sandstorms happen (causes) and what they do (effects)."
+    },
+    {
+     "passage": "Conclusion draft: That is all about water desalination. The end.",
+     "stem": "Which revision makes the strongest conclusion?",
+     "options": [
+      "Desalination turns seawater into fresh water, so it will matter more as populations in dry regions grow.",
+      "Desalination is a long and difficult word to spell, so I chose it.",
+      "I hope you enjoyed reading my report about water and desalination.",
+      "In this report, I wrote many sentences about water and the sea."
+     ],
+     "answer": 0,
+     "why": "It synthesizes the main idea and explains why the topic matters."
+    },
+    {
+     "passage": "Report sentence: The Asir mountains get way more rain than most places in Saudi Arabia, so lots of plants grow there and it's super green.",
+     "stem": "Which revision best fits an objective, formal report?",
+     "options": [
+      "Asir is totally the greenest place in the whole country ever.",
+      "Asir gets way more rain than anywhere, so it's super green.",
+      "I love Asir because it's green and the weather is nice and cool.",
+      "Because Asir receives more rainfall than most of the country, it supports thick plant life."
+     ],
+     "answer": 3,
+     "why": "It keeps the facts and uses formal, precise language without slang or opinion."
+    }
+   ],
+   "again": {
+    "title": "Focus filter",
+    "text": "Write your report's focus on a sticky note.\n\n1. Read each sentence.\n2. Does it **develop the focus** with information? Keep it.\n3. Is it **off focus** or an **opinion**? Cut it.",
+    "example": "Focus: **how falcons are trained**.\n\nKeep: **Trainers use a lure to teach the bird to return.**\n\nCut: **Falcons are my favourite birds.**"
+   }
+  }
+ }
+}

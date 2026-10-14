@@ -9,6 +9,7 @@ import { teacherReadRiseClasses } from "@/server/readrise/teacher";
 import { assignReadRiseAction } from "../../actions";
 import { ArticleActions, ArticleView } from "@/app/admin/readrise/_components/article-view";
 import { btn, field, Flash } from "@/app/admin/readrise/_components/ui";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "ReadRise article" };
 
@@ -31,7 +32,7 @@ export default async function ReadRiseArticleTeacher({ params, searchParams }: {
           <input type="hidden" name="articleId" value={a.id} />
           <p className="me-auto text-sm font-semibold text-teal-900">📌 Assign this article to a class</p>
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Class
-            <select name="classId" required className={field}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>
+            <Combo name="classId" required label="Class" defaultValue={classes[0]?.id ?? ""} options={classes.map((c) => ({ value: c.id, label: c.name }))} className="min-w-52 font-normal" />
           </label>
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Due (optional)<input type="date" name="dueAt" className={field} /></label>
           <button className={btn}>Assign</button>

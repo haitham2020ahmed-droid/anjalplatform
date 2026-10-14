@@ -1,0 +1,568 @@
+{
+  "code": "NB-039",
+  "title": "Al Sadu: Weaving the Desert",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 427,
+  "passage": "For centuries, Bedouin families crossing the Arabian Peninsula carried almost everything they owned on the backs of camels, so every object had to be light, strong and useful. Among their most valuable possessions were woven textiles made by the women of the community. These women produced them using a craft known as Al Sadu. The word \"sadu\" refers to the horizontal style of weaving that they practised. Today the craft is regarded as one of the most important parts of the cultural heritage of Saudi Arabia and Kuwait.\n\nThe process began long before any weaving took place. After the animals were sheared in spring, the women cleaned and combed the wool of sheep, the hair of camels and the coarse hair of goats. Then they spun the fibres into thread with a simple hand spindle, often while walking, talking or watching over the herds. Some of the thread was left in its natural shades of black, white and brown. The rest was dyed with colours obtained from plants, especially a deep, warm red.\n\nUnlike many looms, which stand upright, the Sadu loom lies close to the ground. The weaver stretches the threads between wooden poles that are fastened firmly into the sand, and she sits beside them as she works. She presses every new row tightly into place with a pointed tool that was traditionally made from a gazelle's horn. Because the threads are packed so densely, the finished cloth is thick, tough and remarkably long-lasting.\n\nThese textiles served countless purposes. Goat hair, which is strong and resists rain, was woven into the long black panels of the traditional tent, known as bayt al-sha'ar, or \"house of hair.\" Brightly patterned strips divided the inside of the tent into separate areas. Sadu weaving also became rugs, cushions and saddlebags for camels. The patterns themselves are geometric, built from triangles, diamonds and lines. Yet many of them carry names inspired by the desert, so a single piece could describe the weaver's surroundings in a language of shapes.\n\nTraditionally, girls learned Sadu by sitting beside their mothers and grandmothers, watching closely before attempting their first simple rows. However, as families settled in towns, factory-made fabrics became cheap and easy to buy, and fewer young women learned the skill. In 2020, UNESCO recognised Al Sadu as part of the world's intangible cultural heritage, and cultural organisations now offer workshops so that the craft is not forgotten. Every Sadu rug, therefore, is more than a piece of cloth. It is a thread connecting the present to the patient hands of the past.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “coarse” as it is used in paragraph 2 (“the coarse hair of goats”)?",
+      "options": [
+        "rough",
+        "silky",
+        "colourful",
+        "short"
+      ],
+      "answer": "A",
+      "why": "Goat hair is described as strong and tough, so “coarse” means rough, not soft or smooth."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “densely” as it is used in paragraph 3?",
+      "options": [
+        "tightly",
+        "loosely",
+        "slowly",
+        "neatly"
+      ],
+      "answer": "B",
+      "why": "Threads packed densely are pressed close together; the opposite is loosely. “Tightly” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “These textiles served countless purposes.” What does “countless” mean?",
+      "options": [
+        "impossible to understand",
+        "having no value",
+        "very many",
+        "only a few"
+      ],
+      "answer": "C",
+      "why": "The paragraph lists tents, dividers, rugs, cushions and saddlebags, so “countless” means too many to count, very many."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a NOUN?",
+      "options": [
+        "stretches",
+        "firmly",
+        "densely",
+        "weaver"
+      ],
+      "answer": "D",
+      "why": "“Weaver” names a person; “stretches” is a verb here, and “firmly” and “densely” are adverbs."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 2 mentions “the wool of sheep”. Which statement about the word “sheep” is correct?",
+      "options": [
+        "Its plural is “sheeps”, like “camels”.",
+        "Its plural is “sheepes”, like “boxes”.",
+        "It is the same in the singular and the plural.",
+        "It can only ever be used as a singular noun."
+      ],
+      "answer": "C",
+      "why": "“Sheep” is an irregular noun: one sheep, many sheep."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “weaving”?",
+      "options": [
+        "wave",
+        "woven",
+        "weary",
+        "wear"
+      ],
+      "answer": "B",
+      "why": "“Woven” is a form of the verb “weave”, like “weaving”; “wave” and “wear” only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “traditional” in a meaningful sentence of your own.",
+      "model": "At Eid, my grandmother serves traditional dishes that her own mother taught her to cook.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “traditional” with its meaning (handed down from the past as a custom)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Traditional” means following customs or ways of doing things that have been passed down for a long time."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "“Spindle” becomes “spindles” in the plural. Which word forms its plural in a DIFFERENT way?",
+      "options": [
+        "camel",
+        "triangle",
+        "pole",
+        "woman"
+      ],
+      "answer": "D",
+      "why": "“Woman” is irregular (woman → women); the others simply add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences about Al Sadu is an EXCLAMATION?",
+      "options": [
+        "How strong and beautiful this rug is!",
+        "Who taught you to weave?",
+        "Bring the spindle here, please.",
+        "The loom lies close to the ground."
+      ],
+      "answer": "A",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "How Camels Are Sheared",
+        "Threads of Heritage: The Art of Al Sadu",
+        "Factory Fabrics in Modern Towns",
+        "The Life of the Gazelle"
+      ],
+      "answer": "B",
+      "why": "The passage describes the whole craft of Al Sadu and its value as heritage; the other titles are minor details or not in the text."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the writer's main purpose?",
+      "options": [
+        "to sell Sadu rugs and cushions to tourists",
+        "to explain how to build a modern upright loom",
+        "to describe a traditional craft and its value",
+        "to compare the deserts of Saudi Arabia and Kuwait"
+      ],
+      "answer": "C",
+      "why": "The passage explains the process, uses and meaning of Al Sadu and why it is being protected."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "The fibres were prepared and spun before weaving.",
+        "Women walked long distances every day with their herds.",
+        "Red was the only colour ever used in Al Sadu weaving.",
+        "The animals were sheared once every summer by the men."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 describes cleaning, combing, spinning and dyeing: everything that happened “long before any weaving took place”."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did every object owned by Bedouin families have to be light, strong and useful?",
+      "options": [
+        "They sold everything they owned in town markets.",
+        "They carried almost everything on their camels.",
+        "They lived in stone houses far from the desert.",
+        "They received most of their objects from Kuwait."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1: they “carried almost everything they owned on the backs of camels, so every object had to be light, strong and useful.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "an informational text",
+        "a narrative story",
+        "a poem",
+        "a personal letter"
+      ],
+      "answer": "A",
+      "why": "It gives facts about a real craft, its process and its history."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was goat hair used for the black panels of the tent?",
+      "options": [
+        "It was the softest fibre available.",
+        "It was the easiest to dye red.",
+        "It is strong and resists rain.",
+        "It came from the gazelle's horn."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “Goat hair, which is strong and resists rain, was woven into the long black panels.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which step in making Sadu cloth came FIRST?",
+      "options": [
+        "spinning the fibres into thread",
+        "pressing each new row into place",
+        "dyeing some of the thread",
+        "shearing the animals"
+      ],
+      "answer": "D",
+      "why": "The animals were sheared in spring before the wool and hair could be cleaned, combed, spun, dyed and woven."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what tool did weavers traditionally use to press each row into place?",
+      "options": [
+        "a pointed tool made from a gazelle's horn",
+        "a hand spindle",
+        "a wooden pole fastened in the sand",
+        "a metal needle"
+      ],
+      "answer": "A",
+      "why": "“She presses every new row tightly into place with a pointed tool that was traditionally made from a gazelle's horn.” The spindle was for spinning."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the passage, who traditionally practised Al Sadu weaving?",
+      "options": [
+        "Bedouin men who travelled to markets",
+        "Bedouin women of the community",
+        "factory workers in towns",
+        "craftsmen from UNESCO"
+      ],
+      "answer": "B",
+      "why": "Paragraph 1 says the textiles were “made by the women of the community”, and paragraph 5 says girls learned from mothers and grandmothers."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Sadu cloth to be thick, tough and long-lasting?",
+      "options": [
+        "The cloth was dried in the hot sun.",
+        "The weaver used only red thread.",
+        "The loom stood upright.",
+        "The threads were packed very densely."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3: “Because the threads are packed so densely, the finished cloth is thick, tough and remarkably long-lasting.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did fewer young women learn the Sadu skill?",
+      "options": [
+        "UNESCO closed the workshops.",
+        "Factory-made fabrics became cheap and easy to buy.",
+        "There were no more goats or camels.",
+        "The patterns were too difficult to remember."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: as families settled in towns, factory-made fabrics became cheap and easy to buy, and fewer young women learned the skill."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on paragraph 2, what can you infer about the lives of Bedouin women?",
+      "options": [
+        "They had plenty of free time with nothing to do.",
+        "They lived far away from their animals.",
+        "They bought all their thread from traders.",
+        "They were busy and often did several tasks at once."
+      ],
+      "answer": "D",
+      "why": "They spun thread “while walking, talking or watching over the herds”, which shows they combined several tasks."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, how is the Sadu loom DIFFERENT from many other looms?",
+      "options": [
+        "It is made of metal instead of wood.",
+        "It lies close to the ground instead of upright.",
+        "It is used only for weaving goat hair into tents.",
+        "It can only be used inside the tent in winter."
+      ],
+      "answer": "B",
+      "why": "“Unlike many looms, which stand upright, the Sadu loom lies close to the ground.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Sadu rugs, cushions and saddlebags have in common?",
+      "options": [
+        "They are all made by factories.",
+        "They are all black.",
+        "They were all used to divide the tent.",
+        "They are all products of Sadu weaving."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 lists all three as things that “Sadu weaving also became”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What has been one effect of UNESCO's recognition in 2020, according to the passage?",
+      "options": [
+        "Factory-made fabrics have been banned in towns.",
+        "Every Bedouin family now owns a Sadu loom.",
+        "Workshops now help keep the craft from being forgotten.",
+        "The patterns have been changed to modern shapes."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 links the recognition with workshops offered “so that the craft is not forgotten.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying a piece could describe the weaver's surroundings “in a language of shapes”?",
+      "options": [
+        "The rugs had poems and words woven into them.",
+        "The desert-named patterns expressed the weaver's world.",
+        "The weavers spoke a secret language to each other.",
+        "The shapes were used to teach young children to read."
+      ],
+      "answer": "B",
+      "why": "The geometric patterns carry desert names, so the shapes “speak” about the weaver's surroundings, as a language would."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end with “It is a thread connecting the present to the patient hands of the past”?",
+      "options": [
+        "to give clear instructions for making strong thread",
+        "to show that every Sadu rug is very old and fragile",
+        "to compare a Sadu rug to a modern telephone line",
+        "to leave a memorable image of why the craft matters"
+      ],
+      "answer": "D",
+      "why": "The figurative “thread” links weaving to the idea of heritage, giving the passage a strong, memorable ending."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which phrase from the passage is FIGURATIVE rather than literal?",
+      "options": [
+        "the hair of camels",
+        "a language of shapes",
+        "wooden poles",
+        "triangles, diamonds and lines"
+      ],
+      "answer": "B",
+      "why": "Patterns cannot literally speak; “a language of shapes” is figurative. The other phrases describe real things."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which is the MOST convincing reason given in the passage for protecting Al Sadu?",
+      "options": [
+        "It is heritage that connects people to their past.",
+        "It uses a tool made from a gazelle's horn.",
+        "It is the cheapest and fastest way to make cloth.",
+        "It is practised only by people who live in towns."
+      ],
+      "answer": "A",
+      "why": "The passage stresses Al Sadu's value as heritage and the risk of it being forgotten; the other options are details or false."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "to complain about Bedouin life",
+        "to advertise factory-made fabrics",
+        "to explain how to care for goats",
+        "to raise awareness of a craft that could be forgotten"
+      ],
+      "answer": "D",
+      "why": "The writer explains the craft's value and the danger that it may be forgotten."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does the writer show most strongly towards Al Sadu weavers?",
+      "options": [
+        "respect for their skill and patience",
+        "surprise at their laziness and carelessness",
+        "worry about their safety in the desert",
+        "anger at the choices they made in the past"
+      ],
+      "answer": "A",
+      "why": "Phrases such as “remarkably long-lasting” and “the patient hands of the past” show respect."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "which animals provided the fibres",
+        "why the cloth is so strong",
+        "which plants were used to make the dyes",
+        "where the loom is placed"
+      ],
+      "answer": "C",
+      "why": "The passage only says the colours were “obtained from plants” without naming them; the other points are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A girl learns her first rows by watching her grandmother.",
+        "A Sadu rug flies over the desert carrying a family.",
+        "A goat weaves its own hair into a long black tent.",
+        "A spindle spins thread by itself while everyone sleeps."
+      ],
+      "answer": "A",
+      "why": "Learning a craft by watching an older relative is realistic; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the content of the passage?",
+      "options": [
+        "From Fleece to Tent: A Desert Craft",
+        "The Lost Gazelle",
+        "Shopping for Fabric",
+        "A Day at the Factory"
+      ],
+      "answer": "A",
+      "why": "The passage follows the craft from the animals' fleece to tents, rugs and saddlebags."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The passage says that fewer young women learned Sadu weaving. Suggest a solution: write two or three sentences explaining how schools or families today could help keep the craft alive.",
+      "model": "Schools could invite skilled Sadu weavers to teach short workshops, so that students can try weaving their first rows. Families could also display Sadu cushions at home and tell children about their meaning, and students could make school projects about the craft.",
+      "rubric": [
+        "2 = a clear, practical solution or new ending that fits the problem described in the passage",
+        "1 = an answer is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the passage is copied"
+      ],
+      "why": "Any practical solution that responds to the problem of the skill being forgotten is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, which action would help to keep Al Sadu alive?",
+      "options": [
+        "Buying only factory-made rugs.",
+        "Throwing away old Sadu cushions.",
+        "Joining a workshop to learn the craft.",
+        "None of the above"
+      ],
+      "answer": "C",
+      "why": "Learning the skill in a workshop passes it on; the other actions make the craft more likely to disappear."
+    }
+  ]
+}

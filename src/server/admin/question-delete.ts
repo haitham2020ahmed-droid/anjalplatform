@@ -1,9 +1,12 @@
 /**
  * Deleting and archiving questions (admins).
  *
- *   deleteQuestions  permanent delete of one or many questions, in batches. A question that a student
- *                    has already answered is NOT deleted (its answers are student history): it is
- *                    reported back with “Archive it instead”.
+ *   deleteQuestions  delete of one or many questions, in batches (admins). A question no student has answered is
+ *                    deleted for real. A question students HAVE answered (owner, r67) disappears from the whole
+ *                    platform the same way, but its row stays so the answers keep pointing at it (student history and
+ *                    reports do not break): deletedAt + ARCHIVED + owned by nobody (private-copies.ts DELETED_OWNER, so
+ *                    every shared read skips it), and it is taken out of every pool and not-yet-started set
+ *                    (src/server/questions/question-sets.ts).
  *   archiveQuestions bulk archive: archived questions never appear in practice, stay visible to admins,
  *                    and keep all student history. The safe choice once students use the bank.
  *
@@ -15,6 +18,8 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { DELETED_OWNER } from "../questions/private-copies";
+import { swapInSets } from "../questions/question-sets";
 
 export const BULK_MAX = 500;
 const CHUNK = 200;
@@ -27,7 +32,7 @@ async function questionsInSchool(repo: Repo, actor: Actor, ids: string[]): Promi
   const unique = [...new Set(ids.filter(Boolean))];
   if (!unique.length) throw new ValidationError("Choose at least one question.");
   if (unique.length > BULK_MAX) throw new ValidationError(`Choose at most ${BULK_MAX} questions at a time.`);
-  const qs = await repo.findMany("Question", { id: { in: unique } }, { select: ["id", "skillId", "stem", "status", "imageId", "passageId"] });
+  const qs = (await repo.findMany("Question", { id: { in: unique } }, { select: ["id", "skillId", "stem", "status", "imageId", "passageId", "deletedAt"] })).filter((q) => !q.deletedAt);
   if (qs.length !== unique.length) throw new ValidationError("Some questions no longer exist. Reload the page.");
   if (actor.role === "SUPER_ADMIN") return qs;
   const skills = await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => q.skillId))] } }, { select: ["id", "curriculumId"] });
@@ -36,6 +41,14 @@ async function questionsInSchool(repo: Repo, actor: Actor, ids: string[]): Promi
   const ok = grades.every((g) => g.schoolId === actor.schoolId) && skills.length === new Set(qs.map((q) => q.skillId)).size;
   if (!ok) throw new ForbiddenError("Some of these questions belong to another school.");
   return qs;
+}
+
+/** The school of a skill (platform admins act without a school of their own). */
+async function schoolOfSkill(repo: Repo, skillId: string): Promise<string> {
+  const k = skillId ? await repo.findUnique("Skill", { id: skillId }) : null;
+  const c = k ? await repo.findUnique("Curriculum", { id: k.curriculumId }) : null;
+  const g = c ? await repo.findUnique("Grade", { id: c.gradeId }) : null;
+  return g ? s(g.schoolId) : "";
 }
 
 /**
@@ -68,9 +81,19 @@ export async function purgeQuestionRows(tx: Repo, rows: Row[]): Promise<void> {
   }
 }
 
-export interface DeleteResult { deleted: number; skipped: { id: string; stem: string; reason: string }[] }
+export interface DeleteResult {
+  /** questions removed from the platform (both kinds) */
+  deleted: number;
+  /** of those: answered by students, so hidden (their answers stay in the students' records) instead of erased */
+  hidden?: number;
+  skipped: { id: string; stem: string; reason: string }[];
+}
 
-export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], now = new Date()): Promise<DeleteResult> {
+/**
+ * Admins only. Unanswered questions are deleted for real; answered ones are hidden everywhere (see the top of this
+ * file). `hideAnswered: false` keeps the older rule (answered ones are skipped with “Archive it instead”).
+ */
+export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], now = new Date(), opts: { hideAnswered?: boolean } = {}): Promise<DeleteResult> {
   assertCan(actor, "questions:publish");
   if (!isAdmin(actor)) throw new ForbiddenError("Only admins can delete questions.");
   const qs = await questionsInSchool(repo, actor, ids);
@@ -82,15 +105,25 @@ export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], n
     const hit = await Promise.all(part.map((id) => repo.findMany("QuestionAttempt", { questionId: id }, { select: ["questionId"], take: 1 })));
     part.forEach((id, k) => { if (hit[k].length) answered.add(id); });
   }
-  const skipped = qs.filter((q) => answered.has(s(q.id))).map((q) => ({ id: s(q.id), stem: s(q.stem).slice(0, 120), reason: "Students have answered this question, so it was not deleted. Archive it instead." }));
+  const hide = opts.hideAnswered !== false;
+  const skipped = hide ? [] : qs.filter((q) => answered.has(s(q.id))).map((q) => ({ id: s(q.id), stem: s(q.stem).slice(0, 120), reason: "Students have answered this question, so it was not deleted. Archive it instead." }));
   const del = qs.filter((q) => !answered.has(s(q.id)));
+  const hidden = hide ? qs.filter((q) => answered.has(s(q.id))) : [];
+  const schoolId = s(actor.schoolId ?? (await schoolOfSkill(repo, s(qs[0]?.skillId))));
+  if (schoolId && (del.length || hidden.length)) await swapInSets(repo, schoolId, new Map([...del, ...hidden].map((q) => [s(q.id), null])), now);
   for (const part of chunks(del)) {
     await repo.transaction(async (tx) => {
       await purgeQuestionRows(tx, part);
       await tx.createMany("AuditLog", part.map((q) => ({ actorId: actor.userId, action: "question.delete", entityType: "Question", entityId: s(q.id), before: { stem: s(q.stem).slice(0, 300), status: q.status, skillId: q.skillId }, createdAt: now })));
     });
   }
-  return { deleted: del.length, skipped };
+  for (const part of chunks(hidden)) {
+    await repo.transaction(async (tx) => {
+      await tx.updateMany("Question", { id: { in: part.map((q) => q.id) } }, { deletedAt: now, status: "ARCHIVED", privateToId: DELETED_OWNER, updatedAt: now });
+      await tx.createMany("AuditLog", part.map((q) => ({ actorId: actor.userId, action: "question.delete", entityType: "Question", entityId: s(q.id), before: { stem: s(q.stem).slice(0, 300), status: q.status, skillId: q.skillId }, after: { hidden: true, why: "answered by students: removed from the platform, their answers kept" }, createdAt: now })));
+    });
+  }
+  return { deleted: del.length + hidden.length, hidden: hidden.length, skipped };
 }
 
 export interface ArchiveResult { archived: number; alreadyArchived: number }

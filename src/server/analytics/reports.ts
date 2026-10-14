@@ -6,6 +6,7 @@
  *  standardsReport   — accuracy by CCSS standard for a class or the whole school.
  * All numbers are INTERNAL platform measures unless labelled as imported.
  */
+import { eachLimit } from "../db/parallel";
 import { DOMAIN_LABEL } from "../assessment/diagnostic";
 import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { studentReadingRange } from "../../reading/prl";
@@ -23,6 +24,7 @@ const num = (v: unknown) => Number(v ?? 0);
 const ms = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).getTime();
 /** Students per database read in the school-wide figures (Update 42A: bounded memory). */
 const STUDENT_CHUNK = 25;
+const CHUNK_PARALLEL = 3;
 const inPeriod = (rows: Row[], p: Period, field = "createdAt") => rows.filter((r) => ms(r[field]) >= p.from.getTime() && ms(r[field]) <= p.to.getTime());
 
 export interface StudentAnalytics {
@@ -132,8 +134,12 @@ async function metricsFor(repo: Repo, label: string, ids: string[], period: Peri
   // answers COUNTED by the database (Update 42A: the whole school's answers of the year were loaded only to count them)
   let answered = 0, correct = 0;
   const masteryOf = new Map<string, number[]>();
-  for (let i = 0; i < ids.length; i += STUDENT_CHUNK) {
-    const part = ids.slice(i, i + STUDENT_CHUNK);
+  // ⚡ Update 57: a few chunks at a time (still bounded: CHUNK_PARALLEL × STUDENT_CHUNK students in memory), and the
+  // growth read beside them — before, every chunk waited for the one before it
+  const chunks: string[][] = [];
+  for (let i = 0; i < ids.length; i += STUDENT_CHUNK) chunks.push(ids.slice(i, i + STUDENT_CHUNK));
+  const growthP = groupGrowth(repo, ids, period);
+  await eachLimit(chunks, async (part) => {
     const where = { studentId: { in: part }, createdAt: { gte: period.from, lte: period.to } };
     const [mastery, n, c] = await Promise.all([
       repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "attempts", "score"] }),
@@ -141,9 +147,9 @@ async function metricsFor(repo: Repo, label: string, ids: string[], period: Peri
     ]);
     answered += n; correct += c;
     for (const m of mastery) if (num(m.attempts) > 0) (masteryOf.get(String(m.studentId)) ?? masteryOf.set(String(m.studentId), []).get(String(m.studentId))!).push(num(m.score));
-  }
+  }, CHUNK_PARALLEL);
   const perStudent = ids.map((id) => mean(masteryOf.get(id) ?? [])).filter((x): x is number => x !== null);
-  const growth = await groupGrowth(repo, ids, period);
+  const growth = await growthP;
   const suppressed = suppressSmall && perStudent.length < MIN_GROUP_FOR_COMPARISON;
   return {
     label, students: ids.length, studentsWithData: perStudent.length, suppressed,

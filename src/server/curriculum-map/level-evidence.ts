@@ -103,7 +103,7 @@ export function skillOffsets(list: (PooledAnswer & { skill: string })[], overall
 }
 
 /** The answer columns `levelThetas` reads (callers that preload the answers select at least these). */
-export const LEVEL_THETA_COLUMNS = ["studentId", "questionId", "skillId", "isCorrect", "partialCredit", "difficultyB", "rapidGuess", "usedHint", "source", "createdAt"];
+export const LEVEL_THETA_COLUMNS = ["studentId", "questionId", "skillId", "isCorrect", "partialCredit", "difficultyB", "rapidGuess", "usedHint", "source", "createdAt", "unreliable"];
 
 /**
  * Recent ability of these students from their answers (rapid guesses excluded; live-game and review answers count
@@ -128,7 +128,8 @@ async function levelThetasUncached(repo: Repo, ids: string[], now: Date, opts: {
   const tOf = new Map<Row, number>(); // each answer's time, parsed once
   if (opts.rows) { const want = new Set(ids); rows = opts.rows.filter((r) => { if (!want.has(s(r.studentId))) return false; const t = time(r.createdAt); tOf.set(r, t); return t >= from && t <= now.getTime(); }); }
   else rows = await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(from), lte: now } }, { select: LEVEL_THETA_COLUMNS });
-  const valid = rows.filter((r) => !r.rapidGuess);
+  // r67: answers of an Unreliable session (> 20 % rapid guesses) never move the level either
+  const valid = rows.filter((r) => !r.rapidGuess && !r.unreliable);
   const cache: EapCache = new Map(); // one item's grid logs are shared by every estimate of this call (same numbers)
   const params = await scoringParams(repo, valid.map((r) => s(r.questionId)));
   const by = new Map<string, Row[]>();
@@ -286,7 +287,7 @@ export async function refreshLevelStates(repo: Repo, schoolId: string, now = new
       // answers since the current level was set (for the "12 new answers" rule)
       const sinceOf = (id: string) => { const st = states.get(id); return st ? time(st.since) : 0; };
       // bounded: at most the last 6 weeks are read (12 answers since an older change are then counted within them)
-      const fresh = await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(Math.max(Math.min(...ids.map(sinceOf), now.getTime()), now.getTime() - THETA_WINDOW_DAYS * DAY)) }, rapidGuess: false }, { select: ["studentId", "createdAt", "source", "usedHint"] });
+      const fresh = await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(Math.max(Math.min(...ids.map(sinceOf), now.getTime()), now.getTime() - THETA_WINDOW_DAYS * DAY)) }, rapidGuess: false, unreliable: false }, { select: ["studentId", "createdAt", "source", "usedHint"] });
       const newAnswers = new Map<string, number>();
       for (const a of fresh) if (time(a.createdAt) > sinceOf(s(a.studentId))) newAnswers.set(s(a.studentId), (newAnswers.get(s(a.studentId)) ?? 0) + (SOURCE_WEIGHT[s(a.source)] ?? 1) * (a.usedHint ? 0.5 : 1));
       for (const id of ids) {

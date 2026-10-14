@@ -1,0 +1,568 @@
+{
+  "code": "NB-071",
+  "title": "The Cracked Screen",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 480,
+  "passage": "Lulwa knew perfectly well that she should have asked permission before borrowing her older sister's tablet. Maha had gone to the library to finish a research assignment, and Lulwa only wanted to check the instructions for her own science project, which, she told herself, was practically an emergency. Unfortunately, as she hurried down the staircase with the tablet balanced on top of her notebooks, her foot slipped, and the tablet clattered onto the marble floor.\n\nWhen she picked it up with trembling hands, a long crack zigzagged across the screen like lightning across a dark sky. \"No, no, no,\" she whispered desperately, as if repeating the word could somehow reverse the accident. At that moment, her little brother Turki wandered out of the kitchen holding a juice box and stared at the damaged tablet with wide, curious eyes.\n\n\"Did you break Maha's tablet?\" he asked innocently, with the uncomplicated directness of a small child who had not yet learned to hide anything.\n\nA shameful idea flickered through Lulwa's mind. Turki was only five, and everyone knew he constantly dropped things; if Maha discovered the crack, nobody would be surprised to hear that he had been playing with it. Lulwa quickly replaced the tablet on her sister's desk and tried to concentrate on her homework, but the words in her textbook seemed to blur together meaninglessly.\n\nThat evening, Maha burst into the living room, holding up the tablet. \"Who did this?\" she demanded, her voice shaking with frustration. \"I need this tablet to submit my assignment tomorrow morning!\" Turki looked frightened and edged closer to Mama, and suddenly Lulwa could not bear the silence any longer.\n\n\"I did it,\" she confessed, swallowing hard. \"I borrowed it without asking, and I dropped it on the stairs. I am truly sorry, and I almost let everyone believe it was Turki.\"\n\nFor a few seconds, nobody spoke, and the only sound in the room was the gentle ticking of the clock above the bookcase, until Mama put down her coffee cup and asked calmly, \"And what do you think you should do now, Lulwa?\"\n\nLulwa took a deep breath. \"I have been saving my Eid money for a new set of paints,\" she said slowly, \"but I think it should pay for repairing the screen instead. Until it is fixed, Maha can use my laptop for her assignment.\"\n\nMaha's angry expression softened gradually. \"Repairing a screen is expensive,\" she said, sitting down beside her sister, \"so perhaps we can share the cost, since I left it on my desk without its protective case. However, next time, please ask me first.\"\n\nLater, as Lulwa wrote a short apology note and slipped it under Turki's door along with her last chocolate bar, she reflected that admitting the truth had been terrifying for a moment, but carrying the lie would have been far heavier for much longer.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “gradually” as it is used in paragraph 9?",
+      "options": [
+        "suddenly",
+        "slowly",
+        "completely",
+        "angrily"
+      ],
+      "answer": "B",
+      "why": "Maha's anger softened little by little, that is, slowly; “suddenly” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Turki asks his question “innocently” in paragraph 3. Which word is the OPPOSITE of “innocently”?",
+      "options": [
+        "guiltily",
+        "curiously",
+        "quietly",
+        "honestly"
+      ],
+      "answer": "A",
+      "why": "Turki asks without any guilt; the opposite is “guiltily”, which better describes Lulwa."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “A shameful idea flickered through Lulwa's mind.” What does “flickered” mean here?",
+      "options": [
+        "was written down carefully in a notebook",
+        "grew stronger and stronger",
+        "appeared quickly for a moment",
+        "was forgotten for ever"
+      ],
+      "answer": "C",
+      "why": "Like a flickering light, the idea appeared briefly in her mind."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a NOUN?",
+      "options": [
+        "shameful",
+        "constantly",
+        "idea",
+        "replaced"
+      ],
+      "answer": "C",
+      "why": "“Idea” names a thing; “shameful” is an adjective, “constantly” an adverb and “replaced” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “frustration” in paragraph 5?",
+      "options": [
+        "frostiness",
+        "fraction",
+        "fruitful",
+        "frustrated"
+      ],
+      "answer": "D",
+      "why": "“Frustrated” and “frustration” share the root “frustrate”; the others only begin with similar letters."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Turki is holding a juice “box” in paragraph 2. What is the PLURAL of “box”?",
+      "options": [
+        "boxs",
+        "boxes",
+        "boxen",
+        "boxies"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in -x add -es: box → boxes."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “confess” in a meaningful sentence of your own.",
+      "model": "After the vase fell, my cousin decided to confess to his mother instead of hiding the broken pieces.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “confess” with its meaning (to admit that you have done something wrong)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Confess” means to admit a mistake or wrong action, as Lulwa does in paragraph 6."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is EXCLAMATORY?",
+      "options": [
+        "Who did this?",
+        "I need this tablet to submit my assignment tomorrow morning!",
+        "Until it is fixed, Maha can use my laptop for her assignment.",
+        "However, next time, please ask me first."
+      ],
+      "answer": "B",
+      "why": "It shows strong feeling and ends with an exclamation mark; the others are a question, a statement and a command."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “However, next time, please ask me first.” in paragraph 9?",
+      "options": [
+        "a question",
+        "a command",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "B",
+      "why": "Maha is telling Lulwa what to do, so it is a (polite) command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Turki's Juice Box",
+        "The Weight of a Lie",
+        "A Visit to the Library",
+        "The New Set of Paints"
+      ],
+      "answer": "B",
+      "why": "The story ends with the idea that a lie is heavy to carry; Lulwa gives up the paints."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how to repair a broken tablet screen",
+        "to describe the rules that every member of a family must follow",
+        "to show that admitting a mistake is better than hiding it",
+        "to persuade children to save their Eid money"
+      ],
+      "answer": "C",
+      "why": "Lulwa's confession and its results show that honesty is better than letting someone else take the blame."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Lulwa is tempted to let Turki take the blame and tries to hide the damage.",
+        "Lulwa finishes her homework quickly and goes to bed early.",
+        "Turki admits that he often drops his toys around the house.",
+        "Maha discovers the cracked screen as soon as she returns from the library."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 shows the “shameful idea” of blaming Turki and Lulwa putting the tablet back on the desk."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Lulwa borrow her sister's tablet?",
+      "options": [
+        "to check the instructions for her science project",
+        "to watch a film while her sister was out",
+        "to send a message to her friend Turki",
+        "to finish her sister's research assignment for her"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says she “only wanted to check the instructions for her own science project”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "an informational article",
+        "a letter written to a sister",
+        "a story told with dialogue",
+        "a poem about family"
+      ],
+      "answer": "C",
+      "why": "It is a realistic story in which the characters' spoken words move the events forward."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Maha especially upset when she saw the crack?",
+      "options": [
+        "She had just bought the tablet with her own money.",
+        "She needed the tablet for an assignment due the next morning.",
+        "She thought that Turki had been reading her private messages.",
+        "She had lost the tablet's protective case at school."
+      ],
+      "answer": "B",
+      "why": "Maha says, “I need this tablet to submit my assignment tomorrow morning!”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened BEFORE Maha burst into the living room?",
+      "options": [
+        "Lulwa offered to use her Eid money for the repair.",
+        "Lulwa put the tablet back on her sister's desk.",
+        "Lulwa told everyone that she had dropped the tablet.",
+        "Mama asked Lulwa what she should do now."
+      ],
+      "answer": "B",
+      "why": "Lulwa replaced the tablet on the desk in paragraph 4; the other events come after Maha's discovery."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which character asks, “And what do you think you should do now, Lulwa?”",
+      "options": [
+        "Maha",
+        "Turki",
+        "the narrator",
+        "Mama"
+      ],
+      "answer": "D",
+      "why": "Paragraph 7: “Mama put down her coffee cup and asked calmly …”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail explains why Maha offers to share the cost of the repair?",
+      "options": [
+        "She had broken Lulwa's laptop by accident the week before.",
+        "She felt sorry that Lulwa had lost her paints.",
+        "Mama had ordered her to pay half the cost.",
+        "She had left the tablet without its protective case."
+      ],
+      "answer": "D",
+      "why": "Maha says they can share the cost “since I left it on my desk without its protective case”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What finally made Lulwa tell the truth in paragraph 5?",
+      "options": [
+        "Mama found the tablet and asked her directly.",
+        "Turki told Maha that he had seen Lulwa breaking it on the stairs.",
+        "Maha threatened to search everyone's room.",
+        "She saw Turki looking frightened and could not bear the silence."
+      ],
+      "answer": "D",
+      "why": "“Turki looked frightened and edged closer to Mama, and suddenly Lulwa could not bear the silence any longer.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did the words in Lulwa's textbook “blur together meaninglessly” in paragraph 4?",
+      "options": [
+        "Her guilt made it impossible to concentrate.",
+        "The light in her room was too weak to read by.",
+        "The textbook had been damaged in the fall.",
+        "She was too tired after a long day at school."
+      ],
+      "answer": "A",
+      "why": "She had just hidden the damage and thought of blaming Turki, so her worry stopped her from focusing."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Turki's feelings when Maha demanded, “Who did this?”",
+      "options": [
+        "disappointed",
+        "bored",
+        "jealous",
+        "frightened"
+      ],
+      "answer": "D",
+      "why": "He “looked frightened and edged closer to Mama”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Maha in paragraph 9 different from Maha in paragraph 5?",
+      "options": [
+        "She is angry, while before she was calm and fair.",
+        "She is frightened, while before she was cheerful.",
+        "She is calm and fair, while before she was angry.",
+        "She is silent, while before she was asking for help."
+      ],
+      "answer": "C",
+      "why": "In paragraph 5 her voice shakes “with frustration”; in paragraph 9 her “angry expression softened” and she offers to share the cost."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Lulwa's offer to pay for the repair with her Eid money?",
+      "options": [
+        "Maha softened and offered to share the cost.",
+        "Mama decided to buy Maha a brand-new tablet instead.",
+        "Maha refused to speak to Lulwa again.",
+        "Turki gave Lulwa his chocolate bar."
+      ],
+      "answer": "A",
+      "why": "After Lulwa's offer, “Maha's angry expression softened gradually” and she suggested sharing the cost."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Lulwa and Maha have in common at the end of the story?",
+      "options": [
+        "Each blames little Turki for breaking the tablet.",
+        "Each decides to buy a brand-new tablet.",
+        "Each refuses to use the tablet again.",
+        "Each accepts part of the blame for the damage."
+      ],
+      "answer": "D",
+      "why": "Lulwa admits dropping it, and Maha admits leaving it without its case, so both take some responsibility."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the simile “like lightning across a dark sky” in paragraph 2 help the reader to picture?",
+      "options": [
+        "a sharp, jagged line across the black screen",
+        "a bright light shining out of the tablet",
+        "a thunderstorm outside Lulwa's window",
+        "the loud noise of the tablet hitting the floor"
+      ],
+      "answer": "A",
+      "why": "Lightning is a jagged line of light, like the zigzag crack across the dark screen."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “carrying the lie would have been far heavier for much longer” in paragraph 10?",
+      "options": [
+        "The tablet was too heavy for Lulwa to carry.",
+        "Lulwa's school bag was full of heavy books.",
+        "Telling the truth took Lulwa a very long time to finish.",
+        "Hiding the truth would have troubled Lulwa much more."
+      ],
+      "answer": "D",
+      "why": "A lie is compared to a heavy load: the guilt of hiding it would have stayed with her and grown."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer mention “the gentle ticking of the clock” in paragraph 7?",
+      "options": [
+        "to show how silent and tense the room had become",
+        "to tell the reader exactly what time of the evening it was",
+        "to show that Mama was waiting to go out",
+        "to suggest that the clock was also broken"
+      ],
+      "answer": "A",
+      "why": "Hearing only a ticking clock emphasises the heavy silence after Lulwa's confession."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the BEST thing Lulwa did in the story?",
+      "options": [
+        "admitting the truth and offering to pay for the repair",
+        "putting the tablet back on her sister's desk quietly",
+        "borrowing the tablet for an important school project",
+        "keeping quiet while everyone in the family suspected Turki"
+      ],
+      "answer": "A",
+      "why": "Confessing and making up for the damage shows honesty and responsibility; the other actions were mistakes."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Taking responsibility for a mistake brings relief and trust.",
+        "Younger children should be blamed for accidents.",
+        "Tablets should never be used for schoolwork.",
+        "Saving money is more important than always telling the truth."
+      ],
+      "answer": "A",
+      "why": "Lulwa feels relief after confessing, and her family responds with understanding."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in paragraphs 4 and 5?",
+      "options": [
+        "pride",
+        "boredom",
+        "excitement",
+        "guilt"
+      ],
+      "answer": "D",
+      "why": "Lulwa hides the damage, cannot concentrate and finally cannot bear the silence: she feels guilty."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "what Lulwa had been saving for",
+        "where exactly in the house Lulwa dropped the tablet",
+        "how much the screen repair would cost",
+        "why Maha needed the tablet"
+      ],
+      "answer": "C",
+      "why": "Maha only says the repair is “expensive”; the other details are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A tablet repairs its own screen during the night.",
+        "A tablet screen cracks when it falls on a marble floor.",
+        "A crack in a screen spells out the name of the person who dropped it.",
+        "A clock stops ticking because a family is silent."
+      ],
+      "answer": "B",
+      "why": "Screens often crack when dropped on hard floors; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Afternoon Little Turki Was Punished",
+        "The Tablet That Fixed Itself",
+        "A Crack, a Choice and a Confession",
+        "Lulwa's Science Prize"
+      ],
+      "answer": "C",
+      "why": "The story moves from the crack to Lulwa's choice and her confession; Turki is never punished."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences showing what might have happened if Lulwa had let Turki take the blame at first.",
+      "model": "Mama took Turki's toys away for a week, and Lulwa could not sleep that night because of her guilt. The next morning she told Maha and Mama the truth, apologised to Turki, and gave him back his toys along with her Eid money for the repair.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and shows how Lulwa's choice affects her family",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that fits the characters and deals with Lulwa's honesty problem is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could an accident like the one in the story be avoided in the future?",
+      "options": [
+        "Always ask permission before borrowing someone's things.",
+        "Keep the tablet in its protective case.",
+        "A and B",
+        "Never carry anything on the stairs again."
+      ],
+      "answer": "C",
+      "why": "Maha asks Lulwa to ask first, and the case would have protected the screen; never carrying anything is not sensible."
+    }
+  ]
+}

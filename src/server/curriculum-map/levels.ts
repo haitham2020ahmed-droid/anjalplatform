@@ -140,6 +140,21 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     await send(places[0].level as Level, places[0].level as Level, chosen.map((x) => x.id), ids);
     return { groups, notes };
   }
+  if (places.length === 1 && !places[0].level && places[0].category === "REVIEW" && actor.role === "TEACHER") {
+    // 🔁 the teacher's own Review (review-control.ts): exactly the number they chose, in their order, for everyone
+    const { teacherReviewQuestions } = await import("./review-control");
+    const mine = await teacherReviewQuestions(repo, actor, places[0]);
+    if (mine) {
+      if (!mine.length) throw new ValidationError("Your Review has no questions: add some on the Review page first.");
+      const r = await assignQuestions(repo, actor, {
+        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: mine, track: "CURRICULUM", exactTitle: true, title: base,
+        dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
+      }, now);
+      groups.push({ level: null, students: chosen.length, questions: r.questions, assignmentId: r.assignmentId, usedLevel: null });
+      notes.push(`🔁 Your Review: ${r.questions} question(s), the same for every student.`);
+      return { groups, notes };
+    }
+  }
   if (places.length === 1 && !places[0].level) {
     const ids = counts.get(places[0].id)!;
     if (!ids.length) throw new ValidationError("There are no published questions on this place yet. Add or import questions first.");

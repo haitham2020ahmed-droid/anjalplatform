@@ -13,6 +13,8 @@ import { ImageField } from "./image-field";
 import { byName, skillMatches } from "@/lib/skill-picker";
 import { createSkillAction, createStandardAction } from "../curriculum/manage-actions";
 import { CcssNote } from "@/components/ccss-note";
+import { Combo } from "@/components/ui/combo";
+import { LineIcon } from "@/components/ui/line-icon";
 
 type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
@@ -31,7 +33,7 @@ const LEVELS = ["Very easy", "Easy", "Below grade level", "Grade level", "Above 
 const lines = (s: string) => s.split("\n").map((x) => x.trim()).filter(Boolean);
 
 /** Question editor. Every save is validated on the server with the same rules as the question bank. */
-export function QuestionEditor({ questionId, initial, skills: skillsIn, standards: standardsIn, readOnly, onSave, curriculum, places = [], initialPlace = null }: {
+export function QuestionEditor({ questionId, initial, skills: skillsIn, standards: standardsIn, readOnly, onSave, curriculum, places = [], initialPlace = null, saveLabel }: {
   questionId: string | null; initial: EditorInput | null; skills: Skill[]; standards: string[]; readOnly: boolean;
   /** admins: grades for “+ New skill” (skills and standards are created in the curriculum) */
   curriculum?: { grades: { id: string; level: number }[] };
@@ -41,10 +43,11 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
   initialPlace?: string | null;
   /** Optional: save somewhere else (e.g. an import preview row) instead of the question bank. */
   onSave?: (payload: EditorInput) => Promise<{ error?: string; message?: string }>;
+  /** the save button's words (e.g. an admin's Edit anyway on an answered question) */
+  saveLabel?: string;
 }) {
   const router = useRouter();
   const [skills, setSkills] = useState<Skill[]>(skillsIn);
-  const [skillQ, setSkillQ] = useState("");   // 🔎 find a skill by name (case, "&" / "and", apostrophes ignored)
   const [standards, setStandards] = useState<string[]>(standardsIn);
   const [adding, setAdding] = useState<"skill" | "standard" | null>(null);
   const [q, setQ] = useState<EditorInput>(initial ?? {
@@ -98,7 +101,8 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
       const r = await saveQuestionWithTypesAction(questionId, payload);
       if (r.error) return setMsg({ error: r.error, duplicateId: r.duplicateId });
       setMsg({ ok: r.message });
-      if (!questionId && r.id) router.push(`/admin/questions/${r.id}`);
+      // a new question, or a change saved as a new version (an admin's Edit anyway): open that question
+      if (r.id && r.id !== questionId) router.push(questionId ? `/admin/questions/${r.id}?msg=${encodeURIComponent(r.message ?? "")}` : `/admin/questions/${r.id}`);
       else router.refresh();
     });
   }
@@ -110,8 +114,8 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
           <fieldset>
             <legend className="text-sm font-semibold text-slate-700">Where does this question go?</legend>
             <div className="mt-1 flex flex-wrap gap-3 text-sm">
-              <label className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 has-[:checked]:ring-brand-teal"><input type="radio" name="destination" checked={!q.mapNodeCode} onChange={() => set({ mapNodeCode: null, ...(q.skillId ? {} : { skillId: skills[0]?.id ?? "" }) })} /><span aria-hidden="true">📚</span> Question Bank only</label>
-              <label className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 has-[:checked]:ring-brand-teal"><input type="radio" name="destination" checked={Boolean(q.mapNodeCode)} onChange={() => set({ mapNodeCode: q.mapNodeCode || places.find((p) => skills.find((k) => k.id === q.skillId)?.grade === p.grade)?.code || places[0].code })} /><span aria-hidden="true">🧭</span> Curriculum Map (and the Question Bank)</label>
+              <label className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 has-[:checked]:ring-brand-teal"><input type="radio" name="destination" checked={!q.mapNodeCode} onChange={() => set({ mapNodeCode: null, ...(q.skillId ? {} : { skillId: skills[0]?.id ?? "" }) })} /><LineIcon name="book" className="me-1 inline-block h-4 w-4 align-[-3px]" /> Question Bank only</label>
+              <label className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200 has-[:checked]:ring-brand-teal"><input type="radio" name="destination" checked={Boolean(q.mapNodeCode)} onChange={() => set({ mapNodeCode: q.mapNodeCode || places.find((p) => skills.find((k) => k.id === q.skillId)?.grade === p.grade)?.code || places[0].code })} /><LineIcon name="compass" className="me-1 inline-block h-4 w-4 align-[-3px]" /> Curriculum Map (and the Question Bank)</label>
             </div>
           </fieldset>
           {q.mapNodeCode && (
@@ -131,9 +135,11 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         </div>
       )}
       <div className="grid gap-3 sm:grid-cols-3">
-        <label className={label}>Skill
-          <input type="search" value={skillQ} onChange={(e) => setSkillQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") e.preventDefault(); }} placeholder={t("Search skills…")} aria-label={t("Search skills…")} dir="ltr" autoComplete="off" className={`${field} mb-1`} />
-          <select value={q.skillId} onChange={(e) => set({ skillId: e.target.value })} className={field}>{q.mapNodeCode && <option value="">— No skill yet (Unclassified) —</option>}{skills.filter((s) => s.id === q.skillId || skillMatches(s, skillQ)).sort((a, b) => byName(a, b) || a.grade - b.grade).map((s) => <option key={s.id} value={s.id}>G{s.grade} · {s.name}</option>)}</select></label>
+        <div className={label}><span>Skill</span>
+          {/* 🔎 the shared combobox: every skill at once; typing finds a skill by any name (case, "&" / "and", apostrophes ignored) */}
+          <Combo label="Skill" value={q.skillId} onChange={(v) => set({ skillId: v })} placeholder={t("Search skills…")} dir="ltr"
+            match={(o, qq) => { const k = skills.find((x) => x.id === o.value); return k ? skillMatches(k, qq) : !o.value; }}
+            options={[...(q.mapNodeCode ? [{ value: "", label: "— No skill yet (Unclassified) —" }] : []), ...[...skills].sort((x, y) => byName(x, y) || x.grade - y.grade).map((k) => ({ value: k.id, label: k.name, hint: `G${k.grade}` }))]} /></div>
         <label className={label}>Type<select value={q.type} onChange={(e) => set({ type: e.target.value as EditorInput["type"] })} className={field}>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
         <label className={label}>Difficulty<select value={q.level} onChange={(e) => set({ level: Number(e.target.value) })} className={field}>{LEVELS.map((l, i) => <option key={l} value={i + 1}>{i + 1} · {l}</option>)}</select></label>
         <label className={label}>Standard (optional)<input list="standards" value={q.standardCode ?? ""} onChange={(e) => set({ standardCode: e.target.value || null })} placeholder="Skill's standard" className={field} /></label>
@@ -163,7 +169,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
       <ImageField imageId={q.imageId ?? null} imageAlt={q.imageAlt ?? ""} readOnly={readOnly} onChange={(v) => set(v)} />
       <label className={label}>Question<textarea style={{ width: "100%" }} value={q.stem} onChange={(e) => set({ stem: e.target.value })} rows={5} maxLength={2000} className={field} /></label>
       {possibleMissingPassage(q.stem, Boolean((q.passageText ?? "").trim() || (q.passageText === undefined && q.passageId))) && (
-        <p role="status" className="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">⚠ This question mentions a passage, story or paragraph, but there is no passage. Add the text above, or reword the question. (A warning only: you can still save.)</p>
+        <p role="status" className="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900"><LineIcon name="alert" className="me-1 inline-block h-4 w-4 align-[-3px]" />This question mentions a passage, story or paragraph, but there is no passage. Add the text above, or reword the question. (A warning only: you can still save.)</p>
       )}
 
       {optionTypes && (
@@ -272,7 +278,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
       </div>
       {!readOnly && (
         <div className="flex flex-wrap items-center gap-3">
-          <button type="button" onClick={save} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{pending ? "Saving…" : questionId ? "Save changes" : "Create draft"}</button>
+          <button type="button" onClick={save} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{pending ? "Saving…" : saveLabel ?? (questionId ? "Save changes" : "Create draft")}</button>
           {msg.ok && <span role="status" className="text-sm text-brand-teal">{msg.ok}</span>}
           {msg.error && <span role="alert" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">{t(msg.error)}{msg.duplicateId && <> <Link href={`/admin/questions/${msg.duplicateId}`} className="font-semibold underline">{t("Open the existing question")}</Link></>}</span>}
         </div>

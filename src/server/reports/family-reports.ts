@@ -24,16 +24,17 @@ const d = (v: unknown): Date | null => (v instanceof Date ? v : v ? new Date(s(v
 const day = (v: unknown) => d(v)?.toISOString().slice(0, 10) ?? null;
 const json = <T>(v: unknown, fb: T): T => { if (v === null || v === undefined) return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
 
-export type ReportKind = "AUTO" | "MANUAL" | "PROGRESS" | "DIAGNOSTIC";
+export type ReportKind = "AUTO" | "MANUAL" | "PROGRESS" | "DIAGNOSTIC" | "MONTHLY";
 export type ReportStatus = "DRAFT" | "PENDING" | "RETURNED" | "APPROVED" | "WITHDRAWN";
 export interface ReportSection { heading: string; icon: string; lines: string[] }
-export interface FamilyContent { summary: string; sections: ReportSection[]; message: string }
+/** `ar`: the Arabic copy of the summary and sections the platform wrote (the monthly report); the teacher's message is shared. */
+export interface FamilyContent { summary: string; sections: ReportSection[]; message: string; ar?: { summary: string; sections: ReportSection[] } | null }
 export interface FamilyReportRow {
   id: string; studentId: string; studentName: string; className: string; grade: number; kind: ReportKind; title: string; status: ReportStatus;
   content: FamilyContent; refId: string | null; author: string; createdById: string; createdAt: string; submittedAt: string | null;
   reviewedAt: string | null; reviewer: string | null; reviewNote: string | null; seenByParentAt: string | null; seenByStudentAt: string | null;
 }
-export const KIND_LABEL: Record<ReportKind, string> = { AUTO: "Prepared by the platform", MANUAL: "Written by the teacher", PROGRESS: "Progress report", DIAGNOSTIC: "Diagnostic report" };
+export const KIND_LABEL: Record<ReportKind, string> = { AUTO: "Prepared by the platform", MANUAL: "Written by the teacher", PROGRESS: "Progress report", DIAGNOSTIC: "Diagnostic report", MONTHLY: "Monthly report" };
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
 const MAX_LINES = 12, MAX_LINE = 400;
 
@@ -52,12 +53,20 @@ async function studentInfo(repo: Repo, actor: Actor, studentId: string, write: b
   return { st, classId: klass ? s(klass.id) : null, className: s(klass?.name), grade };
 }
 
-function clean(c: Partial<FamilyContent>): FamilyContent {
-  const sections = (Array.isArray(c.sections) ? c.sections : []).slice(0, 12).map((x) => ({
+function cleanSections(list: unknown): ReportSection[] {
+  return (Array.isArray(list) ? list as Partial<ReportSection>[] : []).slice(0, 12).map((x) => ({
     heading: s(x?.heading).trim().slice(0, 120), icon: s(x?.icon).trim().slice(0, 8) || "•",
     lines: (Array.isArray(x?.lines) ? x.lines : []).map((l) => s(l).replace(/\s+/g, " ").trim().slice(0, MAX_LINE)).filter(Boolean).slice(0, MAX_LINES),
   })).filter((x) => x.heading || x.lines.length);
-  return { summary: s(c.summary).trim().slice(0, 2000), sections, message: s(c.message).trim().slice(0, 2000) };
+}
+function clean(c: Partial<FamilyContent>): FamilyContent {
+  const out: FamilyContent = { summary: s(c.summary).trim().slice(0, 2000), sections: cleanSections(c.sections), message: s(c.message).trim().slice(0, 2000) };
+  if (c.ar && typeof c.ar === "object") out.ar = { summary: s(c.ar.summary).trim().slice(0, 2000), sections: cleanSections(c.ar.sections) };
+  return out;
+}
+/** The content in the reader's language: the Arabic copy when there is one (the teacher's message as written). */
+export function contentIn(c: FamilyContent, lang: string): FamilyContent {
+  return lang === "ar" && c.ar && (c.ar.summary || c.ar.sections.length) ? { summary: c.ar.summary, sections: c.ar.sections, message: c.message } : c;
 }
 
 // ------------------------------------------------------------------ what the platform writes (AUTO)
@@ -209,6 +218,10 @@ export async function saveFamilyReport(repo: Repo, actor: Actor, id: string, inp
   if (!canEdit(actor, r)) throw new ValidationError(s(r.status) === "PENDING" ? "This report is waiting for approval: withdraw it to edit it." : "This report can no longer be edited.");
   const content = clean(input.content);
   if (!content.summary && !content.sections.some((x) => x.lines.length) && !content.message) throw new ValidationError("The report is empty.");
+  // the Arabic copy the platform wrote is kept while the English it was written from is unchanged (the teacher's
+  // note is shared by both); once the teacher rewrites the report, the family reads the teacher's own words
+  const before = clean(json<Partial<FamilyContent>>(r.content, {}));
+  if (!content.ar && before.ar && before.summary === content.summary && JSON.stringify(before.sections) === JSON.stringify(content.sections)) content.ar = before.ar;
   const title = s(input.title ?? r.title).trim().slice(0, 191) || s(r.title);
   await repo.updateMany("FamilyReport", { id }, { title, content, updatedAt: now });
 }
@@ -232,6 +245,8 @@ export async function submitFamilyReport(repo: Repo, actor: Actor, id: string, n
   if (!isAdmin(actor) && s(r.createdById) !== actor.userId) throw new ForbiddenError("Only its author can send this report.");
   const c = clean(json<Partial<FamilyContent>>(r.content, {}));
   if (r.kind === "MANUAL" && (!c.sections.some((x) => x.lines.length) || /…$/.test(c.summary) && c.summary.length < 20)) throw new ValidationError("Write the report first (the summary and at least one section).");
+  // the monthly report: the teacher reads it and adds a note before it goes to the admin
+  if (r.kind === "MONTHLY" && !isAdmin(actor) && !c.message) throw new ValidationError("Add your note to the family first (Message to the family), then send it.");
   await repo.updateMany("FamilyReport", { id }, { status: "PENDING", submittedAt: now, reviewNote: null, updatedAt: now });
   if (isAdmin(actor)) { await reviewFamilyReport(repo, actor, id, { approve: true }, now); return "APPROVED"; }
   const name = (await studentNames(repo, [s(r.studentId)])).get(s(r.studentId))?.name ?? "a student";
@@ -357,7 +372,7 @@ export async function pendingCount(repo: Repo, schoolId: string): Promise<number
 export async function approvedForFamily(repo: Repo, actor: Actor, studentId: string): Promise<FamilyReportRow[]> {
   const mine = actor.role === "PARENT" ? actor.parentChildIds?.has(studentId) : actor.role === "STUDENT" ? actor.studentId === studentId : false;
   if (!mine) throw new ForbiddenError("Student not found.");
-  const rows = (await repo.findMany("FamilyReport", { studentId, status: "APPROVED" })).filter((r) => ["AUTO", "MANUAL"].includes(s(r.kind)))
+  const rows = (await repo.findMany("FamilyReport", { studentId, status: "APPROVED" })).filter((r) => ["AUTO", "MANUAL", "MONTHLY"].includes(s(r.kind)))
     .sort((a, b) => (d(b.reviewedAt)?.getTime() ?? 0) - (d(a.reviewedAt)?.getTime() ?? 0));
   return views(repo, rows);
 }

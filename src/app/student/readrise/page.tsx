@@ -42,20 +42,26 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         </div>
       </header>
 
-      <div className="mt-5"><ProgramTabs tabs={[{ href: "/student/readrise", label: "Articles", icon: "📚", on: !report }, { href: "/student/readrise?tab=report", label: "My report", icon: "📊", on: report }]} /></div>
-
-      {!report && h.placement.state !== "NONE" && (
-        <Link href="/student/readrise/placement" className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-5 text-white shadow-pop">
+      {/* 🎯 no level before the placement: the big card sits at the top of both tabs until the test is finished */}
+      {h.placement.state !== "NONE" && (!h.placed || !report) && (
+        <Link href="/student/readrise/placement" data-testid="rr-placement-card" className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-6 text-white shadow-pop">
           <span className="min-w-0 flex-1">
-            <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 Find my level</span>
-            <span className="block text-2xl font-extrabold">{h.placement.state === "OPEN" ? "Finish your ReadRise placement" : h.placement.state === "RETAKE" ? "Take the placement again" : "Take the ReadRise placement"}</span>
-            <span className="block text-sm text-indigo-100">A few short passages with 3 questions each. It finds the articles that are just right for you.</span>
+            <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 {t("Find my level")}</span>
+            <span className="block text-2xl font-extrabold">{h.placement.state === "OPEN" ? t("Finish your ReadRise placement") : h.placement.state === "RETAKE" ? t("Take the placement again") : t("Take the placement test")}</span>
+            <span className="block text-sm text-indigo-100">{t("A few short passages with 3 questions each. It finds the articles that are just right for you.")}</span>
           </span>
-          <span className="rounded-xl bg-white px-6 py-3 text-lg font-bold text-brand-navy">{h.placement.state === "OPEN" ? "Continue ▶" : "Start ▶"}</span>
+          <span className="rounded-xl bg-white px-6 py-3 text-lg font-bold text-brand-navy">{h.placement.state === "OPEN" ? t("Continue ▶") : t("Start ▶")}</span>
         </Link>
       )}
 
-      {report && <>
+      <div className="mt-5"><ProgramTabs tabs={[{ href: "/student/readrise", label: "Articles", icon: "📚", on: !report }, { href: "/student/readrise?tab=report", label: "My report", icon: "📊", on: report }]} /></div>
+
+
+      {report && !h.placed && (
+        <p data-testid="rr-no-level" className="mt-5 rounded-2xl bg-white p-5 text-slate-700 ring-1 ring-slate-200">{t("You do not have a ReadRise level yet. Take the placement test to find your level.")}</p>
+      )}
+
+      {report && h.placed && <>
       <section aria-label="My progress" data-testid="rr-my-report" className="grid gap-4 md:grid-cols-3">
         <div className="rounded-3xl bg-gradient-to-br from-indigo-50 to-white p-5 shadow-card ring-1 ring-indigo-200">
           <p className="text-sm font-semibold text-slate-600">My ReadRise Level</p>
@@ -104,7 +110,9 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
 
       </>}
 
-      {!report && <ReadRiseLibrary lib={h.library} />}
+      {!report && (h.locked ? (
+        <p data-testid="rr-locked" className="mt-6 rounded-2xl bg-white p-5 text-slate-700 ring-1 ring-slate-200">🔒 {t("Your articles open after the placement test.")}</p>
+      ) : <ReadRiseLibrary lib={h.library} showLevel={h.placed} />)}
     </AppShell>
   );
 }

@@ -1,0 +1,496 @@
+{
+ "code": "LN-193",
+ "title": "Academic words",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.4.a",
+  "L.4.4.a",
+  "L.4.6",
+  "L.5.6",
+  "L.6.6",
+  "L.7.6",
+  "L.8.6",
+  "RI.1.4",
+  "RI.2.4",
+  "RI.3.4",
+  "RI.4.4",
+  "RI.5.4",
+  "RI.6.4",
+  "RI.7.4",
+  "RI.8.4",
+  "RI.K.4",
+  "RL.2.4",
+  "RL.3.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "academic-vocabulary"
+ ],
+ "skillNames": [
+  "Academic Vocabulary in Use",
+  "Academic and Domain-Specific Vocabulary"
+ ],
+ "statements": [
+  "R-0018",
+  "R-0048",
+  "R-0115",
+  "R-0215",
+  "R-0245",
+  "R-0368",
+  "R-0398",
+  "R-0553",
+  "R-0576",
+  "R-0758",
+  "R-0796",
+  "R-0929",
+  "R-0968",
+  "R-1051",
+  "R-1097"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "School words",
+     "text": "Teachers and books use special **school words**.\n\n**compare** · **describe** · **sort** · **predict**\n\nThey tell you **what to do**."
+    },
+    {
+     "title": "What they mean",
+     "text": "**compare:** see how things are the same and different\n**describe:** tell what something is like\n**sort:** put things into groups\n**predict:** say what will happen next"
+    },
+    {
+     "title": "Find out from the story",
+     "text": "1. Find the school word.\n2. Read what the people **do** next.\n3. What they do shows what the word means."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Watch what people **do** after the school word.\n\n1. Find the word.\n2. Find the sentences that show the action.\n3. Those sentences prove the meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"Describe your bag,\" said the teacher.",
+      "role": "main"
+     },
+     {
+      "t": "Nora said, \"My bag is blue, with two pockets and a cat on it.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "Nora told **what her bag is like**: blue, two pockets, a cat.\n\nThat is what **describe** means."
+   },
+   "together": {
+    "passage": "Mr. Ali held up two apples. \"Let's compare them,\" he said. One apple was big and red. The other apple was small and green. \"But they are both round!\" said Sami.",
+    "stem": "What does compare mean?",
+    "options": [
+     "Eat both apples at lunch.",
+     "See how things are the same and different.",
+     "Cut each apple in half.",
+     "Count the apples one by one."
+    ],
+    "answer": 1,
+    "hint": "Look at what the class does after Mr. Ali says the word.",
+    "good": "Yes! They looked at how the apples are different (big, small) and the same (round)."
+   },
+   "evidence": {
+    "sentences": [
+     "Mr. Ali held up two apples.",
+     "\"Let's compare them,\" he said.",
+     "One apple was big and red.",
+     "The other apple was small and green.",
+     "\"But they are both round!\" said Sami."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: see how things are the same and different. Tap 2 sentences that show the class comparing.",
+    "wrong": "This sentence does not compare the apples. Find sentences that tell how they are the same or different."
+   },
+   "checks": [
+    {
+     "passage": "The teacher said, \"Please describe your pet.\" Omar said, \"My cat is white. She has blue eyes and a long tail.\"",
+     "stem": "What does describe mean?",
+     "options": [
+      "Draw a picture.",
+      "Tell what something is like.",
+      "Feed a pet.",
+      "Ask a question."
+     ],
+     "answer": 1,
+     "why": "Omar told **what his cat is like**: white, blue eyes, long tail."
+    },
+    {
+     "passage": "Mom said, \"Please sort the socks.\" I put the white socks in one pile. I put the black socks in another pile.",
+     "stem": "What does sort mean?",
+     "options": [
+      "Wash the socks.",
+      "Lose the socks.",
+      "Wear the socks.",
+      "Put things into groups."
+     ],
+     "answer": 3,
+     "why": "White socks in one pile, black in another: that is putting them into **groups**."
+    },
+    {
+     "passage": "\"Look at the dark clouds,\" said Dad. \"Can you predict what will happen?\" \"I think it will rain soon,\" said Sara.",
+     "stem": "What does predict mean?",
+     "options": [
+      "Say what you think will happen next.",
+      "Look at the sky.",
+      "Run inside fast.",
+      "Draw a cloud."
+     ],
+     "answer": 0,
+     "why": "Sara said what she thinks **will happen**: it will rain soon."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "When you see a school word, **act it out**.\n\nCompare? Hold up two things.\nSort? Make piles.\nPredict? Say \"I think ___ will happen.\"",
+    "example": "\"**Sort** the toys.\" → cars in one box, balls in another box. Now you sorted them!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Words that tell you what to do",
+     "text": "Some words appear in **every** subject: *estimate, observe, explain, evidence, label*.\n\nThey are called **academic words**. Knowing them helps you understand questions and instructions."
+    },
+    {
+     "title": "A few to know",
+     "text": "**estimate:** make a careful guess about an amount\n**observe:** watch closely and notice details\n**explain:** tell how or why\n**label:** write names on parts of a picture"
+    },
+    {
+     "title": "Use the context",
+     "text": "1. Find the academic word.\n2. Read what the people **do** because of it.\n3. Ask: what action or idea is this word asking for?\n4. Choose the meaning that matches."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Academic words are shown by **actions** in the text.\n\n1. Find the word.\n2. Find the sentences that show someone doing it.\n3. Choose the meaning those actions fit.\n\nIf a meaning is not shown by anyone's actions, it is not the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In science class, we observed a snail for ten minutes.",
+      "role": "main"
+     },
+     {
+      "t": "We watched how it moved and how it used its feelers.",
+      "role": "key"
+     },
+     {
+      "t": "We wrote down everything we noticed.",
+      "role": "key"
+     }
+    ],
+    "explain": "The students **watched closely** and **wrote down what they noticed**.\n\nThat is what **observe** means."
+   },
+   "together": {
+    "passage": "Before counting, our teacher asked us to estimate how many dates were in the bowl. I looked at the size of the bowl and the size of one date. Then I guessed about fifty. Sara thought there were about forty. When we finally counted them, there were forty-six. We were both close!",
+    "stem": "What does estimate mean?",
+    "options": [
+     "Count each thing exactly.",
+     "Share the dates with the class.",
+     "Make a careful guess about an amount.",
+     "Write the number in a notebook."
+    ],
+    "answer": 2,
+    "hint": "Did the students count first, or did they guess first?",
+    "good": "Yes! They looked carefully and guessed before counting. That is estimating."
+   },
+   "evidence": {
+    "sentences": [
+     "Before counting, our teacher asked us to estimate how many dates were in the bowl.",
+     "I looked at the size of the bowl and the size of one date.",
+     "Then I guessed about fifty.",
+     "Sara thought there were about forty.",
+     "When we finally counted them, there were forty-six.",
+     "We were both close!"
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: make a careful guess about an amount. Tap 2 sentences that show the students estimating.",
+    "wrong": "This sentence tells about the exact count or the end. Find the sentences that show the careful guessing."
+   },
+   "checks": [
+    {
+     "passage": "The teacher asked Nouf to explain her answer. Nouf told the class how she solved the problem, step by step, and why each step worked.",
+     "stem": "What does explain mean?",
+     "options": [
+      "Tell how or why, so others understand.",
+      "Write the answer down quickly.",
+      "Say that the answer is wrong.",
+      "Ask the teacher to help her."
+     ],
+     "answer": 0,
+     "why": "Nouf told **how** she solved it and **why** each step worked."
+    },
+    {
+     "passage": "\"Draw a plant and label its parts,\" said Ms. Rana. We wrote root, stem and leaf next to the right parts of our drawings.",
+     "stem": "What does label mean?",
+     "options": [
+      "Colour a picture.",
+      "Cut out a picture.",
+      "Count the parts.",
+      "Write names on parts of a picture."
+     ],
+     "answer": 3,
+     "why": "They **wrote the names** root, stem and leaf next to the parts."
+    },
+    {
+     "passage": "Our class wanted to know which ball bounces highest. We dropped three balls and measured each bounce. The results showed that the rubber ball bounced highest.",
+     "stem": "What are results?",
+     "options": [
+      "The balls the class used.",
+      "What was found at the end of a test.",
+      "The questions the class asked.",
+      "The rules of a game."
+     ],
+     "answer": 1,
+     "why": "The results **showed** which ball bounced highest: what they found out."
+    }
+   ],
+   "again": {
+    "title": "Question words in disguise",
+    "text": "Turn the academic word into a simple question:\n\n**estimate** → About how many?\n**observe** → What do you notice?\n**explain** → How? Why?",
+    "example": "\"**Estimate** the length of the table.\" → About how long is it? \"About two metres!\""
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Words for thinking",
+     "text": "Many academic words name a **way of thinking**:\n\n**evidence** · **conclude** · **infer** · **summarize** · **sequence**\n\nThey appear in science reports, history lessons and reading questions."
+    },
+    {
+     "title": "Meanings",
+     "text": "**evidence:** facts or details that show something is true\n**conclude:** decide something after studying the facts\n**infer:** work something out from clues\n**summarize:** tell only the main points, briefly\n**sequence:** the order in which things happen"
+    },
+    {
+     "title": "Context first",
+     "text": "1. Find the academic word.\n2. Find what **comes before** it (facts, clues, steps).\n3. Ask how the word connects them.\n4. Test your meaning in the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "With thinking words, the proof is often **what the word refers to**.\n\n1. Ask: what facts, clues or steps does the word point to?\n2. Find those sentences.\n3. Choose the meaning that describes what they are, or what is done with them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The story never says that Majid was nervous.",
+      "role": "other"
+     },
+     {
+      "t": "But his hands were shaking, and he kept looking at the clock.",
+      "role": "key"
+     },
+     {
+      "t": "Readers can infer how he felt.",
+      "role": "main"
+     }
+    ],
+    "explain": "**Shaking hands** and **looking at the clock** are clues. Readers use them to work out that he is nervous.\n\nSo **infer** means to work something out from clues."
+   },
+   "together": {
+    "passage": "Our class planted two bean seeds in identical pots. We placed one pot on a sunny windowsill and the other in a dark cupboard. We watered both the same amount every day. After two weeks, the plant on the windowsill was tall and green. The plant in the cupboard was pale and thin. Based on this evidence, we concluded that plants need light to grow well.",
+    "stem": "What does evidence mean in this passage?",
+    "options": [
+     "A guess made before the test.",
+     "The pots the plants grew in.",
+     "A plan for the next experiment.",
+     "The facts the class saw that show something is true."
+    ],
+    "answer": 3,
+    "hint": "The word says \"this evidence\". What does \"this\" point back to?",
+    "good": "Yes! The tall green plant and the pale thin plant are facts that show plants need light."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planted two bean seeds in identical pots.",
+     "We placed one pot on a sunny windowsill and the other in a dark cupboard.",
+     "We watered both the same amount every day.",
+     "After two weeks, the plant on the windowsill was tall and green.",
+     "The plant in the cupboard was pale and thin.",
+     "Based on this evidence, we concluded that plants need light to grow well."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the facts the class saw that show something is true. Tap 2 sentences that give those facts.",
+    "wrong": "This sentence tells how the test was set up or states the conclusion. Find the sentences with the facts that were observed."
+   },
+   "checks": [
+    {
+     "passage": "\"Your summary should be short,\" said the teacher. \"Tell only the most important events of the story in three or four sentences.\"",
+     "stem": "When you summarize, what do you do?",
+     "options": [
+      "Copy the whole story.",
+      "Tell only the main points, briefly.",
+      "Add new events to the story.",
+      "Give your opinion of the story."
+     ],
+     "answer": 1,
+     "why": "The teacher says: **short**, **only the most important events**."
+    },
+    {
+     "passage": "Put the steps in the correct sequence: first mix the flour and water, then knead the dough, and finally bake it in the oven.",
+     "stem": "What does sequence mean?",
+     "options": [
+      "The order in which things happen.",
+      "The amount of flour you need.",
+      "A kind of bread.",
+      "How long something takes."
+     ],
+     "answer": 0,
+     "why": "**First, then, finally** show the steps in order."
+    },
+    {
+     "passage": "After reading all the reports, the scientists concluded that the lake was becoming saltier each year.",
+     "stem": "What does concluded mean?",
+     "options": [
+      "Started a new report.",
+      "Wrote the reports quickly.",
+      "Decided something after studying the facts.",
+      "Asked a question."
+     ],
+     "answer": 2,
+     "why": "They read **all the reports** first, then decided what was true."
+    }
+   ],
+   "again": {
+    "title": "Follow the arrow",
+    "text": "Many thinking words are like an **arrow**:\n\n**facts → conclude** (decision)\n**clues → infer** (idea)\n**whole story → summarize** (short version)\n\nFind what is on the left of the arrow in the text.",
+    "example": "\"The ground was wet and there were puddles everywhere, so Ali **inferred** that it had rained.\"\n\nClues: **wet ground, puddles** → idea: **it rained**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Academic language",
+     "text": "Older students read words like **significant, analyse, relevant, perspective, emphasise** in every subject.\n\nThey often have a **general** meaning in daily life and a more **precise** meaning in academic texts."
+    },
+    {
+     "title": "Everyday vs. academic",
+     "text": "**significant** (everyday): big.\n**significant** (academic): important enough to matter, not caused by chance.\n\n**analyse:** examine the parts closely to understand the whole.\n**relevant:** closely connected to the topic."
+    },
+    {
+     "title": "Reading precisely",
+     "text": "1. Notice the academic word.\n2. Look for how the text **uses** it: what is called significant, relevant or analysed?\n3. Check the **effects**: what happens because of it?\n4. Choose the precise meaning, not a vague one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "An academic meaning is proved by **how the text treats the idea**.\n\n1. Find the details the word describes.\n2. Find what people do because of them, or what they are contrasted with.\n3. Pick the precise meaning those sentences support.\n\nVague choices that are \"sort of right\" are usually traps."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The coach analysed the video of the match.",
+      "role": "main"
+     },
+     {
+      "t": "He watched each player's movements again and again.",
+      "role": "key"
+     },
+     {
+      "t": "He noted where the defence left gaps and how long passes took.",
+      "role": "key"
+     }
+    ],
+    "explain": "Watching closely, again and again, and noting the **parts** of the game show what **analyse** means: examine the parts in detail to understand the whole."
+   },
+   "together": {
+    "passage": "When the students analysed their school survey, one finding stood out. Out of 300 students, 240 said they walked to school less than once a week, even though most of them lived within two kilometres. The class agreed that this was a significant result. They presented it to the principal, who decided to create safe walking routes and a weekly walk-to-school day. A tiny difference, such as 152 students compared with 148, would not have deserved the same attention.",
+    "stem": "What does significant mean in this passage?",
+    "options": [
+     "Large enough to be important and worth acting on.",
+     "Surprising but not very important.",
+     "Based on a mistake in the survey.",
+     "About walking and exercise."
+    ],
+    "answer": 0,
+    "hint": "Look at the numbers, what the principal did, and the tiny difference the writer compares it with.",
+    "good": "Yes! 240 out of 300 was big enough to matter, so the principal acted on it. A tiny difference would not."
+   },
+   "evidence": {
+    "sentences": [
+     "When the students analysed their school survey, one finding stood out.",
+     "Out of 300 students, 240 said they walked to school less than once a week, even though most of them lived within two kilometres.",
+     "The class agreed that this was a significant result.",
+     "They presented it to the principal, who decided to create safe walking routes and a weekly walk-to-school day.",
+     "A tiny difference, such as 152 students compared with 148, would not have deserved the same attention."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: large enough to be important and worth acting on. Tap 2 sentences that show why the result mattered.",
+    "wrong": "This sentence only uses the word. Find the sentences that show how big the result was, what happened because of it, or what it is contrasted with."
+   },
+   "checks": [
+    {
+     "passage": "\"In your report on desert animals, include only relevant facts,\" the teacher reminded us. \"A paragraph about your favourite football team would not belong.\"",
+     "stem": "What does relevant mean?",
+     "options": [
+      "Interesting to the reader.",
+      "Long and detailed.",
+      "Connected to the topic.",
+      "Recently discovered."
+     ],
+     "answer": 2,
+     "why": "Football facts **would not belong** in a report on desert animals: they are not connected to the topic."
+    },
+    {
+     "passage": "The story of the match is told from the goalkeeper's perspective. Readers learn only what he sees, hears and feels as the ball flies toward him.",
+     "stem": "What does perspective mean here?",
+     "options": [
+      "The final score of a match.",
+      "A way of seeing events: a point of view.",
+      "A long description of a stadium.",
+      "A rule of the game."
+     ],
+     "answer": 1,
+     "why": "Readers learn **only what he sees and feels**: the story is seen through his eyes."
+    },
+    {
+     "passage": "To emphasise how dangerous the mountain road was, the writer repeated the word \"careful\" three times and printed the warning in bold.",
+     "stem": "What does emphasise mean?",
+     "options": [
+      "Hide something from readers.",
+      "Explain something slowly.",
+      "Make something shorter.",
+      "Give something special importance."
+     ],
+     "answer": 3,
+     "why": "Repeating a word and using **bold** make the danger stand out."
+    }
+   ],
+   "again": {
+    "title": "Swap test",
+    "text": "Replace the academic word with each answer choice.\n\nRead the sentence again. The right meaning makes the sentence keep its **exact** sense; wrong ones change or blur it.",
+    "example": "\"The survey showed a **significant** difference.\"\n\nSwap: \"an **important, real** difference\" ✔. Swap: \"a **surprising** difference\" ✘ (surprising is not the same as important)."
+   }
+  }
+ }
+}

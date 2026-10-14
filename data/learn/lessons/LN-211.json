@@ -1,0 +1,463 @@
+{
+ "code": "LN-211",
+ "title": "Signal words: contrast, cause and position",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.6",
+  "L.5.6",
+  "L.6.6",
+  "L.7.6"
+ ],
+ "families": [],
+ "skillNames": [
+  "Words Showing Contrast and Position"
+ ],
+ "statements": [
+  "R-0240",
+  "R-0401",
+  "R-0408",
+  "R-0779"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that tell where",
+     "text": "Some words tell **where** something is.\n\n**on, under, behind, beside, between, inside, above, below**"
+    },
+    {
+     "title": "Picture it",
+     "text": "“The cat is **under** the table.”\n\nThe table is on top. The cat is **lower down**."
+    },
+    {
+     "title": "How to read them",
+     "text": "1. Find the **where word**.\n2. Make a picture in your head.\n3. Check: where is each thing?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the text**.\n\n1. Read the question.\n2. Find the sentence with the **where word**.\n3. That sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My school bag is on my bed.",
+      "role": "other"
+     },
+     {
+      "t": "My book is inside the bag.",
+      "role": "key"
+     },
+     {
+      "t": "My pen is beside the book.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Inside** means **in** something. So the book is **in the bag**."
+   },
+   "together": {
+    "passage": "Our house has two floors. My room is above the kitchen. My brother's room is next to mine. The garden is behind the house.",
+    "stem": "Where is my room?",
+    "options": [
+     "under the kitchen",
+     "in the garden",
+     "over the kitchen",
+     "behind the house"
+    ],
+    "answer": 2,
+    "hint": "Find the sentence about MY room. What does the where word in it mean?",
+    "good": "Yes! **Above** means over. My room is over the kitchen."
+   },
+   "evidence": {
+    "sentences": [
+     "Our house has two floors.",
+     "My room is above the kitchen.",
+     "My brother's room is next to mine.",
+     "The garden is behind the house."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: over the kitchen. Tap the sentence that proves it.",
+    "wrong": "This sentence is about the house, my brother's room or the garden. Find the sentence about MY room."
+   },
+   "checks": [
+    {
+     "passage": "Mona put the cups on the shelf. She put the plates below the cups.",
+     "stem": "Where are the plates?",
+     "options": [
+      "on top of the cups",
+      "under the cups",
+      "inside the cups",
+      "next to the shelf"
+     ],
+     "answer": 1,
+     "why": "The word **below** means under. The plates are under the cups."
+    },
+    {
+     "passage": "Ahmed sits between Ali and Khalid in class. Ali is on his left. Khalid is on his right.",
+     "stem": "What does “between” mean here?",
+     "options": [
+      "in the middle of two people",
+      "behind two people",
+      "far from two people",
+      "in front of the class"
+     ],
+     "answer": 0,
+     "why": "Ali is on one side and Khalid is on the other. Ahmed is in the middle."
+    },
+    {
+     "passage": "The ball rolled behind the sofa. Sami could not see it. He looked at the back of the sofa and found it.",
+     "stem": "Where was the ball?",
+     "options": [
+      "on the sofa",
+      "in front of the sofa",
+      "under the bed",
+      "at the back of the sofa"
+     ],
+     "answer": 3,
+     "why": "**Behind** means at the back. Sami found the ball at the back of the sofa."
+    }
+   ],
+   "again": {
+    "title": "Use your hands",
+    "text": "Put one hand flat. Move the other hand to show the word.\n\n**above** = over it\n**below** = under it\n**beside** = next to it\n**between** = in the middle of two things",
+    "example": "“The bird is above the tree.”\n\nHand over hand. The bird is **higher** than the tree."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Same or different?",
+     "text": "Some words tell you two things are **the same**: both, also, like, similarly, too.\n\nSome words tell you they are **different**: but, however, unlike, while, in contrast."
+    },
+    {
+     "title": "Signals help you read",
+     "text": "“Camels can live in the desert. **Similarly**, some lizards need very little water.” → **same**\n\n“Camels are big. **However**, lizards are small.” → **different**"
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Find the signal word.\n2. Ask: does it show **same** or **different**?\n3. Read the ideas on each side and check."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The signal word is your proof.\n\n1. Find the signal word in the text.\n2. Tap the sentence that holds it.\n3. Check: are the ideas on each side really the same, or really different?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Riyadh is a large city in the centre of Saudi Arabia.",
+      "role": "other"
+     },
+     {
+      "t": "Jeddah is also a large city.",
+      "role": "detail"
+     },
+     {
+      "t": "Unlike Riyadh, Jeddah is on the coast of the Red Sea.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Also** shows something the same: both are large cities.\n\n**Unlike** shows a difference: Jeddah is by the sea, and Riyadh is not."
+   },
+   "together": {
+    "passage": "Lama and her cousin Dana are the same age, and they both love drawing. Lama likes to draw animals, especially horses and birds. Dana, however, prefers drawing buildings and city streets. Both girls entered the school art show this year. Lama used bright colours, while Dana used only a black pencil.",
+    "stem": "Which word in the text shows that Dana is DIFFERENT from Lama?",
+    "options": [
+     "both",
+     "same",
+     "however",
+     "especially"
+    ],
+    "answer": 2,
+    "hint": "That word shows something the girls SHARE. Look for a word that shows a difference.",
+    "good": "Yes! **However** tells us Dana likes something different: buildings, not animals."
+   },
+   "evidence": {
+    "sentences": [
+     "Lama and her cousin Dana are the same age, and they both love drawing.",
+     "Lama likes to draw animals, especially horses and birds.",
+     "Dana, however, prefers drawing buildings and city streets.",
+     "Both girls entered the school art show this year.",
+     "Lama used bright colours, while Dana used only a black pencil."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: however. Tap 2 sentences with a word that shows a DIFFERENCE.",
+    "wrong": "This sentence shows something the SAME (both, same) or gives one girl's favourites. Find a word like however or while."
+   },
+   "checks": [
+    {
+     "passage": "Owls hunt at night. In contrast, eagles hunt during the day.",
+     "stem": "What does “in contrast” tell you?",
+     "options": [
+      "Owls and eagles hunt at different times.",
+      "Owls and eagles hunt at the same time.",
+      "Eagles hunt owls.",
+      "Owls are bigger than eagles."
+     ],
+     "answer": 0,
+     "why": "**In contrast** shows a difference: night for owls, day for eagles."
+    },
+    {
+     "passage": "Fahad likes maths. His sister likes maths too. They often do puzzles together.",
+     "stem": "Which word shows that Fahad and his sister are alike?",
+     "options": [
+      "often",
+      "his",
+      "puzzles",
+      "too"
+     ],
+     "answer": 3,
+     "why": "**Too** means also. His sister likes maths, just like Fahad."
+    },
+    {
+     "passage": "Most fruits grow on trees or bushes. Strawberries, on the other hand, grow on small plants close to the ground.",
+     "stem": "What does “on the other hand” show?",
+     "options": [
+      "Strawberries grow the same way as most fruits.",
+      "Strawberries grow differently from most fruits.",
+      "Strawberries grow on tall trees.",
+      "Strawberries are the most popular fruit."
+     ],
+     "answer": 1,
+     "why": "**On the other hand** shows a difference: most fruits grow on trees or bushes, but strawberries grow low on small plants."
+    }
+   ],
+   "again": {
+    "title": "Same box, different box",
+    "text": "Make two boxes in your head.\n\n**Same box:** both, also, too, like, similarly\n**Different box:** but, however, unlike, while, instead\n\nPut the signal word in a box. Then you know what the sentence is telling you.",
+    "example": "“Tea is hot, but juice is cold.”\n\n**But** goes in the different box. Tea and juice are **different**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Contrast: a surprise",
+     "text": "Contrast words such as **although**, **even though**, **despite** and **yet** show something **unexpected**.\n\n“**Although** it was raining, the match went on.” You expect the match to stop. It did not."
+    },
+    {
+     "title": "Cause and effect words",
+     "text": "Other words show that one thing **made** another happen: **because**, **so**, **since**, **as a result**, **therefore**.\n\n“The road was flooded, **so** the bus was late.”\nCause: flood. Effect: late bus."
+    },
+    {
+     "title": "Which one is it?",
+     "text": "1. Find the signal word.\n2. Ask: does it show a **surprise** (contrast) or a **reason** (cause and effect)?\n3. Name the two ideas it links.\n4. Check that your answer makes sense in the passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentence that holds the signal word. Then read the two parts it joins.\n\n1. If one part **explains why** the other happened, it is cause and effect.\n2. If one part is **unexpected** after the other, it is contrast.\n\nOther sentences in the passage should agree with your reading."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The village well had always given plenty of water.",
+      "role": "other"
+     },
+     {
+      "t": "Because there was almost no rain that winter, the water level dropped.",
+      "role": "key"
+     },
+     {
+      "t": "Even though the families used less, the well was nearly dry by summer.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Because** gives the reason: no rain **caused** the water to drop.\n\n**Even though** shows a surprise: the families saved water, yet the well still went dry."
+   },
+   "together": {
+    "passage": "Our class planted twenty bean seeds in paper cups. We put ten cups on the sunny windowsill and ten in a dark cupboard. Both groups got the same amount of water each day. After two weeks, the plants on the windowsill were strong and green. In contrast, the plants in the cupboard were thin and pale. Our teacher explained that the cupboard plants were weak because they had no sunlight to make food.",
+    "stem": "In the last sentence, what does the word “because” tell the reader?",
+    "options": [
+     "that the two groups of plants were the same",
+     "the reason the cupboard plants were weak",
+     "how much water the plants received",
+     "where the class put the cups"
+    ],
+    "answer": 1,
+    "hint": "“Because” is a cause-and-effect word. It answers the question WHY. Why were the cupboard plants weak?",
+    "good": "Yes! **Because** gives the cause: no sunlight. The effect: weak plants."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planted twenty bean seeds in paper cups.",
+     "We put ten cups on the sunny windowsill and ten in a dark cupboard.",
+     "Both groups got the same amount of water each day.",
+     "After two weeks, the plants on the windowsill were strong and green.",
+     "In contrast, the plants in the cupboard were thin and pale.",
+     "Our teacher explained that the cupboard plants were weak because they had no sunlight to make food."
+    ],
+    "proof": [
+     1,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the reason the cupboard plants were weak. Tap 2 sentences that show the cause (no light) or the effect (weak plants).",
+    "wrong": "This sentence tells about the seeds, the water or the healthy plants. Find sentences about the DARK cupboard and the WEAK plants."
+   },
+   "checks": [
+    {
+     "passage": "Despite the heat, hundreds of runners finished the race in Riyadh. Many of them had trained in the early morning for months.",
+     "stem": "What does “despite” show?",
+     "options": [
+      "The heat caused the runners to stop.",
+      "The race was held in the morning.",
+      "The weather was cool.",
+      "The runners finished even though it was hot."
+     ],
+     "answer": 3,
+     "why": "**Despite** shows contrast: you might expect the heat to stop them, but they finished anyway."
+    },
+    {
+     "passage": "The bridge was closed for repairs, so drivers had to take the long road around the valley.",
+     "stem": "Which part is the CAUSE?",
+     "options": [
+      "drivers had to take the long road",
+      "the valley was long",
+      "the bridge was closed for repairs",
+      "the drivers were in a hurry"
+     ],
+     "answer": 2,
+     "why": "The word **so** comes after the cause. The closed bridge caused drivers to take the long road."
+    },
+    {
+     "passage": "Salman had studied hard for weeks. Yet when he saw the first question, his mind went blank.",
+     "stem": "What relationship does “yet” show?",
+     "options": [
+      "something unexpected after what came before",
+      "a cause and its effect",
+      "a place and where it is",
+      "two things that are exactly the same"
+     ],
+     "answer": 0,
+     "why": "After weeks of study you expect him to know the answer. **Yet** signals the surprise: his mind went blank."
+    }
+   ],
+   "again": {
+    "title": "Why? or Surprise?",
+    "text": "Test the signal word.\n\n1. Can you ask **Why?** and the other part answers it? → **cause and effect**\n2. Does the second part feel like a **surprise**? → **contrast**",
+    "example": "“The shop was closed, so we went home.” Why did we go home? **The shop was closed.** → cause and effect\n\n“The shop was open, but we went home.” That is a surprise. → contrast"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Formal cause-and-effect signals",
+     "text": "Reports and articles signal cause and effect with **consequently**, **therefore**, **as a result**, **due to**, **owing to**, **led to** and **resulted in**.\n\nSome point forward from cause to effect: “X **led to** Y.” Others point back to the cause: “Y happened **due to** X.”"
+    },
+    {
+     "title": "Words with two jobs",
+     "text": "Some signal words change meaning with context.\n\n“**Since** 2010, the town has grown.” → time\n“**Since** it was late, we left.” → cause\n\n“**While** I cooked, he read.” → time\n“He likes tea, **while** she likes coffee.” → contrast"
+    },
+    {
+     "title": "Follow the chain",
+     "text": "1. Find every signal word.\n2. Label each link: cause → effect, or contrast.\n3. Some texts build a **chain**: one effect becomes the next cause.\n4. Check that your chain matches the order of events in the passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a cause-and-effect answer, point to the sentence with the **signal** and the sentence that describes the **cause**.\n\nAn answer is wrong if it **reverses** the order, or links two events that the text never connects."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the 1930s, oil was discovered in the Eastern Province of Saudi Arabia.",
+      "role": "other"
+     },
+     {
+      "t": "Consequently, workers moved to the region, and small villages grew into busy towns.",
+      "role": "key"
+     },
+     {
+      "t": "The growth of these towns, in turn, led to new schools, roads and hospitals.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Consequently** shows that the discovery caused people to move. **Led to** shows a second step: the growing towns caused new services.\n\nOne effect became the next cause. That is a **chain**."
+   },
+   "together": {
+    "passage": "For centuries, the Aral Sea in Central Asia was one of the largest lakes in the world. In the 1960s, however, engineers began to divert the two rivers that fed it in order to water cotton fields. As a result, far less water reached the lake, and it began to shrink. Within a few decades, much of it had dried into a dusty plain. Fishing towns that once stood on its shore were left many kilometres from the water. Owing to the loss of fish, thousands of people lost their jobs. Winds now carry salt and dust from the dry lakebed across nearby farms.",
+    "stem": "Which phrase in the passage signals that the shrinking of the lake was an EFFECT of the rivers being diverted?",
+    "options": [
+     "for centuries",
+     "however",
+     "as a result",
+     "within a few decades"
+    ],
+    "answer": 2,
+    "hint": "That phrase shows time or a contrast. Which phrase shows that one thing CAUSED another?",
+    "good": "Yes! **As a result** links the cause (the rivers were diverted) to the effect (the lake shrank)."
+   },
+   "evidence": {
+    "sentences": [
+     "For centuries, the Aral Sea in Central Asia was one of the largest lakes in the world.",
+     "In the 1960s, however, engineers began to divert the two rivers that fed it in order to water cotton fields.",
+     "As a result, far less water reached the lake, and it began to shrink.",
+     "Within a few decades, much of it had dried into a dusty plain.",
+     "Fishing towns that once stood on its shore were left many kilometres from the water.",
+     "Owing to the loss of fish, thousands of people lost their jobs.",
+     "Winds now carry salt and dust from the dry lakebed across nearby farms."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: as a result. Tap the 2 sentences that show the cause and its effect.",
+    "wrong": "This sentence gives background or a later link in the chain. Find the sentence about the rivers and the one with the signal that shows its effect."
+   },
+   "checks": [
+    {
+     "passage": "Due to a sandstorm, flights at the airport were delayed for three hours.",
+     "stem": "What does “due to” tell the reader?",
+     "options": [
+      "The delay caused the sandstorm.",
+      "The sandstorm caused the delay.",
+      "The sandstorm and the delay were not connected.",
+      "The flights left before the sandstorm."
+     ],
+     "answer": 1,
+     "why": "**Due to** points back to the cause. The sandstorm caused the flights to be delayed."
+    },
+    {
+     "passage": "While the older students prepared the stage, the younger ones practised their lines in the classroom.",
+     "stem": "In this sentence, “while” means…",
+     "options": [
+      "at the same time as",
+      "but",
+      "because",
+      "in spite of"
+     ],
+     "answer": 0,
+     "why": "Both groups were busy during the same period, so **while** shows time here, not contrast."
+    },
+    {
+     "passage": "Fewer bees visited the orchard that spring. Consequently, many of the apple flowers were never pollinated, and the harvest was small. The farmer, therefore, decided to keep his own beehives.",
+     "stem": "Which statement correctly describes the chain of events?",
+     "options": [
+      "A small harvest caused fewer bees, which caused new hives.",
+      "The farmer's beehives caused fewer bees to visit.",
+      "The flowers caused the bees to leave the orchard.",
+      "Fewer bees led to a small harvest, then to new hives."
+     ],
+     "answer": 3,
+     "why": "**Consequently** links fewer bees to the small harvest; **therefore** links the small harvest to the farmer's decision."
+    }
+   ],
+   "again": {
+    "title": "Arrow test",
+    "text": "Draw an arrow in your head: **cause → effect**.\n\n1. Find the signal word.\n2. Put the two events on either side of the arrow.\n3. Read it aloud: “X made Y happen.” If it makes sense, you have the order right.",
+    "example": "“The team won the final owing to its strong defence.”\n\nStrong defence → won the final. “Strong defence made the win happen.” That makes sense, so **owing to** points back to the cause."
+   }
+  }
+ }
+}

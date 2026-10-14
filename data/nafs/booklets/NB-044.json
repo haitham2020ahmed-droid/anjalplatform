@@ -1,0 +1,568 @@
+{
+  "code": "NB-044",
+  "title": "The Calculator Made of Brass",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 509,
+  "passage": "Faris slumped onto a bench in the exhibition hall and pulled out his phone, scrolling impatiently while his uncle examined the displays. \"Uncle Majed, why did we even come here?\" he groaned, without lifting his eyes from the screen. \"Everything in this room is a thousand years old, and my phone can do all of it better.\"\n\nHis younger sister, Reem, was already pressing her nose against a glass case. Inside lay a circular brass object, engraved with tiny numbers, curving lines and the names of stars, and it glowed softly beneath the lights. \"What is it?\" she whispered, fascinated.\n\n\"That,\" said Uncle Majed, settling down beside Faris, \"is an astrolabe. People sometimes describe it as a calculator made of brass, because it allowed travellers and scholars to solve complicated problems without a single battery.\"\n\nFaris raised one eyebrow suspiciously and asked what kind of problems an old piece of metal could possibly solve.\n\n\"Imagine that you are crossing the desert at night,\" his uncle replied. \"You have no clock and no digital map. By measuring the angle of a particular star above the horizon and rotating the plates of the astrolabe, you could determine the time, estimate your position and even calculate the height of a tower or a mountain. Scholars also used it to help determine the times of prayer.\"\n\nReem read the label aloud. \"Astrolabes were improved and widely used by scientists in the Islamic world, and one celebrated maker was Mariam al-Ijliya, who lived in Aleppo in the tenth century.\"\n\n\"A woman made these?\" Faris asked, looking up from his screen for the first time.\n\n\"She was so skilled,\" Uncle Majed said, \"that the ruler of Aleppo employed her to make instruments for his court. Centuries later, astronomers even named an asteroid in her honour.\"\n\nFaris stood up slowly and walked towards the case. Up close, he could see how precisely every line had been engraved, and he tried to imagine the patient, experienced hands that had shaped it. \"But we don't need these anymore,\" he said, although his voice had lost its confidence.\n\n\"Your phone discovers your location with the help of satellites,\" Uncle Majed answered, \"and those satellites depend on mathematics and astronomy that scholars like Mariam helped to develop. Old knowledge doesn't simply disappear, Faris; it becomes the foundation on which new knowledge is built.\"\n\nOn the way out, Faris stopped at the museum shop and bought a cardboard kit for constructing a simple astrolabe. That evening he cut, folded and glued the pieces with unusual care, while Reem held the instructions and offered advice that he, for once, did not ignore.\n\nThe next morning, the two of them carried the finished instrument into the school courtyard, where Faris paced out his distance from the flagpole, lifted the astrolabe to his eye, measured the angle to its top and calculated its height. When their science teacher compared the result with the height recorded in the school's building plans, it was inaccurate by less than half a metre, and Faris grinned with satisfaction.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “suspiciously” as it is used in paragraph 4?",
+      "options": [
+        "cheerfully",
+        "doubtfully",
+        "angrily",
+        "sleepily"
+      ],
+      "answer": "B",
+      "why": "Faris doubts that “an old piece of metal” could solve any problem, so he raises his eyebrow doubtfully."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “complicated” as it is used in paragraph 3?",
+      "options": [
+        "difficult",
+        "ancient",
+        "simple",
+        "important"
+      ],
+      "answer": "C",
+      "why": "Complicated problems are hard and have many parts; the opposite is “simple”. “Difficult” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 9: “Up close, he could see how precisely every line had been engraved.” What does “engraved” mean?",
+      "options": [
+        "painted with bright colours",
+        "printed on paper",
+        "glued onto the surface",
+        "cut carefully into a hard surface"
+      ],
+      "answer": "D",
+      "why": "Lines on a brass object that can be seen “up close” were cut into the metal, which is what “engraved” means."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADJECTIVE?",
+      "options": [
+        "circular",
+        "pressing",
+        "glowed",
+        "lights"
+      ],
+      "answer": "A",
+      "why": "“Circular” describes the brass object; “pressing” and “glowed” are verb forms and “lights” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is a PLURAL noun?",
+      "options": [
+        "astrolabe",
+        "satellites",
+        "asteroid",
+        "courtyard"
+      ],
+      "answer": "B",
+      "why": "“Satellites” names more than one; the other words are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “astronomy” in paragraph 10?",
+      "options": [
+        "astonish",
+        "astronomer",
+        "assistant",
+        "anatomy"
+      ],
+      "answer": "B",
+      "why": "An astronomer studies astronomy; “astonish” and “anatomy” only look or sound similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “foundation” in a meaningful sentence of your own.",
+      "model": "Learning to read well is the foundation for success in every other subject at school.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “foundation” with its meaning (the base on which something is built)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "A “foundation” is the base that something is built on, either a real building or an idea."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Reem pressed her nose against “a glass case”. What is the plural of “glass”?",
+      "options": [
+        "glass",
+        "glasss",
+        "glassies",
+        "glasses"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in -s add -es: glass → glasses."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Imagine that you are crossing the desert at night”?",
+      "options": [
+        "a question",
+        "a command",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "B",
+      "why": "Uncle Majed tells Faris to do something (imagine), so it is a command, even though it is said kindly."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A Boring Day at the Museum",
+        "Faris Loses His Phone",
+        "From Phone Screen to Brass Stars",
+        "Reem's Birthday Present"
+      ],
+      "answer": "C",
+      "why": "Faris moves from staring at his phone to discovering and using the brass astrolabe."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to show how a boy learns to value old knowledge",
+        "to explain how to choose a new phone",
+        "to describe the history of the city of Aleppo",
+        "to warn children not to touch museum displays"
+      ],
+      "answer": "A",
+      "why": "The story follows Faris as he changes from dismissing the astrolabe to building and using one."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 10?",
+      "options": [
+        "Phones work better than astrolabes.",
+        "Satellites were invented by Mariam al-Ijliya.",
+        "Faris should put his phone away in museums.",
+        "Modern technology is built on knowledge from the past."
+      ],
+      "answer": "D",
+      "why": "Uncle Majed explains that old knowledge “becomes the foundation on which new knowledge is built.”"
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why do people sometimes call the astrolabe “a calculator made of brass”?",
+      "options": [
+        "It could solve complicated problems without a battery.",
+        "It was used to count money in busy markets.",
+        "It had rows of tiny buttons made of brass.",
+        "It was invented by a modern technology company."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: it “allowed travellers and scholars to solve complicated problems without a single battery.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news article",
+        "a dialogue story",
+        "a biography of Mariam al-Ijliya",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It tells an invented story with characters who speak to each other in dialogue."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the ruler of Aleppo employ Mariam al-Ijliya?",
+      "options": [
+        "She was his daughter.",
+        "She was very skilled at making instruments.",
+        "She could read the labels in museums.",
+        "She had travelled across the desert."
+      ],
+      "answer": "B",
+      "why": "Paragraph 8: “She was so skilled … that the ruler of Aleppo employed her to make instruments for his court.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Faris do right AFTER buying the cardboard kit?",
+      "options": [
+        "He measured the height of the flagpole.",
+        "He read the museum label aloud to Reem.",
+        "He showed the kit to his science teacher.",
+        "He built the astrolabe with Reem's help."
+      ],
+      "answer": "D",
+      "why": "Paragraph 11: “That evening he cut, folded and glued the pieces … while Reem held the instructions.” The flagpole came the next morning."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "From whose point of view is the story told?",
+      "options": [
+        "Faris's, using “I”",
+        "Reem's, using “I”",
+        "a narrator outside the story",
+        "Uncle Majed's, using “I”"
+      ],
+      "answer": "C",
+      "why": "The narrator calls the characters “he” and “she” and is not one of them."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which detail must Faris consider BEFORE he could calculate the flagpole's height?",
+      "options": [
+        "the colour of the flagpole",
+        "his distance from the flagpole",
+        "the time of prayer",
+        "the name of the asteroid"
+      ],
+      "answer": "B",
+      "why": "He “paced out his distance from the flagpole” and measured the angle; both are needed to calculate the height."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What first made Faris look up from his screen?",
+      "options": [
+        "learning that a woman had made astrolabes",
+        "hearing Reem whisper beside the glass case",
+        "seeing his uncle sit down on the bench",
+        "noticing the museum shop near the exit"
+      ],
+      "answer": "A",
+      "why": "“A woman made these?” Faris asked, looking up from his screen for the first time."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Faris feel at the beginning of the story?",
+      "options": [
+        "curious and excited",
+        "bored and unimpressed",
+        "frightened and nervous",
+        "proud and grateful"
+      ],
+      "answer": "B",
+      "why": "He slumped onto a bench, scrolled impatiently and groaned, “why did we even come here?”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “his voice had lost its confidence” in paragraph 9 suggest about Faris?",
+      "options": [
+        "He had a sore throat.",
+        "He was angry with his uncle.",
+        "He was beginning to doubt his own opinion.",
+        "He was trying to whisper in the museum."
+      ],
+      "answer": "C",
+      "why": "Seeing the fine engraving up close made him less sure that old instruments were useless."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Faris at the END of the story DIFFERENT from Faris at the beginning?",
+      "options": [
+        "He has become interested in the astrolabe and proud of it.",
+        "He has become bored with science and history.",
+        "He has decided to throw away his phone for ever.",
+        "He has become annoyed with Reem's advice."
+      ],
+      "answer": "A",
+      "why": "At first he groans on a bench; at the end he builds an astrolabe with care and grins with satisfaction."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the astrolabe and Faris's phone have in common, according to Uncle Majed?",
+      "options": [
+        "Both run on batteries.",
+        "Both were made in Aleppo.",
+        "Both use satellites.",
+        "Both can help people find their position."
+      ],
+      "answer": "D",
+      "why": "The astrolabe could “estimate your position”, and the phone finds your location with satellites."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Faris's careful work on the cardboard astrolabe?",
+      "options": [
+        "It broke the first time he used it outside.",
+        "His teacher told him to buy a better kit.",
+        "Reem refused to help him with the pieces.",
+        "His result was wrong by under half a metre."
+      ],
+      "answer": "D",
+      "why": "Because he built it carefully and used it properly, his result was very close to the recorded height."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the story shows strong surprise?",
+      "options": [
+        "“A woman made these?” Faris asked.",
+        "Reem read the label aloud.",
+        "On the way out, Faris stopped at the museum shop.",
+        "Scholars also used it to help determine the times of prayer."
+      ],
+      "answer": "A",
+      "why": "Faris's short question shows his surprise that a woman made such instruments."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Uncle Majed mean when he says old knowledge “becomes the foundation on which new knowledge is built”?",
+      "options": [
+        "Old buildings must be knocked down first.",
+        "Museums are built on very old foundations.",
+        "Old knowledge is no longer really needed.",
+        "New discoveries depend on earlier learning."
+      ],
+      "answer": "D",
+      "why": "He compares knowledge to a building: modern ideas rest on earlier discoveries."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer use dialogue to tell most of this story?",
+      "options": [
+        "to make the story as long as possible",
+        "to give readers exact dates and numbers",
+        "to hide what Faris is really thinking",
+        "to let the characters show their feelings"
+      ],
+      "answer": "D",
+      "why": "The dialogue lets readers hear Faris's change from groaning to asking eager questions."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the MOST important thing Faris learns?",
+      "options": [
+        "Phones are useless and should be avoided.",
+        "Modern technology owes a lot to earlier scholars.",
+        "Museums are mostly interesting for adults.",
+        "Brass instruments are stronger than cardboard."
+      ],
+      "answer": "B",
+      "why": "Uncle Majed's main lesson is that modern technology rests on knowledge developed by earlier scholars."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "We should value and learn from the knowledge of the past.",
+        "Younger sisters always know more than older brothers.",
+        "Phones should never be allowed inside museums.",
+        "Astrolabes are more accurate than satellites."
+      ],
+      "answer": "A",
+      "why": "The story shows Faris learning that old knowledge is the foundation of new knowledge."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "boredom",
+        "fear",
+        "satisfaction",
+        "disappointment"
+      ],
+      "answer": "C",
+      "why": "The story ends with Faris grinning “with satisfaction” at his accurate result."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "who Mariam al-Ijliya was and where she lived",
+        "what an astrolabe looks like up close",
+        "how Faris turned the angle into the height",
+        "what Faris bought at the museum shop"
+      ],
+      "answer": "C",
+      "why": "The story says he “calculated its height” but does not explain how; the other details are given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A student estimates a flagpole's height with a cardboard astrolabe.",
+        "A brass astrolabe tells visitors the time by speaking aloud.",
+        "Mariam al-Ijliya visits the modern museum in person.",
+        "The engraved stars on the astrolabe begin to shine at night."
+      ],
+      "answer": "A",
+      "why": "A simple astrolabe can really measure angles to estimate heights; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Boy Who Measured the Flagpole",
+        "Lost in the Desert at Night",
+        "Reem's New Phone",
+        "The Closed Museum"
+      ],
+      "answer": "A",
+      "why": "The story ends with Faris using his astrolabe to measure the flagpole, the result of his change of mind."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that show another way Faris could use what he learned at the museum.",
+      "model": "That night, Faris took the cardboard astrolabe onto the roof with Uncle Majed and measured the angle of a bright star above the horizon. He used it to estimate the time and compared it with his phone, and he was amazed when the two answers were only a few minutes apart.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and shows Faris using what he learned",
+        "1 = an ending is given but it is unclear or does not fit the story well",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Faris's change of attitude and what he learned about astrolabes is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how could a school help students value the scientific achievements of the past?",
+      "options": [
+        "Organise visits to science and history exhibitions.",
+        "Let students build and test simple historical instruments.",
+        "A and B",
+        "Tell students that old instruments are useless."
+      ],
+      "answer": "C",
+      "why": "Both the exhibition visit and building an astrolabe changed Faris's mind; the last option is the opposite of the story's message."
+    }
+  ]
+}

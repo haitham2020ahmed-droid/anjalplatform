@@ -1,0 +1,469 @@
+{
+ "code": "LN-185",
+ "title": "Reading, watching and hearing a story",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [],
+ "families": [
+  "compare-texts"
+ ],
+ "skillNames": [
+  "Comparing a Story to Its Performance",
+  "Reading a Story vs. Hearing or Viewing It"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "One story, three ways",
+     "text": "You can **read** a story in a book.\n\nYou can **hear** it, like on the radio.\n\nYou can **watch** it, like a film or a play."
+    },
+    {
+     "title": "What is new?",
+     "text": "**Reading:** you see words. You make the picture.\n\n**Hearing:** you hear voices, music and sounds.\n\n**Watching:** you see people, places and colours."
+    },
+    {
+     "title": "Same or different?",
+     "text": "1. Think about the book.\n2. Think about the film or play.\n3. Ask: **What is the same?**\n4. Ask: **What is different?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text tells you about the book **and** the film or play.\n\n1. Find the words **In the book**.\n2. Find the words **In the film** or **In the play**.\n3. Look at what each part says.\n\nThe answer must be in those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the book, the lion is big and brown.",
+      "role": "detail"
+     },
+     {
+      "t": "In the film, the lion is big and brown too.",
+      "role": "key"
+     },
+     {
+      "t": "In the film, the lion can sing!",
+      "role": "key"
+     }
+    ],
+    "explain": "**Same:** the lion is big and brown in both.\n\n**Different:** only the film lion can sing."
+   },
+   "together": {
+    "passage": "In the book, a little bird is lost. It looks for its nest all alone. In the play, the bird sings a sad song. Then kids on the stage help it find the nest.",
+    "stem": "What is different in the play?",
+    "options": [
+     "The bird is lost.",
+     "The bird looks for its nest.",
+     "The bird sings, and kids help it.",
+     "The bird has a nest."
+    ],
+    "answer": 2,
+    "hint": "That happens in the book too. What does the play have that the book does not?",
+    "good": "Yes! In the play the bird sings, and kids help it. The book does not have that."
+   },
+   "evidence": {
+    "sentences": [
+     "In the book, a little bird is lost.",
+     "It looks for its nest all alone.",
+     "In the play, the bird sings a sad song.",
+     "Then kids on the stage help it find the nest."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: in the play, the bird sings and kids help it. Tap 2 sentences that tell about the play.",
+    "wrong": "This sentence tells about the book. Find the sentences about the play."
+   },
+   "checks": [
+    {
+     "passage": "In the book, Omar's cat is orange. In the cartoon, the cat is orange too. In the cartoon, the cat can talk.",
+     "stem": "What is the same in the book and the cartoon?",
+     "options": [
+      "The cat can talk.",
+      "The cat sings.",
+      "The cat is blue.",
+      "The cat is orange."
+     ],
+     "answer": 3,
+     "why": "The book says orange. The cartoon says orange **too**."
+    },
+    {
+     "passage": "In the book, the girl is scared of the dark. The book says, \"She was scared.\" In the film, you see her shake. She hides under her blanket.",
+     "stem": "How does the film show she is scared?",
+     "options": [
+      "It shows her shake and hide.",
+      "It says, \"She was scared.\"",
+      "It plays happy music.",
+      "It shows her laugh."
+     ],
+     "answer": 0,
+     "why": "In the film you **see** her shake and hide."
+    },
+    {
+     "passage": "Dad plays a story for us. We do not see any pictures. We hear the wind blow. We hear a door bang. A man reads in a deep voice.",
+     "stem": "What do we get from hearing the story?",
+     "options": [
+      "Pictures of the people.",
+      "Sounds, like wind and a door.",
+      "Big letters on a page.",
+      "Colours of the sky."
+     ],
+     "answer": 1,
+     "why": "We **hear** the wind, the door and a deep voice. There are no pictures."
+    }
+   ],
+   "again": {
+    "title": "Use your eyes and ears",
+    "text": "Ask two questions:\n\n1. What can I **see** in the film or play?\n2. What can I **hear**?\n\nThen look back. Did the book have that?",
+    "example": "Book: The dog ran fast. Film: You see the dog run, and you hear it bark.\n\nThe film adds the **bark**. The book did not have it."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Different ways to tell a story",
+     "text": "A story can be a **book**, an **audio** recording, a **film** or a **play** on a stage.\n\nThe story may be the same, but each way gives you **different things**."
+    },
+    {
+     "title": "What each one can do",
+     "text": "**Text:** a narrator can tell you what characters think and feel.\n\n**Audio:** voices, tone, music and sound effects.\n\n**Film or play:** actors' faces, costumes, sets, light and movement."
+    },
+    {
+     "title": "Compare in three steps",
+     "text": "1. Find what stays **the same** (characters, main events).\n2. Find what is **added, cut or changed**.\n3. Ask **how** the version shows things the text told in words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When a passage compares versions, keep them apart.\n\n1. Mark the sentences about the **written story**.\n2. Mark the sentences about the **film, audio or play**.\n3. Answer from the right group.\n\nA common trap: an answer that is true for the book, when the question asks about the film."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the written story, the author tells us that Reem is proud of her painting.",
+      "role": "detail"
+     },
+     {
+      "t": "In the film, nobody says the word proud.",
+      "role": "other"
+     },
+     {
+      "t": "Instead, Reem smiles and holds the painting up high for everyone to see.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **book** tells her feeling in words. The **film** shows it with a smile and an action.\n\nBoth give the same idea in different ways."
+   },
+   "together": {
+    "passage": "In the written story, the author tells us that Salem is worried when his camel goes missing. His heart is \"pounding like a drum\". In the film, Salem never says that he is worried. Instead, the camera moves close to his face as he stares across the empty sand. Fast drum music plays while he runs between the tents. The film also adds a scene where his sister helps him search.",
+    "stem": "How does the film show Salem's worry?",
+    "options": [
+     "The narrator says his heart is pounding.",
+     "Salem tells his sister he is worried.",
+     "It shows a calm, quiet desert at night.",
+     "A close-up of his face and fast drum music."
+    ],
+    "answer": 3,
+    "hint": "Careful: that is from the written story, or it never happens. Look at what the camera and the music do.",
+    "good": "Yes! The film uses a close-up of his face and fast drum music instead of words."
+   },
+   "evidence": {
+    "sentences": [
+     "In the written story, the author tells us that Salem is worried when his camel goes missing.",
+     "His heart is \"pounding like a drum\".",
+     "In the film, Salem never says that he is worried.",
+     "Instead, the camera moves close to his face as he stares across the empty sand.",
+     "Fast drum music plays while he runs between the tents.",
+     "The film also adds a scene where his sister helps him search."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a close-up of his face and fast drum music. Tap 2 sentences that show how the film does it.",
+    "wrong": "This sentence is about the written story, or about a new scene. Find the sentences about the camera and the music."
+   },
+   "checks": [
+    {
+     "passage": "In the printed story, the old door \"creaked slowly open\". In the audio version, listeners hear a long creak. Then the reader whispers the next line.",
+     "stem": "What does the audio version add?",
+     "options": [
+      "A picture of the old door.",
+      "A creaking sound and a whispering voice.",
+      "A new character who opens the door.",
+      "A different ending to the story."
+     ],
+     "answer": 1,
+     "why": "Listeners **hear** a long creak and a whisper. The text only had words."
+    },
+    {
+     "passage": "In the book, the story happens on a ship, on an island and in a market. On the stage, there is only one set. The actors move a few boxes and a blue cloth to show each new place.",
+     "stem": "How does the play show the different places?",
+     "options": [
+      "By building three different stages.",
+      "By showing photos on a big screen.",
+      "By moving boxes and a cloth on one set.",
+      "By having a narrator read the book aloud."
+     ],
+     "answer": 2,
+     "why": "The play has one set. The actors **move boxes and a cloth** to change the place."
+    },
+    {
+     "passage": "In the book, we read Lina's thoughts: \"I hope nobody sees my torn shoe.\" In the film, we cannot hear what she thinks. We only see her slide her foot under the chair.",
+     "stem": "What does the book give that the film does not?",
+     "options": [
+      "Lina's exact thoughts.",
+      "Lina's torn shoe.",
+      "The chair in the room.",
+      "Lina's face."
+     ],
+     "answer": 0,
+     "why": "The film shows her action, but only the book gives her **exact thoughts** in words."
+    }
+   ],
+   "again": {
+    "title": "Words become pictures and sounds",
+    "text": "In a book, everything is **words**. In a film, play or audio, someone must turn those words into something you see or hear.\n\nAsk: **What did the words say?** Then: **What did they turn it into?**",
+    "example": "Book: \"The crowd cheered.\" Audio: you hear loud clapping and shouting.\n\nThe words **became a sound**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Each version makes choices",
+     "text": "When a story becomes a film, a radio drama or a play, the people who make it must **choose**: what to show, what to cut, what to add, and how characters should sound and look.\n\nThese choices change how we **experience** the story."
+    },
+    {
+     "title": "What can change",
+     "text": "1. **Scenes** may be cut, added or moved.\n2. **Voices** add tone: angry, gentle, tired.\n3. **Music and sound** build a mood.\n4. **Images** (light, costumes, sets) show what words described."
+    },
+    {
+     "title": "Ask why",
+     "text": "After you find a difference, ask:\n\n**Why** did they make this change?\n**What effect** does it have on the reader, listener or viewer?\n\nOften the answer is that the new version must show **without** a narrator explaining."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain a choice, connect **what changed** with **what it does**.\n\n1. Find the sentence that describes the change.\n2. Find the sentence that shows the effect on the audience.\n3. Pick the answer that links the two.\n\nAvoid answers that describe only the book, or that guess at reasons the text does not support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the novel, the narrator explains that Majid is lonely at his new school.",
+      "role": "detail"
+     },
+     {
+      "t": "The play cannot use a narrator.",
+      "role": "other"
+     },
+     {
+      "t": "So the director shows Majid eating lunch at an empty table while laughter comes from the other side of the stage.",
+      "role": "key"
+     },
+     {
+      "t": "The audience feels his loneliness without being told.",
+      "role": "key"
+     }
+    ],
+    "explain": "The change: a narrator's words become a **scene**. The effect: the audience **feels** the loneliness for themselves."
+   },
+   "together": {
+    "passage": "The short story \"Night Boat\" is told by a narrator who explains every thought of the young fisherman, Hamad, as he waits alone for his father's boat to return. In the radio drama, there is no narrator. Instead, listeners hear the slap of waves, the creak of the dock, and the slow ticking of Hamad's watch. Every few minutes, Hamad calls his father's name, and only the wind answers. Many listeners say the radio version feels more tense than the story.",
+    "stem": "Why did the radio drama most likely add the sounds of waves and a ticking watch?",
+    "options": [
+     "To explain the rules of fishing at night.",
+     "To let listeners feel the long, worried wait without a narrator.",
+     "Because the story is mostly about watches.",
+     "To make the story funny and light."
+    ],
+    "answer": 1,
+    "hint": "The radio drama has no narrator to explain Hamad's feelings. What do the sounds do instead?",
+    "good": "Yes! With no narrator, the sounds and silence let listeners feel the tense wait."
+   },
+   "evidence": {
+    "sentences": [
+     "The short story \"Night Boat\" is told by a narrator who explains every thought of the young fisherman, Hamad, as he waits alone for his father's boat to return.",
+     "In the radio drama, there is no narrator.",
+     "Instead, listeners hear the slap of waves, the creak of the dock, and the slow ticking of Hamad's watch.",
+     "Every few minutes, Hamad calls his father's name, and only the wind answers.",
+     "Many listeners say the radio version feels more tense than the story."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to let listeners feel the worried wait without a narrator. Tap 2 sentences that show this.",
+    "wrong": "This sentence is about the written story, or what Hamad does. Find sentences about what the radio version changed or how listeners felt."
+   },
+   "checks": [
+    {
+     "passage": "In the book, the ending is quiet: the brothers shake hands and walk home. In the film, the director adds a final scene where the whole village gathers to celebrate them. Some viewers enjoy this, but readers of the book say it feels too loud.",
+     "stem": "What change did the film make?",
+     "options": [
+      "It cut the brothers from the story.",
+      "It made the ending quieter.",
+      "It added a big celebration at the end.",
+      "It changed the brothers into cousins."
+     ],
+     "answer": 2,
+     "why": "The film **adds a final scene** where the village celebrates."
+    },
+    {
+     "passage": "In the novel, the old teacher is described only as \"strict\". In the stage version, the actor speaks softly and pauses kindly before correcting students. Audiences see a teacher who is strict but also caring.",
+     "stem": "How does the actor's choice affect the character?",
+     "options": [
+      "It makes the teacher seem only cruel.",
+      "It makes the teacher seem caring as well as strict.",
+      "It removes the teacher from the story.",
+      "It makes the teacher seem funny."
+     ],
+     "answer": 1,
+     "why": "The soft voice and kind pauses add **care** to the word strict."
+    },
+    {
+     "passage": "In the printed story, a storm hits the village in one long paragraph. In the audiobook, the reader slows down, and thunder rumbles under her voice. The paragraph that takes one minute to read takes three minutes to hear.",
+     "stem": "What is the effect of the audiobook's choices?",
+     "options": [
+      "The storm feels longer and more dramatic.",
+      "The storm is cut out of the story.",
+      "Listeners learn new facts about storms.",
+      "The storm seems calm and short."
+     ],
+     "answer": 0,
+     "why": "Slowing down and adding thunder make the storm last longer and feel more dramatic."
+    }
+   ],
+   "again": {
+    "title": "Change, then effect",
+    "text": "Use this sentence frame:\n\n**In the book, ___. In the film (or play, or audio), ___. This makes the audience ___.**\n\nFill each blank from the text.",
+    "example": "In the book, **the narrator says the room is dark**. In the play, **the lights go dim and one candle glows**. This makes the audience **feel the darkness themselves**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Adaptation",
+     "text": "Turning a written story into a film, stage or audio production is called **adaptation**. Every adaptation is also an **interpretation**: its makers decide what the story means and what matters most.\n\nComparing versions shows you those decisions."
+    },
+    {
+     "title": "Faithful or free?",
+     "text": "Some adaptations stay **faithful**, keeping events and dialogue. Others are **free**, changing the setting, the order or even the ending.\n\nNeither is automatically better. Ask what each change gains and what it loses."
+    },
+    {
+     "title": "Tools of each medium",
+     "text": "**Film:** camera angle, close-up, editing, soundtrack.\n**Stage:** lighting, set, blocking (where actors stand), live voice.\n**Audio:** pacing, silence, sound effects.\n\nThese tools replace what text does with description and narration."
+    },
+    {
+     "title": "Evaluate the choice",
+     "text": "1. Identify the change precisely.\n2. Explain the **effect** on mood, character or theme.\n3. Judge: does the change keep the story's central idea, or shift it?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "An analysis of an adaptation needs evidence about **both** versions.\n\n1. Quote or point to what the original does.\n2. Point to what the adaptation does differently.\n3. Point to the effect described in the passage.\n\nReject answers that confuse the two versions or claim effects the passage never supports."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the original story, the reader knows from the first page that the lost ring is in the grandmother's pocket.",
+      "role": "detail"
+     },
+     {
+      "t": "The film hides this until the final scene.",
+      "role": "key"
+     },
+     {
+      "t": "As a result, viewers share the family's confusion and are surprised at the end.",
+      "role": "key"
+     },
+     {
+      "t": "The film was shot in a village near the coast.",
+      "role": "other"
+     }
+    ],
+    "explain": "The book creates **dramatic irony** (we know more than the characters). The film turns the story into a **mystery** by hiding the ring.\n\nSame events, very different experience."
+   },
+   "together": {
+    "passage": "In the novel, the story of the old well is told through the memories of Grandfather Saeed, who jumps back and forth across sixty years. Readers often need to check the dates at the top of each chapter. The stage version solves this in a different way. When the play moves into the past, warm golden light floods the stage and a single oud plays; when it returns to the present, the light turns cool and blue and the music stops. Young actors play the past and older actors play the present, sometimes standing on the stage at the same time. Audiences follow the jumps easily, and many say the moment when young Saeed and old Saeed look at each other across the well is the most moving scene in the play, even though it never happens in the book.",
+    "stem": "Which statement best explains how the stage version changes the experience of the story?",
+    "options": [
+     "It removes the past so that the play happens only in the present.",
+     "It uses light, music and two sets of actors to make time jumps clear and to create a new emotional moment.",
+     "It follows the novel exactly, including the dates for each chapter.",
+     "It shows that the novel was too difficult for most readers to enjoy."
+    ],
+    "answer": 1,
+    "hint": "Look at the tools the stage uses, and at the scene that is new. Which choice covers both?",
+    "good": "Yes! Light, music and paired actors make the time jumps clear, and they create a moving scene the book never had."
+   },
+   "evidence": {
+    "sentences": [
+     "In the novel, the story of the old well is told through the memories of Grandfather Saeed, who jumps back and forth across sixty years.",
+     "Readers often need to check the dates at the top of each chapter.",
+     "The stage version solves this in a different way.",
+     "When the play moves into the past, warm golden light floods the stage and a single oud plays; when it returns to the present, the light turns cool and blue and the music stops.",
+     "Young actors play the past and older actors play the present, sometimes standing on the stage at the same time.",
+     "Audiences follow the jumps easily, and many say the moment when young Saeed and old Saeed look at each other across the well is the most moving scene in the play, even though it never happens in the book."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: light, music and two sets of actors make time jumps clear and create a new moment. Tap 2 sentences that show these choices or their effect.",
+    "wrong": "This sentence describes the novel or the stage version's plan in general. Find the sentences that show the specific tools or the new moment."
+   },
+   "checks": [
+    {
+     "passage": "In the novel, the hero is described from the outside, and readers are never sure whether to trust him. The film tells the story with the camera always behind his shoulder, so viewers see only what he sees.",
+     "stem": "What is the most likely effect of the film's camera choice?",
+     "options": [
+      "Viewers learn the thoughts of every other character.",
+      "Viewers are pushed to share the hero's view and trust him more.",
+      "Viewers see the hero from far away, as strangers would.",
+      "The story becomes a comedy instead of a drama."
+     ],
+     "answer": 1,
+     "why": "Seeing only what he sees places viewers **in his position**, unlike the distant view of the novel."
+    },
+    {
+     "passage": "The written folktale ends with a short moral: \"Patience is better than gold.\" The audio version leaves out the moral. Instead, it ends with a long silence after the merchant opens the empty box, then the sound of a door closing softly.",
+     "stem": "How does the audio ending differ in its approach?",
+     "options": [
+      "It lets listeners work out the lesson from the silence instead of stating it.",
+      "It adds a new, happier ending in which the box is full.",
+      "It states the lesson louder than the written version.",
+      "It changes the lesson from patience to honesty."
+     ],
+     "answer": 0,
+     "why": "The moral is **cut**, and silence invites listeners to reach it themselves."
+    },
+    {
+     "passage": "A stage director moved the play's most famous speech from the middle to the very end. Critics noted that the speech, once a turning point, now sounded like a farewell, and the whole play felt sadder.",
+     "stem": "What does this example show about adaptation?",
+     "options": [
+      "Moving a speech never changes its meaning.",
+      "Directors are not allowed to change a play.",
+      "Critics prefer plays that follow the book closely.",
+      "Changing the order of events can change the meaning and mood."
+     ],
+     "answer": 3,
+     "why": "The same words, placed at the end, became a **farewell** and changed the mood of the whole play."
+    }
+   ],
+   "again": {
+    "title": "Gain and loss",
+    "text": "For any change, make two short lists:\n\n**Gained:** what does the new version do better or differently?\n**Lost:** what did the original do that is now gone?\n\nYour analysis is the balance of the two.",
+    "example": "Book: long descriptions of the desert at dawn. Film: a two-second shot of the sunrise.\n\nGained: **instant, beautiful image**. Lost: **the narrator's slow, thoughtful mood**."
+   }
+  }
+ }
+}

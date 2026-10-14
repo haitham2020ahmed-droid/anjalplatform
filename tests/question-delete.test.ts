@@ -27,7 +27,7 @@ describe("delete and archive questions", () => {
     const st = (await repo.findMany("Student", {}))[0];
     const sess = await repo.create("PracticeSession", { studentId: st.id, skillId: q.skillId, mode: "ADAPTIVE_PRACTICE", startedAt: new Date(), currentQuestionId: q.id });
     const r = await deleteQuestions(repo, admin, [String(q.id)]);
-    assert.deepEqual(r, { deleted: 1, skipped: [] });
+    assert.deepEqual(r, { deleted: 1, hidden: 0, skipped: [] });
     assert.equal(await repo.findUnique("Question", { id: q.id }), null);
     assert.equal(await repo.count("QuestionOption", { questionId: q.id }), 0);
     assert.equal(await repo.count("QuestionAnswer", { questionId: q.id }), 0);
@@ -38,7 +38,7 @@ describe("delete and archive questions", () => {
     assert.equal(await repo.count("AuditLog", { action: "question.delete", entityId: q.id }), 1);
   });
 
-  test("bulk delete many in one call; answered questions are kept and reported", async () => {
+  test("bulk delete many in one call; answered questions leave the platform but their rows (and answers) stay", async () => {
     const ids = (await listQuestions(repo, admin, { status: "PUBLISHED", limit: 60 })).items.map((x) => x.id);
     const answered = ids[0];
     const st = (await repo.findMany("Student", {}))[0];
@@ -47,11 +47,21 @@ describe("delete and archive questions", () => {
     await repo.create("QuestionAttempt", { studentId: st.id, sessionId: sess.id, questionId: answered, skillId: q.skillId, response: "x", isCorrect: false, responseMs: 5000, difficultyB: 0, createdAt: new Date() });
     const before = await repo.count("Question", {});
     const r = await deleteQuestions(repo, admin, ids);
-    assert.equal(r.deleted, ids.length - 1);
-    assert.deepEqual(r.skipped.map((x) => x.id), [answered]);
-    assert.match(r.skipped[0].reason, /Archive it instead/);
-    assert.equal(await repo.count("Question", {}), before - (ids.length - 1));
-    assert.ok(await repo.findUnique("Question", { id: answered }), "student history is protected");
+    // r67 (owner): an admin deletes ANY question; an answered one is hidden everywhere instead of erased
+    assert.equal(r.deleted, ids.length);
+    assert.equal(r.hidden, 1);
+    assert.deepEqual(r.skipped, []);
+    assert.equal(await repo.count("Question", {}), before - ids.length, "every bank read (counts included) skips it");
+    const kept = await repo.findUnique("Question", { id: answered });
+    assert.ok(kept && kept.deletedAt, "student history is protected: the row stays, read by id");
+    assert.equal(await repo.count("QuestionAttempt", { questionId: answered }), 1);
+    // the older rule is still available to callers that ask for it
+    const [one] = (await listQuestions(repo, admin, { status: "PUBLISHED", limit: 1 })).items.map((x) => x.id);
+    const q1 = (await repo.findUnique("Question", { id: one }))!;
+    await repo.create("QuestionAttempt", { studentId: st.id, sessionId: sess.id, questionId: one, skillId: q1.skillId, response: "x", isCorrect: false, responseMs: 5000, difficultyB: 0, createdAt: new Date() });
+    const old = await deleteQuestions(repo, admin, [one], new Date(), { hideAnswered: false });
+    assert.deepEqual([old.deleted, old.skipped.length], [0, 1]);
+    assert.match(old.skipped[0].reason, /Archive it instead/);
     await assert.rejects(deleteQuestions(repo, admin, Array.from({ length: 501 }, (_, i) => `x${i}`)), /at most 500/);
   });
 

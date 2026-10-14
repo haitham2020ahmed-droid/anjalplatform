@@ -244,3 +244,39 @@ export const MOE_GOALS: string[] = [
   "Measure the indicators of the Human Capability Development Program.",
 ];
 export const MOE_TARGETS: string[] = ["Grade 3 (a sample of schools)", "Grade 6 (all schools)", "Grade 9 (all schools)"];
+
+// ------------------------------------------------------------------ a code is always shown with its name
+
+/**
+ * A NAFS code WITH its name, everywhere a code is shown (dropdowns, chips, tables, reports): a Ministry standard
+ * "S13 — Proposes a title, a different ending and solutions…", a PIRLS process "P2 — Make straightforward inferences",
+ * a NAFS skill by its name ("Main idea"). `t` translates the name (pages pass theirs). Never the bare code.
+ */
+export function codeName(code: string | null | undefined, t: (s: string) => string = (x) => x): string {
+  const c = String(code ?? "");
+  const std = MOE_BY_CODE.get(c);
+  if (std) return `${std.short} — ${t(std.text)}`;
+  const p = /^(?:NAFS\.)?(P[1-4])$/.exec(c);
+  if (p) return `${p[1]} — ${t(PROCESS_NAME[p[1] as NafsProcess])}`;
+  const k = SKILL_BY_CODE.get(c);
+  if (k) return t(k.name);
+  return c;
+}
+/** The short code alone ("S13", "P2") — only next to its name (codeName), e.g. a narrow column with the name under it. */
+export const codeShort = (code: string): string => MOE_BY_CODE.get(code)?.short ?? (/^(?:NAFS\.)?(P[1-4])$/.exec(code)?.[1] ?? code);
+
+// ------------------------------------------------------------------ difficulty choice (test builder, practice, filters)
+
+/**
+ * The difficulty choice offered everywhere in the NAFS center: Any · Easy · Medium · Hard · Mixed (with %) · Adaptive.
+ * Adaptive = the test / practice adapts to each student (start Medium, harder after a right answer, easier after a
+ * wrong one, inside the chosen standards — the adaptive practice engine). On paper an adaptive test falls back to Mixed.
+ */
+export type DifficultyChoice = "ANY" | "1" | "2" | "3" | "MIX" | "ADAPTIVE";
+export const DIFFICULTY_CHOICES: { key: DifficultyChoice; label: string }[] = [
+  { key: "ANY", label: "Any" }, { key: "1", label: "Easy" }, { key: "2", label: "Medium" }, { key: "3", label: "Hard" }, { key: "MIX", label: "Mixed" }, { key: "ADAPTIVE", label: "Adaptive" },
+];
+export const ADAPTIVE = "ADAPTIVE";
+/** The mix a printed adaptive test (and the first list of an online one) uses. */
+export const ADAPTIVE_FALLBACK_MIX: DifficultyMix = { 1: 30, 2: 40, 3: 30 };
+export const isAdaptiveChoice = (v: unknown): boolean => v === ADAPTIVE || (typeof v === "object" && v !== null && (v as { adaptive?: unknown }).adaptive === true);

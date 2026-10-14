@@ -1,0 +1,568 @@
+{
+  "code": "NB-064",
+  "title": "Elephants: Giants That Shape Their World",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 447,
+  "passage": "The African elephant is the largest land animal on Earth. An adult male can stand more than three metres tall at the shoulder and weigh as much as six tonnes. Yet what fascinates scientists most is not the elephant's enormous size, but its intelligence, its close family bonds, and the surprising ways it shapes the world around it.\n\nThe elephant's most extraordinary tool is its trunk, which is a long, flexible combination of the nose and upper lip. It contains tens of thousands of muscle bundles but not a single bone. With its trunk, an elephant can breathe, smell water from a great distance, lift a heavy log, or pick up a single peanut. When it is thirsty, it sucks several litres of water into its trunk and then squirts the water into its mouth. On hot afternoons, it may spray dust or mud over its back, which protects its skin from the burning sun and from biting insects.\n\nElephants live in close family groups called herds. Each herd is made up of related females and their young, and it is led by the oldest and most experienced female, known as the matriarch. Her long memory is vital to the group's survival. During a severe drought, she may lead the herd to a distant waterhole that she last visited many years earlier. Young males remain with their mothers until they are teenagers. After that, they leave to live alone or to join small groups of other males.\n\nThese animals also communicate in impressive ways. Besides trumpeting loudly, elephants produce deep rumbles that are too low for human ears to hear. Such sounds can travel several kilometres, and researchers believe that elephants may even detect them through the sensitive soles of their feet.\n\nElephants are often called \"ecosystem engineers\" because their daily activities change their surroundings. An adult can eat more than 150 kilograms of grass, leaves, bark and fruit in a single day. While feeding, elephants knock down trees, which opens up space for grasses that zebras and antelopes need. During dry seasons, they dig into riverbeds with their feet and tusks, creating waterholes that other animals share. In addition, the seeds of many trees travel inside elephants and are deposited far away in their dung, so many plant species depend on them to spread.\n\nSadly, African elephants are now endangered. Poachers have killed huge numbers of them for their ivory tusks, while farms and towns have taken over much of their land. Many countries have responded by banning the ivory trade, creating national parks, and training rangers to protect the herds. Protecting elephants means protecting the countless plants and animals whose lives are linked to theirs.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “vital” in paragraph 3 (“Her long memory is vital to the group's survival”)?",
+      "options": [
+        "harmful",
+        "extremely important",
+        "slightly useful",
+        "well known"
+      ],
+      "answer": "B",
+      "why": "The matriarch's memory can save the herd in a drought, so “vital” means extremely important."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “flexible” in paragraph 2 (“a long, flexible combination”)?",
+      "options": [
+        "bendy",
+        "gentle",
+        "heavy",
+        "stiff"
+      ],
+      "answer": "D",
+      "why": "“Flexible” means able to bend easily; its opposite is “stiff”. “Bendy” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 6, “Poachers have killed huge numbers of them for their ivory tusks.” What is a “poacher”?",
+      "options": [
+        "a scientist who studies elephants",
+        "a ranger who protects wild animals",
+        "a person who hunts animals illegally",
+        "a farmer who grows crops near parks"
+      ],
+      "answer": "C",
+      "why": "Poachers kill elephants for ivory, which countries have banned; rangers are trained to stop them."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an ADVERB?",
+      "options": [
+        "loudly",
+        "rumbles",
+        "sensitive",
+        "communicate"
+      ],
+      "answer": "A",
+      "why": "“Loudly” tells how elephants trumpet; “rumbles” is a noun, “sensitive” an adjective and “communicate” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 4, elephants may detect sounds through their “feet”. What is the SINGULAR of “feet”?",
+      "options": [
+        "feets",
+        "feet",
+        "footes",
+        "foot"
+      ],
+      "answer": "D",
+      "why": "“Foot” has an irregular plural: one foot, two feet."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “intelligence” in paragraph 1?",
+      "options": [
+        "integer",
+        "internal",
+        "interest",
+        "intelligent"
+      ],
+      "answer": "D",
+      "why": "“Intelligent” and “intelligence” share the same root; the others only begin with “int-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “severe” in a meaningful sentence of your own.",
+      "model": "The severe sandstorm closed the roads, so our school sent everyone home early.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “severe” with its meaning (very serious or harsh)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Severe” means very serious, harsh or extreme."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “species”, as used in paragraph 5 (“many plant species”)?",
+      "options": [
+        "species",
+        "specieses",
+        "specie",
+        "speciess"
+      ],
+      "answer": "A",
+      "why": "“Species” has the same form in the singular and the plural: one species, many species."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a QUESTION?",
+      "options": [
+        "Elephants live in close family groups called herds.",
+        "Protect the elephants of Africa.",
+        "Why do elephants spray mud over their backs?",
+        "What a remarkable trunk the elephant has!"
+      ],
+      "answer": "C",
+      "why": "It asks something and ends with a question mark; the others are a statement, a command and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "The Biggest Tusks in All of Africa",
+        "Gentle Giants That Shape Their World",
+        "How to Ride and Train an Elephant",
+        "Zebras and Antelopes of the Grasslands"
+      ],
+      "answer": "B",
+      "why": "The text describes elephants' intelligence, families and the way they change their surroundings."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the writer's main purpose?",
+      "options": [
+        "to explain elephants' abilities and why protecting them matters",
+        "to persuade readers that ivory products should be sold more widely",
+        "to tell the life story of one elephant from birth to old age",
+        "to compare African elephants with the zebras and antelopes they live with"
+      ],
+      "answer": "A",
+      "why": "The text explains the trunk, family life, communication and ecosystem role, then argues that protecting elephants protects many species."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 5?",
+      "options": [
+        "Elephants eat more than 150 kilograms of grass, leaves and fruit every day.",
+        "Zebras and antelopes depend on the open grasslands to survive.",
+        "Elephants' daily activities change their surroundings and help other living things.",
+        "Elephants knock down trees mainly because they are searching for water."
+      ],
+      "answer": "C",
+      "why": "The paragraph calls elephants “ecosystem engineers” and gives several examples; the eating detail is only one part."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why may an elephant spray dust or mud over its back?",
+      "options": [
+        "to clean the dirt from its tusks",
+        "to cool the water stored in its trunk",
+        "to send a silent message to the herd",
+        "to protect its skin from the sun and insects"
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: it “protects its skin from the burning sun and from biting insects.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "an informational text",
+        "a fable",
+        "a personal letter",
+        "a dialogue"
+      ],
+      "answer": "A",
+      "why": "It presents facts and explanations about a real animal."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why is the matriarch's long memory so important?",
+      "options": [
+        "She can lead the herd to a distant waterhole in a drought.",
+        "She can recognise every elephant she has ever met.",
+        "She remembers which places the poachers have visited.",
+        "She can teach the young males how to trumpet loudly."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: during a drought she may lead the herd to a waterhole she last visited years earlier."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what happens to young males AFTER they become teenagers?",
+      "options": [
+        "They become the leaders of their mothers' herds.",
+        "They stay close to their mothers for the rest of their lives.",
+        "They leave to live alone or join small groups of males.",
+        "They guide the herd to waterholes during droughts."
+      ],
+      "answer": "C",
+      "why": "“Young males remain with their mothers until they are teenagers. After that, they leave…”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who leads an elephant herd?",
+      "options": [
+        "the largest and strongest male",
+        "the youngest healthy female",
+        "the oldest and most experienced female",
+        "a group of teenage males"
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: the herd “is led by the oldest and most experienced female, known as the matriarch.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which of these does the writer discuss LAST?",
+      "options": [
+        "the trunk",
+        "elephant families",
+        "the dangers elephants face",
+        "how elephants communicate"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6, the final paragraph, deals with poaching, lost land and protection."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, what has caused African elephants to become endangered?",
+      "options": [
+        "poaching for ivory",
+        "farms and towns taking their land",
+        "A and B",
+        "the creation of national parks"
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 names both poaching and the loss of land; national parks are part of the solution."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why are elephants called “ecosystem engineers”?",
+      "options": [
+        "because they build shelters out of fallen branches",
+        "because their trunks helped scientists design machines",
+        "because they reshape their surroundings in ways others depend on",
+        "because they can carry heavy logs for people who need them"
+      ],
+      "answer": "C",
+      "why": "Like engineers, they reshape their environment: opening grassland, digging waterholes and spreading seeds."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe the relationship within an elephant herd?",
+      "options": [
+        "competitive, with members fighting for food",
+        "silent, with very little communication",
+        "short, with members changing every few months",
+        "close, with members depending on one another"
+      ],
+      "answer": "D",
+      "why": "Herds are “close family groups” of related females that rely on the matriarch and communicate constantly."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How are the elephant's deep rumbles DIFFERENT from its trumpeting?",
+      "options": [
+        "Rumbles are too low for humans to hear and travel far.",
+        "Rumbles are louder and higher than trumpeting.",
+        "Rumbles are made only by teenage males that live alone.",
+        "Rumbles are used only to warn the herd about poachers."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 says the rumbles are “too low for human ears to hear” and “can travel several kilometres”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of elephants digging into dry riverbeds?",
+      "options": [
+        "The rivers stop flowing for many years.",
+        "Waterholes are created that other animals share.",
+        "Trees grow faster along the river banks.",
+        "Their tusks become stronger and longer."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: they create “waterholes that other animals share.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In paragraph 5, what do elephants knocking down trees and digging into riverbeds have in common?",
+      "options": [
+        "Both are ways elephants defend the herd from poachers.",
+        "Both create something that other animals can use.",
+        "Both happen only during the rainy season.",
+        "Both destroy the food that zebras need."
+      ],
+      "answer": "B",
+      "why": "Knocking down trees opens space for grasses that zebras and antelopes need, and digging creates waterholes that other animals share."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer says an elephant can “lift a heavy log, or pick up a single peanut”. What does this comparison show?",
+      "options": [
+        "Elephants prefer eating peanuts to eating bark.",
+        "Elephants can lift almost anything they want.",
+        "Elephants are often trained to work for farmers.",
+        "The trunk is both strong and very precise."
+      ],
+      "answer": "D",
+      "why": "Placing a heavy log beside a tiny peanut shows the trunk's strength and its delicate control."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is exclamatory?",
+      "options": [
+        "Elephants live in close family groups called herds.",
+        "What an amazing tool the trunk is!",
+        "Sadly, African elephants are now endangered.",
+        "Each herd is led by a matriarch."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling, begins with “What an …” and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, how does the writer make the information about the trunk interesting?",
+      "options": [
+        "by giving surprising examples of what a trunk can do",
+        "by listing the scientific name of every muscle in it",
+        "by telling a funny story about an elephant in a zoo",
+        "by comparing the trunk with the engine of a car"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 lists surprising uses: breathing, smelling water, lifting a log, picking up a peanut and spraying mud."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action is MOST important for saving African elephants?",
+      "options": [
+        "building more towns and farms close to their land",
+        "teaching elephants to stay away from people",
+        "moving all wild elephants into zoos around the world",
+        "stopping the ivory trade and protecting their habitat"
+      ],
+      "answer": "D",
+      "why": "The text shows that poaching and loss of land are the main threats, so stopping both is the most direct help."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write the last sentence of the text?",
+      "options": [
+        "to show that protecting elephants also protects many other species",
+        "to argue that elephants are more important than any other animal",
+        "to suggest that elephants should be moved out of Africa",
+        "to explain how rangers are trained to protect the herds"
+      ],
+      "answer": "A",
+      "why": "“Protecting elephants means protecting the countless plants and animals whose lives are linked to theirs.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text as a whole?",
+      "options": [
+        "fear of these dangerous animals",
+        "anger towards all farmers",
+        "amusement at their strange habits",
+        "admiration with concern for their future"
+      ],
+      "answer": "D",
+      "why": "The writer admires elephants' intelligence and abilities but is worried that they are endangered."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "what an elephant's trunk is made of",
+        "who leads an elephant herd and why",
+        "how elephants detect sounds through their feet",
+        "how much food an adult eats in a single day"
+      ],
+      "answer": "C",
+      "why": "Researchers only “believe” elephants “may” detect sounds this way, and the writer does not explain how; the others are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An elephant uses its trunk to smell water far away.",
+        "An elephant speaks to rangers in their language.",
+        "An elephant flies across a river.",
+        "An elephant's trunk grows bones as it gets older."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 says it can “smell water from a great distance”; the other events are impossible or contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the information in the text?",
+      "options": [
+        "The Lost Peanut of the Savanna",
+        "Big Bodies, Big Brains, Big Impact",
+        "A Day at the City Zoo",
+        "The Ranger's Secret Diary"
+      ],
+      "answer": "B",
+      "why": "It covers elephants' size, intelligence and the large impact they have on their ecosystem."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Elephants are losing land to farms and towns. Suggest a solution that helps both elephants and the people who live near them, and explain it in two or three sentences.",
+      "model": "Governments could create safe corridors of protected land that connect national parks, so elephants can travel between them without walking through farms. Farmers near the corridors could receive help to build strong fences and earn money from wildlife tourism, so they would also benefit from protecting elephants.",
+      "rubric": [
+        "2 = a clear, sensible solution linked to the problem in the text, explaining how it helps elephants and people",
+        "1 = a solution is given but it is vague, or only one side (elephants or people) is considered",
+        "0 = no answer, an unrelated idea, or text copied without a solution"
+      ],
+      "why": "Any reasonable, explained solution (corridors, fences, tourism income, education, anti-poaching patrols) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, how have many countries tried to protect elephants?",
+      "options": [
+        "banning the ivory trade",
+        "creating national parks",
+        "training rangers to protect the herds",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 says many countries have banned the ivory trade, created national parks and trained rangers."
+    }
+  ]
+}

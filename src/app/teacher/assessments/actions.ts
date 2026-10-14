@@ -73,7 +73,7 @@ export async function reviewSuggestAction(input: { selections: unknown; level?: 
 export async function bankSearchAction(input: BankFilter): Promise<{ results?: BankResults; error?: string }> {
   const actor = await requireActor(STAFF);
   const passage = input?.passage === "WITH" || input?.passage === "WITHOUT" ? input.passage : "";
-  try { return { results: await bankSearch(repo, actor, { skillId: input?.skillId ? String(input.skillId) : null, type: input?.type ? String(input.type) : null, level: input?.level ? String(input.level) : null, passage, q: input?.q ? String(input.q) : null, page: Number(input?.page) || 1 }) }; }
+  try { return { results: await bankSearch(repo, actor, { skillId: input?.skillId ? String(input.skillId) : null, type: input?.type ? String(input.type) : null, level: input?.level ? String(input.level) : null, passage, q: input?.q ? String(input.q) : null, page: Number(input?.page) || 1, mine: input?.mine === true }) }; }
   catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }
 }
 

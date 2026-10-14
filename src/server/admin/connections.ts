@@ -12,6 +12,8 @@ import { groupPools, GROUPS } from "../map/map-plan";
 import { skillRanges } from "../map/skill-plan";
 import { continuumIndex, groupOfGoal, skillsFor } from "../map/continuum";
 import { remember } from "../cache/lru";
+import { runAfterResponse } from "../lib/after-response";
+import { memoryHigh, runHeavy } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 export type Health = "GOOD" | "WARN" | "BAD" | "INFO";
@@ -177,11 +179,24 @@ export async function connections(repo: Repo, actor: Actor, now = new Date()): P
 
 
 /** For the admin home: the same view, kept 10 minutes per school (it reads a lot). */
-const cache = new Map<string, { at: number; v: Promise<ConnectionsView> }>();
+const cache = new Map<string, { at: number; v: Promise<ConnectionsView>; done?: ConnectionsView }>();
 export function connectionsCached(repo: Repo, actor: Actor): Promise<ConnectionsView> {
   const key = s(actor.schoolId), hit = cache.get(key);
   if (hit && Date.now() - hit.at < 600_000) return hit.v;
-  const v = connections(repo, actor).catch((e) => { cache.delete(key); throw e; });
-  remember(cache, key, { at: Date.now(), v }, 32);
-  return v;
+  const entry: { at: number; v: Promise<ConnectionsView>; done?: ConnectionsView } = { at: Date.now(), v: null as unknown as Promise<ConnectionsView>, done: hit?.done };
+  entry.v = connections(repo, actor).then((x) => { entry.done = x; return x; }).catch((e) => { if (cache.get(key) === entry) { if (entry.done) cache.set(key, { at: 0, v: Promise.resolve(entry.done), done: entry.done }); else cache.delete(key); } throw e; });
+  remember(cache, key, entry, 32);
+  return entry.v;
+}
+
+/**
+ * ⚡ For the admin home (Update 57): the kept view WITHOUT waiting — it builds the MAP pools of every grade, so it is
+ * never built while the admin waits. Returns the last finished view of this school (also while a newer one is being
+ * built) or null; a missing or older view is (re)built after the response.
+ */
+export function connectionsKept(repo: Repo, actor: Actor): ConnectionsView | null {
+  const key = s(actor.schoolId), hit = cache.get(key);
+  if (hit && Date.now() - hit.at < 600_000) return hit.done ?? null;
+  if (!memoryHigh()) runAfterResponse("admin.connections", () => runHeavy(() => connectionsCached(repo, actor)).catch(() => null));
+  return hit?.done ?? null;
 }

@@ -1,0 +1,568 @@
+{
+  "code": "NB-087",
+  "title": "Ahmed Zewail: The Man Who Filmed Atoms",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 429,
+  "passage": "Imagine trying to photograph a hummingbird's wings with an ordinary camera. The wings move so quickly that the picture shows only a blur. For many years, chemists faced a similar but far greater problem. When molecules react, their atoms break old bonds and form new ones in a tiny fraction of a second. As a result, nobody could actually watch a chemical reaction happen. The Egyptian scientist Ahmed Zewail found a way to watch these invisible events, and his discovery changed chemistry forever.\n\nZewail was born in 1946 in Damanhur, a city in the Nile Delta. He grew up in the nearby town of Desouk. As a boy, he was fascinated by the way substances changed when he heated them, and he enjoyed solving difficult problems in mathematics and science. He studied chemistry at Alexandria University. There, his excellent results earned him a scholarship to study in the United States.\n\nAt the University of Pennsylvania, Zewail had to adapt to a new language, a new culture and a demanding research programme. The change was hard at first, but he worked with remarkable determination and earned his doctorate in 1974. Two years later, he joined the California Institute of Technology, where he would spend the rest of his career.\n\nAt Caltech, Zewail and his team developed an extraordinary technique. They used lasers that produced extremely short flashes of light, each lasting only a few femtoseconds. A femtosecond is one millionth of a billionth of a second; there are more femtoseconds in a single second than there have been seconds in thirty million years. What an astonishingly short time that is! They fired one flash to start a reaction and more flashes to record it. In this way, they could capture the atoms at each stage, almost like the frames of a film. This new field became known as femtochemistry.\n\nIn 1999, Zewail received the Nobel Prize in Chemistry, becoming the first Arab scientist to win a Nobel Prize in a scientific field. Yet he never forgot the country where his journey had begun. He believed that young people in the Arab world deserved excellent chances in science. For this reason, he worked hard to establish Zewail City of Science and Technology in Egypt, a university and research centre for talented students.\n\nZewail died in 2016, but his achievements continue to inspire scientists everywhere. His story proves that curiosity can turn a small-town boy into a world-famous scientist. It also shows that the most powerful discoveries sometimes come from learning to see what everyone else had believed was impossible to see.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “extraordinary” as it is used in paragraph 4?",
+      "options": [
+        "ordinary",
+        "exceptional",
+        "ancient",
+        "gradual"
+      ],
+      "answer": "B",
+      "why": "An “extraordinary” technique is far beyond the usual: exceptional. “Ordinary” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “demanding” as it is used in paragraph 3?",
+      "options": [
+        "difficult",
+        "strict",
+        "easy",
+        "famous"
+      ],
+      "answer": "C",
+      "why": "A “demanding” programme needs a lot of effort; its opposite is “easy”. “Difficult” has a similar meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “adapt” mean in this phrase from paragraph 3: “Zewail had to adapt to a new language, a new culture”?",
+      "options": [
+        "to change in order to fit a new situation",
+        "to refuse to accept anything new",
+        "to travel from one country to another",
+        "to forget the language of your childhood"
+      ],
+      "answer": "A",
+      "why": "He had to change his habits to fit a new language and culture, which is what “adapt” means."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 1 is a NOUN?",
+      "options": [
+        "ordinary",
+        "molecules",
+        "react",
+        "quickly"
+      ],
+      "answer": "B",
+      "why": "“Molecules” names things; “ordinary” is an adjective, “react” a verb and “quickly” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "The passage uses regular plurals such as “frames” and “flashes”. Which pair shows a singular noun with its correct IRREGULAR plural?",
+      "options": [
+        "mouse – mice",
+        "frame – frames",
+        "atom – atomes",
+        "film – filmes"
+      ],
+      "answer": "A",
+      "why": "“Mice” is irregular; “frames” is regular, and “atomes” and “filmes” are misspelled."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “determination”?",
+      "options": [
+        "deter",
+        "detail",
+        "determine",
+        "destiny"
+      ],
+      "answer": "C",
+      "why": "Determine and determination share the same root; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “fascinated” in a meaningful sentence of your own.",
+      "model": "My little brother was fascinated by the ants in our garden, so he watched them carry crumbs for almost an hour.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “fascinated” with its meaning (extremely interested in something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 2, Zewail was “fascinated” (extremely interested) by the way substances changed."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “flash”?",
+      "options": [
+        "flashes",
+        "flashs",
+        "flashies",
+        "flashen"
+      ],
+      "answer": "A",
+      "why": "Nouns ending in -sh add -es: flash → flashes."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Imagine trying to photograph a hummingbird's wings with an ordinary camera.”?",
+      "options": [
+        "a statement",
+        "a question",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "It begins with the verb “Imagine” and tells the reader to do something, so it is a command, even though it ends with a full stop."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "How to Photograph Hummingbirds",
+        "Catching Atoms in Action",
+        "The History of Alexandria University",
+        "Lasers in Modern Hospitals"
+      ],
+      "answer": "B",
+      "why": "The passage is about how Zewail found a way to watch atoms during reactions."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to teach readers how to use a laser safely at home",
+        "to compare universities in Egypt and America",
+        "to describe how hummingbirds move their wings",
+        "to tell how a scientist's curiosity led to a great discovery"
+      ],
+      "answer": "D",
+      "why": "It follows Zewail from a curious boy to the discovery of femtochemistry and the Nobel Prize."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Hummingbirds have the fastest wings of all birds.",
+        "Chemists could not watch reactions until Zewail found a way.",
+        "Ordinary cameras are useless for any kind of science.",
+        "Molecules are made of atoms that are joined by bonds."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1 sets out the problem (reactions are too fast to see) and says Zewail solved it."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, why could nobody watch a chemical reaction happen?",
+      "options": [
+        "Atoms change their bonds in a tiny fraction of a second.",
+        "Chemists did not own any cameras at that time.",
+        "Molecules can only be seen in total darkness.",
+        "Reactions only take place inside living birds."
+      ],
+      "answer": "A",
+      "why": "“Their atoms break old bonds and form new ones in a tiny fraction of a second. As a result, nobody could actually watch…”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Zewail able to study in the United States?",
+      "options": [
+        "His excellent results earned him a scholarship.",
+        "His family moved there when he was a boy.",
+        "Caltech invited him while he was still at school.",
+        "He won the Nobel Prize before he left Egypt."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “his excellent results earned him a scholarship to study in the United States.”"
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which best describes the type of this text?",
+      "options": [
+        "a diary written by Zewail himself",
+        "a biography that includes scientific explanation",
+        "an invented adventure story",
+        "an advertisement for a university"
+      ],
+      "answer": "B",
+      "why": "It tells the true story of Zewail's life (biography) and explains the science of his discovery."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Zewail earned his doctorate.",
+        "Zewail joined Caltech.",
+        "Zewail studied at Alexandria University.",
+        "Zewail received the Nobel Prize."
+      ],
+      "answer": "D",
+      "why": "Alexandria came first, then the doctorate (1974), Caltech (two years later) and finally the Nobel Prize (1999)."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In which year did Zewail join the California Institute of Technology?",
+      "options": [
+        "1974",
+        "1999",
+        "1946",
+        "1976"
+      ],
+      "answer": "D",
+      "why": "He earned his doctorate in 1974 and joined Caltech “two years later”, so in 1976."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In Zewail's technique, what was the FIRST step?",
+      "options": [
+        "A flash of light started the reaction.",
+        "More flashes recorded the atoms.",
+        "The atoms formed new bonds.",
+        "The pictures were compared like film frames."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “They fired one flash to start a reaction and more flashes to record it.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What led to Zewail receiving the Nobel Prize in Chemistry?",
+      "options": [
+        "building a camera that could photograph hummingbirds",
+        "finding a way to observe reactions with very short laser flashes",
+        "founding a university for talented students in Egypt",
+        "being the first Egyptian to study at Pennsylvania"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 describes femtochemistry, and paragraph 5 follows with the Nobel Prize for this work; Zewail City came after."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Zewail work to establish Zewail City of Science and Technology?",
+      "options": [
+        "He wanted to move his laboratory away from Caltech.",
+        "The Nobel Prize committee asked him to build it.",
+        "He wished to study hummingbirds in Egypt.",
+        "He believed young Arabs deserved excellent chances in science."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5: he believed young people in the Arab world “deserved excellent chances in science. For this reason…”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase best describes Zewail when he first arrived in the United States?",
+      "options": [
+        "relaxed and bored",
+        "angry and ready to give up",
+        "challenged but determined",
+        "lonely and unwilling to work"
+      ],
+      "answer": "C",
+      "why": "The change “was hard at first, but he worked with remarkable determination”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the hummingbird example in paragraph 1 SIMILAR to the chemists' problem?",
+      "options": [
+        "Both can be solved with an ordinary camera.",
+        "Both take place inside a laboratory.",
+        "Both were first studied by Zewail as a boy.",
+        "Both involve movements too fast to see clearly."
+      ],
+      "answer": "D",
+      "why": "The wings become a blur, and atoms change too quickly to watch: both are too fast to see."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of recording a reaction with several very short flashes?",
+      "options": [
+        "The reaction happened more slowly than usual.",
+        "The molecules stopped reacting completely.",
+        "Scientists could see the atoms at each stage.",
+        "The laser made the atoms much larger."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “In this way, they could capture the atoms at each stage.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The passage says Zewail was the first Arab to win a Nobel Prize “in a scientific field”. What does this suggest?",
+      "options": [
+        "No Arab had ever won any kind of Nobel Prize.",
+        "Other Arabs had already won Nobel Prizes in other fields.",
+        "Zewail also won a second prize in literature.",
+        "Zewail shared his prize with an Egyptian chemist."
+      ],
+      "answer": "B",
+      "why": "The words “in a scientific field” limit the claim, suggesting Arab winners existed in non-scientific fields."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the comparison “almost like the frames of a film” in paragraph 4 suggest?",
+      "options": [
+        "Each flash captured one moment, like one picture in a film.",
+        "The scientists made a film to entertain students.",
+        "The reaction lasted as long as a full film.",
+        "The lasers were borrowed from a cinema."
+      ],
+      "answer": "A",
+      "why": "A film is made of many still frames; each flash recorded one still moment of the reaction."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with a hummingbird's wings?",
+      "options": [
+        "to make a hard scientific idea easier through a familiar example",
+        "to show that Zewail's first experiments were on birds",
+        "to change the topic of the passage from chemistry to nature",
+        "to prove that hummingbirds move faster than atoms"
+      ],
+      "answer": "A",
+      "why": "Starting with a familiar blur helps readers understand why fast reactions were hard to see."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage is EXCLAMATORY?",
+      "options": [
+        "Imagine trying to photograph a hummingbird's wings with an ordinary camera.",
+        "This new field became known as femtochemistry.",
+        "What an astonishingly short time that is!",
+        "Yet he never forgot the country where his journey had begun."
+      ],
+      "answer": "C",
+      "why": "It shows strong amazement and ends with an exclamation mark; the “Imagine…” sentence is a command."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Zewail's actions described in the passage helped young people in the Arab world MOST directly?",
+      "options": [
+        "earning his doctorate in 1974",
+        "joining Caltech in California",
+        "studying chemistry in Alexandria",
+        "working to establish Zewail City"
+      ],
+      "answer": "D",
+      "why": "Zewail City was built in Egypt specifically for talented students; the other actions mainly advanced his own career."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the passage, what was the main reason for Zewail's success?",
+      "options": [
+        "his family's great wealth",
+        "a lucky accident in the laboratory",
+        "the help of a famous teacher",
+        "his curiosity and determination"
+      ],
+      "answer": "D",
+      "why": "The passage stresses his boyhood curiosity and “remarkable determination”; the other reasons are never mentioned."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does the writer most want readers to have at the end of the passage?",
+      "options": [
+        "disappointment",
+        "fear",
+        "confusion",
+        "inspiration"
+      ],
+      "answer": "D",
+      "why": "The last paragraph says his achievements “continue to inspire” and that curiosity can change a life."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "which reactions Zewail's team actually studied",
+        "the year Zewail won the Nobel Prize",
+        "the city where Zewail was born",
+        "how long a femtosecond lasts"
+      ],
+      "answer": "A",
+      "why": "The passage explains the method but never names a specific reaction; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A scientist slows down time so that atoms move slowly.",
+        "A molecule explains to a chemist how it reacted.",
+        "A scientist uses laser flashes to record the stages of a reaction.",
+        "A camera photographs a reaction before it has started."
+      ],
+      "answer": "C",
+      "why": "Recording reactions with laser flashes is what femtochemistry really does; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The Chemist Who Raised Hummingbirds",
+        "The Boy from Desouk Who Filmed Atoms",
+        "A Scholarship That Was Never Used",
+        "The Laser That Stopped Time"
+      ],
+      "answer": "B",
+      "why": "It sums up Zewail's journey from Desouk to recording atoms “like the frames of a film”."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending: imagine that Zewail had returned to Egypt straight after his doctorate. Write two or three sentences about how his story might have continued.",
+      "model": "Zewail might have become a professor at Alexandria University and built a laser laboratory there. His students could have helped him develop femtochemistry in Egypt, and the Nobel Prize might have been celebrated in the same city where he first studied. Many more young Egyptians might have become scientists much earlier.",
+      "rubric": [
+        "2 = a clear, believable new ending that follows from returning to Egypt and fits the facts of his life",
+        "1 = an ending is given but it is unclear or only loosely connected to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that follows logically from an earlier return to Egypt is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how could schools encourage curious students like the young Zewail?",
+      "options": [
+        "Let students carry out safe experiments and solve hard problems.",
+        "Offer scholarships to students with excellent results.",
+        "A and B",
+        "Ask students to memorise answers without asking questions."
+      ],
+      "answer": "C",
+      "why": "Zewail's curiosity grew through experimenting and solving problems, and a scholarship opened the door to his research."
+    }
+  ]
+}

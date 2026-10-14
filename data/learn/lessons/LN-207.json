@@ -1,0 +1,480 @@
+{
+ "code": "LN-207",
+ "title": "Repetition and sound devices",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "RL.2.4",
+  "RL.4.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "sound-devices"
+ ],
+ "skillNames": [
+  "Sound Devices (Assonance, Consonance, Alliteration)",
+  "Sound Devices: Alliteration, Onomatopoeia and Repetition"
+ ],
+ "statements": [
+  "R-0116",
+  "R-0117",
+  "R-0118",
+  "R-0216",
+  "R-0217",
+  "R-0369",
+  "R-0554",
+  "R-0783",
+  "R-0945",
+  "R-0956"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Sound words",
+     "text": "Some words sound like the noise they name.\n\n**buzz** 🐝  **splash** 💦  **ding-dong** 🔔  **crunch**\n\nThese words are called **onomatopoeia** (on-o-mat-o-PEE-a)."
+    },
+    {
+     "title": "Saying it again",
+     "text": "Writers sometimes say a word **again and again**. This is **repetition**.\n\n\"The rain fell and fell and fell.\"\n\nIt shows the rain went on for a **long time**."
+    },
+    {
+     "title": "How to find them",
+     "text": "1. Read the text out loud.\n2. Listen for words that **sound like** a noise.\n3. Listen for words that **come back** again.\n4. Ask: what do they help me hear or feel?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **sound words** or the **repeated words** in the text.\n\n1. Read the question.\n2. Find the sentence with the sound or the repeated word.\n3. Ask what it tells you."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Tick, tock, tick, tock went the clock.",
+      "role": "key"
+     },
+     {
+      "t": "Hessa waited and waited for Dad to come home.",
+      "role": "key"
+     },
+     {
+      "t": "At last, the door opened.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Tick, tock** sounds like a clock. **Waited and waited** is repeated.\n\nTogether they show the wait felt very **long**."
+   },
+   "together": {
+    "passage": "Sami jumped into the pool. Splash! Water flew everywhere. His mom got wet and laughed.",
+    "stem": "What does the word splash help you know?",
+    "options": [
+     "The water was very cold.",
+     "Sami felt sad that day.",
+     "The sound of Sami hitting water.",
+     "Mom was angry with Sami."
+    ],
+    "answer": 2,
+    "hint": "Say the word splash out loud. What does it sound like?",
+    "good": "Yes! Splash sounds like a body hitting water."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami jumped into the pool.",
+     "Splash!",
+     "Water flew everywhere.",
+     "His mom got wet and laughed."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the sound of Sami hitting the water. Tap a sentence that proves it.",
+    "wrong": "This sentence does not tell about the sound or the water. Look for the sound word."
+   },
+   "checks": [
+    {
+     "passage": "The bee went buzz, buzz, buzz around the flowers.",
+     "stem": "Which word sounds like the noise a bee makes?",
+     "options": [
+      "Bee",
+      "Flowers",
+      "Around",
+      "Buzz"
+     ],
+     "answer": 3,
+     "why": "Buzz sounds like the noise of a bee's wings."
+    },
+    {
+     "passage": "The baby cried and cried and cried. Mom picked her up and sang to her.",
+     "stem": "Why does the writer say cried three times?",
+     "options": [
+      "To show the baby cried for a long time",
+      "To show the baby was happy",
+      "To show Mom was singing",
+      "To show the baby was asleep"
+     ],
+     "answer": 0,
+     "why": "Saying cried again and again shows the crying went on and on."
+    },
+    {
+     "passage": "Crunch! Ali bit into the fresh apple.",
+     "stem": "What does crunch tell you about the apple?",
+     "options": [
+      "It was soft.",
+      "It was hard and crisp.",
+      "It was hot.",
+      "It was old."
+     ],
+     "answer": 1,
+     "why": "Crunch is the sound of biting something hard and crisp."
+    }
+   ],
+   "again": {
+    "title": "Read it out loud",
+    "text": "Sound words work best when you **hear** them. Say the sentence out loud and listen.",
+    "example": "\"The door went **creak**.\"\n\nSay **creak** slowly. It sounds like an old door opening! That is onomatopoeia."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Why repeat?",
+     "text": "Writers repeat words or lines to:\n\n1. Show something **important**.\n2. Show that something **goes on and on**.\n3. Give a poem a **beat**, like a song."
+    },
+    {
+     "title": "Sound words bring scenes to life",
+     "text": "**hiss**, **thud**, **whoosh**, **rumble**\n\n\"The truck **rumbled** past\" lets you hear a deep, heavy sound. It is stronger than \"the truck went past\"."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the repeated words or the sound words.\n2. Ask: what do they make me **hear** or **feel**?\n3. Ask: **why** did the writer use them here?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the **exact words** that repeat or make a sound.\n\n1. Find where they appear.\n2. Look at what is happening at that point in the text.\n3. Explain how the sound or repetition fits what is happening."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Step by step, Nasser climbed the tall dune.",
+      "role": "detail"
+     },
+     {
+      "t": "Higher and higher, step by step, he pushed through the soft sand.",
+      "role": "key"
+     },
+     {
+      "t": "At the top, he could see for kilometres.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Step by step** comes back, and **higher and higher** is repeated.\n\nThe repetition makes the climb feel **slow and hard**, one step at a time."
+   },
+   "together": {
+    "passage": "Every morning, Grandma tells me the same thing. \"Be kind to your sister. Be kind to your friends. Be kind to the people you meet.\" Then she kisses my head and hands me my school bag.",
+    "stem": "Why does Grandma repeat the words \"be kind\"?",
+    "options": [
+     "She forgot what she just said.",
+     "She wants to show kindness matters.",
+     "She is angry with me today.",
+     "She likes to make a lot of noise."
+    ],
+    "answer": 1,
+    "hint": "She says it every morning, three times. What does that tell you about how much it matters to her?",
+    "good": "Yes! Repeating 'be kind' three times, every morning, shows how important kindness is to her."
+   },
+   "evidence": {
+    "sentences": [
+     "Every morning, Grandma tells me the same thing.",
+     "\"Be kind to your sister.",
+     "Be kind to your friends.",
+     "Be kind to the people you meet.\"",
+     "Then she kisses my head and hands me my school bag."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: she wants to show that kindness matters. Tap 2 sentences with the repeated words.",
+    "wrong": "This sentence does not contain the repeated words. Find the lines where Grandma says 'be kind'."
+   },
+   "checks": [
+    {
+     "passage": "Thud. Thud. Thud. Someone was coming up the stairs in heavy boots.",
+     "stem": "What does the word thud help the reader hear?",
+     "options": [
+      "Soft music",
+      "Heavy footsteps",
+      "A ringing phone",
+      "Running water"
+     ],
+     "answer": 1,
+     "why": "Thud is a dull, heavy sound, like heavy boots on stairs."
+    },
+    {
+     "passage": "The wind blew and blew. It blew the sand across the road. It blew the hats off our heads. It blew all night long.",
+     "stem": "What does the repetition of blew show?",
+     "options": [
+      "The wind was gentle.",
+      "The wind stopped quickly.",
+      "The wind was not important.",
+      "The wind was strong and did not stop."
+     ],
+     "answer": 3,
+     "why": "Blew is repeated four times, which shows the wind kept going and was strong."
+    },
+    {
+     "passage": "The snake slid across the rocks. Hiss, hiss, it warned, and we stepped back slowly.",
+     "stem": "Why does the writer use the word hiss?",
+     "options": [
+      "To let us hear the snake's warning",
+      "To show the snake was happy",
+      "To show the rocks were very hot",
+      "To show the children laughed"
+     ],
+     "answer": 0,
+     "why": "Hiss sounds like the noise a snake makes. It warned the children to step back."
+    }
+   ],
+   "again": {
+    "title": "Count it",
+    "text": "Count how many times a word appears. The more it repeats, the more the writer wants you to **notice** it.",
+    "example": "\"We waited. We waited at the gate. We waited in the sun.\"\n\n**Waited**: 3 times. The writer wants you to feel how **long and tiring** the wait was."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Repetition builds feeling",
+     "text": "Repetition can **build** a feeling, like steps going up.\n\nIn a story, repeating a sound or phrase can make the reader feel **tension**, **excitement** or **sadness**."
+    },
+    {
+     "title": "Refrains",
+     "text": "A **refrain** is a line that comes back again and again in a poem or story, often at the end of each part.\n\nEach time it returns, the reader remembers the main idea, and sometimes the line means **more** than before."
+    },
+    {
+     "title": "Analyse it",
+     "text": "1. Find what is repeated.\n2. Notice **where** it is repeated (start, middle, end).\n3. Ask what changes around it each time.\n4. Explain the **effect**: emphasis, tension, rhythm or a key idea."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show the repetition **and** what it does.\n\n1. Point to each place the word or line appears.\n2. Notice what is happening in the story at those moments.\n3. Choose the effect that fits every appearance."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Drip. The kitchen tap was leaking.",
+      "role": "key"
+     },
+     {
+      "t": "Drip. Sara tried to read her book.",
+      "role": "key"
+     },
+     {
+      "t": "Drip. She put a pillow over her head.",
+      "role": "key"
+     },
+     {
+      "t": "Finally, she went to fix it.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Drip** is a sound word that is repeated three times.\n\nEach drip shows Sara getting **more annoyed**. The repetition builds her frustration until she acts."
+   },
+   "together": {
+    "passage": "The village had waited all summer for rain. The farmers looked at the sky, and still no rain. The wells grew low, and still no rain. The children stopped playing in the dusty streets, and still no rain. Then, one night, a low rumble rolled across the hills, and the first drops began to fall.",
+    "stem": "What is the effect of repeating \"and still no rain\"?",
+    "options": [
+     "It shows the rain came quickly.",
+     "It shows the farmers did not care about rain.",
+     "It shows the village enjoyed the dry weather.",
+     "It builds a feeling of long, growing worry."
+    ],
+    "answer": 3,
+    "hint": "Look at what happens before each 'still no rain'. Do things get better or worse each time?",
+    "good": "Yes! Each time, things get worse: low wells, then children who stop playing. The repetition builds worry until the rain finally comes."
+   },
+   "evidence": {
+    "sentences": [
+     "The village had waited all summer for rain.",
+     "The farmers looked at the sky, and still no rain.",
+     "The wells grew low, and still no rain.",
+     "The children stopped playing in the dusty streets, and still no rain.",
+     "Then, one night, a low rumble rolled across the hills, and the first drops began to fall."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it builds a feeling of long, growing worry. Tap 2 sentences with the repeated phrase.",
+    "wrong": "This sentence does not contain the repeated phrase. Find the sentences that end with 'still no rain'."
+   },
+   "checks": [
+    {
+     "passage": "Bang! went the first firework. Bang! Bang! went the next two. Then the whole sky exploded with colour, and the crowd cheered.",
+     "stem": "What effect do the repeated sound words create?",
+     "options": [
+      "They make the scene feel exciting and lively.",
+      "They make the scene feel quiet.",
+      "They show the fireworks were broken.",
+      "They show the crowd was bored."
+     ],
+     "answer": 0,
+     "why": "Repeated bangs build up the noise and energy until the whole sky explodes."
+    },
+    {
+     "passage": "In the poem, each part ends with the line, \"And the old tree stood.\" It stood through the storm. It stood through the drought. It stood when the village had gone.",
+     "stem": "What does the refrain suggest about the tree?",
+     "options": [
+      "It was very young.",
+      "It fell in the storm.",
+      "It is strong and lasts through everything.",
+      "It was cut down by the village."
+     ],
+     "answer": 2,
+     "why": "The refrain returns after each hardship. The tree survives them all, so it seems strong and lasting."
+    },
+    {
+     "passage": "Whoosh! The door flew open. Whoosh! Papers flew off the desk. Whoosh! The candle went out.",
+     "stem": "What does the repeated word whoosh suggest?",
+     "options": [
+      "A soft song",
+      "A strong wind rushing in",
+      "A cat running",
+      "A car horn"
+     ],
+     "answer": 1,
+     "why": "Whoosh sounds like rushing air. It opens doors, blows papers and puts out the candle."
+    }
+   ],
+   "again": {
+    "title": "What happens in between?",
+    "text": "Look at what happens **between** each repeat. If it gets bigger, louder or worse, the repetition is **building** something.",
+    "example": "\"Knock. Nobody came. Knock, knock. Still nobody. KNOCK, KNOCK, KNOCK!\"\n\nThe knocks get louder and more frequent. The repetition builds **impatience**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Alliteration",
+     "text": "**Alliteration** is the repetition of the **same first sound** in nearby words.\n\n\"**S**ilver **s**and **s**lipped **s**oftly\"\n\nThe repeated **s** sound feels soft and smooth, like the sand itself."
+    },
+    {
+     "title": "Sound matches meaning",
+     "text": "Different sounds create different effects:\n\nsoft sounds (**s**, **l**, **m**): calm, gentle, smooth\nhard sounds (**b**, **d**, **k**, **t**): harsh, strong, sudden\n\nWriters choose sounds that **echo** the meaning."
+    },
+    {
+     "title": "Repetition in speeches",
+     "text": "Speakers repeat words at the start of sentences to make an idea **unforgettable**.\n\n\"**We will** study. **We will** build. **We will** succeed.\"\n\nThe rhythm builds **energy** and **determination**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the effect by linking the **sound** to the **meaning**.\n\n1. Point to the words with the repeated sound or phrase.\n2. Describe the sound: soft, harsh, fast, slow.\n3. Explain how it matches what the text describes or argues."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The breeze brushed softly across the silent sea.",
+      "role": "key"
+     },
+     {
+      "t": "Small, silver waves slid slowly onto the sand.",
+      "role": "key"
+     },
+     {
+      "t": "We had arrived at the beach just after six.",
+      "role": "other"
+     }
+    ],
+    "explain": "The repeated **s** sounds (**s**oftly, **s**ilent, **s**ea, **s**ilver, **s**lid, **s**lowly, **s**and) are soft and hissing.\n\nThey echo the gentle sound of waves and create a **calm, peaceful** mood."
+   },
+   "together": {
+    "passage": "On the last day of the school year, the principal stood before the graduating class. She put away her notes, looked at the rows of familiar faces, and spoke. \"We came here as children who could barely read. We leave as readers, writers and thinkers. We came here afraid of failing. We leave ready to try, to fail, and to try again.\" The hall was silent for a moment, and then the applause began.",
+    "stem": "What is the effect of repeating \"We came here... We leave...\"?",
+    "options": [
+     "It shows that the students are sad to leave school.",
+     "It shows how much the students have grown, using a strong, memorable rhythm.",
+     "It shows that the principal forgot what to say.",
+     "It explains how the students travelled to the school."
+    ],
+    "answer": 1,
+    "hint": "Compare what follows 'we came here' with what follows 'we leave'. What changed? How does the pattern sound when read aloud?",
+    "good": "Yes! Each pair contrasts who the students were with who they are now, and the repeated pattern makes the message strong and memorable."
+   },
+   "evidence": {
+    "sentences": [
+     "On the last day of the school year, the principal stood before the graduating class.",
+     "She put away her notes, looked at the rows of familiar faces, and spoke.",
+     "\"We came here as children who could barely read.",
+     "We leave as readers, writers and thinkers.",
+     "We came here afraid of failing.",
+     "We leave ready to try, to fail, and to try again.\"",
+     "The hall was silent for a moment, and then the applause began."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: it shows how much the students have grown. Tap 2 sentences from the repeated pattern.",
+    "wrong": "This sentence describes the scene, not the repeated pattern. Find the lines that begin with 'We came' or 'We leave'."
+   },
+   "checks": [
+    {
+     "passage": "Big black boulders bounced and banged down the broken mountainside.",
+     "stem": "What is the effect of the alliteration?",
+     "options": [
+      "The hard b sounds echo the loud crashing of the rocks.",
+      "The soft sounds make the scene peaceful.",
+      "It shows the mountain is small.",
+      "It shows the boulders were moving slowly."
+     ],
+     "answer": 0,
+     "why": "The repeated hard b sound is loud and heavy, like rocks crashing down."
+    },
+    {
+     "passage": "In the poem, the speaker says \"far, far away\" in the first line, \"far from home\" in the middle, and \"so far, so far\" in the last line.",
+     "stem": "What does the repetition of far emphasize?",
+     "options": [
+      "The speaker's love of travel",
+      "The speaker's fast journey",
+      "The speaker's strong feeling of distance from home",
+      "The beauty of the place the speaker visits"
+     ],
+     "answer": 2,
+     "why": "Far returns at the start, middle and end, keeping the distance from home in the reader's mind throughout the poem."
+    },
+    {
+     "passage": "Her whispered words wandered through the warm, still room.",
+     "stem": "Which statement best describes the effect of the alliteration?",
+     "options": [
+      "The hard sounds make the room feel violent.",
+      "It shows the speaker was shouting.",
+      "It shows that the room was cold and empty.",
+      "The soft w sounds match the quiet, gentle scene."
+     ],
+     "answer": 3,
+     "why": "The repeated soft w sound is quiet and breathy, matching the whispering and the still room."
+    }
+   ],
+   "again": {
+    "title": "Read it fast, read it slow",
+    "text": "Read the line out loud. Does it feel **fast and hard** or **slow and soft**? That feeling is the effect of the sounds.",
+    "example": "\"Crack! Crash! The cruel cliff crumbled.\"\nRead aloud: hard, sharp **c/k** sounds. Feels **sudden and violent**.\n\n\"Lazy lambs lay low in the long grass.\"\nRead aloud: soft **l** sounds. Feels **slow and peaceful**."
+   }
+  }
+ }
+}

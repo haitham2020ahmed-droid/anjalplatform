@@ -6,6 +6,7 @@ import { LiteriseMark } from "@/components/brand/literise-logo";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
 import { lessonAt } from "@/server/curriculum-map/lesson-details";
 import type { StudentPlanSummary, StudentPlanView } from "@/server/curriculum-map/plans";
+import { SkillStar, StarLegend } from "@/components/skills/skill-star";
 
 type Place = StudentPlanView["places"][number];
 
@@ -54,6 +55,7 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg, previe
       </div>
       {msg && <p role="alert" className="mb-4 flex items-center gap-2 rounded-xl bg-amber-50 px-4 py-3 text-sm font-medium text-amber-900 ring-1 ring-amber-200 print:hidden"><LineIcon name="lock" className="h-4 w-4" />{msg}</p>}
       {p.note && <p className="mb-4 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 ring-1 ring-slate-200">{p.note}</p>}
+      {p.places.some((x) => x.stars?.length) && <div className="mb-3"><StarLegend who="student" t={t} /></div>}
 
       <article className="plan-sheet rounded-2xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-7 print:p-0 print:shadow-none print:ring-0">
         <header className="flex flex-wrap items-end justify-between gap-4 border-b-2 border-brand-navy pb-4">
@@ -124,6 +126,7 @@ function Row({ x, n, target, t, preview = false }: { x: Place; n: string; target
       <span className="min-w-0 flex-1">
         <span className={`flex items-center gap-2 font-medium ${x.locked || x.empty ? "text-slate-400" : "text-slate-800 group-hover:text-brand-navy group-hover:underline"}`}>{review && <LineIcon name="retry" className="h-3.5 w-3.5 shrink-0 text-sky-600" />}{hideLevels(x.label)}</span>
         {x.skills && <span className="block text-xs leading-snug text-slate-500">{x.skills}</span>}
+        {x.stars && x.stars.length > 0 && <span data-testid="place-stars" className="mt-0.5 flex flex-wrap items-center gap-1.5">{x.stars.map((k) => <span key={k.name} className="inline-flex items-center gap-1 text-[11px] text-slate-600"><SkillStar info={{ status: k.status }} who="student" t={t} label={k.name} size={14} />{k.name}</span>)}</span>}
       </span>
       <span className="flex shrink-0 items-center gap-1.5 text-xs tabular-nums text-slate-500">
         {!x.locked && x.status && x.status !== "NOT_STARTED" && <span dir="ltr">{Math.min(x.correct, target)}/{target}</span>}

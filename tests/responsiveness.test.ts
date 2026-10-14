@@ -51,9 +51,12 @@ describe("responsiveness", () => {
     assert.ok(!/await maybeRunDaily/.test(home.split("runAfterResponse(")[0]), "daily job not awaited by the page");
     assert.match(home, /runAfterResponse\("teacher\.daily"/);
     assert.ok(!/^\s*if \(actor\.schoolId\) await scanAlerts/m.test(home), "alert scan not awaited by the page");
-    assert.match(home, /const \[\{ t \}, h, sum, toGrade\] = await Promise\.all\(\[\s*getT\(\)/);
+    // (r67 skill stars: the one-time notice is read side by side too)
+    assert.match(home, /const \[\{ t \}, h, sum, toGrade(?:, \w+)*\] = await Promise\.all\(\[\s*getT\(\)/);
     const admin = read("src/app/admin/page.tsx");
-    assert.match(admin, /teacherFollowupForHome\(repo, actor, now\)[^\n]*\n\s*\]\);/, "admin follow-up read beside the counts");
+    // the admin home streams its sections (Update 57): the follow-up is started at once and read beside the counts
+    assert.match(admin, /const follow = teacherFollowupForHome\(repo, actor, now\)/, "admin follow-up started before the sections");
+    assert.ok((admin.match(/<Suspense fallback=/g) ?? []).length >= 3, "admin home sections stream in");
   });
 
   test("teacher ReadRise: the class summary and the open tab load at the same time; no await inside the JSX", () => {

@@ -1,0 +1,490 @@
+{
+ "code": "LN-118",
+ "title": "How a text is organized",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.8",
+  "RI.3.8",
+  "RI.4.5",
+  "RI.4.8",
+  "RI.5.3",
+  "RI.5.5",
+  "RI.6.5",
+  "RI.7.5",
+  "RI.8.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "R-0188",
+  "R-0322",
+  "R-0494",
+  "R-0495",
+  "R-0506",
+  "R-0681",
+  "R-0691",
+  "R-0714",
+  "R-0743"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Texts have parts",
+     "text": "A text is built from **parts**, like a house is built from rooms.\n\nEach part has a **job**."
+    },
+    {
+     "title": "Parts work together",
+     "text": "One part can ask a **question**. The next part **answers** it.\n\nOne part can tell a **problem**. The next part tells how it was **fixed**."
+    },
+    {
+     "title": "How to see the link",
+     "text": "1. Read the first part. What does it do?\n2. Read the next part. What does it do?\n3. Ask: **How do they go together?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to **both** parts.\n\nPart 1 asks or tells a problem.\nPart 2 answers or fixes it.\n\nThe two sentences together prove the link."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Why do cats purr?",
+      "role": "key"
+     },
+     {
+      "t": "Cats often purr when they are happy.",
+      "role": "key"
+     },
+     {
+      "t": "They purr when you pet them.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first part asks a **question**. The next parts **answer** it: cats purr when they are happy. Question and answer go together."
+   },
+   "together": {
+    "passage": "Our class plant was dry and sad. Its leaves were brown. So we moved it near the window. We gave it water every day. Now it is green again.",
+    "stem": "How do the first two sentences and the last three sentences go together?",
+    "options": [
+     "The first part asks a question, and the last part answers it.",
+     "Both parts tell about the same sunny day in class.",
+     "The first part tells a problem, and the last part tells how it was fixed.",
+     "The last part tells a new problem with the plant."
+    ],
+    "answer": 2,
+    "hint": "What was wrong at first? What did the class do about it?",
+    "good": "Yes! The plant was dry (problem), and the class moved and watered it (fix)."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class plant was dry and sad.",
+     "Its leaves were brown.",
+     "So we moved it near the window.",
+     "We gave it water every day.",
+     "Now it is green again."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: problem, then fix. Tap 2 sentences that tell how the problem was fixed.",
+    "wrong": "This sentence tells the problem. Find sentences that tell how it was fixed."
+   },
+   "checks": [
+    {
+     "passage": "What do bears do in winter? Many bears sleep for a long time. They stay in a warm den.",
+     "stem": "How do the parts go together?",
+     "options": [
+      "A question, then the answer",
+      "A problem, then a fix",
+      "Two different animals",
+      "A list of colors"
+     ],
+     "answer": 0,
+     "why": "The first sentence asks a question. The next sentences answer it."
+    },
+    {
+     "passage": "The road was full of holes. Cars bumped and shook. Workers came and filled the holes. Now the road is smooth.",
+     "stem": "What does the second part of the text do?",
+     "options": [
+      "It asks a question.",
+      "It tells about cars.",
+      "It tells a new problem.",
+      "It tells how the problem was fixed."
+     ],
+     "answer": 3,
+     "why": "The first part tells a problem: holes. The second part tells the fix: workers filled the holes."
+    },
+    {
+     "passage": "Lions and house cats are both cats. But lions are big and live in the wild. House cats are small and live with people.",
+     "stem": "What does this text do?",
+     "options": [
+      "Tells the steps to look after a cat in order",
+      "Tells how lions and house cats are alike and different",
+      "Asks a question about where lions live",
+      "Tells a problem that house cats have"
+     ],
+     "answer": 1,
+     "why": "It says they are both cats (alike), then shows how they are different."
+    }
+   ],
+   "again": {
+    "title": "Puzzle pieces",
+    "text": "Each part of a text is like a **puzzle piece**.\n\nAsk: what does this piece do? Ask? Answer? Show a problem? Fix it?\n\nThen see how the pieces fit.",
+    "example": "Piece 1: The light was off. Piece 2: Dad changed the bulb.\n\nPiece 1 = **problem**. Piece 2 = **fix**. They fit together."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "How parts relate",
+     "text": "In a longer text, each **sentence** or **paragraph** has a job. One part can:\n\n**introduce** the topic, **give an example**, **explain a cause**, **show a result**, **answer a question**, or **give a solution**."
+    },
+    {
+     "title": "Clue words",
+     "text": "Clue words show how parts connect:\n\n**For example** → an example.\n**As a result** → a result.\n**To solve this** → a solution.\n**However** → a different side."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Say the job of the first part in a few words.\n2. Say the job of the second part.\n3. Look for a clue word between them.\n4. Choose the answer that names the link."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the relationship with the **clue words** and the **first sentence of each part**.\n\nThe first sentence of a paragraph often tells its job."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many birds travel long distances each year.",
+      "role": "main"
+     },
+     {
+      "t": "For example, some storks fly from Europe to Africa every autumn.",
+      "role": "key"
+     },
+     {
+      "t": "They return in spring to build nests.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence makes a general statement. **For example** shows the next part gives an **example** of it: storks."
+   },
+   "together": {
+    "passage": "Every summer, the school bus was very hot inside. Some students felt tired and thirsty by the time they reached home. To solve this, the school added shades to the windows and gave each student a bottle of cold water before the ride. Now the trip home is much more comfortable.",
+    "stem": "How does the third sentence relate to the first two sentences?",
+    "options": [
+     "It gives a solution to the problem they describe.",
+     "It gives an example of a hot day.",
+     "It describes a new problem.",
+     "It compares two buses."
+    ],
+    "answer": 0,
+    "hint": "Look for the clue words at the start of the third sentence: To solve this.",
+    "good": "Yes! To solve this shows the third sentence gives a solution to the hot bus problem."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, the school bus was very hot inside.",
+     "Some students felt tired and thirsty by the time they reached home.",
+     "To solve this, the school added shades to the windows and gave each student a bottle of cold water before the ride.",
+     "Now the trip home is much more comfortable."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: it gives a solution. Tap the sentence with the problem and the sentence with the solution.",
+    "wrong": "This sentence adds a detail or the result. Find the problem and the solution."
+   },
+   "checks": [
+    {
+     "passage": "Plants need sunlight to make food. For example, a bean plant kept in a dark cupboard turns pale and weak. A bean plant on a sunny windowsill grows green and strong.",
+     "stem": "How do the second and third sentences relate to the first?",
+     "options": [
+      "They tell a problem and a solution.",
+      "They give examples that show the first sentence is true.",
+      "They tell steps in time order.",
+      "They give a different opinion."
+     ],
+     "answer": 1,
+     "why": "For example shows the bean plants are examples of plants needing sunlight."
+    },
+    {
+     "passage": "The town's old market was crowded and had no shade. As a result, fewer people shopped there in summer. Shop owners lost money each year.",
+     "stem": "What does the second sentence do?",
+     "options": [
+      "It gives a solution.",
+      "It asks a question.",
+      "It tells a result of the problem in the first sentence.",
+      "It describes a different market."
+     ],
+     "answer": 2,
+     "why": "As a result shows the second sentence tells an effect of the crowded, shadeless market."
+    },
+    {
+     "passage": "Most people think sharks are dangerous to humans. However, shark attacks are very rare. In fact, sharks have much more to fear from people, who catch millions of them every year.",
+     "stem": "How do the second and third sentences relate to the first?",
+     "options": [
+      "They give examples of shark attacks.",
+      "They tell steps in order.",
+      "They repeat the first sentence.",
+      "They give facts that show a different side."
+     ],
+     "answer": 3,
+     "why": "However shows the next sentences give facts that challenge the common belief."
+    }
+   ],
+   "again": {
+    "title": "Give each part a label",
+    "text": "Write a **label** for each part: problem, solution, example, result, question, answer.\n\nThen read the labels in order. They show how the parts connect.",
+    "example": "Part 1: The park had no benches. → **problem**\nPart 2: The town added ten benches. → **solution**\n\nLink: **problem → solution**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Text structures",
+     "text": "Authors organize whole texts in common patterns:\n\n**Description**: many details about one topic.\n**Sequence**: steps or events in time order.\n**Compare and contrast**: how things are alike and different.\n**Cause and effect**: why things happen and what results.\n**Problem and solution**: a problem and ways to fix it."
+    },
+    {
+     "title": "Clues to the structure",
+     "text": "Description: **is, has, looks like**.\nSequence: **first, then, in 1990**.\nCompare: **both, but, unlike, similarly**.\nCause-effect: **because, so, as a result**.\nProblem-solution: **problem, solve, one answer is**."
+    },
+    {
+     "title": "Find the overall structure",
+     "text": "1. Look at what **each paragraph** does.\n2. Find the pattern that fits **most** of the text, not just one sentence.\n3. Use clue words to check.\n4. Name the structure."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the structure with **several** clue words from different parts of the text.\n\nOne \"because\" does not make a text cause-and-effect. The pattern must run through the **whole** text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Both the Arabian oryx and the camel live in the desert.",
+      "role": "key"
+     },
+     {
+      "t": "Both can go a long time without drinking.",
+      "role": "detail"
+     },
+     {
+      "t": "However, the oryx is a wild antelope, while the camel has been tamed by people for thousands of years.",
+      "role": "key"
+     },
+     {
+      "t": "Unlike the camel, the oryx has long, straight horns.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Clue words run through the whole text: **Both, However, while, Unlike**. Every sentence shows how the two animals are alike or different. The structure is **compare and contrast**."
+   },
+   "together": {
+    "passage": "Many coastal cities face a growing problem: beaches are washing away. Strong waves and rising seas carry sand out to the ocean faster than it returns. One solution is to build stone walls that break the waves before they reach the shore. Another is to pump sand from the seabed back onto the beach. Some cities also plant grasses on the dunes, because their roots hold the sand in place. Each solution has costs, so planners often combine more than one.",
+    "stem": "Which best describes how this passage is organized?",
+    "options": [
+     "Sequence: it tells events in time order.",
+     "Problem and solution: it describes a problem and ways to fix it.",
+     "Description: it describes what beaches look like.",
+     "Compare and contrast: it compares two cities."
+    ],
+    "answer": 1,
+    "hint": "Look at the words problem, One solution and Another. What pattern runs through the passage?",
+    "good": "Yes! The passage names a problem, then gives several solutions."
+   },
+   "evidence": {
+    "sentences": [
+     "Many coastal cities face a growing problem: beaches are washing away.",
+     "Strong waves and rising seas carry sand out to the ocean faster than it returns.",
+     "One solution is to build stone walls that break the waves before they reach the shore.",
+     "Another is to pump sand from the seabed back onto the beach.",
+     "Some cities also plant grasses on the dunes, because their roots hold the sand in place.",
+     "Each solution has costs, so planners often combine more than one."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: problem and solution. Tap 2 sentences with clue words that show this structure.",
+    "wrong": "This sentence gives a cause or a detail. Find sentences with the words problem, solution or another."
+   },
+   "checks": [
+    {
+     "passage": "First, cotton is picked from the plants. Next, machines clean it and comb the fibers straight. Then the fibers are spun into thread. Finally, the thread is woven into cloth.",
+     "stem": "How is this passage organized?",
+     "options": [
+      "Compare and contrast",
+      "Problem and solution",
+      "Cause and effect",
+      "Sequence"
+     ],
+     "answer": 3,
+     "why": "First, Next, Then and Finally show the steps in order. The structure is sequence."
+    },
+    {
+     "passage": "Because of heavy fishing, the number of hammour fish in some Gulf waters fell sharply. As a result, fishermen caught smaller fish. Prices in the market rose, so some families bought less fish.",
+     "stem": "How is this passage organized?",
+     "options": [
+      "Cause and effect",
+      "Sequence of steps",
+      "Description",
+      "Compare and contrast"
+     ],
+     "answer": 0,
+     "why": "Because of, As a result and so show each event causing the next. The structure is cause and effect."
+    },
+    {
+     "passage": "The Kaaba's covering, the kiswa, is made of black silk. Verses of the Quran are embroidered on it in gold and silver thread. It is very large and heavy, and it is replaced every year.",
+     "stem": "How is this passage organized?",
+     "options": [
+      "Problem and solution",
+      "Sequence",
+      "Description",
+      "Cause and effect"
+     ],
+     "answer": 2,
+     "why": "Every sentence gives details about one thing, the kiswa. The structure is description."
+    }
+   ],
+   "again": {
+    "title": "What does each paragraph do?",
+    "text": "Write one word for what each part does: **describes**, **compares**, **causes**, **solves**, **next step**.\n\nIf most parts have the same word, that is the structure.",
+    "example": "Beach passage: problem → solves → solves → solves.\n\nMost words: **solves**. Structure: **problem and solution**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Same topic, different structures",
+     "text": "Two texts can be about the **same topic** but be organized **differently**.\n\nOne text about water may follow its history (**chronology**). Another may argue for saving it (**problem and solution**). The structure changes what the reader learns."
+    },
+    {
+     "title": "Comparing structures",
+     "text": "To compare, ask about each text:\n\n1. What is its overall structure?\n2. What does that structure **focus** on?\n3. What does one text show that the other does not?"
+    },
+    {
+     "title": "How parts build the whole",
+     "text": "In any structure, each part has a role. A paragraph may **introduce**, **develop**, **contrast** or **conclude**.\n\nNotice how a section relates to the text as a whole, not just to the sentence before it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a comparison of structures with **clue words from each text**.\n\n1. Point to time words, compare words, cause words or solution words in Text A.\n2. Do the same for Text B.\n3. Explain what each structure helps the reader understand."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text A: In 1950, the town had one well.",
+      "role": "detail"
+     },
+     {
+      "t": "By 1980, pipes brought water to every street, and in 2010 a new treatment plant opened.",
+      "role": "key"
+     },
+     {
+      "t": "Text B: The town is using more water than its wells can supply.",
+      "role": "detail"
+     },
+     {
+      "t": "One solution is to repair leaking pipes; another is to reuse treated water for parks.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Text A** uses dates: a **chronological** history of the water supply. **Text B** names a problem and solutions: **problem and solution**. Same topic, different focus: the past versus what to do now."
+   },
+   "together": {
+    "passage": "Text A: Dates and figs are both sweet fruits that have been eaten in the Middle East for thousands of years. Both are often dried so they last for months. However, dates grow on tall palm trees in hot, dry places, while figs grow on smaller trees that need more water. Dates are usually eaten whole, but figs are often made into jam.\nText B: In the past, many families in Saudi Arabia picked dates in late summer. First, a climber went up the palm with a rope belt. Next, he cut the heavy bunches and lowered them to the ground. Then the family spread the dates in the sun to dry. Finally, the dried dates were packed into baskets for the year.",
+    "stem": "How do the structures of Text A and Text B differ?",
+    "options": [
+     "Both texts use problem and solution.",
+     "Text A tells events in order, and Text B compares two fruits.",
+     "Both texts compare dates with other fruits.",
+     "Text A compares two fruits, and Text B tells steps in order."
+    ],
+    "answer": 3,
+    "hint": "Look for both, however and while in Text A. Look for first, next and then in Text B.",
+    "good": "Yes! Text A uses compare words (both, however, while). Text B uses order words (first, next, then, finally)."
+   },
+   "evidence": {
+    "sentences": [
+     "Text A: Dates and figs are both sweet fruits that have been eaten in the Middle East for thousands of years.",
+     "Both are often dried so they last for months.",
+     "However, dates grow on tall palm trees in hot, dry places, while figs grow on smaller trees that need more water.",
+     "Dates are usually eaten whole, but figs are often made into jam.",
+     "Text B: In the past, many families in Saudi Arabia picked dates in late summer.",
+     "First, a climber went up the palm with a rope belt.",
+     "Next, he cut the heavy bunches and lowered them to the ground.",
+     "Then the family spread the dates in the sun to dry.",
+     "Finally, the dried dates were packed into baskets for the year."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     6,
+     7,
+     8
+    ],
+    "need": 2,
+    "stem": "The answer was: Text A compares, Text B tells steps in order. Tap one sentence from each text that shows its structure.",
+    "wrong": "This sentence only sets the scene for Text B. Find a sentence with a compare word in Text A or a step word in Text B."
+   },
+   "checks": [
+    {
+     "passage": "Text A explains the history of the Riyadh Metro, from the first plans to the opening of its lines. Text B argues that the city's traffic jams can be reduced if more people use the metro and buses.",
+     "stem": "How do the two texts differ in structure?",
+     "options": [
+      "Both use compare and contrast.",
+      "Text A is problem and solution; Text B is chronological.",
+      "Text A is chronological; Text B is problem and solution.",
+      "Both are descriptions of trains."
+     ],
+     "answer": 2,
+     "why": "Text A follows events over time; Text B names a problem (traffic) and a solution (public transport)."
+    },
+    {
+     "passage": "In an article about desert locusts, the first section describes what a locust looks like. The second explains why swarms form after heavy rain. The third describes how teams stop swarms early. The last section warns that swarms may become more common as weather patterns change.",
+     "stem": "What is the role of the third section in the article as a whole?",
+     "options": [
+      "It describes a cause of swarms.",
+      "It presents a solution to the problem described before it.",
+      "It describes the insect's body.",
+      "It gives the history of locusts."
+     ],
+     "answer": 1,
+     "why": "After the article explains why swarms form, the third section tells how teams stop them: a solution."
+    },
+    {
+     "passage": "Text A: Some students learn best by reading; others learn best by doing. Unlike reading, hands-on projects let students test ideas themselves.\nText B: Reading builds vocabulary because readers meet new words in context. As a result, strong readers often find other subjects easier.",
+     "stem": "Which statement best compares the structures of the two texts?",
+     "options": [
+      "Text A uses compare and contrast; Text B uses cause and effect.",
+      "Both texts tell events in time order.",
+      "Text A uses cause and effect; Text B uses compare and contrast.",
+      "Both texts describe a problem and a solution."
+     ],
+     "answer": 0,
+     "why": "Text A compares ways of learning (Unlike). Text B shows causes and results (because, As a result)."
+    }
+   ],
+   "again": {
+    "title": "Clue word hunt in each text",
+    "text": "Circle clue words in **each** text separately.\n\nTime words → sequence or chronology.\nBoth, unlike, however → compare.\nBecause, as a result → cause and effect.\nProblem, solution → problem and solution.",
+    "example": "Text A: both, however, while → **compare**.\nText B: first, next, then, finally → **sequence**.\n\nDifferent clue words, different structures."
+   }
+  }
+ }
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-097",
+  "title": "Reading the Clouds",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 420,
+  "passage": "Look up at the sky on almost any day, and you will probably see clouds drifting overhead, changing shape as they travel. Although they may look as soft as cotton, clouds are actually enormous collections of tiny water droplets or ice crystals floating in the air. A single ordinary cloud can contain hundreds of tonnes of water, yet each droplet is so small and light that rising air keeps it suspended high above the ground.\n\nEvery cloud begins with invisible water vapour. When the sun warms the land and the sea, water evaporates and the warm, moist air rises. As it climbs, the air expands and cools, and cool air cannot hold as much vapour as warm air. The extra vapour therefore condenses, turning back into liquid. However, it needs something to cling to, so it gathers around microscopic specks of dust, smoke or sea salt. Billions of these droplets together form a visible cloud.\n\nFor centuries, people described clouds in many different ways, which caused considerable confusion. In 1802, a British scientist named Luke Howard proposed a simple system that used Latin words, and meteorologists still rely on his names today. \"Cumulus,\" meaning \"heap,\" describes the puffy white clouds with flat bases that often appear on sunny afternoons. \"Stratus,\" meaning \"layer,\" describes flat grey sheets that can cover the entire sky like a blanket. \"Cirrus,\" meaning \"curl of hair,\" describes thin, wispy clouds so high and cold that they are made entirely of ice crystals. Howard also used \"nimbus,\" meaning \"rain cloud,\" which is added to names such as nimbostratus.\n\nThe most impressive cloud of all is the cumulonimbus, often called the \"king of clouds.\" When warm, moist air rises very rapidly, a small cumulus cloud can grow into a towering giant more than ten kilometres tall within an hour or two. Inside it, powerful currents of air hurl droplets and ice up and down, producing heavy rain, lightning, thunder and sometimes hail. In Saudi Arabia, these dramatic storm clouds often build above the mountains of Asir in the summer.\n\nBecause different clouds are linked to different weather, learning to recognise them is a valuable skill. Thin cirrus clouds sometimes arrive a day before a change in the weather, while dark, swelling clouds warn that a storm may be approaching. Pilots, farmers and sailors have depended on such signs for generations.\n\nSo the next time you notice a cloud, pause for a moment and observe it closely. What an extraordinary journey that water has taken to reach the sky!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “suspended” as it is used in paragraph 1?",
+      "options": [
+        "falling quickly to earth",
+        "hanging in the air",
+        "frozen into solid ice",
+        "hidden from our view"
+      ],
+      "answer": "B",
+      "why": "Rising air “keeps it suspended high above the ground,” so the droplets hang in the air instead of falling."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “visible” as it is used in paragraph 2?",
+      "options": [
+        "clear",
+        "bright",
+        "invisible",
+        "large"
+      ],
+      "answer": "C",
+      "why": "“Visible” means able to be seen; “invisible” means unable to be seen. The writer uses both words in paragraph 2."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “For centuries, people described clouds in many different ways, which caused considerable confusion.” What does “considerable” mean?",
+      "options": [
+        "very little",
+        "pleasant and friendly",
+        "sudden and short",
+        "a great deal of"
+      ],
+      "answer": "D",
+      "why": "So many different descriptions led to a lot of confusion, which is why Howard's simple system was needed."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a verb?",
+      "options": [
+        "condenses",
+        "moist",
+        "microscopic",
+        "visible"
+      ],
+      "answer": "A",
+      "why": "“Condenses” tells what the vapour does; “moist”, “microscopic” and “visible” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an adjective?",
+      "options": [
+        "rapidly",
+        "lightning",
+        "dramatic",
+        "currents"
+      ],
+      "answer": "C",
+      "why": "“Dramatic” describes the storm clouds; “rapidly” is an adverb, and “lightning” and “currents” are nouns."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “meteorologists” in paragraph 3?",
+      "options": [
+        "metal",
+        "meteorology",
+        "method",
+        "measure"
+      ],
+      "answer": "B",
+      "why": "A meteorologist studies meteorology, the science of weather; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “observe” in a meaningful sentence of your own.",
+      "model": "We went outside at night to observe the full moon rising over the desert.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “observe” with its meaning (to watch or notice something carefully)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Observe” means to watch carefully in order to notice details."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “sky” appears in paragraph 1. What is its correct plural form?",
+      "options": [
+        "skys",
+        "skyes",
+        "skis",
+        "skies"
+      ],
+      "answer": "D",
+      "why": "When a word ends in a consonant + y, change y to i and add -es: sky → skies. “Skis” is a different word."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “So the next time you notice a cloud, pause for a moment and observe it closely.”?",
+      "options": [
+        "a question",
+        "a command",
+        "an exclamation",
+        "a statement of fact"
+      ],
+      "answer": "B",
+      "why": "It tells the reader to do something (“pause … and observe”), so it is a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "How Clouds Form and What They Tell Us",
+        "The Life of Luke Howard, Scientist",
+        "Storms in the Mountains of Asir",
+        "Why Sailors Never Trust the Sky"
+      ],
+      "answer": "A",
+      "why": "The text explains how clouds form, how they are named and how they signal weather. Howard and Asir are only parts of it."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to tell the life story of a British scientist",
+        "to persuade readers to become pilots",
+        "to warn readers never to go outside during the summer",
+        "to explain how clouds form, how they are named and what they show about weather"
+      ],
+      "answer": "D",
+      "why": "Each paragraph adds information about clouds: what they are, formation, names, the largest cloud and weather signs."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Latin is the most difficult language to learn.",
+        "All clouds are made entirely of ice crystals.",
+        "Luke Howard created a naming system for clouds that is still used today.",
+        "Stratus clouds are the most common clouds on sunny afternoons."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 explains how Howard's Latin names ended the confusion and are still relied on by meteorologists."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why does water vapour condense as warm air rises?",
+      "options": [
+        "The rising air cools, and cool air cannot hold as much vapour.",
+        "The sun becomes hotter higher up in the sky.",
+        "Dust and smoke push the vapour back toward the ground.",
+        "Ice crystals melt and turn the vapour into rain."
+      ],
+      "answer": "A",
+      "why": "“As it climbs, the air expands and cools, and cool air cannot hold as much vapour as warm air.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a biography of Luke Howard",
+        "an expository text",
+        "a narrative story",
+        "a friendly letter"
+      ],
+      "answer": "B",
+      "why": "It explains a scientific topic with facts. Howard is mentioned, but the text is not the story of his life."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why are cirrus clouds made entirely of ice crystals?",
+      "options": [
+        "They contain sea salt and smoke.",
+        "They form only during storms.",
+        "They are so high and cold that water freezes.",
+        "They are the heaviest clouds in the sky."
+      ],
+      "answer": "C",
+      "why": "Cirrus clouds are described as “so high and cold that they are made entirely of ice crystals.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which list shows the stages of cloud formation in the correct order?",
+      "options": [
+        "vapour condenses → water evaporates → air rises → a cloud forms",
+        "air rises → a cloud forms → water evaporates → vapour condenses",
+        "a cloud forms → vapour condenses → air rises → water evaporates",
+        "water evaporates → moist air rises and cools → vapour condenses on specks → a cloud forms"
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 describes evaporation, rising and cooling, condensation on dust or salt, and then a visible cloud."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, which sign suggests that a storm may be approaching?",
+      "options": [
+        "puffy white clouds with flat bases",
+        "dark, swelling clouds",
+        "a clear blue sky",
+        "thin, wispy clouds high above"
+      ],
+      "answer": "B",
+      "why": "“Dark, swelling clouds warn that a storm may be approaching.” Cirrus clouds may signal a change a day before, not an approaching storm."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What does the writer explain immediately BEFORE describing the “king of clouds”?",
+      "options": [
+        "Luke Howard's system of cloud names",
+        "how pilots and sailors read the sky",
+        "why clouds look as soft as cotton",
+        "how water evaporates from the sea"
+      ],
+      "answer": "A",
+      "why": "Howard's names are explained in paragraph 3, just before the cumulonimbus in paragraph 4."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what caused confusion before Luke Howard's system?",
+      "options": [
+        "Clouds changed shape too quickly to be studied.",
+        "Scientists refused to look at the sky.",
+        "People described clouds in many different ways.",
+        "Nobody had ever seen a cirrus cloud."
+      ],
+      "answer": "C",
+      "why": "“People described clouds in many different ways, which caused considerable confusion.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "a list of the Latin names of clouds",
+        "a warning about dangerous storms",
+        "a story about the writer's childhood",
+        "the surprising fact that a cloud holds hundreds of tonnes of water yet floats"
+      ],
+      "answer": "D",
+      "why": "This surprising contrast makes readers wonder how clouds form and stay in the sky."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why have pilots, farmers and sailors depended on clouds for generations?",
+      "options": [
+        "Clouds tell them the exact time of day.",
+        "Clouds help them predict changes in the weather.",
+        "Clouds show them which direction is north.",
+        "Clouds protect them from the sun's heat."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5 says different clouds are linked to different weather, and these jobs depend on knowing the weather ahead."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How are cumulus clouds different from stratus clouds?",
+      "options": [
+        "Cumulus clouds are puffy heaps; stratus clouds are flat grey layers.",
+        "Cumulus clouds are made of ice; stratus clouds are made of dust.",
+        "Cumulus clouds bring hail; stratus clouds bring lightning.",
+        "Cumulus clouds are thin and wispy; stratus clouds are tall towers."
+      ],
+      "answer": "A",
+      "why": "“Cumulus” (heap) describes puffy clouds with flat bases; “stratus” (layer) describes flat grey sheets."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what can happen when warm, moist air rises very rapidly?",
+      "options": [
+        "The air becomes too dry for clouds to form.",
+        "Cirrus clouds fall to the ground as fog.",
+        "A small cumulus cloud can grow into a towering storm cloud.",
+        "All the clouds in the sky disappear."
+      ],
+      "answer": "C",
+      "why": "Rapidly rising air can turn a small cumulus into a cumulonimbus “more than ten kilometres tall.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do thin cirrus clouds and dark, swelling clouds have in common, according to paragraph 5?",
+      "options": [
+        "Both are made entirely of water droplets.",
+        "Both appear only above the mountains of Asir.",
+        "Both were named by pilots and sailors.",
+        "Both can be signs of coming changes in the weather."
+      ],
+      "answer": "D",
+      "why": "Cirrus may arrive a day before a weather change, and dark, swelling clouds warn of a storm."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer suggest by saying stratus clouds “can cover the entire sky like a blanket”?",
+      "options": [
+        "They are warm and soft to touch.",
+        "They spread evenly across the whole sky.",
+        "They appear only at night.",
+        "They are made of thick wool."
+      ],
+      "answer": "B",
+      "why": "The simile compares a flat grey layer of cloud to a blanket that covers everything evenly."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why is the cumulonimbus called the “king of clouds”?",
+      "options": [
+        "It is the tallest and most powerful cloud.",
+        "It was the first cloud Luke Howard named.",
+        "It appears only over royal palaces.",
+        "It is the most common cloud on sunny days."
+      ],
+      "answer": "A",
+      "why": "It can grow “more than ten kilometres tall” and produces rain, lightning, thunder and hail, so it rules over other clouds."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Every cloud begins with invisible water vapour.",
+        "The most impressive cloud of all is the cumulonimbus, often called the \"king of clouds.\"",
+        "What an extraordinary journey that water has taken to reach the sky!",
+        "Pilots, farmers and sailors have depended on such signs for generations."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what should a family planning a picnic in the mountains do if they see dark, swelling clouds building in the afternoon?",
+      "options": [
+        "climb higher to get a better view of the clouds",
+        "stay outside because clouds are harmless",
+        "wait under a tall tree until the storm passes",
+        "postpone the picnic or move somewhere safe indoors"
+      ],
+      "answer": "D",
+      "why": "The text says such clouds warn that a storm, with lightning and sometimes hail, may be approaching."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a wish to make readers curious about clouds and observe them closely",
+        "a plan to sell weather instruments",
+        "a belief that Latin should be taught in schools",
+        "a fear that clouds are disappearing"
+      ],
+      "answer": "A",
+      "why": "The writer explains clouds and ends by inviting readers to “pause for a moment and observe it closely.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is MOST useful for keeping people safe?",
+      "options": [
+        "that cumulus means “heap” in Latin",
+        "that Luke Howard was British",
+        "that dark, swelling clouds warn of a possible storm",
+        "that clouds can look as soft as cotton"
+      ],
+      "answer": "C",
+      "why": "Recognising storm clouds helps people avoid lightning, heavy rain and hail; the other facts are interesting but not about safety."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what “cirrus” means",
+        "why the air expands as it rises",
+        "what a cumulonimbus can produce",
+        "which clouds have flat bases"
+      ],
+      "answer": "B",
+      "why": "The writer says rising air “expands and cools” but never explains why; the other points are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A cloud forms in completely dry air with no water vapour.",
+        "A cirrus cloud near the ground is made entirely of warm water.",
+        "A cloud weighing hundreds of tonnes crashes to the ground in one piece.",
+        "A small cumulus cloud grows into a thunderstorm cloud during one afternoon."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 says a cumulus can grow into a cumulonimbus “within an hour or two.” The others contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "A Day at the Beach",
+        "Reading the Sky",
+        "The Hottest Summer in Asir",
+        "Inventions of the 1800s"
+      ],
+      "answer": "B",
+      "why": "The text teaches readers how clouds form and how to understand what they say about the weather."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that give readers ONE practical way to study clouds and explain why it is useful.",
+      "model": "Try keeping a cloud diary for two weeks: each afternoon, sketch or photograph the sky, write the cloud's name and note the weather the next day. Soon you will see patterns, such as cirrus clouds appearing before a change. In this way, you will learn to forecast the weather just as farmers and sailors once did.",
+      "rubric": [
+        "2 = a clear new ending with a practical idea for studying clouds and a reason that links to the text (names, weather signs, formation)",
+        "1 = an idea is given but it is unclear or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any practical, explained idea that fits the text is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A class wants to keep an accurate record of the clouds for a month. Which plan is best?",
+      "options": [
+        "Photograph the sky at the same time each day and name the cloud type.",
+        "Draw the clouds from memory at the end of the month.",
+        "Look at the sky only on days when it rains.",
+        "Write down a cloud name chosen at random each day."
+      ],
+      "answer": "A",
+      "why": "Regular, same-time observations named with Howard's system give a careful, reliable record."
+    }
+  ]
+}

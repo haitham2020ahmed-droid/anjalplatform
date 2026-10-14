@@ -1,0 +1,457 @@
+{
+ "code": "LN-054",
+ "title": "Adjectives and articles",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "adjectives"
+ ],
+ "skillNames": [
+  "Adjectives",
+  "Articles a, an, the",
+  "Demonstrative Adjectives (this, that, these, those)",
+  "Proper Adjectives",
+  "Adjectives, Articles and Order of Adjectives"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Describing words",
+     "text": "An **adjective** tells about a noun.\n\n**big** house, **red** apple, **happy** girl\n\nIt answers: **What kind? How many?**"
+    },
+    {
+     "title": "A or an?",
+     "text": "Use **a** before a consonant sound: **a** cat, **a** bus.\n\nUse **an** before a vowel sound: **an** apple, **an** egg, **an** owl."
+    },
+    {
+     "title": "The",
+     "text": "Use **the** for one thing we both know.\n\n**the** sun, **the** door of our class\n\n**A**, **an** and **the** are called **articles**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the noun (a person, place or thing).\n2. Look at the word just before it.\n3. Does it tell **what kind**? It is an adjective.\n\nPoint to it in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I have a small kitten.",
+      "role": "key"
+     },
+     {
+      "t": "She has soft white fur.",
+      "role": "key"
+     },
+     {
+      "t": "She purrs.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Small** tells about the kitten. **Soft** and **white** tell about the fur. They are adjectives.\n\n\"She purrs.\" has no describing word."
+   },
+   "together": {
+    "passage": "Nora has a new bike. It is blue. She rides it to the park. The park has tall trees.",
+    "stem": "Which word tells about the bike?",
+    "options": [
+     "Nora",
+     "rides",
+     "new",
+     "park"
+    ],
+    "answer": 2,
+    "hint": "That word is not a describing word. Which word tells what kind of bike?",
+    "good": "Yes! New tells what kind of bike Nora has."
+   },
+   "evidence": {
+    "sentences": [
+     "Nora has a new bike.",
+     "It is blue.",
+     "She rides it to the park.",
+     "The park has tall trees."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: new. Tap 2 sentences that describe the bike.",
+    "wrong": "This sentence is about the park or what Nora does. Find sentences about the bike."
+   },
+   "checks": [
+    {
+     "passage": "I ate ___ orange at lunch.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "a",
+      "an",
+      "those",
+      "these"
+     ],
+     "answer": 1,
+     "why": "Orange starts with a vowel sound, so we say an orange."
+    },
+    {
+     "passage": "The hungry cat drank milk.",
+     "stem": "Which word is an adjective?",
+     "options": [
+      "cat",
+      "drank",
+      "milk",
+      "hungry"
+     ],
+     "answer": 3,
+     "why": "Hungry tells what kind of cat. It is an adjective."
+    },
+    {
+     "passage": "Ahmed saw a eagle in the sky.",
+     "stem": "Which word is wrong?",
+     "options": [
+      "a",
+      "saw",
+      "in",
+      "sky"
+     ],
+     "answer": 0,
+     "why": "Eagle starts with a vowel sound, so it needs an: an eagle."
+    }
+   ],
+   "again": {
+    "title": "Ask: What kind?",
+    "text": "Point to a thing in the sentence. Ask: **What kind is it?**\n\nThe word that answers is the adjective.",
+    "example": "The tired boy sat down.\n\nWhat kind of boy? **Tired.** So **tired** is the adjective."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "This and that",
+     "text": "**This** = one thing near you: **this** book in my hand.\n\n**That** = one thing far away: **that** bird on the roof."
+    },
+    {
+     "title": "These and those",
+     "text": "**These** = more than one, near: **these** pencils on my desk.\n\n**Those** = more than one, far: **those** clouds in the sky."
+    },
+    {
+     "title": "A or the?",
+     "text": "Use **a** or **an** the first time you talk about something: I saw **a** falcon.\n\nUse **the** when the reader knows which one: **The** falcon flew away."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look for clues in the text:\n\n1. Is it **one or many**? Look for -s at the end of the noun.\n2. Is it **near or far**? Look for words like here, in my hand, over there.\n3. Is it **new** or already known?\n\nPoint to the clue words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Look at these shells in my bucket!",
+      "role": "key"
+     },
+     {
+      "t": "Those boats out on the sea are fishing boats.",
+      "role": "key"
+     },
+     {
+      "t": "We will go home soon.",
+      "role": "other"
+     }
+    ],
+    "explain": "**These shells**: many, and near (in my bucket).\n\n**Those boats**: many, and far (out on the sea)."
+   },
+   "together": {
+    "passage": "Grandma opened a box of old photos. \"This picture shows me as a girl,\" she said, holding one up. \"And ___ photos over there on the shelf are from my school days.\" I picked up a photo of a house. \"The house was in Taif,\" Grandma said.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "this",
+     "that",
+     "these",
+     "those"
+    ],
+    "answer": 3,
+    "hint": "Look at the clues: how many photos? Are they near or far?",
+    "good": "Yes! The photos are many (photos) and far away (over there on the shelf), so we use those."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandma opened a box of old photos.",
+     "\"This picture shows me as a girl,\" she said, holding one up.",
+     "\"And ___ photos over there on the shelf are from my school days.\"",
+     "I picked up a photo of a house.",
+     "\"The house was in Taif,\" Grandma said."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: those. Tap the sentence with the clues that prove it.",
+    "wrong": "This sentence does not tell about the photos on the shelf. Find the words over there and photos."
+   },
+   "checks": [
+    {
+     "passage": "I found a key in the sand. ___ key opens our garden gate.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "A",
+      "An",
+      "The",
+      "Those"
+     ],
+     "answer": 2,
+     "why": "We already know which key: the one I found. So we use the."
+    },
+    {
+     "passage": "Look at ___ stars far above us!",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "those",
+      "this",
+      "these",
+      "that"
+     ],
+     "answer": 0,
+     "why": "Stars is more than one, and they are far away, so we use those."
+    },
+    {
+     "passage": "These box is too heavy for me to carry.",
+     "stem": "What is the mistake?",
+     "options": [
+      "Box should be boxs.",
+      "These should be This, because there is one box.",
+      "Heavy should be heavier.",
+      "Me should be I."
+     ],
+     "answer": 1,
+     "why": "Box is only one thing, so we need this, not these."
+    }
+   ],
+   "again": {
+    "title": "Count and point",
+    "text": "Ask two questions:\n\n1. **One or more?**\n2. **Near or far?**\n\nOne + near = this. One + far = that.\nMore + near = these. More + far = those.",
+    "example": "___ shoes by the door are mine.\n\nShoes: **more than one**. By the door: **far** from me. So: **Those** shoes."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Proper adjectives",
+     "text": "A **proper adjective** comes from a proper noun. It always starts with a **capital letter**.\n\nSaudi Arabia → **Saudi** coffee\nJapan → **Japanese** garden\nArabia → **Arabian** horse"
+    },
+    {
+     "title": "A or an: listen to the sound",
+     "text": "Choose by the first **sound**, not the first letter.\n\n**an** hour (the h is silent)\n**a** university (it starts with a \"you\" sound)\n**an** honest answer, **a** one-day trip"
+    },
+    {
+     "title": "Where adjectives go",
+     "text": "Adjectives can come before a noun: a **tall** tower.\n\nThey can also come after a linking verb: The tower is **tall**.\n\nYou can use more than one: a **long**, **hot** summer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the noun the adjective describes.\n2. For a proper adjective, name the place or people it comes from.\n3. For a or an, say the next word aloud and listen to its **first sound**.\n\nYour proof is the exact word in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school held an international food day.",
+      "role": "key"
+     },
+     {
+      "t": "My class made Saudi kabsa and Indian rice pudding.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone ate too much!",
+      "role": "other"
+     }
+    ],
+    "explain": "**An international**: international starts with a vowel sound.\n\n**Saudi** and **Indian** come from the names Saudi Arabia and India, so they are proper adjectives with capital letters."
+   },
+   "together": {
+    "passage": "Our class visited a museum in Riyadh last week. In the first hall, we saw an ancient clay pot that was found near Al-Ula. Next to it was a Nabataean coin from the old city of Hegra. Our guide spoke for almost an hour about the old trade routes. Before we left, each of us chose a postcard of an Arabian horse.",
+    "stem": "Which word in the text is a proper adjective?",
+    "options": [
+     "ancient",
+     "clay",
+     "Nabataean",
+     "old"
+    ],
+    "answer": 2,
+    "hint": "That adjective does not come from the name of a people or place. Look for an adjective with a capital letter.",
+    "good": "Yes! Nabataean comes from the Nabataeans, an ancient people, so it is a proper adjective with a capital."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class visited a museum in Riyadh last week.",
+     "In the first hall, we saw an ancient clay pot that was found near Al-Ula.",
+     "Next to it was a Nabataean coin from the old city of Hegra.",
+     "Our guide spoke for almost an hour about the old trade routes.",
+     "Before we left, each of us chose a postcard of an Arabian horse."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Nabataean. Tap 2 sentences that contain a proper adjective.",
+    "wrong": "This sentence may have names of places (proper nouns) or ordinary adjectives, but no proper adjective."
+   },
+   "checks": [
+    {
+     "passage": "We drank arabic coffee with dates after dinner.",
+     "stem": "Which word should start with a capital letter?",
+     "options": [
+      "coffee",
+      "arabic",
+      "dates",
+      "dinner"
+     ],
+     "answer": 1,
+     "why": "Arabic comes from Arabia, so it is a proper adjective: Arabic coffee."
+    },
+    {
+     "passage": "She wants to become ___ engineer, and her brother wants to study at ___ university.",
+     "stem": "Which pair of words fits the blanks?",
+     "options": [
+      "a, an",
+      "an, an",
+      "a, a",
+      "an, a"
+     ],
+     "answer": 3,
+     "why": "Engineer starts with a vowel sound (an engineer). University starts with a \"you\" sound (a university)."
+    },
+    {
+     "passage": "The French bakery on our street sells fresh bread every morning.",
+     "stem": "Which word is a proper adjective?",
+     "options": [
+      "fresh",
+      "bakery",
+      "French",
+      "morning"
+     ],
+     "answer": 2,
+     "why": "French comes from France and starts with a capital letter."
+    }
+   ],
+   "again": {
+    "title": "Two quick tests",
+    "text": "1. **Capital test**: is the adjective made from the name of a country, city or people? Give it a capital.\n2. **Sound test**: say the next word aloud. Vowel sound → **an**. Consonant sound → **a**.",
+    "example": "We met **an** Egyptian scientist in **a** uniform.\n\n**Egyptian** comes from Egypt, so it has a capital. It starts with a vowel sound → **an**. **Uniform** starts with a \"you\" sound → **a**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Adjectives in order",
+     "text": "With several adjectives, English uses a usual order:\n\n1. opinion (beautiful)\n2. size (large)\n3. age (old)\n4. shape (round)\n5. color (green)\n6. origin (Persian)\n7. material (wool)\n8. purpose (prayer)\n\na **beautiful old Persian prayer** rug"
+    },
+    {
+     "title": "Comma or no comma?",
+     "text": "Use a comma between adjectives of the **same kind**, when you could put **and** between them: a **long, tiring** day.\n\nNo comma between adjectives of **different kinds**: a **small wooden** box."
+    },
+    {
+     "title": "Choose with care",
+     "text": "Too many adjectives make writing heavy.\n\nGood writers choose the one or two adjectives that **matter most** to the reader, and put them in the natural order."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an order is right or wrong:\n\n1. Label each adjective: opinion, size, age, shape, color, origin, material, purpose.\n2. Check the labels against the usual order.\n3. Point to the word that is out of place.\n\nThe words closest to the noun are the ones most **part of** it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Uncle Khalid bought a lovely little silver teapot.",
+      "role": "key"
+     },
+     {
+      "t": "It sits on a low wooden table in his majlis.",
+      "role": "key"
+     },
+     {
+      "t": "He makes tea every afternoon.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Lovely** (opinion) → **little** (size) → **silver** (material) → teapot.\n\n**Low** (size) → **wooden** (material) → table.\n\nOpinion and size come first; material sits closest to the noun."
+   },
+   "together": {
+    "passage": "At the far end of the old souq, there is a tiny shop that sells handmade goods. On the left wall hang several ___ carpets. A shelf near the door holds brass coffee pots of every size. Behind the counter, the owner keeps a heavy wooden chest full of silver rings. Visitors often stop to take photos of the colorful glass lanterns that hang from the ceiling. In the evening, when the lanterns are lit, the whole shop glows.",
+    "stem": "Which words fit the blank in the correct order?",
+    "options": [
+     "red large beautiful Persian",
+     "beautiful large red Persian",
+     "Persian red large beautiful",
+     "large Persian beautiful red"
+    ],
+    "answer": 1,
+    "hint": "Label each word: opinion, size, color, origin. Which kind goes first, and which goes closest to the noun?",
+    "good": "Yes! Opinion (beautiful), size (large), color (red), origin (Persian), then the noun."
+   },
+   "evidence": {
+    "sentences": [
+     "At the far end of the old souq, there is a tiny shop that sells handmade goods.",
+     "On the left wall hang several ___ carpets.",
+     "A shelf near the door holds brass coffee pots of every size.",
+     "Behind the counter, the owner keeps a heavy wooden chest full of silver rings.",
+     "Visitors often stop to take photos of the colorful glass lanterns that hang from the ceiling.",
+     "In the evening, when the lanterns are lit, the whole shop glows."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The rule: origin and material words go closest to the noun. Tap 2 other sentences in the text that follow this rule.",
+    "wrong": "This sentence has no material or origin word before a noun. Look for words like brass, wooden or glass."
+   },
+   "checks": [
+    {
+     "passage": "He carried a leather brown old bag.",
+     "stem": "Which shows the adjectives in the correct order?",
+     "options": [
+      "a leather old brown bag",
+      "a brown leather old bag",
+      "an old brown leather bag",
+      "an old leather brown bag"
+     ],
+     "answer": 2,
+     "why": "Age (old), then color (brown), then material (leather), closest to the noun."
+    },
+    {
+     "passage": "It was a long hot afternoon at the beach.",
+     "stem": "How should this sentence be punctuated?",
+     "options": [
+      "a, long hot afternoon",
+      "a long hot, afternoon",
+      "a long hot afternoon, at the beach",
+      "a long, hot afternoon"
+     ],
+     "answer": 3,
+     "why": "Long and hot are the same kind of adjective (you could say long and hot), so a comma goes between them."
+    },
+    {
+     "passage": "Mariam found a small round blue stone on the beach.",
+     "stem": "Why is the order of the adjectives correct?",
+     "options": [
+      "Color comes before size.",
+      "Size, then shape, then color.",
+      "The shortest word always comes first.",
+      "Any order is correct in English."
+     ],
+     "answer": 1,
+     "why": "Small (size), round (shape), blue (color): this follows the usual order."
+    }
+   ],
+   "again": {
+    "title": "Closest to the noun",
+    "text": "Ask which adjective is most **part of** the thing.\n\nWhat it is for and what it is made of go **right next to** the noun.\nYour opinion goes **farthest** from it.",
+    "example": "a comfortable new wooden chair\n\n**Comfortable** is an opinion (far). **New** is age. **Wooden** is what it is made of, so it sits right next to **chair**."
+   }
+  }
+ }
+}

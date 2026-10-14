@@ -24,6 +24,7 @@ import type { Actor } from "../auth/rbac";
 import { assertCan, ForbiddenError } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { eachLimit } from "../db/parallel";
+import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 
 const s = (v: unknown) => String(v ?? "");
 const tagsOf = (q: Row): Record<string, unknown> => { let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } } return t && typeof t === "object" ? (t as Record<string, unknown>) : {}; };
@@ -146,7 +147,14 @@ export interface IntelligenceOverview {
 }
 
 /** The dashboard numbers (one pass over the school's questions). */
-export async function intelligenceOverview(repo: Repo, schoolId: string, grade?: number): Promise<IntelligenceOverview> {
+/** ⚡ The overview reads every question of the school with its options and explanations: kept while they are unchanged. */
+export function intelligenceOverview(repo: Repo, schoolId: string, grade?: number): Promise<IntelligenceOverview> {
+  return keptWhileUnchanged(repo, `qi.overview|${schoolId}|${grade ?? ""}`, INTEL_MODELS, KEEP_MS, () => buildOverview(repo, schoolId, grade));
+}
+const INTEL_MODELS = [...BANK_MODELS, "QuestionStats", "AiSuggestion"];
+const KEEP_MS = 5 * 60_000;
+
+async function buildOverview(repo: Repo, schoolId: string, grade?: number): Promise<IntelligenceOverview> {
   const { skills, questions } = await schoolQuestionRows(repo, schoolId, grade);
   const ctxOf = metaContext(skills);
   const ids = questions.map((q) => s(q.id));
@@ -184,7 +192,10 @@ export async function intelligenceOverview(repo: Repo, schoolId: string, grade?:
 }
 
 /** Questions missing one field (newest first), for the fix-it list. */
-export async function missingList(repo: Repo, schoolId: string, field: MetaField, limit = 200): Promise<{ id: string; stem: string; skill: string; status: string; gaps: MetaField[] }[]> {
+export function missingList(repo: Repo, schoolId: string, field: MetaField, limit = 200): Promise<{ id: string; stem: string; skill: string; status: string; gaps: MetaField[] }[]> {
+  return keptWhileUnchanged(repo, `qi.missing|${schoolId}|${field}|${limit}`, INTEL_MODELS, KEEP_MS, () => buildMissingList(repo, schoolId, field, limit));
+}
+async function buildMissingList(repo: Repo, schoolId: string, field: MetaField, limit = 200): Promise<{ id: string; stem: string; skill: string; status: string; gaps: MetaField[] }[]> {
   const { skills, questions } = await schoolQuestionRows(repo, schoolId);
   const ids = questions.map((q) => s(q.id));
   const [wrong, expl] = await Promise.all([
@@ -207,7 +218,10 @@ export interface CoverageRow { skillId: string; code: string; name: string; grad
 export const COVERAGE_TARGET = 20;
 
 /** Coverage of published questions per skill: difficulty bands, DOK, and what is wrong with it. */
-export async function coverage(repo: Repo, schoolId: string, grade?: number): Promise<CoverageRow[]> {
+export function coverage(repo: Repo, schoolId: string, grade?: number): Promise<CoverageRow[]> {
+  return keptWhileUnchanged(repo, `qi.coverage|${schoolId}|${grade ?? ""}`, INTEL_MODELS, KEEP_MS, () => buildCoverage(repo, schoolId, grade));
+}
+async function buildCoverage(repo: Repo, schoolId: string, grade?: number): Promise<CoverageRow[]> {
   const { skills, questions } = await schoolQuestionRows(repo, schoolId, grade);
   const pub = questions.filter((q) => q.status === "PUBLISHED");
   return skills.map((k) => {

@@ -1,0 +1,475 @@
+{
+ "code": "LN-136",
+ "title": "Problem-and-solution structure",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.4.5",
+  "RI.8.5"
+ ],
+ "families": [
+  "problem-solution"
+ ],
+ "skillNames": [
+  "Text Structure: Problem and Solution"
+ ],
+ "statements": [
+  "R-0498",
+  "R-1021"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Problem and solution",
+     "text": "A **problem** is something that is wrong or hard.\n\nA **solution** is a way to **fix** the problem."
+    },
+    {
+     "title": "Some texts work this way",
+     "text": "First the text tells the **problem**.\n\nThen it tells the **solution**: what people did to fix it."
+    },
+    {
+     "title": "How to find them",
+     "text": "1. Ask: **What is wrong?** That is the problem.\n2. Ask: **How was it fixed?** That is the solution."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the problem and the solution **in the text**.\n\n1. Look for words like **problem**, **hard**, **could not**.\n2. Look for words like **so**, **fixed**, **to help**.\n3. Point to the sentence that tells each one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our cat climbed a tall tree.",
+      "role": "detail"
+     },
+     {
+      "t": "She could not get down.",
+      "role": "key"
+     },
+     {
+      "t": "Dad got a ladder and brought her down.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **problem**: the cat could not get down. The **solution**: Dad got a ladder."
+   },
+   "together": {
+    "passage": "Our class plants were dying. Nobody watered them on weekends. So we made a plan. Each Thursday, one student takes a plant home.",
+    "stem": "How did the class solve the problem?",
+    "options": [
+     "They threw the plants away.",
+     "They bought new plants.",
+     "Students take plants home each Thursday.",
+     "They watered the plants at night."
+    ],
+    "answer": 2,
+    "hint": "Find the word So. What did the class do after that?",
+    "good": "Yes! Taking the plants home means someone waters them on the weekend."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class plants were dying.",
+     "Nobody watered them on weekends.",
+     "So we made a plan.",
+     "Each Thursday, one student takes a plant home."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: students take plants home each Thursday. Tap a sentence that tells the solution.",
+    "wrong": "This sentence tells the problem. Find the sentence that tells how they fixed it."
+   },
+   "checks": [
+    {
+     "passage": "The path to the park was too dark at night. People were afraid to walk there. The town put up new lights.",
+     "stem": "What was the problem?",
+     "options": [
+      "The park was too big.",
+      "The path was too dark.",
+      "The lights were too bright.",
+      "People liked to walk."
+     ],
+     "answer": 1,
+     "why": "The path was too dark, so people were afraid. That was the problem."
+    },
+    {
+     "passage": "Sara could not reach the top shelf. She wanted a book. She stood on a small stool.",
+     "stem": "What was the solution?",
+     "options": [
+      "She stood on a stool.",
+      "She asked for a new book.",
+      "She read a different book.",
+      "She went home."
+     ],
+     "answer": 0,
+     "why": "Standing on the stool fixed the problem of not reaching the shelf."
+    },
+    {
+     "passage": "The baby birds fell from their nest. They could not fly yet. Ahmed put them back gently in the nest.",
+     "stem": "What did Ahmed do to fix the problem?",
+     "options": [
+      "He kept the birds.",
+      "He taught them to fly.",
+      "He made a new tree.",
+      "He put them back in the nest."
+     ],
+     "answer": 3,
+     "why": "Putting the birds back in the nest solved the problem."
+    }
+   ],
+   "again": {
+    "title": "What's wrong? How was it fixed?",
+    "text": "Ask just **two questions**:\n\n1. **What's wrong?**\n2. **How was it fixed?**",
+    "example": "The door made a loud noise. Mom put oil on it. Now it is quiet.\n\nWhat's wrong? **A loud door.** How was it fixed? **Mom put oil on it.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A text structure",
+     "text": "Authors organise texts in different ways. One way is **problem and solution**.\n\nThe text describes a **problem**, then explains one or more **solutions**."
+    },
+    {
+     "title": "Signal words",
+     "text": "**Problem words:** problem, challenge, difficult, danger, trouble, need.\n\n**Solution words:** solve, solution, fix, answer, to help, one way, so."
+    },
+    {
+     "title": "Is it problem and solution?",
+     "text": "1. Is there something wrong or hard?\n2. Does the text explain how people deal with it?\n\nIf both are yes, the structure is **problem and solution**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the structure with **two parts** of the text.\n\n1. Point to the sentence that names the **problem**.\n2. Point to the sentence that gives the **solution**.\n\nIf the text has no solution, it is not problem and solution."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every morning, traffic near our school is so heavy that cars block the road.",
+      "role": "key"
+     },
+     {
+      "t": "Many parents drive their children even though they live close by.",
+      "role": "detail"
+     },
+     {
+      "t": "To fix this, the school started a 'walking bus': a teacher walks a group of students to school along a set route.",
+      "role": "key"
+     },
+     {
+      "t": "Now there are fewer cars at the gate.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 1 names the **problem** (traffic near the school). Sentence 3 gives the **solution** (a walking bus). So the text uses a **problem-and-solution** structure."
+   },
+   "together": {
+    "passage": "Many farms in dry areas do not get enough rain. Watering crops with sprinklers can waste water, because much of it dries up in the sun before it reaches the roots. One solution is drip irrigation. Thin pipes with tiny holes carry water drop by drop straight to each plant's roots. Farmers who use this method often grow the same crops with much less water.",
+    "stem": "How is this text organised?",
+    "options": [
+     "It compares two kinds of farms.",
+     "It tells events in time order.",
+     "It describes the parts of a plant.",
+     "It explains a problem and a solution."
+    ],
+    "answer": 3,
+    "hint": "Look for problem words and solution words. Is there something wrong, and a way to fix it?",
+    "good": "Yes! The problem is too little rain and wasted water. The solution is drip irrigation."
+   },
+   "evidence": {
+    "sentences": [
+     "Many farms in dry areas do not get enough rain.",
+     "Watering crops with sprinklers can waste water, because much of it dries up in the sun before it reaches the roots.",
+     "One solution is drip irrigation.",
+     "Thin pipes with tiny holes carry water drop by drop straight to each plant's roots.",
+     "Farmers who use this method often grow the same crops with much less water."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a problem and a solution. Tap the sentence that names the problem and the sentence that names the solution.",
+    "wrong": "This sentence adds an explanation or a result. Find where the problem and the solution are first named."
+   },
+   "checks": [
+    {
+     "passage": "Long ago, sailors on long voyages often became ill with a disease called scurvy. Their gums bled and they felt weak. Doctors discovered that eating citrus fruits such as lemons and limes prevented it. Ships began carrying citrus fruits on long trips.",
+     "stem": "What is the solution in this text?",
+     "options": [
+      "Sailors stayed home.",
+      "Ships carried citrus fruits.",
+      "Doctors went on the ships.",
+      "Sailors ate more bread."
+     ],
+     "answer": 1,
+     "why": "Carrying citrus fruits prevented scurvy, so that was the solution."
+    },
+    {
+     "passage": "Our library had too many visitors and not enough seats. Students had to sit on the floor. The school turned an empty classroom next door into a reading room.",
+     "stem": "Which words signal the problem?",
+     "options": [
+      "turned an empty classroom",
+      "into a reading room",
+      "too many visitors and not enough seats",
+      "next door"
+     ],
+     "answer": 2,
+     "why": "'Too many' and 'not enough' show something is wrong. That is the problem."
+    },
+    {
+     "passage": "Camels were the main way to cross the desert for thousands of years. They carried people and goods between towns. Later, cars and roads made the trips faster.",
+     "stem": "Why is this NOT a problem-and-solution text?",
+     "options": [
+      "It never names a problem to fix.",
+      "It is about camels.",
+      "It has too many sentences.",
+      "It talks about cars."
+     ],
+     "answer": 0,
+     "why": "The text tells history in order. It never names a problem, so it is not problem and solution."
+    }
+   ],
+   "again": {
+    "title": "Two boxes",
+    "text": "Draw two boxes in your head.\n\n**Box 1: Problem.** What is wrong?\n**Box 2: Solution.** What fixes it?\n\nIf you can fill both boxes from the text, the structure is problem and solution.",
+    "example": "'Food goes bad quickly in hot weather. Refrigerators keep food cold so it lasts longer.'\n\nBox 1: **food goes bad.** Box 2: **refrigerators.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More than one solution",
+     "text": "Many problem-and-solution texts give **several solutions**. Some solutions work better than others.\n\nThe author may compare them or say which one is best."
+    },
+    {
+     "title": "Parts of the structure",
+     "text": "1. **The problem** and why it matters.\n2. **Causes** of the problem (sometimes).\n3. **Solutions** that were tried or suggested.\n4. **Results:** did the solution work?"
+    },
+    {
+     "title": "Why authors use it",
+     "text": "This structure helps readers see **why** a change was needed and **how** it helped.\n\nIt is common in science articles, news reports and persuasive texts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When a text has several solutions, prove which one the author supports.\n\n1. Find each solution in the text.\n2. Look for **results**: words like *worked*, *failed*, *reduced*, *improved*.\n3. Choose the solution the results support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Pigeons were damaging the roof of the old mosque.",
+      "role": "detail"
+     },
+     {
+      "t": "At first, workers put up plastic owls to scare them, but the pigeons soon ignored them.",
+      "role": "key"
+     },
+     {
+      "t": "Then they placed thin wires along the edges where the birds liked to land.",
+      "role": "detail"
+     },
+     {
+      "t": "With nowhere comfortable to stand, far fewer pigeons came back.",
+      "role": "key"
+     }
+    ],
+    "explain": "Two solutions are given. The first **did not work** (sentence 2). The second **reduced** the problem (sentence 4). The text shows the second solution is better."
+   },
+   "together": {
+    "passage": "In many cities, food that is still good to eat is thrown away every day by restaurants and shops. At the same time, some families struggle to buy enough food. One city tried asking shops to lower prices on food near its best-before date, but much of it still went unsold. Then volunteers created a food-sharing network: drivers collect extra meals each evening and deliver them to charities the same night. Within a year, the network was rescuing thousands of meals each month. Other cities are now copying the idea.",
+    "stem": "According to the text, which solution worked better?",
+    "options": [
+     "Lowering prices on food near its date",
+     "The volunteer food-sharing network",
+     "Throwing the food away more quickly",
+     "Building new restaurants"
+    ],
+    "answer": 1,
+    "hint": "Look at the results. Which solution 'still went unsold' and which one 'rescued thousands of meals'?",
+    "good": "Yes! The sharing network rescued thousands of meals, while lower prices left food unsold."
+   },
+   "evidence": {
+    "sentences": [
+     "In many cities, food that is still good to eat is thrown away every day by restaurants and shops.",
+     "At the same time, some families struggle to buy enough food.",
+     "One city tried asking shops to lower prices on food near its best-before date, but much of it still went unsold.",
+     "Then volunteers created a food-sharing network: drivers collect extra meals each evening and deliver them to charities the same night.",
+     "Within a year, the network was rescuing thousands of meals each month.",
+     "Other cities are now copying the idea."
+    ],
+    "proof": [
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the volunteer food-sharing network worked better. Tap 2 sentences that show the results of the solutions.",
+    "wrong": "This sentence explains the problem or describes how the network works. Find the sentences that show the RESULTS."
+   },
+   "checks": [
+    {
+     "passage": "Coral reefs are being damaged by boats that drop their anchors onto the coral. Signs asking boaters to be careful had little effect. Now, in several marine parks, fixed mooring buoys let boats tie up without dropping an anchor at all.",
+     "stem": "Why does the author mention the signs?",
+     "options": [
+      "To show that one solution did not work well",
+      "To explain how coral grows",
+      "To describe a cause of the problem",
+      "To give the main solution"
+     ],
+     "answer": 0,
+     "why": "The signs 'had little effect', which shows why a better solution, the buoys, was needed."
+    },
+    {
+     "passage": "Students at our school were often late after lunch because the canteen line was so long. The school opened a second serving window and let each grade eat at a different time. Since then, nearly every class starts on time.",
+     "stem": "What part of the structure does the last sentence give?",
+     "options": [
+      "The problem",
+      "The cause",
+      "The result",
+      "A new problem"
+     ],
+     "answer": 2,
+     "why": "'Nearly every class starts on time' tells the result of the solution."
+    },
+    {
+     "passage": "Sand dunes were moving onto the highway, covering it after every storm. Workers first cleared the sand with machines, but it returned within days. Later, they planted rows of desert shrubs and built low fences of palm fronds beside the road. The plants and fences slowed the wind and held the sand in place.",
+     "stem": "Which statement best describes how this text is organised?",
+     "options": [
+      "It compares sand and rocks.",
+      "It describes a storm in time order.",
+      "It describes the kinds of desert plants.",
+      "It gives a problem, a failed fix and a better fix."
+     ],
+     "answer": 3,
+     "why": "The text names a problem (moving sand), a fix that failed (machines) and a fix that worked (plants and fences)."
+    }
+   ],
+   "again": {
+    "title": "Problem → try → result",
+    "text": "Make a quick chart:\n\n**Problem → Try 1 → Result → Try 2 → Result**\n\nThe solution that gets a good result is the one the author supports.",
+    "example": "Problem: the school bus is always full. Try 1: smaller bags (still full). Try 2: a second bus (**plenty of seats**). The second bus solved it."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Analysing the structure",
+     "text": "At this stage, you go beyond naming the structure. You **analyse how** the author uses it: why the problem is presented a certain way, which solutions are included or left out, and what the reader is meant to conclude."
+    },
+    {
+     "title": "Questions to ask",
+     "text": "1. How does the author make the problem **seem urgent**?\n2. Are solutions **compared**? Which one gets more evidence?\n3. Does the author admit **limits** or costs of the solution?\n4. Is the structure used to **inform** or to **persuade**?"
+    },
+    {
+     "title": "Problem-solution vs. cause-effect",
+     "text": "**Cause-effect** explains why something happens.\n\n**Problem-solution** goes further: it treats the effect as something to fix and offers ways to fix it. Many texts mix both."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your analysis with the text's **organisation**, not just its topic.\n\n1. Locate where the problem is established and how strongly.\n2. Locate each solution and the evidence attached to it.\n3. Decide what the arrangement leads the reader to believe, and point to the sentences that create that effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Waiting times at the city's main hospital have doubled in ten years.",
+      "role": "key"
+     },
+     {
+      "t": "Adding more beds was suggested, but there is no space to build.",
+      "role": "detail"
+     },
+     {
+      "t": "A trial of online appointment booking at two clinics cut waiting times by half.",
+      "role": "key"
+     },
+     {
+      "t": "The system is not perfect: older patients without internet access still need telephone booking.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The author makes the problem urgent (**doubled in ten years**), then gives one solution strong evidence (**cut by half**) while admitting a cost. The structure pushes readers to support the new system."
+   },
+   "together": {
+    "passage": "Traffic noise is more than an annoyance. Studies have linked long-term exposure to loud traffic with poor sleep, stress, and difficulty concentrating in school. Cities have tried several responses. Tall concrete walls along highways block some sound, but they are expensive, and many residents dislike living behind them. Lower speed limits reduce noise as well, though drivers often ignore them unless the roads are monitored. A newer approach, special road surfaces that absorb sound, can lower noise noticeably without changing how people drive. Because such surfaces wear out after some years, they must be renewed, yet several cities now consider them the most practical first step.",
+    "stem": "How does the author use the problem-and-solution structure to shape the reader's view?",
+    "options": [
+     "By describing only one solution and ignoring the problem",
+     "By listing solutions in the order they were invented, without judging them",
+     "By showing the drawbacks of earlier solutions, then presenting sound-absorbing roads as the most practical",
+     "By arguing that traffic noise is not a serious problem"
+    ],
+    "answer": 2,
+    "hint": "Notice the words 'but' and 'though' after the first two solutions. How is the third solution described differently?",
+    "good": "Yes! Walls and speed limits get drawbacks; the road surface is called 'the most practical first step'."
+   },
+   "evidence": {
+    "sentences": [
+     "Traffic noise is more than an annoyance.",
+     "Studies have linked long-term exposure to loud traffic with poor sleep, stress, and difficulty concentrating in school.",
+     "Cities have tried several responses.",
+     "Tall concrete walls along highways block some sound, but they are expensive, and many residents dislike living behind them.",
+     "Lower speed limits reduce noise as well, though drivers often ignore them unless the roads are monitored.",
+     "A newer approach, special road surfaces that absorb sound, can lower noise noticeably without changing how people drive.",
+     "Because such surfaces wear out after some years, they must be renewed, yet several cities now consider them the most practical first step."
+    ],
+    "proof": [
+     3,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: earlier solutions are shown with drawbacks, and the new surface is presented as most practical. Tap 2 sentences that create this effect.",
+    "wrong": "This sentence establishes the problem or introduces the solutions. Find where the solutions are judged."
+   },
+   "checks": [
+    {
+     "passage": "Each year, millions of tonnes of clothing end up in landfills. Some companies now offer to recycle old clothes, but only a small share is actually turned into new fabric. Meanwhile, repair cafés, where volunteers mend clothes for free, are spreading in many cities. The author argues that the cheapest solution may be the oldest one: keeping clothes in use longer.",
+     "stem": "Why does the author include the detail that only a small share of clothes is recycled into new fabric?",
+     "options": [
+      "To show that recycling solves the problem completely",
+      "To prove that clothing is not a problem",
+      "To show a popular fix has limits, before offering another",
+      "To describe how fabric is made"
+     ],
+     "answer": 2,
+     "why": "The limit of recycling sets up the author's preferred solution: repair and longer use."
+    },
+    {
+     "passage": "The village's only bridge washed away in a flood. A new concrete bridge would take two years to build. In the meantime, the army set up a temporary metal bridge within a week, and local volunteers organised a ferry for heavy goods.",
+     "stem": "What does the structure of this passage show about the solutions?",
+     "options": [
+      "Quick fixes helped while a lasting one was built.",
+      "The concrete bridge was built in a week.",
+      "The ferry took the place of the bridge for good.",
+      "No solution was found."
+     ],
+     "answer": 0,
+     "why": "The text separates a long-term fix (concrete bridge, two years) from quick, temporary fixes (metal bridge, ferry)."
+    },
+    {
+     "passage": "Low-lying coastal cities face rising sea levels. Some build higher sea walls. Others restore wetlands and mangroves, which absorb waves and grow upward as sediment collects. A few have begun planning to move homes away from the coast. No single solution suits every city; the right choice depends on land, money and time.",
+     "stem": "What is the effect of the final sentence on the passage's structure?",
+     "options": [
+      "It introduces a new problem unrelated to the sea.",
+      "It names sea walls as the only real answer.",
+      "It shows that the problem has already been solved.",
+      "It shows each city must choose what fits it."
+     ],
+     "answer": 3,
+     "why": "Instead of picking one winner, the conclusion presents the solutions as options suited to different conditions."
+    }
+   ],
+   "again": {
+    "title": "Follow the evidence",
+    "text": "In an argument built as problem and solution, the author's favourite solution usually gets:\n\n1. the **most evidence**,\n2. the **fewest objections**,\n3. the **last or strongest place** in the text.",
+    "example": "Solution A: '…but it is costly.' Solution B: '…though people ignore it.' Solution C: '…cut the problem by half and is now used in five cities.'\n\nC gets the strongest evidence and the last word. **C is the author's choice.**"
+   }
+  }
+ }
+}

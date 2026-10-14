@@ -1,0 +1,483 @@
+{
+ "code": "LN-017",
+ "title": "Organizing a paragraph",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.a",
+  "W.5.2.a",
+  "W.5.2.b",
+  "W.5.3.a",
+  "W.5.4",
+  "W.5.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0059",
+  "L-0060",
+  "L-0065",
+  "L-0071",
+  "L-0076",
+  "L-0135",
+  "L-0144",
+  "L-0148",
+  "L-0167",
+  "L-0168",
+  "L-0257",
+  "L-0258",
+  "L-0259",
+  "L-0272",
+  "L-0273",
+  "L-0274",
+  "L-0320"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Order matters",
+     "text": "A paragraph is a group of sentences about **one** idea.\n\nThe sentences must be in an order that makes sense."
+    },
+    {
+     "title": "Time order",
+     "text": "When you tell how to do something, or what happened, use **time order**.\n\nWhat happened **first**? What happened **next**? What happened **last**?"
+    },
+    {
+     "title": "Order words",
+     "text": "**First**, **next**, **then**, **after that**, **last**.\n\nThese words help the reader follow along."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Order words are your **clues**.\n\n1. Look for words like **next**, **then** and **last**.\n2. They show which sentences come **later**.\n3. The sentence with no clue of \"later\" often comes **first**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, I fill the cup with water.",
+      "role": "key"
+     },
+     {
+      "t": "Next, I put in a flower seed.",
+      "role": "detail"
+     },
+     {
+      "t": "Last, I put the cup in the sun.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**First** shows the start. **Next** and **Last** show what comes after.\n\nThe sentences are in time order, so the paragraph makes sense."
+   },
+   "together": {
+    "passage": "Next, I brush my teeth. Then I eat breakfast. Last, I walk to school. School starts at seven.",
+    "stem": "Which sentence should come before these?",
+    "options": [
+     "First, I wake up.",
+     "After that, I go home.",
+     "Then I go to bed.",
+     "Last, I eat dinner."
+    ],
+    "answer": 0,
+    "hint": "Look at the order words. Which sentence shows the start of the day?",
+    "good": "Yes! You wake up first. Then the next steps make sense."
+   },
+   "evidence": {
+    "sentences": [
+     "Next, I brush my teeth.",
+     "Then I eat breakfast.",
+     "Last, I walk to school.",
+     "School starts at seven."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: First, I wake up. Tap 2 sentences with order words that show they come later.",
+    "wrong": "This sentence has no order word. Find sentences with words like next, then or last."
+   },
+   "checks": [
+    {
+     "passage": "Then the bird flew away. First, a bird landed on the tree. It sang a song.",
+     "stem": "Which sentence should come first?",
+     "options": [
+      "Then the bird flew away.",
+      "It sang a song.",
+      "First, a bird landed on the tree.",
+      "The tree is green."
+     ],
+     "answer": 2,
+     "why": "\"First\" shows the start. The bird must land before it sings and flies away."
+    },
+    {
+     "passage": "1. First, I get a bowl. 2. ____ 3. Last, I eat the cereal.",
+     "stem": "Which sentence fits in the middle?",
+     "options": [
+      "Last, I wash the bowl.",
+      "Next, I pour in milk and cereal.",
+      "First, I wake up.",
+      "Then I go to sleep."
+     ],
+     "answer": 1,
+     "why": "You need the bowl first, then you fill it, then you eat."
+    },
+    {
+     "passage": "Last, we flew home. First, we packed our bags. Next, we visited Makkah.",
+     "stem": "What is the right order?",
+     "options": [
+      "Last, Next, First",
+      "Next, First, Last",
+      "Last, First, Next",
+      "First, Next, Last"
+     ],
+     "answer": 3,
+     "why": "First comes before next, and last comes at the end."
+    }
+   ],
+   "again": {
+    "title": "Tell it like a story",
+    "text": "Ask: **What happened at the start? In the middle? At the end?**\n\nPut the sentences in that order.",
+    "example": "Start: **I planted a seed.** Middle: **I watered it every day.** End: **A small plant grew.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A clear beginning",
+     "text": "The **first sentence** of a paragraph tells the reader what the paragraph is about. It is often called the **topic sentence**.\n\nThe other sentences give details about it."
+    },
+    {
+     "title": "When to use time order",
+     "text": "Use **time order** (also called **chronological order**) when you:\n\n1. Explain **how to do** something.\n2. Tell **what happened**, step by step.\n3. Describe how something **changes** over time."
+    },
+    {
+     "title": "Build the paragraph",
+     "text": "1. Start with a sentence that names the topic.\n2. Add the details in a sensible order.\n3. Use order words so the reader can follow.\n\nA detail or step is **not** a good first sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The details tell you what the first sentence must say.\n\n1. Read all the details.\n2. Ask: **What are they all about?**\n3. Choose the first sentence that introduces **that** topic.\n\nIf it is only one step or detail, it cannot be the first sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Making a paper boat is easy.",
+      "role": "main"
+     },
+     {
+      "t": "First, fold a sheet of paper in half.",
+      "role": "detail"
+     },
+     {
+      "t": "Next, fold the top corners down to make a triangle.",
+      "role": "detail"
+     },
+     {
+      "t": "Then fold up the bottom edges and open the shape into a boat.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence names the topic: **making a paper boat**. The next sentences are the steps, in time order.\n\nA step like \"fold the paper\" would not work as the first sentence."
+   },
+   "together": {
+    "passage": "First, pour the soil into a small pot. Next, push a seed gently into the soil with your finger. Then water it a little every morning. After about a week, a tiny green shoot will appear. Keep the pot near a sunny window.",
+    "stem": "Which sentence would be the best first sentence for this paragraph?",
+    "options": [
+     "Next, water the plant again.",
+     "My friend likes red flowers.",
+     "You can grow a plant from a seed in a few easy steps.",
+     "Soil is brown."
+    ],
+    "answer": 2,
+    "hint": "Is that the topic of ALL the steps? Read what the steps are about.",
+    "good": "Yes! All the steps show how to grow a plant from a seed."
+   },
+   "evidence": {
+    "sentences": [
+     "First, pour the soil into a small pot.",
+     "Next, push a seed gently into the soil with your finger.",
+     "Then water it a little every morning.",
+     "After about a week, a tiny green shoot will appear.",
+     "Keep the pot near a sunny window."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: you can grow a plant from a seed in a few steps. Tap 2 steps that show it.",
+    "wrong": "That sentence tells the result or gives a tip. Find the steps that show what to do."
+   },
+   "checks": [
+    {
+     "passage": "____ Our family woke up early on Friday. We drove to the beach. We swam and built sandcastles all morning.",
+     "stem": "Which is the best first sentence?",
+     "options": [
+      "Last Friday, our family spent a fun day at the beach.",
+      "We drove to the beach.",
+      "Sand is soft.",
+      "My cousin is eight."
+     ],
+     "answer": 0,
+     "why": "It introduces the topic. The other sentences tell what happened, in order."
+    },
+    {
+     "passage": "A student wants to tell how the school garden changed from September to May.",
+     "stem": "Which order is best?",
+     "options": [
+      "From biggest to smallest plant",
+      "From most liked to least liked",
+      "In random order",
+      "Time order, month by month"
+     ],
+     "answer": 3,
+     "why": "The writing shows change over time, so time order fits best."
+    },
+    {
+     "passage": "Washing your hands well is simple. ____ Then rub them with soap for twenty seconds. Last, rinse and dry them.",
+     "stem": "Which sentence belongs in the blank?",
+     "options": [
+      "Last, dry your hands.",
+      "First, wet your hands with clean water.",
+      "Soap smells nice.",
+      "Then rinse your hands."
+     ],
+     "answer": 1,
+     "why": "Wetting your hands comes first, before the soap."
+    }
+   ],
+   "again": {
+    "title": "Name it, then explain it",
+    "text": "Sentence 1: **Name the topic.**\nSentences 2, 3, 4: **Explain it, step by step.**",
+    "example": "\"Making tea is simple.\" (topic)\n\n\"First, boil water. Next, add the tea. Then wait three minutes.\" (steps)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Logical order",
+     "text": "Each sentence in a paragraph should lead to the next.\n\nIf one sentence is in the **wrong place**, the reader gets lost. Good writers check the order and **move** sentences when needed."
+    },
+    {
+     "title": "Kinds of order",
+     "text": "1. **Time order**: steps, events, history.\n2. **Order of importance**: reasons, from strongest to weakest or the reverse.\n3. **Space order**: describing a place, from near to far or top to bottom.\n\nChoose the order that fits your **purpose**."
+    },
+    {
+     "title": "Find the problem",
+     "text": "Read the paragraph slowly. Watch for:\n\n1. A step that happens **too early** or **too late**.\n2. A detail that **interrupts** the others.\n3. A sentence that refers to something not yet mentioned."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence is out of place, find the sentence it **depends on**.\n\n1. Look at time words and references (\"after that\", \"the water\", \"it\").\n2. Ask: has the reader already been told about this?\n3. If the needed sentence comes **later**, the first sentence is in the wrong place."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandma heats water in the kettle.",
+      "role": "detail"
+     },
+     {
+      "t": "She pours the hot water over the tea and mint.",
+      "role": "key"
+     },
+     {
+      "t": "She puts tea leaves and fresh mint into the teapot.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 talks about pouring water over **the tea and mint**, but the tea and mint are put in only in sentence 3.\n\nSentence 3 must move **before** sentence 2."
+   },
+   "together": {
+    "passage": "Every spring, a family of storks returns to the tall tower near our house. After the eggs hatch, both parents bring food to the chicks. First, the pair repairs the huge nest of sticks they left the year before. Then the female lays three or four eggs. By late summer, the young storks are strong enough to fly south with their parents.",
+    "stem": "Which sentence is in the wrong place?",
+    "options": [
+     "Every spring, a family of storks returns to the tall tower near our house.",
+     "After the eggs hatch, both parents bring food to the chicks.",
+     "Then the female lays three or four eggs.",
+     "By late summer, the young storks are strong enough to fly south with their parents."
+    ],
+    "answer": 1,
+    "hint": "Look at the time words. Does that sentence talk about something the reader has not heard of yet?",
+    "good": "Yes! It talks about eggs hatching before the eggs are even laid. It should come after \"Then the female lays three or four eggs.\""
+   },
+   "evidence": {
+    "sentences": [
+     "Every spring, a family of storks returns to the tall tower near our house.",
+     "After the eggs hatch, both parents bring food to the chicks.",
+     "First, the pair repairs the huge nest of sticks they left the year before.",
+     "Then the female lays three or four eggs.",
+     "By late summer, the young storks are strong enough to fly south with their parents."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was the sentence about the eggs hatching. Tap 2 sentences that show it comes too early.",
+    "wrong": "That sentence is in the right place. Find the steps that must happen before the eggs hatch."
+   },
+   "checks": [
+    {
+     "passage": "Purpose: give three reasons the school should build a shaded play area, ending with the most important one.",
+     "stem": "Which order fits this purpose best?",
+     "options": [
+      "Time order",
+      "Space order, top to bottom",
+      "Alphabetical order",
+      "Order of importance"
+     ],
+     "answer": 3,
+     "why": "For reasons, order of importance builds to the strongest point."
+    },
+    {
+     "passage": "1. Ahmed opened his new puzzle. 2. He finished it before dinner. 3. He sorted the edge pieces first. 4. Then he filled in the middle.",
+     "stem": "Which sentence is out of place?",
+     "options": [
+      "Sentence 2",
+      "Sentence 1",
+      "Sentence 3",
+      "Sentence 4"
+     ],
+     "answer": 0,
+     "why": "Finishing the puzzle should come last, after sorting and filling in."
+    },
+    {
+     "passage": "A student is describing her classroom for a visitor, from the door to the window.",
+     "stem": "Which order fits best?",
+     "options": [
+      "Order of importance",
+      "Time order",
+      "Space order",
+      "Random order"
+     ],
+     "answer": 2,
+     "why": "Describing a room from one side to the other is space order."
+    }
+   ],
+   "again": {
+    "title": "Does it come too soon?",
+    "text": "For each sentence ask: **Does the reader already know what this sentence talks about?**\n\nIf not, it is too early. Move it.",
+    "example": "\"She put the cake in the oven. She mixed the eggs and flour.\"\n\nThe cake must be mixed first. Swap them!"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Organization as a plan",
+     "text": "Strong writers choose an organization **before** drafting and keep it the whole way through.\n\nIn an explanation of a process, time order guides every sentence. In a comparison, the writer may discuss one thing fully, then the other, or switch point by point. In an argument, reasons often build in importance."
+    },
+    {
+     "title": "Keep it while drafting",
+     "text": "When adding a new sentence, ask:\n\n1. **What does it depend on?** It must come after the sentences that prepare it.\n2. **What depends on it?** It must come before sentences that build on it.\n3. **Does it match the pattern?** It should not break the order the paragraph uses."
+    },
+    {
+     "title": "Revising for clarity",
+     "text": "If a paragraph feels confusing, check its **skeleton**: list what each sentence does (introduce, step 1, step 2, result, reflection).\n\nGaps, jumps and repeats become easy to see, and the fix is often to **move**, not rewrite."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To place a new sentence, find its **neighbours** in the text.\n\n1. Identify what the new sentence refers to (a person, object, step or idea).\n2. Find the sentence that first introduces it; the new sentence goes after it.\n3. Find the sentence that builds on it; the new sentence goes before that one.\n\nThe correct place is the one where both links work."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sea turtles return to the beach where they hatched to lay their eggs.",
+      "role": "main"
+     },
+     {
+      "t": "At night, a female digs a deep hole in the sand with her back flippers.",
+      "role": "detail"
+     },
+     {
+      "t": "She lays about a hundred eggs and covers them carefully.",
+      "role": "detail"
+     },
+     {
+      "t": "About two months later, the hatchlings dig out and race toward the moonlit water.",
+      "role": "key"
+     }
+    ],
+    "explain": "The paragraph follows **time order**: digging, laying, covering, hatching.\n\nA sentence like \"The eggs stay warm under the sand\" would belong between covering and hatching, because it depends on the eggs being buried and explains how they survive until they hatch."
+   },
+   "together": {
+    "passage": "In the early 1900s, most people in Arabia travelled long distances by camel. A journey from Riyadh to the coast could take weeks. In the decades that followed, paved highways began to connect the main cities. Cars and trucks soon replaced camels for most long trips. Today, high-speed trains link some cities, and a trip that once took weeks can take only hours.",
+    "stem": "The writer wants to add this sentence: \"These new roads made travel faster and safer than ever before.\" Where should it go?",
+    "options": [
+     "Before the first sentence",
+     "After the first sentence",
+     "At the very end",
+     "After the third sentence"
+    ],
+    "answer": 3,
+    "hint": "\"These new roads\" must come after roads are mentioned. Which sentence first mentions them?",
+    "good": "Yes! It must follow the sentence that introduces the highways, and it explains why cars soon replaced camels."
+   },
+   "evidence": {
+    "sentences": [
+     "In the early 1900s, most people in Arabia travelled long distances by camel.",
+     "A journey from Riyadh to the coast could take weeks.",
+     "In the decades that followed, paved highways began to connect the main cities.",
+     "Cars and trucks soon replaced camels for most long trips.",
+     "Today, high-speed trains link some cities, and a trip that once took weeks can take only hours."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: after the third sentence. Tap the 2 sentences the new sentence must sit between.",
+    "wrong": "That sentence is about a different time. Find the sentence that introduces the roads and the sentence that follows from them."
+   },
+   "checks": [
+    {
+     "passage": "A writer is comparing life in a desert town and a mountain village, looking at weather, homes and food.",
+     "stem": "Which plan keeps the comparison clearest?",
+     "options": [
+      "List every desert fact, then a few village facts at random",
+      "Compare the two places point by point: weather, then homes, then food",
+      "Put the facts in alphabetical order",
+      "Write only about the desert"
+     ],
+     "answer": 1,
+     "why": "Point-by-point order lets the reader compare each feature directly."
+    },
+    {
+     "passage": "1. Students collected plastic bottles for a month. 2. As a result, the school earned enough to buy new library books. 3. They sold the bottles to a recycling centre. 4. The librarian thanked every class.",
+     "stem": "How should the paragraph be revised for clarity?",
+     "options": [
+      "Delete sentence 1",
+      "Move sentence 4 to the beginning",
+      "Move sentence 3 before sentence 2",
+      "Move sentence 2 to the end"
+     ],
+     "answer": 2,
+     "why": "Selling the bottles must come before \"as a result\" the school earned money."
+    },
+    {
+     "passage": "Draft: (1) Our class trip to the science museum was the highlight of the term. (2) We saw a model of the solar system. (3) We tried an experiment with magnets. (4) We watched a film about the deep ocean.",
+     "stem": "Which sentence would be the best last sentence?",
+     "options": [
+      "By the end of the day, we all wanted to become scientists.",
+      "We took the bus to the museum.",
+      "Magnets attract some metals.",
+      "Our class has twenty-four students."
+     ],
+     "answer": 0,
+     "why": "It closes the paragraph by reflecting on the whole trip, linking back to the first sentence."
+    }
+   ],
+   "again": {
+    "title": "Map the paragraph",
+    "text": "Number the sentences. Next to each, write one word for its job: **topic**, **step**, **reason**, **result**, **ending**.\n\nNow look: are the jobs in a sensible order?",
+    "example": "1 topic, 2 step, 3 **result**, 4 step.\n\nThe result comes too early. Move it after the last step."
+   }
+  }
+ }
+}

@@ -1,6 +1,11 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader, Section } from "@/components/page-header";
-import { getActor, requireActor } from "@/server/auth/next";
+import { getActor, repo, requireActor } from "@/server/auth/next";
+import { lastFixReport } from "@/server/admin/stuck-questions";
+import { FixReportView } from "@/components/admin/fix-report";
+import { countsLine, migrationReport } from "@/server/skills/status-extras";
+import { runStarsMigrationAction } from "./actions";
 import { getT } from "@/i18n/server";
 import { systemCheckNow } from "@/server/admin/system-check-run";
 import { DB_PUSH } from "@/server/admin/system-check";
@@ -15,9 +20,9 @@ export const dynamic = "force-dynamic";
  * Read-only: two information_schema queries. School admin / platform admin only.
  */
 export default async function SystemCheckPage() {
-  await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const me = (await getActor())!.user;
-  const [{ t }, r] = await Promise.all([getT(), systemCheckNow()]);
+  const [{ t }, r, fix, stars] = await Promise.all([getT(), systemCheckNow(), actor.schoolId ? lastFixReport(repo, actor.schoolId).catch(() => null) : Promise.resolve(null), actor.schoolId ? migrationReport(repo, actor.schoolId).catch(() => null) : Promise.resolve(null)]);
   const c = r.check;
   const seen = schemaGapsSeen(24 * 3_600_000);
   const missing = c ? c.missingTables.length + c.missingColumns.length + c.missingEnumValues.length + c.missingIndexes.length : 0;
@@ -64,6 +69,16 @@ export default async function SystemCheckPage() {
           <ul className="space-y-1 font-mono text-sm" dir="ltr">{seen.map((x) => <li key={x.what}>{x.what} · {x.where}</li>)}</ul>
         </Section>
       )}
+      {fix && (
+        <Section title="Stuck questions: last run" icon="tools" className="mb-5" hint={<>{t("Questions put under their skill, repaired and published by “Fix stuck questions” (it also runs once after each update).")} <Link href="/admin/questions" className="font-semibold underline">{t("Open the Question Bank")}</Link></>}>
+          <FixReportView report={fix} t={t} />
+        </Section>
+      )}
+      <Section title="Skill stars" icon="⭐" className="mb-5" hint={t("Every student's status for every skill, computed from the practice data (⭐ only when 30+ questions and mastery were truly met). Safe to run again: nothing changes twice.")}>
+        <p data-testid="stars-counts" className="font-semibold text-brand-navy" dir="ltr">{stars ? countsLine(stars.counts) : t("Not computed yet (it runs by itself after the first start).")}</p>
+        {stars && <p className="text-xs text-slate-500">{t("{n} students · {k} skills · last run {date}", { n: stars.students, k: stars.universe, date: stars.at.slice(0, 16).replace("T", " ") })}</p>}
+        <form action={runStarsMigrationAction} className="mt-2"><button className="rounded-lg bg-brand-navy px-4 py-2 text-sm font-semibold text-white">⭐ {t("Compute skill stars again")}</button></form>
+      </Section>
       {c && <p className="text-xs text-muted">{t("Checked {t} tables in {ms} ms.", { t: c.liveTables, ms: r.ms })}</p>}
     </AppShell>
   );

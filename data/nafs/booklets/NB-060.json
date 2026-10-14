@@ -1,0 +1,568 @@
+{
+  "code": "NB-060",
+  "title": "Our Evening Walks",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 484,
+  "passage": "Dear Grandfather,\n\nI hope this letter finds you well and that the weather in Abha is still as pleasantly cool as it was during our visit last month. Mama told me yesterday that the doctor has confirmed you have type 2 diabetes. I must confess that the news worried me at first, because the word \"diabetes\" sounded frightening and mysterious. However, instead of simply worrying, I decided to learn as much as I could about it, and I would like to share what I have discovered.\n\nOur school nurse, Ms Hanan, explained that when we eat, our food is broken down into a sugar called glucose, which travels through the blood and gives every part of the body its energy. A hormone called insulin acts like a key that unlocks the body's cells so that glucose can enter them. In type 2 diabetes, the cells stop responding properly to this key, so too much sugar remains in the blood. Ms Hanan said that, over many years, this extra sugar can damage the eyes, the kidneys and the nerves in the feet, which is why it is so important to control it carefully.\n\nThe encouraging part is that sensible daily habits can make an enormous difference. Ms Hanan told me that regular walking helps the muscles use glucose, so less of it stays in the blood. Doctors recommend that adults are active for at least 150 minutes every week, which is only about twenty minutes a day. Do you remember how you used to take me walking along the path behind your house when I was small, pointing out the juniper trees and naming every bird? Perhaps it is time for those walks to begin again, but this time I can be the one who encourages you!\n\nI have also been investigating which foods are most suitable. It seems that dates, rice and white bread are not forbidden, but they should be eaten in smaller portions, while vegetables, lentils and beans can fill the rest of the plate. I know how much you love Grandmother's sweet tea with three spoonfuls of sugar, so I have a confession: I have already asked her to try two spoonfuls next week, and then one. Please do not be annoyed with either of us, because we only want you to stay healthy.\n\nFinally, I would like to make a proposal. During the winter holiday, our family will stay with you for two weeks. I suggest that every evening after the Maghrib prayer, you and I walk together for half an hour, and I will record our distances in a notebook. By the end of the holiday, I am certain we will have walked farther than the distance from Abha to Khamis Mushait. If we do, you must tell me one of your stories from when you were my age.\n\nWith all my love and respect, your affectionate granddaughter,\nDana",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from the letter: “I must confess that the news worried me at first.” Which word is closest in meaning to “confess”?",
+      "options": [
+        "admit",
+        "forget",
+        "pretend",
+        "complain"
+      ],
+      "answer": "A",
+      "why": "Dana admits honestly that the news worried her, so “confess” means admit."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “forbidden” as it is used in the letter?",
+      "options": [
+        "banned",
+        "expensive",
+        "harmful",
+        "allowed"
+      ],
+      "answer": "D",
+      "why": "Dana says dates, rice and white bread “are not forbidden” (not banned); the opposite of forbidden is allowed. “Banned” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase: “they should be eaten in smaller portions”. What does “portions” mean?",
+      "options": [
+        "different kinds of food",
+        "particular times of the day",
+        "amounts eaten at once",
+        "plates and serving bowls"
+      ],
+      "answer": "C",
+      "why": "Eating rice and bread in smaller portions means eating smaller amounts at each meal."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In the paragraph that begins “Our school nurse”, which word is a VERB?",
+      "options": [
+        "hormone",
+        "properly",
+        "unlocks",
+        "extra"
+      ],
+      "answer": "C",
+      "why": "“Unlocks” tells what insulin does, so it is a verb; “hormone” is a noun, “properly” an adverb and “extra” an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from the letter does NOT name a part of the body?",
+      "options": [
+        "kidneys",
+        "nerves",
+        "glucose",
+        "eyes"
+      ],
+      "answer": "C",
+      "why": "Kidneys, nerves and eyes are body parts that extra sugar can damage; glucose is a sugar."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The letter mentions “the nerves in the feet”. What is the SINGULAR of “feet”?",
+      "options": [
+        "feets",
+        "foot",
+        "foots",
+        "feeter"
+      ],
+      "answer": "B",
+      "why": "“Feet” is an irregular plural: one foot, two feet."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “proposal” in a meaningful sentence of your own.",
+      "model": "Our class made a proposal to the head teacher to plant trees around the school playground.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “proposal” with its meaning (a plan or idea that is suggested for others to consider)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Proposal” means a suggested plan."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The letter uses the word “stories”, the plural of “story”. Which word forms its plural in the SAME way?",
+      "options": [
+        "day",
+        "key",
+        "family",
+        "boy"
+      ],
+      "answer": "C",
+      "why": "A consonant + y changes to -ies: story → stories, family → families. Day, key and boy have a vowel before the y, so they just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Please do not be annoyed with either of us, because we only want you to stay healthy.”?",
+      "options": [
+        "a question",
+        "a statement",
+        "an exclamation",
+        "a polite command"
+      ],
+      "answer": "D",
+      "why": "It tells Grandfather what (not) to do, and “Please” makes it polite; it is a command, not a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "A Visit to the Doctor in Abha",
+        "Walking Toward Better Health",
+        "The History of Khamis Mushait",
+        "How to Make Sweet Arabic Tea"
+      ],
+      "answer": "B",
+      "why": "Dana explains diabetes and proposes evening walks and healthy habits that she and Grandfather can share."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of Dana's letter?",
+      "options": [
+        "to complain that her grandmother's tea is too sweet",
+        "to describe the cool weather in Abha",
+        "to share what she learned and encourage him",
+        "to ask her grandfather to visit her school"
+      ],
+      "answer": "C",
+      "why": "Dana explains what she learned about diabetes and suggests walking and eating changes to help him."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph that begins “Our school nurse”?",
+      "options": [
+        "Ms Hanan is the kindest nurse at the school.",
+        "Insulin is made of glucose and other sugars.",
+        "In type 2 diabetes, sugar stays in the blood.",
+        "Eyes and kidneys are the most important organs."
+      ],
+      "answer": "C",
+      "why": "The paragraph explains glucose and insulin, what goes wrong in type 2 diabetes and why it must be controlled."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Dana worried when she first heard the news?",
+      "options": [
+        "She could not visit Abha again.",
+        "Her grandfather had been taken to hospital.",
+        "Mama was angry with her about school.",
+        "The word sounded frightening and mysterious."
+      ],
+      "answer": "D",
+      "why": "She writes that the news worried her “because the word ‘diabetes’ sounded frightening and mysterious.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this, and which feature shows it?",
+      "options": [
+        "a news report, because it gives facts about diabetes",
+        "a story, because it has a narrator and characters",
+        "a poem, because it has short lines at the end",
+        "a letter, because it has a greeting and a signature"
+      ],
+      "answer": "D",
+      "why": "It begins “Dear Grandfather,” and ends with a closing and Dana's name, which are features of a letter."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the letter, how does regular walking help a person with type 2 diabetes?",
+      "options": [
+        "It helps the muscles use up glucose.",
+        "It makes the body produce more sugar.",
+        "It replaces the need for any healthy food.",
+        "It quickly repairs the nerves in the feet."
+      ],
+      "answer": "A",
+      "why": "Ms Hanan said “regular walking helps the muscles use glucose, so less of it stays in the blood.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these does Dana write about FIRST in her letter?",
+      "options": [
+        "Grandmother's sweet tea",
+        "how insulin works like a key",
+        "her plan for evening walks",
+        "the juniper trees behind Grandfather's house"
+      ],
+      "answer": "B",
+      "why": "The explanation of insulin comes before the memories of the walks, the tea and the proposal."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who wrote this text, and to whom?",
+      "options": [
+        "Mama, writing to the doctor",
+        "Ms Hanan, writing to Dana",
+        "Grandfather, writing to Dana",
+        "Dana, to her grandfather"
+      ],
+      "answer": "D",
+      "why": "It begins “Dear Grandfather” and is signed “your affectionate granddaughter, Dana”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Dana's proposal, WHEN will she and her grandfather walk together?",
+      "options": [
+        "every evening after Maghrib",
+        "every morning before school",
+        "only at weekends during the holiday",
+        "after every meal of the day"
+      ],
+      "answer": "A",
+      "why": "“I suggest that every evening after the Maghrib prayer, you and I walk together for half an hour.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the letter, what causes too much sugar to remain in the blood in type 2 diabetes?",
+      "options": [
+        "The cells stop responding to insulin.",
+        "The person eats only vegetables and beans.",
+        "The kidneys produce too much glucose.",
+        "The person walks too much every day."
+      ],
+      "answer": "A",
+      "why": "“In type 2 diabetes, the cells stop responding properly to this key, so too much sugar remains in the blood.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why do you think Dana asked Grandmother to reduce the sugar in the tea one spoonful at a time?",
+      "options": [
+        "to help him get used to less sugar",
+        "to make the tea taste much stronger",
+        "because there was no more sugar in the house",
+        "because Grandmother does not like sweet tea"
+      ],
+      "answer": "A",
+      "why": "Going from three spoonfuls to two and then one is a gentle change that is easier to accept than stopping at once."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How do Dana's feelings change in the paragraph that begins “I hope this letter finds you well”?",
+      "options": [
+        "from happiness to sudden anger",
+        "from boredom to excitement",
+        "from worry to determination",
+        "from fear to deep sadness"
+      ],
+      "answer": "C",
+      "why": "She was worried at first, but “instead of simply worrying” she decided to learn as much as she could."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the body in type 2 diabetes different from a healthy body, according to the letter?",
+      "options": [
+        "Normally insulin lets glucose into cells; in type 2, cells ignore it.",
+        "In a healthy body, there is no glucose; in type 2 diabetes, there is glucose.",
+        "In type 2 diabetes, the body makes no blood at all.",
+        "In a healthy body, food is not broken down."
+      ],
+      "answer": "A",
+      "why": "Insulin normally “unlocks” the cells so glucose can enter, but in type 2 diabetes the cells stop responding to it."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the letter, what can extra sugar in the blood do over many years?",
+      "options": [
+        "damage the eyes, kidneys and nerves",
+        "make the muscles much stronger",
+        "cure type 2 diabetes",
+        "make a person walk faster and farther"
+      ],
+      "answer": "A",
+      "why": "Ms Hanan said that “over many years, this extra sugar can damage the eyes, the kidneys and the nerves in the feet.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the walks Dana remembers and the walks she proposes have in common?",
+      "options": [
+        "Both take place in the streets of Riyadh.",
+        "Both are led by Ms Hanan.",
+        "Both are races against other families.",
+        "Both are walks Dana and Grandfather share."
+      ],
+      "answer": "D",
+      "why": "Long ago Grandfather took Dana walking and named the birds; now she proposes daily walks together and asks for his stories."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Dana describe insulin as “a key that unlocks the body's cells”?",
+      "options": [
+        "to suggest that cells are locked rooms in a house",
+        "to show that insulin is made of metal",
+        "to make a scientific idea easy to picture",
+        "to make the letter sound like a mystery story"
+      ],
+      "answer": "C",
+      "why": "Comparing insulin to a key helps a reader without science training understand how glucose enters the cells."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Dana show when she writes, “this time I can be the one who encourages you!”?",
+      "options": [
+        "She wants to walk faster than her grandfather.",
+        "She thinks her grandfather was a poor teacher.",
+        "She does not enjoy walking.",
+        "She wants to repay his past encouragement."
+      ],
+      "answer": "D",
+      "why": "When she was small he encouraged her on their walks; now she wants to support him in the same way."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is exclamatory?",
+      "options": [
+        "Finally, I would like to make a proposal.",
+        "Perhaps it is time for those walks to begin again, but this time I can be the one who encourages you!",
+        "Do you remember how you used to take me walking along the path behind your house when I was small …?",
+        "I have also been investigating which foods are most suitable."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling and ends with an exclamation mark. The sentence beginning “Do you remember” is a question."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of these ideas is MOST likely to help Grandfather control his diabetes, based on the letter?",
+      "options": [
+        "eating as many dates as he likes",
+        "adding an extra spoonful of sugar to his tea",
+        "staying indoors to rest every evening",
+        "walking together for half an hour every evening"
+      ],
+      "answer": "D",
+      "why": "The letter says regular walking helps the muscles use glucose; the other choices would raise his blood sugar or reduce activity."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated Dana to write this letter?",
+      "options": [
+        "her love and wish to help him",
+        "a school assignment about Abha",
+        "a wish to visit Khamis Mushait",
+        "anger at the doctor's unwelcome news"
+      ],
+      "answer": "A",
+      "why": "Dana learned about diabetes because she cares about him, and she ends “With all my love and respect”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in the letter as a whole?",
+      "options": [
+        "quiet, hidden anger",
+        "loving support",
+        "great, growing fear",
+        "deep, endless boredom"
+      ],
+      "answer": "B",
+      "why": "Dana's worry quickly turns into hopeful plans, gentle humour and warm encouragement for her grandfather."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the letter?",
+      "options": [
+        "what insulin does in the body",
+        "how many minutes of activity doctors recommend",
+        "when Dana and Grandfather will walk",
+        "how Grandfather can check his blood sugar level"
+      ],
+      "answer": "D",
+      "why": "Dana explains insulin, the 150 minutes and the walking time, but she never explains how blood sugar is measured."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Insulin turns into a real metal key inside the body.",
+        "A man with diabetes lowers his blood sugar by walking daily.",
+        "A grandfather walks from Abha to Khamis Mushait in a single step.",
+        "Juniper trees start naming the birds on the path."
+      ],
+      "answer": "B",
+      "why": "The letter explains that regular walking helps the muscles use glucose, which lowers the sugar in the blood."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the letter?",
+      "options": [
+        "The Mysterious Doctor",
+        "Small Steps, Together",
+        "Grandmother's Secret Recipe",
+        "A Race to Khamis Mushait"
+      ],
+      "answer": "B",
+      "why": "Dana suggests small changes, such as walking and reducing sugar one spoonful at a time, that she and Grandfather can make together."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter: write two or three sentences that Dana could add with another healthy idea for Grandfather, and explain why it would help.",
+      "model": "I also have one more idea: let us plant a small vegetable garden behind your house during the holiday. Digging and watering will keep you active, and the cucumbers and tomatoes will give you healthy food to fill your plate. Every time you eat something you grew yourself, you will remember our walks.",
+      "rubric": [
+        "2 = a clear new ending with a sensible healthy idea and a reason that links to the letter (activity, healthy food, less sugar)",
+        "1 = an ending is given but the idea is vague, unrelated or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible healthy idea that fits Dana's letter and is explained is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Grandfather replies that he finds it very hard to give up sweet tea. Which solution best fits Dana's approach?",
+      "options": [
+        "Stop drinking tea at once and forever.",
+        "Drink twice as much tea with less sugar.",
+        "Reduce the sugar one spoonful at a time.",
+        "Add three spoonfuls of honey to the tea instead."
+      ],
+      "answer": "C",
+      "why": "Dana's plan reduces the sugar gradually, from three spoonfuls to two and then one; honey would still add sugar."
+    }
+  ]
+}

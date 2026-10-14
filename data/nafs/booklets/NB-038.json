@@ -1,0 +1,568 @@
+{
+  "code": "NB-038",
+  "title": "Darb Zubaidah: A Road Built for Pilgrims",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 408,
+  "passage": "More than twelve hundred years ago, travelling from Iraq to Makkah for Hajj was a dangerous adventure. Pilgrims crossed hundreds of kilometres of open desert on camels. Their greatest enemy was not distance but thirst. Wells were few and far apart. In a dry year, a single mistake could cost a traveller his life. That situation changed when one of the most generous road-building projects in Islamic history transformed an old desert track into a safe and organised route.\n\nThe route became known as Darb Zubaidah, the Road of Zubaidah. It stretched for about 1,400 kilometres, from the city of Kufa in Iraq to Makkah. Much of it crossed the northern and central regions of present-day Saudi Arabia. People had used the track long before Islam. However, the Abbasid caliphs, who ruled from Baghdad, improved it greatly in the eighth and ninth centuries. The road takes its name from Zubaidah bint Ja'far, the wife of the famous caliph Harun al-Rashid, because she spent a fortune on wells, reservoirs and resting places along the way.\n\nWater was the heart of the project. Engineers dug deep wells and built enormous reservoirs, some circular and some square, to collect the rainwater that rushed across the desert after rare storms. Stone channels guided the water into the pools. Settling tanks allowed sand and mud to sink before the clean water flowed onward. Some reservoirs were so large that they could hold enough water for thousands of travellers and their animals.\n\nAlong the route, builders also constructed dozens of stations at regular distances, where pilgrims could rest, buy food and repair their equipment. Some of these stations grew into busy towns. One of them, al-Rabadha, was excavated by archaeologists from King Saud University, who discovered houses, a mosque, pottery, coins and glass. In addition, stone markers placed along the road helped caravans to stay on the correct path.\n\nOver the following centuries, the Abbasid state slowly grew weak. Many stations were no longer looked after. Sand slowly buried walls and filled reservoirs, and later travellers chose other routes. Today, however, Darb Zubaidah is included on Saudi Arabia's tentative list for UNESCO World Heritage status, and researchers continue to study its remains.\n\nZubaidah is also remembered for funding a canal that carried spring water to Makkah, and the canal still bears her name. Her road reminds us that one person's generosity, supported by skilful engineering, can protect the lives of strangers for many generations.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “enormous” as it is used in paragraph 3?",
+      "options": [
+        "shallow",
+        "ancient",
+        "huge",
+        "hidden"
+      ],
+      "answer": "C",
+      "why": "The reservoirs could hold water for thousands of travellers, so “enormous” means huge."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “generous” as it is used in paragraph 1?",
+      "options": [
+        "kind",
+        "selfish",
+        "wealthy",
+        "famous"
+      ],
+      "answer": "B",
+      "why": "A generous project gives freely to others; the opposite is “selfish”. “Kind” is close in meaning to “generous”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “One of them, al-Rabadha, was excavated by archaeologists from King Saud University.” What does “excavated” mean?",
+      "options": [
+        "built again from new stone",
+        "photographed from the air",
+        "closed to all visitors",
+        "carefully dug up to find remains"
+      ],
+      "answer": "D",
+      "why": "The archaeologists “discovered houses, a mosque, pottery, coins and glass”, so they dug the site carefully to find these remains."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a VERB?",
+      "options": [
+        "reservoirs",
+        "circular",
+        "guided",
+        "rare"
+      ],
+      "answer": "C",
+      "why": "“Guided” is an action (channels guided the water); “reservoirs” is a noun, and “circular” and “rare” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the passage is a SINGULAR noun?",
+      "options": [
+        "stations",
+        "canal",
+        "pilgrims",
+        "reservoirs"
+      ],
+      "answer": "B",
+      "why": "“Canal” names one thing; the other words end in -s and are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “generosity” in paragraph 6?",
+      "options": [
+        "general",
+        "generation",
+        "generous",
+        "gentle"
+      ],
+      "answer": "C",
+      "why": "“Generous” is the adjective and “generosity” the noun from the same family; “general” and “generation” only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “organised” in a meaningful sentence of your own.",
+      "model": "The school trip was so well organised that every student knew which bus to take and where to meet for lunch.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “organised” with its meaning (carefully planned and arranged)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Organised” means arranged carefully so that everything works in a clear, sensible order."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “journey”?",
+      "options": [
+        "journies",
+        "journeyes",
+        "journey",
+        "journeys"
+      ],
+      "answer": "D",
+      "why": "When a word ends in a vowel + y, just add -s: journey → journeys."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of the following sentences is an EXCLAMATION?",
+      "options": [
+        "Pilgrims crossed the desert on camels.",
+        "How brave those early pilgrims were!",
+        "Where did the caravans stop to rest?",
+        "Follow the stone markers to the next station."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a statement, a question and a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "The Caliphs Who Ruled from Baghdad",
+        "Pottery and Coins Found at al-Rabadha",
+        "Storms and Floods in the Northern Desert",
+        "Water and Safety on the Pilgrims' Road"
+      ],
+      "answer": "D",
+      "why": "The passage explains how wells, reservoirs and stations made the pilgrims' road safe; the others describe single details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to explain how a historic road helped pilgrims and why it matters",
+        "to give directions for driving from Kufa to Makkah today",
+        "to persuade readers to become archaeologists one day",
+        "to describe the whole life story of Harun al-Rashid"
+      ],
+      "answer": "A",
+      "why": "The passage describes the road's water system, stations, decline and present importance."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Storms in the desert were frequent and violent.",
+        "Travellers' animals drank more water than people.",
+        "Clever water systems supplied the travellers.",
+        "Square reservoirs were better than round ones."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 begins “Water was the heart of the project” and describes the wells, reservoirs, channels and settling tanks."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, what was the pilgrims' greatest enemy before the road was improved?",
+      "options": [
+        "thirst",
+        "distance",
+        "wild animals",
+        "cold nights"
+      ],
+      "answer": "A",
+      "why": "“Their greatest enemy was not distance but thirst.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a personal letter to a friend",
+        "an informational text about history",
+        "a story told through dialogue",
+        "a poem about the desert at night"
+      ],
+      "answer": "B",
+      "why": "It presents facts, dates and places about a real historical route."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why is the road named after Zubaidah?",
+      "options": [
+        "She was the first pilgrim to travel along it.",
+        "She was born in the city of Kufa in Iraq.",
+        "She discovered the remains of al-Rabadha.",
+        "She paid for its wells, reservoirs and resting places."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: the road is named after her “because she spent a fortune on wells, reservoirs and resting places along the way.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "The Abbasid caliphs improved the track.",
+        "People used the track long before Islam.",
+        "Sand buried many walls and filled reservoirs.",
+        "The road joined Saudi Arabia's tentative UNESCO list."
+      ],
+      "answer": "D",
+      "why": "The tentative list is described as happening “today”, after the earlier use, improvement and decline."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what happened in the settling tanks BEFORE the clean water flowed onward?",
+      "options": [
+        "It was boiled over fires.",
+        "Sand and mud sank in settling tanks.",
+        "Camels drank it at the stations.",
+        "It was carried in jars to Makkah."
+      ],
+      "answer": "B",
+      "why": "“Settling tanks allowed sand and mud to sink before the clean water flowed onward.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Between which two cities did Darb Zubaidah run?",
+      "options": [
+        "Baghdad and Madinah",
+        "Kufa and Makkah",
+        "Riyadh and Makkah",
+        "Kufa and Baghdad"
+      ],
+      "answer": "B",
+      "why": "Paragraph 2: “from the city of Kufa in Iraq to Makkah.” Baghdad is where the caliphs ruled."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused many stations to be buried by sand?",
+      "options": [
+        "The state grew weak and the stations were not looked after.",
+        "Archaeologists covered them with sand to protect them.",
+        "Pilgrims stopped making the journey to Makkah.",
+        "Violent storms destroyed all of them in a single night."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5 links the weakening state and the lack of care with sand burying walls and filling reservoirs."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did the reservoirs collect rainwater after storms?",
+      "options": [
+        "Rainwater tasted much sweeter than well water.",
+        "The caliph ordered all the wells to be closed.",
+        "Camels refused to drink water from deep wells.",
+        "Rain was rare, so its water had to be saved."
+      ],
+      "answer": "D",
+      "why": "The desert was dry and storms “rare”, so the reservoirs stored the water that rushed across the land after them."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how would you describe Zubaidah?",
+      "options": [
+        "generous and caring towards travellers",
+        "proud and careless with money",
+        "curious about pottery and coins",
+        "afraid of the desert"
+      ],
+      "answer": "A",
+      "why": "She spent a fortune on water and resting places for strangers and also funded a canal for Makkah."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was travel on the route AFTER the Abbasid improvements DIFFERENT from travel before them?",
+      "options": [
+        "It took twice as long because of the many stops.",
+        "Pilgrims had to carry all of their own water.",
+        "It was safer, with regular water and resting places.",
+        "Travellers had to pay a high price at every well."
+      ],
+      "answer": "C",
+      "why": "Before, wells were “few and far apart”; afterwards, reservoirs and stations made it “a safe and organised route.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the stone markers and the stations have in common?",
+      "options": [
+        "Both were excavated by King Saud University.",
+        "Both were built to collect rainwater.",
+        "Both helped caravans travel safely.",
+        "Both were buried on purpose."
+      ],
+      "answer": "C",
+      "why": "Stations gave rest and supplies, and markers kept caravans on the correct path; both made the journey safer."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of building stations at regular distances?",
+      "options": [
+        "Some stations grew into busy towns.",
+        "The road became shorter.",
+        "Fewer pilgrims travelled to Makkah.",
+        "The reservoirs dried up."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “Some of these stations grew into busy towns.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying “Water was the heart of the project”?",
+      "options": [
+        "Water was used to wash the travellers' hearts.",
+        "The reservoirs were built in the shape of hearts.",
+        "Water was found only in the centre of the road.",
+        "Supplying water was the most important part."
+      ],
+      "answer": "D",
+      "why": "The heart is the most vital organ, so the phrase means water was the most vital part of the plan."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin the passage by describing how dangerous the journey was?",
+      "options": [
+        "to frighten readers away from travelling in the desert",
+        "to explain exactly how camels find water in the desert",
+        "to describe the weather in Iraq during the Hajj season",
+        "to show how much the road's improvements mattered"
+      ],
+      "answer": "D",
+      "why": "Showing the danger first helps readers understand why the wells, reservoirs and stations were so valuable."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage includes the writer's OPINION?",
+      "options": [
+        "It stretched for about 1,400 kilometres, from the city of Kufa in Iraq to Makkah.",
+        "Stone channels guided the water into the pools.",
+        "That situation changed when one of the most generous road-building projects in Islamic history transformed an old desert track into a safe and organised route.",
+        "Settling tanks allowed sand and mud to sink before the clean water flowed onward."
+      ],
+      "answer": "C",
+      "why": "Calling it “one of the most generous” projects is the writer's judgement; the others are facts that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which part of the project was MOST important for the pilgrims' survival?",
+      "options": [
+        "the stone markers",
+        "the pottery at the stations",
+        "the wells and reservoirs",
+        "the name of the road"
+      ],
+      "answer": "C",
+      "why": "The passage says thirst was the greatest danger, so the water supply mattered most."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What lesson does the writer want readers to take from Zubaidah's road?",
+      "options": [
+        "Roads should only ever be built by caliphs and kings.",
+        "Generosity combined with skill can help for generations.",
+        "Desert travel is always too dangerous to attempt.",
+        "Old roads should be forgotten once new ones are built."
+      ],
+      "answer": "B",
+      "why": "The final sentence states this lesson."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does the writer show most clearly towards the people who built the road?",
+      "options": [
+        "admiration",
+        "suspicion",
+        "disappointment",
+        "indifference"
+      ],
+      "answer": "A",
+      "why": "The writer praises their generosity and “skilful engineering”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "how long the road was from end to end",
+        "who the road is named after and why",
+        "how many days the whole journey took",
+        "what archaeologists found at al-Rabadha"
+      ],
+      "answer": "C",
+      "why": "The passage never says how many days the journey took; the other facts are given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A reservoir fills with rainwater after a desert storm.",
+        "A camel builds a station by itself.",
+        "Sand turns into clean water in a settling tank.",
+        "A stone marker walks to guide a lost caravan."
+      ],
+      "answer": "A",
+      "why": "Reservoirs really do fill after storms; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the information in the passage?",
+      "options": [
+        "Wells, Pools and Stations on the Way to Makkah",
+        "The Lost Coins of Kufa and Baghdad",
+        "A Terrible Storm Over the City of Baghdad",
+        "The Camel Who Found Water in the Desert"
+      ],
+      "answer": "A",
+      "why": "The passage describes the wells, reservoirs and stations that served pilgrims on their way to Makkah."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the history of Darb Zubaidah: imagine that the stations had been looked after through the centuries. Write two or three sentences about what might have happened.",
+      "model": "If the stations had been cared for, the reservoirs would have stayed clean and full, and travellers might have kept using the road for many more centuries. Some stations might even have grown into large modern cities along the route.",
+      "rubric": [
+        "2 = a clear, logical new ending or solution that fits the facts and ideas of the passage",
+        "1 = an answer is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any logical ending that follows from the cause-and-effect information in the passage is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how can we help to preserve the remains of Darb Zubaidah today?",
+      "options": [
+        "Support researchers who study and protect the remains.",
+        "Take stones from the old reservoirs as souvenirs.",
+        "Drive vehicles across the ancient walls.",
+        "None of the above"
+      ],
+      "answer": "A",
+      "why": "Supporting research and protection preserves the site; the other actions damage it."
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+ "code": "LN-147",
+ "title": "Setting",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.1.3",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.6.5",
+  "RL.7.3",
+  "RL.K.3"
+ ],
+ "families": [
+  "plot-setting"
+ ],
+ "skillNames": [
+  "Plot: Setting"
+ ],
+ "statements": [
+  "R-0004",
+  "R-0026",
+  "R-0029",
+  "R-0080",
+  "R-0151",
+  "R-0174",
+  "R-0175",
+  "R-0295",
+  "R-0296",
+  "R-0298",
+  "R-0467",
+  "R-0469",
+  "R-0470",
+  "R-0651",
+  "R-0652",
+  "R-0817",
+  "R-0841"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is the setting?",
+     "text": "The **setting** is **where** and **when** a story happens.\n\nWhere: at school, at the beach, in a tent.\nWhen: in the morning, at night, in winter."
+    },
+    {
+     "title": "Where?",
+     "text": "Look for place words.\n\n**in the kitchen, at the park, on a boat, by the sea**"
+    },
+    {
+     "title": "When?",
+     "text": "Look for time words.\n\n**at night, after school, on Friday, in summer**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The setting is **in the text**.\n\n1. Read the question: does it ask **where** or **when**?\n2. Find the place words or time words.\n3. The sentence with those words **proves** your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "It was a cold night in the desert.",
+      "role": "key"
+     },
+     {
+      "t": "Sami sat by the fire.",
+      "role": "detail"
+     },
+     {
+      "t": "He looked up at the stars.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Where? **In the desert.** When? **At night.**\n\nThe first sentence tells us. The fire and the stars help too."
+   },
+   "together": {
+    "passage": "Rana and her dad went to the fish market early in the morning. The sun was just coming up. Men sold big fish from boats. Rana held her dad's hand.",
+    "stem": "Where does the story happen?",
+    "options": [
+     "At school",
+     "At home",
+     "At the fish market",
+     "In a park"
+    ],
+    "answer": 2,
+    "hint": "Look for a place word. Where did Rana and her dad go?",
+    "good": "Yes! They went to the fish market, and men sold fish there."
+   },
+   "evidence": {
+    "sentences": [
+     "Rana and her dad went to the fish market early in the morning.",
+     "The sun was just coming up.",
+     "Men sold big fish from boats.",
+     "Rana held her dad's hand."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: at the fish market. Tap 2 sentences that show the place.",
+    "wrong": "This sentence tells about the time or about Rana. Find the sentences that show the place."
+   },
+   "checks": [
+    {
+     "passage": "Huda swam in the pool after school. The water was cool. She swam to the end and back.",
+     "stem": "Where is Huda?",
+     "options": [
+      "In the sea",
+      "In a pool",
+      "In a bath",
+      "In a lake"
+     ],
+     "answer": 1,
+     "why": "The text says Huda swam in the pool."
+    },
+    {
+     "passage": "It was winter. Snow fell on the hills. Leo put on his warm hat and gloves.",
+     "stem": "When does the story happen?",
+     "options": [
+      "In winter",
+      "In summer",
+      "At lunch",
+      "On a hot day"
+     ],
+     "answer": 0,
+     "why": "The text says it was winter, and snow fell."
+    },
+    {
+     "passage": "The class sat on the bus. The bus drove to the zoo. The children saw the lions first.",
+     "stem": "Where does the story start?",
+     "options": [
+      "At the zoo",
+      "In a shop",
+      "At the lions' home",
+      "On a bus"
+     ],
+     "answer": 3,
+     "why": "The first sentence says the class sat on the bus. Then they went to the zoo."
+    }
+   ],
+   "again": {
+    "title": "Picture it",
+    "text": "Close your eyes. Ask:\n\n1. **Where** am I in this story?\n2. **When** is it: day or night? Hot or cold?\n\nThe words in the story tell you.",
+    "example": "The owl sat in the tall tree. The moon was bright.\n\nWhere? **In a tree.** When? **At night** (the moon is out)."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Setting",
+     "text": "The **setting** is the time and place of a story.\n\nIt can be a real place, like a city, or a made-up one. It can be a time of day, a season, or a long time ago."
+    },
+    {
+     "title": "Details paint the setting",
+     "text": "Writers do not always say \"The setting is...\". They give **details** you can see, hear, smell or feel.\n\nWaves crashing, salty air and seagulls: you are **by the sea**."
+    },
+    {
+     "title": "Find the setting",
+     "text": "1. Look for **place words** (in, at, on, near).\n2. Look for **time words** (morning, Eid, last summer).\n3. Notice **sense details**: sounds, smells, weather.\n4. Put them together: where and when?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the setting, find the **details** that show it.\n\n1. Read the question. Is it about **time**, **place**, or what the place is **like**?\n2. Find the words that tell about it.\n3. Choose the answer those words show.\n\nIf no detail shows it, it is a guess, not proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lanterns hung in the street, glowing gold and green.",
+      "role": "detail"
+     },
+     {
+      "t": "Families walked to the mosque for the night prayer.",
+      "role": "detail"
+     },
+     {
+      "t": "After sunset, everyone sat down together to break the fast.",
+      "role": "key"
+     },
+     {
+      "t": "The smell of samosas and soup filled the air.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The story never says \"It was Ramadan.\" But breaking the fast after sunset, the lanterns and the night prayer **show** it.\n\nSetting: **an evening in Ramadan, in a busy street.**"
+   },
+   "together": {
+    "passage": "The bell rang and the doors burst open. Children ran across the yard, laughing and shouting. Some played football on the dusty field, while others shared snacks under the shade of a big tree. A teacher stood near the gate with a whistle around her neck. In ten minutes, they would all go back to their classrooms.",
+    "stem": "Where does this story take place?",
+    "options": [
+     "In a sports stadium",
+     "In a schoolyard during break",
+     "In a park on the weekend",
+     "At a busy market"
+    ],
+    "answer": 1,
+    "hint": "Look for clues: who is there? What do they do? Where will they go next?",
+    "good": "Yes! Children, a bell, a teacher with a whistle, and going back to classrooms show it is a schoolyard at break time."
+   },
+   "evidence": {
+    "sentences": [
+     "The bell rang and the doors burst open.",
+     "Children ran across the yard, laughing and shouting.",
+     "Some played football on the dusty field, while others shared snacks under the shade of a big tree.",
+     "A teacher stood near the gate with a whistle around her neck.",
+     "In ten minutes, they would all go back to their classrooms."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a schoolyard during break. Tap 2 sentences with clues that show it is a school.",
+    "wrong": "This sentence shows children playing, which could happen in many places. Find clues that show it is a SCHOOL."
+   },
+   "checks": [
+    {
+     "passage": "The wind whistled through the tent all night. In the morning, Faisal opened the flap and saw orange sand dunes in every direction. His uncle was already making coffee over a small fire.",
+     "stem": "Which detail best shows where Faisal is?",
+     "options": [
+      "His uncle was making coffee.",
+      "The wind whistled all night.",
+      "He saw orange sand dunes in every direction.",
+      "He opened the flap in the morning."
+     ],
+     "answer": 2,
+     "why": "Sand dunes in every direction show that Faisal is camping in the desert."
+    },
+    {
+     "passage": "Grandmother's kitchen was always warm. Pots bubbled on the stove, and the shelves were full of jars of spices. A radio played softly in the corner.",
+     "stem": "What is the setting like?",
+     "options": [
+      "Warm and busy",
+      "Cold and empty",
+      "Dark and scary",
+      "Quiet and dusty"
+     ],
+     "answer": 0,
+     "why": "Bubbling pots, full shelves and a radio show a warm, busy kitchen."
+    },
+    {
+     "passage": "The leaves had turned red and yellow. Every morning, Mia wore her thick jacket to walk to school. Each day, the trees were a little more bare.",
+     "stem": "When does this story take place?",
+     "options": [
+      "In spring",
+      "In the summer",
+      "Late at night",
+      "In autumn"
+     ],
+     "answer": 3,
+     "why": "Red and yellow leaves falling from the trees and a thick jacket show it is autumn."
+    }
+   ],
+   "again": {
+    "title": "Use your senses",
+    "text": "Read the story and make a list:\n\n**I see... I hear... I smell... I feel...**\n\nThen ask: where would I find all of these?",
+    "example": "I see boats. I hear waves. I smell fish. I feel wet sand.\n\nWhere? **At a harbour by the sea.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Reading the setting",
+     "text": "The **setting** is more than a place on a map. It includes the **time**, the **weather**, the **mood** of a place, and sometimes the **way people live** there."
+    },
+    {
+     "title": "Draw conclusions",
+     "text": "Writers often give clues instead of telling you directly.\n\nA cracked phone screen, a crowded train and tall towers: **a modern city**. Oil lamps, camels and a well: **long ago**.\n\nYou put the clues together to **conclude** the time and place."
+    },
+    {
+     "title": "How to infer the setting",
+     "text": "1. List the clues about **time** (light, season, objects, clothes).\n2. List the clues about **place** (land, buildings, sounds).\n3. Ask: what setting explains **all** the clues?\n4. Check that no clue disagrees with your idea."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A conclusion about setting must be **backed by clues**.\n\n1. Find the details that point to the time or place.\n2. Make sure your answer fits **all** of them.\n3. Reject answers that fit only one clue, or that the text never suggests."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Water lapped at the wooden hull as the men pulled the ropes.",
+      "role": "detail"
+     },
+     {
+      "t": "One of them dived over the side with a stone tied to his foot and a basket at his waist.",
+      "role": "detail"
+     },
+     {
+      "t": "He came up minutes later, gasping, and emptied a handful of oysters onto the deck.",
+      "role": "key"
+     },
+     {
+      "t": "The captain checked each shell for a pearl.",
+      "role": "other"
+     }
+    ],
+    "explain": "No sentence says the place or year. But a wooden boat, divers with stones and baskets, and oysters checked for pearls point to one setting: **a pearl-diving boat in the Gulf, long ago**, before modern diving gear."
+   },
+   "together": {
+    "passage": "Khalid tightened his scarf as the bus climbed higher. Outside the window, the road twisted between green terraces where farmers grew roses and fruit. Fog drifted across the hills, hiding the tops of the trees. When he stepped off the bus, the cool air surprised him; in the city below, it had been hot enough to melt chocolate. His aunt waved from the door of a stone house, a bowl of fresh pomegranates in her hands.",
+    "stem": "What can you conclude about the setting where Khalid arrives?",
+    "options": [
+     "It is a hot, flat city in the desert.",
+     "It is a crowded beach in summer.",
+     "It is a cool, green mountain area.",
+     "It is a busy market in the city."
+    ],
+    "answer": 2,
+    "hint": "Which choice fits ALL the clues: the climbing bus, the fog, the green terraces and the cool air?",
+    "good": "Yes! The bus climbs, fog covers the hills, farmers grow roses and fruit, and the air is cool. It is a mountain area."
+   },
+   "evidence": {
+    "sentences": [
+     "Khalid tightened his scarf as the bus climbed higher.",
+     "Outside the window, the road twisted between green terraces where farmers grew roses and fruit.",
+     "Fog drifted across the hills, hiding the tops of the trees.",
+     "When he stepped off the bus, the cool air surprised him; in the city below, it had been hot enough to melt chocolate.",
+     "His aunt waved from the door of a stone house, a bowl of fresh pomegranates in her hands."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 3,
+    "stem": "The answer was: a cool, green mountain area. Tap 3 sentences with clues that prove it.",
+    "wrong": "This sentence is about his aunt and the house. Find clues about the land, the height and the weather."
+   },
+   "checks": [
+    {
+     "passage": "The streets were silent. Shops had pulled down their metal shutters, and only a cat crossed the empty road. Far away, a single call to prayer rose into the dark blue sky as the first light appeared in the east.",
+     "stem": "When does this scene most likely happen?",
+     "options": [
+      "At dawn",
+      "At midday",
+      "In the afternoon",
+      "At the end of the evening"
+     ],
+     "answer": 0,
+     "why": "Empty streets, a dark blue sky and the first light in the east show it is dawn, the very start of the day."
+    },
+    {
+     "passage": "Maryam dipped her pen into the ink and wrote the letter slowly. It would take a camel caravan three weeks to carry it to her brother. She blew out the oil lamp and lay down on her mat.",
+     "stem": "What can you conclude about the setting?",
+     "options": [
+      "It is a modern city today.",
+      "It takes place long ago.",
+      "It is the far future.",
+      "It is in a school classroom."
+     ],
+     "answer": 1,
+     "why": "An ink pen, letters carried by caravan, and an oil lamp show the story happened long ago."
+    },
+    {
+     "passage": "Every seat in the hall was full. Lights shone on the stage, and a long table held shiny trophies. Parents held up their phones, waiting for the names to be called.",
+     "stem": "Where are the characters?",
+     "options": [
+      "At a wedding",
+      "In a hospital",
+      "At a shopping centre",
+      "At a prize-giving event"
+     ],
+     "answer": 3,
+     "why": "A stage, trophies and parents waiting for names to be called point to a prize-giving event."
+    }
+   ],
+   "again": {
+    "title": "Be a detective",
+    "text": "Collect the clues like a detective.\n\n1. Write each clue on its own.\n2. Next to it, write what it suggests (**cold? old? sea? night?**).\n3. Choose the setting that matches most of your notes.",
+    "example": "Clues: bare feet on hot sand, a fishing net, white sails.\n\nSuggests: **warm**, **sea**, **boats**. Setting: **a sunny fishing village by the sea.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Setting shapes the story",
+     "text": "In strong stories, the setting does real work. It can create **mood**, show a **time in history**, and put **pressure** on characters.\n\nA storm, a crowded city or an empty house can change what characters do and feel."
+    },
+    {
+     "title": "Inferring from description",
+     "text": "Authors rarely announce a setting in full. Instead, they choose **telling details**: objects, technology, language, weather, how people live.\n\nYou must combine these details to infer the **era**, the **place**, and the **atmosphere**."
+    },
+    {
+     "title": "Questions to ask",
+     "text": "1. What time period do the objects and customs suggest?\n2. What do the descriptive words show about the mood (tense, calm, lonely)?\n3. How does the setting **affect** the characters' choices or feelings?\n4. Which details support each conclusion?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A conclusion about setting should rest on **several details**, not one.\n\n1. Gather the descriptive words and objects.\n2. Decide what they suggest together: era, place, atmosphere.\n3. Test each answer choice against the details. A choice may be **too narrow**, **contradicted** by a clue, or simply **not supported**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The power had been out for two days, and the hospital ran on a roaring generator.",
+      "role": "detail"
+     },
+     {
+      "t": "Water stood knee-deep in the car park, and rain still drummed on the windows.",
+      "role": "detail"
+     },
+     {
+      "t": "Nurses carried patients up the stairs by torchlight because the lifts had stopped.",
+      "role": "key"
+     },
+     {
+      "t": "Dr Saleh had not slept since Tuesday.",
+      "role": "other"
+     }
+    ],
+    "explain": "The details show a hospital cut off by **flooding** after a storm. The setting creates a tense, urgent mood and forces the staff to work in difficult ways: carrying patients, working by torchlight."
+   },
+   "together": {
+    "passage": "The ship's bell rang twice, and the deck tilted under Yusuf's feet. For forty days the sailors had seen nothing but water. Their only guides were the stars and the old captain's brass astrolabe, which he polished every evening as if it were treasure. In the hold, sacks of cloves and pepper filled the air with a sharp smell. Some nights, Yusuf lay awake listening to the timbers creak and wondered whether the captain's charts were right. He had been told that the port of Calicut lay ahead, but no one on board had seen land in weeks.",
+    "stem": "What can you infer about the setting of this story?",
+    "options": [
+     "It is a modern cruise ship sailing between holiday islands.",
+     "It is a short trip on a ferry across a calm river.",
+     "It is a spice-trading voyage long ago, using the stars to navigate.",
+     "It is a fishing boat that returns to port every night."
+    ],
+    "answer": 2,
+    "hint": "Look at how the sailors find their way, what the ship carries and how long they have been at sea. Which choice fits every clue?",
+    "good": "Yes! Navigating by stars with an astrolabe, sacks of spices and forty days without land all point to a long spice-trading voyage in the past."
+   },
+   "evidence": {
+    "sentences": [
+     "The ship's bell rang twice, and the deck tilted under Yusuf's feet.",
+     "For forty days the sailors had seen nothing but water.",
+     "Their only guides were the stars and the old captain's brass astrolabe, which he polished every evening as if it were treasure.",
+     "In the hold, sacks of cloves and pepper filled the air with a sharp smell.",
+     "Some nights, Yusuf lay awake listening to the timbers creak and wondered whether the captain's charts were right.",
+     "He had been told that the port of Calicut lay ahead, but no one on board had seen land in weeks."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: a spice-trading voyage long ago, navigating by the stars. Tap 2 sentences that prove the time or the purpose of the trip.",
+    "wrong": "This sentence shows the ship or Yusuf's feelings, but not the era or the cargo. Find the details that show how they navigate and what they carry."
+   },
+   "checks": [
+    {
+     "passage": "The village had no school, so Nadia walked an hour each way to the next town. Electricity arrived only last year, and the single television sat in the café where the men gathered in the evenings. Still, Nadia carried her schoolbooks as if they were made of gold.",
+     "stem": "What does the setting reveal about Nadia?",
+     "options": [
+      "She values learning even though getting it is hard.",
+      "She lives in a large city with many schools.",
+      "She does not like going to school.",
+      "She wants to own a television."
+     ],
+     "answer": 0,
+     "why": "The long walk and the lack of services make school hard to reach, yet she treasures her books."
+    },
+    {
+     "passage": "Fog pressed against the windows of the old house. Every clock in the hall had stopped at a different hour, and dust lay thick on the piano keys. When the wind moved through the broken shutters, it sounded almost like someone whispering.",
+     "stem": "What mood does the setting create?",
+     "options": [
+      "Cheerful and lively",
+      "Mysterious and uneasy",
+      "Busy and noisy",
+      "Calm and sunny"
+     ],
+     "answer": 1,
+     "why": "Fog, stopped clocks, dust and a whispering wind create a mysterious, uneasy mood."
+    },
+    {
+     "passage": "By the time the sun rose, the asphalt was already shimmering. Air conditioners hummed from every balcony, and the few people on the street hurried from one patch of shade to the next. Ahmad decided to postpone his bike ride until the evening.",
+     "stem": "How does the setting affect Ahmad?",
+     "options": [
+      "It makes him want to ride right away.",
+      "It makes him feel cold and wet.",
+      "It has no effect on his plans.",
+      "The extreme heat makes him change his plans."
+     ],
+     "answer": 3,
+     "why": "The heat (shimmering asphalt, people hurrying to shade) leads Ahmad to put off his bike ride."
+    }
+   ],
+   "again": {
+    "title": "Three-part setting",
+    "text": "Describe the setting in three parts:\n\n1. **Place**: where exactly?\n2. **Time**: when, and in what era?\n3. **Mood**: how does it feel?\n\nFor each part, name one clue from the text.",
+    "example": "\"The camels knelt beside the well while the merchants unloaded silk under a burning sun.\"\n\nPlace: **a desert stop on a trade route** (well, camels). Time: **long ago** (camel trade). Mood: **hot and tiring** (burning sun)."
+   }
+  }
+ }
+}

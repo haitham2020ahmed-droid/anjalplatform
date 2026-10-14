@@ -172,7 +172,8 @@ describe("🔁 Review tests", () => {
       options: beforeOpts.map((o, i) => ({ label: s(o.label), text: i === 0 ? `${s(o.text)} !` : s(o.text), correct: i === wrongIdx })),
     });
     assert.notEqual(copy.id, picks[1]);
-    assert.equal(await repo.count("Question", {}), count0 + 1, "one new question, none deleted");
+    assert.equal(await repo.count("Question", {}), count0, "the shared bank total is unchanged: the copy is private (tests/review-private.test.ts)");
+    assert.equal(await repo.count("Question", { privateToId: teacher.userId }), 1, "one new (private) question, none deleted");
     const after = (await repo.findUnique("Question", { id: picks[1] }))!;
     assert.equal(s(after.stem), s(before.stem), "the original's text is untouched");
     assert.equal(s(after.status), "PUBLISHED");

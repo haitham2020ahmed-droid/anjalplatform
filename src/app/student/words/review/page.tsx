@@ -26,7 +26,7 @@ export default async function WordReviewPage({ searchParams }: { searchParams: P
   const meanings = wrong.length ? (await notebook(repo, actor)).filter((w) => wrong.includes(w.word)) : [];
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student/words", label: "My words" }} icon="🔁" title="Word Review" subtitle="Read each sentence, then choose what the word means. Words you know come back later; words you miss come back tomorrow." />
+      <PageHeader back={{ href: "/student/words?tab=saved", label: "My Words" }} icon="🔁" title="Word Review" subtitle="Read each sentence, then choose what the word means. Words you know come back later; words you miss come back tomorrow." />
       {sp.done && (
         <div role="status" className="mb-4 rounded-2xl bg-emerald-50 px-5 py-4 text-emerald-900 ring-1 ring-emerald-200">
           <p className="text-lg font-bold">{ok} of {total} correct {ok === total && total > 0 ? "🎉" : ""}</p>

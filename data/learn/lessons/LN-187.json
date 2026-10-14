@@ -1,0 +1,462 @@
+{
+ "code": "LN-187",
+ "title": "Word examples and everyday nouns",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.1.5.b",
+  "L.1.5.c",
+  "L.2.5.a",
+  "L.K.5.c",
+  "L.K.6"
+ ],
+ "families": [],
+ "skillNames": [
+  "Word Categories and Examples",
+  "Common Nouns in Everyday Use"
+ ],
+ "statements": [
+  "R-0001",
+  "R-0003",
+  "R-0016",
+  "R-0017",
+  "R-0023",
+  "R-0213"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Group words",
+     "text": "Some words name a **group** of things.\n\n**Fruit** is a group word. It means many things: apples, bananas, dates."
+    },
+    {
+     "title": "Examples",
+     "text": "An **example** is **one thing** in the group.\n\nA **date** is an example of **fruit**.\n\nA **cat** is an example of an **animal**."
+    },
+    {
+     "title": "How to find an example",
+     "text": "1. Read the group word.\n2. Think: what things are in this group?\n3. Find the word that is **one of them**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text tells you the group **and** the example.\n\n1. Find the group word in the text.\n2. Find a sentence that names one thing in the group.\n3. That sentence proves your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went to the shop to buy fruit.",
+      "role": "main"
+     },
+     {
+      "t": "We got apples.",
+      "role": "key"
+     },
+     {
+      "t": "We got grapes too.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Fruit** is the group word.\n\n**Apples** and **grapes** are examples of fruit."
+   },
+   "together": {
+    "passage": "We went to the zoo. We saw many animals. I liked the big elephant best. My sister liked the long red slide near the gate.",
+    "stem": "Which word is an example of an animal?",
+    "options": [
+     "zoo",
+     "elephant",
+     "sister",
+     "slide"
+    ],
+    "answer": 1,
+    "hint": "Is that something that lives and moves like an animal? Look again.",
+    "good": "Yes! An elephant is an animal. We saw it at the zoo."
+   },
+   "evidence": {
+    "sentences": [
+     "We went to the zoo.",
+     "We saw many animals.",
+     "I liked the big elephant best.",
+     "My sister liked the long red slide near the gate."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: elephant. Tap 2 sentences that show the elephant is one of the animals.",
+    "wrong": "This sentence does not tell about the animals. Find the sentences about animals and the elephant."
+   },
+   "checks": [
+    {
+     "passage": "Mom put food in the bag. She put in rice. She put in bread.",
+     "stem": "Which word is an example of food?",
+     "options": [
+      "bag",
+      "Mom",
+      "bread",
+      "put"
+     ],
+     "answer": 2,
+     "why": "Bread is something we eat. It is food."
+    },
+    {
+     "passage": "I have many toys in my room. I have a ball. I have a bed and a lamp too.",
+     "stem": "Which word is an example of a toy?",
+     "options": [
+      "ball",
+      "room",
+      "bed",
+      "lamp"
+     ],
+     "answer": 0,
+     "why": "You play with a ball. A bed and a lamp are not toys."
+    },
+    {
+     "passage": "It is cold today. Sami puts on warm clothes. He puts on a coat and a hat.",
+     "stem": "Which word is an example of clothes?",
+     "options": [
+      "cold",
+      "Sami",
+      "today",
+      "coat"
+     ],
+     "answer": 3,
+     "why": "A coat is something you wear. It is clothes."
+    }
+   ],
+   "again": {
+    "title": "Is it one of them?",
+    "text": "Say this sentence:\n\n\"A ___ is a kind of ___.\"\n\nIf it sounds right, you found an example!",
+    "example": "\"A **carrot** is a kind of **food**.\" ✔\n\n\"A **chair** is a kind of **food**.\" ✘\n\nSo **carrot** is the example of food."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Nouns name things",
+     "text": "A **noun** names a person, a place or a thing.\n\n**teacher** (person), **school** (place), **book** (thing)"
+    },
+    {
+     "title": "Everyday nouns",
+     "text": "We use some nouns every day: *kitchen, garden, door, bag, shop, bus, field, glasses*.\n\nKnowing what they mean helps you understand what you read."
+    },
+    {
+     "title": "Use the sentence",
+     "text": "1. Find the noun.\n2. Read the words around it.\n3. Ask: **What happens there?** or **What is it used for?**\n4. Choose the meaning that fits."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text often shows what a noun means.\n\n1. Find the noun in the passage.\n2. Find the sentences that tell **what people do** with it or **in** it.\n3. Choose the meaning those sentences show."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandpa sits in the garden every evening.",
+      "role": "detail"
+     },
+     {
+      "t": "He waters the roses there.",
+      "role": "key"
+     },
+     {
+      "t": "He picks mint from the plants for his tea.",
+      "role": "key"
+     }
+    ],
+    "explain": "What happens in the garden? He **waters roses** and **picks mint from plants**.\n\nSo a **garden** is a place where plants and flowers grow."
+   },
+   "together": {
+    "passage": "Lina's family is getting ready for Eid. Dad washes the car in the garage. Mom bakes cookies in the kitchen. She also makes tea on the stove there. Lina puts her new books on the shelf in her bedroom.",
+    "stem": "In the text, what is a kitchen?",
+    "options": [
+     "A place where you park a car.",
+     "A room where you sleep at night.",
+     "A room where food is cooked.",
+     "A shelf where you keep books."
+    ],
+    "answer": 2,
+    "hint": "What does Mom do in the kitchen? Look back at that sentence.",
+    "good": "Yes! Mom bakes and makes tea in the kitchen. It is the room where food is cooked."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina's family is getting ready for Eid.",
+     "Dad washes the car in the garage.",
+     "Mom bakes cookies in the kitchen.",
+     "She also makes tea on the stove there.",
+     "Lina puts her new books on the shelf in her bedroom."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a room where food is cooked. Tap 2 sentences that show what happens in the kitchen.",
+    "wrong": "This sentence is about a different place. Find the sentences that show what Mom does in the kitchen."
+   },
+   "checks": [
+    {
+     "passage": "The farmer opens the gate. His sheep walk out into the field. They eat the green grass all day.",
+     "stem": "What is a field?",
+     "options": [
+      "A small room in a house.",
+      "A busy street in a city.",
+      "A big shop that sells food.",
+      "An open piece of land with grass."
+     ],
+     "answer": 3,
+     "why": "The sheep walk out into the field and **eat the green grass**."
+    },
+    {
+     "passage": "Nora's grandfather wears glasses to read. Without them, the words look blurry.",
+     "stem": "What are glasses used for?",
+     "options": [
+      "To help him see clearly.",
+      "To keep his eyes warm.",
+      "To hold his drink.",
+      "To help him hear."
+     ],
+     "answer": 0,
+     "why": "Without glasses, words look **blurry**. Glasses help him see."
+    },
+    {
+     "passage": "The children wait at the bus stop. When the bus comes, they climb the steps. Each child finds a seat by the window.",
+     "stem": "What is a seat?",
+     "options": [
+      "A window you look out of.",
+      "A place to sit.",
+      "A step you climb.",
+      "A ticket for the bus."
+     ],
+     "answer": 1,
+     "why": "Each child **finds a seat** and sits down on the bus."
+    }
+   ],
+   "again": {
+    "title": "Where or what for?",
+    "text": "For a place noun, ask: **What do people do there?**\n\nFor a thing noun, ask: **What do people use it for?**",
+    "example": "\"The baker puts the bread into the oven.\"\n\nWhat is an oven for? **Baking bread.** An oven is a thing that cooks food with heat."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "What is it for?",
+     "text": "Many things have a **job**, or a **use**.\n\nA **spoon** is for eating. A **key** is for opening a door. A **broom** is for sweeping."
+    },
+    {
+     "title": "From the job to the word",
+     "text": "Sometimes a text tells you the **job**, and you must find the **word**.\n\n\"Something you use to cut paper\" = **scissors**."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read the description. Find the **action** (cut, write, see, sweep).\n2. Think: what thing does that job?\n3. Check every choice. Only one does **exactly** that job."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The sentence that describes the **job** is your proof.\n\n1. Find the sentence that tells what is needed or done.\n2. Find the action word in it.\n3. Choose the thing made for that action."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar's room was dark.",
+      "role": "other"
+     },
+     {
+      "t": "He needed something to give light so he could read.",
+      "role": "key"
+     },
+     {
+      "t": "He switched on the lamp by his bed.",
+      "role": "main"
+     }
+    ],
+    "explain": "The job is **giving light to read**. The thing that does that job is a **lamp**."
+   },
+   "together": {
+    "passage": "Aisha wants to make a birthday card for her teacher. She folds a big piece of coloured paper in half. Next, she needs to cut out a paper star with neat, sharp edges. Then she will stick the star on the front of the card. Last, she will write a kind message inside.",
+    "stem": "Aisha needs a tool to cut out the star. Which word names that tool?",
+    "options": [
+     "glue",
+     "ruler",
+     "scissors",
+     "pen"
+    ],
+    "answer": 2,
+    "hint": "What job does she need to do? Which tool does that job?",
+    "good": "Yes! Scissors are used to cut paper."
+   },
+   "evidence": {
+    "sentences": [
+     "Aisha wants to make a birthday card for her teacher.",
+     "She folds a big piece of coloured paper in half.",
+     "Next, she needs to cut out a paper star with neat, sharp edges.",
+     "Then she will stick the star on the front of the card.",
+     "Last, she will write a kind message inside."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: scissors. Tap the sentence that tells the job the tool must do.",
+    "wrong": "This sentence tells a different step. Find the sentence about cutting."
+   },
+   "checks": [
+    {
+     "passage": "Grandpa's watch has stopped. He looks up at the big round thing on the kitchen wall to know the time.",
+     "stem": "What is Grandpa looking at?",
+     "options": [
+      "a mirror",
+      "a clock",
+      "a window",
+      "a picture"
+     ],
+     "answer": 1,
+     "why": "You look at a **clock** on the wall to know the time."
+    },
+    {
+     "passage": "It was raining hard on the way to school. Sara opened something over her head to stay dry.",
+     "stem": "What did Sara open?",
+     "options": [
+      "a door",
+      "a book",
+      "a box",
+      "an umbrella"
+     ],
+     "answer": 3,
+     "why": "An **umbrella** is opened over your head to stay dry in the rain."
+    },
+    {
+     "passage": "Before bed, Faisal cleans his teeth. He puts toothpaste on a small brush with a long handle.",
+     "stem": "What is Faisal using?",
+     "options": [
+      "a toothbrush",
+      "a hairbrush",
+      "a paintbrush",
+      "a spoon"
+     ],
+     "answer": 0,
+     "why": "A small brush used with toothpaste to clean teeth is a **toothbrush**."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "Read the job. Then **act it out** with your hands.\n\nCutting? Sweeping? Writing? Your hands will remind you of the thing you need.",
+    "example": "\"You need it to write on the board.\"\n\nAct it out: your hand writes on a board. The thing in your hand is a **marker** (or **chalk**)."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Big group words",
+     "text": "Some group words are less easy to picture: **furniture, vehicle, tool, weather, clothing**.\n\nKnow what belongs: tables and beds are **furniture**; buses and taxis are **vehicles**."
+    },
+    {
+     "title": "Examples and non-examples",
+     "text": "To find an example, check if it **truly belongs** in the group.\n\nA **broom** is in a classroom, but it is not **furniture**. It is a **tool** for cleaning."
+    },
+    {
+     "title": "Use, then name",
+     "text": "Often a text describes a thing by its **use**.\n\n1. Find what the thing **does**.\n2. Find what **group** it belongs to.\n3. Choose the word that fits both."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use the text to prove two things: **what the thing is used for** and **which group it belongs to**.\n\n1. Find the sentence that shows how the thing is used.\n2. Compare it with the group word.\n3. The best answer matches both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our kitchen has new furniture.",
+      "role": "main"
+     },
+     {
+      "t": "There is a long table and six chairs.",
+      "role": "key"
+     },
+     {
+      "t": "Mom also bought a new pan for cooking.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Table** and **chairs** are examples of furniture.\n\nThe **pan** is in the kitchen too, but it is a cooking tool, not furniture."
+   },
+   "together": {
+    "passage": "Our new classroom has lots of furniture. There are twenty desks, a large cupboard for supplies and a soft rug in the reading corner. A bookcase full of stories stands next to the window. On the teacher's table sits a globe, which shows the whole Earth as a ball. Every morning, the class helper uses a broom to sweep dust from the floor.",
+    "stem": "Which word from the text names a cleaning tool, not furniture?",
+    "options": [
+     "desk",
+     "cupboard",
+     "bookcase",
+     "broom"
+    ],
+    "answer": 3,
+    "hint": "Desks, cupboards and bookcases hold things or are used to work at. Which one is used for cleaning?",
+    "good": "Yes! The helper uses the broom to sweep. It is a cleaning tool, not furniture."
+   },
+   "evidence": {
+    "sentences": [
+     "Our new classroom has lots of furniture.",
+     "There are twenty desks, a large cupboard for supplies and a soft rug in the reading corner.",
+     "A bookcase full of stories stands next to the window.",
+     "On the teacher's table sits a globe, which shows the whole Earth as a ball.",
+     "Every morning, the class helper uses a broom to sweep dust from the floor."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: broom. Tap the sentence that shows what the broom is used for.",
+    "wrong": "This sentence tells about furniture or the globe. Find the sentence that shows how the broom is used."
+   },
+   "checks": [
+    {
+     "passage": "The weather changed many times on our trip to Abha. In the morning there was thick fog. At noon a light rain fell. By evening the sky was clear and the air was cool.",
+     "stem": "Which word from the text is an example of weather?",
+     "options": [
+      "trip",
+      "fog",
+      "noon",
+      "evening"
+     ],
+     "answer": 1,
+     "why": "**Fog** is a kind of weather. Noon and evening are times of day."
+    },
+    {
+     "passage": "The street outside the airport was busy. Taxis waited in a long line, and a bus picked up passengers. Then an ambulance raced past with its lights flashing.",
+     "stem": "Which word names a vehicle that carries sick or hurt people?",
+     "options": [
+      "taxi",
+      "bus",
+      "ambulance",
+      "airport"
+     ],
+     "answer": 2,
+     "why": "An **ambulance** is a vehicle that takes sick or hurt people to hospital."
+    },
+    {
+     "passage": "Hamad felt hot and tired. The nurse put a thermometer under his tongue. After a minute she said, \"You have a fever.\"",
+     "stem": "What is a thermometer?",
+     "options": [
+      "A tool that measures how hot something is.",
+      "A medicine for a sore throat.",
+      "A bed in a hospital.",
+      "A drink that cools you down."
+     ],
+     "answer": 0,
+     "why": "The nurse used it, then knew Hamad had a **fever**. It measures temperature."
+    }
+   ],
+   "again": {
+    "title": "Does it really belong?",
+    "text": "Put the word into this test:\n\n\"Is a ___ a kind of ___?\"\n\nIf the answer is no, it is a **non-example**, even if it is in the same place.",
+    "example": "\"Is a **spoon** a kind of **furniture**?\" No. It is in the kitchen, but it is a tool for eating.\n\n\"Is a **sofa** a kind of furniture?\" **Yes.**"
+   }
+  }
+ }
+}

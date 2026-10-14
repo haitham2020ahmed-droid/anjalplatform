@@ -1,0 +1,568 @@
+{
+  "code": "NB-066",
+  "title": "The Hoopoe in the Palm Garden",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 503,
+  "passage": "The August heat pressed down on Grandfather's palm garden like a heavy iron lid, and even the sparrows had stopped chirping. Faris was carrying a bucket toward the vegetable beds when he noticed something unusual beneath the lemon tree: a bird with cinnamon-coloured feathers, bold black-and-white stripes across its wings, and a long, curved beak. It was a hoopoe, and instead of darting away as he approached, it merely fluttered one wing helplessly in the dust. Faris dropped the bucket and shouted for Grandfather to come quickly, because there was an injured bird under the lemon tree.\n\nGrandfather knelt beside the hoopoe, inspecting it with the calm patience of a man who had spent sixty years among plants and animals. \"Its left wing is hanging lower than the right,\" he observed. \"Perhaps it struck the window of the storeroom. We must not handle it more than necessary, because fear alone can exhaust a wild bird.\"\n\nFollowing Grandfather's instructions, Faris lined a cardboard box with a soft towel, punched several small holes in the lid, and placed a shallow dish of water in one corner. Grandfather gently lifted the bird inside, and they carried the box into the cool, shadowy storeroom. That afternoon, they drove to a veterinary clinic in town, where a young doctor examined the wing carefully. \"Fortunately, nothing is broken,\" she explained. \"The wing is badly sprained, so keep the bird quiet and offer it mealworms twice a day. In about ten days, it should be strong enough to fly.\"\n\nThroughout the following ten days, Faris checked on the hoopoe every morning before breakfast and every evening after sunset prayer. At first, the bird crouched motionless in the corner, its crest folded flat against its head. Gradually, however, it began to snatch the mealworms eagerly, hop energetically around the box, and cautiously stretch its injured wing. On the eighth morning, it raised its magnificent crest like a fan, and Faris laughed with delight.\n\nYet as the bird recovered, an unexpected difficulty arose. \"Grandfather,\" Faris said hesitantly, \"couldn't we keep it? I could build a beautiful cage and look after it forever.\"\n\nGrandfather was silent for a moment before he answered with a question of his own. \"Tell me, Faris, would you prefer to spend your life in the most beautiful room in the world, or to run freely in this garden?\" Faris looked down at his sandals, and slowly he understood what Grandfather meant.\n\nOn the eleventh morning, they carried the box to the edge of the palm grove and opened the lid. The hoopoe hesitated, tilting its head as if to say farewell. Then it launched itself into the air, its striped wings flashing in the sunlight, and disappeared among the palms. Faris felt a sharp pang of loss, but it was quickly overtaken by pride.\n\nA week later, as he watered the lemon tree, he heard a soft, familiar call drifting from the top of the grove: \"hoop-hoop-hoop\". High on a palm branch, a crested bird was watching him.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “motionless” in paragraph 4 (“the bird crouched motionless in the corner”)?",
+      "options": [
+        "still",
+        "noisy",
+        "hungry",
+        "restless"
+      ],
+      "answer": "A",
+      "why": "“Motionless” means without moving, so “still” is closest; “restless” is nearly its opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “hesitantly” in paragraph 5 (“Faris said hesitantly”)?",
+      "options": [
+        "nervously",
+        "slowly",
+        "quietly",
+        "confidently"
+      ],
+      "answer": "D",
+      "why": "“Hesitantly” means in an unsure way; its opposite is “confidently”. “Nervously” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 7, Faris felt “a sharp pang of loss”. What is a “pang”?",
+      "options": [
+        "a loud noise",
+        "a long journey",
+        "a sudden, strong feeling",
+        "a small injury to the hand"
+      ],
+      "answer": "C",
+      "why": "A “pang” is a sudden, sharp feeling; Faris suddenly felt sad as the bird flew away."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 1 is an ADJECTIVE?",
+      "options": [
+        "chirping",
+        "curved",
+        "darting",
+        "fluttered"
+      ],
+      "answer": "B",
+      "why": "“Curved” describes the beak; “chirping” and “darting” are -ing verb forms here and “fluttered” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is SINGULAR?",
+      "options": [
+        "mealworms",
+        "sandals",
+        "sparrows",
+        "crest"
+      ],
+      "answer": "D",
+      "why": "“Crest” names one thing; the others end in -s and name more than one."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “instructions” in paragraph 3?",
+      "options": [
+        "construct",
+        "instant",
+        "instruct",
+        "insect"
+      ],
+      "answer": "C",
+      "why": "“Instruct”, “instructor” and “instructions” share the same root and meaning; “construct” only looks similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “cautiously” in a meaningful sentence of your own.",
+      "model": "The cat walked cautiously along the top of the wall, checking every step before it moved.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “cautiously” with its meaning (carefully, to avoid danger or mistakes)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Cautiously” means carefully, in a way that avoids danger or risk."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “box”, as in the cardboard box in paragraph 3?",
+      "options": [
+        "boxs",
+        "boxes",
+        "boxies",
+        "boxen"
+      ],
+      "answer": "B",
+      "why": "Words ending in -x add -es: box → boxes."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Tell me, Faris, would you prefer to spend your life in the most beautiful room in the world, or to run freely in this garden?”",
+      "options": [
+        "a statement",
+        "a command",
+        "an exclamation",
+        "a question"
+      ],
+      "answer": "D",
+      "why": "Grandfather asks Faris to choose between two things, and the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Hoopoe's Second Chance",
+        "The Broken Window",
+        "A Trip to the Lemon Farm",
+        "Faris Builds a Cage"
+      ],
+      "answer": "A",
+      "why": "The story is about an injured hoopoe that recovers and is given back its freedom."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to teach readers how to build a birdcage",
+        "to explain how veterinary clinics work",
+        "to show that caring for a wild creature can mean letting it go free",
+        "to describe the weather in August"
+      ],
+      "answer": "C",
+      "why": "Faris learns that the kindest thing for the hoopoe is to return it to the sky."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Faris wakes up early for breakfast every day.",
+        "The hoopoe escapes from the box on the eighth morning.",
+        "The vet visits the hoopoe in the storeroom.",
+        "The hoopoe slowly recovers while Faris looks after it."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 describes the bird changing from motionless to eager and lively under Faris's care."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandfather say they must not handle the bird more than necessary?",
+      "options": [
+        "Fear alone can exhaust a wild bird.",
+        "The bird might bite them.",
+        "The vet had told them not to touch it.",
+        "Its feathers would fall out."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “We must not handle it more than necessary, because fear alone can exhaust a wild bird.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a narrative story",
+        "an informational report",
+        "a letter",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It tells invented but realistic events with characters, a problem and a resolution."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did the vet say was wrong with the hoopoe?",
+      "options": [
+        "Its wing was broken.",
+        "Its wing was badly sprained.",
+        "It was very hungry.",
+        "It had hurt its beak."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: “Fortunately, nothing is broken … The wing is badly sprained.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The hoopoe raised its crest like a fan.",
+        "Faris asked to keep the bird.",
+        "They drove to the veterinary clinic.",
+        "Faris lined a box with a soft towel."
+      ],
+      "answer": "D",
+      "why": "Faris prepared the box before they drove to the clinic; the crest and the request came days later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story?",
+      "options": [
+        "Faris",
+        "Grandfather",
+        "an outside narrator",
+        "the hoopoe"
+      ],
+      "answer": "C",
+      "why": "The story uses “he” for Faris and describes events from outside, so it is told by a third-person narrator."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why Faris recognised the call in the last paragraph?",
+      "options": [
+        "He had heard the hoopoe's call before.",
+        "Grandfather told him what a hoopoe sounds like.",
+        "The call came from the storeroom.",
+        "He had read about hoopoes in a book."
+      ],
+      "answer": "A",
+      "why": "The call was “familiar”, so Faris had heard it before, almost certainly from the hoopoe he had cared for."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the hoopoe's injury, according to Grandfather's guess?",
+      "options": [
+        "a hungry cat attacked it in the garden",
+        "the August heat burned its left wing",
+        "it fell from the top of a palm tree",
+        "it struck the window of the storeroom"
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: “Perhaps it struck the window of the storeroom.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Faris want to keep the hoopoe?",
+      "options": [
+        "He had grown attached to it while caring for it.",
+        "He wanted to sell it at the market.",
+        "Grandfather had asked him to.",
+        "The vet said it could never fly again."
+      ],
+      "answer": "A",
+      "why": "After ten days of care and delight, Faris wanted to “look after it forever”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Faris's feelings when the hoopoe flew away?",
+      "options": [
+        "only happy",
+        "sad but proud",
+        "angry and jealous",
+        "bored"
+      ],
+      "answer": "B",
+      "why": "Paragraph 7: “Faris felt a sharp pang of loss, but it was quickly overtaken by pride.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the hoopoe at the start of paragraph 4 DIFFERENT from the hoopoe at the end of it?",
+      "options": [
+        "At first it is lively; later it becomes weak and tired.",
+        "At first it eats eagerly; later it refuses all its food.",
+        "At first it is motionless; later it is active and raises its crest.",
+        "At first it flies around the box; later it cannot move."
+      ],
+      "answer": "C",
+      "why": "It begins crouched and still with its crest flat and ends hopping, stretching and raising its crest."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the effect of Grandfather's question in paragraph 6?",
+      "options": [
+        "Faris decides to build a bigger cage.",
+        "Faris asks the vet for advice.",
+        "Faris becomes angry with Grandfather.",
+        "Faris understands that the bird should be free."
+      ],
+      "answer": "D",
+      "why": "After the question, Faris “slowly understood what Grandfather meant”, and they release the bird."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Grandfather and the vet have in common in the story?",
+      "options": [
+        "Both give careful advice about how to treat the bird.",
+        "Both want to keep the hoopoe in a cage.",
+        "Both live in the palm garden.",
+        "Both are worried that the wing is broken."
+      ],
+      "answer": "A",
+      "why": "Grandfather explains how to handle the bird, and the vet explains how to feed and rest it."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “The August heat pressed down on Grandfather's palm garden like a heavy iron lid”?",
+      "options": [
+        "The garden was covered with sheets of metal.",
+        "The heat was so strong that it felt heavy and trapping.",
+        "Dark clouds showed that it was about to rain.",
+        "Grandfather was cooking a meal in the garden."
+      ],
+      "answer": "B",
+      "why": "The simile compares the heat to a heavy lid to show how oppressive and stifling it was."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is exclamatory?",
+      "options": [
+        "Faris checked on the hoopoe every morning.",
+        "Grandfather knelt beside the hoopoe.",
+        "The hoopoe hesitated, tilting its head.",
+        "What a magnificent crest the hoopoe has!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling, begins with “What a …” and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the story with the hoopoe watching Faris from a palm branch?",
+      "options": [
+        "to suggest that the bird remembers Faris and that his kindness was rewarded",
+        "to show that the bird was injured again",
+        "to explain how hoopoes build nests",
+        "to show that Faris will now catch the bird"
+      ],
+      "answer": "A",
+      "why": "The quiet final image hints at a lasting bond and rewards Faris for letting the bird go."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the MOST important decision Faris made in the story?",
+      "options": [
+        "choosing to carry the bucket to the vegetable beds",
+        "punching holes in the box lid",
+        "agreeing to release the hoopoe",
+        "watering the lemon tree a week later"
+      ],
+      "answer": "C",
+      "why": "Letting the bird go shows that Faris put the hoopoe's needs before his own wish to keep it."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Wild animals are happiest in cages where they are safe.",
+        "True care can mean giving up what we want for another's good.",
+        "Birds should never be helped by people in any situation.",
+        "Vets always know more than grandparents about animals."
+      ],
+      "answer": "B",
+      "why": "Faris gives up his wish to keep the bird because freedom is best for it."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the story as a whole?",
+      "options": [
+        "kindness",
+        "fear",
+        "anger",
+        "boredom"
+      ],
+      "answer": "A",
+      "why": "Faris and Grandfather care patiently for the bird from beginning to end."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "what colour the hoopoe's feathers are",
+        "what the vet told them to feed the bird",
+        "whether the bird on the palm branch was really the same hoopoe",
+        "how many days the bird was kept"
+      ],
+      "answer": "C",
+      "why": "The writer only says “a crested bird”; we are not told for certain that it is the same hoopoe."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A hoopoe thanks Faris in words.",
+        "A hoopoe with a sprained wing recovers after rest and food.",
+        "A hoopoe builds its own cage.",
+        "A hoopoe flies on the same day its wing was badly hurt."
+      ],
+      "answer": "B",
+      "why": "A sprained wing can heal with rest, as the vet said; the others are impossible or contradict the story."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Lost Bucket",
+        "Free to Fly Again",
+        "The Vet's Busy Day",
+        "Grandfather's New Pet"
+      ],
+      "answer": "B",
+      "why": "The story ends with the healed hoopoe flying free."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that still show what Faris learns about wild creatures.",
+      "model": "When they opened the box, the hoopoe tried to fly but could only manage a short hop, so Grandfather suggested they wait a few more days. Faris was secretly pleased, but he cared for the bird even more carefully, and when it finally flew away strongly, he realised that its freedom made him happier than any cage could.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and shows a believable lesson about wild creatures",
+        "1 = an ending is given but it is unclear, does not fit the story well, or shows no lesson",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Faris, Grandfather and the hoopoe and shows a lesson about caring for wild creatures is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, what should someone do if they find an injured wild bird?",
+      "options": [
+        "Keep it as a pet forever.",
+        "Handle it as much as possible so it gets used to people.",
+        "Give it a quiet, safe place and get advice from a vet.",
+        "Leave it in the hot sun to rest."
+      ],
+      "answer": "C",
+      "why": "Faris and Grandfather put the bird in a quiet box and took it to a vet, who explained how to care for it."
+    }
+  ]
+}

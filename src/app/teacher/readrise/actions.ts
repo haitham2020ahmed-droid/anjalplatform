@@ -73,7 +73,10 @@ export async function allowReadRiseRetakeAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const classId = id(f, "classId");
   let msg: string;
-  try { await allowPlacementRetake(repo, actor, id(f, "studentId"), String(f.get("reason") ?? "")); msg = "Placement retake allowed: the student sees the placement test next time they open ReadRise."; }
+  try {
+    const r = await allowPlacementRetake(repo, actor, id(f, "studentId"), String(f.get("reason") ?? ""));
+    msg = r.restarted ? "The placement test starts again from the first passage." : "Placement retake allowed: the student sees the placement test next time they open ReadRise.";
+  }
   catch (e) { msg = msgOf(e); }
   back(classId, msg);
 }

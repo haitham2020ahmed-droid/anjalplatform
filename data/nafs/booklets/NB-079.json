@@ -1,0 +1,568 @@
+{
+  "code": "NB-079",
+  "title": "The Gazelle and the Silver Lake",
+  "kind": "LITERARY",
+  "genre": "fable",
+  "words": 496,
+  "passage": "Long ago, when the rains had failed for two years in a row, the animals of the stony plain gathered beneath the last green acacia to decide what they should do. The water holes had shrunk into cracked circles of mud, and even the most resilient shrubs had become brittle, colourless and lifeless.\n\nOld Hamdan the oryx, whose long horns had grown pale with age, raised his head and addressed the anxious crowd. \"Beyond the far hills lies the Valley of Seven Wells, where water rises from deep underground even in the driest years,\" he explained. \"The journey will take four days, so we must walk in the cool hours of morning and evening, rest in the shade at noon, and follow the old wadi, because acacias grow along its banks wherever water hides beneath the sand.\"\n\nMost of the animals agreed immediately, grateful for his experienced guidance, but Zarifa, a young gazelle who was famous for her speed, tossed her head impatiently. \"Four entire days?\" she scoffed contemptuously. \"With my magnificent legs, I could reach water before sunset. Why should I crawl along beside a tortoise and a limping old oryx?\"\n\nOn the second afternoon, while the others were resting in the shade of a rocky ledge, Zarifa noticed something extraordinary. Far across the shimmering plain, a silver lake glittered invitingly, its surface rippling as if a breeze were passing over it. \"Look!\" she cried excitedly. \"Water, and it is so close that I can almost taste it!\"\n\nHamdan narrowed his eyes suspiciously. \"That lake has deceived many inexperienced travellers before you,\" he warned quietly. \"When the ground grows very hot, the air above it bends the light from the sky, and the sky itself appears to lie upon the sand. Remain beside the wadi, child, where the path is dependable.\"\n\nBut Zarifa was already gone, racing across the scorching plain in a cloud of dust. She ran until her heart pounded and her tongue felt as dry as paper, yet the lake kept sliding away in front of her, always as distant as it had been at the start. At last, when the sun sank and the air cooled, the silver water simply faded, leaving nothing but bare, empty ground.\n\nExhausted, humiliated and painfully thirsty, Zarifa limped back through the darkness, guided only by the faint, familiar scent of the acacias. She found the herd asleep beside the wadi, and Hamdan, who had been waiting for her, said nothing unkind. He merely moved aside, without a single word of criticism, so that she could lie in the softest sand.\n\nTwo mornings later, the travellers reached the Valley of Seven Wells together, and Zarifa drank more gratefully than she had ever drunk in her life. From that day on, she ran at the front of the herd, but she never again left the path that patience and wisdom had chosen.\n\nMoral: Even the fastest legs are worthless when impatience carries them toward an imaginary destination.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “deceived” as it is used in paragraph 5?",
+      "options": [
+        "warned",
+        "guided",
+        "tricked",
+        "welcomed"
+      ],
+      "answer": "C",
+      "why": "The lake “fooled” travellers into thinking it was real, so “deceived” means tricked."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “brittle” as it is used in paragraph 1?",
+      "options": [
+        "flexible",
+        "fragile",
+        "dusty",
+        "dry"
+      ],
+      "answer": "A",
+      "why": "Brittle plants snap easily; the opposite is “flexible” (able to bend without breaking). “Fragile” is a near-synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 1: “even the most resilient shrubs had become brittle, colourless and lifeless.” What does “resilient” mean?",
+      "options": [
+        "the most beautiful",
+        "the tallest",
+        "the youngest",
+        "able to survive hard conditions"
+      ],
+      "answer": "D",
+      "why": "The word “even” shows that these were the toughest shrubs, the ones best able to survive difficulty."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an ADJECTIVE?",
+      "options": [
+        "impatiently",
+        "magnificent",
+        "scoffed",
+        "sunset"
+      ],
+      "answer": "B",
+      "why": "“Magnificent” describes the noun “legs”; “impatiently” is an adverb, “scoffed” a verb and “sunset” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the fable is SINGULAR?",
+      "options": [
+        "hours",
+        "banks",
+        "oryx",
+        "travellers"
+      ],
+      "answer": "C",
+      "why": "“Oryx” names one animal (Old Hamdan); the other words are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “patience” in paragraph 8?",
+      "options": [
+        "patient",
+        "pattern",
+        "patrol",
+        "path"
+      ],
+      "answer": "A",
+      "why": "“Patient” and “patience” share the same root; the others only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “impatiently” in a meaningful sentence of your own.",
+      "model": "My little sister tapped her foot impatiently while the cake was baking, because she wanted to taste it immediately.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “impatiently” with its meaning (in a way that shows someone does not want to wait)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Impatiently” describes doing something in a way that shows you do not want to wait."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 2, Hamdan names the “Valley of Seven Wells”. What is the plural of the noun valley?",
+      "options": [
+        "vallies",
+        "valleyes",
+        "valley",
+        "valleys"
+      ],
+      "answer": "D",
+      "why": "A vowel before -y means we simply add -s: valleys (compare monkey → monkeys)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the fable is an EXCLAMATION?",
+      "options": [
+        "“Four entire days?”",
+        "“Remain beside the wadi, child, where the path is dependable.”",
+        "“Water, and it is so close that I can almost taste it!”",
+        "“The journey will take four days.”"
+      ],
+      "answer": "C",
+      "why": "It shows Zarifa's strong excitement and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the fable?",
+      "options": [
+        "The Lake That Was Not There",
+        "The Fastest Tortoise in the Desert",
+        "Rain Returns to the Plain",
+        "Hamdan's Long Horns"
+      ],
+      "answer": "A",
+      "why": "The central event is Zarifa chasing a mirage, a lake that did not really exist."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of this fable?",
+      "options": [
+        "to describe the plants that grow in a wadi",
+        "to teach that patience and wise advice matter more than speed",
+        "to explain how far gazelles can run in one day",
+        "to persuade readers to visit the Valley of Seven Wells"
+      ],
+      "answer": "B",
+      "why": "Zarifa's speed is wasted on the mirage, and the moral warns against impatience."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Hamdan complains that he is too old to travel.",
+        "The animals argue about who should lead them.",
+        "Hamdan explains a careful plan for reaching water.",
+        "The animals discover that the wells are dry."
+      ],
+      "answer": "C",
+      "why": "Hamdan describes the destination, the timing and the route along the wadi."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Hamdan, why should the animals follow the old wadi?",
+      "options": [
+        "Acacias grow along its banks where water hides beneath the sand.",
+        "It is the shortest way across the plain.",
+        "Zarifa has already explored it.",
+        "It is covered with soft sand for resting."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “follow the old wadi, because acacias grow along its banks wherever water hides beneath the sand.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a biography",
+        "a fable",
+        "a news report",
+        "a science article"
+      ],
+      "answer": "B",
+      "why": "It is a short story with talking animals that ends with a moral."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the animals plan to rest in the shade at noon?",
+      "options": [
+        "because Zarifa wanted to sleep",
+        "because the tortoise could not walk any further",
+        "because the Valley of Seven Wells was closed at noon",
+        "because it was wise to travel only in the cool hours"
+      ],
+      "answer": "D",
+      "why": "Hamdan says they must walk “in the cool hours of morning and evening, rest in the shade at noon”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "When did Zarifa first see the silver lake?",
+      "options": [
+        "on the first morning of the journey",
+        "on the second afternoon, while the others rested",
+        "on the night she returned to the herd",
+        "on the morning they reached the valley"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “On the second afternoon, while the others were resting in the shade of a rocky ledge”."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which character warns Zarifa about the lake?",
+      "options": [
+        "the tortoise",
+        "the herd's leader, Old Hamdan",
+        "a passing traveller",
+        "nobody warns her"
+      ],
+      "answer": "B",
+      "why": "Hamdan says, “That lake has deceived many inexperienced travellers before you.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which event happened LAST?",
+      "options": [
+        "Zarifa limped back guided by the scent of the acacias.",
+        "The silver water faded as the sun sank.",
+        "Zarifa ran at the front of the herd.",
+        "Hamdan moved aside so Zarifa could lie down."
+      ],
+      "answer": "C",
+      "why": "Zarifa running at the front happens “From that day on”, after they reached the valley."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the “lake” to disappear?",
+      "options": [
+        "Zarifa drank all of its water.",
+        "The wind blew the water away.",
+        "The other animals hid it from her.",
+        "The air cooled after sunset, so the light no longer bent to show the sky on the ground."
+      ],
+      "answer": "D",
+      "why": "The mirage is made by hot air bending light; when “the sun sank and the air cooled, the silver water simply faded”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Zarifa say “Why should I crawl along beside a tortoise and a limping old oryx?”",
+      "options": [
+        "She was worried that the tortoise was ill.",
+        "She was proud of her speed and looked down on the slower animals.",
+        "She wanted to carry the tortoise on her back.",
+        "She thought the oryx was lost."
+      ],
+      "answer": "B",
+      "why": "She boasts about her “magnificent legs” and mocks the slow animals: she is proud and impatient."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Hamdan's behaviour when Zarifa returned?",
+      "options": [
+        "kind and forgiving",
+        "angry and harsh",
+        "proud and boastful",
+        "nervous and confused"
+      ],
+      "answer": "A",
+      "why": "He “said nothing unkind” and moved aside “without a single word of criticism” so she could lie in the softest sand."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Zarifa at the end of the fable different from Zarifa at the beginning?",
+      "options": [
+        "At first she is slow; at the end she is fast.",
+        "At first she is wise; at the end she is foolish.",
+        "At first she trusts only her speed; at the end she values patience and the right path.",
+        "At first she is kind; at the end she is unkind."
+      ],
+      "answer": "C",
+      "why": "She mocks the slow plan at first, but at the end she “never again left the path that patience and wisdom had chosen.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Zarifa's race across the plain?",
+      "options": [
+        "She found a new well for the herd.",
+        "She became exhausted and thirsty and found no water.",
+        "She reached the Valley of Seven Wells first.",
+        "She frightened the other animals away."
+      ],
+      "answer": "B",
+      "why": "She ran until her tongue was dry and returned “Exhausted, humiliated and painfully thirsty”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the acacias do for the animals in TWO different parts of the fable?",
+      "options": [
+        "They give shade at the meeting and food on the journey.",
+        "They hide the mirage and cool the air.",
+        "They point the way to water and later guide Zarifa back in the dark.",
+        "They grow in the Valley of Seven Wells and on the far hills."
+      ],
+      "answer": "C",
+      "why": "In paragraph 2 they show where water is hidden; in paragraph 7 their scent guides Zarifa back to the herd."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the fable is a SIMILE?",
+      "options": [
+        "“her tongue felt as dry as paper”",
+        "“the last green acacia”",
+        "“a cloud of dust”",
+        "“the scorching plain”"
+      ],
+      "answer": "A",
+      "why": "It compares her tongue to paper using “as … as”."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “the lake kept sliding away in front of her”?",
+      "options": [
+        "The lake was flowing downhill.",
+        "Other animals were moving the lake.",
+        "However far she ran, the lake never came closer.",
+        "The lake was getting larger and larger."
+      ],
+      "answer": "C",
+      "why": "A mirage always seems to stay the same distance ahead, so she could never reach it."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer include Hamdan's scientific explanation of the lake?",
+      "options": [
+        "to make the fable longer",
+        "so readers understand that the lake is a natural mirage, not magic",
+        "to show that Hamdan likes to talk too much",
+        "to explain why tortoises walk slowly"
+      ],
+      "answer": "B",
+      "why": "The explanation shows that the lake is an illusion caused by hot air bending light."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which quality was MOST beneficial to the herd on their journey?",
+      "options": [
+        "Zarifa's speed",
+        "the tortoise's hard shell",
+        "Hamdan's experience and patience",
+        "the brightness of the silver lake"
+      ],
+      "answer": "C",
+      "why": "Hamdan's careful plan brought every animal safely to the wells."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which lesson is the writer MOST LIKELY sharing through the fable?",
+      "options": [
+        "Fast animals should always lead the herd.",
+        "Old animals should never travel far.",
+        "It is better to travel alone than in a group.",
+        "Following wise advice patiently is better than rushing after something that only looks easy."
+      ],
+      "answer": "D",
+      "why": "The moral warns against impatience chasing “an imaginary destination”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does Zarifa MOST LIKELY have in paragraph 7?",
+      "options": [
+        "shame",
+        "pride",
+        "boredom",
+        "jealousy"
+      ],
+      "answer": "A",
+      "why": "She is “Exhausted, humiliated and painfully thirsty”: she feels ashamed of her mistake."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the fable?",
+      "options": [
+        "how many days the journey would take",
+        "why the water holes had dried up",
+        "what happened to the lake when the air cooled",
+        "exactly where the Valley of Seven Wells is"
+      ],
+      "answer": "D",
+      "why": "Hamdan only says it lies “Beyond the far hills”; the other details are stated clearly in the fable."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A gazelle sees a mirage that looks like a lake on a hot plain.",
+        "An oryx makes it rain by raising its horns.",
+        "A lake follows a gazelle across the desert.",
+        "Acacia trees walk to the Valley of Seven Wells."
+      ],
+      "answer": "A",
+      "why": "Mirages really appear over very hot ground; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the fable?",
+      "options": [
+        "Zarifa Finds the Wells First",
+        "The Race the Tortoise Won",
+        "Chasing a Silver Lake",
+        "The Rains Return"
+      ],
+      "answer": "C",
+      "why": "The key event is Zarifa chasing the shining mirage lake."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the fable. Write two or three sentences in which Zarifa learns her lesson in another way.",
+      "model": "Just as Zarifa was about to dash after the lake, the old tortoise asked her to measure how far it was by running to a nearby rock and back. When she returned, the lake had moved no closer, so she realised Hamdan was right and stayed with the herd. On the fourth morning she drank at the wells beside her friends, grateful that she had listened.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and shows Zarifa learning the value of patience or good advice in a believable way",
+        "1 = an ending is given but it is unclear, does not fit the fable, or does not show a lesson",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending in which Zarifa learns the fable's lesson in a new way is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the fable, how can young travellers avoid being fooled the way Zarifa was?",
+      "options": [
+        "Run as fast as possible toward anything that looks like water.",
+        "Listen to experienced guides and stay on a known route.",
+        "Travel only at noon when the light is brightest.",
+        "Leave the group whenever they feel thirsty."
+      ],
+      "answer": "B",
+      "why": "Hamdan's advice and the wadi route brought the herd safely to water."
+    }
+  ]
+}

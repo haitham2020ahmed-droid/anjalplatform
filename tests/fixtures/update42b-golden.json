@@ -197,8 +197,8 @@
         "band": "BEGINNING",
         "xp": 0,
         "next": {
-          "hasQuestion": false,
-          "endReason": "POOL_EXHAUSTED",
+          "hasQuestion": true,
+          "endReason": null,
           "routeToSkillId": null,
           "routeToSkillName": null
         },
@@ -215,13 +215,60 @@
       "view": {
         "skillId": "G4.adjectives",
         "skillName": "Adjectives, Articles and Order of Adjectives",
-        "question": null,
+        "question": {
+          "questionId": "G4-adjectives-006",
+          "type": "MULTIPLE_CHOICE",
+          "stem": "Which sentence uses an adjective correctly after the verb “smells”?",
+          "level": 6
+        },
         "answered": 5,
         "correct": 3,
         "mastery": 29,
         "band": "BEGINNING",
+        "ended": false,
+        "endReason": null
+      }
+    },
+    {
+      "practice": {
+        "correct": false,
+        "credit": 0,
+        "yourAnswer": "B. The fresh bread smells wonderfully.",
+        "correctAnswer": "A. The fresh bread smells wonderful.",
+        "whyCorrect": "“Smells” links the bread to a describing word, so the adjective “wonderful” is correct.",
+        "whyYoursIsWrong": "After a linking verb like “smells,” use an adjective, not an adverb.",
+        "tip": "After linking verbs (is, seems, smells, tastes), use adjectives.",
+        "rapidGuess": false,
+        "masteryBefore": 29,
+        "masteryAfter": 29,
+        "band": "BEGINNING",
+        "xp": 0,
+        "next": {
+          "hasQuestion": false,
+          "endReason": "SKILL_FINISHED",
+          "routeToSkillId": null,
+          "routeToSkillName": null
+        },
+        "tutor": {
+          "message": "Not this one — let's look again together. After a linking verb like “smells,” use an adjective, not an adverb.",
+          "guidingQuestion": "Read the question again. What exactly is it asking?",
+          "hint": "After linking verbs (is, seems, smells, tastes), use adjectives.",
+          "example": "Underline the key words of the question before you choose.",
+          "strategy": "Read the question twice and check each choice against it.",
+          "repeated": 0,
+          "misconception": null
+        }
+      },
+      "view": {
+        "skillId": "G4.adjectives",
+        "skillName": "Adjectives, Articles and Order of Adjectives",
+        "question": null,
+        "answered": 6,
+        "correct": 3,
+        "mastery": 29,
+        "band": "BEGINNING",
         "ended": true,
-        "endReason": "POOL_EXHAUSTED"
+        "endReason": "SKILL_FINISHED"
       }
     },
     {
@@ -421,8 +468,8 @@
         "band": "BEGINNING",
         "xp": 0,
         "next": {
-          "hasQuestion": false,
-          "endReason": "POOL_EXHAUSTED",
+          "hasQuestion": true,
+          "endReason": null,
           "routeToSkillId": null,
           "routeToSkillName": null
         },
@@ -439,13 +486,60 @@
       "view": {
         "skillId": "G4.adverbs",
         "skillName": "Adverbs and Relative Adverbs",
-        "question": null,
+        "question": {
+          "questionId": "G4-adverbs-006",
+          "type": "ERROR_CORRECTION",
+          "stem": "Tap the part of the sentence that has an error.",
+          "level": 6
+        },
         "answered": 5,
         "correct": 3,
         "mastery": 29,
         "band": "BEGINNING",
+        "ended": false,
+        "endReason": null
+      }
+    },
+    {
+      "practice": {
+        "correct": false,
+        "credit": 0,
+        "yourAnswer": "“ to catch the bus.”",
+        "correctAnswer": "“ very quick” should be “very quickly”",
+        "whyCorrect": "“Quickly” is the adverb that tells how he ran; “quick” is an adjective.",
+        "whyYoursIsWrong": null,
+        "tip": "Use an adverb to describe a verb.",
+        "rapidGuess": false,
+        "masteryBefore": 29,
+        "masteryAfter": 29,
+        "band": "BEGINNING",
+        "xp": 0,
+        "next": {
+          "hasQuestion": false,
+          "endReason": "SKILL_FINISHED",
+          "routeToSkillId": null,
+          "routeToSkillName": null
+        },
+        "tutor": {
+          "message": "Not this one — let's look again together.",
+          "guidingQuestion": "Read the question again. What exactly is it asking?",
+          "hint": "Use an adverb to describe a verb.",
+          "example": "Underline the key words of the question before you choose.",
+          "strategy": "Read the question twice and check each choice against it.",
+          "repeated": 0,
+          "misconception": null
+        }
+      },
+      "view": {
+        "skillId": "G4.adverbs",
+        "skillName": "Adverbs and Relative Adverbs",
+        "question": null,
+        "answered": 6,
+        "correct": 3,
+        "mastery": 29,
+        "band": "BEGINNING",
         "ended": true,
-        "endReason": "POOL_EXHAUSTED"
+        "endReason": "SKILL_FINISHED"
       }
     },
     {
@@ -668,14 +762,14 @@
       "lesson": {
         "correct": false,
         "credit": 0,
-        "yourAnswer": "B. The fresh bread smells wonderfully.",
-        "correctAnswer": "A. The fresh bread smells wonderful.",
-        "whyCorrect": "“Smells” links the bread to a describing word, so the adjective “wonderful” is correct.",
-        "whyYoursIsWrong": "After a linking verb like “smells,” use an adjective, not an adverb.",
-        "tip": "After linking verbs (is, seems, smells, tastes), use adjectives.",
+        "yourAnswer": "A. I ate a apple and an banana.",
+        "correctAnswer": "D. I ate an apple and a banana.",
+        "whyCorrect": "“An” comes before vowel sounds; “a” comes before consonant sounds.",
+        "whyYoursIsWrong": "Both articles are wrong.",
+        "tip": "Say the next word aloud to hear its first sound.",
         "rapidGuess": false,
         "masteryBefore": 29,
-        "masteryAfter": 29,
+        "masteryAfter": 26,
         "band": "BEGINNING",
         "xp": 0,
         "next": {
@@ -685,9 +779,9 @@
           "routeToSkillName": null
         },
         "tutor": {
-          "message": "Not this one — let's look again together. After a linking verb like “smells,” use an adjective, not an adverb.",
+          "message": "Not this one — let's look again together. Both articles are wrong.",
           "guidingQuestion": "Read the question again. What exactly is it asking?",
-          "hint": "After linking verbs (is, seems, smells, tastes), use adjectives.",
+          "hint": "Say the next word aloud to hear its first sound.",
           "example": "Underline the key words of the question before you choose.",
           "strategy": "Read the question twice and check each choice against it.",
           "repeated": 0,
@@ -695,32 +789,6 @@
         }
       },
       "credit": 0,
-      "phase": "GUIDED",
-      "q": "G4-adjectives-004"
-    },
-    {
-      "lesson": {
-        "correct": true,
-        "credit": 1,
-        "yourAnswer": "D. I ate an apple and a banana.",
-        "correctAnswer": "D. I ate an apple and a banana.",
-        "whyCorrect": "“An” comes before vowel sounds; “a” comes before consonant sounds.",
-        "whyYoursIsWrong": null,
-        "tip": "Say the next word aloud to hear its first sound.",
-        "rapidGuess": false,
-        "masteryBefore": 29,
-        "masteryAfter": 32,
-        "band": "BEGINNING",
-        "xp": 0,
-        "next": {
-          "hasQuestion": true,
-          "endReason": null,
-          "routeToSkillId": null,
-          "routeToSkillName": null
-        },
-        "tutor": null
-      },
-      "credit": 1,
       "phase": "GUIDED",
       "q": "G4-adjectives-003"
     },
@@ -734,8 +802,8 @@
         "whyYoursIsWrong": null,
         "tip": "Number words are adjectives that tell how many.",
         "rapidGuess": false,
-        "masteryBefore": 32,
-        "masteryAfter": 35,
+        "masteryBefore": 26,
+        "masteryAfter": 29,
         "band": "BEGINNING",
         "xp": 0,
         "next": {
@@ -747,7 +815,7 @@
         "tutor": null
       },
       "credit": 1,
-      "phase": "INDEPENDENT",
+      "phase": "GUIDED",
       "q": "G4-adjectives-005"
     },
     {
@@ -760,8 +828,8 @@
         "whyYoursIsWrong": null,
         "tip": "good–better–best; bad–worse–worst.",
         "rapidGuess": false,
-        "masteryBefore": 35,
-        "masteryAfter": 38,
+        "masteryBefore": 29,
+        "masteryAfter": 32,
         "band": "BEGINNING",
         "xp": 0,
         "next": {
@@ -778,16 +846,42 @@
     },
     {
       "lesson": {
-        "correct": false,
-        "credit": 0,
-        "yourAnswer": "A. bike",
+        "correct": true,
+        "credit": 1,
+        "yourAnswer": "C. shiny",
         "correctAnswer": "C. shiny",
         "whyCorrect": "“Shiny” describes the bike.",
-        "whyYoursIsWrong": "This is a noun.",
+        "whyYoursIsWrong": null,
         "tip": "Adjectives describe nouns: what kind, how many, which one.",
         "rapidGuess": false,
-        "masteryBefore": 38,
-        "masteryAfter": 34,
+        "masteryBefore": 32,
+        "masteryAfter": 35,
+        "band": "BEGINNING",
+        "xp": 0,
+        "next": {
+          "hasQuestion": true,
+          "endReason": null,
+          "routeToSkillId": null,
+          "routeToSkillName": null
+        },
+        "tutor": null
+      },
+      "credit": 1,
+      "phase": "INDEPENDENT",
+      "q": "G4-adjectives-001"
+    },
+    {
+      "lesson": {
+        "correct": false,
+        "credit": 0,
+        "yourAnswer": "A. She wore a blue long beautiful dress.",
+        "correctAnswer": "D. She wore a beautiful long blue dress.",
+        "whyCorrect": "Order: opinion → size → age → shape → color → origin → material → purpose.",
+        "whyYoursIsWrong": "Color should come after opinion and size.",
+        "tip": "Say it aloud: the correct order usually “sounds right” in English.",
+        "rapidGuess": false,
+        "masteryBefore": 35,
+        "masteryAfter": 33,
         "band": "BEGINNING",
         "xp": 0,
         "next": {
@@ -797,9 +891,9 @@
           "routeToSkillName": null
         },
         "tutor": {
-          "message": "Not this one — let's look again together. This is a noun.",
+          "message": "Not this one — let's look again together. Color should come after opinion and size.",
           "guidingQuestion": "Read the question again. What exactly is it asking?",
-          "hint": "Adjectives describe nouns: what kind, how many, which one.",
+          "hint": "Say it aloud: the correct order usually “sounds right” in English.",
           "example": "Underline the key words of the question before you choose.",
           "strategy": "Read the question twice and check each choice against it.",
           "repeated": 0,
@@ -808,20 +902,20 @@
       },
       "credit": 0,
       "phase": "INDEPENDENT",
-      "q": "G4-adjectives-001"
+      "q": "G4-adjectives-006"
     },
     {
       "lesson": {
         "correct": true,
         "credit": 1,
-        "yourAnswer": "D. She wore a beautiful long blue dress.",
-        "correctAnswer": "D. She wore a beautiful long blue dress.",
-        "whyCorrect": "Order: opinion → size → age → shape → color → origin → material → purpose.",
+        "yourAnswer": "A. The fresh bread smells wonderful.",
+        "correctAnswer": "A. The fresh bread smells wonderful.",
+        "whyCorrect": "“Smells” links the bread to a describing word, so the adjective “wonderful” is correct.",
         "whyYoursIsWrong": null,
-        "tip": "Say it aloud: the correct order usually “sounds right” in English.",
+        "tip": "After linking verbs (is, seems, smells, tastes), use adjectives.",
         "rapidGuess": false,
-        "masteryBefore": 34,
-        "masteryAfter": 37,
+        "masteryBefore": 33,
+        "masteryAfter": 36,
         "band": "BEGINNING",
         "xp": 0,
         "next": {
@@ -846,7 +940,7 @@
         "whyYoursIsWrong": null,
         "tip": "Adjectives describe nouns: what kind, how many, which one.",
         "rapidGuess": false,
-        "masteryBefore": 37,
+        "masteryBefore": 36,
         "masteryAfter": 38,
         "band": "BEGINNING",
         "xp": 0,
@@ -873,8 +967,8 @@
         "tip": "Number words are adjectives that tell how many.",
         "rapidGuess": false,
         "masteryBefore": 38,
-        "masteryAfter": 41,
-        "band": "DEVELOPING",
+        "masteryAfter": 40,
+        "band": "BEGINNING",
         "xp": 0,
         "next": {
           "hasQuestion": true,
@@ -947,6 +1041,17 @@
         "source": null
       },
       {
+        "q": "G4-adjectives-006",
+        "correct": false,
+        "credit": null,
+        "ms": 16000,
+        "hint": false,
+        "rapid": false,
+        "b": 1.5,
+        "mis": null,
+        "source": null
+      },
+      {
         "q": "G4-adverbs-004",
         "correct": true,
         "credit": null,
@@ -998,6 +1103,17 @@
         "hint": false,
         "rapid": false,
         "b": 0.75,
+        "mis": null,
+        "source": null
+      },
+      {
+        "q": "G4-adverbs-006",
+        "correct": false,
+        "credit": null,
+        "ms": 16000,
+        "hint": false,
+        "rapid": false,
+        "b": 1.5,
         "mis": null,
         "source": null
       },
@@ -1057,19 +1173,8 @@
         "source": null
       },
       {
-        "q": "G4-adjectives-006",
-        "correct": false,
-        "credit": null,
-        "ms": 25000,
-        "hint": false,
-        "rapid": false,
-        "b": 1.5,
-        "mis": null,
-        "source": "LESSON"
-      },
-      {
         "q": "G4-adjectives-004",
-        "correct": true,
+        "correct": false,
         "credit": null,
         "ms": 25000,
         "hint": false,
@@ -1102,7 +1207,7 @@
       },
       {
         "q": "G4-adjectives-002",
-        "correct": false,
+        "correct": true,
         "credit": null,
         "ms": 25000,
         "hint": false,
@@ -1113,12 +1218,23 @@
       },
       {
         "q": "G4-adjectives-001",
-        "correct": true,
+        "correct": false,
         "credit": null,
         "ms": 25000,
         "hint": false,
         "rapid": false,
         "b": 0.75,
+        "mis": null,
+        "source": "LESSON"
+      },
+      {
+        "q": "G4-adjectives-006",
+        "correct": true,
+        "credit": null,
+        "ms": 25000,
+        "hint": false,
+        "rapid": false,
+        "b": 1.5,
         "mis": null,
         "source": "LESSON"
       },
@@ -1208,71 +1324,11 @@
       },
       {
         "code": "LESSON",
-        "prev": -0.151,
-        "next": -0.371,
-        "se": 0.715,
-        "before": 38.4,
-        "after": 33.5,
-        "correct": false,
-        "hasAttempt": true,
-        "hasNext": false,
-        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
-      },
-      {
-        "code": "LESSON",
-        "prev": -0.226,
-        "next": -0.151,
-        "se": 0.719,
-        "before": 34.8,
-        "after": 38.4,
-        "correct": true,
-        "hasAttempt": true,
-        "hasNext": false,
-        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
-      },
-      {
-        "code": "LESSON",
-        "prev": -0.242,
-        "next": -0.337,
-        "se": 0.748,
-        "before": 28.8,
-        "after": 28.5,
-        "correct": false,
-        "hasAttempt": true,
-        "hasNext": false,
-        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
-      },
-      {
-        "code": "LESSON",
-        "prev": -0.27,
-        "next": -0.226,
-        "se": 0.725,
-        "before": 32,
-        "after": 34.8,
-        "correct": true,
-        "hasAttempt": true,
-        "hasNext": false,
-        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
-      },
-      {
-        "code": "LESSON",
-        "prev": -0.27,
-        "next": -0.229,
-        "se": 0.698,
-        "before": 38.4,
-        "after": 41,
-        "correct": true,
-        "hasAttempt": true,
-        "hasNext": false,
-        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
-      },
-      {
-        "code": "LESSON",
-        "prev": -0.296,
-        "next": -0.27,
-        "se": 0.708,
-        "before": 36.6,
-        "after": 38.4,
+        "prev": -0.321,
+        "next": -0.281,
+        "se": 0.681,
+        "before": 37.7,
+        "after": 39.9,
         "correct": true,
         "hasAttempt": true,
         "hasNext": false,
@@ -1281,10 +1337,34 @@
       {
         "code": "LESSON",
         "prev": -0.337,
-        "next": -0.27,
-        "se": 0.736,
+        "next": -0.492,
+        "se": 0.73,
         "before": 28.5,
-        "after": 32,
+        "after": 26.2,
+        "correct": false,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+      },
+      {
+        "code": "LESSON",
+        "prev": -0.34,
+        "next": -0.404,
+        "se": 0.692,
+        "before": 34.5,
+        "after": 33,
+        "correct": false,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+      },
+      {
+        "code": "LESSON",
+        "prev": -0.347,
+        "next": -0.321,
+        "se": 0.691,
+        "before": 35.7,
+        "after": 37.7,
         "correct": true,
         "hasAttempt": true,
         "hasNext": false,
@@ -1292,11 +1372,47 @@
       },
       {
         "code": "LESSON",
-        "prev": -0.371,
-        "next": -0.296,
-        "se": 0.716,
-        "before": 33.5,
-        "after": 36.6,
+        "prev": -0.367,
+        "next": -0.34,
+        "se": 0.706,
+        "before": 32.4,
+        "after": 34.5,
+        "correct": true,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+      },
+      {
+        "code": "LESSON",
+        "prev": -0.404,
+        "next": -0.347,
+        "se": 0.698,
+        "before": 33,
+        "after": 35.7,
+        "correct": true,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+      },
+      {
+        "code": "LESSON",
+        "prev": -0.443,
+        "next": -0.367,
+        "se": 0.714,
+        "before": 29,
+        "after": 32.4,
+        "correct": true,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."
+      },
+      {
+        "code": "LESSON",
+        "prev": -0.492,
+        "next": -0.443,
+        "se": 0.719,
+        "before": 26.2,
+        "after": 29,
         "correct": true,
         "hasAttempt": true,
         "hasNext": false,
@@ -1305,31 +1421,31 @@
       {
         "code": "NO_ITEM_IN_RANGE",
         "prev": -0.042,
-        "next": -0.242,
+        "next": -0.2417,
         "se": 0.774,
         "before": 30.2,
         "after": 28.8,
         "correct": false,
         "hasAttempt": true,
-        "hasNext": false,
+        "hasNext": true,
         "reason": "Content gap: no unseen question within 2 levels of the student (θ=-0.24); the easiest available is b=1.50 (level 6). The set ends early; the bank needs easier questions for this skill."
       },
       {
         "code": "NO_ITEM_IN_RANGE",
         "prev": -0.042,
-        "next": -0.242,
+        "next": -0.2417,
         "se": 0.774,
         "before": 30.2,
         "after": 28.8,
         "correct": false,
         "hasAttempt": true,
-        "hasNext": false,
+        "hasNext": true,
         "reason": "Content gap: no unseen question within 2 levels of the student (θ=-0.24); the easiest available is b=1.50 (level 6). The set ends early; the bank needs easier questions for this skill."
       },
       {
         "code": "NO_ITEM_IN_RANGE",
         "prev": -0.104,
-        "next": -0.042,
+        "next": -0.0422,
         "se": 0.824,
         "before": 23.1,
         "after": 30.2,
@@ -1341,7 +1457,7 @@
       {
         "code": "NO_ITEM_IN_RANGE",
         "prev": -0.104,
-        "next": -0.042,
+        "next": -0.0422,
         "se": 0.824,
         "before": 23.1,
         "after": 30.2,
@@ -1353,7 +1469,7 @@
       {
         "code": "NO_ITEM_IN_RANGE",
         "prev": 0.297,
-        "next": -0.104,
+        "next": -0.1038,
         "se": 0.843,
         "before": 24.3,
         "after": 23.1,
@@ -1365,7 +1481,7 @@
       {
         "code": "NO_ITEM_IN_RANGE",
         "prev": 0.297,
-        "next": -0.104,
+        "next": -0.1038,
         "se": 0.843,
         "before": 24.3,
         "after": 23.1,
@@ -1373,6 +1489,54 @@
         "hasAttempt": true,
         "hasNext": true,
         "reason": "Closest available item is 1.20 from target b=-1.05; the bank needs more items at this level. Picked item b=-2.25 (level 1) from top 1."
+      },
+      {
+        "code": "POOL_EXHAUSTED",
+        "prev": -0.242,
+        "next": -0.337,
+        "se": 0.748,
+        "before": 28.8,
+        "after": 28.5,
+        "correct": false,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "No unseen items remain for this skill near b=-1.28. Add questions or widen the no-repeat window."
+      },
+      {
+        "code": "POOL_EXHAUSTED",
+        "prev": -0.242,
+        "next": -0.337,
+        "se": 0.748,
+        "before": 28.8,
+        "after": 28.5,
+        "correct": false,
+        "hasAttempt": true,
+        "hasNext": false,
+        "reason": "No unseen items remain for this skill near b=-1.28. Add questions or widen the no-repeat window."
+      },
+      {
+        "code": "SHORT_POOL",
+        "prev": 0,
+        "next": 0,
+        "se": 1,
+        "before": null,
+        "after": null,
+        "correct": null,
+        "hasAttempt": false,
+        "hasNext": false,
+        "reason": "Ran out of new questions after 6 counted answers: 6 questions in the skill's whole pool (every grade's copy and its Curriculum Map questions)."
+      },
+      {
+        "code": "SHORT_POOL",
+        "prev": 0,
+        "next": 0,
+        "se": 1,
+        "before": null,
+        "after": null,
+        "correct": null,
+        "hasAttempt": false,
+        "hasNext": false,
+        "reason": "Ran out of new questions after 6 counted answers: 6 questions in the skill's whole pool (every grade's copy and its Curriculum Map questions)."
       },
       {
         "code": "START_AT_PRIOR",
@@ -1401,7 +1565,7 @@
       {
         "code": "TARGET_SUCCESS_RATE",
         "prev": 0,
-        "next": 0.19,
+        "next": 0.1896,
         "se": 0.948,
         "before": 0,
         "after": 12.9,
@@ -1413,7 +1577,7 @@
       {
         "code": "TARGET_SUCCESS_RATE",
         "prev": 0,
-        "next": 0.19,
+        "next": 0.1896,
         "se": 0.948,
         "before": 0,
         "after": 12.9,
@@ -1425,7 +1589,7 @@
       {
         "code": "TARGET_SUCCESS_RATE",
         "prev": 0.19,
-        "next": 0.297,
+        "next": 0.2974,
         "se": 0.915,
         "before": 12.9,
         "after": 24.3,
@@ -1437,7 +1601,7 @@
       {
         "code": "TARGET_SUCCESS_RATE",
         "prev": 0.19,
-        "next": 0.297,
+        "next": 0.2974,
         "se": 0.915,
         "before": 12.9,
         "after": 24.3,
@@ -1450,18 +1614,18 @@
     "mastery": [
       {
         "skill": "G4.adjectives",
-        "score": 41,
-        "band": "DEVELOPING",
-        "attempts": 13,
+        "score": 39.9,
+        "band": "BEGINNING",
+        "attempts": 14,
         "correct": 9,
         "mastered": false,
         "maxLevel": 3
       },
       {
         "skill": "G4.adverbs",
-        "score": 28.8,
+        "score": 28.5,
         "band": "BEGINNING",
-        "attempts": 5,
+        "attempts": 6,
         "correct": 3,
         "mastered": false,
         "maxLevel": 3
@@ -1479,15 +1643,15 @@
     "ability": [
       {
         "scope": "G4.adjectives",
-        "theta": -0.229,
-        "se": 0.6977,
-        "n": 13
+        "theta": -0.2811,
+        "se": 0.6811,
+        "n": 14
       },
       {
         "scope": "G4.adverbs",
-        "theta": -0.2417,
-        "se": 0.7742,
-        "n": 5
+        "theta": -0.337,
+        "se": 0.7476,
+        "n": 6
       },
       {
         "scope": "G4.apostrophes-contractions",
@@ -1513,18 +1677,18 @@
     "sessions": [
       {
         "mode": "ADAPTIVE_PRACTICE",
-        "n": 5,
+        "n": 6,
         "correct": 3,
-        "ms": 87000,
-        "end": "POOL_EXHAUSTED",
+        "ms": 103000,
+        "end": "SKILL_FINISHED",
         "ended": true
       },
       {
         "mode": "ADAPTIVE_PRACTICE",
-        "n": 5,
+        "n": 6,
         "correct": 3,
-        "ms": 87000,
-        "end": "POOL_EXHAUSTED",
+        "ms": 103000,
+        "end": "SKILL_FINISHED",
         "ended": true
       },
       {

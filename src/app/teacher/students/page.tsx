@@ -29,7 +29,6 @@ export default async function MyStudentsPage({ searchParams }: { searchParams: P
     <AppShell name={String(me.displayName)}>
       <PageHeader title="Students & Classes"
         subtitle={actor.role === "TEACHER" ? t("Every student of your classes. Type to find one; tap a name to open the file.") : t("Every student of the school. Type to find one; tap a name to open the file.")}>
-        <Link prefetch={false} href="/teacher/intervention" className={more}>{t("Who Needs Help")}</Link>
         <Link prefetch={false} href="/teacher/alerts" className={more}>{t("Alerts")}</Link>
         <Link prefetch={false} href="/teacher/ai" className={more}>{t("Class Insights")}</Link>
       </PageHeader>

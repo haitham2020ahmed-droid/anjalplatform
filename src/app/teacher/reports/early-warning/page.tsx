@@ -7,6 +7,8 @@ import { reportHref } from "@/reports/links";
 import { earlyWarning, type EwRow } from "@/server/insights/early-warning";
 import { PATTERN_ARROW, PATTERN_NAME, SEVERITY_ICON, SEVERITY_NAME, type Severity } from "@/server/insights/early-warning-rules";
 import { handleEarlyWarningAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
+import { InsightActions } from "@/components/teacher/insight-actions";
 
 export const metadata = { title: "Early warning" };
 
@@ -19,7 +21,8 @@ const btn = "inline-flex min-h-9 items-center rounded-lg bg-white px-3 text-sm f
 /**
  * 🚨 Early warning (Reports): the most important level movements of each student — drops, rises, up-down swings —
  * and the serious problems that need action now, Urgent first, each with why in plain words, a sparkline per
- * measure, the last teacher action and the actions (profile, plan, practice, note, mark handled). A teacher sees
+ * measure, the last teacher action and the actions (profile, plan, practice, 📘 send a Learn lesson for the student's
+ * weakest skill, note, mark handled). A teacher sees
  * one of their classes; the admin sees the whole school (filter by grade, class, teacher) and the urgent students
  * not handled for 7+ days. Staff only.
  */
@@ -56,8 +59,8 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
       {v.isAdmin ? (
         <form method="get" className="mb-4 flex flex-wrap items-end gap-2 print:hidden">
           <label className="text-sm">{t("Grade")}<select name="gradeId" defaultValue={sp.gradeId ?? ""} className="mt-1 block min-h-10 rounded-lg border border-slate-300 bg-white px-2"><option value="">{t("All")}</option>{v.grades.map((g) => <option key={g.id} value={g.id}>{t("Grade {n}", { n: g.level })}</option>)}</select></label>
-          <label className="text-sm">{t("Class")}<select name="classId" defaultValue={sp.classId ?? ""} className="mt-1 block min-h-10 rounded-lg border border-slate-300 bg-white px-2"><option value="">{t("All classes")}</option>{v.classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
-          <label className="text-sm">{t("Teacher")}<select name="teacherId" defaultValue={sp.teacherId ?? ""} className="mt-1 block min-h-10 rounded-lg border border-slate-300 bg-white px-2"><option value="">{t("All")}</option>{v.teachers.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
+          <label className="text-sm">{t("Class")}<Combo name="classId" label={t("Class")} defaultValue={sp.classId ?? ""} options={[{ value: "", label: t("All classes") }, ...v.classes.map((c) => ({ value: c.id, label: c.name }))]} className="mt-1 min-w-52" /></label>
+          <label className="text-sm">{t("Teacher")}<Combo name="teacherId" label={t("Teacher")} defaultValue={sp.teacherId ?? ""} options={[{ value: "", label: t("All") }, ...v.teachers.map((x) => ({ value: x.id, label: x.name }))]} className="mt-1 min-w-52" /></label>
           {severity && <input type="hidden" name="severity" value={severity} />}
           <button className="min-h-10 rounded-lg bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
         </form>
@@ -146,7 +149,9 @@ function StudentRow({ r, t, school, keep }: { r: EwRow; t: (s: string, v?: Recor
         <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className={btn}>👤 {t("Profile")}</Link>
         <Link prefetch={false} href={`/teacher/plans?${new URLSearchParams({ tab: "new", classId: r.classId })}`} className={btn}>🗂️ {t("Make a plan")}</Link>
         <Link prefetch={false} href={r.practiceSkillId ? `/teacher/skill-assign?${new URLSearchParams({ skillId: r.practiceSkillId, classId: r.classId })}` : `/teacher/assignments?${new URLSearchParams({ classId: r.classId })}`} className={btn}>🎯 {t("Assign practice")}</Link>
-        <Link prefetch={false} href={`/teacher/progress/${r.studentId}#notes`} className={btn}>📝 {t("Note")}</Link>
+        <Link prefetch={false} href={r.practiceSkillId ? `/teacher/learn/assign?${new URLSearchParams({ kind: "LESSON", skillId: r.practiceSkillId, classId: r.classId, studentId: r.studentId })}` : "/teacher/learn"} className={btn}>📘 {t("Send a lesson")}</Link>
+        <InsightActions t={t} target={{ classId: r.classId, studentId: r.studentId, skillId: r.practiceSkillId }} only={["group", "parent"]} />
+        <Link prefetch={false} href={`/teacher/students/${r.studentId}#notes`} className={btn}>📝 {t("Note")}</Link>
         <form action={handleEarlyWarningAction} className="flex flex-1 flex-wrap items-center gap-2">
           <input type="hidden" name="studentId" value={r.studentId} />
           {Object.entries(keep).filter(([, x]) => x).map(([k, x]) => <input key={k} type="hidden" name={k} value={x} />)}

@@ -145,7 +145,8 @@ describe("Update 39A · readiness fixes", () => {
     assert.notEqual(Number(byQ.get(q3)!.responseMs), 20_000, "no fake 20 s");
     assert.equal(Boolean(byQ.get(q3)!.rapidGuess), false, "no time sent: never treated as a rapid guess");
     const after = Number((await repo.findUnique("StudentSkillMastery", { studentId: sid, skillId }))!.attempts);
-    assert.equal(after - before, set.questions.length, "mastery counted every review answer");
+    // r67 (owner): a rapid guess counts for nothing — mastery counts every careful review answer, not the 0.3 s one
+    assert.equal(after - before, set.questions.length - 1, "mastery counted every careful review answer");
     const logs = await repo.findMany("AdaptiveDecisionLog", { studentId: sid, reasonCode: "REVIEW" });
     assert.equal(logs.length, set.questions.length, "the engine logged each answer");
   });

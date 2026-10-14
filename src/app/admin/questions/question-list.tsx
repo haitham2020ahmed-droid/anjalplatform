@@ -5,9 +5,11 @@ import { Fragment, useEffect, useState } from "react";
 import { useT } from "@/i18n/client";
 import type { QuestionStatus } from "@/server/admin/questions";
 import type { BankListFilter, BankListRow } from "@/server/admin/questions-list";
-import { archiveBatchAction, deleteBatchAction, restoreBatchAction, flagBatchAction, matchingIdsAction, moveBatchAction, publishBatchAction, unpublishBatchAction, type BulkResult } from "./list-actions";
+import { archiveBatchAction, deleteBatchAction, restoreBatchAction, flagBatchAction, unflagBatchAction, matchingIdsAction, moveBatchAction, publishBatchAction, unpublishBatchAction, type BulkResult } from "./list-actions";
 import { questionPreviewAction, type QuestionPreview } from "./preview-actions";
 import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dialog";
+import { Combo } from "@/components/ui/combo";
+import { LineIcon } from "@/components/ui/line-icon";
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Draft", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 const CHIP: Record<QuestionStatus, string> = { DRAFT: "bg-slate-100 text-slate-700", UNDER_REVIEW: "bg-amber-100 text-amber-900", PUBLISHED: "bg-teal-100 text-teal-900", ARCHIVED: "bg-slate-200 text-slate-600" };
@@ -15,7 +17,7 @@ const CHIP: Record<QuestionStatus, string> = { DRAFT: "bg-slate-100 text-slate-7
 const BATCH = 50;
 const STAR_KEY = "alanjal.question-bank.selection";
 
-type Op = "publish" | "unpublish" | "move" | "flag" | "archive" | "restore" | "delete";
+type Op = "publish" | "unpublish" | "move" | "flag" | "unflag" | "archive" | "restore" | "delete";
 
 /**
  * The 50 rows of one page. A row opens in place (its choices, answer and passage are loaded only then). Admins tick
@@ -71,7 +73,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
 
   async function run(op: Op, list: string[], arg = "") {
     if (!list.length) return;
-    const label = { publish: t("Publishing…"), unpublish: t("Unpublishing…"), move: t("Moving…"), flag: t("Flagging…"), archive: t("Archiving…"), restore: t("Restoring…"), delete: t("Deleting…") }[op];
+    const label = { publish: t("Publishing…"), unpublish: t("Unpublishing…"), move: t("Moving…"), flag: t("Flagging…"), unflag: t("Clearing flags…"), archive: t("Archiving…"), restore: t("Restoring…"), delete: t("Deleting…") }[op];
     setNote(null);
     setBusy({ done: 0, total: list.length, label });
     let done = 0;
@@ -81,7 +83,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
       let r: BulkResult;
       try {
         r = op === "publish" ? await publishBatchAction(part) : op === "unpublish" ? await unpublishBatchAction(part) : op === "move" ? await moveBatchAction(part, arg)
-          : op === "flag" ? await flagBatchAction(part, arg) : op === "archive" ? await archiveBatchAction(part, arg) : op === "restore" ? await restoreBatchAction(part) : await deleteBatchAction(part);
+          : op === "flag" ? await flagBatchAction(part, arg) : op === "unflag" ? await unflagBatchAction(part) : op === "archive" ? await archiveBatchAction(part, arg) : op === "restore" ? await restoreBatchAction(part) : await deleteBatchAction(part);
       } catch {
         r = { error: t("The server did not answer. Try again.") };
       }
@@ -92,7 +94,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
     }
     setBusy(null);
     setSelected(new Set()); setAllMatching(null);
-    const msg = { publish: "{n} questions published.", unpublish: "{n} questions moved back to drafts.", move: "{n} questions moved.", flag: "{n} questions flagged for review.", archive: "{n} questions archived.", restore: "{n} questions restored and published.", delete: "{n} questions deleted." }[op];
+    const msg = { publish: "{n} questions published.", unpublish: "{n} questions moved back to drafts.", move: "{n} questions moved.", flag: "{n} questions flagged for review.", unflag: "Flags cleared on {n} questions.", archive: "{n} questions archived.", restore: "{n} questions restored and published.", delete: "{n} questions deleted." }[op];
     setNote({ ok: t(msg, { n: done }), skipped });
     router.refresh();
   }
@@ -100,7 +102,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
   function confirmRun(op: Op, list: string[]) {
     const n = list.length;
     if (!n) return;
-    if (op === "delete" && !window.confirm(t("Permanently delete {n} questions? Questions students have answered are kept (archive those instead).", { n }))) return;
+    if (op === "delete" && !window.confirm(t("Delete {n} questions from the whole platform? They leave the bank, every practice pool and every test or set that has not started. Students' past answers stay in their records.", { n }))) return;
     if (op === "publish" && !window.confirm(t("Publish {n} questions? Students will be able to get them in practice.", { n }))) return;
     if (op === "restore" && !window.confirm(t("Restore {n} archived questions? They will be published again.", { n }))) return;
     if (op === "unpublish" && !window.confirm(t("Move {n} questions back to drafts? Students will no longer get them.", { n }))) return;
@@ -116,8 +118,8 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
     <div>
       {roster && (
         <div className="mb-3 flex flex-wrap items-center gap-3 rounded-xl bg-amber-50 px-4 py-2 ring-1 ring-amber-200">
-          <span className="text-sm text-amber-950">{t("Press ☆ in front of the questions you want, then assign them.")}</span>
-          <span className="ms-auto text-sm font-semibold text-amber-950" aria-live="polite">⭐ {starred.length}</span>
+          <span className="text-sm text-amber-950">{t("Press the star in front of the questions you want, then assign them.")}</span>
+          <span className="ms-auto inline-flex items-center gap-1 text-sm font-semibold text-amber-950" aria-live="polite"><LineIcon name="star" className="h-4 w-4 fill-amber-400 text-amber-500" />{starred.length}</span>
           {starred.length > 0 && <button type="button" onClick={() => saveStars([])} className="text-sm text-amber-950 underline">{t("Clear")}</button>}
           <button type="button" disabled={!starred.length} onClick={() => setAssigning(true)} className={`${btn} bg-brand-navy text-white`}>{t("Assign selected")} ({starred.length})</button>
         </div>
@@ -134,16 +136,14 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
             {canPublish && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("unpublish", ids)} className={`${btn} ring-1 ring-slate-300`}>{t("Unpublish")}</button>}
             {canPublish && targets.length > 0 && (
               <span className="flex items-center gap-1">
-                <select value={moveTo} onChange={(e) => setMoveTo(e.target.value)} aria-label={t("Move to skill")} className="min-h-10 max-w-[13rem] rounded-xl border border-slate-300 bg-white px-2 text-sm">
-                  <option value="">{t("Move to skill…")}</option>
-                  {targets.map((k) => <option key={k.id} value={k.id}>G{k.grade} · {k.name}</option>)}
-                </select>
+                <Combo label={t("Move to skill")} value={moveTo} onChange={setMoveTo} placeholder={t("Move to skill…")} options={targets.map((k) => ({ value: k.id, label: k.name, group: `G${k.grade}` }))} className="w-56" dir="ltr" />
                 <button type="button" disabled={!!busy || !ids.length || !moveTo} onClick={() => confirmRun("move", ids)} className={`${btn} ring-1 ring-slate-300`}>{t("Move")}</button>
               </span>
             )}
-            <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("flag", ids)} className={`${btn} ring-1 ring-slate-300`}>🚩 {t("Flag")}</button>
+            <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("flag", ids)} className={`${btn} inline-flex items-center gap-1 ring-1 ring-slate-300`}><LineIcon name="flag" className="h-4 w-4" />{t("Flag")}</button>
+            {canPublish && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("unflag", ids)} className={`${btn} ring-1 ring-slate-300`}>{t("Unflag")}</button>}
             {canPublish && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("archive", ids)} className={`${btn} ring-1 ring-slate-300`}>{t("Archive")}</button>}
-            {canPublish && filter.status === "ARCHIVED" && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("restore", ids)} className={`${btn} bg-emerald-600 text-white`}>♻️ {t("Restore")}</button>}
+            {canPublish && filter.status === "ARCHIVED" && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("restore", ids)} className={`${btn} inline-flex items-center gap-1 bg-emerald-600 text-white`}><LineIcon name="retry" className="h-4 w-4" />{t("Restore")}</button>}
             {canDelete && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("delete", ids)} className={`${btn} bg-red-700 text-white`}>{t("Delete")}</button>}
           </span>
         </div>
@@ -177,7 +177,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
               return (
                 <Fragment key={q.id}>
                   <tr className={`border-b align-top ${open === q.id ? "bg-sky-50/60" : ""}`}>
-                    {roster && <td className="py-2">{q.status === "PUBLISHED" && q.type !== "SHORT_ANSWER" && <button type="button" onClick={() => saveStars(starred.includes(q.id) ? starred.filter((x) => x !== q.id) : [...starred, q.id])} aria-pressed={starred.includes(q.id)} aria-label={t("Star for assigning")} className="text-lg leading-none">{starred.includes(q.id) ? "⭐" : "☆"}</button>}</td>}
+                    {roster && <td className="py-2">{q.status === "PUBLISHED" && q.type !== "SHORT_ANSWER" && <button type="button" onClick={() => saveStars(starred.includes(q.id) ? starred.filter((x) => x !== q.id) : [...starred, q.id])} aria-pressed={starred.includes(q.id)} aria-label={t("Star for assigning")} className="text-amber-500"><LineIcon name="star" className={`h-5 w-5 ${starred.includes(q.id) ? "fill-amber-400" : ""}`} /></button>}</td>}
                     {checkboxes && <td className="py-2"><input type="checkbox" aria-label={`${t("Select")}: ${q.stem.slice(0, 60)}`} checked={allMatching ? allMatching.includes(q.id) : selected.has(q.id)} disabled={!!busy} onChange={() => toggle(q.id)} /></td>}
                     <td className="max-w-md py-2 pe-2">
                       <button type="button" onClick={() => void toggleOpen(q.id)} aria-expanded={open === q.id} className="text-start text-brand-navy hover:underline">{q.stem || t("(no text)")}</button>
@@ -186,16 +186,17 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
                         {q.hasImage && <span className="rounded bg-violet-50 px-1.5 text-violet-800">{t("Picture")}</span>}
                         {q.origin === "AI_GENERATED" && <span className="rounded bg-amber-50 px-1.5 text-amber-800">{t("AI-drafted")}</span>}
                         {q.mine && <span className="rounded bg-indigo-50 px-1.5 text-indigo-800">{t("mine")}</span>}
+                        {(q.flags ?? 0) > 0 && <span className="inline-flex items-center gap-0.5 rounded bg-rose-50 px-1.5 text-rose-800"><LineIcon name="flag" className="h-3 w-3" />{t("Flagged")} · {q.flags}</span>}
                       </span>
                     </td>
                     {/* bank questions: skill + level only (no grade); Curriculum Map questions keep their grade */}
-                    <td className="pe-2">{q.onMap ? <>🧭 G{q.grade} · {q.skill}</> : q.skill}</td>
+                    <td className="pe-2">{q.onMap ? <span className="inline-flex items-center gap-1"><LineIcon name="compass" className="h-4 w-4 shrink-0 text-indigo-700" />G{q.grade} · {q.skill}</span> : q.skill}</td>
                     <td className="pe-2 text-xs">{q.type.replace(/_/g, " ").toLowerCase()}</td>
                     <td className="pe-2 whitespace-nowrap">{q.level} · {q.levelLabel}{!q.onMap && <span className="block text-xs text-slate-500">RIT {q.ritBand}</span>}</td>
                     <td className="pe-2"><span className={`whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-semibold ${CHIP[q.status]}`}>{t(STATUS_LABEL[q.status])}</span></td>
                     <td className="py-1.5 text-end">
                       <span className="inline-flex flex-wrap justify-end gap-1">
-                        <Link href={`/admin/questions/${q.id}`} className="rounded-lg px-2 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">✏️ {t("Edit")}</Link>
+                        <Link href={`/admin/questions/${q.id}`} className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50"><LineIcon name="pen" className="h-3.5 w-3.5" />{t("Edit")}</Link>
                         {canPublish && (q.status === "DRAFT" || q.status === "UNDER_REVIEW") && <button type="button" disabled={!!busy} onClick={() => confirmRun("publish", [q.id])} className="rounded-lg px-2 py-1 text-xs font-semibold text-teal-800 ring-1 ring-teal-300 hover:bg-teal-50">{t("Publish")}</button>}
                         {canPublish && q.status === "PUBLISHED" && <button type="button" disabled={!!busy} onClick={() => confirmRun("unpublish", [q.id])} className="rounded-lg px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50">{t("Unpublish")}</button>}
                       </span>
@@ -216,8 +217,9 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
                             {d.answer && <p className="rounded-lg bg-teal-50 px-3 py-1.5 text-teal-900 ring-1 ring-teal-300"><b>{t("Answer")}:</b> {d.answer}</p>}
                             {d.whyCorrect && <p className="text-slate-700"><b>{t("Why")}:</b> {d.whyCorrect}</p>}
                             <p className="flex flex-wrap gap-2 pt-1">
-                              <Link href={`/admin/questions/${q.id}`} className="rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white">✏️ {t("Open and edit")}</Link>
-                              <button type="button" disabled={!!busy} onClick={() => confirmRun("flag", [q.id])} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">🚩 {t("Flag")}</button>
+                              <Link href={`/admin/questions/${q.id}`} className="inline-flex items-center gap-1 rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white"><LineIcon name="pen" className="h-4 w-4" />{t("Open and edit")}</Link>
+                              <button type="button" disabled={!!busy} onClick={() => confirmRun("flag", [q.id])} className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="flag" className="h-4 w-4" />{t("Flag")}</button>
+                              {canPublish && (q.flags ?? 0) > 0 && <button type="button" disabled={!!busy} onClick={() => confirmRun("unflag", [q.id])} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">{t("Unflag")}</button>}
                               {canDelete && <button type="button" disabled={!!busy} onClick={() => confirmRun("delete", [q.id])} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-red-800 ring-1 ring-red-300">{t("Delete")}</button>}
                             </p>
                           </div>

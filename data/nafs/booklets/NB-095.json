@@ -1,0 +1,568 @@
+{
+  "code": "NB-095",
+  "title": "Harrats: Arabia's Fields of Black Rock",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 420,
+  "passage": "Travellers driving through western Saudi Arabia are often astonished when the golden sand beside the road suddenly gives way to land that looks burnt. For kilometres in every direction, the ground is covered with jagged black rock, low cone-shaped hills and the dark rims of ancient craters. These remarkable regions are called harrats, and they are vast fields of lava that once poured out of the earth and then cooled and hardened.\n\nHarrats exist because the Arabian Peninsula is slowly moving. Millions of years ago, the land that is now Arabia began to pull away from Africa, opening the long crack that became the Red Sea. As the crust stretched and thinned, hot melted rock, called magma, found paths to the surface. When it erupted, it spread across the land as runny lava, which cooled into a dark, heavy rock known as basalt. Over countless eruptions, layer upon layer of basalt built up the harrats that we see today.\n\nOne of the most impressive sights in these fields is Al Wahbah crater, which lies in Harrat Kishb. It is roughly two kilometres wide and about 250 metres deep, and its floor is covered with a glittering layer of white crystals. For many years, some people believed that a meteorite had created it. However, scientists now explain that it formed in a violent steam explosion, when rising magma met water trapped underground.\n\nAlthough most of the volcanoes in the harrats have been quiet for thousands of years, some are not entirely asleep. In the year 1256, an eruption in Harrat Rahat sent a river of lava flowing north towards the city of Madinah. The eruption went on for several weeks. The lava travelled about 23 kilometres before it finally stopped, only about four kilometres from the city. More recently, in 2009, thousands of small earthquakes shook Harrat Lunayyir. People in the nearby town of Al-Ais were moved to safety for a time while scientists studied the activity.\n\nFor this reason, the Saudi Geological Survey carefully monitors the harrats. Its scientists use sensitive instruments that detect tiny earthquakes, changes in the shape of the ground and gases that escape from the rock. If magma ever begins to rise again, these warnings could give communities valuable time to prepare.\n\nHarrats are therefore far more than empty black deserts. They are living records of how Arabia was formed, they attract visitors and researchers from around the world, and they remind us that the ground beneath our feet is not as still as it appears.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “jagged” as it is used in paragraph 1?",
+      "options": [
+        "smooth and round",
+        "soft and sandy",
+        "rough and sharp-edged",
+        "shiny and wet"
+      ],
+      "answer": "C",
+      "why": "Cooled lava forms rough rock with sharp, uneven edges, which is what “jagged” means."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “violent” as it is used in paragraph 3?",
+      "options": [
+        "powerful",
+        "sudden",
+        "loud",
+        "gentle"
+      ],
+      "answer": "D",
+      "why": "A “violent” explosion is extremely forceful; the opposite is “gentle”. “Powerful” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “For this reason, the Saudi Geological Survey carefully monitors the harrats.” What does “monitors” mean?",
+      "options": [
+        "watches and checks regularly",
+        "digs up and removes",
+        "paints and decorates",
+        "sells to visitors"
+      ],
+      "answer": "A",
+      "why": "The next sentence describes instruments that detect earthquakes, ground changes and gases, so “monitors” means watches and checks regularly."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is an adjective?",
+      "options": [
+        "carefully",
+        "sensitive",
+        "instruments",
+        "detect"
+      ],
+      "answer": "B",
+      "why": "“Sensitive” describes the instruments; “carefully” is an adverb, “instruments” a noun and “detect” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a verb?",
+      "options": [
+        "believed",
+        "crater",
+        "white",
+        "wide"
+      ],
+      "answer": "A",
+      "why": "“Believed” tells what people did; “crater” is a noun and “white” and “wide” are adjectives."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “volcanoes” in paragraph 4?",
+      "options": [
+        "valley",
+        "violent",
+        "volcanic",
+        "valuable"
+      ],
+      "answer": "C",
+      "why": "“Volcanic” is the adjective made from “volcano”; the other words only begin with “v”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “detect” in a meaningful sentence of your own.",
+      "model": "The smoke alarm can detect even a small amount of smoke in the kitchen.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “detect” with its meaning (to discover or notice something, often something hard to see)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Detect” means to discover or notice something that is not easy to see."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “communities” in paragraph 5 is plural. What is its singular form?",
+      "options": [
+        "communite",
+        "community",
+        "communitie",
+        "communitys"
+      ],
+      "answer": "B",
+      "why": "Words ending in a consonant + y change y to -ies in the plural: one community, many communities."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “If magma ever begins to rise again, these warnings could give communities valuable time to prepare.”?",
+      "options": [
+        "a command",
+        "a question",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "It gives information about a possible future event and ends with a full stop, so it is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Golden Sands of the Empty Quarter",
+        "How Meteorites Hit the Earth",
+        "A Road Trip to Madinah",
+        "Where Arabia's Ground Once Burned"
+      ],
+      "answer": "D",
+      "why": "The text is about lava fields formed by eruptions; meteorites and road trips are only small details, and the sand is what harrats contrast with."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to explain what harrats are and why they matter",
+        "to persuade readers to live near volcanoes",
+        "to tell the story of a family's journey to Taif",
+        "to compare Arabian volcanoes with volcanoes in Africa"
+      ],
+      "answer": "A",
+      "why": "The text defines harrats, explains their formation, describes famous examples and explains why they are monitored."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "The Red Sea is the deepest sea in the world.",
+        "Harrats formed when magma rose as Arabia split from Africa.",
+        "Basalt is a light-coloured rock made of sand.",
+        "Africa is moving faster than Arabia."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 explains that the stretching crust let magma reach the surface and harden into layers of basalt."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why was magma able to reach the surface?",
+      "options": [
+        "Meteorites cracked open the ground.",
+        "Heavy rain softened the rock.",
+        "The crust became thinner as it stretched.",
+        "Sand blew away from the top of the volcanoes."
+      ],
+      "answer": "C",
+      "why": "“As the crust stretched and thinned, hot melted rock, called magma, found paths to the surface.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "an expository text",
+        "a narrative story",
+        "a friendly letter",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It explains a topic with facts and examples and has no characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to scientists, how was Al Wahbah crater formed?",
+      "options": [
+        "A meteorite struck the ground.",
+        "Wind carved it out of sand.",
+        "Water from the Red Sea filled it.",
+        "Magma met water and caused a steam blast."
+      ],
+      "answer": "D",
+      "why": "Scientists explain that it formed “in a violent steam explosion, when rising magma met water trapped underground.” The meteorite idea was an old belief."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Thousands of small earthquakes shook Harrat Lunayyir.",
+        "Arabia began to pull away from Africa.",
+        "Lava flowed towards Madinah.",
+        "People in Al-Ais were moved to safety."
+      ],
+      "answer": "B",
+      "why": "Arabia began to separate from Africa millions of years ago, long before the eruption of 1256 and the earthquakes of 2009."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these is NOT listed in paragraph 5 as something the scientists' instruments detect?",
+      "options": [
+        "tiny earthquakes",
+        "changes in the shape of the ground",
+        "rainfall in the desert",
+        "gases that escape from the rock"
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 lists earthquakes, ground changes and gases; rainfall is not mentioned."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, where did the lava from the 1256 eruption finally stop?",
+      "options": [
+        "about four kilometres from Madinah",
+        "in the centre of Madinah",
+        "at the edge of the Red Sea",
+        "inside Al Wahbah crater"
+      ],
+      "answer": "A",
+      "why": "The lava “finally stopped, only about four kilometres from the city.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why were people in Al-Ais moved to safety in 2009?",
+      "options": [
+        "Lava was flowing through the town.",
+        "Thousands of small earthquakes struck.",
+        "A meteorite was expected to land there.",
+        "The town's water had run out."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: thousands of small earthquakes shook Harrat Lunayyir, so people were moved while scientists studied the activity."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "a list of the names of every harrat",
+        "a warning that a volcano will erupt tomorrow",
+        "the history of Madinah",
+        "a vivid picture of strange, burnt-looking land"
+      ],
+      "answer": "D",
+      "why": "The surprising change from golden sand to black rock makes readers want to learn what harrats are."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does the Saudi Geological Survey watch the harrats so carefully?",
+      "options": [
+        "to find new places to build roads",
+        "to count how many tourists visit",
+        "because some volcanoes are not completely inactive",
+        "because the black rock is valuable to sell"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 shows that some volcanoes “are not entirely asleep,” and paragraph 5 says warnings could give communities time to prepare."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the old belief about Al Wahbah crater different from the scientists' explanation?",
+      "options": [
+        "The old belief blamed a meteorite; scientists blame a steam explosion.",
+        "The old belief blamed water; scientists blame wind.",
+        "Both say the crater was made by a meteorite.",
+        "The old belief blamed an earthquake; scientists blame a river."
+      ],
+      "answer": "A",
+      "why": "“Some people believed that a meteorite had created it. However, scientists now explain that it formed in a violent steam explosion.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what was the effect of the crust stretching and thinning?",
+      "options": [
+        "The Red Sea dried up.",
+        "Sand covered the land.",
+        "Africa and Arabia joined together.",
+        "Magma found paths to the surface."
+      ],
+      "answer": "D",
+      "why": "As the crust thinned, “magma found paths to the surface.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the eruption of 1256 and the earthquakes of 2009 have in common?",
+      "options": [
+        "Both happened in Harrat Kishb.",
+        "Both show that some harrats are not completely asleep.",
+        "Both destroyed the city of Madinah.",
+        "Both were caused by meteorites."
+      ],
+      "answer": "B",
+      "why": "The writer uses both events to support the idea that some volcanoes in the harrats “are not entirely asleep.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “a river of lava flowing north”?",
+      "options": [
+        "a river of water heated by the sun",
+        "a road built of black rock",
+        "melted rock moving across the land like a river",
+        "a valley where lava once stood still"
+      ],
+      "answer": "C",
+      "why": "The lava moved in a long stream, as a river does, though it was melted rock, not water."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying “the ground beneath our feet is not as still as it appears”?",
+      "options": [
+        "The earth slowly changes, though we may not notice.",
+        "People should not walk on black rock.",
+        "The ground in Saudi Arabia shakes every day.",
+        "Sand moves when the wind blows."
+      ],
+      "answer": "A",
+      "why": "The text explains that Arabia is “slowly moving” and that some volcanoes are still active, though we rarely feel it."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer give the numbers “23 kilometres” and “four kilometres” in paragraph 4?",
+      "options": [
+        "to teach readers how to measure lava",
+        "to compare Madinah with Taif",
+        "to show that the eruption was small and harmless",
+        "to show how close the lava came to the city"
+      ],
+      "answer": "D",
+      "why": "The exact distances make the danger to Madinah clear and memorable."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the MOST useful result of monitoring the harrats for people who live nearby?",
+      "options": [
+        "more visitors to the craters",
+        "early warning so that communities can prepare",
+        "more black rock for building",
+        "new roads across the lava fields"
+      ],
+      "answer": "B",
+      "why": "Paragraph 5 says warnings “could give communities valuable time to prepare,” which protects lives."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a plan to sell basalt to builders",
+        "a fear that Madinah will soon be destroyed",
+        "a wish to show harrats as wonders and possible dangers",
+        "a wish to describe a holiday in Africa"
+      ],
+      "answer": "C",
+      "why": "The writer explains how harrats formed, describes their wonders and explains why they are watched."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "fascination with how the land was formed",
+        "fear that everyone must leave the west of the country",
+        "boredom with empty deserts",
+        "anger at scientists"
+      ],
+      "answer": "A",
+      "why": "The writer calls harrats “living records of how Arabia was formed” that attract visitors and researchers."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how harrats were formed",
+        "where the 1256 lava stopped",
+        "what the scientists' instruments detect",
+        "what the white crystals in the crater are"
+      ],
+      "answer": "D",
+      "why": "The writer mentions “white crystals” but never says what they are; the other points are clearly explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Golden sand turns into black basalt overnight without any eruption.",
+        "A crater fills with white crystals in a single afternoon.",
+        "Scientists detect small earthquakes beneath a harrat and warn a nearby town.",
+        "Lava from Harrat Rahat flows south across the Red Sea to Africa."
+      ],
+      "answer": "C",
+      "why": "This is like what happened at Harrat Lunayyir in 2009; the other events are impossible or contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "A Visit to the Seaside",
+        "Arabia's Lava Fields: Past and Present",
+        "The Meteorite That Hit Taif",
+        "Farming in the Desert"
+      ],
+      "answer": "B",
+      "why": "The text covers how harrats formed long ago and why they are still watched today."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that propose ONE way to help visitors enjoy the harrats safely, and explain why it would help.",
+      "model": "The harrats could have visitor centres with guides who explain how the lava fields formed and which paths are safe to walk. Visitors would learn about the volcanoes while staying away from sharp rock and steep crater edges. In this way, more people could enjoy these wonders without being hurt.",
+      "rubric": [
+        "2 = a clear new ending with a sensible idea and an explanation that links to the text (formation, dangers, monitoring, visitors)",
+        "1 = an idea is given but it is unclear or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any realistic, explained idea that fits the text is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A town near a harrat wants to be ready in case a volcano becomes active. Which plan fits the text?",
+      "options": [
+        "Make an emergency plan and practise it.",
+        "Follow the warnings given by scientists.",
+        "A and B",
+        "Build new houses inside the nearest crater."
+      ],
+      "answer": "C",
+      "why": "The text says warnings give communities time to prepare, so both planning and following official warnings are sensible."
+    }
+  ]
+}

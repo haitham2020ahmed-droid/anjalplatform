@@ -1,0 +1,463 @@
+{
+ "code": "LN-070",
+ "title": "Prepositions and prepositional phrases",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "prepositions"
+ ],
+ "skillNames": [
+  "Prepositions",
+  "Prepositional Phrases",
+  "Prepositions and Prepositional Phrases",
+  "Using Prepositional Phrases to Add Detail and Combine Sentences"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Where is it?",
+     "text": "Some small words tell **where** something is.\n\n**in** the box\n**on** the table\n**under** the bed\n**behind** the door\n**next to** the lamp"
+    },
+    {
+     "title": "Prepositions",
+     "text": "These words are called **prepositions**.\n\nA preposition joins a noun to the rest of the sentence:\nThe cat sleeps **on** the chair."
+    },
+    {
+     "title": "Pick the right one",
+     "text": "**in** = inside\n**on** = on top, touching\n**under** = below\n\nThe pen is **in** the bag.\nThe bag is **on** the desk.\nThe ball is **under** the desk."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the question. It may ask **where**.\n2. Find the sentence that tells the place.\n3. Look at the small word before the place: in, on, under.\n\nThat sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali has a pet rabbit.",
+      "role": "other"
+     },
+     {
+      "t": "It lives in a big cage.",
+      "role": "key"
+     },
+     {
+      "t": "The cage is next to the door.",
+      "role": "key"
+     }
+    ],
+    "explain": "**in** a big cage: where the rabbit lives.\n**next to** the door: where the cage is.\n\nThe prepositions **in** and **next to** tell us the places."
+   },
+   "together": {
+    "passage": "Where is my red ball? I looked on the bed. It was not there. Then I looked under the bed. I found it there!",
+    "stem": "Where was the ball?",
+    "options": [
+     "on the bed",
+     "behind the door",
+     "in the box",
+     "under the bed"
+    ],
+    "answer": 3,
+    "hint": "The ball was not on the bed. Read on. Where did the child find it?",
+    "good": "Yes! The child looked **under** the bed and found it there."
+   },
+   "evidence": {
+    "sentences": [
+     "Where is my red ball?",
+     "I looked on the bed.",
+     "It was not there.",
+     "Then I looked under the bed.",
+     "I found it there!"
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: under the bed. Tap 2 sentences that prove it.",
+    "wrong": "This sentence does not tell where the ball was found. Read again."
+   },
+   "checks": [
+    {
+     "passage": "The bird sits ___ the branch. It sings all morning.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "on",
+      "under",
+      "in",
+      "at"
+     ],
+     "answer": 0,
+     "why": "The bird is on top of the branch, so we say **on**."
+    },
+    {
+     "passage": "Put your shoes ___ the box. Then close the lid.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "on",
+      "under",
+      "in",
+      "behind"
+     ],
+     "answer": 2,
+     "why": "The shoes go inside the box before we close the lid, so we say **in**."
+    },
+    {
+     "passage": "The cat hides behind the sofa. We cannot see it.",
+     "stem": "Which word tells where the cat is?",
+     "options": [
+      "cat",
+      "behind",
+      "see",
+      "hides"
+     ],
+     "answer": 1,
+     "why": "**behind** is the preposition. It tells where the cat hides."
+    }
+   ],
+   "again": {
+    "title": "Use your hands",
+    "text": "Put a pen and a cup on your desk.\n\nPen **in** the cup.\nPen **on** the cup.\nPen **under** the cup.\nPen **next to** the cup.",
+    "example": "Where is the pen now? It is **next to** the cup. Say it with the right small word!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Words for place and time",
+     "text": "Prepositions tell **where** and **when**.\n\nPlace: **in** the garden, **across** the road, **between** two houses\nTime: **at** noon, **on** Friday, **in** May, **after** school"
+    },
+    {
+     "title": "At, on, in for time",
+     "text": "**at** + a clock time: **at** seven o'clock\n**on** + a day or date: **on** Monday, **on** 5 June\n**in** + a month, year or part of the day: **in** March, **in** 2025, **in** the morning"
+    },
+    {
+     "title": "Prepositional phrases",
+     "text": "A **prepositional phrase** starts with a preposition and ends with a noun.\n\n**after** the game\n**under** the old bridge\n**with** my cousins"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Decide if the blank is about **place** or **time**.\n2. If it is time, ask: a clock time, a day, or a longer time?\n3. Find other phrases in the text that use the same kind of time. They show the pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our family eats breakfast at seven o'clock.",
+      "role": "key"
+     },
+     {
+      "t": "On Fridays, we visit Grandma.",
+      "role": "key"
+     },
+     {
+      "t": "In the summer, we travel to Taif.",
+      "role": "key"
+     }
+    ],
+    "explain": "**at** seven o'clock: a clock time.\n**On** Fridays: a day.\n**In** the summer: a season, a longer time."
+   },
+   "together": {
+    "passage": "The school science fair is on Tuesday. Students will set up their projects in the morning. The doors open for families at one o'clock. Parents can visit ___ the afternoon until four. The winners will receive their prizes in May.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "at",
+     "on",
+     "in",
+     "to"
+    ],
+    "answer": 2,
+    "hint": "Is 'the afternoon' a clock time, a day, or a part of the day?",
+    "good": "Yes! We use **in** for parts of the day: **in** the afternoon."
+   },
+   "evidence": {
+    "sentences": [
+     "The school science fair is on Tuesday.",
+     "Students will set up their projects in the morning.",
+     "The doors open for families at one o'clock.",
+     "Parents can visit ___ the afternoon until four.",
+     "The winners will receive their prizes in May."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: in. Tap 2 sentences that also use **in** for a longer time.",
+    "wrong": "This sentence uses at or on for a clock time or a day. Find sentences with in."
+   },
+   "checks": [
+    {
+     "passage": "My cousin's wedding is ___ Thursday.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "at",
+      "in",
+      "on",
+      "by"
+     ],
+     "answer": 2,
+     "why": "Thursday is a day, so we use **on**."
+    },
+    {
+     "passage": "After lunch, the children played football in the park.",
+     "stem": "Which group of words is a prepositional phrase?",
+     "options": [
+      "the children played",
+      "played football",
+      "football in",
+      "after lunch"
+     ],
+     "answer": 3,
+     "why": "**after lunch** starts with the preposition **after** and ends with a noun."
+    },
+    {
+     "passage": "The plane lands ___ half past nine.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "at",
+      "on",
+      "in",
+      "into"
+     ],
+     "answer": 0,
+     "why": "Half past nine is a clock time, so we use **at**."
+    }
+   ],
+   "again": {
+    "title": "Small, medium, big",
+    "text": "Think of time as boxes.\n\n**at**: the smallest box, an exact time.\n**on**: a medium box, a day.\n**in**: the biggest box, a month, year or season.",
+    "example": "at 3 o'clock → on Sunday → in July\n\nThe box gets bigger each time."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Adding detail",
+     "text": "A prepositional phrase adds **detail** about where, when, how or which one.\n\nThe boy ran.\nThe boy ran **along the beach** **at sunset** **with his dog**.\n\nNow we can picture it."
+    },
+    {
+     "title": "Combining sentences",
+     "text": "Two short sentences can become one with a prepositional phrase.\n\nThe library is new. It is **next to the mosque**.\n→ The new library is **next to the mosque**."
+    },
+    {
+     "title": "Keep the meaning",
+     "text": "When you combine, keep **every fact** and keep it **true**.\n\nThe cup is on the shelf. The shelf is above the sink.\n→ The cup is **on the shelf above the sink**. ✔\n→ The sink is on the cup above the shelf. ✘"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentences you are asked to combine.\n2. List the facts in each one.\n3. Choose the answer that keeps **all** the facts **true**, using a prepositional phrase.\n\nCheck your answer against the original sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old fort stands on a hill.",
+      "role": "key"
+     },
+     {
+      "t": "The hill is near the sea.",
+      "role": "key"
+     },
+     {
+      "t": "Combined: The old fort stands on a hill near the sea.",
+      "role": "main"
+     }
+    ],
+    "explain": "Sentence 1 gives the fort and the hill. Sentence 2 gives where the hill is.\n\nThe phrase **near the sea** joins the facts in one sentence."
+   },
+   "together": {
+    "passage": "Last weekend, my family went camping. We set up our tent. The tent was beside a small oasis. Palm trees grew around the water. At night, we sat by the fire and listened to my grandfather's stories. In the morning, we packed up and drove home, tired but happy.",
+    "stem": "Which sentence best combines the second and third sentences?",
+    "options": [
+     "We set up our tent, and a small oasis was a tent.",
+     "We set up our tent beside a small oasis.",
+     "Beside our tent, we set up a small oasis.",
+     "We set up a small oasis beside the tent."
+    ],
+    "answer": 1,
+    "hint": "Which choice keeps both facts true: we set up the tent, and the tent was beside the oasis?",
+    "good": "Yes! **beside a small oasis** tells where the tent was, and every fact stays true."
+   },
+   "evidence": {
+    "sentences": [
+     "Last weekend, my family went camping.",
+     "We set up our tent.",
+     "The tent was beside a small oasis.",
+     "Palm trees grew around the water.",
+     "At night, we sat by the fire and listened to my grandfather's stories.",
+     "In the morning, we packed up and drove home, tired but happy."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: We set up our tent beside a small oasis. Tap the 2 sentences whose facts it combines.",
+    "wrong": "This sentence is not part of the combined sentence. Find the two sentences about the tent."
+   },
+   "checks": [
+    {
+     "passage": "Huda found a shell. The shell was under a rock.",
+     "stem": "Which sentence best combines them?",
+     "options": [
+      "Huda found a rock under a shell.",
+      "Under Huda, a shell found a rock.",
+      "Huda found a shell under a rock.",
+      "Huda found a shell, a rock was under."
+     ],
+     "answer": 2,
+     "why": "**under a rock** tells where the shell was, and it keeps the facts true."
+    },
+    {
+     "passage": "The children played. They played in the garden. They played after dinner.",
+     "stem": "Which sentence best combines them?",
+     "options": [
+      "The children played in the garden after dinner.",
+      "The garden played after the children's dinner.",
+      "After the garden, the children played dinner.",
+      "In dinner, the children played after the garden."
+     ],
+     "answer": 0,
+     "why": "Two prepositional phrases, **in the garden** and **after dinner**, add where and when."
+    },
+    {
+     "passage": "The girl with the green scarf won the race.",
+     "stem": "What does the phrase 'with the green scarf' tell us?",
+     "options": [
+      "when the race was",
+      "where the race was",
+      "how fast she ran",
+      "which girl won"
+     ],
+     "answer": 3,
+     "why": "The phrase describes the girl. It tells **which** girl won."
+    }
+   ],
+   "again": {
+    "title": "Ask where, when, which",
+    "text": "To add detail, ask a question about your sentence. Answer it with a prepositional phrase.",
+    "example": "We ate lunch.\n\nWhere? **under a tree**\nWhen? **after the match**\n\nWe ate lunch **under a tree after the match**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Two jobs",
+     "text": "A prepositional phrase can work like an **adjective** or like an **adverb**.\n\nAdjective (which one?): the house **on the corner**\nAdverb (where, when, how?): She waited **on the corner**."
+    },
+    {
+     "title": "Put it in the right place",
+     "text": "A phrase describes the words **closest** to it. In the wrong place, it can change the meaning.\n\nUnclear: She served dates to the guests **on a silver tray**. (Were the guests on the tray?)\nClear: She served dates **on a silver tray** to the guests."
+    },
+    {
+     "title": "Do not overload",
+     "text": "Too many phrases in a row are hard to follow.\n\nHard: the box on the shelf in the room at the end of the hall near the stairs\n\nBetter: split it into two sentences, or keep only the details that matter."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find what each phrase is supposed to describe.\n2. Check the passage: what is **really** true about each thing?\n3. Choose the sentence where each phrase sits next to the word it describes.\n\nThe sentences that give the true facts are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A man walked into the shop.",
+      "role": "other"
+     },
+     {
+      "t": "He was carrying a box.",
+      "role": "key"
+     },
+     {
+      "t": "Unclear: The man walked into the shop with a box.",
+      "role": "detail"
+     },
+     {
+      "t": "Clear: The man with a box walked into the shop.",
+      "role": "main"
+     }
+    ],
+    "explain": "Sentence 2 shows the **man** had the box. In the unclear version, a reader might think the shop had the box.\n\nPutting **with a box** next to **the man** makes the meaning clear."
+   },
+   "together": {
+    "passage": "Last term, our class visited the national museum in Riyadh. In one gallery, a guide stood beside a tall glass case. Inside the case lay an old sword. Its handle was decorated with tiny blue stones. The guide told us the sword was more than two hundred years old. For my report, I wanted one clear sentence about this moment, but my first draft confused the guide with the sword.",
+    "stem": "Which sentence describes the moment clearly and correctly?",
+    "options": [
+     "The guide with blue stones on its handle showed us an old sword beside a glass case.",
+     "With blue stones, the guide beside a glass case showed us an old sword on its handle.",
+     "Beside a glass case, the guide showed us an old sword with blue stones on its handle.",
+     "The guide showed us beside an old sword a glass case with blue stones on its handle."
+    ],
+    "answer": 2,
+    "hint": "What had blue stones: the guide, the case or the sword? Put that phrase next to the right noun.",
+    "good": "Yes! **Beside a glass case** tells where the guide was, and **with blue stones on its handle** sits next to **sword**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last term, our class visited the national museum in Riyadh.",
+     "In one gallery, a guide stood beside a tall glass case.",
+     "Inside the case lay an old sword.",
+     "Its handle was decorated with tiny blue stones.",
+     "The guide told us the sword was more than two hundred years old.",
+     "For my report, I wanted one clear sentence about this moment, but my first draft confused the guide with the sword."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Beside a glass case, the guide showed us an old sword with blue stones on its handle. Tap 2 sentences that prove its details are true.",
+    "wrong": "This sentence does not tell us where the guide stood or what the sword looked like. Find the facts."
+   },
+   "checks": [
+    {
+     "passage": "Fatima watched the falcon through her binoculars.",
+     "stem": "What does 'through her binoculars' describe?",
+     "options": [
+      "how Fatima watched",
+      "which falcon it was",
+      "when she watched",
+      "where the falcon lived"
+     ],
+     "answer": 0,
+     "why": "The phrase works like an adverb. It tells **how** she watched."
+    },
+    {
+     "passage": "Grandfather gave a book to the boy about desert plants.",
+     "stem": "Which revision places the phrase correctly?",
+     "options": [
+      "About desert plants, Grandfather gave a book to the boy.",
+      "Grandfather gave a book about desert plants to the boy.",
+      "Grandfather about desert plants gave a book to the boy.",
+      "Grandfather gave a book to the boy, about desert plants."
+     ],
+     "answer": 1,
+     "why": "The book is about desert plants, so the phrase must sit right after **book**."
+    },
+    {
+     "passage": "The key to the classroom cupboards is missing.",
+     "stem": "Which word is the subject that 'is' agrees with?",
+     "options": [
+      "classroom",
+      "cupboards",
+      "key",
+      "missing"
+     ],
+     "answer": 2,
+     "why": "**to the classroom cupboards** is a prepositional phrase. The subject is **key**, so the verb is **is**."
+    }
+   ],
+   "again": {
+    "title": "Point the phrase",
+    "text": "Think of each phrase as an **arrow**. It points at the nearest noun or verb. Make sure it points at the right one.",
+    "example": "I saw a camel on the way to school with a long neck.\n\nThe arrow points at **school**! Move it:\n**On the way to school, I saw a camel with a long neck.**"
+   }
+  }
+ }
+}

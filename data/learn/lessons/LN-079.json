@@ -1,0 +1,458 @@
+{
+ "code": "LN-079",
+ "title": "Commas in a series",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [
+  "L.5.2.a"
+ ],
+ "families": [
+  "commas"
+ ],
+ "skillNames": [
+  "Commas in a Series",
+  "Punctuation and Commas"
+ ],
+ "statements": [
+  "L-0030",
+  "L-0031",
+  "L-0101",
+  "L-0102",
+  "L-0213",
+  "L-0214"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a series?",
+     "text": "A **series** is a list of **three or more** things.\n\nExample: a pen, a book, and a bag.\n\nWe use **commas** to keep the things apart."
+    },
+    {
+     "title": "Where do the commas go?",
+     "text": "Put a comma **after each thing** in the list.\n\nDo not put one after the **last** thing.\n\nI have a pen**,** a book**,** and a bag."
+    },
+    {
+     "title": "How to check",
+     "text": "1. Find the list.\n2. Count the things.\n3. Three or more? Put a comma after each thing, but not after the last one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the sentence**.\n\n1. Find the list of things.\n2. Count them.\n3. Look for things that run together with **no commas**.\n\nThat is the place that needs commas."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went to the shop.",
+      "role": "other"
+     },
+     {
+      "t": "Mom got rice, eggs, and milk.",
+      "role": "key"
+     },
+     {
+      "t": "I got a ball.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 has a list: **rice**, **eggs**, **milk**. That is three things, so it needs commas.\n\nSentence 3 has only **one** thing. It needs no comma."
+   },
+   "together": {
+    "passage": "Sara packed her school bag. She put in a book a pen and a ruler. Then she ate her breakfast. She was ready for school.",
+    "stem": "How should the list in sentence 2 be written?",
+    "options": [
+     "a book a pen, and, a ruler",
+     "in, a book a pen and a ruler",
+     "a book, a pen, and a ruler",
+     "a book, a pen and, a ruler,"
+    ],
+    "answer": 2,
+    "hint": "Look again. Is there a comma after each thing except the last one?",
+    "good": "Yes! A book, a pen, and a ruler. A comma comes after each thing, but not after the last one."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara packed her school bag.",
+     "She put in a book a pen and a ruler.",
+     "Then she ate her breakfast.",
+     "She was ready for school."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that has a list of three things.",
+    "wrong": "This sentence has no list. Find the sentence with three things Sara put in her bag."
+   },
+   "checks": [
+    {
+     "passage": "At the zoo we saw lions, bears, and camels.",
+     "stem": "What do the commas do?",
+     "options": [
+      "They end the sentence.",
+      "They keep the animals in the list apart.",
+      "They show a question.",
+      "They join two names."
+     ],
+     "answer": 1,
+     "why": "Lions, bears and camels are three things in a list. The commas keep them apart."
+    },
+    {
+     "passage": "Omar can swim run and jump.",
+     "stem": "Which is the right way to write it?",
+     "options": [
+      "Omar, can swim run and jump.",
+      "Omar can swim run, and, jump.",
+      "Omar can, swim, run and jump.",
+      "Omar can swim, run, and jump."
+     ],
+     "answer": 3,
+     "why": "Swim, run and jump are three things Omar can do. A comma goes after swim and after run."
+    },
+    {
+     "passage": "Grandma made soup. She used carrots onions and beans. It was hot and good.",
+     "stem": "Which sentence needs commas?",
+     "options": [
+      "Grandma made soup.",
+      "She used carrots onions and beans.",
+      "It was hot and good.",
+      "None of them."
+     ],
+     "answer": 1,
+     "why": "Carrots, onions and beans are three things. Hot and good is only two, so it needs no comma."
+    }
+   ],
+   "again": {
+    "title": "Stop and comma",
+    "text": "Read the list out loud.\n\nEach time you **stop** between two things, write a comma.\n\nOnly lists of **three or more** need these commas.",
+    "example": "I like tea milk and juice.\n\ntea (stop) milk (stop) and juice → **I like tea, milk, and juice.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Lists inside sentences",
+     "text": "When a sentence lists **three or more** items, commas separate them.\n\nAn item can be one word or a group of words: **a red hat, two blue socks, and a scarf**."
+    },
+    {
+     "title": "The comma before and",
+     "text": "The last item comes after **and** or **or**.\n\nMany writers put a comma before **and**. Some leave it out. Both can be correct, but stay the same in all your writing.\n\nIn this lesson, we keep it."
+    },
+    {
+     "title": "Only two? No comma!",
+     "text": "**Tea and juice** has only two items. It needs no comma.\n\nAlso, never put a comma right **after** and.\n\nWrong: tea, milk, and, juice"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove where commas belong:\n\n1. Find the list in the sentence.\n2. Mark where each item **starts and ends**.\n3. Count the items. Three or more? Put a comma after each one except the last.\n\nIf the list has only **two** items, it needs no series comma."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The library has many kinds of books.",
+      "role": "other"
+     },
+     {
+      "t": "You can borrow books about space, animals, and history.",
+      "role": "key"
+     },
+     {
+      "t": "You can read in the quiet room or at a table outside.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 lists **three** topics, so commas separate them.\n\nSentence 3 has only **two** places joined by **or**, so it needs no comma."
+   },
+   "together": {
+    "passage": "Our family is getting ready for a trip to Abha. Dad checks the car the tires and the oil. Mom packs warm jackets because the mountains can be cool. My sister and I fill a bag with snacks water and games.",
+    "stem": "Which sentences need commas to separate a list?",
+    "options": [
+     "Sentences 1 and 3",
+     "Sentence 3 only",
+     "Sentences 2 and 4",
+     "Sentences 3 and 4"
+    ],
+    "answer": 2,
+    "hint": "Count the items in each list. Two items need no comma. Which sentences have three?",
+    "good": "Yes! The car, the tires, and the oil is three items. Snacks, water, and games is three items."
+   },
+   "evidence": {
+    "sentences": [
+     "Our family is getting ready for a trip to Abha.",
+     "Dad checks the car the tires and the oil.",
+     "Mom packs warm jackets because the mountains can be cool.",
+     "My sister and I fill a bag with snacks water and games."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap the 2 sentences that have a list of three items with no commas.",
+    "wrong": "Count again. This sentence has no list, or only two items (like my sister and I)."
+   },
+   "checks": [
+    {
+     "passage": "For the science project, we need glue, scissors, and a long piece of string.",
+     "stem": "Why are there commas after glue and scissors?",
+     "options": [
+      "To show that the sentence is a question",
+      "To separate three items in a list",
+      "To join two sentences together",
+      "To show who is speaking"
+     ],
+     "answer": 1,
+     "why": "Glue, scissors and a long piece of string are three items. The commas separate them."
+    },
+    {
+     "passage": "Noura wants to visit the museum the old market or the beach this weekend.",
+     "stem": "Which is the correct way to write the list?",
+     "options": [
+      "the museum the old market, or, the beach",
+      "the museum, the old, market or the beach",
+      "the museum, the old market, or the beach",
+      "the, museum the old market or the beach"
+     ],
+     "answer": 2,
+     "why": "There are three places. Each item can be more than one word, so the comma goes after museum and after market."
+    },
+    {
+     "passage": "Our family had lunch at Grandpa's house. The table was full of food.",
+     "stem": "Which sentence could come next and uses commas correctly?",
+     "options": [
+      "We ate rice, chicken, and salad.",
+      "We ate rice, and chicken.",
+      "We ate, rice chicken and salad.",
+      "We ate rice chicken, and salad."
+     ],
+     "answer": 0,
+     "why": "Rice, chicken and salad are three items, so a comma follows rice and chicken. Rice and chicken alone would need no comma."
+    }
+   ],
+   "again": {
+    "title": "Use your fingers",
+    "text": "Read the list and hold up one finger for each item.\n\n**Three or more** fingers? Put a comma after each item except the last.\n\n**Two** fingers? No comma.",
+    "example": "We saw ships cranes and boats.\n\nShips (1), cranes (2), boats (3). Three! → **We saw ships, cranes, and boats.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Lists of actions and phrases",
+     "text": "A series can list **actions** or **long phrases**, not just single words.\n\nAt the beach, we **built a sand castle, collected shells, and watched the boats**.\n\nEach phrase is one item. Commas go **between** items, not inside them."
+    },
+    {
+     "title": "No comma before the first item",
+     "text": "Do not put a comma between the verb and the list.\n\nWrong: We bought, apples, pears, and figs.\n\nRight: We bought apples, pears, and figs."
+    },
+    {
+     "title": "No comma after the last item",
+     "text": "When the list comes **before** the verb, no comma goes after the last item.\n\nWrong: Lions, tigers, and leopards, are big cats.\n\nRight: Lions, tigers, and leopards are big cats."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find where the list **begins** and **ends**.\n2. Name each item. One item can be several words.\n3. Check: Is there a comma between each item? None before the first? None after the last? None right after **and**?\n\nPoint to the exact word where the comma is missing or extra."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Before the school trip, the teacher gave us three rules.",
+      "role": "other"
+     },
+     {
+      "t": "We had to stay with our group, listen to the guide, and keep the museum clean.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone followed the rules.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 lists three **actions**: stay with our group / listen to the guide / keep the museum clean.\n\nThe commas go **between** the actions, never inside one."
+   },
+   "together": {
+    "passage": "Desert plants have clever ways to survive. Many store water in their thick stems, leaves, or roots. Some have small leaves, waxy skin, and sharp spines. The seeds of other plants wait in the dry sand, sprout after a rain, and, bloom within a few weeks. Heat, wind, and dry soil make the desert a hard place to live.",
+    "stem": "One sentence has a comma mistake in its list. How should it be fixed?",
+    "options": [
+     "Add a comma after \"small.\"",
+     "Remove the comma after \"and.\"",
+     "Remove the comma after \"Heat.\"",
+     "Add a comma after \"thick.\""
+    ],
+    "answer": 1,
+    "hint": "Check each list. Is there ever a comma right AFTER the word and?",
+    "good": "Yes! In sentence 4, the comma after \"and\" breaks the last item. It should say: sprout after a rain, and bloom within a few weeks."
+   },
+   "evidence": {
+    "sentences": [
+     "Desert plants have clever ways to survive.",
+     "Many store water in their thick stems, leaves, or roots.",
+     "Some have small leaves, waxy skin, and sharp spines.",
+     "The seeds of other plants wait in the dry sand, sprout after a rain, and, bloom within a few weeks.",
+     "Heat, wind, and dry soil make the desert a hard place to live."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that has the comma mistake.",
+    "wrong": "This list is correct: a comma between each item, none before the first and none after the last."
+   },
+   "checks": [
+    {
+     "passage": "On Saturday, Faisal cleaned his room, washed the car, and helped his mother cook lunch.",
+     "stem": "How many items are in the series?",
+     "options": [
+      "Two",
+      "Four",
+      "Three",
+      "Five"
+     ],
+     "answer": 2,
+     "why": "The items are cleaned his room / washed the car / helped his mother cook lunch. On Saturday is not part of the list."
+    },
+    {
+     "passage": "The bakery sells, fresh bread, sweet pastries, and date cakes.",
+     "stem": "What is the mistake?",
+     "options": [
+      "There should be no comma after \"sells.\"",
+      "There should be no comma after \"bread.\"",
+      "There should be a comma after \"date.\"",
+      "There should be a comma after \"sweet.\""
+     ],
+     "answer": 0,
+     "why": "No comma goes between the verb and the first item. The list starts with fresh bread."
+    },
+    {
+     "passage": "Mangoes, bananas, and papayas, grow well in warm places.",
+     "stem": "Which is the correct way to write the sentence?",
+     "options": [
+      "Mangoes bananas, and papayas grow well in warm places.",
+      "Mangoes, bananas and, papayas grow well in warm places.",
+      "Mangoes, bananas, and papayas, grow, well in warm places.",
+      "Mangoes, bananas, and papayas grow well in warm places."
+     ],
+     "answer": 3,
+     "why": "The list comes before the verb grow, so no comma goes after the last item, papayas."
+    }
+   ],
+   "again": {
+    "title": "Draw boxes",
+    "text": "Imagine a box around each item in the list.\n\nCommas go **between** the boxes. Never inside a box, never before the first box, never after the last box.",
+    "example": "[cleaned the yard] , [fed the cat] , and [read a book]\n\n→ **I cleaned the yard, fed the cat, and read a book.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Series of longer parts",
+     "text": "A series can join **phrases** or even short **clauses**: The wind rose, the sky darkened, and the first drops fell.\n\nThe rule stays the same: a comma after each part except the last."
+    },
+    {
+     "title": "When the comma prevents confusion",
+     "text": "The comma before **and** can change the meaning.\n\nI called my cousins, Sami and Fahd. (Sami and Fahd may be the cousins.)\n\nI called my cousins, Sami, and Fahd. (Clearly three different calls.)\n\nChoose one style and use it the same way throughout."
+    },
+    {
+     "title": "Items that contain commas",
+     "text": "If the items already have commas inside them, use **semicolons** between the items so readers can see where each one ends.\n\nThe team visited Jeddah, Saudi Arabia; Muscat, Oman; and Doha, Qatar."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a series is punctuated well:\n\n1. Mark where each item begins and ends.\n2. Check that the items are the same kind (all nouns, all actions, all clauses).\n3. Check that every break between items is marked the same way.\n4. Ask: could a reader misread where one item stops?\n\nPoint to the words that cause the problem."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The science fair had three winners this year.",
+      "role": "other"
+     },
+     {
+      "t": "First prize went to Reem, who built a solar oven; second prize went to Salem, who tested local water; and third prize went to Lama, who studied bees.",
+      "role": "key"
+     },
+     {
+      "t": "Each winner received a certificate.",
+      "role": "other"
+     }
+    ],
+    "explain": "Each item already has a comma inside it (Reem**,** who built a solar oven).\n\nSemicolons between the items show clearly where each winner's part ends."
+   },
+   "together": {
+    "passage": "The old port city was busy from morning until night. Fishermen unloaded their catch, merchants opened their shops, and sailors repaired their nets. Ships arrived from Muscat, Oman, Aden, Yemen, and Mombasa, Kenya. Traders bargained over spices, cloth, and coffee beans in the crowded market. Each evening, the lanterns were lit, the shops closed, and the harbor finally grew quiet.",
+    "stem": "One sentence lists places in a confusing way. Which revision is best?",
+    "options": [
+     "Ships arrived from Muscat Oman, Aden Yemen and Mombasa Kenya.",
+     "Ships arrived from Muscat; Oman, Aden; Yemen, and Mombasa; Kenya.",
+     "Ships arrived, from Muscat, Oman, Aden, Yemen, and Mombasa, Kenya.",
+     "Ships arrived from Muscat, Oman; Aden, Yemen; and Mombasa, Kenya."
+    ],
+    "answer": 3,
+    "hint": "Each place has a city and a country joined by a comma. What mark can show where one whole place ends?",
+    "good": "Yes! Each item (city, country) contains a comma, so semicolons separate the three places."
+   },
+   "evidence": {
+    "sentences": [
+     "The old port city was busy from morning until night.",
+     "Fishermen unloaded their catch, merchants opened their shops, and sailors repaired their nets.",
+     "Ships arrived from Muscat, Oman, Aden, Yemen, and Mombasa, Kenya.",
+     "Traders bargained over spices, cloth, and coffee beans in the crowded market.",
+     "Each evening, the lanterns were lit, the shops closed, and the harbor finally grew quiet."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where a reader cannot easily tell how many places are listed.",
+    "wrong": "This list is clear. No item has a comma inside it, so plain commas work well."
+   },
+   "checks": [
+    {
+     "passage": "I thanked my teachers, the principal and the guard.",
+     "stem": "How would a comma after \"principal\" help the reader?",
+     "options": [
+      "It shows that three different groups were thanked.",
+      "It shows that the sentence is a question.",
+      "It shows that the principal is a teacher.",
+      "It shows that the guard spoke first."
+     ],
+     "answer": 0,
+     "why": "Without it, a reader may think the teachers ARE the principal and the guard. The comma shows three separate groups."
+    },
+    {
+     "passage": "The new park has shaded benches, a long walking track and, a small playground for children.",
+     "stem": "Which change corrects the sentence?",
+     "options": [
+      "Add a comma after \"shaded.\"",
+      "Move the comma from after \"and\" to before it.",
+      "Remove the comma after \"benches.\"",
+      "Add a comma after \"small.\""
+     ],
+     "answer": 1,
+     "why": "A comma never comes right after and. Moving it gives: a long walking track, and a small playground."
+    },
+    {
+     "passage": "Our family planned a trip across the Kingdom. Lina wrote one sentence to explain the plan.",
+     "stem": "Which sentence is punctuated correctly?",
+     "options": [
+      "We will visit Riyadh, on Monday AlUla, on Tuesday and Madinah on Wednesday.",
+      "We will visit Riyadh on Monday AlUla on Tuesday, and, Madinah on Wednesday.",
+      "We will visit Riyadh on Monday, AlUla on Tuesday, and Madinah on Wednesday.",
+      "We will visit, Riyadh on Monday, AlUla on Tuesday, Madinah, on Wednesday."
+     ],
+     "answer": 2,
+     "why": "Each item is a city plus its day. The commas fall between those items, not inside them."
+    }
+   ],
+   "again": {
+    "title": "Find the edges",
+    "text": "When a list is long, find the **edges** of each item first.\n\n1. Underline each item.\n2. Put one mark at every edge between items.\n3. If an item already has a comma inside it, make every edge a **semicolon**.",
+    "example": "We met Huda, the coach, Sara, the captain, and Mona, the goalkeeper.\n\nItems: Huda, the coach / Sara, the captain / Mona, the goalkeeper\n\n→ **We met Huda, the coach; Sara, the captain; and Mona, the goalkeeper.**"
+   }
+  }
+ }
+}

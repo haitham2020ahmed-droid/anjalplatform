@@ -33,7 +33,10 @@ const OPEN = ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"];
  *   · not mastered at 30 → practice simply goes on (no choice shown) up to ASSIGNMENT_MAX_QUESTIONS (50);
  *   · still not mastered at 50 → the work is Done (My Work shows Done) and the student chooses "Stop for now" or
  *     "Keep practising";
- *   · running out of fresh questions (the no-repeat rule) still ends the session, and the work is Done.
+ *   · running out of fresh questions (the no-repeat rule) still ends the session, and the work is Done — only when
+ *     the skill's WHOLE pool (every grade's copy, its Curriculum Map questions) has nothing new left (r67);
+ *   · r67: rapid guesses never count toward 30 / 50 (nor accuracy); a teacher's own question count (Assignment.
+ *     questionCount) replaces the rule: exactly that many counted answers. Nothing else ends the work early.
  * The work's core result (accuracy shown to the teacher) counts the answers given until the work is Done (at most
  * 50); practice after that still trains ability and mastery but never changes the work's status or result.
  */
@@ -69,7 +72,8 @@ export async function coreCountsOf(repo: Repo, assignmentId: string, studentId: 
   if (row && row.coreAnswered !== null && row.coreAnswered !== undefined) return { answered: Number(row.coreAnswered), correct: Number(row.coreCorrect ?? 0) };
   const sessions = await repo.findMany("PracticeSession", { assignmentId, studentId, mode: "ADAPTIVE_PRACTICE" }, { select: ["id"] });
   if (!sessions.length) return { answered: 0, correct: 0 };
-  const first = await repo.findMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => x.id) } }, { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }], take: ASSIGNMENT_MAX_QUESTIONS });
+  // r67: rapid guesses never count toward the work
+  const first = await repo.findMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => x.id) }, rapidGuess: false }, { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }], take: ASSIGNMENT_MAX_QUESTIONS });
   return { answered: first.length, correct: first.filter((a) => Boolean(a.isCorrect)).length };
 }
 
@@ -171,19 +175,22 @@ export async function markDone(repo: Repo, assignmentIds: readonly string[], stu
  * the 50th answer. `mastered` = the engine's mastery after this answer. Returns the new counts and, when this answer
  * made the work Done, why ("MASTERED", or "MAX": 50 answers without mastery — the student then chooses), else null.
  */
-export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date, mastered = false): Promise<{ answered: number; correct: number; justDone: boolean; doneBy: "MASTERED" | "MAX" | null } | null> {
+export type DoneBy = "MASTERED" | "MAX" | "COUNT";
+export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date, mastered = false, count: number | null = null): Promise<{ answered: number; correct: number; justDone: boolean; doneBy: DoneBy | null } | null> {
   // Done already (mastered, the questions ran out, …): its result is frozen
   if (prev.done && prev.stored !== null) return null;
-  if (prev.answered >= ASSIGNMENT_MAX_QUESTIONS) {
+  // r67: the teacher's own question count replaces the 30–50 rule (exactly that many counted answers)
+  const max = count && count > 0 ? Math.min(ASSIGNMENT_MAX_QUESTIONS, count) : ASSIGNMENT_MAX_QUESTIONS;
+  if (prev.answered >= max) {
     // a row from before the stored counts that already had 50 answers: its first 50 are its result, and it is Done now
-    if (prev.stored === null) await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: null }, { coreAnswered: ASSIGNMENT_MAX_QUESTIONS, coreCorrect: Math.min(prev.correct, ASSIGNMENT_MAX_QUESTIONS) });
+    if (prev.stored === null) await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: null }, { coreAnswered: max, coreCorrect: Math.min(prev.correct, max) });
     const n = await markDone(tx, [assignmentId], studentId, at);
-    return n > 0 ? { answered: ASSIGNMENT_MAX_QUESTIONS, correct: prev.correct, justDone: true, doneBy: mastered ? "MASTERED" : "MAX" } : null;
+    return n > 0 ? { answered: max, correct: prev.correct, justDone: true, doneBy: count ? "COUNT" : mastered ? "MASTERED" : "MAX" } : null;
   }
   const answered = prev.answered + 1, right = prev.correct + (correct ? 1 : 0);
   const n = await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: prev.stored }, { coreAnswered: answered, coreCorrect: right });
   if (n !== 1) return null;
-  const doneBy = answered >= ASSIGNMENT_MIN_QUESTIONS && mastered ? "MASTERED" : answered >= ASSIGNMENT_MAX_QUESTIONS ? "MAX" : null;
+  const doneBy: DoneBy | null = count ? (answered >= max ? "COUNT" : null) : answered >= ASSIGNMENT_MIN_QUESTIONS && mastered ? "MASTERED" : answered >= ASSIGNMENT_MAX_QUESTIONS ? "MAX" : null;
   // Done now (written once: a row already Done stays Done and is not "just" Done)
   const justDone = Boolean(doneBy) && !prev.done && (await markDone(tx, [assignmentId], studentId, at)) > 0;
   return { answered, correct: right, justDone, doneBy: justDone ? doneBy : null };

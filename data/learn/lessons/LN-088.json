@@ -1,0 +1,447 @@
+{
+ "code": "LN-088",
+ "title": "Apostrophes in contractions",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "apostrophes-contractions"
+ ],
+ "skillNames": [
+  "Apostrophes and Contractions",
+  "Contractions with Verbs"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two words become one",
+     "text": "A **contraction** joins **two words** into **one short word**.\n\ndo not → **don't**\nI am → **I'm**"
+    },
+    {
+     "title": "The apostrophe",
+     "text": "Some letters are **left out**. An **apostrophe** ( ' ) goes where they were.\n\nis not → **isn't** (the o is gone)\nit is → **it's** (the i is gone)"
+    },
+    {
+     "title": "Check it",
+     "text": "1. Say the two long words.\n2. Find the letters that are gone.\n3. Put the apostrophe **in that spot**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the short joined words.\n2. Ask: What two words make this?\n3. Is there an apostrophe where letters were left out?\n\nThe sentence with the missing or wrong apostrophe is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I'm hungry.",
+      "role": "key"
+     },
+     {
+      "t": "Let us eat lunch.",
+      "role": "other"
+     }
+    ],
+    "explain": "**I'm** = **I am**. The **a** is left out, so the apostrophe goes in its place."
+   },
+   "together": {
+    "passage": "It is a hot day. We dont want to go out. We stay inside. We read and play.",
+    "stem": "How should dont be written?",
+    "options": [
+     "do'nt",
+     "dont'",
+     "don't",
+     "d'ont"
+    ],
+    "answer": 2,
+    "hint": "dont is do + not. Which letter is left out? Put the apostrophe there.",
+    "good": "Yes! do not → don't. The apostrophe takes the place of the o."
+   },
+   "evidence": {
+    "sentences": [
+     "It is a hot day.",
+     "We dont want to go out.",
+     "We stay inside.",
+     "We read and play."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the missing apostrophe.",
+    "wrong": "This sentence has no contraction. Find the short joined word with no apostrophe."
+   },
+   "checks": [
+    {
+     "passage": "I can't find my shoe.",
+     "stem": "What word makes can't?",
+     "options": [
+      "can it",
+      "cannot",
+      "can to",
+      "came not"
+     ],
+     "answer": 1,
+     "why": "can't is the short form of cannot."
+    },
+    {
+     "passage": "Its time for bed.",
+     "stem": "Which is right?",
+     "options": [
+      "It's time for bed.",
+      "Its time for bed.",
+      "Its' time for bed.",
+      "I'ts time for bed."
+     ],
+     "answer": 0,
+     "why": "It is time for bed → It's. The apostrophe takes the place of the i."
+    },
+    {
+     "passage": "Im ready for school.",
+     "stem": "How should Im be written?",
+     "options": [
+      "Im'",
+      "'Im",
+      "I'am",
+      "I'm"
+     ],
+     "answer": 3,
+     "why": "I am → I'm. The apostrophe takes the place of the a."
+    }
+   ],
+   "again": {
+    "title": "Push the words together",
+    "text": "Write the two words. Cross out the letters you do not say. Put an **apostrophe** where you crossed out.",
+    "example": "is not → is n(o)t → cross out o → **isn't**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Contractions with not",
+     "text": "**not** becomes **n't**. The **o** is left out.\n\nis not → **isn't**\ndid not → **didn't**\nwas not → **wasn't**\n\nThe apostrophe goes **between n and t**."
+    },
+    {
+     "title": "Contractions with verbs",
+     "text": "We can also shorten **am, are, is, will** and **have**:\n\nwe are → **we're**\nshe will → **she'll**\nI have → **I've**\nhe is → **he's**"
+    },
+    {
+     "title": "Watch the spot",
+     "text": "The apostrophe goes **exactly** where the letters were.\n\nRight: did**n't**\nWrong: di'dnt, didnt'\n\nOne odd one: will not → **won't**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each contraction.\n2. Say the two full words it stands for.\n3. Check that the apostrophe is exactly where letters were left out.\n\nPoint to the sentence where the apostrophe is missing or in the wrong place."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We're going to the park after school.",
+      "role": "key"
+     },
+     {
+      "t": "Mom said we can't stay late.",
+      "role": "key"
+     },
+     {
+      "t": "We will be home by six.",
+      "role": "other"
+     }
+    ],
+    "explain": "**We're** = we are (the **a** is gone). **can't** = cannot (the **n** and **o** are gone).\n\nThe apostrophes sit where letters were left out."
+   },
+   "together": {
+    "passage": "Saad wanted to join the school football team. He practiced every day, but he wasnt sure he would be chosen. On Sunday, the coach read the names. \"You're on the team, Saad!\" he said. Saad couldn't stop smiling.",
+    "stem": "How should wasnt be written?",
+    "options": [
+     "was'nt",
+     "wasn't",
+     "wasnt'",
+     "wa'snt"
+    ],
+    "answer": 1,
+    "hint": "wasnt is was + not. Which letter of not is left out?",
+    "good": "Yes! was not → wasn't. The apostrophe goes between n and t, where the o was."
+   },
+   "evidence": {
+    "sentences": [
+     "Saad wanted to join the school football team.",
+     "He practiced every day, but he wasnt sure he would be chosen.",
+     "On Sunday, the coach read the names.",
+     "\"You're on the team, Saad!\" he said.",
+     "Saad couldn't stop smiling."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the missing apostrophe.",
+    "wrong": "The contractions in this sentence are written correctly. Find the one with no apostrophe."
+   },
+   "checks": [
+    {
+     "passage": "She'll call you after lunch.",
+     "stem": "What does She'll mean?",
+     "options": [
+      "She all",
+      "She is",
+      "She would",
+      "She will"
+     ],
+     "answer": 3,
+     "why": "She'll is the short form of she will. The w and i are left out."
+    },
+    {
+     "passage": "Our guests havent arrived yet.",
+     "stem": "Which is correct?",
+     "options": [
+      "have'nt",
+      "havent",
+      "haven't",
+      "haven'ot"
+     ],
+     "answer": 2,
+     "why": "have not → haven't. The apostrophe goes where the o was."
+    },
+    {
+     "passage": "I will not forget my homework.",
+     "stem": "What is the contraction for will not?",
+     "options": [
+      "willn't",
+      "won't",
+      "wo'nt",
+      "will'nt"
+     ],
+     "answer": 1,
+     "why": "will not is the odd one: it becomes won't."
+    }
+   ],
+   "again": {
+    "title": "Find the missing letters",
+    "text": "1. Write the two full words.\n2. Circle the letters you do not hear in the short word.\n3. Put an apostrophe where the circled letters were.",
+    "example": "did not → did n(o)t → **didn't**\n\nwe are → we (a)re → **we're**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Contraction or owner?",
+     "text": "Some contractions sound like words that show **who owns** something.\n\n**it's** (it is) / **its** (belongs to it)\n**you're** (you are) / **your** (belongs to you)\n**they're** (they are) / **their** (belongs to them)\n**who's** (who is) / **whose** (belongs to whom)"
+    },
+    {
+     "title": "The expand test",
+     "text": "Expand the contraction into two words and read the sentence.\n\nIt's raining. → **It is** raining. ✓\n\nThe cat licked it's paw. → The cat licked **it is** paw. ✗ → use **its**"
+    },
+    {
+     "title": "No apostrophe for owners",
+     "text": "Words that show ownership **never** take an apostrophe: **its, your, their, whose, hers, ours**.\n\nThe apostrophe in **it's** always means letters are missing."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each contraction or sound-alike word.\n2. Expand it: it's → it is, you're → you are.\n3. Read the sentence with the full words. Does it make sense?\n\nThe sentence where the full words do not make sense is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The falcon spread its wings.",
+      "role": "key"
+     },
+     {
+      "t": "It's ready to fly.",
+      "role": "key"
+     },
+     {
+      "t": "Its owner watched proudly.",
+      "role": "other"
+     }
+    ],
+    "explain": "**its wings**: the wings belong to the falcon, so there is no apostrophe.\n\n**It's ready** = **It is** ready. The apostrophe shows the missing **i**."
+   },
+   "together": {
+    "passage": "Our neighbors are moving to a new house next week. Their packing boxes every evening. Their youngest son gave me his old bike. He said, \"You're going to love it!\" Mom says they're moving to be closer to their grandparents in Madinah. I'll miss them when they leave.",
+    "stem": "Which word should begin the second sentence?",
+    "options": [
+     "There",
+     "Theyre",
+     "They're",
+     "Their"
+    ],
+    "answer": 2,
+    "hint": "Expand it. Does 'they are packing boxes' make sense?",
+    "good": "Yes! They are packing boxes → They're. Their shows ownership, as in their youngest son."
+   },
+   "evidence": {
+    "sentences": [
+     "Our neighbors are moving to a new house next week.",
+     "Their packing boxes every evening.",
+     "Their youngest son gave me his old bike.",
+     "He said, \"You're going to love it!\"",
+     "Mom says they're moving to be closer to their grandparents in Madinah.",
+     "I'll miss them when they leave."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the wrong word.",
+    "wrong": "This sentence is correct. Expand any contraction and check that it makes sense."
+   },
+   "checks": [
+    {
+     "passage": "Your going to be late for the bus!",
+     "stem": "Which word should replace Your?",
+     "options": [
+      "You're",
+      "Yours",
+      "Your's",
+      "Youre"
+     ],
+     "answer": 0,
+     "why": "You are going to be late → You're."
+    },
+    {
+     "passage": "The school changed it's lunch hours this year.",
+     "stem": "What is wrong?",
+     "options": [
+      "Nothing is wrong.",
+      "it's should be its",
+      "lunch should be lunch's",
+      "changed should be change's"
+     ],
+     "answer": 1,
+     "why": "The lunch hours belong to the school. 'Changed it is lunch hours' makes no sense, so use its."
+    },
+    {
+     "passage": "___ turn is it to clean the board?",
+     "stem": "Which word fits?",
+     "options": [
+      "Who's",
+      "Who'se",
+      "Whos",
+      "Whose"
+     ],
+     "answer": 3,
+     "why": "The question asks who owns the turn. 'Who is turn' makes no sense, so use whose."
+    }
+   ],
+   "again": {
+    "title": "Say it the long way",
+    "text": "If a word has an apostrophe, say it the **long way**.\n\nIf the long way makes sense, keep the apostrophe.\n\nIf it sounds wrong, you need the word **without** an apostrophe.",
+    "example": "The bird built ___ nest.\n\nThe bird built **it is** nest? ✗ → **its** nest."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "One contraction, two meanings",
+     "text": "**'s** can mean **is** or **has**:\nShe's tired. (she is)\nShe's finished. (she has)\n\n**'d** can mean **had** or **would**:\nI'd like tea. (I would)\nI'd already eaten. (I had)\n\nThe rest of the sentence tells you which."
+    },
+    {
+     "title": "Would've, not would of",
+     "text": "**would've, could've, should've** are short for **would have, could have, should have**.\n\nBecause 've sounds like **of**, writers sometimes write **would of**. That is always wrong.\n\nRight: We **should've** left earlier."
+    },
+    {
+     "title": "Let's or lets?",
+     "text": "**let's** = let us: **Let's** start the meeting.\n**lets** = allows: The teacher **lets** us choose a book.\n\nIn formal writing, such as reports and essays, many writers avoid contractions and use the full words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every contraction and every word that sounds like one.\n2. Expand each into its full words (is or has? had or would? let us or allows?).\n3. Read the sentence with the full words. Do the grammar and the meaning work?\n\nPoint to the sentence where the expanded words do not fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "By the time we arrived, the show had started, so I'd missed the opening.",
+      "role": "key"
+     },
+     {
+      "t": "Next time, I'd like to come early.",
+      "role": "key"
+     },
+     {
+      "t": "We should buy our tickets in advance.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, **I'd** = I **had** (missed). In sentence 2, **I'd** = I **would** (like).\n\nThe verb after the contraction shows which meaning fits."
+   },
+   "together": {
+    "passage": "Our science group spent three weeks growing bean plants under different colors of light. On the last day, we measured each plant and recorded the results. The plants grew to different heights under each color. \"We should of tested a fourth color,\" Maha said. \"Next year, let's try green light,\" our teacher suggested. She's already added the idea to next year's plan.",
+    "stem": "Which change corrects an error in the passage?",
+    "options": [
+     "Change \"let's\" to \"lets.\"",
+     "Change \"should of\" to \"should've.\"",
+     "Change \"She's\" to \"Shes.\"",
+     "Change \"year's\" to \"years.\""
+    ],
+    "answer": 1,
+    "hint": "Expand each contraction. Which phrase only sounds like a contraction but uses the wrong word?",
+    "good": "Yes! The full form is should have, so the contraction is should've. Should of is always wrong."
+   },
+   "evidence": {
+    "sentences": [
+     "Our science group spent three weeks growing bean plants under different colors of light.",
+     "On the last day, we measured each plant and recorded the results.",
+     "The plants grew to different heights under each color.",
+     "\"We should of tested a fourth color,\" Maha said.",
+     "\"Next year, let's try green light,\" our teacher suggested.",
+     "She's already added the idea to next year's plan."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the error.",
+    "wrong": "This sentence is correct. Let's means let us, and She's here means she has."
+   },
+   "checks": [
+    {
+     "passage": "He's lived in Dammam for ten years.",
+     "stem": "What does He's mean here?",
+     "options": [
+      "He is",
+      "He has",
+      "He was",
+      "He would"
+     ],
+     "answer": 1,
+     "why": "'He is lived' does not work. 'He has lived' does, so 's means has."
+    },
+    {
+     "passage": "Our coach lets us choose our positions, but today she said, \"Lets practice passing first.\"",
+     "stem": "Which word needs an apostrophe?",
+     "options": [
+      "the second Lets",
+      "the first lets",
+      "both",
+      "neither"
+     ],
+     "answer": 0,
+     "why": "The second one means let us, so it needs an apostrophe: Let's. The first means allows."
+    },
+    {
+     "passage": "If we'd known about the traffic, we'd have left earlier.",
+     "stem": "What do the two we'd contractions mean?",
+     "options": [
+      "we would ... we would",
+      "we would ... we had",
+      "we had ... we would",
+      "we had ... we had"
+     ],
+     "answer": 2,
+     "why": "If we had known..., we would have left. Try each meaning and keep the one that works."
+    }
+   ],
+   "again": {
+    "title": "Expand, then decide",
+    "text": "1. Write out the full words for every contraction.\n2. If two full forms are possible (is/has, had/would), try both.\n3. Keep the one that makes a correct sentence.\n4. If no full form works, the word should not be a contraction.",
+    "example": "We should of asked.\n\nshould **of**? ✗ It must be should **have** → **should've**."
+   }
+  }
+ }
+}

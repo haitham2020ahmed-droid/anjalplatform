@@ -16,6 +16,7 @@ import { openAlertCount } from "../insights/alerts";
 import { classPlans, sendPlans, smallGroups } from "../map/map-plan";
 import { classRhythm, weekStart } from "./classroom";
 import { secondChanceCount } from "../second-chance/service";
+import { hiddenWorkKeys } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -121,7 +122,8 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
   const endOfDay = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59)).getTime();
   if (actor.role === "STUDENT" && actor.studentId) {
     // every independent read in one round trip (Update 42B), then the few that need their results
-    const [rows, respond, cls, winsAll, fresh, words, quizzed, tier] = await Promise.all([
+    // (work the teacher cancelled — "Assigned" — is not counted: hidden = its My Work keys)
+    const [rowsAll, respondAll, cls, winsAll, fresh, words, quizzed, tier, hidden] = await Promise.all([
       repo.findMany("AssignmentStudent", { studentId: actor.studentId, status: { in: ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"] } }, { select: ["assignmentId", "status"] }),
       repo.findMany("RespondAssignmentStudent", { studentId: actor.studentId, finishedAt: null }, { select: ["assignmentId"] }),
       repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] }).then((r) => r.map((m) => m.classId)),
@@ -130,7 +132,10 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
       repo.count("StudentWord", { studentId: actor.studentId }),
       repo.count("StudentWord", { studentId: actor.studentId, lastQuizAt: { gte: weekStart(now) } }),
       repo.findUnique("StudentTier", { studentId: actor.studentId }),
+      hiddenWorkKeys(repo, actor.studentId, actor.schoolId).catch(() => new Set<string>()),
     ]);
+    const rows = rowsAll.filter((r) => !hidden.has(s(r.assignmentId)));
+    const respond = respondAll.filter((r) => !hidden.has(`respond:${s(r.assignmentId)}`));
     // student home (UI reorg Phase 2): the RTI Program entry is shown only to students in Tier 2/3 (count 0 = no badge)
     if (Number(tier?.tier ?? 1) >= 2) out["/student/rti"] = { count: 0, alert: false };
     const wins = winsAll.filter((w) => time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime());
@@ -153,7 +158,7 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
     // writing / reading-aloud tasks not handed in yet
     if (tasks.length) {
       const handed = new Set((await repo.findMany("WritingSubmission", { studentId: actor.studentId, taskId: { in: tasks.map((t) => t.id) } }, { select: ["taskId", "status"] })).filter((x) => x.status !== "DRAFT").map((x) => s(x.taskId)));
-      for (const t of tasks) if (!handed.has(s(t.id))) add("/student/writing", Boolean(t.dueAt && time(t.dueAt) <= endOfDay));
+      for (const t of tasks) if (!handed.has(s(t.id)) && !hidden.has(`writing:${s(t.id)}`) && !hidden.has(`read_aloud:${s(t.id)}`)) add("/student/writing", Boolean(t.dueAt && time(t.dueAt) <= endOfDay));
     }
     // an open MAP practice test not finished yet counts on My MAP
     if (wins.length) {
@@ -161,7 +166,7 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
       for (const w of wins) {
         if (w.grade !== null && w.grade !== undefined && Number(w.grade) !== g) continue;
         const subs = (Array.isArray(w.subjects) ? w.subjects : JSON.parse(s(w.subjects) || "[]")) as string[];
-        for (const sub of subs) if (!done.some((d) => d.windowId === w.id && d.subject === sub)) add("/student/plans", time(w.closesAt) - now.getTime() < 2 * DAY);
+        for (const sub of subs) if (!done.some((d) => d.windowId === w.id && d.subject === sub) && !hidden.has(`map_test:${s(w.id)}:${sub}`)) add("/student/plans", time(w.closesAt) - now.getTime() < 2 * DAY);
       }
     }
     if (fresh) out["/student/badges"] = { count: fresh, alert: false };

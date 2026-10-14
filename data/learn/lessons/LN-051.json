@@ -1,0 +1,447 @@
+{
+ "code": "LN-051",
+ "title": "Four kinds of sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "sentences"
+ ],
+ "skillNames": [
+  "Four Types of Sentences",
+  "Sentences and Sentence Types"
+ ],
+ "statements": [
+  "L-0297"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Four kinds of sentences",
+     "text": "**Statement**: tells something. “I like rice.”\n**Question**: asks something. “Do you like rice?”\n**Command**: tells someone to do something. “Eat your rice.”\n**Exclamation**: shows strong feeling. “This rice is amazing!”"
+    },
+    {
+     "title": "End marks",
+     "text": "Statement → **.**\nQuestion → **?**\nCommand → **.** or **!**\nExclamation → **!**"
+    },
+    {
+     "title": "Clue words",
+     "text": "Questions often start with **who, what, where, when, why, how, do, can, is**.\n\nCommands often start with an **action word**: Sit. Open. Wash."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentence.\n2. Ask: Does it **tell**, **ask**, **give an order** or **show strong feeling**?\n3. Look at the first word and the end mark. Point to them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Please close the door.",
+      "role": "key"
+     },
+     {
+      "t": "It is cold outside.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 1 tells someone to do something. It starts with an action word: **close**. It is a **command**.\n\nSentence 2 tells a fact. It is a **statement**."
+   },
+   "together": {
+    "passage": "It is time for lunch. Wash your hands. Then sit at the table. The food is hot.",
+    "stem": "What kind of sentence is “Wash your hands.”?",
+    "options": [
+     "Statement",
+     "Question",
+     "Command",
+     "Exclamation"
+    ],
+    "answer": 2,
+    "hint": "Does it tell a fact, ask, or tell someone to do something?",
+    "good": "Yes! It tells someone to do something, and it starts with an action word: **wash**. It is a **command**."
+   },
+   "evidence": {
+    "sentences": [
+     "It is time for lunch.",
+     "Wash your hands.",
+     "Then sit at the table.",
+     "The food is hot."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "Tap a sentence that tells someone what to do.",
+    "wrong": "This sentence tells a fact. It is a statement. Find one that tells someone what to do."
+   },
+   "checks": [
+    {
+     "passage": "Where is my bag?",
+     "stem": "What kind of sentence is this?",
+     "options": [
+      "Statement",
+      "Question",
+      "Command",
+      "Exclamation"
+     ],
+     "answer": 1,
+     "why": "It starts with **where**, asks something, and ends with **?**. It is a **question**."
+    },
+    {
+     "passage": "What a big cake!",
+     "stem": "What kind of sentence is this?",
+     "options": [
+      "Statement",
+      "Question",
+      "Command",
+      "Exclamation"
+     ],
+     "answer": 3,
+     "why": "It shows strong feeling and ends with **!**. It is an **exclamation**."
+    },
+    {
+     "passage": "The sun is hot.",
+     "stem": "What kind of sentence is this?",
+     "options": [
+      "Statement",
+      "Question",
+      "Command",
+      "Exclamation"
+     ],
+     "answer": 0,
+     "why": "It tells a fact and ends with a period. It is a **statement**."
+    }
+   ],
+   "again": {
+    "title": "Tell, ask, order, feel",
+    "text": "**Tell** → statement (.)\n**Ask** → question (?)\n**Order** → command (.)\n**Strong feeling** → exclamation (!)",
+    "example": "“Pick up your toys.” → Does it tell someone to do something? Yes → **command**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Choose the right end mark",
+     "text": "Every sentence needs the right end mark:\n\n“Can you help me**?**” → question\n“Watch out**!**” → a strong command\n“Please pass the bread**.**” → a polite command"
+    },
+    {
+     "title": "Commands and the hidden “you”",
+     "text": "A command talks to **you**, but the word “you” is usually hidden.\n\n“Open the window.” = “**(You)** open the window.”\n\nSo even “Sit.” is a complete sentence."
+    },
+    {
+     "title": "Statement or exclamation?",
+     "text": "Both can be about the same thing. The feeling decides.\n\n“The match was exciting.” → calm statement\n“What an exciting match!” → strong feeling, exclamation"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the job of each sentence: tell, ask, command or exclaim.\n2. Check that the end mark matches that job.\n3. Point to the sentence where they do not match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Where did you put the keys.",
+      "role": "key"
+     },
+     {
+      "t": "They are on the table.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 starts with **where** and asks something. It needs a **question mark**: “Where did you put the keys?”"
+   },
+   "together": {
+    "passage": "Our class is planning a picnic in the park. Bring a hat and a bottle of water. Who will carry the big mat. I can't wait for Thursday! It will be so much fun.",
+    "stem": "Which sentence has the wrong end mark?",
+    "options": [
+     "Bring a hat and a bottle of water.",
+     "Who will carry the big mat.",
+     "I can't wait for Thursday!",
+     "Our class is planning a picnic in the park."
+    ],
+    "answer": 1,
+    "hint": "Check each sentence's job. Which one asks something but does not end like a question?",
+    "good": "Yes! It starts with **who** and asks something, so it needs a **question mark**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is planning a picnic in the park.",
+     "Bring a hat and a bottle of water.",
+     "Who will carry the big mat.",
+     "I can't wait for Thursday!",
+     "It will be so much fun."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that has the wrong end mark.",
+    "wrong": "This sentence's end mark matches its job. Find the sentence that asks something."
+   },
+   "checks": [
+    {
+     "passage": "Please turn off the lights before you leave",
+     "stem": "What kind of sentence is this, and which end mark fits best?",
+     "options": [
+      "Question, ?",
+      "Command, .",
+      "Exclamation, ?",
+      "Statement, ?"
+     ],
+     "answer": 1,
+     "why": "It politely tells someone to do something. A polite command ends with a **period**."
+    },
+    {
+     "passage": "Four sentences about a desert trip.",
+     "stem": "Which one is an exclamation?",
+     "options": [
+      "The sand was hot.",
+      "Did you see the camels?",
+      "What a beautiful sunset that was!",
+      "Pack your water bottle."
+     ],
+     "answer": 2,
+     "why": "It starts with **What a…**, shows strong feeling and ends with **!**."
+    },
+    {
+     "passage": "Sit down.",
+     "stem": "Is this a complete sentence?",
+     "options": [
+      "Yes, the subject “you” is understood.",
+      "No, it has no subject.",
+      "No, it is too short.",
+      "No, it needs a question mark."
+     ],
+     "answer": 0,
+     "why": "It means “(You) sit down.” A command is complete even when it is very short."
+    }
+   ],
+   "again": {
+    "title": "Read it aloud",
+    "text": "Your voice gives a clue:\n\nVoice goes **up** at the end → question ?\nVoice is **strong and excited** → exclamation !\nVoice **gives an order** → command .\nVoice is **calm** → statement .",
+    "example": "“Is the shop open” → your voice goes up → add **?**: “Is the shop open?”"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "A complete command",
+     "text": "A complete command needs an **action verb** that tells someone what to do. The subject **you** is understood.\n\n“Stir the soup.” → complete\n“The soup on the stove.” → no action: a fragment"
+    },
+    {
+     "title": "Long or short",
+     "text": "“Stop.” is a complete command.\n\n“Before you leave the lab, turn off the gas and wash your hands.” is also one complete command. Its actions are **turn off** and **wash**."
+    },
+    {
+     "title": "Look-alikes",
+     "text": "“Turning off the gas.” → only an -ing word: fragment\n\n“To turn off the gas.” → only “to + verb”: fragment\n\nA command uses the plain verb: “**Turn** off the gas.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the action verb.\n2. Check that it is the plain form (turn, wash, open), not -ing or “to + verb”.\n3. Check that someone (you) is being told to do it.\n\nPoint to the line that is not a complete command."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fill the pot with water.",
+      "role": "key"
+     },
+     {
+      "t": "Waiting until it boils.",
+      "role": "other"
+     },
+     {
+      "t": "Add a pinch of salt.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 1 and 3 begin with a plain action verb: **fill**, **add**. They are complete commands.\n\nSentence 2 has only **waiting**. It is a fragment. Fix: “**Wait** until it boils.”"
+   },
+   "together": {
+    "passage": "Growing a date palm from a seed is easy. First, soak the seed in warm water for two days. Then fill a small pot with sandy soil. Pushing the seed about two centimeters into the soil. Water it gently and place the pot in a sunny spot. Be patient, because the first shoot may take several weeks to appear.",
+    "stem": "How should the incomplete command be fixed?",
+    "options": [
+     "You pushing the seed about two centimeters into the soil.",
+     "To push the seed about two centimeters into the soil.",
+     "The seed pushed about two centimeters into the soil.",
+     "Push the seed about two centimeters into the soil."
+    ],
+    "answer": 3,
+    "hint": "A complete command starts with the plain verb. Which choice does that?",
+    "good": "Yes! **Push** is the plain verb, and “you” is understood. Now it matches the other steps."
+   },
+   "evidence": {
+    "sentences": [
+     "Growing a date palm from a seed is easy.",
+     "First, soak the seed in warm water for two days.",
+     "Then fill a small pot with sandy soil.",
+     "Pushing the seed about two centimeters into the soil.",
+     "Water it gently and place the pot in a sunny spot.",
+     "Be patient, because the first shoot may take several weeks to appear."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the line that was not a complete command.",
+    "wrong": "This line is a complete sentence. Find the step that has no plain action verb, only an -ing word."
+   },
+   "checks": [
+    {
+     "passage": "Recipe step: Carefully slicing the onions into thin rings.",
+     "stem": "Why is this not a complete command?",
+     "options": [
+      "It has no adverb.",
+      "It uses an -ing word instead of a plain verb.",
+      "It needs a question mark.",
+      "It is too long."
+     ],
+     "answer": 1,
+     "why": "A command needs the plain verb: “Carefully **slice** the onions into thin rings.”"
+    },
+    {
+     "passage": "Four lines from a safety poster at the beach.",
+     "stem": "Which is a complete command?",
+     "options": [
+      "Never swimming alone.",
+      "To stay near the lifeguard.",
+      "Always swim near a lifeguard.",
+      "The lifeguard near the beach."
+     ],
+     "answer": 2,
+     "why": "“Swim” is a plain action verb, and “you” is understood. The others are fragments."
+    },
+    {
+     "passage": "Don't touch the hot pan.",
+     "stem": "Which statement is true?",
+     "options": [
+      "It is a question.",
+      "It is a fragment because it has no subject.",
+      "It is a statement about a pan.",
+      "It is a complete command; “you” is understood."
+     ],
+     "answer": 3,
+     "why": "“(You) do not touch the hot pan.” A negative command is still complete."
+    }
+   ],
+   "again": {
+    "title": "Put “you” in front",
+    "text": "Say **you** before the line. Does it make a sensible order?\n\n“(You) open the box.” → yes, complete.\n“(You) opening the box.” → no, fragment.",
+    "example": "“To fold the paper in half.” → “(You) to fold the paper”? No. Fix: “**Fold** the paper in half.”"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Form and job",
+     "text": "Sometimes a sentence's **form** and its **job** do not match.\n\n“Could you open the window?” has a question form, but its job is a **polite request**: a command.\n\n“You will hand in your work by Thursday.” looks like a statement, but acts as a command."
+    },
+    {
+     "title": "Kinds of commands",
+     "text": "**Negative**: “Don't run in the hall.”\n**With let's**: “Let's start the meeting.” (a suggestion that includes the speaker)\n**With a name**: “Ali, close the door.” The name is not the subject; “you” is still understood."
+    },
+    {
+     "title": "Exclamations with what and how",
+     "text": "Many exclamations start with **What** or **How**:\n\n“**What** a long journey it was!” “**How** quickly the time passed!”\n\nThey are not questions, even though they start with what or how."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Identify the form: does it look like a statement, question, command or exclamation?\n2. Identify the job: what is the speaker trying to do?\n3. Use the context to prove the job: who is speaking, to whom, and what happens next."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "“Would you mind lowering your voice?” the librarian asked.",
+      "role": "key"
+     },
+     {
+      "t": "The students nodded and whispered for the rest of the hour.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The librarian's sentence is shaped like a question, but its job is a **request**: be quieter.\n\nThe students' reaction proves it: they lowered their voices."
+   },
+   "together": {
+    "passage": "The guide gathered the students at the entrance of the science museum. “Welcome, everyone,” she said. “Before we start, let's put all our bags in the lockers.” The students hurried to obey. “Could you all stay together in the dark rooms?” she asked. “It's easy to get lost in there.” Inside the first hall, a huge model of a human heart filled the room. “How enormous it is!” whispered Laila. The guide smiled and pressed a button, and the model began to beat.",
+    "stem": "What is the job of “Could you all stay together in the dark rooms?”",
+    "options": [
+     "It asks if the students are able to stay together.",
+     "It politely tells the students to stay together.",
+     "It is an exclamation of surprise.",
+     "It is a statement about the dark rooms."
+    ],
+    "answer": 1,
+    "hint": "The guide is not really asking whether they CAN. What does she want the students to do, and why?",
+    "good": "Yes! It is shaped like a question, but it works as a **polite command**. The next line gives the reason."
+   },
+   "evidence": {
+    "sentences": [
+     "The guide gathered the students at the entrance of the science museum.",
+     "“Welcome, everyone,” she said.",
+     "“Before we start, let's put all our bags in the lockers.”",
+     "The students hurried to obey.",
+     "“Could you all stay together in the dark rooms?” she asked.",
+     "“It's easy to get lost in there.”",
+     "Inside the first hall, a huge model of a human heart filled the room.",
+     "“How enormous it is!” whispered Laila.",
+     "The guide smiled and pressed a button, and the model began to beat."
+    ],
+    "proof": [
+     5
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that explains why the guide gives this instruction.",
+    "wrong": "This sentence does not give a reason to stay together. Find what the guide says right after her request."
+   },
+   "checks": [
+    {
+     "passage": "“How enormous it is!” whispered Laila.",
+     "stem": "What kind of sentence is “How enormous it is!”?",
+     "options": [
+      "A command",
+      "A statement of fact",
+      "An exclamation showing amazement",
+      "A question, because it starts with “How”"
+     ],
+     "answer": 2,
+     "why": "“How + describing word + it is!” is an exclamation. Laila is amazed; she is not asking anything."
+    },
+    {
+     "passage": "Khalid, please hand out the worksheets.",
+     "stem": "What is the subject of this sentence?",
+     "options": [
+      "Khalid",
+      "the worksheets",
+      "the understood “you”",
+      "please"
+     ],
+     "answer": 2,
+     "why": "“Khalid” names the person spoken to. In a command, the subject is the understood **you**."
+    },
+    {
+     "passage": "A teacher wrote four reminders on the board.",
+     "stem": "Which is a complete imperative sentence?",
+     "options": [
+      "Let's review the notes before the test.",
+      "Reviewing the notes before the test.",
+      "The notes before the test.",
+      "If we review the notes before the test."
+     ],
+     "answer": 0,
+     "why": "“Let's review…” is a complete command (a suggestion). The others are fragments."
+    }
+   ],
+   "again": {
+    "title": "What does the speaker want?",
+    "text": "Ignore the shape for a moment. Ask: **What does the speaker want to happen?**\n\nIf they want someone to act, the job is a command, even if it ends with **?**",
+    "example": "“Can you pass me the salt?” → The speaker wants the salt passed, not an answer about your ability. Job: a **polite command**."
+   }
+  }
+ }
+}

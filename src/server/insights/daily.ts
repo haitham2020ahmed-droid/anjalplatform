@@ -94,7 +94,7 @@ export async function teacherDigests(repo: Repo, schoolId: string, now = new Dat
   return sent;
 }
 
-export interface DailyResult { rewards?: number; nafsPlans?: number; tiers: number; levelChanges?: number; declining?: number; highRisk: number; decayed: number; tagged: number; analysed: number; reclassified?: number; alerts?: number; skillFlags?: number; prerequisites: number; recommendations: number; interventions: number; profiles: number; digests: number }
+export interface DailyResult { rewards?: number; nafsPlans?: number; tiers: number; levelChanges?: number; declining?: number; highRisk: number; decayed: number; tagged: number; analysed: number; reclassified?: number; alerts?: number; skillFlags?: number; prerequisites: number; recommendations: number; interventions: number; profiles: number; digests: number; monthly?: number }
 
 /** Daily alert generation for one school: skill-support flags for enrolled students, then student alerts (forced scan). */
 export async function scanDailyAlerts(repo: Repo, schoolId: string, now = new Date()): Promise<{ interventions: number; alerts: number }> {
@@ -148,8 +148,10 @@ export async function runDaily(repo: Repo, schoolId: string, now = new Date()): 
   // 🎖️ rewards (Games Part 3): coins, badges and automatic certificates for students active since yesterday — read
   // only on learning data; a failure never stops the rest of the job
   const rewards = (await (await import("../motivation/sync")).syncSchoolRewards(repo, schoolId, now).catch((e) => { log("error", "rewards.sync.failed", { schoolId, error: e }); return null; }))?.students ?? 0;
+  // 📅 month end: the monthly family reports as drafts for the teachers to review (first 7 days of a month, once)
+  const monthly = await (await import("../reports/monthly-report")).generateMonthlyReports(repo, schoolId, now).catch((e) => { log("error", "monthly.reports.failed", { schoolId, error: e }); return 0; });
   const digests = await teacherDigests(repo, schoolId, now);
-  return { rewards, nafsPlans, tiers, levelChanges: levels?.changed ?? 0, declining: levels?.declining ?? 0, decayed, tagged, analysed, reclassified, prerequisites, recommendations, interventions, profiles, highRisk: risk.high, digests, alerts: alerts.alerts, skillFlags: alerts.interventions };
+  return { rewards, nafsPlans, tiers, levelChanges: levels?.changed ?? 0, declining: levels?.declining ?? 0, decayed, tagged, analysed, reclassified, prerequisites, recommendations, interventions, profiles, highRisk: risk.high, digests, alerts: alerts.alerts, skillFlags: alerts.interventions, monthly };
 }
 
 /** The school day in Riyadh (the job runs once per school per day). */

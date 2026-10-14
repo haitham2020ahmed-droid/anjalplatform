@@ -13,14 +13,16 @@ const at = (f: number) => {
 /**
  * The ReadRise card's content (no link): the title, a half-circle gauge from the lowest to the highest ReadRise level,
  * the level in the display serif and "Up N since <month>" when it grew since the start — or, with no level yet, one
- * line. Below the number: "Next level: N" (the next ReadRise level). Never called Lexile; no level words.
+ * call to action ("Take the placement test": no level before the placement). Below the number: "Next level: N" (the next ReadRise level). Never called Lexile; no level words.
  */
 export function ReadRiseGauge({ t, lang, level, start }: { t: TFn; lang: string; level: number | null; start: { level: number; at: string } | null }) {
   if (level === null) {
+    // 🎯 no level before the placement test (readRisePlaced): never a default number, one clear call to action
     return (
       <>
         <span className="text-[15px] font-semibold text-ink">{t("Your ReadRise level")}</span>
-        <span className="text-sm text-ink-2">{t("Read your first ReadRise article to see your level.")}</span>
+        <span data-testid="readrise-take-placement" className="mt-1 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 text-base font-bold text-white">🎯 {t("Take the placement test")}</span>
+        <span className="text-sm text-ink-2">{t("It finds your ReadRise level and the articles that fit you.")}</span>
       </>
     );
   }

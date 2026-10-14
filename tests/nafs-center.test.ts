@@ -230,7 +230,8 @@ describe("B. Tool 1 — adaptive NAFS practice", () => {
       assert.ok(!("correct" in q) && !("explanation" in q), "no key before the answer");
       seen.push(q.id);
       const key = 1;
-      const fb = await answerNafsPractice(repo, student, { id, questionId: q.id, choice: right ? key : 0 });
+      // r67: a reader's time (an answer under 3 s is a rapid guess and counts for nothing)
+      const fb = await answerNafsPractice(repo, student, { id, questionId: q.id, choice: right ? key : 0 }, new Date(Date.now() + 30_000));
       assert.equal(fb.correct, right); assert.equal(fb.answer, 1);
       assert.equal(fb.done, k === plan.length - 1, "finishes exactly when the skill is mastered");
     }
@@ -260,7 +261,7 @@ describe("B. Tool 1 — adaptive NAFS practice", () => {
     for (let k = 0; k < 3; k++) {
       const v = await nafsPracticeView(repo, classmate, id);
       assert.equal(v.done, false);
-      const fb = await answerNafsPractice(repo, classmate, { id, questionId: v.question!.id, choice: 0 });
+      const fb = await answerNafsPractice(repo, classmate, { id, questionId: v.question!.id, choice: 0 }, new Date(Date.now() + 30_000));
       assert.equal(fb.done, k === 2);
     }
     const v = await nafsPracticeView(repo, classmate, id);
@@ -299,13 +300,15 @@ describe("B. Tool 2 — the test builder's difficulty", () => {
     // the NAFS simulation with "Easy" only
     const sim = await buildNafsSimulation(repo, g6, { settings: { questions: 5, passages: 1, perPassageMin: 1 }, difficulty: 1, seed: "d6" });
     assert.ok(sim.questionIds.length > 0 && sim.questionIds.every((id) => idx.get(id)!.difficulty === 1));
-    assert.match(read("src/components/nafs/test-builder.tsx"), /"Mixed"/);
+    // (owner r67: one builder; the difficulty choice — Any · Easy · Medium · Hard · Mixed · Adaptive — is shared)
+    assert.match(read("src/components/nafs/difficulty-picker.tsx"), /DIFFICULTY_CHOICES/);
+    assert.match(read("src/components/nafs/nafs-builder.tsx"), /<DifficultyPicker /);
   });
 });
 
 describe("C + D. the teacher's center and the student's NAFS icon", () => {
   test("teacher tabs in order + About NAFS link; Home summary; bubble sheets under Marking", async () => {
-    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Adaptive practice", "Create test", "Question bank", "Marking", "Reports"]);
+    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]); // owner r67: Practice · Tests
     for (const x of CENTER_TABS) assert.ok(hasAr(x.label), x.label);
     const page = read("src/app/teacher/nafs/page.tsx");
     assert.match(page, /tab=about/); assert.match(page, /canSeeNafs\(repo, actor\)/);

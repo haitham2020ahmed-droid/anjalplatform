@@ -1,0 +1,485 @@
+{
+ "code": "LN-178",
+ "title": "Drama: scenes and stage directions",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.7.5"
+ ],
+ "families": [
+  "drama-elements"
+ ],
+ "skillNames": [
+  "Drama Structure and Stage Directions",
+  "Elements of Drama"
+ ],
+ "statements": [
+  "R-0621",
+  "R-0623"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A play is a story to act",
+     "text": "A **play** (drama) is a story written to be **acted out** on a stage.\n\nIt looks different from a story in a book."
+    },
+    {
+     "title": "Who is speaking?",
+     "text": "The **cast list** names the characters.\n\nEach line starts with a **name**. The words after the name are what that character **says**. This is called **dialogue**."
+    },
+    {
+     "title": "Words in brackets",
+     "text": "Words in **brackets ( )** are **stage directions**.\n\nThey tell actors **what to do** and **how to say** a line. Actors do **not** say them out loud."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. To find **who speaks**, look at the **name** at the start of the line.\n2. To find **what a character does or feels**, look in the **brackets**.\n\nPoint to the name or the brackets to prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "NOOR: (whispering) Is the baby asleep?",
+      "role": "key"
+     },
+     {
+      "t": "MOTHER: Yes. Let's play quietly.",
+      "role": "detail"
+     },
+     {
+      "t": "NOOR: (tiptoeing to the door) I'll get my blocks.",
+      "role": "key"
+     }
+    ],
+    "explain": "**NOOR** and **MOTHER** are the names. They tell who speaks.\n\n**(whispering)** and **(tiptoeing to the door)** are stage directions. They show how Noor speaks and moves. Noor does not say them."
+   },
+   "together": {
+    "passage": "CAST: SAMI, a boy; MOTHER\nSAMI: (running in) Mum! I got full marks!\nMOTHER: (hugging him) I am so proud of you!\nSAMI: (smiling) Can we have pizza tonight?",
+    "stem": "What do the words in brackets tell us?",
+    "options": [
+     "What the characters do",
+     "What the characters say out loud",
+     "The name of the play",
+     "When the play was written"
+    ],
+    "answer": 0,
+    "hint": "Do the characters say those words? Look at 'running in' and 'hugging him'.",
+    "good": "Yes! The words in brackets are stage directions. They show what the characters do."
+   },
+   "evidence": {
+    "sentences": [
+     "CAST: SAMI, a boy; MOTHER",
+     "SAMI: (running in) Mum! I got full marks!",
+     "MOTHER: (hugging him) I am so proud of you!",
+     "SAMI: (smiling) Can we have pizza tonight?"
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the brackets tell what the characters do. Tap 2 lines with an action in brackets.",
+    "wrong": "This is the cast list. It names the characters. Find lines with actions in brackets."
+   },
+   "checks": [
+    {
+     "passage": "ALI: (looking under the bed) Where is my shoe?\nDAD: Did you look in the hall?\nALI: (running out) I'll check!",
+     "stem": "Who speaks first?",
+     "options": [
+      "Dad",
+      "Mum",
+      "The shoe",
+      "Ali"
+     ],
+     "answer": 3,
+     "why": "The first line starts with the name ALI, so Ali speaks first."
+    },
+    {
+     "passage": "HIND: (yawning) I am so tired.\nRANA: Go to bed, then!",
+     "stem": "Which words are NOT spoken out loud?",
+     "options": [
+      "I am so tired.",
+      "yawning",
+      "Go to bed",
+      "then"
+     ],
+     "answer": 1,
+     "why": "'yawning' is in brackets. It is a stage direction, so Hind does it but does not say it."
+    },
+    {
+     "passage": "OMAR: (crying) My kite is broken.\nSISTER: (sitting next to him) We can fix it together.",
+     "stem": "How does Omar feel?",
+     "options": [
+      "happy",
+      "angry",
+      "sad",
+      "sleepy"
+     ],
+     "answer": 2,
+     "why": "The stage direction '(crying)' shows that Omar is sad."
+    }
+   ],
+   "again": {
+    "title": "Say it or do it?",
+    "text": "Read a line of a play and sort it:\n\n1. **SAY IT**: the words after the name.\n2. **DO IT**: the words in brackets.\n\nThe name just tells **who**.",
+    "example": "LAILA: (waving) Goodbye, Grandma!\n\nWho? **Laila**. Do it: **wave**. Say it: **'Goodbye, Grandma!'**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Parts of a play",
+     "text": "1. **Cast list**: the characters.\n2. **Dialogue**: what characters say, after their names.\n3. **Stage directions**: words in brackets, often in *italics*.\n\nIn a play, there is usually **no narrator** to explain things. The dialogue and stage directions tell the whole story."
+    },
+    {
+     "title": "What stage directions do",
+     "text": "Stage directions can tell:\n\n1. The **setting**: where and when the scene happens.\n2. **Actions**: who enters, exits or moves.\n3. **How** to say a line: (angrily), (whispering).\n4. **Feelings** a character may not say aloud."
+    },
+    {
+     "title": "Read them closely",
+     "text": "Don't skip the brackets! A stage direction can show what a character is **really** thinking.\n\nSomeone may say 'I'm fine' **(wiping away tears)**. The brackets tell the truth."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the question: is it about **setting**, **action** or **feeling**?\n2. Look in the **stage directions** for the answer.\n3. Check the **dialogue** too: does it agree?\n\nPoint to the exact words in brackets as your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "(A park. Afternoon. A football rolls across the grass.)",
+      "role": "key"
+     },
+     {
+      "t": "ZAID: (picking up the ball) Is this yours?",
+      "role": "detail"
+     },
+     {
+      "t": "SALEM: (shyly, looking at his feet) Yes... thank you.",
+      "role": "key"
+     },
+     {
+      "t": "ZAID: Do you want to play with us?",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first stage direction gives the **setting**: a park in the afternoon.\n\n**(shyly, looking at his feet)** shows how Salem feels. He does not say 'I am shy'; the stage direction shows it."
+   },
+   "together": {
+    "passage": "(A small kitchen. Early morning. HUDA stands at the counter, quietly mixing flour and eggs. Her brother BADER enters, rubbing his eyes.)\nBADER: Why are you up so early?\nHUDA: (not looking up) No reason.\nBADER: (noticing a card that says 'Happy Birthday, Mum') Oh! Is it today?\nHUDA: (finger to her lips) Shh! She's still asleep. Help me, quickly!\n(BADER grabs a spoon and starts to stir.)",
+    "stem": "What do the stage directions show about Huda?",
+    "options": [
+     "She is too tired to cook breakfast.",
+     "She is angry with her brother Bader.",
+     "She is preparing a secret surprise.",
+     "She has forgotten Mum's birthday."
+    ],
+    "answer": 2,
+    "hint": "Look in the brackets: what is Huda making, what card is there, and why does she put a finger to her lips?",
+    "good": "Yes! She is mixing flour and eggs early, there is a birthday card, and she signals 'Shh!' It is a secret surprise for Mum."
+   },
+   "evidence": {
+    "sentences": [
+     "(A small kitchen. Early morning. HUDA stands at the counter, quietly mixing flour and eggs. Her brother BADER enters, rubbing his eyes.)",
+     "BADER: Why are you up so early?",
+     "HUDA: (not looking up) No reason.",
+     "BADER: (noticing a card that says 'Happy Birthday, Mum') Oh! Is it today?",
+     "HUDA: (finger to her lips) Shh! She's still asleep. Help me, quickly!",
+     "(BADER grabs a spoon and starts to stir.)"
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Huda is preparing a secret surprise. Tap 2 lines whose stage directions show it.",
+    "wrong": "This line does not show the surprise. Find the stage directions about the baking, the card, or keeping quiet."
+   },
+   "checks": [
+    {
+     "passage": "(A busy airport. People rush past with suitcases. KHALID sits alone, holding a sign that says 'Welcome, Grandpa'.)\nKHALID: (checking his watch) The plane landed an hour ago...",
+     "stem": "What does the first stage direction tell us?",
+     "options": [
+      "Where the scene happens and what Khalid is doing",
+      "What Grandpa says when he arrives",
+      "How the play will end",
+      "Why the plane is so late"
+     ],
+     "answer": 0,
+     "why": "It gives the setting (a busy airport) and shows Khalid waiting with a sign for his grandfather."
+    },
+    {
+     "passage": "MOTHER: Who broke the blue vase?\nMARAM: (in a shaky voice, hiding her hands behind her back) I... I didn't break it.",
+     "stem": "What do the stage directions suggest about Maram?",
+     "options": [
+      "She is proud of herself.",
+      "She is sleepy and bored.",
+      "She is laughing at a joke.",
+      "She is nervous about the vase."
+     ],
+     "answer": 3,
+     "why": "Her 'shaky voice' and hidden hands show she is nervous. The stage directions tell us more than her words."
+    },
+    {
+     "passage": "TEACHER: Who wants to read first?\n(No one moves. Then FAISAL slowly raises his hand.)\nTEACHER: (smiling) Thank you, Faisal.\n(The bell rings. The students exit.)",
+     "stem": "What happens at the end of the scene?",
+     "options": [
+      "Faisal reads a long poem aloud.",
+      "The bell rings and the students leave.",
+      "The teacher leaves the classroom.",
+      "No one raises a hand to read."
+     ],
+     "answer": 1,
+     "why": "The last stage direction says the bell rings and the students exit, which means they leave the stage."
+    }
+   ],
+   "again": {
+    "title": "Imagine the stage",
+    "text": "Close your eyes and picture the play on a stage.\n\n1. The **first brackets** build the stage: what do you see?\n2. Each later bracket tells the actors **what to do**.\n3. Watch the actors in your mind. What do their actions show?",
+    "example": "(A dark tent. Wind howls. RAKAN holds a torch with shaking hands.)\n\nYou see: **a dark tent in a storm**. The shaking hands show: **Rakan is scared**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Acts and scenes",
+     "text": "Longer plays are divided into **acts**, and acts into **scenes**.\n\nA new scene usually means a change of **time** or **place**. The stage direction at the start of each scene tells you what changed."
+    },
+    {
+     "title": "How structure moves the plot",
+     "text": "Playwrights choose **which moments** to show. Between scenes, time can jump: 'Two weeks later'.\n\nAsk: **Why did the playwright place these two scenes side by side?** Often the second scene shows a result or a change."
+    },
+    {
+     "title": "Stage directions build character and mood",
+     "text": "Stage directions can:\n\n1. Reveal **character**: (pretends to be asleep, one eye open) shows a playful person.\n2. Create **mood**: (a single candle; wind rattles the shutters) feels tense.\n3. Show a **change** between characters: (they look at each other; she almost smiles)."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Compare the **opening stage directions** of each scene: what changed in time, place and situation?\n2. Find **actions** in brackets that show how characters have changed.\n3. Use both dialogue **and** stage directions as evidence.\n\nA good answer explains what the structure or the stage direction **adds** to the play."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "SCENE 1 (The souq at noon. Crowds, noise, shouting traders.)",
+      "role": "detail"
+     },
+     {
+      "t": "ADEL: (shouting over the noise) Fresh dates! Best in the city!",
+      "role": "detail"
+     },
+     {
+      "t": "SCENE 2 (The same souq at midnight. Empty. One lamp. ADEL sits alone, counting a few coins.)",
+      "role": "key"
+     },
+     {
+      "t": "ADEL: (softly) Tomorrow will be better.",
+      "role": "key"
+     }
+    ],
+    "explain": "The two scenes show the **same place** at different times. The contrast, from crowded and loud to empty and quiet, shows how hard Adel works and how little he earns.\n\nThe stage directions build that contrast and a **hopeful but tired** mood."
+   },
+   "together": {
+    "passage": "SCENE 1\n(A school corridor. A poster reads 'Science Fair: Team Sign-Up Closes Today'. LAMA and DANA stand apart, arms crossed.)\nLAMA: I'll do the volcano project alone, then.\nDANA: Fine. I'll do the solar oven alone.\n(They turn and walk off in opposite directions.)\nSCENE 2\n(Two weeks later. The school hall. LAMA's volcano is leaking all over the table. Across the room, DANA's oven will not get hot.)\nLAMA: (wiping the table, glancing at Dana) It needs a better seal...\nDANA: (walking over slowly) My oven needs your foil. Your volcano needs my tape.\n(They look at each other. LAMA almost smiles.)",
+    "stem": "How does the change from Scene 1 to Scene 2 develop the plot?",
+    "options": [
+     "It goes back in time to show how the two girls first met at school.",
+     "It jumps two weeks ahead to show both girls failing alone and moving back together.",
+     "It shows the very same moment again from a different character's point of view.",
+     "It moves the story to a new school in another city with new characters."
+    ],
+    "answer": 1,
+    "hint": "Read the first stage direction of Scene 2. How much time has passed? How are the projects going?",
+    "good": "Yes! 'Two weeks later', both projects are failing. Dana walks over and Lama almost smiles: the girls start to come back together."
+   },
+   "evidence": {
+    "sentences": [
+     "SCENE 1",
+     "(A school corridor. A poster reads 'Science Fair: Team Sign-Up Closes Today'. LAMA and DANA stand apart, arms crossed.)",
+     "LAMA: I'll do the volcano project alone, then.",
+     "DANA: Fine. I'll do the solar oven alone.",
+     "(They turn and walk off in opposite directions.)",
+     "SCENE 2",
+     "(Two weeks later. The school hall. LAMA's volcano is leaking all over the table. Across the room, DANA's oven will not get hot.)",
+     "LAMA: (wiping the table, glancing at Dana) It needs a better seal...",
+     "DANA: (walking over slowly) My oven needs your foil. Your volcano needs my tape.",
+     "(They look at each other. LAMA almost smiles.)"
+    ],
+    "proof": [
+     6,
+     8,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: it jumps ahead to show both girls failing alone and moving back together. Tap 2 lines from Scene 2 that prove it.",
+    "wrong": "This line is from Scene 1 or is only a label. Find the Scene 2 lines that show the time jump, the failing projects or the girls coming together."
+   },
+   "checks": [
+    {
+     "passage": "(GRANDFATHER sits in his armchair. When the children run in, he quickly hides a small wrapped box behind his back, closes his eyes and snores loudly. One eye opens a little.)",
+     "stem": "What do the stage directions reveal about Grandfather?",
+     "options": [
+      "He is very tired and wants to be left alone.",
+      "He is angry with the noisy children.",
+      "He is playful and planning a surprise.",
+      "He is unwell and needs to see a doctor."
+     ],
+     "answer": 2,
+     "why": "He hides a wrapped box, pretends to snore, and peeks with one eye. These actions show a playful man with a surprise."
+    },
+    {
+     "passage": "CAST: OLD SALIM, a fisherman; YOUNG SALIM, the same man at age ten; SALIM'S FATHER.\nScene 1: The harbour, today.\nScene 2: The same harbour, sixty years ago.\nScene 3: The harbour, today.",
+     "stem": "What does this structure suggest about the play?",
+     "options": [
+      "It will show Salim's past to help explain his present.",
+      "It is about two different men who are both called Salim.",
+      "It takes place in many different countries.",
+      "It tells events only in the order they happened."
+     ],
+     "answer": 0,
+     "why": "The cast list says Young Salim is 'the same man at age ten', and Scene 2 goes back sixty years between two scenes set today."
+    },
+    {
+     "passage": "(Night. The power has failed. A single candle lights the room. Wind rattles the shutters. NOUF sits very still, listening.)",
+     "stem": "What mood do these stage directions create?",
+     "options": [
+      "Cheerful and lively",
+      "Calm and sleepy",
+      "Silly and funny",
+      "Tense and uneasy"
+     ],
+     "answer": 3,
+     "why": "Darkness, a single candle, rattling shutters and Nouf sitting still and listening all create a tense, uneasy mood."
+    }
+   ],
+   "again": {
+    "title": "Snapshot each scene",
+    "text": "Treat each scene like a **photo**.\n\n1. Describe photo 1: where, when, who, what is happening.\n2. Describe photo 2 the same way.\n3. Ask: **What changed between the photos, and why did the playwright show us both?**",
+    "example": "Photo 1: two girls walk away from each other.\nPhoto 2: two weeks later, both projects fail; one girl walks over.\n\nWhat changed? **They need each other.** The structure shows it without a narrator."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Structure creates meaning",
+     "text": "Playwrights shape meaning through **structure**: the order of scenes, time jumps and where a scene **ends**.\n\nPlacing two very different scenes side by side creates **contrast** and makes the audience ask questions."
+    },
+    {
+     "title": "Subtext in stage directions",
+     "text": "**Subtext** is what a character feels but does not say. Stage directions often reveal it.\n\n'I'm happy for her' **(gripping the edge of the table)** tells the audience the opposite of the words."
+    },
+    {
+     "title": "Asides and pauses",
+     "text": "An **aside** is a line spoken to the audience that other characters do not hear. It lets us share a secret.\n\nA **pause** or **silence** in the stage directions can be as powerful as a speech: it shows a character thinking, struggling or changing."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse how drama works:\n\n1. Track a character's **actions in brackets** across the scene, from start to end.\n2. Note **pauses**, **gestures** and **changes** in how lines are spoken.\n3. Compare the stage directions with the **dialogue**: do they match or contrast?\n\nThe best answer describes a **development**, not one moment."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "REEM: (smiling brightly, gripping the edge of the table) Of course I don't mind that you chose Hessa as captain.",
+      "role": "key"
+     },
+     {
+      "t": "COACH: Good. I knew you'd understand.",
+      "role": "detail"
+     },
+     {
+      "t": "REEM: (still smiling) I'm happy for her. Really.",
+      "role": "detail"
+     },
+     {
+      "t": "(COACH exits. REEM sinks into a chair and stares at the floor.)",
+      "role": "key"
+     }
+    ],
+    "explain": "Reem's words say she is happy. The stage directions, gripping the table and sinking into a chair once alone, reveal the **subtext**: she is deeply disappointed.\n\nThe **contrast** between words and actions builds sympathy for Reem."
+   },
+   "together": {
+    "passage": "(The family majlis. Evening. FATHER reads a newspaper. AMAL, sixteen, stands holding a letter behind her back.)\nAMAL: Baba, can I ask you something?\nFATHER: (not lowering the newspaper) Mm.\nAMAL: (taking a deep breath) The university in Jeddah accepted me. For medicine.\n(A long pause. FATHER slowly folds the newspaper and sets it on the table.)\nFATHER: Jeddah is far.\nAMAL: (quickly) I know. I can stay with Aunt Mariam. I'll call every day. I-\nFATHER: (raising a hand; she stops) Your grandmother wanted to be a doctor. There was no school for her.\n(He stands, walks to the shelf and takes down an old, worn medical book. He holds it out to her.)\nFATHER: She would want you to have this.",
+    "stem": "How do the stage directions develop Father's response?",
+    "options": [
+     "They show Father is angry, since he will not look at Amal at any point.",
+     "They show Father ignores the news and simply goes on reading his paper.",
+     "They show Father is confused about where Jeddah is and why she would go.",
+     "They show a shift from distraction to full attention, ending in a gesture of support."
+    ],
+    "answer": 3,
+    "hint": "Track Father's actions in brackets from the first line to the last. What does he do with the newspaper? What does he give Amal?",
+    "good": "Yes! He starts behind his newspaper, then pauses and folds it, then stands and offers the book. His actions move from distraction to support."
+   },
+   "evidence": {
+    "sentences": [
+     "(The family majlis. Evening. FATHER reads a newspaper. AMAL, sixteen, stands holding a letter behind her back.)",
+     "AMAL: Baba, can I ask you something?",
+     "FATHER: (not lowering the newspaper) Mm.",
+     "AMAL: (taking a deep breath) The university in Jeddah accepted me. For medicine.",
+     "(A long pause. FATHER slowly folds the newspaper and sets it on the table.)",
+     "FATHER: Jeddah is far.",
+     "AMAL: (quickly) I know. I can stay with Aunt Mariam. I'll call every day. I-",
+     "FATHER: (raising a hand; she stops) Your grandmother wanted to be a doctor. There was no school for her.",
+     "(He stands, walks to the shelf and takes down an old, worn medical book. He holds it out to her.)",
+     "FATHER: She would want you to have this."
+    ],
+    "proof": [
+     2,
+     4,
+     8
+    ],
+    "need": 3,
+    "stem": "The answer was: Father shifts from distraction to attention to support. Tap 3 stage directions that show each step.",
+    "wrong": "This line is Amal's, or it is dialogue. Find the stage directions that show what Father does at the start, middle and end."
+   },
+   "checks": [
+    {
+     "passage": "TEAM LEADER: We've given the main speech to Hessa this year.\nSAMAR: (smiling brightly, twisting her pen until it snaps) Of course I don't mind. I'm happy for her.",
+     "stem": "What is the effect of the stage directions?",
+     "options": [
+      "They show that Samar truly feels happy and calm.",
+      "They suggest Samar's words hide her disappointment.",
+      "They show that Samar is about to leave the room.",
+      "They show that Samar's pen was already broken."
+     ],
+     "answer": 1,
+     "why": "Her bright smile and the pen she twists until it snaps contrast with her calm words. The stage directions reveal the subtext: she is upset."
+    },
+    {
+     "passage": "SAEED: (to his uncle) Yes, Uncle, I finished all my homework.\n(aside, to the audience) Well... most of it. The maths can wait until morning.\nUNCLE: Excellent! Then you can come to the match with me.",
+     "stem": "Why does the playwright use an aside here?",
+     "options": [
+      "To show that the uncle can hear Saeed's thoughts",
+      "To change the setting to the next morning",
+      "To let the audience know what the uncle does not",
+      "To show that Saeed has finished every subject"
+     ],
+     "answer": 2,
+     "why": "The aside is heard only by the audience. We know the maths is unfinished; the uncle does not, which creates humour."
+    },
+    {
+     "passage": "Scene 3 ends with Khalid shouting that he will never speak to his brother again and slamming the door. Scene 4 opens a year later: the two brothers are painting their mother's house side by side, in silence.",
+     "stem": "What is the effect of placing these scenes one after the other?",
+     "options": [
+      "The contrast makes the audience ask how they made peace.",
+      "It shows that Scene 4 happens before Scene 3.",
+      "It proves that the brothers never argued at all.",
+      "It shows that their mother has moved away for good."
+     ],
+     "answer": 0,
+     "why": "Jumping from a furious ending to a quiet scene of working together creates contrast and makes the audience wonder what happened in that year."
+    }
+   ],
+   "again": {
+    "title": "Mute the dialogue",
+    "text": "Read **only the stage directions**, as if the sound were turned off.\n\n1. What do you see the characters **do**, from start to end?\n2. What story do the actions tell **on their own**?\n3. Now add the words back. Do they agree with the actions, or hide something?",
+    "example": "With the sound off: Father reads → pauses → folds the paper → stands → offers a book.\n\nEven without words, we see him **turn toward Amal and support her**."
+   }
+  }
+ }
+}

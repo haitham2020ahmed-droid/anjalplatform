@@ -1,0 +1,470 @@
+{
+ "code": "LN-046",
+ "title": "Keeping verb tenses consistent",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1.d"
+ ],
+ "families": [
+  "verb-tenses"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0092",
+  "L-0200",
+  "L-0201",
+  "L-0292",
+  "L-0293",
+  "L-0294",
+  "L-0326",
+  "L-0327",
+  "L-0328"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "When did it happen?",
+     "text": "Verbs tell **when** something happens.\n\n**Past**: I walked.\n**Present**: I walk.\n**Future**: I will walk."
+    },
+    {
+     "title": "Stay in one time",
+     "text": "In a story, keep the verbs in the **same time**.\n\n“Yesterday I went to the park and **play** ball.” This mixes past (went) and present (play).\n\nFix: “I went to the park and **played** ball.”"
+    },
+    {
+     "title": "Time clues",
+     "text": "**yesterday, last week, ago** → past\n**now, today, every day** → present\n**tomorrow, next week** → future"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find a **time clue** (yesterday, now, tomorrow) or a verb that shows the time.\n2. Check each verb. Does it match?\n3. Point to the sentences that prove which time is right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Last night, Reem read a book.",
+      "role": "key"
+     },
+     {
+      "t": "Then she goes to sleep.",
+      "role": "detail"
+     }
+    ],
+    "explain": "“Last night” tells us the story is in the **past**. “Read” fits.\n\n“Goes” is present. It should be **went**: “Then she went to sleep.”"
+   },
+   "together": {
+    "passage": "Yesterday, Omar visited his uncle. They sat in the garden. They eat sweet dates. Then Omar walked home.",
+    "stem": "Which word should replace “eat”?",
+    "options": [
+     "eats",
+     "ate",
+     "will eat",
+     "eating"
+    ],
+    "answer": 1,
+    "hint": "Look for the time clue at the start. Is this story in the past, the present or the future?",
+    "good": "Yes! “Yesterday” shows the past, so they **ate** sweet dates."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday, Omar visited his uncle.",
+     "They sat in the garden.",
+     "They eat sweet dates.",
+     "Then Omar walked home."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 1,
+    "stem": "Tap a sentence that proves the story happened in the past.",
+    "wrong": "This is the sentence with the mistake. Find a sentence with a time clue or a past verb."
+   },
+   "checks": [
+    {
+     "passage": "Last week, we ___ a cake for Mom.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "bake",
+      "bakes",
+      "baked",
+      "will bake"
+     ],
+     "answer": 2,
+     "why": "“Last week” is in the past, so the verb is **baked**."
+    },
+    {
+     "passage": "Every day, Sara walks to school and ___ her friends.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "met",
+      "meets",
+      "will met",
+      "meeting"
+     ],
+     "answer": 1,
+     "why": "“Every day” and “walks” are present, so the verb is **meets**."
+    },
+    {
+     "passage": "Tomorrow, my family ___ to Dammam.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "will drive",
+      "drove",
+      "driving",
+      "driven"
+     ],
+     "answer": 0,
+     "why": "“Tomorrow” is in the future, so we use **will drive**."
+    }
+   ],
+   "again": {
+    "title": "Match the clue",
+    "text": "Find the time word first.\n\n**yesterday** → past (cleaned, went, ate)\n**every day** → present (walk, walks)\n**tomorrow** → future (will + verb)",
+    "example": "“Yesterday I ___ my room.” → yesterday = past → **cleaned**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Tense shifts",
+     "text": "A **tense shift** happens when a writer changes from past to present, or the other way, **for no reason**.\n\nIt confuses the reader: when did it happen?"
+    },
+    {
+     "title": "Keep the story's tense",
+     "text": "If a story starts in the past, keep it in the past:\n\n“The bus **stopped**. The doors **opened**. A man **steps** out.”\n\n“Steps” breaks the pattern → **stepped**."
+    },
+    {
+     "title": "Irregular past verbs",
+     "text": "Many past verbs do not end in -ed:\n\ngo → **went** · see → **saw** · eat → **ate**\nrun → **ran** · take → **took** · grow → **grew**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the tense of most verbs in the text.\n2. Find the verb that does not match.\n3. Point to sentences that show the tense the writer is using."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The fans cheered when the players ran onto the field.",
+      "role": "detail"
+     },
+     {
+      "t": "The goalkeeper catches the first shot easily.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone clapped.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Most verbs are **past**: cheered, ran, clapped. “Catches” is present. It is a tense shift.\n\nFix: “The goalkeeper **caught** the first shot easily.”"
+   },
+   "together": {
+    "passage": "Last spring, my class grew beans in paper cups. Each student planted three seeds and watered them every morning. After a week, tiny green shoots appeared. Then the plants grow taller every day. By the end of the month, we moved them into the school garden.",
+    "stem": "Which change corrects the tense shift?",
+    "options": [
+     "“grow” → “grew”",
+     "“planted” → “plants”",
+     "“appeared” → “appear”",
+     "“moved” → “move”"
+    ],
+    "answer": 0,
+    "hint": "Most verbs are in one tense. Which verb does not match them?",
+    "good": "Yes! Every other verb is past, so the plants **grew** taller every day."
+   },
+   "evidence": {
+    "sentences": [
+     "Last spring, my class grew beans in paper cups.",
+     "Each student planted three seeds and watered them every morning.",
+     "After a week, tiny green shoots appeared.",
+     "Then the plants grow taller every day.",
+     "By the end of the month, we moved them into the school garden."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that prove the story is told in the past.",
+    "wrong": "This is the sentence with the shift. Find sentences with past verbs or a past time clue."
+   },
+   "checks": [
+    {
+     "passage": "When the storm began, we ___ inside and closed the windows.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "run",
+      "ran",
+      "runs",
+      "running"
+     ],
+     "answer": 1,
+     "why": "“Began” and “closed” are past, so the verb is **ran**."
+    },
+    {
+     "passage": "Four sentences from a story.",
+     "stem": "Which sentence has an improper tense shift?",
+     "options": [
+      "Faisal opened the door and smiled.",
+      "Faisal opens the door and smiles.",
+      "Faisal will open the door and smile.",
+      "Faisal opens the door and smiled."
+     ],
+     "answer": 3,
+     "why": "“Opens” is present but “smiled” is past. The two actions happen at the same time, so they should match."
+    },
+    {
+     "passage": "Each morning, my grandfather wakes early. He prayed and then reads the newspaper.",
+     "stem": "Which verb is in the wrong tense?",
+     "options": [
+      "wakes",
+      "reads",
+      "prayed",
+      "No verb is wrong."
+     ],
+     "answer": 2,
+     "why": "“Each morning”, “wakes” and “reads” are present. “Prayed” should be **prays**."
+    }
+   ],
+   "again": {
+    "title": "Find the boss tense",
+    "text": "Count the verbs. The tense used most is the **boss tense**.\n\nAny verb that does not match the boss, without a good reason, is the shift.",
+    "example": "“We packed, we drove, we arrive at night.” → Boss: past (packed, drove). “Arrive” does not match → **arrived**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Edit the whole passage",
+     "text": "In longer writing, check **every** verb, not only the first few.\n\nShifts often hide in the middle of a paragraph."
+    },
+    {
+     "title": "When a change is correct",
+     "text": "A change is **correct** when the time really changes:\n\n“Last year I **lived** in Tabuk. Now I **live** in Dammam.”\n\nThe clue “now” shows a real change in time."
+    },
+    {
+     "title": "Facts that are always true",
+     "text": "Facts that are always true can stay in the present, even in a past story:\n\n“Our teacher **explained** that water **boils** at 100 °C.”\n\nWater still boils at 100 °C today."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Decide the main time of the passage.\n2. Check each verb against it.\n3. If a verb changes, look for a reason: a clue like “now” or “today”, or a fact that is always true.\n4. No reason? It is an improper shift. Point to it, and to the sentences that show the main time."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In 1969, astronauts landed on the moon for the first time.",
+      "role": "detail"
+     },
+     {
+      "t": "Millions of people watch the event on television.",
+      "role": "key"
+     },
+     {
+      "t": "Today, the moon landing is still remembered as a great achievement.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first two sentences tell about 1969, so “watch” should be **watched**.\n\nThe last sentence uses “is” correctly: the clue **today** shows a real change in time."
+   },
+   "together": {
+    "passage": "Our school library held a book fair last month. Students from every grade came to buy books, and the librarian set up tables in the hall. My friend Dana found a book about volcanoes. She explained to me that lava is melted rock from deep inside the Earth. While we waited in line, a teacher announces a prize for the student who read the most books that term. Everyone cheered. Today, Dana is still reading her volcano book.",
+    "stem": "Which verb is an improper tense shift?",
+    "options": [
+     "“is” in “lava is melted rock”",
+     "“announces”",
+     "“is” in “Dana is still reading”",
+     "“explained”"
+    ],
+    "answer": 1,
+    "hint": "Two present verbs here have a reason: one is always true, one has a time clue. Which present verb has no reason?",
+    "good": "Yes! The announcement happened during the fair, in the past. It should be **announced**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school library held a book fair last month.",
+     "Students from every grade came to buy books, and the librarian set up tables in the hall.",
+     "My friend Dana found a book about volcanoes.",
+     "She explained to me that lava is melted rock from deep inside the Earth.",
+     "While we waited in line, a teacher announces a prize for the student who read the most books that term.",
+     "Everyone cheered.",
+     "Today, Dana is still reading her volcano book."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the book fair happened in the past.",
+    "wrong": "This sentence does not show the past time of the fair. Look for past verbs or a past time clue."
+   },
+   "checks": [
+    {
+     "passage": "Last year my brother lived in Abha. Now he lives in Riyadh.",
+     "stem": "Is the change from “lived” to “lives” correct?",
+     "options": [
+      "No, both verbs must be past.",
+      "No, both verbs must be present.",
+      "Yes, “now” shows a real change in time.",
+      "Yes, any tense can be used."
+     ],
+     "answer": 2,
+     "why": "“Last year” is past and “now” is present. The time really changes, so the tense changes too."
+    },
+    {
+     "passage": "The scientist studied the sample for hours. Finally, she discovers a tiny crystal and called her team.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "Finally, she discovered a tiny crystal and called her team.",
+      "Finally, she discovered a tiny crystal and calls her team.",
+      "Finally, she discovers a tiny crystal and calls her team.",
+      "Finally, she will discover a tiny crystal and called her team."
+     ],
+     "answer": 0,
+     "why": "The passage begins in the past (studied), so both verbs should be past: **discovered** and **called**."
+    },
+    {
+     "passage": "Each summer, our family travels to Abha. We stay with my aunt, and we hiked in the mountains every evening.",
+     "stem": "Which change makes the tenses consistent?",
+     "options": [
+      "“travels” → “traveled”",
+      "“stay” → “stayed”",
+      "“hiked” → “hike”",
+      "No change is needed."
+     ],
+     "answer": 2,
+     "why": "“Each summer”, “travels” and “stay” describe a habit in the present, so **hike** matches."
+    }
+   ],
+   "again": {
+    "title": "Look for a reason",
+    "text": "When the tense changes, ask: **Is there a reason?**\n\n1. A time clue (now, today, next year)?\n2. A fact that is always true?\n\nNo reason → change the verb back to the main tense.",
+    "example": "“Yesterday we visited the fort. The guide shows us a cannon.” → A reason for present? No. → The guide **showed** us a cannon."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Consistent, not identical",
+     "text": "Consistent tense does not mean every verb is the same. It means verbs show time **logically**.\n\n“By the time we **arrived**, the film **had started**.”\n\nBoth are past: one event happened earlier than the other."
+    },
+    {
+     "title": "Keep the time frame",
+     "text": "Keep the **time frame** steady across all verb forms:\n\n“She **was writing** when the lights **went** out.” (past + past)\n\n“She **was writing** when the lights **go** out.” is a shift."
+    },
+    {
+     "title": "An editing plan",
+     "text": "1. Set the time frame of the passage: past or present.\n2. Mark every verb, including helpers (was, has, will).\n3. Fix only verbs that break the frame with no reason.\n\nSome passages use present tense on purpose, for example to explain how something works."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your edit with the text:\n\n1. Point to sentences that set the time frame.\n2. Point to the verb that breaks it.\n3. Check that no clue explains the change: a time word, a fact always true, or an earlier event."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Scientists study how desert plants survive.",
+      "role": "detail"
+     },
+     {
+      "t": "The roots of some shrubs reach deep underground, where they found water.",
+      "role": "key"
+     },
+     {
+      "t": "Their small leaves lose little water to the sun.",
+      "role": "detail"
+     }
+    ],
+    "explain": "This passage explains how things work, so it uses the **present**: study, reach, lose.\n\n“Found” breaks the frame. It should be **find**."
+   },
+   "together": {
+    "passage": "A sandstorm, or haboob, can turn a sunny afternoon into darkness within minutes. It begins when cold air rushing down from a thunderstorm pushes dust and sand high into the sky. The wall of dust moves across the land like a giant wave. Drivers lose sight of the road, and airports sometimes stopped flights until the air clears. When the storm passes, a thin layer of fine dust covers cars, roofs and streets. Weather experts watch radar closely so that they can warn people before a haboob arrives.",
+    "stem": "Which change keeps the verb tenses consistent?",
+    "options": [
+     "“begins” → “began”",
+     "“covers” → “covered”",
+     "“watch” → “watched”",
+     "“stopped” → “stop”"
+    ],
+    "answer": 3,
+    "hint": "First decide the time frame. Is this a story about one storm, or an explanation of how storms work?",
+    "good": "Yes! The passage explains how a haboob works, in the present. Airports sometimes **stop** flights."
+   },
+   "evidence": {
+    "sentences": [
+     "A sandstorm, or haboob, can turn a sunny afternoon into darkness within minutes.",
+     "It begins when cold air rushing down from a thunderstorm pushes dust and sand high into the sky.",
+     "The wall of dust moves across the land like a giant wave.",
+     "Drivers lose sight of the road, and airports sometimes stopped flights until the air clears.",
+     "When the storm passes, a thin layer of fine dust covers cars, roofs and streets.",
+     "Weather experts watch radar closely so that they can warn people before a haboob arrives."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the passage is written in the present tense.",
+    "wrong": "This sentence contains the shift. Find sentences whose verbs are all in the present."
+   },
+   "checks": [
+    {
+     "passage": "When Khalid reached the station, the train ___ already ___.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "has … left",
+      "had … left",
+      "will … leave",
+      "is … leaving"
+     ],
+     "answer": 1,
+     "why": "The train left before Khalid reached the station. An earlier past event uses **had left**."
+    },
+    {
+     "passage": "Huda was reading in the garden when her brother runs outside with the news.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "Huda was reading in the garden when her brother ran outside with the news.",
+      "Huda is reading in the garden when her brother ran outside with the news.",
+      "Huda was reading in the garden when her brother will run outside with the news.",
+      "Huda was reading in the garden when her brother has run outside with the news."
+     ],
+     "answer": 0,
+     "why": "“Was reading” sets a past frame, so the interrupting action is also past: **ran**."
+    },
+    {
+     "passage": "(1) The old fort stood on a hill above the town. (2) Its walls were built of mud brick and stone. (3) Soldiers watch from the towers day and night. (4) Today, the fort is a museum.",
+     "stem": "Which sentence contains an improper shift?",
+     "options": [
+      "Sentence 1",
+      "Sentence 2",
+      "Sentence 3",
+      "Sentence 4"
+     ],
+     "answer": 2,
+     "why": "Sentences 1–3 describe the past, so “watch” should be **watched**. Sentence 4 has the clue “today”."
+    }
+   ],
+   "again": {
+    "title": "Draw a timeline",
+    "text": "Draw a line: **earlier → past → now → later**.\n\nPut each event from the passage on it. Each verb must match where its event sits. A verb in the wrong place is the shift.",
+    "example": "“We finished the test, and then we hand it in.” → Both events are in the past. → “hand” becomes **handed**."
+   }
+  }
+ }
+}

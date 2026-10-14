@@ -6,6 +6,7 @@ import { SourceTag, EmptyState, BTN_PRIMARY, BTN_SECONDARY } from "@/components/
 import { addStudentAction, findSkillsAction, type AddStudentState } from "@/app/teacher/home-actions";
 import type { SkillFamily } from "@/server/teacher/home";
 import { SkillQuestionPicker, dedupeSkillsByName } from "@/components/skill-picker";
+import { Combo } from "@/components/ui/combo";
 
 const OPEN = "skill-assign:open";
 const field = "min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-base";
@@ -18,9 +19,7 @@ export function ClassSelect({ classes, value }: { classes: { id: string; name: s
   return (
     <label className="flex items-center gap-2 text-sm font-semibold text-slate-700">
       <span>{t("Class")}</span>
-      <select value={value} onChange={(e) => router.push(`/teacher?classId=${encodeURIComponent(e.target.value)}`)} className="min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-base font-semibold text-brand-navy" aria-label={t("Choose a class")}>
-        {classes.map((c) => <option key={c.id} value={c.id}>{c.name} · {t("Grade {n}", { n: c.grade })}</option>)}
-      </select>
+      <Combo label={t("Choose a class")} value={value} onChange={(v) => router.push(`/teacher?classId=${encodeURIComponent(v)}`)} options={classes.map((c) => ({ value: c.id, label: c.name, hint: t("Grade {n}", { n: c.grade }) }))} className="min-w-56 text-base font-semibold" />
     </label>
   );
 }

@@ -13,6 +13,7 @@ import { countQuestionsOfSkills, schoolSkillIndex } from "../questions/skill-que
  * has shared the student's report).
  */
 import type { Repo, Row } from "../seeding/repo";
+import { mapLimit } from "../db/parallel";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
@@ -25,6 +26,8 @@ import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfil
 import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
 import { buildRanges, skillPlan } from "./skill-plan";
 import { GROWTH_SD, normFor, pctOfZ } from "./norm-tables";
+import { skillKeysFor, statusesOfSkills, type StarView } from "../skills/status";
+import type { StarInfo } from "../../lib/skill-stars";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -55,7 +58,8 @@ export async function reportStudent(repo: Repo, actor: Actor, studentId: string)
 // ------------------------------------------------------------------ Personal Study Plan
 
 export type SkillStatus = "MASTERED" | "PRACTISING" | "NEW";
-export interface PlanSkillRef { id: string; name: string; status: SkillStatus; score: number | null }
+/** `key` + `star`: the ONE skill status (skills/status.ts), the same on every page; `status` follows it. */
+export interface PlanSkillRef { id: string; name: string; status: SkillStatus; score: number | null; key?: string; star?: StarInfo }
 export interface PlanStatement { text: string; standards: string[]; skills: PlanSkillRef[] }
 export interface PlanTopic { name: string; statements: PlanStatement[] }
 export interface PlanStage { key: "REINFORCE" | "DEVELOP" | "INTRODUCE"; title: string; range: string; topics: PlanTopic[]; total: number; shown: number }
@@ -135,7 +139,7 @@ async function masteryOf(repo: Repo, studentIds: string[]): Promise<Map<string, 
 /** The RIT used for a goal area: its goal-area RIT, else the overall RIT. */
 const areaRit = (p: MapProfile | undefined, g: GroupKey) => { const a = p?.areas.find((x) => x.group === g); return a?.rit !== null && a?.rit !== undefined ? { rit: a.rit, fromGoal: true, pct: a.percentile, desc: a.descriptor } : p?.overall ? { rit: p.overall.rit, fromGoal: false, pct: p.overall.percentile, desc: p.overall.descriptor } : null; };
 
-export async function studyPlan(repo: Repo, actor: Actor, studentId: string, subject: Subject, opts: { full?: boolean; student?: ReportStudent; index?: ContinuumIndex; mastery?: Mastery; profile?: MapProfile } = {}): Promise<StudyPlanDoc> {
+export async function studyPlan(repo: Repo, actor: Actor, studentId: string, subject: Subject, opts: { full?: boolean; student?: ReportStudent; index?: ContinuumIndex; mastery?: Mastery; profile?: MapProfile; stars?: Map<string, StarView> } = {}): Promise<StudyPlanDoc> {
   const student = opts.student ?? (await reportStudent(repo, actor, studentId));
   const schoolId = s((await repo.findUnique("Student", { id: studentId }))?.schoolId);
   const p = opts.profile ?? (await mapProfiles(repo, schoolId, [studentId], subject)).get(studentId);
@@ -173,11 +177,28 @@ export async function studyPlan(repo: Repo, actor: Actor, studentId: string, sub
         const n = await countQuestionsOfSkills(repo, schoolId, ids);
         for (const st of area.stages) for (const t of st.topics) for (const x of t.statements) x.skills = x.skills.filter((k) => (n.get(k.id) ?? 0) > 0);
       }
-      const linked = new Map<string, PlanSkillRef>();
-      for (const st of area.stages.filter((x) => x.key === "DEVELOP")) for (const t of st.topics) for (const x of t.statements) for (const k of x.skills) linked.set(k.id, k);
-      area.skillsLinked = linked.size; area.skillsMastered = [...linked.values()].filter((k) => k.status === "MASTERED").length;
     }
     areas.push(area);
+  }
+  // ⭐ the ONE status of each skill (one read for the whole plan): the icon, the counts and the old 3-state follow it
+  const refs = areas.flatMap((a) => a.stages.flatMap((st) => st.topics.flatMap((t) => t.statements.flatMap((x) => x.skills))));
+  if (refs.length) {
+    const ids = [...new Set(refs.map((k) => k.id))];
+    const [stars, keys] = await Promise.all([
+      opts.stars ? Promise.resolve(opts.stars) : statusesOfSkills(repo, schoolId, [studentId], ids).then((m) => m.get(studentId) ?? new Map<string, StarView>()),
+      skillKeysFor(repo, schoolId, ids),
+    ]);
+    for (const k of refs) {
+      const v = stars.get(k.id);
+      k.key = keys.get(k.id);
+      if (v) { k.star = { status: v.status, level: v.level, answered: v.answered, score: v.score, masteredAt: v.masteredAt, reviewDueAt: v.reviewDueAt, needsSupport: v.needsSupport }; k.status = v.status === "MASTERED" ? "MASTERED" : v.status === "NOT_STARTED" ? "NEW" : "PRACTISING"; k.score = v.answered ? v.score : k.score; }
+    }
+  }
+  for (const area of areas) {
+    // skills counted once (by skill, not by grade copy): the Develop stage's skills
+    const linked = new Map<string, PlanSkillRef>();
+    for (const st of area.stages.filter((x) => x.key === "DEVELOP")) for (const t of st.topics) for (const x of t.statements) for (const k of x.skills) linked.set(k.key ?? k.id, k);
+    area.skillsLinked = linked.size; area.skillsMastered = [...linked.values()].filter((k) => k.status === "MASTERED").length;
   }
   // weakest first: focus areas, then lower RIT
   areas.sort((a, b) => Number(b.focus) - Number(a.focus) || (a.rit ?? 999) - (b.rit ?? 999));
@@ -286,7 +307,8 @@ export async function classFamilyReports(repo: Repo, actor: Actor, classId: stri
   const klass = await assertClassRead(repo, actor, classId);
   const ids = await classMembers(repo, classId);
   const docs: FamilyDoc[] = [];
-  for (const id of ids) { const d = await familyReport(repo, actor, id, now); if (d.subjects.length) docs.push(d); }
+  // ⚡ the students' reports a few at a time (was one after another: ~10 round trips per student, in a row)
+  for (const d of await mapLimit(ids, (id) => familyReport(repo, actor, id, now))) if (d.subjects.length) docs.push(d);
   docs.sort((a, b) => a.student.name.localeCompare(b.student.name));
   return { className: s(klass.name), docs };
 }

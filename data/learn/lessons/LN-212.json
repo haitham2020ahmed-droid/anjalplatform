@@ -1,0 +1,483 @@
+{
+ "code": "LN-212",
+ "title": "Finding the clue words",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.4.4.a",
+  "L.5.5.c",
+  "L.6.4.a",
+  "L.6.4.d",
+  "L.6.5.b",
+  "L.7.4.a",
+  "L.7.4.d",
+  "L.7.5.b",
+  "L.8.4.a",
+  "L.8.4.d",
+  "L.8.5.b"
+ ],
+ "families": [
+  "context-clues"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0242",
+  "R-0390",
+  "R-0405",
+  "R-0407",
+  "R-0569",
+  "R-0582",
+  "R-0592",
+  "R-0785",
+  "R-0786",
+  "R-0791",
+  "R-0793",
+  "R-0964"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Clue words",
+     "text": "When you do not know a word, **look around it**.\n\nOther words near it can tell you what it means. These are **clue words**."
+    },
+    {
+     "title": "Look near the word",
+     "text": "“The puppy was **tiny**. It could fit in my hand.”\n\nClue: **fit in my hand**. So tiny means **very small**."
+    },
+    {
+     "title": "How to find them",
+     "text": "1. Find the new word.\n2. Read the sentences around it.\n3. Find words that tell about it.\n4. Make a guess. Try it in the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is the **clue words**.\n\n1. Find the new word.\n2. Look at the sentences next to it.\n3. Tap the sentences that **help you know** the meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nora was famished.",
+      "role": "other"
+     },
+     {
+      "t": "She had not eaten all day.",
+      "role": "key"
+     },
+     {
+      "t": "She ate two plates of rice.",
+      "role": "key"
+     }
+    ],
+    "explain": "Not eating all day and eating two plates are the clues.\n\n**Famished** means **very hungry**."
+   },
+   "together": {
+    "passage": "Yousef felt drowsy after lunch. His eyes began to close. He put his head on the desk. Soon he was asleep.",
+    "stem": "What does “drowsy” mean?",
+    "options": [
+     "sleepy",
+     "angry",
+     "hungry",
+     "fast"
+    ],
+    "answer": 0,
+    "hint": "Look at what Yousef does next. His eyes close… What is happening to him?",
+    "good": "Yes! Closing eyes and falling asleep show that drowsy means sleepy."
+   },
+   "evidence": {
+    "sentences": [
+     "Yousef felt drowsy after lunch.",
+     "His eyes began to close.",
+     "He put his head on the desk.",
+     "Soon he was asleep."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: sleepy. Tap 2 sentences with clue words.",
+    "wrong": "This sentence has the new word. Find sentences that give CLUES about it."
+   },
+   "checks": [
+    {
+     "passage": "The road was slick after the rain. Cars slid on it. People walked slowly so they would not fall.",
+     "stem": "What does “slick” mean?",
+     "options": [
+      "dry",
+      "slippery",
+      "long",
+      "hot"
+     ],
+     "answer": 1,
+     "why": "Cars slid and people were afraid to fall. Slick means slippery."
+    },
+    {
+     "passage": "The box was hefty. Dad needed two hands to lift it. He put it down with a loud thump.",
+     "stem": "What does “hefty” mean?",
+     "options": [
+      "empty",
+      "small",
+      "heavy",
+      "new"
+     ],
+     "answer": 2,
+     "why": "Dad needed two hands, and it landed with a thump. Hefty means heavy."
+    },
+    {
+     "passage": "Maha was elated. She won the race! She jumped and smiled.",
+     "stem": "What does “elated” mean?",
+     "options": [
+      "very tired",
+      "very sad",
+      "very cold",
+      "very happy"
+     ],
+     "answer": 3,
+     "why": "Winning, jumping and smiling are clues. Elated means very happy."
+    }
+   ],
+   "again": {
+    "title": "Cover and guess",
+    "text": "1. Cover the hard word with your finger.\n2. Read the sentence. What word would fit there?\n3. Use the clue words to check your guess.",
+    "example": "“The water was frigid. I shivered and got out fast.”\n\nCover **frigid**. What fits? **cold**. Clue: **shivered**. Frigid means **very cold**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A word you know can help",
+     "text": "Sometimes the writer puts a word **you already know** near the hard word.\n\nIt may mean the **same** (a synonym) or the **opposite** (an antonym)."
+    },
+    {
+     "title": "Same-meaning clues",
+     "text": "Look for **or**, **also**, **in other words**, or a comma.\n\n“The path was **narrow**, or thin, so we walked in a line.” → narrow means **thin**."
+    },
+    {
+     "title": "Opposite clues",
+     "text": "Look for **but**, **however**, **unlike**, **not**.\n\n“Saad is usually **timid**, but today he was brave.” → timid is the opposite of brave: **shy and easily scared**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the **known word** that helps.\n\n1. Tap the sentence where the clue is.\n2. Put the known word (or its opposite) in place of the hard word.\n3. If the sentence still makes sense, your meaning is right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The guide told us the cave was ancient.",
+      "role": "other"
+     },
+     {
+      "t": "It was very old, older than any city nearby.",
+      "role": "key"
+     },
+     {
+      "t": "People had lived there thousands of years ago.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The known words **very old** tell us that ancient means **very old**.\n\nThe next sentence, about thousands of years ago, agrees."
+   },
+   "together": {
+    "passage": "Some desert plants are hardy. Unlike delicate garden flowers that die in a single hot week, they can live through months of heat with almost no rain. Their thick leaves store water, and their long roots reach deep underground. That is why you can still see green plants in the desert in summer.",
+    "stem": "What does “hardy” mean in this text?",
+    "options": [
+     "weak and easily hurt",
+     "strong and able to survive hard conditions",
+     "very tall and green",
+     "needing lots of water"
+    ],
+    "answer": 1,
+    "hint": "“Unlike” signals an OPPOSITE. Hardy plants are the opposite of delicate flowers that die quickly.",
+    "good": "Yes! Hardy plants are the opposite of delicate ones. They survive months of heat."
+   },
+   "evidence": {
+    "sentences": [
+     "Some desert plants are hardy.",
+     "Unlike delicate garden flowers that die in a single hot week, they can live through months of heat with almost no rain.",
+     "Their thick leaves store water, and their long roots reach deep underground.",
+     "That is why you can still see green plants in the desert in summer."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: strong and able to survive hard conditions. Tap 2 sentences with clues.",
+    "wrong": "This sentence has the hard word but no clue. Find the sentences that show what hardy plants can DO."
+   },
+   "checks": [
+    {
+     "passage": "The new student was reluctant, or unwilling, to speak in front of the class.",
+     "stem": "Which words help you know what “reluctant” means?",
+     "options": [
+      "new student",
+      "to speak",
+      "in front of the class",
+      "or unwilling"
+     ],
+     "answer": 3,
+     "why": "**Or** signals a word with the same meaning. Reluctant means unwilling."
+    },
+    {
+     "passage": "The first test was simple, but the second was complex, with many hard steps.",
+     "stem": "What does “complex” mean?",
+     "options": [
+      "short",
+      "easy",
+      "complicated",
+      "funny"
+     ],
+     "answer": 2,
+     "why": "**But** signals the opposite of simple, and “many hard steps” shows that complex means complicated."
+    },
+    {
+     "passage": "My grandfather is very frugal. He saves money, fixes old things instead of buying new ones and never wastes food.",
+     "stem": "What does “frugal” mean?",
+     "options": [
+      "careful with money",
+      "very rich",
+      "always hungry",
+      "fond of shopping"
+     ],
+     "answer": 0,
+     "why": "Saving money, fixing old things and not wasting food all show that frugal means careful with money."
+    }
+   ],
+   "again": {
+    "title": "Swap it",
+    "text": "1. Find a word you know near the hard word.\n2. Is it the **same** or the **opposite**? (Look for **or** / **but**.)\n3. Swap it into the sentence and read it again.",
+    "example": "“The room was spotless, not dirty at all.”\n\nKnown word: **dirty**. Signal: **not**. So spotless is the opposite of dirty: **very clean**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Guess, then check",
+     "text": "Good readers make a quick guess about a new word, then **keep reading** to check it.\n\nIf later sentences do not fit your guess, **change it**."
+    },
+    {
+     "title": "Clues can be far away",
+     "text": "The clue is not always in the same sentence. It may come **two or three sentences later**, in an example or an explanation.\n\nRead the whole paragraph before you decide."
+    },
+    {
+     "title": "Words you think you know",
+     "text": "Some words have **more than one meaning**.\n\n“The team had a strong **record** this season.” Here record does not mean a sound recording. It means **wins and losses**.\n\nThe context tells you which meaning the writer uses."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Make a first guess.\n2. Find **two** places in the paragraph that agree with it.\n3. If a clue disagrees, change your guess.\n\nThe right meaning fits **every** clue in the paragraph."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The volunteers worked to restore the old mosque in the village.",
+      "role": "other"
+     },
+     {
+      "t": "They repaired the cracked walls and replaced the broken windows.",
+      "role": "key"
+     },
+     {
+      "t": "By the end of the year, it looked just as it had a hundred years before.",
+      "role": "key"
+     }
+    ],
+    "explain": "First guess: restore means clean? But the clues say they **repaired** it and made it look as it did **before**.\n\nSo restore means **bring back to its old condition**. That is more than cleaning."
+   },
+   "together": {
+    "passage": "Every spring, the small river near the town becomes turbulent. Melting snow from the mountains pours into it, and the water rises quickly. Brown waves crash against the rocks and churn up mud from the bottom. Leaves and branches spin in circles before they are swept away. By midsummer, however, the river is calm again, and children can see the stones on the riverbed through the clear water.",
+    "stem": "What does “turbulent” most likely mean?",
+    "options": [
+     "clear and still",
+     "cold and frozen",
+     "wild and moving roughly",
+     "low and almost dry"
+    ],
+    "answer": 2,
+    "hint": "Check your guess against the clues. Do crashing waves and spinning branches fit that meaning?",
+    "good": "Yes! Crashing waves and spinning branches show rough, wild water. “However… calm again” shows the opposite later."
+   },
+   "evidence": {
+    "sentences": [
+     "Every spring, the small river near the town becomes turbulent.",
+     "Melting snow from the mountains pours into it, and the water rises quickly.",
+     "Brown waves crash against the rocks and churn up mud from the bottom.",
+     "Leaves and branches spin in circles before they are swept away.",
+     "By midsummer, however, the river is calm again, and children can see the stones on the riverbed through the clear water."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: wild and moving roughly. Tap 2 sentences with clues that prove it.",
+    "wrong": "This sentence has the word itself, or only tells that the water rises. Find clues that show HOW the water moves."
+   },
+   "checks": [
+    {
+     "passage": "At first I thought the “bank” in the story was a place to keep money. Then I read that the boy sat on the bank and dipped his feet into the stream. Grass grew all around him.",
+     "stem": "Which words best show what “bank” means in the story?",
+     "options": [
+      "a place to keep money",
+      "I read that",
+      "in the story",
+      "dipped his feet into the stream"
+     ],
+     "answer": 3,
+     "why": "You can only dip your feet into a stream from the land beside it. Here, bank means the side of a river."
+    },
+    {
+     "passage": "The scientist's explanation was lucid. Even the youngest visitors understood every step, and nobody needed to ask her to repeat anything.",
+     "stem": "What does “lucid” mean?",
+     "options": [
+      "long and boring",
+      "clear and easy to understand",
+      "loud and fast",
+      "new and exciting"
+     ],
+     "answer": 1,
+     "why": "Everyone understood, and nobody asked her to repeat. Lucid means clear and easy to understand."
+    },
+    {
+     "passage": "Rawan's first guess was that “scarce” meant scary. But the paragraph said that water was scarce in the desert, so travellers carried every drop carefully and refilled at each well.",
+     "stem": "Which meaning of “scarce” fits the paragraph?",
+     "options": [
+      "hard to find; in short supply",
+      "frightening",
+      "plentiful",
+      "very cold"
+     ],
+     "answer": 0,
+     "why": "Carrying every drop carefully shows water was hard to find. Rawan's first guess did not fit the clues."
+    }
+   ],
+   "again": {
+    "title": "Test your guess in three places",
+    "text": "1. Write your guess.\n2. Put it in the sentence. Does it make sense?\n3. Read the next two sentences. Do they agree?\n\nIf yes, keep it. If no, try again.",
+    "example": "“The hikers were weary. They sat down on a rock and could hardly lift their bags.”\n\nGuess: weary = **tired**. Sat down? Yes. Could hardly lift their bags? Yes. **Weary means very tired.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Clues in academic writing",
+     "text": "Textbooks often define a word **indirectly**: through an example, a result, a contrast or a description.\n\n**Sentence-level** clues are in the same sentence. **Paragraph-level** clues are spread across nearby sentences."
+    },
+    {
+     "title": "Not every nearby word is a clue",
+     "text": "Words close to the target word are not always helpful.\n\nChoose clues that tell you what the word **is**, **does** or **causes**, not words that only share the topic."
+    },
+    {
+     "title": "Build a precise meaning",
+     "text": "1. Gather all the clues.\n2. Write a meaning that fits **all** of them.\n3. Make it precise: “bad” is weaker than “harmful to living things”.\n4. Test it in the original sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong evidence names the **specific words** that define the term.\n\nAsk: if I deleted this sentence, would I still know the meaning? If yes, it is probably **not** the key clue."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some animals are nocturnal.",
+      "role": "other"
+     },
+     {
+      "t": "Bats, owls and many desert foxes sleep through the hot daylight hours.",
+      "role": "key"
+     },
+     {
+      "t": "When darkness falls, they leave their shelters to hunt.",
+      "role": "key"
+     },
+     {
+      "t": "This habit helps them avoid the heat and many predators.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sleeping in daylight and hunting when darkness falls **define** the word: **nocturnal** means **active at night**.\n\nThe last sentence explains why the habit helps, but it does not define the word."
+   },
+   "together": {
+    "passage": "In many coastal cities, desalination provides a large share of the drinking water. The process begins with seawater, which contains far too much salt for people to drink or for farmers to use on crops. In one common method, the water is pushed at high pressure through extremely fine filters that let water pass but hold back the salt. The fresh water that comes out is then treated and sent through pipes to homes. Saudi Arabia operates some of the largest plants of this kind in the world. Although the method uses a great deal of energy, it allows people to live and work in places with very little rain.",
+    "stem": "Which meaning of “desalination” do the clues in the passage best support?",
+    "options": [
+     "moving water from rivers to coastal cities",
+     "removing salt from seawater to make fresh water",
+     "adding salt to water to keep it clean",
+     "collecting rainwater in large tanks"
+    ],
+    "answer": 1,
+    "hint": "The passage never mentions rivers or tanks. Which sentences describe what HAPPENS to the seawater?",
+    "good": "Yes! Seawater goes in, the salt is held back, and fresh water comes out. That is desalination."
+   },
+   "evidence": {
+    "sentences": [
+     "In many coastal cities, desalination provides a large share of the drinking water.",
+     "The process begins with seawater, which contains far too much salt for people to drink or for farmers to use on crops.",
+     "In one common method, the water is pushed at high pressure through extremely fine filters that let water pass but hold back the salt.",
+     "The fresh water that comes out is then treated and sent through pipes to homes.",
+     "Saudi Arabia operates some of the largest plants of this kind in the world.",
+     "Although the method uses a great deal of energy, it allows people to live and work in places with very little rain."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: removing salt from seawater to make fresh water. Tap 2 sentences that define the process.",
+    "wrong": "This sentence shares the topic but does not explain what the word means. Find the sentences that describe the PROCESS."
+   },
+   "checks": [
+    {
+     "passage": "Unlike the tidy notes she had made all term, Lubna's final report was chaotic: paragraphs appeared in random order, headings were missing, and two pages repeated the same information.",
+     "stem": "Which words give the clearest clue to the meaning of “chaotic”?",
+     "options": [
+      "final report",
+      "all term",
+      "paragraphs appeared in random order",
+      "Lubna's"
+     ],
+     "answer": 2,
+     "why": "Paragraphs in random order describe what chaotic means: without order. “Unlike the tidy notes” also gives an opposite clue."
+    },
+    {
+     "passage": "The medicine had an adverse effect on some patients. Instead of feeling better, they developed headaches and could not sleep, so doctors stopped giving it to them.",
+     "stem": "What does “adverse” mean?",
+     "options": [
+      "harmful",
+      "helpful",
+      "unclear",
+      "quick"
+     ],
+     "answer": 0,
+     "why": "“Instead of feeling better”, patients got headaches, and doctors stopped the medicine. Adverse means harmful."
+    },
+    {
+     "passage": "Early maps of the region were often inaccurate. Mountains appeared in the wrong places, rivers ran in the wrong direction, and some towns that were drawn on the maps had never existed.",
+     "stem": "Which meaning of “inaccurate” fits all of the clues?",
+     "options": [
+      "drawn very beautifully",
+      "very old and faded",
+      "too small to read",
+      "not correct; full of mistakes"
+     ],
+     "answer": 3,
+     "why": "Wrong places, wrong directions and towns that never existed are all mistakes. Inaccurate means not correct."
+    }
+   ],
+   "again": {
+    "title": "What, like, examples",
+    "text": "Ask three questions about the hard word:\n\n1. **What** does it do or cause?\n2. **What is it like** or unlike?\n3. **What examples** does the writer give?\n\nCombine the answers into one short meaning.",
+    "example": "“Plants that are drought-tolerant, such as olive trees and desert grasses, can survive long dry periods without watering.”\n\nExamples: olive trees, desert grasses. What do they do? Survive long dry periods. Meaning: **able to live with very little water**."
+   }
+  }
+ }
+}

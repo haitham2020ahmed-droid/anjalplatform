@@ -1,0 +1,446 @@
+{
+ "code": "LN-073",
+ "title": "Relative pronouns and relative adverbs",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "pronouns",
+  "adverbs"
+ ],
+ "skillNames": [
+  "Relative Pronouns and Relative Adverbs"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that tell more",
+     "text": "**who**, **which** and **that** help us tell more about a noun.\n\nI have a friend **who** lives next door.\nI have a bike **that** is very fast."
+    },
+    {
+     "title": "Who for people",
+     "text": "Use **who** for **people**.\n\nThe man **who** sells bread is kind.\nMy aunt is a doctor **who** helps children."
+    },
+    {
+     "title": "Which or that for things",
+     "text": "Use **which** or **that** for **things** and **animals**.\n\nThis is the book **that** I love.\nWe have a goat **which** eats everything."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the noun **right before** the blank.\n2. Is it a **person** or a **thing**?\n3. Find other sentences in the text that use who or that. They show the rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sara has a cousin who lives in Dammam.",
+      "role": "key"
+     },
+     {
+      "t": "Her cousin has a parrot that can talk.",
+      "role": "key"
+     },
+     {
+      "t": "They visit each other in the summer.",
+      "role": "other"
+     }
+    ],
+    "explain": "**cousin** is a person, so we use **who**.\n**parrot** is an animal, so we use **that**."
+   },
+   "together": {
+    "passage": "Rami is a boy who loves animals. He has a cat that sleeps all day. His best friend is a girl ___ rides horses. Her father is a man who trains horses for races.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "which",
+     "who",
+     "where",
+     "when"
+    ],
+    "answer": 1,
+    "hint": "Look at the word before the blank. Is a girl a person or a thing?",
+    "good": "Yes! A girl is a person, so we use **who**."
+   },
+   "evidence": {
+    "sentences": [
+     "Rami is a boy who loves animals.",
+     "He has a cat that sleeps all day.",
+     "His best friend is a girl ___ rides horses.",
+     "Her father is a man who trains horses for races."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: who. Tap 2 sentences that also use who for a person.",
+    "wrong": "This sentence uses that for an animal, or no such word at all. Find who after a person."
+   },
+   "checks": [
+    {
+     "passage": "We ate the dates ___ Grandma sent us.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "who",
+      "where",
+      "that",
+      "when"
+     ],
+     "answer": 2,
+     "why": "Dates are things, so we use **that**."
+    },
+    {
+     "passage": "The teacher ___ helped me is very kind.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "who",
+      "which",
+      "where",
+      "whose"
+     ],
+     "answer": 0,
+     "why": "A teacher is a person, so we use **who**."
+    },
+    {
+     "passage": "I like the kite which my uncle made. I like the man which made it too.",
+     "stem": "Which word is wrong?",
+     "options": [
+      "like",
+      "kite",
+      "my",
+      "the second which"
+     ],
+     "answer": 3,
+     "why": "The man is a person, so it should be **who made it**."
+    }
+   ],
+   "again": {
+    "title": "Person or thing?",
+    "text": "Point to the noun before the blank.\n\nCan it talk and think like a person? → **who**\nIs it a thing or an animal? → **which** or **that**",
+    "example": "the boy ___ won → a person → **who**\nthe cup ___ broke → a thing → **that**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "More relative words",
+     "text": "**where** → for places\nthe park **where** we play\n\n**when** → for times\nthe day **when** we met\n\n**whose** → for ownership\nthe girl **whose** bag is red"
+    },
+    {
+     "title": "Relative clauses",
+     "text": "A **relative clause** starts with who, which, that, whose, where or when. It tells us more about the noun just before it.\n\nThis is the shop **where my uncle works**.\nFriday is the day **when we visit Grandma**."
+    },
+    {
+     "title": "Whose is not who's",
+     "text": "**whose** = belonging to\nThe boy **whose** shoes are muddy\n\n**who's** = who is\n**Who's** coming with us?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the noun before the blank.\n2. Is it a person, thing, place or time? Or does the clause show who owns something?\n3. Find other relative clauses in the text that follow the same rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "This is the hospital where I was born.",
+      "role": "key"
+     },
+     {
+      "t": "I was born in the year when it opened.",
+      "role": "key"
+     },
+     {
+      "t": "My mother still remembers the doctor who helped her.",
+      "role": "key"
+     }
+    ],
+    "explain": "**hospital** is a place → **where**.\n**year** is a time → **when**.\n**doctor** is a person → **who**."
+   },
+   "together": {
+    "passage": "Every summer, our family visits the village where my father grew up. We stay in the old house that my grandfather built. In the evening, we sit in the garden ___ my grandmother grows mint and roses. My favourite moment is the time when everyone gathers for dinner under the stars.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "when",
+     "who",
+     "whose",
+     "where"
+    ],
+    "answer": 3,
+    "hint": "Is the garden a person, a time, or a place?",
+    "good": "Yes! The garden is a place, so we use **where**."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, our family visits the village where my father grew up.",
+     "We stay in the old house that my grandfather built.",
+     "In the evening, we sit in the garden ___ my grandmother grows mint and roses.",
+     "My favourite moment is the time when everyone gathers for dinner under the stars."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: where. Tap the sentence that also uses where after a place.",
+    "wrong": "This sentence uses that or when, not where. Find the other place with where."
+   },
+   "checks": [
+    {
+     "passage": "I remember the day ___ my little brother was born.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "where",
+      "when",
+      "who",
+      "whose"
+     ],
+     "answer": 1,
+     "why": "A day is a time, so we use **when**."
+    },
+    {
+     "passage": "That is the girl ___ poem won the competition.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "who's",
+      "who",
+      "whose",
+      "which"
+     ],
+     "answer": 2,
+     "why": "The poem belongs to the girl, so we use **whose**."
+    },
+    {
+     "passage": "Do you know the man who's car is parked outside?",
+     "stem": "Which word should be changed?",
+     "options": [
+      "who's",
+      "know",
+      "parked",
+      "outside"
+     ],
+     "answer": 0,
+     "why": "The car belongs to the man, so it should be **whose** car."
+    }
+   ],
+   "again": {
+    "title": "Ask a question",
+    "text": "Ask a question about the noun.\n\nWho? → **who**\nWhat thing? → **which/that**\nWhere? → **where**\nWhen? → **when**\nWhose? → **whose**",
+    "example": "the city ___ I live → Where do I live? In the city → **where**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Joining sentences",
+     "text": "A relative clause can **join two sentences** that share a noun.\n\nI met a pilot. The pilot flies to Tokyo.\n→ I met a pilot **who flies to Tokyo**."
+    },
+    {
+     "title": "Using whose",
+     "text": "When the second sentence shows **ownership**, use **whose**.\n\nThe author visited our school. **Her** books are famous.\n→ The author **whose books are famous** visited our school."
+    },
+    {
+     "title": "Place the clause",
+     "text": "Put the relative clause **right after** the noun it describes.\n\n✔ The phone **that I lost** was found in the car.\n✘ The phone was found in the car **that I lost**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the two sentences being joined.\n2. Find the noun they share.\n3. Choose the answer that puts the right relative word **after** that noun and keeps **all** the facts.\n\nCheck your answer against both sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school has a new librarian.",
+      "role": "key"
+     },
+     {
+      "t": "The librarian once lived in Japan.",
+      "role": "key"
+     },
+     {
+      "t": "Joined: Our school has a new librarian who once lived in Japan.",
+      "role": "main"
+     }
+    ],
+    "explain": "Both sentences share **librarian**, a person. **who once lived in Japan** goes right after **librarian**, and both facts are kept."
+   },
+   "together": {
+    "passage": "Last month, a scientist visited our class. The scientist's research helps farmers save water. She showed us photos of desert farms in the Eastern Province. The farms use sensors that measure how wet the soil is. Farmers water their crops only when the sensors say the soil is dry.",
+    "stem": "Which sentence best joins the first two sentences?",
+    "options": [
+     "A scientist who's research helps farmers save water visited our class last month.",
+     "Last month, a scientist whose research helps farmers save water visited our class.",
+     "Last month, a scientist visited our class which helps farmers save water.",
+     "A scientist visited our class whose farmers save water last month."
+    ],
+    "answer": 1,
+    "hint": "The research belongs to the scientist. Which relative word shows ownership, and where should the clause go?",
+    "good": "Yes! **whose research** shows the research belongs to the scientist, and the clause sits right after **scientist**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last month, a scientist visited our class.",
+     "The scientist's research helps farmers save water.",
+     "She showed us photos of desert farms in the Eastern Province.",
+     "The farms use sensors that measure how wet the soil is.",
+     "Farmers water their crops only when the sensors say the soil is dry."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: a scientist whose research helps farmers save water visited our class. Tap the 2 sentences it joins.",
+    "wrong": "This sentence is not part of the joined sentence. Find the two about the scientist."
+   },
+   "checks": [
+    {
+     "passage": "We visited a museum. The museum has a real dinosaur skeleton.",
+     "stem": "Which sentence best joins them?",
+     "options": [
+      "We visited a museum that has a real dinosaur skeleton.",
+      "We visited a museum who has a real dinosaur skeleton.",
+      "We visited a real dinosaur skeleton where a museum.",
+      "We visited a museum, it has a real dinosaur skeleton."
+     ],
+     "answer": 0,
+     "why": "**museum** is a thing, so **that** joins the sentences and keeps both facts."
+    },
+    {
+     "passage": "My uncle drove us to the beach. The beach was quiet.",
+     "stem": "Which sentence best joins them?",
+     "options": [
+      "My uncle drove us to the beach, when it was quiet.",
+      "My uncle who was quiet drove us to the beach.",
+      "My uncle drove us to the quiet beach whose.",
+      "My uncle drove us to the beach, which was quiet."
+     ],
+     "answer": 3,
+     "why": "**which was quiet** describes the beach and comes right after it."
+    },
+    {
+     "passage": "The boy found the wallet who was crying.",
+     "stem": "What is wrong with this sentence?",
+     "options": [
+      "It needs whose instead of who.",
+      "The relative clause is too short.",
+      "The clause is far from the noun it describes.",
+      "It should use where instead of who."
+     ],
+     "answer": 2,
+     "why": "The boy was crying, not the wallet. It should be: **The boy who was crying found the wallet.**"
+    }
+   ],
+   "again": {
+    "title": "Find the twin noun",
+    "text": "When two sentences share a noun, cross out the second one and use a relative word instead.",
+    "example": "I have a friend. **My friend's** dad is a pilot.\n\nThe friend's dad → ownership → **whose**.\n\nI have a friend **whose** dad is a pilot."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Needed or extra?",
+     "text": "An **essential** clause tells us **which one**. Without it, the meaning changes. No commas.\nStudents **who finish early** may read.\n\nA **nonessential** clause adds **extra** information. Use commas.\nMy brother, **who is twelve**, plays chess."
+    },
+    {
+     "title": "That or which?",
+     "text": "Use **that** for essential clauses.\nThe car **that** broke down is ours.\n\nUse **which** with commas for nonessential clauses.\nOur car, **which** is ten years old, still runs well.\n\nNever use **that** after a comma."
+    },
+    {
+     "title": "Who or whom?",
+     "text": "**who** is a subject: the girl **who** called me (she called).\n**whom** is an object: the girl **whom** I called (I called her).\n\nTip: if you could say **him/her**, use **whom**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Cover the clause. Does the sentence still say which one you mean?\n2. Look at the punctuation: are there commas around the clause?\n3. Compare with other relative clauses in the passage.\n\nA name or a one-of-a-kind noun usually takes a nonessential clause."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mount Everest, which is the highest mountain on Earth, lies between Nepal and China.",
+      "role": "key"
+     },
+     {
+      "t": "Climbers who reach the top often need extra oxygen.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Cover **which is the highest mountain on Earth**: we still know which mountain. It is **extra**, so it has commas and **which**.\n\nCover **who reach the top**: now it sounds like all climbers. It is **essential**, so no commas."
+   },
+   "together": {
+    "passage": "Riyadh, ___ is the capital of Saudi Arabia, has grown quickly over the past fifty years. Many families who moved there came from smaller towns. The city's metro, which opened to passengers in 2024, now links many neighbourhoods. Diriyah, where the first Saudi state began, lies on the city's north-western edge. Visitors who walk through its restored mud-brick streets can imagine life three hundred years ago.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "that",
+     "which",
+     "where",
+     "who"
+    ],
+    "answer": 1,
+    "hint": "Riyadh is a name, so the clause only adds extra information. Which word goes after a comma for a thing?",
+    "good": "Yes! The clause adds extra information about a place name, and it is set off by commas, so we use **which**."
+   },
+   "evidence": {
+    "sentences": [
+     "Riyadh, ___ is the capital of Saudi Arabia, has grown quickly over the past fifty years.",
+     "Many families who moved there came from smaller towns.",
+     "The city's metro, which opened to passengers in 2024, now links many neighbourhoods.",
+     "Diriyah, where the first Saudi state began, lies on the city's north-western edge.",
+     "Visitors who walk through its restored mud-brick streets can imagine life three hundred years ago."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: which. Tap the OTHER sentence that uses which with commas to add extra information.",
+    "wrong": "This clause is needed to tell us which people, or it uses where. Find the other comma + which clause."
+   },
+   "checks": [
+    {
+     "passage": "The doctor ___ we visited last week gave us good advice.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "who's",
+      "which",
+      "whose",
+      "whom"
+     ],
+     "answer": 3,
+     "why": "We visited **her**: the doctor is the object, so we use **whom**."
+    },
+    {
+     "passage": "The Red Sea, that lies between Africa and Asia, is home to many coral reefs.",
+     "stem": "How should the error be fixed?",
+     "options": [
+      "Change that to which.",
+      "Remove both commas.",
+      "Change that to where.",
+      "Change is to are."
+     ],
+     "answer": 0,
+     "why": "The clause is extra information set off by commas, so it needs **which**, not that."
+    },
+    {
+     "passage": "Students who forget their books must share with a partner.",
+     "stem": "Why are there no commas around the clause?",
+     "options": [
+      "It is about a place.",
+      "It tells which students, so it is essential.",
+      "It shows ownership.",
+      "The clause is too short for commas."
+     ],
+     "answer": 1,
+     "why": "Without the clause, the rule would apply to **all** students. The clause is needed, so it has no commas."
+    }
+   ],
+   "again": {
+    "title": "The cover test",
+    "text": "Cover the clause with your finger.\n\nStill clear which one? → extra → commas + **which / who**\nNot clear any more? → needed → no commas, **that / who**",
+    "example": "The phone **that I lost** was found. → Cover it: 'The phone was found.' Which phone? Needed → **that**, no commas.\n\nMy phone, **which is new**, was found. → Still clear → **which**, commas."
+   }
+  }
+ }
+}

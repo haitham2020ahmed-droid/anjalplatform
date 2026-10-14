@@ -1,0 +1,568 @@
+{
+  "code": "NB-086",
+  "title": "Al-Idrisi and the Book of Roger",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 424,
+  "passage": "In the twelfth century, most people knew little about the world beyond their own region. Maps were often rough sketches filled with guesses, and many showed imaginary islands and strange monsters at their edges. Yet one patient scholar from North Africa set out to replace guesswork with evidence. His name was Muhammad al-Idrisi, and the map he produced became one of the most accurate pictures of the world for the next three hundred years.\n\nAl-Idrisi was born in 1100 in Ceuta, a port town on the African side of the narrow strait that separates Africa from Europe. As a young man, he studied in Córdoba, which was then one of the greatest centres of learning in the world. Afterwards, he travelled widely through North Africa, Spain and parts of Asia Minor, collecting information and recording what he observed. These journeys gave him first-hand knowledge that most mapmakers of his time lacked.\n\nAround 1138, his reputation reached Roger II, the king of Sicily, an island that was home to Arabs, Greeks and Normans. Roger wanted an accurate description of the whole known world, so he invited al-Idrisi to his court in Palermo. The work took about fifteen years. Al-Idrisi interviewed sailors, merchants and pilgrims who passed through the busy harbour, and he compared their reports carefully. When their descriptions disagreed, he did not simply choose the most exciting story. Instead, he accepted only the information on which several reliable witnesses agreed.\n\nIn 1154, he completed a book whose Arabic title means \"The Book of Pleasant Journeys into Faraway Lands.\" In Europe, it became known as the Tabula Rogeriana, or \"Book of Roger.\" It divided the known world into seven zones from south to north, and each zone was split into ten sections, producing seventy detailed maps. Unlike most modern maps, al-Idrisi's maps placed south at the top. Beside each map, he described the cities, rivers, mountains, crops and trade of the region.\n\nAl-Idrisi also engraved a large map of the world onto a heavy disc of pure silver. Unfortunately, the silver map has not survived, but copies of his book have, and scholars still study them today. For centuries, travellers and geographers in both the Islamic world and Europe relied on his careful work.\n\nHow remarkable it is that a man without satellites or aeroplanes could describe distant lands so precisely! Al-Idrisi did not have modern tools, but he had curiosity, patience and a scientist's respect for evidence. His achievement shows that knowledge often grows fastest when people from different cultures share what they know.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “reliable” as it is used in paragraph 3?",
+      "options": [
+        "wealthy",
+        "talkative",
+        "trustworthy",
+        "foreign"
+      ],
+      "answer": "C",
+      "why": "Al-Idrisi accepted information from “reliable witnesses”, people who could be trusted."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “accurate” as it is used in paragraph 1?",
+      "options": [
+        "incorrect",
+        "precise",
+        "colourful",
+        "famous"
+      ],
+      "answer": "A",
+      "why": "“Accurate” means correct and exact; its opposite is “incorrect”. “Precise” has a similar meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does the word “witnesses” mean in paragraph 3?",
+      "options": [
+        "people who draw maps for kings and rulers",
+        "judges who decide which person is right",
+        "sailors who steer ships through a harbour",
+        "people who saw something and can describe it"
+      ],
+      "answer": "D",
+      "why": "The witnesses were sailors, merchants and pilgrims who had seen faraway places and could report on them."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an ADJECTIVE?",
+      "options": [
+        "detailed",
+        "divided",
+        "zones",
+        "beside"
+      ],
+      "answer": "A",
+      "why": "In “seventy detailed maps”, “detailed” describes the noun “maps”; “divided” is a verb, “zones” a noun and “beside” a preposition."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these words from the passage is SINGULAR?",
+      "options": [
+        "harbour",
+        "witnesses",
+        "centuries",
+        "aeroplanes"
+      ],
+      "answer": "A",
+      "why": "“Harbour” names one thing; the other words are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “scientist”?",
+      "options": [
+        "scientific",
+        "scenery",
+        "scissors",
+        "silent"
+      ],
+      "answer": "A",
+      "why": "Science, scientist and scientific share the same root; the others only look or sound similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “reputation” in a meaningful sentence of your own.",
+      "model": "The bakery on our street has a reputation for fresh bread, so people come from other neighbourhoods to buy it.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “reputation” with its meaning (what people generally think or say about someone or something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 3, al-Idrisi's “reputation” (what people knew and said about his skill) reached King Roger."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “century”?",
+      "options": [
+        "centurys",
+        "centuries",
+        "centuryes",
+        "centures"
+      ],
+      "answer": "B",
+      "why": "A consonant + y changes to -ies: century → centuries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a QUESTION?",
+      "options": [
+        "How carefully he checked the sailors' reports!",
+        "Check the sailors' reports carefully.",
+        "He checked the sailors' reports carefully.",
+        "How did al-Idrisi check the sailors' reports?"
+      ],
+      "answer": "D",
+      "why": "Only this sentence asks for information and ends with a question mark; the one beginning “How carefully” is an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Monsters at the Edge of the Map",
+        "Mapping the World with Evidence",
+        "A King's Silver Treasure",
+        "Island Life in Sicily"
+      ],
+      "answer": "B",
+      "why": "The passage is about how al-Idrisi used evidence, not guesses, to map the world."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to show how a scholar's careful methods produced a famous map",
+        "to explain how satellites help us to make maps today",
+        "to describe the history of the island of Sicily",
+        "to persuade readers to become sailors or merchants"
+      ],
+      "answer": "A",
+      "why": "The passage describes al-Idrisi's life, his careful method and the famous map it produced."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "King Roger ruled an island where many different peoples lived.",
+        "Al-Idrisi worked for King Roger by carefully checking travellers' reports.",
+        "Sailors in Palermo told the most exciting stories in the world.",
+        "Al-Idrisi spent fifteen years travelling around the island of Sicily."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 explains why Roger invited him and how he gathered and checked information."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did King Roger II invite al-Idrisi to Palermo?",
+      "options": [
+        "He needed an experienced captain for his ships.",
+        "He wanted someone to teach his children Arabic.",
+        "He wanted an accurate description of the whole known world.",
+        "He hoped to buy silver from North Africa."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: “Roger wanted an accurate description of the whole known world, so he invited al-Idrisi.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase best describes the type of this text?",
+      "options": [
+        "an imaginary adventure at sea",
+        "a poem about faraway lands",
+        "a true account of a real person's life",
+        "a guidebook for modern tourists"
+      ],
+      "answer": "C",
+      "why": "It is a biography: it gives true facts, dates and places from al-Idrisi's life."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what did al-Idrisi have that most mapmakers of his time lacked?",
+      "options": [
+        "a large silver disc for engraving maps",
+        "a royal palace in the city of Córdoba",
+        "first-hand knowledge from his own travels",
+        "modern tools for measuring distances"
+      ],
+      "answer": "C",
+      "why": "His journeys “gave him first-hand knowledge that most mapmakers of his time lacked.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did al-Idrisi do right AFTER studying in Córdoba?",
+      "options": [
+        "He moved to the port town of Ceuta.",
+        "He engraved a map onto a silver disc.",
+        "He completed the Book of Roger.",
+        "He travelled through North Africa, Spain and Asia Minor."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: “Afterwards, he travelled widely through North Africa, Spain and parts of Asia Minor.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these did al-Idrisi NOT include beside each map, according to paragraph 4?",
+      "options": [
+        "the rivers and mountains of the region",
+        "the crops grown in the region",
+        "the trade of the region",
+        "the names of the sailors he interviewed"
+      ],
+      "answer": "D",
+      "why": "He described “the cities, rivers, mountains, crops and trade of the region”; the sailors' names are not mentioned."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In which city did al-Idrisi work on his great book for King Roger?",
+      "options": [
+        "Ceuta",
+        "Palermo",
+        "Córdoba",
+        "Rome"
+      ],
+      "answer": "B",
+      "why": "Roger invited him “to his court in Palermo.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did al-Idrisi accept only information on which several witnesses agreed?",
+      "options": [
+        "because the king refused to pay for unusual stories",
+        "to make sure his descriptions were true, not just exciting",
+        "because most sailors could not speak Arabic well",
+        "to finish the book more quickly than he had planned"
+      ],
+      "answer": "B",
+      "why": "He “did not simply choose the most exciting story”; agreement between reliable witnesses made the information more likely to be true."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe al-Idrisi's attitude toward the stories travellers told him?",
+      "options": [
+        "trusting and excited",
+        "bored and uninterested",
+        "angry and suspicious of everyone",
+        "careful and questioning"
+      ],
+      "answer": "D",
+      "why": "He compared reports and accepted only what several reliable witnesses agreed on, but he did not reject everyone."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why was Palermo most likely a useful place for al-Idrisi to collect information?",
+      "options": [
+        "It was the largest city in North Africa.",
+        "It had the best schools in the whole world.",
+        "Roger had already drawn maps of every country.",
+        "Its busy harbour brought travellers from many lands."
+      ],
+      "answer": "D",
+      "why": "He interviewed sailors, merchants and pilgrims “who passed through the busy harbour”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How were al-Idrisi's maps DIFFERENT from most modern maps?",
+      "options": [
+        "They placed south at the top.",
+        "They showed only the island of Sicily.",
+        "They were drawn without any rivers.",
+        "They included imaginary sea monsters."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “Unlike most modern maps, al-Idrisi's maps placed south at the top.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the result of splitting each of the seven zones into ten sections?",
+      "options": [
+        "The book contained seventeen maps.",
+        "The book contained seventy maps.",
+        "The world was shown on one large map.",
+        "Each zone was described in ten books."
+      ],
+      "answer": "B",
+      "why": "Seven zones × ten sections produced “seventy detailed maps.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do al-Idrisi's silver map and his book have in common?",
+      "options": [
+        "Both have survived to the present day.",
+        "Both showed the world as it was then known.",
+        "Both were made of heavy pure silver.",
+        "Both were completed in the city of Córdoba."
+      ],
+      "answer": "B",
+      "why": "Both described the known world; only the book's copies survived, and only the map was silver."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by describing old maps with “imaginary islands and strange monsters”?",
+      "options": [
+        "to suggest that monsters really lived at sea long ago",
+        "to entertain readers with a frightening sea story",
+        "to explain how al-Idrisi drew the monsters on his maps",
+        "to show how unusual al-Idrisi's evidence-based work was"
+      ],
+      "answer": "D",
+      "why": "Starting with guesswork-filled maps makes al-Idrisi's careful, evidence-based method stand out by contrast."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “replace guesswork with evidence” in paragraph 1 mean?",
+      "options": [
+        "guess more quickly than other mapmakers",
+        "draw maps without writing any words",
+        "throw away all the old maps of the world",
+        "use facts that can be checked instead of guesses"
+      ],
+      "answer": "D",
+      "why": "Al-Idrisi wanted maps based on checked facts (evidence), not on guesses."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage is EXCLAMATORY?",
+      "options": [
+        "The work took about fifteen years.",
+        "How remarkable it is that a man without satellites or aeroplanes could describe distant lands so precisely!",
+        "Unfortunately, the silver map has not survived, but copies of his book have, and scholars still study them today.",
+        "When their descriptions disagreed, he did not simply choose the most exciting story."
+      ],
+      "answer": "B",
+      "why": "It expresses strong amazement and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "According to the passage, which of al-Idrisi's qualities mattered MOST for the accuracy of his maps?",
+      "options": [
+        "his great wealth",
+        "his royal birth",
+        "his respect for evidence",
+        "his skill with silver"
+      ],
+      "answer": "C",
+      "why": "His accuracy came from checking evidence; the passage never says he was wealthy or royal, and the silver map did not survive."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write about al-Idrisi?",
+      "options": [
+        "to show that sharing knowledge across cultures leads to great achievements",
+        "to complain that the silver map was not protected",
+        "to prove that modern maps are less accurate than old ones",
+        "to advertise a trip to the island of Sicily"
+      ],
+      "answer": "A",
+      "why": "The last paragraph says knowledge grows fastest “when people from different cultures share what they know.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which statement would the writer most likely AGREE with?",
+      "options": [
+        "Old maps are always more beautiful than accurate ones.",
+        "Kings are the best judges of scientific work.",
+        "Checking facts carefully matters more than telling exciting stories.",
+        "Travellers' stories should never be trusted."
+      ],
+      "answer": "C",
+      "why": "The writer praises al-Idrisi for refusing to “choose the most exciting story” and for his “respect for evidence”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "how the silver map came to be lost",
+        "the year al-Idrisi was born",
+        "how many maps the book contained",
+        "the city where al-Idrisi studied"
+      ],
+      "answer": "A",
+      "why": "The passage says only that the silver map “has not survived” but gives no reason; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mapmaker finds new islands by riding a sea monster.",
+        "A silver map changes its own shape as new cities grow.",
+        "A scholar compares many travellers' reports to draw a map.",
+        "A map of the world draws itself overnight on a disc."
+      ],
+      "answer": "C",
+      "why": "Comparing reports is a real research method; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The King Who Sailed Around the World",
+        "The Sailors Who Drew a Silver Map",
+        "From Ceuta to Palermo: A Map Built on Evidence",
+        "Lost Monsters of the Twelfth Century"
+      ],
+      "answer": "C",
+      "why": "It follows al-Idrisi from his birth in Ceuta to his evidence-based work in Palermo."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The silver map did not survive. Suggest a different ending in which it DID survive. Write two or three sentences about what might happen to it today.",
+      "model": "The silver map might have been carefully protected for centuries and passed from ruler to ruler. Today, it could be displayed in a museum, where visitors from many countries would compare it with modern satellite maps. Scholars could study it alongside the book to learn even more about how al-Idrisi worked.",
+      "rubric": [
+        "2 = a clear, believable new ending in which the silver map survives, with a sensible result today",
+        "1 = an ending is given but it is unclear or does not fit the facts of the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending in which the map survives and that fits the passage is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Following al-Idrisi's method, what is the best way to check whether information you read online is true?",
+      "options": [
+        "Compare several reliable sources before you believe it.",
+        "Believe the version that sounds most exciting.",
+        "Trust the first website that you happen to find.",
+        "Read only websites written in your own country."
+      ],
+      "answer": "A",
+      "why": "Al-Idrisi accepted information only when several reliable witnesses agreed."
+    }
+  ]
+}

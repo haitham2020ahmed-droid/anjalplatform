@@ -1,0 +1,469 @@
+{
+ "code": "LN-002",
+ "title": "Creating mood with words",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "W.5.3.d"
+ ],
+ "families": [
+  "precise-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0010",
+  "L-0044",
+  "L-0125",
+  "L-0241"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is mood?",
+     "text": "**Mood** is how a text makes you **feel**.\n\nA text can feel happy, sad, scary or calm."
+    },
+    {
+     "title": "Words make the mood",
+     "text": "Writers pick words to make a mood.\n\n**laughed**, **bright**, **sang** feel happy.\n**dark**, **howled**, **alone** feel scary or sad."
+    },
+    {
+     "title": "How to find the mood",
+     "text": "1. Read the text.\n2. Find the **feeling words**.\n3. Ask: **How do these words make me feel?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The mood comes from the **words** in the text.\n\n1. Read each sentence.\n2. Find the words that give a feeling.\n3. Point to those sentences. They prove the mood."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The cat curled up by the fire.",
+      "role": "detail"
+     },
+     {
+      "t": "Rain tapped softly on the window.",
+      "role": "detail"
+     },
+     {
+      "t": "Everything was calm and cozy.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Curled up**, **fire** and **softly** are gentle words. They make the text feel **calm and cozy**."
+   },
+   "together": {
+    "passage": "The sun was bright. Birds sang in the trees. Children laughed and played. It was a ___ day.",
+    "stem": "Which word fits the mood of the text?",
+    "options": [
+     "scary",
+     "sad",
+     "happy",
+     "dark"
+    ],
+    "answer": 2,
+    "hint": "Look at the words bright, sang and laughed. Do they feel like that?",
+    "good": "Yes! Bright sun, singing birds and laughing children all feel **happy**."
+   },
+   "evidence": {
+    "sentences": [
+     "The sun was bright.",
+     "Birds sang in the trees.",
+     "Children laughed and played.",
+     "It was a happy day."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: happy. Tap 2 sentences with words that make the text feel happy.",
+    "wrong": "This sentence just names the feeling. Find sentences with happy words like bright, sang or laughed."
+   },
+   "checks": [
+    {
+     "passage": "The night was dark. The wind howled. A door banged shut.",
+     "stem": "How does this text feel?",
+     "options": [
+      "happy",
+      "silly",
+      "scary",
+      "sleepy"
+     ],
+     "answer": 2,
+     "why": "**Dark**, **howled** and **banged** are scary words."
+    },
+    {
+     "passage": "Grandma hugged me. The house smelled of fresh bread. I felt safe.",
+     "stem": "How does this text feel?",
+     "options": [
+      "warm",
+      "angry",
+      "scary",
+      "bored"
+     ],
+     "answer": 0,
+     "why": "A hug, fresh bread and feeling safe all feel **warm**."
+    },
+    {
+     "passage": "My best friend moved away. Her desk next to mine is empty.",
+     "stem": "Which sentence keeps the sad feeling?",
+     "options": [
+      "We ate cake at a party!",
+      "The class went to the zoo.",
+      "My new shoes are red.",
+      "I miss her every day."
+     ],
+     "answer": 3,
+     "why": "Missing a friend is sad. It fits the empty desk."
+    }
+   ],
+   "again": {
+    "title": "Use your face",
+    "text": "Read the text. Then make a face.\n\nDo you smile? The mood is **happy**.\nDo you frown? The mood is **sad**.\nDo your eyes go wide? The mood is **scary**.",
+    "example": "The room was dark. Something moved under the bed.\n\nYour eyes go wide. The mood is **scary**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Mood is a feeling",
+     "text": "**Mood** is the feeling a reader gets from a text: peaceful, tense, joyful, gloomy.\n\nThe writer does not just say the feeling. The writer **builds** it with words."
+    },
+    {
+     "title": "Tools for mood",
+     "text": "**Describing words**: soft, gray, sparkling\n**Action words**: crept, skipped, roared\n**Sense details**: what you hear, see, smell and feel\n\nAll of these work together to make one mood."
+    },
+    {
+     "title": "Keep the mood",
+     "text": "1. Decide the mood you want.\n2. Pick words that **match** it.\n3. Take out words that **break** it.\n\nOne loud, silly word can spoil a calm scene."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a mood, point to the **words** that build it.\n\n1. Name the mood.\n2. Find sentences with describing words, action words or sense details that match it.\n3. Those sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The house was silent.",
+      "role": "detail"
+     },
+     {
+      "t": "A floorboard creaked in the hallway.",
+      "role": "detail"
+     },
+     {
+      "t": "Nadia held her breath and listened.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Silent**, **creaked** and **held her breath** build a **tense** mood. The reader waits for something to happen."
+   },
+   "together": {
+    "passage": "The evening at the beach was peaceful. Small waves rolled gently onto the sand. A soft breeze carried the smell of salt. ___ Far away, a fishing boat drifted slowly home.",
+    "stem": "Which sentence best keeps the peaceful mood?",
+    "options": [
+     "Thunder crashed, and people ran screaming.",
+     "Seagulls glided quietly over the calm water.",
+     "A car alarm blared from the parking lot.",
+     "My brother shouted that he was starving."
+    ],
+    "answer": 1,
+    "hint": "That sentence is loud or scary. Look at the words gently, soft and slowly. Which choice matches them?",
+    "good": "Yes! **Glided**, **quietly** and **calm** match **gently**, **soft** and **slowly**. The peaceful mood stays."
+   },
+   "evidence": {
+    "sentences": [
+     "The evening at the beach was peaceful.",
+     "Small waves rolled gently onto the sand.",
+     "A soft breeze carried the smell of salt.",
+     "Seagulls glided quietly over the calm water.",
+     "Far away, a fishing boat drifted slowly home."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Seagulls glided quietly over the calm water. Tap 2 OTHER sentences whose words build the peaceful mood.",
+    "wrong": "This sentence only names the mood, or it is the answer. Find other sentences with calm words like gently, soft or slowly."
+   },
+   "checks": [
+    {
+     "passage": "The hallway was silent. Our footsteps echoed off the walls. Somewhere above us, a floorboard creaked.",
+     "stem": "Which word best describes the mood?",
+     "options": [
+      "joyful",
+      "silly",
+      "relaxed",
+      "tense"
+     ],
+     "answer": 3,
+     "why": "**Silent**, **echoed** and **creaked** make the reader nervous. The mood is tense."
+    },
+    {
+     "passage": "Rain dripped from the gray sky. The streets were empty. Mona stared out of the window at the closed park.",
+     "stem": "Which mood do the words create?",
+     "options": [
+      "excited",
+      "gloomy",
+      "proud",
+      "cheerful"
+     ],
+     "answer": 1,
+     "why": "**Gray sky**, **empty** streets and a **closed** park create a gloomy, dull mood."
+    },
+    {
+     "passage": "When the final whistle blew, our team had won the cup. The crowd let out a ___.",
+     "stem": "Which words best create a joyful mood?",
+     "options": [
+      "quiet hum",
+      "sad sigh",
+      "happy roar",
+      "tiny squeak"
+     ],
+     "answer": 2,
+     "why": "A winning team and a **happy roar** both feel joyful. The other choices are quiet or sad."
+    }
+   ],
+   "again": {
+    "title": "Mood colours",
+    "text": "Give each mood a colour.\n\nyellow = joyful\nblue = calm\ngray = gloomy\nred = tense or scary\n\nNow colour the words in the text. The colour you see most is the mood.",
+    "example": "Lanterns glowed. Music played. Children skipped down the street.\n\nGlowed, music, skipped: all **yellow**. The mood is **joyful**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Words with feelings",
+     "text": "Many words mean almost the same thing but **feel** different.\n\nThe wind **blew**. (plain)\nThe wind **whispered**. (gentle)\nThe wind **howled**. (wild)\n\nChoose the word whose feeling matches your mood."
+    },
+    {
+     "title": "Build the mood together",
+     "text": "A mood is strongest when **many** details point the same way: the setting, the weather, the sounds and the characters' actions.\n\nIf one word points a different way, the reader feels confused."
+    },
+    {
+     "title": "Revise for mood",
+     "text": "1. Name the mood of the scene.\n2. Find the **plain** words: went, nice, moved, said.\n3. Swap them for words that carry the mood.\n4. Remove any word that fights the mood."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best word for a mood, first **prove** what the mood is.\n\n1. Find two or more sentences whose words build the mood.\n2. Name the mood they share.\n3. Pick the choice that fits those sentences best."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The library was hushed.",
+      "role": "detail"
+     },
+     {
+      "t": "Sunlight rested on the empty tables.",
+      "role": "detail"
+     },
+     {
+      "t": "A boy slammed his book shut.",
+      "role": "other"
+     },
+     {
+      "t": "A boy closed his book gently.",
+      "role": "key"
+     }
+    ],
+    "explain": "The scene is **calm**: hushed, rested, empty. **Slammed** breaks the calm mood. **Closed gently** keeps it. A good revision swaps the word."
+   },
+   "together": {
+    "passage": "The small boat left the harbour late in the afternoon. Within an hour, the wind began to scream through the ropes. Cold spray stung the fishermen's faces. Each wave lifted the boat high, then dropped it into a deep hollow. The old captain gripped the wheel with white knuckles and did not say a word. Suddenly the boat ___ to one side.",
+    "stem": "Which word best adds to the frightening mood?",
+    "options": [
+     "lurched",
+     "drifted",
+     "floated",
+     "wandered"
+    ],
+    "answer": 0,
+    "hint": "That word feels slow and gentle. Look at scream, stung and gripped. They are sudden and strong.",
+    "good": "Yes! **Lurched** is sudden and violent, like **scream**, **stung** and **gripped**. It keeps the frightening mood."
+   },
+   "evidence": {
+    "sentences": [
+     "The small boat left the harbour late in the afternoon.",
+     "Within an hour, the wind began to scream through the ropes.",
+     "Cold spray stung the fishermen's faces.",
+     "Each wave lifted the boat high, then dropped it into a deep hollow.",
+     "The old captain gripped the wheel with white knuckles and did not say a word.",
+     "Suddenly the boat lurched to one side."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: lurched. Tap 2 sentences whose words build the frightening mood.",
+    "wrong": "This sentence only gives the time, or it holds the answer. Find sentences with frightening words like scream, stung or gripped."
+   },
+   "checks": [
+    {
+     "passage": "The garden was quiet in the early morning. Dew sparkled on the grass, and a bird sang softly. Grandfather smashed the gate open and walked slowly to the roses.",
+     "stem": "Which word breaks the calm mood?",
+     "options": [
+      "smashed",
+      "sparkled",
+      "softly",
+      "slowly"
+     ],
+     "answer": 0,
+     "why": "Every other word is gentle. **Smashed** is loud and rough, so it breaks the calm mood."
+    },
+    {
+     "passage": "The forest path was narrow and dark. Branches ___ at my sleeves as I hurried past.",
+     "stem": "Which word gives the most frightening feeling?",
+     "options": [
+      "touched",
+      "brushed",
+      "clawed",
+      "tapped"
+     ],
+     "answer": 2,
+     "why": "**Clawed** makes the branches sound like an animal attacking. It adds fear."
+    },
+    {
+     "passage": "It was the morning of the school trip to the science museum. Students crowded around the bus, talking all at once. Even the teachers were smiling.",
+     "stem": "Which sentence would best add to the excited mood?",
+     "options": [
+      "The driver checked the tyres slowly.",
+      "Ali bounced on his toes, too excited to wait.",
+      "The museum opens at nine o'clock.",
+      "Some students ate breakfast at home."
+     ],
+     "answer": 1,
+     "why": "**Bounced** and **too excited to wait** match the crowding, talking and smiling."
+    }
+   ],
+   "again": {
+    "title": "Swap the plain word",
+    "text": "Plain words have **no feeling**. Mood words do.\n\nwalked → crept (scary), strolled (calm), marched (angry)\nsaid → whispered (secret), shouted (angry), giggled (happy)",
+    "example": "Plain: The boy **walked** into the dark cave.\nScary: The boy **crept** into the dark cave."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Mood across a passage",
+     "text": "In longer writing, mood is built **layer by layer**: setting, sounds, pace and the characters' reactions.\n\nAsk: what does each detail make me feel, and what do they make me feel **together**?"
+    },
+    {
+     "title": "When the mood shifts",
+     "text": "Writers sometimes **change** the mood on purpose: from tense to relieved, or from gloomy to hopeful.\n\nLook for a turning point, often a word like **then**, **suddenly** or **at last**, and compare the words before and after it."
+    },
+    {
+     "title": "Precise mood words",
+     "text": "Use exact words to name moods:\n\n**serene**: deeply calm\n**eerie**: strange and frightening\n**desolate**: empty and lonely\n**festive**: full of celebration\n**ominous**: warning that something bad will happen"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse mood, collect **evidence from more than one part** of the text.\n\n1. Mark the feeling words in each part.\n2. Name the mood of each part.\n3. If the mood changes, point to a sentence **before** the change and one **after** it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The stadium lights flickered and went out.",
+      "role": "detail"
+     },
+     {
+      "t": "Thousands of people fell silent in the dark.",
+      "role": "detail"
+     },
+     {
+      "t": "Then a single phone light appeared, then hundreds more, until the stands glittered like a night sky.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first two sentences feel **uneasy**. The third sentence turns the mood to **wonder**. **Then** marks the shift, and **glittered like a night sky** builds the new mood."
+   },
+   "together": {
+    "passage": "For three years, almost no rain had fallen on the village. The wells had sunk to muddy puddles, and the palm fronds hung brown and brittle. Each evening, the farmers sat in silence, watching a sky that offered nothing. Then, one night in early winter, a low rumble rolled across the hills. By dawn, water was gurgling through the dry channels, and children splashed barefoot in the lanes. The old farmers lifted their faces to the rain and laughed.",
+    "stem": "How does the mood change in this passage?",
+    "options": [
+     "It moves from joyful to hopeless.",
+     "It moves from calm to angry.",
+     "It stays cheerful from start to end.",
+     "It moves from hopeless to joyful."
+    ],
+    "answer": 3,
+    "hint": "Compare the words at the start (silence, brittle, nothing) with the words at the end (splashed, laughed).",
+    "good": "Yes! Brittle palms and silent farmers feel hopeless. Splashing children and laughing farmers feel joyful."
+   },
+   "evidence": {
+    "sentences": [
+     "For three years, almost no rain had fallen on the village.",
+     "The wells had sunk to muddy puddles, and the palm fronds hung brown and brittle.",
+     "Each evening, the farmers sat in silence, watching a sky that offered nothing.",
+     "Then, one night in early winter, a low rumble rolled across the hills.",
+     "By dawn, water was gurgling through the dry channels, and children splashed barefoot in the lanes.",
+     "The old farmers lifted their faces to the rain and laughed."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: from hopeless to joyful. Tap 2 sentences: one that builds the first mood and one that builds the second.",
+    "wrong": "This sentence gives a fact or marks the turning point. Find a sentence full of hopeless words and one full of joyful words."
+   },
+   "checks": [
+    {
+     "passage": "The old house stood alone at the end of the road. Its broken windows ___ at us like empty eyes.",
+     "stem": "Which word best builds the eerie mood?",
+     "options": [
+      "shone",
+      "stared",
+      "smiled",
+      "sparkled"
+     ],
+     "answer": 1,
+     "why": "Windows that **stare** like empty eyes feel strange and frightening. The other words feel bright or friendly."
+    },
+    {
+     "passage": "Ahmed reached the top of the mountain at sunrise. Pink light spread slowly across the valley, and the only sound was the wind. He breathed in the cool air and felt that the whole world was resting.",
+     "stem": "Which word best describes the mood?",
+     "options": [
+      "suspenseful",
+      "bitter",
+      "frantic",
+      "serene"
+     ],
+     "answer": 3,
+     "why": "Slow light, a quiet wind and a resting world create a deeply calm, **serene** mood."
+    },
+    {
+     "passage": "On the night of Eid, the streets filled with families. Lanterns glowed above the doorways. The market was open.",
+     "stem": "The writer wants a festive mood. Which revision of the last sentence works best?",
+     "options": [
+      "The market buzzed with music and laughter.",
+      "The market was open until late.",
+      "The market had many kinds of shops.",
+      "Some people went to the market."
+     ],
+     "answer": 0,
+     "why": "**Buzzed**, **music** and **laughter** match the glowing lanterns and add celebration. The other choices are plain facts."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "If a mood is hard to name, split the text in two.\n\n1. List three words from the **first half**.\n2. List three words from the **second half**.\n3. Name the feeling of each list.",
+    "example": "First half: dark, alone, cold → **lonely**.\nSecond half: lights, voices, warm soup → **comforting**.\nThe mood shifts from lonely to comforting."
+   }
+  }
+ }
+}

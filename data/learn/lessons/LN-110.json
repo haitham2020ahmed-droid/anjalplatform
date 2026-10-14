@@ -1,0 +1,469 @@
+{
+ "code": "LN-110",
+ "title": "Purpose of signs, posters and ads",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.6",
+  "RI.6.6"
+ ],
+ "families": [
+  "author-purpose"
+ ],
+ "skillNames": [
+  "Purpose of Signs, Posters and Directions"
+ ],
+ "statements": [
+  "R-0098",
+  "R-0182",
+  "R-0336",
+  "R-0520"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Signs talk to us",
+     "text": "A **sign** has a job. It tells people what to **do**, what **not** to do, or **where** to go."
+    },
+    {
+     "title": "Short and clear",
+     "text": "Signs use few words. Big words show the most important part.\n\n**STOP**. **EXIT**. **QUIET, PLEASE**."
+    },
+    {
+     "title": "Find the job",
+     "text": "1. Read the big words.\n2. Read the small words.\n3. Ask: **What does this sign want me to do?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The sign **tells** you its job.\n\n1. Find the words that say **do** or **do not**.\n2. Point to them.\n\nThat is the proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sign on a door: WET PAINT.",
+      "role": "main"
+     },
+     {
+      "t": "Please do not touch.",
+      "role": "key"
+     }
+    ],
+    "explain": "The sign says **Please do not touch.** Its job is to stop people from touching the wet door."
+   },
+   "together": {
+    "passage": "Sign at the library: QUIET, PLEASE. People are reading and working. Talk softly. Thank you.",
+    "stem": "What does this sign want people to do?",
+    "options": [
+     "Read a book",
+     "Be quiet",
+     "Go home",
+     "Talk loudly"
+    ],
+    "answer": 1,
+    "hint": "Look at the big words and the last line. What do they ask you to do?",
+    "good": "Yes! QUIET, PLEASE and Talk softly both ask people to be quiet."
+   },
+   "evidence": {
+    "sentences": [
+     "Sign at the library: QUIET, PLEASE.",
+     "People are reading and working.",
+     "Talk softly.",
+     "Thank you."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: be quiet. Tap a line that tells people to be quiet.",
+    "wrong": "This line tells why, but does not tell you what to do. Find the line that asks you to be quiet."
+   },
+   "checks": [
+    {
+     "passage": "Sign at the pool: NO RUNNING. The floor is wet. Walk slowly.",
+     "stem": "What does the sign want you to do?",
+     "options": [
+      "Run fast",
+      "Swim",
+      "Walk slowly",
+      "Jump in"
+     ],
+     "answer": 2,
+     "why": "The sign says NO RUNNING and Walk slowly."
+    },
+    {
+     "passage": "Sign in the park: Please put rubbish in the bin. Keep our park clean.",
+     "stem": "Why is this sign in the park?",
+     "options": [
+      "To keep the park clean",
+      "To tell the time",
+      "To sell food",
+      "To show the way home"
+     ],
+     "answer": 0,
+     "why": "The sign says Keep our park clean and asks people to use the bin."
+    },
+    {
+     "passage": "Sign on a gate: DANGER. Big dog. Do not open the gate.",
+     "stem": "What is the job of this sign?",
+     "options": [
+      "To sell a dog",
+      "To say hello",
+      "To show a game",
+      "To warn people to stay out"
+     ],
+     "answer": 3,
+     "why": "DANGER and Do not open the gate warn people to stay out."
+    }
+   ],
+   "again": {
+    "title": "Do or do not?",
+    "text": "Most signs say **do this** or **do not do this**.\n\nFind the **do** or **do not** part. That tells you the job of the sign.",
+    "example": "Sign: PLEASE WASH YOUR HANDS.\n\nThe **do** part: wash your hands. Job: to keep hands clean."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Posters and notices",
+     "text": "A **poster** or **notice** shares information with many people at once.\n\nIt may tell about an **event**, give a **rule**, or ask people to **help** or **join**."
+    },
+    {
+     "title": "Specific purpose",
+     "text": "A poster's **specific purpose** is the exact thing it wants.\n\nNot just \"to inform\", but **to invite students to join the chess club on Tuesday**."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the title.\n2. Look for **action words**: join, come, bring, sign up, do not.\n3. Look for who, when and where.\n4. Say the purpose in one sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The purpose shows in the **action words**.\n\n1. Find the words that ask the reader to do something.\n2. Point to them.\n3. The correct answer matches **that** action, not just one detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "BOOK SWAP DAY!",
+      "role": "other"
+     },
+     {
+      "t": "Bring a book you have finished.",
+      "role": "key"
+     },
+     {
+      "t": "Take home a new one to read.",
+      "role": "key"
+     },
+     {
+      "t": "Thursday, 10:00, in the school library.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The action words are **Bring** and **Take home**. The poster's purpose: **to get students to swap books on Thursday**. The time and place are details."
+   },
+   "together": {
+    "passage": "LOST WATER BOTTLE.\nA green metal water bottle was left in the school playground on Monday.\nIt has the name Huda written on the side.\nIf you find it, please take it to the school office.\nThank you!",
+    "stem": "What is the purpose of this notice?",
+    "options": [
+     "To sell a green water bottle",
+     "To tell students to drink more water",
+     "To describe the school playground",
+     "To ask people to return a lost bottle"
+    ],
+    "answer": 3,
+    "hint": "Look for the action words. What does the notice ask you to do?",
+    "good": "Yes! LOST and please take it to the school office show the notice wants the bottle returned."
+   },
+   "evidence": {
+    "sentences": [
+     "LOST WATER BOTTLE.",
+     "A green metal water bottle was left in the school playground on Monday.",
+     "It has the name Huda written on the side.",
+     "If you find it, please take it to the school office.",
+     "Thank you!"
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: to ask people to return a lost bottle. Tap 2 lines that prove it.",
+    "wrong": "This line describes the bottle or says thanks. Find the title and the line with the action words."
+   },
+   "checks": [
+    {
+     "passage": "SCHOOL SPORTS DAY.\nSaturday, 8:00 in the morning.\nWear your sports uniform and bring a hat and water.\nFamilies are welcome to watch!",
+     "stem": "What is one purpose of this poster?",
+     "options": [
+      "To sell sports uniforms",
+      "To tell students what to wear and bring",
+      "To show the results of the races",
+      "To ask families to stay home"
+     ],
+     "answer": 1,
+     "why": "The poster says Wear your sports uniform and bring a hat and water."
+    },
+    {
+     "passage": "HELP OUR BIRDS.\nIn summer, birds need water.\nPut a bowl of clean water in a shady place on your balcony.\nChange the water every day.",
+     "stem": "What does this poster want people to do?",
+     "options": [
+      "Keep birds as pets",
+      "Buy bird food",
+      "Give birds water in summer",
+      "Stay inside in summer"
+     ],
+     "answer": 2,
+     "why": "The poster asks readers to put a bowl of water in the shade for birds."
+    },
+    {
+     "passage": "NOTICE.\nThe swimming pool will be closed from 1 to 5 March for cleaning.\nIt will open again on 6 March.\nWe are sorry for any trouble.",
+     "stem": "What is the purpose of this notice?",
+     "options": [
+      "To tell people when the pool is closed",
+      "To invite people to a swimming race",
+      "To teach people to swim",
+      "To ask people to clean the pool"
+     ],
+     "answer": 0,
+     "why": "The notice gives the dates when the pool is closed and when it opens again."
+    }
+   ],
+   "again": {
+    "title": "Who, what, why",
+    "text": "Ask three questions:\n\n1. **Who** is the poster for?\n2. **What** does it ask them to do?\n3. **Why**?\n\nPut the answers together.",
+    "example": "Poster: Join the Science Club! Meet in Room 5 every Wednesday.\n\nWho: students. What: join the club. Purpose: **to get students to join the Science Club**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "What ads want",
+     "text": "An **advertisement** wants you to **do** something: buy a product, visit a place, use a service, or come to an event.\n\nThat is its **specific purpose**."
+    },
+    {
+     "title": "How ads persuade",
+     "text": "Ads use tricks to make you want something:\n\n**Exciting words**: amazing, best, new.\n**Offers**: half price, free gift.\n**Urgency**: today only, hurry.\n**Promises**: you will feel great."
+    },
+    {
+     "title": "Find the purpose",
+     "text": "1. What is being offered?\n2. Who is the ad for?\n3. What does it ask the reader to **do**?\n4. Say the purpose: **to get [who] to [do what]**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The ad's purpose is proved by its **call to action**: the words that tell you what to do.\n\n1. Find the call to action (Visit, Order, Call, Sign up).\n2. Find what is being sold or offered.\n3. The answer must match both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Tired of a messy room?",
+      "role": "other"
+     },
+     {
+      "t": "Our new folding shelves fit in any corner.",
+      "role": "detail"
+     },
+     {
+      "t": "They are strong, light and easy to build.",
+      "role": "detail"
+     },
+     {
+      "t": "Order now and get free delivery this week!",
+      "role": "key"
+     }
+    ],
+    "explain": "The call to action is **Order now**. The ad is selling folding shelves. Purpose: **to get readers to buy the shelves this week**. The question and the details are there to make you want them."
+   },
+   "together": {
+    "passage": "Learn to swim this summer! The Al-Noor Sports Center offers swimming classes for children aged 6 to 12. Our coaches are trained in water safety, and classes are small, so every child gets attention. Classes start on 1 July. Sign up before 20 June and get the second month at half price!",
+    "stem": "What is the specific purpose of this advertisement?",
+    "options": [
+     "To get families to sign up children for swimming classes",
+     "To explain why swimming is good exercise",
+     "To describe the coaches at the center",
+     "To tell families about water safety at the beach"
+    ],
+    "answer": 0,
+    "hint": "Find the call to action. What does the ad want families to do?",
+    "good": "Yes! Learn to swim and Sign up show the ad wants families to enroll their children."
+   },
+   "evidence": {
+    "sentences": [
+     "Learn to swim this summer!",
+     "The Al-Noor Sports Center offers swimming classes for children aged 6 to 12.",
+     "Our coaches are trained in water safety, and classes are small, so every child gets attention.",
+     "Classes start on 1 July.",
+     "Sign up before 20 June and get the second month at half price!"
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to get families to sign up for swimming classes. Tap 2 sentences that show what the ad wants you to do.",
+    "wrong": "This sentence gives a detail about the classes. Find the sentences that tell the reader to act."
+   },
+   "checks": [
+    {
+     "passage": "Visit the Spring Flower Festival in Taif! Walk through fields of roses and watch rose water being made. Buy fresh flowers and gifts. Open every day from 4 to 10 in the evening, from 15 to 30 April.",
+     "stem": "What does this ad most want readers to do?",
+     "options": [
+      "Grow roses at home",
+      "Learn how roses are made",
+      "Stay home in April",
+      "Come to the flower festival"
+     ],
+     "answer": 3,
+     "why": "The call to action is Visit the Spring Flower Festival."
+    },
+    {
+     "passage": "Is your bike old and slow? At Fast Wheel Repairs, we fix brakes, chains and tires in one hour. Bring your bike this week and we will check the tires for free!",
+     "stem": "What is the purpose of this ad?",
+     "options": [
+      "To sell new bikes",
+      "To get readers to bring their bikes for repair",
+      "To teach readers to fix their own bikes",
+      "To warn about old bikes"
+     ],
+     "answer": 1,
+     "why": "The ad offers repairs and says Bring your bike this week."
+    },
+    {
+     "passage": "Buy one notebook, get one free! Back-to-school sale at the Corner Bookshop. Hurry, offer ends Saturday!",
+     "stem": "Why does the ad say Hurry, offer ends Saturday?",
+     "options": [
+      "To tell the shop's opening hours",
+      "To describe the notebooks",
+      "To make readers buy soon",
+      "To say the shop is closing"
+     ],
+     "answer": 2,
+     "why": "Hurry and ends Saturday create urgency so readers will buy quickly."
+    }
+   ],
+   "again": {
+    "title": "To get ... to ...",
+    "text": "Every ad purpose fits this frame:\n\n**To get ___ (who) to ___ (do what).**\n\nFill in the blanks from the ad's words.",
+    "example": "Ad: Kids, come to the Story Hour at City Library every Friday!\n\nTo get **children** to **come to Story Hour on Fridays**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Beyond buy this",
+     "text": "Not every ad sells a product. **Public service** ads try to change behavior: save water, wear a seatbelt, get a checkup.\n\nTheir specific purpose is the **exact behavior** they want to change."
+    },
+    {
+     "title": "Reading the techniques",
+     "text": "Ads choose their words on purpose:\n\n**Statistics** make a message seem serious.\n**A question** pulls the reader in.\n**Feelings** (worry, pride, belonging) push people to act.\n**A slogan** makes the message easy to remember."
+    },
+    {
+     "title": "Analyze the ad",
+     "text": "1. Who is the audience?\n2. What exact action does the ad want?\n3. Which technique does each part use, and why?\n4. Separate the **purpose** (the goal) from the **technique** (how it tries to reach it)."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the specific purpose by linking **the call to action** and **the audience**.\n\n1. Find who the ad speaks to.\n2. Find the exact action it asks for.\n3. Reject choices that name a technique or detail instead of the goal."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every minute a tap runs, it wastes several liters of water.",
+      "role": "detail"
+     },
+     {
+      "t": "In a dry country, every drop counts.",
+      "role": "detail"
+     },
+     {
+      "t": "Turn off the tap while you brush your teeth.",
+      "role": "key"
+     },
+     {
+      "t": "Small habits, big savings.",
+      "role": "other"
+     }
+    ],
+    "explain": "The number is a **technique** to make it serious. The slogan helps people remember. But the **purpose** is the call to action: **to get people to turn off the tap while brushing their teeth**."
+   },
+   "together": {
+    "passage": "Did you know that many children in our region do not wear a seatbelt on short trips? Many car crashes happen close to home, often only a few minutes from the front door. A seatbelt can greatly reduce the risk of serious injury in a crash. It takes only two seconds to click it. Parents, before you start the car, check that every child is buckled in, even for a quick trip to the shop. Click it, every trip.",
+    "stem": "What is the specific purpose of this public message?",
+    "options": [
+     "To explain how seatbelts are made",
+     "To tell children where most crashes happen",
+     "To get parents to make sure children wear seatbelts on every trip",
+     "To warn drivers about busy shopping areas"
+    ],
+    "answer": 2,
+    "hint": "Find who the message speaks to and the exact action it asks for.",
+    "good": "Yes! The message speaks to parents and asks them to check every child is buckled in on every trip."
+   },
+   "evidence": {
+    "sentences": [
+     "Did you know that many children in our region do not wear a seatbelt on short trips?",
+     "Many car crashes happen close to home, often only a few minutes from the front door.",
+     "A seatbelt can greatly reduce the risk of serious injury in a crash.",
+     "It takes only two seconds to click it.",
+     "Parents, before you start the car, check that every child is buckled in, even for a quick trip to the shop.",
+     "Click it, every trip."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: to get parents to make sure children wear seatbelts every trip. Tap 2 sentences that give the call to action.",
+    "wrong": "This sentence gives a fact or reason, which is a technique. Find the sentences that tell the reader what to do."
+   },
+   "checks": [
+    {
+     "passage": "Your old phone has a second life. Its metals can be recovered and used again. This Saturday, bring unwanted phones, chargers and tablets to the town hall. Nothing goes to waste.",
+     "stem": "What is the specific purpose of this message?",
+     "options": [
+      "To get people to bring old devices for recycling",
+      "To sell new phones at the town hall",
+      "To explain how metals are mined",
+      "To ask people to repair their phones"
+     ],
+     "answer": 0,
+     "why": "The call to action is bring unwanted phones, chargers and tablets to the town hall, so they can be recycled."
+    },
+    {
+     "passage": "Thousands of young people already give two hours a week to help in their community. They read to younger children, plant trees and visit older neighbors. Be one of them. Visit the youth center to choose your project. Together, we make our city stronger.",
+     "stem": "Why does the ad say Thousands of young people already give two hours a week?",
+     "options": [
+      "To show the city is too small",
+      "To report the results of a survey",
+      "To ask older neighbors for help",
+      "To make readers feel they should join others like them"
+     ],
+     "answer": 3,
+     "why": "Saying that many others already volunteer makes readers want to belong and join in. It is a technique, not the purpose."
+    },
+    {
+     "passage": "Running out of energy in the afternoon? You do not need sugary drinks. A glass of cold water and a handful of nuts can keep you going. Choose smart snacks, and feel the difference.",
+     "stem": "What is the specific purpose of this ad?",
+     "options": [
+      "To sell nuts from one company",
+      "To persuade readers to choose healthier snacks than sugary drinks",
+      "To explain why people get tired",
+      "To ask readers to drink only juice"
+     ],
+     "answer": 1,
+     "why": "The message tells readers to choose water and nuts over sugary drinks: Choose smart snacks."
+    }
+   ],
+   "again": {
+    "title": "Goal or tool?",
+    "text": "Sort each part of an ad:\n\n**Tool**: a fact, question, feeling or slogan that grabs you.\n**Goal**: the action the ad wants.\n\nThe purpose is always the **goal**.",
+    "example": "Ad: Hot today? Protect your skin. Wear a hat outside.\n\nTool: **Hot today?** (a question). Goal: **wear a hat outside**. Purpose: to get people to protect their skin by wearing a hat."
+   }
+  }
+ }
+}

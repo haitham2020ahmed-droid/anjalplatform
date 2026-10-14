@@ -1,0 +1,452 @@
+{
+ "code": "LN-086",
+ "title": "Punctuating titles",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [
+  "L.5.2.d"
+ ],
+ "families": [
+  "titles-abbreviations"
+ ],
+ "skillNames": [
+  "Punctuating Titles"
+ ],
+ "statements": [
+  "L-0107",
+  "L-0220",
+  "L-0221",
+  "L-0303",
+  "L-0304",
+  "L-0332",
+  "L-0338"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Book titles are special",
+     "text": "The **title** is the name of a book.\n\nWhen you write a book title in a sentence, you must **mark** it. Then readers know it is a title."
+    },
+    {
+     "title": "Underline it",
+     "text": "When you **write by hand**, draw a **line under** the book title.\n\nI read The Lost Camel.\n\nDraw a line under **The Lost Camel**."
+    },
+    {
+     "title": "On a computer",
+     "text": "When you **type**, you do not draw a line.\n\nUse **italics** instead. Italics are slanted letters that lean to the right."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Find the **name of a book**.\n3. That is the title. It must be underlined when you write by hand.\n\nThe sentence with the book's name is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My teacher read us The Brave Little Hawk.",
+      "role": "key"
+     },
+     {
+      "t": "The hawk in the story was very brave.",
+      "role": "other"
+     }
+    ],
+    "explain": "**The Brave Little Hawk** is the name of a book. By hand, we **underline** it.\n\nIn sentence 2, 'the hawk' is not a title. Nothing is underlined."
+   },
+   "together": {
+    "passage": "I went to the library. I found a book called Sami and the Sea. It has big pictures. I took it home to read.",
+    "stem": "You are writing by hand. What should you do with Sami and the Sea?",
+    "options": [
+     "Underline it.",
+     "Put a comma after it.",
+     "Write it all in small letters.",
+     "Leave it as it is."
+    ],
+    "answer": 0,
+    "hint": "Sami and the Sea is the name of a book. How do we mark a book title by hand?",
+    "good": "Yes! It is a book title, so we draw a line under it."
+   },
+   "evidence": {
+    "sentences": [
+     "I went to the library.",
+     "I found a book called Sami and the Sea.",
+     "It has big pictures.",
+     "I took it home to read."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that has a book title.",
+    "wrong": "This sentence does not name a book. Find the name of a book."
+   },
+   "checks": [
+    {
+     "passage": "Mona likes the book Stars at Night.",
+     "stem": "Which words are the book title?",
+     "options": [
+      "Mona likes",
+      "the book",
+      "Stars at Night",
+      "likes the book"
+     ],
+     "answer": 2,
+     "why": "Stars at Night is the name of the book. That is the title."
+    },
+    {
+     "passage": "We read Ten Green Frogs in class.",
+     "stem": "How do you mark the title when you write by hand?",
+     "options": [
+      "Put it in a circle.",
+      "Draw a line under it.",
+      "Write it in red.",
+      "Put a period after it."
+     ],
+     "answer": 1,
+     "why": "By hand, we draw a line under a book title."
+    },
+    {
+     "passage": "Dad typed a list of books. One was The Big Dune.",
+     "stem": "How should The Big Dune look when it is typed?",
+     "options": [
+      "in italics (slanted letters)",
+      "in all small letters",
+      "with a dot after each word",
+      "with a line through it"
+     ],
+     "answer": 0,
+     "why": "When we type a book title, we use italics instead of a line."
+    }
+   ],
+   "again": {
+    "title": "Is it the name of a book?",
+    "text": "Ask: **Is this the name of a book?**\n\nYes → underline it when you write by hand.\n\nNo → leave it plain.",
+    "example": "I read The Kind Camel. → book name → underline **The Kind Camel**.\n\nI saw a kind camel. → not a book name → no line."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Titles of books",
+     "text": "The name of a **book** is a title. In a sentence, it must stand out.\n\nBy hand: **underline** it.\nTyping: use **italics** (slanted letters)."
+    },
+    {
+     "title": "Underline the whole title",
+     "text": "Underline **every word** of the title, even small words like **the**, **of** and **on**.\n\nRight: a line under all of **The House on the Hill**\nWrong: a line under only **House** and **Hill**"
+    },
+    {
+     "title": "Only the title",
+     "text": "Do not underline the word **book** or the author's name. Underline only the **title**.\n\nI read the book Desert Stars by Nada Ali.\n\nUnderline only **Desert Stars**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the words that name a **book**.\n2. Check where the title starts and ends.\n3. The whole title, and only the title, is underlined.\n\nPoint to the sentence that contains the book's title."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our class is reading Journey to the Green Oasis.",
+      "role": "key"
+     },
+     {
+      "t": "The author, Huda Saleh, visited our school.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Journey to the Green Oasis** is a book title. All of it is underlined, even **to** and **the**.\n\nThe author's name is not a title, so it is **not** underlined."
+   },
+   "together": {
+    "passage": "Every Thursday, our class has a book club. This week, each student shared a favorite book. Bandar talked about The Secret of the Old Well. He said it was full of surprises. Next week, we will vote on a book to read together.",
+    "stem": "Which words should be underlined?",
+    "options": [
+     "book club",
+     "The Secret of the Old Well",
+     "Bandar",
+     "Next week"
+    ],
+    "answer": 1,
+    "hint": "Only a title is underlined. Which words are the name of a book?",
+    "good": "Yes! The Secret of the Old Well is the title of the book Bandar talked about."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Thursday, our class has a book club.",
+     "This week, each student shared a favorite book.",
+     "Bandar talked about The Secret of the Old Well.",
+     "He said it was full of surprises.",
+     "Next week, we will vote on a book to read together."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that contains a book title.",
+    "wrong": "This sentence talks about books but does not name a title. Find the title."
+   },
+   "checks": [
+    {
+     "passage": "Lina read the book Clouds Over Jeddah by Sara Omar.",
+     "stem": "Which words should be underlined?",
+     "options": [
+      "the book",
+      "Sara Omar",
+      "Clouds Over Jeddah by Sara Omar",
+      "Clouds Over Jeddah"
+     ],
+     "answer": 3,
+     "why": "Only the title is underlined, not the author's name."
+    },
+    {
+     "passage": "The librarian typed the title of the new book on a card.",
+     "stem": "When a book title is typed, how should it look?",
+     "options": [
+      "in bold capitals",
+      "in italics",
+      "in brackets",
+      "in quotation marks"
+     ],
+     "answer": 1,
+     "why": "A typed book title is put in italics, slanted letters."
+    },
+    {
+     "passage": "Faris underlined only the word Ocean in the title The Deep Blue Ocean.",
+     "stem": "What mistake did Faris make?",
+     "options": [
+      "He should not underline the title.",
+      "He should underline only The.",
+      "He should underline the whole title.",
+      "He should circle the title."
+     ],
+     "answer": 2,
+     "why": "Every word of a title is underlined, from The to Ocean."
+    }
+   ],
+   "again": {
+    "title": "Find the edges",
+    "text": "A title has a **first word** and a **last word**.\n\nStart your line under the first word. Stop under the last word. Every word in between gets the line too.",
+    "example": "We loved The Camel Who Could Not Sleep.\n\nFirst word: **The**. Last word: **Sleep**. Underline all of **The Camel Who Could Not Sleep**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Long works",
+     "text": "Titles of **long, whole works** are underlined (or in italics when typed):\n\n• books\n• plays\n• newspapers and magazines\n• movies"
+    },
+    {
+     "title": "Short works",
+     "text": "Titles of **short works** go in **quotation marks**. They are often part of something bigger:\n\n• poems\n• short stories\n• chapters\n• articles\n\nThe poem \"Morning in the Desert\" is in a poetry book, and the book's title is underlined."
+    },
+    {
+     "title": "Plays",
+     "text": "A **play** is a story written to be acted on a stage. It is a whole work, so its title is **underlined**, like a book.\n\nOur class performed The Clever Merchant.\n\nUnderline **The Clever Merchant**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each title in the text.\n2. Ask: Is it a **whole** long work (book, play, newspaper, movie) or a **short** part (poem, story, chapter, article)?\n3. Whole work → underline. Short work → quotation marks.\n\nPoint to the sentence that tells you what kind of work the title names."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For the school festival, our class performed a play called The Honest Fisherman.",
+      "role": "key"
+     },
+     {
+      "t": "Before the play began, Reem read a poem titled \"The Sea at Dawn.\"",
+      "role": "key"
+     },
+     {
+      "t": "The audience clapped for both.",
+      "role": "other"
+     }
+    ],
+    "explain": "**The Honest Fisherman** is a **play**, a whole work, so it is underlined.\n\n**\"The Sea at Dawn\"** is a **poem**, a short work, so it goes in quotation marks."
+   },
+   "together": {
+    "passage": "Our school held its yearly drama night on Wednesday. The older students performed a play called The Lantern Maker. It tells the story of a boy who brings light to his village. Before the show, the principal read a short article from the school newspaper. Many parents said it was the best drama night ever.",
+    "stem": "How should The Lantern Maker be punctuated?",
+    "options": [
+     "Put it in quotation marks, because it is short.",
+     "Underline it, because it is the title of a play.",
+     "Leave it plain, because it has capital letters.",
+     "Put commas around it, because it is a name."
+    ],
+    "answer": 1,
+    "hint": "Find the clue word just before the title. What kind of work is it?",
+    "good": "Yes! The text calls it a play. A play is a whole work, so its title is underlined."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school held its yearly drama night on Wednesday.",
+     "The older students performed a play called The Lantern Maker.",
+     "It tells the story of a boy who brings light to his village.",
+     "Before the show, the principal read a short article from the school newspaper.",
+     "Many parents said it was the best drama night ever."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that tells what kind of work The Lantern Maker is.",
+    "wrong": "This sentence does not tell what kind of work the title names. Look for a clue word like play."
+   },
+   "checks": [
+    {
+     "passage": "Nouf wrote a poem called Rain on the Roof for the school magazine.",
+     "stem": "How should the poem's title be punctuated?",
+     "options": [
+      "Underline it.",
+      "Put it in quotation marks.",
+      "Put it in italics.",
+      "Leave it plain."
+     ],
+     "answer": 1,
+     "why": "A poem is a short work, so its title goes in quotation marks."
+    },
+    {
+     "passage": "The drama club is rehearsing a play titled The Lost Key.",
+     "stem": "Which is correct when writing by hand?",
+     "options": [
+      "Put The Lost Key in quotation marks.",
+      "Underline only Key.",
+      "Underline The Lost Key.",
+      "Underline play titled."
+     ],
+     "answer": 2,
+     "why": "The Lost Key is a play, a whole work, so the whole title is underlined."
+    },
+    {
+     "passage": "In the novel Island of Palms, Chapter 4 is called The Storm.",
+     "stem": "Which title goes in quotation marks?",
+     "options": [
+      "both titles",
+      "Island of Palms",
+      "neither title",
+      "The Storm"
+     ],
+     "answer": 3,
+     "why": "The Storm is a chapter, a part of the book, so it goes in quotation marks. The novel's title is underlined."
+    }
+   ],
+   "again": {
+    "title": "Whole or part?",
+    "text": "Ask: **Can this work stand on its own, on a shelf or a stage?**\n\nYes (book, play, newspaper) → underline.\n\nNo, it is part of something bigger (poem, story, chapter, article) → quotation marks.",
+    "example": "The play The Wise Judge → acted on a stage by itself → **underline**.\n\nThe chapter \"A New Friend\" → part of a book → **quotation marks**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "What underlining tells the reader",
+     "text": "Underlining (or italics when typed) tells the reader: this is the title of a **complete, stand-alone work**.\n\nPlays, books, newspapers, magazines and films are all stand-alone works.\n\nA play's **acts** and **scenes** are parts, so words like Act 2 are not underlined."
+    },
+    {
+     "title": "Choosing the right mark",
+     "text": "Use the size of the work:\n\n**Underline / italics**: plays, books, newspapers, magazines, films\n**Quotation marks**: poems, short stories, chapters, articles\n\nIf a short work is inside a longer one, each gets its own mark: the article \"Saving the Ibex\" in the magazine Wild Arabia (underlined)."
+    },
+    {
+     "title": "What is not underlined",
+     "text": "Some names are capitalized but are **not** underlined or put in quotation marks:\n\n• the **Quran** and other sacred texts\n• the author's or playwright's **name**\n• words like **play**, **act** and **scene**\n\nUnderline only the exact title."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every title in the passage.\n2. For each one, decide: a whole stand-alone work, or a part of a larger work?\n3. Check the clue words around it: play, performed, act, scene, poem, chapter, article.\n4. Match the mark to the kind of work.\n\nPoint to the sentences whose clue words prove what kind of work a title names."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The writer Majid Saad wrote The Pearl Divers many years ago.",
+      "role": "detail"
+     },
+     {
+      "t": "The play was first performed in Jeddah, and its second act is the most famous.",
+      "role": "key"
+     },
+     {
+      "t": "In that act, the main character recites a poem called \"The Gulf at Night.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 2 shows that **The Pearl Divers** is a **play**, so its title is underlined. The act is part of the play, so it is not.\n\nThe **poem** is a short work inside the play, so its title goes in quotation marks."
+   },
+   "together": {
+    "passage": "For our class project, we compared two versions of the same old tale. The first was a book called The Merchant and the Falcon. The second was a play based on the book, which the city theater performed last spring. The play was titled The Falcon's Return. In Act 1, a character reads aloud a short poem, \"Wings Over the Dunes.\" Our class decided that the play brought the story to life in a new way.",
+    "stem": "Which title should be underlined because it names a play?",
+    "options": [
+     "The Merchant and the Falcon",
+     "The Falcon's Return",
+     "Wings Over the Dunes",
+     "Act 1"
+    ],
+    "answer": 1,
+    "hint": "The book is underlined too, but it is not a play. Find the title that the text calls a play.",
+    "good": "Yes! The text says the play was titled The Falcon's Return. A play is a whole work, so it is underlined."
+   },
+   "evidence": {
+    "sentences": [
+     "For our class project, we compared two versions of the same old tale.",
+     "The first was a book called The Merchant and the Falcon.",
+     "The second was a play based on the book, which the city theater performed last spring.",
+     "The play was titled The Falcon's Return.",
+     "In Act 1, a character reads aloud a short poem, \"Wings Over the Dunes.\"",
+     "Our class decided that the play brought the story to life in a new way."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that prove The Falcon's Return is a play.",
+    "wrong": "This sentence names a different kind of work, or does not give a title. Look for the clue word play."
+   },
+   "checks": [
+    {
+     "passage": "Last night, I watched a performance of The Tent of Stories at the cultural center.",
+     "stem": "Why should The Tent of Stories be underlined?",
+     "options": [
+      "It is the title of a play, a whole work.",
+      "It is the name of a building.",
+      "It is the title of a short poem.",
+      "It begins with the word The."
+     ],
+     "answer": 0,
+     "why": "It was performed, so it is a play. Plays are whole works, so their titles are underlined."
+    },
+    {
+     "passage": "Scene 3 of the play The Generous Neighbor takes place in a busy market.",
+     "stem": "Which words should be underlined?",
+     "options": [
+      "Scene 3",
+      "the play",
+      "The Generous Neighbor",
+      "a busy market"
+     ],
+     "answer": 2,
+     "why": "Only the play's title is underlined. A scene is a part of the play, so Scene 3 is not."
+    },
+    {
+     "passage": "Our teacher read us the article Why Bees Matter from the magazine Desert Explorer.",
+     "stem": "How should the two titles be punctuated?",
+     "options": [
+      "Both underlined",
+      "Both in quotation marks",
+      "Article underlined; magazine in quotation marks",
+      "Article in quotation marks; magazine underlined"
+     ],
+     "answer": 3,
+     "why": "An article is a short part of a magazine, so it gets quotation marks. The magazine is a whole work, so it is underlined."
+    }
+   ],
+   "again": {
+    "title": "Stage, shelf or page?",
+    "text": "Ask where the work lives.\n\n**On a stage** (play) or **on a shelf** (book, magazine) → underline.\n\n**On a page inside something bigger** (poem, chapter, article) → quotation marks.",
+    "example": "The Two Brothers was performed at the theater. → on a stage → **underline The Two Brothers**.\n\nIts opening poem, \"Home,\" → a page inside the play → **quotation marks**."
+   }
+  }
+ }
+}

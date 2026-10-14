@@ -1,0 +1,568 @@
+{
+  "code": "NB-090",
+  "title": "Roald Amundsen: Everything in Order",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 429,
+  "passage": "On 14 December 1911, five men and their teams of dogs stopped on a vast, silent plain of snow and ice. Their instruments told them that they had reached the exact bottom of the planet, the South Pole, a place no human being had ever stood before. The leader of the group, a tall Norwegian named Roald Amundsen, had been preparing for this moment almost his entire life.\n\nAmundsen was born in 1872 in Norway, into a family of ship owners and sea captains. As a boy, he read eagerly about polar explorers, and he decided that he would one day explore the frozen regions himself. To toughen his body, he went skiing in all weathers and even slept with his bedroom window open during the freezing Norwegian winter. His mother hoped he would become a doctor, so he began studying medicine at university. However, after her death, he left his studies and went to sea, determined to follow his dream.\n\nAmundsen believed that careful preparation mattered more than bravery alone. Between 1903 and 1906, he became the first person to sail through the Northwest Passage, the icy sea route around northern Canada. During that voyage, he spent two winters living near the Netsilik Inuit, and he studied how they survived in extreme cold. He learned to wear loose fur clothing, which kept the body warm without causing heavy sweating, and he learned how to drive teams of sled dogs skilfully across the ice.\n\nThese lessons proved essential in the race to the South Pole. A British expedition led by Robert Falcon Scott was also trying to reach the Pole, relying partly on ponies and motor sledges, which struggled badly in the brutal cold. Amundsen, by contrast, depended on skilled skiers and strong dogs, and he placed supplies of food along his route in advance. His team reached the Pole more than a month before Scott's group. Tragically, Scott and his companions died during their return journey.\n\nAt the Pole, Amundsen left a small tent with a letter inside, in case his own team did not survive the journey home. Fortunately, all five men returned safely. Amundsen later became one of the first people to fly over the North Pole, in an airship in 1926. In 1928, he disappeared while flying north to rescue other explorers who were stranded in the Arctic.\n\nWhat a remarkable explorer he was! Amundsen once wrote that victory awaits the person who has everything in order. His life teaches us that great achievements depend on patience, preparation and a willingness to learn from others.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “brutal” as it is used in paragraph 4?",
+      "options": [
+        "gentle",
+        "harsh",
+        "sudden",
+        "familiar"
+      ],
+      "answer": "B",
+      "why": "The “brutal cold” was extremely harsh and severe; “gentle” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “loose” as it is used in paragraph 3?",
+      "options": [
+        "tight",
+        "light",
+        "warm",
+        "soft"
+      ],
+      "answer": "A",
+      "why": "Loose clothing hangs freely; the opposite is tight clothing."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “stranded” mean in this phrase from paragraph 5: “other explorers who were stranded in the Arctic”?",
+      "options": [
+        "flying over the ice for pleasure",
+        "searching for new land to explore",
+        "waiting calmly for warmer weather",
+        "stuck in a place with no way to leave"
+      ],
+      "answer": "D",
+      "why": "Amundsen flew north “to rescue” them, which shows they were stuck and could not get away."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a VERB?",
+      "options": [
+        "freezing",
+        "eagerly",
+        "toughen",
+        "weathers"
+      ],
+      "answer": "C",
+      "why": "“Toughen” is an action (to make stronger); “freezing” describes the winter, “eagerly” is an adverb and “weathers” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is PLURAL?",
+      "options": [
+        "expedition",
+        "route",
+        "supplies",
+        "advance"
+      ],
+      "answer": "C",
+      "why": "“Supplies” means more than one supply; the other words are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “preparation”?",
+      "options": [
+        "preach",
+        "pretend",
+        "prepare",
+        "pressure"
+      ],
+      "answer": "C",
+      "why": "Prepare and preparation share the same root; the others only begin with “pre-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “determined” in a meaningful sentence of your own.",
+      "model": "Huda was determined to finish the race, so she kept running even when her legs felt heavy.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “determined” with its meaning (having firmly decided to do something and not giving up)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 2, Amundsen went to sea “determined to follow his dream.”"
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Paragraph 4 uses the plural “ponies”. Which word forms its plural in the SAME way?",
+      "options": [
+        "monkey",
+        "toy",
+        "story",
+        "day"
+      ],
+      "answer": "C",
+      "why": "A consonant + y changes to -ies (pony → ponies, story → stories); a vowel + y just adds -s (monkeys, toys, days)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which of these sentences is an EXCLAMATION?",
+      "options": [
+        "How cold was the Pole?",
+        "How cold the Pole must have been!",
+        "Tell me how cold the Pole was.",
+        "The Pole was extremely cold."
+      ],
+      "answer": "B",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Preparation Wins the Race",
+        "Ponies of the Antarctic",
+        "The Doctor Who Went to Sea",
+        "A Winter Among the Netsilik"
+      ],
+      "answer": "A",
+      "why": "The passage shows that Amundsen's careful preparation is what won the race to the Pole."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to show how careful preparation helped an explorer succeed",
+        "to explain how ponies are trained to pull sledges",
+        "to describe the history of Norway's sea captains",
+        "to persuade readers to sleep with windows open"
+      ],
+      "answer": "A",
+      "why": "The passage stresses Amundsen's belief that “careful preparation mattered more than bravery alone.”"
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "The Northwest Passage is the warmest route around Canada.",
+        "The Netsilik Inuit travelled to the South Pole with Amundsen.",
+        "Amundsen preferred sailing to skiing or driving dogs.",
+        "Amundsen prepared by learning survival skills from the Inuit."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 explains how he learned about fur clothing and sled dogs from the Netsilik Inuit."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the young Amundsen sleep with his window open in winter?",
+      "options": [
+        "to toughen his body for the cold",
+        "because his room was too warm",
+        "to listen to the sea at night",
+        "because his mother told him to"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “To toughen his body, he went skiing in all weathers and even slept with his bedroom window open.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did Amundsen choose loose fur clothing?",
+      "options": [
+        "It was lighter to carry than wool or cotton.",
+        "It was the only clothing sold in Norway.",
+        "It helped the dogs recognise their driver.",
+        "It kept the body warm without causing heavy sweating."
+      ],
+      "answer": "D",
+      "why": "The passage says loose fur clothing “kept the body warm without causing heavy sweating”."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Amundsen leave a tent and a letter at the South Pole?",
+      "options": [
+        "as a gift for the Netsilik Inuit",
+        "in case his team did not survive the journey home",
+        "to mark a place to camp on his next visit",
+        "because the tent was too heavy to carry"
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: he left them “in case his own team did not survive the journey home.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Amundsen began studying medicine.",
+        "Amundsen sailed through the Northwest Passage.",
+        "Amundsen reached the South Pole.",
+        "Amundsen flew over the North Pole."
+      ],
+      "answer": "A",
+      "why": "He studied medicine before going to sea; the voyage (1903–1906), the Pole (1911) and the flight (1926) came later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "When did Amundsen learn to drive teams of sled dogs?",
+      "options": [
+        "during his voyage through the Northwest Passage",
+        "while he was studying medicine at university",
+        "after he returned from the South Pole",
+        "during his flight over the North Pole"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: during that voyage he lived near the Netsilik Inuit and learned to drive sled dogs."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How many men were in Amundsen's group when it reached the South Pole?",
+      "options": [
+        "five",
+        "four",
+        "two",
+        "fifty"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: “five men and their teams of dogs”; paragraph 5 confirms “all five men returned safely.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why did Scott's expedition struggle?",
+      "options": [
+        "Its members had never seen snow before.",
+        "It started its journey a year later than planned.",
+        "Its ponies and motor sledges coped badly with the cold.",
+        "It had no food supplies for the return journey."
+      ],
+      "answer": "C",
+      "why": "Scott relied “partly on ponies and motor sledges, which struggled badly in the brutal cold.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Amundsen leave his medical studies?",
+      "options": [
+        "He failed his examinations at university.",
+        "His father ordered him to become a captain.",
+        "He was invited to join Scott's expedition.",
+        "He wanted to follow his dream of exploring."
+      ],
+      "answer": "D",
+      "why": "After his mother's death, he went to sea, “determined to follow his dream” of exploring the frozen regions."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which pair of words best describes Amundsen's character?",
+      "options": [
+        "careless but lucky",
+        "fearful and hesitant",
+        "boastful and impatient",
+        "patient and well-organised"
+      ],
+      "answer": "D",
+      "why": "He trained for years, learned from the Inuit and placed food along his route in advance."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How were Amundsen's methods DIFFERENT from Scott's?",
+      "options": [
+        "He relied on skiers and dogs instead of ponies and motor sledges.",
+        "He travelled by ship instead of walking on the ice.",
+        "He carried no food supplies on his journey.",
+        "He travelled alone instead of leading a team."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “Amundsen, by contrast, depended on skilled skiers and strong dogs.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one result of Amundsen's careful methods?",
+      "options": [
+        "His team became lost in a storm for weeks.",
+        "His dogs refused to cross the ice.",
+        "His ship was trapped in the Northwest Passage.",
+        "His team reached the Pole over a month before Scott's."
+      ],
+      "answer": "D",
+      "why": "Thanks to skiers, dogs and food placed in advance, “His team reached the Pole more than a month before Scott's group.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Amundsen's Northwest Passage voyage and his South Pole journey have in common?",
+      "options": [
+        "Both journeys were made in an airship.",
+        "Both ended in tragedy for his own team.",
+        "Both took place close to northern Canada.",
+        "In both, he was the first person to complete the journey."
+      ],
+      "answer": "D",
+      "why": "He was “the first person to sail through the Northwest Passage” and the first to reach the South Pole."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with the moment the men reached the South Pole?",
+      "options": [
+        "to explain the instruments used by explorers",
+        "to grab attention with the high point of Amundsen's life",
+        "to suggest the story is told in time order",
+        "to describe the dogs before the people"
+      ],
+      "answer": "B",
+      "why": "Starting with the dramatic arrival makes readers want to know how Amundsen got there."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the description “a vast, silent plain of snow and ice” help readers to imagine?",
+      "options": [
+        "how noisy the dogs were at the Pole",
+        "how huge, empty and lonely the place was",
+        "how warm the sun felt that day",
+        "how crowded the Pole was with explorers"
+      ],
+      "answer": "B",
+      "why": "“Vast” and “silent” create a picture of an enormous, empty, quiet landscape."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage shows the writer's strong feeling of admiration?",
+      "options": [
+        "Fortunately, all five men returned safely.",
+        "Amundsen was born in 1872 in Norway, into a family of ship owners and sea captains.",
+        "What a remarkable explorer he was!",
+        "These lessons proved essential in the race to the South Pole."
+      ],
+      "answer": "C",
+      "why": "This exclamatory sentence openly expresses the writer's admiration."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "According to the passage, which factor contributed MOST to Amundsen's success?",
+      "options": [
+        "having the fastest ship in Norway",
+        "learning from others and preparing carefully",
+        "enjoying good luck with the weather",
+        "receiving help from Scott's team"
+      ],
+      "answer": "B",
+      "why": "The passage repeatedly links his success to preparation and to what he learned from the Inuit."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement would Amundsen most likely AGREE with?",
+      "options": [
+        "Bravery alone is enough to win any race.",
+        "Explorers should never learn from local people.",
+        "Luck matters more than planning.",
+        "Success comes to those who prepare carefully."
+      ],
+      "answer": "D",
+      "why": "He wrote that “victory awaits the person who has everything in order.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does the writer show by using the word “Tragically” in paragraph 4?",
+      "options": [
+        "joy that Amundsen won the race",
+        "anger at the British expedition",
+        "sorrow for Scott and his companions",
+        "surprise that ponies were used"
+      ],
+      "answer": "C",
+      "why": "“Tragically” shows that the writer is sad about the deaths of Scott's team."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "the date Amundsen reached the South Pole",
+        "the country where Amundsen was born",
+        "what kind of instruments showed they had reached the Pole",
+        "who led the British expedition"
+      ],
+      "answer": "C",
+      "why": "Paragraph 1 says “Their instruments told them” but never explains what they were; the other facts are given clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A team of dogs pulls a sledge all the way to the Moon.",
+        "Explorers leave food supplies along a route before a long journey.",
+        "An explorer skis from Norway to the South Pole in one day.",
+        "Fur clothing makes a person invisible against the snow."
+      ],
+      "answer": "B",
+      "why": "Amundsen really did this; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The Race to the Bottom of the World",
+        "The Ponies That Reached the Pole",
+        "A Doctor in the Arctic",
+        "Lost in the Northwest Passage"
+      ],
+      "answer": "A",
+      "why": "The passage centres on Amundsen's race to reach the South Pole first."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Scott and his companions died on their return journey. Suggest a different ending in which they return safely. How might this have happened? Write two or three sentences.",
+      "model": "Before setting out, Scott might have learned from Inuit and Norwegian skiers and taken more strong dogs instead of ponies. He could have placed extra food along his route, so his men would have had enough to eat on the way back. In this ending, both teams return home safely and share what they learned.",
+      "rubric": [
+        "2 = a clear, believable new ending in which Scott's team survives, with a sensible reason linked to the passage",
+        "1 = an ending is given but the reason is unclear or not linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that explains how better preparation could have saved Scott's team is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which plan for a school camping trip best follows Amundsen's approach?",
+      "options": [
+        "Bring only what fits in a pocket and hope for good weather.",
+        "Learn from experienced campers and pack supplies in advance.",
+        "Choose the most dangerous path to prove your courage.",
+        "Leave all the planning until the morning of the trip."
+      ],
+      "answer": "B",
+      "why": "Amundsen learned from experienced people (the Inuit) and placed supplies in advance."
+    }
+  ]
+}

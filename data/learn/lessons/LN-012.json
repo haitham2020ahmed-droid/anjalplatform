@@ -1,0 +1,477 @@
+{
+ "code": "LN-012",
+ "title": "Topic sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.a",
+  "W.5.2.a"
+ ],
+ "families": [
+  "writing-informative"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0053",
+  "L-0058",
+  "L-0137",
+  "L-0147"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a topic sentence?",
+     "text": "A **topic sentence** tells what a paragraph is about.\n\nIt is often the **first** sentence."
+    },
+    {
+     "title": "It covers the others",
+     "text": "The other sentences give **details**.\n\nThe topic sentence is big enough to cover **all** of them."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read all the sentences.\n2. Ask: **Which one tells about all the others?**\n3. That is the topic sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your topic sentence with the **details**.\n\n1. Read the detail sentences.\n2. Check: does your topic sentence cover **every** detail?\n3. Point to the details it covers."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Cats make good pets.",
+      "role": "main"
+     },
+     {
+      "t": "They are soft.",
+      "role": "detail"
+     },
+     {
+      "t": "They are quiet.",
+      "role": "detail"
+     },
+     {
+      "t": "They like to cuddle.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Cats make good pets** covers soft, quiet and cuddly. It is the topic sentence."
+   },
+   "together": {
+    "passage": "___ They are sweet. They give you energy. They are easy to carry in a bag.",
+    "stem": "Which is the best topic sentence for this paragraph?",
+    "options": [
+     "I have a bag.",
+     "Energy is good.",
+     "Dates make a great snack.",
+     "Sweets are bad for teeth."
+    ],
+    "answer": 2,
+    "hint": "Does that sentence cover sweet, energy AND easy to carry?",
+    "good": "Yes! **Dates make a great snack** covers all the details."
+   },
+   "evidence": {
+    "sentences": [
+     "Dates make a great snack.",
+     "They are sweet.",
+     "They give you energy.",
+     "They are easy to carry in a bag."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Dates make a great snack. Tap 2 details that this topic sentence covers.",
+    "wrong": "This is the topic sentence. Find the details it covers."
+   },
+   "checks": [
+    {
+     "passage": "Our classroom is a happy place. We sing songs. We share snacks. We help each other.",
+     "stem": "Which is the topic sentence?",
+     "options": [
+      "Our classroom is a happy place.",
+      "We sing songs.",
+      "We share snacks.",
+      "We help each other."
+     ],
+     "answer": 0,
+     "why": "It covers singing, sharing and helping."
+    },
+    {
+     "passage": "___ It has big ears. It has a long trunk. It is very heavy.",
+     "stem": "Which is the best topic sentence?",
+     "options": [
+      "I like the zoo.",
+      "Trunks are long.",
+      "Mice are small.",
+      "An elephant is a big animal."
+     ],
+     "answer": 3,
+     "why": "Big ears, a long trunk and heavy weight are all about the elephant."
+    },
+    {
+     "passage": "___ We swim in the sea. We build sandcastles. We collect shells.",
+     "stem": "Which is the best topic sentence?",
+     "options": [
+      "Shells are white.",
+      "The beach is a fun place.",
+      "The sea is wet.",
+      "My bag is red."
+     ],
+     "answer": 1,
+     "why": "Swimming, sandcastles and shells all show the beach is fun."
+    }
+   ],
+   "again": {
+    "title": "The umbrella",
+    "text": "The topic sentence is like an **umbrella**.\n\nAll the other sentences must fit **under** it.",
+    "example": "Umbrella: **Fruit is good for you.**\nUnder it: Apples have vitamins. Bananas give energy. Oranges help you stay well."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "The job of a topic sentence",
+     "text": "A **topic sentence** tells the reader the **main idea** of a paragraph.\n\nThe other sentences support it with details."
+    },
+    {
+     "title": "Not too big, not too small",
+     "text": "**Too big:** Animals live everywhere.\n**Too small:** Camels have long eyelashes. (just one detail)\n**Just right:** Camels are built for life in the desert."
+    },
+    {
+     "title": "Writing a strong one",
+     "text": "1. Read all the details.\n2. Ask: **What do they have in common?**\n3. Write one sentence that covers them all.\n\nA question like \"Do you like camels?\" is usually not a good topic sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a topic sentence is the best, show that it covers **every** detail.\n\n1. Find the detail sentences.\n2. Check each choice against them.\n3. A choice that matches only one detail is too small."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our town has many places to play sports.",
+      "role": "main"
+     },
+     {
+      "t": "There is a football field near the mosque.",
+      "role": "detail"
+     },
+     {
+      "t": "The sports centre has a swimming pool.",
+      "role": "detail"
+     },
+     {
+      "t": "The park has basketball courts.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The football field, the pool and the courts are all places to play sports. The first sentence covers them all."
+   },
+   "together": {
+    "passage": "___ Every classroom now has a blue bin for paper. Students wash and collect plastic bottles in the canteen. Each Thursday, the eco club weighs what was collected and posts the results on the notice board.",
+    "stem": "Which is the best topic sentence for this paragraph?",
+    "options": [
+     "Plastic bottles are made from oil.",
+     "The eco club meets on Thursdays.",
+     "Paper comes from trees.",
+     "Our school has found many ways to recycle."
+    ],
+    "answer": 3,
+    "hint": "That sentence covers only one detail or is off topic. Which one covers the bins, the bottles AND the eco club?",
+    "good": "Yes! Paper bins, plastic bottles and the eco club are all ways the school recycles."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school has found many ways to recycle.",
+     "Every classroom now has a blue bin for paper.",
+     "Students wash and collect plastic bottles in the canteen.",
+     "Each Thursday, the eco club weighs what was collected and posts the results on the notice board."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Our school has found many ways to recycle. Tap 2 details that this topic sentence covers.",
+    "wrong": "This is the topic sentence. Find the details it covers."
+   },
+   "checks": [
+    {
+     "passage": "Faisal is writing a paragraph about why camels are useful to desert people.",
+     "stem": "Which is the best topic sentence?",
+     "options": [
+      "Camels have very long eyelashes.",
+      "For centuries, camels have helped desert people survive.",
+      "Animals live all over the world.",
+      "Do you like camels?"
+     ],
+     "answer": 1,
+     "why": "It matches the subject exactly: why camels are useful to desert people."
+    },
+    {
+     "passage": "Sea turtles face many dangers. Plastic bags in the sea look like jellyfish, which turtles eat. Fishing nets can trap them. Bright lights on beaches confuse baby turtles.",
+     "stem": "Which sentence is the topic sentence?",
+     "options": [
+      "Fishing nets can trap them.",
+      "Plastic bags in the sea look like jellyfish, which turtles eat.",
+      "Sea turtles face many dangers.",
+      "Bright lights on beaches confuse baby turtles."
+     ],
+     "answer": 2,
+     "why": "Plastic, nets and lights are all dangers. The first sentence covers them."
+    },
+    {
+     "passage": "Details: Riyadh has tall towers. It has large parks. It has a big zoo. It has many museums.",
+     "stem": "Which is the best topic sentence?",
+     "options": [
+      "Riyadh has many interesting places to visit.",
+      "The world has many large cities.",
+      "Riyadh has very tall towers.",
+      "My cousin lives in Jeddah."
+     ],
+     "answer": 0,
+     "why": "It covers the towers, parks, zoo and museums. The others are too big, too small or off topic."
+    }
+   ],
+   "again": {
+    "title": "Fill the bag",
+    "text": "Imagine a bag with a label. Each detail is something you put inside.\n\nThe label is the topic sentence. It must fit **everything** in the bag.",
+    "example": "Inside: pencils, rulers, a notebook.\nLabel ✘ Pencils. (too small)\nLabel ✔ **School supplies.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Not always first",
+     "text": "The topic sentence is often first, but writers sometimes put it **last**, as a conclusion.\n\nThe details come first, then the topic sentence sums them up."
+    },
+    {
+     "title": "Find it anywhere",
+     "text": "To find the topic sentence, look for the sentence that is **general**. The others are **specific** details.\n\nWords like **clearly**, **in short** and **all in all** often signal a topic sentence at the end."
+    },
+    {
+     "title": "Fit the purpose",
+     "text": "A topic sentence should match the writer's **purpose**.\n\nTo persuade, it states an opinion: **We should...**\nTo explain, it states a fact or main point: **There are three ways...**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove which sentence is the topic sentence by showing that the **others are details** under it.\n\n1. Find two or more sentences that give specific examples.\n2. Find the one general sentence that covers them.\n3. Point to the details as your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The team practised passing every afternoon.",
+      "role": "detail"
+     },
+     {
+      "t": "They watched videos of their old games to learn from mistakes.",
+      "role": "detail"
+     },
+     {
+      "t": "They ran laps to build their strength.",
+      "role": "detail"
+     },
+     {
+      "t": "All in all, the team worked hard to get ready for the final.",
+      "role": "main"
+     }
+    ],
+    "explain": "The first three sentences are specific examples of hard work. The last one is general and covers them all, so it is the topic sentence, even though it comes last."
+   },
+   "together": {
+    "passage": "Some students ride the bus to school, while others walk or come by car. Some arrive early to read in the library, and others rush in just as the bell rings. Some carry heavy backpacks, and some bring only a tablet. Clearly, every student has a different way of starting the school day.",
+    "stem": "Which sentence is the topic sentence of this paragraph?",
+    "options": [
+     "Clearly, every student has a different way of starting the school day.",
+     "Some students ride the bus to school, while others walk or come by car.",
+     "Some arrive early to read in the library, and others rush in just as the bell rings.",
+     "Some carry heavy backpacks, and some bring only a tablet."
+    ],
+    "answer": 0,
+    "hint": "That sentence gives one specific example. Which sentence is general and covers all the examples?",
+    "good": "Yes! The last sentence is general. The bus, the library and the backpacks are all examples of different ways to start the day."
+   },
+   "evidence": {
+    "sentences": [
+     "Some students ride the bus to school, while others walk or come by car.",
+     "Some arrive early to read in the library, and others rush in just as the bell rings.",
+     "Some carry heavy backpacks, and some bring only a tablet.",
+     "Clearly, every student has a different way of starting the school day."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Clearly, every student has a different way of starting the school day. Tap 2 details that this topic sentence covers.",
+    "wrong": "This is the topic sentence. Find the specific examples it sums up."
+   },
+   "checks": [
+    {
+     "passage": "Details: Wind towers caught breezes and sent them into rooms. Thick mud walls kept the heat out. Narrow lanes kept streets shaded.",
+     "stem": "Which topic sentence covers all the details?",
+     "options": [
+      "Wind towers caught breezes.",
+      "Mud is made from earth and water.",
+      "Old Gulf towns were built to stay cool.",
+      "Old towns had narrow lanes."
+     ],
+     "answer": 2,
+     "why": "Towers, walls and lanes are all ways the towns stayed cool. The other choices cover one detail or none."
+    },
+    {
+     "passage": "Sara is writing a paragraph to persuade her class to drink more water.",
+     "stem": "Which is the best topic sentence for her purpose?",
+     "options": [
+      "Water is made of hydrogen and oxygen.",
+      "Drinking more water can help us think and feel better.",
+      "Some people drink tea in the morning.",
+      "Water covers most of Earth's surface."
+     ],
+     "answer": 1,
+     "why": "It gives a reason to drink more water, which matches her purpose to persuade."
+    },
+    {
+     "passage": "Omar is writing a paragraph about how the internet has changed shopping.",
+     "stem": "Which is the best topic sentence?",
+     "options": [
+      "Some shops sell only shoes and bags.",
+      "The internet was invented many years ago.",
+      "I bought a book online once.",
+      "The internet has changed the way people shop."
+     ],
+     "answer": 3,
+     "why": "It states the exact subject. The others are too narrow, off topic or personal."
+    }
+   ],
+   "again": {
+    "title": "General or specific?",
+    "text": "Sort the sentences into two piles:\n\n**Specific**: a fact, a name, an example\n**General**: a big idea that covers the facts\n\nThe one sentence in the general pile is the topic sentence.",
+    "example": "Specific: Grandmother bakes bread. Uncle grows tomatoes. My sister makes cheese.\nGeneral: **Our family loves growing and making food.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "A precise controlling idea",
+     "text": "A strong topic sentence names the **topic** and the **controlling idea**: the specific point the paragraph makes about it.\n\nWeak: The Hijri calendar has twelve months.\nStrong: Because the Hijri calendar follows the moon, its months move through the seasons."
+    },
+    {
+     "title": "Covering complex paragraphs",
+     "text": "Some paragraphs explain a **cause and effect**, a **comparison** or a **problem and solution**.\n\nThe topic sentence should signal that structure, so the reader knows what is coming."
+    },
+    {
+     "title": "Test your choice",
+     "text": "1. Too broad? It could start a whole book.\n2. Too narrow? It is just one detail.\n3. Off target? It is true but makes a different point.\n4. Just right: every sentence in the paragraph develops it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a topic sentence is best, trace **each** detail back to it.\n\n1. Find the sentences that develop the paragraph's point.\n2. Ask whether the choice explains **why** they belong together.\n3. Reject choices that cover only some of them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A simple chart solved our class's sports kit problem.",
+      "role": "main"
+     },
+     {
+      "t": "Every week, several students forgot their kit on PE days.",
+      "role": "detail"
+     },
+     {
+      "t": "The class made a chart of PE days and hung it by the door.",
+      "role": "detail"
+     },
+     {
+      "t": "Now almost no one forgets.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The paragraph follows a **problem and solution**. The topic sentence signals both: the problem (forgotten kit) and the solution (a chart)."
+   },
+   "together": {
+    "passage": "___ Each month begins when the new crescent moon is seen, so a month lasts either 29 or 30 days. Because twelve lunar months add up to about 354 days, the Hijri year is roughly eleven days shorter than the solar year. As a result, Ramadan begins about eleven days earlier each year, and over time it moves through every season. A person may fast in the long days of summer as a child and in the short days of winter as an adult.",
+    "stem": "Which is the best topic sentence for this paragraph?",
+    "options": [
+     "The Hijri calendar has twelve months, just like the solar calendar.",
+     "Because the Hijri calendar follows the moon, its months move through the seasons.",
+     "Many different calendars are used around the world today.",
+     "Ramadan is the ninth month of the Hijri calendar."
+    ],
+    "answer": 1,
+    "hint": "Is that choice too broad, too narrow or off target? The paragraph explains a cause and its effect.",
+    "good": "Yes! It names the cause (following the moon) and the effect (months moving through the seasons). Every sentence develops that idea."
+   },
+   "evidence": {
+    "sentences": [
+     "Because the Hijri calendar follows the moon, its months move through the seasons.",
+     "Each month begins when the new crescent moon is seen, so a month lasts either 29 or 30 days.",
+     "Because twelve lunar months add up to about 354 days, the Hijri year is roughly eleven days shorter than the solar year.",
+     "As a result, Ramadan begins about eleven days earlier each year, and over time it moves through every season.",
+     "A person may fast in the long days of summer as a child and in the short days of winter as an adult."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Because the Hijri calendar follows the moon, its months move through the seasons. Tap 2 sentences that develop this idea.",
+    "wrong": "This is the topic sentence itself. Find sentences that explain the moon, the shorter year or the moving seasons."
+   },
+   "checks": [
+    {
+     "passage": "Details: Paper books never need charging and are easy on the eyes. E-readers, however, can hold thousands of books and let readers change the text size.",
+     "stem": "Which topic sentence best fits these details?",
+     "options": [
+      "Paper books never need to be charged.",
+      "E-readers are better than paper books in every way.",
+      "Many people enjoy reading at night.",
+      "Paper books and e-readers each have their own advantages."
+     ],
+     "answer": 3,
+     "why": "The details give good points for **both**. Only this sentence covers both sides."
+    },
+    {
+     "passage": "___ Within weeks of being built, some desert roads were buried by moving dunes. Engineers put up fences of palm fronds to slow the sand. Today, belts of trees planted along highways help hold the dunes in place.",
+     "stem": "Which sentence would best introduce this paragraph?",
+     "options": [
+      "Moving sand dunes are a constant challenge for desert road builders.",
+      "Palm trees grow well in desert oases.",
+      "Roads connect cities across the whole Kingdom.",
+      "Fences can be made of many different materials."
+     ],
+     "answer": 0,
+     "why": "The paragraph describes a problem (buried roads) and solutions (fences and trees). This sentence names that challenge."
+    },
+    {
+     "passage": "Details: Volunteers collected mangrove seeds at low tide. They planted seedlings in shallow, muddy water. Years later, the young trees shelter fish and birds.",
+     "stem": "Which topic sentence is most precise?",
+     "options": [
+      "Nature is very important for everyone.",
+      "Mangroves are a kind of tree.",
+      "Volunteers have helped bring mangrove forests back to the coast.",
+      "Some people volunteer at weekends."
+     ],
+     "answer": 2,
+     "why": "It names the topic and the controlling idea: volunteers restoring mangroves. The others are too broad, too narrow or off target."
+    }
+   ],
+   "again": {
+    "title": "Why together?",
+    "text": "Ask: **Why are these sentences in the same paragraph?**\n\nYour answer, written as one sentence, is the topic sentence.",
+    "example": "Sentences: The road was buried. Fences slowed the sand. Trees now hold the dunes.\nWhy together? They show **how people fight moving sand on roads**.\nTopic sentence: **Desert road builders must constantly fight moving sand.**"
+   }
+  }
+ }
+}

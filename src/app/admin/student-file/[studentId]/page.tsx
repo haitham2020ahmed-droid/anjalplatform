@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
@@ -10,11 +10,16 @@ import { studentFile } from "@/server/insights/student-file";
 
 export const metadata = { title: "Student file" };
 
-/** 🗂️ Everything about one student on one page (read only). */
+/**
+ * 🗂️ The older "Student file" merged into the ONE student file /teacher/students/[id] (owner r67: nothing twice):
+ * admins and the student's own teachers are sent there. Only a grade coordinator reading a student of another
+ * teacher's class (who cannot open the teacher's student page) still gets this read-only summary.
+ */
 export default async function StudentFilePage({ params }: { params: Promise<{ studentId: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
-  const me = (await getActor())!.user;
   const { studentId } = await params;
+  if (actor.role !== "TEACHER" || actor.teacherStudentIds?.has(studentId)) redirect(`/teacher/students/${encodeURIComponent(studentId)}`);
+  const me = (await getActor())!.user;
   let f; try { f = await studentFile(repo, actor, studentId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
   const box = "rounded-3xl bg-white p-5 ring-1 ring-slate-200 break-inside-avoid";
   const tile = (l: string, v: string | number, tone = "text-brand-navy") => <div className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="text-xs text-slate-500">{l}</p><p className={`text-2xl font-extrabold ${tone}`}>{v}</p></div>;
@@ -23,8 +28,6 @@ export default async function StudentFilePage({ params }: { params: Promise<{ st
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/students", label: "My Students" }} icon="🗂️" title={f.name}
         subtitle={<>Grade {f.grade} · {f.className || "no class"} · ID {f.number} · {f.username}{f.teachers.length ? ` · teacher: ${f.teachers.join(", ")}` : ""} · last sign-in {f.lastLogin ? f.lastLogin.slice(0, 10) : "never"} ({f.signIns30} in 30 days)</>}>
-        <Link href={`/admin/student-file/${f.id}/view`} className="rounded-xl bg-sky-700 px-4 py-2 font-semibold text-white hover:bg-sky-800 print:hidden">👁 See it as the student does</Link>
-        <Link href={`/teacher/progress/${f.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">📈 Progress page</Link>
         <Link href={`/teacher/progress/${f.id}/report`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">👪 Parent report{f.reportShared ? " ✓" : ""}</Link>
         <PrintButton />
       </PageHeader>

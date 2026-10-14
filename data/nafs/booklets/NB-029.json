@@ -1,0 +1,568 @@
+{
+  "code": "NB-029",
+  "title": "The Red Sea: A Young and Restless Sea",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 405,
+  "passage": "Stretching for roughly 2,250 kilometres between Africa and the Arabian Peninsula, the Red Sea forms the whole western coast of Saudi Arabia. Although it looks calm and permanent from the beaches of Jeddah, scientists consider it one of the youngest seas on Earth. In fact, it is still being formed beneath our feet.\n\nThe story of the Red Sea began about 25 million years ago, when Arabia started to split away from Africa. The outer shell of our planet is broken into huge slabs of rock called tectonic plates, which drift very slowly across its surface. As the Arabian Plate pulled away from the African Plate, a deep crack opened between them, and seawater slowly flooded into the gap. This process has not stopped. The Red Sea still grows wider by about one centimetre every year, which is roughly as fast as a fingernail grows. For this reason, some geologists describe it as an ocean in its infancy.\n\nThe Red Sea is also remarkably salty. In most of the world's oceans, each litre of seawater holds about 35 grams of salt, whereas the northern Red Sea holds around 40 grams. Several conditions work together to cause this difference. The region gets very little rain, and no permanent river flows into the sea to dilute it with fresh water. Meanwhile, the fierce desert sun evaporates huge amounts of water from the surface every day, but the salt is left behind. Finally, the sea is joined to the Indian Ocean only by a narrow strait called Bab al-Mandab, so its water mixes slowly with the open ocean.\n\nDespite these harsh conditions, the Red Sea supports an amazing variety of life. More than 1,200 kinds of fish live in its waters, and a large number of them are found nowhere else on the planet. Its coral reefs are especially valuable to scientists, since many of them can survive water temperatures that would badly harm corals in other seas. Researchers are now studying these tough reefs, hoping that they might reveal how coral could endure as the world's oceans grow warmer.\n\nNobody knows for certain how the sea got its colourful name. One popular explanation is that tiny living things sometimes multiply near the surface and tint the water a reddish-brown colour. Whatever the true origin of its name, the Red Sea remains a natural laboratory, and protecting it is a duty shared by every nation along its shores.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “endure” as it is used in paragraph 4?",
+      "options": [
+        "move away",
+        "survive",
+        "disappear",
+        "multiply"
+      ],
+      "answer": "B",
+      "why": "Corals that “endure” as the oceans warm are corals that survive and last through the difficult change."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “permanent” as it is used in paragraph 1?",
+      "options": [
+        "lasting",
+        "peaceful",
+        "enormous",
+        "temporary"
+      ],
+      "answer": "D",
+      "why": "“Permanent” means lasting for ever; its opposite is “temporary”. “Lasting” has the same meaning, not the opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 3: “no permanent river flows into the sea to dilute it with fresh water”. What does “dilute” mean here?",
+      "options": [
+        "to make it less salty by mixing in water",
+        "to make it warmer by heating it",
+        "to make it deeper by digging",
+        "to make it cleaner by filtering it"
+      ],
+      "answer": "A",
+      "why": "Adding fresh water to salty water makes it weaker, or less salty; that is what “dilute” means."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a VERB?",
+      "options": [
+        "fierce",
+        "remarkably",
+        "evaporates",
+        "strait"
+      ],
+      "answer": "C",
+      "why": "“Evaporates” is the action the sun performs on the water; “fierce” is an adjective, “remarkably” an adverb and “strait” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the passage has the SAME form in the singular and the plural?",
+      "options": [
+        "plates",
+        "fish",
+        "grams",
+        "reefs"
+      ],
+      "answer": "B",
+      "why": "We say one fish and many fish; the other words add -s to form the plural (plate/plates, gram/grams, reef/reefs)."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “evaporates” in paragraph 3?",
+      "options": [
+        "evening",
+        "everywhere",
+        "eventful",
+        "evaporation"
+      ],
+      "answer": "D",
+      "why": "“Evaporation” is the noun formed from the verb “evaporate”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “remarkably” in a meaningful sentence of your own.",
+      "model": "The new student learned to swim remarkably quickly, so by the end of the month she was racing her older brother.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “remarkably” with its meaning (in a surprising or unusual way; very)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Remarkably” means in a way that is surprising or worth noticing."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “laboratory”?",
+      "options": [
+        "laboratorys",
+        "laboratoryes",
+        "laboratories",
+        "laboratory's"
+      ],
+      "answer": "C",
+      "why": "A noun ending in a consonant + y changes the y to -ies: laboratory → laboratories. “Laboratory's” shows possession, not a plural."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences about the Red Sea is a COMMAND?",
+      "options": [
+        "The Red Sea is remarkably salty.",
+        "How salty the Red Sea is!",
+        "Never stand on a living coral reef.",
+        "Is the Red Sea still growing wider?"
+      ],
+      "answer": "C",
+      "why": "A command tells someone to do or not do something; “Never stand on a living coral reef.” gives an instruction. The others are a statement, an exclamation and a question."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "A Young Sea That Is Still Growing",
+        "How to Dive Safely in the Red Sea",
+        "The Fish of the Indian Ocean",
+        "Jeddah: A City of Beaches"
+      ],
+      "answer": "A",
+      "why": "The passage explains that the Red Sea is one of the youngest seas and is still widening; the other titles cover only a small detail or topics the passage does not discuss."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the passage?",
+      "options": [
+        "to persuade tourists to spend their holidays in Jeddah",
+        "to tell the story of one geologist's journey along the coast",
+        "to prove that the Red Sea is saltier than every other sea",
+        "to explain how the Red Sea formed and what makes it unusual"
+      ],
+      "answer": "D",
+      "why": "Each paragraph informs the reader about the Red Sea: how it formed, why it is salty, its life and its name."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Bab al-Mandab is the narrowest strait in the world.",
+        "Several conditions work together to make the Red Sea saltier than most oceans.",
+        "The desert sun is extremely hot during the summer.",
+        "Rivers carry large amounts of fresh water into the Red Sea."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 opens by saying the sea is “remarkably salty” and then lists the conditions that cause it. The paragraph says that no river flows in."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why does the Red Sea's water mix only slowly with the open ocean?",
+      "options": [
+        "It is joined to the Indian Ocean only by a narrow strait.",
+        "It is too salty for the water to move.",
+        "No permanent river flows into it.",
+        "The desert sun heats its surface every day."
+      ],
+      "answer": "A",
+      "why": "The paragraph says the sea is joined to the Indian Ocean “only by a narrow strait … so its water mixes slowly”. The other details explain the saltiness, not the slow mixing."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a personal narrative",
+        "an informational (expository) text",
+        "a friendly letter",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It gives facts and explanations about a real place, organised by topic, without characters or a plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why are the Red Sea's coral reefs especially valuable to scientists?",
+      "options": [
+        "They are the largest coral reefs in the world.",
+        "They are the reason the water looks reddish-brown.",
+        "Many of them survive water temperatures that would harm corals elsewhere.",
+        "They are home to exactly 1,200 kinds of coral."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 says many of them “can survive water temperatures that would badly harm corals in other seas”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Seawater flooded into the gap.",
+        "A deep crack opened between the plates.",
+        "The Arabian Plate began to pull away from the African Plate.",
+        "The Red Sea reached a length of about 2,250 kilometres."
+      ],
+      "answer": "C",
+      "why": "The plates had to begin pulling apart before a crack could open and seawater could flood in; the sea's present length came last."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail from the passage best supports the idea that the Red Sea is “an ocean in its infancy”?",
+      "options": [
+        "It is saltier than most of the world's oceans.",
+        "More than 1,200 kinds of fish live in it.",
+        "Its name may come from tiny living things.",
+        "It still grows wider by about one centimetre every year."
+      ],
+      "answer": "D",
+      "why": "Something in its infancy is young and still growing; the sea is still widening, so it is a young ocean that has not finished forming."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How is paragraph 3 organised?",
+      "options": [
+        "It tells events in the order in which they happened.",
+        "It states a fact and then explains several causes of it.",
+        "It compares two seas point by point.",
+        "It describes a problem and then offers a solution."
+      ],
+      "answer": "B",
+      "why": "It states that the sea is remarkably salty and then gives the causes, using signal words such as “Meanwhile” and “Finally”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the passage, what caused the deep crack between Africa and Arabia?",
+      "options": [
+        "the Arabian Plate pulling away from the African Plate",
+        "seawater flooding into the desert",
+        "the desert sun drying and cracking the rock",
+        "a river cutting a valley through the land"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “As the Arabian Plate pulled away from the African Plate, a deep crack opened between them.” The flooding came after the crack."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which pair of facts TOGETHER explains why the water of the Red Sea stays so salty?",
+      "options": [
+        "The sea is long and narrow, and it lies between two continents.",
+        "Coral reefs grow in it, and many fish live there.",
+        "The sea is young, and it grows one centimetre a year.",
+        "The sun removes water but leaves the salt, and little fresh water flows in."
+      ],
+      "answer": "D",
+      "why": "Evaporation takes water away but leaves the salt, while little rain and no rivers mean almost nothing dilutes it again."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why are researchers studying the Red Sea's heat-tolerant reefs?",
+      "options": [
+        "to find new places for tourists to dive",
+        "to discover how the sea got its name",
+        "to learn how coral might survive as the oceans grow warmer",
+        "to measure how fast the sea is widening"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 says they hope the reefs “might reveal how coral could endure as the world's oceans grow warmer”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How does the northern Red Sea differ from most of the world's oceans?",
+      "options": [
+        "Each litre holds about 5 grams less salt.",
+        "Each litre holds about 5 grams more salt.",
+        "It is joined to many other oceans.",
+        "It contains no living coral."
+      ],
+      "answer": "B",
+      "why": "Most oceans hold about 35 grams of salt per litre, the northern Red Sea about 40 grams: about 5 grams more."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is one EFFECT of the narrow strait of Bab al-Mandab?",
+      "options": [
+        "The Red Sea's water mixes slowly with the Indian Ocean.",
+        "The Red Sea receives more rain than other seas.",
+        "The Red Sea grows one centimetre wider each year.",
+        "The Red Sea's water turns a reddish-brown colour."
+      ],
+      "answer": "A",
+      "why": "Because the connection is narrow, “its water mixes slowly with the open ocean”, which helps keep the sea salty."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the passage, what do the widening of the Red Sea and the growth of a fingernail have in common?",
+      "options": [
+        "Both are caused by tectonic plates.",
+        "Both can be seen clearly in a single day.",
+        "Both happen only in hot places.",
+        "Both happen at about the same slow speed."
+      ],
+      "answer": "D",
+      "why": "The writer says the sea grows wider “roughly as fast as a fingernail grows”, about one centimetre a year."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by calling the Red Sea “a natural laboratory”?",
+      "options": [
+        "Scientists have built laboratories under its water.",
+        "Its water is used to make medicines.",
+        "It is a place where scientists can learn a great deal by studying nature.",
+        "It was created by scientists in an experiment."
+      ],
+      "answer": "C",
+      "why": "It is a figurative phrase: like a laboratory, the sea lets scientists study and test ideas, but here nature itself has set up the “experiment”."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “an ocean in its infancy” suggest about the Red Sea?",
+      "options": [
+        "It is as small as a pond.",
+        "It is at a very early stage of becoming an ocean.",
+        "It is full of baby fish.",
+        "It will soon disappear."
+      ],
+      "answer": "B",
+      "why": "Infancy is the earliest stage of life, so the phrase describes the Red Sea as an ocean that is only just beginning."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare the Red Sea's growth to the growth of a fingernail?",
+      "options": [
+        "to help readers picture a slow speed that is hard to imagine",
+        "to show that the Red Sea is growing dangerously fast",
+        "to explain why fingernails grow in hot weather",
+        "to make the passage sound like a fairy tale"
+      ],
+      "answer": "A",
+      "why": "One centimetre a year is hard to picture for a whole sea; comparing it to something familiar makes the idea clear."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Based on the passage, which action would be MOST beneficial for the future of the Red Sea?",
+      "options": [
+        "building more cities along its shores",
+        "removing its coral to study it in laboratories",
+        "allowing ships to dump waste far from the coast",
+        "nations along its shores working together to protect it"
+      ],
+      "answer": "D",
+      "why": "The writer ends by saying that protecting the sea is “a duty shared by every nation along its shores”."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "a wish to warn readers that the Red Sea is dangerous",
+        "a wish to share an unusual sea with readers and encourage its protection",
+        "a wish to advertise diving trips",
+        "a wish to argue that the sea should be renamed"
+      ],
+      "answer": "B",
+      "why": "The writer explains what makes the sea unusual and valuable, and ends by stressing the duty to protect it."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which statement best expresses the writer's viewpoint about the Red Sea?",
+      "options": [
+        "It is too salty to be useful to anyone.",
+        "It is less interesting than the open ocean.",
+        "It is an unusual and valuable sea that deserves protection.",
+        "It should be studied only by geologists."
+      ],
+      "answer": "C",
+      "why": "The writer calls it unusual, describes its “amazing variety of life”, and says protecting it is a duty."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear or certain?",
+      "options": [
+        "exactly how the Red Sea got its name",
+        "how long the Red Sea is",
+        "how salty the northern Red Sea is",
+        "how fast the Red Sea is widening"
+      ],
+      "answer": "A",
+      "why": "The writer says “Nobody knows for certain how the sea got its colourful name”; the other facts are given with numbers."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The Red Sea becomes 100 kilometres wider in a single year.",
+        "The Red Sea becomes a few centimetres wider over several years.",
+        "Africa and Arabia join together again overnight.",
+        "A fish turns the whole Red Sea into fresh water."
+      ],
+      "answer": "B",
+      "why": "The sea widens by about one centimetre a year, so a few centimetres over several years is realistic; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the passage?",
+      "options": [
+        "A Day at the Beach in Jeddah",
+        "Why Every Sea Is Red",
+        "Salt, Coral and a Growing Sea",
+        "The Great Rivers of Arabia"
+      ],
+      "answer": "C",
+      "why": "The passage covers the sea's saltiness, its coral reefs and the fact that it is still growing."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The passage ends by saying that protecting the Red Sea is a shared duty. Suggest a different ending: write two or three sentences that propose a practical solution to help protect the Red Sea's coral reefs.",
+      "model": "Schools along the coast could organise trips where students learn to snorkel without touching the coral, and then teach their families what they have learned. Countries could also create protected areas where fishing and anchoring boats on the reefs are not allowed, so that the corals have a safe place to grow.",
+      "rubric": [
+        "2 = a clear, realistic solution that fits the information in the passage and explains how it would help the reefs",
+        "1 = a solution is given but it is vague, not explained, or only loosely linked to the reefs",
+        "0 = no answer, an unrealistic idea, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic way of protecting the reefs that connects to the passage is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can visitors to the Red Sea coast help to keep its reefs healthy?",
+      "options": [
+        "Avoid touching or standing on coral while swimming.",
+        "Take all their rubbish home from the beach.",
+        "A and B",
+        "Break off small pieces of coral to keep."
+      ],
+      "answer": "C",
+      "why": "Both avoiding contact with coral and leaving no rubbish protect the reefs; breaking coral harms them."
+    }
+  ]
+}

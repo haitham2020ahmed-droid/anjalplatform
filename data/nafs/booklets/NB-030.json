@@ -1,0 +1,568 @@
+{
+  "code": "NB-030",
+  "title": "The Three Stages of a River",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 431,
+  "passage": "Saudi Arabia is one of the largest countries in the world without a single permanent river. Its dry valleys, called wadis, fill with rushing water only after heavy rain and then quickly dry out again. In wetter parts of the world, however, rivers flow all year round, and over thousands of years they reshape the land as patiently and powerfully as a sculptor carving stone. Geographers usually divide the journey of a river into three stages, and each stage changes the landscape in a different way.\n\nA river's journey begins high in the mountains, where rain, melting snow or an underground spring feeds a small, fast stream. Because the slope is steep, the water rushes downhill with great energy, dragging pebbles and boulders along the riverbed. These rocks act like tools, grinding away at the bottom of the channel. This wearing away of rock and soil, which is called erosion, slowly cuts a narrow, steep-sided valley shaped like the letter V. Waterfalls and rapids are common in this upper stage.\n\nAs the river reaches lower, flatter land, it slows down and grows wider, because smaller streams called tributaries join it along the way. In this middle stage, the river begins to wind from side to side in large loops known as meanders. On the outside of each bend, the current flows faster and eats away at the bank, whereas on the inside of the bend the water moves gently and drops sand and mud. Gradually, the loops become so curved that the river may cut straight across the narrow neck of land between them. The abandoned loop is left behind as a curved lake, which geographers call an oxbow lake.\n\nIn the final stage, the river moves slowly across a wide, nearly flat plain toward the sea. Now it has very little energy left, so it can no longer carry its heavy load of sediment, the fine sand and mud collected along its route. When the river finally meets the sea, it drops this sediment, and over centuries the deposits can build up into new land called a delta. The Nile, which flows about 6,650 kilometres through northeastern Africa, has formed one of the most famous deltas on Earth. Its triangular shape reminded ancient Greek writers of their letter delta, which is how this landform got its name.\n\nRivers therefore do far more than carry water. By cutting valleys, carving loops and building new land, they act as the great sculptors of our planet. The rich soil they leave behind has also allowed farmers to grow food for thousands of years.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “abandoned” as it is used in paragraph 3?",
+      "options": [
+        "flooded",
+        "deserted",
+        "frozen",
+        "widened"
+      ],
+      "answer": "B",
+      "why": "The river leaves the old loop behind and no longer flows through it, so the loop is “deserted”, or left empty."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “gently” as it is used in paragraph 3?",
+      "options": [
+        "slowly",
+        "quietly",
+        "forcefully",
+        "softly"
+      ],
+      "answer": "C",
+      "why": "On the inside of the bend the water moves “gently”; the opposite is “forcefully”. “Slowly”, “quietly” and “softly” are close to “gently”, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “it can no longer carry its heavy load of sediment, the fine sand and mud collected along its route.” What is “sediment”?",
+      "options": [
+        "sand, mud and small pieces of rock carried by water",
+        "the fresh water that flows from the river into the sea",
+        "the plants and grasses that grow along a riverbank",
+        "the boats that carry goods along a river"
+      ],
+      "answer": "A",
+      "why": "The sentence explains the word right after the comma: sediment is “the fine sand and mud” a river carries."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADJECTIVE?",
+      "options": [
+        "journey",
+        "steep",
+        "rushes",
+        "erosion"
+      ],
+      "answer": "B",
+      "why": "“Steep” describes the slope; “journey” and “erosion” are nouns and “rushes” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the passage forms its plural by changing a letter, not just by adding -s?",
+      "options": [
+        "tributaries",
+        "pebbles",
+        "meanders",
+        "boulders"
+      ],
+      "answer": "A",
+      "why": "“Tributary” changes y to -ies (tributaries); the other words simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “erosion” in paragraph 2?",
+      "options": [
+        "error",
+        "erode",
+        "arrow",
+        "eraser"
+      ],
+      "answer": "B",
+      "why": "“Erode” is the verb that “erosion” comes from (to erode → erosion); the other words only look or sound similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “gradually” in a meaningful sentence of your own.",
+      "model": "The noise of the storm gradually faded, and by midnight the whole town was quiet again.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “gradually” with its meaning (slowly, little by little, over a period of time)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Gradually” means slowly and little by little."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “valley”?",
+      "options": [
+        "vallies",
+        "valleyes",
+        "valley",
+        "valleys"
+      ],
+      "answer": "D",
+      "why": "When a vowel comes before the final y, we simply add -s: valley → valleys (like key → keys)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence is a QUESTION?",
+      "options": [
+        "Watch how the river bends around the hill.",
+        "What a wide delta the Nile has built!",
+        "Why does a river slow down near the sea?",
+        "The river drops its sediment at the coast."
+      ],
+      "answer": "C",
+      "why": "It asks for information and ends with a question mark; the others are a command, an exclamation and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Why Saudi Arabia Has No Rivers",
+        "From Mountain Stream to Delta",
+        "The Waterfalls of Africa",
+        "How Farmers Grow Food"
+      ],
+      "answer": "B",
+      "why": "The passage follows a river from the mountains to the sea, where it builds a delta; the other titles cover only small details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the passage?",
+      "options": [
+        "to explain how a river changes the land at each stage of its journey",
+        "to persuade readers to visit the Nile Delta",
+        "to tell a story about a family living by a river",
+        "to describe how wadis fill with water after rain"
+      ],
+      "answer": "A",
+      "why": "Most of the passage describes the three stages of a river and the landforms each stage creates."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Rivers begin only from melting snow.",
+        "Waterfalls are the most beautiful part of a river.",
+        "In the mountains, a fast river erodes the rock and cuts a V-shaped valley.",
+        "Pebbles are carried all the way to the sea."
+      ],
+      "answer": "C",
+      "why": "The paragraph explains how the fast, steep upper river uses rocks as tools to erode a narrow V-shaped valley."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why does the river grow wider in its middle stage?",
+      "options": [
+        "Tributaries join it along the way.",
+        "The sea pushes water back into it.",
+        "Its banks are made of soft sand.",
+        "It is fed by melting snow."
+      ],
+      "answer": "A",
+      "why": "The paragraph says it grows wider “because smaller streams called tributaries join it along the way”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a story told by a narrator",
+        "a poem with rhyming lines",
+        "a dialogue between characters",
+        "an informational text"
+      ],
+      "answer": "D",
+      "why": "It is prose that explains facts about rivers, organised in stages, with no characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the passage, why can't a river carry its load of sediment in its final stage?",
+      "options": [
+        "The sediment has turned into solid rock.",
+        "The river has very little energy left.",
+        "Tributaries have taken the sediment away.",
+        "The sea water is too salty."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “Now it has very little energy left, so it can no longer carry its heavy load of sediment.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which event happens LAST in the formation of an oxbow lake?",
+      "options": [
+        "The river winds from side to side in loops.",
+        "The outside of a bend is eaten away.",
+        "The loops become more and more curved.",
+        "The old loop is left behind as a curved lake."
+      ],
+      "answer": "D",
+      "why": "The lake forms only after the river cuts across the neck of land and abandons the loop."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to explain why a V-shaped valley forms in the upper stage?",
+      "options": [
+        "Small tributaries join the river along the way.",
+        "The river finally meets the sea at the coast.",
+        "Fast water drags rocks that grind away the riverbed.",
+        "Farmers grow food in the rich soil."
+      ],
+      "answer": "C",
+      "why": "The rocks dragged by the fast water “act like tools, grinding away” at the channel, which cuts the V-shaped valley."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In what order does the passage describe the stages of a river?",
+      "options": [
+        "lower stage, middle stage, upper stage",
+        "upper stage, middle stage, lower stage",
+        "middle stage, upper stage, lower stage",
+        "upper stage, lower stage, middle stage"
+      ],
+      "answer": "B",
+      "why": "It starts in the mountains (paragraph 2), moves to flatter land (paragraph 3) and ends at the sea (paragraph 4)."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "On the outside of a meander, what causes the bank to be eaten away?",
+      "options": [
+        "Sand and mud are dropped there.",
+        "Plants grow along the bank.",
+        "The water there moves gently.",
+        "The current there flows faster."
+      ],
+      "answer": "D",
+      "why": "“On the outside of each bend, the current flows faster and eats away at the bank.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does the river drop its sediment when it meets the sea?",
+      "options": [
+        "It has slowed down so much that it lacks the energy to carry the load.",
+        "The sea is too deep for the sediment to sink.",
+        "Waterfalls stop the sediment from moving.",
+        "The sediment dissolves in salty water."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 links the river's loss of energy on the flat plain to its dropping of the sediment."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why are wadis in Saudi Arabia different from the rivers described in the rest of the passage?",
+      "options": [
+        "Wadis are much longer than the Nile and the other rivers.",
+        "Wadis flow only after heavy rain, not all year round.",
+        "Wadis are always full of salty water from the sea.",
+        "Wadis never carry pebbles or cause any erosion."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1: wadis “fill with rushing water only after heavy rain and then quickly dry out”, while other rivers “flow all year round”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the river in its upper stage DIFFERENT from the river in its lower stage?",
+      "options": [
+        "It is slower and wider.",
+        "It drops more sediment.",
+        "It is faster and has more energy.",
+        "It flows across a flat plain."
+      ],
+      "answer": "C",
+      "why": "In the mountains the water rushes “with great energy”; near the sea it moves slowly “with very little energy left”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the passage, what is one EFFECT of the river dropping sediment at its mouth over centuries?",
+      "options": [
+        "New land called a delta is built up.",
+        "A narrow V-shaped valley is cut.",
+        "Waterfalls and rapids appear.",
+        "The river flows faster again."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: the deposits “can build up into new land called a delta”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do a V-shaped valley and an oxbow lake have in common?",
+      "options": [
+        "Both are found only near the sea.",
+        "Both form because the river stops moving.",
+        "Both are made by tributaries.",
+        "Both are landforms shaped by a flowing river."
+      ],
+      "answer": "D",
+      "why": "The valley is cut in the upper stage and the oxbow lake forms in the middle stage, but both are shaped by the moving river."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer says rivers reshape the land “as patiently and powerfully as a sculptor carving stone”. What does this comparison suggest?",
+      "options": [
+        "Rivers work slowly but have great strength to change shapes.",
+        "Rivers are made of hard stone.",
+        "Artists often carve statues beside rivers.",
+        "Rivers change the land in a single day."
+      ],
+      "answer": "A",
+      "why": "A sculptor works slowly and with force to shape stone; rivers likewise shape the land slowly but powerfully."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer explain where the name “delta” comes from?",
+      "options": [
+        "to show that the Greeks built the Nile Delta",
+        "to help readers remember the shape of this landform",
+        "to prove that the Nile is the longest river",
+        "to explain how sediment is carried"
+      ],
+      "answer": "B",
+      "why": "Linking the name to the triangular Greek letter helps readers picture and remember the delta's shape."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which feature of the writer's presentation makes the passage easiest to follow?",
+      "options": [
+        "The writer uses many exclamatory sentences.",
+        "The writer tells the story of one family.",
+        "The writer explains each stage of the river in its own paragraph.",
+        "The writer lists every river in the world."
+      ],
+      "answer": "C",
+      "why": "Paragraphs 2, 3 and 4 each deal with one stage, so the reader can follow the river from start to finish."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the passage, which is the MOST important benefit that rivers bring to people?",
+      "options": [
+        "They make loud and impressive waterfalls.",
+        "They create curved lakes for people to swim in.",
+        "They cut deep valleys high in the mountains.",
+        "They leave rich soil that has helped farmers grow food."
+      ],
+      "answer": "D",
+      "why": "The last paragraph says the rich soil “has also allowed farmers to grow food for thousands of years”, a benefit for people."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to begin the passage with Saudi Arabia's wadis?",
+      "options": [
+        "to link the topic to what Saudi readers already know",
+        "to prove that wadis are more important than rivers",
+        "to warn readers about the danger of floods",
+        "to describe how to build a dam"
+      ],
+      "answer": "A",
+      "why": "Starting with familiar wadis gives Saudi readers a link before the writer explains rivers that flow all year."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which statement best expresses the writer's viewpoint in the final paragraph?",
+      "options": [
+        "Rivers are mainly a danger to the people living near them.",
+        "Rivers only matter to farmers who grow food.",
+        "Rivers are powerful shapers of the land and valuable to people.",
+        "Rivers are less important than seas."
+      ],
+      "answer": "C",
+      "why": "The writer calls rivers “the great sculptors of our planet” and praises the rich soil they leave for farmers."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "what erosion means",
+        "how long it takes for an oxbow lake to form",
+        "how long the Nile is",
+        "where a river's journey begins"
+      ],
+      "answer": "B",
+      "why": "The writer says the loops “gradually” become curved but gives no time; the other points are clearly explained or given with numbers."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A river flows uphill from the sea to the mountains.",
+        "A river builds a new delta in a single afternoon.",
+        "A river carries pebbles that slowly wear away its riverbed.",
+        "A wadi in Saudi Arabia flows without water all year."
+      ],
+      "answer": "C",
+      "why": "Pebbles grinding the riverbed is real erosion described in paragraph 2; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the passage?",
+      "options": [
+        "Rivers: The Sculptors of the Land",
+        "The Driest Country on Earth",
+        "A Boat Trip Down the Nile",
+        "How to Catch River Fish"
+      ],
+      "answer": "A",
+      "why": "The passage explains how rivers carve valleys, loops and deltas, and calls them “the great sculptors of our planet”."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Saudi Arabia has no permanent rivers, yet people need fresh water. Suggest a different ending for the passage: write two or three sentences proposing ways a country without rivers can get or save fresh water.",
+      "model": "A country without rivers can build dams across wadis to catch rainwater before it disappears into the sand. It can also turn seawater into fresh water in desalination plants, and families can save water by fixing leaking taps and watering gardens at night.",
+      "rubric": [
+        "2 = a clear, realistic ending with at least one practical way to get or save fresh water, explained sensibly",
+        "1 = an idea is given but it is vague, unexplained or only loosely linked to the passage",
+        "0 = no answer, an impossible idea, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic solution for getting or saving fresh water without rivers is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which action would BEST help to keep a river and its valley healthy?",
+      "options": [
+        "throwing rubbish into the river so the current carries it away",
+        "removing all the plants along the riverbank",
+        "None of the above",
+        "building factories that empty waste into the river"
+      ],
+      "answer": "C",
+      "why": "All three listed actions would pollute or damage the river, so “None of the above” is correct."
+    }
+  ]
+}

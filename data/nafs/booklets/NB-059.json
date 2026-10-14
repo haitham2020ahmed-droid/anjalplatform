@@ -1,0 +1,568 @@
+{
+  "code": "NB-059",
+  "title": "What the Yellow Poster Taught Me",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 474,
+  "passage": "For an entire month, a bright yellow poster hung beside the door of our science classroom, and for an entire month I ignored it. It showed a cartoon girl clutching her throat above the heading \"Choking: Act Fast,\" followed by a list of numbered instructions. Our teacher, Ms Nadia, had spent one lesson demonstrating the steps to our class of girls on a practice dummy, but I remember privately deciding that such information would never be useful to me. I was wrong, and I discovered it on the evening of my cousin Lulu's fourth birthday.\n\nThe whole family had gathered in my aunt's garden, where long tables were covered with plates of sambosa, bowls of fruit and a magnificent cake shaped like a castle. The adults were chatting enthusiastically near the barbecue, while the younger children chased one another around the fountain. I was helping my aunt arrange candles on the cake when I noticed that Lulu, who had been eating grapes only a moment earlier, had stopped running. She was standing completely still, her eyes wide with terror and her small hands pressed against her throat. She was not crying or coughing, and that silence frightened me more than any scream could have done.\n\nUnexpectedly, the yellow poster appeared in my memory as clearly as if it were hanging in front of me. If someone can cough, encourage them to keep coughing. If they cannot, act immediately. I shouted to my aunt to call 997, and then I knelt behind Lulu. My heart was hammering so violently that I could hear it in my ears, but I forced my hands to remain steady. Supporting her chest with one arm, I leaned her forward, exactly as Ms Nadia had demonstrated, and struck her firmly between the shoulder blades with the heel of my hand.\n\nI delivered one blow, then a second and a third, and on the fourth a whole grape shot out of her mouth and landed on the grass. Lulu took a long, ragged breath and then burst into the loudest, most wonderful tears I have ever heard. My aunt immediately gathered her into her arms, and by the time the ambulance crew arrived, Lulu was sitting on her mother's lap, sniffing and asking for cake. The paramedics examined her carefully and announced that she was fine, but one of them turned to me and asked where I had learned what to do.\n\n\"From a poster,\" I replied, and everyone laughed, although my voice was still trembling.\n\nSince that evening, I have studied every safety poster at school with genuine attention, and I have persuaded my parents to cut grapes into quarters for my younger brothers. I have also learned that courage is not the absence of fear. Sometimes it is simply remembering what you were taught when your hands are shaking.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “clutching” as it is used in paragraph 1?",
+      "options": [
+        "gently stroking",
+        "gripping tightly",
+        "pointing towards",
+        "covering loosely"
+      ],
+      "answer": "B",
+      "why": "The cartoon girl is “clutching her throat” in panic, which means gripping it tightly."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “steady” as it is used in paragraph 3?",
+      "options": [
+        "firmly fixed",
+        "calm and quiet",
+        "perfectly still",
+        "trembling"
+      ],
+      "answer": "D",
+      "why": "The narrator forced her hands “to remain steady”, meaning firm and not shaking; the opposite is “trembling”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “Lulu took a long, ragged breath and then burst into the loudest, most wonderful tears I have ever heard.” What does “ragged” mean?",
+      "options": [
+        "rough and uneven",
+        "quiet and gentle",
+        "slow and deep",
+        "sweet and fresh"
+      ],
+      "answer": "A",
+      "why": "After choking, Lulu's first breath would be rough and uneven, not smooth or gentle."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADJECTIVE?",
+      "options": [
+        "chased",
+        "fountain",
+        "magnificent",
+        "enthusiastically"
+      ],
+      "answer": "C",
+      "why": "“Magnificent” describes the cake, so it is an adjective; “chased” is a verb, “fountain” a noun and “enthusiastically” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the story is IRREGULAR (it does not end in -s)?",
+      "options": [
+        "candles",
+        "children",
+        "tables",
+        "brothers"
+      ],
+      "answer": "B",
+      "why": "One child, many children; the other plurals simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the ADJECTIVE form of “courage” in paragraph 6?",
+      "options": [
+        "encourage",
+        "courageously",
+        "courageous",
+        "discourage"
+      ],
+      "answer": "C",
+      "why": "“Courageous” describes a person who shows courage. “Encourage” and “discourage” are verbs, and “courageously” is an adverb."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “genuine” in a meaningful sentence of your own.",
+      "model": "Hessa's smile was genuine when she opened the gift, because she had wanted that book for months.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “genuine” with its meaning (real and sincere, not pretended)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Genuine” means real or sincere."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The story mentions Lulu's “birthday”. Which is the correct PLURAL of this word?",
+      "options": [
+        "birthdaies",
+        "birthdayes",
+        "birthday's",
+        "birthdays"
+      ],
+      "answer": "D",
+      "why": "When a vowel comes before the y, we simply add -s: birthday → birthdays. “Birthday's” shows possession, not the plural."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a COMMAND?",
+      "options": [
+        "If they cannot, act immediately.",
+        "I was wrong, and I discovered it on the evening of my cousin Lulu's fourth birthday.",
+        "She was not crying or coughing, and that silence frightened me more than any scream could have done.",
+        "Sometimes it is simply remembering what you were taught when your hands are shaking."
+      ],
+      "answer": "A",
+      "why": "“Act immediately” tells the reader what to do, so it is a command, even though it begins with “If”."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A Castle-Shaped Cake",
+        "The Poster That Saved Lulu",
+        "Lulu's Favourite Fruit",
+        "The Ambulance That Never Came"
+      ],
+      "answer": "B",
+      "why": "The steps the narrator remembered from the poster saved Lulu. The cake is a small detail, and the ambulance did arrive."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to describe a birthday party in a garden",
+        "to explain how ambulances are called in Saudi Arabia",
+        "to share how an ignored lesson saved a life",
+        "to show that cartoons are better than lessons"
+      ],
+      "answer": "C",
+      "why": "The narrator ignored the poster but later used its steps to save Lulu, and reflects on what this taught her."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "The adults are chatting near the barbecue.",
+        "The birthday cake is shaped like a castle.",
+        "The children are playing around the fountain.",
+        "The narrator sees Lulu silently choking."
+      ],
+      "answer": "D",
+      "why": "The paragraph describes the party, but its key moment is the narrator noticing Lulu standing still, terrified, unable to cough."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the rules the narrator remembered, why did she act immediately instead of encouraging Lulu to cough?",
+      "options": [
+        "Lulu was crying too loudly.",
+        "The ambulance had already arrived.",
+        "Lulu was not able to cough.",
+        "Her aunt told her to act."
+      ],
+      "answer": "C",
+      "why": "The rule says to encourage coughing if someone can cough, and to act immediately “If they cannot”; Lulu “was not crying or coughing”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a personal narrative",
+        "a fable with a moral",
+        "a set of instructions",
+        "a news report"
+      ],
+      "answer": "A",
+      "why": "The narrator tells a true-to-life experience from her own life using “I”, and reflects on what she learned."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did everyone laugh when the narrator answered, “From a poster”?",
+      "options": [
+        "They thought she was telling a lie.",
+        "The paramedics had just told a funny joke.",
+        "They wanted to make fun of Ms Nadia.",
+        "The answer surprised them, and Lulu was safe."
+      ],
+      "answer": "D",
+      "why": "It was unexpected that a poster had taught her, and the laughter also shows the family's relief now that Lulu was safe."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "The narrator knelt behind Lulu.",
+        "A whole grape shot out of Lulu's mouth.",
+        "The narrator shouted to her aunt to call 997.",
+        "The paramedics examined Lulu carefully."
+      ],
+      "answer": "D",
+      "why": "The paramedics arrived after the grape had come out and Lulu was sitting on her mother's lap."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "Lulu, the birthday girl",
+        "Ms Nadia, the science teacher",
+        "Lulu's older cousin",
+        "one of the paramedics"
+      ],
+      "answer": "C",
+      "why": "The narrator says “my cousin Lulu's fourth birthday” and tells the story using “I”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which detail FIRST showed the narrator that something was wrong?",
+      "options": [
+        "Lulu had suddenly stopped running.",
+        "The ambulance had arrived at the garden gate.",
+        "The adults had stopped chatting.",
+        "The candles on the cake had gone out."
+      ],
+      "answer": "A",
+      "why": "She “noticed that Lulu, who had been eating grapes only a moment earlier, had stopped running.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What caused Lulu to choke?",
+      "options": [
+        "a piece of birthday cake",
+        "a sambosa from the table",
+        "a whole grape",
+        "a candle from the cake"
+      ],
+      "answer": "C",
+      "why": "On the fourth blow “a whole grape shot out of her mouth”, and paragraph 2 says she had been eating grapes."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "The narrator admits “I was wrong” and hints at trouble.",
+        "The narrator describes the colour of the poster.",
+        "The reader wants to find out Ms Nadia's family name.",
+        "The reader wants to know what is in the science classroom."
+      ],
+      "answer": "A",
+      "why": "Saying “I was wrong” about never needing the steps hints that an emergency is coming."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the narrator feel while she was helping Lulu?",
+      "options": [
+        "calm and rather bored",
+        "proud and quite boastful",
+        "angry with her aunt",
+        "frightened but determined"
+      ],
+      "answer": "D",
+      "why": "Her “heart was hammering”, yet she “forced” her hands to remain steady and followed every step."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the narrator's attitude to safety posters change?",
+      "options": [
+        "Before, she studied them; afterwards, she ignored them.",
+        "Before, she ignored them; now she reads them carefully.",
+        "She has always found them boring.",
+        "She has always made her own posters."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1 says she ignored the poster for a month; paragraph 6 says she now studies every safety poster “with genuine attention”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What changed at home as a result of the incident?",
+      "options": [
+        "She stopped eating grapes completely herself.",
+        "A yellow poster was hung in the kitchen.",
+        "Her parents now cut grapes into quarters.",
+        "Her parents cancelled all birthday parties."
+      ],
+      "answer": "C",
+      "why": "Paragraph 6: “I have persuaded my parents to cut grapes into quarters for my younger brothers.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Ms Nadia's lesson and the yellow poster have in common?",
+      "options": [
+        "Both taught the steps the narrator used to save Lulu.",
+        "Both were shown at Lulu's birthday party.",
+        "Both frightened the narrator so much that she ignored them.",
+        "Both were made by the paramedics."
+      ],
+      "answer": "A",
+      "why": "Ms Nadia demonstrated the steps on a dummy, and the poster listed them; the narrator leaned Lulu forward “exactly as Ms Nadia had demonstrated”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer describe the blows one at a time: “one blow, then a second and a third, and on the fourth …”?",
+      "options": [
+        "to make the paragraph longer",
+        "to show that the narrator could not count",
+        "to build suspense before the grape comes out",
+        "to explain how to count in first aid"
+      ],
+      "answer": "C",
+      "why": "Slowing down the moment makes readers feel the tension and wait anxiously for the result."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “My heart was hammering” in paragraph 3 suggest?",
+      "options": [
+        "The narrator was holding a hammer.",
+        "She had a serious heart problem.",
+        "She was hitting Lulu's back very hard.",
+        "Her heart was pounding with fear."
+      ],
+      "answer": "D",
+      "why": "This is figurative language: her heart was pounding like a hammer because she was afraid."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does the narrator call Lulu's crying “the loudest, most wonderful tears I have ever heard”?",
+      "options": [
+        "Lulu always cries loudly at parties.",
+        "Crying showed that Lulu could breathe again.",
+        "The narrator enjoys hearing children cry.",
+        "Lulu was crying because she wanted cake."
+      ],
+      "answer": "B",
+      "why": "Before, Lulu was silent because she could not breathe; loud crying meant air was moving again, so it was wonderful to hear."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from the story is MOST important?",
+      "options": [
+        "Birthday parties are dangerous and should be avoided.",
+        "Only adults should ever help a choking child.",
+        "Simple first aid can help us act in an emergency.",
+        "Posters are always more useful than teachers."
+      ],
+      "answer": "C",
+      "why": "The narrator saved Lulu because she remembered a first-aid lesson, even though she was afraid."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the narrator to tell this story?",
+      "options": [
+        "to complain about her aunt's noisy party",
+        "to explain how paramedics are trained",
+        "to describe her favourite birthday cake",
+        "to show why safety lessons deserve attention"
+      ],
+      "answer": "D",
+      "why": "She begins by admitting she ignored the poster and ends by explaining what the experience taught her."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present at the end of paragraph 4?",
+      "options": [
+        "relief",
+        "anger",
+        "boredom",
+        "jealousy"
+      ],
+      "answer": "A",
+      "why": "Lulu is safe on her mother's lap “sniffing and asking for cake”, and the paramedics say she is fine."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "how old Lulu was",
+        "what Lulu choked on",
+        "the narrator's own name and age",
+        "which number the aunt called"
+      ],
+      "answer": "C",
+      "why": "Lulu's age (four), the grape and the number 997 are all given, but the narrator never tells us her name or age."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A cartoon on a poster comes to life and saves a child.",
+        "A child chokes on a whole grape at a family party.",
+        "A grape grows into a castle-shaped cake.",
+        "An ambulance arrives before anyone calls it."
+      ],
+      "answer": "B",
+      "why": "Small children can choke on whole grapes, which is why the narrator now cuts them into quarters."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events and message of the story?",
+      "options": [
+        "Courage With Shaking Hands",
+        "The Garden Fountain",
+        "A Month of Science Lessons at School",
+        "Cake for Everyone"
+      ],
+      "answer": "A",
+      "why": "The narrator acts bravely while afraid and ends by saying courage means remembering what you were taught “when your hands are shaking”."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which the narrator uses what happened to help other people.",
+      "model": "The next week, I asked Ms Nadia if I could tell my class what had happened at Lulu's party. Together we practised the steps on the dummy until everyone could do them without looking at the poster. Now there are twenty-eight students in my class who know what to do.",
+      "rubric": [
+        "2 = a clear new ending that fits the narrator and shows her helping others with what she learned",
+        "1 = an ending is given but it is unclear or does not fit the story",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the story and shows the narrator sharing or using her lesson to help others is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, which solution would BEST help prevent young children from choking on grapes?",
+      "options": [
+        "cutting grapes into quarters",
+        "buying larger grapes for young children instead",
+        "letting children eat while they run and play",
+        "serving grapes only at birthday parties"
+      ],
+      "answer": "A",
+      "why": "The narrator persuaded her parents to cut grapes into quarters for her younger brothers, which makes them less likely to block a throat."
+    }
+  ]
+}

@@ -24,7 +24,7 @@ export function RepeatedMistakes({ rows, canAssign }: { rows: HelpStudent[]; can
       {rows.map((r) => (
         <li key={r.studentId} className="rounded-2xl bg-white p-4 ring-1 ring-orange-200">
           <div className="flex flex-wrap items-center gap-2">
-            <Link prefetch={false} href={`/admin/student-file/${r.studentId}`} className="inline-flex min-h-11 items-center font-semibold text-brand-navy underline-offset-2 hover:underline"><bdi>{r.name}</bdi></Link>
+            <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="inline-flex min-h-11 items-center font-semibold text-brand-navy underline-offset-2 hover:underline"><bdi>{r.name}</bdi></Link>
             <NeedsHelpBadge n={r.skills.length} />
           </div>
           <ul className="mt-2 space-y-2">

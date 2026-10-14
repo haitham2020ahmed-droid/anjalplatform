@@ -27,6 +27,7 @@ import { studentRespondWork } from "../curriculum-map/respond-assign";
 import { myTasks } from "../teacher/writing";
 import { MINUTES } from "../tiers/weekly-plan";
 import type { MyMap } from "../map/map-more";
+import { readRisePlaced } from "../readrise/engine";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown): number => (v instanceof Date ? v.getTime() : v ? new Date(String(v)).getTime() : 0);
@@ -167,10 +168,13 @@ export async function studentHome(repo: Repo, actor: Actor, now = new Date()): P
   // writing tasks: the number sits on the home's Writing tile (no second link to the same page)
   if (comments) notices.push({ key: "comments", icon: "💬", text: "New comments from your teacher: {n}", vars: { n: comments }, href: "/student/comments", cta: "Open" });
   if (nafsToDo) notices.push({ key: "nafs", icon: "🇸🇦", text: "NAFS: {n} to do", vars: { n: nafsToDo }, href: "/student/nafs", cta: "Open" });
+  const placedRR = readRisePlaced(rr) ? rr : null;
   return {
     work: rows, toDo: rows.filter((r) => r.status !== "Done").length, testsToDo, nafsToDo, writingToDo: writingTodo, last, rti,
-    readRiseLevel: rr ? Number(rr.level) : null, notices,
-    readRiseStart: rr && rr.startLevel !== null && rr.startLevel !== undefined ? { level: Number(rr.startLevel), at: rr.placedAt instanceof Date ? rr.placedAt.toISOString() : String(rr.placedAt ?? "") } : null,
+    // 🎯 a level only after the placement (readRisePlaced; same row, no extra read): the start row of a first visit
+    // (MAP or grade default) is never shown — the home card says "Take the placement test" instead
+    readRiseLevel: placedRR ? Number(placedRR.level) : null, notices,
+    readRiseStart: placedRR && placedRR.startLevel !== null && placedRR.startLevel !== undefined ? { level: Number(placedRR.startLevel), at: placedRR.placedAt instanceof Date ? placedRR.placedAt.toISOString() : String(placedRR.placedAt ?? "") } : null,
   };
 }
 

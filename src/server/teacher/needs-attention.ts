@@ -10,6 +10,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { accessibleClasses } from "./assign";
 import { studentNames } from "../insights/student-data";
 import { isHiddenSkill } from "../skills/master";
+import { starAttention, type StarAttention } from "../skills/status-extras";
+import { safeIfBehind } from "../db/schema-errors";
 
 export const NO_PRACTICE_DAYS = 7;
 export const STUCK_QUESTIONS = 15;
@@ -28,6 +30,8 @@ export interface AttentionStudent {
   studentId: string; name: string; classId: string; className: string;
   /** "NO_PRACTICE" (with the days, null = never) and/or the skills the student is stuck on */
   idleDays: number | null; neverPractised: boolean; stuck: { skillId: string; skill: string; questions: number; score: number }[];
+  /** ⭐ skill stars: stuck at ◐ 7+ days, 50 questions without mastery, a new 🔄 (skills/status-extras.ts) */
+  stars?: StarAttention[];
 }
 export interface TeacherHomeSummary { students: number; workThisWeek: number; needsAttention: number; list: AttentionStudent[] }
 
@@ -42,10 +46,13 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
   ]);
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   if (!ids.length) return { students: 0, workThisWeek: week, needsAttention: 0, list: [] };
-  const [mastery, names] = await Promise.all([
+  const [mastery, names, starList] = await Promise.all([
     inChunks(ids, (part) => repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "skillId", "score", "attempts", "isMastered", "lastPracticedAt"] })),
     studentNames(repo, ids),
+    safeIfBehind("home.stars", () => starAttention(repo, s(actor.schoolId ?? classes[0]?.schoolId), ids, now), [] as StarAttention[]),
   ]);
+  const starsOf = new Map<string, StarAttention[]>();
+  for (const x of starList) starsOf.set(x.studentId, [...(starsOf.get(x.studentId) ?? []), x]);
   const last = new Map<string, number>();
   const stuckRows = new Map<string, Row[]>();
   for (const m of mastery) {
@@ -68,11 +75,12 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
     const idle = t === 0 || t <= limit;
     const stuck = (stuckRows.get(id) ?? []).map((m) => ({ skillId: s(m.skillId), skill: skillName.get(s(m.skillId)) ?? "Skill", questions: Number(m.attempts), score: Math.round(Number(m.score)) }))
       .sort((a, b) => a.score - b.score).slice(0, 3);
-    if (!idle && !stuck.length) continue;
+    const stars = starsOf.get(id) ?? [];
+    if (!idle && !stuck.length && !stars.length) continue;
     const k = classOf.get(id);
-    list.push({ studentId: id, name: names.get(id)?.name ?? "Student", classId: s(k?.id), className: s(k?.name), idleDays: t ? Math.floor((now.getTime() - t) / 86_400_000) : null, neverPractised: t === 0, stuck: idle && !stuck.length ? [] : stuck });
+    list.push({ studentId: id, name: names.get(id)?.name ?? "Student", classId: s(k?.id), className: s(k?.name), idleDays: t ? Math.floor((now.getTime() - t) / 86_400_000) : null, neverPractised: t === 0, stuck: idle && !stuck.length ? [] : stuck, ...(stars.length ? { stars } : {}) });
   }
   // stuck first (they are trying and need help), then the longest without practice
-  list.sort((a, b) => Number(b.stuck.length > 0) - Number(a.stuck.length > 0) || (b.idleDays ?? 9999) - (a.idleDays ?? 9999) || a.name.localeCompare(b.name));
+  list.sort((a, b) => Number(Boolean(b.stars?.length)) - Number(Boolean(a.stars?.length)) || Number(b.stuck.length > 0) - Number(a.stuck.length > 0) || (b.idleDays ?? 9999) - (a.idleDays ?? 9999) || a.name.localeCompare(b.name));
   return { students: ids.length, workThisWeek: week, needsAttention: list.length, list };
 }

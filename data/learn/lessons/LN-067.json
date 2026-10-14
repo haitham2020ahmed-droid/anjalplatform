@@ -1,0 +1,461 @@
+{
+ "code": "LN-067",
+ "title": "Parallel structure",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [],
+ "families": [],
+ "skillNames": [
+  "Parallel Structure"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words in a list",
+     "text": "Sometimes we list things we do:\n\nI **run**, **jump** and **swim**.\n\nAll three words are the **same kind** of word. That makes the sentence easy to read."
+    },
+    {
+     "title": "Make them match",
+     "text": "Right: I like **reading**, **drawing** and **singing**.\nWrong: I like reading, drawing and to sing.\n\nIf the first word ends in **-ing**, the others do too."
+    },
+    {
+     "title": "Match across sentences",
+     "text": "Steps in a list should match too.\n\n**Wash** your hands.\n**Dry** them well.\n**Sit** down to eat.\n\nEach step starts with an action word."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the other items in the list.\n2. Look at **how they start** or **how they end**.\n3. Your answer must have the **same form**.\n\nThe matching sentences in the text prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sara helps at home.",
+      "role": "other"
+     },
+     {
+      "t": "She sweeps the floor.",
+      "role": "key"
+     },
+     {
+      "t": "She waters the plants.",
+      "role": "key"
+     },
+     {
+      "t": "She feeds the cat.",
+      "role": "key"
+     }
+    ],
+    "explain": "Each sentence starts with **She** and an action word: sweeps, waters, feeds.\n\nThey all match. That is **parallel structure**."
+   },
+   "together": {
+    "passage": "Our class made a plan to keep the school clean. First, we will pick up litter. Next, we will recycle paper. Last, we will ___.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "planting trees",
+     "plant trees",
+     "to plant trees",
+     "trees planted"
+    ],
+    "answer": 1,
+    "hint": "Look at the other steps. What words come after **we will**?",
+    "good": "Yes! **pick up**, **recycle**, **plant**: all three steps match."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class made a plan to keep the school clean.",
+     "First, we will pick up litter.",
+     "Next, we will recycle paper.",
+     "Last, we will ___."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: plant trees. Tap 2 sentences that show the pattern the answer must match.",
+    "wrong": "This sentence is not one of the steps. Find the steps that start with 'we will'."
+   },
+   "checks": [
+    {
+     "passage": "At the park, the children ran, jumped and ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "climbing",
+      "to climb",
+      "climbed",
+      "climbs"
+     ],
+     "answer": 2,
+     "why": "**ran**, **jumped**, **climbed**: all three tell what they did in the past."
+    },
+    {
+     "passage": "Yousef loves swimming, biking and ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "hiking",
+      "to hike",
+      "hikes",
+      "he hikes"
+     ],
+     "answer": 0,
+     "why": "**swimming**, **biking**, **hiking**: all three end in -ing."
+    },
+    {
+     "passage": "Mom said, \"Brush your teeth. Put on your pyjamas. You should read a book.\"",
+     "stem": "Which part does NOT match?",
+     "options": [
+      "Brush your teeth.",
+      "Put on your pyjamas.",
+      "Mom said",
+      "You should read a book."
+     ],
+     "answer": 3,
+     "why": "The other steps start with an action word. It should be: **Read a book.**"
+    }
+   ],
+   "again": {
+    "title": "Listen for the beat",
+    "text": "Say the list out loud. Matching words sound like a **drum beat**.\n\nIf one word sounds different, change it to match the others.",
+    "example": "I like to sing, to draw and dancing.\n\n**to sing**, **to draw**, ... dancing? It breaks the beat. Fix it: **to dance**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Parallel structure",
+     "text": "**Parallel** means the parts of a list or pair have the **same form**.\n\nNouns go with nouns. Verbs go with verbs. Describing words go with describing words."
+    },
+    {
+     "title": "Check the tense",
+     "text": "Verbs in a list should be in the **same tense**.\n\nRight: Ali **washed** the car and **cleaned** the windows.\nWrong: Ali washed the car and cleans the windows."
+    },
+    {
+     "title": "Pairs with and / or",
+     "text": "Words joined by **and** or **or** should match.\n\nRight: The soup was **hot** and **tasty**.\nWrong: The soup was hot and had a good taste."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the items that go together.\n2. Name their form: action word? noun? -ing word? past tense?\n3. Pick the answer with the **same form**.\n\nPoint to the matching items in the text. They are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our teacher gave us three tips for the test.",
+      "role": "other"
+     },
+     {
+      "t": "Read each question carefully.",
+      "role": "key"
+     },
+     {
+      "t": "Answer the easy ones first.",
+      "role": "key"
+     },
+     {
+      "t": "Check your work at the end.",
+      "role": "key"
+     }
+    ],
+    "explain": "Each tip starts with a command word: **Read**, **Answer**, **Check**.\n\nThe tips are parallel, so they are easy to follow."
+   },
+   "together": {
+    "passage": "Before our trip to the wildlife park, our teacher gave us three rules. Stay with your group. Listen to the guide. ___. At the park, we saw giraffes, zebras and a sleepy lion. It was the best trip of the year.",
+    "stem": "Which sentence best fills the blank?",
+    "options": [
+     "Feeding the animals is not allowed.",
+     "You shouldn't be feeding the animals.",
+     "Do not feed the animals.",
+     "No feeding of the animals."
+    ],
+    "answer": 2,
+    "hint": "How do the other two rules begin? Your rule should begin the same way.",
+    "good": "Yes! **Stay**, **Listen**, **Do not feed**: each rule is a command."
+   },
+   "evidence": {
+    "sentences": [
+     "Before our trip to the wildlife park, our teacher gave us three rules.",
+     "Stay with your group.",
+     "Listen to the guide.",
+     "___.",
+     "At the park, we saw giraffes, zebras and a sleepy lion.",
+     "It was the best trip of the year."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Do not feed the animals. Tap 2 sentences that show the form the rule must match.",
+    "wrong": "This sentence is not one of the rules. Find the rules that start with a command word."
+   },
+   "checks": [
+    {
+     "passage": "The new library is bright, quiet and ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "has comfort",
+      "comfortably",
+      "comfortable",
+      "it is comfy"
+     ],
+     "answer": 2,
+     "why": "**bright**, **quiet**, **comfortable**: all three are describing words."
+    },
+    {
+     "passage": "Last night, Huda finished her homework and ___ her bag for school.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "packed",
+      "packs",
+      "packing",
+      "will pack"
+     ],
+     "answer": 0,
+     "why": "**finished** is past tense, so the second verb must be past too: **packed**."
+    },
+    {
+     "passage": "Our coach wants us to eat well, sleep early and drinking water.",
+     "stem": "Which change makes the sentence parallel?",
+     "options": [
+      "Change **eat** to **eating**.",
+      "Change **sleep** to **slept**.",
+      "Change **wants** to **wanted**.",
+      "Change **drinking** to **drink**."
+     ],
+     "answer": 3,
+     "why": "**eat**, **sleep**, **drink**: all three must be the same form."
+    }
+   ],
+   "again": {
+    "title": "Line them up",
+    "text": "Write the items **one under the other**. Then look at how each one starts.",
+    "example": "Dad likes to cook, to garden and fixing bikes.\n\nto cook\nto garden\nfixing bikes  ✘\n\nFix: **to fix bikes**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Phrases in parallel",
+     "text": "Parallel structure works for **phrases**, not just single words.\n\nWe came **to learn**, **to share** and **to have fun**.\nShe ran **across the yard**, **through the gate** and **down the street**."
+    },
+    {
+     "title": "Paired words",
+     "text": "Some joining words come in **pairs**:\n\n**both … and**\n**either … or**\n**neither … nor**\n**not only … but also**\n\nWhat comes after the first word must match what comes after the second."
+    },
+    {
+     "title": "Fixing a paired sentence",
+     "text": "Wrong: She is **not only** a good student **but also** plays football well.\n\nRight: She is **not only** a good **student** **but also** a skilled **player**.\n\nNow both parts are nouns."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the joining word: and, or, both, either, not only.\n2. Look at the part **before** the blank or the first item.\n3. Choose the answer with the same form.\n\nOther lists and pairs in the passage show how the writer keeps things parallel."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Desert plants survive in two clever ways.",
+      "role": "other"
+     },
+     {
+      "t": "They either store water in thick leaves or send long roots deep underground.",
+      "role": "key"
+     },
+     {
+      "t": "Because of this, they are both tough and useful to animals.",
+      "role": "key"
+     }
+    ],
+    "explain": "**either store … or send**: two verbs.\n**both tough and useful**: two describing words.\n\nEach pair matches, so the writing is parallel."
+   },
+   "together": {
+    "passage": "Every spring, students at our school run a book fair. The fair has two goals: to raise money for the library and to get students excited about reading. Volunteers can either sell books at the tables or ___. Last year, the fair was both busy and successful. Next year, the organisers hope to invite an author, to add a story corner and to stay open longer.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "helping children choose a book",
+     "to help children choosing a book",
+     "children can get help choosing",
+     "help children choose a book"
+    ],
+    "answer": 3,
+    "hint": "Look at the words after **either**: sell books. The words after **or** must have the same form.",
+    "good": "Yes! **either sell … or help**: both parts start with a plain action word."
+   },
+   "evidence": {
+    "sentences": [
+     "Every spring, students at our school run a book fair.",
+     "The fair has two goals: to raise money for the library and to get students excited about reading.",
+     "Volunteers can either sell books at the tables or ___.",
+     "Last year, the fair was both busy and successful.",
+     "Next year, the organisers hope to invite an author, to add a story corner and to stay open longer."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: help children choose a book. Tap 2 OTHER sentences with a complete pair or list in the same form.",
+    "wrong": "This sentence does not have a complete matching pair or list. Find one where every part has the same form."
+   },
+   "checks": [
+    {
+     "passage": "For the science fair, we must choose a question, plan an experiment and ___.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "the results are recorded",
+      "record the results",
+      "recording the results",
+      "results should be recorded"
+     ],
+     "answer": 1,
+     "why": "**choose**, **plan**, **record**: each item starts with an action word."
+    },
+    {
+     "passage": "Mangroves protect the coast not only by holding the mud in place but also ___.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "they slow down waves",
+      "slowing down waves is another",
+      "to slow down waves",
+      "by slowing down waves"
+     ],
+     "answer": 3,
+     "why": "**by holding** … **by slowing**: both parts after the paired words match."
+    },
+    {
+     "passage": "Faris spent the holiday visiting his cousins, reading adventure stories and he learned to swim.",
+     "stem": "Which is the best way to rewrite the end?",
+     "options": [
+      "and learning to swim",
+      "and to learn to swim",
+      "and he was learning swimming",
+      "and learned to swim"
+     ],
+     "answer": 0,
+     "why": "**visiting**, **reading**, **learning**: all three -ing phrases match."
+    }
+   ],
+   "again": {
+    "title": "Cover and check",
+    "text": "Cover the joining word and read each part **on its own** after the start of the sentence. Each part should work.",
+    "example": "The trip was both fun and taught us a lot.\n\n'The trip was fun' ✔\n'The trip was taught us a lot' ✘\n\nFix: The trip was both **fun** and **educational**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Parallel clauses",
+     "text": "Whole **clauses** can be parallel too.\n\nThe scientists hoped **that** the reef would recover **and that** the fish would return.\n\nRepeat the starting word (that, because, when) so each clause begins the same way."
+    },
+    {
+     "title": "Comparisons",
+     "text": "When you compare two things, put them in the **same form**.\n\nWrong: Walking to school is healthier than to ride in a car.\nRight: **Walking** to school is healthier than **riding** in a car."
+    },
+    {
+     "title": "Why writers use it",
+     "text": "Parallel structure gives writing **rhythm** and **balance**. Speakers use it to make ideas memorable:\n\n'We will plan carefully, work honestly and finish proudly.'\n\nBreaking the pattern makes a reader stumble."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the items being joined or compared.\n2. Identify their exact form: clause, -ing phrase, to-phrase, noun phrase.\n3. Choose the option that copies that form.\n\nLook at other balanced sentences in the passage. A careful writer keeps the same pattern throughout."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Learning a new language is like building a house.",
+      "role": "main"
+     },
+     {
+      "t": "You lay the foundation with simple words, raise the walls with grammar, and finish the rooms with practice.",
+      "role": "key"
+     },
+     {
+      "t": "Rushing the work is riskier than taking your time.",
+      "role": "key"
+     }
+    ],
+    "explain": "**lay**, **raise**, **finish**: three matching verb phrases build the comparison.\n\n**Rushing** … **taking**: the two things compared are both -ing forms."
+   },
+   "together": {
+    "passage": "When a coral reef in the Red Sea was damaged by a ship, a team of marine scientists began a long repair project. Diving to the reef was harder than they had expected but safer than they had feared. They planted young corals on metal frames, cleaned away broken rubble and measured the water temperature every week. They hoped that the corals would grow, that the fish would return and that ___. Three years later, small schools of fish were swimming among new branches of coral. Today, visitors can see the results for themselves.",
+    "stem": "Which words best fill the blank?",
+    "options": [
+     "the water staying clean",
+     "for the water to stay clean",
+     "the water would stay clean",
+     "clean water would be there"
+    ],
+    "answer": 2,
+    "hint": "The two items before it both start with **that** and follow with a subject and **would**. Copy that pattern.",
+    "good": "Yes! **that the corals would grow**, **that the fish would return**, **that the water would stay clean**: three matching clauses."
+   },
+   "evidence": {
+    "sentences": [
+     "When a coral reef in the Red Sea was damaged by a ship, a team of marine scientists began a long repair project.",
+     "Diving to the reef was harder than they had expected but safer than they had feared.",
+     "They planted young corals on metal frames, cleaned away broken rubble and measured the water temperature every week.",
+     "They hoped that the corals would grow, that the fish would return and that ___.",
+     "Three years later, small schools of fish were swimming among new branches of coral.",
+     "Today, visitors can see the results for themselves."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the water would stay clean. Tap 2 OTHER sentences that also keep their parts parallel.",
+    "wrong": "This sentence does not join or compare items in matching forms. Find one with a balanced pair or list."
+   },
+   "checks": [
+    {
+     "passage": "Our principal said that the new rules would keep students safe, help classes start on time and ___.",
+     "stem": "Which words best fill the blank?",
+     "options": [
+      "reduce noise in the hallways",
+      "reducing noise in the hallways",
+      "the hallways would be quieter",
+      "noise in the hallways will reduce"
+     ],
+     "answer": 0,
+     "why": "**keep**, **help**, **reduce**: each item is a plain verb phrase after **would**."
+    },
+    {
+     "passage": "Many people believe that to read on paper is easier than reading on a screen.",
+     "stem": "Which change makes the comparison parallel?",
+     "options": [
+      "Change **believe** to **believed**.",
+      "Change **to read** to **reading**.",
+      "Change **easier** to **more easy**.",
+      "Change **on a screen** to **with a screen**."
+     ],
+     "answer": 1,
+     "why": "**Reading** on paper … **reading** on a screen: both things compared are now -ing forms."
+    },
+    {
+     "passage": "A good leader listens carefully, speaks honestly and ___.",
+     "stem": "Which words best fill the blank?",
+     "options": [
+      "with fairness in decisions",
+      "is someone who decides fairly",
+      "decides fairly",
+      "fair decisions"
+     ],
+     "answer": 2,
+     "why": "**listens carefully**, **speaks honestly**, **decides fairly**: verb plus -ly word each time."
+    }
+   ],
+   "again": {
+    "title": "Find the twin",
+    "text": "Every item in a parallel sentence has a **twin**. Find the first item, then make the next one look like it.",
+    "example": "She came home tired, hungry and wanting to sleep.\n\nTwins: **tired**, **hungry** (describing words). The third should match: **sleepy**.\n\nShe came home **tired, hungry and sleepy**."
+   }
+  }
+ }
+}

@@ -20,9 +20,13 @@ export async function gradeAreaSkills(repo: Repo, schoolId: string, grade: numbe
   const curs = gs.length ? await repo.findMany("Curriculum", { gradeId: { in: gs.map((g) => g.id) } }, { select: ["id"] }) : [];
   const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] }) : [];
   if (!skills.length) return [];
-  const fams = await repo.findMany("SkillFamily", { id: { in: [...new Set(skills.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] });
+  // ⚡ the families and the per-skill question counts side by side; no count at all when empty skills are wanted too
+  const [fams, counts] = await Promise.all([
+    repo.findMany("SkillFamily", { id: { in: [...new Set(skills.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] }),
+    includeEmpty ? Promise.resolve(new Map<string, number>()) : countGroups(repo, "Question", "skillId", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null }),
+  ]);
   const areas = await repo.findMany("MapGoalArea", { id: { in: [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))] } }, { select: ["id", "name"] });
-  const withQ = new Set([...(await countGroups(repo, "Question", "skillId", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null })).entries()].filter(([, n]) => n > 0).map(([k]) => k));
+  const withQ = new Set([...counts.entries()].filter(([, n]) => n > 0).map(([k]) => k));
   const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
   return areas.map((a) => ({ areaId: s(a.id), area: s(a.name), skills: skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && (includeEmpty || withQ.has(s(k.id)))).map((k) => ({ id: s(k.id), name: s(k.name) })) })).filter((a) => a.skills.length);
 }

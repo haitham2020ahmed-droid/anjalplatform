@@ -1,0 +1,452 @@
+{
+ "code": "LN-061",
+ "title": "Concrete, abstract and collective nouns",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "nouns"
+ ],
+ "skillNames": [
+  "Concrete and Abstract Nouns",
+  "Collective Nouns",
+  "Nouns: Common, Proper, Concrete, Abstract, Collective"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Nouns you can sense",
+     "text": "Some nouns name things you can **see, hear, touch, smell or taste**.\n\n**apple**, **drum**, **sand**\n\nThese are **concrete nouns**."
+    },
+    {
+     "title": "Nouns for groups",
+     "text": "Some nouns name a **group** as one.\n\n**team** (of players)\n**family** (of people)\n**herd** (of camels)\n\nThese are **collective nouns**."
+    },
+    {
+     "title": "Nouns for feelings",
+     "text": "Some nouns name a **feeling** or an **idea**. You cannot touch them.\n\n**joy**, **fear**, **hope**\n\nThese are **abstract nouns**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the noun.\n2. Ask: **Can I touch it?** Is it a **group**? Is it a **feeling**?\n3. Find the words in the text that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A flock of birds flew over the sea.",
+      "role": "key"
+     },
+     {
+      "t": "The birds were white.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Flock** names a group of birds. It is a collective noun.\n\n**Birds** and **sea** are things you can see. They are concrete nouns."
+   },
+   "together": {
+    "passage": "Our team played well. We won the cup. The crowd cheered. We felt great joy.",
+    "stem": "Which noun names a group of people?",
+    "options": [
+     "cup",
+     "crowd",
+     "joy",
+     "ball"
+    ],
+    "answer": 1,
+    "hint": "You can touch that one, or it is a feeling. Which word means a lot of people together?",
+    "good": "Yes! A crowd is a big group of people."
+   },
+   "evidence": {
+    "sentences": [
+     "Our team played well.",
+     "We won the cup.",
+     "The crowd cheered.",
+     "We felt great joy."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: crowd. Tap 2 sentences that name a group of people.",
+    "wrong": "This sentence does not name a group. Look for words like team or crowd."
+   },
+   "checks": [
+    {
+     "passage": "The baby held a soft toy. She felt no fear.",
+     "stem": "Which noun can you touch?",
+     "options": [
+      "fear",
+      "hope",
+      "joy",
+      "toy"
+     ],
+     "answer": 3,
+     "why": "You can touch a toy. Fear, hope and joy are feelings."
+    },
+    {
+     "passage": "A herd of camels walked by.",
+     "stem": "Which noun names a group?",
+     "options": [
+      "camels",
+      "herd",
+      "walked",
+      "by"
+     ],
+     "answer": 1,
+     "why": "A herd is a group of animals, like camels or goats."
+    },
+    {
+     "passage": "Sara felt happiness when she saw her gift.",
+     "stem": "Which noun names a feeling?",
+     "options": [
+      "gift",
+      "Sara",
+      "happiness",
+      "she"
+     ],
+     "answer": 2,
+     "why": "Happiness is a feeling. You cannot touch it."
+    }
+   ],
+   "again": {
+    "title": "Touch, group or feel?",
+    "text": "**Touch it?** → concrete (a cup)\n**Many as one?** → collective (a team)\n**Feel it or think it?** → abstract (hope)",
+    "example": "The class felt pride in its garden.\n\n**class** → group. **pride** → feeling. **garden** → you can touch it."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Group names",
+     "text": "**People**: class, team, crowd, family, staff\n\n**Animals**: herd (camels, goats), flock (birds, sheep), swarm (bees), school (fish), pack (wolves)"
+    },
+    {
+     "title": "One group = one thing",
+     "text": "A collective noun names **one** group, so it usually takes a **singular** verb.\n\nThe team **is** ready.\nThe flock **flies** south.\n\nWords like **its** also show it is one group."
+    },
+    {
+     "title": "Many groups",
+     "text": "More than one group? Add **-s**.\n\ntwo **teams**, three **herds**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the collective noun in the text.\n2. Find its verb or pronoun (its).\n3. Point to the words that show it is **one** group."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A swarm of bees buzzed around the flowers.",
+      "role": "key"
+     },
+     {
+      "t": "The swarm was loud.",
+      "role": "key"
+     },
+     {
+      "t": "I stayed away.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Swarm** names a group of bees.\n\nIt is one group, so we say **the swarm was**, not the swarm were."
+   },
+   "together": {
+    "passage": "Every morning, a herd of goats walks along our street. The herd follows an old shepherd with a long stick. Near the market, a crowd of children waits to see them. The goats stop to eat leaves from the trees. Then the whole herd ___ on toward its home in the hills.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "move",
+     "moves",
+     "moving",
+     "to move"
+    ],
+    "answer": 1,
+    "hint": "Herd names one group, and its shows that too. Which verb goes with one?",
+    "good": "Yes! The herd is one group, so it moves on toward its home."
+   },
+   "evidence": {
+    "sentences": [
+     "Every morning, a herd of goats walks along our street.",
+     "The herd follows an old shepherd with a long stick.",
+     "Near the market, a crowd of children waits to see them.",
+     "The goats stop to eat leaves from the trees.",
+     "Then the whole herd ___ on toward its home in the hills."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: moves. Tap 2 other sentences where a collective noun takes a singular verb.",
+    "wrong": "This sentence has goats (many animals), not a group noun. Find a sentence with herd or crowd."
+   },
+   "checks": [
+    {
+     "passage": "A ___ of fish swam under our boat.",
+     "stem": "Which collective noun fits the blank?",
+     "options": [
+      "herd",
+      "flock",
+      "pack",
+      "school"
+     ],
+     "answer": 3,
+     "why": "A group of fish is called a school."
+    },
+    {
+     "passage": "The team ___ its new shirts today.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "get",
+      "gets",
+      "getting",
+      "to get"
+     ],
+     "answer": 1,
+     "why": "The team is one group, and its shows it, so we use gets."
+    },
+    {
+     "passage": "The staff at the hospital worked all night to help the patients.",
+     "stem": "Which word is a collective noun?",
+     "options": [
+      "staff",
+      "hospital",
+      "night",
+      "patients"
+     ],
+     "answer": 0,
+     "why": "Staff names one group of workers."
+    }
+   ],
+   "again": {
+    "title": "Picture the group",
+    "text": "Picture a box around the group.\n\nOne box → one thing → singular verb.",
+    "example": "A pack of wolves ___ (hunt / hunts) at night.\n\nOne box around the pack → **hunts**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Abstract nouns",
+     "text": "An **abstract noun** names something you **cannot** see or touch: a feeling, a quality or an idea.\n\n**courage**, **honesty**, **freedom**, **friendship**"
+    },
+    {
+     "title": "Making abstract nouns",
+     "text": "From adjectives:\nkind → kind**ness**, brave → brav**ery**, honest → honest**y**\n\nFrom verbs:\ndecide → deci**sion**, grow → grow**th**, achieve → achieve**ment**"
+    },
+    {
+     "title": "Concrete or abstract?",
+     "text": "Test: could you put it in a box? Yes → **concrete**.\n\nA **gift** is concrete. The **kindness** behind it is abstract."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the noun in the text.\n2. Try the box test: could you hold it?\n3. If not, name what it is: a feeling, a quality or an idea.\n\nYour proof is the noun and what it names."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser showed great patience when he taught his little brother to ride a bike.",
+      "role": "key"
+     },
+     {
+      "t": "He held the bike steady.",
+      "role": "other"
+     },
+     {
+      "t": "His brother's happiness at the end was his reward.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Patience** and **happiness** cannot be held. They are abstract.\n\n**Bike** and **brother** can be seen and touched. They are concrete."
+   },
+   "together": {
+    "passage": "When the floods hit the town, many families lost their homes. Volunteers arrived by truck. They brought blankets, bottled water and boxes of food. A young nurse cared for the injured in a large tent. Her bravery inspired others to help. Weeks later, the mayor thanked everyone for their generosity. People said the flood had shown the true strength of their town.",
+    "stem": "Which word from the text is an abstract noun?",
+    "options": [
+     "blankets",
+     "nurse",
+     "bravery",
+     "boxes"
+    ],
+    "answer": 2,
+    "hint": "You could touch that. Which word names a quality, not a thing?",
+    "good": "Yes! Bravery is a quality. You cannot hold it in a box."
+   },
+   "evidence": {
+    "sentences": [
+     "When the floods hit the town, many families lost their homes.",
+     "Volunteers arrived by truck.",
+     "They brought blankets, bottled water and boxes of food.",
+     "A young nurse cared for the injured in a large tent.",
+     "Her bravery inspired others to help.",
+     "Weeks later, the mayor thanked everyone for their generosity.",
+     "People said the flood had shown the true strength of their town."
+    ],
+    "proof": [
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: bravery. Tap 2 other sentences that contain an abstract noun.",
+    "wrong": "Every noun in this sentence is something you could see or touch. Look for a quality like generosity or strength."
+   },
+   "checks": [
+    {
+     "passage": "The judges praised her honesty when she returned the lost wallet.",
+     "stem": "Which noun is abstract?",
+     "options": [
+      "judges",
+      "wallet",
+      "her",
+      "honesty"
+     ],
+     "answer": 3,
+     "why": "Honesty is a quality. Judges and wallet are concrete."
+    },
+    {
+     "passage": "Choosing a club was hard for Khalid, but his final ___ surprised everyone.",
+     "stem": "Which abstract noun, made from the verb decide, fits the blank?",
+     "options": [
+      "decide",
+      "decisive",
+      "decision",
+      "decided"
+     ],
+     "answer": 2,
+     "why": "Decision is the noun made from decide. The other words are verbs or adjectives."
+    },
+    {
+     "passage": "The old man's wisdom helped the village solve many problems.",
+     "stem": "Which noun is concrete?",
+     "options": [
+      "wisdom",
+      "village",
+      "problems",
+      "solve"
+     ],
+     "answer": 1,
+     "why": "You can see and walk through a village. Wisdom and problems are abstract."
+    }
+   ],
+   "again": {
+    "title": "Look for the endings",
+    "text": "Many abstract nouns end in:\n\n**-ness** (kindness)\n**-ship** (friendship)\n**-ment** (excitement)\n**-tion / -sion** (education, decision)\n**-ity** (honesty, curiosity)",
+    "example": "Her curiosity led her to the library.\n\n**curiosity** ends in -ity and names a quality → **abstract**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Nouns carry ideas",
+     "text": "Writers often name a **theme** with abstract nouns: **loyalty**, **justice**, **hope**.\n\nThey show it with concrete nouns: a **letter**, a **key**, a **broken cup**.\n\nA concrete object can **stand for** an abstract idea."
+    },
+    {
+     "title": "One noun, two kinds",
+     "text": "Some nouns change with meaning.\n\nThe **light** from the lamp → concrete.\nShe finally saw the **light** → abstract (understanding).\n\nDecide by the meaning **in that sentence**."
+    },
+    {
+     "title": "Collective nouns: one or many?",
+     "text": "A collective noun usually acts as one group: The committee **has** made **its** decision.\n\nWhen the members act separately, some writers use a plural verb: The committee **are** arguing among **themselves**.\n\nEither way, keep the verb and pronoun **consistent**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the noun and the words around it.\n2. Decide its kind by its meaning **in that sentence**.\n3. To show what an object stands for, point to the sentences where a character explains it or acts because of it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandmother kept her father's old compass in a wooden box.",
+      "role": "detail"
+     },
+     {
+      "t": "To her, it stood for courage and the long journeys of her family.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **compass** is concrete: you can hold it.\n\nThe second sentence tells us it stands for **courage**, an abstract idea. The object carries the theme."
+   },
+   "together": {
+    "passage": "Rana's grandfather had been a pearl diver in the Gulf before oil changed the region. He kept a small pouch of pearls on a shelf, though he never sold them. When Rana asked why, he told her about the long months at sea, the hunger and the danger of each dive. He spoke of a crew who shared their last dates and water with one another. \"These pearls are not my wealth,\" he said. \"They are my memory of loyalty.\" Rana understood that the pouch held more than pearls.",
+    "stem": "Which abstract noun best names the idea that the pouch of pearls stands for?",
+    "options": [
+     "wealth",
+     "loyalty",
+     "danger",
+     "hunger"
+    ],
+    "answer": 1,
+    "hint": "The grandfather says what the pearls are NOT, and then what they ARE. Find his words.",
+    "good": "Yes! The pearls remind him of a crew who shared with one another: loyalty."
+   },
+   "evidence": {
+    "sentences": [
+     "Rana's grandfather had been a pearl diver in the Gulf before oil changed the region.",
+     "He kept a small pouch of pearls on a shelf, though he never sold them.",
+     "When Rana asked why, he told her about the long months at sea, the hunger and the danger of each dive.",
+     "He spoke of a crew who shared their last dates and water with one another.",
+     "\"These pearls are not my wealth,\" he said.",
+     "\"They are my memory of loyalty.\"",
+     "Rana understood that the pouch held more than pearls."
+    ],
+    "proof": [
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: loyalty. Tap 2 sentences that show what the pearls stand for.",
+    "wrong": "This sentence gives background, or says what the pearls are not. Find what they are, and the story behind it."
+   },
+   "checks": [
+    {
+     "passage": "The committee has finished ___ report.",
+     "stem": "Which pronoun keeps the sentence consistent?",
+     "options": [
+      "its",
+      "their",
+      "his",
+      "our"
+     ],
+     "answer": 0,
+     "why": "Has treats the committee as one group, so the pronoun must be its."
+    },
+    {
+     "passage": "In the poem, the empty chair at the table shows the family's grief.",
+     "stem": "Which pair gives a concrete noun and the abstract idea it suggests?",
+     "options": [
+      "family → table",
+      "poem → chair",
+      "chair → grief",
+      "grief → family"
+     ],
+     "answer": 2,
+     "why": "The chair is a concrete object, and it suggests grief, an abstract feeling."
+    },
+    {
+     "passage": "After years of study, she finally reached the light of understanding.",
+     "stem": "In this sentence, the noun light is:",
+     "options": [
+      "concrete, because you can see it",
+      "abstract, because it means understanding",
+      "collective, because it is a group",
+      "proper, because it is special"
+     ],
+     "answer": 1,
+     "why": "Here light does not mean real light. It means understanding, so it is abstract."
+    }
+   ],
+   "again": {
+    "title": "Ask what it means here",
+    "text": "Do not judge a noun by itself. Read the sentence.\n\nCould you hold **this** meaning in your hand? → concrete.\nIs **this** meaning a feeling, quality or idea? → abstract.",
+    "example": "a warm heart / a healthy heart\n\n**warm heart** means kindness → **abstract** meaning.\n**healthy heart** is the real organ → **concrete**."
+   }
+  }
+ }
+}

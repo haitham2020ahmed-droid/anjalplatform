@@ -1,0 +1,480 @@
+{
+ "code": "LN-203",
+ "title": "Greek and Latin roots",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.c",
+  "L.3.4.c",
+  "L.4.4.b",
+  "L.5.4.b",
+  "L.6.4.b",
+  "L.7.4.b",
+  "L.8.4.b"
+ ],
+ "families": [
+  "greek-latin-roots"
+ ],
+ "skillNames": [
+  "Greek and Latin Roots",
+  "Advanced Greek and Latin Roots"
+ ],
+ "statements": [
+  "R-0059",
+  "R-0124",
+  "R-0221",
+  "R-0392",
+  "R-0393",
+  "R-0571",
+  "R-0572",
+  "R-0767",
+  "R-0788",
+  "R-0789",
+  "R-0939",
+  "R-0950",
+  "R-0951",
+  "R-0959",
+  "R-1057",
+  "R-1099"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Roots",
+     "text": "Many English words grow from old **Greek** and **Latin** word parts called **roots**.\n\nIf you know a root, you can work out many words."
+    },
+    {
+     "title": "Three roots to know",
+     "text": "**graph** = write or draw\n**phone** = sound\n**tele** = far\n\n**telephone** = sound from far away\n**autograph** = your name, written by you"
+    },
+    {
+     "title": "How to use a root",
+     "text": "1. Find the root you know.\n2. Say what it means.\n3. Read the sentence. Does your meaning fit?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The root gives you a **guess**. The text **checks** it.\n\n1. Use the root to guess the meaning.\n2. Find the sentence that shows the word in action.\n3. Make sure your guess fits."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Uncle Fahad has a new phone.",
+      "role": "other"
+     },
+     {
+      "t": "He talks to me on it from far away in Jeddah.",
+      "role": "key"
+     },
+     {
+      "t": "Its sound is very clear.",
+      "role": "key"
+     }
+    ],
+    "explain": "**phone** means **sound**. The text says he talks from far away and the **sound** is clear.\n\nA phone carries **sound** to us."
+   },
+   "together": {
+    "passage": "Our class made a graph. We drew a bar for each pet. Cats had a tall bar. Fish had a short bar.",
+    "stem": "The root graph means write or draw. What is a graph?",
+    "options": [
+     "A song about pets",
+     "A drawing that shows numbers",
+     "A pet shop",
+     "A long story"
+    ],
+    "answer": 1,
+    "hint": "graph means write or draw. What did the class draw?",
+    "good": "Yes! graph means draw, and the class drew bars to show how many of each pet."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class made a graph.",
+     "We drew a bar for each pet.",
+     "Cats had a tall bar.",
+     "Fish had a short bar."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: a drawing that shows numbers. Tap a sentence that proves it.",
+    "wrong": "This sentence names the graph but does not show what it is. Find a sentence about what the class drew."
+   },
+   "checks": [
+    {
+     "passage": "The root port means carry. Grandma has a portable radio. She takes it to the garden.",
+     "stem": "What does portable mean?",
+     "options": [
+      "Very loud",
+      "Can be carried",
+      "Very old",
+      "Can be broken"
+     ],
+     "answer": 1,
+     "why": "port means carry, and Grandma carries the radio to the garden."
+    },
+    {
+     "passage": "The root tele means far. With a telescope, Sami saw the moon up close.",
+     "stem": "What does a telescope help you do?",
+     "options": [
+      "See things that are far away",
+      "Hear music",
+      "Write a letter",
+      "Carry a bag"
+     ],
+     "answer": 0,
+     "why": "tele means far. The moon is far away, and the telescope helped Sami see it."
+    },
+    {
+     "passage": "The root photo means light. Dad took a photo of us at the beach in the bright sun.",
+     "stem": "What is a photo?",
+     "options": [
+      "A kind of lamp",
+      "A beach toy",
+      "A loud sound",
+      "A picture made with light"
+     ],
+     "answer": 3,
+     "why": "photo means light. A camera uses light to make a picture."
+    }
+   ],
+   "again": {
+    "title": "Root families",
+    "text": "Words with the same root are like a **family**. They share a meaning.",
+    "example": "The **port** family: **port**able, trans**port**, ex**port**, im**port**.\n\nThey all have to do with **carrying**!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "More roots",
+     "text": "**spect** = look\n**aud** = hear\n**dict** = say\n**rupt** = break\n**struct** = build\n\nThese Latin roots appear in hundreds of English words."
+    },
+    {
+     "title": "Roots inside words",
+     "text": "The root can sit in the **middle** or at the **end** of a word.\n\nin**spect**: look into\n**aud**ience: people who hear\ne**rupt**: break out\n**struct**ure: something built"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Look for a root you know inside the word.\n2. Say its meaning.\n3. Use the rest of the sentence to make the meaning more exact."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use the **root** and the **context** together.\n\n1. The root gives the general idea.\n2. The sentences around the word show how it is used.\n3. The right answer matches both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The audience clapped loudly at the end of the play.",
+      "role": "main"
+     },
+     {
+      "t": "They had listened quietly to every line the actors spoke.",
+      "role": "key"
+     },
+     {
+      "t": "The play lasted one hour.",
+      "role": "other"
+     }
+    ],
+    "explain": "**aud** means **hear**. The audience **listened** to every line.\n\nAn **audience** is a group of people who **listen to** or watch a show."
+   },
+   "together": {
+    "passage": "Late at night, the volcano began to erupt. Red-hot rock burst out of the top of the mountain. Clouds of ash shot high into the sky. People in nearby villages watched from a safe distance. Scientists had warned them a week before.",
+    "stem": "Using the root rupt (break), what does erupt mean?",
+    "options": [
+     "To fall asleep",
+     "To slowly cool down",
+     "To break out suddenly",
+     "To build up slowly"
+    ],
+    "answer": 2,
+    "hint": "rupt means break. What did the rock and ash do?",
+    "good": "Yes! rupt means break. The rock burst out and the ash shot up: the volcano broke out suddenly."
+   },
+   "evidence": {
+    "sentences": [
+     "Late at night, the volcano began to erupt.",
+     "Red-hot rock burst out of the top of the mountain.",
+     "Clouds of ash shot high into the sky.",
+     "People in nearby villages watched from a safe distance.",
+     "Scientists had warned them a week before."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: to break out suddenly. Tap 2 sentences that prove it.",
+    "wrong": "This sentence is about the people or the warning. Find sentences that show what came out of the volcano."
+   },
+   "checks": [
+    {
+     "passage": "Before the race, a judge will inspect every bicycle. She looks carefully at the brakes, the tyres and the chain.",
+     "stem": "Using the root spect (look), what does inspect mean?",
+     "options": [
+      "To ride fast",
+      "To look at closely",
+      "To fix quickly",
+      "To paint"
+     ],
+     "answer": 1,
+     "why": "spect means look, and the judge looks carefully at each part."
+    },
+    {
+     "passage": "Each week, our teacher reads a dictation. She says the sentences slowly, and we write down every word.",
+     "stem": "Using the root dict (say), what is a dictation?",
+     "options": [
+      "Words said aloud for others to write",
+      "A list of new books",
+      "A story told with pictures",
+      "A quiz with no words"
+     ],
+     "answer": 0,
+     "why": "dict means say. The teacher says the sentences and the students write them."
+    },
+    {
+     "passage": "Workers are building a new bridge over the wadi. The construction will take two years.",
+     "stem": "Using the root struct (build), what is construction?",
+     "options": [
+      "The act of cleaning",
+      "The act of travelling",
+      "The act of breaking",
+      "The act of building"
+     ],
+     "answer": 3,
+     "why": "struct means build, and the workers are building a bridge."
+    }
+   ],
+   "again": {
+    "title": "Find the hidden root",
+    "text": "Cover the beginning and the ending of the word with your fingers. What is left in the middle? That is often the root.",
+    "example": "**interrupt**: cover **inter**. Left: **rupt** = break.\n\nTo interrupt is to **break into** someone's talk."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Greek roots in science",
+     "text": "Science and maths words are full of Greek roots.\n\n**therm** = heat\n**hydr** = water\n**geo** = earth\n**chron** = time\n**meter** = measure"
+    },
+    {
+     "title": "Two roots, one word",
+     "text": "Many words join **two roots**.\n\n**therm** + **meter** = **thermometer**: a tool that measures heat\n**hydr** + **o** + **logy** (study) = **hydrology**: the study of water"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Split the word into roots.\n2. Give each root its meaning.\n3. Join them in an order that makes sense.\n4. Check the meaning in the passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is the sentence that shows **what the word does or describes** in the passage.\n\n1. Split the word into roots.\n2. Find the sentence that gives an example of it.\n3. Confirm the root meanings and the example agree."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the desert, hikers must stay hydrated.",
+      "role": "main"
+     },
+     {
+      "t": "Each person should carry at least three litres of water.",
+      "role": "key"
+     },
+     {
+      "t": "Without enough water, the body can quickly become weak.",
+      "role": "key"
+     }
+    ],
+    "explain": "**hydr** means **water**. The passage is all about carrying and drinking **water**.\n\nTo be **hydrated** means to have **enough water in your body**."
+   },
+   "together": {
+    "passage": "Doctors told Hessa's grandfather that his knee problem was chronic. It had started years ago, and it still hurt him almost every day. Unlike a cold, which goes away in a week, his pain kept coming back. Now he swims three times a week to keep the joint moving. He says the water makes him feel younger.",
+    "stem": "The Greek root chron means time. What does chronic mean?",
+    "options": [
+     "Very sudden",
+     "Lasting a long time",
+     "Easy to cure",
+     "Caused by water"
+    ],
+    "answer": 1,
+    "hint": "chron means time. How long has the knee problem lasted?",
+    "good": "Yes! chron means time, and his pain started years ago and keeps coming back."
+   },
+   "evidence": {
+    "sentences": [
+     "Doctors told Hessa's grandfather that his knee problem was chronic.",
+     "It had started years ago, and it still hurt him almost every day.",
+     "Unlike a cold, which goes away in a week, his pain kept coming back.",
+     "Now he swims three times a week to keep the joint moving.",
+     "He says the water makes him feel younger."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: lasting a long time. Tap 2 sentences that prove it.",
+    "wrong": "This sentence names the word or tells what he does now. Find sentences that show how LONG the problem has lasted."
+   },
+   "checks": [
+    {
+     "passage": "Geologists climbed the cliff to collect rock samples. They wanted to learn how the layers of stone had formed over millions of years.",
+     "stem": "Using geo (earth) and -logist (one who studies), what is a geologist?",
+     "options": [
+      "A person who climbs mountains",
+      "A person who sells stones",
+      "A scientist who studies the earth and its rocks",
+      "A person who builds walls"
+     ],
+     "answer": 2,
+     "why": "geo means earth, and -logist means one who studies. They study rocks and how the earth formed."
+    },
+    {
+     "passage": "The house has a thermostat on the wall. When the rooms become too warm, it turns on the air conditioner automatically.",
+     "stem": "Using the root therm (heat), what does a thermostat control?",
+     "options": [
+      "The temperature",
+      "The lights",
+      "The doors",
+      "The water pipes"
+     ],
+     "answer": 0,
+     "why": "therm means heat. The thermostat controls how warm or cool the rooms are."
+    },
+    {
+     "passage": "The museum has a timeline showing the history of the Arabian Peninsula in chronological order, from ancient kingdoms to the modern day.",
+     "stem": "What does chronological mean?",
+     "options": [
+      "Sorted by colour",
+      "Sorted by size",
+      "Sorted by importance",
+      "Sorted by time"
+     ],
+     "answer": 3,
+     "why": "chron means time. The timeline goes from ancient times to the modern day."
+    }
+   ],
+   "again": {
+    "title": "Root + root = picture",
+    "text": "Turn each root into a small picture. Put the pictures side by side.",
+    "example": "**hydro** + **phobia**: 💧 + 😨\n\nwater + fear = **a fear of water**.\n\n**geo** + **graphy**: 🌍 + ✏️ = writing about the earth: **geography**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Roots in advanced words",
+     "text": "Many advanced English words come from Latin and Greek roots:\n\n**cred** = believe\n**ver** = true\n**path** = feeling\n**voc** = voice, call\n**anthrop** = human\n**phil** = love"
+    },
+    {
+     "title": "Prefixes change the root",
+     "text": "Add a prefix and the meaning shifts.\n\n**cred**ible = can be believed\n**in**credible = **cannot** be believed\n\n**path** (feeling) + **a-** (without) → **apathy**: lack of feeling or interest."
+    },
+    {
+     "title": "From parts to precise meaning",
+     "text": "1. Identify every root and affix.\n2. Build a literal meaning.\n3. Read the context closely: tone, contrast, examples.\n4. Choose the precise meaning the context needs, not just the literal one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your answer two ways:\n\n1. **Roots**: show how the parts build the meaning.\n2. **Context**: point to the sentences where the word's meaning is shown in action.\n\nEliminate choices that fit the roots but contradict the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The reporter wanted to check the veracity of the story before publishing it.",
+      "role": "main"
+     },
+     {
+      "t": "She called three witnesses and compared their accounts with the photographs.",
+      "role": "key"
+     },
+     {
+      "t": "Only when every detail matched did she agree it was accurate.",
+      "role": "key"
+     }
+    ],
+    "explain": "**ver** means **true**. The reporter checks facts until every detail matches.\n\n**Veracity** means **truthfulness** or accuracy."
+   },
+   "together": {
+    "passage": "When the young engineer announced that her team had built a car that could run for a week on a single charge, the audience was incredulous. Several people laughed, and one man shook his head and muttered that it was impossible. A journalist in the front row asked to see the test results twice. Only after the car drove silently around the hall did the doubtful faces begin to change. By the end of the demonstration, the same people were applauding.",
+    "stem": "Using the root cred (believe), what does incredulous mean in this passage?",
+    "options": [
+     "Very angry",
+     "Unwilling to believe",
+     "Easily convinced",
+     "Extremely bored"
+    ],
+    "answer": 1,
+    "hint": "in- means not, and cred means believe. How did people react to the announcement at first?",
+    "good": "Yes! in (not) + cred (believe): laughing, muttering 'impossible' and checking the results twice show they did not believe her."
+   },
+   "evidence": {
+    "sentences": [
+     "When the young engineer announced that her team had built a car that could run for a week on a single charge, the audience was incredulous.",
+     "Several people laughed, and one man shook his head and muttered that it was impossible.",
+     "A journalist in the front row asked to see the test results twice.",
+     "Only after the car drove silently around the hall did the doubtful faces begin to change.",
+     "By the end of the demonstration, the same people were applauding."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: unwilling to believe. Tap 2 sentences that show the audience did not believe her.",
+    "wrong": "This sentence states the announcement or shows the audience after they changed their minds. Find the doubting reactions."
+   },
+   "checks": [
+    {
+     "passage": "The philanthropist never sought fame. Over forty years, she quietly gave much of her fortune to build schools, clinics and water wells in poor villages.",
+     "stem": "Using phil (love) and anthrop (human), what is a philanthropist?",
+     "options": [
+      "A person who studies ancient people",
+      "A person who loves fame and money",
+      "A doctor who works in villages",
+      "A person who gives to help other people"
+     ],
+     "answer": 3,
+     "why": "phil (love) + anthrop (human): someone who loves people, shown by giving money for schools, clinics and wells."
+    },
+    {
+     "passage": "Many students felt apathy toward the election for class president. Fewer than a third bothered to vote, and most said they did not care who won.",
+     "stem": "Using a- (without) and path (feeling), what does apathy mean?",
+     "options": [
+      "Lack of interest or concern",
+      "Strong anger",
+      "Great excitement",
+      "Deep sadness"
+     ],
+     "answer": 0,
+     "why": "a (without) + path (feeling): few voted and most did not care, showing a lack of interest."
+    },
+    {
+     "passage": "The crowd was so vociferous that the referee could barely hear his own whistle. Fans shouted, chanted and sang for the entire match.",
+     "stem": "Using the root voc (voice), what does vociferous mean?",
+     "options": [
+      "Silent and calm",
+      "Small and weak",
+      "Loud and noisy",
+      "Sad and tired"
+     ],
+     "answer": 2,
+     "why": "voc means voice, and the shouting, chanting and singing show the crowd was loud and noisy."
+    }
+   ],
+   "again": {
+    "title": "Root, then reaction",
+    "text": "First write what the root suggests. Then find how the **people** in the passage react. The two together give the meaning.",
+    "example": "**empathy**: em (in) + path (feeling) → feeling **into** someone.\nReaction: When Sara's friend lost her cat, Sara felt the sadness as if it were her own.\nMeaning: **understanding and sharing another person's feelings**."
+   }
+  }
+ }
+}

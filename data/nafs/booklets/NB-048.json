@@ -1,0 +1,568 @@
+{
+  "code": "NB-048",
+  "title": "From Giant Machines to Pocket Computers",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 446,
+  "passage": "Long ago, the word \"computer\" did not describe a machine at all. It described a person whose job was to calculate long lists of numbers by hand, often for many tiring hours. Today the word means something very different, and most of us carry a powerful computer in our pocket without thinking about it. The journey from one meaning to the other is one of the fastest transformations in the history of technology.\n\nOne of the first electronic computers, called ENIAC, was completed in the United States in 1945. It was enormous. It filled a large room, weighed about twenty-seven tonnes and contained nearly eighteen thousand glass vacuum tubes, which acted as electronic switches. Although ENIAC could perform thousands of calculations every second, it had serious problems. The tubes produced so much heat that they burned out frequently, and engineers spent many hours searching for broken ones. Moreover, giving the machine a new task meant moving cables and switches by hand, a job that could take days.\n\nThe solution arrived in 1947, when scientists invented the transistor. A transistor does the same job as a vacuum tube, switching electricity on and off, but it is much smaller, cooler and more reliable. About ten years later, engineers discovered how to place many transistors and their connections on a single small piece of material called a chip. This invention, the microchip, made computers dramatically smaller, cheaper and faster.\n\nWhy are these tiny switches so important? A computer stores and processes every piece of information, whether it is a photo, a song or a sentence, as long patterns of only two digits: 0 and 1. A switch that is off represents 0, and a switch that is on represents 1. Consequently, the more switches a chip contains, the more information a computer can handle at once.\n\nFor several decades, the number of transistors that engineers could fit on a chip roughly doubled every two years. As a result, a modern smartphone contains billions of transistors, each far smaller than a grain of sand. Astonishingly, that phone is millions of times more powerful than ENIAC, yet it fits in your hand and runs on a small battery. The same chips now help to control cars, hospital equipment, satellites and even washing machines.\n\nHowever, this progress also brings new responsibilities. Computers store huge amounts of personal information, so protecting it from criminals has become an essential skill. In addition, using screens wisely, rather than for endless hours, matters for our health.\n\nWhat a long way computers have travelled in less than a century! The next time you unlock a phone, remember the room-sized giant whose problems inspired engineers to think small.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “enormous” as it is used in paragraph 2?",
+      "options": [
+        "heavy",
+        "huge",
+        "noisy",
+        "ancient"
+      ],
+      "answer": "B",
+      "why": "The next sentences say ENIAC filled a large room, so “enormous” means huge. “Heavy” is true of ENIAC but is not the meaning of the word."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “frequently” as it is used in paragraph 2?",
+      "options": [
+        "often",
+        "suddenly",
+        "rarely",
+        "quietly"
+      ],
+      "answer": "C",
+      "why": "“Frequently” means often; its opposite is “rarely”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “it is much smaller, cooler and more reliable.” What does “reliable” mean?",
+      "options": [
+        "able to be trusted to work well",
+        "able to be repaired by hand",
+        "expensive to buy",
+        "easy to see"
+      ],
+      "answer": "A",
+      "why": "Unlike the vacuum tubes that “burned out frequently”, transistors keep working, so they can be trusted."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an adjective?",
+      "options": [
+        "weighed",
+        "frequently",
+        "calculations",
+        "serious"
+      ],
+      "answer": "D",
+      "why": "“Serious” describes the noun “problems”. “Weighed” is a verb, “frequently” an adverb and “calculations” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is a SINGULAR noun?",
+      "options": [
+        "transistors",
+        "grain",
+        "satellites",
+        "machines"
+      ],
+      "answer": "B",
+      "why": "“Grain” (a grain of sand) names one thing; the others end in -s and are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “calculate”?",
+      "options": [
+        "calculator",
+        "calendar",
+        "calm",
+        "culture"
+      ],
+      "answer": "A",
+      "why": "A calculator is a machine that calculates; the other words only share some letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “transformation” in a meaningful sentence of your own.",
+      "model": "The transformation of the empty land into a green park took only one year, and now families visit it every evening.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “transformation” with its meaning (a complete or major change)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Transformation” means a complete or major change in form or character."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “switch”, a word used in paragraph 4?",
+      "options": [
+        "switchs",
+        "switches",
+        "switchies",
+        "switchen"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in -ch add -es: switch → switches."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a question?",
+      "options": [
+        "It was enormous.",
+        "What a long way computers have travelled in less than a century!",
+        "Why are these tiny switches so important?",
+        "The solution arrived in 1947, when scientists invented the transistor."
+      ],
+      "answer": "C",
+      "why": "It asks for information and ends with a question mark; the sentence beginning “What a long way…” is an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "How to Repair a Vacuum Tube",
+        "Thinking Small: The Shrinking Computer",
+        "The Life of a Human Calculator",
+        "Choosing the Best Smartphone"
+      ],
+      "answer": "B",
+      "why": "The text traces how computers became smaller and more powerful as their switches shrank."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to buy a new phone",
+        "to describe how ENIAC was built step by step",
+        "to warn readers that computers are dangerous",
+        "to explain how computers became small and powerful"
+      ],
+      "answer": "D",
+      "why": "The text explains the development from ENIAC to the transistor, the microchip and the smartphone; ENIAC is only one part."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "ENIAC was powerful but had serious problems.",
+        "ENIAC was built in the United States.",
+        "Vacuum tubes were made of glass.",
+        "Engineers enjoyed moving cables by hand."
+      ],
+      "answer": "A",
+      "why": "The paragraph shows ENIAC's size and speed and then its problems with heat and reprogramming."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why did engineers spend many hours searching for broken tubes?",
+      "options": [
+        "The tubes were too small to see.",
+        "The heat made the tubes burn out frequently.",
+        "ENIAC had no switches.",
+        "Criminals stole the tubes."
+      ],
+      "answer": "B",
+      "why": "“The tubes produced so much heat that they burned out frequently, and engineers spent many hours searching for broken ones.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a fable",
+        "a biography of one inventor",
+        "an expository text",
+        "a dialogue"
+      ],
+      "answer": "C",
+      "why": "It explains how a technology developed, using facts and examples, without characters or a plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why does it matter how many switches a chip contains?",
+      "options": [
+        "More switches make the phone heavier.",
+        "Each switch can store one whole photo.",
+        "Switches stop the chip from overheating.",
+        "More switches let a computer handle more information at once."
+      ],
+      "answer": "D",
+      "why": "“Consequently, the more switches a chip contains, the more information a computer can handle at once.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these came FIRST?",
+      "options": [
+        "the transistor",
+        "ENIAC",
+        "the microchip",
+        "the smartphone"
+      ],
+      "answer": "B",
+      "why": "ENIAC was completed in 1945; the transistor came in 1947, the microchip about ten years later, and the smartphone much later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What did the word “computer” describe before it described a machine?",
+      "options": [
+        "a person who calculated numbers by hand",
+        "a room full of vacuum tubes",
+        "a type of glass switch",
+        "a small piece of material"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: it “described a person whose job was to calculate long lists of numbers by hand.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which idea does the writer discuss immediately AFTER explaining the microchip?",
+      "options": [
+        "the problems of vacuum tubes",
+        "the dangers of criminals",
+        "the meaning of the word “computer”",
+        "why tiny switches are so important"
+      ],
+      "answer": "D",
+      "why": "Paragraph 4, which follows the microchip in paragraph 3, asks “Why are these tiny switches so important?”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What problem did the transistor solve?",
+      "options": [
+        "Vacuum tubes were large, hot and unreliable.",
+        "People could not read binary numbers.",
+        "Smartphones needed bigger batteries.",
+        "Computers could not store photos."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 says a transistor does the tube's job but is “much smaller, cooler and more reliable”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, why is protecting personal information one of the new “responsibilities” the writer describes?",
+      "options": [
+        "Computers are now too small to use safely.",
+        "Engineers no longer understand how chips work.",
+        "Computers hold a lot of private data that criminals may want.",
+        "Washing machines contain chips."
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 links the huge amount of stored personal information to the need to protect it from criminals."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with the old meaning of the word “computer”?",
+      "options": [
+        "to show readers how much has changed, which makes them curious",
+        "to prove that people calculate faster than machines",
+        "to teach the spelling of the word",
+        "to tell a story about the writer's grandfather"
+      ],
+      "answer": "A",
+      "why": "Starting with a surprising fact about the word highlights how great the change has been and invites readers to learn more."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a modern smartphone DIFFERENT from ENIAC?",
+      "options": [
+        "It is much larger and slower.",
+        "It uses vacuum tubes instead of transistors.",
+        "It is far smaller yet millions of times more powerful.",
+        "It must be reprogrammed by moving cables."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: the phone is “millions of times more powerful than ENIAC, yet it fits in your hand”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do a vacuum tube and a transistor have in common?",
+      "options": [
+        "Both burn out frequently.",
+        "Both are smaller than a grain of sand.",
+        "Both were invented in 1947.",
+        "Both switch electricity on and off."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3: “A transistor does the same job as a vacuum tube, switching electricity on and off.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of the microchip on computers?",
+      "options": [
+        "They became heavier and more expensive.",
+        "They needed more vacuum tubes.",
+        "They could only store numbers.",
+        "They became smaller, cheaper and faster."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3: the microchip “made computers dramatically smaller, cheaper and faster.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “the room-sized giant whose problems inspired engineers to think small”?",
+      "options": [
+        "ENIAC was a real giant who helped engineers.",
+        "ENIAC's size and faults pushed engineers to make tinier parts.",
+        "Engineers decided to stop building computers.",
+        "Engineers built small rooms for computers."
+      ],
+      "answer": "B",
+      "why": "“Giant” describes ENIAC's huge size, and “think small” is a play on words: its problems led to tiny transistors and chips."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare each transistor to “a grain of sand”?",
+      "options": [
+        "to help readers picture how tiny transistors are",
+        "to show that chips are made only of sand",
+        "to warn that phones break very easily",
+        "to compare modern phones with the desert"
+      ],
+      "answer": "A",
+      "why": "A grain of sand is something familiar and very small, so the comparison makes the size easy to imagine."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "It was enormous.",
+        "Why are these tiny switches so important?",
+        "What a long way computers have travelled in less than a century!",
+        "However, this progress also brings new responsibilities."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark. “It was enormous.” is a short statement."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which habit follows the advice in paragraph 6 BEST?",
+      "options": [
+        "sharing your password with online friends",
+        "using screens wisely and protecting your personal information",
+        "staying on a game for endless hours",
+        "posting your home address on a website"
+      ],
+      "answer": "B",
+      "why": "Paragraph 6 advises protecting personal information and using screens wisely."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to sell old vacuum tubes to science museums",
+        "a belief that every computer should be banned from schools",
+        "a wish to help readers value the history in their devices",
+        "anger at the engineers who designed and built ENIAC"
+      ],
+      "answer": "C",
+      "why": "The writer ends by asking readers to remember ENIAC whenever they unlock a phone."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which attitude toward modern computers is most present in the text?",
+      "options": [
+        "admiration mixed with a sense of responsibility",
+        "complete fear of what computers might do",
+        "boredom with old and new technology",
+        "disappointment in modern engineers"
+      ],
+      "answer": "A",
+      "why": "The writer admires the progress but also says it “brings new responsibilities”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how heavy ENIAC was",
+        "when the transistor was invented",
+        "what 0 and 1 represent",
+        "how people can protect information from criminals"
+      ],
+      "answer": "D",
+      "why": "The writer says protecting information is essential but never explains how it is done; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An ENIAC engineer replaces a burnt-out tube.",
+        "A smartphone grows into a room-sized computer.",
+        "A vacuum tube shrinks into a transistor overnight.",
+        "ENIAC fits into a student's pocket."
+      ],
+      "answer": "A",
+      "why": "The text says tubes burned out often and engineers searched for broken ones. The others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Broken Tube",
+        "Big Problems, Tiny Solutions",
+        "A Day with My Phone",
+        "Sand in the Desert"
+      ],
+      "answer": "B",
+      "why": "ENIAC's big problems led to tiny transistors and chips, the central idea of the text."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences predicting how computers might change in the next fifty years and what responsibility this might bring.",
+      "model": "In fifty years, computers may be so small that they are built into our clothes and glasses. They could warn us when we are ill or help us learn a new language while we walk. However, people will have to protect this information even more carefully, because it will describe almost every part of their lives.",
+      "rubric": [
+        "2 = a clear new ending with a sensible prediction AND a related responsibility, linked to ideas in the text",
+        "1 = a prediction is given but the responsibility is missing or unclear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible prediction with a linked responsibility is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the ideas in paragraph 6, how can a student protect personal information on a computer?",
+      "options": [
+        "Use strong passwords and keep them private.",
+        "Avoid sharing personal details with strangers online.",
+        "A and B",
+        "Leave the computer unlocked in a public place."
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 says protecting personal information from criminals is essential; private passwords and not sharing details both do this."
+    }
+  ]
+}

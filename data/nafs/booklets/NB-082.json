@@ -1,0 +1,568 @@
+{
+  "code": "NB-082",
+  "title": "The Puzzle in the Greenhouse",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 465,
+  "passage": "The science club's greenhouse stood in a sunny corner of the school courtyard, and for the girls of the club it was the most precious place in the building. All term they had been raising tomato and basil seedlings for the spring charity market, so when Dana unlocked the door one Sunday morning and found three trays overturned, with soil and broken stems scattered across the floor, she felt as though someone had trampled on her heart.\n\nThe disaster happened again on Tuesday, and then once more on Wednesday. Soon the whole club was whispering suspicions. Some girls blamed the class next door, who had lost to them in the science fair; others accused a stray cat that sometimes slept beside the courtyard wall. Ms. Nadia, their teacher, reminded everyone that the greenhouse was locked every afternoon and that she kept the only key in her bag.\n\nDana decided that guessing would never solve the problem, so she opened a notebook and began recording every fact she could find. Gradually, a pattern emerged. First, the damaged trays were always on the top shelf, beside the small window in the roof. Second, the soil was never scattered randomly; instead, it was always thrown toward the door, away from the window. Third, when she compared her notes with the weather reports on her mother's phone, she discovered that each disaster had followed an afternoon of strong winds.\n\n\"A cat would leave paw prints in the soil,\" Dana reasoned aloud, \"and a person would need the key. However, nothing explains why the damage always points away from that window.\"\n\nShe asked Ms. Nadia about the roof window, and the teacher explained that it was automatic: a sensor opened it whenever the temperature inside rose above thirty degrees, so that the young plants would not overheat. Dana's eyes widened, because the final piece of the puzzle had suddenly fallen into place.\n\nOn the following Thursday, which the forecast predicted would be hot and windy, Dana and Ms. Nadia stayed after school and watched quietly from a corner. At precisely two o'clock, the roof window swung open with a soft click. Several minutes later, a powerful gust rushed through the gap, caught the edge of a lightweight plastic tray and flipped it off the shelf as easily as a hand turning a page.\n\n\"The culprit was the wind,\" Ms. Nadia said, shaking her head in admiration, \"and the window that was designed to protect our plants was letting it in.\"\n\nThe next morning, the club moved the lightest trays to the lower shelves and fastened a fine mesh screen across the window, which allowed hot air to escape but softened the gusts. Not a single seedling fell again, and at the charity market, every tomato plant was sold before noon.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “precisely” as it is used in paragraph 6?",
+      "options": [
+        "almost",
+        "exactly",
+        "nearly",
+        "suddenly"
+      ],
+      "answer": "B",
+      "why": "“At precisely two o'clock” means at exactly two o'clock; “almost” and “nearly” mean the opposite of exact."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “randomly” as it is used in paragraph 3?",
+      "options": [
+        "carelessly",
+        "very quickly",
+        "only rarely",
+        "in a regular pattern"
+      ],
+      "answer": "D",
+      "why": "Randomly means without any order; the soil was always thrown the same way, in a regular pattern."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “Gradually, a pattern emerged.” What does “emerged” mean here?",
+      "options": [
+        "became clear",
+        "was destroyed",
+        "was forgotten",
+        "grew smaller"
+      ],
+      "answer": "A",
+      "why": "As Dana recorded facts, the pattern slowly appeared and became clear."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 1 is an ADJECTIVE?",
+      "options": [
+        "greenhouse",
+        "precious",
+        "unlocked",
+        "seedlings"
+      ],
+      "answer": "B",
+      "why": "“Precious” describes the place; “greenhouse” and “seedlings” are nouns and “unlocked” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the story does NOT follow the normal -s or -es pattern?",
+      "options": [
+        "girls",
+        "trays",
+        "stems",
+        "None of the above"
+      ],
+      "answer": "D",
+      "why": "“Girls”, “trays” and “stems” all simply add -s, so none of them is irregular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “admiration” in paragraph 7?",
+      "options": [
+        "admire",
+        "adventure",
+        "advise",
+        "administer"
+      ],
+      "answer": "A",
+      "why": "“Admire” is the verb from which “admiration” is formed."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “suspicion” in a meaningful sentence of your own.",
+      "model": "When the last piece of cake disappeared, my suspicion fell on my little brother, who had chocolate on his chin.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “suspicion” with its meaning (a feeling that someone may have done something wrong, without proof)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "A “suspicion” is a feeling or belief that someone did something wrong, without being sure."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “shelf”, which appears in the story?",
+      "options": [
+        "shelfs",
+        "shelves",
+        "shelfes",
+        "shelvs"
+      ],
+      "answer": "B",
+      "why": "Like leaf → leaves, “shelf” changes f to v and adds -es: shelves."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “The culprit was the wind,” in paragraph 7?",
+      "options": [
+        "a question",
+        "a command",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "Ms. Nadia states a fact; she is not asking, ordering or exclaiming."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the story?",
+      "options": [
+        "The Cat Who Destroyed the Garden",
+        "Dana's Notebook Solves the Case",
+        "The Science Fair Champions",
+        "Selling Tomatoes at the Market"
+      ],
+      "answer": "B",
+      "why": "Dana solves the mystery by recording facts in her notebook."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to show how careful observation and logical thinking can solve a problem",
+        "to explain how to sell plants at a charity market",
+        "to warn readers about stray cats in schools",
+        "to describe the different shelves in a greenhouse"
+      ],
+      "answer": "A",
+      "why": "Dana collects facts, finds a pattern and tests her idea instead of guessing."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Dana copies the weekly weather forecast for her mother.",
+        "Dana discovers three important facts by recording what she observes.",
+        "Dana decides that the class next door is guilty.",
+        "Dana moves the heavy trays to the lower shelves."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 lists the pattern Dana finds: top shelf, soil thrown toward the door, windy afternoons."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why could Ms. Nadia be sure that no person had entered the greenhouse in the afternoons?",
+      "options": [
+        "She watched it from her classroom all afternoon.",
+        "The greenhouse had a security camera above the door.",
+        "It was locked, and she kept the only key in her bag.",
+        "The door was far too heavy for students to open."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: “the greenhouse was locked every afternoon and … she kept the only key in her bag.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a science report",
+        "a mystery story",
+        "a letter",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It is an invented story about a puzzle that a character solves by finding clues."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the roof window open automatically?",
+      "options": [
+        "A sensor opened it when the temperature rose above thirty degrees.",
+        "The wind pushed it open every afternoon.",
+        "A cleaner opened it after school.",
+        "It opened every day at exactly two o'clock."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: “a sensor opened it whenever the temperature inside rose above thirty degrees”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened AFTER Dana asked Ms. Nadia about the roof window?",
+      "options": [
+        "Some of the girls blamed the class next door.",
+        "Dana found three trays overturned on Sunday.",
+        "Dana compared her notes with weather reports.",
+        "Dana and Ms. Nadia watched the greenhouse after school."
+      ],
+      "answer": "D",
+      "why": "The Thursday watch in paragraph 6 came after the conversation about the window in paragraph 5."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who solves the mystery in the story?",
+      "options": [
+        "Ms. Nadia",
+        "Dana",
+        "the class next door",
+        "Dana's mother"
+      ],
+      "answer": "B",
+      "why": "Dana records the facts, works out the cause and tests it."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to explain why the soil was always thrown toward the door?",
+      "options": [
+        "The door was always left wide open in the afternoon.",
+        "The stray cat usually slept beside the door.",
+        "The wind came in through the roof window, on the opposite side.",
+        "The lower shelves were close to the door."
+      ],
+      "answer": "C",
+      "why": "The gust came through the window and pushed everything away from it, toward the door."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the trays to fall off the shelf?",
+      "options": [
+        "Strong gusts of wind blew through the open roof window.",
+        "The class next door secretly knocked them over.",
+        "A stray cat jumped up onto the top shelf.",
+        "The trays were far too heavy for the old shelf."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6: a gust “rushed through the gap” and flipped a lightweight tray off the shelf."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Dana decide to open a notebook instead of guessing?",
+      "options": [
+        "She wanted to write a story for the charity market.",
+        "Her teacher told her to copy the weather reports.",
+        "She believed that facts, not guesses, would reveal the real cause.",
+        "She wanted to prove that the cat was guilty."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 begins: “Dana decided that guessing would never solve the problem.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Dana feel when she first saw the overturned trays?",
+      "options": [
+        "amused",
+        "heartbroken",
+        "bored",
+        "proud"
+      ],
+      "answer": "B",
+      "why": "She “felt as though someone had trampled on her heart”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Dana's way of dealing with the problem different from the other club members' way?",
+      "options": [
+        "Dana blamed the cat; the others blamed the wind.",
+        "Dana asked the class next door; the others asked Ms. Nadia.",
+        "Dana gave up; the others kept investigating.",
+        "Dana collected evidence; the others spread suspicions."
+      ],
+      "answer": "D",
+      "why": "The others whispered suspicions about the class and the cat, while Dana recorded facts."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of fastening a mesh screen across the window?",
+      "options": [
+        "Hot air could still escape, but the gusts were softened.",
+        "The greenhouse became much too hot for the plants.",
+        "The window could no longer open at all.",
+        "The stray cat could no longer get inside."
+      ],
+      "answer": "A",
+      "why": "Paragraph 8: the mesh “allowed hot air to escape but softened the gusts”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the stray cat and the class next door have in common in the story?",
+      "options": [
+        "Both were seen inside the greenhouse at night.",
+        "Both were blamed for the damage but were innocent.",
+        "Both helped Dana to solve the mystery.",
+        "Both bought tomato plants at the market."
+      ],
+      "answer": "B",
+      "why": "Some girls accused each of them, but the real cause was the wind."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “the final piece of the puzzle had suddenly fallen into place” mean?",
+      "options": [
+        "Dana dropped a jigsaw puzzle on the greenhouse floor.",
+        "Dana was confused by too many different clues.",
+        "Dana suddenly understood how all the clues fitted together.",
+        "Dana found a missing piece of the window."
+      ],
+      "answer": "C",
+      "why": "Learning about the automatic window let Dana connect all her facts into one explanation."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the story is a SIMILE?",
+      "options": [
+        "“as easily as a hand turning a page”",
+        "“the most precious place in the building”",
+        "“the whole club was whispering suspicions”",
+        "“a soft click”"
+      ],
+      "answer": "A",
+      "why": "It compares the tray flipping to a hand turning a page, using “as … as”."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Ms. Nadia point out that “the window that was designed to protect our plants” was letting the wind in?",
+      "options": [
+        "to make the story funny without any meaning",
+        "to show that windows are always dangerous",
+        "to prove that Ms. Nadia built the greenhouse badly",
+        "to show that a helpful invention can cause an unexpected problem"
+      ],
+      "answer": "D",
+      "why": "The window protected plants from heat but also let in the wind; good inventions can have unexpected side effects."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Dana's actions was MOST important in solving the mystery?",
+      "options": [
+        "comparing her notes with the weather reports",
+        "blaming the class next door",
+        "selling every tomato plant before noon",
+        "unlocking the greenhouse on Sunday"
+      ],
+      "answer": "A",
+      "why": "Matching each disaster with windy afternoons pointed her to the wind as the cause."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which lesson is the writer MOST LIKELY sharing?",
+      "options": [
+        "Cats should not be allowed near schools.",
+        "Greenhouses should not have windows.",
+        "Looking for patterns in evidence is better than jumping to conclusions.",
+        "Science clubs should not sell plants."
+      ],
+      "answer": "C",
+      "why": "Dana's careful method shows the value of evidence over quick suspicions."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in the last paragraph?",
+      "options": [
+        "satisfaction",
+        "fear",
+        "anger",
+        "confusion"
+      ],
+      "answer": "A",
+      "why": "The problem is fixed, no seedling falls again and every plant is sold: the club feels satisfied."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "where the greenhouse stood",
+        "what the club was growing",
+        "what temperature opened the roof window",
+        "how many seedlings were destroyed in all"
+      ],
+      "answer": "D",
+      "why": "The story mentions trays overturned on several days but never says how many seedlings were lost; the other facts are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A tomato plant whispers the name of the culprit to Dana.",
+        "A strong gust through an open window knocks a light plastic tray off a shelf.",
+        "The wind writes its own name in the scattered soil.",
+        "A tiny seedling grows into a tall tree in one night."
+      ],
+      "answer": "B",
+      "why": "Strong gusts can easily move light objects; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Cat in the Courtyard",
+        "Ms. Nadia's Missing Key",
+        "The Invisible Culprit",
+        "A Day at the Science Fair"
+      ],
+      "answer": "C",
+      "why": "The culprit was the wind, which cannot be seen."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that solve the greenhouse problem in another way.",
+      "model": "Instead of changing the window, the club asked the school caretaker to fix wooden edges around the top shelf so the trays could not slide off. They also placed small stones in the bottom of each tray to make it heavier. After that, even the strongest gusts could not move a single tray.",
+      "rubric": [
+        "2 = a clear new ending that fits the story and solves the wind problem in a believable way",
+        "1 = an ending is given but it is unclear, unrealistic, or does not solve the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic solution that stops the wind from knocking over the trays is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, what is the BEST way to solve a mystery like this one?",
+      "options": [
+        "Accept the first suspect that people suggest.",
+        "Record facts, look for a pattern, and test your idea.",
+        "Ask everyone to vote on who is guilty.",
+        "Wait until the problem stops by itself."
+      ],
+      "answer": "B",
+      "why": "Dana solved the mystery by recording facts, finding a pattern and testing her idea on Thursday."
+    }
+  ]
+}

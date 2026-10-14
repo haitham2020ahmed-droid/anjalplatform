@@ -1,0 +1,468 @@
+{
+ "code": "LN-018",
+ "title": "Sensory details and imagery in writing",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "W.5.3.d",
+  "W.5.5"
+ ],
+ "families": [
+  "imagery"
+ ],
+ "skillNames": [
+  "Descriptive and Sensory Language"
+ ],
+ "statements": [
+  "L-0045",
+  "L-0046",
+  "L-0126",
+  "L-0128",
+  "L-0131",
+  "L-0240",
+  "L-0242",
+  "L-0246",
+  "L-0313"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Your five senses",
+     "text": "You learn about the world with five senses:\n\n**see**, **hear**, **smell**, **taste** and **touch**."
+    },
+    {
+     "title": "Sense words",
+     "text": "**See:** bright, red, tiny\n**Hear:** buzz, crash, quiet\n**Smell:** sweet, smoky\n**Taste:** salty, sour\n**Touch:** soft, rough, hot"
+    },
+    {
+     "title": "Make it real",
+     "text": "**Plain:** I ate a mango.\n\n**With senses:** I ate a sweet, juicy mango. It was cold from the fridge.\n\nSense words help the reader feel they are there."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the sense, look for the **sense words**.\n\n1. Read each sentence.\n2. Ask: **Do I see it, hear it, smell it, taste it or touch it?**\n3. The sense with the most words is the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sand was hot under my feet.",
+      "role": "key"
+     },
+     {
+      "t": "The waves went splash.",
+      "role": "detail"
+     },
+     {
+      "t": "The air smelled salty.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Hot** is touch. **Splash** is hearing. **Salty smell** is smell.\n\nThe writer uses three senses, so we feel like we are at the beach."
+   },
+   "together": {
+    "passage": "It was a stormy night. Thunder boomed over our house. Rain drummed on the roof. The wind howled outside.",
+    "stem": "Which sense does this text use the most?",
+    "options": [
+     "taste",
+     "hearing",
+     "smell",
+     "touch"
+    ],
+    "answer": 1,
+    "hint": "Look at the words boomed, drummed and howled. Which sense tells you about them?",
+    "good": "Yes! Booming, drumming and howling are all sounds."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a stormy night.",
+     "Thunder boomed over our house.",
+     "Rain drummed on the roof.",
+     "The wind howled outside."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: hearing. Tap 2 sentences that have sound words.",
+    "wrong": "This sentence only tells the time and weather. Find sentences with sounds."
+   },
+   "checks": [
+    {
+     "passage": "The lemon was so ____ that my face scrunched up.",
+     "stem": "Which taste word fits best?",
+     "options": [
+      "soft",
+      "loud",
+      "blue",
+      "sour"
+     ],
+     "answer": 3,
+     "why": "Lemons taste sour, and a sour taste can make your face scrunch."
+    },
+    {
+     "passage": "My kitten's fur is ____.",
+     "stem": "Which touch word fits best?",
+     "options": [
+      "soft",
+      "salty",
+      "noisy",
+      "green"
+     ],
+     "answer": 0,
+     "why": "Fur feels soft when you touch it."
+    },
+    {
+     "passage": "Which sentence helps you SMELL something?",
+     "stem": "Choose one.",
+     "options": [
+      "The school bell rang at the end of the day.",
+      "The sky was blue.",
+      "The fresh bread smelled warm and sweet.",
+      "The ice was cold."
+     ],
+     "answer": 2,
+     "why": "\"Smelled warm and sweet\" uses the sense of smell."
+    }
+   ],
+   "again": {
+    "title": "Close your eyes",
+    "text": "Close your eyes and think of the place.\n\nWhat do you **hear**? What do you **smell**? What do you **feel**? Write those words.",
+    "example": "Place: a kitchen.\n\nHear: **sizzling**. Smell: **onions**. Feel: **warm air**. \"Onions sizzled in the warm kitchen.\""
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Vivid writing",
+     "text": "**Vivid** writing makes a clear picture in the reader's mind.\n\nInstead of telling the reader something is \"nice\" or \"bad\", **show** it with details the reader can see, hear, smell, taste or touch."
+    },
+    {
+     "title": "Show, don't just tell",
+     "text": "**Tell:** The market was busy.\n\n**Show:** People squeezed between the stalls. Sellers called out prices, and the smell of cardamom filled the air."
+    },
+    {
+     "title": "Choose exact words",
+     "text": "1. Replace weak words like **nice**, **good**, **big**.\n2. Use exact nouns and verbs: **sizzled**, not \"made a sound\".\n3. Choose details that match the **feeling** you want."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good detail must **fit** the description already in the text.\n\n1. Ask: **What feeling or picture is the writer creating?**\n2. Find the sentences that create it.\n3. Choose the detail that adds to the same picture.\n\nA detail that shows the opposite feeling does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The kitchen smelled of warm bread and cinnamon.",
+      "role": "key"
+     },
+     {
+      "t": "Steam rose from the pot of soup.",
+      "role": "detail"
+     },
+     {
+      "t": "Mother hummed softly as she stirred.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer never says \"the kitchen was cosy\". Instead, the **smell** of bread, the **sight** of steam and the **sound** of humming show it.\n\nThat is vivid writing."
+   },
+   "together": {
+    "passage": "By noon, the street was empty. The sun blazed in a white sky. Heat rose from the road in shaky waves. Even the cats lay flat in the shade of parked cars. A few children were playing at home.",
+    "stem": "The writer wants the reader to feel how hot the day was. Which detail should be added?",
+    "options": [
+     "A cool breeze made everyone shiver.",
+     "Snow covered the ground.",
+     "It was a day.",
+     "The metal gate was too hot to touch."
+    ],
+    "answer": 3,
+    "hint": "Does that detail show heat? Look at what the other sentences show about the day.",
+    "good": "Yes! A gate too hot to touch adds to the blazing sun and the heat rising from the road."
+   },
+   "evidence": {
+    "sentences": [
+     "By noon, the street was empty.",
+     "The sun blazed in a white sky.",
+     "Heat rose from the road in shaky waves.",
+     "Even the cats lay flat in the shade of parked cars.",
+     "A few children were playing at home."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the metal gate was too hot to touch. Tap 2 sentences that already show the heat.",
+    "wrong": "This sentence tells about the street or the children. Find the sentences that show the heat."
+   },
+   "checks": [
+    {
+     "passage": "The fireworks were nice.",
+     "stem": "Which revision is most vivid?",
+     "options": [
+      "The fireworks that we watched last night were very, very nice.",
+      "Gold and green sparks burst across the dark sky with a loud bang.",
+      "The fireworks were good and nice.",
+      "There were fireworks."
+     ],
+     "answer": 1,
+     "why": "It shows colours, movement and sound instead of just saying \"nice\"."
+    },
+    {
+     "passage": "A student is describing a quiet, peaceful garden.",
+     "stem": "Which detail fits best?",
+     "options": [
+      "A car alarm screamed nearby.",
+      "Children shouted and fought over a ball.",
+      "Water trickled softly in the small fountain.",
+      "Thunder crashed overhead."
+     ],
+     "answer": 2,
+     "why": "A soft trickle of water fits a quiet, peaceful place."
+    },
+    {
+     "passage": "The soup was good.",
+     "stem": "Which revision uses the sense of taste best?",
+     "options": [
+      "The soup was rich and salty, with a hint of lemon.",
+      "The soup was in a big white bowl on the kitchen table.",
+      "The soup was good and hot and good.",
+      "I had soup."
+     ],
+     "answer": 0,
+     "why": "Rich, salty and lemon are all taste words."
+    }
+   ],
+   "again": {
+    "title": "Swap the dull word",
+    "text": "Find a dull word: **nice, good, bad, big, thing**.\n\nAsk: **What exactly did I see, hear or feel?** Write that instead.",
+    "example": "\"The cake was nice.\"\n\nBetter: **The cake was soft and smelled of vanilla.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Revising for imagery",
+     "text": "First drafts often **tell** feelings and places. When you revise, add **sensory details** so the reader experiences them.\n\nAsk of every description: Can the reader see it? Hear it? Feel it?"
+    },
+    {
+     "title": "Details that create a mood",
+     "text": "Sensory details also set the **mood**.\n\n**Calm:** gentle waves, soft light, a slow breeze.\n**Tense:** a creaking door, a sudden silence, cold hands.\n\nChoose details that all point to the same mood."
+    },
+    {
+     "title": "Clearer description",
+     "text": "1. Replace general words with **specific** ones: \"a bird\" → \"a grey pigeon\".\n2. Use **strong verbs**: \"walked\" → \"shuffled\", \"tiptoed\".\n3. Cut details that do not fit the picture."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To decide which detail fits, first prove the **mood** of the text.\n\n1. Find the sensory details the writer already used.\n2. Ask what feeling they share: calm, busy, scary, joyful?\n3. Choose the revision that adds to that same feeling.\n\nThe right detail matches the evidence already in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old house was silent except for the ticking of a clock.",
+      "role": "key"
+     },
+     {
+      "t": "Dust floated in a thin beam of light.",
+      "role": "detail"
+     },
+     {
+      "t": "Somewhere upstairs, a floorboard creaked.",
+      "role": "key"
+     }
+    ],
+    "explain": "The ticking clock and the creaking floorboard are **sounds** that make the silence feel strange. The dusty light adds a **sight**.\n\nTogether they build a mysterious, tense mood."
+   },
+   "together": {
+    "passage": "Just before sunrise, the desert camp was still. A thin line of orange light spread across the dunes. The sand was cool under our bare feet, and the only sound was the soft crackle of the last coals in the fire. My grandfather poured coffee into small cups, and its warm, spicy smell drifted through the cold air. Later that day, we drove back to the city.",
+    "stem": "The writer wants to add one more detail that fits the mood of this scene. Which is best?",
+    "options": [
+     "Far away, a camel shifted in the sand and gave a low, sleepy grunt.",
+     "A loud radio blasted music from a passing truck.",
+     "Everyone argued loudly about where to go next.",
+     "The camp was big."
+    ],
+    "answer": 0,
+    "hint": "Look at the details the writer already used. Are they loud and busy, or quiet and calm?",
+    "good": "Yes! A low, sleepy sound fits the still, calm sunrise the writer describes."
+   },
+   "evidence": {
+    "sentences": [
+     "Just before sunrise, the desert camp was still.",
+     "A thin line of orange light spread across the dunes.",
+     "The sand was cool under our bare feet, and the only sound was the soft crackle of the last coals in the fire.",
+     "My grandfather poured coffee into small cups, and its warm, spicy smell drifted through the cold air.",
+     "Later that day, we drove back to the city."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was the sleepy camel. Tap the 2 sentences that show the scene is quiet and still.",
+    "wrong": "This sentence shows light, coffee or a later time. Find the sentences about how still and quiet the camp was."
+   },
+   "checks": [
+    {
+     "passage": "Draft: The bird was pretty.",
+     "stem": "Which revision gives the clearest picture?",
+     "options": [
+      "The bird that I saw this morning was very, very pretty.",
+      "The bird was pretty and nice.",
+      "A small green parrot with a bright red beak perched on the wire.",
+      "There was a bird."
+     ],
+     "answer": 2,
+     "why": "It names the kind of bird and gives exact colours and an action."
+    },
+    {
+     "passage": "Draft: I walked into the hospital waiting room. I was nervous.",
+     "stem": "Which revision best shows the feeling with sensory detail?",
+     "options": [
+      "I walked into the room and felt nervous.",
+      "The room was a room with chairs.",
+      "I was very, very nervous.",
+      "My hands felt cold and damp as I listened to the clock tick."
+     ],
+     "answer": 3,
+     "why": "Cold, damp hands and a ticking clock show nervousness instead of just naming it."
+    },
+    {
+     "passage": "A student describes a busy football match.",
+     "stem": "Which detail adds best to the mood?",
+     "options": [
+      "A single leaf drifted down in the silence.",
+      "Thousands of fans roared as the ball hit the net.",
+      "The empty stadium was dark.",
+      "Everyone sat quietly and read."
+     ],
+     "answer": 1,
+     "why": "A roaring crowd matches an exciting, busy match."
+    }
+   ],
+   "again": {
+    "title": "One mood, many senses",
+    "text": "Pick the mood first: **calm**, **busy**, **scary** or **happy**.\n\nThen write one detail for each sense that matches it.",
+    "example": "Mood: **calm**.\n\nSee: **pale blue sky**. Hear: **birds chirping**. Feel: **a light breeze**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Imagery with purpose",
+     "text": "**Imagery** is language that appeals to the senses to create a picture, feeling or atmosphere. Skilled writers choose images on purpose: every detail supports the **mood** and the **meaning** of the piece."
+    },
+    {
+     "title": "Precision and freshness",
+     "text": "Vivid writing relies on **precise nouns and verbs** more than piles of adjectives.\n\n**Weak:** The very big, very loud wave came.\n**Vivid:** The wave reared, then thundered onto the rocks.\n\nAvoid tired phrases (\"as white as snow\") and look for a fresh comparison."
+    },
+    {
+     "title": "Beyond sight",
+     "text": "Writers often forget smell, touch and taste, yet these senses can be the most powerful for memory and feeling.\n\nA well-chosen smell can bring back a whole childhood scene in one sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best image, prove what the passage is **building toward**.\n\n1. Identify the mood or idea the existing imagery creates.\n2. Find two or more sentences that build it.\n3. Choose the revision whose image is precise **and** consistent with them.\n\nAn image may be vivid and still wrong if it breaks the mood."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The fishing boats came home at dusk, their engines coughing.",
+      "role": "detail"
+     },
+     {
+      "t": "Gulls wheeled above the harbour, screaming for scraps.",
+      "role": "key"
+     },
+     {
+      "t": "The smell of salt, diesel and fresh fish hung over the dock.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writer uses **precise verbs** (coughing, wheeled, screaming) and a layered **smell** (salt, diesel, fish).\n\nTogether they create a noisy, working harbour at the end of the day, without saying \"the harbour was busy\"."
+   },
+   "together": {
+    "passage": "The night before the exam, Faisal could not sleep. The ceiling fan turned with a slow, uneven click. Every few minutes, a car passed and its headlights crawled across the wall like a searching eye. His sheets felt too warm, then too cold, and he turned his pillow again and again. In his mind, the questions lined up like strangers waiting to be let in. He had studied for weeks.",
+    "stem": "The writer wants to revise the last sentence so it fits the imagery of the paragraph. Which revision is best?",
+    "options": [
+     "He had studied for weeks and felt totally fine and relaxed.",
+     "He had studied for weeks, and the sun shone brightly on a happy morning.",
+     "He had studied for weeks, yet the pile of notebooks on his desk seemed to stare back at him in the dark.",
+     "He had studied for many weeks, which is a long time to study."
+    ],
+    "answer": 2,
+    "hint": "Does that revision continue the restless, uneasy mood? Look at how the other sentences make objects seem to watch or wait.",
+    "good": "Yes! Like the \"searching eye\" and the waiting \"strangers\", the staring notebooks keep the anxious mood."
+   },
+   "evidence": {
+    "sentences": [
+     "The night before the exam, Faisal could not sleep.",
+     "The ceiling fan turned with a slow, uneven click.",
+     "Every few minutes, a car passed and its headlights crawled across the wall like a searching eye.",
+     "His sheets felt too warm, then too cold, and he turned his pillow again and again.",
+     "In his mind, the questions lined up like strangers waiting to be let in.",
+     "He had studied for weeks."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was the notebooks that seemed to stare at him. Tap the 2 sentences where things seem to watch or wait, like people.",
+    "wrong": "This sentence shows the restless night but does not make an object act like a person. Find the two images that do."
+   },
+   "checks": [
+    {
+     "passage": "Draft: The old man walked slowly down the road.",
+     "stem": "Which revision uses the most precise verb to create an image?",
+     "options": [
+      "The old man shuffled down the dusty road, leaning on his cane.",
+      "The old man walked very, very slowly down the road.",
+      "The old man went down the road in a slow way.",
+      "The old man, who was old, walked down the road."
+     ],
+     "answer": 0,
+     "why": "\"Shuffled\" and the details of dust and a cane show exactly how he moved."
+    },
+    {
+     "passage": "A writer describes a grandmother's kitchen to show warm memories of childhood.",
+     "stem": "Which detail best supports this purpose?",
+     "options": [
+      "The fridge was a large white box.",
+      "The scent of saffron rice still reminds me of her laughter.",
+      "The kitchen measured four metres across.",
+      "The kitchen had a tiled floor."
+     ],
+     "answer": 1,
+     "why": "A smell tied to a loved person's laughter creates a warm memory."
+    },
+    {
+     "passage": "Draft: The storm was really scary and very bad.",
+     "stem": "Which revision creates the most vivid imagery?",
+     "options": [
+      "The storm was extremely scary and very, very bad.",
+      "There was a really bad storm last night, and it was scary.",
+      "The storm was scary like storms are.",
+      "Lightning split the sky, and the windows rattled in their frames."
+     ],
+     "answer": 3,
+     "why": "It shows sight and sound with precise verbs instead of naming the feeling."
+    }
+   ],
+   "again": {
+    "title": "Camera and microphone",
+    "text": "Pretend you are a **camera** and a **microphone** in the scene.\n\nWrite only what they would record: no \"scary\", \"nice\" or \"sad\". Then add one smell or touch.",
+    "example": "Not: \"The classroom was tense.\"\n\nInstead: **Pencils scratched. No one looked up. A chair creaked, and twenty heads turned.**"
+   }
+  }
+ }
+}

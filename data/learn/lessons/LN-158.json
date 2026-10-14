@@ -1,0 +1,488 @@
+{
+ "code": "LN-158",
+ "title": "Making inferences in stories",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.7",
+  "RL.3.3",
+  "RL.3.6",
+  "RL.3.7",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.6.3"
+ ],
+ "families": [
+  "inference"
+ ],
+ "skillNames": [
+  "Inferences from Text and Illustrations",
+  "Make Inferences"
+ ],
+ "statements": [
+  "R-0076",
+  "R-0147",
+  "R-0263",
+  "R-0294",
+  "R-0421",
+  "R-0425",
+  "R-0449",
+  "R-0464",
+  "R-0465",
+  "R-0611",
+  "R-0661",
+  "R-0662",
+  "R-0852",
+  "R-0853",
+  "R-0993"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an inference?",
+     "text": "Sometimes a story does **not** tell you everything.\n\nYou use **clues** to work it out. That is called making an **inference**."
+    },
+    {
+     "title": "Clue + what I know",
+     "text": "**Clue** from the story + **what I know** = my inference.\n\nClue: Omar is wearing a coat and gloves. I know: people wear coats when it is cold. Inference: **It is cold.**"
+    },
+    {
+     "title": "Pictures give clues too",
+     "text": "Look at the **picture** as well as the words.\n\nA picture can show a face, the weather or a place. These are clues too."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "An inference is not a wild guess.\n\n1. Read the question.\n2. Find the **clue words** in the story or picture.\n3. Ask: **Which clue tells me this?**\n\nIf you cannot point to a clue, it is not a good inference."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lina came home from school.",
+      "role": "other"
+     },
+     {
+      "t": "She dropped her bag and ran to the kitchen.",
+      "role": "key"
+     },
+     {
+      "t": "She ate two big sandwiches fast.",
+      "role": "key"
+     }
+    ],
+    "explain": "The story does not say Lina is hungry.\n\nBut she **ran to the kitchen** and ate **two big sandwiches fast**. Those clues tell us: **Lina was very hungry.**"
+   },
+   "together": {
+    "passage": "The picture shows Sami with a big smile. He holds a red bike. He jumps up and down. His dad stands next to him.",
+    "stem": "How does Sami feel?",
+    "options": [
+     "Sleepy",
+     "Happy",
+     "Angry",
+     "Scared"
+    ],
+    "answer": 1,
+    "hint": "Look at the picture clue and what Sami does. Do they show a sad, angry or happy boy?",
+    "good": "Yes! A big smile and jumping up and down show that Sami is happy."
+   },
+   "evidence": {
+    "sentences": [
+     "The picture shows Sami with a big smile.",
+     "He holds a red bike.",
+     "He jumps up and down.",
+     "His dad stands next to him."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Sami is happy. Tap 2 sentences that show how he feels.",
+    "wrong": "This sentence tells what Sami has or who is with him. Find the clues that show his feelings."
+   },
+   "checks": [
+    {
+     "passage": "The picture shows wet streets. Huda holds an umbrella. Her shoes are wet.",
+     "stem": "What can you tell about the weather?",
+     "options": [
+      "It is raining.",
+      "It is snowing.",
+      "It is sunny and dry.",
+      "It is windy and dusty."
+     ],
+     "answer": 0,
+     "why": "Wet streets, an umbrella and wet shoes are clues that it is raining."
+    },
+    {
+     "passage": "Fahad yawned. His eyes closed slowly. His head dropped onto his book.",
+     "stem": "What can you tell about Fahad?",
+     "options": [
+      "He is angry.",
+      "He is hungry.",
+      "He is very tired.",
+      "He is late."
+     ],
+     "answer": 2,
+     "why": "Yawning and closing his eyes are clues that Fahad is tired."
+    },
+    {
+     "passage": "The cat sat by its bowl. The bowl was empty. The cat looked up and meowed at Mom.",
+     "stem": "What does the cat want?",
+     "options": [
+      "To go outside",
+      "To play with a ball",
+      "To sleep",
+      "Some food"
+     ],
+     "answer": 3,
+     "why": "The cat sits by an empty bowl and meows. It wants food."
+    }
+   ],
+   "again": {
+    "title": "Be a detective",
+    "text": "A detective finds clues and works out what happened.\n\n1. Find the clue.\n2. Think: **What does this clue tell me?**\n3. Say your idea.",
+    "example": "Clue: There are crumbs on Ali's shirt, and the cake plate is empty.\n\nWhat does it tell me? **Ali ate the cake.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Reading between the lines",
+     "text": "Authors often **show** instead of **tell**. They show what a character does, says or looks like.\n\nYou put those clues together to understand what the author did not say. That is an **inference**."
+    },
+    {
+     "title": "Clues from words and pictures",
+     "text": "Clues can come from:\n\n1. What a character **does**\n2. What a character **says**\n3. How a character **looks**\n4. The **picture** next to the story"
+    },
+    {
+     "title": "Check your inference",
+     "text": "A good inference is supported by **details** in the story.\n\nAfter you make an inference, look back. Can you find **two** details that support it? If yes, your inference is strong."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "You must be able to **point** to the details that support your inference.\n\n1. Read the question.\n2. Go back to the story. Find what characters **do, say or look like**.\n3. Choose the answer those details support.\n\nIf a choice has no clue in the story, it is just a guess."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem stood at the edge of the pool.",
+      "role": "other"
+     },
+     {
+      "t": "Her hands were shaking, and she kept stepping back.",
+      "role": "key"
+     },
+     {
+      "t": "\"Maybe I will swim tomorrow,\" she said quietly.",
+      "role": "key"
+     }
+    ],
+    "explain": "The story never says Reem is afraid.\n\nBut her **shaking hands**, **stepping back** and wanting to wait until **tomorrow** all support the inference: **Reem is afraid of the water.**"
+   },
+   "together": {
+    "passage": "Every evening, Khalid kicked a football against the wall behind his house. He practised until the sun went down. On Sunday, the coach pinned a list of new team players on the school board. Khalid pushed through the crowd with his fingers crossed. His eyes moved slowly down the names.",
+    "stem": "What can you infer about Khalid?",
+    "options": [
+     "He does not like football.",
+     "He wants to be on the team.",
+     "He is the team captain.",
+     "He has already joined the team."
+    ],
+    "answer": 1,
+    "hint": "Look at what Khalid does every day and how he looks at the list. What does he hope for?",
+    "good": "Yes! Practising every evening and checking the list with crossed fingers show that he wants to join the team."
+   },
+   "evidence": {
+    "sentences": [
+     "Every evening, Khalid kicked a football against the wall behind his house.",
+     "He practised until the sun went down.",
+     "On Sunday, the coach pinned a list of new team players on the school board.",
+     "Khalid pushed through the crowd with his fingers crossed.",
+     "His eyes moved slowly down the names."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Khalid wants to be on the team. Tap 2 sentences that support this.",
+    "wrong": "This sentence tells what the coach did or how Khalid reads. Find what Khalid does that shows how much he wants it."
+   },
+   "checks": [
+    {
+     "passage": "Grandma opened the oven, and a sweet smell filled the house. She placed a tray on the table and covered it with a cloth. \"Not yet,\" she smiled, when Yousef reached for it. \"Wait until your cousins arrive.\"",
+     "stem": "What can you infer?",
+     "options": [
+      "Grandma is angry with Yousef.",
+      "Yousef's cousins are not coming.",
+      "Grandma burned the food.",
+      "Grandma baked something for a family visit."
+     ],
+     "answer": 3,
+     "why": "The sweet smell, the tray and waiting for the cousins all support that she baked something for the visit."
+    },
+    {
+     "passage": "The picture shows a boy holding a broken vase. Pieces lie on the floor. His mother stands at the door with her hands on her hips. The boy looks at the floor.",
+     "stem": "How does the boy most likely feel?",
+     "options": [
+      "Proud",
+      "Sorry",
+      "Excited",
+      "Bored"
+     ],
+     "answer": 1,
+     "why": "He broke the vase, and he looks at the floor while his mother stands at the door. These clues show he feels sorry."
+    },
+    {
+     "passage": "Maha read the last page and closed the book slowly. She hugged it to her chest. Then she ran to the library to find the next book in the series.",
+     "stem": "What can you infer about Maha?",
+     "options": [
+      "She loved the book.",
+      "She did not finish the book.",
+      "She found the book boring.",
+      "She lost the book."
+     ],
+     "answer": 0,
+     "why": "Hugging the book and running to find the next one show that she loved it."
+    }
+   ],
+   "again": {
+    "title": "Clue, think, decide",
+    "text": "1. **Clue:** What does the character do or say?\n2. **Think:** When do people act like that?\n3. **Decide:** What is the character feeling or thinking?",
+    "example": "Clue: Salem slammed the door and did not say hello.\n\nThink: People slam doors when they are upset.\n\nDecide: **Salem is upset.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Stated or inferred?",
+     "text": "Some ideas are **stated**: the author says them in the text.\n\nOther ideas are **inferred**: you work them out from clues. For both, you need **details** that support the idea."
+    },
+    {
+     "title": "Inferences in poems",
+     "text": "Poems use few words, so every word is a clue.\n\nLook at the **images** the poet paints and the **words** the speaker chooses. They tell you how the speaker feels and what is happening, even when the poem does not say it."
+    },
+    {
+     "title": "Pick the best support",
+     "text": "1. Read the idea in the question.\n2. Test each detail: does it **show** this idea, or just tell something else?\n3. The best detail makes the idea **clear**. A weak detail could fit many ideas."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Stories and poems hide meaning in small details.\n\n1. Decide what the question asks: a feeling, a reason, or what happens next.\n2. Find lines that point to it: actions, words, images.\n3. Choose the answer **more than one** detail supports.\n\nIf an answer only sounds nice but no line supports it, reject it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The house is quiet since you left,",
+      "role": "key"
+     },
+     {
+      "t": "your chair stays empty at the table,",
+      "role": "key"
+     },
+     {
+      "t": "and no one laughs the way you did.",
+      "role": "key"
+     },
+     {
+      "t": "I count the days on the calendar.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The poem never says \"I miss you.\"\n\nBut the **quiet house**, the **empty chair** and **no one laughing** the same way all show that the speaker **misses someone** who went away. Counting the days shows the speaker waits for them to return."
+   },
+   "together": {
+    "passage": "Nora walked to school more slowly than usual. In one hand she held her science notes, reading the same page again and again. She whispered the names of the planets, then stopped and frowned when she could not remember the sixth one. Her best friend Dana caught up with her at the gate. \"Don't worry,\" Dana said. \"You studied all week for this test.\"",
+    "stem": "What can you infer about why Nora walks slowly to school?",
+    "options": [
+     "She is worried about the science test.",
+     "She is sick and has a fever.",
+     "She wants to see the new teacher.",
+     "Her bag is too heavy to carry."
+    ],
+    "answer": 0,
+    "hint": "Look for what Nora keeps thinking about and what her friend says. Which reason do the clues support?",
+    "good": "Yes! She reads her notes again and again, cannot remember a word, and her friend talks about the test. She is worried."
+   },
+   "evidence": {
+    "sentences": [
+     "Nora walked to school more slowly than usual.",
+     "In one hand she held her science notes, reading the same page again and again.",
+     "She whispered the names of the planets, then stopped and frowned when she could not remember the sixth one.",
+     "Her best friend Dana caught up with her at the gate.",
+     "\"Don't worry,\" Dana said. \"You studied all week for this test.\""
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Nora is worried about the science test. Tap 2 sentences that support this inference.",
+    "wrong": "This sentence tells where Nora is or how she walks. Find details that show WHAT she is worried about."
+   },
+   "checks": [
+    {
+     "passage": "The wind pulls at my scarf,\nthe sky is low and grey,\nthe sea throws white waves at the rocks,\nand all the boats stay in the bay.",
+     "stem": "Which inference does the poem best support?",
+     "options": [
+      "It is a calm summer day.",
+      "The boats have sailed far away.",
+      "A storm is coming.",
+      "The speaker is going fishing."
+     ],
+     "answer": 2,
+     "why": "Strong wind, a low grey sky, big waves and boats staying in the bay all support that a storm is coming."
+    },
+    {
+     "passage": "Ahmed looked at the clock for the fifth time. The new kitten would arrive at four. He had already set out a soft blanket, a small bowl of water and a ball. Now he sat by the window, tapping his foot.",
+     "stem": "Which detail best shows that Ahmed is impatient?",
+     "options": [
+      "The new kitten would arrive at four.",
+      "He set out a bowl of water.",
+      "He sat by the window.",
+      "He looked at the clock for the fifth time."
+     ],
+     "answer": 3,
+     "why": "Checking the clock again and again shows impatience. The other details show he is ready or tell facts."
+    },
+    {
+     "passage": "The story says that Uncle Majid is generous. Every Friday he brings fruit to the old neighbour next door. When Salma lost her school bag, he bought her a new one. He never asks for anything back.",
+     "stem": "Which detail best supports the stated idea that Uncle Majid is generous?",
+     "options": [
+      "He visits on Fridays.",
+      "He bought Salma a new bag.",
+      "Salma lost her school bag.",
+      "The neighbour is old."
+     ],
+     "answer": 1,
+     "why": "Buying Salma a new bag is something he gives freely, so it supports that he is generous."
+    }
+   ],
+   "again": {
+    "title": "It says ... so ...",
+    "text": "Use this sentence frame:\n\n**The text says** ____ **so I think** ____.\n\nIf you can fill in both parts, you have made an inference and proved it.",
+    "example": "The text says Rania put on her best dress and checked the mirror three times, so I think she is going somewhere special and wants to look nice."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Layers of meaning",
+     "text": "In longer stories, authors build meaning slowly. A small action early on may matter later.\n\nStrong readers notice patterns: a repeated gesture, a word a character avoids, a change in tone."
+    },
+    {
+     "title": "Weighing the evidence",
+     "text": "More than one inference can seem possible. Choose the one with the **strongest** support.\n\nAsk: Which choice is supported by **several** details? Which choice does some detail **contradict**?"
+    },
+    {
+     "title": "Stated idea, then support",
+     "text": "Sometimes the question gives you an idea and asks which detail **supports** it.\n\nThe best detail does not just mention the same topic. It shows **why** the idea is true."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For deeper inferences, gather evidence like a lawyer.\n\n1. State the inference in one sentence.\n2. Find at least **two** details from different parts of the text.\n3. Check that no detail **contradicts** it.\n\nReject choices that go beyond the text or rest on a single word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every morning, Mr. Hamdan opened his small shop at six, though few customers came before nine.",
+      "role": "detail"
+     },
+     {
+      "t": "He swept the step, arranged the oranges into perfect pyramids and greeted each passer-by by name.",
+      "role": "key"
+     },
+     {
+      "t": "When a large supermarket opened across the road, his son suggested he close the shop and rest.",
+      "role": "other"
+     },
+     {
+      "t": "Mr. Hamdan only smiled and went on polishing the oranges.",
+      "role": "key"
+     }
+    ],
+    "explain": "The text never says why he keeps the shop. But his care (**perfect pyramids**, **greeting people by name**) and his calm refusal (**only smiled and went on polishing**) let us infer that the shop means more to him than money. It is part of who he is."
+   },
+   "together": {
+    "passage": "The telescope had a scratch on its side and a lens that needed cleaning, but Tariq would not hear of buying a new one. On clear nights he carried it to the roof, just as his grandfather had done when Tariq was small. As he pointed it at Saturn, he could almost hear the old man's voice: \"Patience. The sky rewards those who wait.\" His sister laughed that the new models could find planets by themselves. Tariq said nothing; he simply wiped the lens with the soft cloth his grandfather had always kept in his pocket.",
+    "stem": "What can the reader infer about Tariq's feelings toward his grandfather's old telescope?",
+    "options": [
+     "He thinks it is too old to be useful.",
+     "He wants to sell it to buy a new one.",
+     "He is afraid he will break it.",
+     "It reminds him of the time he shared with his grandfather."
+    ],
+    "answer": 3,
+    "hint": "That choice is not supported by what Tariq does. Look at what he remembers and how he treats the telescope.",
+    "good": "Yes! He hears his grandfather's voice and cleans the lens with care. The telescope keeps their time together alive for him."
+   },
+   "evidence": {
+    "sentences": [
+     "The telescope had a scratch on its side and a lens that needed cleaning, but Tariq would not hear of buying a new one.",
+     "On clear nights he carried it to the roof, just as his grandfather had done when Tariq was small.",
+     "As he pointed it at Saturn, he could almost hear the old man's voice: \"Patience. The sky rewards those who wait.\"",
+     "His sister laughed that the new models could find planets by themselves.",
+     "Tariq said nothing; he simply wiped the lens with the soft cloth his grandfather had always kept in his pocket."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the telescope reminds Tariq of his grandfather. Tap 2 sentences that support this inference.",
+    "wrong": "This sentence describes the telescope or what his sister thinks. Find the details that connect the telescope to his grandfather."
+   },
+   "checks": [
+    {
+     "passage": "Layla had practised the speech for weeks. When she reached the stage, the room was silent. She looked at the paper in her hands, then folded it and put it in her pocket. Speaking slowly, she told the audience about the day she first arrived at the school, not knowing a single word of English. By the end, several teachers were wiping their eyes.",
+     "stem": "Why does Layla most likely fold away her paper?",
+     "options": [
+      "She forgot to bring the right speech.",
+      "She decides to speak from her heart instead.",
+      "She is too nervous to read it.",
+      "The teachers asked her to stop reading."
+     ],
+     "answer": 1,
+     "why": "She speaks slowly about a personal memory and moves the audience, which suggests she chose to speak from the heart, not that she forgot or panicked."
+    },
+    {
+     "passage": "The narrator says that Captain Rashid was a careful leader. Before every voyage he checked each rope himself. He studied the weather for days. Once, when the sky looked uncertain, he kept the ship in port while others sailed, and two of those ships were damaged in the storm.",
+     "stem": "Which detail best supports the idea that Rashid is careful?",
+     "options": [
+      "He kept the ship in port when the weather looked uncertain.",
+      "Two other ships were damaged in the storm.",
+      "He was the captain of a ship.",
+      "Others sailed out of the port."
+     ],
+     "answer": 0,
+     "why": "Staying in port when the weather was uncertain shows his care. The other details are about other ships or just facts."
+    },
+    {
+     "passage": "I know the path by heart: the bent palm,\nthe blue gate, the well with its stone lid.\nToday the gate is painted white,\nthe well is gone, a road runs where it was,\nand I stand still, a stranger on my own street.",
+     "stem": "What can the reader infer about the speaker?",
+     "options": [
+      "The speaker has just moved to this street.",
+      "The speaker likes the new white gate.",
+      "The speaker has come back after a long time and feels lost.",
+      "The speaker is lost because the path is dark."
+     ],
+     "answer": 2,
+     "why": "The speaker knows the old path by heart, but things have changed, and now feels like \"a stranger\". This shows a return after a long time."
+    }
+   ],
+   "again": {
+    "title": "Three clues rule",
+    "text": "When an inference is hard, list **three clues** from different parts of the text.\n\nThen ask: What single idea explains all three? That idea is your inference.",
+    "example": "Clues: Adel checks his phone often. He keeps looking at the door. He jumps up when the bell rings.\n\nOne idea that explains them all: **Adel is waiting for someone important to arrive.**"
+   }
+  }
+ }
+}

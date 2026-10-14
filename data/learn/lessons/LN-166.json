@@ -1,0 +1,485 @@
+{
+ "code": "LN-166",
+ "title": "Character traits",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.3",
+  "RL.3.3",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.6.3",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "character"
+ ],
+ "skillNames": [
+  "Character Traits & Development"
+ ],
+ "statements": [
+  "R-0173",
+  "R-0280",
+  "R-0281",
+  "R-0439",
+  "R-0448",
+  "R-0637",
+  "R-0638",
+  "R-0830",
+  "R-0831",
+  "R-0984",
+  "R-0997",
+  "R-1078"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a character trait?",
+     "text": "A **trait** tells what a character is **like** inside.\n\nKind, brave, funny and lazy are traits."
+    },
+    {
+     "title": "Actions show traits",
+     "text": "We learn traits from what a character **does** and **says**.\n\nA boy helps an old man cross the road. He is **kind**."
+    },
+    {
+     "title": "How to find a trait",
+     "text": "1. Read what the character does.\n2. Ask: **What kind of person does this?**\n3. Pick one word."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentences that show what the character **does** or **says**.\n\nThose actions prove the trait.\n\nIf the story does not show it, it is not the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda sees a boy fall down.",
+      "role": "other"
+     },
+     {
+      "t": "She helps him get up.",
+      "role": "key"
+     },
+     {
+      "t": "She gives him her water.",
+      "role": "key"
+     }
+    ],
+    "explain": "Huda **helps** the boy and **gives** him water.\n\nWhat kind of person does that? A **kind** person."
+   },
+   "together": {
+    "passage": "A bee flies into the classroom. The children scream and run. Saad does not run. He picks up the bee on a leaf and takes it outside.",
+    "stem": "Which word best describes Saad?",
+    "options": [
+     "Lazy",
+     "Rude",
+     "Scared",
+     "Brave"
+    ],
+    "answer": 3,
+    "hint": "What does Saad do when the others run away?",
+    "good": "Yes! Saad does not run. He picks up the bee on a leaf and carries it outside. He is brave."
+   },
+   "evidence": {
+    "sentences": [
+     "A bee flies into the classroom.",
+     "The children scream and run.",
+     "Saad does not run.",
+     "He picks up the bee on a leaf and takes it outside."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Saad is brave. Tap 2 sentences that show what Saad does.",
+    "wrong": "This sentence is about the bee or the other children. Find what Saad does."
+   },
+   "checks": [
+    {
+     "passage": "Mona finds a wallet on the street. She takes it to the police. She does not keep any money.",
+     "stem": "Which word best describes Mona?",
+     "options": [
+      "Honest",
+      "Sleepy",
+      "Funny",
+      "Mean"
+     ],
+     "answer": 0,
+     "why": "Mona gives the wallet back and keeps no money. She is honest."
+    },
+    {
+     "passage": "Zaid tells jokes at lunch. He makes funny faces. All his friends laugh.",
+     "stem": "Which word best describes Zaid?",
+     "options": [
+      "Shy",
+      "Sad",
+      "Funny",
+      "Angry"
+     ],
+     "answer": 2,
+     "why": "Zaid tells jokes and makes funny faces. His friends laugh. He is funny."
+    },
+    {
+     "passage": "Nawaf takes the biggest piece of cake. He does not say thank you. He pushes his sister away.",
+     "stem": "Which word best describes Nawaf?",
+     "options": [
+      "Kind",
+      "Rude",
+      "Helpful",
+      "Quiet"
+     ],
+     "answer": 1,
+     "why": "He takes the biggest piece, does not say thank you and pushes his sister. He is rude."
+    }
+   ],
+   "again": {
+    "title": "Do, so is",
+    "text": "Use this frame:\n\nThe character **does** ____, **so** the character **is** ____.",
+    "example": "Lama shares her pencils with everyone, so Lama is **generous**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Traits and feelings",
+     "text": "A **trait** is what a character is like most of the time: patient, curious, selfish.\n\nA **feeling** is how they feel at one moment: angry, happy, nervous.\n\nDo not mix them up!"
+    },
+    {
+     "title": "Four ways to learn about a character",
+     "text": "1. What the character **says**\n2. What the character **does**\n3. What the character **thinks**\n4. What **other characters** say about them"
+    },
+    {
+     "title": "Look for a pattern",
+     "text": "One action can be an accident. When a character does similar things **again and again**, that shows a trait.\n\nFind **two or more** details that point to the same trait."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a trait:\n\n1. Find what the character says, does or thinks.\n2. Find **at least two** details that show the same quality.\n3. Pick the trait word that **all** of them support.\n\nIf only one small detail fits, look again."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rakan asked his teacher how volcanoes form.",
+      "role": "key"
+     },
+     {
+      "t": "After school, he read three books about them.",
+      "role": "key"
+     },
+     {
+      "t": "Then he built a small model to see how lava flows.",
+      "role": "key"
+     },
+     {
+      "t": "His mother smiled and said, \"You always want to know why!\"",
+      "role": "detail"
+     }
+    ],
+    "explain": "Rakan **asks questions**, **reads** and **builds a model** to learn more. His mother says he always wants to know why.\n\nAll the details point to one trait: **curious**."
+   },
+   "together": {
+    "passage": "Grandfather Ali took Omar fishing at the old harbour. They waited for two hours without a single bite, but Grandfather only hummed and watched the water. Omar asked, \"When will a fish come?\" five times, and each time Grandfather calmly said, \"Soon.\" When a big fish finally pulled the line and then escaped, Grandfather smiled and put new bait on the hook. By sunset, they had caught two fish for dinner.",
+    "stem": "Which word best describes Grandfather Ali?",
+    "options": [
+     "Careless",
+     "Patient",
+     "Impatient",
+     "Forgetful"
+    ],
+    "answer": 1,
+    "hint": "Look at how Grandfather acts each time the fish gets away and each time Omar asks a question.",
+    "good": "Yes! He waits for hours, calmly answers the same question, and smiles when the fish escapes. He is patient."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandfather Ali took Omar fishing at the old harbour.",
+     "They waited for two hours without a single bite, but Grandfather only hummed and watched the water.",
+     "Omar asked, \"When will a fish come?\" five times, and each time Grandfather calmly said, \"Soon.\"",
+     "When a big fish finally pulled the line and then escaped, Grandfather smiled and put new bait on the hook.",
+     "By sunset, they had caught two fish for dinner."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Grandfather is patient. Tap 2 sentences that show his patience.",
+    "wrong": "This sentence tells where they went or what they caught. Find what Grandfather does or says that shows patience."
+   },
+   "checks": [
+    {
+     "passage": "Every day, Dana counted her coins and wrote the amount in a notebook. She did not buy sweets at the school shop. After six months, she had saved enough to buy a new bicycle.",
+     "stem": "Which detail best shows that Dana is careful with money?",
+     "options": [
+      "She wanted a new bicycle.",
+      "She went to school every day.",
+      "Six months went by.",
+      "She did not buy sweets at the school shop."
+     ],
+     "answer": 3,
+     "why": "Choosing not to buy sweets so she can save shows that Dana is careful with money."
+    },
+    {
+     "passage": "Reem saw that the new girl was eating lunch alone. She picked up her tray and sat beside her. \"I'm Reem,\" she said. \"Do you want to join our game after lunch?\"",
+     "stem": "Which word best describes Reem?",
+     "options": [
+      "Friendly",
+      "Bossy",
+      "Shy",
+      "Selfish"
+     ],
+     "answer": 0,
+     "why": "Reem sits with the new girl, introduces herself and invites her to play. She is friendly."
+    },
+    {
+     "passage": "Hamad's mother asked him to clean his room. He pushed his clothes under the bed and said, \"Done!\" Later, he told his teacher that his dog had eaten his homework, but he did not have a dog.",
+     "stem": "What do Hamad's actions show about him?",
+     "options": [
+      "He is hard-working and tidy.",
+      "He is very honest.",
+      "He takes shortcuts and is not truthful.",
+      "He is scared of his teacher."
+     ],
+     "answer": 2,
+     "why": "He hides clothes instead of cleaning and makes up a story about a dog he does not have."
+    }
+   ],
+   "again": {
+    "title": "Trait or feeling?",
+    "text": "Ask: **Is it true most of the time, or only right now?**\n\nMost of the time = **trait**.\nOnly right now = **feeling**.",
+    "example": "Jana is **upset** because she lost her pen. That is a **feeling**.\n\nJana always helps her classmates find lost things. She is **helpful**. That is a **trait**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Precise trait words",
+     "text": "Good readers use **precise** trait words.\n\nInstead of \"nice\", try **generous**, **considerate**, **loyal** or **gentle**. Instead of \"bad\", try **jealous**, **stubborn** or **dishonest**."
+    },
+    {
+     "title": "Thoughts reveal traits",
+     "text": "A character's **thoughts** show what they are really like, even when their actions hide it.\n\nA girl who smiles but thinks, \"I hope she fails,\" is **jealous**, not kind."
+    },
+    {
+     "title": "Others' reactions",
+     "text": "How **other characters** react is also a clue. If people trust a character with secrets, the character is probably **trustworthy**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Gather details: words, actions, thoughts, and others' reactions.\n2. Decide which trait **most** of them show.\n3. Test the trait word: is it **precise**? Does any detail **contradict** it?\n\nChoose the word with the most support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When the class voted for a leader, Nasser smiled and clapped for Faisal.",
+      "role": "detail"
+     },
+     {
+      "t": "But inside, he thought, \"I should have won. Everyone likes Faisal for no reason.\"",
+      "role": "key"
+     },
+     {
+      "t": "Later, when Faisal asked for help planning the class trip, Nasser said he was busy.",
+      "role": "key"
+     }
+    ],
+    "explain": "Nasser **claps**, so he looks happy for Faisal. But his **thoughts** and his **refusal** to help show he is **jealous**.\n\nThoughts reveal the truth that actions hide."
+   },
+   "together": {
+    "passage": "Sultan's neighbour was travelling for a week and asked him to feed her cat. Sultan wrote the feeding times on a card and set two alarms on his phone. On the third day, he noticed the cat's water bowl was cracked and replaced it with one from his own kitchen. His friends invited him to the beach for the whole day, but he said he would come after the evening feeding. When the neighbour returned, she said, \"Next time I travel, I know exactly who to ask.\"",
+    "stem": "Which word best describes Sultan?",
+    "options": [
+     "Responsible",
+     "Careless",
+     "Selfish",
+     "Fearful"
+    ],
+    "answer": 0,
+    "hint": "Look at what Sultan does even though no one asks him, and what his neighbour says.",
+    "good": "Yes! He checks every task without being asked, and his neighbour trusts him with the keys. Sultan is responsible."
+   },
+   "evidence": {
+    "sentences": [
+     "Sultan's neighbour was travelling for a week and asked him to feed her cat.",
+     "Sultan wrote the feeding times on a card and set two alarms on his phone.",
+     "On the third day, he noticed the cat's water bowl was cracked and replaced it with one from his own kitchen.",
+     "His friends invited him to the beach for the whole day, but he said he would come after the evening feeding.",
+     "When the neighbour returned, she said, \"Next time I travel, I know exactly who to ask.\""
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Sultan is responsible. Tap 2 sentences that show this trait.",
+    "wrong": "This sentence only explains the job Sultan was given. Find what he does, or what someone says about him, that shows he is responsible."
+   },
+   "checks": [
+    {
+     "passage": "Abeer's science project fell apart the night before the fair. She did not cry or give up. She found some glue and cardboard, rebuilt the model, and practised her talk until midnight. At the fair, she smiled and explained it as if nothing had gone wrong.",
+     "stem": "Which word best describes Abeer?",
+     "options": [
+      "Careless",
+      "Lazy",
+      "Determined",
+      "Shy"
+     ],
+     "answer": 2,
+     "why": "She does not give up; she rebuilds the model and practises late into the night. She is determined."
+    },
+    {
+     "passage": "Badr had promised to keep his friend's secret about the surprise party. When other boys tried to make him tell, he changed the subject. Even when his own brother begged, he only smiled and said, \"You'll see.\"",
+     "stem": "Which trait do Badr's actions show?",
+     "options": [
+      "Forgetful",
+      "Loyal",
+      "Boastful",
+      "Impatient"
+     ],
+     "answer": 1,
+     "why": "Badr keeps his promise even under pressure from friends and his own brother. He is loyal."
+    },
+    {
+     "passage": "Uncle Fahd always said he would fix the leaking tap \"tomorrow\". For months, a bucket sat under it. When his wife bought a new tap, he said he would put it in at the weekend. The box is still in the cupboard.",
+     "stem": "Which detail best shows that Uncle Fahd puts things off?",
+     "options": [
+      "His wife bought a new tap.",
+      "A bucket was needed.",
+      "The tap was in the kitchen.",
+      "He always said he would fix it \"tomorrow\"."
+     ],
+     "answer": 3,
+     "why": "Always saying he will do it tomorrow, again and again, shows he puts things off."
+    }
+   ],
+   "again": {
+    "title": "Find the pattern",
+    "text": "List three things the character does or thinks. Then ask: **What one word fits all three?**",
+    "example": "1. Maryam gives her old clothes to charity.\n2. She shares her lunch with a classmate who forgot his.\n3. She spends her pocket money on a gift for her teacher.\n\nOne word that fits all three: **generous**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex characters",
+     "text": "Real people are not just \"good\" or \"bad\". Strong stories give characters **mixed traits**: brave but reckless, proud but caring.\n\nTo describe them well, you may need **two** trait words."
+    },
+    {
+     "title": "Direct and indirect",
+     "text": "**Direct characterisation:** the author tells you the trait (\"Salma was stubborn\").\n\n**Indirect characterisation:** the author shows it through speech, thoughts, actions and others' reactions. You must **infer** the trait."
+    },
+    {
+     "title": "Traits under pressure",
+     "text": "Traits are clearest when a character is under **pressure**.\n\nA difficult choice reveals who a character really is. Pay close attention to these moments."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Note any **direct** statements about the character.\n2. Gather **indirect** evidence: speech, thoughts, actions, reactions.\n3. Choose the description that fits **all** the evidence, including details that seem to contradict each other.\n\nA complex character may need a description with two sides."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Captain Majid refused to turn the boat back, even when his crew warned him that the storm was coming.",
+      "role": "key"
+     },
+     {
+      "t": "\"We will reach the island first,\" he said, gripping the wheel.",
+      "role": "key"
+     },
+     {
+      "t": "But when a wave threw a young sailor overboard, the captain was the first to dive in after him.",
+      "role": "key"
+     },
+     {
+      "t": "Later, he admitted quietly that he should have listened.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Majid is **stubborn and proud**: he ignores warnings. But he is also **brave and caring**: he risks his life for a sailor.\n\nHe is a complex character, best described as **reckless but courageous**."
+   },
+   "together": {
+    "passage": "As captain of the school volleyball team, Hessa made everyone run extra laps if they were late, and she never accepted excuses. Some players called her bossy behind her back. But when Sara, the weakest player, kept missing her serves, Hessa stayed after practice every day for two weeks to help her. At the trophy ceremony, Hessa handed the microphone to Sara and said the team had won because of everyone's effort, not hers. The coach said that she had never seen a captain like her.",
+    "stem": "Which description best fits Hessa?",
+    "options": [
+     "Lazy and careless with her work",
+     "Shy and afraid to speak up",
+     "Demanding with others, yet fair and caring",
+     "Cheerful and relaxed about everything"
+    ],
+    "answer": 2,
+    "hint": "Hessa has more than one side. Look at how she treats the team AND what she does when someone struggles.",
+    "good": "Yes! She is strict and demanding, but she also stays late to help a teammate and gives credit to others."
+   },
+   "evidence": {
+    "sentences": [
+     "As captain of the school volleyball team, Hessa made everyone run extra laps if they were late, and she never accepted excuses.",
+     "Some players called her bossy behind her back.",
+     "But when Sara, the weakest player, kept missing her serves, Hessa stayed after practice every day for two weeks to help her.",
+     "At the trophy ceremony, Hessa handed the microphone to Sara and said the team had won because of everyone's effort, not hers.",
+     "The coach said that she had never seen a captain like her."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Hessa is demanding, yet fair and caring. Tap 2 sentences that show different sides of her.",
+    "wrong": "This sentence is someone else's opinion. Find what Hessa herself does that shows her traits."
+   },
+   "checks": [
+    {
+     "passage": "Professor Jaber's students said he was the toughest teacher in the university. He returned essays covered in red ink and never gave a top mark without reason. Yet former students wrote to him for years afterwards, and many said his comments had taught them to think. When one student failed his course, Jaber spent his weekends helping him prepare to retake the exam.",
+     "stem": "Which description best fits Professor Jaber?",
+     "options": [
+      "Unkind and unfair to his students",
+      "Strict but devoted to his students' success",
+      "Relaxed and easy to please",
+      "Forgetful about his students"
+     ],
+     "answer": 1,
+     "why": "He is tough on marks, but his students value his teaching and he gives up weekends to help a struggling student."
+    },
+    {
+     "passage": "\"I don't need anyone's help,\" Tariq said, as he tried for the third time to lift the heavy box of books alone. His face was red and his arms were shaking. When his younger cousin offered to take one end, Tariq hesitated, then nodded without a word.",
+     "stem": "What do Tariq's words and actions together reveal?",
+     "options": [
+      "He is weak and cannot lift anything.",
+      "He enjoys working with his cousin.",
+      "He does not like books.",
+      "He is proud, but he can accept help when he must."
+     ],
+     "answer": 3,
+     "why": "He insists he needs no help, which shows pride, but he finally nods when his cousin offers. He can accept help."
+    },
+    {
+     "passage": "In a story, the narrator says only this about Mr. Hamdan: \"He was a man of few words.\" Later, he leaves a bag of groceries every week at the door of a family who has fallen on hard times, never knocking and never telling anyone. When the family's daughter thanks him in the street, he simply nods and walks on.",
+     "stem": "How does the author develop Mr. Hamdan's character?",
+     "options": [
+      "Through his actions, which show quiet generosity",
+      "Through long speeches he gives",
+      "Through what the family says about him at length",
+      "Through his angry thoughts"
+     ],
+     "answer": 0,
+     "why": "The narrator says little, but his secret weekly gifts and his quiet nod show his generous, modest nature."
+    }
+   ],
+   "again": {
+    "title": "But also",
+    "text": "For complex characters, use this frame:\n\nThe character is ____, **but also** ____, because ____.",
+    "example": "Rashid is **impatient**, but also **loyal**, because he shouts when his friends are late, yet he never once misses a match when they play."
+   }
+  }
+ }
+}

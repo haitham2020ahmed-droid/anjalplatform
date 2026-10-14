@@ -76,16 +76,18 @@ const itemCache = new Map<string, { version: number; at: number; items: Practice
  * One question bank: the items of the skill's whole FAMILY (the same skill in every grade; Concept Vocabulary stays
  * with its grade), each tagged with THIS skill (skillKey), so mastery and attempts stay on the skill opened. The
  * cache is per family (one copy for all its grades). `questionIds`: only the questions a teacher chose, in order.
+ * `wholePool` (r67, skill practice): the skill's WHOLE pool — every grade's copy AND the Curriculum Map questions of
+ * those skills — so a skill is never judged "out of questions" while questions of it exist anywhere.
  */
-export async function loadSkillItems(repo: Repo, skillId: string, opts: { questionIds?: string[] } = {}): Promise<PracticeItem[]> {
+export async function loadSkillItems(repo: Repo, skillId: string, opts: { questionIds?: string[]; wholePool?: boolean } = {}): Promise<PracticeItem[]> {
   const tag = (items: PracticeItem[]) => { for (const i of items) i.skillKey = skillId; return items; };
   if (opts.questionIds?.length) return tag(await loadQuestionItems(repo, [...new Set(opts.questionIds.map(str))]));
   const fam = await skillFamilyIds(repo, skillId);
-  const key = [...fam].sort().join(",") || skillId;
+  const key = ([...fam].sort().join(",") || skillId) + (opts.wholePool ? "|all" : "");
   const hit = itemCache.get(key);
   if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return atLevelOf(repo, skillId, tag(structuredClone(hit.items)));
   const version = bankVersion();
-  const items = await loadItemsForSkills(repo, fam.length ? fam : [skillId]);
+  const items = await loadItemsForSkills(repo, fam.length ? fam : [skillId], { includeMapLinked: Boolean(opts.wholePool) });
   if (itemCache.size >= ITEM_CACHE_MAX) itemCache.clear();
   itemCache.set(key, { version, at: Date.now(), items: structuredClone(items) });
   return atLevelOf(repo, skillId, tag(items));
@@ -108,11 +110,11 @@ async function atLevelOf(repo: Repo, skillId: string, items: PracticeItem[]): Pr
  * Load every PUBLISHED bank item for several skills at once (practice pools, placement checks). Curriculum Map
  * questions are not bank questions: they are left out (they are practised through their lesson's assignment).
  */
-export async function loadItemsForSkills(repo: Repo, skillIds: string[]): Promise<PracticeItem[]> {
+export async function loadItemsForSkills(repo: Repo, skillIds: string[], opts: { includeMapLinked?: boolean } = {}): Promise<PracticeItem[]> {
   if (!skillIds.length) return [];
   const [qs, onMap, grades] = await Promise.all([
     repo.findMany("Question", { skillId: { in: skillIds }, status: "PUBLISHED", deletedAt: null }, { select: ITEM_COLUMNS }),
-    mapLinkedQuestionIds(repo),
+    opts.includeMapLinked ? Promise.resolve(new Set<string>()) : mapLinkedQuestionIds(repo),
     skillGrades(repo, skillIds),
   ]);
   const items = await buildItems(repo, qs.filter((q) => !onMap.has(str(q.id))), true);

@@ -121,13 +121,13 @@ export async function checkDetails(repo: Repo, pairs: { assignmentId: string; st
   const sessions = await repo.findMany("PracticeSession", { assignmentId: { in: aids }, studentId: { in: sids } }, { select: ["id", "assignmentId", "studentId"] });
   if (!sessions.length) return out;
   const keyOf = new Map(sessions.map((x) => [s(x.id), `${s(x.assignmentId)}|${s(x.studentId)}`]));
-  const attempts = await repo.findMany("QuestionAttempt", { sessionId: { in: [...keyOf.keys()] } }, { select: ["sessionId", "questionId", "isCorrect", "partialCredit", "difficultyB", "rapidGuess"] });
+  const attempts = await repo.findMany("QuestionAttempt", { sessionId: { in: [...keyOf.keys()] } }, { select: ["sessionId", "questionId", "isCorrect", "partialCredit", "difficultyB", "rapidGuess", "unreliable"] });
   const params = await scoringParams(repo, attempts.map((a) => s(a.questionId)));
   const by = new Map<string, Row[]>();
   for (const a of attempts) { const k = keyOf.get(s(a.sessionId))!; const l = by.get(k); if (l) l.push(a); else by.set(k, [a]); }
   for (const [k, list] of by) {
     const seen = new Set<string>(); const valid: Row[] = []; let rapid = 0;
-    for (const a of list) { if (seen.has(s(a.questionId))) continue; seen.add(s(a.questionId)); if (a.rapidGuess) rapid++; else valid.push(a); }
+    for (const a of list) { if (seen.has(s(a.questionId))) continue; seen.add(s(a.questionId)); if (a.rapidGuess) rapid++; else if (!a.unreliable) valid.push(a); }
     const credit = (a: Row) => (a.partialCredit !== null && a.partialCredit !== undefined ? Number(a.partialCredit) : a.isCorrect ? 1 : 0);
     const est = valid.length ? pooledTheta(valid.map((a) => ({ b: Number(a.difficultyB) || 0, c: params.get(s(a.questionId))?.c ?? 0, credit: credit(a), weight: 1 })), { mean: 0, sd: CHECK_PRIOR_SD }) : null;
     out.set(k, { items: valid.length, correct: valid.reduce((t, a) => t + credit(a), 0), rapid, theta: est ? est.theta : null, se: est ? est.se : null });
@@ -170,7 +170,7 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
     const from = new Date(Math.min(...noGain.map((x) => x.from.getTime())));
     const sids = [...new Set(noGain.map((x) => x.id))], skids = [...new Set(noGain.map((x) => x.skillId))];
     for (let i = 0; i < sids.length; i += CHUNK) {
-      const rows = await repo.findMany("QuestionAttempt", { studentId: { in: sids.slice(i, i + CHUNK) }, skillId: { in: skids }, rapidGuess: false, createdAt: { gte: from, lte: now } }, { select: ["studentId", "skillId", "createdAt"] });
+      const rows = await repo.findMany("QuestionAttempt", { studentId: { in: sids.slice(i, i + CHUNK) }, skillId: { in: skids }, rapidGuess: false, unreliable: false, createdAt: { gte: from, lte: now } }, { select: ["studentId", "skillId", "createdAt"] });
       const at = new Map<string, number[]>();
       for (const r of rows) { const k = `${s(r.studentId)}|${s(r.skillId)}`; const l = at.get(k); const t = d(r.createdAt)?.getTime() ?? 0; if (l) l.push(t); else at.set(k, [t]); }
       const these = new Set(sids.slice(i, i + CHUNK));

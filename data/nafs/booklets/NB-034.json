@@ -1,0 +1,568 @@
+{
+  "code": "NB-034",
+  "title": "All the Time in the World",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 474,
+  "passage": "For as long as I can remember, I have been terrified of deep water. At the swimming pool, I always remained in the shallow end, where my feet could touch the reassuring tiles, while my cousins dived fearlessly from the edge. So when my uncle Faisal, a marine biologist, invited our family to explore the coast of Umluj during the winter holiday, I felt an uncomfortable mixture of excitement and dread. I desperately wanted to see the famous coral reefs, yet I was secretly convinced that I would spend the entire trip sitting alone on the beach.\n\nWe drove north along the Red Sea coast to Umluj, and the following morning Uncle Faisal took us by boat to a sheltered bay. The water was so transparent that I could distinguish the shadows of fish gliding over the sand far below. My brother Hamad pulled on his mask and plunged in immediately, splashing and shouting with delight. I stayed on the boat, gripping my life jacket so tightly that my knuckles turned white.\n\nUncle Faisal sat down beside me and, for a while, said nothing at all. Eventually he gestured toward the glittering surface. \"Do you know what the most important quality of a snorkeller is, Noura?\" he asked. I shook my head, assuming that he would say courage. \"Patience,\" he replied gently. \"The reef will not swim away, so you can float beside the boat, holding the ladder, for as long as you need, and when you feel ready, you can simply lower your face into the water.\"\n\nHis calm words loosened something that had been knotted inside me for years. I climbed cautiously down the ladder, clutching the metal rail with both hands, and lowered my face into the sea. For a moment I forgot to breathe through my snorkel, and then, quite suddenly, an extraordinary world opened beneath me. A shoal of tiny blue fish flashed past like a handful of scattered sapphires, while a striped fish nibbled at a coral shaped like an enormous brain. A sea turtle drifted lazily through the shafts of sunlight, as though it had all the time in the world.\n\nI do not know how long I remained there, but when I finally lifted my head, my fingers were wrinkled and my fear had vanished. By the end of the afternoon, I had released the ladder and was swimming beside Uncle Faisal, who identified each creature and patiently told me its name.\n\nThat evening, as the sun sank into the Red Sea, I realised that I had not needed to become courageous all at once; I had only needed to take one small step, and then another. Now, whenever something frightens me, I remember the turtle drifting so calmly through the water, and I remind myself that I, too, have all the time in the world.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “dread” as it is used in paragraph 1?",
+      "options": [
+        "boredom",
+        "hunger",
+        "pride",
+        "fear"
+      ],
+      "answer": "D",
+      "why": "Noura is terrified of deep water, so the feeling mixed with her excitement is “dread”, a strong fear of what may happen."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “cautiously” as it is used in paragraph 4?",
+      "options": [
+        "carefully",
+        "slowly",
+        "nervously",
+        "recklessly"
+      ],
+      "answer": "D",
+      "why": "“Cautiously” means carefully, avoiding danger; the opposite is “recklessly”. “Carefully” and “slowly” are close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “The water was so transparent that I could distinguish the shadows of fish gliding over the sand far below.” What does “transparent” mean?",
+      "options": [
+        "deep and dark",
+        "warm and calm",
+        "clear enough to see through",
+        "full of waves"
+      ],
+      "answer": "C",
+      "why": "Noura could see shadows on the sand far below, so the water must have been clear enough to see through."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a VERB?",
+      "options": [
+        "cautiously",
+        "lowered",
+        "extraordinary",
+        "enormous"
+      ],
+      "answer": "B",
+      "why": "“Lowered” is an action (“lowered my face into the sea”); “cautiously” is an adverb and “extraordinary” and “enormous” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the story is IRREGULAR?",
+      "options": [
+        "cousins",
+        "fish",
+        "knuckles",
+        "tiles"
+      ],
+      "answer": "B",
+      "why": "“Fish” stays the same in the plural (“shadows of fish”); the other words simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “courageous” in paragraph 6?",
+      "options": [
+        "course",
+        "court",
+        "cousin",
+        "courage"
+      ],
+      "answer": "D",
+      "why": "“Courageous” is the adjective formed from the noun “courage”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “reassuring” in a meaningful sentence of your own.",
+      "model": "Before the exam, my teacher's reassuring smile helped me to stop worrying and concentrate on the questions.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “reassuring” with its meaning (making someone feel less worried and more confident)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Reassuring” describes something that makes you feel calmer and less afraid."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “life jacket”?",
+      "options": [
+        "lives jacket",
+        "life jackets",
+        "lifes jackets",
+        "lives jackets"
+      ],
+      "answer": "B",
+      "why": "In a compound noun like this, only the main word, “jacket”, becomes plural: life jackets."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Do you know what the most important quality of a snorkeller is, Noura?” in paragraph 3?",
+      "options": [
+        "a command",
+        "an exclamation",
+        "a statement",
+        "a question"
+      ],
+      "answer": "D",
+      "why": "Uncle Faisal is asking Noura something, and the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "One Small Step into the Sea",
+        "Hamad's Diving Lesson",
+        "The Road to Umluj",
+        "A Marine Biologist's Job"
+      ],
+      "answer": "A",
+      "why": "The story is about Noura overcoming her fear by taking “one small step, and then another”."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how coral reefs are formed",
+        "to describe the road trip along the coast to Umluj",
+        "to show how patience helped a girl overcome her fear",
+        "to teach readers the names of reef fish"
+      ],
+      "answer": "C",
+      "why": "The story follows Noura from fear to confidence, helped by her uncle's advice about patience."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Uncle Faisal tells Noura she must be braver than her brother.",
+        "Uncle Faisal calmly teaches Noura that she can take her time.",
+        "Uncle Faisal explains how to breathe through a snorkel.",
+        "Uncle Faisal decides to take the family back to the hotel."
+      ],
+      "answer": "B",
+      "why": "In paragraph 3 the uncle sits quietly with Noura and tells her that patience matters and that she can wait “for as long as you need”."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Noura always stay in the shallow end of the swimming pool?",
+      "options": [
+        "She was afraid of deep water.",
+        "Her cousins told her to stay there.",
+        "She could not see well under water.",
+        "The deep end was closed."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: “I have been terrified of deep water … I always remained in the shallow end.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a personal narrative",
+        "a science article",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "Noura tells a true-to-life experience from her own life using “I”, with her feelings and a lesson learned."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Noura grip her life jacket so tightly in paragraph 2?",
+      "options": [
+        "She was shivering with cold after swimming.",
+        "The boat was moving very fast across the bay.",
+        "She was afraid to get into the deep water.",
+        "Hamad had splashed her with cold seawater."
+      ],
+      "answer": "C",
+      "why": "She stayed on the boat while Hamad swam, holding the jacket so tightly her knuckles turned white, which shows her fear."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Noura saw a sea turtle drifting through the sunlight.",
+        "Noura let go of the ladder.",
+        "Hamad plunged into the water.",
+        "Uncle Faisal named each creature for Noura."
+      ],
+      "answer": "C",
+      "why": "Hamad jumped in as soon as they reached the bay (paragraph 2), before Noura entered the water."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "Uncle Faisal",
+        "Hamad",
+        "an outside narrator",
+        "Noura"
+      ],
+      "answer": "D",
+      "why": "The narrator says “I”, and Uncle Faisal calls her Noura."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why Uncle Faisal could teach Noura about the reef creatures?",
+      "options": [
+        "He is a marine biologist.",
+        "He owns a hotel in Umluj.",
+        "He is Hamad's father.",
+        "He is afraid of deep water."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says he is “a marine biologist”, a scientist who studies sea life, which explains how he knew each creature's name."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Noura's fear to start loosening in paragraph 4?",
+      "options": [
+        "Hamad laughing at her",
+        "her uncle's calm words about patience",
+        "the warm sunshine",
+        "seeing her cousins dive"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 begins: “His calm words loosened something that had been knotted inside me for years.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Uncle Faisal sit beside Noura and say nothing at first?",
+      "options": [
+        "He was too tired from the long boat ride to speak.",
+        "He was angry that she would not swim with her brother.",
+        "He wanted to give her time to feel calm first.",
+        "He was watching Hamad and had forgotten about Noura."
+      ],
+      "answer": "C",
+      "why": "His later advice is about patience and not hurrying, so his silence shows he was giving her time rather than pushing her."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How would you describe Noura's feeling when she first looked under the water?",
+      "options": [
+        "disappointed",
+        "bored",
+        "angry",
+        "amazed"
+      ],
+      "answer": "D",
+      "why": "She describes “an extraordinary world” opening beneath her and forgets to breathe, which shows amazement."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Noura at the end of the afternoon DIFFERENT from Noura at the start of the trip?",
+      "options": [
+        "She is now swimming instead of staying out of the water.",
+        "She is now afraid of the boat instead of the sea.",
+        "She now prefers the swimming pool to the open sea.",
+        "She is now even more frightened than she was before."
+      ],
+      "answer": "A",
+      "why": "At first she stays on the boat; by the end of the afternoon she has let go of the ladder and is swimming beside her uncle."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the EFFECT of Noura staying in the water for a long time?",
+      "options": [
+        "Her mask filled with water.",
+        "She lost her snorkel.",
+        "Her fingers wrinkled and her fear vanished.",
+        "She became very cold and climbed out quickly."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: “my fingers were wrinkled and my fear had vanished.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Uncle Faisal and the sea turtle have in common in the story?",
+      "options": [
+        "Both are calm and unhurried.",
+        "Both are afraid of deep water.",
+        "Both splash and shout loudly.",
+        "Both live on the coast of Umluj."
+      ],
+      "answer": "A",
+      "why": "The uncle tells Noura she can wait “for as long as you need”, and the turtle drifts “as though it had all the time in the world”; both show calm patience."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the simile “like a handful of scattered sapphires” describe?",
+      "options": [
+        "the coral shaped like a brain",
+        "the shoal of tiny blue fish",
+        "the sun sinking into the sea",
+        "the shadows on the sand"
+      ],
+      "answer": "B",
+      "why": "The tiny blue fish flash past and sparkle like blue jewels thrown in different directions."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Noura mean when she says his words “loosened something that had been knotted inside me for years”?",
+      "options": [
+        "Her life jacket had been tied too tightly.",
+        "Her stomach felt sick on the boat.",
+        "Her long-held fear began to relax.",
+        "She untied a rope from the ladder."
+      ],
+      "answer": "C",
+      "why": "It is figurative language: the “knot” is the fear she has carried for years, and the words begin to ease it."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer tell the story in the first person, using “I”?",
+      "options": [
+        "so readers can share Noura's private fear and feelings",
+        "so readers can learn the names of all the reef fish",
+        "so the story sounds more like a science report",
+        "so readers know exactly what Hamad is thinking"
+      ],
+      "answer": "A",
+      "why": "Using “I” lets the reader feel Noura's dread, her wonder and her final lesson from the inside."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which piece of advice from the story would be MOST useful to someone facing a fear?",
+      "options": [
+        "Jump in quickly before you can think.",
+        "Avoid the thing that frightens you for ever.",
+        "Wait until someone else does it for you.",
+        "Take one small step at a time, with patience."
+      ],
+      "answer": "D",
+      "why": "Noura learns that she “only needed to take one small step, and then another”."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Fears can be overcome gradually, with patience.",
+        "Children should never swim in the open sea.",
+        "Only marine biologists can truly enjoy coral reefs.",
+        "Brothers are always braver than their sisters."
+      ],
+      "answer": "A",
+      "why": "The final paragraph states the lesson: she did not need to become brave all at once, only to take small steps."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the END of the story?",
+      "options": [
+        "fear",
+        "calm confidence",
+        "jealousy",
+        "regret"
+      ],
+      "answer": "B",
+      "why": "Noura's fear has vanished and she now reminds herself calmly that she has “all the time in the world”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "which town the family visited",
+        "how old Noura is",
+        "what Uncle Faisal's job is",
+        "what animal drifted through the sunlight"
+      ],
+      "answer": "B",
+      "why": "Noura's age is never given; the town of Umluj, her uncle's job and the sea turtle are all stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A sea turtle speaks to Noura and tells her not to be afraid of the water.",
+        "The tiny blue fish turn into real sapphires in Noura's hand.",
+        "Noura breathes underwater without a snorkel all afternoon long.",
+        "A girl who fears deep water learns to snorkel with her uncle's help."
+      ],
+      "answer": "D",
+      "why": "Overcoming fear step by step with support is realistic; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Turtle Who Talked",
+        "Lost on the Road to Umluj",
+        "Hamad's Big Mistake",
+        "The Girl Who Learned to Float"
+      ],
+      "answer": "D",
+      "why": "The story describes Noura moving from fear to floating and swimming in the sea."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which Noura's fear is overcome in another way.",
+      "model": "Noura still could not put her face in the water that day, so Uncle Faisal lent her a glass-bottomed bucket to look through from the boat. When she saw the turtle gliding beneath her, she was so curious that she asked to try the ladder the next morning, and on the last day of the holiday she finally swam beside her brother.",
+      "rubric": [
+        "2 = a clear, new ending that fits the characters and shows Noura overcoming her fear in a believable way",
+        "1 = an ending is given but it is unclear, does not fit the story well, or does not deal with Noura's fear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible new ending that fits Noura and her uncle and resolves her fear in a believable way is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Based on the story, how can an adult best help a child who is afraid to try something new?",
+      "options": [
+        "by staying calm and letting the child go at their own pace",
+        "by offering a safe first step, such as holding the ladder",
+        "A and B",
+        "by telling the child that being afraid is silly"
+      ],
+      "answer": "C",
+      "why": "Uncle Faisal does both: he stays calm and patient, and he suggests a safe first step beside the boat."
+    }
+  ]
+}

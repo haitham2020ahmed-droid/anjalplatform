@@ -1,0 +1,477 @@
+{
+ "code": "LN-219",
+ "title": "Allusion",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.7.5.a",
+  "L.8.5.a",
+  "RI.8.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [],
+ "skillNames": [
+  "Allusion and Source Material"
+ ],
+ "statements": [
+  "R-0566",
+  "R-0782",
+  "R-0960",
+  "R-1064"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an allusion?",
+     "text": "An **allusion** is when a writer **mentions a famous story, person or event** without telling the whole story.\n\nThe writer expects you to **know** it."
+    },
+    {
+     "title": "An example",
+     "text": "You know the story of **the tortoise and the hare**. The slow tortoise wins the race because he keeps going.\n\n“Be the **tortoise**, Ali!” means: **go slowly and steadily, and you will win**."
+    },
+    {
+     "title": "How to read it",
+     "text": "1. Find a famous name or story.\n2. Remember what happens in it.\n3. Ask: how is my text **like** the famous story?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the parts of the text that are **like** the famous story.\n\nTap the sentences that show the same thing happening."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda learned five new words every day.",
+      "role": "key"
+     },
+     {
+      "t": "Her friend tried to learn fifty words the night before the test.",
+      "role": "key"
+     },
+     {
+      "t": "Huda got the best mark. She was the tortoise in the race.",
+      "role": "main"
+     }
+    ],
+    "explain": "In the famous story, the slow, steady tortoise beats the fast hare.\n\nHuda worked a little every day and won, **like the tortoise**."
+   },
+   "together": {
+    "passage": "Bader often shouted “Fire!” as a joke. Each time, everyone ran outside, and he laughed. One day there really was smoke in the kitchen. Nobody believed him. “You are the boy who cried wolf,” said his sister.",
+    "stem": "Why does his sister call Bader “the boy who cried wolf”?",
+    "options": [
+     "Bader saw a real wolf in the kitchen.",
+     "He lied before, so nobody believed him.",
+     "Bader is very afraid of wolves.",
+     "Bader likes to cook for his family."
+    ],
+    "answer": 1,
+    "hint": "There is no real wolf in the text. In the famous story, a boy shouts “Wolf!” as a joke many times. What happens when the wolf really comes?",
+    "good": "Yes! Like the boy in the story, Bader joked so often that nobody believed him when it was true."
+   },
+   "evidence": {
+    "sentences": [
+     "Bader often shouted “Fire!” as a joke.",
+     "Each time, everyone ran outside, and he laughed.",
+     "One day there really was smoke in the kitchen.",
+     "Nobody believed him.",
+     "“You are the boy who cried wolf,” said his sister."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: he lied before, so nobody believed him. Tap 2 sentences that show it.",
+    "wrong": "This sentence holds the allusion itself. Find what Bader DID and what HAPPENED."
+   },
+   "checks": [
+    {
+     "passage": "Our team was far ahead, so we stopped trying. The other team kept going and won. “We were the hare,” said the coach.",
+     "stem": "What does the coach mean?",
+     "options": [
+      "We were too sure of ourselves, so we lost.",
+      "We ran like rabbits.",
+      "We were the slowest team.",
+      "We won the race."
+     ],
+     "answer": 0,
+     "why": "In the story, the hare is far ahead, stops, and loses. The team did the same."
+    },
+    {
+     "passage": "Long ago, Hatim al-Tai was famous for giving to everyone. Today, Grandpa gives food to every guest who comes. People say, “He is a real Hatim.”",
+     "stem": "What do people mean?",
+     "options": [
+      "Grandpa lived long ago.",
+      "Grandpa is a cook.",
+      "Grandpa is very generous.",
+      "Grandpa has a big house."
+     ],
+     "answer": 2,
+     "why": "Hatim was famous for giving. Grandpa gives food to every guest. He is very generous."
+    },
+    {
+     "passage": "Lama practised her speech a little every day for a month. She was slow but steady, like the tortoise in the old story.",
+     "stem": "What does the allusion tell us about Lama?",
+     "options": [
+      "She is a very fast runner.",
+      "She has a pet tortoise.",
+      "She does not like speeches.",
+      "She works slowly and steadily."
+     ],
+     "answer": 3,
+     "why": "The tortoise wins by going slowly and steadily. Lama practised a little every day."
+    }
+   ],
+   "again": {
+    "title": "Famous story match",
+    "text": "1. Find the famous name.\n2. Tell the famous story in **one** sentence.\n3. Find the **same thing** in the text you are reading.",
+    "example": "“Sara was a real Sherlock Holmes. She found the lost key in five minutes.”\n\nFamous story: Sherlock Holmes is a clever detective who solves mysteries. Same thing: Sara **solved a mystery** cleverly."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Allusions",
+     "text": "An **allusion** is a short reference to a famous person, story or event.\n\nIn a few words, it brings a **whole story** into your mind."
+    },
+    {
+     "title": "Famous allusions",
+     "text": "**Ibn Battuta**: a traveller who journeyed across much of the world in the 1300s → someone who travels a lot\n\n**Achilles' heel**: the one weak spot of a strong hero in a Greek story → a single weakness\n\n**Eureka!**: what Archimedes is said to have shouted when he solved a problem → a sudden discovery"
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Spot the name or phrase.\n2. Recall what it is famous for.\n3. Connect that quality to the person or thing in the passage.\n4. Check that the details around it agree."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentences that show the **same quality** as the famous story: the travels, the weakness, the discovery.\n\nIf no sentence shows that quality, your meaning is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Uncle Nabil has visited forty countries.",
+      "role": "key"
+     },
+     {
+      "t": "He has crossed deserts, sailed on rivers and climbed mountains in Asia and Africa.",
+      "role": "key"
+     },
+     {
+      "t": "The family calls him our Ibn Battuta.",
+      "role": "main"
+     }
+    ],
+    "explain": "Ibn Battuta was famous for travelling very far.\n\nUncle Nabil's many journeys prove he is **a great traveller**, like him."
+   },
+   "together": {
+    "passage": "Our school football team was the best in the city. Our players were fast, our passing was smooth, and our attack scored in every match. But we had one problem: our goalkeeper was injured, and no one else knew how to stop a shot. In the final, the other team noticed. They shot again and again. Our weak goalkeeping was our Achilles' heel, and we lost 3–2.",
+    "stem": "What does the allusion “our Achilles' heel” mean in this passage?",
+    "options": [
+     "the team's fastest player",
+     "the team's single weak point",
+     "an injury to a player's foot",
+     "the team's best attack"
+    ],
+    "answer": 1,
+    "hint": "In the Greek story, Achilles was strong everywhere except one spot. Was the team strong everywhere except one place?",
+    "good": "Yes! The team was strong in every way except goalkeeping. That one weakness made them lose."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school football team was the best in the city.",
+     "Our players were fast, our passing was smooth, and our attack scored in every match.",
+     "But we had one problem: our goalkeeper was injured, and no one else knew how to stop a shot.",
+     "In the final, the other team noticed.",
+     "They shot again and again.",
+     "Our weak goalkeeping was our Achilles' heel, and we lost 3–2."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the team's single weak point. Tap 2 sentences that show the weakness and how it was used.",
+    "wrong": "This sentence shows the team's STRENGTHS or holds the allusion itself. Find the one WEAKNESS and how the other team used it."
+   },
+   "checks": [
+    {
+     "passage": "Hercules was a hero in old Greek stories who did twelve very hard jobs. Cleaning the whole school after the festival was a Herculean task. There were hundreds of chairs to stack and piles of rubbish on every field.",
+     "stem": "What does “a Herculean task” mean?",
+     "options": [
+      "a very hard job that needs great effort",
+      "a quick and easy job",
+      "a job for the sports team",
+      "a job about Greek history"
+     ],
+     "answer": 0,
+     "why": "Hercules did very hard jobs. Hundreds of chairs and piles of rubbish show cleaning the school was very hard."
+    },
+    {
+     "passage": "Rawan had been trying to solve the maths puzzle for an hour. Suddenly she jumped up and shouted, “Eureka!”",
+     "stem": "What does her shout tell us?",
+     "options": [
+      "She was angry.",
+      "She wanted a break.",
+      "She had found the answer.",
+      "She had lost her pencil."
+     ],
+     "answer": 2,
+     "why": "Archimedes shouted “Eureka!” when he solved a problem. Rawan has suddenly found the answer."
+    },
+    {
+     "passage": "Sinbad is a sailor from old stories who had many adventures at sea. My grandmother tells stories about storms, islands and strange sea creatures, so we call her our Sinbad.",
+     "stem": "What does the allusion suggest about her stories?",
+     "options": [
+      "They are about cooking.",
+      "They are short and boring.",
+      "They are about sea adventures.",
+      "They are about a famous city."
+     ],
+     "answer": 2,
+     "why": "Like Sinbad's tales, her stories are full of storms, islands and sea creatures."
+    }
+   ],
+   "again": {
+    "title": "Borrow the quality",
+    "text": "An allusion **borrows** one quality from a famous story.\n\n1. What is the famous person or thing best known for?\n2. Give that quality to the person in the text.",
+    "example": "“Our maths teacher is a modern Al-Khwarizmi.”\n\nAl-Khwarizmi: a great mathematician whose book gave us the word **algebra**. Quality borrowed: **brilliant at maths**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why writers use allusions",
+     "text": "An allusion packs a **whole story** into a few words. It can:\n\n1. explain something quickly\n2. add a feeling of **danger, hope or humour**\n3. connect the text to stories readers share"
+    },
+    {
+     "title": "Allusions to history",
+     "text": "Writers also allude to real events.\n\nCalling a long effort “a **marathon**” alludes to the story of a messenger who ran from Marathon to Athens with news of a victory. It suggests a **long, exhausting** effort."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Identify the allusion.\n2. Recall the key facts of the source.\n3. Map the source onto the passage: who is like whom? which event matches which?\n4. Explain what the allusion **adds**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Match **parts** of the source story to **parts** of the passage.\n\nEach match is a piece of evidence. Tap the sentences that match the source."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The rival company could not win customers in the usual way.",
+      "role": "detail"
+     },
+     {
+      "t": "So it offered the town a free, friendly-looking phone app.",
+      "role": "key"
+     },
+     {
+      "t": "Once people installed it, the app quietly collected their private data.",
+      "role": "key"
+     },
+     {
+      "t": "It was a Trojan horse.",
+      "role": "main"
+     }
+    ],
+    "explain": "In the old story, soldiers hid inside a wooden horse that their enemies welcomed as a gift.\n\nThe app looked like a **gift** but **hid a harmful purpose**, just like the horse."
+   },
+   "together": {
+    "passage": "When Yazan joined our class, he was shy and spoke very little. In the first science quiz, he scored just above half. Some students laughed and said he would never catch up. But every afternoon, Yazan stayed in the library, reading chapter after chapter and asking the teacher questions. By the end of the year, he had the highest marks in the class. “Yazan was our ugly duckling,” the teacher said with a smile.",
+    "stem": "What does the teacher's allusion suggest about Yazan?",
+    "options": [
+     "He was not good-looking.",
+     "He was underestimated but became a star.",
+     "He liked to swim in the school pool.",
+     "He was always the top student."
+    ],
+    "answer": 1,
+    "hint": "In the story, the ugly duckling is laughed at, but it grows into a beautiful swan. How did others see Yazan at first, and what happened later?",
+    "good": "Yes! Like the duckling that grew into a swan, Yazan was laughed at but finished as the best student."
+   },
+   "evidence": {
+    "sentences": [
+     "When Yazan joined our class, he was shy and spoke very little.",
+     "In the first science quiz, he scored just above half.",
+     "Some students laughed and said he would never catch up.",
+     "But every afternoon, Yazan stayed in the library, reading chapter after chapter and asking the teacher questions.",
+     "By the end of the year, he had the highest marks in the class.",
+     "“Yazan was our ugly duckling,” the teacher said with a smile."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: he was underestimated but became a star. Tap 2 sentences: one where others doubted him and one where he succeeded.",
+    "wrong": "This sentence shows his effort or holds the allusion itself. Find where others DOUBTED him and where he SUCCEEDED."
+   },
+   "checks": [
+    {
+     "passage": "The final week of the project was a marathon. The team worked every evening, checked every page and finished just before the deadline, exhausted.",
+     "stem": "What does the allusion suggest?",
+     "options": [
+      "The team ran a race.",
+      "The project was about sport.",
+      "The work was long and tiring.",
+      "The team finished early."
+     ],
+     "answer": 2,
+     "why": "Working every evening and finishing exhausted match the long, tiring run of the famous messenger."
+    },
+    {
+     "passage": "When the new hospital opened in the village, the old people said it was their moon landing. For the first time, nobody would have to drive three hours to see a doctor.",
+     "stem": "What does the allusion suggest?",
+     "options": [
+      "The hospital was built in space.",
+      "The villagers watched the moon.",
+      "The hospital was far away.",
+      "It was a huge, historic first."
+     ],
+     "answer": 3,
+     "why": "The first moon landing was a historic first. For the villagers, the hospital was just as great an achievement."
+    },
+    {
+     "passage": "After someone found the class projector remote missing, Abeer looked around the room, asked careful questions and found it behind the curtain. “Well done, Sherlock,” said the teacher.",
+     "stem": "What does the teacher's allusion suggest?",
+     "options": [
+      "Abeer solved it like a detective.",
+      "Abeer is from England.",
+      "Abeer hid the remote herself.",
+      "Abeer took too long to find it."
+     ],
+     "answer": 0,
+     "why": "Sherlock Holmes is a famous detective. Abeer searched, asked questions and solved the mystery."
+    }
+   ],
+   "again": {
+    "title": "Map it",
+    "text": "Think in two columns.\n\n**Famous story** ↔ **This text**\n\nFill each row: the hero ↔ the character, the problem ↔ the problem, the ending ↔ the ending. The matches show what the allusion means.",
+    "example": "Hercules' hard labours ↔ cleaning the flooded basement\nhuge effort ↔ days of pumping and scrubbing\n\nMeaning: **a huge, exhausting job**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Allusions in mature texts",
+     "text": "Articles, speeches and novels allude to history, literature and myth, often **without explaining**.\n\nThe allusion adds **layers**: a comparison, an attitude, sometimes a warning."
+    },
+    {
+     "title": "Ironic allusions",
+     "text": "Sometimes an allusion is **ironic**: the writer compares something small to something grand.\n\nCalling a quarrel over a parking space “the Trojan War” pokes fun at how seriously people took it."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Identify the source and its key features.\n2. Decide which features the writer is borrowing.\n3. Decide whether the allusion is serious or ironic.\n4. Explain how it shapes the reader's view."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show which details in the passage **match** the source.\n\nThe best evidence is the set of facts that make the comparison fit, not the sentence that names the source."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The town's new parking rules started a small dispute between two neighbours.",
+      "role": "key"
+     },
+     {
+      "t": "For three months, they wrote angry letters, called the council and refused to speak to each other.",
+      "role": "key"
+     },
+     {
+      "t": "Local newspapers jokingly called it the Trojan War of Palm Street.",
+      "role": "main"
+     }
+    ],
+    "explain": "The Trojan War was a long, famous war. Comparing a parking dispute to it is **ironic**.\n\nIt makes fun of how a small issue grew into a long fight."
+   },
+   "together": {
+    "passage": "For three years, the city has promised that the new metro line will open “very soon”. Each announcement brings another delay: missing parts, extra safety tests, a station that must be redesigned. Residents now compare the project to Sisyphus, the figure from Greek myth who pushed a heavy boulder up a hill, only to watch it roll back down every time he neared the top. Shop owners near the construction zone say their customers have vanished behind fences and dust. Several have already closed. The city owes its people clear dates, honest updates and, at last, a working train.",
+    "stem": "What does the allusion to Sisyphus suggest about the metro project?",
+    "options": [
+     "It is a great success that people admire.",
+     "Each time it nears completion, it is set back.",
+     "It is being built on a steep hill.",
+     "It will be finished within a few weeks."
+    ],
+    "answer": 1,
+    "hint": "Nothing in the text says the metro is on a hill. In the myth, what happens every time Sisyphus nears the top? What keeps happening to the metro?",
+    "good": "Yes! Like the boulder rolling back, every promised opening is followed by a new delay."
+   },
+   "evidence": {
+    "sentences": [
+     "For three years, the city has promised that the new metro line will open “very soon”.",
+     "Each announcement brings another delay: missing parts, extra safety tests, a station that must be redesigned.",
+     "Residents now compare the project to Sisyphus, the figure from Greek myth who pushed a heavy boulder up a hill, only to watch it roll back down every time he neared the top.",
+     "Shop owners near the construction zone say their customers have vanished behind fences and dust.",
+     "Several have already closed.",
+     "The city owes its people clear dates, honest updates and, at last, a working train."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: each time it nears completion, it is set back. Tap the 2 sentences that match the myth.",
+    "wrong": "This sentence names the myth itself, or tells about the effects on shops and what the city should do. Find the sentences about PROMISES and DELAYS."
+   },
+   "checks": [
+    {
+     "passage": "Analysts praised the company's strong products and loyal customers, but warned that its dependence on a single supplier could prove to be its Achilles' heel.",
+     "stem": "What does the allusion suggest?",
+     "options": [
+      "its greatest strength",
+      "a problem with its workers' health",
+      "a secret plan to grow",
+      "one weakness that could ruin it"
+     ],
+     "answer": 3,
+     "why": "Achilles was strong except for one spot. The company is strong except for its dependence on one supplier."
+    },
+    {
+     "passage": "The headteacher called the roof repairs “our Herculean labour”. The workers had replaced a single tile.",
+     "stem": "How is the allusion used here?",
+     "options": [
+      "seriously, to praise a huge effort",
+      "to explain who Hercules was",
+      "to warn that the roof is dangerous",
+      "ironically, to mock a tiny job"
+     ],
+     "answer": 3,
+     "why": "Hercules' labours were huge. Replacing one tile is tiny, so the comparison is a joke."
+    },
+    {
+     "passage": "In the novel, the young inventor works alone in her garage for years. When her machine finally runs, she whispers, “Eureka.”",
+     "stem": "What does the allusion add?",
+     "options": [
+      "It links her success to a famous discovery.",
+      "It shows she is speaking Greek.",
+      "It shows she is unhappy with the machine.",
+      "It tells us the garage is in Greece."
+     ],
+     "answer": 0,
+     "why": "“Eureka” recalls Archimedes' famous moment of discovery and gives her success the same sense of joy and importance."
+    }
+   ],
+   "again": {
+    "title": "Serious or joking?",
+    "text": "1. Name the source and what it is famous for.\n2. Compare its **size**: is the situation in the text as big as the source?\n3. Same size → probably serious. Much smaller → probably **ironic**.",
+    "example": "“Getting my little brother to eat vegetables is my Herculean labour.”\n\nHercules: huge, heroic tasks. Vegetables: a small task. The allusion is **playful and ironic**."
+   }
+  }
+ }
+}

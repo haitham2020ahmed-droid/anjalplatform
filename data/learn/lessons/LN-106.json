@@ -1,0 +1,501 @@
+{
+ "code": "LN-106",
+ "title": "Putting graphics and text together",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.1.7",
+  "RI.2.7",
+  "RI.3.7",
+  "RI.4.7",
+  "RI.5.7",
+  "RI.6.7",
+  "RI.K.7"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0034",
+  "R-0093",
+  "R-0177",
+  "R-0304",
+  "R-0312",
+  "R-0480",
+  "R-0490",
+  "R-0675",
+  "R-0676",
+  "R-0885",
+  "R-1011"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words and pictures",
+     "text": "Many texts have **pictures** too.\n\nA picture can show something the words do not say."
+    },
+    {
+     "title": "What is a caption?",
+     "text": "A **caption** is a short line under a picture.\n\nIt tells what the picture shows. It can give a new fact."
+    },
+    {
+     "title": "Use both",
+     "text": "1. Read the words.\n2. Look at the picture.\n3. Read the caption.\n\nPut them together to find the answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer can be in the **words**, the **picture** or the **caption**.\n\n1. Read the question.\n2. Look in all three places.\n3. Point to the line that shows the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Frogs live near ponds.",
+      "role": "detail"
+     },
+     {
+      "t": "They can jump far.",
+      "role": "detail"
+     },
+     {
+      "t": "[Picture: a small frog on a green leaf.]",
+      "role": "other"
+     },
+     {
+      "t": "Caption: This frog is as small as your thumb.",
+      "role": "key"
+     }
+    ],
+    "explain": "Question: **How big is the frog in the picture?**\n\nThe words do not say. The **caption** tells us: it is **as small as your thumb**."
+   },
+   "together": {
+    "passage": "Ants work as a team. They carry food home together.\n[Picture: a line of ants carrying a leaf.]\nCaption: An ant can lift a leaf much heavier than its own body.",
+    "stem": "What does the caption tell us about ants?",
+    "options": [
+     "Ants are red.",
+     "Ants live in trees.",
+     "Ants can lift heavy things.",
+     "Ants eat sugar."
+    ],
+    "answer": 2,
+    "hint": "Read the line that starts with Caption. What does it say an ant can do?",
+    "good": "Yes! The caption says an ant can lift a leaf heavier than its body."
+   },
+   "evidence": {
+    "sentences": [
+     "Ants work as a team.",
+     "They carry food home together.",
+     "[Picture: a line of ants carrying a leaf.]",
+     "Caption: An ant can lift a leaf much heavier than its own body."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: ants can lift heavy things. Tap the line that shows it.",
+    "wrong": "This line does not tell how much an ant can lift. Look at the caption."
+   },
+   "checks": [
+    {
+     "passage": "Our class has a fish tank.\n[Picture: three orange fish in a tank.]\nCaption: We feed the fish two times a day.",
+     "stem": "How many times a day are the fish fed?",
+     "options": [
+      "Two",
+      "One",
+      "Three",
+      "Four"
+     ],
+     "answer": 0,
+     "why": "The caption says: We feed the fish two times a day."
+    },
+    {
+     "passage": "Dad made a sign for our shop.\n[Picture: a sign on a door that says OPEN.]\nCaption: We hang this sign when the shop is ready for people.",
+     "stem": "What does the sign say?",
+     "options": [
+      "CLOSED",
+      "OPEN",
+      "SALE",
+      "STOP"
+     ],
+     "answer": 1,
+     "why": "The picture shows a sign that says OPEN."
+    },
+    {
+     "passage": "Hala grew beans in a cup.\n[Picture: a cup with a tall green plant.]\nCaption: After two weeks, the plant was as tall as a pencil.",
+     "stem": "When was the plant as tall as a pencil?",
+     "options": [
+      "After one day",
+      "After one year",
+      "After two hours",
+      "After two weeks"
+     ],
+     "answer": 3,
+     "why": "The caption says: After two weeks, the plant was as tall as a pencil."
+    }
+   ],
+   "again": {
+    "title": "Three places to look",
+    "text": "Think of a text as **three helpers**:\n\n1. The **words** tell.\n2. The **picture** shows.\n3. The **caption** explains the picture.\n\nIf one helper does not have the answer, ask the next one.",
+    "example": "Words: Camels live in the desert.\nCaption: A camel can drink a lot of water at one time.\n\nQuestion: What can a camel do? The words do not say. The caption does: **drink a lot of water at one time**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Graphics give information",
+     "text": "**Graphics** are pictures, maps, charts, tables and diagrams.\n\nThey often give **numbers or facts** that are not written in the paragraph."
+    },
+    {
+     "title": "Read the graphic carefully",
+     "text": "Read its **title** first. Then read the **labels** and numbers.\n\nAsk: What is this graphic about? What does each part show?"
+    },
+    {
+     "title": "Put them together",
+     "text": "Some questions need **both** the words and the graphic.\n\n1. Find the clue in the words.\n2. Find the matching fact in the graphic.\n3. Join them to get the answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For a graphic question, you may need **two proofs**.\n\n1. Point to the sentence in the paragraph.\n2. Point to the line in the graphic.\n\nTogether they prove the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school measured how much water each class saved in one week.",
+      "role": "detail"
+     },
+     {
+      "t": "The winning class will plant a new tree.",
+      "role": "detail"
+     },
+     {
+      "t": "Chart: Water saved in one week.",
+      "role": "other"
+     },
+     {
+      "t": "Class 4A: 50 liters.",
+      "role": "detail"
+     },
+     {
+      "t": "Class 4B: 80 liters.",
+      "role": "key"
+     },
+     {
+      "t": "Class 4C: 65 liters.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **Which class will plant the tree?**\n\nThe words say the class that saved the **most** water wins. The chart shows **4B** saved the most: 80 liters. You need both parts."
+   },
+   "together": {
+    "passage": "The science fair lasted three days. On one day, the robot show filled the hall with visitors. That was the busiest day of the fair.\nTable: Visitors to the science fair.\nSunday: 120 visitors.\nMonday: 95 visitors.\nTuesday: 210 visitors.",
+    "stem": "On which day was the robot show held?",
+    "options": [
+     "Sunday",
+     "Monday",
+     "Tuesday",
+     "You cannot tell."
+    ],
+    "answer": 2,
+    "hint": "The words say the robot show day was the busiest. Which day in the table has the most visitors?",
+    "good": "Yes! The robot show was on the busiest day, and the table shows Tuesday had the most visitors."
+   },
+   "evidence": {
+    "sentences": [
+     "The science fair lasted three days.",
+     "On one day, the robot show filled the hall with visitors.",
+     "That was the busiest day of the fair.",
+     "Table: Visitors to the science fair.",
+     "Sunday: 120 visitors.",
+     "Monday: 95 visitors.",
+     "Tuesday: 210 visitors."
+    ],
+    "proof": [
+     2,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: Tuesday. Tap 2 lines: one from the words and one from the table.",
+    "wrong": "This line does not help you join the words and the table. Find the clue about the busiest day and the day with the most visitors."
+   },
+   "checks": [
+    {
+     "passage": "Mona's family spent the day at the park. They ate lunch at the place beside the lake.\nMap key: Playground, near the gate.\nPicnic area, beside the lake.\nCafe, next to the parking lot.",
+     "stem": "Where did the family eat lunch?",
+     "options": [
+      "The playground",
+      "The picnic area",
+      "The cafe",
+      "The parking lot"
+     ],
+     "answer": 1,
+     "why": "The words say they ate beside the lake. The map key shows the picnic area is beside the lake."
+    },
+    {
+     "passage": "A butterfly changes as it grows. It does not look the same at every stage.\nDiagram: 1. egg 2. caterpillar 3. chrysalis 4. butterfly.",
+     "stem": "What comes right after the caterpillar stage?",
+     "options": [
+      "Egg",
+      "Butterfly",
+      "Caterpillar",
+      "Chrysalis"
+     ],
+     "answer": 3,
+     "why": "The diagram shows the order: egg, caterpillar, chrysalis, butterfly. Chrysalis comes right after caterpillar."
+    },
+    {
+     "passage": "Students voted for a class trip. The place with the most votes was chosen.\nGraph: Museum 8 votes. Zoo 14 votes. Beach 11 votes.",
+     "stem": "Where will the class go?",
+     "options": [
+      "The zoo",
+      "The museum",
+      "The beach",
+      "You cannot tell."
+     ],
+     "answer": 0,
+     "why": "The words say the place with the most votes was chosen. The graph shows the zoo got 14, the most."
+    }
+   ],
+   "again": {
+    "title": "Clue plus fact",
+    "text": "Think of it as a puzzle with **two pieces**.\n\nPiece 1: a **clue** in the words (the biggest, the first, halfway).\nPiece 2: the **fact** in the graphic that matches the clue.",
+    "example": "Words: We bought the cheapest juice.\nTable: Apple 4 riyals. Mango 3 riyals. Orange 5 riyals.\n\nClue: **cheapest**. Fact: mango costs the least. Answer: **mango juice**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why authors add graphics",
+     "text": "Authors add graphics on purpose. A graphic can:\n\n1. **Show** what something looks like.\n2. **Give data**, like numbers over time.\n3. **Explain steps** or parts, like a diagram.\n4. Show **where**, like a map."
+    },
+    {
+     "title": "Captions do a job",
+     "text": "A caption does more than name a picture. It can **point out** what is important, **add a fact**, or **connect** the picture to the main idea of the text."
+    },
+    {
+     "title": "Ask the right question",
+     "text": "When you see a graphic, ask:\n\n1. What does it show?\n2. Is that the **same** as the text, or **new**?\n3. How does it help me understand the text's idea?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain how a graphic helps, compare it with the words.\n\n1. Find what the paragraph says.\n2. Find what the graphic or caption adds.\n3. Choose the answer that describes **that link**, not just one fact from either part."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A dhow is a wooden sailing boat that has been used in the Gulf and the Red Sea for hundreds of years.",
+      "role": "detail"
+     },
+     {
+      "t": "Its large sail catches the wind, so the boat can travel far without engines.",
+      "role": "detail"
+     },
+     {
+      "t": "[Diagram: a dhow with labels for the hull, mast and triangular sail.]",
+      "role": "other"
+     },
+     {
+      "t": "Caption: The triangle-shaped sail lets sailors steer even when the wind blows from the side.",
+      "role": "key"
+     }
+    ],
+    "explain": "The paragraph says the sail catches wind. The diagram shows **where** the parts are. The caption adds a **new reason** the sail shape matters: sailors can steer in a side wind. That is how the graphic supports the text."
+   },
+   "together": {
+    "passage": "Saudi Arabia has very few rivers, so many cities get much of their drinking water from the sea. Desalination plants remove the salt from seawater. Then the clean water travels through long pipelines to homes far inland.\n[Map: lines run from plants on the Red Sea and Gulf coasts to Riyadh and other inland cities.]\nCaption: Some pipelines carry water hundreds of kilometers across the desert.",
+    "stem": "What does the map and caption add to the paragraph?",
+    "options": [
+     "They show how far the water must travel to reach cities.",
+     "They explain how salt is removed from water.",
+     "They prove that Saudi Arabia has many rivers.",
+     "They show which cities use the least water."
+    ],
+    "answer": 0,
+    "hint": "The paragraph explains how salt is removed. What do the map lines and the caption show about distance?",
+    "good": "Yes! The map lines and the caption show the long journey from the coast to inland cities."
+   },
+   "evidence": {
+    "sentences": [
+     "Saudi Arabia has very few rivers, so many cities get much of their drinking water from the sea.",
+     "Desalination plants remove the salt from seawater.",
+     "Then the clean water travels through long pipelines to homes far inland.",
+     "[Map: lines run from plants on the Red Sea and Gulf coasts to Riyadh and other inland cities.]",
+     "Caption: Some pipelines carry water hundreds of kilometers across the desert."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: they show how far the water travels. Tap the map line and the caption that prove it.",
+    "wrong": "This sentence is from the paragraph. Find the parts of the graphic that show distance."
+   },
+   "checks": [
+    {
+     "passage": "Our hearts never stop working. The heart is a strong muscle that pumps blood around the body.\n[Diagram: a heart with arrows showing blood going in, through four rooms called chambers, and out.]\nCaption: Blood always moves in one direction through the heart.",
+     "stem": "Why did the author most likely include the diagram?",
+     "options": [
+      "To show that the heart is a muscle",
+      "To prove that blood is red",
+      "To name the bones near the heart",
+      "To show the path blood takes through the heart"
+     ],
+     "answer": 3,
+     "why": "The arrows and the caption show the path and direction of blood, which the words alone do not explain."
+    },
+    {
+     "passage": "In the past, the main city streets were crowded with cars every morning. After the new bus lanes opened, more people chose to ride the bus.\nGraph: Daily bus riders. Year 1: 20,000. Year 2: 35,000. Year 3: 52,000.",
+     "stem": "How does the graph support the paragraph?",
+     "options": [
+      "It shows that cars became cheaper.",
+      "It gives numbers that prove bus riding grew.",
+      "It shows where the bus lanes are.",
+      "It explains why the streets were crowded."
+     ],
+     "answer": 1,
+     "why": "The paragraph says more people rode the bus. The graph gives the numbers rising each year, which proves it."
+    },
+    {
+     "passage": "Coral reefs need clean, warm, shallow water to grow.\n[Photo: a bright reef next to a pale, white reef.]\nCaption: When water becomes too hot, corals can lose their color and turn white.",
+     "stem": "What does the caption add to the photo?",
+     "options": [
+      "It names the fish on the reef.",
+      "It says reefs grow in deep water.",
+      "It explains why one reef looks white.",
+      "It shows how corals are born."
+     ],
+     "answer": 2,
+     "why": "The photo shows a white reef; the caption explains that hot water can make coral turn white."
+    }
+   ],
+   "again": {
+    "title": "Same or new?",
+    "text": "Put the graphic and the words **side by side**.\n\n1. What do the words say?\n2. What does the graphic show?\n3. What is **new** in the graphic? That new part is usually why it is there.",
+    "example": "Words: Camels can walk far in the desert.\nPhoto caption: A camel's wide feet spread out so it does not sink in sand.\n\nNew in the caption: **how** camels walk on sand. It explains the words."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Graphics build the argument",
+     "text": "In stronger texts, visuals do not just decorate. They **develop** the author's ideas: they give evidence, show a trend, compare places or times, or make an abstract idea concrete."
+    },
+    {
+     "title": "Read the graphic critically",
+     "text": "Check the **title**, **labels**, **units** and **time span**.\n\nThen ask: What point does this support? Does it show the same thing as the text, or does it **extend** or **qualify** it?"
+    },
+    {
+     "title": "Words and visuals together",
+     "text": "1. State the author's point from the words.\n2. State what the visual shows in one sentence.\n3. Explain the link: does it **prove**, **illustrate**, **compare** or **add a detail**?\n\nWrong answers often describe the visual correctly but miss its link to the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong answers use **evidence from both** the text and the visual.\n\n1. Quote the sentence that states the idea.\n2. Point to the part of the visual that supports it.\n3. Reject a choice that the visual does not show, or that ignores the author's point."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Planting trees in cities does more than make streets beautiful.",
+      "role": "main"
+     },
+     {
+      "t": "Shade from leaves keeps sidewalks and buildings from soaking up so much heat.",
+      "role": "detail"
+     },
+     {
+      "t": "[Image: a heat camera picture of a street; the tree-lined side shows blue and green, the bare side shows red and orange.]",
+      "role": "key"
+     },
+     {
+      "t": "Caption: Surfaces in shade can be many degrees cooler than those in full sun.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author claims trees **cool** cities. The heat-camera image makes that idea **visible**: shady areas show cool colors. The caption gives the explanation. Together they turn a claim into evidence the reader can see."
+   },
+   "together": {
+    "passage": "Many people assume that traffic accidents happen mostly at night, when it is dark. A city's road safety office studied a full year of crash reports to find out. The results surprised many drivers: the largest number of crashes happened in the late afternoon, when roads were busiest and people were hurrying home. The office now places extra traffic officers on main roads during those hours.\nBar graph: Crashes by time of day.\nMorning: 310 crashes.\nEarly afternoon: 420 crashes.\nLate afternoon and evening: 690 crashes.\nNight: 380 crashes.\nCaption: Most crashes happened during the evening rush.",
+    "stem": "How does the bar graph develop the ideas in the passage?",
+    "options": [
+     "It shows that night is the most dangerous time to drive.",
+     "It explains why drivers hurry home in the afternoon.",
+     "It supplies numbers showing the late-afternoon period had the most crashes.",
+     "It shows where the officers will stand on main roads."
+    ],
+    "answer": 2,
+    "hint": "Which bar is tallest? Does it match the surprising result in the words, or the common belief?",
+    "good": "Yes! The 690 crashes in the late afternoon and evening give number proof for the surprising result."
+   },
+   "evidence": {
+    "sentences": [
+     "Many people assume that traffic accidents happen mostly at night, when it is dark.",
+     "A city's road safety office studied a full year of crash reports to find out.",
+     "The results surprised many drivers: the largest number of crashes happened in the late afternoon, when roads were busiest and people were hurrying home.",
+     "The office now places extra traffic officers on main roads during those hours.",
+     "Bar graph: Crashes by time of day.",
+     "Morning: 310 crashes.",
+     "Early afternoon: 420 crashes.",
+     "Late afternoon and evening: 690 crashes.",
+     "Night: 380 crashes.",
+     "Caption: Most crashes happened during the evening rush."
+    ],
+    "proof": [
+     2,
+     7,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: the graph gives numbers showing late afternoon had the most crashes. Tap 2 parts that prove it.",
+    "wrong": "This part gives background or another time period. Find the sentence with the result and the graph line or caption that backs it up."
+   },
+   "checks": [
+    {
+     "passage": "Some people think Saudi Arabia is desert everywhere. In fact, the southwest has green mountain slopes where farmers grow coffee and fruit on stepped terraces.\nMap: rainfall per year; most of the country is shaded pale yellow (under 100 mm), while the Asir mountains in the southwest are dark green (over 300 mm).",
+     "stem": "How does the map support the author's point?",
+     "options": [
+      "It shows that all regions get the same rainfall.",
+      "It proves that coffee grows in every region.",
+      "It shows that the desert is growing each year.",
+      "It shows the southwest gets much more rain than most areas."
+     ],
+     "answer": 3,
+     "why": "The author says the southwest is green. The map shows the Asir region has far more rain than the rest of the country, which explains why."
+    },
+    {
+     "passage": "Plastic bottles last a very long time in nature. Unlike fruit peels, they do not break down in weeks or months.\nTimeline: Banana peel, about 1 month. Paper bag, about 1 to 2 months. Plastic bottle, about 450 years.\nCaption: Estimated time for each item to break down in nature.",
+     "stem": "What is the main purpose of the timeline?",
+     "options": [
+      "To compare, so readers see how much longer plastic lasts",
+      "To list the most common items in rubbish bins",
+      "To teach readers how to recycle paper bags",
+      "To prove that banana peels are bad for nature"
+     ],
+     "answer": 0,
+     "why": "The text says plastic lasts very long. The timeline places it next to items that break down quickly, which makes the difference clear."
+    },
+    {
+     "passage": "The author argues that the old part of the city became busier after the market was restored in 2015.\nGraph: Visitors per year to the old market. 2012: 40,000. 2014: 42,000. 2016: 95,000. 2018: 130,000.",
+     "stem": "Which statement best explains how the graph supports the claim?",
+     "options": [
+      "Visitor numbers were high before 2015.",
+      "Visitor numbers rose sharply after 2015.",
+      "The market was restored in 2012.",
+      "The number of visitors stayed the same."
+     ],
+     "answer": 1,
+     "why": "Numbers were flat before 2015 and then more than doubled after the restoration, which supports the claim."
+    }
+   ],
+   "again": {
+    "title": "Finish the sentence",
+    "text": "Try finishing this sentence:\n\n**The author says ___, and the graphic helps by ___.**\n\nIf you can fill both blanks from the page, you have found the link.",
+    "example": "The author says **plastic lasts a long time**, and the timeline helps by **comparing it with things that break down in weeks**."
+   }
+  }
+ }
+}

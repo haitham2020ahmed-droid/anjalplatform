@@ -1,0 +1,491 @@
+{
+ "code": "LN-128",
+ "title": "How authors develop events, ideas and people",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.4.3",
+  "RI.5.3",
+  "RI.6.3",
+  "RI.6.5",
+  "RI.7.3",
+  "RI.8.3"
+ ],
+ "families": [],
+ "skillNames": [
+  "How Authors Develop and Refine Ideas"
+ ],
+ "statements": [
+  "R-0359",
+  "R-0365",
+  "R-0542",
+  "R-0549",
+  "R-0731",
+  "R-0739",
+  "R-0745",
+  "R-0878",
+  "R-0907",
+  "R-0913",
+  "R-0923",
+  "R-1034",
+  "R-1035",
+  "R-1047",
+  "R-1094"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Authors make choices",
+     "text": "When authors write about a **true event**, they choose **details** to help you see it.\n\nThey tell **what happened**, **in what order**, and **how it looked, sounded or felt**."
+    },
+    {
+     "title": "Detail tools",
+     "text": "1. **Time words**: first, then, at last.\n2. **Sense words**: loud, bright, cold, sweet.\n3. **Feeling words**: scared, proud, happy."
+    },
+    {
+     "title": "How to spot them",
+     "text": "1. Read about the event.\n2. Find the **time words**.\n3. Find words that help you **see, hear or feel** it.\n4. Ask: **What do these details help me understand?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentences with the **details** the author uses.\n\n1. Look for time words.\n2. Look for sense or feeling words.\n\nThese show **how** the author tells the event."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, the sky turned dark grey.",
+      "role": "key"
+     },
+     {
+      "t": "Then we heard loud thunder.",
+      "role": "key"
+     },
+     {
+      "t": "At last, big drops of rain fell on the hot street.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The author uses **time words** (first, then, at last) to show the order.\n\n**Dark grey**, **loud** and **hot** are sense words that help you **see, hear and feel** the storm coming."
+   },
+   "together": {
+    "passage": "Last Eid, my family visited my grandmother. First, we drove for three hours. When we arrived, the house smelled of fresh bread. Grandma hugged us tight. Then all my cousins ran out to play.",
+    "stem": "How does the author help you know the ORDER of events?",
+    "options": [
+     "By telling how tall Grandma is.",
+     "By using words like first and then.",
+     "By naming every cousin.",
+     "By using numbers to count bread."
+    ],
+    "answer": 1,
+    "hint": "Look for small words at the start of the sentences that tell when.",
+    "good": "Yes! First, when we arrived and then show the order of what happened."
+   },
+   "evidence": {
+    "sentences": [
+     "Last Eid, my family visited my grandmother.",
+     "First, we drove for three hours.",
+     "When we arrived, the house smelled of fresh bread.",
+     "Grandma hugged us tight.",
+     "Then all my cousins ran out to play."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: by using words like first and then. Tap 2 sentences that use time words.",
+    "wrong": "This sentence does not use a time word like first, when or then. Find one that does."
+   },
+   "checks": [
+    {
+     "passage": "The race began. My heart was pounding. I ran as fast as I could. At the end, I was tired but proud.",
+     "stem": "Which words help you FEEL what the runner felt?",
+     "options": [
+      "The race began at the start line",
+      "heart was pounding, tired but proud",
+      "I ran as fast as I could",
+      "At the end of the race"
+     ],
+     "answer": 1,
+     "why": "Pounding, tired and proud are feeling words that help you feel the race."
+    },
+    {
+     "passage": "The old souq was busy. Men called out prices. The air smelled of spices. Bright cloth hung from every shop.",
+     "stem": "How does the author help you picture the souq?",
+     "options": [
+      "By telling the date and the time of day.",
+      "By giving a list of all the prices.",
+      "By using sense words like smelled and bright.",
+      "By using time words like first and next."
+     ],
+     "answer": 2,
+     "why": "Smelled of spices and bright cloth help you smell and see the souq."
+    },
+    {
+     "passage": "First, we planted the seeds. Next, we watered them every day. After two weeks, small green leaves came up.",
+     "stem": "How does the author show the order of events?",
+     "options": [
+      "With time words like first and next",
+      "With feeling words like happy and sad",
+      "With colour words like green",
+      "With a question at the end"
+     ],
+     "answer": 0,
+     "why": "First, next and after two weeks show the order."
+    }
+   ],
+   "again": {
+    "title": "Make a movie in your head",
+    "text": "Good details let you **play a movie** in your mind.\n\nAsk: **Which words help me see, hear or feel the event? Which words tell me what came first and next?**",
+    "example": "First, the lights went out. Then we heard the wind howl.\n\nMovie: **dark room, then a loud wind**. Details: **lights went out** (see), **howl** (hear), **first, then** (order)."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Building an idea",
+     "text": "In informational texts, authors **develop** a concept: they help readers understand an idea step by step.\n\nThe concept might be how something works, why something happens or what a word means."
+    },
+    {
+     "title": "Techniques",
+     "text": "1. **Definition**: tell what it means.\n2. **Examples**: show it in real life.\n3. **Comparison**: link it to something familiar.\n4. **Steps or sequence**: show how it happens.\n5. **Cause and effect**: show why."
+    },
+    {
+     "title": "Analyze the technique",
+     "text": "1. What concept is the author explaining?\n2. Which **technique** does each sentence use?\n3. How does that technique help **you** understand?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the sentences that use the technique.\n\n1. Comparisons often use **like** or **as**.\n2. Examples often use **for example** or **such as**.\n3. Definitions often use **is** or **means**.\n\nTap the sentences that show the technique you chose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Your heart is a muscle that pumps blood around your body.",
+      "role": "main"
+     },
+     {
+      "t": "It works like a pump that pushes water through a garden hose.",
+      "role": "key"
+     },
+     {
+      "t": "Each time it squeezes, blood moves through tubes called blood vessels.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The author **defines** the heart first. Then the author **compares** it to a pump and a hose, something familiar.\n\nThe comparison helps readers picture something they cannot see."
+   },
+   "together": {
+    "passage": "Erosion is the slow wearing away of rock and soil. Think of it like a bar of soap that gets smaller each time you wash your hands. For example, wind can blow sand against rocks and slowly shape them. Rivers can also carry soil away and cut deep valleys. Over thousands of years, erosion can change the shape of the land.",
+    "stem": "Which technique does the author use in the second sentence to help readers understand erosion?",
+    "options": [
+     "A comparison to something familiar",
+     "A list of steps",
+     "A problem and a solution",
+     "A story about a person"
+    ],
+    "answer": 0,
+    "hint": "The second sentence says Think of it like... What does like signal?",
+    "good": "Yes! Comparing erosion to a shrinking bar of soap helps readers picture something that happens too slowly to see."
+   },
+   "evidence": {
+    "sentences": [
+     "Erosion is the slow wearing away of rock and soil.",
+     "Think of it like a bar of soap that gets smaller each time you wash your hands.",
+     "For example, wind can blow sand against rocks and slowly shape them.",
+     "Rivers can also carry soil away and cut deep valleys.",
+     "Over thousands of years, erosion can change the shape of the land."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: a comparison to something familiar. Tap the sentence that uses this comparison.",
+    "wrong": "This sentence gives a definition or an example, not a comparison. Look for the word like."
+   },
+   "checks": [
+    {
+     "passage": "A habitat is the natural home of an animal or plant. For example, a coral reef is the habitat of many colourful fish. A desert is the habitat of camels and lizards.",
+     "stem": "How does the author develop the idea of a habitat?",
+     "options": [
+      "By comparing two animals' sizes",
+      "By telling events in time order",
+      "By giving a definition followed by examples",
+      "By asking the reader questions"
+     ],
+     "answer": 2,
+     "why": "The first sentence defines habitat; the next two give examples."
+    },
+    {
+     "passage": "When you heat water, it boils and turns into steam. The steam rises into the air. When the steam cools, it turns back into tiny drops of water. This is how clouds form.",
+     "stem": "Which technique does the author mainly use?",
+     "options": [
+      "Steps in a process",
+      "Comparison",
+      "Opinion",
+      "Definition only"
+     ],
+     "answer": 0,
+     "why": "The author explains the process step by step: heat, steam, rising, cooling, clouds."
+    },
+    {
+     "passage": "Plants need sunlight to make food. Without enough light, their leaves turn yellow and they grow slowly.",
+     "stem": "How does the author develop the idea that plants need sunlight?",
+     "options": [
+      "By giving a long list of plant names",
+      "By showing what happens when plants lack light",
+      "By telling a story about a farmer",
+      "By comparing plants to animals in a zoo"
+     ],
+     "answer": 1,
+     "why": "The second sentence shows the effect of too little light, which explains why sunlight matters."
+    }
+   ],
+   "again": {
+    "title": "Name the tool",
+    "text": "Read each sentence and give it a **tool name**: definition, example, comparison, steps or cause and effect.\n\nThe tools tell you **how** the author built the idea.",
+    "example": "Magnets pull some metals. (**definition**)\nFor example, a magnet can pick up paper clips. (**example**)\nA magnet works a bit like an invisible hand. (**comparison**)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Real people on the page",
+     "text": "In biographies and true stories, authors **characterize** real people: they help us understand what the person was like.\n\nReaders learn about the person from **evidence**, not just from what the author says directly."
+    },
+    {
+     "title": "How authors characterize",
+     "text": "1. **Actions**: what the person did.\n2. **Words**: what the person said or wrote.\n3. **Choices**: especially hard ones.\n4. **Others' views**: what other people said about them.\n5. **Direct description**: the author tells us (brave, kind)."
+    },
+    {
+     "title": "Analyze characterization",
+     "text": "1. List the person's actions and words.\n2. Ask: **What quality do they show?**\n3. Check whether several details point to the **same** quality.\n4. Notice how the author **wants** us to see the person."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a trait with the person's **actions, words or choices**.\n\n1. Tap the sentences that show the trait in action.\n2. A sentence about the setting or the date does not prove a trait.\n3. The best answer is supported by more than one detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In 1947, Chuck Yeager was chosen to test a new rocket plane.",
+      "role": "other"
+     },
+     {
+      "t": "Two days before the flight, he broke two ribs, but he told only a few close friends.",
+      "role": "key"
+     },
+     {
+      "t": "He used a short piece of broomstick to help close the cockpit door and flew anyway.",
+      "role": "key"
+     },
+     {
+      "t": "That day, he became the first pilot to fly faster than the speed of sound.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Hiding his injury and finding a way to fly anyway characterize Yeager as **determined** and **daring**.\n\nThe author never says determined; the **actions** show it."
+   },
+   "together": {
+    "passage": "When Hayat Sindi arrived in England to study, she spoke little English. She spent her evenings studying alone with dictionaries and textbooks. Later, she became the first woman from the Arab Gulf states to earn a PhD in biotechnology from the University of Cambridge. Instead of only working in laboratories, she helped create low-cost tools to test for diseases in poor regions. Her work aims to help the people who need it most.",
+    "stem": "Based on the details, which pair of traits best describes Hayat Sindi?",
+    "options": [
+     "Hard-working and caring",
+     "Lazy and selfish",
+     "Shy and fearful",
+     "Careless and proud"
+    ],
+    "answer": 0,
+    "hint": "Look at what she did in the evenings and what kind of tools she helped create.",
+    "good": "Yes! Studying alone every evening shows hard work, and building low-cost tools for the poor shows she cares about others."
+   },
+   "evidence": {
+    "sentences": [
+     "When Hayat Sindi arrived in England to study, she spoke little English.",
+     "She spent her evenings studying alone with dictionaries and textbooks.",
+     "Later, she became the first woman from the Arab Gulf states to earn a PhD in biotechnology from the University of Cambridge.",
+     "Instead of only working in laboratories, she helped create low-cost tools to test for diseases in poor regions.",
+     "Her work aims to help the people who need it most."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: hard-working and caring. Tap 2 sentences that show her actions or words.",
+    "wrong": "This sentence gives background or an achievement. Find the sentences that show what she did and why."
+   },
+   "checks": [
+    {
+     "passage": "Nelson Mandela spent 27 years in prison for opposing unfair laws in South Africa. When he was freed, many expected him to seek revenge. Instead, he invited one of his former guards to his presidential ceremony.",
+     "stem": "What does the detail about the guard reveal about Mandela?",
+     "options": [
+      "He was still angry at his guards.",
+      "He did not care about the ceremony.",
+      "He wanted to stay in prison longer.",
+      "He wanted to forgive and bring people together."
+     ],
+     "answer": 3,
+     "why": "Inviting a former guard instead of seeking revenge shows forgiveness and a wish to unite people."
+    },
+    {
+     "passage": "The young inventor failed again and again. Each time her machine broke, she wrote down what went wrong and tried a new design. Her friends called her \"the girl who never stops.\"",
+     "stem": "Which detail shows how OTHERS saw the inventor?",
+     "options": [
+      "She failed again and again at first.",
+      "Her friends called her the girl who never stops.",
+      "Each time, her machine broke down.",
+      "She wrote notes and tried a new design."
+     ],
+     "answer": 1,
+     "why": "Her friends' nickname shows how others saw her: as someone who never gives up."
+    },
+    {
+     "passage": "Ibn Battuta often stayed for months in a new city, learning its customs and serving as a judge. He wrote detailed notes about the food, buildings and people he met.",
+     "stem": "How does the author characterize Ibn Battuta?",
+     "options": [
+      "As curious and observant",
+      "As careless and in a hurry",
+      "As afraid of new places",
+      "As unwilling to learn"
+     ],
+     "answer": 0,
+     "why": "Learning customs and writing detailed notes show curiosity and close observation."
+    }
+   ],
+   "again": {
+    "title": "Actions speak",
+    "text": "Ask: **What did the person DO?** Then ask: **What kind of person does that?**\n\nThe answer to the second question is a trait.",
+    "example": "She gave her lunch to a classmate who had none.\nWhat kind of person does that? **A generous person.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Dialogue in nonfiction",
+     "text": "Literary nonfiction often includes **dialogue**: the real words people spoke, in quotation marks.\n\nAuthors choose dialogue carefully. It can **reveal character**, **show conflict**, **create tension**, or **highlight a key idea** in the person's own voice."
+    },
+    {
+     "title": "Effects of dialogue",
+     "text": "1. **Reveals character**: how a person speaks shows who they are.\n2. **Shows relationships**: who agrees, who argues.\n3. **Makes a moment vivid**: the reader hears it happen.\n4. **Delivers the message**: a quote can state the central idea with authority."
+    },
+    {
+     "title": "Analyze the effect",
+     "text": "1. Who speaks, and to whom?\n2. What does the quote **show** that a summary would not?\n3. How does it **affect the reader**: tension, warmth, surprise?\n4. How does it connect to the **central idea**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the **quoted words** and the sentences around them that show their effect.\n\n1. Find the dialogue.\n2. Notice how others react or what happens next.\n3. Choose the answer that explains what the dialogue **adds**, not just what it says."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the hospital, the young doctor checked the patient's chart for the third time.",
+      "role": "other"
+     },
+     {
+      "t": "\"Are you sure?\" the head nurse asked quietly.",
+      "role": "key"
+     },
+     {
+      "t": "\"No,\" the doctor admitted, \"but I'm sure we have to try.\"",
+      "role": "key"
+     },
+     {
+      "t": "The treatment worked, and years later the doctor still remembered that conversation.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The dialogue **creates tension** (the nurse's doubt) and **reveals character**: the doctor is honest about not knowing but brave enough to act.\n\nA summary like he decided to try would lose that honesty and courage."
+   },
+   "together": {
+    "passage": "The rescue team had searched the cave for two days. Rocks blocked the main tunnel, and the water was rising. The team leader gathered everyone near the entrance. \"We can wait for better equipment,\" he said, \"or we can try the narrow passage tonight.\" A young diver stepped forward. \"I'm the smallest,\" she said. \"I'll go.\" No one spoke for a moment. Then the leader nodded and handed her his own lamp. Hours later, she returned with the news that the trapped explorers were alive.",
+    "stem": "What is the main effect of the young diver's words \"I'm the smallest. I'll go.\"?",
+    "options": [
+     "They show that she wanted to leave the dark cave as quickly as possible.",
+     "They explain how caves are formed by water over many years.",
+     "They reveal her courage and create a tense moment before the rescue.",
+     "They show that the leader did not trust her."
+    ],
+    "answer": 2,
+    "hint": "Look at what happens right after she speaks: silence, then the leader's action.",
+    "good": "Yes! Her short, plain words reveal her courage, and the silence afterwards creates tension before the rescue."
+   },
+   "evidence": {
+    "sentences": [
+     "The rescue team had searched the cave for two days.",
+     "Rocks blocked the main tunnel, and the water was rising.",
+     "The team leader gathered everyone near the entrance.",
+     "\"We can wait for better equipment,\" he said, \"or we can try the narrow passage tonight.\"",
+     "A young diver stepped forward.",
+     "\"I'm the smallest,\" she said.",
+     "\"I'll go.\"",
+     "No one spoke for a moment.",
+     "Then the leader nodded and handed her his own lamp.",
+     "Hours later, she returned with the news that the trapped explorers were alive."
+    ],
+    "proof": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "need": 2,
+    "stem": "The answer was: her words reveal courage and create a tense moment. Tap 2 sentences that show her words or the reaction to them.",
+    "wrong": "This sentence gives background or the result. Find her words and how others reacted."
+   },
+   "checks": [
+    {
+     "passage": "The coach looked at the scoreboard: they were losing by ten points. \"Look at me,\" she told the team. \"We don't give up because it's hard. We give up when we stop believing. Do you believe?\" The players shouted, \"Yes!\"",
+     "stem": "What is the effect of including the coach's exact words?",
+     "options": [
+      "It lets readers hear her belief in the team and feel its energy.",
+      "It explains the rules of the game to new readers.",
+      "It shows the coach was angry with the referee and the team.",
+      "It tells the final score and who won the match."
+     ],
+     "answer": 0,
+     "why": "The coach's own words and the team's shout make her belief and the team's energy vivid."
+    },
+    {
+     "passage": "Grandfather put down the old photograph. \"We had no electricity then,\" he said, \"but we had each other every evening.\" I looked around the room at everyone staring at their phones.",
+     "stem": "How does the grandfather's dialogue help develop the central idea?",
+     "options": [
+      "It describes how electricity first came to homes.",
+      "It shows the grandfather disliked phones and computers.",
+      "It explains when and where the photograph was taken.",
+      "It contrasts past closeness with present distance in the family."
+     ],
+     "answer": 3,
+     "why": "His words about being together, followed by the image of everyone on phones, create a contrast that develops the idea about family closeness."
+    },
+    {
+     "passage": "When the young scientist presented her results, a senior professor said, \"Impossible. You must have made an error.\" She replied calmly, \"Then let us repeat the test together.\" The repeated test gave the same result.",
+     "stem": "What does the dialogue reveal about the young scientist?",
+     "options": [
+      "She was rude to the professor.",
+      "She was confident and calm under challenge.",
+      "She agreed she had made an error.",
+      "She was afraid to share her work."
+     ],
+     "answer": 1,
+     "why": "Her calm offer to repeat the test shows confidence; the result proves she was right."
+    }
+   ],
+   "again": {
+    "title": "Swap the quote for a summary",
+    "text": "Rewrite the quote as a plain summary, then compare.\n\nWhat is **lost**? A feeling, a person's voice, a tense moment? That loss is the **effect** of the dialogue.",
+    "example": "Quote: \"I won't leave until every child is safe,\" the teacher said.\nSummary: The teacher stayed.\n\nLost: **her determination and care, in her own voice.**"
+   }
+  }
+ }
+}

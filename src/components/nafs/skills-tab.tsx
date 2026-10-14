@@ -5,6 +5,7 @@ import { repo } from "@/server/auth/next";
 import { linkableFamilies, nafsSkillCounts, nafsStandardCounts } from "@/server/nafs/bank";
 import { MOE_AREAS, MOE_CITATION, NAFS_DOMAINS, SKILL_BY_CODE } from "@/server/nafs/framework";
 import { linkFamilyAction } from "@/app/teacher/nafs/actions";
+import { Combo } from "@/components/ui/combo";
 
 /**
  * 🇸🇦 Skills: the 13 Ministry standards (S01–S13) with their number of questions (click → those questions in the bank),
@@ -65,11 +66,9 @@ export async function SkillsTab({ actor, t }: { actor: Actor; t: TFn }) {
                         <button className="min-h-8 rounded-full bg-surface px-2.5 text-xs text-ink-2 ring-1 ring-line hover:text-rose-700" title={t("Remove the link")}>{f.name} ✕</button>
                       </form>
                     ))}
-                    <form action={linkFamilyAction} className="flex gap-1.5">
+                    <form action={linkFamilyAction} className="flex flex-wrap items-start gap-1.5">
                       <input type="hidden" name="code" value={c.code} /><input type="hidden" name="linked" value="1" />
-                      <select name="familyId" aria-label={t("Link a platform skill")} className="min-h-8 max-w-48 rounded-lg bg-surface px-2 text-xs ring-1 ring-line">
-                        {families.filter((f) => !c.families.some((x) => x.id === f.id)).map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}
-                      </select>
+                      <Combo name="familyId" required label={t("Link a platform skill")} className="w-56" options={families.filter((f) => !c.families.some((x) => x.id === f.id)).map((f) => ({ value: f.id, label: f.name }))} placeholder={t("Link a platform skill")} />
                       <button className="min-h-8 rounded-lg bg-brand-navy px-2.5 text-xs font-semibold text-white">{t("Link")}</button>
                     </form>
                   </div>

@@ -1,0 +1,447 @@
+{
+ "code": "LN-058",
+ "title": "Common and proper nouns",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "nouns"
+ ],
+ "skillNames": [
+  "Common and Proper Nouns",
+  "Nouns: Common, Proper, Concrete, Abstract, Collective"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Naming words",
+     "text": "A **noun** names a person, a place or a thing.\n\n**girl**, **park**, **cup**"
+    },
+    {
+     "title": "Common nouns",
+     "text": "A **common noun** names **any** person, place or thing.\n\nboy, city, river\n\nIt starts with a small letter."
+    },
+    {
+     "title": "Proper nouns",
+     "text": "A **proper noun** names **one special** person, place or thing.\n\n**Fahad**, **Riyadh**, **the Nile**\n\nIt starts with a **capital letter**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the nouns in the text.\n2. Is it the **name** of one special person, place or thing?\n3. Look for the **capital letter**.\n\nPoint to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fahad lives in Riyadh.",
+      "role": "key"
+     },
+     {
+      "t": "He lives in a big house.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Fahad** and **Riyadh** are names. They are proper nouns with capital letters.\n\n**House** can be any house. It is a common noun."
+   },
+   "together": {
+    "passage": "My cousin is Reem. She lives in Dammam. She has a cat. Its name is Lulu.",
+    "stem": "Which word is a proper noun?",
+    "options": [
+     "cousin",
+     "cat",
+     "Dammam",
+     "name"
+    ],
+    "answer": 2,
+    "hint": "That word can be any one. Look for a special name with a capital letter.",
+    "good": "Yes! Dammam is the name of one special city."
+   },
+   "evidence": {
+    "sentences": [
+     "My cousin is Reem.",
+     "She lives in Dammam.",
+     "She has a cat.",
+     "Its name is Lulu."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Dammam. Tap 2 sentences that have a proper noun.",
+    "wrong": "This sentence has only common nouns. Look for a name with a capital letter."
+   },
+   "checks": [
+    {
+     "passage": "The boy went to the park.",
+     "stem": "Which word is a common noun?",
+     "options": [
+      "The",
+      "went",
+      "park",
+      "to"
+     ],
+     "answer": 2,
+     "why": "Park names a place, and it can be any park."
+    },
+    {
+     "passage": "We visited makkah last year.",
+     "stem": "Which word needs a capital letter?",
+     "options": [
+      "visited",
+      "makkah",
+      "year",
+      "last"
+     ],
+     "answer": 1,
+     "why": "Makkah is the name of one special city, so it needs a capital: Makkah."
+    },
+    {
+     "passage": "Ahmad has a red ball.",
+     "stem": "Which word is a proper noun?",
+     "options": [
+      "Ahmad",
+      "red",
+      "ball",
+      "has"
+     ],
+     "answer": 0,
+     "why": "Ahmad is the name of one special boy."
+    }
+   ],
+   "again": {
+    "title": "Any one, or one name?",
+    "text": "Can it be **any** one? → common noun.\n\nIs it **one special name**? → proper noun, with a capital.",
+    "example": "girl → any girl → **common**\nHuda → one special girl → **proper**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Proper nouns everywhere",
+     "text": "Proper nouns name:\n\n**days**: Friday\n**months**: March\n**holidays**: Eid al-Adha\n**places**: Saudi Arabia, King Fahd Road\n**languages**: Arabic, English"
+    },
+    {
+     "title": "Common or proper?",
+     "text": "day → **Friday**\ncountry → **Egypt**\nteacher → **Ms. Huda**\n\nThe common noun is general. The proper noun is one exact name."
+    },
+    {
+     "title": "But not seasons",
+     "text": "Seasons are common nouns: summer, winter, spring, autumn.\n\nWe go to the beach in **summer**.\n\nBut the names of months are proper: We fast in **Ramadan**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each noun in the text.\n2. Ask: is it the **exact name** of a day, month, place, person or language?\n3. If yes, it must have a capital letter.\n\nPoint to the sentence where a capital is missing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On Friday, we drove to the beach.",
+      "role": "key"
+     },
+     {
+      "t": "The sea was calm and blue.",
+      "role": "other"
+     },
+     {
+      "t": "Later, we ate dinner at Uncle Majid's house.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Friday** names a day, and **Uncle Majid** names a person. They are proper nouns.\n\n**Beach**, **sea** and **house** are common nouns."
+   },
+   "together": {
+    "passage": "Last month, my family traveled to Egypt. We flew from riyadh on a Tuesday. In Cairo, we saw the pyramids and sailed on the nile. My little brother learned some new words in Arabic and English. It was the best trip of the summer.",
+    "stem": "Which word in the text needs a capital letter?",
+    "options": [
+     "month",
+     "riyadh",
+     "pyramids",
+     "summer"
+    ],
+    "answer": 1,
+    "hint": "That word is a common noun. Which word is the exact name of a place?",
+    "good": "Yes! Riyadh is the name of a city, so it needs a capital letter."
+   },
+   "evidence": {
+    "sentences": [
+     "Last month, my family traveled to Egypt.",
+     "We flew from riyadh on a Tuesday.",
+     "In Cairo, we saw the pyramids and sailed on the nile.",
+     "My little brother learned some new words in Arabic and English.",
+     "It was the best trip of the summer."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap the 2 sentences with a proper noun that is missing its capital letter.",
+    "wrong": "All the proper nouns in this sentence already have capitals. Look for a name that starts with a small letter."
+   },
+   "checks": [
+    {
+     "passage": "My birthday is in april.",
+     "stem": "Which word needs a capital letter?",
+     "options": [
+      "birthday",
+      "is",
+      "in",
+      "april"
+     ],
+     "answer": 3,
+     "why": "April is the name of a month, so it needs a capital letter."
+    },
+    {
+     "passage": "We learn Arabic and english at school.",
+     "stem": "Which word needs a capital letter?",
+     "options": [
+      "learn",
+      "school",
+      "english",
+      "and"
+     ],
+     "answer": 2,
+     "why": "English is the name of a language, so it needs a capital letter."
+    },
+    {
+     "passage": "Every Winter, we camp in the desert.",
+     "stem": "Which word should NOT have a capital letter?",
+     "options": [
+      "Winter",
+      "Every",
+      "we",
+      "desert"
+     ],
+     "answer": 0,
+     "why": "Winter is a season. Seasons are common nouns, so it should be winter. Every starts the sentence, so it keeps its capital."
+    }
+   ],
+   "again": {
+    "title": "The calendar trick",
+    "text": "On a calendar, days and months have capitals: **Sunday**, **June**.\n\nSeasons do not: summer, winter.",
+    "example": "We travel in summer, usually in July.\n\n**July** is a month → capital. **summer** is a season → small letter."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Part of a name?",
+     "text": "A common word becomes part of a proper noun when it is **in a name**.\n\nWe crossed a **sea**. → We crossed the **Red Sea**.\n\nMy **uncle** is kind. → **Uncle Saad** is kind."
+    },
+    {
+     "title": "Titles",
+     "text": "Capitalize a title used **before a name**: **Doctor Salma**, **King Abdulaziz**, **Ms. Noura**.\n\nDo not capitalize it alone: The **doctor** was kind."
+    },
+    {
+     "title": "Directions",
+     "text": "north, south, east and west are common when they show a direction: Drive **north**.\n\nThey are capitalized when they are part of a name: **North America**, **the Eastern Province**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word in the text.\n2. Ask: is it **part of a name** here, or is it used in a general way?\n3. Point to the words around it: a name after it (Uncle Saad), or a word like my, a or the before it (my uncle, the doctor)."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "King Abdulaziz united the country in 1932.",
+      "role": "key"
+     },
+     {
+      "t": "A king leads a kingdom.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, **King** is a title before a name, so it has a capital.\n\nIn sentence 2, **king** means any king. It is a common noun."
+   },
+   "together": {
+    "passage": "Every summer, my cousin Nawaf visits us from the eastern province. This year, we drove north to visit my aunt in Hail. Aunt Mariam took us to see the old rock art at Jubbah. A guide named Mr. Faisal showed us drawings of camels and people that are thousands of years old. On the way home, we stopped at a small mosque to pray.",
+    "stem": "Which words in the text need capital letters?",
+    "options": [
+     "my cousin",
+     "eastern province",
+     "drove north",
+     "small mosque"
+    ],
+    "answer": 1,
+    "hint": "Those words are used in a general way. Which words are the name of one exact region?",
+    "good": "Yes! The Eastern Province is the name of a region, so both words need capitals."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, my cousin Nawaf visits us from the eastern province.",
+     "This year, we drove north to visit my aunt in Hail.",
+     "Aunt Mariam took us to see the old rock art at Jubbah.",
+     "A guide named Mr. Faisal showed us drawings of camels and people that are thousands of years old.",
+     "On the way home, we stopped at a small mosque to pray."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Eastern Province, because it is a name. Tap 2 sentences where a title is correctly part of a name.",
+    "wrong": "In this sentence, the common words (summer, north, aunt, mosque) are not part of a name. Find a title right before a name."
+   },
+   "checks": [
+    {
+     "passage": "We drove south until we reached the red sea.",
+     "stem": "Which words need capital letters?",
+     "options": [
+      "drove south",
+      "we reached",
+      "until we",
+      "red sea"
+     ],
+     "answer": 3,
+     "why": "The Red Sea is the name of one sea. South only shows a direction here."
+    },
+    {
+     "passage": "My Uncle works as a Doctor in Abha.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "My uncle works as a doctor in Abha.",
+      "My Uncle works as a doctor in abha.",
+      "My uncle works as a Doctor in Abha.",
+      "my uncle works as a doctor in Abha."
+     ],
+     "answer": 0,
+     "why": "Uncle and doctor are not used before a name here, so they are common nouns. Abha is a city, so it keeps its capital."
+    },
+    {
+     "passage": "Last week, ___ visited our class to talk about healthy food.",
+     "stem": "Which words fit the blank and are written correctly?",
+     "options": [
+      "doctor Salma",
+      "Doctor salma",
+      "Doctor Salma",
+      "doctor salma"
+     ],
+     "answer": 2,
+     "why": "Doctor is a title before a name, so both words need capitals."
+    }
+   ],
+   "again": {
+    "title": "Look left, look right",
+    "text": "Look at the words **next to** it.\n\nA name right after it? → capital: **Aunt** Huda.\nmy, a or the before it, and no name? → small letter: my **aunt**.",
+    "example": "my grandmother / Grandmother Latifa\n\n**my grandmother** → any grandmother → small letter.\n**Grandmother Latifa** → part of a name → capital."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Bigger names",
+     "text": "Proper nouns also name:\n\n**organizations**: the United Nations\n**events**: the Olympic Games\n**periods in history**: the Stone Age\n**special places and buildings**: the Grand Mosque\n\nCapitalize every important word in the name."
+    },
+    {
+     "title": "Common, proper and more",
+     "text": "Every noun is **common** or **proper**. Nouns can also be:\n\n**concrete**: you can see or touch it (desert)\n**abstract**: an idea or feeling (courage)\n**collective**: a group (team)\n\nOne noun can be two kinds at once: **Khalid** is proper and concrete."
+    },
+    {
+     "title": "Why capitals matter",
+     "text": "Capitals tell the reader that a word is an **exact name**.\n\na grand mosque = any large mosque\nthe **Grand Mosque** = the one in Makkah\n\nA missing capital can change the meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the noun phrase in the text.\n2. Ask: does it name **one exact** group, event, period or place?\n3. Point to clues: a word like **the** with a unique name, or a well-known title.\n\nIf it could name **any** one of many, it stays common."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Olympic Games began in ancient Greece.",
+      "role": "key"
+     },
+     {
+      "t": "Today, athletes from more than two hundred countries take part.",
+      "role": "other"
+     },
+     {
+      "t": "The games are held every four years.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**The Olympic Games** is the name of one event, so both words have capitals.\n\nIn sentence 3, **games** is used alone as a common noun, so it has a small letter."
+   },
+   "together": {
+    "passage": "Thousands of years ago, during the stone age, this land was much greener than it is today. Scientists have found the beds of ancient lakes in the Nafud Desert, along with stone tools and animal bones. Much of this work was done by researchers from Saudi Arabia working with a university team from abroad. Their findings were shared at international meetings and later shown in a museum in Riyadh. Today, visitors can learn how rivers and lakes once covered a land that is now mostly sand.",
+    "stem": "Which words in the text should be capitalized?",
+    "options": [
+     "stone age",
+     "ancient lakes",
+     "a university team",
+     "international meetings"
+    ],
+    "answer": 0,
+    "hint": "Those words could name any one of many. Which words name one exact period in history?",
+    "good": "Yes! The Stone Age is the name of one period in history, so both words need capitals."
+   },
+   "evidence": {
+    "sentences": [
+     "Thousands of years ago, during the stone age, this land was much greener than it is today.",
+     "Scientists have found the beds of ancient lakes in the Nafud Desert, along with stone tools and animal bones.",
+     "Much of this work was done by researchers from Saudi Arabia working with a university team from abroad.",
+     "Their findings were shared at international meetings and later shown in a museum in Riyadh.",
+     "Today, visitors can learn how rivers and lakes once covered a land that is now mostly sand."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Stone Age, an exact name. Tap 2 sentences that correctly capitalize the name of a place.",
+    "wrong": "This sentence has no correctly capitalized place name. Look for the name of a desert, a country or a city."
+   },
+   "checks": [
+    {
+     "passage": "The world health organization gives advice about staying healthy.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "The World health organization gives advice about staying healthy.",
+      "The world Health Organization gives advice about staying healthy.",
+      "The World Health Organization gives advice about staying healthy.",
+      "the World Health Organization gives advice about staying healthy."
+     ],
+     "answer": 2,
+     "why": "It is the name of one organization, so every important word needs a capital, and the sentence still starts with a capital."
+    },
+    {
+     "passage": "Khalid showed great courage when his team got lost in the desert.",
+     "stem": "Which noun is both proper and concrete?",
+     "options": [
+      "courage",
+      "team",
+      "desert",
+      "Khalid"
+     ],
+     "answer": 3,
+     "why": "Khalid names one exact person (proper), and a person can be seen (concrete). Courage is abstract and team is collective."
+    },
+    {
+     "passage": "Salma hopes to visit a grand mosque in every city she travels to, but her favorite is the grand mosque in Makkah.",
+     "stem": "Which words should be capitalized?",
+     "options": [
+      "the first grand mosque only",
+      "the second grand mosque only",
+      "both grand mosques",
+      "neither grand mosque"
+     ],
+     "answer": 1,
+     "why": "The first means any large mosque, so it is common. The second names the one exact mosque in Makkah: the Grand Mosque."
+    }
+   ],
+   "again": {
+    "title": "Name or kind?",
+    "text": "Ask: does this word name **one exact** person, place, group, event or time?\n\nYes → capitals.\nNo, it names a **kind** of thing → small letters.",
+    "example": "a university / King Saud University\n\n**a university** could be any one → common.\n**King Saud University** names one exact place → proper."
+   }
+  }
+ }
+}

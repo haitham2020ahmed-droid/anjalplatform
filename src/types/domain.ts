@@ -32,6 +32,8 @@ export interface ResponseEvidence extends ItemParams {
   sourceWeight?: number;
   /** where it came from (QuestionAttempt.source or SkillEvidence.source); undefined = practice / assigned sets */
   source?: string;
+  /** r67: decided by the server's rapid-guess rule (src/server/practice/guessing.ts); a rapid guess weighs 0 */
+  rapid?: boolean;
   /** ISO timestamp. */
   at: string;
 }

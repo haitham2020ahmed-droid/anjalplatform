@@ -1,0 +1,442 @@
+{
+ "code": "LN-048",
+ "title": "Subject-verb agreement",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "subject-verb-agreement"
+ ],
+ "skillNames": [
+  "Subject-Verb Agreement",
+  "Pronoun-Verb Agreement",
+  "Pronouns with Have and Be"
+ ],
+ "statements": [
+  "L-0208",
+  "L-0211"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Verbs match subjects",
+     "text": "The verb must **match** the subject.\n\nOne → **The dog runs.**\nMore than one → **The dogs run.**"
+    },
+    {
+     "title": "is / are, has / have",
+     "text": "One: **is**, **has**. “The cat **is** small.” “She **has** a bag.”\n\nMore than one: **are**, **have**. “The cats **are** small.” “They **have** bags.”\n\nAlso: **I am**, **I have**, **you are**, **you have**."
+    },
+    {
+     "title": "The -s trick",
+     "text": "With one person or thing (he, she, it, Ali), the verb usually **gets an -s**: he **plays**, Ali **eats**.\n\nWith they, we, you or I, it does **not**: they **play**, we **eat**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find **who or what** the sentence is about.\n2. Ask: one, or more than one?\n3. Point to the words that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My two brothers play football.",
+      "role": "key"
+     },
+     {
+      "t": "My sister plays tennis.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Brothers** = more than one → **play**.\n\n**Sister** = one → **plays**."
+   },
+   "together": {
+    "passage": "Sara has a little garden. Her flowers ___ red and yellow. She waters them every day.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "is",
+     "are",
+     "am",
+     "be"
+    ],
+    "answer": 1,
+    "hint": "What is the sentence about: one flower, or more than one?",
+    "good": "Yes! **Flowers** means more than one, so the verb is **are**."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara has a little garden.",
+     "Her flowers ___ red and yellow.",
+     "She waters them every day."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "Tap a sentence that shows Sara has more than one flower.",
+    "wrong": "This sentence is about Sara's garden, not the flowers. Look for a word that shows many flowers."
+   },
+   "checks": [
+    {
+     "passage": "The baby ___ asleep.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "are",
+      "is",
+      "am",
+      "be"
+     ],
+     "answer": 1,
+     "why": "**The baby** is one → **is**."
+    },
+    {
+     "passage": "We ___ two cats at home.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "has",
+      "is",
+      "have",
+      "having"
+     ],
+     "answer": 2,
+     "why": "With **we**, use **have**."
+    },
+    {
+     "passage": "Ali ___ to school every day.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "walks",
+      "walk",
+      "walking",
+      "are walk"
+     ],
+     "answer": 0,
+     "why": "**Ali** is one person, so the verb gets an -s: **walks**."
+    }
+   ],
+   "again": {
+    "title": "One or many?",
+    "text": "Look at the subject.\n\n**One** → is / has / -s (runs)\n**Many** → are / have / no -s (run)",
+    "example": "“The birds ___ (sing / sings).” Birds = many → **sing**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Plurals without -s",
+     "text": "Some plural nouns do not end in -s:\n\n**children, people, men, women, mice, teeth, feet, geese**\n\nThey are still plural: “The children **are** here.” “People **like** dates.”"
+    },
+    {
+     "title": "Same word for one and many",
+     "text": "Some nouns look the same for one or many: **sheep, fish, deer**.\n\nUse the clues: “**One** sheep **is** lost.” “**Ten** sheep **are** in the field.”"
+    },
+    {
+     "title": "Verb before subject",
+     "text": "Sometimes the verb comes **before** the subject:\n\n“There **are** three books.” → subject: **books**\n“Here **comes** the bus.” → subject: **bus**\n\nLook **after** the verb to find the subject."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the real subject. In “There is / There are” sentences, it comes **after** the verb.\n2. Decide: one or more? Remember: children, people and mice are plural.\n3. Point to the words that prove the number."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "There are many people at the market today.",
+      "role": "key"
+     },
+     {
+      "t": "Every stall is busy.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The subject is **people**, which comes after the verb. People = plural → **are**.\n\n“Every stall” means each one → **is**."
+   },
+   "together": {
+    "passage": "Our school has a small farm. There ___ five sheep in the field behind the classroom. Every morning, the children feed them hay. The sheep follow the students around the field.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "is",
+     "are",
+     "was",
+     "has"
+    ],
+    "answer": 1,
+    "hint": "The subject comes after the blank. How many sheep are there?",
+    "good": "Yes! The subject is **five sheep**: more than one, so **are**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school has a small farm.",
+     "There ___ five sheep in the field behind the classroom.",
+     "Every morning, the children feed them hay.",
+     "The sheep follow the students around the field."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that prove there is more than one sheep.",
+    "wrong": "This sentence is about the farm, not the sheep. Look for a number, or words that show many sheep."
+   },
+   "checks": [
+    {
+     "passage": "The mice ___ hiding behind the box.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "is",
+      "was",
+      "has",
+      "are"
+     ],
+     "answer": 3,
+     "why": "**Mice** is the plural of mouse, so the verb is **are**."
+    },
+    {
+     "passage": "Here ___ the new students.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "come",
+      "comes",
+      "coming",
+      "is come"
+     ],
+     "answer": 0,
+     "why": "Flip it: “The new students **come** here.” Students = plural → **come**."
+    },
+    {
+     "passage": "There ___ a fish in the small pond.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "are",
+      "were",
+      "is",
+      "have"
+     ],
+     "answer": 2,
+     "why": "“A fish” means one fish → **is**."
+    }
+   ],
+   "again": {
+    "title": "Flip it",
+    "text": "If a sentence starts with **There** or **Here**, flip it around in your head.\n\n“There ___ two cups.” → “Two cups ___ there.” Now the subject is easy to see.",
+    "example": "“There ___ (is / are) many children in the park.” Flip: “Many children ___ in the park.” Children = plural → **are**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Words in between",
+     "text": "A phrase between the subject and the verb does **not** change the subject.\n\n“The box **of pencils** **is** on the desk.” Subject: **box** (one).\n\n“The leaves **on the tree** **are** green.” Subject: **leaves**."
+    },
+    {
+     "title": "Subjects joined by and / or",
+     "text": "**and** → plural: “Ali **and** Omar **are** cousins.”\n\n**or / nor** → match the nearer subject: “Either the girls or **Huda** **is** reading.”"
+    },
+    {
+     "title": "Questions",
+     "text": "In questions, the verb often comes first.\n\n“Where **are** my keys?” → “My keys **are** where?”\n\nTurn the question into a statement to find the subject."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Cross out phrases between the subject and the verb (of…, in…, with…).\n2. Turn questions and There-sentences into statements.\n3. Find the real subject and its number. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The color of the sea changes during the day.",
+      "role": "key"
+     },
+     {
+      "t": "In the morning, the waves look silver.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Cross out “of the sea”. The subject is **color** (one) → **changes**.\n\nIn the second sentence, **waves** (many) → **look**."
+   },
+   "together": {
+    "passage": "Our class is making a model of the solar system. The planets in our model ___ made of painted foam balls. Jupiter, the largest planet, is as big as a football. Each of the small moons hangs from a thin wire. Where are the rings for Saturn? Mona and Fahad are making them out of cardboard.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "are",
+     "is",
+     "has",
+     "was"
+    ],
+    "answer": 0,
+    "hint": "Cross out “in our model”. What is the real subject: one thing, or many?",
+    "good": "Yes! Cross out “in our model”: the subject is **planets**, which is plural → **are**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is making a model of the solar system.",
+     "The planets in our model ___ made of painted foam balls.",
+     "Jupiter, the largest planet, is as big as a football.",
+     "Each of the small moons hangs from a thin wire.",
+     "Where are the rings for Saturn?",
+     "Mona and Fahad are making them out of cardboard."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence whose real subject decides the blank.",
+    "wrong": "The subject of this sentence does not decide the blank. Find the sentence with the blank and its real subject."
+   },
+   "checks": [
+    {
+     "passage": "The keys to the old door ___ missing.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "is",
+      "are",
+      "was",
+      "has"
+     ],
+     "answer": 1,
+     "why": "Cross out “to the old door”. The subject is **keys** (plural) → **are**."
+    },
+    {
+     "passage": "Neither the teachers nor the principal ___ late today.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "are",
+      "were",
+      "is",
+      "have"
+     ],
+     "answer": 2,
+     "why": "With **nor**, match the nearer subject: **the principal** (one) → **is**."
+    },
+    {
+     "passage": "___ your parents coming to the school play?",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "Is",
+      "Was",
+      "Does",
+      "Are"
+     ],
+     "answer": 3,
+     "why": "Turn it into a statement: “Your parents **are** coming.” Parents = plural → **Are**."
+    }
+   ],
+   "again": {
+    "title": "Cover the middle",
+    "text": "Cover the words between the subject and the verb with your finger.\n\nRead just the subject and the verb together.",
+    "example": "“The basket [of oranges] ___ (is / are) heavy.” → “The basket is heavy.” → **is**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Inverted sentences in writing",
+     "text": "Writers sometimes put a place phrase first, and the subject **after** the verb:\n\n“On the hill **stand** two old towers.” Subject: **towers** → stand.\n\n“Beside the door **sits** a large clay pot.” Subject: **pot** → sits."
+    },
+    {
+     "title": "Tricky singular subjects",
+     "text": "Some subjects look plural but take a singular verb:\n\n**news, mathematics**: “The news **is** good.”\n**each, every**: “Every student **has** a locker.”\n\n“**The number** of visitors **is** rising.” But: “**A number** of visitors **are** waiting.”"
+    },
+    {
+     "title": "Plurals without -s",
+     "text": "Watch for plurals in formal writing: **people, children, women, teeth, feet, mice, geese**.\n\n“The people of the village **were** proud of the new school.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb.\n2. Ask: **who or what** does this? Look before **and after** the verb.\n3. Cross out phrases and decide the subject's number.\n4. Point to the sentence where the subject sits after its verb: that is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Deep inside the cave lives a colony of bats.",
+      "role": "key"
+     },
+     {
+      "t": "At dusk, thousands of them fly out to hunt insects.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The subject comes after the verb: **a colony** (of bats). A colony is one group → **lives**.\n\nIn sentence 2, the subject is **thousands** → **fly**."
+   },
+   "together": {
+    "passage": "Along the coast of the Red Sea ___ some of the richest coral reefs in the world. The water here stays warm all year, and many kinds of fish live among the corals. Each of the reefs has its own mix of creatures. Divers come from far away to explore them. However, the number of healthy reefs is falling in many oceans because the water is getting warmer. Scientists and divers are working together to protect these underwater gardens.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "lies",
+     "lie",
+     "is lying",
+     "has lain"
+    ],
+    "answer": 1,
+    "hint": "The sentence starts with a place. Look AFTER the blank. What lies along the coast: one thing, or many?",
+    "good": "Yes! The subject comes after the verb: **some of the richest coral reefs**. Reefs = plural → **lie**."
+   },
+   "evidence": {
+    "sentences": [
+     "Along the coast of the Red Sea ___ some of the richest coral reefs in the world.",
+     "The water here stays warm all year, and many kinds of fish live among the corals.",
+     "Each of the reefs has its own mix of creatures.",
+     "Divers come from far away to explore them.",
+     "However, the number of healthy reefs is falling in many oceans because the water is getting warmer.",
+     "Scientists and divers are working together to protect these underwater gardens."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where the subject comes after the verb.",
+    "wrong": "In this sentence, the subject comes before the verb. Find the one where the verb comes first."
+   },
+   "checks": [
+    {
+     "passage": "The news from the hospital ___ encouraging.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "are",
+      "is",
+      "were",
+      "have been"
+     ],
+     "answer": 1,
+     "why": "**News** looks plural but is singular → **is**."
+    },
+    {
+     "passage": "On the table ___ a plate of dates and two cups of coffee.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "is",
+      "was",
+      "has",
+      "are"
+     ],
+     "answer": 3,
+     "why": "The subject comes after the verb: **a plate and two cups**. Joined by **and** → plural → **are**."
+    },
+    {
+     "passage": "A number of students ___ volunteered for the beach clean-up.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "has",
+      "is",
+      "have",
+      "was"
+     ],
+     "answer": 2,
+     "why": "“A number of students” means many students → **have**."
+    }
+   ],
+   "again": {
+    "title": "Ask “who or what?” after the verb",
+    "text": "When a sentence starts with a place (On the hill, Inside the box, Along the road), the subject is often hiding **after** the verb.\n\nRewrite it in normal order to check.",
+    "example": "“Under the bridge ___ (flow / flows) two small streams.” → “Two small streams **flow** under the bridge.” → **flow**."
+   }
+  }
+ }
+}

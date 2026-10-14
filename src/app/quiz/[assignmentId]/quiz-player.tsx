@@ -26,6 +26,13 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
   const [celebrate, setCelebrate] = useState(false);
+  // r67 guessing: after "take your time" the next question's answer buttons enable after a few seconds
+  const [locked, setLocked] = useState(0);
+  useEffect(() => {
+    if (!locked) return;
+    const id = window.setTimeout(() => setLocked(0), locked);
+    return () => window.clearTimeout(id);
+  }, [locked]);
   const q = shown;
   const g = view.goal;
   // a test with a time limit: the time left (the server's clock decides; at 0 the page reloads to the end of the test)
@@ -58,7 +65,8 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
     if (r.feedback!.next.endReason === "GOAL") setCelebrate(true);
   }
   const nextHref = view.nextHref ?? "/student/plans";
-  function next() { setFb(null); setValue(null); setShown(view.question); }
+  function next() { if (fb?.guess?.action === "SLOW_DOWN") setLocked(fb.guess.waitMs); setFb(null); setValue(null); setShown(view.question); }
+  const paused = fb?.guess?.action === "PAUSE";
   if (!q && preview) {
     return (
       <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
@@ -147,12 +155,15 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
           </div>
         </div>
       )}
-      <QuizQuestion q={q} value={value} onChange={setValue} disabled={!!fb || pending}>
+      <QuizQuestion q={q} value={value} onChange={setValue} disabled={!!fb || pending || locked > 0}>
         {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
         <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
+        {fb?.guess?.action === "SLOW_DOWN" && <p role="status" data-testid="slow-down" className="mt-4 rounded-2xl bg-sky-50 px-4 py-3 text-center text-lg font-semibold text-sky-900 ring-1 ring-sky-200">Take your time 😊 there&apos;s no rush — read the question carefully</p>}
+        {paused && <p role="status" data-testid="guess-pause" className="mt-4 rounded-2xl bg-sky-50 px-4 py-3 text-center text-lg font-semibold text-sky-900 ring-1 ring-sky-200">Looks like you need a break — your progress is saved</p>}
         {!view.testMode && <FlagButton key={q.questionId} questionId={q.questionId} />}
         <div className="mt-6">
-          {!fb ? <button type="button" disabled={pending || (!preview && !isAnswerReady(q, value))} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? "Saving…" : view.answered + 1 >= view.total ? "Finish the test" : "Next ▶") : pending ? "Checking…" : "Check answer"}</button>
+          {paused ? <Link href="/student" data-testid="take-break" className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">Back to My Work</Link>
+            : !fb ? <button type="button" disabled={pending || locked > 0 || (!preview && !isAnswerReady(q, value))} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? "Saving…" : view.answered + 1 >= view.total ? "Finish the test" : "Next ▶") : pending ? "Checking…" : "Check answer"}</button>
             : <button type="button" onClick={next} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{view.question ? "Next question" : "Finish"}</button>}
         </div>
       </QuizQuestion>

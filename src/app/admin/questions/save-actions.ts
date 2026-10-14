@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { ValidationError } from "@/server/curriculum-admin";
-import { createDraft, duplicateOfInput, updateDraft, type EditorInput } from "@/server/admin/questions";
+import { createDraft, duplicateOfInput, editPublishedAsNewVersion, updateDraft, type EditorInput } from "@/server/admin/questions";
 import { editNeedsApproval, requestEdit } from "@/server/admin/question-edits";
 
 const id = z.string().min(1).max(191);
@@ -49,6 +49,13 @@ export async function saveQuestionWithTypesAction(questionId: string | null, inp
       await requestEdit(repo, actor, id.parse(questionId), parsed);
       revalidatePath(`/admin/questions/${questionId}`);
       return { ok: true, id: questionId, message: "Sent to the admin for approval. Students keep seeing the current version until it is approved." };
+    }
+    // ✏️ an admin's Edit anyway of a published question students answered: saved and published as a new version
+    if (questionId && current && current.status === "PUBLISHED" && (actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN")
+      && (await repo.findMany("QuestionAttempt", { questionId: current.id }, { select: ["questionId"], take: 1 })).length) {
+      const newId = await editPublishedAsNewVersion(repo, actor, id.parse(questionId), parsed);
+      revalidatePath("/admin/questions");
+      return { ok: true, id: newId, message: "Saved and published as a new version. It replaces the old one everywhere; students' past answers stay with the old one." };
     }
     if (questionId) {
       await updateDraft(repo, actor, id.parse(questionId), parsed);

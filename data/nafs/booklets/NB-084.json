@@ -1,0 +1,568 @@
+{
+  "code": "NB-084",
+  "title": "The Hedgehog Who Measured the Water",
+  "kind": "LITERARY",
+  "genre": "fable",
+  "words": 492,
+  "passage": "After a rare winter storm, rainwater collected in a wide, shallow hollow of rock at the foot of Red Cliff, and the small animals of the wadi rejoiced. Wise old Barakah the tortoise organised a fair system: each family would drink only once a day, at sunrise, so that the precious pool would last until the summer.\n\nWithin a single week, however, the water level had fallen alarmingly, and suspicion spread through the wadi like smoke. The jerboas insisted that the fox must be sneaking down at night, since everyone knew that foxes were cunning. The fox angrily blamed the noisy sparrows, who, he claimed, splashed about all afternoon. The sparrows, in turn, accused the lizards, who basked on the rocks beside the pool for hours. Soon, neighbours who had shared the same burrows and branches for years refused to greet one another.\n\nOnly Nimr, a young hedgehog with an unusual habit of noticing insignificant details, said nothing. Instead, he collected a sharp flint and began scratching a thin line on the rock at the edge of the water every morning, just after the animals had drunk, and again at sunset, exactly where the surface touched the stone.\n\nAfter several days, he invited the whole community to the pool and pointed to his marks. \"Look carefully,\" he said, \"because each night, while the fox is supposedly stealing our water, the level falls by only the width of a grass stem, whereas each day, between sunrise and sunset, it falls five times as far. And yesterday, when everyone sheltered in their burrows from the howling wind and nobody came near the pool at all, it fell faster than ever before.\"\n\nThe astonished animals stared at the scratches in bewildered silence. \"Then who is the thief?\" the fox demanded at last.\n\n\"The thief is the sun, helped by the wind,\" Nimr replied. \"When I left a leaf full of water on a hot rock, it was empty by noon, although no creature touched it. Our pool is wide and shallow, so the sun warms a great deal of its surface, and the dry wind carries the water away into the air, one invisible drop at a time.\"\n\nBarakah nodded slowly, deeply impressed by his careful observations. \"Then accusing one another will not refill the pool,\" she said. \"What can we do?\"\n\nNimr had already considered this question. Following his plan, the sparrows carried dry palm fronds, the jerboas dragged twigs, and the fox, who was the strongest, pulled a fallen acacia branch across the top of the hollow. Together they constructed a shady roof that blocked the intense midday sun and softened the wind.\n\nFrom that day on, the protected pool shrank so gradually that it lasted well into the summer. More importantly, the neighbours apologised to one another, and the fox was invited to every gathering in the wadi.\n\nMoral: Before blaming your neighbours, search patiently for the causes that nobody can see.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “cunning” as it is used in paragraph 2?",
+      "options": [
+        "clever at tricking others",
+        "very fast",
+        "loyal to friends",
+        "easily frightened"
+      ],
+      "answer": "A",
+      "why": "The jerboas think foxes are cunning, meaning clever in a sly, tricky way."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “insignificant” as it is used in paragraph 3?",
+      "options": [
+        "tiny",
+        "important",
+        "hidden",
+        "boring"
+      ],
+      "answer": "B",
+      "why": "Insignificant details seem unimportant; the opposite is “important”. “Tiny” is close in meaning to insignificant."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 5: “stared at the scratches in bewildered silence”. What does “bewildered” mean?",
+      "options": [
+        "angry",
+        "sleepy",
+        "confused",
+        "proud"
+      ],
+      "answer": "C",
+      "why": "The animals had just heard surprising facts and did not understand them yet, so they were confused."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADVERB?",
+      "options": [
+        "neighbours",
+        "noisy",
+        "rocks",
+        "angrily"
+      ],
+      "answer": "D",
+      "why": "“Angrily” tells HOW the fox blamed the sparrows; “noisy” is an adjective and the others are nouns."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the fable is SINGULAR?",
+      "options": [
+        "fox",
+        "jerboas",
+        "lizards",
+        "twigs"
+      ],
+      "answer": "A",
+      "why": "“Fox” names one animal; the other words name more than one."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “observations” in paragraph 7?",
+      "options": [
+        "obey",
+        "observe",
+        "obstacle",
+        "object"
+      ],
+      "answer": "B",
+      "why": "“Observe” is the verb from which “observations” is formed."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “accuse” in a meaningful sentence of your own.",
+      "model": "It is unfair to accuse a classmate of taking your pen before you have searched your own bag carefully.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “accuse” with its meaning (to say that someone has done something wrong)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "To “accuse” someone means to say that he or she has done something wrong."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “fox”?",
+      "options": [
+        "foxs",
+        "foxen",
+        "foxes",
+        "foxies"
+      ],
+      "answer": "C",
+      "why": "Nouns ending in -x add -es: fox → foxes (compare box → boxes)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the fable is a QUESTION?",
+      "options": [
+        "“What can we do?”",
+        "“Look carefully.”",
+        "“The thief is the sun, helped by the wind.”",
+        "“Nimr had already considered this question.”"
+      ],
+      "answer": "A",
+      "why": "Barakah asks the others for ideas; the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the fable?",
+      "options": [
+        "The Fox Who Stole the Water",
+        "The Thief Nobody Could See",
+        "A Rainy Winter",
+        "The Sparrows' Bath"
+      ],
+      "answer": "B",
+      "why": "The real “thief” was the sun and wind, which nobody could see taking the water."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the fable?",
+      "options": [
+        "to explain how hedgehogs find food",
+        "to describe what the wadi looks like in winter",
+        "to teach that we should search for real causes before blaming others",
+        "to persuade readers to build roofs over pools"
+      ],
+      "answer": "C",
+      "why": "Nimr's evidence shows the animals were wrong to blame each other, as the moral says."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "The water level falls, and the animals begin blaming each other.",
+        "The fox explains that he drinks only once, at sunrise.",
+        "Barakah organises a fair system for drinking water.",
+        "The sparrows teach the lizards how to swim in the pool."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 describes the falling water and how “suspicion spread through the wadi like smoke”."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Barakah decide that each family should drink only once a day?",
+      "options": [
+        "so that the animals would never fight over water",
+        "so that the precious pool would last until the summer",
+        "so that the fox could not reach the water at night",
+        "so that the sparrows could bathe there every afternoon"
+      ],
+      "answer": "B",
+      "why": "Paragraph 1: “so that the precious pool would last until the summer.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a poem",
+        "a letter",
+        "a fable"
+      ],
+      "answer": "D",
+      "why": "It is a short story with talking animals that ends with a moral."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Nimr, why does the pool lose so much water?",
+      "options": [
+        "It is wide and shallow, so the sun warms its surface and the dry wind carries water away.",
+        "The animals drink more than once a day.",
+        "The rock under the pool has a crack.",
+        "The fox drinks secretly at night."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 explains that the sun warms the wide surface and the wind carries the water into the air."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened AFTER Nimr showed the community his marks?",
+      "options": [
+        "The jerboas blamed the fox.",
+        "Nimr scratched lines on the rock each morning.",
+        "The fox pulled an acacia branch across the hollow.",
+        "The rainwater collected after a storm."
+      ],
+      "answer": "C",
+      "why": "Building the shady roof (paragraph 8) came after Nimr explained his marks."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which character solves the mystery?",
+      "options": [
+        "Barakah the tortoise",
+        "the fox",
+        "one of the sparrows",
+        "Nimr the hedgehog"
+      ],
+      "answer": "D",
+      "why": "Nimr collects the evidence and explains that the sun and wind are the “thief”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail from Nimr's marks MOST clearly proves that the animals were not to blame?",
+      "options": [
+        "The level fell fastest on the windy day when nobody came near the pool.",
+        "The marks were made with a sharp flint.",
+        "The marks were thin lines on the rock.",
+        "The pool was at the foot of Red Cliff."
+      ],
+      "answer": "A",
+      "why": "If the water fell fastest when no animal visited, the animals could not be the cause."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the animals to stop greeting one another?",
+      "options": [
+        "Barakah told them not to speak.",
+        "The howling wind kept them in their burrows.",
+        "They suspected each other of stealing the water.",
+        "Nimr asked them to stay quiet."
+      ],
+      "answer": "C",
+      "why": "As suspicion spread, neighbours “refused to greet one another”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why do you think Nimr said nothing while the others were blaming each other?",
+      "options": [
+        "He was too afraid of the strong, angry fox.",
+        "He preferred to gather evidence before speaking.",
+        "He did not really care about the pool at all.",
+        "He secretly believed the sparrows were guilty."
+      ],
+      "answer": "B",
+      "why": "Instead of joining the argument, he began scratching marks to collect facts."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the jerboas MOST LIKELY choose the fox as their suspect?",
+      "options": [
+        "They had seen his footprints by the pool.",
+        "Nimr told them that the fox was guilty.",
+        "The fox admitted it in front of everyone.",
+        "They judged him by foxes' reputation for being cunning."
+      ],
+      "answer": "D",
+      "why": "They blamed him “since everyone knew that foxes were cunning”, not because of evidence."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the water level change at night compared with during the day?",
+      "options": [
+        "It fell only a little at night but five times as far during the day.",
+        "It fell five times as far at night as during the day.",
+        "It rose at night and fell during the day.",
+        "It stayed the same day and night."
+      ],
+      "answer": "A",
+      "why": "Nimr says it fell “only the width of a grass stem” at night but “five times as far” by day."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the shady roof?",
+      "options": [
+        "The pool dried up even more quickly than before.",
+        "The pool shrank so gradually that it lasted well into the summer.",
+        "The smaller animals could no longer reach the water.",
+        "The fox was no longer allowed to drink from the pool."
+      ],
+      "answer": "B",
+      "why": "Paragraph 9: “the protected pool shrank so gradually that it lasted well into the summer.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the leaf on the hot rock and the pool have in common?",
+      "options": [
+        "Both were filled with rainwater by the fox.",
+        "Both were covered with dry palm fronds at night.",
+        "Both lost water to the sun and air without any animal drinking it.",
+        "Both were found high up at the top of Red Cliff."
+      ],
+      "answer": "C",
+      "why": "The leaf was empty by noon “although no creature touched it”, just as the pool lost water to the sun and wind."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the fable is a SIMILE?",
+      "options": [
+        "“when everyone sheltered in their burrows”",
+        "“suspicion spread through the wadi like smoke”",
+        "“one invisible drop at a time”",
+        "“a fallen acacia branch”"
+      ],
+      "answer": "B",
+      "why": "It compares suspicion to smoke using “like”."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Nimr mean when he calls the sun “the thief”?",
+      "options": [
+        "The sun is a real person who steals from animals.",
+        "The fox is hiding the water behind the sun.",
+        "The sun takes the water away, as a thief would, but without being seen.",
+        "The sun is angry with the animals for arguing."
+      ],
+      "answer": "C",
+      "why": "He uses the word “thief” figuratively: the sun's heat makes the water disappear invisibly."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer give each animal a different suspect to blame in paragraph 2?",
+      "options": [
+        "to show how quickly blame spreads when nobody looks for evidence",
+        "to teach readers the names of desert animals",
+        "to prove that the lizards were guilty",
+        "to make the fable funnier than it needs to be"
+      ],
+      "answer": "A",
+      "why": "The chain of accusations shows how suspicion spreads “like smoke” without proof."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action in the fable was MOST beneficial to the community?",
+      "options": [
+        "the jerboas blaming the fox",
+        "the sparrows accusing the lizards",
+        "the lizards basking on the rocks",
+        "Nimr measuring the water level carefully"
+      ],
+      "answer": "D",
+      "why": "Nimr's careful measurements revealed the real cause and led to the solution."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why was the fox invited to every gathering at the end?",
+      "options": [
+        "because he was the oldest and wisest animal in the wadi",
+        "because the others wanted to make up for wrongly suspecting him",
+        "because he had found the pool after the storm",
+        "because he could run faster than anyone else"
+      ],
+      "answer": "B",
+      "why": "After the truth was known, the neighbours apologised, and they welcomed the fox they had blamed."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in paragraph 2?",
+      "options": [
+        "distrust",
+        "gratitude",
+        "calmness",
+        "pride"
+      ],
+      "answer": "A",
+      "why": "Everyone suspects and accuses everyone else, so distrust fills the wadi."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the fable?",
+      "options": [
+        "who organised the drinking system",
+        "what Nimr used to scratch the rock",
+        "what the fox pulled across the hollow",
+        "how deep the pool was at the start"
+      ],
+      "answer": "D",
+      "why": "The fable says the pool was shallow but never says how deep it was; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A hedgehog makes rain fall by scratching a rock.",
+        "Water in a shallow pool disappears faster on hot, windy days.",
+        "The sun steals the water and hides it in a cave.",
+        "Two lizards drink an entire pool in one afternoon."
+      ],
+      "answer": "B",
+      "why": "Evaporation really is faster when it is hot and windy; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the fable?",
+      "options": [
+        "The Fox's Secret Night Visits",
+        "The Lizards on the Rocks",
+        "The Mystery of the Shrinking Pool",
+        "The Storm at Red Cliff"
+      ],
+      "answer": "C",
+      "why": "The fable is about solving why the pool kept shrinking."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the fable. Write two or three sentences that solve the problem of the shrinking pool in another way.",
+      "model": "Nimr suggested that the animals carry water from the pool into a deep, narrow crack in the cliff, where the sun could not reach it. Working together, they moved the water in leaves and shells before it could disappear. The water stayed cool and lasted all summer, and the neighbours became friends again.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and solves the problem of the disappearing water in a believable way",
+        "1 = an ending is given but it is unclear, unrealistic, or does not solve the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the fable and reduces the water lost to sun and wind is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the fable, how can people keep stored water from disappearing quickly in hot weather?",
+      "options": [
+        "Store it in wide, shallow containers in the sun.",
+        "Cover it and keep it in the shade.",
+        "Leave it uncovered in a windy place.",
+        "Stir it every hour."
+      ],
+      "answer": "B",
+      "why": "Nimr's shady roof blocked the sun and softened the wind, so covering water and keeping it shaded slows evaporation."
+    }
+  ]
+}

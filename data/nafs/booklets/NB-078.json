@@ -1,0 +1,568 @@
+{
+  "code": "NB-078",
+  "title": "The Mystery of the Drying Racks",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 471,
+  "passage": "Every autumn, Grandfather Saleh spread the freshly harvested dates of his farm near Buraydah across long wooden racks, where the sunshine slowly dried them until they became sweet and chewy. This year, however, something peculiar was happening, because each morning, when he inspected the racks, a few more dates had vanished, and the empty spaces grew larger day after day.\n\n\"It must be the neighbour's boys,\" Grandfather grumbled at breakfast, frowning into his cup of coffee. \"They play beside our wall every evening, and they are always hungry.\"\n\nReem, who was staying on the farm with her brother Nawaf for the holiday, felt uneasy. She knew the neighbour's boys, and they had always seemed honest and polite. \"Grandfather,\" she asked carefully, \"may Nawaf and I investigate before you speak to their father? If we accuse them without evidence, we might hurt innocent people.\"\n\nGrandfather hesitated for a long moment, considering her request, and then nodded reluctantly. \"You have three days, detectives.\"\n\nThat evening, Reem sprinkled a thin layer of flour on the ground around the racks, while Nawaf, who loved gadgets, set his tablet to record the farm through the kitchen window. The next morning, more dates were missing, but the flour told a surprising story. There was not a single human footprint anywhere, only dozens of tiny prints, each shaped like a delicate fork with three toes pointing forward.\n\n\"No person could possibly leave marks like these,\" Reem whispered, kneeling to study them more closely. Beneath the racks, she also discovered several date stones that had been pecked clean, as though someone had scraped every scrap of fruit from them with a small, sharp tool.\n\nUnfortunately, Nawaf's recording was disappointing, because the night had been so dark that the screen showed nothing but black shadows. Then Reem noticed that the dates always disappeared from the same corner of the racks, and when she examined the protective net above that corner, she found a narrow tear that the wind had widened.\n\n\"The thieves do not come at night at all,\" she announced, \"because birds rest in the dark. They must come at dawn, as soon as there is enough light to see.\"\n\nThe following day, the two children woke before sunrise and hid behind the palm trunks. As the sky turned pink, a noisy flock of bulbuls, small brown birds with black heads, dropped through the torn net and began feasting greedily on the dates. Nawaf filmed everything, and this time the picture was perfectly clear.\n\nWhen Grandfather watched the video, he laughed and shook his head in embarrassment. \"I nearly blamed two innocent boys for the crimes of a few hungry birds,\" he admitted. That afternoon, he repaired the net with Nawaf's help, and in the evening he invited the neighbour's boys to share a plate of his best dates.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “peculiar” as it is used in paragraph 1?",
+      "options": [
+        "strange",
+        "harmful",
+        "pleasant",
+        "ordinary"
+      ],
+      "answer": "A",
+      "why": "Dates vanishing every morning is unusual, so “peculiar” means strange. “Ordinary” is its opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “reluctantly” as it is used in paragraph 4?",
+      "options": [
+        "slowly",
+        "willingly",
+        "silently",
+        "sadly"
+      ],
+      "answer": "B",
+      "why": "Grandfather agreed reluctantly (without wanting to); the opposite is “willingly”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 9: “began feasting greedily on the dates”. What does “feasting” mean here?",
+      "options": [
+        "fighting noisily",
+        "flying in circles",
+        "eating a large amount happily",
+        "hiding quietly"
+      ],
+      "answer": "C",
+      "why": "A feast is a big meal; the birds were eating lots of dates with enjoyment."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is a VERB?",
+      "options": [
+        "layer",
+        "delicate",
+        "sprinkled",
+        "footprint"
+      ],
+      "answer": "C",
+      "why": "“Sprinkled” is the action Reem did; “layer” and “footprint” are nouns and “delicate” is an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is an IRREGULAR plural (it does not end in -s)?",
+      "options": [
+        "people",
+        "dates",
+        "racks",
+        "shadows"
+      ],
+      "answer": "A",
+      "why": "One person, many people; the others simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “investigate”?",
+      "options": [
+        "invest",
+        "invitation",
+        "vest",
+        "investigation"
+      ],
+      "answer": "D",
+      "why": "“Investigation” is the noun form of “investigate”; “invest” and “vest” only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “evidence” in a meaningful sentence of your own.",
+      "model": "The muddy footprints on the kitchen floor were clear evidence that my little brother had come inside without taking off his shoes.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “evidence” with its meaning (facts or signs that show something is true)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Evidence” means facts or signs that prove or show that something is true."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 8, Reem talks about “The thieves”. Which of these words forms its plural in the SAME way as thief → thieves?",
+      "options": [
+        "chief",
+        "roof",
+        "leaf",
+        "belief"
+      ],
+      "answer": "C",
+      "why": "Leaf → leaves, like thief → thieves; chief, roof and belief just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a QUESTION?",
+      "options": [
+        "“It must be the neighbour's boys.”",
+        "“You have three days, detectives.”",
+        "“No person could possibly leave marks like these.”",
+        "“may Nawaf and I investigate before you speak to their father?”"
+      ],
+      "answer": "D",
+      "why": "Reem asks permission, and the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the story?",
+      "options": [
+        "The Neighbour's Hungry Boys",
+        "Thieves with Feathers",
+        "How to Grow Dates in Buraydah",
+        "Nawaf's New Tablet"
+      ],
+      "answer": "B",
+      "why": "The thieves turned out to be birds, so “Thieves with Feathers” fits; the boys were innocent."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to show that careful investigation is better than blaming people without proof",
+        "to teach readers how to dry dates on wooden racks",
+        "to describe the birds that live in Qassim",
+        "to explain how to use a tablet to film at night"
+      ],
+      "answer": "A",
+      "why": "Reem's careful detective work proves that Grandfather's quick accusation was wrong."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Reem asks to visit the neighbour's house.",
+        "Reem and Nawaf are bored on the farm.",
+        "Reem asks to look for evidence so that innocent boys are not accused.",
+        "Reem agrees that the neighbour's boys are thieves."
+      ],
+      "answer": "C",
+      "why": "Reem feels uneasy and asks to investigate first so they do not “hurt innocent people”."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandfather first suspect the neighbour's boys?",
+      "options": [
+        "He had seen them climbing the racks.",
+        "They played beside his wall every evening and were always hungry.",
+        "Reem told him they had taken the dates.",
+        "Their footprints were found in the flour."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2: “They play beside our wall every evening, and they are always hungry.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a mystery story",
+        "a news report",
+        "a letter",
+        "an information leaflet"
+      ],
+      "answer": "A",
+      "why": "It tells an invented story with a puzzle that the characters solve by finding clues."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Nawaf's first recording disappointing?",
+      "options": [
+        "The tablet's battery ran out.",
+        "Grandfather deleted the video.",
+        "The birds flew too fast to be seen.",
+        "The night was so dark that the screen showed only black shadows."
+      ],
+      "answer": "D",
+      "why": "Paragraph 7 says the screen “showed nothing but black shadows” because the night was dark."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "Reem found a tear in the net.",
+        "Reem sprinkled flour around the racks.",
+        "The children hid behind the palm trunks.",
+        "Grandfather repaired the net."
+      ],
+      "answer": "B",
+      "why": "The flour was sprinkled on the first evening of the investigation, before the other events."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story?",
+      "options": [
+        "Reem",
+        "Grandfather Saleh",
+        "an outside narrator",
+        "Nawaf"
+      ],
+      "answer": "C",
+      "why": "The story uses “she”, “he” and the characters' names; the narrator is not one of the characters."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which clue showed Reem that the dates were always taken from ONE place?",
+      "options": [
+        "the date stones that had been pecked clean",
+        "the footprints shaped like forks",
+        "the black shadows in the recording",
+        "the dates always disappeared from the same corner of the racks"
+      ],
+      "answer": "D",
+      "why": "Paragraph 7: “the dates always disappeared from the same corner of the racks”, where the net was torn."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What made it possible for the birds to reach the dates?",
+      "options": [
+        "a narrow tear in the protective net that the wind had widened",
+        "the gate that the boys left open",
+        "the flour that attracted them to the racks",
+        "the light from Nawaf's tablet"
+      ],
+      "answer": "A",
+      "why": "Paragraph 9: the birds “dropped through the torn net”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word BEST describes Reem's character?",
+      "options": [
+        "careless",
+        "fair-minded",
+        "jealous",
+        "impatient"
+      ],
+      "answer": "B",
+      "why": "She refuses to accuse anyone without evidence and protects people who may be innocent."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 6?",
+      "options": [
+        "wanting to know how many dates were left",
+        "wanting to know what Grandfather had for breakfast",
+        "wanting to know what creature made the fork-shaped prints",
+        "wanting to know where Nawaf bought his tablet"
+      ],
+      "answer": "C",
+      "why": "The strange prints and pecked stones raise a puzzle that the reader wants solved."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Grandfather's way of solving the problem different from Reem's way?",
+      "options": [
+        "Grandfather guesses quickly; Reem collects clues before deciding.",
+        "Grandfather uses a tablet; Reem uses a net.",
+        "Grandfather wants to wait; Reem wants to punish someone at once.",
+        "Grandfather asks the neighbours; Reem asks the birds."
+      ],
+      "answer": "A",
+      "why": "Grandfather blames the boys at breakfast with no proof, while Reem gathers flour prints, pecked stones and video."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Reem's flour trick?",
+      "options": [
+        "It frightened the birds away.",
+        "It showed that no human had come near the racks.",
+        "It made the dates dry faster.",
+        "It broke Nawaf's tablet."
+      ],
+      "answer": "B",
+      "why": "The flour showed “not a single human footprint”, only tiny three-toed prints."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the flour prints and the pecked date stones have in common?",
+      "options": [
+        "Both were filmed by Nawaf.",
+        "Both were found on the second morning by Grandfather.",
+        "Both were caused by the wind.",
+        "Both suggested that the thieves were birds, not people."
+      ],
+      "answer": "D",
+      "why": "Fork-shaped three-toed prints and stones scraped clean as if by a small sharp tool both point to birds."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “the flour told a surprising story”?",
+      "options": [
+        "Reem wrote a story in the flour.",
+        "The marks in the flour revealed unexpected information.",
+        "The flour made a strange noise.",
+        "Grandfather read a story about flour."
+      ],
+      "answer": "B",
+      "why": "The flour cannot really tell a story; the prints left in it gave surprising clues (personification)."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the story is a SIMILE?",
+      "options": [
+        "“a noisy flock of bulbuls”",
+        "“the empty spaces grew larger day after day”",
+        "“each shaped like a delicate fork”",
+        "“frowning into his cup of coffee”"
+      ],
+      "answer": "C",
+      "why": "It compares the prints to a fork using “like”."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer give the reader clues such as the prints and the pecked stones before the birds appear?",
+      "options": [
+        "so readers can try to solve the mystery along with Reem",
+        "so the story becomes shorter",
+        "so readers learn how to bake with flour",
+        "so the ending is impossible to guess"
+      ],
+      "answer": "A",
+      "why": "Clues let readers think like detectives and guess the answer before it is revealed."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the MOST important lesson Grandfather learned?",
+      "options": [
+        "Birds should be kept away from all farms.",
+        "He should buy a better tablet.",
+        "Dates should be dried indoors.",
+        "People should not be blamed without evidence."
+      ],
+      "answer": "D",
+      "why": "He admits, “I nearly blamed two innocent boys,” and makes peace with them."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Grandfather invite the neighbour's boys to share his best dates?",
+      "options": [
+        "because he wanted them to guard the racks",
+        "because he wanted to make up for suspecting them unfairly",
+        "because the birds had eaten all the other dates",
+        "because Reem asked him to sell the dates"
+      ],
+      "answer": "B",
+      "why": "He felt embarrassed about almost blaming them and wanted to show kindness."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in the last paragraph?",
+      "options": [
+        "embarrassment mixed with good humour",
+        "fear and anger",
+        "sadness and loneliness",
+        "jealousy and pride"
+      ],
+      "answer": "A",
+      "why": "Grandfather laughs and shakes his head “in embarrassment”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "what Reem sprinkled around the racks",
+        "where the net was torn",
+        "how many dates were taken altogether",
+        "what the thieves turned out to be"
+      ],
+      "answer": "C",
+      "why": "The story only says “a few more dates” vanished; the total is never given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Birds write a note apologising for eating the dates.",
+        "The dates grow back on the racks overnight.",
+        "The flour moves by itself into the shape of footprints.",
+        "Birds steal dates through a hole in a net at dawn."
+      ],
+      "answer": "D",
+      "why": "Birds really do feed on dates at first light; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Grandfather Catches the Thieves",
+        "The Missing Dates Mystery",
+        "A Trip to the Market",
+        "The Boys Who Stole Dates"
+      ],
+      "answer": "B",
+      "why": "The story is about solving the puzzle of the disappearing dates."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that show another way the mystery could be solved.",
+      "model": "On the second evening, Reem asked the neighbour's boys to help her keep watch from the roof. At dawn, all four children saw the birds slipping through the net together, and the boys laughed when they realised they had been suspected. Grandfather thanked them for helping and gave them a basket of dates to take home.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and solves the mystery in a believable way",
+        "1 = an ending is given but it is unclear, unrealistic, or does not solve the mystery",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the characters and reveals the truth about the missing dates is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how could farmers protect drying dates from birds?",
+      "options": [
+        "Check nets regularly and repair any tears quickly.",
+        "Hide behind palm trees every night.",
+        "Blame the neighbours whenever dates go missing.",
+        "Spread flour over the dates."
+      ],
+      "answer": "A",
+      "why": "Repairing the torn net stopped the birds, so checking and repairing nets is the best solution."
+    }
+  ]
+}

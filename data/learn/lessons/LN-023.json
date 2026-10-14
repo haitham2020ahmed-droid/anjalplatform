@@ -1,0 +1,457 @@
+{
+ "code": "LN-023",
+ "title": "Starting a story: characters and situation",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.3.a"
+ ],
+ "families": [
+  "writing-narrative"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0154",
+  "L-0263"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who is the story about?",
+     "text": "Every story has a **character**: the person or animal the story is about.\n\nThe beginning of a story tells us **who** the character is."
+    },
+    {
+     "title": "Meet the character",
+     "text": "**Weak start:** He ran fast.\n\n**Better start:** Zaid was a small boy who loved to run.\n\nNow we know his **name** and one thing **about** him."
+    },
+    {
+     "title": "How to start",
+     "text": "1. Give the character a **name**.\n2. Tell **one thing** about them.\n3. Then start the action."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The rest of the story shows **who** the first sentence must meet.\n\n1. Read the story.\n2. Find the name that comes up again and again.\n3. Pick the start that introduces **that** character."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mona was a girl who loved the sea.",
+      "role": "main"
+     },
+     {
+      "t": "Every day, she looked for shells.",
+      "role": "detail"
+     },
+     {
+      "t": "One day, she found a big pink one.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence tells us **who** (Mona) and **one thing** about her (she loves the sea).\n\nThen the story can begin."
+   },
+   "together": {
+    "passage": "Every morning, Sami fed his hens. One day, a hen was missing. Sami looked behind the shed. There she was, with five new chicks!",
+    "stem": "Which sentence is the best start for this story?",
+    "options": [
+     "The shed was old.",
+     "Chicks are small.",
+     "Sami was a boy who lived on a farm with his hens.",
+     "It was a day."
+    ],
+    "answer": 2,
+    "hint": "Who is the story about? Find the name in the other sentences.",
+    "good": "Yes! The story is about Sami and his hens, and this start introduces him."
+   },
+   "evidence": {
+    "sentences": [
+     "Every morning, Sami fed his hens.",
+     "One day, a hen was missing.",
+     "Sami looked behind the shed.",
+     "There she was, with five new chicks!"
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer introduced Sami. Tap 2 sentences that show Sami is the main character.",
+    "wrong": "This sentence is about the hen. Find the sentences that tell what Sami does."
+   },
+   "checks": [
+    {
+     "passage": "____ She wanted to be a doctor. She read books about the body every night.",
+     "stem": "Which sentence is the best start?",
+     "options": [
+      "The books were heavy.",
+      "Lina was a girl who dreamed big.",
+      "Doctors work hard.",
+      "The night was dark."
+     ],
+     "answer": 1,
+     "why": "It names the character and tells one thing about her before the details."
+    },
+    {
+     "passage": "____ He was slow, but he never stopped trying. One day, he won a race!",
+     "stem": "Which sentence is the best start?",
+     "options": [
+      "Races are fun.",
+      "He won.",
+      "The day was sunny.",
+      "Tom was a little turtle."
+     ],
+     "answer": 3,
+     "why": "It tells us who the story is about: Tom the turtle."
+    },
+    {
+     "passage": "Which start tells us the most about the character?",
+     "stem": "Choose one.",
+     "options": [
+      "Noor was a shy girl who loved to draw.",
+      "A girl was there in the room at home.",
+      "She went.",
+      "It was a girl."
+     ],
+     "answer": 0,
+     "why": "It gives a name and tells two things about her: she is shy and she loves to draw."
+    }
+   ],
+   "again": {
+    "title": "Name + one fact",
+    "text": "Start your story with: **[Name] was a ___ who ___.**",
+    "example": "**Badr was a brave boy who wanted to fly.**\n\nNow the reader knows who the story is about."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Introducing a character",
+     "text": "A good story opening helps the reader **meet** the main character.\n\nIt gives a name and a few details: what the character **is like**, **wants** or **does**."
+    },
+    {
+     "title": "Who is telling the story?",
+     "text": "The **narrator** is the voice telling the story.\n\n**\"I\"** narrator: the character tells their own story. \"I had never seen snow before.\"\n\n**Outside** narrator: someone outside tells it. \"Ali had never seen snow before.\""
+    },
+    {
+     "title": "Keep it consistent",
+     "text": "If your story uses **I**, the introduction should use **I** too.\n\nIf the story uses a name and **he** or **she**, introduce the character that way."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The rest of the story gives clues about **who** to introduce and **how**.\n\n1. Find the main character in the later sentences.\n2. Check the narrator: **I** or **he/she**?\n3. Choose the opening that introduces that character in the same way."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My name is Reem, and I collect stamps from every country I can.",
+      "role": "main"
+     },
+     {
+      "t": "Last week, my uncle sent me a letter from Japan.",
+      "role": "detail"
+     },
+     {
+      "t": "I could not wait to see the stamp.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence introduces the **narrator**: Reem tells the story herself, using **I** and **my**. It also tells something important about her: she collects stamps. That sets up the rest of the story."
+   },
+   "together": {
+    "passage": "I always sit at the back of the class, where nobody notices me. On Monday, our teacher said we would each give a speech. My hands started to sweat. I had never spoken in front of the whole class before. The speech was on Thursday.",
+    "stem": "Which sentence would best add to this introduction of the narrator?",
+    "options": [
+     "My name is Hamad, and I am the quietest boy in Grade 5.",
+     "Hamad was a loud boy who loved to speak to crowds.",
+     "Speeches are often five minutes long.",
+     "The teacher had a red pen."
+    ],
+    "answer": 0,
+    "hint": "Who is telling the story: \"I\" or someone outside? And what is the narrator like?",
+    "good": "Yes! It uses \"I\" like the rest of the story and matches the shy narrator who sits where nobody notices him."
+   },
+   "evidence": {
+    "sentences": [
+     "I always sit at the back of the class, where nobody notices me.",
+     "On Monday, our teacher said we would each give a speech.",
+     "My hands started to sweat.",
+     "I had never spoken in front of the whole class before.",
+     "The speech was on Thursday."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer introduced a quiet narrator. Tap 2 sentences that show the narrator is shy or quiet.",
+    "wrong": "This sentence tells about the task or the day. Find the sentences that show what the narrator is like."
+   },
+   "checks": [
+    {
+     "passage": "____ She practised her recitation every evening. On competition day, her voice was clear and strong.",
+     "stem": "Which sentence best introduces the character?",
+     "options": [
+      "The competition was in a big hall near the school, and many people came.",
+      "Evenings are cool.",
+      "I was in the competition.",
+      "Maryam was nine, and she hoped to win the school recitation contest."
+     ],
+     "answer": 3,
+     "why": "It names the character, gives her age and tells what she wants, which the story then shows."
+    },
+    {
+     "passage": "I opened the box slowly. Inside was a tiny grey kitten.",
+     "stem": "Which sentence would best introduce the narrator at the start?",
+     "options": [
+      "The box was brown.",
+      "Kittens like milk.",
+      "I am Khalid, and I had always wanted a pet of my own.",
+      "Khalid's sister had a cat."
+     ],
+     "answer": 2,
+     "why": "It uses \"I\" like the story and tells what the narrator wants, a pet."
+    },
+    {
+     "passage": "A story is told by an outside narrator about a boy named Fahad.",
+     "stem": "Which opening fits?",
+     "options": [
+      "I am Fahad, and I like football.",
+      "Fahad was the fastest runner in his village.",
+      "We ran fast.",
+      "My friends and I ran."
+     ],
+     "answer": 1,
+     "why": "An outside narrator uses the character's name, not \"I\"."
+    }
+   ],
+   "again": {
+    "title": "Who, what, wants",
+    "text": "Introduce your character with three things:\n\n1. **Who** (a name)\n2. **What they are like**\n3. **What they want**",
+    "example": "\"**Dana** was a **curious** girl who **wanted to see the stars** through a real telescope.\""
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Setting the situation",
+     "text": "A story opening also introduces the **situation**: where and when the story happens and what is going on.\n\nWithout it, readers feel lost when the action starts."
+    },
+    {
+     "title": "What to include",
+     "text": "1. **Where:** a farm, a busy airport, a desert camp.\n2. **When:** a stormy night, the first day of school, long ago.\n3. **What is happening:** a problem, a change or a goal.\n\nYou do not need everything at once, just enough for the reader to understand."
+    },
+    {
+     "title": "Show it with details",
+     "text": "**Plain:** It was the first day of school.\n\n**Better:** On the first day at her new school, Aseel stood at the gate, clutching her bag and searching the crowd for a familiar face.\n\nNow we know the time, the place **and** the problem."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The later events tell you **what the reader needs to know first**.\n\n1. Read what happens in the story.\n2. Ask: **What must the reader understand before this?** (place, time, problem)\n3. Choose the opening that gives that context."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The wind had blown sand across the road all afternoon, and by sunset the old car was stuck halfway up a dune.",
+      "role": "key"
+     },
+     {
+      "t": "Dad climbed out to look at the wheels.",
+      "role": "detail"
+     },
+     {
+      "t": "\"We will need help,\" he said.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence gives the **situation**: where (a sandy road, a dune), when (sunset, after a windy afternoon) and the problem (the car is stuck). The action that follows makes sense because of it."
+   },
+   "together": {
+    "passage": "Ibrahim stepped off the plane, pulled his jacket tight and looked around the busy airport. Signs in a language he could not read hung above every gate. He held his ticket and tried to remember which way his uncle had told him to go. Then he heard someone call his name. He turned and smiled.",
+    "stem": "Which sentence would best come first to introduce the situation?",
+    "options": [
+     "Ibrahim liked to eat dates.",
+     "It was Ibrahim's first trip alone, and he had just arrived in a country he had never visited.",
+     "The plane was large and white.",
+     "Airports have many shops."
+    ],
+    "answer": 1,
+    "hint": "What must the reader understand before Ibrahim looks around the airport?",
+    "good": "Yes! It explains the situation: his first trip alone, in an unfamiliar country, which is why he feels lost."
+   },
+   "evidence": {
+    "sentences": [
+     "Ibrahim stepped off the plane, pulled his jacket tight and looked around the busy airport.",
+     "Signs in a language he could not read hung above every gate.",
+     "He held his ticket and tried to remember which way his uncle had told him to go.",
+     "Then he heard someone call his name.",
+     "He turned and smiled."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer said he was alone in an unfamiliar country. Tap 2 sentences that show he feels lost there.",
+    "wrong": "This sentence shows him arriving or meeting someone. Find the sentences that show he does not know his way."
+   },
+   "checks": [
+    {
+     "passage": "____ The lights went out, and the whole building fell silent. Somewhere a door creaked.",
+     "stem": "Which opening best introduces the situation?",
+     "options": [
+      "Late one stormy night, Nawal was alone in the old library, finishing her homework.",
+      "Nawal likes books.",
+      "Libraries are quiet places where people of all ages can read and borrow books.",
+      "The door was made of wood."
+     ],
+     "answer": 0,
+     "why": "It tells where, when and who, so the power cut and creaking door make sense."
+    },
+    {
+     "passage": "A story will be about a team trying to win the final match after losing every game last year.",
+     "stem": "Which opening gives the best context?",
+     "options": [
+      "The ball was white.",
+      "Football is a game with two teams, and each team has eleven players.",
+      "Last year our team lost every game, but this year we had made it to the final.",
+      "The final was on Friday."
+     ],
+     "answer": 2,
+     "why": "It gives the background (last year's losses) and the situation now (the final)."
+    },
+    {
+     "passage": "Draft opening: \"It happened.\"",
+     "stem": "Which revision best introduces the situation?",
+     "options": [
+      "It happened again.",
+      "Something happened somewhere.",
+      "It happened one day.",
+      "On the morning of the school trip, our bus broke down on the highway."
+     ],
+     "answer": 3,
+     "why": "It tells when, where and what problem the story is about."
+    }
+   ],
+   "again": {
+    "title": "Where, when, what's wrong?",
+    "text": "Before the action, answer three questions for the reader:\n\n1. **Where** are we?\n2. **When** is it?\n3. **What** is happening or going wrong?",
+    "example": "\"**At the beach**, **on a windy afternoon**, Rana's kite **snapped its string** and flew out to sea.\""
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "An opening with purpose",
+     "text": "A strong narrative opening **orients** the reader: it establishes the narrator or point of view, introduces key characters, and sets up the situation, often hinting at the **conflict** to come.\n\nIt does this efficiently, without long lists of facts."
+    },
+    {
+     "title": "Weaving it together",
+     "text": "Skilled writers blend character and context in action:\n\n\"Three days before the national science fair, Tariq's volcano model collapsed into a heap of wet clay.\"\n\nIn one sentence: who, when, what is at stake, and the problem."
+    },
+    {
+     "title": "Fit the story that follows",
+     "text": "The opening must prepare the reader for what comes next. If the story later depends on a fact (a broken promise, a lost map, a fear of heights), the opening or early context should plant it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose an opening, find what the later events **depend on**.\n\n1. Note key facts the story assumes the reader knows.\n2. Find the sentences that rely on those facts.\n3. Choose the opening that plants them, while matching the narrator and tone."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandfather had kept the key to the old family house for forty years, though no one had lived there since the floods.",
+      "role": "key"
+     },
+     {
+      "t": "When he handed it to me on my twelfth birthday, his hand trembled.",
+      "role": "detail"
+     },
+     {
+      "t": "\"It is time someone opened the door again,\" he said.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The opening plants the **context**: an empty house, a long-kept key and a past flood. Because of it, the reader understands why the key matters and why grandfather's hand trembles. The \"I\" narrator is set up in sentence 2."
+   },
+   "together": {
+    "passage": "Ahmad pressed his face to the window as the old fishing boat pulled away from the harbour. He had promised his mother he would stay close to his uncle and never go out on deck when the waves grew high. For the first hour, the sea was calm, and gulls followed the boat like a noisy escort. Then the sky darkened in the west, and his uncle began to tie down the nets. Ahmad remembered his promise and stayed inside, watching through the glass. Later, his uncle would say that this choice kept everyone calm.",
+    "stem": "The writer wants to add a short context sentence after the first sentence, explaining why this trip mattered to Ahmad. Which is best?",
+    "options": [
+     "Ahmad's favourite colour was blue, like the sea.",
+     "Boats are made of wood or metal and can float.",
+     "The harbour was crowded with tourists buying fish.",
+     "It was his first time at sea, and he had begged for months to join his uncle's crew."
+    ],
+    "answer": 3,
+    "hint": "Which choice explains why this trip is important? Look for what the later sentences depend on.",
+    "good": "Yes! It explains why he is excited and why the promise to his mother mattered."
+   },
+   "evidence": {
+    "sentences": [
+     "Ahmad pressed his face to the window as the old fishing boat pulled away from the harbour.",
+     "He had promised his mother he would stay close to his uncle and never go out on deck when the waves grew high.",
+     "For the first hour, the sea was calm, and gulls followed the boat like a noisy escort.",
+     "Then the sky darkened in the west, and his uncle began to tie down the nets.",
+     "Ahmad remembered his promise and stayed inside, watching through the glass.",
+     "Later, his uncle would say that this choice kept everyone calm."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The context showed that this was his first trip and that his family worried. Tap the 2 sentences about the promise he made.",
+    "wrong": "This sentence describes the sea, the sky or what his uncle said later. Find the sentences about Ahmad's promise."
+   },
+   "checks": [
+    {
+     "passage": "A story is told by an \"I\" narrator who has just moved from the city to a small mountain village and feels out of place.",
+     "stem": "Which opening best establishes narrator and situation?",
+     "options": [
+      "The village had many goats, and every morning they walked slowly through the narrow streets past our house.",
+      "Mountains are tall and rocky.",
+      "The first week after we moved to the village, I counted the goats because there was nobody else to talk to.",
+      "Saad moved to a village and was happy."
+     ],
+     "answer": 2,
+     "why": "It uses \"I\", sets the place and time, and shows loneliness in one image."
+    },
+    {
+     "passage": "Later in the story, a character uses an old map to find a hidden well.",
+     "stem": "Which opening detail best prepares for this event?",
+     "options": [
+      "Hessa found her grandmother's faded map tucked inside an old book.",
+      "Hessa liked sunny days and long walks with her friends after school.",
+      "The book was red.",
+      "Hessa's school started at seven."
+     ],
+     "answer": 0,
+     "why": "Planting the map early prepares the reader for its use later."
+    },
+    {
+     "passage": "Draft opening: \"There was a girl. She lived in a city. She played basketball. She had a big game.\"",
+     "stem": "Which revision orients the reader most effectively?",
+     "options": [
+      "There was a girl who lived in a city and liked basketball very much.",
+      "With ten seconds left in the championship game, Jana held the ball and heard the whole gym go silent.",
+      "Basketball is played with two baskets and a ball.",
+      "She played basketball in a city."
+     ],
+     "answer": 1,
+     "why": "It introduces the character, setting and tension in one vivid moment."
+    }
+   ],
+   "again": {
+    "title": "Plant the seeds",
+    "text": "Think of your opening as **planting seeds**.\n\nWhatever matters later (a promise, a fear, an object, a goal) should be **planted early** so the reader understands when it grows.",
+    "example": "Later: the boy is afraid to cross a bridge.\n\nPlant it early: **\"Ever since he fell from the swing, Majed had hated high places.\"**"
+   }
+  }
+ }
+}

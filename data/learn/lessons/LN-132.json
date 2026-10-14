@@ -1,0 +1,490 @@
+{
+ "code": "LN-132",
+ "title": "Author's viewpoint",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.3.6",
+  "RI.5.6",
+  "RI.6.6",
+  "RI.7.6",
+  "RI.8.6"
+ ],
+ "families": [
+  "author-perspective"
+ ],
+ "skillNames": [
+  "Author's Perspective"
+ ],
+ "statements": [
+  "R-0316",
+  "R-0319",
+  "R-0484",
+  "R-0487",
+  "R-0489",
+  "R-0670",
+  "R-0672",
+  "R-0674",
+  "R-0693",
+  "R-0865",
+  "R-0879",
+  "R-1009",
+  "R-1022",
+  "R-1081",
+  "R-1106"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What does the author think?",
+     "text": "Every author has a **viewpoint**. It is how the author **thinks or feels** about the topic.\n\nSome authors like the topic. Some do not. Some are worried about it."
+    },
+    {
+     "title": "Look at the words",
+     "text": "Feeling words show the viewpoint.\n\n**Liking:** wonderful, great, love, best.\n**Not liking:** boring, terrible, too much, waste."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read the text.\n2. Find the **feeling words**.\n3. Ask: does the author like the topic or not?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The author's viewpoint is **in the words**.\n\n1. Read the question.\n2. Look back at the text.\n3. Find words like **best**, **love** or **bad**.\n\nThose words prove what the author thinks."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rainy days are wonderful.",
+      "role": "key"
+     },
+     {
+      "t": "The air smells fresh.",
+      "role": "detail"
+     },
+     {
+      "t": "I love the sound on the roof.",
+      "role": "key"
+     }
+    ],
+    "explain": "The words **wonderful** and **love** show the author likes rainy days. That is the viewpoint."
+   },
+   "together": {
+    "passage": "Our school library is the best room in the school. It has soft chairs. The books are new. I love to spend my break there.",
+    "stem": "How does the author feel about the school library?",
+    "options": [
+     "The author thinks it is too small.",
+     "The author does not read books.",
+     "The author likes it very much.",
+     "The author wants new chairs."
+    ],
+    "answer": 2,
+    "hint": "Look for feeling words like best and love. What do they show?",
+    "good": "Yes! The words best and love show the author likes the library."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school library is the best room in the school.",
+     "It has soft chairs.",
+     "The books are new.",
+     "I love to spend my break there."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the author likes the library very much. Tap 2 sentences with feeling words that prove it.",
+    "wrong": "This sentence tells a fact about the library. Find a sentence with a feeling word."
+   },
+   "checks": [
+    {
+     "passage": "Homework every night is too much. We get tired. We have no time to play.",
+     "stem": "How does the author feel about homework every night?",
+     "options": [
+      "The author loves it.",
+      "The author thinks it is too much.",
+      "The author does it fast.",
+      "The author has no books."
+     ],
+     "answer": 1,
+     "why": "The words too much and tired show the author does not like it."
+    },
+    {
+     "passage": "Camels are amazing animals. They walk far in the hot sand. They are strong and calm.",
+     "stem": "What does the author think of camels?",
+     "options": [
+      "Camels are slow.",
+      "Camels are scary.",
+      "Camels are lazy.",
+      "Camels are amazing."
+     ],
+     "answer": 3,
+     "why": "The word amazing and the words strong and calm show the author admires camels."
+    },
+    {
+     "passage": "I do not like long car trips. The seats are hard. The ride feels like it lasts forever.",
+     "stem": "What is the author's viewpoint?",
+     "options": [
+      "Long car trips are not fun.",
+      "Cars are fast.",
+      "Trips are short.",
+      "Hard seats are nice."
+     ],
+     "answer": 0,
+     "why": "Do not like, hard seats and lasts forever show the author does not enjoy long trips."
+    }
+   ],
+   "again": {
+    "title": "Thumbs up or thumbs down?",
+    "text": "Read the text. Then ask: would the author give the topic a **thumbs up** or a **thumbs down**?\n\nThe feeling words tell you.",
+    "example": "Swimming is the best sport. It is fun and it keeps you strong.\n\nBest and fun: **thumbs up**. The author likes swimming."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Viewpoint",
+     "text": "An author's **viewpoint** is what the author thinks or feels about a topic.\n\nEven a text full of facts can show a viewpoint. The author chooses **which facts** to tell and **which words** to use."
+    },
+    {
+     "title": "Clues to the viewpoint",
+     "text": "1. **Word choice:** strong words like *must*, *sadly*, *thankfully*, *harmful*.\n2. **Facts chosen:** only good facts? only bad ones?\n3. **The ending:** authors often say what they think at the end."
+    },
+    {
+     "title": "Viewpoint is not a fact",
+     "text": "A fact can be checked: *The beach is 2 km long.*\n\nA viewpoint shows a feeling or judgment: *The beach is the most relaxing place in the city.*"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the words that **show a feeling or judgment**.\n\n1. Find strong words (must, should, sadly, best, harmful).\n2. Find the facts the author chose to share.\n3. Pick the answer those words and facts support.\n\nIf the text never shows that feeling, it is not the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Plastic bags are used for only a few minutes.",
+      "role": "detail"
+     },
+     {
+      "t": "Sadly, they can stay in nature for hundreds of years.",
+      "role": "key"
+     },
+     {
+      "t": "Sea turtles sometimes eat them by mistake.",
+      "role": "detail"
+     },
+     {
+      "t": "We should carry cloth bags instead.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author chose only facts that show plastic bags are a problem. The words **sadly** and **should** show the viewpoint: **we should use fewer plastic bags.**"
+   },
+   "together": {
+    "passage": "Many people think old cell phones are useless. In fact, old phones hold small amounts of valuable metals such as gold and copper. When we throw them in the trash, these metals are wasted. Recycling centres can take the metals out and use them again. Before you toss your next old phone, take it to a recycling centre.",
+    "stem": "What is the author's viewpoint about old cell phones?",
+    "options": [
+     "Old phones are useless and should be thrown away.",
+     "Old phones should be recycled, not wasted.",
+     "Gold is found only in phones.",
+     "New phones are better than old phones."
+    ],
+    "answer": 1,
+    "hint": "Look at the last sentence. What does the author tell readers to do?",
+    "good": "Yes! The author shows that metals are wasted in the trash and tells readers to recycle."
+   },
+   "evidence": {
+    "sentences": [
+     "Many people think old cell phones are useless.",
+     "In fact, old phones hold small amounts of valuable metals such as gold and copper.",
+     "When we throw them in the trash, these metals are wasted.",
+     "Recycling centres can take the metals out and use them again.",
+     "Before you toss your next old phone, take it to a recycling centre."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: old phones should be recycled. Tap 2 sentences that show the author's viewpoint.",
+    "wrong": "This sentence gives a fact or what other people think. Find where the author shows a judgment or tells readers what to do."
+   },
+   "checks": [
+    {
+     "passage": "Some people say board games are old-fashioned. But a board game brings the whole family around one table. Players talk, laugh and take turns. No screen can do that as well.",
+     "stem": "What does the author think about board games?",
+     "options": [
+      "They are old-fashioned.",
+      "They are too hard to learn.",
+      "They bring families together.",
+      "They should use screens."
+     ],
+     "answer": 2,
+     "why": "The author says board games bring the family together and that no screen can do that as well."
+    },
+    {
+     "passage": "The new bus line in our city is helping many people. Students reach school on time. Workers save money on fuel. The buses are clean and cool, even in summer.",
+     "stem": "What is the author's viewpoint about the bus line?",
+     "options": [
+      "It is a helpful change.",
+      "It is too expensive.",
+      "It is always late.",
+      "It is only for workers."
+     ],
+     "answer": 0,
+     "why": "Every detail, such as on time, saving money and clean buses, shows the author thinks the bus line helps."
+    },
+    {
+     "passage": "Our town cut down the old trees on Main Street to build a parking lot. Now the street is hot and bare. Birds that nested there are gone. It was a poor trade.",
+     "stem": "How does the author feel about cutting down the trees?",
+     "options": [
+      "The author is happy about the new parking.",
+      "The author does not care.",
+      "The author wanted more birds to leave.",
+      "The author thinks it was a mistake."
+     ],
+     "answer": 3,
+     "why": "Hot and bare, the birds are gone and a poor trade all show the author thinks it was a mistake."
+    }
+   ],
+   "again": {
+    "title": "Would the author agree?",
+    "text": "Read a choice. Ask: **would the author say this?**\n\nIf the author's words show the opposite, the choice is wrong.",
+    "example": "Riding a bike to school is healthy and saves money. More students should try it.\n\nWould the author say 'Bikes are a waste of time'? **No.** Would the author say 'Biking to school is a good idea'? **Yes.** That is the viewpoint."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Viewpoint and attitude",
+     "text": "An author's **viewpoint** is the position the author takes. The author's **attitude** is the feeling behind it: proud, worried, amused, doubtful, admiring.\n\nIn true stories about real people (literary nonfiction), the attitude often comes through the author's **descriptions**."
+    },
+    {
+     "title": "How authors show it",
+     "text": "1. **Loaded words:** *brave* vs. *reckless*, *careful* vs. *slow*.\n2. **What gets space:** the author spends more time on what matters to them.\n3. **Comments:** small phrases like *of course*, *surprisingly*, *I still remember*."
+    },
+    {
+     "title": "The effect of viewpoint",
+     "text": "Viewpoint **shapes the text**. It decides which facts appear, which are left out, and how the reader is meant to feel.\n\nAsk: *How would this text be different if the author felt the opposite?*"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a viewpoint, find **two kinds of clues**: the words the author uses and the details the author chooses.\n\n1. Mark descriptive words that show a feeling.\n2. Notice what the author praises or criticises.\n3. Choose the attitude that **both** kinds of clues support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Everyone said the steep mountain trail was impossible for a ten-year-old.",
+      "role": "other"
+     },
+     {
+      "t": "My brother Faisal never complained once, not even on the steepest part.",
+      "role": "key"
+     },
+     {
+      "t": "He kept a steady pace and even stopped to help an older hiker with her bag.",
+      "role": "key"
+     },
+     {
+      "t": "We reached the top just before noon.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The author calls the climb **impossible** at first, then praises Faisal with **never complained** and **steady**. The attitude is **admiration** for Faisal."
+   },
+   "together": {
+    "passage": "My grandmother learned to read when she was sixty-two. As a girl, she had no school near her village, so she worked in the fields instead. Years later, she joined an evening class at the community centre. Every night she practised her letters at the kitchen table, slowly and carefully, long after the rest of us were asleep. The first book she finished was a thin book of stories, and she read it to me twice. I have never seen anyone hold a book so proudly.",
+    "stem": "What is the author's attitude toward the grandmother?",
+    "options": [
+     "The author feels sorry that she never learned.",
+     "The author thinks she started too late to read well.",
+     "The author deeply admires her effort.",
+     "The author is surprised she liked stories."
+    ],
+    "answer": 2,
+    "hint": "Look at how the author describes the grandmother's work and the last sentence. Is that pity, or respect?",
+    "good": "Yes! Practising every night, slowly and carefully, and holding the book so proudly all show admiration."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandmother learned to read when she was sixty-two.",
+     "As a girl, she had no school near her village, so she worked in the fields instead.",
+     "Years later, she joined an evening class at the community centre.",
+     "Every night she practised her letters at the kitchen table, slowly and carefully, long after the rest of us were asleep.",
+     "The first book she finished was a thin book of stories, and she read it to me twice.",
+     "I have never seen anyone hold a book so proudly."
+    ],
+    "proof": [
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the author admires the grandmother's effort. Tap 2 sentences where the author's words show admiration.",
+    "wrong": "This sentence gives background facts. Find where the author's description shows how the author feels."
+   },
+   "checks": [
+    {
+     "passage": "The new shopping mall was supposed to bring life to the town centre. Instead, the small shops on the old street have closed one by one. The mall's car park is full, but the old street is silent. Perhaps progress is not always what it seems.",
+     "stem": "What is the author's viewpoint about the mall?",
+     "options": [
+      "It has harmed the town in ways people did not expect.",
+      "It is the best thing that happened to the town.",
+      "It needs a bigger car park.",
+      "The old shops closed because they were dirty."
+     ],
+     "answer": 0,
+     "why": "Shops closing, a silent street and 'progress is not always what it seems' show the author doubts the mall was good."
+    },
+    {
+     "passage": "Volunteers cleaned the beach on a hot Friday morning. Some families came with small children. A group of teenagers carried heavy bags of rubbish for hours. By noon, the sand was clean, and nobody had been asked to come.",
+     "stem": "How does the author's viewpoint affect the text?",
+     "options": [
+      "The author lists the rubbish to show the beach is dirty forever.",
+      "The author focuses on effort and free choice to praise the volunteers.",
+      "The author leaves out the volunteers to talk about the sea.",
+      "The author mainly complains about the heat."
+     ],
+     "answer": 1,
+     "why": "The author chose details about hard work and 'nobody had been asked' to make readers admire the volunteers."
+    },
+    {
+     "passage": "My uncle, a pilot, says that flying never becomes boring. He describes the colours of sunrise above the clouds as if he were seeing them for the first time. Even after twenty years, he still arrives at the airport an hour early, just to watch the planes.",
+     "stem": "Which word best describes the author's attitude toward the uncle?",
+     "options": [
+      "Worried",
+      "Bored",
+      "Annoyed",
+      "Admiring"
+     ],
+     "answer": 3,
+     "why": "The author shows the uncle's lasting love of flying with warm details, which shows admiration."
+    }
+   ],
+   "again": {
+    "title": "Change the feeling",
+    "text": "Try this test. Imagine the author felt the **opposite**. Which words would change?\n\nThe words that would change are the clues to the real viewpoint.",
+    "example": "'The **brave** team kept going through the storm.'\n\nIf the author disliked the team, they might write '**careless**'. So **brave** shows the author's attitude: **admiration**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Subtle viewpoints",
+     "text": "Skilled authors rarely say *I think*. Their viewpoint is **implied** through tone, irony, comparison and the order of ideas.\n\nIn memoirs and essays, the author may even show a **change** in viewpoint: what they believed then and what they believe now."
+    },
+    {
+     "title": "Tools that reveal attitude",
+     "text": "1. **Connotation:** *thrifty* and *stingy* mean nearly the same, but feel different.\n2. **Contrast:** placing two things side by side to judge one of them.\n3. **Irony:** saying one thing while meaning another.\n4. **Concession:** admitting the other side before rejecting it."
+    },
+    {
+     "title": "Analyse, don't just name",
+     "text": "At this stage, it is not enough to say *the author likes it*. Explain **how** the viewpoint is built and **what effect** it has on the reader.\n\nA precise answer names the attitude **and** the technique that creates it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A strong answer is backed by **more than one** clue from different parts of the text.\n\n1. Find the author's word choices with strong connotation.\n2. Look for contrasts, concessions or a shift (then vs. now).\n3. Reject choices that match only one sentence or that ignore the ending."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "As a boy, I believed my father's pottery was a waste of time, since factory bowls cost almost nothing.",
+      "role": "other"
+     },
+     {
+      "t": "I watched him shape the same clay for hours and thought him stubborn.",
+      "role": "detail"
+     },
+     {
+      "t": "Now, holding one of his bowls, I see the faint print of his thumb on the rim.",
+      "role": "key"
+     },
+     {
+      "t": "No factory could have made it, and none could make it again.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author first admits the old view (**I believed**), then shows the shift (**now I see**). The viewpoint: the author has come to **value the slow, careful work** of the craft."
+   },
+   "together": {
+    "passage": "Visitors to the old quarter of the city usually come for an hour, take photographs of the carved wooden balconies, and leave. I understand why: the alleys are narrow, the summer heat is heavy, and there is no air-conditioned café on every corner. Yet the visitors who rush away miss what the photographs cannot hold. They miss the carpenter who has repaired the same balcony for forty years and can tell you which family once sat behind it. They miss the smell of cardamom coffee drifting from a doorway and the way the evening breeze moves through streets designed, centuries ago, to catch it. A photograph records a building; only time spent there reveals a neighbourhood.",
+    "stem": "Which statement best describes the author's viewpoint and how it is conveyed?",
+    "options": [
+     "The author dislikes tourists and blames them for damaging the old quarter.",
+     "The author thinks the heat makes the old quarter impossible to enjoy.",
+     "The author mainly wants the city to build cafés for visitors.",
+     "The author, while admitting the discomforts, argues that the quarter must be experienced slowly to be understood."
+    ],
+    "answer": 3,
+    "hint": "The author does say the alleys are hot and narrow. But what does the word 'Yet' show? Read what comes after it.",
+    "good": "Yes! The author concedes the discomforts, then uses the repeated 'They miss…' and the final contrast to argue for slow, real experience."
+   },
+   "evidence": {
+    "sentences": [
+     "Visitors to the old quarter of the city usually come for an hour, take photographs of the carved wooden balconies, and leave.",
+     "I understand why: the alleys are narrow, the summer heat is heavy, and there is no air-conditioned café on every corner.",
+     "Yet the visitors who rush away miss what the photographs cannot hold.",
+     "They miss the carpenter who has repaired the same balcony for forty years and can tell you which family once sat behind it.",
+     "They miss the smell of cardamom coffee drifting from a doorway and the way the evening breeze moves through streets designed, centuries ago, to catch it.",
+     "A photograph records a building; only time spent there reveals a neighbourhood."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the author argues the quarter must be experienced slowly. Tap 2 sentences that show this viewpoint most clearly.",
+    "wrong": "This sentence describes what visitors do or admits a problem. Find where the author turns to the real argument."
+   },
+   "checks": [
+    {
+     "passage": "For years I complained about the early bus to school. It came before sunrise, the driver hummed old songs, and the seats were stiff. Last month the route was cancelled, and my father now drives me. The car is comfortable and quiet. I find myself, oddly, missing the humming.",
+     "stem": "What does the final sentence reveal about the author's viewpoint?",
+     "options": [
+      "The author still hates the bus and is glad it was cancelled.",
+      "The author's feelings changed, and the author now values what once annoyed them.",
+      "The author wants a louder car.",
+      "The author was never bothered by the early bus."
+     ],
+     "answer": 1,
+     "why": "'Oddly, missing the humming' shows a shift: something the author complained about now feels valuable."
+    },
+    {
+     "passage": "The company's report praised its new factory for creating 300 jobs. It said nothing about the river behind the factory, where fishermen now find fewer fish each season. Jobs matter, of course. But a report that counts only what it gains is not telling the whole story.",
+     "stem": "Which technique does the author mainly use to show a critical viewpoint of the report?",
+     "options": [
+      "Pointing out what the report leaves out",
+      "Telling a funny story about the workers",
+      "Listing the steps used to build the factory",
+      "Praising the report's careful numbers"
+     ],
+     "answer": 0,
+     "why": "The author shows the report 'said nothing about the river' and calls it not 'the whole story', criticising its omission."
+    },
+    {
+     "passage": "Our team's coach was not known for kind words. He timed every sprint and wrote every mistake in a small notebook. Players grumbled. But at the end of the season, when we won the regional cup, he quietly gave each of us a page from that notebook: a list of every improvement we had made since the first day.",
+     "stem": "What is the author's attitude toward the coach by the end of the passage?",
+     "options": [
+      "Fear of his strict rules",
+      "Amusement at his small notebook",
+      "Anger that he never praised the team",
+      "Growing appreciation for his quiet care"
+     ],
+     "answer": 3,
+     "why": "The ending reveals the notebook tracked improvements, so the author now sees the coach's strictness as care."
+    }
+   ],
+   "again": {
+    "title": "Then, but, now",
+    "text": "Many viewpoints are built in three moves:\n\n1. **Then / They say:** an old or opposite view.\n2. **But / Yet:** the turn.\n3. **Now / In fact:** the author's real view.\n\nFind the turn word. The author's viewpoint usually comes right after it.",
+    "example": "'People call the desert empty. **Yet** after one night of rain, it fills with flowers.'\n\nThe turn is **Yet**. The author's viewpoint: **the desert is full of life.**"
+   }
+  }
+ }
+}

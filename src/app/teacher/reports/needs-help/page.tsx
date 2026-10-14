@@ -1,36 +1,14 @@
-import { AppShell } from "@/components/app-shell";
-import { ReportHeader, ReportSection } from "@/components/report-kit";
-import { RepeatedMistakes } from "@/components/teacher/repeated-mistakes";
-import { getActor, repo, requireActor } from "@/server/auth/next";
-import { readableClasses } from "@/server/teacher/coordinators";
-import { classMembers, studentNames } from "@/server/insights/student-data";
-import { repeatedMistakes } from "@/server/teacher/repeated-mistakes";
-import { AssignSkillHost } from "../../assign-dialog";
+import { redirect } from "next/navigation";
+import { requireActor } from "@/server/auth/next";
 
-export const metadata = { title: "Needs help" };
+export const metadata = { title: "Mistakes and root causes" };
 
 /**
- * 🧡 Needs help (Reports · Skills): the skills where a student of the class answered the same question wrong twice,
- * with Assign for the teacher. The class comes from the report bar's class switcher. Own / readable classes only.
+ * 🧡 "Needs help" (repeated mistakes) merged into ONE report (owner r67: nothing twice): Reports → My class →
+ * Mistakes and root causes (/teacher/reports/errors), which keeps the repeated mistakes with Assign. Old links open it.
  */
 export default async function NeedsHelpReport({ searchParams }: { searchParams: Promise<{ classId?: string }> }) {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
-  const me = (await getActor())!.user;
+  await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const sp = await searchParams;
-  const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
-  const klass = classes.find((c) => c.id === sp.classId) ?? classes[0];
-  const teacher = actor.role === "TEACHER";
-  const rows = klass ? await repeatedMistakes(repo, actor, { classId: klass.id }).catch(() => []) : [];
-  const ids = teacher && klass && rows.length ? await classMembers(repo, klass.id) : [];
-  const names = ids.length ? await studentNames(repo, ids) : new Map<string, { name: string }>();
-  return (
-    <AppShell name={String(me.displayName)}>
-      <ReportHeader back={{ href: "/teacher/reports", label: "Reports" }} title="Needs help" who={klass ? <bdi>{klass.name}</bdi> : undefined}
-        subtitle="Skills where a student answered the same question wrong twice." />
-      <ReportSection title="Needs help">
-        <RepeatedMistakes rows={rows} canAssign={teacher} />
-      </ReportSection>
-      {teacher && klass && rows.length > 0 && <AssignSkillHost classId={klass.id} className={klass.name} students={ids.map((id) => ({ id, name: names.get(id)?.name ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name))} />}
-    </AppShell>
-  );
+  redirect(`/teacher/reports/errors${sp.classId ? `?${new URLSearchParams({ classId: sp.classId })}` : ""}`);
 }

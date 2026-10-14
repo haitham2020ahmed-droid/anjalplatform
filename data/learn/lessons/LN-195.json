@@ -1,0 +1,495 @@
+{
+ "code": "LN-195",
+ "title": "Dictionaries and glossaries",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.e",
+  "L.3.4.d",
+  "L.4.4.c",
+  "L.5.4.c",
+  "L.6.4.c",
+  "L.6.4.d",
+  "L.7.4.c",
+  "L.7.4.d",
+  "L.8.4.c",
+  "L.8.4.d",
+  "RI.2.5",
+  "RI.3.5"
+ ],
+ "families": [
+  "reference-materials"
+ ],
+ "skillNames": [
+  "Dictionary, Glossary and Thesaurus",
+  "Using Reference Materials"
+ ],
+ "statements": [
+  "R-0022",
+  "R-0063",
+  "R-0064",
+  "R-0097",
+  "R-0128",
+  "R-0129",
+  "R-0181",
+  "R-0225",
+  "R-0236",
+  "R-0309",
+  "R-0372",
+  "R-0385",
+  "R-0483",
+  "R-0563",
+  "R-0574",
+  "R-0591",
+  "R-0770",
+  "R-0790",
+  "R-0952",
+  "R-0953",
+  "R-1063",
+  "R-1067",
+  "R-1104"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Books that help with words",
+     "text": "A **dictionary** is a book of words and their meanings.\n\nA **glossary** is a short list of hard words at the **back** of a book, with their meanings."
+    },
+    {
+     "title": "ABC order",
+     "text": "Words in a dictionary or glossary are in **ABC order**.\n\n**a**pple comes before **b**all.\n**b**all comes before **c**at.\n\nLook at the **first letter** to find a word fast."
+    },
+    {
+     "title": "How to use one",
+     "text": "1. Find the hard word.\n2. Look at its first letter.\n3. Find that letter in the dictionary or glossary.\n4. Read the meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The meaning is written **in the dictionary or glossary**.\n\n1. Find the sentence that gives the meaning.\n2. Check it fits the story.\n3. That sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali did not know the word \"nest\".",
+      "role": "other"
+     },
+     {
+      "t": "He looked in the glossary at the back of his book.",
+      "role": "detail"
+     },
+     {
+      "t": "It said: nest, a home that a bird makes.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **glossary** told Ali the meaning: **a home that a bird makes**."
+   },
+   "together": {
+    "passage": "Our science book has a glossary at the back. It lists the hard words from the book in ABC order. Next to each word, it tells what the word means. Now I can find the meaning of any hard word fast!",
+    "stem": "What is a glossary?",
+    "options": [
+     "A list of hard words and their meanings.",
+     "A picture at the front of a book.",
+     "A story about science.",
+     "A list of the pages in a book."
+    ],
+    "answer": 0,
+    "hint": "Read the sentences that tell what the glossary lists and what it says.",
+    "good": "Yes! A glossary lists hard words and tells what they mean."
+   },
+   "evidence": {
+    "sentences": [
+     "Our science book has a glossary at the back.",
+     "It lists the hard words from the book in ABC order.",
+     "Next to each word, it tells what the word means.",
+     "Now I can find the meaning of any hard word fast!"
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a list of hard words and their meanings. Tap 2 sentences that tell what a glossary has.",
+    "wrong": "This sentence tells where it is or how I feel. Find the sentences that tell what is in the glossary."
+   },
+   "checks": [
+    {
+     "passage": "A dictionary puts words in ABC order. Lina wants to find four words: dog, apple, fish and cake.",
+     "stem": "Which word will Lina find first?",
+     "options": [
+      "dog",
+      "fish",
+      "apple",
+      "cake"
+     ],
+     "answer": 2,
+     "why": "**a**pple starts with **a**, the first letter of the ABC."
+    },
+    {
+     "passage": "Ali reads his plant book. He does not know the word seed. He looks in the glossary. It says: seed, the small part of a plant that grows into a new plant.",
+     "stem": "What does seed mean?",
+     "options": [
+      "A big green leaf.",
+      "A part of a plant that grows into a new plant.",
+      "A kind of flower.",
+      "A plant book."
+     ],
+     "answer": 1,
+     "why": "The **glossary** says a seed is the part that **grows into a new plant**."
+    },
+    {
+     "passage": "Sara wants to know what a hard word means. Her teacher says, \"Look at the back of the book, after the last page. The glossary is there.\"",
+     "stem": "Where is the glossary?",
+     "options": [
+      "At the front of the book.",
+      "In the middle of the story.",
+      "On the cover.",
+      "At the back of the book."
+     ],
+     "answer": 3,
+     "why": "The teacher says: **look at the back of the book**."
+    }
+   ],
+   "again": {
+    "title": "First letter, then meaning",
+    "text": "Think of the ABC song.\n\n1. Say the **first letter** of your word.\n2. Find that part of the list.\n3. Read across to the meaning.",
+    "example": "Word: **frog**. First letter: **f**. Go to the **f** words. Read: frog, a small green animal that jumps and lives near water."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Inside a dictionary entry",
+     "text": "Each word in a dictionary has an **entry**. An entry can show:\n\n**the word** · how to **say** it · its **part of speech** (noun, verb, adjective) · its **meanings**, numbered 1, 2, 3"
+    },
+    {
+     "title": "Guide words",
+     "text": "At the top of each dictionary page are two **guide words**: the **first** and **last** words on that page.\n\nIf your word comes between them in ABC order, it is on that page."
+    },
+    {
+     "title": "Many meanings",
+     "text": "Many words have more than one meaning. **bat** can be an animal or a stick for hitting a ball.\n\n1. Read **all** the meanings.\n2. Go back to your sentence.\n3. Choose the meaning that **fits the sentence**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The dictionary gives choices. The **story** tells you which one is right.\n\n1. Read every meaning in the entry.\n2. Find the sentences in the story that describe the word.\n3. Choose the meaning those sentences match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mona read: \"The farmer will plant seeds in the spring.\"",
+      "role": "key"
+     },
+     {
+      "t": "The dictionary said: plant (noun) 1. a living thing that grows in soil; (verb) 2. to put seeds in the ground to grow.",
+      "role": "detail"
+     },
+     {
+      "t": "In Mona's sentence, the farmer will DO something.",
+      "role": "key"
+     }
+    ],
+    "explain": "The farmer will **do** something with seeds, so **plant** is a verb here.\n\nMeaning 2 fits: **to put seeds in the ground**."
+   },
+   "together": {
+    "passage": "Huda was reading a book about the desert at night. One sentence said, \"At dusk, a bat swooped over the palm trees.\" She opened her dictionary and found two meanings for bat. Meaning 1 was: a small flying animal that is active at night. Meaning 2 was: a wooden stick used to hit the ball in cricket. The next sentence in her book said, \"It caught insects in the air as it flew.\"",
+    "stem": "Which meaning of bat fits Huda's book?",
+    "options": [
+     "Meaning 2: a stick for hitting a ball.",
+     "Neither meaning fits.",
+     "Both meanings fit.",
+     "Meaning 1: a flying animal."
+    ],
+    "answer": 3,
+    "hint": "Read the sentences from Huda's book again. Does a stick swoop and catch insects?",
+    "good": "Yes! A bat that swoops at dusk and catches insects as it flies is the animal."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda was reading a book about the desert at night.",
+     "One sentence said, \"At dusk, a bat swooped over the palm trees.\"",
+     "She opened her dictionary and found two meanings for bat.",
+     "Meaning 1 was: a small flying animal that is active at night.",
+     "Meaning 2 was: a wooden stick used to hit the ball in cricket.",
+     "The next sentence in her book said, \"It caught insects in the air as it flew.\""
+    ],
+    "proof": [
+     0,
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: meaning 1, a flying animal. Tap 2 sentences that show which meaning fits.",
+    "wrong": "This sentence tells what the dictionary says, but not which meaning fits. Find the sentences from Huda's book that describe the bat."
+   },
+   "checks": [
+    {
+     "passage": "At the top of a dictionary page, Fahad saw two guide words: lamp and lion. They are the first and last words on that page.",
+     "stem": "Which word would be on this page?",
+     "options": [
+      "ladder",
+      "lemon",
+      "lizard",
+      "map"
+     ],
+     "answer": 1,
+     "why": "**lemon** comes after lamp (e after a) and before lion (e before i)."
+    },
+    {
+     "passage": "Rana looked up kind in her dictionary. The entry said: kind (adjective) gentle, friendly and caring toward others.",
+     "stem": "What part of speech is kind in this entry?",
+     "options": [
+      "adjective",
+      "noun",
+      "verb",
+      "number"
+     ],
+     "answer": 0,
+     "why": "The entry says **(adjective)** right after the word."
+    },
+    {
+     "passage": "Omar used the word big three times in his story. He opened a thesaurus and found other words with almost the same meaning: large, huge and enormous.",
+     "stem": "What does a thesaurus give you?",
+     "options": [
+      "The opposite of every word.",
+      "Pictures of things.",
+      "The history of a word.",
+      "Words with similar meanings."
+     ],
+     "answer": 3,
+     "why": "Omar found **other words with almost the same meaning** as big."
+    }
+   ],
+   "again": {
+    "title": "Try each meaning",
+    "text": "Read your sentence once with **each** meaning in it.\n\nOnly one will make sense.",
+    "example": "\"She wore a ring on her finger.\"\n\nring 1: a circle of metal worn on a finger ✔\nring 2: the sound a bell makes ✘"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Glossaries in information books",
+     "text": "Science and social studies books often have a **glossary** for their key words. Some put **bold** words in the text that are explained in the glossary.\n\nUse the glossary **and** the text together."
+    },
+    {
+     "title": "Confirm your guess",
+     "text": "Good readers first guess a meaning from **context**. Then they check a dictionary or glossary to **confirm** it.\n\nIf the dictionary agrees, keep your guess. If not, change it."
+    },
+    {
+     "title": "Pick the right meaning",
+     "text": "1. Read the sentence with the word.\n2. Read all meanings in the entry.\n3. Match the meaning to the **context**.\n4. Use the meaning to answer the question about the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Combine **two sources**: the passage and the reference entry.\n\n1. Find what the glossary or dictionary says.\n2. Find the sentences in the passage that show it.\n3. Choose the answer both sources support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Jana read that the Empty Quarter is arid, and that almost no rain falls there.",
+      "role": "key"
+     },
+     {
+      "t": "She guessed that arid meant dry.",
+      "role": "main"
+     },
+     {
+      "t": "Her dictionary said: arid (adjective) having very little rain; very dry.",
+      "role": "key"
+     }
+    ],
+    "explain": "Jana used **context** to guess, then the **dictionary confirmed** it. Both point to the same meaning: very dry."
+   },
+   "together": {
+    "passage": "The sand cat lives in the deserts of North Africa, Arabia and Central Asia. Its pale, sandy fur is a kind of camouflage. When it crouches low on the dunes, it is almost impossible to spot. This helps it sneak up on prey such as small rodents and lizards. Glossary: camouflage, colours or patterns that help an animal blend in with its surroundings; prey, an animal that is hunted by another animal for food.",
+    "stem": "Using the text and the glossary, why is the sand cat hard to see?",
+    "options": [
+     "It hides deep under the sand all day.",
+     "It only comes out when it is very dark.",
+     "Its fur blends in with the colour of the sand.",
+     "It is too small to be seen."
+    ],
+    "answer": 2,
+    "hint": "What does the glossary say camouflage is? What does the text say about the cat's fur?",
+    "good": "Yes! Its sandy fur is camouflage: a colour that blends in with the dunes."
+   },
+   "evidence": {
+    "sentences": [
+     "The sand cat lives in the deserts of North Africa, Arabia and Central Asia.",
+     "Its pale, sandy fur is a kind of camouflage.",
+     "When it crouches low on the dunes, it is almost impossible to spot.",
+     "This helps it sneak up on prey such as small rodents and lizards.",
+     "Glossary: camouflage, colours or patterns that help an animal blend in with its surroundings; prey, an animal that is hunted by another animal for food."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: its fur blends in with the sand. Tap 2 sentences that show this, from the text or the glossary.",
+    "wrong": "This sentence tells where the cat lives or what it hunts. Find the sentences about its fur, being hard to spot, or what camouflage means."
+   },
+   "checks": [
+    {
+     "passage": "The dictionary gives two meanings for current: 1. happening now; 2. a flow of water or air moving in one direction. In Majed's book: \"The swimmers were pulled away from the beach by a strong current.\"",
+     "stem": "Which meaning fits Majed's book?",
+     "options": [
+      "Meaning 1: happening now",
+      "Meaning 2: a flow of water",
+      "Both meanings",
+      "Neither meaning"
+     ],
+     "answer": 1,
+     "why": "Swimmers **pulled away** from the beach by moving water: meaning 2."
+    },
+    {
+     "passage": "Yasmin guessed that drought meant a long time with no rain, because the text said the wells dried up and crops died. Then she read the glossary: drought, a long period with little or no rain.",
+     "stem": "What did the glossary do for Yasmin?",
+     "options": [
+      "It confirmed her guess.",
+      "It showed her guess was wrong.",
+      "It gave her a new word.",
+      "It told her how to spell rain."
+     ],
+     "answer": 0,
+     "why": "Her guess and the glossary say **the same thing**, so it confirmed her guess."
+    },
+    {
+     "passage": "A glossary lists these words in order: nomad, oasis, ___, palm, sand.",
+     "stem": "Which word belongs in the blank?",
+     "options": [
+      "camel",
+      "pump",
+      "nectar",
+      "oryx"
+     ],
+     "answer": 3,
+     "why": "**oryx** comes after oasis (r after a) and before palm (o before p)."
+    }
+   ],
+   "again": {
+    "title": "Guess, check, decide",
+    "text": "1. **Guess** the meaning from the sentence.\n2. **Check** the dictionary or glossary.\n3. **Decide**: keep or change your guess.",
+    "example": "\"The hikers were **parched** after hours in the sun.\"\n\nGuess: very thirsty. Check: parched, extremely dry or thirsty. Decide: **keep it**!"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Beyond the dictionary",
+     "text": "Older students use **specialised references**: subject dictionaries, atlases with gazetteers, thesauruses and encyclopaedia entries.\n\nThey give facts that the text itself does not include."
+    },
+    {
+     "title": "Confirm or correct",
+     "text": "Make a first meaning from context, then use a reference to **confirm** or **correct** it.\n\nA dictionary may show your guess was close but not exact, or completely wrong."
+    },
+    {
+     "title": "Draw conclusions",
+     "text": "Combining a text with a reference lets you reach **conclusions** neither one states alone.\n\n1. What does the text say?\n2. What does the reference add?\n3. What follows when you put them together?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A conclusion from references needs **two kinds of proof**.\n\n1. Point to what the main text says.\n2. Point to what the reference entry adds.\n3. Check that your conclusion follows from both.\n\nReject a choice that only one source supports, or that neither states nor implies."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yusuf read: \"The new law aims to mitigate the damage caused by floods.\"",
+      "role": "key"
+     },
+     {
+      "t": "He guessed that mitigate meant to make worse.",
+      "role": "other"
+     },
+     {
+      "t": "His dictionary said: mitigate (verb) to make something less severe or serious.",
+      "role": "key"
+     }
+    ],
+    "explain": "The dictionary **corrected** Yusuf's guess. Rereading the sentence, a law to make flood damage **less serious** makes far more sense."
+   },
+   "together": {
+    "passage": "In his history book, Faisal read that ancient caravans carried frankincense north from the southern coast of Arabia to markets as far away as Egypt and Rome. At first he guessed that frankincense was a kind of cloth. To check, he opened a specialised dictionary of ancient trade goods. The entry read: \"frankincense (noun): a sweet-smelling resin from Boswellia trees of southern Arabia and the Horn of Africa; burned as incense and highly valued in the ancient world.\" Faisal crossed out his first guess. He realised the caravans made their long journeys because distant buyers would pay well for it.",
+    "stem": "What can Faisal conclude by using the text and the reference entry together?",
+    "options": [
+     "Frankincense was cheap cloth sold in local markets.",
+     "Frankincense grew in Rome and was carried south.",
+     "Frankincense was a valued, sweet-smelling resin that distant buyers wanted.",
+     "Caravans carried frankincense only to Egypt."
+    ],
+    "answer": 2,
+    "hint": "What does the entry say frankincense is, and how much was it worth? Where does the text say it was carried?",
+    "good": "Yes! The text shows it travelled to far-off markets, and the entry shows it was a valued, sweet-smelling resin."
+   },
+   "evidence": {
+    "sentences": [
+     "In his history book, Faisal read that ancient caravans carried frankincense north from the southern coast of Arabia to markets as far away as Egypt and Rome.",
+     "At first he guessed that frankincense was a kind of cloth.",
+     "To check, he opened a specialised dictionary of ancient trade goods.",
+     "The entry read: \"frankincense (noun): a sweet-smelling resin from Boswellia trees of southern Arabia and the Horn of Africa; burned as incense and highly valued in the ancient world.\"",
+     "Faisal crossed out his first guess.",
+     "He realised the caravans made their long journeys because distant buyers would pay well for it."
+    ],
+    "proof": [
+     0,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: a valued, sweet-smelling resin that distant buyers wanted. Tap 2 sentences that support this, from the text or the entry.",
+    "wrong": "This sentence shows Faisal's first guess or how he checked it. Find what the history book says, what the entry says, or the conclusion he reached."
+   },
+   "checks": [
+    {
+     "passage": "Leen's thesaurus listed these synonyms for thin: slim, slender, skinny, bony. She wanted to describe her grandmother's graceful hands in a kind, admiring way.",
+     "stem": "Which word should Leen choose?",
+     "options": [
+      "skinny",
+      "bony",
+      "slender",
+      "thin"
+     ],
+     "answer": 2,
+     "why": "**Slender** suggests grace. Skinny and bony can sound unkind."
+    },
+    {
+     "passage": "Atlas gazetteer: Jabal Sawda, the highest point in Saudi Arabia, about 3,000 m above sea level, in the Asir Mountains near Abha. A student read that light snow once fell on Jabal Sawda and was surprised, because Saudi Arabia is known for its hot desert.",
+     "stem": "What conclusion does the entry help the student reach?",
+     "options": [
+      "The mountain is very high, where the air is much colder.",
+      "The snow was brought in by trucks.",
+      "Abha is in the middle of a sandy desert.",
+      "Snow falls everywhere in Saudi Arabia each winter."
+     ],
+     "answer": 0,
+     "why": "The entry says the peak is **about 3,000 m** high. Air gets colder as you go higher, so snow is possible there."
+    },
+    {
+     "passage": "In a novel, Dana read that the old house was \"austere\". From the bare walls and simple wooden benches, she guessed it meant plain. Her dictionary said: austere (adjective) 1. severe or strict in manner; 2. plain, without decoration.",
+     "stem": "What should Dana conclude?",
+     "options": [
+      "Her guess was wrong; the house was strict.",
+      "Neither meaning fits a house.",
+      "Meaning 1 fits best because houses are strict.",
+      "Meaning 2 confirms her guess that the house was plain."
+     ],
+     "answer": 3,
+     "why": "Bare walls and simple benches describe a **plain** house, which matches meaning 2."
+    }
+   ],
+   "again": {
+    "title": "Text + entry = conclusion",
+    "text": "Write it as a sum:\n\n**What the text says** + **what the reference adds** = **what I can conclude**.",
+    "example": "Text: the village is on the edge of a wadi. + Gazetteer: the wadi floods after heavy winter rains. = **The village may face flood risk in winter.**"
+   }
+  }
+ }
+}

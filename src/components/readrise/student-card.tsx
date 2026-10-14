@@ -10,7 +10,8 @@ import { ReadRiseIcon } from "./readrise-icon";
  */
 export function ReadRiseStudentCard({ summary, href = "/student/readrise", name }: { summary: ReadRiseSummary | null; href?: string | null; name?: string }) {
   const own = Boolean(href) && !name;   // the student's own card (not a teacher's or parent's view)
-  const started = Boolean(summary && (summary.placed || summary.runs > 0 || summary.articlesDone > 0));
+  // a level only after the placement (or a teacher-set level): readRisePlaced
+  const started = Boolean(summary?.placed);
   const read = Boolean(summary && (summary.runs > 0 || summary.articlesDone > 0));
   const start = own && !started;
   const target = start ? "/student/readrise/placement" : href;
@@ -20,7 +21,7 @@ export function ReadRiseStudentCard({ summary, href = "/student/readrise", name 
       <div className="min-w-0 flex-1">
         <p className="font-semibold text-brand-navy">ReadRise{name ? ` · ${name}` : ""}</p>
         {!started ? (
-          <p className="text-sm text-slate-600">{own ? <><b className="text-brand-navy">Start here:</b> a short placement check finds your ReadRise Level.</> : "Not started yet: no placement check or reading so far."}</p>
+          <p className="text-sm text-slate-600">{own ? <><b className="text-brand-navy">Start here:</b> a short placement check finds your ReadRise Level.</> : "No placement yet."}</p>
         ) : !read ? (
           <p className="text-sm text-slate-600">ReadRise Level <b className="text-brand-navy">{summary!.level}</b> · {own ? `read your first article — goal ${summary!.weeklyGoal} this week` : "no articles read yet"}</p>
         ) : (

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Combo } from "@/components/ui/combo";
 
 type Track = "CURRICULUM" | "MAP" | "NAFS";
 export interface SkillRosterClass { id: string; name: string; grade: number; students: { id: string; name: string }[] }
@@ -50,7 +51,7 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
         </div>
         {fit.length === 0 ? <p className="mt-4 rounded-xl bg-amber-50 px-3 py-2 text-amber-900">You do not teach a class yet.</p> : (
           <>
-            {fit.length > 1 && <label className="mt-4 flex flex-col font-semibold text-slate-700">Class<select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); }} className="mt-1 rounded-xl border border-slate-300 px-3 py-2 font-normal">{fit.map((c) => <option key={c.id} value={c.id}>{c.name} · Grade {c.grade} ({c.students.length})</option>)}</select></label>}
+            {fit.length > 1 && <label className="mt-4 flex flex-col font-semibold text-slate-700">Class<Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); }} options={fit.map((c) => ({ value: c.id, label: c.name, hint: `Grade ${c.grade} (${c.students.length})` }))} className="mt-1 font-normal" /></label>}
             <div className="mt-4 flex flex-wrap gap-2"><button type="button" onClick={() => setWho("all")} className={pill(who === "all")}>All students ({klass?.students.length ?? 0})</button><button type="button" onClick={() => setWho("some")} className={pill(who === "some")}>Some students</button></div>
             {who === "some" && (
               <ul className="mt-2 max-h-52 space-y-1 overflow-y-auto rounded-xl p-2 ring-1 ring-slate-200">

@@ -1,0 +1,495 @@
+{
+ "code": "LN-172",
+ "title": "Flashback and flash-forward",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.5.5",
+  "RL.6.5",
+  "RL.7.5"
+ ],
+ "families": [
+  "plot-flashback"
+ ],
+ "skillNames": [
+  "Plot: Flashback",
+  "Flashback and Foreshadowing"
+ ],
+ "statements": [
+  "R-0268",
+  "R-0432",
+  "R-0622",
+  "R-0822"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Stories move in time",
+     "text": "Most stories tell events **in order**: first, next, last.\n\nBut sometimes a story **jumps back** to something that happened **before**."
+    },
+    {
+     "title": "What is a flashback?",
+     "text": "A **flashback** is a part of a story that goes **back to the past**.\n\nThen the story comes back to **now**."
+    },
+    {
+     "title": "Clue words",
+     "text": "Look for words like:\n\n**remembered**, **last year**, **years ago**, **when she was little**, **had** (he had fallen).\n\nThey tell you the story went back in time."
+    },
+    {
+     "title": "Why use a flashback?",
+     "text": "A flashback helps us **understand a character**.\n\nIt shows **why** the character feels or acts a certain way now."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **clue words** that go back in time.\n2. Read what happened **in the past**.\n3. Ask: how does this explain the character **now**?\n\nThe sentences in the past are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda smiled at the old bicycle.",
+      "role": "main"
+     },
+     {
+      "t": "She remembered the day her father taught her to ride it.",
+      "role": "key"
+     },
+     {
+      "t": "She had fallen many times, but he never let go too early.",
+      "role": "key"
+     },
+     {
+      "t": "Now she was teaching her little sister.",
+      "role": "other"
+     }
+    ],
+    "explain": "**She remembered** is the clue. Sentences 2 and 3 go back to the past.\n\nThe flashback shows **why Huda smiles**: the bicycle reminds her of a happy time with her father."
+   },
+   "together": {
+    "passage": "Mazen stood at the edge of the pool. His legs shook. He remembered last summer, when he slipped and fell into the deep end. His uncle had pulled him out. Now Mazen took a deep breath and stepped into the shallow water.",
+    "stem": "Why are Mazen's legs shaking?",
+    "options": [
+     "He is cold from the water.",
+     "He is late for school.",
+     "He once fell into the deep end of a pool.",
+     "His uncle is angry with him."
+    ],
+    "answer": 2,
+    "hint": "Look for the words that go back in time. What happened to Mazen in the past?",
+    "good": "Yes! The flashback tells us he fell into the deep end last summer. That is why he is afraid."
+   },
+   "evidence": {
+    "sentences": [
+     "Mazen stood at the edge of the pool.",
+     "His legs shook.",
+     "He remembered last summer, when he slipped and fell into the deep end.",
+     "His uncle had pulled him out.",
+     "Now Mazen took a deep breath and stepped into the shallow water."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: he once fell into the deep end. Tap the 2 sentences of the flashback.",
+    "wrong": "This sentence happens now. Find the sentences that go back to last summer."
+   },
+   "checks": [
+    {
+     "passage": "Ali would not eat the fish. Two years ago, a fish bone got stuck in his throat. Now he pushes his plate away. He asks for rice and chicken instead.",
+     "stem": "Which sentence is a flashback?",
+     "options": [
+      "Two years ago, a fish bone got stuck in his throat.",
+      "Ali would not eat the fish.",
+      "Now he pushes his plate away.",
+      "He asks for rice and chicken instead."
+     ],
+     "answer": 0,
+     "why": "'Two years ago' takes us back to the past. The other sentences happen now."
+    },
+    {
+     "passage": "Reem always checks the stove twice before she leaves the kitchen. When she was eight, she left a pan on the fire, and smoke filled the house. No one was hurt, but Reem never forgot it.",
+     "stem": "What does the flashback tell us about Reem?",
+     "options": [
+      "She does not like cooking with pans.",
+      "Her mother cooks every day.",
+      "She is afraid of her mother's kitchen.",
+      "She is careful because of something from her past."
+     ],
+     "answer": 3,
+     "why": "The flashback ('When she was eight') shows why she checks the stove twice: she remembers the smoke."
+    },
+    {
+     "passage": "Bader looked at the cup on his shelf. Last winter, his team had lost every game. They had practised hard every day after that. Now the cup shone in the light.",
+     "stem": "Which words tell you the story goes back in time?",
+     "options": [
+      "on his shelf",
+      "Last winter",
+      "shone in the light",
+      "Now"
+     ],
+     "answer": 1,
+     "why": "'Last winter' tells us the story jumps back to the past. 'Now' brings it back to the present."
+    }
+   ],
+   "again": {
+    "title": "A step backwards",
+    "text": "Think of a story as a **walk** along a road.\n\nA flashback is when the writer **turns around** and shows you a place you passed **before**. Then you keep walking forward again.",
+    "example": "Noura hugged her new friend. Last month, she had cried on her first day at the new school. Now she had a friend.\n\nThe step back: **Last month, she had cried.** It shows how much Noura's life has changed."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Jumping back: flashback",
+     "text": "A **flashback** shows an event that happened **before** the main story.\n\nIt often explains a character's feelings, fears or actions."
+    },
+    {
+     "title": "Jumping ahead: flash-forward",
+     "text": "A **flash-forward** jumps **ahead** to show what **will happen later**.\n\nClue words: **years later**, **one day she would**, **in the future**, **he would never forget**."
+    },
+    {
+     "title": "How to tell them apart",
+     "text": "1. Find the **now** of the story.\n2. Find the part that changes time.\n3. Ask: is it **before** now (flashback) or **after** now (flash-forward)?"
+    },
+    {
+     "title": "Why authors use them",
+     "text": "A flashback **explains** the present.\n\nA flash-forward shows that something small **now** will be **important later**. It makes readers curious about how it happens."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Time words are your proof.\n\n1. Look for **time words**: years later, ago, would, had, remembered.\n2. Find the sentences that happen at a **different time** from the main story.\n3. Check: are they **earlier** or **later**?\n\nPoint to those sentences to prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser placed the last stone on the small wall around the garden.",
+      "role": "other"
+     },
+     {
+      "t": "He was only ten, and his hands were sore.",
+      "role": "detail"
+     },
+     {
+      "t": "Thirty years later, he would build bridges across wide rivers.",
+      "role": "key"
+     },
+     {
+      "t": "But on that day, the little wall was the greatest thing he had ever made.",
+      "role": "other"
+     }
+    ],
+    "explain": "The story's **now** is ten-year-old Nasser building a wall. **Thirty years later, he would build bridges** jumps ahead. That is a **flash-forward**.\n\nIt shows that this small wall was the start of something big."
+   },
+   "together": {
+    "passage": "Amal carefully copied the letters of the Arabic alphabet into her notebook. Her teacher, Ms. Hind, praised the neat curves of her handwriting. Amal blushed and asked if she could practise more at home. Twenty years later, Amal would stand in a large hall in Riyadh, where visitors admired her calligraphy on the walls. She would tell them that it all began in one small notebook. But that afternoon, she simply walked home, holding her pencil like a treasure.",
+    "stem": "Which part of the story is a flash-forward?",
+    "options": [
+     "Amal showing her calligraphy in a hall years later",
+     "Ms. Hind praising Amal's neat handwriting",
+     "Amal walking home with her pencil that afternoon",
+     "Amal copying the letters into her notebook"
+    ],
+    "answer": 0,
+    "hint": "That part happens in the story's 'now'. Which part jumps AHEAD to the future?",
+    "good": "Yes! 'Twenty years later, Amal would...' jumps ahead to her future as a calligrapher."
+   },
+   "evidence": {
+    "sentences": [
+     "Amal carefully copied the letters of the Arabic alphabet into her notebook.",
+     "Her teacher, Ms. Hind, praised the neat curves of her handwriting.",
+     "Amal blushed and asked if she could practise more at home.",
+     "Twenty years later, Amal would stand in a large hall in Riyadh, where visitors admired her calligraphy on the walls.",
+     "She would tell them that it all began in one small notebook.",
+     "But that afternoon, she simply walked home, holding her pencil like a treasure."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Amal showing her calligraphy years later. Tap the 2 sentences of the flash-forward.",
+    "wrong": "This sentence happens in the story's 'now', when Amal is a girl. Find the sentences that jump ahead."
+   },
+   "checks": [
+    {
+     "passage": "As the plane rose above Jeddah, Tariq pressed his face to the window. He remembered his first flight at age five, when he had cried until the plane landed. Now he was the one holding his little brother's hand.",
+     "stem": "What kind of time jump is in the second sentence?",
+     "options": [
+      "A flash-forward to Tariq's future",
+      "A jump to a different character",
+      "No time jump; it happens now",
+      "A flashback to Tariq's past"
+     ],
+     "answer": 3,
+     "why": "'He remembered his first flight at age five' goes back to Tariq's past, so it is a flashback."
+    },
+    {
+     "passage": "Jana planted a tiny olive seedling beside the school gate. It was no taller than her hand. Many years later, students would sit in the shade of that olive tree to eat their lunch, never knowing who had planted it.",
+     "stem": "Why does the author include the flash-forward?",
+     "options": [
+      "To explain why Jana felt sad that day",
+      "To show that a small act would matter in the future",
+      "To describe what Jana ate for her lunch",
+      "To show what happened before Jana planted it"
+     ],
+     "answer": 1,
+     "why": "The jump ahead shows the tiny seedling growing into a tree that helps many students later."
+    },
+    {
+     "passage": "Saud tied his shoes and ran onto the track. He was the slowest boy in his class. In five years, he would win a medal for his country. Today, though, he only wanted to finish the race.",
+     "stem": "Which sentence is a flash-forward?",
+     "options": [
+      "Saud tied his shoes and ran onto the track.",
+      "He was the slowest boy in his class.",
+      "In five years, he would win a medal for his country.",
+      "Today, though, he only wanted to finish the race."
+     ],
+     "answer": 2,
+     "why": "'In five years, he would' jumps ahead to Saud's future. The other sentences happen now."
+    }
+   ],
+   "again": {
+    "title": "Back or ahead?",
+    "text": "Put your finger on the story's **now**.\n\nIf a part moves your finger **back** (ago, had, remembered), it is a **flashback**.\n\nIf it moves your finger **ahead** (later, would, one day), it is a **flash-forward**.",
+    "example": "Faris fed the baby camel. **One day, it would carry him across the desert.**\n\nThe finger moves ahead, so it is a **flash-forward**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Spotting a flashback",
+     "text": "Authors signal a flashback by:\n\n1. Time words: **years ago**, **that summer**, **when he was small**.\n2. A change to **had + verb** (she had lost).\n3. Words of memory: **remembered**, **thought back**.\n\nA return word like **now** often ends it."
+    },
+    {
+     "title": "Why use a flashback?",
+     "text": "A flashback can:\n\n1. **Explain** a character's choice or feeling.\n2. Give **background** the reader needs.\n3. Create **contrast** between then and now.\n4. Build **suspense** before an important moment."
+    },
+    {
+     "title": "Analysing the flashback",
+     "text": "Ask: **What would I not understand without this flashback?**\n\nYour answer is the flashback's purpose. Connect the past event to what the character does in the present."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove why a flashback is there:\n\n1. Mark where the flashback **starts** and **ends**.\n2. Find the character's **present action**.\n3. Show how a detail in the flashback **explains** that action.\n\nYour proof is the past sentences that connect to the present."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Turki would not let anyone else touch the old radio.",
+      "role": "main"
+     },
+     {
+      "t": "Years ago, during long winter nights, he and his late grandmother had listened to stories on it together.",
+      "role": "key"
+     },
+     {
+      "t": "She had laughed at every joke, even the ones she had heard before.",
+      "role": "key"
+     },
+     {
+      "t": "The radio no longer worked, but Turki dusted it every Friday.",
+      "role": "other"
+     }
+    ],
+    "explain": "Without the flashback, Turki seems odd for keeping a broken radio.\n\nSentences 2 and 3 go back in time (**years ago**, **had listened**) and **explain** his choice: the radio holds memories of his grandmother."
+   },
+   "together": {
+    "passage": "The buyer offered Abu Saad three times what the old dhow was worth. Abu Saad ran his hand along its worn wooden side and shook his head. Forty years earlier, he had sailed on this boat with his father before dawn, learning to read the stars and the wind. His father had told him that a good boat carries more than fish; it carries a family. In the great storm of that winter, when other boats broke apart, theirs had brought every man home. The buyer waited. 'It is not for sale,' Abu Saad said quietly.",
+    "stem": "Why does the author include the flashback?",
+    "options": [
+     "To describe what the buyer looks like",
+     "To show how much money the dhow is worth",
+     "To tell what will happen to the boat in the future",
+     "To explain why Abu Saad refuses to sell the boat"
+    ],
+    "answer": 3,
+    "hint": "Does the flashback tell about that? Look at the past events and connect them to what Abu Saad does now.",
+    "good": "Yes! The flashback shows the boat's history with his father and the storm, so we understand why he will not sell it."
+   },
+   "evidence": {
+    "sentences": [
+     "The buyer offered Abu Saad three times what the old dhow was worth.",
+     "Abu Saad ran his hand along its worn wooden side and shook his head.",
+     "Forty years earlier, he had sailed on this boat with his father before dawn, learning to read the stars and the wind.",
+     "His father had told him that a good boat carries more than fish; it carries a family.",
+     "In the great storm of that winter, when other boats broke apart, theirs had brought every man home.",
+     "The buyer waited.",
+     "'It is not for sale,' Abu Saad said quietly."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to explain why Abu Saad refuses to sell. Tap 2 sentences from the flashback that explain it.",
+    "wrong": "This sentence happens in the present. Find sentences from forty years earlier that explain his choice."
+   },
+   "checks": [
+    {
+     "passage": "Mariam stared at the chess board. She had played this same opening a year ago against her grandfather, and she had lost in six moves. He had laughed and shown her the trap. Mariam smiled and moved her knight.",
+     "stem": "How does the author signal the flashback?",
+     "options": [
+      "By bringing in a new character's name",
+      "By switching to 'had' and saying 'a year ago'",
+      "By starting a new chapter",
+      "By asking the reader a question"
+     ],
+     "answer": 1,
+     "why": "'A year ago' and the verbs 'had played', 'had lost' and 'had laughed' show the story has moved into the past."
+    },
+    {
+     "passage": "Everyone in class thought Waleed was unfriendly because he never joined the football games. No one knew that two years before, he had broken his leg badly in a match, and the doctor had told him to wait before playing again. Each break time, he sat on the bench and watched the ball with longing.",
+     "stem": "How does the flashback change the reader's view of Waleed?",
+     "options": [
+      "It shows he really is unfriendly.",
+      "It shows he does not like football.",
+      "It shows he wants to play but has a reason to stay out.",
+      "It shows he will become a famous player one day."
+     ],
+     "answer": 2,
+     "why": "The broken leg explains why he sits out, and 'watched the ball with longing' shows he wishes he could play."
+    },
+    {
+     "passage": "The school hall was silent as Nouf stepped up to recite her poem. Last year, at this same event, her voice had shaken so much that she had stopped halfway and run off the stage. Now she gripped the microphone.",
+     "stem": "What is the main effect of the flashback?",
+     "options": [
+      "It makes readers wonder if Nouf will succeed this time.",
+      "It describes the school hall in great detail.",
+      "It shows that Nouf has never recited a poem before.",
+      "It tells the reader exactly how the event will end."
+     ],
+     "answer": 0,
+     "why": "Remembering last year's failure builds suspense: will she freeze again? The flashback also shows she HAS recited before."
+    }
+   ],
+   "again": {
+    "title": "Take it out",
+    "text": "Try this test:\n\n1. Cover the flashback with your hand.\n2. Read the story without it.\n3. Ask: **What is now confusing or less interesting?**\n\nThat missing piece is the reason the author put the flashback there.",
+    "example": "Without the flashback, Abu Saad just says no to a lot of money. That seems strange.\n\nWith it, we know the boat saved his family. **The flashback explains his choice.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Flashback and structure",
+     "text": "Authors choose the **order** in which events are told. A flashback breaks the time order on purpose.\n\nSome stories even **start near the end** and then go back to show how it happened."
+    },
+    {
+     "title": "What a flashback can do",
+     "text": "1. Reveal a character's **motivation**.\n2. Create **contrast** between past and present.\n3. **Delay** an important moment to build tension.\n4. Develop the story's **theme** by linking past and present."
+    },
+    {
+     "title": "Analysing the effect",
+     "text": "Ask three questions:\n\n1. **Where** does the flashback begin and end?\n2. **What** does it reveal?\n3. **How** does it change the way we read the present scene?\n\nThe third answer is the flashback's effect."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong analysis links two parts of the text.\n\n1. Quote a detail from the **flashback**.\n2. Quote a detail from the **present** scene.\n3. Explain how the first gives meaning to the second.\n\nA choice that only describes the flashback, without linking it to the present, is weak."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rawan handed her younger cousin the last piece of bread without a word.",
+      "role": "other"
+     },
+     {
+      "t": "Ten winters before, when the family's crops failed, her mother had always eaten last, pretending she was not hungry.",
+      "role": "key"
+     },
+     {
+      "t": "Rawan had noticed, even then.",
+      "role": "key"
+     },
+     {
+      "t": "Her cousin ate happily, never guessing that Rawan's own stomach was empty.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The flashback shows Rawan's mother quietly going without. In the present, Rawan does the same thing.\n\nThe flashback reveals where Rawan **learned** her generosity and develops a theme: **selfless love is passed from one generation to the next**."
+   },
+   "together": {
+    "passage": "Dr. Salma checked the young patient's breathing and nodded calmly to his worried mother. Inside, she was not calm at all. Thirty years earlier, in a small village clinic, she had sat beside her little brother as he struggled to breathe through a long night. There had been only one tired doctor for the whole village, and he had moved from bed to bed until sunrise. Her brother had recovered, but Salma had never forgotten the doctor's red eyes or the line of families waiting at the door. Now she wrote the prescription, explained it twice, and made sure the mother had her phone number. As the family left, Salma looked at the full waiting room and did not feel tired. She called the next name.",
+    "stem": "How does the flashback help develop the story's meaning?",
+    "options": [
+     "It shows that Salma's brother later became a doctor too.",
+     "It reveals why Salma treats every patient with such care and energy.",
+     "It explains that the young patient is really Salma's brother.",
+     "It predicts that the village clinic will soon have to close."
+    ],
+    "answer": 1,
+    "hint": "Does the text say that? Connect what Salma saw thirty years ago with how she works now.",
+    "good": "Yes! She remembers one exhausted doctor saving her brother, so now she gives every patient her full care and does not tire."
+   },
+   "evidence": {
+    "sentences": [
+     "Dr. Salma checked the young patient's breathing and nodded calmly to his worried mother.",
+     "Inside, she was not calm at all.",
+     "Thirty years earlier, in a small village clinic, she had sat beside her little brother as he struggled to breathe through a long night.",
+     "There had been only one tired doctor for the whole village, and he had moved from bed to bed until sunrise.",
+     "Her brother had recovered, but Salma had never forgotten the doctor's red eyes or the line of families waiting at the door.",
+     "Now she wrote the prescription, explained it twice, and made sure the mother had her phone number.",
+     "As the family left, Salma looked at the full waiting room and did not feel tired.",
+     "She called the next name."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: it reveals why Salma treats every patient with care and energy. Tap 2 sentences from the flashback that explain this.",
+    "wrong": "This sentence is in the present. Find the sentences from thirty years earlier that shaped Salma."
+   },
+   "checks": [
+    {
+     "passage": "The medal hung on Omar's wall, its ribbon faded. Every visitor asked about it, and every time Omar began the same way: 'It was the hottest race of the year...' His story took him back to a morning when he was seventeen, the stadium half empty and his left shoe already torn.",
+     "stem": "Why might the author begin with the medal and then move back in time?",
+     "options": [
+      "To show that Omar never won a single race",
+      "To describe the stadium before it was built",
+      "To reveal the outcome first, so readers focus on how Omar won",
+      "To hide who won the race until the very end"
+     ],
+     "answer": 2,
+     "why": "The medal tells us Omar won. Going back in time makes the reader curious about HOW he won with a torn shoe."
+    },
+    {
+     "passage": "The new mall glittered where the old souq had been. Hessa walked past windows full of shoes and phones. In her mind, she was nine again, following her grandmother through narrow lanes that smelled of cardamom, where every shopkeeper greeted them by name. A cold breeze from the air conditioning brought her back. She bought a coffee from a stranger and walked on.",
+     "stem": "What does the flashback mainly highlight?",
+     "options": [
+      "A contrast between a warm, familiar past and an impersonal present",
+      "That Hessa does not like coffee or shopping in malls",
+      "That her grandmother now works as a shopkeeper in the mall",
+      "That the old souq was much larger than the new mall"
+     ],
+     "answer": 0,
+     "why": "In the past, shopkeepers knew them by name; now she buys from a stranger. The flashback creates this contrast."
+    },
+    {
+     "passage": "The referee raised the whistle. Khalil placed the ball on the penalty spot. Three months ago, he had missed a penalty in the final, and the silence of the crowd still rang in his ears. He had practised a hundred kicks a day since then. The whistle blew.",
+     "stem": "Why does the author place the flashback just before Khalil kicks?",
+     "options": [
+      "To explain the rules of a penalty kick",
+      "To show that Khalil is not on the team",
+      "To reveal the score of the current match",
+      "To raise the tension by showing what is at stake"
+     ],
+     "answer": 3,
+     "why": "The flashback delays the kick and reminds us of his painful miss, so readers feel how much this moment means to him."
+    }
+   ],
+   "again": {
+    "title": "Then and now",
+    "text": "Draw two boxes: **THEN** and **NOW**.\n\n1. In THEN, write what happens in the flashback.\n2. In NOW, write what the character does in the present.\n3. Draw an arrow and finish: **Because of THEN, NOW means...**",
+    "example": "THEN: a tired doctor worked all night to save Salma's brother.\nNOW: Salma explains everything twice and does not feel tired.\n\nBecause of THEN, NOW means **Salma is giving others the care her family once received.**"
+   }
+  }
+ }
+}

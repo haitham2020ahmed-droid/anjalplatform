@@ -11,6 +11,7 @@ import type { BuilderClass, BuilderSkill } from "@/server/tests/assessments";
 import type { MapSourceTree } from "@/server/tests/map-source";
 import type { GeneratedTest } from "@/server/tests/generate";
 import { generateTestAction, mapTreeAction } from "../actions";
+import { Combo } from "@/components/ui/combo";
 
 const LEVELS = [
   { id: "MIXED", label: "Mixed levels" }, { id: "BELOW", label: "Approaching" }, { id: "ON", label: "Meeting" }, { id: "ABOVE", label: "Exceeding" }, { id: "FIT", label: "Fit my class" },
@@ -135,7 +136,7 @@ export function MakeTest({ tree: initialTree, skills, classes, classId, onClassI
         {level === "FIT" && (
           <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-slate-600">
             <span>{t("From the class's recent accuracy (80%+ Exceeding, 60–79% Meeting, under 60% Approaching).")}</span>
-            {classes.length > 1 && <select value={classId} onChange={(e) => onClassId(e.target.value)} aria-label={t("Class")} className={field}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>}
+            {classes.length > 1 && <Combo label={t("Class")} value={classId} onChange={onClassId} options={classes.map((c) => ({ value: c.id, label: c.name }))} className="min-w-52" />}
           </div>
         )}
       </fieldset>

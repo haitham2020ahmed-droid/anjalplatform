@@ -1,0 +1,446 @@
+{
+ "code": "LN-052",
+ "title": "Action, helping and linking verbs",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "verbs"
+ ],
+ "skillNames": [
+  "Action Verbs",
+  "Action, Main, Helping and Linking Verbs",
+  "Main and Helping Verbs",
+  "Linking Verbs",
+  "Agreement and Tense of Linking Verbs"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Action verbs",
+     "text": "An **action verb** tells what someone or something **does**.\n\n**run, jump, eat, write, swim, laugh**"
+    },
+    {
+     "title": "Find the action",
+     "text": "Ask: **What does the person do?**\n\n“The boy **kicks** the ball.” → kicks"
+    },
+    {
+     "title": "Actions you cannot see",
+     "text": "Some actions happen in your head: **think, know, remember, learn, want**.\n\n“Sara **remembers** the song.” → remembers is an action verb too."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find who the sentence is about.\n2. Ask: What does he, she or it do?\n3. The word that answers is the action verb. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The baby claps her hands.",
+      "role": "key"
+     },
+     {
+      "t": "Then she laughs.",
+      "role": "key"
+     }
+    ],
+    "explain": "What does the baby do? She **claps**. Then she **laughs**. Both are action verbs."
+   },
+   "together": {
+    "passage": "Ali has a pet rabbit. Every morning, the rabbit hops around the garden. It nibbles fresh carrots. Ali watches it and smiles.",
+    "stem": "Which word is an action verb?",
+    "options": [
+     "rabbit",
+     "garden",
+     "hops",
+     "fresh"
+    ],
+    "answer": 2,
+    "hint": "Ask: What does the rabbit DO?",
+    "good": "Yes! **Hops** tells what the rabbit does."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali has a pet rabbit.",
+     "Every morning, the rabbit hops around the garden.",
+     "It nibbles fresh carrots.",
+     "Ali watches it and smiles."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "Tap a sentence that shows something the rabbit does.",
+    "wrong": "This sentence does not show the rabbit doing something. Find a sentence where the rabbit acts."
+   },
+   "checks": [
+    {
+     "passage": "The birds fly over the lake.",
+     "stem": "Which word is the action verb?",
+     "options": [
+      "birds",
+      "fly",
+      "over",
+      "lake"
+     ],
+     "answer": 1,
+     "why": "What do the birds do? They **fly**."
+    },
+    {
+     "passage": "Mona writes a letter to her aunt.",
+     "stem": "Which word is the action verb?",
+     "options": [
+      "Mona",
+      "letter",
+      "writes",
+      "aunt"
+     ],
+     "answer": 2,
+     "why": "What does Mona do? She **writes**."
+    },
+    {
+     "passage": "My dog barks at night.",
+     "stem": "Which word is the action verb?",
+     "options": [
+      "barks",
+      "dog",
+      "night",
+      "My"
+     ],
+     "answer": 0,
+     "why": "What does the dog do? It **barks**."
+    }
+   ],
+   "again": {
+    "title": "Can you act it out?",
+    "text": "Try to **act out** the word.\n\nYou can act out **jump**, **eat**, **wave**. You cannot act out **table** or **happy**.",
+    "example": "“The cat climbs the tree.” Can you act out “climbs”? Yes! → **action verb**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Main verbs and helping verbs",
+     "text": "Sometimes a verb has a **helper**.\n\n“Sami **is playing**.” → **is** = helping verb, **playing** = main verb.\n\nThe **main verb** shows the action. The **helping verb** comes before it."
+    },
+    {
+     "title": "Common helping verbs",
+     "text": "**am, is, are, was, were**\n**has, have, had**\n**will, can, could, should, must, do, did**"
+    },
+    {
+     "title": "Verb phrases",
+     "text": "The helping verb + the main verb make a **verb phrase**:\n\n“We **will visit** Taif.”\n“She **has finished** her work.”\n“They **can swim**.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the main verb (the action).\n2. Look **just before** it for a helper.\n3. Point to the sentences that use a helper, and name the helper and the main verb."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The children were singing in the hall.",
+      "role": "key"
+     },
+     {
+      "t": "They had practiced all week.",
+      "role": "key"
+     }
+    ],
+    "explain": "**were** helps **singing**. **had** helps **practiced**.\n\nThe main verbs show the actions. The helpers show the time."
+   },
+   "together": {
+    "passage": "Our class is planning a trip to the science museum. The museum opened last year. Tomorrow, the bus will leave at eight o'clock. Everyone must bring a packed lunch. We have finished our questions for the guide.",
+    "stem": "In “Tomorrow, the bus will leave at eight o'clock,” which word is the helping verb?",
+    "options": [
+     "will",
+     "leave",
+     "bus",
+     "Tomorrow"
+    ],
+    "answer": 0,
+    "hint": "Find the action first: what will the bus do? Then look at the word just before it.",
+    "good": "Yes! **Leave** is the main verb, and **will** helps it show the future."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is planning a trip to the science museum.",
+     "The museum opened last year.",
+     "Tomorrow, the bus will leave at eight o'clock.",
+     "Everyone must bring a packed lunch.",
+     "We have finished our questions for the guide."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use a helping verb.",
+    "wrong": "This sentence has only one verb, with no helper. Find sentences with words like is, will, must or have before the action."
+   },
+   "checks": [
+    {
+     "passage": "Huda has painted three pictures.",
+     "stem": "What is the main verb?",
+     "options": [
+      "has",
+      "painted",
+      "pictures",
+      "three"
+     ],
+     "answer": 1,
+     "why": "The action is **painted**. “Has” is the helper."
+    },
+    {
+     "passage": "The players were running around the field.",
+     "stem": "Which word is the helping verb?",
+     "options": [
+      "players",
+      "running",
+      "field",
+      "were"
+     ],
+     "answer": 3,
+     "why": "**Were** comes before the main verb **running** and helps it."
+    },
+    {
+     "passage": "You should drink water every hour in hot weather.",
+     "stem": "What is the verb phrase?",
+     "options": [
+      "should drink",
+      "drink water",
+      "every hour",
+      "hot weather"
+     ],
+     "answer": 0,
+     "why": "The helper **should** + the main verb **drink** make the verb phrase."
+    }
+   ],
+   "again": {
+    "title": "Helper in front",
+    "text": "A helping verb is like a **helper standing in front** of the action.\n\nFind the action word. Is there a word like **is, has, will, can** right before it? That is the helper.",
+    "example": "“Dad **is cooking** dinner.” Action: **cooking**. Helper in front: **is**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Linking verbs",
+     "text": "A **linking verb** does not show action. It **links** the subject to a word that **describes or renames** it.\n\n“The soup **is** hot.” → soup = hot\n“My uncle **is** a pilot.” → uncle = pilot"
+    },
+    {
+     "title": "Common linking verbs",
+     "text": "Forms of **be**: am, is, are, was, were\n\nOthers: **seem, become, feel, look, taste, smell, sound, appear**\n\n“The test **seemed** easy.” “She **became** a doctor.”"
+    },
+    {
+     "title": "Linking or helping?",
+     "text": "“She **is** tired.” → **is** links “she” to “tired”: linking.\n\n“She **is** sleeping.” → **is** helps the main verb “sleeping”: helping.\n\nIf another verb follows, **is** is a helper."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb.\n2. Ask: Does it show an action, or does it connect the subject to a description?\n3. Put **=** in its place. If “subject = description” makes sense, it is a linking verb. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The desert felt cool at night.",
+      "role": "key"
+     },
+     {
+      "t": "We wore our jackets around the fire.",
+      "role": "detail"
+     }
+    ],
+    "explain": "“The desert **felt** cool” → desert = cool. **Felt** is a linking verb.\n\n“We **wore** our jackets” → wearing is something we did. **Wore** is an action verb."
+   },
+   "together": {
+    "passage": "The old lighthouse stands on a rocky point above the sea. Its white walls look bright in the morning sun. For many years, the keeper climbed the steep stairs every evening and lit the great lamp. The work was hard, but the keeper seemed happy with his lonely life. Today, the lighthouse is a museum, and visitors climb the same stairs.",
+    "stem": "Which verb from the passage is a linking verb?",
+    "options": [
+     "climbed",
+     "lit",
+     "seemed",
+     "stands"
+    ],
+    "answer": 2,
+    "hint": "Try the = test on each verb. Which one connects someone to a description?",
+    "good": "Yes! “The keeper **seemed** happy” → keeper = happy. **Seemed** links the subject to a description."
+   },
+   "evidence": {
+    "sentences": [
+     "The old lighthouse stands on a rocky point above the sea.",
+     "Its white walls look bright in the morning sun.",
+     "For many years, the keeper climbed the steep stairs every evening and lit the great lamp.",
+     "The work was hard, but the keeper seemed happy with his lonely life.",
+     "Today, the lighthouse is a museum, and visitors climb the same stairs."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that contain a linking verb.",
+    "wrong": "This sentence has only action verbs. Find a verb that connects a subject to a description."
+   },
+   "checks": [
+    {
+     "passage": "The bread smells fresh.",
+     "stem": "What kind of verb is “smells” here?",
+     "options": [
+      "Action verb",
+      "Helping verb",
+      "Linking verb",
+      "Not a verb"
+     ],
+     "answer": 2,
+     "why": "Bread = fresh. **Smells** links the bread to a description."
+    },
+    {
+     "passage": "The students are writing a story.",
+     "stem": "What job does “are” do here?",
+     "options": [
+      "Linking verb",
+      "Helping verb",
+      "Action verb",
+      "Noun"
+     ],
+     "answer": 1,
+     "why": "Another verb follows (**writing**), so **are** is a helping verb."
+    },
+    {
+     "passage": "My brother became a teacher last year.",
+     "stem": "Which word does the linking verb connect to “brother”?",
+     "options": [
+      "teacher",
+      "last",
+      "year",
+      "My"
+     ],
+     "answer": 0,
+     "why": "Brother = teacher. **Became** links “my brother” to “a teacher”."
+    }
+   ],
+   "again": {
+    "title": "The equals test",
+    "text": "Replace the verb with **=**.\n\n“The tea **is** sweet.” → tea = sweet. Makes sense → linking.\n\n“The boy **drinks** tea.” → boy = tea? No sense → action.",
+    "example": "“Laila seems tired.” → Laila = tired? Yes → **seems** is a linking verb."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Same verb, two jobs",
+     "text": "Some verbs can be **linking** or **action**:\n\n“The fruit **smelled** sweet.” → linking (fruit = sweet)\n“Huda **smelled** the fruit.” → action (Huda did the smelling)\n\nAlso: look, feel, taste, sound, grow, appear, turn."
+    },
+    {
+     "title": "The is / was test",
+     "text": "Replace the verb with **is** or **was**. If the meaning stays nearly the same, it is linking.\n\n“The sky **grew** dark.” → “The sky **was** dark.” → linking\n“The farmer **grew** wheat.” → “The farmer **was** wheat”? → action"
+    },
+    {
+     "title": "Agreement and tense",
+     "text": "A linking verb agrees with its **subject**, not with the description:\n\n“The gift **was** two books.” (subject: gift)\n“His favorite food **is** dates.”\n\nKeep the tense steady: “The road **was** narrow and **seemed** endless.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb and its subject.\n2. Ask: Is the subject **doing** something, or being **described**?\n3. Use the is / was test.\n4. Point to the sentences that prove each job."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The chef tasted the sauce carefully.",
+      "role": "detail"
+     },
+     {
+      "t": "It tasted too salty, so he added lemon juice.",
+      "role": "key"
+     }
+    ],
+    "explain": "In sentence 1, the chef **does** the tasting: action verb.\n\nIn sentence 2, “It **tasted** too salty” → “It **was** too salty.” The sauce is described: linking verb."
+   },
+   "together": {
+    "passage": "As the hikers climbed higher into the Asir mountains, the air turned cool and damp. Thick clouds appeared over the peaks. Hamad felt the first drops of rain on his face. The path looked slippery, so the group leader slowed down and checked each step. After an hour, the rain stopped, and the valley below looked green and fresh. Hamad felt proud: the climb had been difficult, but he had reached the top with everyone else.",
+    "stem": "Which use of “felt” in the passage is a linking verb?",
+    "options": [
+     "“felt the first drops of rain”",
+     "“felt proud”",
+     "both uses",
+     "neither use"
+    ],
+    "answer": 1,
+    "hint": "Use the was test: “Hamad was the first drops of rain”? “Hamad was proud”?",
+    "good": "Yes! “Hamad felt proud” → “Hamad was proud.” It describes him. Feeling the rain is something he did with his skin: action."
+   },
+   "evidence": {
+    "sentences": [
+     "As the hikers climbed higher into the Asir mountains, the air turned cool and damp.",
+     "Thick clouds appeared over the peaks.",
+     "Hamad felt the first drops of rain on his face.",
+     "The path looked slippery, so the group leader slowed down and checked each step.",
+     "After an hour, the rain stopped, and the valley below looked green and fresh.",
+     "Hamad felt proud: the climb had been difficult, but he had reached the top with everyone else."
+    ],
+    "proof": [
+     0,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that contain a linking verb.",
+    "wrong": "The verbs in this sentence show actions, not descriptions. Try the is / was test."
+   },
+   "checks": [
+    {
+     "passage": "The milk turned sour overnight.",
+     "stem": "What job does “turned” do here?",
+     "options": [
+      "Action verb",
+      "Linking verb",
+      "Helping verb",
+      "Noun"
+     ],
+     "answer": 1,
+     "why": "“The milk **was** sour.” The milk is described, so **turned** is a linking verb."
+    },
+    {
+     "passage": "The guard looked carefully at each ticket.",
+     "stem": "What kind of verb is “looked” here?",
+     "options": [
+      "Linking verb",
+      "Helping verb",
+      "Action verb",
+      "Adjective"
+     ],
+     "answer": 2,
+     "why": "The guard **did** the looking. “The guard was carefully at each ticket” makes no sense, so it is an action verb."
+    },
+    {
+     "passage": "The prize for the winners ___ two tickets to the science center.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "were",
+      "was",
+      "are",
+      "have been"
+     ],
+     "answer": 1,
+     "why": "The subject is **prize** (one), not “winners” or “tickets”. The linking verb agrees with it: **was**."
+    }
+   ],
+   "again": {
+    "title": "Doing or being?",
+    "text": "Ask one question: Is the subject **doing** something, or just **being** something?\n\nDoing → action verb. Being (described) → linking verb.",
+    "example": "“The children grew tall.” Doing? No, they are being described → **linking**.\n\n“The children grew tomatoes.” Doing? Yes → **action**."
+   }
+  }
+ }
+}

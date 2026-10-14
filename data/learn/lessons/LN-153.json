@@ -1,0 +1,494 @@
+{
+ "code": "LN-153",
+ "title": "How paragraphs build a story",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.2.5",
+  "RL.3.5",
+  "RL.5.5",
+  "RL.6.5",
+  "RL.7.5",
+  "RL.8.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "R-0025",
+  "R-0072",
+  "R-0073",
+  "R-0141",
+  "R-0142",
+  "R-0251",
+  "R-0252",
+  "R-0258",
+  "R-0414",
+  "R-0415",
+  "R-0420",
+  "R-0602",
+  "R-0603",
+  "R-0605",
+  "R-0807",
+  "R-0808",
+  "R-0809",
+  "R-0969",
+  "R-0972",
+  "R-0974",
+  "R-1068"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Every part has a job",
+     "text": "Each sentence in a story has a **job**.\n\nOne may tell **who** is in the story. One may show the **problem**. One may tell **how it ends**."
+    },
+    {
+     "title": "Some jobs",
+     "text": "**Start**: tells who and where.\n**Middle**: tells what happens.\n**End**: tells how it turns out."
+    },
+    {
+     "title": "Ask about the sentence",
+     "text": "1. Read the sentence.\n2. Ask: **What does it tell me?**\n3. Ask: **What would I miss** without it?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the story**.\n\n1. Find the sentence the question asks about.\n2. Read the sentences **before** and **after** it.\n3. See what it adds to the story."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ola had a red ball.",
+      "role": "other"
+     },
+     {
+      "t": "The ball rolled into the pond.",
+      "role": "key"
+     },
+     {
+      "t": "Her brother got a stick and pulled it out.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The sentence **The ball rolled into the pond** shows the **problem**.\n\nWithout it, we would not know why her brother needs a stick."
+   },
+   "together": {
+    "passage": "Tamer wanted to go to the park. He put on his shoes. Then he looked out the window. It was raining hard. Tamer took off his shoes and sat down with a book.",
+    "stem": "Why is the sentence \"It was raining hard\" important?",
+    "options": [
+     "It tells us Tamer likes books.",
+     "It shows why Tamer did not go to the park.",
+     "It tells us Tamer has new shoes.",
+     "It shows that the park is far away."
+    ],
+    "answer": 1,
+    "hint": "What does Tamer do right after he sees the rain? Why?",
+    "good": "Yes! The rain is the reason Tamer took off his shoes and stayed home."
+   },
+   "evidence": {
+    "sentences": [
+     "Tamer wanted to go to the park.",
+     "He put on his shoes.",
+     "Then he looked out the window.",
+     "It was raining hard.",
+     "Tamer took off his shoes and sat down with a book."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: it shows why Tamer did not go to the park. Tap 2 sentences that show the rain and what Tamer did because of it.",
+    "wrong": "This sentence tells what Tamer wanted or got ready to do. Find the rain and what changed because of it."
+   },
+   "checks": [
+    {
+     "passage": "Dana and Sara were friends. One day, they had a fight. The next day, Dana said sorry. They played together again.",
+     "stem": "What does the sentence \"Dana said sorry\" do in the story?",
+     "options": [
+      "It fixes the problem.",
+      "It starts the problem.",
+      "It tells who the friends are.",
+      "It tells where they live."
+     ],
+     "answer": 0,
+     "why": "Saying sorry ends the fight, so the friends can play again."
+    },
+    {
+     "passage": "The farm was quiet. Then the rooster crowed. Everyone woke up.",
+     "stem": "What does the sentence \"Then the rooster crowed\" do?",
+     "options": [
+      "It tells us the farm is big.",
+      "It tells how the story ends.",
+      "It shows why everyone woke up.",
+      "It shows that the rooster was sleepy."
+     ],
+     "answer": 2,
+     "why": "The rooster crowed, so everyone woke up."
+    },
+    {
+     "passage": "Yousef lost his hat at school. He asked his teacher. He looked in the yard. At last, he found it on the bench.",
+     "stem": "What does the last sentence tell us?",
+     "options": [
+      "Who Yousef is",
+      "What Yousef lost",
+      "Where Yousef goes to school",
+      "How the story ends"
+     ],
+     "answer": 3,
+     "why": "The last sentence tells us he found his hat. That is the end."
+    }
+   ],
+   "again": {
+    "title": "Take it out",
+    "text": "Read the story **without** the sentence.\n\nWhat is missing now? That is the sentence's job.",
+    "example": "Mona was cold. **She put on a coat.** She felt warm.\n\nWithout the middle sentence, we do not know **why** she felt warm."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sentences that build a story",
+     "text": "Writers choose each sentence for a reason. A sentence can:\n\n1. **Introduce** a character or setting.\n2. **Start** the problem.\n3. **Cause** a later event.\n4. **Show** how a character feels.\n5. **End** the story."
+    },
+    {
+     "title": "Plot jobs",
+     "text": "Some sentences move the **plot** forward. They make something **happen** or **change**.\n\nIf you remove one, the next events will not make sense."
+    },
+    {
+     "title": "How to explain a sentence",
+     "text": "1. Read the sentence and the ones around it.\n2. Ask: **What happens because of it?**\n3. Ask: **What do I learn from it?**\n4. Choose the answer that names its **job**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence's job:\n\n1. Find the sentence.\n2. Find the later sentences that **depend** on it.\n3. Choose the answer that explains that connection.\n\nWrong answers often describe the sentence's words but not its **purpose** in the story."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda's grandmother gave her an old key on her birthday.",
+      "role": "detail"
+     },
+     {
+      "t": "Huda thanked her and put it in her pocket.",
+      "role": "other"
+     },
+     {
+      "t": "Weeks later, Huda found a locked wooden box in the attic.",
+      "role": "key"
+     },
+     {
+      "t": "The old key fit perfectly, and inside were photographs of her grandmother as a girl.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence seems small. But the key **causes** the ending: it opens the box.\n\nIts job: to **set up** something that becomes important later."
+   },
+   "together": {
+    "passage": "Basma had practised her speech for the school assembly all week. On the morning of the assembly, she discovered that her notes were missing from her bag. Her heart sank. Then she remembered something her teacher had said: \"If you know your ideas, you don't need every word.\" Basma took a deep breath and walked onto the stage. She spoke clearly and did not forget a single point.",
+    "stem": "What is the job of the sentence where Basma remembers her teacher's words?",
+    "options": [
+     "It introduces Basma and tells where she is.",
+     "It shows that Basma never practised her speech.",
+     "It describes the stage and the school hall.",
+     "It gives Basma the confidence to speak without notes."
+    ],
+    "answer": 3,
+    "hint": "What happens right after Basma remembers the words? How does that change things?",
+    "good": "Yes! The teacher's words help Basma feel ready, so she goes on stage and speaks well."
+   },
+   "evidence": {
+    "sentences": [
+     "Basma had practised her speech for the school assembly all week.",
+     "On the morning of the assembly, she discovered that her notes were missing from her bag.",
+     "Her heart sank.",
+     "Then she remembered something her teacher had said: \"If you know your ideas, you don't need every word.\"",
+     "Basma took a deep breath and walked onto the stage.",
+     "She spoke clearly and did not forget a single point."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: it gives Basma the confidence to speak without notes. Tap 2 sentences that show what the teacher's words lead to.",
+    "wrong": "This sentence comes before the turning point. Find the sentences that show the teacher's words and what Basma does because of them."
+   },
+   "checks": [
+    {
+     "passage": "Hamad left the gate open when he came home. The next morning, the goats were gone. He spent the whole day finding them in the hills.",
+     "stem": "Why is the first sentence important to the plot?",
+     "options": [
+      "It describes Hamad's house.",
+      "It causes the problem of the missing goats.",
+      "It shows that Hamad loves goats.",
+      "It tells how the story ends."
+     ],
+     "answer": 1,
+     "why": "Leaving the gate open let the goats escape. The rest of the story follows from it."
+    },
+    {
+     "passage": "The night was dark and still. Rashid heard a soft scratching at the door. He tiptoed closer. When he opened it, a tiny kitten looked up at him and meowed.",
+     "stem": "What does the sentence \"The night was dark and still\" add?",
+     "options": [
+      "It sets a quiet, mysterious mood before the scratching.",
+      "It shows why Rashid wanted a kitten.",
+      "It tells how the problem is solved.",
+      "It explains where the kitten came from."
+     ],
+     "answer": 0,
+     "why": "The dark, still night makes the scratching sound more mysterious."
+    },
+    {
+     "passage": "Leen wanted to join the football team, but her older brother laughed and said she was too small. Leen practised every evening. At the tryouts, she scored three goals. Her brother was the first to cheer.",
+     "stem": "What does the last sentence show?",
+     "options": [
+      "Leen's brother is on the football team.",
+      "The tryouts were very hard.",
+      "Leen's brother has changed his mind about her.",
+      "Leen is still too small for football."
+     ],
+     "answer": 2,
+     "why": "At first he laughed; now he cheers first. The last sentence shows his change."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Look at the story **before** the sentence and **after** it.\n\nWhat is different? The difference is the sentence's job.",
+    "example": "Before: the class is playing outside. Sentence: **Thunder boomed.** After: everyone runs inside.\n\nJob: it **causes** the class to go inside."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Parts with purpose",
+     "text": "Every sentence and paragraph in a well-written story adds something. It may:\n\n1. **Advance the plot**: cause or change events.\n2. **Reveal character**: show what someone is like.\n3. **Build mood**: create a feeling.\n4. **Hint at the future** (foreshadowing)."
+    },
+    {
+     "title": "Foreshadowing",
+     "text": "**Foreshadowing** is a clue early in a story about something that will happen later.\n\nWhen something surprising happens, look back: was there a hint?"
+    },
+    {
+     "title": "Analysing a part",
+     "text": "1. Find the sentence or paragraph.\n2. Ask what the story would lose without it.\n3. Decide: does it move the plot, show character, set mood, or hint at what comes?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what a part contributes:\n\n1. Find the sentence the question names.\n2. Find later sentences it **connects** to: an event it causes, a feeling it builds, a hint that comes true.\n3. Choose the answer those connections support.\n\nAvoid answers that simply repeat what the sentence says."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "As the family set off across the desert, Faisal noticed that the fuel gauge was lower than usual.",
+      "role": "key"
+     },
+     {
+      "t": "His father hummed along to the radio.",
+      "role": "other"
+     },
+     {
+      "t": "An hour later, far from any town, the car slowed and stopped.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first sentence **foreshadows** the problem. The low fuel gauge hints at trouble, and later the car stops.\n\nIt also shows that Faisal is **observant**."
+   },
+   "together": {
+    "passage": "Old Mariam sat on her doorstep every afternoon, watching the children walk home from school. Most of them hurried past without looking up. One day, a boy named Talal tripped and scattered his books across the road. Mariam got up slowly and helped him gather them, then handed him a cup of cold water. The next afternoon, Talal stopped to say hello. Soon, he was stopping every day, and so were his friends. By the end of the year, Mariam's doorstep had become the busiest spot on the street.",
+    "stem": "What does the sentence \"Most of them hurried past without looking up\" contribute to the story?",
+    "options": [
+     "It explains why the children were late for school each day.",
+     "It shows that Mariam does not like children walking past.",
+     "It shows Mariam's loneliness, which makes the ending more meaningful.",
+     "It describes the road and the books that Talal dropped."
+    ],
+    "answer": 2,
+    "hint": "Compare that sentence with the ending. How has Mariam's doorstep changed?",
+    "good": "Yes! At first no one notices Mariam; at the end her doorstep is the busiest spot. The contrast makes the change meaningful."
+   },
+   "evidence": {
+    "sentences": [
+     "Old Mariam sat on her doorstep every afternoon, watching the children walk home from school.",
+     "Most of them hurried past without looking up.",
+     "One day, a boy named Talal tripped and scattered his books across the road.",
+     "Mariam got up slowly and helped him gather them, then handed him a cup of cold water.",
+     "The next afternoon, Talal stopped to say hello.",
+     "Soon, he was stopping every day, and so were his friends.",
+     "By the end of the year, Mariam's doorstep had become the busiest spot on the street."
+    ],
+    "proof": [
+     0,
+     1,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: it shows Mariam's loneliness, which makes the ending more meaningful. Tap 2 sentences that show the contrast between the beginning and the end.",
+    "wrong": "This sentence is part of the middle events. Find sentences that show how alone Mariam is at first, and how things are at the end."
+   },
+   "checks": [
+    {
+     "passage": "Before the race, Jasim tied his shoelaces quickly and did not double-knot them. When the whistle blew, he shot ahead of everyone. Halfway around the track, he stumbled, and three runners passed him.",
+     "stem": "What does the first sentence do?",
+     "options": [
+      "It foreshadows the problem in the race.",
+      "It shows that Jasim is very careful.",
+      "It describes the running track and the weather.",
+      "It tells us which runner won the race in the end."
+     ],
+     "answer": 0,
+     "why": "The loose laces are a hint. Later he stumbles, so the sentence foreshadows the problem."
+    },
+    {
+     "passage": "Every morning, Nour fed the stray cats behind the bakery, even in the rain. One winter day, the baker noticed and gave her a bag of old bread to share.",
+     "stem": "What does the first sentence reveal about Nour?",
+     "options": [
+      "She works at the bakery.",
+      "She is afraid of cats.",
+      "She does not like rain.",
+      "She is caring and loyal."
+     ],
+     "answer": 3,
+     "why": "Feeding the cats every day, even in the rain, shows she is caring and loyal."
+    },
+    {
+     "passage": "The house was silent. Dust covered the piano, and the clocks had stopped. Then, from upstairs, came the sound of a single note being played.",
+     "stem": "What is the purpose of the first two sentences?",
+     "options": [
+      "To explain who lives in the house and why they left.",
+      "To build a quiet, empty mood that makes the sound surprising.",
+      "To show that the old piano is broken and out of tune.",
+      "To tell the reader how the story will end."
+     ],
+     "answer": 1,
+     "why": "The silence and dust make the house feel empty, so the note from upstairs is a surprise."
+    }
+   ],
+   "again": {
+    "title": "What if it were gone?",
+    "text": "Cover the sentence and read the story again.\n\n1. Does something later stop making sense? → it **moves the plot** or **foreshadows**.\n2. Do you know less about a character? → it **reveals character**.\n3. Does the story feel different? → it **builds mood**.",
+    "example": "\"The bridge creaked in the wind.\" Later, the bridge breaks.\n\nWithout the creaking, the break is a shock with no warning. The sentence **foreshadows** it."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Structure and meaning",
+     "text": "Writers place sentences and paragraphs with care. A single sentence can **shift the tone**, **reveal a secret**, **change our view of a character**, or **set up the ending**.\n\nAnalysing structure means asking **why this part is here, and why now**."
+    },
+    {
+     "title": "Techniques to notice",
+     "text": "1. **Flashback**: a past scene that explains the present.\n2. **Turning point**: the moment that changes the direction of the plot.\n3. **Contrast**: a part that is very different from what came before.\n4. **Final line**: often gives a twist or a new meaning to everything before it."
+    },
+    {
+     "title": "Writing a strong analysis",
+     "text": "Name the part, say what it does, and explain its **effect** on the plot or meaning.\n\nFor example: \"The flashback to the flood explains why the father fears the river, which makes his final decision more powerful.\""
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the effect of a part:\n\n1. Locate the sentence or passage.\n2. Find what it **connects to** elsewhere: an earlier hint, a later decision, a change in meaning.\n3. Explain the connection. The best answer names both the **function** and the **effect**.\n\nReject choices that only summarise the part, or that ignore how it relates to the whole story."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every evening, Yaqoub's father refused to drive across the old bridge, taking the long road around the valley instead.",
+      "role": "detail"
+     },
+     {
+      "t": "Yaqoub found it embarrassing.",
+      "role": "other"
+     },
+     {
+      "t": "Then his aunt told him about the night, years earlier, when the bridge had flooded with his father's car on it.",
+      "role": "key"
+     },
+     {
+      "t": "The next evening, Yaqoub said nothing as they took the long road home.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The aunt's story is a **flashback**. It explains the father's strange habit and **changes Yaqoub's view**: embarrassment turns into understanding.\n\nThe final sentence shows that change through Yaqoub's silence."
+   },
+   "together": {
+    "passage": "For three summers, Abeer had watched the older girls at the beach dive from the high rocks while she stayed in the shallow water. Each year she promised herself that this would be the summer, and each year she found a reason to wait. This summer, she climbed halfway up the rocks before her legs began to shake. On the sand beneath her, a small boy was crying; he had lost sight of his mother in the crowd. Abeer climbed down, took his hand, and walked the length of the beach with him until they found his mother, who hugged them both. That evening, as the sun set, Abeer realised she had not thought about the rocks once. She decided she had already been brave enough for one summer.",
+    "stem": "What is the effect of the last sentence on the meaning of the story?",
+    "options": [
+     "It shows that Abeer gives up on being brave and feels ashamed of herself.",
+     "It reveals that Abeer will dive from the rocks the very next morning.",
+     "It redefines bravery: helping the lost child counted as courage too.",
+     "It explains that Abeer has stopped going to the beach in the summer."
+    ],
+    "answer": 2,
+    "hint": "Think about what Abeer did that day. Why might she feel she was 'already brave enough'?",
+    "good": "Yes! The last line looks back on her day and shows that helping the child was its own kind of courage."
+   },
+   "evidence": {
+    "sentences": [
+     "For three summers, Abeer had watched the older girls at the beach dive from the high rocks while she stayed in the shallow water.",
+     "Each year she promised herself that this would be the summer, and each year she found a reason to wait.",
+     "This summer, she climbed halfway up the rocks before her legs began to shake.",
+     "On the sand beneath her, a small boy was crying; he had lost sight of his mother in the crowd.",
+     "Abeer climbed down, took his hand, and walked the length of the beach with him until they found his mother, who hugged them both.",
+     "That evening, as the sun set, Abeer realised she had not thought about the rocks once.",
+     "She decided she had already been brave enough for one summer."
+    ],
+    "proof": [
+     3,
+     4,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the last sentence redefines bravery to include helping the child. Tap 2 sentences that support this new meaning.",
+    "wrong": "This sentence shows Abeer's old fear of the rocks. Find the sentences about what she did instead and what she decided."
+   },
+   "checks": [
+    {
+     "passage": "The village celebrated the new dam with music and food. Children ran along the dry riverbed below. Only old Zubair stood apart, looking at the cracked banks. Fifty years earlier, he said quietly, the river had flooded so fast that nobody had time to run.",
+     "stem": "What does the final sentence add to the story?",
+     "options": [
+      "It introduces a past danger that gives the celebration a warning.",
+      "It explains how and when the new dam was built.",
+      "It shows Zubair is unhappy because he wanted music.",
+      "It describes the games the children play in the riverbed."
+     ],
+     "answer": 0,
+     "why": "Zubair's memory of a sudden flood hints at danger and makes the cheerful scene uneasy."
+    },
+    {
+     "passage": "Ahmad always teased the quiet new boy for eating lunch alone. One day, Ahmad's own friends left without him, and he found himself at an empty table. The new boy hesitated, then sat down beside him and offered half his sandwich.",
+     "stem": "What is the function of the second sentence?",
+     "options": [
+      "It introduces the quiet new boy to the reader for the first time.",
+      "It explains why Ahmad likes to eat sandwiches at lunch.",
+      "It ends the story with a twist.",
+      "It puts Ahmad in the new boy's position, which is the turning point."
+     ],
+     "answer": 3,
+     "why": "Ahmad now feels what he made the new boy feel. This reversal sets up the kind act and changes the story."
+    },
+    {
+     "passage": "Sara's first painting was a grey sea under a grey sky. Then her family moved to the coast. Months later, she painted the same sea again, now full of blue, green and silver light.",
+     "stem": "What does comparing the two paintings show?",
+     "options": [
+      "Sara has run out of grey paint for her pictures.",
+      "Sara's view of the sea, and perhaps of life, has brightened.",
+      "Sara has never seen the real sea in her life.",
+      "The family moved because Sara painted."
+     ],
+     "answer": 1,
+     "why": "The change from grey to bright colours shows a change in how Sara sees the sea, suggesting her mood has lifted."
+    }
+   ],
+   "again": {
+    "title": "Function plus effect",
+    "text": "Answer two questions about the part:\n\n1. **Function**: what does it **do**? (cause, reveal, contrast, foreshadow, twist)\n2. **Effect**: what does it make the reader **understand or feel**?\n\nPut them in one sentence.",
+    "example": "Part: \"She did not know it would be the last time she saw the old house.\"\n\nFunction: **foreshadows** a loss. Effect: the reader feels **sadness and suspense** about what will happen."
+   }
+  }
+ }
+}

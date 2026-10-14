@@ -39,14 +39,14 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: five entries — Home, My Work, My Tests, MAP, ReadMaster / ReadRise (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
-    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "NAFS"], "the NAFS icon: students in a Grade 6 class");
+  test("student: Home, My Work, My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
+    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
     const items = navItemsFor("STUDENT", { rti: true, nafs: false });
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise"]);
+    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
     assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
     assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");
     assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no label twice in the menu");
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading"]);
+    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
   });
 
   test("student: never an RTI entry, whatever the flags (support work is ordinary work in My Work)", () => {
@@ -56,9 +56,9 @@ describe("menus: short and tidy", () => {
     for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
 
-  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assessments, Writing, Reading, MAP, Reports; the rest folded under More", () => {
+  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Reading, Learn, MAP, Reports; the rest folded under More", () => {
     const items = navItemsFor("TEACHER");
-    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assessments", "Writing", "Reading", "MAP", "Reports"]);
+    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Reading", "Learn", "MAP", "Reports"]);
     assert.deepEqual(items.filter((i) => i.group).map((i) => i.group), items.filter((i) => i.group).map(() => MORE), "the rest is under More");
     assert.ok(items.every((i) => i.line), "every teacher entry has a line icon");
     const hrefs = new Set(items.map((i) => i.href));
@@ -156,13 +156,14 @@ describe("My Students, Reports and My Week on the Test School", () => {
 
   test("redirects: Find a Student and My Classes go to My Students", () => {
     assert.match(read("src/app/admin/student-file/page.tsx"), /redirect\(q \? `\/teacher\/students\?/);
-    assert.match(read("src/app/admin/student-file/page.tsx"), /redirect\(`\/admin\/student-file\/\$\{id\}`\)/);
+    // r67: the ONE student file is /teacher/students/[id] (the older /admin/student-file/[id] redirects there)
+    assert.match(read("src/app/admin/student-file/page.tsx"), /redirect\(`\/teacher\/students\/\$\{id\}`\)/);
     assert.match(read("src/app/teacher/classes/page.tsx"), /redirect\("\/teacher\/students"\)/);
-    assert.match(read("src/components/teacher/student-list.tsx"), /href=\{`\/admin\/student-file\/\$\{x\.id\}`\}/, "a name opens the file");
+    assert.match(read("src/components/teacher/student-list.tsx"), /href=\{`\/teacher\/students\/\$\{x\.id\}`\}/, "a name opens the file");
   });
 
-  test("reports (no wizard): five groups, every report has a page, strings translated; old pages kept", () => {
-    assert.deepEqual(REPORT_CATEGORIES.map((c) => c.key), ["Class", "Student", "Skills", "MAP", "Family"]);
+  test("reports (no wizard): four groups (r67), every report has a page, strings translated; old pages kept", () => {
+    assert.deepEqual(REPORT_CATEGORIES.map((c) => c.key), ["My class", "Students", "Programs", "Follow-up"]);
     for (const c of REPORT_CATEGORIES) { assert.ok(REPORTS.some((r) => r.category === c.key), c.key); assert.ok(hasAr(c.key) && hasAr(c.hint), c.key); }
     for (const r of REPORTS) {
       assert.ok(hasAr(r.title) && hasAr(r.hint), r.key);
@@ -170,7 +171,7 @@ describe("My Students, Reports and My Week on the Test School", () => {
       for (const p of [...reportUrls(r, "class", { classId: "c1", period: "week" }, ["s1", "s2"]), ...reportUrls(r, "student", { classId: "c1", studentId: "s1", period: "term" })]) assert.ok(routeExists(p.url), `${r.key}: ${p.url}`);
       assert.ok(routeExists(openReportUrl(r, { classId: "c1", firstStudent: "s1" })!), r.key);
     }
-    const fam = REPORTS.find((r) => r.key === "family-progress")!;
+    const fam = REPORTS.find((r) => r.key === "family-reports")!;
     assert.ok(fam.send, "family reports can be sent");
     assert.match(reportUrls(REPORTS.find((r) => r.key === "practice")!, "class", { classId: "c1", period: "week" })[0].url, /range=LAST_7_DAYS/);
     const page = read("src/app/teacher/reports/page.tsx");

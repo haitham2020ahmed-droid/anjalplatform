@@ -1,0 +1,488 @@
+{
+ "code": "LN-119",
+ "title": "Combining information from several texts",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.4.9",
+  "RI.5.9"
+ ],
+ "families": [
+  "compare-texts"
+ ],
+ "skillNames": [
+  "Integrating Information from Two Texts"
+ ],
+ "statements": [
+  "R-0210",
+  "R-0211",
+  "R-0364",
+  "R-0548",
+  "R-0746",
+  "R-0910"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two texts, one topic",
+     "text": "Sometimes you read **two short texts** about the same thing.\n\nEach text tells you **something different**."
+    },
+    {
+     "title": "Put them together",
+     "text": "Text 1 gives you one fact. Text 2 gives you another fact.\n\nPut the two facts **together**. Now you know **more** than each text alone."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read Text 1. What does it tell you?\n2. Read Text 2. What does it tell you?\n3. Ask: **What do both texts tell me together?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your answer must come from **both** texts.\n\n1. Find a sentence in **Text 1** that helps.\n2. Find a sentence in **Text 2** that helps.\n\nIf only one text shows it, look again."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: Bees visit flowers.",
+      "role": "detail"
+     },
+     {
+      "t": "They take food from the flowers.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: Bees make honey.",
+      "role": "detail"
+     },
+     {
+      "t": "They make it from the food they take from flowers.",
+      "role": "key"
+     }
+    ],
+    "explain": "Text 1 says bees get food from flowers. Text 2 says bees make honey from that food.\n\nTogether: **honey starts in flowers**. Neither text says it all alone."
+   },
+   "together": {
+    "passage": "Text 1: Ahmed has a cat. The cat drinks milk every morning.\n\nText 2: Ahmed's cat is very hungry today. The milk is all gone.",
+    "stem": "Put both texts together. What will Ahmed need to do?",
+    "options": [
+     "Get a new cat.",
+     "Buy more milk for the cat.",
+     "Give the cat a bath.",
+     "Go to school."
+    ],
+    "answer": 1,
+    "hint": "Text 1 tells what the cat drinks. Text 2 tells what is missing. Put them together.",
+    "good": "Yes! The cat drinks milk (Text 1), and the milk is gone (Text 2). Ahmed needs more milk."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Ahmed has a cat.",
+     "The cat drinks milk every morning.",
+     "Text 2: Ahmed's cat is very hungry today.",
+     "The milk is all gone."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: buy more milk. Tap 1 sentence from Text 1 and 1 sentence from Text 2 that prove it.",
+    "wrong": "This sentence does not talk about the milk. Find the sentences about milk in each text."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: Plants need water to grow.\n\nText 2: Mona forgot to water her plant for two weeks.",
+     "stem": "What can you tell from both texts?",
+     "options": [
+      "Mona's plant may not grow well.",
+      "Mona has two plants.",
+      "Plants do not need water.",
+      "Mona likes to water plants."
+     ],
+     "answer": 0,
+     "why": "Plants need water (Text 1). Mona's plant got no water (Text 2). So it may not grow well."
+    },
+    {
+     "passage": "Text 1: The library opens at 8 o'clock.\n\nText 2: Sami got to the library at 7 o'clock.",
+     "stem": "What can you tell from both texts?",
+     "options": [
+      "Sami was late.",
+      "The library was closed.",
+      "Sami got there after 8 o'clock.",
+      "The library opens at 7 o'clock."
+     ],
+     "answer": 1,
+     "why": "The library opens at 8 (Text 1). Sami came at 7 (Text 2). So it was still closed."
+    },
+    {
+     "passage": "Text 1: Camels can walk on hot sand.\n\nText 2: Camels can go for days without water.",
+     "stem": "What do both texts show together?",
+     "options": [
+      "Camels like cold weather.",
+      "Camels drink a lot.",
+      "Camels are small.",
+      "Camels can live in the desert."
+     ],
+     "answer": 3,
+     "why": "Hot sand and little water are both parts of desert life. Together they show camels can live there."
+    }
+   ],
+   "again": {
+    "title": "One plus one",
+    "text": "Think of each text as **one piece** of a puzzle.\n\nOne piece alone is not the whole picture. Put the two pieces together to see it.",
+    "example": "Text 1: Rain makes the ground wet.\nText 2: It rained all night.\n\nTogether: **In the morning, the ground is wet.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Many texts, more facts",
+     "text": "When you research a topic, you often read **more than one text**.\n\nEach text gives **different facts**. A good reader joins them to understand the whole topic."
+    },
+    {
+     "title": "Synthesize",
+     "text": "To **synthesize** means to **combine** ideas from different texts into one new idea.\n\nYou do not just repeat Text 1 and then Text 2. You ask: **What do they tell me together?**"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the **topic** both texts share.\n2. Note the **key fact** from each text.\n3. Join the facts into **one statement** that both texts support."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good combined answer has **support from each text**.\n\n1. Point to the sentence in Text 1 that helps.\n2. Point to the sentence in Text 2 that helps.\n3. Reject answers that only one text supports, or that **neither** text says."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: Sea turtles lay their eggs on sandy beaches at night.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: Bright lights near beaches confuse baby turtles.",
+      "role": "detail"
+     },
+     {
+      "t": "Instead of crawling to the sea, they crawl toward the lights.",
+      "role": "detail"
+     },
+     {
+      "t": "Combined: lights near nesting beaches put baby sea turtles in danger.",
+      "role": "key"
+     }
+    ],
+    "explain": "Text 1 tells **where** turtles hatch: on beaches. Text 2 tells what **lights** do to baby turtles.\n\nJoined together, we learn why beach lights are a problem. Neither text says this alone."
+   },
+   "together": {
+    "passage": "Text 1: Dates are a good source of energy. They contain natural sugar, which the body can use quickly. Many people eat a few dates when they feel tired.\n\nText 2: Runners often need a quick snack during long races. The snack should be small and easy to carry. It should give energy fast.",
+    "stem": "What conclusion can you draw from both texts?",
+    "options": [
+     "Runners should eat a big meal during a race.",
+     "Dates are only eaten in the morning.",
+     "Dates could make a good snack for runners.",
+     "Runners do not get tired."
+    ],
+    "answer": 2,
+    "hint": "Text 1 says what dates give you. Text 2 says what runners need. Do they match?",
+    "good": "Yes! Text 1 says dates give quick energy, and Text 2 says runners need fast energy. So dates could be a good runner's snack."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Dates are a good source of energy.",
+     "They contain natural sugar, which the body can use quickly.",
+     "Many people eat a few dates when they feel tired.",
+     "Text 2: Runners often need a quick snack during long races.",
+     "The snack should be small and easy to carry.",
+     "It should give energy fast."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: dates could make a good snack for runners. Tap 1 sentence about what dates give and 1 sentence about what runners need.",
+    "wrong": "This sentence does not tell what dates give or what runners need. Look for the sentences about energy."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: The Arabian oryx almost disappeared from the wild in the 1970s because of hunting.\n\nText 2: Oryx raised in protected centers were later released into nature reserves. Today, there are oryx living in the wild again.",
+     "stem": "What do the two texts show together?",
+     "options": [
+      "Oryx can never live in the wild, even when protected.",
+      "Protection helped the oryx come back after it almost disappeared.",
+      "Hunting oryx is still common in nature reserves today.",
+      "The oryx lives only in zoos."
+     ],
+     "answer": 1,
+     "why": "Text 1 tells how the oryx nearly vanished. Text 2 tells how protection brought it back."
+    },
+    {
+     "passage": "Text 1: Our class needs 20 chairs for the reading party.\n\nText 2: The school storeroom has 12 chairs. Our classroom has 6 chairs.",
+     "stem": "What can you conclude from both texts?",
+     "options": [
+      "The class has more chairs than it needs.",
+      "The party will be in the storeroom.",
+      "The class has exactly 20 chairs.",
+      "The class still needs 2 more chairs."
+     ],
+     "answer": 3,
+     "why": "12 + 6 = 18 chairs. The class needs 20 (Text 1), so 2 more are needed."
+    },
+    {
+     "passage": "Text 1: Many birds fly south when the weather in the north turns cold.\n\nText 2: In winter, birdwatchers in Saudi Arabia see birds that are not here in summer.",
+     "stem": "What does putting the texts together suggest?",
+     "options": [
+      "Some birds come to Saudi Arabia to escape the cold.",
+      "Birds leave Saudi Arabia when winter comes.",
+      "Birdwatching is only possible in the summer.",
+      "All birds stay in one place."
+     ],
+     "answer": 0,
+     "why": "Birds fly south from the cold (Text 1), and new birds appear here in winter (Text 2). So some birds come here to escape the cold."
+    }
+   ],
+   "again": {
+    "title": "Fact + fact = new idea",
+    "text": "Write one fact from each text on a line.\n\nThen ask: **If both are true, what else must be true?** That is your conclusion.",
+    "example": "Fact 1: Ice melts in heat.\nFact 2: The ice cream was left in the hot car.\n\nNew idea: **The ice cream melted.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Reading like a researcher",
+     "text": "Researchers rarely trust **one** source. They read several texts and look for how the facts **fit together**.\n\nOne text may explain a **cause**, another may give **numbers**, and a third may tell a **story**."
+    },
+    {
+     "title": "What synthesis looks like",
+     "text": "A synthesis is a **new statement** that uses information from all the texts.\n\nIt is **not** a list of what each text said. It is the bigger understanding you get only by reading them together."
+    },
+    {
+     "title": "Build a synthesis",
+     "text": "1. Read each text and note its **main point**.\n2. Look for **links**: same topic, cause and effect, problem and solution.\n3. Write one sentence that **every text supports**.\n4. Check it: could you write it after reading only one text? If yes, it is too small."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a synthesis by pointing to **each source**.\n\n1. Find the sentence in each text that adds a piece.\n2. Make sure the pieces really connect.\n3. Watch for traps: an answer that is true for **one** text only, or one that goes **beyond** what the texts say."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: In hot cities, dark roads and roofs soak up heat during the day and release it at night.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: A study found that streets lined with trees can be several degrees cooler than streets without trees.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 3: Some cities now paint roofs white so they reflect sunlight.",
+      "role": "detail"
+     },
+     {
+      "t": "Synthesis: cities can fight heat by changing the surfaces and plants around people.",
+      "role": "key"
+     }
+    ],
+    "explain": "Text 1 explains the **problem** (dark surfaces store heat). Texts 2 and 3 give two **solutions** (trees and white roofs).\n\nOnly by reading all three do we see the bigger idea: **changing surfaces and adding plants cools a city.**"
+   },
+   "together": {
+    "passage": "Text 1: Long ago, sailors in the Arabian Gulf dived for pearls. Divers held their breath and went down again and again to collect oysters. The work was dangerous, but pearls were very valuable.\n\nText 2: In the 1930s, cultured pearls from Japan began to fill world markets. These pearls were grown on farms and were much cheaper. At about the same time, oil was discovered in the Gulf region, and many people found new jobs.",
+    "stem": "Using both texts, which statement best explains why pearl diving in the Gulf became much less common?",
+    "options": [
+     "Divers could no longer hold their breath for long.",
+     "Cheaper farmed pearls and new jobs in oil made diving less needed.",
+     "Oysters disappeared from the Gulf in the 1930s.",
+     "Sailors decided that pearls were not beautiful."
+    ],
+    "answer": 1,
+    "hint": "Text 1 tells what pearl diving was like. Text 2 gives two changes. Which answer uses those changes?",
+    "good": "Yes! Farmed pearls were cheaper, and oil brought new jobs. Together they explain why diving faded."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Long ago, sailors in the Arabian Gulf dived for pearls.",
+     "Divers held their breath and went down again and again to collect oysters.",
+     "The work was dangerous, but pearls were very valuable.",
+     "Text 2: In the 1930s, cultured pearls from Japan began to fill world markets.",
+     "These pearls were grown on farms and were much cheaper.",
+     "At about the same time, oil was discovered in the Gulf region, and many people found new jobs."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: cheaper farmed pearls and oil jobs made diving less needed. Tap the 2 sentences that show these two changes.",
+    "wrong": "This sentence describes pearl diving in the past. Find the sentences that tell what CHANGED in the 1930s."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: Smartphone screens give off blue light. Blue light can tell the brain that it is still daytime.\n\nText 2: Students who use phones in bed often take longer to fall asleep. They may feel tired in class the next day.",
+     "stem": "What conclusion do the two texts support together?",
+     "options": [
+      "Phones should never be used in class, even for learning.",
+      "Blue light helps students fall asleep faster at night.",
+      "Using phones in bed may harm sleep because the light keeps the brain awake.",
+      "Students should study at night."
+     ],
+     "answer": 2,
+     "why": "Text 1 explains how blue light tricks the brain. Text 2 shows the effect on students' sleep. Together they explain the cause and the effect."
+    },
+    {
+     "passage": "Text 1: The Kingdom has set goals to plant billions of trees in the coming decades.\n\nText 2: Trees help hold soil in place, so less dust is blown into the air during strong winds.",
+     "stem": "Which idea comes from combining both texts?",
+     "options": [
+      "Planting many trees could help reduce dust in the air.",
+      "Trees can only grow near the sea, away from strong winds.",
+      "Strong winds help young trees grow taller and stronger.",
+      "Dust storms have already stopped."
+     ],
+     "answer": 0,
+     "why": "Text 1 gives the plan (plant trees). Text 2 gives a benefit of trees (less dust). Together: the plan could reduce dust."
+    },
+    {
+     "passage": "Text 1: Honeybees pollinate many fruit crops. Without them, plants make less fruit.\n\nText 2: In some regions, the number of honeybees has fallen because of disease and the use of certain pesticides.",
+     "stem": "What can a reader conclude from both texts?",
+     "options": [
+      "Pesticides help honeybees make more honey.",
+      "Fruit crops do not need insects.",
+      "Disease has made honeybees larger and stronger.",
+      "Falling bee numbers could mean smaller fruit harvests."
+     ],
+     "answer": 3,
+     "why": "Bees help plants make fruit (Text 1), and bee numbers are falling (Text 2). So fruit harvests could shrink."
+    }
+   ],
+   "again": {
+    "title": "Fill in the missing link",
+    "text": "Each text is like **half a bridge**. Your job is to join the halves.\n\nAsk: **What does Text 1 explain that Text 2 needs?** The place where they meet is your conclusion.",
+    "example": "Text 1: Salt water freezes at a lower temperature than fresh water.\nText 2: In cold countries, workers spread salt on icy roads.\n\nWhere they meet: **Salt helps melt ice, so roads become safer.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Integrating sources",
+     "text": "Strong readers **integrate** information: they combine facts from several texts to answer a question no single text answers.\n\nThe sources may cover different times, places or kinds of evidence, such as history, data and personal experience."
+    },
+    {
+     "title": "Weigh what each source adds",
+     "text": "Ask what **role** each source plays:\n\n1. Does it explain a **cause**?\n2. Does it give **evidence** or numbers?\n3. Does it describe a **result** or a **solution**?\n\nA good synthesis uses each source for what it does best."
+    },
+    {
+     "title": "Avoid two traps",
+     "text": "1. **Too narrow**: the conclusion comes from one source only.\n2. **Too far**: the conclusion claims more than the sources prove.\n\nThe best conclusion is supported by **all** the sources and goes no further than they allow."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a synthesis, you should be able to cite **at least one sentence from each source**.\n\n1. Mark the sentence in each source that supplies a piece of the conclusion.\n2. Check that each piece is really needed.\n3. Reject a choice if any part of it has no support in the texts."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Source A: Earlier generations in the Gulf built houses with thick mud walls and wind towers that caught breezes and sent them down into the rooms.",
+      "role": "detail"
+     },
+     {
+      "t": "Source B: Modern air conditioning uses a large share of the electricity in hot countries during summer.",
+      "role": "detail"
+     },
+     {
+      "t": "Source C: Some new buildings now use shaded courtyards and thick walls along with air conditioning.",
+      "role": "detail"
+     },
+     {
+      "t": "Synthesis: old building ideas are being used again to cool homes while using less electricity.",
+      "role": "key"
+     }
+    ],
+    "explain": "A gives the **traditional method**. B shows the **cost** of modern cooling. C shows the two being **combined**.\n\nThe synthesis needs all three: the old idea, the problem it helps with, and the fact that builders are using it again."
+   },
+   "together": {
+    "passage": "Source A: For centuries, the coffee bean travelled with traders and pilgrims. It spread from Yemen and the Arabian Peninsula across the Islamic world, and coffeehouses appeared in cities such as Cairo and Istanbul. In these coffeehouses, people met to talk, read and share news.\n\nSource B: Today, coffee is grown mainly in tropical countries in South America, Africa and Asia. Brazil is now the largest producer. Farmers there export beans around the world.\n\nSource C: In many Saudi homes, a host still welcomes guests with Arabic coffee and dates. Serving coffee is seen as a sign of generosity and respect.",
+    "stem": "Which conclusion is best supported by all three sources?",
+    "options": [
+     "Coffee is now grown mostly in Saudi Arabia.",
+     "Coffee began as a drink only for traders on long journeys.",
+     "Coffee spread from Arabia around the world, yet it is still an important part of welcoming guests here.",
+     "Coffeehouses were places where people met only to drink coffee."
+    ],
+    "answer": 2,
+    "hint": "One source tells where coffee came from, one tells where it grows now, and one tells what it means today. Which choice uses all three?",
+    "good": "Yes! A shows coffee spreading from Arabia, B shows it is now grown worldwide, and C shows it still matters in Saudi hospitality."
+   },
+   "evidence": {
+    "sentences": [
+     "Source A: For centuries, the coffee bean travelled with traders and pilgrims.",
+     "It spread from Yemen and the Arabian Peninsula across the Islamic world, and coffeehouses appeared in cities such as Cairo and Istanbul.",
+     "In these coffeehouses, people met to talk, read and share news.",
+     "Source B: Today, coffee is grown mainly in tropical countries in South America, Africa and Asia.",
+     "Brazil is now the largest producer.",
+     "Farmers there export beans around the world.",
+     "Source C: In many Saudi homes, a host still welcomes guests with Arabic coffee and dates.",
+     "Serving coffee is seen as a sign of generosity and respect."
+    ],
+    "proof": [
+     1,
+     3,
+     4,
+     6,
+     7
+    ],
+    "need": 3,
+    "stem": "The answer was: coffee spread from Arabia around the world but is still important for welcoming guests. Tap 3 sentences, one from each source, that prove it.",
+    "wrong": "This sentence adds a detail, but it is not the key piece from its source. Find where coffee spread from, where it grows today, and how it is used with guests."
+   },
+   "checks": [
+    {
+     "passage": "Source A: Plastic bags can take hundreds of years to break down.\n\nSource B: A country that charged a small fee for each plastic bag saw bag use drop sharply within a year.\n\nSource C: Shoppers who bring cloth bags report that the habit becomes easy after a few weeks.",
+     "stem": "Which conclusion do all three sources support?",
+     "options": [
+      "Plastic bags break down quickly in the sea.",
+      "Small changes in rules and habits can reduce a long-lasting waste problem.",
+      "Cloth bags are more expensive than plastic bags, so few people use them.",
+      "Fees on plastic bags make shoppers stop shopping."
+     ],
+     "answer": 1,
+     "why": "A shows the problem lasts a long time, B shows a rule helped, and C shows a habit can change. Each other choice uses one source or none."
+    },
+    {
+     "passage": "Source A: The Hijaz Railway opened in 1908 and linked Damascus with Madinah.\n\nSource B: Before the railway, the journey by camel caravan could take more than a month.\n\nSource C: Travellers on the railway could finish the same journey in a few days.",
+     "stem": "What can a reader conclude by combining the sources?",
+     "options": [
+      "The railway made the journey to Madinah much faster.",
+      "Camel caravans were faster than trains.",
+      "The railway still carries passengers to Madinah today.",
+      "The railway was built in a few days."
+     ],
+     "answer": 0,
+     "why": "B gives the old travel time, C gives the new one, and A tells what the railway linked. Choice C goes beyond the sources: none of them says the railway is still running."
+    },
+    {
+     "passage": "Source A: A survey found that most students at one school walk less than 2,000 steps on school days.\n\nSource B: Doctors advise that children be active for at least one hour every day.\n\nSource C: A school that added a 15-minute walking break each morning found that students were more alert in lessons.",
+     "stem": "Which statement is the best synthesis of the sources?",
+     "options": [
+      "Students already get more than enough exercise.",
+      "Walking breaks make students less focused in lessons.",
+      "Doctors advise students to rest and sit more during the day.",
+      "Students at the school may need more activity, and short breaks could help."
+     ],
+     "answer": 3,
+     "why": "A shows low activity, B shows the advice, and C shows a possible solution. Together they support the last choice."
+    }
+   ],
+   "again": {
+    "title": "Give each source a job",
+    "text": "Label each source with one word: **problem**, **cause**, **evidence**, **result** or **solution**.\n\nThen build one sentence that uses every label.",
+    "example": "A: Many lakes are drying up. (problem)\nB: Farms pump large amounts of water from the rivers that feed them. (cause)\nC: Drip watering uses far less water. (solution)\n\nSynthesis: **Lakes are drying up partly because of farm water use, and drip watering could help.**"
+   }
+  }
+ }
+}

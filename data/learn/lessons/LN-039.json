@@ -1,0 +1,456 @@
+{
+ "code": "LN-039",
+ "title": "Paired conjunctions: either/or, neither/nor",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1.e"
+ ],
+ "families": [
+  "compound-sentences"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0005",
+  "L-0006",
+  "L-0027",
+  "L-0028",
+  "L-0093",
+  "L-0094",
+  "L-0095",
+  "L-0202",
+  "L-0203",
+  "L-0204",
+  "L-0205",
+  "L-0295",
+  "L-0329"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that come in pairs",
+     "text": "Some joining words work as a **pair**. One word goes first. Its partner comes later.\n\n**either … or**\n**not only … but also**"
+    },
+    {
+     "title": "either … or",
+     "text": "Use **either … or** when there are **two choices**, and you pick **one**.\n\n**We can eat either rice or bread.**\n\nRice **or** bread. Not both."
+    },
+    {
+     "title": "not only … but also",
+     "text": "Use **not only … but also** when **both** things are true.\n\n**Sara is not only kind but also funny.**\n\nShe is kind **and** she is funny."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **two things** in the text.\n2. Ask: do we **pick one**? Use **either … or**.\n3. Are **both** true? Use **not only … but also**.\n\nPoint to the sentence that tells you."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We have time for one game.",
+      "role": "key"
+     },
+     {
+      "t": "We can play either football or tag.",
+      "role": "main"
+     }
+    ],
+    "explain": "There is time for **one** game, so we pick one.\n\nThat is why the writer uses **either … or**."
+   },
+   "together": {
+    "passage": "It is Friday afternoon. We can play outside. We can play inside too. Mom says we can play ___ outside ___ inside. We must pick one.",
+    "stem": "Which pair fits best in the blanks?",
+    "options": [
+     "both / or",
+     "either / or",
+     "not only / or",
+     "nor / either"
+    ],
+    "answer": 1,
+    "hint": "Do we pick one place, or both?",
+    "good": "Yes! We must pick one, so either … or fits."
+   },
+   "evidence": {
+    "sentences": [
+     "It is Friday afternoon.",
+     "We can play outside.",
+     "We can play inside too.",
+     "Mom says we can play ___ outside ___ inside.",
+     "We must pick one."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: either / or. Tap the sentence that shows we choose only one.",
+    "wrong": "This sentence does not tell us to choose. Find the sentence that says we pick one."
+   },
+   "checks": [
+    {
+     "passage": "You can have ___ an apple ___ a banana. Pick one.",
+     "stem": "Which pair fits best?",
+     "options": [
+      "either / or",
+      "not only / but also",
+      "both / or",
+      "or / either"
+     ],
+     "answer": 0,
+     "why": "You pick one, so either … or fits."
+    },
+    {
+     "passage": "Ali is not only tall ___ strong.",
+     "stem": "Which words finish the pair?",
+     "options": [
+      "or",
+      "and not",
+      "but also",
+      "either"
+     ],
+     "answer": 2,
+     "why": "not only goes with but also."
+    },
+    {
+     "passage": "Huda can read. Huda can write. Huda can ___ read ___ write.",
+     "stem": "Which pair fits best?",
+     "options": [
+      "either / or",
+      "or / nor",
+      "nor / but",
+      "not only / but also"
+     ],
+     "answer": 3,
+     "why": "Both things are true, so not only … but also fits."
+    }
+   ],
+   "again": {
+    "title": "One or both?",
+    "text": "Ask one question: **One or both?**\n\n1. **One**: either … or\n2. **Both**: not only … but also",
+    "example": "Juice **or** milk? Pick one → **either juice or milk**.\n\nSmart **and** kind? Both → **not only smart but also kind**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "both … and",
+     "text": "**both … and** joins two things that are **both true**.\n\n**Both my mother and my father work at the hospital.**\n\nIt is like **not only … but also**, but simpler."
+    },
+    {
+     "title": "Pairs stay together",
+     "text": "Each first word has its own partner:\n\n**both** → **and**\n**either** → **or**\n**not only** → **but also**\n\nDon't mix them: **both … or** is wrong."
+    },
+    {
+     "title": "Choose the meaning",
+     "text": "1. Two things, **both** true → **both … and** / **not only … but also**\n2. Two choices, **pick one** → **either … or**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentences that tell about the **two things**.\n2. Are both true, or is there a choice?\n3. Choose the pair that matches. The sentences you found are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fahad speaks Arabic at home.",
+      "role": "key"
+     },
+     {
+      "t": "He speaks English at school.",
+      "role": "key"
+     },
+     {
+      "t": "Fahad speaks both Arabic and English.",
+      "role": "main"
+     }
+    ],
+    "explain": "Both things are true: Arabic **and** English.\n\nSo the writer uses **both … and**."
+   },
+   "together": {
+    "passage": "Sami plays on the school football team. He also swims every Saturday at the club. Sami is good at ___ football ___ swimming. His sister likes to paint pictures of the sea.",
+    "stem": "Which pair fits best in the blanks?",
+    "options": [
+     "either / or",
+     "both / and",
+     "both / or",
+     "not only / and"
+    ],
+    "answer": 1,
+    "hint": "Does Sami do one sport or two? Then check that the partners match.",
+    "good": "Yes! Sami does both sports, and both goes with and."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami plays on the school football team.",
+     "He also swims every Saturday at the club.",
+     "Sami is good at ___ football ___ swimming.",
+     "His sister likes to paint pictures of the sea."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: both / and. Tap 2 sentences that show Sami does both sports.",
+    "wrong": "This sentence has the blanks or is about his sister. Find the sentences about Sami's two sports."
+   },
+   "checks": [
+    {
+     "passage": "The museum is closed on Friday. We can visit ___ on Thursday ___ on Saturday.",
+     "stem": "Which pair fits best?",
+     "options": [
+      "both / and",
+      "not only / but also",
+      "either / or",
+      "both / or"
+     ],
+     "answer": 2,
+     "why": "We choose one of two days, so either … or fits."
+    },
+    {
+     "passage": "The new park has ___ a playground ___ a small lake.",
+     "stem": "Which pair fits best?",
+     "options": [
+      "both / and",
+      "either / and",
+      "not only / or",
+      "both / or"
+     ],
+     "answer": 0,
+     "why": "The park has the two things, and both goes with and."
+    },
+    {
+     "passage": "Mona is smart. Mona is kind.",
+     "stem": "Choose the correct sentence.",
+     "options": [
+      "Mona is both smart or kind.",
+      "Mona is either smart but also kind.",
+      "Mona is not only smart or kind.",
+      "Mona is not only smart but also kind."
+     ],
+     "answer": 3,
+     "why": "not only goes with but also."
+    }
+   ],
+   "again": {
+    "title": "Partner check",
+    "text": "Every pair word has **one partner**. Check them like matching socks:\n\n**both** + **and**\n**either** + **or**\n**not only** + **but also**",
+    "example": "**Both** dates **or** figs. ✗ (wrong partner)\n\n**Both** dates **and** figs. ✓"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "neither … nor",
+     "text": "**neither … nor** means **not this one and not that one**.\n\n**Neither Ali nor Omar was late.**\n\nAli was not late. Omar was not late."
+    },
+    {
+     "title": "Don't double the no",
+     "text": "**neither … nor** is already negative. Do **not** add another **not**.\n\nWrong: **She did not eat neither rice nor bread.**\nRight: **She ate neither rice nor bread.**"
+    },
+    {
+     "title": "Pairs in a passage",
+     "text": "In longer writing, paired conjunctions help you **combine** short sentences smoothly.\n\n**The road was dusty. The road was narrow.** → **The road was both dusty and narrow.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentences that describe the **two people or things**.\n2. Decide: both yes, one of two, or both no?\n3. Both **no** → **neither … nor**.\n\nThe sentences that show each **no** are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The cat did not like the new food.",
+      "role": "key"
+     },
+     {
+      "t": "The dog did not like it either.",
+      "role": "key"
+     },
+     {
+      "t": "Neither the cat nor the dog ate the new food.",
+      "role": "main"
+     }
+    ],
+    "explain": "The cat said **no** and the dog said **no**.\n\nBoth negative → **neither … nor**."
+   },
+   "together": {
+    "passage": "The old well in our village is very deep and has no cover. Last week, the village council put a fence around it. Children are not allowed to go near it. Adults are not allowed to go near it either. ___ the children ___ the adults may cross the fence until the well is repaired.",
+    "stem": "Which pair fits best in the blanks?",
+    "options": [
+     "Either / or",
+     "Both / and",
+     "Not only / but also",
+     "Neither / nor"
+    ],
+    "answer": 3,
+    "hint": "Can the children go near it? Can the adults? Is the answer yes or no?",
+    "good": "Yes! Both groups are not allowed, so neither … nor fits."
+   },
+   "evidence": {
+    "sentences": [
+     "The old well in our village is very deep and has no cover.",
+     "Last week, the village council put a fence around it.",
+     "Children are not allowed to go near it.",
+     "Adults are not allowed to go near it either.",
+     "___ the children ___ the adults may cross the fence until the well is repaired."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Neither / nor. Tap 2 sentences that show both groups are not allowed.",
+    "wrong": "This sentence describes the well or the fence. Find the sentences that say who is not allowed."
+   },
+   "checks": [
+    {
+     "passage": "Reem did not bring her book. Dana did not bring her book.",
+     "stem": "Which sentence combines these correctly?",
+     "options": [
+      "Neither Reem nor Dana brought her book.",
+      "Neither Reem or Dana brought her book.",
+      "Either Reem nor Dana brought her book.",
+      "Both Reem nor Dana brought her book."
+     ],
+     "answer": 0,
+     "why": "Both did not bring a book, and neither goes with nor."
+    },
+    {
+     "passage": "Ahmad did not drink tea. He did not drink coffee.",
+     "stem": "Choose the correct sentence.",
+     "options": [
+      "He did not drink neither tea nor coffee.",
+      "He drank neither tea or coffee.",
+      "He drank neither tea nor coffee.",
+      "He didn't drink neither tea nor coffee."
+     ],
+     "answer": 2,
+     "why": "neither … nor is already negative, so no extra not is needed, and neither goes with nor."
+    },
+    {
+     "passage": "The trip can be on Monday. It can be on Tuesday. The teacher will choose one day.",
+     "stem": "Which sentence combines these best?",
+     "options": [
+      "The trip will be on neither Monday nor Tuesday.",
+      "The trip will be on both Monday and Tuesday.",
+      "The trip will be either on Monday or on Tuesday.",
+      "The trip will be not only Monday but also Tuesday."
+     ],
+     "answer": 2,
+     "why": "The teacher will choose one day, so either … or fits."
+    }
+   ],
+   "again": {
+    "title": "Yes, choose or no",
+    "text": "Ask: **What is true about both things?**\n\n1. **Yes** to both → **both … and**\n2. **Choose** one → **either … or**\n3. **No** to both → **neither … nor**",
+    "example": "Is it hot? No. Is it windy? No.\n\n→ **It is neither hot nor windy.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Agreement with neither/nor and either/or",
+     "text": "When **neither … nor** or **either … or** joins two subjects, the verb agrees with the subject **closer** to it.\n\n**Neither the teacher nor the students were late.**\n**Neither the students nor the teacher was late.**"
+    },
+    {
+     "title": "Keep it parallel",
+     "text": "The words after each half of the pair should have the **same form**.\n\nWrong: **She not only plays the oud but also singing.**\nRight: **She not only plays the oud but also sings.**\n\nVerb with verb, noun with noun, phrase with phrase."
+    },
+    {
+     "title": "Place the pair carefully",
+     "text": "Put each half of the pair **right before** the matching parts.\n\nUnclear: **He either will walk or take the bus.**\nClear: **He will either walk or take the bus.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find an error with paired conjunctions:\n\n1. Find the pair in each sentence.\n2. Check the **partners** (neither/nor, not only/but also).\n3. Check **parallel form** after each half.\n4. Check **verb agreement** with the closer subject.\n\nPoint to the sentence that breaks a rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Neither the coach nor the players were ready for the rain.",
+      "role": "key"
+     },
+     {
+      "t": "The match was not only delayed but also moved to another field.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1: **players** is closer to the verb, so **were** is correct.\n\nSentence 2: **delayed** and **moved** have the same form, so the pair is **parallel**."
+   },
+   "together": {
+    "passage": "Our school's science club has had a busy year. The members not only built a weather station but also recording the temperature every day. Neither the principal nor the teachers expected the project to grow so large. Students can either join the club on Mondays or help on Thursdays. Next year, the club hopes to share its data with both local farmers and a university researcher.",
+    "stem": "Which sentence contains an error with a paired conjunction?",
+    "options": [
+     "Neither the principal nor the teachers expected the project to grow so large.",
+     "The members not only built a weather station but also recording the temperature every day.",
+     "Next year, the club hopes to share its data with both local farmers and a university researcher.",
+     "Students can either join the club on Mondays or help on Thursdays."
+    ],
+    "answer": 1,
+    "hint": "Check that the words after not only and but also have the same form.",
+    "good": "Yes! built and recording are not parallel. It should be: not only built a weather station but also recorded the temperature."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school's science club has had a busy year.",
+     "The members not only built a weather station but also recording the temperature every day.",
+     "Neither the principal nor the teachers expected the project to grow so large.",
+     "Students can either join the club on Mondays or help on Thursdays.",
+     "Next year, the club hopes to share its data with both local farmers and a university researcher."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was the sentence with not only … but also. Tap the sentence where the two halves are not parallel.",
+    "wrong": "The pair in this sentence is used correctly, or it has no pair. Find the sentence where built and recording do not match."
+   },
+   "checks": [
+    {
+     "passage": "Neither my brothers nor my sister ___ coffee.",
+     "stem": "Which verb is correct?",
+     "options": [
+      "drink",
+      "drinks",
+      "are drinking",
+      "have drunk"
+     ],
+     "answer": 1,
+     "why": "sister is closer to the verb and is singular, so drinks."
+    },
+    {
+     "passage": "Draft: The guide will either show us the old fort or the museum.",
+     "stem": "Which revision places the pair correctly?",
+     "options": [
+      "The guide either will show us the old fort or the museum.",
+      "The guide will show us either the old fort or the museum.",
+      "Either the guide will show us the old fort or the museum.",
+      "The guide will show either us the old fort or the museum."
+     ],
+     "answer": 1,
+     "why": "either and or now come right before the two matching nouns: the old fort, the museum."
+    },
+    {
+     "passage": "Draft: The desert at night is not only quiet but also it is very cold.",
+     "stem": "Which revision is parallel?",
+     "options": [
+      "The desert at night is not only quiet but also very cold.",
+      "The desert at night is not only quiet but it is also cold.",
+      "The desert at night not only is quiet but also very cold.",
+      "The desert at night is quiet not only but also cold."
+     ],
+     "answer": 0,
+     "why": "quiet and very cold are both adjectives, so the two halves match."
+    }
+   ],
+   "again": {
+    "title": "Mirror test",
+    "text": "Imagine a mirror between the two halves of the pair.\n\n1. Read what comes after the **first** word.\n2. Read what comes after the **second** word.\n3. Do they look alike (same kind of word)? If not, fix one side.",
+    "example": "not only **runs** | but also **swimming** ✗\n\nnot only **runs** | but also **swims** ✓"
+   }
+  }
+ }
+}

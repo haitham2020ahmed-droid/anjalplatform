@@ -288,7 +288,7 @@ describe("NAFS section", () => {
   test("pages: one center with six tabs; actions check the actor; page files export only page fields; new words translated", () => {
     const page = read("src/app/teacher/nafs/page.tsx");
     const center = read("src/server/nafs/center.ts");
-    for (const tab of ["Home", "Dashboard", "Adaptive practice", "Create test", "Question bank", "Marking", "Reports"]) { assert.ok(center.includes(`"${tab}"`), tab); assert.ok(hasAr(tab), tab); }
+    for (const tab of ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]) { /* owner r67 */ assert.ok(center.includes(`"${tab}"`), tab); assert.ok(hasAr(tab), tab); }
     assert.ok(page.includes('"About NAFS"') && hasAr("About NAFS"), "About NAFS: a small link at the top");
     assert.match(page, /plans\?tab=nafs/, "Make a NAFS plan from these results");
     const actions = read("src/app/teacher/nafs/actions.ts");
@@ -532,7 +532,7 @@ describe("NAFS: the Ministry guide, model booklets, written answers, online assi
     assert.ok(read("src/server/nafs/center.ts").includes('"Marking"') && hasAr("Marking"));
     assert.match(page, /void ensureNafsBooklets\(/, "never awaited: the page does not wait for the booklets");
     assert.match(read("src/components/nafs/reports-tab.tsx"), /Make a NAFS plan for this group/);
-    assert.match(read("src/components/nafs/test-builder.tsx"), /Number of questions[\s\S]*Time \(minutes\)/);
+    assert.match(read("src/components/nafs/nafs-builder.tsx"), /Number of questions[\s\S]*Time \(minutes\)/); // owner r67: the one builder
     for (const x of ["Ministry booklet model", "Assign to students (online)", "Make a NAFS plan for this group", "Student × standard heat map", "Mastered", "Developing", "Needs support", "Not enough questions", "Short written answer", "NAFS model booklets", "The 13 reading standards", "Number of questions", "Cut-offs"]) assert.ok(hasAr(x), x);
     // students never see level words: the student pages do not use them
     for (const f of ["src/app/student/tests/page.tsx", "src/components/nafs/booklet.tsx", "src/app/student/nafs/sim/[id]/page.tsx"]) for (const w of ["Mastered", "Developing", "Needs support"]) assert.ok(!read(f).includes(w), `${f}: ${w}`);

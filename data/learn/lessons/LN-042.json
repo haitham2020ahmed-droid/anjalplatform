@@ -1,0 +1,450 @@
+{
+ "code": "LN-042",
+ "title": "Interjections and appositives",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1.a"
+ ],
+ "families": [],
+ "skillNames": [
+  "Appositives and Interjections"
+ ],
+ "statements": [
+  "L-0022",
+  "L-0086",
+  "L-0191",
+  "L-0336"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that show feelings",
+     "text": "An **interjection** is a word that shows a **feeling**, like surprise, joy or pain.\n\n**Wow!** **Ouch!** **Hooray!** **Oh!**"
+    },
+    {
+     "title": "Where you find them",
+     "text": "Interjections often come **at the start**.\n\nThey often have an **exclamation mark (!)** after them.\n\n**Ouch!** I hit my toe."
+    },
+    {
+     "title": "What feeling?",
+     "text": "**Wow!** = surprise\n**Ouch!** = pain\n**Hooray!** = joy\n**Oops!** = a small mistake\n**Shh!** = be quiet"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look for a short word with **!** after it.\n2. Ask: Does it show a **feeling**?\n3. Read the next sentence. It tells you **why** the person feels that way."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Oops!",
+      "role": "key"
+     },
+     {
+      "t": "I dropped my pencil.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Oops** is the interjection. It shows a small mistake.\n\nThe next sentence tells what the mistake was: the pencil fell."
+   },
+   "together": {
+    "passage": "Nora opened the box. Wow! A new bike was inside. It was red and shiny. She smiled at her mom.",
+    "stem": "Which word is an interjection?",
+    "options": [
+     "box",
+     "Wow",
+     "bike",
+     "smiled"
+    ],
+    "answer": 1,
+    "hint": "Look for a short word with ! after it. Which word shows a feeling?",
+    "good": "Yes! **Wow** shows surprise. Nora did not expect a new bike."
+   },
+   "evidence": {
+    "sentences": [
+     "Nora opened the box.",
+     "Wow!",
+     "A new bike was inside.",
+     "It was red and shiny.",
+     "She smiled at her mom."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "“Wow” shows surprise. Tap the sentence that tells what surprised Nora.",
+    "wrong": "This sentence does not tell what surprised Nora. Look for what was in the box."
+   },
+   "checks": [
+    {
+     "passage": "Ouch! The pan is hot.",
+     "stem": "Which word shows a feeling?",
+     "options": [
+      "pan",
+      "hot",
+      "Ouch",
+      "The"
+     ],
+     "answer": 2,
+     "why": "**Ouch** shows pain. The hot pan hurt."
+    },
+    {
+     "passage": "Hooray! Our team won the cup.",
+     "stem": "What feeling does “Hooray” show?",
+     "options": [
+      "Joy",
+      "Pain",
+      "Fear",
+      "Being sleepy"
+     ],
+     "answer": 0,
+     "why": "The team won, so “Hooray” shows **joy**."
+    },
+    {
+     "passage": "Shh! The baby is sleeping.",
+     "stem": "Which word is the interjection?",
+     "options": [
+      "baby",
+      "sleeping",
+      "is",
+      "Shh"
+     ],
+     "answer": 3,
+     "why": "**Shh** tells people to be quiet, because the baby is sleeping."
+    }
+   ],
+   "again": {
+    "title": "Say it with feeling",
+    "text": "Say the word **out loud** with a strong voice.\n\nIf it sounds like a feeling bursting out (Wow! Ouch! Yay!), it is an interjection.",
+    "example": "“Yikes! A big spider!”\n\nSay it loudly: **Yikes!** It sounds like fear bursting out. It is the interjection."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Interjections",
+     "text": "An **interjection** is a word or short phrase that shows **emotion or surprise**.\n\nThe sentence still makes sense without it.\n\n**Oh no!** I forgot my lunch."
+    },
+    {
+     "title": "Strong or mild",
+     "text": "A **strong** feeling uses an exclamation mark: “**Wow!** That is huge.”\n\nA **mild** feeling uses a comma: “**Oh,** I see what you mean.” “**Well,** let me think.”"
+    },
+    {
+     "title": "Check the job",
+     "text": "Words like **well, oh, hey** can be interjections when they show feeling.\n\nBut in “The well is deep,” **well** is a noun: a hole for water. It is not a feeling."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word that shows feeling.\n2. Take it out. Does the sentence still make sense? If yes, it was an interjection.\n3. Find the sentences that show **what caused** the feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hey, that's my seat!",
+      "role": "key"
+     },
+     {
+      "t": "Sami had left his bag on it before going to get water.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Hey** shows surprise and a little annoyance. Take it out: “That's my seat!” still makes sense.\n\nThe next sentence explains the feeling."
+   },
+   "together": {
+    "passage": "The class walked into the science room. Whoa! A giant model of the solar system hung from the ceiling. The planets moved slowly around a glowing sun. Our teacher had built it with her son over the summer. Everyone wanted to look closer.",
+    "stem": "Which word in the paragraph is an interjection?",
+    "options": [
+     "giant",
+     "slowly",
+     "Whoa",
+     "Everyone"
+    ],
+    "answer": 2,
+    "hint": "Find the word that stands alone and shows a feeling. Can you take it out and still understand the story?",
+    "good": "Yes! **Whoa** shows surprise. The other words describe things or name people."
+   },
+   "evidence": {
+    "sentences": [
+     "The class walked into the science room.",
+     "Whoa!",
+     "A giant model of the solar system hung from the ceiling.",
+     "The planets moved slowly around a glowing sun.",
+     "Our teacher had built it with her son over the summer.",
+     "Everyone wanted to look closer."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "“Whoa” shows surprise. Tap 2 sentences that show what surprised the class.",
+    "wrong": "This sentence does not show what surprised the class. Find what they saw in the room."
+   },
+   "checks": [
+    {
+     "passage": "Oh, I didn't know you had a brother.",
+     "stem": "What does the comma after “Oh” tell you?",
+     "options": [
+      "The feeling is mild.",
+      "The feeling is very strong.",
+      "“Oh” is a noun.",
+      "The sentence is a question."
+     ],
+     "answer": 0,
+     "why": "A comma after an interjection shows a **mild** feeling. A strong feeling would use “!”."
+    },
+    {
+     "passage": "Hmm, which road should we take to the mosque?",
+     "stem": "Which word is an interjection?",
+     "options": [
+      "road",
+      "which",
+      "Hmm",
+      "mosque"
+     ],
+     "answer": 2,
+     "why": "**Hmm** shows the speaker is thinking. Take it out and the question still makes sense."
+    },
+    {
+     "passage": "Ahmed looked into the well. Yikes! It was very deep.",
+     "stem": "Which word is an interjection?",
+     "options": [
+      "looked",
+      "well",
+      "deep",
+      "Yikes"
+     ],
+     "answer": 3,
+     "why": "**Yikes** shows fear. Here “well” is a noun: a deep hole for water."
+    }
+   ],
+   "again": {
+    "title": "The take-out test",
+    "text": "Cover the word. Read the sentence without it.\n\nIf the sentence still makes sense **and** the word only added feeling, it is an interjection.",
+    "example": "“Oh no, the bus left!” → “The bus left!” still makes sense. **Oh no** only added the feeling. It is an interjection."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Interjections in stories",
+     "text": "Writers use interjections to show how a character **feels** without saying it.\n\n“**Phew!** We made it,” said Laila. → She feels relief."
+    },
+    {
+     "title": "Appositives",
+     "text": "An **appositive** is a noun phrase that **renames** the noun right before it.\n\n“My uncle, **a pilot**, flies to Jeddah every week.”\n\n“A pilot” tells us who my uncle is."
+    },
+    {
+     "title": "Commas around appositives",
+     "text": "If the sentence makes sense without it, put **commas around** the appositive.\n\n“Riyadh, **the capital of Saudi Arabia**, is a busy city.”\n\nTake it out: “Riyadh is a busy city.” Still complete."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. For an interjection: find the feeling word, then the sentence that shows **why** the character feels it.\n2. For an appositive: find the noun, then the phrase **right after it** that renames it.\n3. Check: can the phrase be removed and the sentence still be complete?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our neighbor, a doctor at the city hospital, helped the injured cyclist.",
+      "role": "key"
+     },
+     {
+      "t": "She cleaned the cut and called his family.",
+      "role": "detail"
+     }
+    ],
+    "explain": "“A doctor at the city hospital” renames **our neighbor**. It sits right after the noun, between commas.\n\nThe next sentence shows her doing a doctor's work."
+   },
+   "together": {
+    "passage": "Huda and her brother, Faisal, climbed the last steps to the top of the mountain. “Phew!” said Huda as she sat down on a rock. They had walked for three hours, and her legs ached. Far beneath them, the city of Abha lay covered in mist. Faisal, a keen photographer, took out his camera at once.",
+    "stem": "What does the interjection “Phew” show about Huda?",
+    "options": [
+     "She is angry with Faisal.",
+     "She is relieved and tired.",
+     "She is afraid of the mist.",
+     "She is surprised by the camera."
+    ],
+    "answer": 1,
+    "hint": "Read what happened just before she sat down. How would you feel?",
+    "good": "Yes! “Phew” shows **relief**. After three hours of walking, she has finally reached the top."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda and her brother, Faisal, climbed the last steps to the top of the mountain.",
+     "“Phew!” said Huda as she sat down on a rock.",
+     "They had walked for three hours, and her legs ached.",
+     "Far beneath them, the city of Abha lay covered in mist.",
+     "Faisal, a keen photographer, took out his camera at once."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that explains why Huda says “Phew”.",
+    "wrong": "This sentence does not explain Huda's feeling. Look for what made her tired."
+   },
+   "checks": [
+    {
+     "passage": "Faisal, a keen photographer, took out his camera at once.",
+     "stem": "Which words are an appositive?",
+     "options": [
+      "Faisal",
+      "a keen photographer",
+      "took out his camera",
+      "at once"
+     ],
+     "answer": 1,
+     "why": "“A keen photographer” renames Faisal. It comes right after his name, between commas."
+    },
+    {
+     "passage": "A student wrote four versions of one sentence.",
+     "stem": "Which sentence uses commas correctly?",
+     "options": [
+      "The Red Sea, a narrow sea between Africa and Arabia, is home to coral reefs.",
+      "The Red Sea a narrow sea between Africa and Arabia is home to coral reefs.",
+      "The Red Sea, a narrow sea between Africa and Arabia is home to coral reefs.",
+      "The Red Sea; a narrow sea between Africa and Arabia; is home to coral reefs."
+     ],
+     "answer": 0,
+     "why": "The appositive “a narrow sea between Africa and Arabia” needs a comma before it **and** after it."
+    },
+    {
+     "passage": "“Hooray!” shouted the students when the principal announced an extra day of holiday.",
+     "stem": "Why did the writer use “Hooray”?",
+     "options": [
+      "To name the principal",
+      "To tell when the holiday is",
+      "To show the students were scared",
+      "To show the students' joy"
+     ],
+     "answer": 3,
+     "why": "An extra holiday is good news. “Hooray” shows the students' **joy**."
+    }
+   ],
+   "again": {
+    "title": "Two quick checks",
+    "text": "**Interjection:** Is it a burst of feeling? (Wow! Phew! Oh!)\n\n**Appositive:** Does it come right after a noun and tell **who or what** that noun is? Try putting “who is” in front of it.",
+    "example": "“My cousin, a nurse, works at night.” → My cousin, **who is** a nurse, works at night. It works! “A nurse” is an appositive."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "What interjections do",
+     "text": "An interjection has **no grammar job**. It is not the subject, the verb or the object. It stands apart from the sentence.\n\nIts job is to express the speaker's **emotion or reaction**: surprise, pain, relief, doubt or hesitation."
+    },
+    {
+     "title": "Where writers use them",
+     "text": "Interjections belong mostly in **dialogue** and informal writing. They make speech sound real and reveal character.\n\nIn formal writing, such as reports and essays, writers usually leave them out."
+    },
+    {
+     "title": "Appositives add detail",
+     "text": "An appositive adds information without starting a new sentence.\n\n“Ibn Battuta, **a traveler from Morocco**, journeyed across much of the known world.”\n\nIt identifies or explains the noun it follows."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain the function of an interjection, use the text:\n\n1. Name the feeling it expresses.\n2. Find the sentences that **cause** or **confirm** that feeling.\n3. Check that the word does no grammar job: removing it leaves a complete sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "“Hmm,” said the shopkeeper, turning the old coin over in his hand.",
+      "role": "key"
+     },
+     {
+      "t": "He held it up to the light and frowned.",
+      "role": "detail"
+     },
+     {
+      "t": "“I'm not sure this is real.”",
+      "role": "detail"
+     }
+    ],
+    "explain": "“Hmm” is not the subject or the verb of anything. Its job is to show **doubt** while he thinks.\n\nThe frown and his words confirm that feeling."
+   },
+   "together": {
+    "passage": "Rayan had practiced his speech for the science fair all week. When his name was called, he walked to the front of the hall and looked at the crowd. His hands were shaking. His mind went blank. “Um… well…” he began, staring at his notes. Then he noticed his model of the water cycle on the table beside him. He remembered how the sun heats the sea and how clouds form. Taking a deep breath, he began to explain, and his voice grew stronger with every sentence. When he finished, his teacher clapped first. “Bravo!” she called.",
+    "stem": "What is the main function of “Um… well…” in this passage?",
+    "options": [
+     "They name the topic of Rayan's speech.",
+     "They show Rayan's nervous hesitation.",
+     "They show that Rayan is proud and excited.",
+     "They are the subject of the sentence."
+    ],
+    "answer": 1,
+    "hint": "Interjections have no grammar job. What feeling does Rayan have at that moment?",
+    "good": "Yes! “Um… well…” shows that Rayan is **nervous and unsure** how to begin."
+   },
+   "evidence": {
+    "sentences": [
+     "Rayan had practiced his speech for the science fair all week.",
+     "When his name was called, he walked to the front of the hall and looked at the crowd.",
+     "His hands were shaking.",
+     "His mind went blank.",
+     "“Um… well…” he began, staring at his notes.",
+     "Then he noticed his model of the water cycle on the table beside him.",
+     "He remembered how the sun heats the sea and how clouds form.",
+     "Taking a deep breath, he began to explain, and his voice grew stronger with every sentence.",
+     "When he finished, his teacher clapped first.",
+     "“Bravo!” she called."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show Rayan was nervous before he spoke.",
+    "wrong": "This sentence does not show Rayan's nerves before he began. Look for what happened to his body and his mind."
+   },
+   "checks": [
+    {
+     "passage": "When the young pianist finished, the hall was silent for a moment. Then an old man stood up. “Bravo!” he called, and the hall filled with applause.",
+     "stem": "What is the function of “Bravo” here?",
+     "options": [
+      "It expresses strong approval.",
+      "It names the man who stood up.",
+      "It shows the man is confused.",
+      "It is the verb of the sentence."
+     ],
+     "answer": 0,
+     "why": "“Bravo” has no grammar job. It shows the man's **admiration**, and the applause confirms it."
+    },
+    {
+     "passage": "These are four kinds of writing.",
+     "stem": "Which one would most likely NOT include an interjection?",
+     "options": [
+      "Dialogue in a funny story",
+      "A speech bubble in a comic",
+      "A formal report on soil",
+      "A message to a close friend"
+     ],
+     "answer": 2,
+     "why": "Interjections belong in speech and informal writing. A formal report usually leaves them out."
+    },
+    {
+     "passage": "Al-Khwarizmi, a scholar who worked in Baghdad more than a thousand years ago, wrote a famous book about solving equations.",
+     "stem": "What is the purpose of the words between the commas?",
+     "options": [
+      "To give the main action",
+      "To show the writer's feelings",
+      "To tell when the book was sold",
+      "To identify who Al-Khwarizmi was"
+     ],
+     "answer": 3,
+     "why": "The appositive tells us who Al-Khwarizmi was: a scholar in Baghdad long ago. The main action is “wrote”."
+    }
+   ],
+   "again": {
+    "title": "What if it vanished?",
+    "text": "Delete the interjection. The sentence still works, so its job is **not** grammar.\n\nNow ask: what did we lose? Usually it is the **feeling** or **tone**. That is its function.",
+    "example": "“Ugh, the printer is jammed again.” → “The printer is jammed again.”\n\nWhat was lost? The speaker's **annoyance**. That is what “Ugh” does."
+   }
+  }
+ }
+}

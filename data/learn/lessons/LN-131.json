@@ -1,0 +1,477 @@
+{
+ "code": "LN-131",
+ "title": "Word choice and rhetorical techniques",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.3.6",
+  "RI.4.8",
+  "RI.5.6",
+  "RI.5.8",
+  "RI.6.5",
+  "RI.6.6",
+  "RI.7.5",
+  "RI.7.6",
+  "RI.7.8",
+  "RI.8.8"
+ ],
+ "families": [
+  "author-purpose"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0328",
+  "R-0485",
+  "R-0692",
+  "R-0700",
+  "R-0877",
+  "R-0888",
+  "R-1017",
+  "R-1083"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words are chosen",
+     "text": "Authors **choose** their words to do a job: to make you **feel** something, **picture** something, or **do** something.\n\nStrong words make the message stronger."
+    },
+    {
+     "title": "Word tricks",
+     "text": "1. **Strong words**: huge, roar, sparkle instead of big, loud, shine.\n2. **Questions** to the reader: Have you ever...?\n3. **Saying it again**: Save water. Save life."
+    },
+    {
+     "title": "Find the trick",
+     "text": "1. Find words that **stand out**.\n2. Ask: **Why did the author pick this word?**\n3. Ask: **What does it make me feel or do?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentence with the **special words** or the **trick**.\n\n1. Look for strong words, questions or words said again.\n2. Ask how they help the author's message."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Have you ever seen a whale jump out of the sea?",
+      "role": "key"
+     },
+     {
+      "t": "It is a giant animal, as long as a bus.",
+      "role": "detail"
+     },
+     {
+      "t": "It crashes down with a mighty splash!",
+      "role": "key"
+     }
+    ],
+    "explain": "The **question** pulls the reader in. **Giant**, **crashes** and **mighty** are strong words.\n\nThey help you **picture** how big and powerful the whale is."
+   },
+   "together": {
+    "passage": "Have you ever planted a seed? It is easy and fun. Push a tiny seed into soft soil. Give it water. In a few days, a little green shoot will pop up!",
+    "stem": "Why does the author start with a question?",
+    "options": [
+     "To get the reader interested.",
+     "To tell how big the seed is.",
+     "To give a step.",
+     "To end the text."
+    ],
+    "answer": 0,
+    "hint": "Who is the question asking? What does it make you think about?",
+    "good": "Yes! The question speaks to you and gets you interested in planting."
+   },
+   "evidence": {
+    "sentences": [
+     "Have you ever planted a seed?",
+     "It is easy and fun.",
+     "Push a tiny seed into soft soil.",
+     "Give it water.",
+     "In a few days, a little green shoot will pop up!"
+    ],
+    "proof": [
+     0,
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to get the reader interested. Tap 2 sentences that pull you in: the question or words that make planting sound exciting.",
+    "wrong": "This sentence gives a plain step. Find the question or the sentences that make planting sound fun."
+   },
+   "checks": [
+    {
+     "passage": "The storm was coming. Thunder roared. Wind howled through the trees.",
+     "stem": "Why does the author use the words roared and howled?",
+     "options": [
+      "To show the storm was quiet.",
+      "To make the storm sound loud and scary.",
+      "To tell the time.",
+      "To give a fact about trees."
+     ],
+     "answer": 1,
+     "why": "Roared and howled are strong sound words that make the storm seem loud and scary."
+    },
+    {
+     "passage": "Turn off the light. Turn off the fan. Turn off the TV. Save energy every day!",
+     "stem": "Why does the author say Turn off again and again?",
+     "options": [
+      "To tell a story about a family.",
+      "To ask the reader a question.",
+      "To make the message strong and easy to remember.",
+      "To describe the things in a room."
+     ],
+     "answer": 2,
+     "why": "Saying it again makes the message stick in your mind."
+    },
+    {
+     "passage": "The snow leopard is a ghost of the mountains. It moves without a sound.",
+     "stem": "Why does the author call the snow leopard a ghost?",
+     "options": [
+      "Because it is white and see-through.",
+      "Because it is a scary story.",
+      "Because it lives in a house.",
+      "To show it is quiet and hard to see."
+     ],
+     "answer": 3,
+     "why": "Calling it a ghost helps you picture an animal that is quiet and hard to see."
+    }
+   ],
+   "again": {
+    "title": "Swap the word",
+    "text": "Swap a strong word for a plain one. What changes?\n\nIf the sentence feels **weaker**, the author chose the strong word for a **reason**.",
+    "example": "The fire **roared**. → The fire **made noise**.\n\nRoared is stronger. It helps you **hear** and **feel** how big the fire was."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Purpose and word choice",
+     "text": "Authors write to **inform**, **persuade** or **entertain**. Their word choice and techniques help them reach that **purpose**.\n\nA persuasive writer picks words that **move** you. An informing writer picks words that **explain clearly**."
+    },
+    {
+     "title": "Rhetorical techniques",
+     "text": "1. **Rhetorical question**: a question that makes you think (Can we really afford to waste food?).\n2. **Repetition**: repeating words for emphasis.\n3. **Direct address**: speaking to you.\n4. **Vivid words**: words that create a strong picture or feeling."
+    },
+    {
+     "title": "Analyze it",
+     "text": "1. What is the author's **purpose**?\n2. Which **words or techniques** stand out?\n3. How do they **help** the purpose: persuade, explain, excite?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentences where the technique appears.\n\n1. Name the technique: question, repetition, direct address, vivid words.\n2. Explain how it serves the author's purpose.\n3. The right answer connects the **technique** to the **purpose**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every year, tonnes of food are thrown away while some families go hungry.",
+      "role": "main"
+     },
+     {
+      "t": "Can we really accept this?",
+      "role": "key"
+     },
+     {
+      "t": "You can help by buying only what you need.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **rhetorical question** makes readers feel the problem is unacceptable. **You can help** speaks directly to the reader.\n\nBoth techniques serve the purpose of **persuading** readers to waste less food."
+   },
+   "together": {
+    "passage": "Imagine a world without bees. No buzzing in the gardens. No fruit on the trees. No honey on your bread. Bees pollinate many of the crops we eat. Protecting them means protecting our food. Plant flowers, avoid harmful sprays, and give bees a chance.",
+    "stem": "How does the repetition of No in the second, third and fourth sentences help the author's purpose?",
+    "options": [
+     "It explains, step by step, how bees make honey.",
+     "It makes the loss of bees feel real, to persuade readers to protect them.",
+     "It lists the names of the different kinds of bees.",
+     "It tells a funny story about bees in a garden."
+    ],
+    "answer": 1,
+    "hint": "Read the sentences that begin with No. What picture do they create?",
+    "good": "Yes! Repeating No creates a picture of a world losing many good things, which helps persuade readers to protect bees."
+   },
+   "evidence": {
+    "sentences": [
+     "Imagine a world without bees.",
+     "No buzzing in the gardens.",
+     "No fruit on the trees.",
+     "No honey on your bread.",
+     "Bees pollinate many of the crops we eat.",
+     "Protecting them means protecting our food.",
+     "Plant flowers, avoid harmful sprays, and give bees a chance."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the repetition makes the loss feel real, to persuade readers. Tap 2 sentences that use the repetition.",
+    "wrong": "This sentence does not use the repeated No. Find the sentences that begin with No."
+   },
+   "checks": [
+    {
+     "passage": "Our beaches belong to everyone. Every bottle you leave behind stays for hundreds of years. Every bag can trap a turtle. Take your rubbish home.",
+     "stem": "Which technique does the author use to persuade?",
+     "options": [
+      "Repeating Every to stress the harm of each piece of rubbish",
+      "Telling a long story about a fisherman and his boat",
+      "Giving the history of beaches in our country",
+      "Asking the reader many questions about the sea"
+     ],
+     "answer": 0,
+     "why": "Every bottle, every bag stresses that each piece of rubbish does harm, which persuades readers."
+    },
+    {
+     "passage": "Why do we yawn? Scientists are still not sure. One idea is that yawning helps cool the brain.",
+     "stem": "Why does the author begin with a question?",
+     "options": [
+      "To persuade readers to stop yawning",
+      "To introduce the topic and make readers curious",
+      "To show the author is angry",
+      "To give the answer right away"
+     ],
+     "answer": 1,
+     "why": "The question sets up the topic and makes readers want to find out the answer."
+    },
+    {
+     "passage": "You can make a difference. You can read to a younger child. You can visit an elderly neighbour. You can share what you have.",
+     "stem": "How does the phrase You can help the author's purpose?",
+     "options": [
+      "It describes the author's own life and family.",
+      "It explains a science fact about older people.",
+      "It speaks to readers and encourages them to act.",
+      "It shows that helping others is too hard for children."
+     ],
+     "answer": 2,
+     "why": "Speaking to you and repeating You can encourages readers to see they are able to help."
+    }
+   ],
+   "again": {
+    "title": "Technique + purpose",
+    "text": "Finish this sentence: **The author uses ___ to ___.**\n\nThe first blank is the technique. The second blank is the purpose.",
+    "example": "Save a tree. Save a forest. Save our planet.\n\nThe author uses **repetition of Save** to **persuade readers that protecting nature matters**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Techniques that emphasize",
+     "text": "Authors use special techniques to **illustrate** (make clear) or **emphasize** (make stand out) their key ideas.\n\nNoticing these techniques helps you see **what the author thinks is most important**."
+    },
+    {
+     "title": "Common techniques",
+     "text": "1. **Analogy**: compare to something familiar (The heart is like a pump).\n2. **Anecdote**: a short true story.\n3. **Statistics**: striking numbers.\n4. **Contrast**: put opposites side by side.\n5. **Repetition** and **rhetorical questions**."
+    },
+    {
+     "title": "Analyze",
+     "text": "1. What is the **key idea**?\n2. Which **technique** does the author use?\n3. How does it make the idea **clearer** or **stronger**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentences where the technique **appears**.\n\n1. An analogy uses **like**, **as** or **is a**.\n2. An anecdote tells a small story about a person.\n3. Statistics use numbers.\n\nThen explain what the technique does for the key idea."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Your brain sends messages through your body very quickly.",
+      "role": "main"
+     },
+     {
+      "t": "Think of your nerves as a network of telephone wires, carrying signals from one place to another.",
+      "role": "key"
+     },
+     {
+      "t": "Some signals travel faster than 100 metres per second.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **analogy** (nerves as telephone wires) **illustrates** an invisible process with a familiar picture.\n\nThe **statistic** emphasizes just how fast it happens."
+   },
+   "together": {
+    "passage": "In one day, a single dripping tap can waste more than ten litres of water. That may not sound like much. But picture a bathtub slowly filling, drop by drop, over a few weeks, and all of that water simply going down the drain. In a dry country like ours, every drop is precious. Fixing a leaking tap takes only a few minutes and a small washer.",
+    "stem": "Why does the author ask readers to picture a bathtub filling?",
+    "options": [
+     "To explain how to fix a tap",
+     "To describe the author's bathroom",
+     "To illustrate how small drips add up to a large waste",
+     "To show that baths use too much water"
+    ],
+    "answer": 2,
+    "hint": "The author says it may not sound like much. What does the bathtub picture help you see?",
+    "good": "Yes! The bathtub picture turns a small drip into something big you can imagine, emphasizing the waste."
+   },
+   "evidence": {
+    "sentences": [
+     "In one day, a single dripping tap can waste more than ten litres of water.",
+     "That may not sound like much.",
+     "But picture a bathtub slowly filling, drop by drop, over a few weeks, and all of that water simply going down the drain.",
+     "In a dry country like ours, every drop is precious.",
+     "Fixing a leaking tap takes only a few minutes and a small washer."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: to illustrate how small drips add up to a large waste. Tap the 2 sentences that set up and use this picture.",
+    "wrong": "This sentence gives a fact or a solution. Find the sentences where the author asks you to picture the waste."
+   },
+   "checks": [
+    {
+     "passage": "Last year, a 12-year-old girl in our city noticed that her school threw away hundreds of plastic cups each week. She asked her classmates to bring their own bottles. Within a month, the school had cut its plastic waste in half. Small actions can lead to big change.",
+     "stem": "What technique does the author use to support the idea that small actions can lead to big change?",
+     "options": [
+      "A rhetorical question",
+      "A short true story about one person",
+      "An analogy to a machine",
+      "A list of definitions"
+     ],
+     "answer": 1,
+     "why": "The story of one girl's action is an anecdote that shows the idea in action."
+    },
+    {
+     "passage": "A blue whale's heart is about the size of a small car. Its tongue alone can weigh as much as an elephant.",
+     "stem": "How do these comparisons help the author's purpose?",
+     "options": [
+      "They help readers picture the whale's enormous size.",
+      "They explain how cars are built.",
+      "They show that elephants are bigger than whales.",
+      "They tell where whales live."
+     ],
+     "answer": 0,
+     "why": "Comparing the heart to a car and the tongue to an elephant makes the whale's huge size easy to imagine."
+    },
+    {
+     "passage": "Some people spend hours each day looking at screens. Few spend even ten minutes looking at the sky. We know every new video, but not the names of the stars above our homes.",
+     "stem": "Which technique does the author use to emphasize the idea?",
+     "options": [
+      "Statistics from a study of screen time",
+      "An anecdote about a scientist and the stars",
+      "A step-by-step explanation of the sky",
+      "Contrast between screens and the natural world"
+     ],
+     "answer": 3,
+     "why": "The author places screens and the sky side by side to emphasize what we are missing."
+    }
+   ],
+   "again": {
+    "title": "What does it make me see?",
+    "text": "When you notice a technique, ask: **What does this make me see or feel that plain facts would not?**",
+    "example": "Plain: A cheetah can run 100 kilometres per hour.\nWith analogy: A cheetah can run **as fast as a car on a highway**.\n\nThe analogy makes the speed **easy to picture**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Rhetoric with purpose",
+     "text": "Skilled writers combine **word choice** and **rhetorical techniques** to shape how readers think. Each choice serves the author's **purpose**: to inform, persuade, warn, inspire or criticise.\n\nAnalysis means explaining **how** the choice works and **why** it was made."
+    },
+    {
+     "title": "Advanced techniques",
+     "text": "1. **Analogy and metaphor**: explain or judge through comparison.\n2. **Parallel structure**: similar sentence patterns for rhythm and emphasis.\n3. **Juxtaposition**: placing contrasting ideas side by side.\n4. **Understatement** and **irony**: saying less, or the opposite, for effect.\n5. **Connotation**: words with emotional weight."
+    },
+    {
+     "title": "Analyze effect",
+     "text": "1. Identify the technique precisely.\n2. Explain its **effect** on the reader.\n3. Connect it to the author's **purpose** and **central idea**.\n\nA strong answer names the technique, the effect and the purpose."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Cite the exact sentence where the technique appears, then explain its **effect**.\n\n1. Tap the sentence with the technique.\n2. Tap the sentence that shows the idea it emphasizes.\n3. Reject choices that name the right topic but the wrong effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The city spent millions on a new stadium that will host three matches a year.",
+      "role": "other"
+     },
+     {
+      "t": "Meanwhile, the public library down the street closes at noon because it cannot afford staff.",
+      "role": "key"
+     },
+     {
+      "t": "One building waits for crowds; the other turns readers away.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Juxtaposition** places the stadium and the library side by side, and the **parallel** final sentence sharpens the contrast.\n\nThe effect is to **criticise** the city's priorities without saying so directly."
+   },
+   "together": {
+    "passage": "A city's trees are often treated as decoration, something to plant if there is money left over. That view is a mistake. Trees are the city's air conditioners, cooling streets by several degrees in summer. They are its sponges, soaking up rainwater that would otherwise flood roads. They are its lungs, filtering dust from the air we breathe. When a city cuts down a tree to widen a road, it is not removing an ornament; it is switching off a machine it cannot easily replace.",
+    "stem": "How does the author's use of metaphor and parallel structure serve the purpose of the passage?",
+    "options": [
+     "It describes the different kinds of trees found in city streets and parks.",
+     "It explains how air conditioners and other city machines are manufactured.",
+     "It agrees that trees are mainly useful as decoration when money is left over.",
+     "It presents trees as essential city systems, challenging the view that they are only decoration."
+    ],
+    "answer": 3,
+    "hint": "Look at the repeated pattern They are its... What do the metaphors compare trees to? Which view do they challenge?",
+    "good": "Yes! Calling trees air conditioners, sponges and lungs in a repeated pattern shows they are essential systems, challenging the idea that they are decoration."
+   },
+   "evidence": {
+    "sentences": [
+     "A city's trees are often treated as decoration, something to plant if there is money left over.",
+     "That view is a mistake.",
+     "Trees are the city's air conditioners, cooling streets by several degrees in summer.",
+     "They are its sponges, soaking up rainwater that would otherwise flood roads.",
+     "They are its lungs, filtering dust from the air we breathe.",
+     "When a city cuts down a tree to widen a road, it is not removing an ornament; it is switching off a machine it cannot easily replace."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the metaphors present trees as essential city systems. Tap 2 sentences with the parallel metaphors.",
+    "wrong": "This sentence states the view or the conclusion. Find the sentences with the pattern They are its..."
+   },
+   "checks": [
+    {
+     "passage": "We are told that the new shopping centre will bring the community together. It has thirty shops, five restaurants and a cinema. It has no benches, no shade and no place to sit without buying something.",
+     "stem": "What is the effect of the final sentence's repeated no?",
+     "options": [
+      "It praises the centre for being modern and full of shops.",
+      "It lists the centre's best features for families to enjoy.",
+      "It explains how shopping centres are planned and built.",
+      "It ironically shows the centre does not really bring people together."
+     ],
+     "answer": 3,
+     "why": "The repeated no highlights what is missing, creating irony against the claim that the centre will bring people together."
+    },
+    {
+     "passage": "Scientists warn that the glacier is losing ice faster than ever. In a single summer, it shrank by an area the size of 300 football pitches. The ice that took centuries to form is disappearing in years.",
+     "stem": "How does the comparison to football pitches serve the author's purpose?",
+     "options": [
+      "It makes the size concrete, emphasizing the speed of the loss.",
+      "It shows that football can be played on glaciers in summer.",
+      "It suggests the glacier is growing larger every summer.",
+      "It entertains readers with a sports story about a match."
+     ],
+     "answer": 0,
+     "why": "Football pitches give readers a familiar picture of a huge area, emphasizing how fast the glacier is shrinking."
+    },
+    {
+     "passage": "The factory owner called the pollution in the river \"a minor inconvenience.\" Fishermen downstream, who had not caught a healthy fish in two years, might have chosen different words.",
+     "stem": "What technique does the author use in the second sentence, and to what effect?",
+     "options": [
+      "Exaggeration, to make the factory owner seem heroic",
+      "Understatement and irony, to criticise the owner's words",
+      "A rhetorical question, to make readers curious about fish",
+      "An analogy, to explain how rivers flow downstream"
+     ],
+     "answer": 1,
+     "why": "Might have chosen different words is an understatement: it gently but clearly mocks the owner's claim, criticising it."
+    }
+   ],
+   "again": {
+    "title": "Name it, explain it, link it",
+    "text": "Use three steps:\n\n1. **Name it**: which technique?\n2. **Explain it**: what does it make readers think or feel?\n3. **Link it**: how does that serve the author's purpose?",
+    "example": "Words are seeds. Plant kind ones.\n\n1. **Metaphor** (words as seeds).\n2. It suggests words **grow** and have results.\n3. It persuades readers to **speak kindly**."
+   }
+  }
+ }
+}

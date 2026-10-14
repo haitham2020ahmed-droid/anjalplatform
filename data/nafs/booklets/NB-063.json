@@ -1,0 +1,568 @@
+{
+  "code": "NB-063",
+  "title": "Seeds on the Move",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 469,
+  "passage": "A plant cannot walk, yet many plants manage to send their children across fields, rivers and even oceans. Their secret lies in their seeds. If every seed simply dropped beneath its parent, the young plants would be forced to compete with the parent and with one another for sunlight, water and nutrients, and most of them would eventually weaken or die. For this reason, plants have developed a remarkable variety of methods for dispersing, or scattering, their seeds far from home.\n\nThe wind is one of the most dependable carriers. A dandelion seed hangs beneath a tiny bundle of feathery hairs that works like a parachute, so even a gentle breeze can lift it high above the ground. Maple seeds rely on an entirely different design. Each one has a thin, flat wing that makes it spin like a helicopter blade as it falls, which slows its descent and gives the wind additional time to carry it sideways.\n\nWater provides another route. The coconut palm, which often grows along tropical beaches, produces a large seed wrapped in a thick, fibrous husk full of air. When a coconut falls into the sea, it floats! It may drift for weeks or even months before waves wash it onto a distant shore, where it can sprout. This explains why coconut palms are found on remote islands that no person ever planted.\n\nAnimals, too, play an important part, usually without realizing it. Some seeds are covered in tiny hooks that cling to fur, feathers or clothing until they are brushed off somewhere new. In the 1940s, a Swiss engineer named George de Mestral noticed these burrs stuck to his dog after a walk. After examining them carefully under a microscope, he discovered how their hooks gripped the loops of fabric and fur, and his observations later inspired the invention of Velcro. Other plants surround their seeds with sweet, colourful fruit. Birds and mammals eat the fruit, and the seeds pass through their bodies unharmed, often landing kilometres away in a convenient supply of natural fertilizer.\n\nA few plants do not depend on any helper at all. Their seed pods dry out and twist as they ripen until, suddenly, they burst open and fling the seeds through the air. The squirting cucumber, which grows around the Mediterranean, builds up so much pressure inside its fruit that it shoots its seeds out in a sticky jet.\n\nEach of these strategies solves the same fundamental problem in a different and ingenious way. By spreading their seeds widely, plants reduce competition and increase the chance that at least some of their offspring will find suitable conditions. Over time, this also allows them to colonize new territories. The next time you notice a seed floating past your window, remember that you are watching one of nature's cleverest travellers.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “dispersing” as it is used in paragraph 1?",
+      "options": [
+        "collecting",
+        "scattering",
+        "protecting",
+        "planting"
+      ],
+      "answer": "B",
+      "why": "The writer explains the word himself: “dispersing, or scattering”."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “descent” in paragraph 2 (“which slows its descent”)?",
+      "options": [
+        "fall",
+        "landing",
+        "climb",
+        "spin"
+      ],
+      "answer": "C",
+      "why": "“Descent” means moving downwards; its opposite is a climb (moving upwards). “Fall” and “landing” have similar meanings."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 6, plants “colonize new territories”. What does “colonize” mean here?",
+      "options": [
+        "destroy the plants that already live in an area",
+        "leave an area because it is too crowded",
+        "build fences to protect an area",
+        "move into a new area and begin to live and grow there"
+      ],
+      "answer": "D",
+      "why": "The seeds spread to places where the plant did not grow before and start growing there."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADJECTIVE?",
+      "options": [
+        "parachute",
+        "hangs",
+        "feathery",
+        "sideways"
+      ],
+      "answer": "C",
+      "why": "“Feathery” describes the hairs; “parachute” is a noun, “hangs” a verb and “sideways” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from paragraph 1 is IRREGULAR?",
+      "options": [
+        "children",
+        "fields",
+        "rivers",
+        "nutrients"
+      ],
+      "answer": "A",
+      "why": "One child, many children; the others simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “observations” in paragraph 4?",
+      "options": [
+        "obstacle",
+        "obvious",
+        "obtain",
+        "observe"
+      ],
+      "answer": "D",
+      "why": "“Observe”, “observation” and “observer” share the same root; the others only begin with “ob-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “ingenious” in a meaningful sentence of your own.",
+      "model": "My sister found an ingenious way to water her plants while we travelled: she connected a bottle of water to each pot with a strip of cloth.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “ingenious” with its meaning (very clever and original)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Ingenious” means very clever, original and inventive."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word forms its plural in the SAME way as “territory” (territories) in paragraph 6?",
+      "options": [
+        "valley",
+        "key",
+        "berry",
+        "journey"
+      ],
+      "answer": "C",
+      "why": "Consonant + y changes to -ies (berry → berries); a vowel + y just adds -s (valleys, keys, journeys)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “When a coconut falls into the sea, it floats!” in paragraph 3?",
+      "options": [
+        "a question",
+        "a command",
+        "a statement without feeling",
+        "an exclamation"
+      ],
+      "answer": "D",
+      "why": "It expresses surprise and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "How Seeds Travel Without Legs",
+        "The Life of a Coconut Palm",
+        "George de Mestral's Dog",
+        "Why Plants Need Sunlight"
+      ],
+      "answer": "A",
+      "why": "The whole text explains the different ways seeds travel; the other titles cover only one detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to plant more trees",
+        "to tell the story of how Velcro was sold around the world",
+        "to explain the different ways plants spread their seeds and why",
+        "to compare plants that grow in deserts and in rainforests"
+      ],
+      "answer": "C",
+      "why": "The text describes wind, water, animal and explosive dispersal and explains why spreading seeds matters."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Plants cannot move, so their seeds always grow beneath them.",
+        "Young plants grow best in the shade of their parents.",
+        "Seeds need to spread away from the parent plant to survive well.",
+        "Most seeds are carried across oceans."
+      ],
+      "answer": "C",
+      "why": "Paragraph 1 explains that seeds dropping beneath the parent would face competition, so plants scatter them."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why does a maple seed fall slowly?",
+      "options": [
+        "Its wing makes it spin like a helicopter blade.",
+        "It is full of air like a coconut.",
+        "Its feathery hairs work like a parachute.",
+        "Birds carry it gently to the ground."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: its thin, flat wing “makes it spin like a helicopter blade as it falls, which slows its descent”. The parachute describes the dandelion."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a narrative story",
+        "a letter",
+        "an informational text",
+        "a poem"
+      ],
+      "answer": "C",
+      "why": "It explains scientific facts about seed dispersal with real examples."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why are coconut palms found on remote islands that nobody planted?",
+      "options": [
+        "Birds carry coconuts across the sea in their beaks.",
+        "The wind blows coconuts from one island to another.",
+        "Sailors threw coconut seeds onto every island.",
+        "Coconuts float and can be washed onto distant shores."
+      ],
+      "answer": "D",
+      "why": "A coconut's husk is full of air, so it floats and may drift for months before waves wash it ashore."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 4, what happened AFTER George de Mestral examined the burrs under a microscope?",
+      "options": [
+        "He went for a walk with his dog.",
+        "He noticed burrs stuck to his dog.",
+        "He planted the burrs in his garden.",
+        "His observations later inspired the invention of Velcro."
+      ],
+      "answer": "D",
+      "why": "He noticed the burrs first, examined them, and his observations later inspired Velcro."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why some seeds land “in a convenient supply of natural fertilizer”?",
+      "options": [
+        "The seeds pass through animals' bodies after the fruit is eaten.",
+        "The seeds are covered in tiny hooks.",
+        "The seeds are wrapped in a husk full of air.",
+        "The seeds are shot out in a sticky jet."
+      ],
+      "answer": "A",
+      "why": "Seeds inside eaten fruit pass through the animal and land in its droppings, which act as fertilizer."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In which order does the writer describe the helpers that carry seeds?",
+      "options": [
+        "animals → wind → water → no helper",
+        "wind → water → animals → no helper",
+        "water → wind → no helper → animals",
+        "no helper → animals → water → wind"
+      ],
+      "answer": "B",
+      "why": "Paragraphs 2–5 describe wind, then water, then animals, then plants that need no helper."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What causes the squirting cucumber to shoot out its seeds?",
+      "options": [
+        "Animals step on the ripe fruit and crush it.",
+        "The wind shakes the fruit until it falls.",
+        "Pressure builds up inside the fruit.",
+        "Rain washes the seeds out."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: it “builds up so much pressure inside its fruit that it shoots its seeds out in a sticky jet.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, what would happen if every seed simply dropped beneath its parent?",
+      "options": [
+        "The young plants would grow faster than their parents.",
+        "The parent plant would stop producing fruit.",
+        "Animals would eat all the seeds.",
+        "Most of the young plants would weaken or die from competition."
+      ],
+      "answer": "D",
+      "why": "They would compete for sunlight, water and nutrients, “and most of them would eventually weaken or die.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does the writer say animals carry seeds “usually without realizing it”?",
+      "options": [
+        "Animals do not know they are spreading seeds stuck to them or eaten in fruit.",
+        "Animals carry seeds on purpose to plant gardens.",
+        "Animals cannot see small seeds.",
+        "Animals refuse to eat fruit that contains seeds."
+      ],
+      "answer": "A",
+      "why": "Seeds cling to fur or pass through animals' bodies, so the animals help without intending to."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the way a dandelion seed travels DIFFERENT from the way a burr travels?",
+      "options": [
+        "A dandelion seed is carried by the wind, while a burr clings to animals or clothing.",
+        "A dandelion seed floats on the sea, while a burr is eaten by birds.",
+        "A dandelion seed explodes from a pod, while a burr spins like a blade.",
+        "A dandelion seed is planted by people, while a burr falls under its parent."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 describes the dandelion's parachute in the wind; paragraph 4 describes hooks that cling to fur, feathers or clothing."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the coconut and the maple seed have in common?",
+      "options": [
+        "Both are covered in tiny hooks.",
+        "Both have a special design that helps them travel away from the parent.",
+        "Both burst out of dry pods.",
+        "Both grow only on remote islands."
+      ],
+      "answer": "B",
+      "why": "The coconut's air-filled husk lets it float, and the maple's wing lets it spin and drift; both designs help them travel."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the effect of spreading seeds widely, according to paragraph 6?",
+      "options": [
+        "Plants produce fewer seeds but larger fruit.",
+        "Plants no longer need sunlight or water.",
+        "Young plants grow closer to their parents.",
+        "Competition is reduced and more offspring may find suitable conditions."
+      ],
+      "answer": "D",
+      "why": "“By spreading their seeds widely, plants reduce competition and increase the chance that at least some of their offspring will find suitable conditions.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer calls seeds “one of nature's cleverest travellers”. What does this expression suggest?",
+      "options": [
+        "Seeds can think and choose where to go.",
+        "Seeds move in surprising, well-designed ways even though plants cannot walk.",
+        "Seeds travel more slowly than animals.",
+        "Seeds always reach the place they aim for."
+      ],
+      "answer": "B",
+      "why": "Seeds cannot think; the expression praises the clever designs that carry them far from home."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Their secret lies in their seeds.",
+        "Water provides another route.",
+        "When a coconut falls into the sea, it floats!",
+        "A plant cannot walk, yet many plants manage to send their children across fields, rivers and even oceans."
+      ],
+      "answer": "C",
+      "why": "It expresses surprise and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin the text with “A plant cannot walk”?",
+      "options": [
+        "to explain that plants are weaker than animals",
+        "to make readers wonder how something that cannot move manages to travel",
+        "to tell readers that plants do not need to spread",
+        "to begin a story about a walking plant"
+      ],
+      "answer": "B",
+      "why": "The surprising contrast hooks readers before the writer explains the methods of seed dispersal."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which example from the text is MOST useful in showing how studying nature can help people?",
+      "options": [
+        "George de Mestral's study of burrs that led to Velcro",
+        "the dandelion's feathery parachute",
+        "coconuts drifting for months on the sea",
+        "the squirting cucumber's sticky jet"
+      ],
+      "answer": "A",
+      "why": "Only the burr example shows people turning an observation of nature into a useful invention."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best expresses the writer's view of plants?",
+      "options": [
+        "Plants are helpless because they cannot move.",
+        "Plants are dangerous to the animals that eat them.",
+        "Plants are less interesting than animals.",
+        "Plants have developed clever and varied ways to survive."
+      ],
+      "answer": "D",
+      "why": "The writer uses words such as “remarkable”, “ingenious” and “cleverest” to show admiration."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text?",
+      "options": [
+        "admiration",
+        "worry",
+        "sadness",
+        "anger"
+      ],
+      "answer": "A",
+      "why": "The writer admires the “remarkable variety” and “ingenious” strategies of plants."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "how far a dandelion seed can usually travel",
+        "what a coconut's husk is full of",
+        "what Velcro was inspired by",
+        "where the squirting cucumber grows"
+      ],
+      "answer": "A",
+      "why": "The writer says a breeze can lift it “high” but gives no distance; the other facts are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A dandelion seed swims across a river to find soil.",
+        "A coconut floats to a distant island and sprouts there.",
+        "A maple seed flies back up to its parent tree.",
+        "A burr decides to jump onto a passing dog."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 describes this; the other events give seeds abilities they do not have."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "Trapped Beneath the Parent",
+        "Seeds on the Move",
+        "The Dog Who Invented Velcro",
+        "A Coconut's Lonely Island"
+      ],
+      "answer": "B",
+      "why": "The text is about the many ways seeds move away from their parent plants."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Imagine a new plant that grows on a windy hilltop near a river. Suggest a way its seeds could travel, and explain in two or three sentences why your idea would solve the problem of competition.",
+      "model": "Its seeds could have light, wing-shaped coverings so that the hilltop wind carries them down the slope, and some could fall into the river and float away. This way the young plants would not grow crowded under their parent, and each one would have more sunlight, water and nutrients.",
+      "rubric": [
+        "2 = a clear, sensible method linked to ideas in the text, with an explanation of how it reduces competition",
+        "1 = a method is given but it is vague, or the explanation is missing or weak",
+        "0 = no answer, an unrelated idea, or text copied without a new suggestion"
+      ],
+      "why": "Any reasonable method (wind, water, animals, bursting pods) that is explained in terms of reducing competition is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, how could a gardener help seeds of a crowded plant grow well?",
+      "options": [
+        "Leave all the seeds under the parent plant.",
+        "Spread the seeds in open places with sunlight and space.",
+        "Keep the seeds in a dark box for many years.",
+        "Plant every seed in the same small pot."
+      ],
+      "answer": "B",
+      "why": "The text shows that seeds grow best away from the parent, where there is less competition for sunlight, water and nutrients."
+    }
+  ]
+}

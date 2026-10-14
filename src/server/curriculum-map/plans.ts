@@ -3,6 +3,7 @@
  * or one level / Concept Vocabulary) and assigns them together. Each place becomes real assignments, so
  * statuses, notifications and reports work as usual; the plan groups them as a map the student opens.
  */
+import { keysOfPlaceText, skillKeyIndex, skillStatusesFor, type StarStatus } from "../skills/status";
 import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -193,7 +194,7 @@ export function addMissingCurriculumParts(repo: Repo, plan: Row): Promise<number
   });
 }
 
-export interface StudentPlanView extends PlanView { kind: string; target: number; places: (PlanPlace & { itemId: string; locked: boolean; empty: boolean; skills: string | null; correct: number })[] }
+export interface StudentPlanView extends PlanView { kind: string; target: number; places: (PlanPlace & { itemId: string; locked: boolean; empty: boolean; skills: string | null; correct: number; /** ⭐ the place's skill(s) with their ONE status */ stars?: { name: string; status: StarStatus }[] })[] }
 
 /** The student's plan as a map: each place links straight to its questions (a curriculum place opens on first use). */
 export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<StudentPlanView> {
@@ -235,6 +236,16 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
     });
   }
   if (!places.length) throw new ForbiddenError("This plan is not assigned to you.");
+  // ⭐ the ONE skill status of each place's skill(s): the plan's own skill, or the skills the map place names (one read)
+  try {
+    const ix = await skillKeyIndex(repo, s(plan.schoolId));
+    const keysOf = (p: (typeof places)[number]) => { const sk = p.href?.startsWith("/practice/") ? decodeURIComponent(p.href.slice(10).split("?")[0]) : null; return sk && ix.keyOf.get(sk) ? [ix.keyOf.get(sk)!] : keysOfPlaceText(p.skills); };
+    const all = [...new Set(places.flatMap(keysOf))];
+    if (all.length) {
+      const st = (await skillStatusesFor(repo, [actor.studentId], all)).get(actor.studentId) ?? new Map();
+      for (const p of places) p.stars = keysOf(p).map((k) => ({ name: ix.nameOf.get(k) ?? "", status: st.get(k)?.status ?? "NOT_STARTED" }));
+    }
+  } catch { /* no stars yet (older database): the plan still opens */ }
   const klass = await repo.findUnique("Class", { id: plan.classId });
   return { id: s(plan.id), kind: kindOf(plan.kind), target: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, title: s(plan.title), className: s(klass?.name), grade: Number(plan.gradeLevel), note: plan.note ? s(plan.note) : null, createdAt: s(plan.createdAt instanceof Date ? plan.createdAt.toISOString() : plan.createdAt).slice(0, 10), places };
 }

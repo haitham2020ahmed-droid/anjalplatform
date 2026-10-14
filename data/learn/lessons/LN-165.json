@@ -1,0 +1,481 @@
+{
+ "code": "LN-165",
+ "title": "Character relationships and comparisons",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.3",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "character"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0168",
+  "R-0279",
+  "R-0447",
+  "R-0471",
+  "R-0642",
+  "R-0649",
+  "R-0839",
+  "R-0860",
+  "R-0987",
+  "R-0998",
+  "R-1072"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Alike and different",
+     "text": "We can **compare** two characters. How are they **alike**?\n\nWe can **contrast** two characters. How are they **different**?"
+    },
+    {
+     "title": "What to look at",
+     "text": "Look at what each character:\n\n1. **Likes**\n2. **Does**\n3. **Feels**"
+    },
+    {
+     "title": "Clue words",
+     "text": "**Both**, **too** and **also** show how characters are alike.\n\n**But** and **not** often show how they are different."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find a sentence about the **first** character.\n2. Find a sentence about the **second** character.\n3. Put them side by side. Are they alike or different?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hamad likes to run and jump.",
+      "role": "key"
+     },
+     {
+      "t": "His sister Nada likes to sit and read.",
+      "role": "key"
+     },
+     {
+      "t": "Both of them like ice cream.",
+      "role": "main"
+     }
+    ],
+    "explain": "Different: Hamad likes to **run**, but Nada likes to **read**.\n\nAlike: **both** like ice cream."
+   },
+   "together": {
+    "passage": "Rami and Sami are twins. Rami sings and shouts all day. Sami talks in a soft, small voice. They go to the park together.",
+    "stem": "How are Rami and Sami different?",
+    "options": [
+     "Rami is loud, but Sami is quiet.",
+     "Rami is quiet, but Sami is loud.",
+     "They both like to sing.",
+     "They both hate the park."
+    ],
+    "answer": 0,
+    "hint": "Look at what each boy does. Which one sings and shouts? Which one whispers?",
+    "good": "Yes! Rami sings and shouts. Sami talks in a soft voice."
+   },
+   "evidence": {
+    "sentences": [
+     "Rami and Sami are twins.",
+     "Rami sings and shouts all day.",
+     "Sami talks in a soft, small voice.",
+     "They go to the park together."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Rami is loud, but Sami is quiet. Tap 2 sentences that show this.",
+    "wrong": "This sentence is about both boys. Find one sentence about Rami and one about Sami."
+   },
+   "checks": [
+    {
+     "passage": "Cat likes to sleep in the sun. Dog likes to sleep in the sun too. Cat is small, and Dog is big.",
+     "stem": "How are Cat and Dog alike?",
+     "options": [
+      "They are both small.",
+      "They are both big.",
+      "They both like to sleep in the sun.",
+      "They both like to swim."
+     ],
+     "answer": 2,
+     "why": "Cat likes the sun, and Dog likes it too. That is how they are alike."
+    },
+    {
+     "passage": "Lama gets up early. She makes her bed. Her brother gets up late. He leaves his bed messy.",
+     "stem": "How are Lama and her brother different?",
+     "options": [
+      "They both get up early.",
+      "They both make their beds.",
+      "Lama is messy, and her brother is neat.",
+      "Lama is neat, and her brother is messy."
+     ],
+     "answer": 3,
+     "why": "Lama makes her bed. Her brother leaves his bed messy."
+    },
+    {
+     "passage": "Ali and Omar are friends. Ali loves football. Omar loves football too. They play every day.",
+     "stem": "How are Ali and Omar alike?",
+     "options": [
+      "They both like to read.",
+      "They both love football.",
+      "They both live far away.",
+      "They both are sad."
+     ],
+     "answer": 1,
+     "why": "Ali loves football, and Omar loves it too."
+    }
+   ],
+   "again": {
+    "title": "Same or not the same?",
+    "text": "Ask one question about both characters. Then compare the answers.\n\nSame answer = **alike**.\nDifferent answer = **different**.",
+    "example": "What pet do they have?\n\nHuda: a cat. Mona: a cat. **Same**, so they are alike.\n\nWhat do they eat for breakfast? Huda: eggs. Mona: bread. **Different**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Comparing characters",
+     "text": "When you compare characters, look at their **traits** (what they are like), their **actions** and their **feelings**.\n\nTwo characters can be alike in one way and different in another."
+    },
+    {
+     "title": "Character relationships",
+     "text": "A **relationship** is how characters are connected: family, friends, teammates, neighbours.\n\nIt also means **how they treat each other**: kindly, unkindly, with trust, or with jealousy."
+    },
+    {
+     "title": "How to read a relationship",
+     "text": "1. What do the characters **say** to each other?\n2. What do they **do** for each other?\n3. How do they **feel** about each other?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a comparison or a relationship, you need details about **both** characters.\n\n1. Find what each character does or says.\n2. Look for how they **act toward** each other.\n3. Choose the answer that fits **both** characters, not just one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fatima and her cousin Reem both wanted to win the school drawing contest.",
+      "role": "detail"
+     },
+     {
+      "t": "Fatima drew quickly and finished first.",
+      "role": "detail"
+     },
+     {
+      "t": "Reem worked slowly, adding tiny details.",
+      "role": "detail"
+     },
+     {
+      "t": "When Reem ran out of blue paint, Fatima gave her half of hers.",
+      "role": "key"
+     }
+    ],
+    "explain": "Alike: both want to win. Different: Fatima is **fast**; Reem is **careful**.\n\nRelationship: even as rivals, Fatima **shares her paint**. They are kind, supportive cousins."
+   },
+   "together": {
+    "passage": "Mr. Badr lives next door to Yousef's family. Every Thursday, Yousef carries Mr. Badr's heavy shopping bags up the stairs. Mr. Badr was a maths teacher before he retired. When Yousef has trouble with fractions, Mr. Badr sits with him and explains them with oranges and dates. Yousef says his neighbour is the best teacher he has ever had.",
+    "stem": "Which sentence best describes the relationship between Yousef and Mr. Badr?",
+    "options": [
+     "They do not trust each other.",
+     "They are brothers who often argue.",
+     "Mr. Badr is Yousef's strict teacher.",
+     "They are neighbours who help each other."
+    ],
+    "answer": 3,
+    "hint": "Look at what Yousef does for Mr. Badr and what Mr. Badr does for Yousef.",
+    "good": "Yes! Yousef carries Mr. Badr's shopping, and Mr. Badr helps Yousef with maths. They help each other."
+   },
+   "evidence": {
+    "sentences": [
+     "Mr. Badr lives next door to Yousef's family.",
+     "Every Thursday, Yousef carries Mr. Badr's heavy shopping bags up the stairs.",
+     "Mr. Badr was a maths teacher before he retired.",
+     "When Yousef has trouble with fractions, Mr. Badr sits with him and explains them with oranges and dates.",
+     "Yousef says his neighbour is the best teacher he has ever had."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: they are neighbours who help each other. Tap 2 sentences that show them helping each other.",
+    "wrong": "This sentence gives background or an opinion. Find sentences that show what each one DOES for the other."
+   },
+   "checks": [
+    {
+     "passage": "Majed and his brother Salem both play in the school band. Majed practises every day and never misses a note. Salem forgets his music book and laughs when he makes mistakes. But both boys love playing for their family on Fridays.",
+     "stem": "How are Majed and Salem different?",
+     "options": [
+      "Only Majed is in the band.",
+      "Majed is careful, while Salem is more relaxed.",
+      "Majed does not like music.",
+      "Salem never plays for his family."
+     ],
+     "answer": 1,
+     "why": "Majed practises every day and never misses a note. Salem forgets his book and laughs at mistakes."
+    },
+    {
+     "passage": "Whenever Dana was sad, her grandmother told her a story from her childhood in the village. Dana, in turn, taught her grandmother how to send voice messages on her phone. Every evening, they sent each other a short message before bed.",
+     "stem": "What is Dana's relationship with her grandmother like?",
+     "options": [
+      "Close and caring, each helping the other",
+      "Cold, because they rarely talk to each other",
+      "Angry, because they often disagree",
+      "New, because they have only just met"
+     ],
+     "answer": 0,
+     "why": "They comfort and teach each other and send messages every evening, which shows a close relationship."
+    },
+    {
+     "passage": "The tortoise and the rabbit both lived by the river. The rabbit was quick and liked to be first. The tortoise was slow and liked to take her time. Both of them were kind to the little birds that lived in the reeds.",
+     "stem": "How are the tortoise and the rabbit alike?",
+     "options": [
+      "They are both quick.",
+      "They both like to be first.",
+      "They are both kind to the birds.",
+      "They both live in the reeds."
+     ],
+     "answer": 2,
+     "why": "The text says both of them were kind to the little birds."
+    }
+   ],
+   "again": {
+    "title": "Make a T-chart",
+    "text": "Draw a T in your mind. Put one character on each side.\n\nWrite what each one **does** and **feels**. Then circle what is the **same**.",
+    "example": "Nawaf: shy, loves drawing, helps his mom.\nAdel: loud, loves drawing, plays football.\n\nSame: **both love drawing**. Different: shy vs. loud."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Relationships drive stories",
+     "text": "How characters treat each other often **drives the plot**. A friendship, a rivalry or a misunderstanding can create the story's problem.\n\nRelationships can also **change** as the story goes on."
+    },
+    {
+     "title": "Inferring a relationship",
+     "text": "Authors often **show** a relationship without naming it.\n\nNotice tone of voice, small kind or unkind acts, and how characters react to each other's success or trouble."
+    },
+    {
+     "title": "Deeper comparisons",
+     "text": "Compare characters by their **motives** (why they act) and **responses** to the same problem, not just by how they look.\n\nTwo characters may face the same challenge in **opposite** ways."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find a moment where the characters **interact**.\n2. Note how each one **reacts** to the other.\n3. Check if the relationship changes: compare the **beginning** with the **end**.\n\nThe best answer uses evidence about both characters."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When the school play needed a lead, both Huda and Sama tried out.",
+      "role": "detail"
+     },
+     {
+      "t": "Huda practised alone and avoided Sama in the halls.",
+      "role": "key"
+     },
+     {
+      "t": "Sama, however, congratulated Huda when she got the part and offered to help her learn her lines.",
+      "role": "key"
+     },
+     {
+      "t": "By opening night, the two girls were rehearsing together every afternoon.",
+      "role": "key"
+     }
+    ],
+    "explain": "Same challenge, different responses: Huda **avoids** Sama; Sama is **generous**.\n\nThe relationship changes from **rivals** to **partners** because of Sama's kindness."
+   },
+   "together": {
+    "passage": "Nasser and Faris had been rivals since the first day of school, always racing to answer questions first. When the teacher put them together for the science project, they both groaned. At first they argued about everything, from the topic to the colour of the poster. Then Faris noticed that Nasser was brilliant at building models, and Nasser saw how clearly Faris could explain ideas. After they won second prize, they shook hands and agreed to be partners again next year.",
+    "stem": "How does the relationship between Nasser and Faris change?",
+    "options": [
+     "They start as friends and end as rivals.",
+     "They start as rivals and become teammates who respect each other.",
+     "They never speak to each other at all.",
+     "They become brothers by the end of the story."
+    ],
+    "answer": 1,
+    "hint": "Compare how they act toward each other at the start and at the end of the story.",
+    "good": "Yes! At first they compete and do not speak. After working together, they shake hands and plan to be partners."
+   },
+   "evidence": {
+    "sentences": [
+     "Nasser and Faris had been rivals since the first day of school, always racing to answer questions first.",
+     "When the teacher put them together for the science project, they both groaned.",
+     "At first they argued about everything, from the topic to the colour of the poster.",
+     "Then Faris noticed that Nasser was brilliant at building models, and Nasser saw how clearly Faris could explain ideas.",
+     "After they won second prize, they shook hands and agreed to be partners again next year."
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: they go from rivals to teammates who respect each other. Tap the sentence that shows the start and the one that shows the end.",
+    "wrong": "This sentence shows a step in the middle. Find how the boys get along at the very start and at the very end."
+   },
+   "checks": [
+    {
+     "passage": "Ibrahim always walked his little sister to school, though his friends teased him for it. He held her bag when it was heavy and waited until she was inside the gate. When she won a reading prize, he was the first to clap and the last to stop.",
+     "stem": "What does the text show about Ibrahim's relationship with his sister?",
+     "options": [
+      "He is protective of her and proud of her.",
+      "He wishes he did not have to walk with her.",
+      "He is jealous of her reading prize.",
+      "He listens to his friends more than to her."
+     ],
+     "answer": 0,
+     "why": "He walks her to school despite teasing, carries her bag, and claps longest for her prize."
+    },
+    {
+     "passage": "When the power went out, Mona lit candles and told jokes to calm her little brothers. Her twin sister Rasha stayed in her room, worried about the homework she could not finish on the computer. Later, Rasha came out and joined the laughter.",
+     "stem": "How do Mona and Rasha respond differently to the power cut?",
+     "options": [
+      "Both girls stay in their rooms all evening.",
+      "Rasha tells jokes, while Mona worries.",
+      "Mona comforts the family; Rasha worries.",
+      "Both girls finish their homework on time."
+     ],
+     "answer": 2,
+     "why": "Mona lights candles and tells jokes; Rasha stays in her room worried about homework."
+    },
+    {
+     "passage": "Uncle Hamid and Uncle Kamal ran the shop together for twenty years. Hamid greeted every customer with a joke, while Kamal kept careful accounts in a thick notebook. Customers came for Hamid's warmth; the shop stayed open because of Kamal's numbers.",
+     "stem": "What does the last sentence suggest about the brothers' relationship?",
+     "options": [
+      "Customers prefer Kamal to Hamid.",
+      "The brothers do not get along.",
+      "Hamid should learn to keep accounts.",
+      "Their different strengths make the shop succeed."
+     ],
+     "answer": 3,
+     "why": "Hamid brings customers and Kamal keeps the shop running. They need each other's different strengths."
+    }
+   ],
+   "again": {
+    "title": "Watch them together",
+    "text": "Find a scene where the two characters are **together**.\n\n1. What does one do or say?\n2. How does the other react?\n\nThe reaction tells you a lot about the relationship.",
+    "example": "Rayan drops his lunch. His friend Majed silently hands him half his sandwich.\n\nReaction: kind and quick. Relationship: **loyal friends**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex relationships",
+     "text": "In more complex stories, relationships have **mixed feelings**: love and frustration, respect and rivalry.\n\nAuthors reveal these tensions through dialogue, small gestures and what characters leave **unsaid**."
+    },
+    {
+     "title": "Foils",
+     "text": "A **foil** is a character whose traits **contrast** with another's. The contrast makes each character's traits stand out.\n\nA careless character next to a cautious one helps the reader notice both qualities."
+    },
+    {
+     "title": "Why compare?",
+     "text": "Authors compare characters to explore an **idea**: two ways of facing fear, two views of tradition, two kinds of courage.\n\nAsk: What does the contrast help the reader understand?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Identify a **trait or value** for each character, with evidence.\n2. Find a scene where those traits **meet or clash**.\n3. Explain what the comparison or relationship **reveals**.\n\nThe strongest answer explains both characters and the effect of the contrast."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Abu Khalid never left his village and could name every tree on the road to the well.",
+      "role": "detail"
+     },
+     {
+      "t": "His son Khalid had lived in three cities and could find his way anywhere with his phone.",
+      "role": "detail"
+     },
+     {
+      "t": "When Khalid's phone died on the drive home through the hills, his father calmly guided him by the shapes of the mountains.",
+      "role": "key"
+     },
+     {
+      "t": "Khalid drove in silence, and for the first time he asked his father to teach him the old landmarks.",
+      "role": "key"
+     }
+    ],
+    "explain": "Father and son are **foils**: local knowledge versus modern tools.\n\nThe contrast reveals an idea: **both kinds of knowledge have value**, and the relationship deepens when the son recognises it."
+   },
+   "together": {
+    "passage": "Laila and Amal could hardly have been more different: Laila was bold and impatient, while Amal planned every step and worried about every risk. They argued about almost everything, from which television channel to watch to how to pack a suitcase. Yet the night before Laila's university entrance exam, it was Amal who stayed up until two in the morning, quizzing her on chemistry. And when Amal was too nervous to eat before her job interview, Laila made her favourite cardamom tea and walked with her to the bus stop. Their mother liked to say that the two girls fought like cats but defended each other like lions.",
+    "stem": "Which statement best describes the relationship between Laila and her older sister Amal?",
+    "options": [
+     "Amal resents Laila for leaving home.",
+     "The sisters have little in common and rarely speak.",
+     "Despite their differences and arguments, they care deeply about each other.",
+     "Laila admires Amal and wants to copy everything she does."
+    ],
+    "answer": 2,
+    "hint": "Look beyond the arguments. What does each sister do when it really matters?",
+    "good": "Yes! They argue and are very different, but Amal stays up to help and Laila brings her tea. They care about each other."
+   },
+   "evidence": {
+    "sentences": [
+     "Laila and Amal could hardly have been more different: Laila was bold and impatient, while Amal planned every step and worried about every risk.",
+     "They argued about almost everything, from which television channel to watch to how to pack a suitcase.",
+     "Yet the night before Laila's university entrance exam, it was Amal who stayed up until two in the morning, quizzing her on chemistry.",
+     "And when Amal was too nervous to eat before her job interview, Laila made her favourite cardamom tea and walked with her to the bus stop.",
+     "Their mother liked to say that the two girls fought like cats but defended each other like lions."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: despite their differences, the sisters care deeply about each other. Tap 2 sentences that prove it.",
+    "wrong": "This sentence shows how different they are or that they argue. Find sentences that show they care about each other."
+   },
+   "checks": [
+    {
+     "passage": "Two apprentices learned carpentry from the same master. Saif worked fast and boasted of how many chairs he made each week. Hadi worked slowly, testing each joint twice. When a wealthy customer returned three wobbly chairs, the master quietly placed one of Hadi's chairs beside them. Saif looked at the two for a long time and said nothing.",
+     "stem": "Why does the author contrast Saif and Hadi?",
+     "options": [
+      "To show that Saif is the master's favourite",
+      "To prove that slow workers always earn more",
+      "To explain how chairs are made step by step",
+      "To show quick work against careful work"
+     ],
+     "answer": 3,
+     "why": "Saif's fast work fails, while Hadi's careful chair succeeds. The contrast shows the value of careful work."
+    },
+    {
+     "passage": "\"You always get your way,\" Marwan muttered when his younger brother was chosen for the trip. Later that evening, Marwan quietly packed a torch and his own warm jacket into his brother's bag, along with a note: \"In case it gets cold. Don't lose it.\"",
+     "stem": "What does the gap between Marwan's words and actions reveal?",
+     "options": [
+      "He wants his brother to stay at home.",
+      "He is jealous but still cares about his brother.",
+      "He plans to go on the trip himself.",
+      "He does not trust his brother at all."
+     ],
+     "answer": 1,
+     "why": "He complains out loud, but secretly packs his own jacket to keep his brother warm. Jealousy and care exist together."
+    },
+    {
+     "passage": "Nora and her grandmother spent every summer together in the mountains. Nora brought her sketchbook; her grandmother brought her prayer beads and old recipes. Nora wanted to draw the peaks; her grandmother wanted to name every herb. By the end of each summer, Nora's sketchbook held as many herbs as mountains.",
+     "stem": "What does the final sentence suggest about their relationship?",
+     "options": [
+      "Nora has learned to share her grandmother's interests.",
+      "Nora has stopped drawing mountains.",
+      "Her grandmother has started sketching.",
+      "They spend less time together each year."
+     ],
+     "answer": 0,
+     "why": "Nora's sketchbook now holds herbs as well as mountains, showing she has taken on her grandmother's interest."
+    }
+   ],
+   "again": {
+    "title": "Words vs. actions",
+    "text": "In complex relationships, characters' **words** and **actions** may not match.\n\n1. Write what the character **says** about the other.\n2. Write what the character **does** for the other.\n3. If they differ, trust the **actions** more.",
+    "example": "Rana says her brother is \"so annoying\".\nBut she saves him the best seat and helps with his homework.\n\nActions show the truth: **she cares about him**."
+   }
+  }
+ }
+}

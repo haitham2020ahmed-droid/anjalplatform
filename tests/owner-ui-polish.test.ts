@@ -16,10 +16,12 @@ const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
 describe("Teacher Home: Needs attention", () => {
   const home = read("src/app/teacher/page.tsx");
   test("compact rows in a fixed-height, keyboard-scrollable box; Show all (N) kept; no '… and N more'", () => {
-    assert.match(home, /role="region" aria-label=\{t\("Needs attention"\)\} tabIndex=\{0\} className="[^"]*max-h-\[18rem\] overflow-y-auto/);
-    assert.match(home, /px-3 py-1\.5 text-sm/, "tight 14px rows");
+    // (owner r67: smaller still — 13px rows, 5 shown, a 15rem box once opened; tests/teacher-home-compact.test.ts)
+    assert.match(home, /role="region" aria-label=\{t\("Needs attention"\)\} tabIndex=\{0\} className="[^"]*max-h-\[15rem\] overflow-y-auto/);
+    assert.match(home, /px-3 py-1 text-\[13px\]/, "tight 13px rows");
     assert.match(home, /truncate/, "name · class · reason on one line");
-    assert.match(home, /h-7 shrink-0 items-center rounded-md[^"]*text-xs[^"]*">\{t\("Open"\)\}/, "small Open button");
+    assert.match(home, /const small = "inline-flex h-7 shrink-0 items-center rounded-md[^"]*text-xs[^"]*"/, "small buttons");
+    assert.match(home, /className=\{small\}>\{t\("Open"\)\}/, "small Open button");
     assert.match(home, /t\("Show all \(\{n\}\)", \{ n: sum\.list\.length \}\)/);
     assert.doesNotMatch(home, /… and \{n\} more/);
   });

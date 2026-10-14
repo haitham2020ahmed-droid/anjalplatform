@@ -1,0 +1,568 @@
+{
+  "code": "NB-070",
+  "title": "The Last Kilometre",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 446,
+  "passage": "Dear Aunt Noura,\nI hope this letter finds you healthy and happy in Jeddah. You asked me during your last visit to tell you how the school's charity run turned out, and since so much has happened over the past two months, I have decided to write you a proper letter instead of a quick message.\n\nDo you remember how embarrassed I was when our physical education teacher, Ms. Hanan, announced that every girl in Grade 6 would run three kilometres to raise money for the children's hospital? At that time, I could barely jog around the playground twice before my legs felt like heavy sacks of sand and I had to stop, gasping for air. Some of my classmates laughed, and although they did not mean to be unkind, I went home that afternoon feeling completely discouraged.\n\nThat evening, Mama sat beside me and suggested that we create a training plan together. Instead of trying to run the whole distance immediately, I would alternate between walking and jogging, adding just one extra minute of running every few days. So, every evening after the sunset prayer, Mama and I went to the park near our house, where she patiently timed me with her phone while I recorded my progress in a small blue notebook.\n\nI must confess that the plan did not always go smoothly. During the third week, I developed a painful blister on my heel, and I seriously considered giving up altogether. However, I kept rereading the first page of my notebook, where I had written the reason I had agreed to run: the hospital needed new equipment for children who were far sicker than I would ever be. Compared with their struggles, a blister seemed rather small, so I bought better socks and continued.\n\nOn the morning of the race, the sky was clear and the air was surprisingly cool. I started slowly, exactly as Mama had advised, while many girls sprinted ahead and quickly exhausted themselves. By the second kilometre, I was passing several of them, although my lungs were burning. The final kilometre felt endless, yet when I finally crossed the line, my classmates were cheering my name, the same classmates who had once laughed at me!\n\nI did not win, Aunt Noura, because I finished in twenty-third place out of forty runners. Nevertheless, I discovered something more valuable than a medal: progress comes from small, steady steps rather than sudden miracles. Our class raised over four thousand riyals for the hospital, and I am already planning to train for next year's run.\n\nPlease write back soon and tell me about your work at the clinic.\nWith love and respect,\nReem",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “discouraged” as it is used in paragraph 2?",
+      "options": [
+        "annoyed",
+        "disheartened",
+        "uninterested",
+        "confused"
+      ],
+      "answer": "B",
+      "why": "After failing to jog around the playground and being laughed at, Reem had lost hope and confidence: she was disheartened."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 5, many girls “quickly exhausted themselves”. Which word is the OPPOSITE of “exhausted” here?",
+      "options": [
+        "weakened",
+        "hurried",
+        "frightened",
+        "refreshed"
+      ],
+      "answer": "D",
+      "why": "“Exhausted” means completely tired out; its opposite is “refreshed” (full of new energy)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “confess” mean in the sentence “I must confess that the plan did not always go smoothly” in paragraph 4?",
+      "options": [
+        "to complain loudly about a problem",
+        "to promise that you will try harder",
+        "to explain how to do something step by step",
+        "to admit something you would rather not say"
+      ],
+      "answer": "D",
+      "why": "Reem admits that training was not always easy, which is something she might prefer to hide."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is used as a VERB?",
+      "options": [
+        "patiently",
+        "alternate",
+        "progress",
+        "small"
+      ],
+      "answer": "B",
+      "why": "“I would alternate between walking and jogging” — “alternate” is the action. “Progress” is a noun here (“my progress”), “patiently” an adverb and “small” an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is an ADJECTIVE?",
+      "options": [
+        "medal",
+        "valuable",
+        "discovered",
+        "already"
+      ],
+      "answer": "B",
+      "why": "“Valuable” describes “something”; “medal” is a noun, “discovered” a verb and “already” an adverb."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “equipment” in paragraph 4?",
+      "options": [
+        "equal",
+        "equation",
+        "require",
+        "equip"
+      ],
+      "answer": "D",
+      "why": "“Equipment” is formed from the verb “equip” (to provide with tools); the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “progress” in a meaningful sentence of your own.",
+      "model": "My little brother has made great progress in reading since he started borrowing a book from the library every week.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “progress” with its meaning (steady improvement or forward movement towards a goal)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Progress” means improvement towards a goal, like the progress Reem recorded in her notebook."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 2 mentions “the children's hospital”. What is the SINGULAR form of “children”?",
+      "options": [
+        "child",
+        "childs",
+        "childe",
+        "childrens"
+      ],
+      "answer": "A",
+      "why": "“Children” is an irregular plural: one child, many children."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is the first sentence of paragraph 2, which begins “Do you remember how embarrassed I was …”?",
+      "options": [
+        "a command",
+        "an exclamation",
+        "a statement",
+        "a question"
+      ],
+      "answer": "D",
+      "why": "It begins with “Do you” and ends with a question mark, so it is a question."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "Small Steps to the Finish Line",
+        "The Day I Won the Race",
+        "Aunt Noura's Busy Clinic",
+        "An Evening Walk Through the Park"
+      ],
+      "answer": "A",
+      "why": "Reem reaches the finish line by training in small, steady steps; she does not win the race."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of Reem's letter?",
+      "options": [
+        "to ask her aunt to send money to the children's hospital",
+        "to complain to her aunt about the unkind classmates who laughed at her",
+        "to tell her aunt how she kept going until she finished the run",
+        "to explain to her aunt the official rules of the charity run"
+      ],
+      "answer": "C",
+      "why": "Reem tells the story of her two months of training and what she learned from finishing the run."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Reem's notebook was full of the times she recorded every evening.",
+        "Reem decided to stop training altogether because of a painful blister on her heel.",
+        "Despite a painful setback, Reem kept training because she remembered her reason.",
+        "Reem bought new running shoes for the race at the hospital."
+      ],
+      "answer": "C",
+      "why": "The blister almost made her give up, but rereading her reason for running made her continue."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Reem write a letter instead of sending a quick message?",
+      "options": [
+        "Her phone had been broken during the race.",
+        "Ms. Hanan asked every student to write a letter.",
+        "So much had happened over the past two months.",
+        "Aunt Noura does not know how to read messages."
+      ],
+      "answer": "C",
+      "why": "Paragraph 1: “since so much has happened over the past two months, I have decided to write you a proper letter”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a friendly letter",
+        "a poem",
+        "a set of instructions"
+      ],
+      "answer": "B",
+      "why": "It begins with a greeting (“Dear Aunt Noura”), shares personal news and ends with a closing and a signature."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the Grade 6 girls run three kilometres?",
+      "options": [
+        "to raise money for the children's hospital",
+        "to choose a team for a national competition",
+        "to prepare for their physical education exam",
+        "to win medals for the best runners in school"
+      ],
+      "answer": "A",
+      "why": "Ms. Hanan announced that the run would “raise money for the children's hospital”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened AFTER Reem developed a blister?",
+      "options": [
+        "She bought better socks.",
+        "Mama suggested a training plan.",
+        "Some classmates laughed at her.",
+        "Ms. Hanan announced the charity run."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: after the blister and rereading her notebook, “I bought better socks and continued.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of this letter?",
+      "options": [
+        "Reem, a Grade 6 student",
+        "Aunt Noura, who works in Jeddah",
+        "Ms. Hanan, the PE teacher",
+        "Mama, who timed the training"
+      ],
+      "answer": "A",
+      "why": "The letter is signed “Reem”, and she writes about her own Grade 6 class."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, where and when did Reem train?",
+      "options": [
+        "on the school playground before lessons began",
+        "on the race route early every Friday morning",
+        "at the hospital garden after visiting the patients",
+        "in a park near her house after the sunset prayer"
+      ],
+      "answer": "D",
+      "why": "“Every evening after the sunset prayer, Mama and I went to the park near our house.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What stopped Reem from giving up during the third week?",
+      "options": [
+        "a phone call from her aunt in Jeddah",
+        "a medal promised by Ms. Hanan",
+        "her classmates cheering her name",
+        "rereading why she had agreed to run"
+      ],
+      "answer": "D",
+      "why": "She kept rereading the first page of her notebook, where she had written that the hospital needed equipment for sick children."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Reem pass several girls during the second kilometre?",
+      "options": [
+        "They had stopped to wait for their friends.",
+        "They had sprinted ahead and tired themselves out.",
+        "They had taken a wrong turn on the route.",
+        "They had been told to walk slowly by their teacher."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: many girls “sprinted ahead and quickly exhausted themselves”, while Reem started slowly."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word best describes Reem's character as it is shown in the whole letter?",
+      "options": [
+        "competitive",
+        "determined",
+        "careless",
+        "boastful"
+      ],
+      "answer": "B",
+      "why": "She keeps training through embarrassment, a blister and tiredness; she does not care mainly about winning, so “competitive” does not fit."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Reem's way of running the race different from that of many other girls?",
+      "options": [
+        "She started slowly, while they sprinted at the start.",
+        "She ran with Mama, while they ran alone.",
+        "She sprinted at the start, while they started slowly.",
+        "She walked the whole way, while they jogged."
+      ],
+      "answer": "A",
+      "why": "Reem “started slowly, exactly as Mama had advised”; many girls “sprinted ahead”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraphs 5 and 6, what was the effect of Reem's steady training?",
+      "options": [
+        "She won first place and was given a medal by Ms. Hanan.",
+        "She was chosen to train younger girls.",
+        "She finished the run and passed several runners.",
+        "She ran without feeling tired at all."
+      ],
+      "answer": "C",
+      "why": "She passed several girls and finished twenty-third; she did not win, and her lungs were burning."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the blister in paragraph 4 and the burning lungs in paragraph 5 have in common?",
+      "options": [
+        "Both made Reem stop running for a week.",
+        "Both happened on the morning of the race.",
+        "Both are difficulties that Reem pushed through.",
+        "Both were caused by the new, better socks that she bought."
+      ],
+      "answer": "C",
+      "why": "In each case Reem felt pain but continued: she bought socks and kept training, and she kept running to the line."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Reem mean when she says “my legs felt like heavy sacks of sand” in paragraph 2?",
+      "options": [
+        "Sand had filled her shoes on the playground.",
+        "She had carried sacks of sand during the lesson.",
+        "Her legs felt very tired and hard to move.",
+        "Her legs had become stronger than before."
+      ],
+      "answer": "C",
+      "why": "The simile compares her tired legs to heavy sacks: they were difficult to lift."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In paragraph 5, Reem says “The final kilometre felt endless”. What does this expression show?",
+      "options": [
+        "The race route had no finish line at all.",
+        "The last kilometre was longer than the others.",
+        "Reem did not want the race to finish.",
+        "The last part seemed to last a very long time."
+      ],
+      "answer": "D",
+      "why": "It is an exaggeration: because she was so tired, the last kilometre seemed never to end."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Reem begin paragraph 2 with the question “Do you remember how embarrassed I was …”?",
+      "options": [
+        "to remind her aunt how she felt at the start, so the change is clearer",
+        "to test whether her aunt has a good memory for old events and details",
+        "to ask her aunt to explain the rules of the race",
+        "to show that she has forgotten what happened"
+      ],
+      "answer": "A",
+      "why": "Recalling her early embarrassment makes her later success and the cheering classmates stand out."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which advice from the letter is MOST useful for someone preparing for a difficult goal?",
+      "options": [
+        "Try to reach the whole goal on the very first day you begin.",
+        "Break the goal into small steps and increase them gradually.",
+        "Give up as soon as the training becomes painful.",
+        "Only train when other people are watching you."
+      ],
+      "answer": "B",
+      "why": "Reem succeeded by adding just one extra minute of running every few days."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which value does Reem show most clearly in the letter?",
+      "options": [
+        "perseverance",
+        "competitiveness",
+        "impatience",
+        "jealousy"
+      ],
+      "answer": "A",
+      "why": "She keeps going despite embarrassment, a blister and tiredness, and plans to train again next year."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the letter as a whole?",
+      "options": [
+        "bitter disappointment at losing",
+        "fear of running in a race",
+        "anger at her laughing classmates",
+        "quiet pride in steady effort"
+      ],
+      "answer": "D",
+      "why": "Reem is proud of finishing and of what she learned, even though she did not win."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "the place in which Reem finished the race",
+        "how the girls collected money for the hospital",
+        "the distance that each girl in Grade 6 had to run",
+        "the way Mama helped Reem to train"
+      ],
+      "answer": "B",
+      "why": "The letter gives the total (over four thousand riyals) but never explains how the money was raised; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A girl runs three kilometres in less than one minute.",
+        "A blister heals the moment a girl reads her notebook.",
+        "A girl trains for two months and finishes a 3 km run.",
+        "A girl's legs really turn into sacks of sand."
+      ],
+      "answer": "C",
+      "why": "Steady training can prepare a beginner to finish a short run; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the letter?",
+      "options": [
+        "The Fastest Girl in Grade 6",
+        "Lost on the Race Route",
+        "Twenty-Third Place, First in Effort",
+        "The Painful Blister That Ended Everything"
+      ],
+      "answer": "C",
+      "why": "Reem finished twenty-third but showed great effort; she was not the fastest, and the blister did not stop her."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter. Write two or three sentences telling what might have happened if Reem had not been able to finish the race.",
+      "model": "Halfway through the second kilometre my blister opened again, and Ms. Hanan asked me to stop. I was disappointed, but I walked to the finish line to cheer for my classmates, and I have already started next year's training plan in a new notebook.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and shows how Reem reacts to the setback",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that fits Reem's determined character is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could Reem's classmates have helped her at the beginning, instead of laughing?",
+      "options": [
+        "by offering to train with her after school",
+        "by telling her to stay away from the run",
+        "by asking Ms. Hanan to cancel the run for everyone",
+        "by running the whole race in her place"
+      ],
+      "answer": "A",
+      "why": "Training together would have encouraged her; the other choices do not help her reach the goal."
+    }
+  ]
+}

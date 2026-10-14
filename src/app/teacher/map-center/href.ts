@@ -1,6 +1,6 @@
-/** The ONE MAP page and its tabs: Results · MAP Test · Reports · Make a MAP plan. Old MAP routes redirect here. */
-export type MapTab = "results" | "test" | "reports" | "plan";
-export const MAP_TABS: readonly MapTab[] = ["results", "test", "reports", "plan"];
+/** The ONE MAP page and its tabs: Results · MAP Test · Year plan · Reports · Make a MAP plan. Old MAP routes redirect here. */
+export type MapTab = "results" | "test" | "year" | "reports" | "plan";
+export const MAP_TABS: readonly MapTab[] = ["results", "test", "year", "reports", "plan"];
 export const mapTabOf = (v: unknown): MapTab => (MAP_TABS.includes(v as MapTab) ? (v as MapTab) : "results");
 
 type SP = Record<string, string | string[] | undefined>;

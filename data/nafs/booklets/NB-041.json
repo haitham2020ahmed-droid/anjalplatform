@@ -1,0 +1,568 @@
+{
+  "code": "NB-041",
+  "title": "Al-Biruni: Measuring the Earth from a Mountain",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "words": 425,
+  "passage": "About a thousand years ago, a scholar named Abu Rayhan al-Biruni set himself an extraordinary challenge. He wanted to measure the size of the whole Earth without travelling around it. Al-Biruni was born in 973 in the region of Khwarazm, in present-day Uzbekistan. He studied astronomy, mathematics, geography and minerals, and he wrote well over a hundred books during his long life. Many scholars of his time already knew that the Earth was round, but measuring it accurately was still a great difficulty.\n\nIn the ninth century, scholars working for the Abbasid caliph al-Ma'mun had tried to measure it in a demanding way. Teams walked across a flat plain until the position of the stars showed that they had moved exactly one degree north or south. Then they measured the distance they had covered. Since a circle has 360 degrees, they could multiply that distance to estimate the distance around the Earth. Their method worked fairly well, but it needed large groups of people, long journeys and wide stretches of level ground.\n\nAl-Biruni wanted a method that a single, careful person could complete. While he was staying near the fort of Nandana, in what is now Pakistan, he found the ideal setting: a mountain standing beside a wide, flat plain. First, he measured the height of the mountain by observing its peak from two different points. To do this, he used trigonometry, the branch of mathematics that connects the angles and sides of triangles. Next, he climbed to the top and measured how far the horizon seemed to dip below a perfectly level line. Because the Earth curves away in every direction, that small angle, together with the height of the mountain, allowed him to calculate the radius of the planet.\n\nHis result was about 6,340 kilometres, which is remarkably close to the modern average of about 6,371 kilometres. In other words, with only simple instruments, careful observation and mathematics, he came within one per cent of the value that scientists now obtain with satellites.\n\nMeasuring the Earth was only one of al-Biruni's achievements. He also found the densities of many metals and precious stones with impressive precision. He described the cultures and sciences of India in a detailed book, and he discussed whether the Earth might turn on its own axis. In honour of his work, a crater on the Moon now carries his name. Al-Biruni's story shows that great discoveries do not always depend on expensive tools. Sometimes they depend on asking the right question and thinking creatively about how to answer it.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “extraordinary” as it is used in paragraph 1?",
+      "options": [
+        "ordinary",
+        "remarkable",
+        "simple",
+        "dangerous"
+      ],
+      "answer": "B",
+      "why": "Measuring the whole Earth without travelling around it was an unusual, remarkable challenge. “Ordinary” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “accurately” as it is used in paragraph 1?",
+      "options": [
+        "correctly",
+        "carefully",
+        "quickly",
+        "inexactly"
+      ],
+      "answer": "D",
+      "why": "“Accurately” means exactly and correctly, so its opposite is “inexactly”; “correctly” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “scholars working for the Abbasid caliph al-Ma'mun had tried to measure it in a demanding way.” What does “demanding” mean here?",
+      "options": [
+        "asking loudly for something",
+        "very modern",
+        "completely wrong",
+        "needing a lot of effort"
+      ],
+      "answer": "D",
+      "why": "The method needed large groups, long journeys and wide level ground, so it required a lot of effort."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an ADJECTIVE?",
+      "options": [
+        "climbed",
+        "careful",
+        "mountain",
+        "allowed"
+      ],
+      "answer": "B",
+      "why": "“Careful” describes the noun “person”; “climbed” and “allowed” are verbs and “mountain” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the passage is IRREGULAR (it does not simply add -s or -es)?",
+      "options": [
+        "scholars",
+        "people",
+        "stones",
+        "minerals"
+      ],
+      "answer": "B",
+      "why": "“People” is the irregular plural of “person”; the others add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “observation” in paragraph 4?",
+      "options": [
+        "obstacle",
+        "observe",
+        "obtain",
+        "orbit"
+      ],
+      "answer": "B",
+      "why": "“Observe” is the verb from which “observation” is formed. “Obtain” and “obstacle” only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “achievement” in a meaningful sentence of your own.",
+      "model": "Memorising a whole chapter of the Quran this year was the greatest achievement of my brother's life so far.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “achievement” with its meaning (something successfully done through effort)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "An “achievement” is something good that someone succeeds in doing through effort."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "“Branch” in paragraph 3 forms its plural by adding -es (branches). Which word forms its plural in the SAME way?",
+      "options": [
+        "mountain",
+        "journey",
+        "glass",
+        "degree"
+      ],
+      "answer": "C",
+      "why": "Words ending in -ch, -sh, -s, -x or -z add -es: glass → glasses; the others just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence is a QUESTION?",
+      "options": [
+        "How did al-Biruni measure the mountain?",
+        "Al-Biruni climbed to the top of the mountain.",
+        "Measure the angle carefully.",
+        "What a brilliant idea that was!"
+      ],
+      "answer": "A",
+      "why": "It asks for information and ends with a question mark; the others are a statement, a command and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Life in Ancient Uzbekistan",
+        "A Crater on the Moon",
+        "One Scholar, One Mountain, One Planet",
+        "The Wealth of the Abbasid Caliphs"
+      ],
+      "answer": "C",
+      "why": "The passage centres on how one scholar used one mountain to measure the planet; the other titles describe a minor detail or something not discussed."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the writer's main purpose?",
+      "options": [
+        "to explain how al-Biruni measured the Earth and why it matters",
+        "to teach students how to climb mountains safely",
+        "to argue that satellites are less useful than mountains",
+        "to describe the history of the fort of Nandana"
+      ],
+      "answer": "A",
+      "why": "The passage explains his method, result and other achievements, then states the lesson of his story."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Al-Biruni walked across a flat plain for many days and nights.",
+        "The stars showed the teams exactly where the Earth ended.",
+        "An earlier method worked but needed many people and long journeys.",
+        "A circle has 360 degrees, so the Earth must be a perfect circle."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 describes the earlier method and ends by showing its drawback; the 360 degrees is only one supporting detail."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did al-Biruni want a new method of measuring the Earth?",
+      "options": [
+        "The earlier method had given a completely wrong answer.",
+        "He wanted a method one careful person could complete.",
+        "The caliph ordered him to find one.",
+        "He had no access to any mountains."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: “Al-Biruni wanted a method that a single, careful person could complete.” The earlier method “worked fairly well”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a poem",
+        "an imaginary adventure story",
+        "a play",
+        "an informational text about a real scientist"
+      ],
+      "answer": "D",
+      "why": "It presents true facts, dates and achievements of a real scholar."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was the setting near the fort of Nandana ideal for al-Biruni?",
+      "options": [
+        "It had a mountain beside a wide, flat plain.",
+        "It was the place where he was born.",
+        "It had a large library of books.",
+        "It was the highest mountain in the world."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: he “found the ideal setting: a mountain standing beside a wide, flat plain.” He was born in Khwarazm."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which step did al-Biruni carry out FIRST?",
+      "options": [
+        "He calculated the radius of the Earth.",
+        "He climbed to the top of the mountain.",
+        "He measured the dip of the horizon.",
+        "He measured the height of the mountain from two points."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 begins the method with “First, he measured the height of the mountain”; climbing and measuring the dip came “Next”."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened BEFORE al-Biruni was born?",
+      "options": [
+        "A crater on the Moon was named after him.",
+        "Al-Ma'mun's scholars tried to measure the Earth.",
+        "Scientists used satellites to measure the Earth.",
+        "He wrote a book about India."
+      ],
+      "answer": "B",
+      "why": "Al-Ma'mun's scholars worked in the ninth century; al-Biruni was born in 973 (tenth century)."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what radius did al-Biruni calculate for the Earth?",
+      "options": [
+        "about 6,371 kilometres",
+        "about 360 kilometres",
+        "about 6,340 kilometres",
+        "about 973 kilometres"
+      ],
+      "answer": "C",
+      "why": "His result was “about 6,340 kilometres”; 6,371 km is the modern average."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why could the dip of the horizon help al-Biruni calculate the Earth's radius?",
+      "options": [
+        "The Earth curves away in every direction.",
+        "The mountain was perfectly flat.",
+        "The stars were close to the mountain.",
+        "The plain was below sea level."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: “Because the Earth curves away in every direction, that small angle … allowed him to calculate the radius.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe al-Biruni, based on the whole passage?",
+      "options": [
+        "lazy and careless",
+        "proud and unkind",
+        "shy and fearful",
+        "curious and creative"
+      ],
+      "answer": "D",
+      "why": "He set himself an extraordinary challenge, invented a new method and studied many subjects, showing curiosity and creativity."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did al-Biruni use trigonometry to measure the mountain?",
+      "options": [
+        "It was the only subject he had ever studied.",
+        "It told him the exact position of the stars.",
+        "It measured the temperature of the mountain air.",
+        "It connects the angles and sides of triangles."
+      ],
+      "answer": "D",
+      "why": "Trigonometry “connects the angles and sides of triangles”, so angles observed from two points could give the height."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was al-Biruni's method DIFFERENT from the method of al-Ma'mun's scholars?",
+      "options": [
+        "It needed more people and longer journeys.",
+        "It did not use mathematics at all.",
+        "It could be done by one person from a mountain.",
+        "It used satellites instead of stars."
+      ],
+      "answer": "C",
+      "why": "The earlier method needed “large groups of people, long journeys”, while al-Biruni's could be completed by “a single, careful person” using a mountain."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do al-Biruni's result and the modern measurement have in common?",
+      "options": [
+        "Both were obtained with satellites.",
+        "Both were made near the fort of Nandana.",
+        "Both give a radius of roughly 6,300–6,400 km.",
+        "Both were measured by teams walking across a plain."
+      ],
+      "answer": "C",
+      "why": "His 6,340 km and the modern 6,371 km are very close; they were obtained in different ways."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What has been one result of al-Biruni's important work?",
+      "options": [
+        "A crater on the Moon was named after him.",
+        "Mountains were no longer climbed.",
+        "Satellites stopped measuring the Earth.",
+        "The Earth stopped turning on its axis."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: “In honour of his work, a crater on the Moon now carries his name.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare al-Biruni's result with the modern measurement taken by satellites?",
+      "options": [
+        "to show that satellites are always wrong",
+        "to show how impressively accurate his result was",
+        "to explain how satellites work",
+        "to prove that the Earth is getting bigger"
+      ],
+      "answer": "B",
+      "why": "The comparison (within one per cent) helps readers see how remarkable his result was, given his simple instruments."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage contains the writer's OPINION?",
+      "options": [
+        "Al-Biruni was born in 973 in the region of Khwarazm, in present-day Uzbekistan.",
+        "Since a circle has 360 degrees, they could multiply that distance to estimate the distance around the Earth.",
+        "His result was about 6,340 kilometres.",
+        "He also found the densities of many metals and precious stones with impressive precision."
+      ],
+      "answer": "D",
+      "why": "“Impressive” is the writer's judgement; the others are facts."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “great discoveries do not always depend on expensive tools”?",
+      "options": [
+        "Expensive tools are useless.",
+        "Clever thinking can sometimes matter more than costly equipment.",
+        "Scientists should never buy tools.",
+        "Al-Biruni was too poor to buy instruments."
+      ],
+      "answer": "B",
+      "why": "The next sentence explains that discoveries can depend on asking the right question and thinking creatively."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of al-Biruni's qualities is MOST important for a scientist today?",
+      "options": [
+        "thinking creatively about how to solve a problem",
+        "travelling as far from home as possible",
+        "owning the most expensive instruments available",
+        "working on only one subject for his whole life"
+      ],
+      "answer": "A",
+      "why": "The passage's lesson is that discoveries come from asking the right question and thinking creatively."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message the writer wants readers to remember?",
+      "options": [
+        "The Moon has many craters named after scholars.",
+        "Mountains are too dangerous for scientists to climb.",
+        "Careful thinking and creativity can lead to great discoveries.",
+        "Satellites were first imagined by al-Biruni."
+      ],
+      "answer": "C",
+      "why": "The final two sentences state this message directly."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling does the writer most clearly show towards al-Biruni?",
+      "options": [
+        "sympathy",
+        "admiration",
+        "disappointment",
+        "suspicion"
+      ],
+      "answer": "B",
+      "why": "Words like “extraordinary”, “remarkably close” and “impressive precision” show admiration."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "where al-Biruni was born and when",
+        "what result he obtained for the radius",
+        "how he turned the angle and height into the radius",
+        "why the earlier method was difficult to carry out"
+      ],
+      "answer": "C",
+      "why": "The passage says the angle and height “allowed him to calculate the radius” but does not show the calculation."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A student measures the height of a tower using angles and triangles.",
+        "A scholar jumps from a mountain to the Moon.",
+        "The horizon moves closer when someone shouts.",
+        "A mountain grows taller so it can be measured."
+      ],
+      "answer": "A",
+      "why": "Measuring height with angles and trigonometry is a real method; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the passage?",
+      "options": [
+        "How One Scholar Measured Our Planet",
+        "The Mountain That Disappeared",
+        "A Race Across the Plain",
+        "The Lost Books of Khwarazm"
+      ],
+      "answer": "A",
+      "why": "The passage focuses on how al-Biruni measured the Earth and on his other achievements."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Imagine that al-Biruni could not find any mountain beside a flat plain. Suggest a different ending: write two or three sentences explaining what he might have done instead.",
+      "model": "Without a suitable mountain, al-Biruni might have climbed a tall tower beside the sea and measured how far the horizon dipped from there. If that was not possible, he could have organised a smaller team to repeat the method of al-Ma'mun's scholars, measuring the distance for one degree of the stars.",
+      "rubric": [
+        "2 = a clear, logical new ending or solution that fits the facts and ideas of the passage",
+        "1 = an answer is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any logical answer that uses ideas from the passage (angles, heights, the curve of the Earth, the earlier method) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, what is the BEST way for a student to solve a difficult problem?",
+      "options": [
+        "Give up if there are no expensive tools to use.",
+        "Ask the right question and think creatively about a method.",
+        "Wait patiently for someone else to find the answer.",
+        "None of the above"
+      ],
+      "answer": "B",
+      "why": "The passage ends by saying discoveries depend on asking the right question and thinking creatively."
+    }
+  ]
+}

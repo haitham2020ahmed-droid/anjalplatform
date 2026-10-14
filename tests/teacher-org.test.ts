@@ -43,7 +43,7 @@ describe("one place per page (menus, Home, hubs)", () => {
     for (const i of TEACHER_MENU) { assert.ok(isLineIcon(i.line), `${i.href}: line icon`); assert.ok(hasAr(i.label), i.label); }
     assert.equal(new Set(TEACHER_MENU.map((i) => i.line)).size, TEACHER_MENU.length, "one line icon per entry");
     assert.deepEqual(TEACHER_MENU.filter((i) => !i.group).map((i) => i.href),
-      ["/teacher", "/teacher/students", "/admin/curriculum-map", "/teacher/plans", "/teacher/assessments", "/teacher/writing", "/teacher/reading", "/teacher/map-center", "/teacher/reports"]);
+      ["/teacher", "/teacher/students", "/admin/curriculum-map", "/teacher/plans", "/teacher/assigned", "/teacher/assessments", "/teacher/writing", "/teacher/reading", "/teacher/learn", "/teacher/map-center", "/teacher/reports"]);
     assert.ok(TEACHER_MENU.filter((i) => i.group).every((i) => i.group === MORE));
     // the calm side menu draws the line icons for teachers
     const nav = read("src/components/ui/side-nav.tsx");
@@ -51,7 +51,7 @@ describe("one place per page (menus, Home, hubs)", () => {
     assert.match(read("src/components/app-shell.tsx"), /variant=\{calm \? "calm" : "default"\}/);
   });
 
-  test("Teacher Home repeats no menu page (numbers, Needs attention and Find a skill only)", () => {
+  test("Teacher Home repeats no menu page as a tile (owner r67: only the small shortcuts row, tested in teacher-home-compact)", () => {
     const home = read("src/app/teacher/page.tsx");
     // (a contextual action such as "Create Plan" for one stuck student, with the skills filled in, is not a page tile)
     for (const i of TEACHER_MENU.filter((x) => x.href !== "/teacher")) {
@@ -66,8 +66,9 @@ describe("one place per page (menus, Home, hubs)", () => {
     for (const h of ["/student/readmaster", "/teacher/readrise", "/teacher/fluency"]) assert.ok(reading.includes(`"${h}"`), h);
     assert.ok(!read("src/app/teacher/students/page.tsx").includes("/teacher/reports"), "Needs help is a report (Reports → Skills)");
     const map = read("src/app/teacher/map-center/page.tsx");
-    // the MAP tabs row shows on Results and on the MAP Test tab (the old MAP practice test page is merged into it)
-    assert.match(map, /\(tab === "results" \|\| tab === "test"\) && \(/, "the MAP tabs row shows on Results and MAP Test only");
+    // the MAP tabs row shows on Results, the MAP Test tab (the old MAP practice test page is merged into it) and the
+    // Year plan (owner r67)
+    assert.match(map, /\(tab === "results" \|\| tab === "test" \|\| tab === "year"\) && \(/, "the MAP tabs row shows on Results, MAP Test and Year plan only");
     assert.match(map, /\/teacher\/map-entry/); assert.match(map, /tab: "test"/);
     assert.match(map, /back: \{ href: "\/teacher\/reports", label: "Reports" \}/, "MAP reports go back to Reports");
     assert.match(map, /back: \{ href: "\/teacher\/plans", label: "Plans" \}/, "the MAP plan goes back to Plans");
@@ -77,7 +78,8 @@ describe("one place per page (menus, Home, hubs)", () => {
     for (const r of REPORTS) {
       const u = openReportUrl(r, { classId: "c1", firstStudent: "s1" })!;
       assert.ok(!menu.has(pathOf(u)) || pathOf(u) === "/teacher/map-center", `${r.key} repeats a menu page`);
-      for (const other of ["/teacher/assessments", "/teacher/readrise", "/teacher/fluency", "/teacher/diagnostic", "/teacher/students/"]) assert.ok(!u.startsWith(other), `${r.key}: ${other} lives elsewhere`);
+      // r67: the Reports hub's Students group IS the one student file (/teacher/students/[id]) — linked, not copied
+      for (const other of ["/teacher/assessments", "/teacher/readrise", "/teacher/fluency", "/teacher/diagnostic"]) assert.ok(!u.startsWith(other), `${r.key}: ${other} lives elsewhere`);
     }
     assert.equal(new Set(REPORTS.map((r) => pathOf(openReportUrl(r, { classId: "c1", firstStudent: "s1" })!) + (r.key.startsWith("map-") ? r.key : ""))).size, REPORTS.length, "no two cards open the same page");
   });
@@ -144,13 +146,13 @@ describe("NAFS: Grade 6 teachers and admins only", () => {
 });
 
 describe("Reports: open at once, the report bar, redirects", () => {
-  test("five groups of cards; every report opens straight away on the current term (the Students dashboard on the class)", () => {
-    assert.deepEqual(REPORT_CATEGORIES.map((c) => c.key), ["Class", "Student", "Skills", "MAP", "Family"]);
+  test("four groups of cards (r67); every report opens straight away on the current term (the Students dashboard on the class)", () => {
+    assert.deepEqual(REPORT_CATEGORIES.map((c) => c.key), ["My class", "Students", "Programs", "Follow-up"]);
     assert.equal(DEFAULT_PERIOD, "term");
     assert.equal(openReportUrl(reportByKey("class-dashboard")!, { classId: "c1" }), "/teacher/progress?classId=c1");
     assert.match(openReportUrl(reportByKey("practice")!, { classId: "c1" })!, /range=TERM/);
     assert.match(openReportUrl(reportByKey("grammar")!, { classId: "c1" })!, /days=90/);
-    assert.equal(openReportUrl(reportByKey("student-file")!, { classId: "c1", firstStudent: "s9" }), "/admin/student-file/s9", "a student report opens on the class's first student");
+    assert.equal(openReportUrl(reportByKey("student-file")!, { classId: "c1", firstStudent: "s9" }), "/teacher/students/s9", "a student report opens on the class's first student (r67: the one student file)");
     assert.equal(openReportUrl(reportByKey("student-file")!, { classId: "c1" }), null);
     for (const r of REPORTS) assert.ok(isLineIcon(r.line), r.key);
     const page = read("src/app/teacher/reports/page.tsx");
@@ -200,16 +202,17 @@ describe("Reports: open at once, the report bar, redirects", () => {
     assert.deepEqual(files("grammar"), ["PDF file", "Excel", "CSV"]);
     assert.deepEqual(files("class-dashboard"), ["Excel · Reading", "Excel · Language"]);
     for (const r of REPORTS) for (const f of r.files?.({ classId: "c1", period: "term", scope: "class" }) ?? []) assert.ok(hasAr(f.label), f.label);
-    assert.ok(reportByKey("family-progress")!.send);
+    assert.ok(reportByKey("family-reports")!.send, "r67: Send to family lives on the Family Reports card");
     // after sending, back to the same report (same-site report pages only)
     const act = read("src/app/teacher/reports/actions.ts");
     assert.match(act, /redirect\(backTo\(f, classId, msg\)\)/);
     assert.match(act, /\^\\\/\(teacher\|map-report\|admin\\\/student-file\)/);
   });
 
-  test("redirects: old MAP routes still open MAP views; the Needs help section has its own report page", () => {
+  test("redirects: old MAP routes still open MAP views; Needs help merged into Mistakes and root causes (r67)", () => {
     for (const r of ["map-plans", "map-reports", "growth", "map-overview", "map-recommendations", "map-skill-plan", "personal-plan"]) assert.match(read(`src/app/teacher/${r}/page.tsx`), /redirect\(mapCenterHref\(/, r);
-    assert.match(read("src/app/teacher/reports/needs-help/page.tsx"), /repeatedMistakes\(repo, actor/);
+    assert.match(read("src/app/teacher/reports/errors/page.tsx"), /repeatedMistakes\(repo, actor/);
+    assert.match(read("src/app/teacher/reports/needs-help/page.tsx"), /redirect\(`\/teacher\/reports\/errors/);
     assert.match(read("src/components/ui/side-nav.tsx"), /tab === "reports" \? "\/teacher\/reports"/, "MAP reports light up Reports in the menu");
   });
 

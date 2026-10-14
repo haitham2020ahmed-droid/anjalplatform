@@ -1,0 +1,468 @@
+{
+ "code": "LN-026",
+ "title": "Developing characters and point of view in stories",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.3.a",
+  "W.5.3.b"
+ ],
+ "families": [
+  "writing-narrative"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0156",
+  "L-0179",
+  "L-0264",
+  "L-0283",
+  "L-0325"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Show your character",
+     "text": "Readers want to **know** your characters.\n\nYou can show what a character is like by what they **say** and what they **do**."
+    },
+    {
+     "title": "Say and do",
+     "text": "**Tell:** Nasser was happy.\n\n**Show with doing:** Nasser jumped up and down.\n\n**Show with saying:** \"This is the best day ever!\" said Nasser."
+    },
+    {
+     "title": "Pick a way",
+     "text": "1. Think: **How does my character feel?**\n2. Write something they **do** that shows it.\n3. Or write something they **say** that shows it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The story tells you how the character **feels**.\n\n1. Read the sentences.\n2. Find the feeling: happy, sad, scared, kind?\n3. Pick the action or words that match **that** feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda saw a little boy crying.",
+      "role": "other"
+     },
+     {
+      "t": "She knelt down and gave him her tissue.",
+      "role": "key"
+     },
+     {
+      "t": "\"Don't worry, we will find your mum,\" she said.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writer does not say \"Huda was kind\". Her **action** (giving a tissue) and her **words** (we will find your mum) **show** it."
+   },
+   "together": {
+    "passage": "Sami lost his toy car. He looked under his bed. He looked in the garden. He could not find it anywhere. It was Friday.",
+    "stem": "Which sentence best shows how Sami feels?",
+    "options": [
+     "Sami had a red toy car.",
+     "Sami sat down and cried, \"My car is gone!\"",
+     "Sami's bed is big.",
+     "The garden had flowers."
+    ],
+    "answer": 1,
+    "hint": "Does that sentence show a feeling? Think about how you feel when you lose a toy.",
+    "good": "Yes! Crying and his words show that Sami is sad."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami lost his toy car.",
+     "He looked under his bed.",
+     "He looked in the garden.",
+     "He could not find it anywhere.",
+     "It was Friday."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer showed Sami is sad. Tap 2 sentences that show why he feels sad.",
+    "wrong": "This sentence tells where he looked or what day it was. Find the sentences about losing the car."
+   },
+   "checks": [
+    {
+     "passage": "Lina is scared of the dark.",
+     "stem": "Which sentence shows this with an action?",
+     "options": [
+      "Lina likes red.",
+      "Lina has a small grey cat that sleeps on her bed every night.",
+      "Lina went to school.",
+      "Lina pulled her blanket over her head when the lights went out."
+     ],
+     "answer": 3,
+     "why": "Hiding under the blanket shows she is scared."
+    },
+    {
+     "passage": "Fahad is excited about his trip.",
+     "stem": "Which sentence shows this with words?",
+     "options": [
+      "Fahad packed a small bag with his clothes and shoes.",
+      "Fahad was in his room.",
+      "\"I can't wait to see the sea!\" shouted Fahad.",
+      "Fahad ate rice."
+     ],
+     "answer": 2,
+     "why": "His words and shouting show he is excited."
+    },
+    {
+     "passage": "Which sentence SHOWS that Maha is kind?",
+     "stem": "Choose one.",
+     "options": [
+      "Maha shared her lunch with a new girl.",
+      "Maha is a girl.",
+      "Maha has long hair and a blue school bag.",
+      "Maha is ten."
+     ],
+     "answer": 0,
+     "why": "Sharing lunch is a kind action."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "Pretend **you** are the character.\n\nWhat would you **do** with your body? What would you **say**? Write that!",
+    "example": "Feeling: **angry**.\n\nDo: **Ali stamped his foot.** Say: **\"That is not fair!\"**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Techniques for character",
+     "text": "Writers use **techniques** to build a character:\n\n1. **Dialogue:** what the character says.\n2. **Actions:** what the character does.\n3. **Thoughts:** what the character thinks.\n\nEach one **shows** the reader what the character is like."
+    },
+    {
+     "title": "Point of view",
+     "text": "**Point of view** is who tells the story.\n\n**First person:** the narrator is in the story and uses **I** and **we**. \"I opened the gate.\"\n\n**Third person:** the narrator is outside the story and uses **he**, **she**, **they**. \"She opened the gate.\""
+    },
+    {
+     "title": "Stay in one point of view",
+     "text": "Once you choose a point of view, **keep it**.\n\n**Mixed up:** I ran to the door. She was scared.\n(Is \"she\" the narrator?)\n\n**Clear:** I ran to the door. I was scared."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the right sentence, check **two things** in the story.\n\n1. **Who is telling it?** Look for I/we or he/she.\n2. **What is the character like?** Look at what they say and do.\n3. Pick the sentence that keeps the same point of view **and** fits the character."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I held the baby goat close.",
+      "role": "key"
+     },
+     {
+      "t": "Its heart was beating fast against my arm.",
+      "role": "detail"
+     },
+     {
+      "t": "\"It's all right,\" I whispered. \"You're safe now.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "The story is in **first person** (I, my). The **dialogue** (\"You're safe now\") and **action** (holding the goat close) show that the narrator is gentle and caring."
+   },
+   "together": {
+    "passage": "I had practised my speech for a whole week. When my name was called, I walked slowly to the front of the class. My knees felt weak, and my mouth was dry. I looked at my notes. The classroom had twenty desks.",
+    "stem": "Which sentence should come next to keep the point of view and develop the narrator?",
+    "options": [
+     "He took a deep breath and smiled at his friends.",
+     "The teacher had a blue pen.",
+     "I took a deep breath and told myself, \"You can do this.\"",
+     "They looked out of the window."
+    ],
+    "answer": 2,
+    "hint": "Who is telling the story: I, or he? And what is the narrator feeling?",
+    "good": "Yes! It stays in first person (I) and shows the nervous narrator trying to be brave."
+   },
+   "evidence": {
+    "sentences": [
+     "I had practised my speech for a whole week.",
+     "When my name was called, I walked slowly to the front of the class.",
+     "My knees felt weak, and my mouth was dry.",
+     "I looked at my notes.",
+     "The classroom had twenty desks."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer stayed in first person. Tap 2 sentences that show the story is told by \"I\".",
+    "wrong": "This sentence does not use I, my or me. Find the sentences with I or my."
+   },
+   "checks": [
+    {
+     "passage": "Use dialogue to show that Yasser is proud of his drawing.",
+     "stem": "Which sentence does this?",
+     "options": [
+      "\"Look, I drew every feather on this falcon!\" Yasser said, holding up his page.",
+      "Yasser drew a falcon with a sharp grey pencil at his desk after school today.",
+      "The page was white.",
+      "Yasser had pencils."
+     ],
+     "answer": 0,
+     "why": "Yasser's words and how he holds up the page show his pride."
+    },
+    {
+     "passage": "Story in third person: \"Rana opened the old box.\"",
+     "stem": "Which sentence keeps the same point of view?",
+     "options": [
+      "I found a letter inside.",
+      "She found a letter inside.",
+      "We found a letter inside.",
+      "My letter was inside."
+     ],
+     "answer": 1,
+     "why": "Third person uses she, not I, we or my."
+    },
+    {
+     "passage": "Use thoughts to show that Majed is worried.",
+     "stem": "Which sentence does this?",
+     "options": [
+      "Majed walked home.",
+      "Majed's bag was heavy.",
+      "Majed liked football and played it with his cousins.",
+      "What if I forgot my homework at school? Majed thought."
+     ],
+     "answer": 3,
+     "why": "His thoughts show the reader that he is worried."
+    }
+   ],
+   "again": {
+    "title": "I or she?",
+    "text": "Look at the first sentence of the story.\n\n**I** → keep using I, me, my.\n**He / She** → keep using he, she, his, her.",
+    "example": "\"**I** saw a shooting star. **I** made a wish.\" ✔\n\n\"**I** saw a shooting star. **She** made a wish.\" ✘ (Who is she?)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Deeper point of view",
+     "text": "A **first-person** narrator can only tell what **they** see, hear, think and feel. They cannot know another character's private thoughts, only guess from clues.\n\nThis limit makes the story feel personal and real."
+    },
+    {
+     "title": "Thoughts and feelings",
+     "text": "In first person, the narrator's **thoughts** develop the point of view:\n\n\"Everyone laughed at my joke, but I noticed Amal didn't. Had I hurt her feelings?\"\n\nThe narrator **guesses** about Amal from what she sees."
+    },
+    {
+     "title": "Using a given technique",
+     "text": "Sometimes you are asked to use a **specific technique**: dialogue, action, thoughts, or how others react.\n\nRead the task carefully and choose the sentence that uses **that** technique, not just any good sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose a sentence, check the **narrator's point of view** in the story.\n\n1. Find who the narrator is (I, or he/she).\n2. Ask: **What can this narrator know?** Their own thoughts, and what they see and hear.\n3. Reject sentences that read another character's mind or switch the narrator."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I watched my brother stare at his exam paper.",
+      "role": "detail"
+     },
+     {
+      "t": "He chewed his pencil and kept glancing at the clock.",
+      "role": "key"
+     },
+     {
+      "t": "He must be stuck on a hard question, I thought.",
+      "role": "main"
+     }
+    ],
+    "explain": "The first-person narrator cannot read her brother's mind. She **observes** his actions (chewing, glancing) and then **guesses** in her own thoughts. That keeps the point of view consistent."
+   },
+   "together": {
+    "passage": "My best friend Noor and I had planned the class party for weeks. On the day, I arrived early with the decorations. Noor came in late, carrying a small box, and she would not look at me. Her face was pale, and she held the box tightly. I wondered what was wrong. Outside, it was starting to rain.",
+    "stem": "Which sentence best continues the story in the same point of view?",
+    "options": [
+     "Maybe she had broken something, I thought, or maybe she was afraid I would be angry.",
+     "Noor thought, I broke the cake, and now my friend will be furious with me.",
+     "Noor's heart was full of fear that her friend would shout.",
+     "They both walked to the hall."
+    ],
+    "answer": 0,
+    "hint": "Who is the narrator? Can she know what Noor is thinking, or only guess?",
+    "good": "Yes! The narrator cannot read Noor's mind, so she guesses from what she sees, in her own thoughts."
+   },
+   "evidence": {
+    "sentences": [
+     "My best friend Noor and I had planned the class party for weeks.",
+     "On the day, I arrived early with the decorations.",
+     "Noor came in late, carrying a small box, and she would not look at me.",
+     "Her face was pale, and she held the box tightly.",
+     "I wondered what was wrong.",
+     "Outside, it was starting to rain."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The narrator guesses from what she observes. Tap 2 sentences that show the clues she sees in Noor.",
+    "wrong": "This sentence gives background, shows the narrator's own action, or tells about the weather. Find the sentences that show Noor's behaviour."
+   },
+   "checks": [
+    {
+     "passage": "First-person story. The narrator is watching his grandfather fix a radio.",
+     "stem": "Which sentence keeps the point of view?",
+     "options": [
+      "Grandfather thought the radio was hopeless.",
+      "Grandfather secretly hoped I would not see his mistake.",
+      "Grandfather frowned, and I guessed the radio was harder to fix than he expected.",
+      "Grandfather's mind was full of old memories."
+     ],
+     "answer": 2,
+     "why": "The narrator sees the frown and guesses. The others read Grandfather's mind."
+    },
+    {
+     "passage": "Task: Use how OTHER characters react to show that Lama is a talented singer.",
+     "stem": "Which sentence uses this technique?",
+     "options": [
+      "Lama sang a song.",
+      "Lama practised her songs every day after school, even when she was tired from her lessons.",
+      "Lama thought she sang well.",
+      "When Lama finished, the whole hall was silent for a moment, and then everyone stood up and clapped."
+     ],
+     "answer": 3,
+     "why": "The audience's reaction shows her talent. It uses the given technique."
+    },
+    {
+     "passage": "Task: Use the character's ACTIONS to show that Sultan is careless.",
+     "stem": "Which sentence uses this technique?",
+     "options": [
+      "\"I am careless,\" Sultan said.",
+      "Sultan left his new bike in the rain again, and its chain was rusty.",
+      "Sultan's friends say he is careless.",
+      "Sultan thought about being more careful."
+     ],
+     "answer": 1,
+     "why": "His action (leaving the bike in the rain again) shows carelessness."
+    }
+   ],
+   "again": {
+    "title": "What can the narrator know?",
+    "text": "Imagine you are the narrator wearing a **camera on your head**.\n\nYou can show what the camera sees and what **you** think. You **cannot** show what is inside another person's head.",
+    "example": "✔ \"Sara's eyes filled with tears. **I think she is upset,** I thought.\"\n\n✘ \"Sara thought, I am so upset.\" (The narrator cannot know that!)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Building a convincing character",
+     "text": "Strong characters are revealed through **several techniques working together**: dialogue, actions, thoughts, appearance and how others respond.\n\nThe best writers choose techniques that **show** a trait without naming it, and let readers draw the conclusion."
+    },
+    {
+     "title": "Point of view as a lens",
+     "text": "Point of view controls **what** the reader learns and **how** they feel about it.\n\nA first-person narrator may be **unreliable**: they may misjudge others or hide their own feelings. A third-person limited narrator follows one character's thoughts closely. Every detail must fit the chosen lens."
+    },
+    {
+     "title": "Revising with a technique",
+     "text": "When asked to use a given technique, ask:\n\n1. Does my sentence actually use **that** technique?\n2. Does it reveal the intended **trait**?\n3. Does it stay within the **point of view**?\n\nA sentence can be vivid and still fail one of these tests."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To pick the best revision, prove the **point of view** and the **trait** from the text.\n\n1. Identify the narrator and whose thoughts the reader can access.\n2. Find the sentences that establish the character's trait.\n3. Choose the option that uses the required technique, reveals that trait and stays in the same point of view."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The story follows Tariq in third person; only his thoughts are shown.",
+      "role": "other"
+     },
+     {
+      "t": "Tariq glanced at the trophy on his cousin's shelf and quickly looked away.",
+      "role": "key"
+     },
+     {
+      "t": "\"Nice,\" he said, a little too loudly.",
+      "role": "key"
+     },
+     {
+      "t": "He told himself it did not matter, but he kept thinking about it all evening.",
+      "role": "main"
+     }
+    ],
+    "explain": "In **third person limited**, we see only Tariq's thoughts. The **action** (looking away), **dialogue** (\"Nice\", too loudly) and **thoughts** (it did not matter, but…) together reveal his hidden **jealousy** without ever naming it."
+   },
+   "together": {
+    "passage": "The story follows Dana in third person; the reader sees only her thoughts. Dana had led the science club for two years, and she rarely asked anyone for help. When the new student, Reem, suggested a different design for the solar oven, Dana's jaw tightened. She said nothing and kept cutting the cardboard, her scissors snapping faster than before. Later that night, she looked at Reem's sketch again. The design was simple, and it might actually work better than hers.",
+    "stem": "The writer wants to add a sentence that uses Dana's THOUGHTS to show she is proud but beginning to change. Which is best?",
+    "options": [
+     "Reem thought Dana would never listen to her ideas.",
+     "Dana stood up and shouted that her design was the best.",
+     "Everyone in the club agreed that Reem's design was much better than Dana's.",
+     "It's just one idea, Dana told herself, but maybe I don't have to solve everything alone."
+    ],
+    "answer": 3,
+    "hint": "Does the choice use Dana's thoughts, stay in her point of view, and show both pride and change?",
+    "good": "Yes! It is Dana's own thought: she resists a little (\"just one idea\") but starts to accept help, and it stays in her point of view."
+   },
+   "evidence": {
+    "sentences": [
+     "The story follows Dana in third person; the reader sees only her thoughts.",
+     "Dana had led the science club for two years, and she rarely asked anyone for help.",
+     "When the new student, Reem, suggested a different design for the solar oven, Dana's jaw tightened.",
+     "She said nothing and kept cutting the cardboard, her scissors snapping faster than before.",
+     "Later that night, she looked at Reem's sketch again.",
+     "The design was simple, and it might actually work better than hers."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer showed a proud character beginning to change. Tap 2 sentences that show Dana's pride.",
+    "wrong": "This sentence explains the point of view or shows the change beginning. Find the sentences that show her pride."
+   },
+   "checks": [
+    {
+     "passage": "A first-person narrator insists she is not afraid of the dark, but the writer wants readers to suspect she is.",
+     "stem": "Which detail best develops this?",
+     "options": [
+      "\"I am terrified of the dark,\" I admitted.",
+      "\"I'm not scared at all,\" I said, switching on every light in the house before I sat down.",
+      "The house was dark.",
+      "My little brother was afraid of the dark, so he always slept with a small lamp on."
+     ],
+     "answer": 1,
+     "why": "Her words deny fear, but her action reveals it, so readers see more than she admits."
+    },
+    {
+     "passage": "Third-person limited story following Hamza. Draft sentence: \"Hamza's teacher secretly thought he was the cleverest student in the class.\"",
+     "stem": "What is the problem with this sentence?",
+     "options": [
+      "It reveals the teacher's private thoughts, which Hamza cannot know.",
+      "It uses too much dialogue for this story.",
+      "It is written in the first person.",
+      "It has no verb in it."
+     ],
+     "answer": 0,
+     "why": "In third person limited, only Hamza's thoughts are available, so the teacher's secret thoughts break the point of view."
+    },
+    {
+     "passage": "Task: Use APPEARANCE and ACTION together to show that an old shopkeeper is hard-working.",
+     "stem": "Which sentence uses both techniques?",
+     "options": [
+      "The shopkeeper was very hard-working.",
+      "\"I work hard,\" said the shopkeeper.",
+      "The shopkeeper, his sleeves rolled up and his hands dusty, lifted another heavy sack onto the shelf.",
+      "People in the neighbourhood often said that the shopkeeper worked harder than anyone they knew."
+     ],
+     "answer": 2,
+     "why": "It shows appearance (sleeves, dusty hands) and action (lifting sacks) together."
+    }
+   ],
+   "again": {
+    "title": "Three tests",
+    "text": "Before you choose, test the sentence three times:\n\n1. **Technique:** does it use the one asked for?\n2. **Trait:** does it show the right quality?\n3. **Lens:** does it stay in the point of view?",
+    "example": "Task: thoughts, show **nervous**, first person.\n\n✔ **\"What if they laugh at me?\" I wondered, twisting my sleeve.**"
+   }
+  }
+ }
+}

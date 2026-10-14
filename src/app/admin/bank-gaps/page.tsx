@@ -5,12 +5,13 @@ import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { bankGaps, levelGaps, MIN_PER_LEVEL, practiceGaps } from "@/server/map/bank-gaps";
+import { LineIcon } from "@/components/ui/line-icon";
 
 /** the displayed level words (the counts keep their Below / On / Above keys) */
 const LEVEL_WORD = { Below: "Approaching", On: "Meeting", Above: "Exceeding" } as const;
 
 export const metadata = { title: "Question bank gaps" };
-const STATUS = { GAP: ["🔴 No questions", "bg-red-100 text-red-900"], LOW: ["🟠 Too few", "bg-amber-100 text-amber-900"], OK: ["🟢 OK", "bg-emerald-100 text-emerald-900"] } as const;
+const STATUS = { GAP: ["No questions", "bg-red-100 text-red-900"], LOW: ["Too few", "bg-amber-100 text-amber-900"], OK: ["OK", "bg-emerald-100 text-emerald-900"] } as const;
 
 /** 🕳 Where to write questions first: questions per MAP goal area against the students who need it. */
 export default async function BankGapsPage() {
@@ -20,13 +21,13 @@ export default async function BankGapsPage() {
   const grades = [...new Set(rows.map((r) => r.grade))];
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="🕳" title="Question Bank Gaps"
-        subtitle="For each grade and MAP goal area: the published questions on its skills, and how many students have it as their weakest area. 🔴 and 🟠 first: that is where new questions help most (aim for 5+ questions per student who needs the area).">
-        <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">➕ New question</Link>
-        <Link href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📥 Import questions</Link>
-        {can(actor, "questions:generate") && <Link href="/admin/question-bank/generate" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">✨ Generate with AI</Link>}
-        <Link href="/admin/item-quality" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">🔬 Question quality</Link>
-        {actor.role !== "TEACHER" && <Link href="/admin/coverage" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">📊 Coverage Report</Link>}
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Back" }} icon="grid" title="Question Bank Gaps"
+        subtitle="For each grade and MAP goal area: the published questions on its skills, and how many students have it as their weakest area. “No questions” and “Too few” first: that is where new questions help most (aim for 5+ questions per student who needs the area).">
+        <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple"><LineIcon name="plus" className="me-1 inline-block h-4 w-4 align-[-3px]" />New question</Link>
+        <Link href="/admin/questions/import?to=curriculum" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="inbox" className="me-1 inline-block h-4 w-4 align-[-3px]" />Import questions</Link>
+        {can(actor, "questions:generate") && <Link href="/admin/question-bank/generate" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="sparkle" className="me-1 inline-block h-4 w-4 align-[-3px]" />Generate with AI</Link>}
+        <Link href="/admin/item-quality" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="search" className="me-1 inline-block h-4 w-4 align-[-3px]" />Question quality</Link>
+        {actor.role !== "TEACHER" && <Link href="/admin/coverage" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="chart" className="me-1 inline-block h-4 w-4 align-[-3px]" />Coverage Report</Link>}
       </PageHeader>
       {actor.role !== "TEACHER" && <BankTabs />}
       {gaps.length > 0 && (

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useT } from "@/i18n/client";
 import { BTN } from "@/components/ui-kit/tokens";
 import type { SendPreview, SendScopeKind, SendScopeResult } from "@/server/curriculum-map/send-scope";
+import { Combo } from "@/components/ui/combo";
 
 /** Curriculum = blue (one colour per source) */
 export const BTN_CURRICULUM = `${BTN} bg-blue-700 text-white hover:bg-blue-800`;
@@ -127,16 +128,12 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
               </div>
               {kind === "SELECTION" && (
                 <label className="block"><span className="text-sm font-semibold text-slate-700">{t("Selection")}</span>
-                  <select value={selection} onChange={(e) => setSelection(e.target.value)} className={input}>
-                    {units.map((u) => <optgroup key={u.code} label={t("Unit {n}", { n: u.n })}>{u.lessons.map((l) => <option key={l.code} value={l.code}>{l.name}</option>)}</optgroup>)}
-                  </select>
+                  <Combo label={t("Selection")} value={selection} onChange={setSelection} options={units.flatMap((u) => u.lessons.map((l) => ({ value: l.code, label: l.name, group: t("Unit {n}", { n: u.n }) })))} className="mt-1" />
                 </label>
               )}
               {kind === "UNIT" && (
                 <label className="block"><span className="text-sm font-semibold text-slate-700">{t("Unit")}</span>
-                  <select value={unit} onChange={(e) => setUnit(e.target.value)} className={input}>
-                    {units.map((u) => <option key={u.code} value={u.code}>{t("Unit {n}", { n: u.n })}</option>)}
-                  </select>
+                  <Combo label={t("Unit")} value={unit} onChange={setUnit} options={units.map((u) => ({ value: u.code, label: t("Unit {n}", { n: u.n }) }))} className="mt-1" />
                 </label>
               )}
               {kind === "UNITS" && (

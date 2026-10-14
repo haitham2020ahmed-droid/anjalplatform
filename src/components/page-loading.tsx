@@ -6,8 +6,8 @@ import { LiteriseLogo } from "./brand/literise-logo";
  */
 export function PageLoading({ blocks = 3 }: { blocks?: number }) {
   return (
-    <div className="min-h-screen">
-      <header className="border-b border-slate-200 bg-white">
+    <div className="skeleton-frame min-h-screen">
+      <header className="skeleton-top border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
           <LiteriseLogo size="sm" />
         </div>

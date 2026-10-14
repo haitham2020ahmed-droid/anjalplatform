@@ -19,6 +19,7 @@ import { coordinatorGrades, readableClasses } from "../teacher/coordinators";
 import { mapSummaries, practiceStats, studentNames } from "./student-data";
 import { statusOf } from "./progress";
 import { isHiddenSkill } from "../skills/master";
+import { safeIfBehind } from "../db/schema-errors";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -178,6 +179,11 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   // 🔴 early warning (early-warning.ts): each Urgent student is ONE open alert, raised by this same scan
   const { urgentFindings, EW_KIND } = await import("./early-warning");
   found.push(...await urgentFindings(repo, schoolId, now, weekKey(now)));
+  // 📘 automatic Learn lessons, ONLY for clear, strong problems on one skill (learn/auto.ts); never breaks the scan
+  try {
+    const { autoLearnScan } = await import("../learn/auto");
+    await safeIfBehind("learn.auto", () => autoLearnScan(repo, schoolId, now, new Set(found.filter((f) => f.kind === EW_KIND).map((f) => f.studentId))), 0);
+  } catch (e) { console.error("learn.auto scan failed", e); }
   // readiness I-5: ONE open alert per student and kind. Findings of the same kind are merged (e.g. two weak skills);
   // an alert that is still open is refreshed ("still true on …"), not raised again every week
   const merged = new Map<string, Found>();

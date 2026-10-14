@@ -1,0 +1,489 @@
+{
+ "code": "LN-019",
+ "title": "Strong concluding sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.d",
+  "W.5.2.e",
+  "W.5.3.e",
+  "W.5.4"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0054",
+  "L-0055",
+  "L-0056",
+  "L-0063",
+  "L-0064",
+  "L-0140",
+  "L-0141",
+  "L-0142",
+  "L-0143",
+  "L-0151",
+  "L-0152",
+  "L-0153",
+  "L-0255",
+  "L-0256",
+  "L-0261",
+  "L-0262",
+  "L-0269",
+  "L-0319"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "The last sentence",
+     "text": "A paragraph needs a good **ending**.\n\nThe last sentence is called the **concluding sentence**. It wraps up the paragraph."
+    },
+    {
+     "title": "Say the big idea again",
+     "text": "A good concluding sentence says the **main idea again** in new words.\n\n**Main idea:** Dogs are good friends.\n**Ending:** That is why a dog can be your best friend."
+    },
+    {
+     "title": "How to write it",
+     "text": "1. Find the first sentence (the main idea).\n2. Say it again in a new way.\n3. Start with words like **So**, **That is why** or **In the end**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The ending must match the **main idea**.\n\n1. Read the first sentence.\n2. Find what it says the paragraph is about.\n3. Pick the ending that says the **same idea** again.\n\nAn ending about something new is **not** right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Summer is my favourite season.",
+      "role": "main"
+     },
+     {
+      "t": "I can swim every day.",
+      "role": "detail"
+     },
+     {
+      "t": "We eat cold ice cream.",
+      "role": "detail"
+     },
+     {
+      "t": "That is why I love summer the most.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence says summer is the favourite season. The last sentence says it **again** in new words: **I love summer the most.**\n\nThat makes a strong ending."
+   },
+   "together": {
+    "passage": "Reading is fun for me. I read stories about animals. I read books about space. I read every night in bed.",
+    "stem": "Which sentence is the best ending for this paragraph?",
+    "options": [
+     "Space is very big.",
+     "My bed is soft.",
+     "That is why I enjoy reading so much.",
+     "Cats are animals."
+    ],
+    "answer": 2,
+    "hint": "Does that ending say the main idea again? Look at the first sentence.",
+    "good": "Yes! It says the main idea again: reading is fun."
+   },
+   "evidence": {
+    "sentences": [
+     "Reading is fun for me.",
+     "I read stories about animals.",
+     "I read books about space.",
+     "I read every night in bed."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: That is why I enjoy reading so much. Tap the sentence that gives the same main idea.",
+    "wrong": "This sentence is one detail. Find the sentence that says the big idea."
+   },
+   "checks": [
+    {
+     "passage": "Our class helps the Earth. We save paper. We turn off the lights. ____",
+     "stem": "Which is the best ending?",
+     "options": [
+      "We all help to take care of the Earth.",
+      "Lights in our classroom are very bright.",
+      "Paper is white.",
+      "I have a pencil."
+     ],
+     "answer": 0,
+     "why": "It says the main idea again: our class helps the Earth."
+    },
+    {
+     "passage": "My grandma is kind. She cooks for us. She tells us stories. ____",
+     "stem": "Which is the best ending?",
+     "options": [
+      "Stories can be long.",
+      "She lives in a small house in Taif with us.",
+      "I like soup a lot.",
+      "My grandma is the kindest person I know."
+     ],
+     "answer": 3,
+     "why": "It goes back to the main idea: grandma is kind."
+    },
+    {
+     "passage": "Water is important. We drink it. Plants need it. Animals need it too. ____",
+     "stem": "Which is the best ending?",
+     "options": [
+      "Some animals are big.",
+      "All living things need water.",
+      "I drink juice.",
+      "Plants are green."
+     ],
+     "answer": 1,
+     "why": "It wraps up the main idea and covers people, plants and animals."
+    }
+   ],
+   "again": {
+    "title": "Go back to the start",
+    "text": "The ending is like coming **home**.\n\nGo back to the first sentence and say it again in a new way.",
+    "example": "Start: **Cats are fun pets.**\n\nEnd: **So a cat can be a fun pet for anyone.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Why endings matter",
+     "text": "The concluding sentence is the **last thing** the reader reads, so it stays in their mind.\n\nIt should **sum up** the main idea or **restate** your purpose, and give a feeling that the writing is **finished**."
+    },
+    {
+     "title": "Endings for different writing",
+     "text": "**Information paragraph:** sum up what you explained. \"These features help camels survive in the desert.\"\n\n**Persuasive letter:** say again what you want. \"Please help us start a school garden this year.\""
+    },
+    {
+     "title": "Avoid weak endings",
+     "text": "1. Do not add a **new** idea at the end.\n2. Do not just stop after the last detail.\n3. Do not copy the first sentence word for word. Say it in a fresh way."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose an ending, prove what the writing is **about** or **asking for**.\n\n1. Find the sentence that states the main idea or purpose.\n2. Find the details that support it.\n3. Choose the ending that restates **that** idea or request.\n\nAn ending that brings in a new topic does **not** close the writing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Mr. Saleh,",
+      "role": "other"
+     },
+     {
+      "t": "Our class would like to visit the science centre next month.",
+      "role": "main"
+     },
+     {
+      "t": "We are studying the planets, and the centre has a planetarium.",
+      "role": "detail"
+     },
+     {
+      "t": "We hope you will allow us to take this trip.",
+      "role": "key"
+     }
+    ],
+    "explain": "The letter's purpose is in sentence 2: **visit the science centre**. The ending restates that request politely: **We hope you will allow us to take this trip.**"
+   },
+   "together": {
+    "passage": "Dear Principal, Our school should have a recycling program. Every day, students throw away many plastic bottles and paper cups. With recycling bins in each hallway, these could be used again instead of filling up rubbish dumps. Students could also take turns helping to sort the bins.",
+    "stem": "Which sentence would be the best ending for this letter?",
+    "options": [
+     "Please help us start a recycling program to keep our school clean and green.",
+     "Plastic bottles come in many shapes and sizes.",
+     "Our hallways are long, and some of them are painted blue.",
+     "Students also need more time to play at break."
+    ],
+    "answer": 0,
+    "hint": "Does that ending restate the purpose of the letter, or does it bring in a new idea?",
+    "good": "Yes! It repeats the letter's request in new words and closes politely."
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Principal,",
+     "Our school should have a recycling program.",
+     "Every day, students throw away many plastic bottles and paper cups.",
+     "With recycling bins in each hallway, these could be used again instead of filling up rubbish dumps.",
+     "Students could also take turns helping to sort the bins."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer restated the request. Tap the sentence that first states what the writer wants.",
+    "wrong": "This sentence is a detail or a greeting. Find the sentence that states the purpose of the letter."
+   },
+   "checks": [
+    {
+     "passage": "Frogs change as they grow. They start as eggs. Then they become tadpoles with tails. Later, they grow legs and lose their tails. ____",
+     "stem": "Which ending gives the best sense of closure?",
+     "options": [
+      "Some frogs are green, and some are brown or yellow.",
+      "Tadpoles swim fast.",
+      "In this way, a tiny egg becomes an adult frog.",
+      "I saw a frog once."
+     ],
+     "answer": 2,
+     "why": "It sums up the whole change from egg to frog."
+    },
+    {
+     "passage": "Dear Ms. Noura, Our class would like a reading corner. It would give us a quiet place to read. We could share books. ____",
+     "stem": "Which is the best ending for this letter?",
+     "options": [
+      "Books are made of paper and ink.",
+      "Thank you for thinking about our idea for a reading corner.",
+      "We have a long break today.",
+      "Some students read slowly."
+     ],
+     "answer": 1,
+     "why": "It goes back to the purpose (a reading corner) and closes the letter politely."
+    },
+    {
+     "passage": "Exercise is good for your body. It makes your heart strong. It helps you sleep well. ____",
+     "stem": "Which ending best restates the main idea?",
+     "options": [
+      "My brother likes to run.",
+      "Hearts have four parts.",
+      "Most people sleep at night for about eight hours.",
+      "Moving every day keeps your body healthy and strong."
+     ],
+     "answer": 3,
+     "why": "It restates that exercise is good for your body in fresh words."
+    }
+   ],
+   "again": {
+    "title": "Look back, then close",
+    "text": "Before you write the ending, **look back** at your first sentence.\n\nThen write a sentence that starts with **So**, **In this way** or **That is why**.",
+    "example": "First: **Bees are very busy insects.**\n\nEnding: **In this way, bees work hard all day long.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Ending a longer piece",
+     "text": "When writing has **several paragraphs**, the conclusion pulls them all together.\n\nIt reminds the reader of the main idea or claim and shows how the paragraphs connect."
+    },
+    {
+     "title": "Concluding an argument",
+     "text": "In argument writing, the ending should **support the claim**. It can:\n\n1. Restate the claim in new words.\n2. Remind the reader of the strongest reason.\n3. Show why the claim matters."
+    },
+    {
+     "title": "Check your ending",
+     "text": "Ask:\n\n1. Does it match the **claim or main idea**?\n2. Does it cover **all** the main points, not only one?\n3. Does it feel **finished**?\n\nIf it is about only one detail, it is too small."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an ending is right, find the **claim** and the **main points** it must cover.\n\n1. Find the sentence that states the claim or main idea.\n2. List the main reasons or points in the body.\n3. Choose the ending that matches the claim and covers **all** the points."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Students should have a short break between every two lessons.",
+      "role": "main"
+     },
+     {
+      "t": "A break lets them rest their eyes and stretch.",
+      "role": "detail"
+     },
+     {
+      "t": "It also helps them focus better in the next lesson.",
+      "role": "detail"
+     },
+     {
+      "t": "Small breaks lead to better learning, so schools should give students time to recharge.",
+      "role": "key"
+     }
+    ],
+    "explain": "The ending **restates the claim** (schools should give breaks) and connects to the reasons (rest and focus lead to better learning).\n\nIt supports the argument instead of just stopping."
+   },
+   "together": {
+    "passage": "Some people think homework should be banned, but schools should keep a small amount of it. First, homework helps students practise what they learned in class, so the lesson stays in their memory. Second, it teaches students to plan their time and work on their own. Of course, too much homework can leave students tired, so it should be short and useful. Many teachers now give fifteen to twenty minutes a night.",
+    "stem": "Which sentence is the best conclusion for this argument?",
+    "options": [
+     "Students should finish their homework before dinner.",
+     "Some students like maths homework more than writing homework.",
+     "Teachers spend many hours marking homework every week.",
+     "A small amount of homework helps students remember lessons and become independent learners."
+    ],
+    "answer": 3,
+    "hint": "Does that ending match the claim and cover all the reasons? Or is it just one detail?",
+    "good": "Yes! It restates the claim (keep a small amount) and covers both reasons: remembering and working on your own."
+   },
+   "evidence": {
+    "sentences": [
+     "Some people think homework should be banned, but schools should keep a small amount of it.",
+     "First, homework helps students practise what they learned in class, so the lesson stays in their memory.",
+     "Second, it teaches students to plan their time and work on their own.",
+     "Of course, too much homework can leave students tired, so it should be short and useful.",
+     "Many teachers now give fifteen to twenty minutes a night."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer restated the claim and the reasons. Tap 2 sentences that give the claim or the reasons it sums up.",
+    "wrong": "This sentence shows the other side or gives a fact about time. Find the claim and the reasons."
+   },
+   "checks": [
+    {
+     "passage": "An essay explains three ways people in dry places save water: covered canals, drip irrigation, and collecting rainwater.",
+     "stem": "Which conclusion best sums up the whole essay?",
+     "options": [
+      "Drip irrigation sends small drops of water straight to the roots of each plant.",
+      "Through clever methods old and new, people in dry places make every drop of water count.",
+      "Rain falls in winter in some places.",
+      "Canals can be very long."
+     ],
+     "answer": 1,
+     "why": "It covers all three methods and restates the main idea of the essay."
+    },
+    {
+     "passage": "Claim: Our town needs a public library. Reasons: students need a place to study; families cannot buy every book; a library hosts free classes.",
+     "stem": "Which conclusion best supports the claim?",
+     "options": [
+      "A library would give everyone in our town a place to learn, read and grow.",
+      "Libraries have shelves.",
+      "Some books are expensive.",
+      "I like to read mystery stories."
+     ],
+     "answer": 0,
+     "why": "It restates the claim and links it to all the reasons."
+    },
+    {
+     "passage": "Paragraph about how the Kingdom celebrates its National Day: green flags, fireworks, family gatherings and school activities. Last sentence: \"Fireworks are loud.\"",
+     "stem": "Which revision makes the best concluding sentence?",
+     "options": [
+      "Fireworks are loud and bright.",
+      "Some people stay at home with their families to watch the celebrations on TV.",
+      "Across the country, National Day brings people together to celebrate with pride.",
+      "Flags can be many colours."
+     ],
+     "answer": 2,
+     "why": "It sums up all the details and closes the paragraph with its main idea."
+    }
+   ],
+   "again": {
+    "title": "Big umbrella ending",
+    "text": "Your conclusion must be a **big umbrella**: it should cover **every** main point, not just one.",
+    "example": "Points: trees give shade, clean the air, and are homes for birds.\n\nUmbrella ending: **Trees make our city cooler, cleaner and full of life.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Conclusions with a goal",
+     "text": "A conclusion does more than repeat. Choose the **type** of conclusion that fits your goal:\n\n1. **Summary:** pulls together the main points of an explanation.\n2. **Call to action:** asks the reader to do something specific.\n3. **Reflection:** shows why the topic matters or what was learned.\n4. **Looking ahead:** shows what could happen next."
+    },
+    {
+     "title": "Matching goal and ending",
+     "text": "A persuasive letter to a council usually ends with a **call to action**. A report on how a process works usually ends with a **summary**. A personal narrative often ends with **reflection**.\n\nThe wrong type can weaken strong writing."
+    },
+    {
+     "title": "Revising a conclusion",
+     "text": "Weak conclusions often:\n\n1. Introduce a **new** argument.\n2. Merely **repeat** the opening word for word.\n3. Shrink the claim (\"maybe it would be OK\").\n\nRevise so the ending is confident, fresh and connected to the whole piece."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best conclusion, prove the writer's **goal** from the text.\n\n1. Find who the writing is for and what it wants the reader to do or understand.\n2. Find the sentences that reveal that goal.\n3. Choose the conclusion type that serves it, then the option that restates the main claim with confidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Council Members,",
+      "role": "other"
+     },
+     {
+      "t": "The empty land beside our school could become a safe park for the whole neighbourhood.",
+      "role": "main"
+     },
+     {
+      "t": "Families currently have nowhere nearby to walk, and children play in car parks.",
+      "role": "detail"
+     },
+     {
+      "t": "We ask you to vote for the park at next month's meeting, so that every family has a safe place to enjoy.",
+      "role": "key"
+     }
+    ],
+    "explain": "The goal is to persuade the council to **act**, so the ending is a **call to action**: it names the specific step (vote next month) and links it to the claim (a safe place for families)."
+   },
+   "together": {
+    "passage": "To the members of the Parents' Committee, Each afternoon, more than two hundred cars line up outside our school gate. Engines run while parents wait, filling the air that students breathe with exhaust fumes. Younger children must squeeze between bumpers to reach their families. A walking group, led by volunteer parents, could take children safely along the quiet streets to a meeting point two blocks away. Other schools that tried this report cleaner air and calmer afternoons. The plan would cost nothing but a little time from a few volunteers.",
+    "stem": "The writer wants the committee to take action. Which conclusion best achieves this goal?",
+    "options": [
+     "Cars have improved a great deal over the last fifty years.",
+     "We ask the committee to approve a trial walking group next term and to invite parents to volunteer.",
+     "In the end, perhaps some things could maybe be a little different at our school.",
+     "Each afternoon, more than two hundred cars line up outside our school gate."
+    ],
+    "answer": 1,
+    "hint": "Is that a clear call to action? Some choices bring in a new idea, sound unsure, or just copy the opening.",
+    "good": "Yes! It is a confident call to action that names the exact steps the committee should take."
+   },
+   "evidence": {
+    "sentences": [
+     "To the members of the Parents' Committee,",
+     "Each afternoon, more than two hundred cars line up outside our school gate.",
+     "Engines run while parents wait, filling the air that students breathe with exhaust fumes.",
+     "Younger children must squeeze between bumpers to reach their families.",
+     "A walking group, led by volunteer parents, could take children safely along the quiet streets to a meeting point two blocks away.",
+     "Other schools that tried this report cleaner air and calmer afternoons.",
+     "The plan would cost nothing but a little time from a few volunteers."
+    ],
+    "proof": [
+     4,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer asked for a walking group run by volunteers. Tap the 2 sentences that describe that plan.",
+    "wrong": "This sentence describes the problem or what other schools found. Find the sentences that describe the plan itself and what it needs."
+   },
+   "checks": [
+    {
+     "passage": "Personal narrative: the writer describes failing her first swimming test, practising all summer, and finally passing.",
+     "stem": "Which type of conclusion fits best?",
+     "options": [
+      "A list of swimming pool rules",
+      "A call to action asking the council to build a pool",
+      "A dictionary definition of swimming",
+      "A reflection on what she learned about not giving up"
+     ],
+     "answer": 3,
+     "why": "A personal narrative usually ends with reflection on what the experience meant."
+    },
+    {
+     "passage": "Report: explains the steps by which clouds form and produce rain.",
+     "stem": "Which conclusion is most effective?",
+     "options": [
+      "Write to your government today about rain!",
+      "Clouds can be white or grey, and some of them look like animals or mountains in the sky.",
+      "In short, water evaporates, cools into clouds and falls again as rain, a cycle that never stops.",
+      "I once got wet in the rain."
+     ],
+     "answer": 2,
+     "why": "A process report is best closed with a clear summary of the steps."
+    },
+    {
+     "passage": "An essay claims that every student should learn to cook a simple meal. Its weak conclusion: \"Maybe cooking is sort of useful sometimes.\"",
+     "stem": "Which revision is strongest?",
+     "options": [
+      "Learning to cook builds independence and healthy habits, so every student should master at least one simple meal.",
+      "Cooking is done in kitchens with pots and pans.",
+      "Some people prefer to eat at restaurants with their friends.",
+      "Maybe students could think about cooking someday."
+     ],
+     "answer": 0,
+     "why": "It restates the claim with confidence and recalls the reasons."
+    }
+   ],
+   "again": {
+    "title": "Ask: what should the reader do or think?",
+    "text": "Before writing your ending, finish this sentence:\n\n**After reading, I want my reader to…**\n\n…act → call to action. …remember the facts → summary. …understand why it matters → reflection.",
+    "example": "Goal: the reader should **join the beach clean-up**.\n\nEnding: **Bring gloves and a bag this Saturday, and help us give our beach back its shine.**"
+   }
+  }
+ }
+}

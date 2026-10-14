@@ -16,6 +16,7 @@ import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { bumpBankVersion } from "../cache/bank-version";
 import { areaByKey, classifyQuestion, MAP_AREAS, parseCcss, ccssCode, type AreaKey, type Classified } from "./nwea-area";
+import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 
 const s = (v: unknown) => String(v ?? "");
 const short = (code: unknown) => s(code).replace(/^CCSS\.ELA-LITERACY\./i, "");
@@ -89,6 +90,10 @@ function rowOf(c: QCtx, r: Classified): AreaRow {
 
 export async function classificationPreview(repo: Repo, actor: Actor): Promise<{ preview: Preview; rows: AreaRow[] }> {
   isAdmin(actor);
+  // ⚡ built from every question of the school with its options: kept while the bank is unchanged
+  return keptWhileUnchanged(repo, `mapcls.preview|${s(actor.schoolId)}`, BANK_MODELS, 5 * 60_000, () => buildPreview(repo, actor));
+}
+async function buildPreview(repo: Repo, actor: Actor): Promise<{ preview: Preview; rows: AreaRow[] }> {
   const { list } = await context(repo, s(actor.schoolId));
   const rows = list.map((c) => rowOf(c, classify(c)));
   const counts: Preview["counts"] = {};
@@ -219,8 +224,11 @@ export function previewSheet(rows: AreaRow[]): string[][] {
 /** The counts per grade and area as saved now (for the report and the bank page). */
 export async function savedCounts(repo: Repo, actor: Actor): Promise<{ grade: number | null; area: string; n: number }[]> {
   assertCan(actor, "questions:read");
+  // ⚡ every question of the school with its options: kept while the bank is unchanged
+  return keptWhileUnchanged(repo, `mapcls.saved|${s(actor.schoolId)}`, BANK_MODELS, 5 * 60_000, async () => {
   const { list } = await context(repo, s(actor.schoolId));
   const m = new Map<string, number>();
   for (const c of list) { const k = `${c.grade ?? ""}|${s(c.q.mapInstructionalArea) || "Not classified"}`; m.set(k, (m.get(k) ?? 0) + 1); }
   return [...m].map(([k, n]) => { const [g, area] = k.split("|"); return { grade: g ? Number(g) : null, area, n }; }).sort((a, b) => (a.grade ?? 99) - (b.grade ?? 99) || a.area.localeCompare(b.area));
+  });
 }

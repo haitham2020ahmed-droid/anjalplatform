@@ -1,0 +1,493 @@
+{
+ "code": "LN-113",
+ "title": "Sequence, chronology and process",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.1.2",
+  "RI.2.3",
+  "RI.3.2",
+  "RI.3.3",
+  "RI.4.5",
+  "RI.7.5",
+  "RI.8.5"
+ ],
+ "families": [
+  "sequence"
+ ],
+ "skillNames": [
+  "Text Structure: Chronology",
+  "Text Structure: Sequence and Chronology"
+ ],
+ "statements": [
+  "R-0106",
+  "R-0192",
+  "R-0200",
+  "R-0204",
+  "R-0323",
+  "R-0344",
+  "R-0496",
+  "R-0535",
+  "R-0682",
+  "R-0712",
+  "R-0727",
+  "R-0866",
+  "R-0887",
+  "R-0891",
+  "R-0898",
+  "R-1014",
+  "R-1015",
+  "R-1024"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What comes first?",
+     "text": "Things happen in **order**.\n\nFirst you wake up. Then you wash. Last you eat breakfast."
+    },
+    {
+     "title": "Order words",
+     "text": "Some words tell the order:\n\n**first**, **next**, **then**, **after**, **last**."
+    },
+    {
+     "title": "How to find the order",
+     "text": "1. Find the order words.\n2. Put your finger on **first**.\n3. Move to **next** and **then**.\n4. End at **last**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The order words prove the answer.\n\n1. Read the question. Does it ask first, next or last?\n2. Find that word in the text.\n3. Point to the sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, Maha gets a cup.",
+      "role": "detail"
+     },
+     {
+      "t": "Next, she pours milk.",
+      "role": "key"
+     },
+     {
+      "t": "Last, she drinks it.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **What does Maha do next?**\n\nFind the word **Next**. She **pours milk**."
+   },
+   "together": {
+    "passage": "First, we dig a hole. Next, we put a seed in it. Then, we cover it with soil. Last, we give it water.",
+    "stem": "What do we do after we put the seed in?",
+    "options": [
+     "Dig a hole",
+     "Give it water",
+     "Cover it with soil",
+     "Pick a flower"
+    ],
+    "answer": 2,
+    "hint": "Find the seed sentence. Which sentence comes right after it?",
+    "good": "Yes! Then, we cover it with soil comes right after the seed."
+   },
+   "evidence": {
+    "sentences": [
+     "First, we dig a hole.",
+     "Next, we put a seed in it.",
+     "Then, we cover it with soil.",
+     "Last, we give it water."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: cover it with soil. Tap the sentence that comes after the seed.",
+    "wrong": "This step is not right after the seed. Look for the word Then."
+   },
+   "checks": [
+    {
+     "passage": "First, Ali puts on his socks. Then he puts on his shoes. Last, he ties them.",
+     "stem": "What does Ali do first?",
+     "options": [
+      "Ties his shoes",
+      "Puts on his socks",
+      "Puts on his shoes",
+      "Opens the door"
+     ],
+     "answer": 1,
+     "why": "The word First tells us: Ali puts on his socks."
+    },
+    {
+     "passage": "In the morning, the baby bird wakes up. Then its mother brings a worm. Last, the bird goes back to sleep.",
+     "stem": "What happens last?",
+     "options": [
+      "The bird wakes up.",
+      "The mother brings a worm.",
+      "The bird eats a seed.",
+      "The bird goes back to sleep."
+     ],
+     "answer": 3,
+     "why": "The word Last tells us: the bird goes back to sleep."
+    },
+    {
+     "passage": "First, Sara washes the apple. Next, she cuts it. Then she shares it with her brother.",
+     "stem": "What does Sara do next, after she washes the apple?",
+     "options": [
+      "She cuts it.",
+      "She shares it.",
+      "She eats it.",
+      "She buys it."
+     ],
+     "answer": 0,
+     "why": "The word Next tells us: she cuts it."
+    }
+   ],
+   "again": {
+    "title": "Count the steps",
+    "text": "Give each step a number.\n\n**First** = 1. **Next** = 2. **Then** = 3. **Last** = 4.\n\nNow you can see the order.",
+    "example": "First, wash your hands. Next, dry them. Last, eat.\n\n1 wash, 2 dry, 3 eat. What is step 2? **Dry them.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sequence and process",
+     "text": "**Sequence** is the order things happen in.\n\nA **process** is a set of steps that makes something happen, like how bread is made or how rain forms. Each step must happen in order."
+    },
+    {
+     "title": "Time and order words",
+     "text": "Look for words like:\n\n**first, second, next, then, after that, before, while, finally**.\n\nNumbers (1, 2, 3) and times (in the morning, later) also show order."
+    },
+    {
+     "title": "Following a sequence",
+     "text": "1. Find each step or event.\n2. Use the order words to put them in a line.\n3. To answer **before** or **after** questions, find the event and look at the step on either side."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the order with **order words**.\n\n1. Find the step the question names.\n2. Find the step just before or after it.\n3. Point to the time word that shows the order.\n\nBe careful: the order in the text is not always the order of events. Words like **before** can change it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Water in seas and lakes is warmed by the sun and rises into the air as vapor.",
+      "role": "detail"
+     },
+     {
+      "t": "Next, the vapor cools high in the sky and forms tiny drops that make clouds.",
+      "role": "key"
+     },
+     {
+      "t": "When the drops grow heavy, they fall as rain.",
+      "role": "detail"
+     },
+     {
+      "t": "Finally, the rainwater flows back to the seas, and the cycle begins again.",
+      "role": "detail"
+     }
+    ],
+    "explain": "This is a **process**: the water cycle. **Next** shows clouds form after the vapor rises. **When** and **Finally** show what comes after. Each step needs the one before it."
+   },
+   "together": {
+    "passage": "Making paper by hand is a slow process. First, old paper is torn into small pieces and soaked in water. After that, the wet paper is blended into a soft pulp. Next, a screen is dipped into the pulp and lifted out, leaving a thin layer on top. The layer is then pressed to squeeze out the water. Finally, the new sheet is hung up to dry.",
+    "stem": "What happens right after the paper is blended into pulp?",
+    "options": [
+     "A screen is dipped into the pulp.",
+     "The paper is torn into pieces.",
+     "The sheet is hung up to dry.",
+     "The layer is pressed."
+    ],
+    "answer": 0,
+    "hint": "Find the pulp sentence. Which order word comes in the very next sentence?",
+    "good": "Yes! Next, a screen is dipped into the pulp comes right after blending."
+   },
+   "evidence": {
+    "sentences": [
+     "Making paper by hand is a slow process.",
+     "First, old paper is torn into small pieces and soaked in water.",
+     "After that, the wet paper is blended into a soft pulp.",
+     "Next, a screen is dipped into the pulp and lifted out, leaving a thin layer on top.",
+     "The layer is then pressed to squeeze out the water.",
+     "Finally, the new sheet is hung up to dry."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: a screen is dipped into the pulp. Tap the sentence that proves it.",
+    "wrong": "This step comes earlier or later. Find the sentence that starts with Next."
+   },
+   "checks": [
+    {
+     "passage": "Before the race, Omar stretched his legs. While he waited at the start line, he took deep breaths. When the whistle blew, he ran as fast as he could. After he crossed the finish line, he drank water.",
+     "stem": "What did Omar do before the whistle blew?",
+     "options": [
+      "Drank water",
+      "Crossed the finish line",
+      "Took deep breaths",
+      "Ran fast"
+     ],
+     "answer": 2,
+     "why": "He took deep breaths while he waited at the start line, which was before the whistle."
+    },
+    {
+     "passage": "To make mint tea, first boil water in a kettle. Then put fresh mint leaves in a teapot. Pour the hot water over the leaves. Wait five minutes, and finally pour the tea into cups.",
+     "stem": "Which step comes just before pouring the hot water?",
+     "options": [
+      "Pour the tea into cups",
+      "Put mint leaves in a teapot",
+      "Wait five minutes",
+      "Wash the cups"
+     ],
+     "answer": 1,
+     "why": "Then put mint leaves in a teapot comes just before Pour the hot water."
+    },
+    {
+     "passage": "A frog begins life as an egg in the water. The egg hatches into a tadpole with a long tail. Over several weeks, the tadpole grows legs. Later, its tail shrinks, and it becomes a young frog that can live on land.",
+     "stem": "What happens after the tadpole grows legs?",
+     "options": [
+      "It hatches from an egg.",
+      "It lays eggs.",
+      "It grows a long tail.",
+      "Its tail shrinks."
+     ],
+     "answer": 3,
+     "why": "The word Later shows the tail shrinks after the legs grow."
+    }
+   ],
+   "again": {
+    "title": "Make a step ladder",
+    "text": "Draw a ladder. Put the first step at the bottom and climb up.\n\nTo find what comes after a step, look at the rung **above** it.",
+    "example": "Paper: tear → blend → dip screen → press → dry.\n\nAfter **blend**? The next rung: **dip screen**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Chronology as a structure",
+     "text": "**Chronology** means time order. When a whole text is organized by **dates and times**, its structure is **chronological**.\n\nHistories, biographies and timelines often use it."
+    },
+    {
+     "title": "Clues to chronology",
+     "text": "Look for **dates** (in 1950), **ages** (when she was ten), and **time phrases** (years later, during the war, by the end of the century).\n\nIf the paragraphs move forward in time, the structure is chronological."
+    },
+    {
+     "title": "Reading a chronology",
+     "text": "1. Underline each date or time phrase.\n2. Put the events on a mental timeline.\n3. To answer a question, find the event, then look at what happened before and after it.\n4. Watch for events told out of order."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use **dates and time phrases** as proof.\n\n1. Find the date of each event the question names.\n2. Compare them.\n3. To show the text is chronological, point to time words in several sentences that move forward."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In 1932, the Kingdom of Saudi Arabia was officially named.",
+      "role": "detail"
+     },
+     {
+      "t": "Six years later, oil was found in large amounts in the Eastern Province.",
+      "role": "key"
+     },
+     {
+      "t": "In the decades that followed, new cities, roads and schools were built.",
+      "role": "detail"
+     },
+     {
+      "t": "Today, the country is working to build industries beyond oil.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The text moves forward in time: **1932 → six years later → decades that followed → today**. That is a **chronological** structure. **Six years later** means oil was found in 1938."
+   },
+   "together": {
+    "passage": "The story of flight is a story of steady steps. In 1783, two brothers in France sent a hot-air balloon carrying people over Paris. More than a hundred years later, in 1903, the Wright brothers made the first powered airplane flight, which lasted just twelve seconds. By the 1930s, passenger planes were carrying travelers across countries. In 1969, astronauts flew all the way to the Moon. Today, millions of people fly every day.",
+    "stem": "How is this passage organized?",
+    "options": [
+     "By comparing balloons and airplanes",
+     "By explaining a problem and its solution",
+     "By describing the parts of an airplane",
+     "By telling events in the order they happened"
+    ],
+    "answer": 3,
+    "hint": "Look at the numbers in the passage. What kind of words are 1783, 1903 and the 1930s?",
+    "good": "Yes! The dates move forward from 1783 to today. That is chronological order."
+   },
+   "evidence": {
+    "sentences": [
+     "The story of flight is a story of steady steps.",
+     "In 1783, two brothers in France sent a hot-air balloon carrying people over Paris.",
+     "More than a hundred years later, in 1903, the Wright brothers made the first powered airplane flight, which lasted just twelve seconds.",
+     "By the 1930s, passenger planes were carrying travelers across countries.",
+     "In 1969, astronauts flew all the way to the Moon.",
+     "Today, millions of people fly every day."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: in the order events happened. Tap 2 sentences with time words that show this.",
+    "wrong": "This sentence has no date or time word. Find sentences with dates or time phrases."
+   },
+   "checks": [
+    {
+     "passage": "Ibn Battuta was born in Morocco in 1304. At the age of twenty-one, he left home to make the pilgrimage to Makkah. Instead of returning, he kept traveling for nearly thirty years, visiting places from East Africa to China. In 1354, he finally returned to Morocco and told his stories to a writer, who recorded them in a book.",
+     "stem": "What did Ibn Battuta do right after making the pilgrimage to Makkah?",
+     "options": [
+      "He kept traveling for many years.",
+      "He returned home to Morocco.",
+      "He told his stories to a writer.",
+      "He was born in Morocco."
+     ],
+     "answer": 0,
+     "why": "Instead of returning, he kept traveling for nearly thirty years. He returned home much later, in 1354."
+    },
+    {
+     "passage": "Before the museum opened in 2019, workers spent three years repairing the old fort. They first strengthened the walls. During the second year, they rebuilt the wooden roof. In the final year, they built display rooms inside. Since opening day, thousands of students have visited.",
+     "stem": "When was the wooden roof rebuilt?",
+     "options": [
+      "After the museum opened",
+      "Before the walls were strengthened",
+      "During the second year of repairs",
+      "In the final year of repairs"
+     ],
+     "answer": 2,
+     "why": "The text says: During the second year, they rebuilt the wooden roof."
+    },
+    {
+     "passage": "The author begins with her arrival at university in 2010. She then describes her first lab job in 2014, her research in the desert in 2016, and the opening of her own lab in 2021.",
+     "stem": "Which structure does the author use?",
+     "options": [
+      "Cause and effect",
+      "Chronological order",
+      "Compare and contrast",
+      "Problem and solution"
+     ],
+     "answer": 1,
+     "why": "The events move forward in time: 2010, 2014, 2016, 2021."
+    }
+   ],
+   "again": {
+    "title": "Build a timeline",
+    "text": "Draw a line. Put the **earliest** date on the left and the **latest** on the right.\n\nPlace each event on the line. Now before and after are easy to see.",
+    "example": "1783 balloon → 1903 airplane → 1930s passenger planes → 1969 Moon → today.\n\nWhat came right before the Moon landing? **Passenger planes in the 1930s.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Why authors use chronology",
+     "text": "Authors choose time order on purpose. It can show **how something developed**, how **one event led to the next**, or how a **person changed** over time.\n\nAsk: what does the order help the reader understand?"
+    },
+    {
+     "title": "Breaking the order",
+     "text": "Some writers start in the middle or at the end, then **flash back**. A biography may open on a famous moment, then go back to childhood.\n\nThis grabs attention or shows the importance of the moment. You must rebuild the real order."
+    },
+    {
+     "title": "Analyze the sequence",
+     "text": "1. List events in the order they are **told**.\n2. Rebuild the order in which they **happened**.\n3. Notice where the two differ.\n4. Ask why: what effect does the author's ordering have?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove claims about sequence with **time markers**: dates, ages, \"years earlier\", \"had\" (past before past).\n\nTo explain a choice of structure, point to where the order changes and say what that change does for the reader."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The crowd went silent as the young engineer pressed the switch, and the desert plant began to turn seawater into fresh water.",
+      "role": "detail"
+     },
+     {
+      "t": "Twelve years earlier, she had been a girl in a coastal village where water came by truck once a week.",
+      "role": "key"
+     },
+     {
+      "t": "She had studied chemistry at night after helping her family during the day.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The text opens with a big moment, then **flashes back** (\"Twelve years earlier\", \"had been\"). The real order: village childhood → studying → opening the plant. The flashback shows **how far** she came."
+   },
+   "together": {
+    "passage": "On a clear morning in May 1953, two climbers stood on the summit of Mount Everest, the first people known to reach it. One of them, Tenzing Norgay, had grown up in the mountains of Nepal, carrying heavy loads for mountain expeditions as a young man. He had tried to climb Everest six times before and had failed each time. The other, Edmund Hillary, had been a beekeeper in New Zealand who climbed in his free time. In the weeks before their success, the team set up a chain of camps higher and higher up the mountain. Their final climb began at dawn from the highest camp, and they reached the top just before noon.",
+    "stem": "Why does the author begin with the climbers on the summit before describing their earlier lives?",
+    "options": [
+     "Because the climbers reached the top before they were born",
+     "To grab attention with the key moment, then explain how they got there",
+     "To show the events in exact chronological order",
+     "To compare Nepal with New Zealand"
+    ],
+    "answer": 1,
+    "hint": "Which event is told first, but happened last? What does starting there do for the reader?",
+    "good": "Yes! Opening on the summit hooks the reader; the flashbacks then show the long road to that moment."
+   },
+   "evidence": {
+    "sentences": [
+     "On a clear morning in May 1953, two climbers stood on the summit of Mount Everest, the first people known to reach it.",
+     "One of them, Tenzing Norgay, had grown up in the mountains of Nepal, carrying heavy loads for mountain expeditions as a young man.",
+     "He had tried to climb Everest six times before and had failed each time.",
+     "The other, Edmund Hillary, had been a beekeeper in New Zealand who climbed in his free time.",
+     "In the weeks before their success, the team set up a chain of camps higher and higher up the mountain.",
+     "Their final climb began at dawn from the highest camp, and they reached the top just before noon."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the author starts with the key moment, then goes back. Tap 2 sentences that jump back to the climbers' earlier lives.",
+    "wrong": "This sentence is about the summit or the climb itself. Find sentences that go back to the climbers' earlier lives."
+   },
+   "checks": [
+    {
+     "passage": "Ahmad's essay opens with the day he received his first patent for a water-saving tap. Then it returns to his childhood, when he watched his mother save every drop of water in a dry village. It follows him through school, his engineering degree and many failed designs, ending again on the day of the patent.",
+     "stem": "How is the essay's sequence organized?",
+     "options": [
+      "Strictly from childhood to the present",
+      "As a list of reasons for saving water",
+      "As a comparison of two inventions",
+      "It starts and ends at the same moment, with a flashback in between"
+     ],
+     "answer": 3,
+     "why": "It opens on the patent day, flashes back to childhood, moves forward, and returns to the patent day."
+    },
+    {
+     "passage": "In 1846, the first public operation using anesthesia took place in Boston. Before that, patients felt every cut. Within a few years, surgeons across Europe were using similar methods. Later, in the 1860s, doctors began to clean their tools to prevent infection. These steps together made surgery much safer.",
+     "stem": "Why does the author present these events in chronological order?",
+     "options": [
+      "To show how surgery became safer step by step",
+      "To compare doctors in Boston and Europe",
+      "To argue that anesthesia is dangerous",
+      "To describe the tools surgeons use"
+     ],
+     "answer": 0,
+     "why": "The time order shows each advance building on the last, ending with the point that surgery became much safer."
+    },
+    {
+     "passage": "By the time the bridge opened, the town had been waiting for twenty years. Before construction began, engineers had studied the river for two years. Construction had stopped twice when floods washed away the supports. When the first cars finally crossed, the whole town came to watch.",
+     "stem": "Which event happened first?",
+     "options": [
+      "The first cars crossed the bridge.",
+      "Floods washed away the supports.",
+      "Engineers studied the river.",
+      "The town came to watch."
+     ],
+     "answer": 2,
+     "why": "Studying the river came before construction, which came before the floods and the opening."
+    }
+   ],
+   "again": {
+    "title": "Told order vs. real order",
+    "text": "Make two lists:\n\n**Told order**: the order of the sentences.\n**Real order**: the order things happened.\n\nWords like **had**, **earlier** and **before that** tell you an event is from the past of the story.",
+    "example": "Told: summit → Tenzing's childhood → his failed attempts → the camps.\nReal: childhood → failed attempts → camps → summit.\n\nThe summit is told **first** but happened **last**."
+   }
+  }
+ }
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-032",
+  "title": "The Dugong: Gentle Grazer of the Gulf",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 417,
+  "passage": "In the shallow, sunlit waters of the Arabian Gulf, a large grey animal moves slowly across the seabed, pulling up mouthfuls of grass. It is not a fish, a seal or a whale. It is a dugong, a gentle marine mammal. It is sometimes called a \"sea cow\" because it spends most of its life grazing, just as cattle graze in a field. Surprisingly, scientists have discovered that the dugong's closest living relative is not any sea creature at all, but the elephant.\n\nAn adult dugong can grow to about three metres long and weigh as much as 400 kilograms. Its body is smooth and rounded, and it moves through the water by beating a broad, flat tail that is shaped like the tail of a dolphin. Because it is a mammal, the dugong cannot breathe underwater. Instead, it must rise to the surface every few minutes to take a breath through two nostrils on the top of its snout. Its small eyes do not see well, but sensitive bristles around its mouth help it to find food in murky water.\n\nDugongs depend almost entirely on seagrass, a type of flowering plant that grows in meadows on the sandy floor of warm, shallow seas. An adult may eat around 30 kilograms of seagrass every day. As it feeds, it leaves behind long, winding trails of bare sand. Although this might sound destructive, careful grazing actually helps the meadows to stay healthy, because fresh, tender shoots grow back in the cleared spaces. The Arabian Gulf contains extensive seagrass meadows, and as a result it supports one of the largest groups of dugongs in the world outside Australia.\n\nDespite their size, dugongs are surprisingly vulnerable. A female usually gives birth to a single calf only once every three to seven years, so a population that loses many adults recovers very slowly. Dugongs can become trapped in fishing nets and drown, and they are sometimes injured by fast boats. The greatest danger, however, is the loss of seagrass. When coastlines are dug up for construction or seawater becomes polluted, the meadows can disappear, leaving the dugongs with nothing to eat.\n\nFortunately, the countries around the Gulf, including Saudi Arabia, have begun to protect these remarkable animals. Scientists survey dugong numbers from aircraft, and certain coastal areas have been set aside as protected zones where seagrass can flourish. If these efforts continue, future generations will still be able to watch the peaceful sea cows of the Gulf grazing beneath the waves.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “vulnerable” as it is used in paragraph 4?",
+      "options": [
+        "easily harmed",
+        "very heavy",
+        "rarely seen",
+        "quick to anger"
+      ],
+      "answer": "A",
+      "why": "The paragraph lists dangers that can hurt dugongs and slow their recovery, so “vulnerable” means easily harmed."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “destructive” as it is used in paragraph 3?",
+      "options": [
+        "harmful",
+        "noisy",
+        "helpful",
+        "careless"
+      ],
+      "answer": "C",
+      "why": "“Destructive” means causing damage; the opposite is “helpful”, which is what the writer says grazing really is. “Harmful” has the same meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “sensitive bristles around its mouth help it to find food in murky water.” What does “murky” mean?",
+      "options": [
+        "very deep",
+        "dark and cloudy",
+        "warm and still",
+        "fast-moving"
+      ],
+      "answer": "B",
+      "why": "The dugong's eyes do not see well and it needs its bristles to find food, so the water must be hard to see through: dark and cloudy."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is an ADVERB?",
+      "options": [
+        "remarkable",
+        "protected",
+        "fortunately",
+        "peaceful"
+      ],
+      "answer": "C",
+      "why": "“Fortunately” describes the whole sentence (how the situation is) and ends in -ly; “remarkable”, “peaceful” and “protected” (in “protected zones”) all describe nouns, so they work as adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the passage has the SAME form in the singular and the plural?",
+      "options": [
+        "aircraft",
+        "nostrils",
+        "meadows",
+        "countries"
+      ],
+      "answer": "A",
+      "why": "We say one aircraft and many aircraft; “nostrils” and “meadows” add -s and “countries” changes y to -ies."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “construction” in paragraph 4?",
+      "options": [
+        "consider",
+        "construct",
+        "contain",
+        "continue"
+      ],
+      "answer": "B",
+      "why": "“Construction” is the noun formed from the verb “construct”; the other words only share the beginning “con-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “flourish” in a meaningful sentence of your own.",
+      "model": "With regular watering and plenty of sunlight, the tomato plants in our school garden began to flourish.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “flourish” with its meaning (to grow strongly and healthily; to do very well)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Flourish” means to grow well and be healthy or successful."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “calf”?",
+      "options": [
+        "calfs",
+        "calfes",
+        "calf",
+        "calves"
+      ],
+      "answer": "D",
+      "why": "Like “half → halves” and “leaf → leaves”, “calf” changes f to -ves: calves."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “It is not a fish, a seal or a whale.” in paragraph 1?",
+      "options": [
+        "a statement",
+        "a question",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "A",
+      "why": "It gives information and ends with a full stop; it does not ask, order or show strong feeling."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "The Elephants of Arabia",
+        "The Gentle Grazer of the Gulf",
+        "How to Catch Fish in Shallow Water",
+        "Building Along the Coast"
+      ],
+      "answer": "B",
+      "why": "The passage is about the dugong, which grazes seagrass in the Arabian Gulf."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the passage?",
+      "options": [
+        "to tell a story about a young dugong calf that gets lost at sea",
+        "to argue that fishing should be banned in every sea in the world",
+        "to compare dugongs with elephants in detail, feature by feature",
+        "to inform readers about dugongs and how they are protected"
+      ],
+      "answer": "D",
+      "why": "The passage describes the dugong's body, food, dangers and protection; the comparison with elephants is only one fact."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Dugongs depend on seagrass, and their grazing helps the meadows.",
+        "Seagrass is a flowering plant that grows on sandy floors.",
+        "Australia has more dugongs than anywhere else on Earth.",
+        "Dugongs leave long, winding trails of bare sand."
+      ],
+      "answer": "A",
+      "why": "The paragraph explains the dugong's dependence on seagrass and how careful grazing keeps meadows healthy; the other options are single details."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why is the dugong sometimes called a “sea cow”?",
+      "options": [
+        "It is more closely related to cows than to elephants.",
+        "It makes a loud sound like a cow when it surfaces.",
+        "It spends most of its life grazing, as cattle do.",
+        "It has two short horns like a cow."
+      ],
+      "answer": "C",
+      "why": "Paragraph 1: it is called a sea cow “because it spends most of its life grazing, just as cattle graze in a field”. Its closest relative is the elephant, not the cow."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a fable that teaches a moral lesson",
+        "a personal letter to a friend",
+        "an informational text",
+        "a poem with rhyming lines"
+      ],
+      "answer": "C",
+      "why": "It presents facts about a real animal, organised by topic, with no characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why must a dugong rise to the surface every few minutes?",
+      "options": [
+        "to look for fresh seagrass to eat",
+        "to breathe, because it is a mammal",
+        "to warm its body in the sunlight",
+        "to escape from fast boats and nets"
+      ],
+      "answer": "B",
+      "why": "“Because it is a mammal, the dugong cannot breathe underwater.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what happens AFTER a dugong grazes a patch of seagrass?",
+      "options": [
+        "The patch turns into bare sand for ever.",
+        "The dugong swims away from the Gulf to Australia.",
+        "Fishermen arrive to plant new seagrass there.",
+        "Fresh, tender shoots grow back in the spaces."
+      ],
+      "answer": "D",
+      "why": "“Fresh, tender shoots grow back in the cleared spaces.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to explain why a dugong population recovers slowly?",
+      "options": [
+        "An adult eats around 30 kilograms of seagrass every day.",
+        "The dugong's closest living relative is the elephant.",
+        "Dugongs have small eyes that do not see well.",
+        "A female has one calf every three to seven years."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 links the slow birth rate directly to slow recovery."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In which order does the writer present the ideas in the passage?",
+      "options": [
+        "dangers → body → food → protection",
+        "body → food → dangers → protection",
+        "protection → food → body → dangers",
+        "food → protection → body → dangers"
+      ],
+      "answer": "B",
+      "why": "After the introduction, paragraph 2 describes the body, paragraph 3 the food, paragraph 4 the dangers and paragraph 5 the protection."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the passage, what is the GREATEST danger to dugongs?",
+      "options": [
+        "fishing nets",
+        "fast boats",
+        "the loss of seagrass",
+        "other sea animals"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “The greatest danger, however, is the loss of seagrass.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What causes seagrass meadows to disappear, according to the passage?",
+      "options": [
+        "dugongs eating far too much of the grass",
+        "coastal construction and polluted seawater",
+        "too many fish feeding in the Gulf",
+        "unusually cold winters in the Gulf"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “When coastlines are dug up for construction or seawater becomes polluted, the meadows can disappear.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why do the Gulf countries survey dugong numbers from aircraft?",
+      "options": [
+        "to check whether protection is working",
+        "to chase the dugongs away from busy boats",
+        "to count the fishing nets left in the water",
+        "to find new places on the coast to build"
+      ],
+      "answer": "A",
+      "why": "Surveys are part of the protection described in paragraph 5; counting the animals shows whether their numbers are holding up."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a dugong's tail DIFFERENT from what readers might expect of a “cow”?",
+      "options": [
+        "It is long, thin and covered in hair.",
+        "It is very short and hidden under its body.",
+        "It ends in a tuft of hair like a cow's.",
+        "It is broad and flat like a dolphin's."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 says the dugong beats “a broad, flat tail that is shaped like the tail of a dolphin”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the EFFECT of the large seagrass meadows in the Arabian Gulf?",
+      "options": [
+        "The Gulf supports a very large group of dugongs.",
+        "The water of the Gulf becomes much saltier.",
+        "Dugongs in the Gulf no longer need to breathe air.",
+        "Fishing nets are no longer used in the Gulf."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: the Gulf has extensive meadows, “and as a result it supports one of the largest groups of dugongs”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do fishing nets, fast boats and pollution have in common in the passage?",
+      "options": [
+        "All three are natural dangers that people cannot control.",
+        "All three help the seagrass meadows to grow.",
+        "All three are dangers caused by people.",
+        "All three are found only in the seas of Australia."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 lists all three as human activities that can harm dugongs or their food."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying that the dugong's closest relative is “not any sea creature at all, but the elephant”?",
+      "options": [
+        "Dugongs and elephants live together in the same places.",
+        "Dugongs are related to elephants, a land animal.",
+        "Elephants can swim through the sea as well as dugongs.",
+        "Dugongs grow to be as large and heavy as elephants."
+      ],
+      "answer": "B",
+      "why": "The writer is pointing out a surprising family link: despite living in the sea, the dugong's nearest relative is a land animal."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word does the writer use to show that the information in paragraph 1 is unexpected?",
+      "options": [
+        "“Surprisingly”",
+        "“slowly”",
+        "“gentle”",
+        "“shallow”"
+      ],
+      "answer": "A",
+      "why": "“Surprisingly” tells the reader that the fact about the elephant is unexpected."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, how does the writer make the dugong seem likeable to readers?",
+      "options": [
+        "by giving exact measurements of its length and weight",
+        "by listing all the countries around the Arabian Gulf",
+        "by explaining how aircraft are used to count dugongs",
+        "by calling it “gentle”, “peaceful” and “remarkable”"
+      ],
+      "answer": "D",
+      "why": "These warm, positive words describe the animal's character and make readers care about it."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action would be MOST beneficial for dugongs in the Gulf?",
+      "options": [
+        "protecting seagrass meadows from damage",
+        "building more ports along the coast",
+        "using more fishing nets in shallow water",
+        "moving all the dugongs into large zoos"
+      ],
+      "answer": "A",
+      "why": "The writer calls the loss of seagrass “the greatest danger”, so protecting the meadows helps most."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "to frighten readers about dangerous sea animals",
+        "to help readers value and protect the dugong",
+        "to explain how to keep a dugong as a family pet",
+        "to describe an exciting holiday trip to Australia"
+      ],
+      "answer": "B",
+      "why": "The writer describes the dugong warmly, explains its dangers and praises the efforts to protect it."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling does the final paragraph mostly express?",
+      "options": [
+        "fear",
+        "anger",
+        "disappointment",
+        "hope"
+      ],
+      "answer": "D",
+      "why": "It begins with “Fortunately” and imagines future generations still watching the dugongs, which shows hope."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "how much seagrass an adult eats each day",
+        "how heavy an adult dugong can be",
+        "how many dugongs live in the Arabian Gulf",
+        "how often a female has a calf"
+      ],
+      "answer": "C",
+      "why": "The writer says the Gulf has “one of the largest groups” but never gives a number; the other facts are given with numbers."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A dugong walks onto the beach to eat grass.",
+        "A dugong comes up to breathe beside a fishing boat.",
+        "A dugong stays underwater for a whole week.",
+        "A dugong gives birth to ten calves in one year."
+      ],
+      "answer": "B",
+      "why": "Dugongs must surface to breathe every few minutes, so this could happen; the others are impossible for a dugong."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the passage?",
+      "options": [
+        "The Elephant That Learned to Swim",
+        "A Fishing Trip to Bahrain",
+        "The Seagrass That Ate the Sea",
+        "Saving the Sea Cows of the Gulf"
+      ],
+      "answer": "D",
+      "why": "The passage describes the dugong and the efforts to protect it in the Gulf."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The passage ends with the hope that future generations will still see dugongs. Suggest a different ending: write two or three sentences proposing another solution that could help dugongs survive.",
+      "model": "Fishermen could be given special nets that dugongs can escape from, and they could be rewarded for reporting any dugong they see. Boats could also be required to slow down in areas where dugongs feed, so that the animals are not injured.",
+      "rubric": [
+        "2 = a clear, realistic solution that answers one of the dangers named in the passage and explains how it helps",
+        "1 = a solution is given but it is vague, unexplained or only loosely linked to the passage",
+        "0 = no answer, an unrealistic idea, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic solution linked to the dangers in the passage (nets, boats, loss of seagrass) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can fishermen in the Gulf help to protect dugongs?",
+      "options": [
+        "by checking their nets often so trapped dugongs can be freed",
+        "by slowing their boats in shallow seagrass areas",
+        "A and B",
+        "by pulling up seagrass to make room for nets"
+      ],
+      "answer": "C",
+      "why": "Checking nets and slowing boats both reduce dangers named in paragraph 4; pulling up seagrass would harm dugongs."
+    }
+  ]
+}

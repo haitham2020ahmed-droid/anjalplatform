@@ -13,6 +13,7 @@ import { fromSearchParams, readPlanForm, readQuestionPicks } from "@/server/plan
 import { applyEdits } from "@/server/plans/send";
 import type { Subject } from "@/server/map/map-plan";
 import { mapDraftsForClass, type MapDraft } from "@/server/plans/map-drafts";
+import { endOfSchoolWeek, starredSkills } from "@/server/assign/star";
 import { dismissMapDraftAction, sendAllMapDraftsAction, sendMapDraftAction, sendMapPlanAction } from "./actions";
 
 type SP = Record<string, string | string[] | undefined>;
@@ -43,6 +44,8 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
     form.q && sug ? searchSkillsAnyGrade(repo, actor, form.q) : Promise.resolve([]),
   ]);
   const plan = sug ? applyEdits(sug.skills, form.keep, added, sug.students.map((s) => s.id)) : [];
+  // ☆ quick assign beside each suggested skill (the class teacher): which are already assigned to the class
+  const star = sug && actor.role === "TEACHER" && form.step !== "preview" ? { classId: klass.id, assigned: Object.fromEntries(await starredSkills(repo, klass.id, sug.skills.map((k) => k.id))), defaultDue: endOfSchoolWeek(new Date()), track: "MAP" } : null;
   const picks = readQuestionPicks(get, plan.map((k) => k.id));
   const subjectChip = (v: Subject, label: string) => (
     <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-4 font-semibold ring-1 ring-slate-300 has-[:checked]:bg-brand-navy has-[:checked]:text-white">
@@ -98,7 +101,7 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
             suggested={sug.skills} plan={plan} picks={picks} results={results} defaultTitle={`${t("MAP Plan")} · ${klass.name}`}
             notes={sug.noScores.length ? [t("No MAP scores yet for: {names}.", { names: sug.noScores.join(", ") })] : []}
             send={sendMapPlanAction} canSend={can(actor, "assignments:create")}
-            empty={{ title: "Nothing to suggest yet", text: "Search below and tick the skills you want." }} />
+            empty={{ title: "Nothing to suggest yet", text: "Search below and tick the skills you want." }} star={star} />
         </>
       )}
     </form>

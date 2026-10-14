@@ -35,15 +35,19 @@ describe("teachers request, admins decide (question deletion); the bank groups b
     await requestDeletion(repo, teacher, ids[0], "A duplicate of another question");
     const before = await repo.count("QuestionAttempt", { questionId: ids[0] });
     const r1 = await decideDeletion(repo, admin, ids[0], true);
-    assert.equal(r1, before ? "archived" : "deleted");
-    // answered → archived (history kept)
+    assert.equal(r1, "deleted");
+    assert.equal(before, 0);
+    // answered → deleted too (r67, owner: an admin may delete any question): hidden everywhere, the answers stay
     const st = (await repo.findMany("Student", { schoolId: admin.schoolId! }))[0];
     const q = (await repo.findUnique("Question", { id: ids[1] }))!;
     const session = await repo.create("PracticeSession", { studentId: st.id, mode: "ADAPTIVE_PRACTICE", startedAt: new Date() });
     await repo.create("QuestionAttempt", { sessionId: session.id, studentId: st.id, questionId: ids[1], skillId: q.skillId, isCorrect: true, response: "A", responseMs: 5000, difficultyB: 0, createdAt: new Date() });
     await requestDeletion(repo, teacher, ids[1], "The wording is confusing for Grade 4");
-    assert.equal(await decideDeletion(repo, admin, ids[1], true), "archived");
-    assert.equal(String((await repo.findUnique("Question", { id: ids[1] }))!.status), "ARCHIVED");
+    assert.equal(await decideDeletion(repo, admin, ids[1], true), "deleted");
+    const gone = (await repo.findUnique("Question", { id: ids[1] }))!;
+    assert.equal(String(gone.status), "ARCHIVED");
+    assert.ok(gone.deletedAt, "out of the whole platform");
+    assert.equal(await repo.count("QuestionAttempt", { questionId: ids[1] }), 1, "students' history kept");
   });
 
   test("bank rows carry their skill (grouping by skill)", async () => {

@@ -1,0 +1,568 @@
+{
+  "code": "NB-021",
+  "title": "The Wright Brothers: Learning to Control the Sky",
+  "kind": "INFORMATIONAL",
+  "genre": "biography / expository",
+  "words": 445,
+  "passage": "On a freezing December morning in 1903, a fragile machine of wood, wire and cloth rose from a sandy beach in North Carolina and stayed in the air for just twelve seconds. Although the flight covered only about 37 metres, which is less than the wingspan of a large passenger jet, historians regard it as a turning point of the twentieth century. The two men who built that machine, Wilbur and Orville Wright, had no university degrees and no help from the government. Instead, they had curiosity, patience and a rare willingness to learn from their own mistakes.\n\nThe brothers grew up in Dayton, Ohio, where they later opened a bicycle shop. Fixing and designing bicycles taught them a great deal about lightweight materials and precise engineering. It also showed them that a rider must keep balancing a machine that would otherwise fall over. When they read about a German glider pilot named Otto Lilienthal, who died after a crash in 1896, they decided that the biggest unsolved problem of flight was not power but control.\n\nTo solve this problem, the brothers watched birds closely. They noticed that a bird tilts the tips of its wings to turn and to steady itself in gusty air. So they designed a set of cables that could twist the ends of a glider's wings in a similar way. They called this method \"wing warping,\" and it became the basis of every flight they made.\n\nProgress, however, was painfully slow. Between 1900 and 1902, the brothers tested a series of gliders on the windy dunes near Kitty Hawk, where steady breezes kept them aloft and soft sand made landings safer. Their 1901 glider lifted far less than the published science tables had predicted, and they felt deeply discouraged. Rather than giving up, they built a small wind tunnel in their workshop, in which they tested about two hundred model wings of different shapes. Their careful measurements proved that the old tables were wrong, and their improved 1902 glider made hundreds of successful flights.\n\nNo company could sell them an engine that was both strong and light enough, so the brothers and their mechanic, Charlie Taylor, built one themselves. They also designed their own propellers, treating each blade as a spinning wing. Finally, on 17 December 1903, Orville piloted the first powered flight while Wilbur ran alongside. Later that same day, Wilbur remained airborne for 59 seconds.\n\nWhat an extraordinary achievement this was! Today, giant aircraft carry millions of passengers across oceans every day. Yet each of them still depends on the lesson the Wright brothers proved: a flying machine must be carefully controlled, not simply pushed into the sky.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “discouraged” as it is used in paragraph 4?",
+      "options": [
+        "exhausted",
+        "disheartened",
+        "embarrassed",
+        "confused"
+      ],
+      "answer": "B",
+      "why": "The brothers' glider failed to meet their hopes, so they felt disheartened (less hopeful and confident); the next sentence says they did not give up."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “fragile” as it is used in paragraph 1?",
+      "options": [
+        "delicate",
+        "unusual",
+        "sturdy",
+        "ancient"
+      ],
+      "answer": "C",
+      "why": "“Fragile” means easily broken; “sturdy” means strong and hard to break. “Delicate” is a synonym, not an antonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 4: “where steady breezes kept them aloft and soft sand made landings safer”. What does “aloft” mean?",
+      "options": [
+        "on the ground",
+        "moving forward quickly",
+        "safe from danger",
+        "up in the air"
+      ],
+      "answer": "D",
+      "why": "Breezes that help gliders before they land keep them up in the air; landing is contrasted with being aloft."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is used as an adverb?",
+      "options": [
+        "painfully",
+        "steady",
+        "careful",
+        "successful"
+      ],
+      "answer": "A",
+      "why": "“Painfully” describes how slow progress was (it modifies the adjective “slow”); the other words are adjectives describing nouns."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the text does NOT form its plural by simply adding -s or -es?",
+      "options": [
+        "tables",
+        "gliders",
+        "men",
+        "brothers"
+      ],
+      "answer": "C",
+      "why": "One man, two men: the vowel changes. Tables, gliders and brothers just add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “measurements” in paragraph 4?",
+      "options": [
+        "mention",
+        "measurable",
+        "meadow",
+        "material"
+      ],
+      "answer": "B",
+      "why": "“Measurable” shares the root “measure”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “willingness” in a meaningful sentence of your own.",
+      "model": "Omar's willingness to help his classmates with difficult maths problems made him one of the most respected students in our class.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “willingness” with its meaning (being ready and happy to do something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Willingness” means being ready and happy to do something."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “century”, a word used in paragraph 1?",
+      "options": [
+        "centurys",
+        "centuryes",
+        "centuris",
+        "centuries"
+      ],
+      "answer": "D",
+      "why": "A noun ending in a consonant + y changes y to i and adds -es: century → centuries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 3, the writer states that “the brothers watched birds closely”. Which sentence changes this idea into a COMMAND?",
+      "options": [
+        "Did the brothers watch birds closely?",
+        "Watch birds closely.",
+        "How closely the brothers watched birds!",
+        "The brothers will watch birds closely."
+      ],
+      "answer": "B",
+      "why": "A command tells someone to do something and usually begins with a verb: “Watch birds closely.” The others are a question, an exclamation and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Bicycle Shop in Dayton",
+        "Otto Lilienthal's Final Flight",
+        "Control, Patience and the First Flight",
+        "How Modern Jet Engines Work"
+      ],
+      "answer": "C",
+      "why": "The text explains how patience and a focus on control led to the first powered flight; the other titles cover only one detail or a topic not in the text."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to train as airline pilots",
+        "to show how patient experiments led to controlled flight",
+        "to compare the speed and safety of bicycles and early aircraft",
+        "to describe daily life in Dayton, Ohio, in 1903"
+      ],
+      "answer": "B",
+      "why": "Every paragraph explains a step in the brothers' patient work toward a flight they could control."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 4?",
+      "options": [
+        "Kitty Hawk was chosen mainly because of its soft sand.",
+        "The published science tables were correct but difficult to use.",
+        "The 1901 glider was the brothers' most successful design.",
+        "Careful testing turned a disappointing failure into success."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 moves from the disappointing 1901 glider, through the wind-tunnel tests, to the successful 1902 glider. The sand is only a detail, and the other two options are false."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why did the brothers test their gliders near Kitty Hawk?",
+      "options": [
+        "It was close to their bicycle shop in Dayton, Ohio.",
+        "Lilienthal had tested his gliders there.",
+        "Its steady winds and soft sand suited glider tests.",
+        "The government offered them land there."
+      ],
+      "answer": "C",
+      "why": "The text says “steady breezes kept them aloft and soft sand made landings safer.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a personal narrative told by Orville Wright",
+        "an informational text about real events in history",
+        "an imaginary adventure story",
+        "a letter written to a newspaper"
+      ],
+      "answer": "B",
+      "why": "It presents true facts, dates and people from history in the third person; it is not invented, not told by Orville and not a letter."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the brothers build their own engine?",
+      "options": [
+        "They wanted to save money for their busy bicycle shop in Dayton.",
+        "Bicycle engines were too heavy for their glider.",
+        "Charlie Taylor would not work for engine companies.",
+        "No company could sell them one that was strong and light enough."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5: “No company could sell them an engine that was both strong and light enough.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The brothers built a small wind tunnel.",
+        "The 1902 glider made hundreds of flights.",
+        "Orville piloted the first powered flight.",
+        "Otto Lilienthal died after a glider crash."
+      ],
+      "answer": "D",
+      "why": "Lilienthal died in 1896; the wind tunnel came after the 1901 glider, the 1902 glider after that, and the powered flight in 1903."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What did the brothers do immediately AFTER their 1901 glider lifted less than the tables had predicted?",
+      "options": [
+        "They built a wind tunnel and tested model wings.",
+        "They designed and carved their own spinning propellers.",
+        "They opened a bicycle shop in Dayton.",
+        "They read about Otto Lilienthal."
+      ],
+      "answer": "A",
+      "why": "“Rather than giving up, they built a small wind tunnel in their workshop.” The propellers came later; the shop and Lilienthal came earlier."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who was Charlie Taylor, according to the text?",
+      "options": [
+        "a German glider pilot",
+        "a historian who wrote about the flight",
+        "the mechanic who helped build the engine",
+        "the owner of a company that sold engines"
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 calls him “their mechanic” and says he helped build the engine."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What led the brothers to decide that control, not power, was the biggest unsolved problem of flight?",
+      "options": [
+        "their experience with bicycles and the news of Lilienthal's fatal crash",
+        "the failure of a powerful engine they had bought from a company",
+        "the success of their first wind-tunnel tests",
+        "advice from historians in North Carolina"
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 links both ideas: bicycles taught them a rider must keep balancing, and Lilienthal's death after a crash showed the danger of poor control."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word best describes how the brothers responded to the disappointing 1901 glider?",
+      "options": [
+        "careless",
+        "determined",
+        "boastful",
+        "hopeless"
+      ],
+      "answer": "B",
+      "why": "Although they felt discouraged, they did not give up; they built a wind tunnel and kept testing, which shows determination."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer describe the famous 1903 flight at the very beginning, before telling the brothers' earlier story?",
+      "options": [
+        "because the flight happened before the brothers opened their shop",
+        "to hook readers with the result, then show how it happened",
+        "to prove that the 1903 flight was a failure",
+        "because the writer did not know about the earlier gliders"
+      ],
+      "answer": "B",
+      "why": "Starting with the exciting result makes readers want to know how it was achieved; the other options are false according to the text."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the 1902 glider different from the 1901 glider?",
+      "options": [
+        "It was the first glider to have an engine.",
+        "It was tested in Dayton instead of Kitty Hawk.",
+        "It was based on corrected measurements and flew successfully.",
+        "It followed the old published science tables even more carefully."
+      ],
+      "answer": "C",
+      "why": "The 1901 glider lifted less than predicted; the 1902 glider used the wind-tunnel results, which proved the old tables wrong, and made hundreds of successful flights."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the brothers' wind-tunnel tests?",
+      "options": [
+        "They proved that the published tables were wrong.",
+        "They showed that birds cannot turn in gusty air.",
+        "They convinced a company to build an engine.",
+        "They ended the brothers' interest in gliders."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “Their careful measurements proved that the old tables were wrong.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to the text, what do a bicycle and the Wrights' flying machine have in common?",
+      "options": [
+        "Both were first invented and built by the Wright brothers in Dayton.",
+        "Both are powered by a small engine.",
+        "Both were tested on sand dunes.",
+        "Both must be constantly balanced by the person controlling them."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 says a rider must keep balancing a bicycle, and the whole text argues that an aircraft must be carefully controlled. The brothers did not invent the bicycle."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the brothers treated each propeller blade “as a spinning wing”?",
+      "options": [
+        "They fixed real bird wings to their propellers.",
+        "They shaped the blades using what they had learned about wings.",
+        "They made the propellers spin as slowly as wings flap.",
+        "They used the same cloth for the blades as for the wings."
+      ],
+      "answer": "B",
+      "why": "The comparison shows they applied their wing knowledge to the blades; the phrase is not meant literally."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer include the detail “about two hundred model wings of different shapes”?",
+      "options": [
+        "to show how careful and thorough the brothers' testing was",
+        "to explain how a wind tunnel is built",
+        "to suggest that the brothers wasted their time",
+        "to compare the brothers' gliders with those of Otto Lilienthal"
+      ],
+      "answer": "A",
+      "why": "A large number of tests shows patient, careful work, which supports the writer's main point."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text expresses the writer's OPINION rather than a fact?",
+      "options": [
+        "Later that same day, Wilbur remained airborne for 59 seconds.",
+        "The brothers grew up in Dayton, Ohio, where they later opened a bicycle shop.",
+        "What an extraordinary achievement this was!",
+        "They also designed their own propellers, treating each blade as a spinning wing."
+      ],
+      "answer": "C",
+      "why": "Calling the flight “extraordinary” is the writer's judgement, shown by the exclamation; the other sentences report facts that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which quality does the text show mattered MOST in the brothers' success?",
+      "options": [
+        "the money they received from the government",
+        "the university degrees they had earned",
+        "their willingness to learn from their mistakes",
+        "the luck of finding a ready-made engine"
+      ],
+      "answer": "C",
+      "why": "The text says they had no degrees and no government help, and that they built their own engine; it stresses learning from failure, such as the 1901 glider."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to show that patience and learning from failure lead to success",
+        "a wish to explain why bicycles are safer and cheaper than early aircraft",
+        "a plan to advertise a new kind of glider",
+        "a belief that inventors need university degrees"
+      ],
+      "answer": "A",
+      "why": "The writer stresses patience, mistakes and success from the first paragraph to the last; the text also says the brothers had no degrees."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling toward the Wright brothers is most present in the text?",
+      "options": [
+        "pity",
+        "admiration",
+        "jealousy",
+        "disappointment"
+      ],
+      "answer": "B",
+      "why": "Words such as “extraordinary achievement” and “rare willingness to learn” show that the writer admires them."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how long the first powered flight lasted",
+        "where the brothers had their bicycle shop",
+        "who helped the brothers build their light but strong engine",
+        "how far Wilbur travelled during his 59-second flight"
+      ],
+      "answer": "D",
+      "why": "The text gives the time of Wilbur's flight but never its distance; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A cloth glider without an engine flies across an ocean in still air.",
+        "An engineer tests model wings in a wind tunnel before building a real aircraft.",
+        "A bird teaches an inventor to fly by speaking to him.",
+        "A bicycle grows wings and lifts its rider into the sky."
+      ],
+      "answer": "B",
+      "why": "Engineers still test models in wind tunnels, just as the Wrights did; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the text?",
+      "options": [
+        "From Failure to First Flight",
+        "The Day the Engine Broke",
+        "A Holiday at Kitty Hawk",
+        "Birds That Built Aircraft"
+      ],
+      "answer": "A",
+      "why": "The text traces the brothers' path from disappointing gliders to the first successful powered flight."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences that end it by connecting the Wright brothers' way of working to a problem that students might face today.",
+      "model": "Students who fail a science experiment can follow the Wright brothers' example. Instead of giving up, they can test one small change at a time and record the results carefully. In this way, even a disappointing first attempt can become the first step toward success.",
+      "rubric": [
+        "2 = a clear new ending that fits the text and connects the brothers' method (patience, testing, learning from failure) to a realistic modern problem",
+        "1 = an ending is given but the link to the brothers' method is unclear or does not fit the text",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that links patient testing and learning from mistakes to a present-day problem is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A student's model glider keeps tipping to one side. Based on the text, which approach best follows the Wright brothers' method?",
+      "options": [
+        "Test small changes one at a time and measure the results.",
+        "Study how birds keep their balance in gusty air.",
+        "A and B",
+        "Stop testing and simply add a stronger engine."
+      ],
+      "answer": "C",
+      "why": "The Wrights both studied birds for ideas about balance and tested carefully; adding power without control is the opposite of their lesson."
+    }
+  ]
+}

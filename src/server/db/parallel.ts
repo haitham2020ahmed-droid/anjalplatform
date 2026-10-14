@@ -6,6 +6,14 @@
  */
 export const WRITE_PARALLEL = 4;
 
+/** Reads for many items (e.g. one report per student) at most `limit` at a time; results in the items' order. */
+export const READ_PARALLEL = 6;
+export async function mapLimit<T, R>(items: readonly T[], fn: (item: T, index: number) => Promise<R>, limit = READ_PARALLEL): Promise<R[]> {
+  const out = new Array<R>(items.length);
+  await eachLimit(items, async (x, i) => { out[i] = await fn(x, i); }, limit);
+  return out;
+}
+
 export async function eachLimit<T>(items: readonly T[], fn: (item: T, index: number) => Promise<unknown>, limit = WRITE_PARALLEL): Promise<void> {
   let next = 0;
   let failed: { e: unknown } | null = null;

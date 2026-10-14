@@ -1,0 +1,461 @@
+{
+ "code": "LN-075",
+ "title": "Verb mood",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "verbs"
+ ],
+ "skillNames": [
+  "Verb Mood"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Sentences do different jobs",
+     "text": "Some sentences **tell** something.\nThe sun is hot.\n\nSome sentences **ask** something.\nIs the sun hot?\n\nSome sentences **tell you to do** something.\nDrink some water."
+    },
+    {
+     "title": "Telling and asking",
+     "text": "A **telling** sentence gives a fact. It ends with a full stop.\nMy cat is black.\n\nAn **asking** sentence is a question. It ends with **?**\nWhere is my cat?"
+    },
+    {
+     "title": "Commands",
+     "text": "A **command** tells someone what to do. It often **starts with the verb**.\n\n**Sit** down.\n**Close** the door.\n**Please wash** your hands."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Ask: does it **tell**, **ask**, or tell me **to do** something?\n3. Look at how it starts and ends.\n\nCommands start with an action word. Questions end with **?**"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We want fresh lemon juice.",
+      "role": "other"
+     },
+     {
+      "t": "Cut two lemons.",
+      "role": "key"
+     },
+     {
+      "t": "Squeeze them into a cup.",
+      "role": "key"
+     },
+     {
+      "t": "It tastes great!",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Cut** and **Squeeze** start the sentences. They tell you what to do, so they are **commands**.\n\n'It tastes great!' tells something. It is not a command."
+   },
+   "together": {
+    "passage": "It is time to plant a seed. Fill a cup with soil. Put the seed in the soil. Water it every day. Soon a green leaf will grow.",
+    "stem": "Which sentence is a command?",
+    "options": [
+     "It is time to plant a seed.",
+     "Soon a green leaf will grow.",
+     "Put the seed in the soil.",
+     "A green leaf grows."
+    ],
+    "answer": 2,
+    "hint": "Which sentence tells you what to do? Look for one that starts with an action word.",
+    "good": "Yes! **Put** is an action word at the start. It tells you what to do."
+   },
+   "evidence": {
+    "sentences": [
+     "It is time to plant a seed.",
+     "Fill a cup with soil.",
+     "Put the seed in the soil.",
+     "Water it every day.",
+     "Soon a green leaf will grow."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Put the seed in the soil. Tap 2 OTHER sentences that are commands.",
+    "wrong": "This sentence tells you something. It does not tell you to do something."
+   },
+   "checks": [
+    {
+     "passage": "Do you like dates? I like them a lot. Try one now!",
+     "stem": "Which sentence asks something?",
+     "options": [
+      "Do you like dates?",
+      "I like them a lot.",
+      "Try one now!",
+      "I like dates."
+     ],
+     "answer": 0,
+     "why": "It ends with a question mark and asks what you like."
+    },
+    {
+     "passage": "Look at the sky. The moon is full tonight. Can you see it?",
+     "stem": "Which sentence tells a fact?",
+     "options": [
+      "Look at the sky.",
+      "Can you see it?",
+      "Look up!",
+      "The moon is full tonight."
+     ],
+     "answer": 3,
+     "why": "It tells us something about the moon. It does not ask or tell us to do anything."
+    },
+    {
+     "passage": "Please line up at the door.",
+     "stem": "What does this sentence do?",
+     "options": [
+      "It asks a question.",
+      "It tells someone to do something.",
+      "It tells a fact.",
+      "It shows a feeling."
+     ],
+     "answer": 1,
+     "why": "**Please line up** tells the class what to do. It is a command."
+    }
+   ],
+   "again": {
+    "title": "Three hats",
+    "text": "Imagine three hats.\n\nThe **teller** hat: gives facts.\nThe **asker** hat: asks questions.\nThe **boss** hat: gives commands.",
+    "example": "'Open your book.' → boss hat\n'Is it open?' → asker hat\n'The book is open.' → teller hat"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Verb mood",
+     "text": "The **mood** of a verb shows the writer's **purpose**.\n\n**Indicative**: states a fact or opinion.\nThe bus leaves at seven.\n\n**Interrogative**: asks a question.\nDoes the bus leave at seven?"
+    },
+    {
+     "title": "Imperative mood",
+     "text": "The **imperative** gives a command, a request or advice. The subject **you** is hidden.\n\n**Bring** your lunch.\n**Please be** on time.\n**Let's go** together."
+    },
+    {
+     "title": "Why it matters",
+     "text": "Writers choose the mood that fits the job.\n\nA story mostly uses the **indicative**.\nInstructions use the **imperative**.\nAn interview uses the **interrogative**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentence and ask what it **does**.\n2. Check the clues: a verb at the start? A question mark? A plain fact?\n3. Find other sentences in the text with the same purpose.\n\nThe sentences that do the same job are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The school trip is on Monday.",
+      "role": "detail"
+     },
+     {
+      "t": "Bring a hat and a water bottle.",
+      "role": "key"
+     },
+     {
+      "t": "Will lunch be provided?",
+      "role": "other"
+     },
+     {
+      "t": "Please return the form by Thursday.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 2 and 4 give instructions with the hidden subject **you**. They are **imperative**.\n\nSentence 1 states a fact (indicative). Sentence 3 asks (interrogative)."
+   },
+   "together": {
+    "passage": "Our class is holding a book swap next week. Every student can bring up to three books. Please write your name inside each book. Choose books that are in good condition. Do you have a book you have read many times? Someone else might love it too!",
+    "stem": "What is the mood of the sentence 'Please write your name inside each book.'?",
+    "options": [
+     "indicative, because it states a fact",
+     "interrogative, because it asks a question",
+     "imperative, because it gives an instruction",
+     "imperative, because it ends with a full stop"
+    ],
+    "answer": 2,
+    "hint": "Who is being told to do something? What is the hidden subject?",
+    "good": "Yes! It tells students what to do, with the hidden subject **you**. It is **imperative**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is holding a book swap next week.",
+     "Every student can bring up to three books.",
+     "Please write your name inside each book.",
+     "Choose books that are in good condition.",
+     "Do you have a book you have read many times?",
+     "Someone else might love it too!"
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: imperative. Tap the OTHER sentence in the imperative mood.",
+    "wrong": "This sentence states a fact or asks a question. Find the other instruction."
+   },
+   "checks": [
+    {
+     "passage": "How many planets are in our solar system?",
+     "stem": "What is the mood of this sentence?",
+     "options": [
+      "imperative",
+      "indicative",
+      "interrogative",
+      "conditional"
+     ],
+     "answer": 2,
+     "why": "It asks a question, so it is **interrogative**."
+    },
+    {
+     "passage": "Turn off the lights when you leave the room.",
+     "stem": "What is the mood of this sentence?",
+     "options": [
+      "imperative",
+      "interrogative",
+      "indicative",
+      "subjunctive"
+     ],
+     "answer": 0,
+     "why": "It gives an instruction to **you**, so it is **imperative**."
+    },
+    {
+     "passage": "Water boils at 100 degrees Celsius at sea level.",
+     "stem": "What is the mood of this sentence?",
+     "options": [
+      "imperative",
+      "interrogative",
+      "conditional",
+      "indicative"
+     ],
+     "answer": 3,
+     "why": "It states a fact, so it is **indicative**."
+    }
+   ],
+   "again": {
+    "title": "What is the job?",
+    "text": "Ask one question: **What is this sentence trying to do?**\n\nTell me a fact → indicative\nAsk me something → interrogative\nGet me to act → imperative",
+    "example": "'Pass me the salt.' → It wants me to act → **imperative**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The conditional mood",
+     "text": "The **conditional** mood talks about what **would**, **could** or **might** happen.\n\nI **would** help you if I had time.\nWe **could** win if we practise."
+    },
+    {
+     "title": "Imagining the unreal",
+     "text": "To imagine something that is **not true now**, use **if + past verb**, then **would + verb**.\n\nIf I **had** a camel, I **would ride** it to school.\n(I do not have a camel.)"
+    },
+    {
+     "title": "Real or imagined?",
+     "text": "Real and possible: **If** it **rains**, we **will stay** inside.\n\nImagined: **If** it **rained** here every day, the desert **would be** green.\n\nThe verb forms show the difference."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Decide: is the writer talking about something **real** or **imagined**?\n2. Look for **would**, **could** or **might**.\n3. Find other sentences in the passage with the same pattern: if + past verb, would + verb."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our town has no beach.",
+      "role": "key"
+     },
+     {
+      "t": "If our town had a beach, we would swim every weekend.",
+      "role": "main"
+     },
+     {
+      "t": "We could also learn to sail.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 1 shows the beach is **not real**. So sentence 2 uses **had** and **would swim** to imagine it.\n\n**could learn** continues the imagined idea."
+   },
+   "together": {
+    "passage": "Our class wrote about an imaginary invention. Noor wrote about a robot that cleans classrooms. If every school had one, teachers would save a lot of time. The robot could also water the plants. If it ___ to talk, it might even help students with spelling.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "learns",
+     "learned",
+     "will learn",
+     "learning"
+    ],
+    "answer": 1,
+    "hint": "The robot is imaginary. What verb form comes after 'if' when you imagine something?",
+    "good": "Yes! To imagine something unreal, we use **if + past verb**: if it **learned**, it **might** help."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class wrote about an imaginary invention.",
+     "Noor wrote about a robot that cleans classrooms.",
+     "If every school had one, teachers would save a lot of time.",
+     "The robot could also water the plants.",
+     "If it ___ to talk, it might even help students with spelling."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: learned. Tap 2 OTHER sentences in the conditional mood.",
+    "wrong": "This sentence states a fact about the class or Noor. Find sentences with would, could or might."
+   },
+   "checks": [
+    {
+     "passage": "If I ___ a bird, I would fly over the mountains.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "were",
+      "am",
+      "will be",
+      "being"
+     ],
+     "answer": 0,
+     "why": "The writer is not a bird, so this is imagined: **if I were**, then **would fly**."
+    },
+    {
+     "passage": "If you heat ice, it melts.",
+     "stem": "Is this sentence real or imagined?",
+     "options": [
+      "imagined, because it uses would",
+      "imagined, because it uses if",
+      "real, because ice cannot melt",
+      "real, because it is a fact that always happens"
+     ],
+     "answer": 3,
+     "why": "Heating ice really does melt it. This is a fact, so it uses present verbs, not would."
+    },
+    {
+     "passage": "If we had more time, we ___ visit the old souq.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "will",
+      "would",
+      "are",
+      "did"
+     ],
+     "answer": 1,
+     "why": "**had** shows an imagined situation, so the result uses **would**."
+    }
+   ],
+   "again": {
+    "title": "Dreams use would",
+    "text": "When you **dream** about something that is not true:\n\nPart 1: if + past verb\nPart 2: would / could / might + verb",
+    "example": "I am not rich. → If I **were** rich, I **would build** a library.\n\nWe do not live by the sea. → If we **lived** by the sea, we **could fish**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "The subjunctive mood",
+     "text": "The **subjunctive** expresses wishes, demands and situations contrary to fact.\n\nWishes and unreal ideas use **were** for every subject:\nI wish I **were** taller.\nIf she **were** here, she would know."
+    },
+    {
+     "title": "Demands and suggestions",
+     "text": "After verbs like **insist, suggest, recommend, demand** and phrases like **it is important that**, use the **base verb**, with no -s.\n\nThe doctor recommended that he **rest**.\nIt is essential that every student **be** on time."
+    },
+    {
+     "title": "Avoid mood shifts",
+     "text": "Do not switch moods without a reason in one sentence.\n\nShift: **Open** your book, and **you should read** page ten.\nConsistent: **Open** your book and **read** page ten."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look for trigger words: **wish**, **if** (unreal), **insist**, **suggest**, **recommend**, **it is important that**.\n2. After them, use **were** or the **base verb**.\n3. Find other sentences in the passage that follow the same pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The coach wishes the season were longer.",
+      "role": "key"
+     },
+     {
+      "t": "He suggests that each player stretch before training.",
+      "role": "key"
+     },
+     {
+      "t": "Training starts at five.",
+      "role": "other"
+     }
+    ],
+    "explain": "**wishes … were**: a wish about something unreal.\n**suggests that each player stretch**: base verb, no -s.\n\n'Training starts at five' is a plain fact, so it is indicative."
+   },
+   "together": {
+    "passage": "Before the school trip to the Asir mountains, our teacher held a short meeting. She insisted that every student ___ a warm jacket, because the evenings can be cold. She also recommended that each of us carry a small torch. One boy joked that he wished he were a mountain goat, so he would not need boots. The teacher laughed and said that the trip would begin at six in the morning.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "brings",
+     "brought",
+     "bring",
+     "will bring"
+    ],
+    "answer": 2,
+    "hint": "Look at the trigger word **insisted that**. What form of the verb follows it?",
+    "good": "Yes! After **insisted that**, we use the base verb: **every student bring**."
+   },
+   "evidence": {
+    "sentences": [
+     "Before the school trip to the Asir mountains, our teacher held a short meeting.",
+     "She insisted that every student ___ a warm jacket, because the evenings can be cold.",
+     "She also recommended that each of us carry a small torch.",
+     "One boy joked that he wished he were a mountain goat, so he would not need boots.",
+     "The teacher laughed and said that the trip would begin at six in the morning."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: bring. Tap 2 OTHER sentences in the subjunctive mood.",
+    "wrong": "This sentence states a fact or reports what happened. Find sentences with a wish or a recommendation."
+   },
+   "checks": [
+    {
+     "passage": "It is important that the baby ___ enough sleep.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "gets",
+      "get",
+      "got",
+      "getting"
+     ],
+     "answer": 1,
+     "why": "After **it is important that**, use the base verb: **get**."
+    },
+    {
+     "passage": "If I ___ the principal, I would add a longer break.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "am",
+      "was being",
+      "will be",
+      "were"
+     ],
+     "answer": 3,
+     "why": "This is unreal (the writer is not the principal), so the subjunctive uses **were**."
+    },
+    {
+     "passage": "First, mix the flour and water, and then you should knead the dough.",
+     "stem": "How should the sentence be fixed to avoid a shift in mood?",
+     "options": [
+      "First, mix the flour and water, and then knead the dough.",
+      "First, you mixed the flour and water, and then knead the dough.",
+      "First, mix the flour and water, and then you kneaded the dough.",
+      "First, would you mix the flour and water, and then knead the dough."
+     ],
+     "answer": 0,
+     "why": "**mix** is imperative, so the second instruction should be imperative too: **knead**."
+    }
+   ],
+   "again": {
+    "title": "Spot the trigger",
+    "text": "Some words switch the verb into a special form.\n\n**wish / if (unreal)** → **were**\n**insist / suggest / recommend / it is important that** → **base verb**",
+    "example": "The teacher suggests that Ali (reads / read) more.\n\nTrigger: **suggests that** → base verb → **read**."
+   }
+  }
+ }
+}

@@ -1,0 +1,472 @@
+{
+ "code": "LN-120",
+ "title": "Author's attitude",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.3.6",
+  "RI.6.6",
+  "RI.7.6",
+  "RI.8.6"
+ ],
+ "families": [
+  "author-perspective"
+ ],
+ "skillNames": [
+  "Author's Attitude and Counterarguments"
+ ],
+ "statements": [
+  "R-0189",
+  "R-0317",
+  "R-0318",
+  "R-0486",
+  "R-0671",
+  "R-0673",
+  "R-0864",
+  "R-0884",
+  "R-1008",
+  "R-1010"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is attitude?",
+     "text": "An author's **attitude** is how the author **feels** about the topic.\n\nDoes the author **like** it? **Not like** it? Want you to **do** something?"
+    },
+    {
+     "title": "Words show feelings",
+     "text": "Some words show **good** feelings: great, best, love, fun.\n\nSome words show **bad** feelings: terrible, unfair, boring, waste."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read the text.\n2. Find the **feeling words**.\n3. Ask: **Does the author like this or not?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The feeling words are your **proof**.\n\n1. Look for words like **best**, **love** or **bad**.\n2. Tap the sentence that has them.\n\nA sentence with only facts does not show the feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school has a new reading corner.",
+      "role": "other"
+     },
+     {
+      "t": "It is the best place in the whole school!",
+      "role": "key"
+     },
+     {
+      "t": "Every class should use it.",
+      "role": "key"
+     }
+    ],
+    "explain": "The words **the best place** and **should use it** show the author **loves** the reading corner and wants you to use it."
+   },
+   "together": {
+    "passage": "Every child should learn to swim. Swimming is a great way to stay strong. It is also fun. The pool near our school opens at 4 o'clock.",
+    "stem": "How does the author feel about swimming?",
+    "options": [
+     "The author thinks swimming is boring.",
+     "The author is scared of swimming.",
+     "The author thinks children should swim.",
+     "The author does not care about swimming."
+    ],
+    "answer": 2,
+    "hint": "Look for the words should, great and fun.",
+    "good": "Yes! Should learn, great and fun show the author thinks swimming is good for children."
+   },
+   "evidence": {
+    "sentences": [
+     "Every child should learn to swim.",
+     "Swimming is a great way to stay strong.",
+     "It is also fun.",
+     "The pool near our school opens at 4 o'clock."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the author thinks children should swim. Tap 2 sentences with words that show this.",
+    "wrong": "This sentence only gives a fact about the pool. Find words that show a feeling."
+   },
+   "checks": [
+    {
+     "passage": "Junk food is bad for you. It has too much sugar and salt. Eat fruit instead!",
+     "stem": "How does the author feel about junk food?",
+     "options": [
+      "The author likes junk food.",
+      "The author does not like junk food.",
+      "The author wants more salt.",
+      "The author has no feeling."
+     ],
+     "answer": 1,
+     "why": "Bad for you and eat fruit instead show the author does not like junk food."
+    },
+    {
+     "passage": "Our town needs a new park. The old park is small and broken. Kids have nowhere fun to play.",
+     "stem": "What does the author want?",
+     "options": [
+      "A new park for the town.",
+      "A new school for kids.",
+      "To close the old park.",
+      "A smaller park."
+     ],
+     "answer": 0,
+     "why": "The author says the town needs a new park because the old one is small and broken."
+    },
+    {
+     "passage": "Reading at night is wonderful. A good book helps you relax. I read every night before bed.",
+     "stem": "How does the author feel about reading at night?",
+     "options": [
+      "Bored.",
+      "Angry.",
+      "Worried.",
+      "Happy about it."
+     ],
+     "answer": 3,
+     "why": "Wonderful and helps you relax show the author feels happy about reading at night."
+    }
+   ],
+   "again": {
+    "title": "Thumbs up or thumbs down?",
+    "text": "After you read, ask: **Would the author give this a thumbs up or a thumbs down?**\n\nThe feeling words tell you.",
+    "example": "Homework on weekends is unfair. Kids need time to rest.\n\nUnfair is a thumbs-down word. The author **does not like** weekend homework."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Attitude in every text",
+     "text": "Even a text full of facts can show the author's **attitude**: the way the author feels about the topic.\n\nThe author might be **admiring**, **worried**, **excited**, **doubtful** or **neutral**."
+    },
+    {
+     "title": "Clues to attitude",
+     "text": "1. **Word choice**: amazing vs. strange, brave vs. careless.\n2. **Which facts** the author chooses to include.\n3. **Comments** the author adds, such as sadly or luckily."
+    },
+    {
+     "title": "Name the attitude",
+     "text": "Choose a word that matches **all** the clues.\n\nIf the author uses words like remarkable and clever, the attitude is **admiring**. If the author uses words like sadly and danger, the attitude is **worried**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the attitude with **the author's own words**.\n\n1. Find words that are not just facts: describing words and comments.\n2. Tap the sentences that contain them.\n3. A sentence with only numbers or facts usually does not prove attitude."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The camel can travel about 30 kilometres a day across the desert.",
+      "role": "other"
+     },
+     {
+      "t": "This remarkable animal can go many days without drinking water.",
+      "role": "key"
+     },
+     {
+      "t": "It is truly a perfect desert traveller.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence is a plain fact. The words **remarkable** and **truly a perfect** show that the author **admires** the camel."
+   },
+   "together": {
+    "passage": "Sadly, many sea turtles are hurt by plastic in the ocean. A turtle may mistake a floating bag for a jellyfish and swallow it. Sea turtles have lived in the oceans for millions of years. Without our help, these gentle animals may face a dangerous future.",
+    "stem": "What is the author's attitude toward the sea turtles' situation?",
+    "options": [
+     "Amused",
+     "Worried",
+     "Bored",
+     "Angry at the turtles"
+    ],
+    "answer": 1,
+    "hint": "Look for words like sadly, hurt and dangerous future. What feeling do they show?",
+    "good": "Yes! Sadly, hurt and a dangerous future show the author is worried about the turtles."
+   },
+   "evidence": {
+    "sentences": [
+     "Sadly, many sea turtles are hurt by plastic in the ocean.",
+     "A turtle may mistake a floating bag for a jellyfish and swallow it.",
+     "Sea turtles have lived in the oceans for millions of years.",
+     "Without our help, these gentle animals may face a dangerous future."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: worried. Tap 2 sentences with words that show the author's worry.",
+    "wrong": "This sentence gives a fact without a feeling. Find the sentences with words like sadly or dangerous."
+   },
+   "checks": [
+    {
+     "passage": "The new science center is an exciting place for families. Children can build robots, test bridges and watch real experiments. Visitors leave full of questions and ideas.",
+     "stem": "What is the author's attitude toward the science center?",
+     "options": [
+      "Doubtful",
+      "Disappointed",
+      "Enthusiastic",
+      "Afraid"
+     ],
+     "answer": 2,
+     "why": "Exciting and full of questions and ideas show the author is enthusiastic."
+    },
+    {
+     "passage": "Some people say energy drinks help students study. However, these drinks often contain a lot of caffeine and sugar. Too much caffeine can cause headaches and poor sleep.",
+     "stem": "What is the author's attitude toward energy drinks for students?",
+     "options": [
+      "Concerned",
+      "Excited",
+      "Neutral",
+      "Proud"
+     ],
+     "answer": 0,
+     "why": "However and the facts about headaches and poor sleep show the author is concerned."
+    },
+    {
+     "passage": "Ibn Battuta set out from Morocco in 1325. Over almost thirty years, he travelled to dozens of lands. His careful notes give us a priceless picture of the world in his time.",
+     "stem": "How does the author feel about Ibn Battuta?",
+     "options": [
+      "The author finds him boring.",
+      "The author thinks he was careless.",
+      "The author does not trust his notes.",
+      "The author admires him and his work."
+     ],
+     "answer": 3,
+     "why": "Careful notes and a priceless picture show admiration."
+    }
+   ],
+   "again": {
+    "title": "Listen for the voice",
+    "text": "Imagine the author **reading the text out loud**.\n\nWould the voice sound happy, worried, proud or calm? The describing words tell you.",
+    "example": "Luckily, the lost hiker was found safe after one night.\n\nThe word **luckily** sounds relieved. The author feels **relieved**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Beyond like and dislike",
+     "text": "In informational texts, the author's attitude is often **mixed** or **subtle**.\n\nAn author may admire an invention but be **cautious** about its risks, or support an idea but be **doubtful** about how it is done."
+    },
+    {
+     "title": "Connotation",
+     "text": "Words with similar meanings can carry different feelings.\n\n**Thrifty** vs. **stingy**. **Bold** vs. **reckless**. **Unusual** vs. **odd**.\n\nThe word the author picks reveals the attitude."
+    },
+    {
+     "title": "Infer from attitude",
+     "text": "Once you know the attitude, you can **infer** more: what the author hopes readers will think, or what the author would say about a new situation.\n\n1. Collect the word choices.\n2. Name the attitude.\n3. Use it to predict or explain."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your inference with **loaded words** and **author comments**.\n\n1. Find words with a strong positive or negative feeling.\n2. Find sentences where the author **judges** rather than just reports.\n3. Your answer must fit **all** of these clues, not just one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Drones are now used to deliver medicine to villages far from hospitals.",
+      "role": "other"
+     },
+     {
+      "t": "This is a welcome step for patients who once waited days for supplies.",
+      "role": "key"
+     },
+     {
+      "t": "Still, we should be careful about how many drones fill our skies.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Welcome step** shows approval. **Still, we should be careful** shows caution.\n\nThe attitude is **mixed**: the author supports drone delivery but warns about its growth."
+   },
+   "together": {
+    "passage": "Fast fashion lets shoppers buy new clothes every few weeks at low prices. Shops fill their racks with fresh styles almost every week. But this cheap clothing comes at a hidden cost. Factories use huge amounts of water, and many garments are thrown away after being worn only a few times. Perhaps it is time we asked whether we really need so many clothes.",
+    "stem": "Which statement best describes the author's attitude toward fast fashion?",
+    "options": [
+     "The author is excited by the low prices.",
+     "The author is critical of its effect on the environment.",
+     "The author is neutral and only gives facts.",
+     "The author thinks factories should make more clothes."
+    ],
+    "answer": 1,
+    "hint": "Notice the word But. What does the author say after it?",
+    "good": "Yes! Hidden cost, huge amounts of water and thrown away show the author is critical."
+   },
+   "evidence": {
+    "sentences": [
+     "Fast fashion lets shoppers buy new clothes every few weeks at low prices.",
+     "Shops fill their racks with fresh styles almost every week.",
+     "But this cheap clothing comes at a hidden cost.",
+     "Factories use huge amounts of water, and many garments are thrown away after being worn only a few times.",
+     "Perhaps it is time we asked whether we really need so many clothes."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the author is critical of fast fashion. Tap 2 sentences that show this attitude.",
+    "wrong": "This sentence describes fast fashion without judging it. Find sentences where the author shows a problem or gives an opinion."
+   },
+   "checks": [
+    {
+     "passage": "Some cities have replaced parking lots with small parks. Critics call this a waste of space. Yet these green corners give children a safe place to play and offer shade on scorching afternoons.",
+     "stem": "Based on the author's attitude, which statement would the author most likely agree with?",
+     "options": [
+      "Parking lots are more useful than parks.",
+      "Cities should build more small parks.",
+      "Children should play on the streets.",
+      "Parks are a waste of city space."
+     ],
+     "answer": 1,
+     "why": "Yet and the positive words safe, green and shade show the author favours the parks, so the author would want more of them."
+    },
+    {
+     "passage": "The tablet program was announced with great fanfare. Each student received a device. Months later, many tablets sat unused in drawers because teachers had received no training.",
+     "stem": "What is the author's attitude toward the tablet program?",
+     "options": [
+      "Disappointed with how it was carried out",
+      "Proud of its success",
+      "Pleased with the teachers",
+      "Uninterested in schools"
+     ],
+     "answer": 0,
+     "why": "Great fanfare contrasts with tablets unused in drawers. The author is disappointed in how the program was carried out."
+    },
+    {
+     "passage": "Some scientists called Jane Goodall's methods unscientific because she named the chimpanzees instead of numbering them. Her patient observation, however, revealed that chimpanzees make and use tools, a discovery that changed how we see animals.",
+     "stem": "The author would most likely describe Goodall's methods as",
+     "options": [
+      "foolish and slow.",
+      "unscientific.",
+      "too risky.",
+      "valuable."
+     ],
+     "answer": 3,
+     "why": "However, patient and a discovery that changed how we see animals show the author values her methods despite the critics."
+    }
+   ],
+   "again": {
+    "title": "Swap the word",
+    "text": "Try replacing a describing word with a neutral one.\n\nIf the sentence **loses its feeling**, that word was showing the author's attitude.",
+    "example": "The council's **reckless** plan cost millions.\nThe council's **new** plan cost millions.\n\nReckless adds a negative feeling. The author **disapproves** of the plan."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Tone and attitude",
+     "text": "Skilled writers rarely say I like this or I disapprove. Instead, attitude appears in **tone**: the overall feeling created by word choice, sentence style and what the author emphasizes.\n\nTones include **skeptical**, **admiring**, **ironic**, **urgent**, **cautious** and **dismissive**."
+    },
+    {
+     "title": "Signals of attitude",
+     "text": "1. **Connotation**: claims vs. shows, scheme vs. plan.\n2. **Qualifiers**: so-called, merely, supposedly.\n3. **Emphasis**: what comes last or gets the most space.\n4. **Concession**: admittedly... but, which shows what the author really believes."
+    },
+    {
+     "title": "Evaluate, then infer",
+     "text": "Do not stop at naming the attitude. **Evaluate** it:\n\n1. Is it based on evidence the author gives?\n2. How does it shape what the reader is meant to conclude?\n3. What would the author likely think about a related issue?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove an attitude with **several** signals working together.\n\n1. Mark qualifiers and loaded words.\n2. Notice where the author moves from reporting to judging.\n3. Reject a choice that matches only one word but ignores the overall tone."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The company announced that its new water bottle was good for the planet.",
+      "role": "other"
+     },
+     {
+      "t": "Its so-called eco bottle, however, is still made of plastic that is difficult to recycle.",
+      "role": "key"
+     },
+     {
+      "t": "Calling it green seems to be more about sales than about the environment.",
+      "role": "key"
+     }
+    ],
+    "explain": "**So-called** and **however** signal doubt, and the last sentence questions the company's motive.\n\nThe author's attitude is **skeptical**, and readers are meant to doubt the green claim."
+   },
+   "together": {
+    "passage": "Every few years, a new diet promises to change lives overnight. The latest plan claims that eating only one type of fruit for a week will reset the body. Its supporters share glowing stories online, and the books sell by the thousands. Admittedly, eating more fruit is a healthy habit. Yet the plan offers no studies, only testimonials, and doctors point out that the body needs protein, fat and many other nutrients. Before joining the latest trend, readers might ask who benefits from all those book sales.",
+    "stem": "Which word best describes the author's attitude toward the new diet plan?",
+    "options": [
+     "Admiring",
+     "Neutral",
+     "Skeptical",
+     "Confused"
+    ],
+    "answer": 2,
+    "hint": "Look at the word claims, the phrase only testimonials and the final question. Do they show trust or doubt?",
+    "good": "Yes! Claims, no studies, only testimonials and the question about book sales show a skeptical attitude."
+   },
+   "evidence": {
+    "sentences": [
+     "Every few years, a new diet promises to change lives overnight.",
+     "The latest plan claims that eating only one type of fruit for a week will reset the body.",
+     "Its supporters share glowing stories online, and the books sell by the thousands.",
+     "Admittedly, eating more fruit is a healthy habit.",
+     "Yet the plan offers no studies, only testimonials, and doctors point out that the body needs protein, fat and many other nutrients.",
+     "Before joining the latest trend, readers might ask who benefits from all those book sales."
+    ],
+    "proof": [
+     0,
+     1,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: skeptical. Tap 2 sentences that show the author doubts the diet.",
+    "wrong": "This sentence reports, or admits one good point, without doubting the plan. Find sentences where the author questions it."
+   },
+   "checks": [
+    {
+     "passage": "The museum's new exhibit merely places ancient pottery in glass cases with small labels. Visitors walk past quickly. A museum in another city, by contrast, invites visitors to handle copies and try shaping clay themselves, and its halls are always full.",
+     "stem": "Based on the author's attitude, what would the author most likely recommend?",
+     "options": [
+      "Hands-on activities to make the exhibit more engaging",
+      "Removing the pottery from the museum",
+      "Smaller labels on the glass cases",
+      "Closing the other museum"
+     ],
+     "answer": 0,
+     "why": "Merely and visitors walk past quickly show disappointment, while the full halls of the other museum show approval of hands-on learning."
+    },
+    {
+     "passage": "Critics dismissed the young engineer's plan for solar-powered water pumps as a dreamer's fantasy. Ten years later, those pumps supply water to hundreds of farms that once relied on costly fuel. The critics, it seems, have grown rather quiet.",
+     "stem": "What is the author's attitude toward the critics?",
+     "options": [
+      "Respectful",
+      "Mildly mocking",
+      "Fearful",
+      "Grateful"
+     ],
+     "answer": 1,
+     "why": "Grown rather quiet gently pokes fun at critics who were proven wrong. The tone is mildly mocking."
+    },
+    {
+     "passage": "Admittedly, standardized tests give schools useful numbers to compare. But a single score cannot show a student's curiosity, teamwork or creativity. When test preparation fills the school year, these qualities are the first to be squeezed out.",
+     "stem": "Which statement best explains the author's attitude?",
+     "options": [
+      "The author fully supports more testing.",
+      "The author thinks tests should be harder.",
+      "The author does not care about schools.",
+      "The author accepts tests have value but worries about relying on them."
+     ],
+     "answer": 3,
+     "why": "Admittedly concedes a point, but the rest of the passage warns about what tests miss. The attitude is cautious and critical."
+    }
+   ],
+   "again": {
+    "title": "Admittedly... but",
+    "text": "Many authors **admit** a point before giving their real view.\n\nWhat comes **after** but, yet or however usually shows the true attitude.",
+    "example": "Admittedly, the new highway saves drivers ten minutes. **But** it cut through the town's last open fields.\n\nThe author's real attitude: **regret** about the lost fields."
+   }
+  }
+ }
+}

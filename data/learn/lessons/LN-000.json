@@ -1,0 +1,516 @@
+{
+ "code": "LN-000",
+ "title": "Main idea",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.1.2",
+  "RI.2.2",
+  "RI.3.2",
+  "RI.4.2",
+  "RI.5.2",
+  "RI.6.2",
+  "RI.7.2",
+  "RI.8.2"
+ ],
+ "families": [
+  "central-idea"
+ ],
+ "skillNames": [
+  "Central Idea and Relevant Details",
+  "Topic and Main Idea"
+ ],
+ "statements": [
+  "R-0108",
+  "R-0109",
+  "R-0196",
+  "R-0198",
+  "R-0205",
+  "R-0206",
+  "R-0340",
+  "R-0346",
+  "R-0347",
+  "R-0348",
+  "R-0357",
+  "R-0358",
+  "R-0522",
+  "R-0523",
+  "R-0524",
+  "R-0525",
+  "R-0540",
+  "R-0716",
+  "R-0717",
+  "R-0718",
+  "R-0737",
+  "R-0894",
+  "R-0899",
+  "R-1023",
+  "R-1033",
+  "R-1089",
+  "R-1110"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is the main idea?",
+     "text": "The **main idea** is the big idea.\n\nIt tells what the whole text is **mostly about**."
+    },
+    {
+     "title": "Big idea, small ideas",
+     "text": "Think of a box of toys. The **box** holds all the toys.\n\nThe main idea is like the box. The **details** are the toys inside it."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read all the sentences.\n2. Ask: **What are they all about?**\n3. Say it in a few words. That is the main idea."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the text**.\n\n1. Read the question.\n2. Look back at the sentences.\n3. Find the sentences that **show** your answer.\n\nIf no sentence shows it, it is **not** the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Cats make good pets.",
+      "role": "main"
+     },
+     {
+      "t": "They are soft.",
+      "role": "detail"
+     },
+     {
+      "t": "They like to play.",
+      "role": "detail"
+     },
+     {
+      "t": "They keep you company.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Each small sentence tells one good thing about cats.\n\nAll of them show why **cats make good pets**. That is the main idea."
+   },
+   "together": {
+    "passage": "My grandfather has a big farm. He grows dates and lemons. He has ten goats. He works there every day.",
+    "stem": "What is this text mostly about?",
+    "options": [
+     "Goats eat grass.",
+     "My grandfather's farm.",
+     "Lemons are sour.",
+     "Every day is hot."
+    ],
+    "answer": 1,
+    "hint": "That is not in every sentence. What are ALL the sentences about?",
+    "good": "Yes! Dates, lemons, goats and work all tell about the farm."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandfather has a big farm.",
+     "He grows dates and lemons.",
+     "He has ten goats.",
+     "He works there every day."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: my grandfather's farm. Tap 2 sentences that tell what is on the farm or what happens there.",
+    "wrong": "This sentence only names the farm. Find sentences that tell what the farm has or what happens there."
+   },
+   "checks": [
+    {
+     "passage": "The park is fun. Kids play ball there. Some kids ride bikes. Others swing up high.",
+     "stem": "What is the main idea?",
+     "options": [
+      "Kids ride bikes.",
+      "Swings go high.",
+      "Balls are round.",
+      "The park is fun."
+     ],
+     "answer": 3,
+     "why": "Ball games, bikes and swings all show that the park is fun."
+    },
+    {
+     "passage": "Rain is good for plants. It gives them a drink. It helps them grow. It keeps their leaves green.",
+     "stem": "What is this text mostly about?",
+     "options": [
+      "Plants need sun.",
+      "Leaves are green.",
+      "Rain is good for plants.",
+      "Rain is wet."
+     ],
+     "answer": 2,
+     "why": "A drink, growing and green leaves are all ways rain is good for plants."
+    },
+    {
+     "passage": "Ali helps at home. He makes his bed. He sets the table. He feeds the fish.",
+     "stem": "What is the main idea?",
+     "options": [
+      "Ali helps at home.",
+      "Ali has a fish.",
+      "The table is set.",
+      "Ali likes his bed."
+     ],
+     "answer": 0,
+     "why": "The bed, the table and the fish are all ways Ali helps at home."
+    }
+   ],
+   "again": {
+    "title": "Ask two questions",
+    "text": "1. **Who or what** is it about?\n2. **What** does the text say about it?\n\nPut your two answers together. That is the main idea.",
+    "example": "The sun helps us. It gives us light. It keeps us warm.\n\nWho or what? **The sun**. What about it? **It helps us.** Main idea: **The sun helps us.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Main idea",
+     "text": "The **main idea** is what a whole paragraph is **mostly about**.\n\nGood readers find the main idea first. Then every other sentence makes more sense."
+    },
+    {
+     "title": "Think of an umbrella",
+     "picture": "umbrella",
+     "text": "The main idea is like an **umbrella**. All the **details** fit under it.\n\nA detail tells about **one small part**. The main idea covers **all** of them."
+    },
+    {
+     "title": "Three quick steps",
+     "text": "1. Read the **whole** paragraph.\n2. Ask: **What is it mostly about?**\n3. Check: do **most sentences** tell about your answer? If yes, you found it!\n\nTip: the main idea is often the first sentence, but not always. Sometimes it comes at the end."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "You don’t guess. You **find the answer in the text** and you can **point to it**.\n\n1. Read the question. Find its **key word** (for example: mostly about, why, how).\n2. Go **back to the passage**. Find the sentences that talk about it.\n3. Choose the answer those sentences **prove**.\n\n🔎 **Ask yourself:** “Which sentence tells me this?” If you can’t point to it in the text, it is **not** the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Camels are well suited to life in the desert.",
+      "role": "main"
+     },
+     {
+      "t": "Their wide feet keep them from sinking into the sand.",
+      "role": "detail"
+     },
+     {
+      "t": "Long eyelashes protect their eyes from blowing dust.",
+      "role": "detail"
+     },
+     {
+      "t": "They can also go many days without drinking water.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 2 is about **feet**. Sentence 3 is about **eyelashes**. Sentence 4 is about **water**.\n\nWhat do they all show? How camels **survive in the desert**. So the main idea is: **Camels are well suited to life in the desert.**"
+   },
+   "together": {
+    "passage": "Every Thursday, students at our school work in the garden. Some pull weeds between the rows of tomatoes. Others water the mint and basil. The youngest students collect ripe beans in baskets. By the end of the day, everyone has helped the garden grow.",
+    "stem": "What is this paragraph mostly about?",
+    "options": [
+     "Tomatoes need a lot of water.",
+     "Students work together to care for the school garden.",
+     "The youngest students collect beans.",
+     "Mint and basil grow quickly."
+    ],
+    "answer": 1,
+    "hint": "That is one detail. Does every sentence talk about it? Look for the idea that covers all the sentences.",
+    "good": "Yes! Weeds, watering and beans are all ways students care for the garden."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Thursday, students at our school work in the garden.",
+     "Some pull weeds between the rows of tomatoes.",
+     "Others water the mint and basil.",
+     "The youngest students collect ripe beans in baskets.",
+     "By the end of the day, everyone has helped the garden grow."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: students work together to care for the garden. Tap 2 sentences in the text that prove it.",
+    "wrong": "This sentence tells WHEN students work or sums up the paragraph. Find sentences that show WHAT the students do."
+   },
+   "checks": [
+    {
+     "passage": "Falcons are among the fastest birds in the world. When a peregrine falcon dives, it can move faster than a car on a highway. Its pointed wings help it cut through the air. Its smooth body is shaped like an arrow.",
+     "stem": "What is the main idea?",
+     "options": [
+      "Falcons have pointed wings.",
+      "Falcons are built to fly very fast.",
+      "Cars drive fast on highways.",
+      "Falcons have smooth bodies."
+     ],
+     "answer": 1,
+     "why": "The dive, the pointed wings and the arrow-shaped body all show that falcons are built for speed."
+    },
+    {
+     "passage": "The power went out at seven o’clock. Mom found candles in the kitchen drawer. My brother and I played a word game by candlelight. Dad told stories about when he was a boy. It turned out to be one of our best family nights.",
+     "stem": "What is this paragraph mostly about?",
+     "options": [
+      "Mom keeps candles in a drawer.",
+      "Dad was once a boy.",
+      "A power cut became a happy family night.",
+      "The power went out at seven o’clock."
+     ],
+     "answer": 2,
+     "why": "Every sentence tells about the night without power, and the last one says it became a happy family night."
+    },
+    {
+     "passage": "Date palms have always been important in Saudi Arabia. Their fruit is eaten in homes all over the country. In the past, their leaves were used to make baskets and mats. Their trunks were used to build roofs.",
+     "stem": "Which sentence is the main idea?",
+     "options": [
+      "Their trunks were used to build roofs.",
+      "Their fruit is eaten in homes all over the country.",
+      "Their leaves were used to make baskets and mats.",
+      "Date palms have always been important in Saudi Arabia."
+     ],
+     "answer": 3,
+     "why": "The fruit, the leaves and the trunks are all reasons date palms are important. The first sentence covers them all."
+    }
+   ],
+   "again": {
+    "title": "An easier trick",
+    "text": "Ask yourself **two questions**:\n\n1. **Who or what** is the paragraph about?\n2. **What about** them?",
+    "example": "Sara loves reading. She reads every night before bed. She takes a book with her everywhere.\n\nWho? **Sara**. What about her? **She loves reading.** Put them together: **Sara loves reading.** That is the main idea!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Topic and main idea",
+     "text": "The **topic** is what a text is about, in a word or two: bees, the desert, a school trip.\n\nThe **main idea** says what the author wants you to understand **about** the topic. It is a full sentence, not just a word."
+    },
+    {
+     "title": "When the author does not say it",
+     "text": "Some paragraphs give the main idea in one sentence. Others **never say it directly**.\n\nThen you **add up the details**. What do they have in common? What point do they all support? Put that point in your own words."
+    },
+    {
+     "title": "Test your main idea",
+     "text": "1. Read the whole paragraph.\n2. Write the main idea in one sentence.\n3. Check each detail: does it **support** your sentence?\n4. If an important detail does not fit, your main idea is too small. Make it bigger."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good main idea can be **proved** with details from the text.\n\n1. Find the key words in the question.\n2. Look for the sentences that give **reasons, examples or facts** about them.\n3. Pick the answer that **all** of those sentences support, not just one.\n\nA wrong answer is often a single detail, or an idea that sounds true but is **not in the text**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the early morning, fishermen in a coastal city sell their catch at the fish market.",
+      "role": "detail"
+     },
+     {
+      "t": "Later, shoppers fill the old market streets to buy spices and cloth.",
+      "role": "detail"
+     },
+     {
+      "t": "As the sun sets, families walk along the seafront while children play near the water.",
+      "role": "detail"
+     },
+     {
+      "t": "From dawn to dusk, the city is full of life.",
+      "role": "key"
+     }
+    ],
+    "explain": "No sentence gives the main idea at the start. Each detail shows people busy at a different time of day.\n\nThe last sentence adds them up: **From dawn to dusk, the city is full of life.** The three details prove it."
+   },
+   "together": {
+    "passage": "Long before cars and trucks, camel caravans crossed the Arabian Peninsula. Traders carried incense, spices and cloth from one market town to the next. Along the way, they stopped at oases to rest and refill their water skins. Towns grew up beside these stops, where people from far away met, traded and shared news. In this way, the old caravan routes connected distant places and helped communities grow.",
+    "stem": "Which sentence best states the main idea of the paragraph?",
+    "options": [
+     "Traders carried incense, spices and cloth.",
+     "Caravan routes linked faraway places and helped towns grow.",
+     "Oases had water for travellers.",
+     "Cars and trucks are faster than camels."
+    ],
+    "answer": 1,
+    "hint": "That is only one detail. Which answer do ALL the sentences support?",
+    "good": "Yes! Trading, resting at oases and new towns all show how the routes connected places and helped communities grow."
+   },
+   "evidence": {
+    "sentences": [
+     "Long before cars and trucks, camel caravans crossed the Arabian Peninsula.",
+     "Traders carried incense, spices and cloth from one market town to the next.",
+     "Along the way, they stopped at oases to rest and refill their water skins.",
+     "Towns grew up beside these stops, where people from far away met, traded and shared news.",
+     "In this way, the old caravan routes connected distant places and helped communities grow."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the caravan routes linked faraway places and helped towns grow. Tap 2 sentences that show HOW they did it.",
+    "wrong": "This sentence sets the scene or sums up. Find the details that show HOW the routes connected people and places."
+   },
+   "checks": [
+    {
+     "passage": "Many students think a good night's sleep is a waste of study time. In fact, the brain sorts and stores new facts while we sleep. Students who rest well remember more of what they learned. They also find it easier to pay attention in class the next day.",
+     "stem": "What is the main idea?",
+     "options": [
+      "The brain stores facts.",
+      "Students should study all night.",
+      "Paying attention in class is hard.",
+      "Sleep helps students learn and remember."
+     ],
+     "answer": 3,
+     "why": "Storing facts, remembering more and paying attention all show how sleep helps students learn."
+    },
+    {
+     "passage": "Huda checked the weather every hour. She packed her bag twice and laid out her clothes the night before. At breakfast she could hardly eat, and she kept asking her father what time they would leave for the airport.",
+     "stem": "Which sentence best states the main idea?",
+     "options": [
+      "Huda likes to check the weather.",
+      "Huda is excited and nervous about her trip.",
+      "Huda's father drives to the airport.",
+      "Huda does not like breakfast."
+     ],
+     "answer": 1,
+     "why": "The text never says it, but checking the weather, packing twice and not eating all show that Huda is excited and nervous."
+    },
+    {
+     "passage": "Mangroves are trees that grow along salty coasts, including parts of the Red Sea and the Arabian Gulf. Their tangled roots hold the mud in place and protect the shore from waves. Small fish hide among the roots, and many birds nest in the branches. For these reasons, scientists work to protect mangrove forests.",
+     "stem": "What is the paragraph mostly about?",
+     "options": [
+      "Birds build their nests in tall branches.",
+      "Mangroves grow only along the coasts of the Red Sea.",
+      "Mangroves are valuable to the coast and to wildlife.",
+      "Scientists study the water of the Red Sea."
+     ],
+     "answer": 2,
+     "why": "Protecting the shore, sheltering fish and giving birds a home are all reasons mangroves are valuable."
+    }
+   ],
+   "again": {
+    "title": "Add up the clues",
+    "text": "Think of the details as **clues**.\n\n1. List what each sentence tells you.\n2. Ask: **What do all these clues point to?**\n3. Say it in one sentence. That is the main idea.",
+    "example": "The library was quiet. Every table was full. Students turned pages slowly and wrote notes in their notebooks.\n\nClues: quiet, full tables, reading, notes. They all point to one idea: **The students were studying hard.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "The central idea",
+     "text": "In longer texts, the main idea is often called the **central idea**. It is the author's most important point about the topic, and it is developed across the **whole** text, not just one paragraph.\n\nA strong statement of the central idea is specific: it names the topic **and** what the author claims about it."
+    },
+    {
+     "title": "Ideas the author implies",
+     "text": "Authors do not always state their point. They may **imply** it through the facts they choose, the examples they compare and the words they use.\n\nTo infer it, ask: Why did the author include these details? What do they add up to? What should a reader think afterwards?"
+    },
+    {
+     "title": "Central idea or detail?",
+     "text": "1. A **detail** is true for one part of the text.\n2. A **central idea** is supported by most parts of the text.\n3. A **wrong choice** may be too narrow (one detail), too broad (the whole subject), or not supported at all.\n\nTest each choice against the whole passage before you decide."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you choose a central idea, you should be able to point to **two or more** places in the text that support it.\n\n1. Underline the key words of the question.\n2. Find the sentences that develop that idea from different angles.\n3. Reject any choice that only one sentence supports, or that the text never mentions.\n\nThe best answer is the one with the **most evidence** across the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For centuries, people in dry regions have looked for clever ways to save water.",
+      "role": "other"
+     },
+     {
+      "t": "Some farming communities dug underground channels that carried water from distant hills without letting it dry up in the sun.",
+      "role": "detail"
+     },
+     {
+      "t": "Others carved deep wells and covered them to keep the water clean and cool.",
+      "role": "detail"
+     },
+     {
+      "t": "Today, engineers design drip systems that deliver water drop by drop to the roots of plants.",
+      "role": "detail"
+     },
+     {
+      "t": "Across the ages, the challenge of a dry climate has pushed people to invent.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence introduces the topic. The next three give examples from different times.\n\nThe last sentence states what the examples prove together: **a dry climate pushed people to invent**. That is the central idea, and each example supports it."
+   },
+   "together": {
+    "passage": "When the first public libraries opened in many cities, few people could afford books of their own. A library meant that a farmer's daughter could read the same history as a merchant's son. Over time, libraries added more than books: maps, newspapers, and later computers and internet access. Librarians began to teach classes on how to judge whether information is reliable. In some towns, the library became the only quiet place where students could study after school. Although the shelves and screens have changed, the purpose has stayed the same.",
+    "stem": "Which statement best expresses the central idea of the passage?",
+    "options": [
+     "Libraries have always had computers.",
+     "Librarians teach classes about information.",
+     "Books used to be too expensive for most families.",
+     "Libraries keep changing, but they still give everyone a fair chance to learn."
+    ],
+    "answer": 3,
+    "hint": "That is true of only one part of the passage. Which choice do the beginning, the middle and the end all support?",
+    "good": "Yes! From shared books to computers and quiet study rooms, every part shows libraries giving everyone a chance to learn."
+   },
+   "evidence": {
+    "sentences": [
+     "When the first public libraries opened in many cities, few people could afford books of their own.",
+     "A library meant that a farmer's daughter could read the same history as a merchant's son.",
+     "Over time, libraries added more than books: maps, newspapers, and later computers and internet access.",
+     "Librarians began to teach classes on how to judge whether information is reliable.",
+     "In some towns, the library became the only quiet place where students could study after school.",
+     "Although the shelves and screens have changed, the purpose has stayed the same."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: libraries give everyone a fair chance to learn. Tap 2 sentences that show people getting that chance.",
+    "wrong": "This sentence gives background or shows a change. Find sentences that show WHO gets a chance to learn, and how."
+   },
+   "checks": [
+    {
+     "passage": "Coral reefs cover a tiny part of the ocean floor, yet they are home to roughly a quarter of all known ocean species. Fishermen depend on reef fish for food and income. The reefs' hard structures also break the force of storm waves before they reach the shore. Scientists are even studying reef animals in the search for new medicines. When reefs are damaged by pollution or rising water temperatures, all of these benefits are put at risk.",
+     "stem": "What is the central idea?",
+     "options": [
+      "Coral reefs cover only a small part of the ocean floor.",
+      "Scientists look for new medicines in the sea.",
+      "Coral reefs are small but give great benefits that are now at risk.",
+      "Storm waves can be dangerous for people near the shore."
+     ],
+     "answer": 2,
+     "why": "Food, protection from waves and medicines are all benefits, and the last sentence warns they are at risk. Each other choice is one detail."
+    },
+    {
+     "passage": "The old clock on the classroom wall had stopped at ten past three years ago, but nobody had taken it down. Students checked their watches instead. The teacher had stopped noticing it. One morning a new student asked why a broken clock was still hanging there, and for a moment the whole class looked up as if seeing it for the first time.",
+     "stem": "Which sentence best expresses the central idea?",
+     "options": [
+      "The classroom needed a new clock.",
+      "People can stop noticing things they see every day.",
+      "The new student did not have a watch.",
+      "The teacher was too busy to fix the clock."
+     ],
+     "answer": 1,
+     "why": "The idea is implied: students and the teacher no longer saw the clock until a newcomer pointed it out."
+    },
+    {
+     "passage": "Some people believe that reading on screens has replaced reading on paper. Yet printed books are still sold in large numbers in many countries. Many readers say they remember more from paper pages, while others like screens because they can carry hundreds of books at once. Schools often use both. Rather than one format winning, readers seem to choose the format that fits the task.",
+     "stem": "Which statement best expresses the central idea?",
+     "options": [
+      "Screens have now completely replaced books printed on paper.",
+      "Printed books are still sold in many countries.",
+      "Readers use both paper and screens, depending on what they need.",
+      "Schools prefer screens because they are lighter."
+     ],
+     "answer": 2,
+     "why": "The passage gives reasons for paper and for screens, then says readers choose the format that fits the task."
+    }
+   ],
+   "again": {
+    "title": "Ask what the author wants you to think",
+    "text": "Try this when a central idea is hard to find.\n\n1. Name the **topic** in two or three words.\n2. Ask: what does **every part** of the text say about it?\n3. Join the topic and that point in one sentence.",
+    "example": "A desert can look empty, but after rare rains flowers bloom within days. Lizards shelter under rocks in the heat, and many animals come out only at night.\n\nTopic: **desert life**. What every part says: living things find ways to survive. Central idea: **The desert is full of life that has adapted to hard conditions.**"
+   }
+  }
+ }
+}

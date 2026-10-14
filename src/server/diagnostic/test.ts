@@ -16,6 +16,8 @@ import { cachedContentKeys, cachedSeenIndex, freshFilter, Sitting } from "../que
 import { areaOfCategory, areaOfStandard, foundationalArea, STRAND_QUOTA, WORD_STUDY_FAMILIES, type Area, type Strand } from "./standards";
 import { BLUEPRINT_SIZE, difficultyOf, effectiveBlueprint, estimate, focusBlueprint, gradeLabel, nextItem, replay, scoreOf, strandOfAnchor, type Design, type DesignItem } from "./adaptive";
 import { ensureNationalNorms, nationalNorm } from "../map/rit";
+import { bankVersion, modelVersion } from "../cache/bank-version";
+import { remember } from "../cache/lru";
 import { DEFAULT_ADAPTIVE, LEVEL_TO_B } from "../../config/engine";
 
 const STRAND_NAME: Record<string, string> = { LIT: "Literature", INFO: "Informational Text", VOCAB: "Vocabulary", LANG: "Grammar & Conventions", FOUND: "Foundational Skills" };
@@ -279,10 +281,17 @@ export async function studentDesign(repo: Repo, t: Row, design: Design, studentI
 // ------------------------------------------------------------------ the adaptive test (one blueprint, every grade)
 
 /** FALL national RIT means by grade → a RIT ↔ grade-units conversion (both ways). */
-async function ritScale(repo: Repo): Promise<{ toGrade: (rit: number) => number | null; toRit: (theta: number) => number | null }> {
+type RitScale = { toGrade: (rit: number) => number | null; toRit: (theta: number) => number | null };
+/** Pools of one page / build: each grade's diagnosticPool and the RIT scale read once (Admin → Diagnostic). */
+export interface PoolMemo { pools: Map<number, Promise<PoolQuestion[]>>; scale?: Promise<RitScale> }
+export const poolMemo = (): PoolMemo => ({ pools: new Map() });
+
+async function ritScale(repo: Repo): Promise<RitScale> {
   await ensureNationalNorms(repo);
   const pts: [number, number][] = [];
-  for (let g = 0; g <= 12; g++) { const n = await nationalNorm(repo, g, "FALL"); if (n) pts.push([g, n.mean]); }
+  // the 13 grade norms side by side (was one round trip after another), same order
+  const norms = await Promise.all(Array.from({ length: 13 }, (_, g) => nationalNorm(repo, g, "FALL")));
+  norms.forEach((n, g) => { if (n) pts.push([g, n.mean]); });
   if (pts.length < 2) return { toGrade: () => null, toRit: () => null };
   const lerp = (x: number, a: [number, number][], from: 0 | 1) => {
     const to = from ? 0 : 1;
@@ -305,13 +314,21 @@ async function activeGrades(repo: Repo, schoolId: string): Promise<number[]> {
  * The adaptive pool of a grade: the questions of the school's grades from two below to two above (same skills,
  * every difficulty), each placed on the grade scale — its calibrated RIT when it has one, else its grade and level.
  */
-export async function adaptivePool(repo: Repo, schoolId: string, grade: number): Promise<DesignItem[]> {
+export async function adaptivePool(repo: Repo, schoolId: string, grade: number, shared?: PoolMemo): Promise<DesignItem[]> {
   const grades = (await activeGrades(repo, schoolId)).filter((g) => Math.abs(g - grade) <= 2);
   const seen = new Set<string>();
   const raw: { q: PoolQuestion; g: number }[] = [];
-  for (const g of grades) for (const q of await diagnosticPool(repo, schoolId, g)) if (!seen.has(q.id) && (q.area.strand === "LIT" || q.area.strand === "INFO" || q.area.strand === "VOCAB" || q.area.strand === "LANG" || q.area.strand === "FOUND")) { seen.add(q.id); raw.push({ q, g }); }
+  // ⚡ the grades' pools are read side by side (and, with `shared`, once for all the grades that need them)
+  const poolOf = (g: number) => {
+    if (!shared) return diagnosticPool(repo, schoolId, g);
+    let p = shared.pools.get(g);
+    if (!p) { p = diagnosticPool(repo, schoolId, g); shared.pools.set(g, p); }
+    return p;
+  };
+  const lists = await Promise.all(grades.map(poolOf));
+  for (const [i, g] of grades.entries()) for (const q of lists[i]) if (!seen.has(q.id) && (q.area.strand === "LIT" || q.area.strand === "INFO" || q.area.strand === "VOCAB" || q.area.strand === "LANG" || q.area.strand === "FOUND")) { seen.add(q.id); raw.push({ q, g }); }
   if (!raw.length) return [];
-  const scale = await ritScale(repo);
+  const scale = await (shared ? (shared.scale ??= ritScale(repo)) : ritScale(repo));
   const tags = await repo.findMany("Question", { id: { in: raw.map((x) => x.q.id) } }, { select: ["id", "tags"] });
   const calOf = new Map(tags.map((r) => { let x: unknown = r.tags; if (typeof x === "string") { try { x = JSON.parse(x); } catch { x = null; } } const v = Number((x as { rit?: { value?: number } } | null)?.rit?.value); return [s(r.id), Number.isFinite(v) && v > 100 ? v : null] as const; }));
   return raw.map(({ q, g }) => {
@@ -329,12 +346,35 @@ export interface ReadinessRow { grade: number; pool: number; ready: boolean; str
  * harder than the grade. Ready = every slot can be filled; Strong = every skill has 3 questions per slot spread
  * over the three difficulties (a precise test for the weakest and the strongest students).
  */
-export async function diagnosticReadiness(repo: Repo, actor: Actor): Promise<{ blueprint: { anchor: string; label: string; strand: Strand; slots: number }[]; grades: ReadinessRow[] }> {
+type Readiness = { blueprint: { anchor: string; label: string; strand: Strand; slots: number }[]; grades: ReadinessRow[] };
+/**
+ * ⚡ The readiness table is built from the whole bank of 5 grades (thousands of questions, 100+ reads): kept per school
+ * while the bank and the tables it reads are unchanged in this process (write counters), at most READINESS_TTL_MS
+ * (changes made by another process). Callers get a copy.
+ */
+const readinessKept = new Map<string, { at: number; key: string; value: Promise<Readiness> }>();
+const READINESS_TTL_MS = 60_000;
+const READINESS_MODELS = ["Grade", "Curriculum", "Skill", "SkillStandard", "Standard", "SkillFamily", "QuestionUse", "QuestionType", "QuestionMapLink", "CurriculumMapNode"];
+
+export async function diagnosticReadiness(repo: Repo, actor: Actor): Promise<Readiness> {
   assertCan(actor, "reports:read");
   const schoolId = s(actor.schoolId);
+  const key = `${bankVersion()}|${modelVersion(...READINESS_MODELS)}`;
+  const hit = readinessKept.get(schoolId);
+  if (hit && hit.key === key && Date.now() - hit.at < READINESS_TTL_MS) return structuredClone(await hit.value);
+  const value = buildReadiness(repo, schoolId);
+  remember(readinessKept, schoolId, { at: Date.now(), key, value }, 16);
+  value.catch(() => readinessKept.delete(schoolId));
+  return structuredClone(await value);
+}
+
+async function buildReadiness(repo: Repo, schoolId: string): Promise<Readiness> {
   const grades = await activeGrades(repo, schoolId);
   const pools = new Map<number, DesignItem[]>();
-  for (const g of grades) pools.set(g, await adaptivePool(repo, schoolId, g));
+  // ⚡ every grade's pool shares the neighbouring grades' questions: read each grade once, all grades side by side
+  const memo = poolMemo();
+  const built = await Promise.all(grades.map((g) => adaptivePool(repo, schoolId, g, memo)));
+  grades.forEach((g, i) => pools.set(g, built[i]));
   const usable = grades.filter((g) => pools.get(g)!.length >= BLUEPRINT_SIZE);
   const bp = effectiveBlueprint((usable.length ? usable : grades).map((g) => pools.get(g)!));
   const slots = new Map<string, number>(); for (const a of bp) slots.set(a, (slots.get(a) ?? 0) + 1);
@@ -368,7 +408,9 @@ export async function buildDiagnostic(repo: Repo, actor: Actor, input: { grade: 
   await gradeRow(repo, schoolId, input.grade);
   const grades = await activeGrades(repo, schoolId);
   const pools = new Map<number, DesignItem[]>();
-  for (const g of grades) pools.set(g, await adaptivePool(repo, schoolId, g));
+  const memo = poolMemo();
+  const built = await Promise.all(grades.map((g) => adaptivePool(repo, schoolId, g, memo)));
+  grades.forEach((g, i) => pools.set(g, built[i]));
   const pool = pools.get(input.grade) ?? [];
   // the same skills for every grade: the blueprint comes from every grade whose bank can carry the test
   const usable = grades.filter((g) => g === input.grade || (pools.get(g)?.length ?? 0) >= BLUEPRINT_SIZE);

@@ -4,13 +4,14 @@
  * with a progress bar) and returns a plain result or an error message; nothing here re-renders the whole page (the
  * page refreshes itself once at the end).
  */
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { publishQuestions, STATUSES, type QuestionStatus } from "@/server/admin/questions";
 import { archiveQuestions, deleteQuestions, restoreArchived } from "@/server/admin/question-delete";
-import { BULK_BATCH, SORTS, flagQuestionsForReview, matchingIds, moveQuestionsToSkill, unpublishQuestions, type BankListFilter } from "@/server/admin/questions-list";
+import { BULK_BATCH, SORTS, flagQuestionsForReview, matchingIds, moveQuestionsToSkill, unflagQuestions, unpublishQuestions, type BankListFilter } from "@/server/admin/questions-list";
 
 const ids = z.array(z.string().min(1).max(191)).min(1).max(BULK_BATCH);
 export type BulkResult = { ok?: boolean; error?: string; done?: number; skipped?: { id: string; reason: string }[] };
@@ -54,6 +55,21 @@ export async function moveBatchAction(list: string[], skillId: string): Promise<
 export async function flagBatchAction(list: string[], note: string): Promise<BulkResult> {
   const actor = await requireActor({ permission: "questions:read" });
   return run(async () => ({ done: (await flagQuestionsForReview(repo, actor, ids.parse(list), String(note ?? ""))).flagged }));
+}
+
+/** 🏳️ Clears every open flag of these questions. */
+export async function unflagBatchAction(list: string[]): Promise<BulkResult> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  return run(async () => ({ done: (await unflagQuestions(repo, actor, ids.parse(list))).cleared }));
+}
+
+/** 🏳️ Clears one question's open flags (its page). */
+export async function unflagOneAction(_: { ok?: boolean; error?: string; message?: string }, f: FormData): Promise<{ ok?: boolean; error?: string; message?: string }> {
+  const actor = await requireActor({ permission: "questions:publish" });
+  const r = await run(async () => ({ done: (await unflagQuestions(repo, actor, ids.parse([String(f.get("questionId") ?? "")]))).cleared }));
+  if (r.error) return { error: r.error };
+  revalidatePath(`/admin/questions/${String(f.get("questionId") ?? "")}`);
+  return { ok: true, message: "Flags cleared." };
 }
 
 export async function archiveBatchAction(list: string[], reason: string): Promise<BulkResult> {

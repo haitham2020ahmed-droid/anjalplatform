@@ -1,0 +1,463 @@
+{
+ "code": "LN-100",
+ "title": "Diagrams and illustrations",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.1.6",
+  "RI.2.7",
+  "RI.3.7",
+  "RI.4.7",
+  "RI.5.7",
+  "RI.6.7",
+  "RI.7.9",
+  "RI.K.7"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0006",
+  "R-0043",
+  "R-0104",
+  "R-0176",
+  "R-0185",
+  "R-0320",
+  "R-0327",
+  "R-0754"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Pictures teach too",
+     "text": "In a fact book, the **pictures** give information too.\n\nLook closely. What is happening? Where? What can you see?\n\nIn these lessons, each picture is described in words."
+    },
+    {
+     "title": "What is a diagram?",
+     "text": "A **diagram** is a picture with **labels**.\n\nEach label is a word with a line pointing to one **part**.\n\nleaf → the line points to the leaf."
+    },
+    {
+     "title": "Look, then answer",
+     "text": "1. Read the question.\n2. Look at the picture or diagram.\n3. Find the part the question asks about."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the sentence that tells what the **picture** shows.\n2. Check that it matches your answer.\n3. Point to that sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The text says: Cats like to rest.",
+      "role": "other"
+     },
+     {
+      "t": "The picture shows a cat sleeping in a basket.",
+      "role": "key"
+     },
+     {
+      "t": "A ball of wool is next to the basket.",
+      "role": "other"
+     }
+    ],
+    "explain": "Where is the cat resting? The **picture** shows it: **in a basket**."
+   },
+   "together": {
+    "passage": "The text says: Bees make honey. The picture shows a bee on a yellow flower. It also shows another bee flying to its hive. The caption says: Bees work all day.",
+    "stem": "Where does the second bee fly in the picture?",
+    "options": [
+     "to a flower",
+     "to a tree",
+     "to a hive",
+     "to a house"
+    ],
+    "answer": 2,
+    "hint": "Read what the picture shows. Find the second bee.",
+    "good": "Yes! The picture shows the second bee flying **to its hive**."
+   },
+   "evidence": {
+    "sentences": [
+     "The text says: Bees make honey.",
+     "The picture shows a bee on a yellow flower.",
+     "It also shows another bee flying to its hive.",
+     "The caption says: Bees work all day."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: to a hive. Tap the sentence that shows it.",
+    "wrong": "This sentence is not about the second bee. Find the one that says where it flies."
+   },
+   "checks": [
+    {
+     "passage": "Picture: A boy waters a small tree. The tree has three green leaves. The sun is in the sky.",
+     "stem": "What is the boy doing in the picture?",
+     "options": [
+      "picking fruit",
+      "watering a tree",
+      "climbing a tree",
+      "reading a book"
+     ],
+     "answer": 1,
+     "why": "The picture shows the boy **watering** a small tree."
+    },
+    {
+     "passage": "Diagram of a plant. Top label: flower. Middle label: leaf. Bottom label, under the soil: roots.",
+     "stem": "Which part is under the soil?",
+     "options": [
+      "flower",
+      "leaf",
+      "stem",
+      "roots"
+     ],
+     "answer": 3,
+     "why": "The label under the soil says **roots**."
+    },
+    {
+     "passage": "Picture: Children wear coats and scarves. They hold cups of hot tea. Mist covers the mountains behind them.",
+     "stem": "What does the picture tell you about the weather?",
+     "options": [
+      "It is cold.",
+      "It is very hot.",
+      "It is raining hard.",
+      "It is windy at the beach."
+     ],
+     "answer": 0,
+     "why": "Coats, scarves and hot tea are clues that it is **cold**."
+    }
+   ],
+   "again": {
+    "title": "Be a detective",
+    "text": "Look at a picture like a **detective**.\n\n1. **Who** is in it?\n2. **What** are they doing?\n3. **Where** are they?",
+    "example": "Picture: a girl in a raincoat jumps in a puddle.\n\nWho? a girl. What? jumping in a puddle. Where? outside, after rain."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Labels point to parts",
+     "text": "A **labelled diagram** shows the parts of something.\n\nEach **label** names a part. Some labels also tell what the part **does**."
+    },
+    {
+     "title": "Arrows show movement",
+     "text": "Some diagrams use **arrows**. Arrows show **which way** something moves or **what happens next**.\n\nFollow the arrows in order, like a path."
+    },
+    {
+     "title": "Words or picture?",
+     "text": "Information can come from the **words** of the text or from the **picture**.\n\nSome facts are only in the picture. Good readers check **both**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer from a diagram:\n\n1. Find the **key word** in the question.\n2. Find the label or arrow that matches it.\n3. Point to the sentence that describes that label."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Diagram: a tree with three labels.",
+      "role": "other"
+     },
+     {
+      "t": "Trunk: carries water up from the roots.",
+      "role": "key"
+     },
+     {
+      "t": "Leaves: make food from sunlight.",
+      "role": "other"
+     },
+     {
+      "t": "Roots: take in water from the soil.",
+      "role": "other"
+     }
+    ],
+    "explain": "Which part carries water **up**? The label for the **trunk** says so."
+   },
+   "together": {
+    "passage": "The diagram shows a camel with four labels. The first label points to the hump: it stores fat for energy. The second points to the eyelashes: two rows keep sand out of the eyes. The third points to the nostrils: they can close during sandstorms. The fourth points to the feet: they are wide and padded for walking on sand.",
+    "stem": "According to the diagram, what does a camel close during a sandstorm?",
+    "options": [
+     "its nostrils",
+     "its hump",
+     "its feet",
+     "its mouth"
+    ],
+    "answer": 0,
+    "hint": "Find the label that mentions sandstorms.",
+    "good": "Yes! The third label says the **nostrils** can close during sandstorms."
+   },
+   "evidence": {
+    "sentences": [
+     "The diagram shows a camel with four labels.",
+     "The first label points to the hump: it stores fat for energy.",
+     "The second points to the eyelashes: two rows keep sand out of the eyes.",
+     "The third points to the nostrils: they can close during sandstorms.",
+     "The fourth points to the feet: they are wide and padded for walking on sand."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: its nostrils. Tap the label that proves it.",
+    "wrong": "This label does not mention sandstorms. Find the one that does."
+   },
+   "checks": [
+    {
+     "passage": "Diagram of the water cycle: An arrow goes up from the sea, labelled \"evaporation\". At the top, the clouds are labelled \"condensation\". An arrow comes down from the clouds, labelled \"precipitation (rain)\".",
+     "stem": "What label is on the arrow coming down from the clouds?",
+     "options": [
+      "evaporation",
+      "condensation",
+      "precipitation (rain)",
+      "the sea"
+     ],
+     "answer": 2,
+     "why": "The arrow coming **down** from the clouds is labelled **precipitation (rain)**."
+    },
+    {
+     "passage": "Text: Owls hunt at night. Picture: an owl flying with a mouse in its claws.",
+     "stem": "What do you learn ONLY from the picture?",
+     "options": [
+      "Owls hunt at night.",
+      "An owl can carry a mouse in its claws.",
+      "Owls sleep all day.",
+      "Owls live in trees."
+     ],
+     "answer": 1,
+     "why": "The text only says owls hunt at night. The **picture** shows the owl carrying a mouse."
+    },
+    {
+     "passage": "Diagram of the inside of an egg: the yolk is in the centre. The white surrounds the yolk. The shell is on the outside. A small air space is at the wide end.",
+     "stem": "Where is the air space?",
+     "options": [
+      "in the centre",
+      "around the yolk",
+      "on the outside",
+      "at the wide end"
+     ],
+     "answer": 3,
+     "why": "The diagram shows the air space **at the wide end** of the egg."
+    }
+   ],
+   "again": {
+    "title": "Follow the line",
+    "text": "Every label has a **line** to a part.\n\nRead the label, then follow its line in your mind. Now you know which part it names and what it does.",
+    "example": "Label: \"Beak: cracks seeds.\" → The line goes to the bird's beak. The beak **cracks seeds**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Text or picture?",
+     "text": "An article often gives information in **two ways**: the **words** and the **pictures** (photos, drawings, diagrams, captions).\n\nSome facts are in both. Some are **only** in one."
+    },
+    {
+     "title": "How to tell them apart",
+     "text": "1. Read the text. List the facts it gives.\n2. Look at the picture. List what it shows.\n3. A fact that is **not** in the text came from the picture.\n\nIn these lessons, sentences start with **the text says** or **the photo shows** to help you."
+    },
+    {
+     "title": "Why pictures matter",
+     "text": "Pictures can show **what something looks like**, **where** things are, or **how** they fit together.\n\nThey often add details the words leave out."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove where a fact comes from:\n\n1. Find the fact in the passage.\n2. Check whether it is in a **text** sentence or a **picture** sentence.\n3. Point to that sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The text says that the oryx lives in the desert.",
+      "role": "other"
+     },
+     {
+      "t": "The photo shows an oryx with long, straight horns resting in the shade of a tree.",
+      "role": "key"
+     }
+    ],
+    "explain": "The text tells **where** the oryx lives. Only the **photo** shows its long, straight horns and that it rests in the shade."
+   },
+   "together": {
+    "passage": "An article about mangroves has a short text and one photo. The text says that mangrove trees grow along parts of the Red Sea coast. It explains that some of their roots stick up out of the mud like pencils. These roots help the trees take in air. The photo shows a heron standing among the roots at low tide. In the photo, small crabs are climbing on the roots.",
+    "stem": "Which information comes from the photo, not from the text?",
+    "options": [
+     "Mangroves grow along the Red Sea coast.",
+     "Some roots stick up like pencils.",
+     "The roots help the trees take in air.",
+     "Small crabs climb on the roots."
+    ],
+    "answer": 3,
+    "hint": "Separate the text sentences from the photo sentences. Which fact is only in the photo?",
+    "good": "Yes! The **crabs** are only in the photo. The other facts come from the text."
+   },
+   "evidence": {
+    "sentences": [
+     "An article about mangroves has a short text and one photo.",
+     "The text says that mangrove trees grow along parts of the Red Sea coast.",
+     "It explains that some of their roots stick up out of the mud like pencils.",
+     "These roots help the trees take in air.",
+     "The photo shows a heron standing among the roots at low tide.",
+     "In the photo, small crabs are climbing on the roots."
+    ],
+    "proof": [
+     5
+    ],
+    "need": 1,
+    "stem": "The answer was: crabs climb on the roots. Tap the sentence that shows it comes from the photo.",
+    "wrong": "This sentence is part of the text, or does not mention crabs. Find the photo sentence about crabs."
+   },
+   "checks": [
+    {
+     "passage": "Text: The souq opens early in the morning. Illustration: a man sells dates from big baskets, and a woman buys a bag of coffee beans.",
+     "stem": "Which detail comes from the illustration?",
+     "options": [
+      "A man sells dates from baskets.",
+      "The souq opens early.",
+      "The souq opens every day.",
+      "The souq closes at night."
+     ],
+     "answer": 0,
+     "why": "The man selling dates is in the **illustration**. The text only says when the souq opens."
+    },
+    {
+     "passage": "Text: The old fort was built of mud bricks more than a hundred years ago. Drawing: thick walls, a tall watchtower at each corner and one small wooden door.",
+     "stem": "What does the drawing help you understand that the text does not?",
+     "options": [
+      "what the fort is made of",
+      "when the fort was built",
+      "what its towers and door look like",
+      "who lived in the fort"
+     ],
+     "answer": 2,
+     "why": "The text gives the material and the age. The **drawing** shows the towers and the door."
+    },
+    {
+     "passage": "Diagram of the heart: four rooms are labelled left atrium, right atrium, left ventricle and right ventricle. An arrow shows blood going from the right ventricle to the lungs.",
+     "stem": "According to the diagram, where does blood go from the right ventricle?",
+     "options": [
+      "to the left atrium",
+      "to the lungs",
+      "to the brain",
+      "to the right atrium"
+     ],
+     "answer": 1,
+     "why": "The arrow goes from the right ventricle **to the lungs**."
+    }
+   ],
+   "again": {
+    "title": "Two columns",
+    "text": "Draw two columns in your head: **Words** and **Picture**.\n\nPut each fact in the column where you found it. Then answer the question.",
+    "example": "Words: The tower is tall.\nPicture: the tower has blue tiles.\n\nThe **blue tiles** go in the Picture column."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Analysing illustrations",
+     "text": "Illustrations do more than decorate. They can **add**, **explain** or even **disagree** with the text.\n\nA careful reader compares them: What does each show? Do they match? Which one should I trust for this fact?"
+    },
+    {
+     "title": "Planned, real or not to scale?",
+     "text": "Check what **kind** of image it is:\n\n1. A **photo** shows something real at one moment.\n2. A **drawing** or plan may show an idea or a future design.\n3. A note like **not to scale** means sizes are not accurate."
+    },
+    {
+     "title": "When sources differ",
+     "text": "If a text and an image disagree, do not just pick one.\n\nAsk **when** and **why** each was made. A plan made before a project shows what was hoped for; a report made after shows what happened."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your analysis:\n\n1. Find what the **image** shows and what the **text** says about the same thing.\n2. Note any difference in time, purpose or accuracy.\n3. Point to the sentences that show the difference."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The text says the hospital opened with 200 beds.",
+      "role": "other"
+     },
+     {
+      "t": "A photo from opening day shows only one wing finished, with cranes still working behind it.",
+      "role": "key"
+     }
+    ],
+    "explain": "The photo shows the building was **not complete** on opening day. It adds information the text leaves out."
+   },
+   "together": {
+    "passage": "A report on a city's new park includes a large drawing made by the designers before building began. The drawing shows tall shady trees, families picnicking on the grass and a full lake with children rowing boats. The text, written a year after the park opened, explains that the young trees are still less than two metres tall. It also says the lake will be filled only after the water pipes are finished. Readers who look only at the drawing might think the park is already complete.",
+    "stem": "How does the information in the drawing differ from the text?",
+    "options": [
+     "The drawing shows fewer trees than the text says there are.",
+     "The drawing shows the planned park; the text tells how it is now.",
+     "Both the drawing and the text say that the lake is empty.",
+     "The text was written before the drawing was made."
+    ],
+    "answer": 1,
+    "hint": "When was the drawing made? When was the text written?",
+    "good": "Yes! The drawing was made **before** building. The text describes the park **now**: small trees and no water yet."
+   },
+   "evidence": {
+    "sentences": [
+     "A report on a city's new park includes a large drawing made by the designers before building began.",
+     "The drawing shows tall shady trees, families picnicking on the grass and a full lake with children rowing boats.",
+     "The text, written a year after the park opened, explains that the young trees are still less than two metres tall.",
+     "It also says the lake will be filled only after the water pipes are finished.",
+     "Readers who look only at the drawing might think the park is already complete."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the drawing shows the plan; the text shows the park now. Tap 2 sentences that prove it.",
+    "wrong": "This sentence does not show the difference. Compare what the drawing shows with what the text says now."
+   },
+   "checks": [
+    {
+     "passage": "A science article says that the Moon is about one quarter as wide as Earth. The illustration beside it shows Earth and the Moon side by side, with the Moon drawn almost as big as Earth, and a small note: \"not to scale\".",
+     "stem": "What should a careful reader conclude?",
+     "options": [
+      "The Moon is nearly as big as Earth.",
+      "The text is wrong about the Moon's size.",
+      "The note means the picture is a photo.",
+      "Trust the text for size; the picture is not to scale."
+     ],
+     "answer": 3,
+     "why": "\"Not to scale\" warns that sizes in the picture are not accurate, so the text gives the true size."
+    },
+    {
+     "passage": "A travel book from long ago describes an old port as \"small and quiet\". A painting made in the same year shows dozens of ships and crowds of traders on the docks.",
+     "stem": "What does comparing the text and the painting suggest?",
+     "options": [
+      "The sources disagree, so the reader needs more evidence.",
+      "The painting proves that the text is true.",
+      "The text and painting describe the port the same way.",
+      "Paintings are always more accurate than texts."
+     ],
+     "answer": 0,
+     "why": "The two sources give opposite pictures of the port, so a careful reader would look for more evidence."
+    },
+    {
+     "passage": "A leaflet about saving water says that small leaks can waste a lot of water over time. Next to the text is a cartoon of a dripping tap with a sad face and a large number: \"20 litres lost each day\".",
+     "stem": "What does the illustration add to the text?",
+     "options": [
+      "It disagrees with the text about leaks.",
+      "It explains how to fix a dripping tap.",
+      "It gives an amount and makes the problem feel real.",
+      "It shows that leaks are not important."
+     ],
+     "answer": 2,
+     "why": "The text speaks generally. The cartoon adds a **specific amount** and a sad face that makes the problem feel real."
+    }
+   ],
+   "again": {
+    "title": "Ask three questions about any image",
+    "text": "1. **What** does it show?\n2. **When** and **why** was it made?\n3. Does it **match** the text, add to it, or disagree?",
+    "example": "A poster shows a sunny beach. The text says the beach is closed for repairs.\n\nWhat: a sunny beach. Why: to attract visitors. Match? **No**: trust the text for today's facts."
+   }
+  }
+ }
+}

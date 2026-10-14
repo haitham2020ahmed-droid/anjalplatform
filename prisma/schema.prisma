@@ -785,6 +785,12 @@ model Question {
 
   @@index([contentHash])
   @@index([status, updatedAt])
+  /// ✏️ a teacher's own edited copy of a question (src/server/tests/review.ts): PRIVATE to that teacher (their User id).
+  /// Never in the shared bank's lists, pools or counts (src/server/questions/private-copies.ts); null = a shared question.
+  privateToId           String?  @db.VarChar(191)
+
+  /// ⚡ the shared bank's per-skill reads and counts (privateToId IS NULL) answered from the index alone, as before
+  @@index([skillId, deletedAt, status, privateToId, difficultyLevel])
 }
 
 model QuestionOption {
@@ -871,6 +877,11 @@ model PracticeSession {
   goalReachedAt DateTime?
   /// the question the student asked a hint for (set by the server when the hint is shown; the answer then counts half)
   hintQuestionId    String?
+  /// r67 guessing: answers of this session that were rapid guesses (effort = 1 − guessCount / questionCount)
+  guessCount        Int      @default(0)
+  /// r67 effort: more than 20 % of the answers were rapid guesses — teacher-only "Unreliable"; its answers never
+  /// change the student's level, tier or intervention plan
+  unreliable        Boolean  @default(false)
 }
 
 model QuestionAttempt {
@@ -904,6 +915,9 @@ model QuestionAttempt {
   /// where the answer came from (Update 39B, for reports): null = practice / assigned sets / checks · LESSON ·
   /// REVIEW (Review my mistakes) · READMASTER · GAME (live game)
   source         String?  @db.VarChar(12)
+  /// r67 effort: the answer belongs to a session marked Unreliable (> 20 % rapid guesses): left out of level, tier
+  /// and intervention decisions (the session's flag copied to its answers, so those readers need no join)
+  unreliable     Boolean  @default(false)
 
   @@index([studentId, misconception])
 }
@@ -1049,6 +1063,9 @@ model Assignment {
   shuffle     Boolean          @default(false)
   /// the questions the teacher picked ("I'll pick the questions"); null = the platform chooses for each student
   questionIds Json?
+  /// r67: the number of questions the teacher set for skill work (each student answers exactly this many counted
+  /// answers); null = the 30–50 rule
+  questionCount Int?
 
   class      Class               @relation(fields: [classId], references: [id])
   createdBy  Teacher             @relation(fields: [createdById], references: [id])
@@ -1767,6 +1784,7 @@ model LiveGame {
 
   @@index([code, status])
   @@index([schoolId, createdAt])
+  @@index([classId, createdAt]) // ⚡ r67: a class's recent games (teacher week, games report) without a table scan
 }
 
 model LiveGamePlayer {
@@ -2195,6 +2213,7 @@ model ExitTicket {
   closedAt    DateTime?
 
   @@index([classId, status])
+  @@index([createdById]) // ⚡ r67: a teacher's exit tickets, counted for the menu numbers on every page (was a table scan)
 }
 
 model ExitTicketAnswer {
@@ -3679,4 +3698,327 @@ model NafsPracticeAnswer {
   @@index([runId])
   @@index([practiceId])
   @@index([studentId, at])
+}
+
+// ------------------------------------------------------------------ 📘 Learn (short lessons + curriculum words)
+// The lesson / word CONTENT lives in files (data/learn/lessons/LN-*.json, data/learn/words/G*.json), read once and
+// kept in memory; these tables hold only what a school does with it (additive, read through safeIfBehind).
+
+/// One Learn lesson file registered for a school (loaded by Admin → Load new questions, pack "Learn lessons", or in the
+/// background): its metadata for lists, and whether the admin hid it (never deleted).
+model LearnLesson {
+  id           String    @id @default(cuid())
+  schoolId     String
+  code         String    @db.VarChar(20)
+  title        String    @db.VarChar(191)
+  /// READING | LANGUAGE
+  subject      String    @db.VarChar(10)
+  goalArea     String    @db.VarChar(60)
+  subtopic     String?   @db.VarChar(191)
+  standards    Json
+  families     Json
+  skillNames   Json
+  /// sha1 of the file's text when loaded (a changed file updates the row)
+  fileHash     String    @db.VarChar(40)
+  hidden       Boolean   @default(false)
+  hiddenReason String?   @db.VarChar(300)
+  hiddenById   String?
+  hiddenAt     DateTime?
+  loadedAt     DateTime  @default(now())
+  updatedAt    DateTime  @default(now())
+
+  @@unique([schoolId, code])
+  @@index([schoolId, hidden])
+}
+
+/// A teacher's (or the admin's) edit of one lesson level or one curriculum word. The file is never changed:
+/// PENDING = the teacher's own version (their classes see it) sent to the admin; APPROVED = the school's version;
+/// REJECTED = stays the teacher's own; WITHDRAWN = restored to the original; RETIRED = an older school version.
+model LearnEdit {
+  id              String    @id @default(cuid())
+  schoolId        String
+  /// LESSON | WORD
+  kind            String    @db.VarChar(8)
+  /// lesson code (LN-001) or word key "<grade>|<unit>|<number>|<word>"
+  ref             String    @db.VarChar(160)
+  /// the lesson level (1–4); 0 for a word
+  level           Int       @default(0)
+  authorUserId    String
+  /// the author's Teacher id (null for an admin)
+  authorTeacherId String?
+  content         Json
+  /// what the author started from (for the admin's word-level diff)
+  base            Json?
+  status          String    @db.VarChar(10)
+  note            String?   @db.VarChar(300)
+  decidedById     String?
+  decidedAt       DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @default(now())
+
+  @@index([schoolId, kind, ref])
+  @@index([schoolId, status])
+}
+
+/// "Report a problem" on a lesson or a word (to the admin's list).
+model LearnReport {
+  id         String    @id @default(cuid())
+  schoolId   String
+  kind       String    @db.VarChar(8)
+  ref        String    @db.VarChar(160)
+  level      Int       @default(0)
+  userId     String
+  text       String    @db.VarChar(1000)
+  /// OPEN | DONE
+  status     String    @default("OPEN") @db.VarChar(6)
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+
+  @@index([schoolId, status])
+}
+
+/// A lesson (kind LESSON, ref = code) or a selection's words (kind WORDS, ref = "<grade>|<unit>|<number>") a teacher
+/// gave to a class, a level group of a class or some students, with an optional level and due date.
+model LearnAssign {
+  id          String    @id @default(cuid())
+  schoolId    String
+  kind        String    @db.VarChar(6)
+  ref         String    @db.VarChar(160)
+  title       String    @db.VarChar(191)
+  classId     String?
+  /// CLASS | GROUP | STUDENTS
+  target      String    @db.VarChar(8)
+  /// GROUP: the level group (BELOW | ON | ABOVE) — teacher side only
+  groupLevel  String?   @db.VarChar(6)
+  /// 1–4: the teacher's choice of level (null = automatic)
+  level       Int?
+  dueAt       DateTime?
+  createdById String
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  @@index([schoolId, createdAt])
+  @@index([schoolId, kind, ref])
+}
+
+/// One student of a LearnAssign (ONE read for My Work): the title, level and due date are kept here too.
+model LearnAssignee {
+  id        String    @id @default(cuid())
+  assignId  String
+  schoolId  String
+  studentId String
+  kind      String    @db.VarChar(6)
+  ref       String    @db.VarChar(160)
+  title     String    @db.VarChar(191)
+  level     Int?
+  dueAt     DateTime?
+  /// NOT_STARTED | IN_PROGRESS | DONE
+  status    String    @default("NOT_STARTED") @db.VarChar(12)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+
+  @@unique([assignId, studentId])
+  @@index([studentId])
+  @@index([schoolId, kind, ref])
+}
+
+/// A student's work on one lesson (kind LESSON) or one selection's words (kind WORDS): opened, finished, the checks
+/// score (of 3; words: of 5), whether the "again" explanation was needed, attempts and time in seconds.
+model LearnProgress {
+  id          String    @id @default(cuid())
+  schoolId    String
+  studentId   String
+  kind        String    @db.VarChar(6)
+  ref         String    @db.VarChar(160)
+  level       Int       @default(2)
+  openedAt    DateTime  @default(now())
+  finishedAt  DateTime?
+  score       Int?
+  best        Int?
+  neededAgain Boolean   @default(false)
+  attempts    Int       @default(0)
+  seconds     Int       @default(0)
+  updatedAt   DateTime  @default(now())
+
+  @@unique([studentId, kind, ref])
+  @@index([schoolId, kind, ref])
+}
+
+/// 📘 A Learn lesson the platform sent BY ITSELF (src/server/learn/auto.ts) because of a clear, strong problem on one
+/// skill: the reason and its evidence numbers, the LearnAssign it made, and the teacher's decision.
+/// status: SENT (new) | KEPT | UNDONE (removed before the student started: never sent again) | CHANGED (another lesson
+/// was given instead). Switches live in SchoolSetting ("learn.auto", "learn.auto.class:<classId>").
+model LearnAuto {
+  id          String    @id @default(cuid())
+  schoolId    String
+  studentId   String
+  classId     String?
+  skillId     String
+  skillName   String    @db.VarChar(191)
+  ref         String    @db.VarChar(20)
+  title       String    @db.VarChar(191)
+  /// ACCURACY | DROPS | URGENT
+  trigger     String    @db.VarChar(8)
+  /// the reason in plain words (English; pages rebuild it from trigger + evidence in the reader's language)
+  reason      String    @db.VarChar(300)
+  evidence    Json
+  assignId    String
+  status      String    @default("SENT") @db.VarChar(8)
+  /// the scan that sent it (one bell notice per scan)
+  scanAt      DateTime
+  decidedById String?
+  decidedAt   DateTime?
+  note        String?   @db.VarChar(300)
+  createdAt   DateTime  @default(now())
+
+  @@index([schoolId, createdAt])
+  @@index([studentId, createdAt])
+}
+
+/// 👪 The teacher's note on a student's weekly family report ("For my family" this week —
+/// src/server/reports/family-week.ts): one per student per school week (week = its Sunday, "YYYY-MM-DD").
+model FamilyWeekNote {
+  id        String   @id @default(cuid())
+  studentId String
+  week      String   @db.VarChar(10)
+  note      String   @db.Text
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([studentId, week])
+  @@index([week])
+}
+
+/// 🚫 "Assigned" (src/server/teacher/assigned.ts): a SOFT cancel of something a teacher assigned — for everyone
+/// (studentId null) or for one student. Nothing is deleted: the students' answers and results stay; My Work, the home
+/// badge and the menu numbers hide the work while restoredAt is null. Undo = restoredAt set (the row is kept).
+model AssignmentCancel {
+  id            String    @id @default(cuid())
+  schoolId      String
+  /// SKILL | PROGRESS_CHECK | TEST | MAP_TEST | NAFS_TEST | NAFS_PRACTICE | LEARN | WORDS | READRISE | WRITING | FLUENCY | EXIT_TICKET | RESPOND | PLAN | LESSON
+  kind          String    @db.VarChar(16)
+  /// the assigned row's id (Assignment, TeacherTest, MapSimWindow, NafsTestClass, NafsPractice, LearnAssign, RRClassArticle, WritingTask, ExitTicket, RespondAssignment, SkillPlan, LessonRun)
+  refId         String    @db.VarChar(191)
+  classId       String?
+  /// null = cancelled for everyone; else removed for this one student
+  studentId     String?
+  /// the My Work row keys this hides (worked out when cancelled)
+  keys          Json
+  title         String    @db.VarChar(191)
+  cancelledById String
+  cancelledAt   DateTime  @default(now())
+  restoredAt    DateTime?
+  restoredById  String?
+
+  @@index([schoolId, restoredAt])
+  @@index([kind, refId])
+}
+
+/// 🔁 A teacher's own Review set for one Curriculum Map Review place (owner r67, src/server/curriculum-map/
+/// review-control.ts): the chosen questions in order (the place's shared questions, the teacher's private edited
+/// copies and the teacher's own written questions), the shared ones the teacher removed, and HOW MANY questions the
+/// students answer. The shared originals are never changed or deleted.
+model TeacherReviewSet {
+  id            String   @id @default(cuid())
+  schoolId      String
+  teacherUserId String
+  /// the Review place, e.g. G4.U1.TS1.REV
+  code          String   @db.VarChar(120)
+  questionIds   Json
+  hiddenIds     Json?
+  count         Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
+
+  @@unique([teacherUserId, code])
+  @@index([schoolId])
+}
+
+/// 🗓️ A class's MAP Year plan (owner r67, src/server/map/year-plan.ts): 40 school weeks of 2–3 skills the class's
+/// students share as needs (MAP results + continuum + the curriculum). weeks = [{ week, skills: [...] }]; needs = the
+/// class's need list when it was made (for Replace / Add). Stars (assigned) are read from Assignment, not kept here.
+model MapYearPlan {
+  id          String   @id @default(cuid())
+  schoolId    String
+  classId     String   @unique
+  startDate   DateTime
+  weeks       Json
+  needs       Json?
+  createdById String
+  generatedAt DateTime @default(now())
+  updatedAt   DateTime @default(now())
+
+  @@index([schoolId])
+}
+
+/// ⭐ ONE status per student per skill per level (owner r67 "skill stars", src/server/skills/status.ts). skillKey names
+/// the SAME skill everywhere (taxonomy family code, e.g. "fam:character"; see skillKeyIndex). status: NOT_STARTED ·
+/// IN_PROGRESS · MASTERED · NEXT_LEVEL · NEEDS_REVIEW. level = the student's challenge level when this row was made
+/// (1 = first; a new MAP result moving the student up opens level 2 for the harder skills). history = [{ at, status, why }].
+model SkillStatus {
+  id             String    @id @default(cuid())
+  studentId      String
+  skillKey       String    @db.VarChar(80)
+  level          Int       @default(1)
+  status         String    @db.VarChar(14)
+  /// the skill row practised last (for links and coins)
+  skillId        String?
+  /// answered skill-practice questions counted for the 30–50 rule (rapid guesses, tests, reviews, Learn checks excluded)
+  answered       Int       @default(0)
+  correct        Int       @default(0)
+  /// the engine's mastery % (shown capped at 99 until 30 answered)
+  score          Float     @default(0)
+  startedAt      DateTime?
+  masteredAt     DateTime?
+  reviewDueAt    DateTime?
+  /// 50 answers without mastery: the teacher sees "Needs support" (the student still sees In progress)
+  needsSupportAt DateTime?
+  /// last time the mastery % rose (stuck at In progress 7+ days → Needs attention / a Learn suggestion)
+  progressAt     DateTime?
+  /// the answered count when the mastery % last rose (25+ answers without progress → a Learn suggestion)
+  progressAnswered Int     @default(0)
+  /// the student's self-check after the skill: HAPPY | OK | UNSURE
+  selfCheck      String?   @db.VarChar(8)
+  /// the student saw the "new star" celebration (null = not yet)
+  celebratedAt   DateTime?
+  /// a skipped Learn suggestion (not shown again until this date)
+  learnSkippedAt DateTime?
+  history        Json?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now())
+
+  @@unique([studentId, skillKey, level])
+  @@index([skillKey, status])
+  @@index([status, updatedAt])
+}
+
+/// 🔄 A review check (5 questions, 3 weeks after ⭐) or the monthly mixed review (10 questions from several ⭐ skills),
+/// given in My Work as a question set (assignmentId). Never counted in the 30 rule. result = { right, answered, guesses,
+/// outcome: PASS | FAIL | GUESSING, perKey }.
+model SkillReviewCheck {
+  id           String    @id @default(cuid())
+  studentId    String
+  /// REVIEW | MIXED
+  kind         String    @db.VarChar(8)
+  skillKeys    Json
+  assignmentId String?
+  /// MIXED: the month (yyyy-mm); REVIEW: the skill key + the due date — one check per due review
+  periodKey    String    @db.VarChar(120)
+  createdAt    DateTime  @default(now())
+  settledAt    DateTime?
+  result       Json?
+
+  @@unique([studentId, kind, periodKey])
+  @@index([assignmentId])
+  @@index([studentId, settledAt])
+}
+
+/// A one-time notice a user dismissed (e.g. the "New: skill stars" card on the teacher home).
+model UserNotice {
+  userId    String
+  key       String   @db.VarChar(40)
+  seenAt    DateTime @default(now())
+
+  @@id([userId, key])
 }

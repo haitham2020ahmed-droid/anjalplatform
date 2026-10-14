@@ -86,28 +86,27 @@ describe("1 · prerequisite routing (practice on the demo school)", () => {
     omar = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.s1002" }))!);
   });
 
-  test("after a route, one wrong answer on return does not route; the visited prerequisite is never routed to again", async () => {
+  // r67 (owner): a prerequisite route no longer ENDS the practice (one of the early stops behind "the skill ended after
+  // 4 questions") — the weak prerequisite is still found after 3 wrong answers in a row and logged for the teacher;
+  // a visited (logged) prerequisite is never suggested again, and the streak never spans sessions
+  test("three wrong answers log a prerequisite (practice goes on); each prerequisite is suggested at most once", async () => {
     const st = (await repo.findUnique("Student", { id: omar.studentId! }))!;
     const cur = (await repo.findMany("Curriculum", { gradeId: st.gradeId }))[0];
     const sid = String((await repo.findUnique("Skill", { curriculumId: cur.id, code: "G4.theme" }))!.id);
-    const items = await loadSkillItems(repo, sid);
+    const items = await loadSkillItems(repo, sid, { wholePool: true });
     // the route's decision log is written after the response (as in production): wait for it before the next answer
     const answerWrong = async (sessionId: string, q: ClientQuestion) => { const r = await submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(30), rng); await afterResponseSettled(); return r; };
     let view = await startPractice(repo, omar, sid, later(0), rng);
-    let first: string | null = null; let n = 0;
-    while (view.question && n < 6) { const r = await answerWrong(view.sessionId, view.question); n++; view = r.view; if (r.feedback.next.endReason === "PREREQ_ROUTE") { first = r.feedback.next.routeToSkillId; break; } }
-    assert.ok(first, "three wrong answers route to a prerequisite");
-    assert.equal(n, DEFAULT_ADAPTIVE.prereqRouteAfterWrong);
-    // the student comes back to Theme (without practising the prerequisite): one wrong answer does not route again
-    view = await startPractice(repo, omar, sid, later(60), rng);
-    const back = await answerWrong(view.sessionId, view.question!);
-    assert.notEqual(back.feedback.next.endReason, "PREREQ_ROUTE", "one wrong answer on return does not re-route");
-    // more wrong answers may route to ANOTHER weak prerequisite, never to the one already visited
-    view = back.view;
-    const routes: string[] = [];
-    for (let k = 0; k < 8 && view.question; k++) { const r = await answerWrong(view.sessionId, view.question); view = r.view; if (r.feedback.next.endReason === "PREREQ_ROUTE") { routes.push(String(r.feedback.next.routeToSkillId)); view = await startPractice(repo, omar, sid, later(60), rng); } }
-    assert.ok(!routes.includes(first!), `never routed back to ${first} (routes: ${routes.join(", ") || "none"})`);
-    assert.equal(new Set(routes).size, routes.length, "each prerequisite at most once");
+    const routes = async () => (await repo.findMany("AdaptiveDecisionLog", { studentId: omar.studentId, skillId: sid, reasonCode: "PREREQ_ROUTE" }, { select: ["reason", "sessionId"] }));
+    let n = 0;
+    while (view.question && n < DEFAULT_ADAPTIVE.prereqRouteAfterWrong) { const r = await answerWrong(view.sessionId, view.question); n++; assert.notEqual(r.feedback.next.endReason, "PREREQ_ROUTE"); view = r.view; }
+    const first = await routes();
+    assert.equal(first.length, 1, "three wrong answers log one prerequisite route");
+    assert.ok(view.question && !view.ended, "the practice goes on");
+    // more wrong answers may log ANOTHER weak prerequisite, never the one already visited
+    for (let k = 0; k < 8 && view.question; k++) { const r = await answerWrong(view.sessionId, view.question); view = r.view; }
+    const all = (await routes()).map((x) => String(x.reason).match(/prerequisite "([^"]+)"/)?.[1] ?? "");
+    assert.equal(new Set(all).size, all.length, `each prerequisite at most once (${all.join(", ")})`);
   });
 });
 

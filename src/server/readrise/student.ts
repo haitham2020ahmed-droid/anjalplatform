@@ -20,7 +20,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { RR_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
-import { ENGINE, applyFirstTryScore, ensureRRStudent, goalStats, levelHistory, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
+import { ENGINE, applyFirstTryScore, ensureRRStudent, goalStats, levelHistory, readRisePlaced, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
 import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { modelVersion } from "../cache/bank-version";
@@ -471,6 +471,20 @@ export interface ReadRiseHome {
   growth: { points: { at: string; level: number }[]; projected: number | null; yearEnd: string };
   /** NEED = never placed and the test is ready; RETAKE = a teacher allowed a retake; OPEN = a test is half done. */
   placement: { state: "NONE" | "NEED" | "OPEN" | "RETAKE"; result: number | null };
+  /** a real level (readRisePlaced): until then no level number is shown anywhere (the summary's level is a working start) */
+  placed: boolean;
+  /** not placed and the placement test is available: the articles stay locked until the placement is finished */
+  locked: boolean;
+}
+
+/**
+ * 🔒 ReadRise articles are locked until the student finished the placement (or a teacher set the level), as long as
+ * the placement test is available (5+ passages). Without the test the articles stay open, with no level number shown.
+ */
+export async function readRiseAccess(repo: Repo, studentId: string, passages: PlacementPassage[] = loadPlacementPassages()): Promise<{ placed: boolean; locked: boolean }> {
+  const [rr, done] = await Promise.all([repo.findUnique("RRStudent", { studentId }), repo.count("RRPlacement", { studentId, completedAt: { not: null } })]);
+  const placed = readRisePlaced(rr, done > 0);
+  return { placed, locked: !placed && passages.length >= 5 };
 }
 
 /** Everything /student/readrise shows: level, goal, streak, growth + projection, placement prompt and the library. */
@@ -487,5 +501,6 @@ export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: strin
     library, summary: summary!,
     growth: { points: hist.points.map((p) => ({ at: p.at.toISOString(), level: p.level })), projected: summary!.projected, yearEnd: yearEnd.toISOString() },
     placement: { state, result: pst.last ? Number(pst.last.result) : null },
+    placed: summary!.placed, locked: !summary!.placed && ready,
   };
 }

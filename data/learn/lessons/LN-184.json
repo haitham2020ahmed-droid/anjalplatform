@@ -1,0 +1,482 @@
+{
+ "code": "LN-184",
+ "title": "Picturing the text in your mind",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Reading Strategies",
+ "standards": [],
+ "families": [
+  "visualize"
+ ],
+ "skillNames": [
+  "Visualize"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Make a picture in your mind",
+     "text": "Good readers **see** the story in their heads.\n\nThe words help you make a **picture in your mind**, like a little film."
+    },
+    {
+     "title": "Look for describing words",
+     "text": "Some words tell **how things look, sound, smell or feel**.\n\n**big**, **red**, **soft**, **loud**, **sweet**\n\nThese words add colour to your picture."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read one sentence.\n2. Add what it says to your picture.\n3. Read the next sentence. Add more.\n4. At the end, look at your whole picture."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your picture comes **from the words**, not from guessing.\n\n1. Read the question.\n2. Find the describing words in the text.\n3. Pick the picture that uses **those** words.\n\nIf the text does not say it, do not put it in your picture."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My cat is small and grey.",
+      "role": "key"
+     },
+     {
+      "t": "She has a pink nose.",
+      "role": "key"
+     },
+     {
+      "t": "She sleeps on a soft red rug.",
+      "role": "key"
+     },
+     {
+      "t": "I love my cat.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Small**, **grey**, **pink nose**, **soft red rug**. Now you can see her!\n\nThe last sentence tells a feeling. It does not add to the picture."
+   },
+   "together": {
+    "passage": "Sami is at the beach today. The sand is white. Blue waves splash on the shore. He builds a tall sand castle.",
+    "stem": "Which picture matches the text best?",
+    "options": [
+     "Green grass and a small red ball.",
+     "White sand, blue waves and a tall sand castle.",
+     "A boy sleeping under a tree at night.",
+     "Grey rocks and a big brown boat."
+    ],
+    "answer": 1,
+    "hint": "Look back at the colour words: white, blue. Which picture has them?",
+    "good": "Yes! White sand, blue waves and a tall castle are all in the text."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami is at the beach today.",
+     "The sand is white.",
+     "Blue waves splash on the shore.",
+     "He builds a tall sand castle."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: white sand, blue waves and a tall sand castle. Tap 2 sentences that help you SEE it.",
+    "wrong": "This sentence only tells where Sami is. Find sentences with colour or size words."
+   },
+   "checks": [
+    {
+     "passage": "The kite is big and yellow. It has a long red tail. It flies high in the blue sky.",
+     "stem": "What do you see in your mind?",
+     "options": [
+      "A small green kite on the ground.",
+      "A red bird in a tall tree.",
+      "A big yellow kite high in the sky.",
+      "A blue kite in the rain."
+     ],
+     "answer": 2,
+     "why": "The text says big, yellow and high in the blue sky."
+    },
+    {
+     "passage": "Mom makes bread. The kitchen smells warm and sweet. The bread is soft and brown.",
+     "stem": "Which word helps you SMELL the bread?",
+     "options": [
+      "sweet",
+      "brown",
+      "soft",
+      "makes"
+     ],
+     "answer": 0,
+     "why": "The text says the kitchen **smells** warm and sweet. Brown is a colour and soft is a feel."
+    },
+    {
+     "passage": "It is night. The moon is round and bright. Stars shine like tiny lights. The desert is quiet.",
+     "stem": "Which picture fits the text?",
+     "options": [
+      "A sunny day at school.",
+      "A noisy market with many people.",
+      "A rainy street with cars.",
+      "A quiet desert with a bright moon."
+     ],
+     "answer": 3,
+     "why": "Night, a bright moon, stars and a quiet desert are all in the text."
+    }
+   ],
+   "again": {
+    "title": "Use your five senses",
+    "text": "Ask yourself five questions:\n\nWhat do I **see**? What do I **hear**? What do I **smell**? What do I **feel**? What do I **taste**?\n\nFind the words in the text that answer them.",
+    "example": "The lemon is yellow. It feels cool. It tastes sour!\n\nSee: **yellow**. Feel: **cool**. Taste: **sour**. Now you can picture the lemon."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Writers paint with words",
+     "text": "Writers cannot show you a photo, so they use **words** to paint one.\n\nWhen you **visualize**, you turn those words into a picture, a sound or a feeling in your mind."
+    },
+    {
+     "title": "Sense words",
+     "text": "**Sensory words** speak to your five senses:\n\nSee: *golden, shiny, tiny*\nHear: *crash, whisper, clang*\nSmell: *smoky, fresh*\nFeel: *rough, icy, sticky*\nTaste: *salty, bitter*"
+    },
+    {
+     "title": "Comparisons help too",
+     "text": "Writers often compare one thing to another.\n\n*The water was as clear as glass.*\n\nYou know what glass looks like, so now you can picture the water."
+    },
+    {
+     "title": "Keep building",
+     "text": "1. Read slowly.\n2. Stop after each sentence and add its details.\n3. If a new detail changes things, **change your picture**.\n4. Check: does every part of my picture come from the text?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For each part of your picture, you should be able to **point to the words** that put it there.\n\n1. Read the question. Is it about seeing, hearing, smelling or feeling?\n2. Find the sentences with those sense words.\n3. Choose the answer those words support.\n\nA picture with things the text never mentions is a wrong picture."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The storm came in the afternoon.",
+      "role": "other"
+     },
+     {
+      "t": "Dark clouds rolled over the hills like smoke.",
+      "role": "key"
+     },
+     {
+      "t": "Thunder boomed so loudly that the windows shook.",
+      "role": "key"
+     },
+     {
+      "t": "Then heavy rain drummed on the metal roof.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 tells **when**. The other sentences paint the picture: **dark clouds like smoke** (see), **booming thunder** and **drumming rain** (hear).\n\nYour mind can now see and hear the storm."
+   },
+   "together": {
+    "passage": "We visited the old souq on Thursday evening. Lanterns hung from wooden beams and threw yellow light on the stalls. The air smelled of cardamom and fresh bread. Sellers called out prices while copper pots clanged together. Grandmother held my hand tightly as we squeezed between crowds of shoppers.",
+    "stem": "Which picture of the souq does the text create?",
+    "options": [
+     "A quiet, empty market early in the morning.",
+     "A dark street with no lights and no shops.",
+     "A crowded, noisy market lit by yellow lanterns.",
+     "A large, modern shop with bright white lights."
+    ],
+    "answer": 2,
+    "hint": "Look for the sight and sound words. Is the souq quiet or noisy? Empty or full?",
+    "good": "Yes! Yellow lanterns, calling sellers, clanging pots and crowds make a busy, noisy market."
+   },
+   "evidence": {
+    "sentences": [
+     "We visited the old souq on Thursday evening.",
+     "Lanterns hung from wooden beams and threw yellow light on the stalls.",
+     "The air smelled of cardamom and fresh bread.",
+     "Sellers called out prices while copper pots clanged together.",
+     "Grandmother held my hand tightly as we squeezed between crowds of shoppers."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a crowded, noisy market lit by yellow lanterns. Tap 2 sentences that help you SEE or HEAR it.",
+    "wrong": "This sentence tells when we went, or what we smelled. Find sentences that show the lights, the noise or the crowds."
+   },
+   "checks": [
+    {
+     "passage": "After the rain, Huda walked barefoot across the garden. The grass was cold and wet under her feet. Drops of water slid off the leaves and tickled her arms.",
+     "stem": "Which words help you FEEL what Huda feels?",
+     "options": [
+      "after the rain",
+      "cold and wet",
+      "across the garden",
+      "walked barefoot"
+     ],
+     "answer": 1,
+     "why": "**Cold and wet** tell how the grass feels under her feet."
+    },
+    {
+     "passage": "The falcon sat on Uncle Majed's glove as still as a stone. Only its sharp eyes moved, watching the sand for any sign of a rabbit.",
+     "stem": "What picture does \"as still as a stone\" create?",
+     "options": [
+      "The falcon was grey like a rock.",
+      "The falcon was very heavy.",
+      "The falcon was sitting on a rock.",
+      "The falcon did not move its body at all."
+     ],
+     "answer": 3,
+     "why": "A stone never moves. The next sentence says **only its eyes moved**, so its body stayed still."
+    },
+    {
+     "passage": "The fire crackled in the middle of the camp. Orange sparks jumped up into the black sky. The smell of smoky coffee drifted from the pot, and everyone pulled their blankets closer.",
+     "stem": "Which picture fits the text best?",
+     "options": [
+      "A warm campfire on a cold, dark night.",
+      "A sunny picnic on green grass.",
+      "A busy kitchen in the morning.",
+      "A campfire that has gone out."
+     ],
+     "answer": 0,
+     "why": "Crackling fire, sparks in a black sky and blankets pulled close show a warm fire on a cold night."
+    }
+   ],
+   "again": {
+    "title": "Draw it quickly",
+    "text": "Imagine you must **draw** the text in one minute.\n\n1. What is the **place**?\n2. What **things** must be in the drawing?\n3. What **colours** and **sizes** does the text give?\n\nEvery line you draw should come from a word in the text.",
+    "example": "A tiny green turtle crawled slowly across the hot, white sand toward the sea.\n\nPlace: **beach**. Things: **turtle, sand, sea**. Colours and sizes: **tiny, green, white**. Now you can draw it!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Picture the setting",
+     "text": "In a story, the **setting** is where and when it happens. Writers do not always say \"it was old\" or \"it was scary\".\n\nThey give **details**, and you build the picture and the feeling from them."
+    },
+    {
+     "title": "Picture the characters",
+     "text": "Watch what characters **do**, how they **move** and how they **look**.\n\n*Her hands shook as she opened the letter.*\n\nYou can picture her nervous face, even though the writer never says \"nervous\"."
+    },
+    {
+     "title": "Update the picture",
+     "text": "Stories move. A calm scene can become busy, or a bright room can go dark.\n\n1. Build a picture from the first details.\n2. When the scene changes, **change your picture**.\n3. At the end, ask: what is the overall feeling of the picture?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A mental picture is good only if the text **supports** it.\n\n1. Decide what the question asks about: the place, a person or the mood.\n2. Find the **details** that describe it.\n3. Pick the picture that **most** of those details support.\n\nWrong answers often add things the text never says, or match only one small detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Noor stood at the edge of the stage.",
+      "role": "other"
+     },
+     {
+      "t": "The hall was packed, and hundreds of faces turned toward her.",
+      "role": "key"
+     },
+     {
+      "t": "The bright lights made her squint, and her paper rustled in her fingers.",
+      "role": "key"
+     },
+     {
+      "t": "She took a deep breath and began her speech.",
+      "role": "detail"
+     }
+    ],
+    "explain": "We picture a **full hall**, **bright lights** and a **rustling paper** in shaking hands.\n\nThe writer never says Noor is nervous, but these details let us **see** it."
+   },
+   "together": {
+    "passage": "When Faisal opened the door of his grandfather's storeroom, a cloud of dust rose into the beam of light. Old fishing nets hung from hooks like grey curtains. A wooden chest with rusty corners sat in the far corner, its lid half open. Everything smelled of salt and old rope. Faisal stepped inside and called his little brother to come and see.",
+    "stem": "Which picture of the storeroom do the details create?",
+    "options": [
+     "A bright, tidy room with new furniture.",
+     "A dusty, unused room full of old fishing things.",
+     "A busy shop where fishermen buy nets.",
+     "A cool, clean room where people rest."
+    ],
+    "answer": 1,
+    "hint": "Look at the details: dust, rusty corners, old nets. Do they sound new and tidy?",
+    "good": "Yes! Dust, old nets, a rusty chest and the smell of old rope show a room no one has used for a long time."
+   },
+   "evidence": {
+    "sentences": [
+     "When Faisal opened the door of his grandfather's storeroom, a cloud of dust rose into the beam of light.",
+     "Old fishing nets hung from hooks like grey curtains.",
+     "A wooden chest with rusty corners sat in the far corner, its lid half open.",
+     "Everything smelled of salt and old rope.",
+     "Faisal stepped inside and called his little brother to come and see."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a dusty, unused room full of old fishing things. Tap 2 sentences that help you picture it.",
+    "wrong": "This sentence tells what Faisal does next. Find sentences that describe how the room looks or smells."
+   },
+   "checks": [
+    {
+     "passage": "The classroom had been noisy all morning. Then the teacher held up a jar with a live scorpion inside it. Chairs scraped as students leaned back. Nobody spoke, and the only sound was the slow tick of the clock.",
+     "stem": "How does the picture of the classroom change?",
+     "options": [
+      "It goes from calm to angry.",
+      "It goes from quiet to very noisy.",
+      "It goes from noisy to completely silent.",
+      "It stays noisy the whole time."
+     ],
+     "answer": 2,
+     "why": "It starts **noisy**, then **nobody spoke** and only the clock could be heard."
+    },
+    {
+     "passage": "The old man's hands were brown and creased like a map. He worked the clay on the spinning wheel with slow, sure movements, and a tall jar rose between his fingers as if it were growing.",
+     "stem": "Which picture of the man is best supported?",
+     "options": [
+      "A young man learning a new skill.",
+      "An experienced potter working calmly.",
+      "A tired man who wants to stop working.",
+      "A man drawing a map of his town."
+     ],
+     "answer": 1,
+     "why": "Creased old hands and **slow, sure movements** show someone who has done this for years."
+    },
+    {
+     "passage": "The road climbed higher and higher. On one side, rocky cliffs rose straight up. On the other, the land dropped away to a valley far below, where tiny farms looked like green squares on a carpet.",
+     "stem": "What does the comparison \"like green squares on a carpet\" help you picture?",
+     "options": [
+      "The farms are covered with carpets.",
+      "The road is green and soft.",
+      "The farms are very close to the road.",
+      "The farms look small and neat from high up."
+     ],
+     "answer": 3,
+     "why": "From high on the road, the farms are **tiny** and look like a neat pattern far below."
+    }
+   ],
+   "again": {
+    "title": "Be the camera",
+    "text": "Pretend you are filming the scene.\n\n1. **Wide shot:** Where are we? What is around?\n2. **Close-up:** What small details does the writer point at?\n3. **Sound and smell:** What else is there?\n\nThen ask: how does this scene make me feel?",
+    "example": "The kitchen was full of steam. Pots bubbled on every burner, and Aunt Mona moved quickly between them, tasting and stirring.\n\nWide: **a hot, steamy kitchen**. Close-up: **bubbling pots, Aunt Mona tasting**. Feeling: **busy and hurried**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Imagery",
+     "text": "**Imagery** is language that appeals to the senses. Skilled writers choose images on purpose, to create a **mood** and to show ideas without stating them.\n\nWhen you visualize, you rebuild those images and ask what they are doing in the text."
+    },
+    {
+     "title": "Figurative images",
+     "text": "Similes, metaphors and personification create strong pictures.\n\n*The city slept under a blanket of fog.*\n\nThe city cannot sleep and fog is not a blanket, but you see a quiet city completely covered and still."
+    },
+    {
+     "title": "Movement and order",
+     "text": "Some descriptions move: from far to near, from top to bottom, or from calm to danger.\n\nFollow the order. Your picture should **change** the way the scene changes, and the final picture often carries the writer's point."
+    },
+    {
+     "title": "From picture to meaning",
+     "text": "1. Build the picture from sense details.\n2. Notice which details the writer **repeats** or makes strongest.\n3. Ask: what feeling or idea do these images create?\n4. Check your idea against the whole passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A strong interpretation of an image can be **traced** to specific words.\n\n1. Name what the question asks: a scene, a mood, a change.\n2. Find two or more phrases that build it.\n3. Reject choices that rely on one phrase alone or add details the writer never gave.\n\nThe best answer fits **all** the important images, not just the most vivid one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At first the sea was a sheet of polished silver.",
+      "role": "key"
+     },
+     {
+      "t": "By noon, a cold wind began to scratch at its surface.",
+      "role": "key"
+     },
+     {
+      "t": "Within an hour, grey waves were hurling themselves against the harbour wall.",
+      "role": "key"
+     },
+     {
+      "t": "The fishermen had already pulled their boats onto the sand.",
+      "role": "other"
+     }
+    ],
+    "explain": "The images move from **polished silver** (calm, smooth) to **scratching** wind to **hurling** waves.\n\nThe verbs make the sea seem alive and angry. Your picture should grow wilder as you read."
+   },
+   "together": {
+    "passage": "The storm announced itself first as a smudge on the horizon, no bigger than a thumbprint. Within minutes it had swollen into a brown wall that swallowed the distant hills one by one. The afternoon sun dimmed to a pale coin, and the air grew thick and gritty in our mouths. Goats bleated and pressed against the fence while shopkeepers dragged their goods inside and slammed metal shutters. By the time the first gust struck the village, the street was empty except for a plastic bag tumbling past the mosque.",
+    "stem": "Which mental picture best captures the scene the writer creates?",
+    "options": [
+     "A gentle wind cooling a quiet village on a sunny afternoon.",
+     "A huge dust storm growing fast and driving the whole village into shelter.",
+     "Shopkeepers and their goats enjoying a busy market day.",
+     "A distant storm that passes the village without reaching it."
+    ],
+    "answer": 1,
+    "hint": "Follow the storm from the start to the end. How does it change, and how do people react?",
+    "good": "Yes! The smudge swells into a wall, the sun fades, and everyone rushes to shelter before the gust strikes."
+   },
+   "evidence": {
+    "sentences": [
+     "The storm announced itself first as a smudge on the horizon, no bigger than a thumbprint.",
+     "Within minutes it had swollen into a brown wall that swallowed the distant hills one by one.",
+     "The afternoon sun dimmed to a pale coin, and the air grew thick and gritty in our mouths.",
+     "Goats bleated and pressed against the fence while shopkeepers dragged their goods inside and slammed metal shutters.",
+     "By the time the first gust struck the village, the street was empty except for a plastic bag tumbling past the mosque."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a huge storm growing fast and driving the village into shelter. Tap 2 sentences that show the storm growing or people taking shelter.",
+    "wrong": "This sentence shows the storm while it is still tiny and far away. Find the images of the storm swelling or of the village hiding from it."
+   },
+   "checks": [
+    {
+     "passage": "Grandmother's house had changed. The courtyard, once loud with cousins, now held only the slow creak of the gate. Her chair stood in its usual place by the lemon tree, its cushion still pressed into the shape of someone who had sat there for years.",
+     "stem": "What mood do the images create?",
+     "options": [
+      "Excited and joyful.",
+      "Frightening and dangerous.",
+      "Busy and cheerful.",
+      "Quiet and full of loss."
+     ],
+     "answer": 3,
+     "why": "The courtyard that **once** was loud, the lonely creak and the empty chair still shaped by its owner all suggest absence and sadness."
+    },
+    {
+     "passage": "The new tower rose from the old neighbourhood like a glass sword. Around its base, the low mud-brick houses huddled together, their wooden doors facing the narrow lanes as they had for a hundred years.",
+     "stem": "What picture does the writer create?",
+     "options": [
+      "A tall, sharp modern building towering over small, close old houses.",
+      "A neighbourhood where all the buildings are the same height.",
+      "An old fort with high mud walls and wooden doors.",
+      "A row of glass houses along a wide, modern road."
+     ],
+     "answer": 0,
+     "why": "**Glass sword** shows a tall, sharp tower; **huddled** shows the old houses small and close together beneath it."
+    },
+    {
+     "passage": "Ahmad's first view of the hospital ward was a blur of white: white walls, white sheets, white coats moving quickly between the beds. Machines beeped in different rhythms. Then a nurse knelt beside him and smiled, and for the first time he noticed the bright paintings of birds on the wall.",
+     "stem": "How does Ahmad's picture of the ward change?",
+     "options": [
+      "It changes from colourful to grey.",
+      "It changes from cold and confusing to warmer and more human.",
+      "It changes from quiet to noisy.",
+      "It stays exactly the same."
+     ],
+     "answer": 1,
+     "why": "At first it is a **blur of white** and beeping. After the nurse smiles, he notices **bright paintings**, so the scene feels warmer."
+    }
+   ],
+   "again": {
+    "title": "Senses, then feeling",
+    "text": "Make a quick table in your head:\n\n1. **Sense details:** list what you see, hear, smell, feel.\n2. **Strongest words:** which verbs or comparisons stand out?\n3. **Feeling:** what one word sums up the scene?\n\nThe feeling must fit the details in step 1.",
+    "example": "The library was silent except for the hum of the air conditioner. Dust floated in slanted bars of sunlight, and the old books leaned against each other like tired travellers.\n\nSenses: **silence, hum, dust, sunlight**. Strongest words: **leaned like tired travellers**. Feeling: **calm and very old**."
+   }
+  }
+ }
+}

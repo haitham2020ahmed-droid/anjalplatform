@@ -1,0 +1,568 @@
+{
+  "code": "NB-067",
+  "title": "When the Desert Woke Up",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 482,
+  "passage": "Riyadh, 14 March\n\nDear Dana,\n\nI hope this letter finds you well and that the endless rain in London has finally stopped. You always tease me that our desert contains nothing but sand and sunshine, so I absolutely have to describe the extraordinary weekend I have just spent with my family. I promise that by the time you finish reading, you will be eager to visit us in spring.\n\nAfter several heavy storms this winter, Baba announced that the desert north of the city had \"woken up,\" and that we would go camping there for two nights. I was rather doubtful, because I remembered the same area last summer as a flat, scorching plain where nothing appeared to survive. However, when we turned off the highway on Thursday afternoon, I could hardly believe my eyes. The land was covered in a soft green carpet, decorated with tiny yellow, white and purple flowers that trembled delicately in the breeze. Grandfather explained that the seeds had been resting in the soil for months, waiting patiently for sufficient rain.\n\nThe next morning, Grandfather woke me before sunrise for the activity he loves most: searching for desert truffles. These are a variety of wild fungus that develops underground after generous rains, and Arabian families have hunted for them for generations. \"Look for small cracks in the soil near this particular plant,\" he whispered, as though the truffles might hear us and hide. For nearly an hour I discovered nothing except pebbles, and I was ready to abandon the search. Then I noticed a tiny bulge in the ground, gently brushed away the sand, and uncovered a round, pale truffle as large as an apricot. Grandfather declared that I had \"the eyes of a true desert explorer,\" and I felt as proud as if I had discovered buried treasure.\n\nLater, my little brother Turki spotted a hedgehog shuffling between the bushes, its large ears twitching. We observed it silently from a respectful distance until it vanished into a burrow, and I realized that I had never imagined the desert could contain so much hidden life.\n\nOn our final evening, something happened that made me unusually thoughtful. Near our camp, we discovered the remains of another group's picnic: plastic bottles, bags and even a broken chair, all tangled among the flowers. Baba said nothing at first, but then he handed each of us a rubbish bag, and together we collected every piece. \"The desert gives us this gift for only a few weeks each year,\" he said quietly. \"The least we can do is leave it cleaner than we found it.\"\n\nI have enclosed a pressed yellow flower from the camp, so that you can examine a small piece of our spring for yourself. Please write back soon and tell me honestly whether London has anything as beautiful as a blooming desert!\n\nWith love from your cousin,\nReem",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “doubtful” in the paragraph that begins “After several heavy storms”?",
+      "options": [
+        "excited",
+        "grateful",
+        "frightened",
+        "unsure"
+      ],
+      "answer": "D",
+      "why": "Reem did not believe the desert had changed, so she was unsure; she was not yet excited."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “abandon” in “I was ready to abandon the search”?",
+      "options": [
+        "continue",
+        "quit",
+        "begin",
+        "hide"
+      ],
+      "answer": "A",
+      "why": "To abandon the search means to give it up; the opposite is to continue it. “Quit” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Reem remembers the area as “a flat, scorching plain”. What does “scorching” mean?",
+      "options": [
+        "very windy",
+        "very rocky",
+        "very hot",
+        "very wet"
+      ],
+      "answer": "C",
+      "why": "Reem remembers it “last summer” as a place where nothing seemed to survive, so “scorching” means burning hot."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the paragraph that begins “The next morning” is a NOUN?",
+      "options": [
+        "whispered",
+        "particular",
+        "truffle",
+        "gently"
+      ],
+      "answer": "C",
+      "why": "“Truffle” names a thing; “whispered” is a verb, “particular” an adjective and “gently” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the letter is a PLURAL noun?",
+      "options": [
+        "breeze",
+        "hedgehog",
+        "pebbles",
+        "highway"
+      ],
+      "answer": "C",
+      "why": "“Pebbles” means more than one pebble; the other words are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “explorer”?",
+      "options": [
+        "explain",
+        "expert",
+        "export",
+        "exploration"
+      ],
+      "answer": "D",
+      "why": "“Exploration”, “explore” and “explorer” share the same root; the others only begin with “ex-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “respectful” in a meaningful sentence of your own.",
+      "model": "We stayed quiet and respectful while the old man told us about the history of our village.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “respectful” with its meaning (showing care, politeness or consideration)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Respectful” means showing respect, care or consideration for someone or something."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “bush”, as in the hedgehog shuffling “between the bushes”?",
+      "options": [
+        "bushs",
+        "bushes",
+        "bushies",
+        "bush's"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in -sh add -es: bush → bushes."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Look for small cracks in the soil near this particular plant”?",
+      "options": [
+        "a question",
+        "an exclamation",
+        "a command",
+        "a statement"
+      ],
+      "answer": "C",
+      "why": "Grandfather is telling Reem what to do, so it is a command (an instruction)."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "The Day the Desert Turned Green",
+        "A Rainy Week in London",
+        "How to Cook Desert Truffles",
+        "Turki and the Broken Chair"
+      ],
+      "answer": "A",
+      "why": "Reem describes the desert covered in green and flowers after the winter rains."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is Reem's main purpose in writing this letter?",
+      "options": [
+        "to complain to Dana about the litter in the desert",
+        "to share her surprising experience of the desert in spring and invite Dana to visit",
+        "to explain to Dana how to find truffles",
+        "to describe the weather in London"
+      ],
+      "answer": "B",
+      "why": "She writes to describe the “extraordinary weekend” and promises that Dana will want to visit in spring."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph that begins “On our final evening”?",
+      "options": [
+        "Baba teaches the children to protect the desert by cleaning up litter.",
+        "Another group had a picnic near the camp.",
+        "Reem finds a broken chair among the flowers.",
+        "The family eats their last meal in the desert."
+      ],
+      "answer": "A",
+      "why": "Baba's actions and words teach the family to leave the desert cleaner than they found it."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Reem doubtful about the camping trip at first?",
+      "options": [
+        "She was afraid of the animals that live in burrows.",
+        "She thought her grandfather would be too tired to join them.",
+        "She did not enjoy camping when heavy storms were expected.",
+        "She remembered the area as a hot plain where nothing seemed to survive."
+      ],
+      "answer": "D",
+      "why": "She remembered it “last summer as a flat, scorching plain where nothing appeared to survive”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a poem",
+        "a friendly letter",
+        "a dialogue"
+      ],
+      "answer": "C",
+      "why": "It has a place and date, a greeting (“Dear Dana”), a closing (“With love from your cousin”) and a signature."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Grandfather, why was the land covered in flowers?",
+      "options": [
+        "Farmers had planted them there for the spring season.",
+        "The flowers grow there all year but are hidden in summer.",
+        "The strong winter winds had carried them from the city.",
+        "The seeds had been waiting in the soil for enough rain."
+      ],
+      "answer": "D",
+      "why": "Grandfather explained that the seeds had been resting in the soil, “waiting patiently for sufficient rain.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Reem found a truffle as large as an apricot.",
+        "Turki spotted a hedgehog.",
+        "The family collected the litter.",
+        "The family turned off the highway."
+      ],
+      "answer": "C",
+      "why": "The litter was cleaned up on the final evening, after the other events."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of the letter, and who will receive it?",
+      "options": [
+        "Dana is writing to Reem.",
+        "Reem is writing to her cousin Dana.",
+        "Baba is writing to Grandfather.",
+        "Reem is writing to her brother Turki."
+      ],
+      "answer": "B",
+      "why": "The letter begins “Dear Dana” and is signed “your cousin, Reem”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why Reem sends Dana a pressed flower?",
+      "options": [
+        "Dana lives in London and cannot see the blooming desert herself.",
+        "Reem wants Dana to plant it in London.",
+        "Flowers are cheaper than other gifts.",
+        "Grandfather asked her to send it."
+      ],
+      "answer": "A",
+      "why": "Dana is far away, so the flower lets her “examine a small piece of our spring” for herself."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What made Reem feel “as proud as if I had discovered buried treasure”?",
+      "options": [
+        "Grandfather praised her for finding a truffle.",
+        "Turki thanked her for showing him the hedgehog.",
+        "Baba asked her to lead the cleaning.",
+        "Dana wrote back to her quickly."
+      ],
+      "answer": "A",
+      "why": "After she uncovered the truffle, Grandfather said she had “the eyes of a true desert explorer”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Baba's actions on the final evening suggest about him?",
+      "options": [
+        "He prefers to teach by example.",
+        "He is angry with his own children.",
+        "He does not really care about litter.",
+        "He wants the other group to be punished."
+      ],
+      "answer": "A",
+      "why": "He says nothing at first, hands out rubbish bags and works with the children, and only then explains why."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Reem's feeling when she first saw the green desert?",
+      "options": [
+        "bored",
+        "disappointed",
+        "amazed",
+        "worried"
+      ],
+      "answer": "C",
+      "why": "She says “I could hardly believe my eyes”, which shows amazement."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the desert in Reem's memory of last summer DIFFERENT from the desert she saw in March?",
+      "options": [
+        "Last summer it was green and cool; in March it was dry and dusty.",
+        "Last summer it was crowded with campers; in March it was empty.",
+        "Last summer it was full of litter; in March it was completely clean.",
+        "Last summer it seemed lifeless; in March it was covered in plants and flowers."
+      ],
+      "answer": "D",
+      "why": "She remembered “a flat, scorching plain where nothing appeared to survive”, but in March it was “a soft green carpet”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of Baba's actions on the final evening?",
+      "options": [
+        "The family left the area cleaner than they found it.",
+        "The other group came back for their picnic.",
+        "Reem decided never to camp again.",
+        "Turki found another hedgehog."
+      ],
+      "answer": "A",
+      "why": "Together they “collected every piece”, following Baba's advice to leave it cleaner than they found it."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the truffles and the hedgehog have in common in the letter?",
+      "options": [
+        "Both are kinds of flowering desert plants.",
+        "Both are examples of hidden life that Reem did not expect.",
+        "Both were found by Turki early in the morning.",
+        "Both are collected by families to be eaten."
+      ],
+      "answer": "B",
+      "why": "The truffle was underground and the hedgehog vanished into a burrow; both show the desert's “hidden life”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Reem mean when she says the land was covered in “a soft green carpet”?",
+      "options": [
+        "Her family spread a green carpet on the sand.",
+        "The ground was thickly covered with new green plants.",
+        "The colour of the desert sand had changed to green.",
+        "They camped inside a tent with a soft green carpet."
+      ],
+      "answer": "B",
+      "why": "The metaphor compares the thick layer of new plants to a carpet spread over the ground."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is exclamatory?",
+      "options": [
+        "I have enclosed a pressed yellow flower from the camp, so that you can examine a small piece of our spring for yourself.",
+        "Later, my little brother Turki spotted a hedgehog shuffling between the bushes, its large ears twitching.",
+        "On our final evening, something happened that made me unusually thoughtful.",
+        "Please write back soon and tell me honestly whether London has anything as beautiful as a blooming desert!"
+      ],
+      "answer": "D",
+      "why": "It ends with an exclamation mark and expresses strong feeling and playful challenge."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Reem mention at the start that Dana always teases her about the desert?",
+      "options": [
+        "to show that she is angry with Dana",
+        "to explain why she wants to prove that the desert can be beautiful",
+        "to change the subject from London",
+        "to tell Dana that she agrees with her"
+      ],
+      "answer": "B",
+      "why": "Dana's teasing gives Reem a reason to describe the blooming desert in detail."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from the letter is MOST important for visitors to the desert?",
+      "options": [
+        "Always find a truffle before leaving.",
+        "Bring a broken chair to sit on.",
+        "Visit the desert only in summer.",
+        "Leave the desert cleaner than you found it."
+      ],
+      "answer": "D",
+      "why": "Baba's words teach respect for the desert, which every visitor can follow."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated Reem to write this letter?",
+      "options": [
+        "She wanted to share her excitement and change Dana's opinion of the desert.",
+        "She needed help with her homework.",
+        "She wanted Dana to send her a gift from London.",
+        "She was asked to write it by her teacher."
+      ],
+      "answer": "A",
+      "why": "Reem knows Dana thinks the desert is only sand, and she wants to show her its beauty."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the letter as a whole?",
+      "options": [
+        "excitement and wonder",
+        "fear and worry",
+        "anger and blame",
+        "sadness and loneliness"
+      ],
+      "answer": "A",
+      "why": "Reem describes the trip as “extraordinary”, could “hardly believe” her eyes and was proud of her discovery."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "where the family camped",
+        "which plant the truffles grow near",
+        "who found the hedgehog",
+        "what Reem sent with the letter"
+      ],
+      "answer": "B",
+      "why": "Grandfather only says “this particular plant” without naming it; the other details are clear."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A truffle hides when it hears people coming.",
+        "A pressed flower grows again inside an envelope.",
+        "A hedgehog writes a letter to Dana.",
+        "Desert seeds sprout and flower after heavy winter rains."
+      ],
+      "answer": "D",
+      "why": "Grandfather explains this in the letter; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the letter?",
+      "options": [
+        "Lost in the Desert",
+        "When the Desert Woke Up",
+        "The Hedgehog's Burrow",
+        "A Letter About London"
+      ],
+      "answer": "B",
+      "why": "Baba says the desert had “woken up”, and the whole letter describes it coming alive."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter. Write two or three sentences that Reem could write instead of the last paragraph.",
+      "model": "Next spring, I want you to come with us, and I will teach you how to look for truffles with Grandfather. If you still think our desert is only sand after that, I will send you a whole basket of truffles as a prize! Please ask your parents and write back soon.",
+      "rubric": [
+        "2 = a clear new ending that fits the letter form, Reem's voice and the events of the trip",
+        "1 = an ending is given but it is unclear, does not fit the letter, or ignores the events",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible new ending that suits a friendly letter from Reem and connects with her trip is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the letter, how could visitors help protect the desert in spring?",
+      "options": [
+        "Take their rubbish home with them.",
+        "Watch animals from a respectful distance.",
+        "A and B",
+        "Pick as many flowers as possible to take home."
+      ],
+      "answer": "C",
+      "why": "Baba's family collected litter, and they watched the hedgehog silently from a respectful distance."
+    }
+  ]
+}

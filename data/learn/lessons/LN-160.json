@@ -1,0 +1,500 @@
+{
+ "code": "LN-160",
+ "title": "Characters' points of view",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.2.6",
+  "RL.3.6",
+  "RL.4.6",
+  "RL.5.6",
+  "RL.6.6",
+  "RL.7.6",
+  "RL.8.6"
+ ],
+ "families": [
+  "character-perspective"
+ ],
+ "skillNames": [
+  "Character Perspective",
+  "Characters with Different Points of View"
+ ],
+ "statements": [
+  "R-0074",
+  "R-0145",
+  "R-0149",
+  "R-0150",
+  "R-0255",
+  "R-0261",
+  "R-0262",
+  "R-0417",
+  "R-0422",
+  "R-0423",
+  "R-0429",
+  "R-0601",
+  "R-0608",
+  "R-0609",
+  "R-0613",
+  "R-0624",
+  "R-0810",
+  "R-0811",
+  "R-0815",
+  "R-0820",
+  "R-0971",
+  "R-0978",
+  "R-1070"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a point of view?",
+     "text": "A character's **point of view** is how they **think and feel** about something.\n\nTwo characters can see the same thing in different ways."
+    },
+    {
+     "title": "Same thing, two views",
+     "text": "It is raining.\n\nAli is sad. He cannot play outside.\n\nThe farmer is glad. His plants need water."
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Find each character.\n2. Look at what they **say** and **do**.\n3. Ask: **Do they like it or not?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the words that show **how each character feels**.\n\nLook for words like **likes, loves, hates, sad, glad**. Look at what they **say**.\n\nThose sentences prove each point of view."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dad and Rami see a big dog.",
+      "role": "other"
+     },
+     {
+      "t": "Rami smiles and wants to pet it.",
+      "role": "key"
+     },
+     {
+      "t": "Dad steps back and says, \"I do not like big dogs.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "Rami **smiles**, so he likes the dog.\n\nDad **steps back** and says he does not like big dogs.\n\nThey see the same dog in **different ways**."
+   },
+   "together": {
+    "passage": "Sara and Mona go to the beach. Sara runs into the water and laughs. Mona stays on the sand. \"The waves are too big and scary,\" says Mona.",
+    "stem": "How do Sara and Mona feel about the sea?",
+    "options": [
+     "They both love it.",
+     "They both are afraid of it.",
+     "Sara is afraid, and Mona loves it.",
+     "Sara loves it, and Mona is afraid."
+    ],
+    "answer": 3,
+    "hint": "Look at what each girl does at the sea. Who runs in? Who stays back?",
+    "good": "Yes! Sara runs in and laughs. Mona stays on the sand and says the waves are scary."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara and Mona go to the beach.",
+     "Sara runs into the water and laughs.",
+     "Mona stays on the sand.",
+     "\"The waves are too big and scary,\" says Mona."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Sara loves the sea, and Mona is afraid. Tap 2 sentences that show how the girls feel.",
+    "wrong": "This sentence tells where the girls are. Find what they do or say that shows their feelings."
+   },
+   "checks": [
+    {
+     "passage": "The class has a test today. Ziad says, \"Oh no, I hate tests!\" Badr says, \"Good! I studied a lot.\"",
+     "stem": "How does Badr feel about the test?",
+     "options": [
+      "He is scared.",
+      "He is happy.",
+      "He is sad.",
+      "He is sleepy."
+     ],
+     "answer": 1,
+     "why": "Badr says \"Good!\" and that he studied. He is happy about the test."
+    },
+    {
+     "passage": "Mom brings home a kitten. Lulu claps and hugs it. Her brother sneezes and says, \"Cats make me sick.\"",
+     "stem": "How do Lulu and her brother see the kitten?",
+     "options": [
+      "They both want the kitten.",
+      "They both dislike the kitten.",
+      "Lulu likes it, but her brother does not.",
+      "Lulu does not like it, but her brother does."
+     ],
+     "answer": 2,
+     "why": "Lulu claps and hugs the kitten. Her brother sneezes and says cats make him sick."
+    },
+    {
+     "passage": "It is very hot today. Omar says, \"Let's swim!\" Grandpa says, \"Too hot! I will stay inside.\"",
+     "stem": "How does Grandpa feel about the hot day?",
+     "options": [
+      "He does not like it.",
+      "He wants to swim.",
+      "He loves the sun.",
+      "He wants to go out."
+     ],
+     "answer": 0,
+     "why": "Grandpa says it is too hot and he will stay inside."
+    }
+   ],
+   "again": {
+    "title": "Thumbs up, thumbs down",
+    "text": "For each character, ask: **thumbs up or thumbs down?**\n\nDo they like it? Thumbs up. Do they not like it? Thumbs down.",
+    "example": "Snow falls. Yara builds a snowman and smiles: **thumbs up**. Her mother says, \"The roads are dangerous now\": **thumbs down**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Everyone has a view",
+     "text": "A character's **point of view** is their opinion and feelings about an event or another character.\n\nIt comes from who they are: their age, their job, what happened to them before."
+    },
+    {
+     "title": "Details show the view",
+     "text": "Authors reveal a point of view through **details**:\n\n1. What the character **says**\n2. What the character **does**\n3. What the character **thinks**"
+    },
+    {
+     "title": "A view changes the story",
+     "text": "Characters **act** on their point of view.\n\nIf a boy thinks a plan is unfair, he may argue. If his sister thinks it is fair, she may agree. Their actions push the story forward."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a character's point of view:\n\n1. Find the character's **words** in quotation marks.\n2. Find their **actions** and **thoughts**.\n3. Ask: what opinion do these details show?\n\nChoose the answer that matches **those** details, not another character's."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The family was moving to a new city.",
+      "role": "other"
+     },
+     {
+      "t": "Father smiled as he packed. \"A new job and a bigger house!\" he said.",
+      "role": "key"
+     },
+     {
+      "t": "Huda sat on her bed, holding the bracelet her best friend had given her.",
+      "role": "key"
+     },
+     {
+      "t": "She did not want to pack a single thing.",
+      "role": "key"
+     }
+    ],
+    "explain": "Father's words show he is **excited** about the move.\n\nHuda holds a gift from her friend and does not want to pack. She is **sad** to leave.\n\nThe same move, two very different points of view."
+   },
+   "together": {
+    "passage": "On Monday, Ms. Amal announced a new rule: no football at break until homework is checked. \"This will help everyone focus on their work,\" she explained. Jasim slumped in his chair. He thought it was unfair that the whole class lost break because of a few students. At break, he sat by the window and watched the empty field.",
+    "stem": "How is Jasim's point of view about the new rule different from his teacher's?",
+    "options": [
+     "Jasim and the teacher both dislike the rule.",
+     "Jasim likes the rule, but the teacher does not.",
+     "The teacher thinks the rule helps, but Jasim thinks it is unfair.",
+     "Neither of them cares about the rule."
+    ],
+    "answer": 2,
+    "hint": "Read what the teacher says and what Jasim thinks. Do they agree?",
+    "good": "Yes! The teacher says it helps students focus. Jasim thinks it is unfair to lose his break."
+   },
+   "evidence": {
+    "sentences": [
+     "On Monday, Ms. Amal announced a new rule: no football at break until homework is checked.",
+     "\"This will help everyone focus on their work,\" she explained.",
+     "Jasim slumped in his chair.",
+     "He thought it was unfair that the whole class lost break because of a few students.",
+     "At break, he sat by the window and watched the empty field."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the teacher thinks the rule helps, but Jasim thinks it is unfair. Tap the 2 sentences that show each view.",
+    "wrong": "This sentence tells about the rule or what Jasim does. Find the teacher's words and Jasim's thoughts."
+   },
+   "checks": [
+    {
+     "passage": "Every morning, Grandma woke early to water her roses. \"Each one is a small gift,\" she said. Her grandson Nawaf yawned at the window. \"They are just flowers,\" he thought, \"and watering them is boring.\"",
+     "stem": "Which detail shows Grandma's point of view about her roses?",
+     "options": [
+      "\"Each one is a small gift,\" she said.",
+      "Nawaf yawned at the window.",
+      "\"They are just flowers,\" he thought.",
+      "Watering them is boring."
+     ],
+     "answer": 0,
+     "why": "Grandma's own words show that she treasures her roses. The other details show Nawaf's view."
+    },
+    {
+     "passage": "When the school trip to the museum was announced, Reem cheered. She loved old objects and stories from the past. Her friend Lama groaned. \"Looking at old pots all day? I would rather go to the zoo,\" she said.",
+     "stem": "How does Lama's view of the trip affect what she does?",
+     "options": [
+      "She cheers and starts reading about the museum.",
+      "She thanks the teacher for the trip.",
+      "She asks Reem to tell her about the past.",
+      "She groans and complains about the trip."
+     ],
+     "answer": 3,
+     "why": "Lama thinks the museum will be boring, so she groans and says she would rather go to the zoo."
+    },
+    {
+     "passage": "Majed wanted to keep the stray cat that came to their door. \"It is hungry and alone,\" he said. His father shook his head. \"A cat needs a vet, food and care every day. Who will do all that?\" Majed promised he would, and he made a chart of every job.",
+     "stem": "Why does Majed make a chart?",
+     "options": [
+      "He wants to give the cat to a neighbour.",
+      "He wants to show his father he can care for the cat.",
+      "His father asked him to draw a picture of the cat.",
+      "He wants to count how many stray cats there are."
+     ],
+     "answer": 1,
+     "why": "His father worries about who will care for the cat. Majed's chart answers that worry and shows his view."
+    }
+   ],
+   "again": {
+    "title": "Two speech bubbles",
+    "text": "Imagine a speech bubble over each character.\n\nWhat would each one say about the event? If the bubbles say different things, their points of view are different.",
+    "example": "Event: a long car trip.\n\nMom's bubble: **\"Great, time to talk as a family!\"**\nYoung Fahad's bubble: **\"Are we there yet? I am so bored!\"**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why views differ",
+     "text": "Characters see events differently because of their **experiences, goals and feelings**.\n\nAuthors create these differences on purpose. They make the story more interesting and create **conflict**."
+    },
+    {
+     "title": "If someone else told it",
+     "text": "Imagine the same story told from another character's point of view.\n\nWhat would we **learn** that we do not know now? What would we **not** know? Would the events seem good or bad?"
+    },
+    {
+     "title": "How authors build views",
+     "text": "Authors develop different views by:\n\n1. Giving each character different **words** and **reasons**\n2. Showing their private **thoughts**\n3. Showing how they **react** to the same event"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To compare points of view:\n\n1. Find **one detail** for each character's view.\n2. Explain **why** each sees it that way.\n3. Check that the answer matches **both** characters.\n\nFor \"what if\" questions, use what the text tells you about the other character's thoughts and feelings."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bilal proudly showed his little sister the tall sandcastle he had built all afternoon.",
+      "role": "detail"
+     },
+     {
+      "t": "Tala, only four, saw a perfect hill to jump on.",
+      "role": "key"
+     },
+     {
+      "t": "With one happy leap, she flattened the tower.",
+      "role": "detail"
+     },
+     {
+      "t": "Bilal shouted, but Tala could not understand why her brother was upset about the best game ever.",
+      "role": "key"
+     }
+    ],
+    "explain": "Bilal sees a **work of art**. Tala sees a **toy to play on**.\n\nIf Tala told the story, it would be about a fun game, not a disaster. The author shows both views so we understand why each child feels so differently."
+   },
+   "together": {
+    "passage": "Ahmad could not understand why Grandfather spent every afternoon fixing the old wooden boat in the yard. \"We have a new boat with an engine,\" Ahmad grumbled, kicking at the sand. Grandfather only hummed as he sanded the boards, stopping now and then to run his hand along the side. \"My father fished from this boat,\" he said softly, \"and I learned the sea in it.\" Ahmad shrugged and went inside to play.",
+    "stem": "How would the story most likely be different if it were told from Grandfather's point of view?",
+    "options": [
+     "It would say that the boat was too old to repair.",
+     "It would show the fixing of the boat as a joy and a way to keep his family's past alive.",
+     "It would show that he wished Ahmad would help him more.",
+     "It would describe the boat as boring and a waste of time."
+    ],
+    "answer": 1,
+    "hint": "Look at what Grandfather does and says about the boat. What does it mean to him?",
+    "good": "Yes! He hums while he works and says the boat carried his father. From his view, the work is a joy."
+   },
+   "evidence": {
+    "sentences": [
+     "Ahmad could not understand why Grandfather spent every afternoon fixing the old wooden boat in the yard.",
+     "\"We have a new boat with an engine,\" Ahmad grumbled, kicking at the sand.",
+     "Grandfather only hummed as he sanded the boards, stopping now and then to run his hand along the side.",
+     "\"My father fished from this boat,\" he said softly, \"and I learned the sea in it.\"",
+     "Ahmad shrugged and went inside to play."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Grandfather sees fixing the boat as a joy that keeps his family's past alive. Tap the 2 sentences that show his view.",
+    "wrong": "This sentence shows Ahmad's view, not Grandfather's. Find what Grandfather does and says."
+   },
+   "checks": [
+    {
+     "passage": "The new girl, Dalia, sat alone at lunch. Wafa thought Dalia was rude because she never said hello. Dalia was actually so nervous in her new school that she could barely speak. When Wafa finally sat beside her and asked about her old city, Dalia talked happily for twenty minutes.",
+     "stem": "Why do Wafa and Dalia see the situation differently at first?",
+     "options": [
+      "Dalia does not want to make friends with Wafa.",
+      "Wafa is also new and does not know anyone yet.",
+      "They both decide that Dalia is being rude.",
+      "Wafa thinks Dalia is rude, but Dalia is really nervous."
+     ],
+     "answer": 3,
+     "why": "The text says Wafa thought Dalia was rude, but Dalia was nervous in her new school."
+    },
+    {
+     "passage": "The coach chose Saud as goalkeeper for the final. Saud's mother was proud and invited the whole family to watch. Saud himself could not sleep. He kept picturing the ball flying past him while everyone watched.",
+     "stem": "How does the author show that Saud and his mother see the final differently?",
+     "options": [
+      "By showing the mother's pride and Saud's fear",
+      "By explaining the rules of football in detail",
+      "By describing why the coach chose Saud as goalkeeper",
+      "By telling the reader which team wins the final"
+     ],
+     "answer": 0,
+     "why": "The mother proudly invites the family, while Saud cannot sleep and imagines missing the ball."
+    },
+    {
+     "passage": "The story is told by Yasmin, who thinks her older brother Hani is always bossy. He makes her wear a helmet, checks her homework and walks her to school. Yasmin does not know that their parents asked Hani to look after her while their father is working in another city.",
+     "stem": "If the story were told by Hani, what would readers most likely learn?",
+     "options": [
+      "That Hani does not really like his little sister",
+      "That Yasmin is actually the bossy one in the family",
+      "That Hani is keeping his promise to look after Yasmin",
+      "That their father has already come home from work"
+     ],
+     "answer": 2,
+     "why": "Hani knows about the parents' request. His telling would explain his actions as care, not bossiness."
+    }
+   ],
+   "again": {
+    "title": "Walk in their shoes",
+    "text": "Choose one character. Ask:\n\n1. What does **this** character want?\n2. What does **this** character know?\n3. So how does **this** character feel about the event?\n\nThen do the same for the other character.",
+    "example": "Event: the power goes out.\n\nYoung Rayan wants a game: **he loves the candlelight.**\nMom wants to cook dinner: **she is worried about the food.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Contrasting views",
+     "text": "Authors often build a story around characters who **disagree**. Each view grows from the character's values, history or fears.\n\nThe clash between views often drives the **conflict** and shapes the ending."
+    },
+    {
+     "title": "Revealing views indirectly",
+     "text": "Authors rarely say \"She thought X.\" Instead, they reveal views through:\n\n1. **Word choice** in dialogue (\"ruin\" vs. \"progress\")\n2. **Gestures** and reactions\n3. What a character **notices** and what they ignore"
+    },
+    {
+     "title": "What the reader knows",
+     "text": "Sometimes the reader knows more than a character does. This gap creates **suspense** or **humour**.\n\nAsk: Who knows what? How does that change the way we read the scene?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For each character:\n\n1. Collect **two** details that reveal their view.\n2. Note the **values** behind it (safety, tradition, freedom, pride).\n3. Explain how the difference **affects events**.\n\nThe best answer describes **both** views accurately and connects them to the story."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "To the town council, the old market was a crumbling eyesore that slowed traffic.",
+      "role": "key"
+     },
+     {
+      "t": "To Umm Saleh, who had sold spices there for forty years, every crooked stall held a memory.",
+      "role": "key"
+     },
+     {
+      "t": "When the council voted to replace it with a car park, she began collecting signatures from her customers.",
+      "role": "detail"
+     },
+     {
+      "t": "Within a week, more than a thousand people had signed.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The council sees the market in terms of **traffic and appearance**. Umm Saleh sees **memories and community**.\n\nThis clash of views drives the plot: her view leads her to fight the council's plan."
+   },
+   "together": {
+    "passage": "The storm reached the farm just after sunset. Talal, who was nine, pressed his face to the window and cheered each time lightning lit up the palm trees. \"It's amazing! Like fireworks!\" he cried. His older brother Nasser stood silently at the door, counting the branches that cracked and fell. He was thinking of the dates that would not ripen this year and of their father's worried face at dinner. Neither brother slept much that night, though for very different reasons.",
+    "stem": "Which statement best explains how the two brothers view the storm differently?",
+    "options": [
+     "Talal sees the storm as an exciting adventure, while Nasser sees it as a danger to the family's work.",
+     "Both brothers are frightened and want to leave the farm.",
+     "Nasser enjoys the storm, while Talal fears for the crops.",
+     "Neither brother pays attention to the storm."
+    ],
+    "answer": 0,
+    "hint": "Check which brother says or does each thing. The details belong to different brothers.",
+    "good": "Yes! Talal presses his face to the glass and calls it amazing. Nasser counts damaged trees and thinks of the lost harvest."
+   },
+   "evidence": {
+    "sentences": [
+     "The storm reached the farm just after sunset.",
+     "Talal, who was nine, pressed his face to the window and cheered each time lightning lit up the palm trees.",
+     "\"It's amazing! Like fireworks!\" he cried.",
+     "His older brother Nasser stood silently at the door, counting the branches that cracked and fell.",
+     "He was thinking of the dates that would not ripen this year and of their father's worried face at dinner.",
+     "Neither brother slept much that night, though for very different reasons."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Talal sees adventure, while Nasser sees danger to the family's work. Tap 2 sentences that show how the brothers see the storm.",
+    "wrong": "This sentence sets the scene or sums up. Find what each brother does, says or thinks."
+   },
+   "checks": [
+    {
+     "passage": "Mr. Kamal had planned the class trip to the desert research station for months, and he spoke about it as a chance to see real scientists at work. Some parents, however, worried about the long drive and the heat. At the meeting, one father asked three times about water supplies and shade. Mr. Kamal smiled patiently and answered each question, then added a medical kit and extra water to his list.",
+     "stem": "How does the parents' point of view affect the story?",
+     "options": [
+      "It makes Mr. Kamal cancel the trip completely.",
+      "It causes the scientists to visit the school instead.",
+      "It leads Mr. Kamal to change his plans to make the trip safer.",
+      "It makes the students afraid of the desert."
+     ],
+     "answer": 2,
+     "why": "The parents' worries about heat and water lead Mr. Kamal to add a medical kit and extra water."
+    },
+    {
+     "passage": "\"A phone at ten years old? Absolutely not,\" said Grandmother, folding her arms. \"When I was ten, I wrote letters and waited weeks for an answer, and we were none the worse for it.\" Lina's mother hesitated. She remembered how worried she had been last week when Lina was late home from the library and could not call.",
+     "stem": "Which detail best reveals why Lina's mother may disagree with Grandmother?",
+     "options": [
+      "Grandmother folds her arms and refuses.",
+      "She remembers how worried she was when Lina could not call.",
+      "Grandmother wrote letters as a child and waited for answers.",
+      "Lina was late home from the library last week."
+     ],
+     "answer": 1,
+     "why": "Her memory of worrying when Lina could not call shows why she may see a phone as useful for safety."
+    },
+    {
+     "passage": "The reader knows what Basim does not: his friends are hiding in the dark living room, waiting to surprise him for his birthday. Basim comes home grumbling that everyone forgot his special day. He drops his bag, sighs loudly, and reaches for the light switch.",
+     "stem": "What effect does the difference between what the reader knows and what Basim knows create?",
+     "options": [
+      "It makes the reader feel sorry for the friends who are hiding.",
+      "It shows that all of Basim's friends forgot his birthday.",
+      "It makes the reader confused about where the story takes place.",
+      "It creates suspense and humour as we wait for the surprise."
+     ],
+     "answer": 3,
+     "why": "We know about the party but Basim does not, so his grumbling is funny and we wait eagerly for the lights to come on."
+    }
+   ],
+   "again": {
+    "title": "Values behind the view",
+    "text": "Behind every point of view is something the character **values**.\n\n1. Name the character's view.\n2. Ask: What do they care about most?\n3. Use that to explain their words and actions.",
+    "example": "A father wants his son to study medicine; the son wants to study art.\n\nFather values **security**. Son values **creativity**. Their values explain every argument they have in the story."
+   }
+  }
+ }
+}

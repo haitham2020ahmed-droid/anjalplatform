@@ -1,0 +1,489 @@
+{
+ "code": "LN-159",
+ "title": "Moral and lesson",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.2",
+  "RL.3.2",
+  "RL.4.2",
+  "RL.5.2",
+  "RL.6.2",
+  "RL.7.2"
+ ],
+ "families": [
+  "theme"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0083",
+  "R-0084",
+  "R-0153",
+  "R-0154",
+  "R-0155",
+  "R-0269",
+  "R-0270",
+  "R-0276",
+  "R-0438",
+  "R-0440",
+  "R-0475",
+  "R-0627",
+  "R-0628",
+  "R-0629",
+  "R-0826",
+  "R-0849",
+  "R-0990"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Stories teach us",
+     "text": "Many stories teach a **lesson**.\n\nA lesson is something a character **learns**. We can learn it too."
+    },
+    {
+     "title": "What is a fable?",
+     "text": "A **fable** is a short story, often with animals that talk.\n\nThe lesson of a fable is called the **moral**."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. What did the character do?\n2. What happened because of it?\n3. Ask: **What did the character learn?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the **end** of the story.\n\n1. What went wrong or right?\n2. What does the character **say or do** at the end?\n\nThose sentences show the lesson."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bird did not want to build a nest.",
+      "role": "detail"
+     },
+     {
+      "t": "Then the rain came, and Bird got wet and cold.",
+      "role": "detail"
+     },
+     {
+      "t": "The next day, Bird built a strong nest.",
+      "role": "key"
+     }
+    ],
+    "explain": "Bird did not get ready, so Bird got wet.\n\nAt the end, Bird builds a nest. Bird learned: **get ready before trouble comes.**"
+   },
+   "together": {
+    "passage": "Hamad ran fast with his juice. He fell, and the juice spilled. Now Hamad walks with his cup.",
+    "stem": "What lesson does Hamad learn?",
+    "options": [
+     "Running is fun.",
+     "Juice is good for you.",
+     "Be careful when you run.",
+     "Always eat lunch."
+    ],
+    "answer": 2,
+    "hint": "Look at what went wrong and what Hamad does at the end.",
+    "good": "Yes! Hamad fell when he ran, so now he walks. He learned to be careful."
+   },
+   "evidence": {
+    "sentences": [
+     "Hamad ran fast with his juice.",
+     "He fell, and the juice spilled.",
+     "Now Hamad walks with his cup."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: be careful when you run. Tap 2 sentences that show what went wrong and what Hamad does now.",
+    "wrong": "This sentence shows what Hamad did first. Find what went wrong and what he does now."
+   },
+   "checks": [
+    {
+     "passage": "Ant shared her seeds with Mouse. Later, Ant was stuck in the mud. Mouse came and pulled her out.",
+     "stem": "What is the moral?",
+     "options": [
+      "Help others, and they will help you.",
+      "Mud is wet.",
+      "Mice are fast.",
+      "Seeds are small."
+     ],
+     "answer": 0,
+     "why": "Ant helped Mouse, and later Mouse helped Ant. Helping others brings help back."
+    },
+    {
+     "passage": "Noor did not want to share her crayons. She played alone. Then she shared, and two friends drew with her.",
+     "stem": "What does Noor learn?",
+     "options": [
+      "Crayons break.",
+      "Drawing is hard.",
+      "Play alone.",
+      "Sharing makes friends."
+     ],
+     "answer": 3,
+     "why": "When Noor shared, friends came to draw with her."
+    },
+    {
+     "passage": "Frog said, \"I can jump to the moon!\" He jumped and fell in the pond. Everyone laughed. Frog said, \"I will not show off again.\"",
+     "stem": "What is the moral?",
+     "options": [
+      "Ponds are deep.",
+      "Do not show off.",
+      "Frogs can swim.",
+      "The moon is far."
+     ],
+     "answer": 1,
+     "why": "Frog showed off and fell. At the end he says he will not show off again."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Look at the character **before** and **after**.\n\nWhat do they do differently at the end? That change is the lesson.",
+    "example": "Before: Sara left her toys on the floor. She tripped on them.\n\nAfter: Sara puts her toys away.\n\nLesson: **Keep your things tidy.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Lesson, moral, message",
+     "text": "A **lesson** is what a character learns.\n\nA **moral** is the lesson of a fable. It is often a short rule for life.\n\nA **message** is what the author wants **you**, the reader, to learn."
+    },
+    {
+     "title": "Mistakes teach",
+     "text": "Often a character makes a **mistake**. Then something bad happens.\n\nAt the end, the character **changes**. The change shows the lesson."
+    },
+    {
+     "title": "Say it as a rule",
+     "text": "Write the lesson as advice for **anyone**, not just the character.\n\nNot: \"The fox should not have lied.\"\nBetter: **\"If you lie, people stop trusting you.\"**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The lesson must come from what **happens** in the story.\n\n1. Find the character's **mistake** or choice.\n2. Find what **happened** because of it.\n3. Find how the character **changes** at the end.\n\nThe right answer fits all three parts."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A young goat always laughed at the old donkey for walking so slowly.",
+      "role": "detail"
+     },
+     {
+      "t": "One day the goat raced up a steep hill and slipped on loose stones.",
+      "role": "detail"
+     },
+     {
+      "t": "The donkey stepped carefully to the top and helped the goat climb up.",
+      "role": "detail"
+     },
+     {
+      "t": "\"I will never laugh at you again,\" said the goat. \"Slow and careful is wise.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "The goat's mistake: laughing at the donkey. What happened: the goat fell, and the donkey helped.\n\nThe last line shows the moral: **Do not judge others; slow and careful can be wise.**"
+   },
+   "together": {
+    "passage": "A monkey found a tree full of ripe bananas. Instead of picking a few, he tried to carry every banana at once. His arms were so full that he could not hold the branch. He fell, and the bananas rolled away into the river. \"If I had taken only what I needed,\" he said, \"I would still have my lunch.\"",
+    "stem": "What is the moral of this fable?",
+    "options": [
+     "Do not take more than you need.",
+     "Monkeys love bananas.",
+     "Trees grow tall in the forest.",
+     "Always share food with birds."
+    ],
+    "answer": 0,
+    "hint": "Look at what the monkey did and what happened because of it.",
+    "good": "Yes! The monkey grabbed too much and lost it all. The moral is: do not take more than you need."
+   },
+   "evidence": {
+    "sentences": [
+     "A monkey found a tree full of ripe bananas.",
+     "Instead of picking a few, he tried to carry every banana at once.",
+     "His arms were so full that he could not hold the branch.",
+     "He fell, and the bananas rolled away into the river.",
+     "\"If I had taken only what I needed,\" he said, \"I would still have my lunch.\""
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: do not take more than you need. Tap 2 sentences that prove it.",
+    "wrong": "This sentence sets up the story or describes the problem. Find the mistake, what it cost, or what the monkey learned."
+   },
+   "checks": [
+    {
+     "passage": "Rakan forgot his homework three days in a row because he played games late at night. On the third day, he could not go on the class trip. That evening, he finished his homework before turning on any game.",
+     "stem": "What lesson does Rakan learn?",
+     "options": [
+      "Games are boring.",
+      "Class trips are long.",
+      "Do your work first, then play.",
+      "Teachers are strict."
+     ],
+     "answer": 2,
+     "why": "Rakan missed the trip because he played first. At the end he does homework before games."
+    },
+    {
+     "passage": "A crow found a piece of bread. A fox said, \"What a beautiful voice you must have! Sing for me.\" The proud crow opened her beak to sing, and the bread fell. The fox ate it and ran away.",
+     "stem": "What is the moral of this fable?",
+     "options": [
+      "Crows sing beautifully.",
+      "Be careful of people who praise you to get something.",
+      "Foxes are always hungry.",
+      "Bread is good to eat."
+     ],
+     "answer": 1,
+     "why": "The fox praised the crow only to get her bread. The moral warns us about praise that has a hidden aim."
+    },
+    {
+     "passage": "Jana was sure she could finish her art project in one night. She waited until the day before it was due. At midnight, the paint was still wet and the poster was only half done. Next term, she started her project two weeks early.",
+     "stem": "What message does the author want readers to learn?",
+     "options": [
+      "Painting is messy.",
+      "Art projects are too hard.",
+      "Posters need bright colours.",
+      "Plan ahead and do not leave work to the last minute."
+     ],
+     "answer": 3,
+     "why": "Jana waited too long and could not finish. Next time she starts early, which shows the message."
+    }
+   ],
+   "again": {
+    "title": "Oops, so, now",
+    "text": "Fill in three parts:\n\n1. **Oops:** What mistake happened?\n2. **So:** What was the result?\n3. **Now:** What does the character do differently?\n\nThe **Now** part points to the lesson.",
+    "example": "Oops: Majed did not wear his helmet. So: he hurt his head when he fell off his bike. Now: he always wears his helmet.\n\nLesson: **Safety rules protect us.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Lessons that are not stated",
+     "text": "In many stories, nobody says the lesson out loud.\n\nYou find it by watching how the character's **choices** lead to **results**, and how the character **reacts**."
+    },
+    {
+     "title": "Moral vs. topic",
+     "text": "A **topic** is one word or phrase: honesty, teamwork, patience.\n\nA **moral** is a full sentence about life: **\"Honesty builds trust, even when the truth is hard to say.\"**"
+    },
+    {
+     "title": "Avoid the traps",
+     "text": "Wrong answers often:\n\n1. Retell a **detail** from the story.\n2. Give advice that is good but **not** what this story shows.\n3. Are the **opposite** of what the story teaches."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a moral or lesson:\n\n1. Find the **turning point**: where things go right or wrong.\n2. Find the character's **reaction** or what they say at the end.\n3. Check: does the moral explain **why** things turned out this way?\n\nIf a choice could fit any story, it is too general."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The wind and the date palm argued about who was stronger.",
+      "role": "other"
+     },
+     {
+      "t": "The wind blew so hard that the stiff old tree beside them snapped in two.",
+      "role": "detail"
+     },
+     {
+      "t": "But the palm bent low, let the wind pass, and stood straight again when the storm was over.",
+      "role": "key"
+     },
+     {
+      "t": "The wind went quiet, for it understood that bending is not the same as breaking.",
+      "role": "key"
+     }
+    ],
+    "explain": "The stiff tree fights the wind and breaks. The palm bends and survives.\n\nMoral: **Being flexible can be a kind of strength.**"
+   },
+   "together": {
+    "passage": "Faisal was the best player on his school team, and he knew it. In every match he kept the ball to himself, even when his teammates were open. In the first half of the final, the other team surrounded him, and his side did not score once. At half-time, he finally passed to Bader, who passed to Omar, who scored. After the match, Faisal said, \"We won because all of us played, not just me.\"",
+    "stem": "What lesson does Faisal learn?",
+    "options": [
+     "Taking photos is more fun than playing.",
+     "Teams should always have a captain.",
+     "Winning is the only thing that matters.",
+     "A team does better when everyone gets a chance to help."
+    ],
+    "answer": 3,
+    "hint": "That is not what happens. Look at how the game changes after Faisal starts passing the ball.",
+    "good": "Yes! The team only scored when Faisal started passing. He learned that everyone needs a chance to help."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal was the best player on his school team, and he knew it.",
+     "In every match he kept the ball to himself, even when his teammates were open.",
+     "In the first half of the final, the other team surrounded him, and his side did not score once.",
+     "At half-time, he finally passed to Bader, who passed to Omar, who scored.",
+     "After the match, Faisal said, \"We won because all of us played, not just me.\""
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a team does better when everyone gets a chance. Tap 2 sentences that prove it.",
+    "wrong": "This sentence shows how Faisal played before he changed. Find what happened when he changed, or what he said at the end."
+   },
+   "checks": [
+    {
+     "passage": "A hare boasted that he could find water faster than anyone. He ran from bush to bush without stopping to think. Meanwhile, a slow lizard watched where the birds flew in the evening and followed them. The lizard reached the hidden spring while the hare was still running in circles.",
+     "stem": "What is the moral of the fable?",
+     "options": [
+      "Hares are faster than lizards.",
+      "Careful thinking can beat speed.",
+      "Birds always know where water is.",
+      "Never travel in the evening."
+     ],
+     "answer": 1,
+     "why": "The lizard was slow but thought carefully and found the spring first. The hare was fast but did not think."
+    },
+    {
+     "passage": "Hessa told her friend that she had read the whole book, but she had only read the back cover. In class, the teacher asked her to explain the ending. Hessa did not know what to say, and her friend looked at her in surprise. That night, Hessa read the book from cover to cover, and the next day she told her friend the truth.",
+     "stem": "What lesson does Hessa learn?",
+     "options": [
+      "Being honest is better than pretending.",
+      "Back covers tell the whole story.",
+      "Teachers ask hard questions.",
+      "Reading at night is tiring."
+     ],
+     "answer": 0,
+     "why": "Pretending caused trouble, so Hessa read the book and told the truth."
+    },
+    {
+     "passage": "Two camels crossed the desert. The first carried a heavy load and walked steadily. The second carried nothing and laughed at the first. When a sandstorm came, the light camel was pushed off the path by the wind, while the heavy camel stayed on course and led the way home.",
+     "stem": "Which statement best expresses the moral?",
+     "options": [
+      "Sandstorms happen often in the desert.",
+      "Camels should not walk together.",
+      "Hard work and burdens can make us strong.",
+      "Always walk in front of others."
+     ],
+     "answer": 2,
+     "why": "The camel that carried a heavy load was the one that stayed steady in the storm."
+    }
+   ],
+   "again": {
+    "title": "Make it a rule for everyone",
+    "text": "1. Say what happened to the character in one sentence.\n2. Remove the name. Use **people**, **we** or **you**.\n3. Turn it into advice.",
+    "example": "What happened: Ziyad lost his friend's trust after he broke a promise.\n\nRule for everyone: **When you break a promise, people find it hard to trust you.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Morals that make you think",
+     "text": "In older fables and stories, the moral may be **ironic** or **unexpected**. A clever character may lose, or a weak one may win.\n\nAsk: Why did the author choose **this** ending?"
+    },
+    {
+     "title": "Lessons learned slowly",
+     "text": "In longer stories, a character's lesson can grow over time. It may show in a **change of attitude**, not in words.\n\nCompare how the character thinks at the **start** with how they act at the **end**."
+    },
+    {
+     "title": "Precise is better",
+     "text": "A strong statement of the lesson is **precise**.\n\nWeak: \"Be nice.\"\nStrong: **\"Respect can be earned by listening, not by giving orders.\"**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a lesson in a complex story:\n\n1. Note the character's **attitude** at the start.\n2. Find the **event** that challenges it.\n3. Find the **evidence** that the attitude has changed.\n\nThe correct lesson explains the change. A choice that ignores the ending is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A peacock spent every morning admiring his tail in the still water of the pond.",
+      "role": "detail"
+     },
+     {
+      "t": "He mocked the plain brown sparrow, whose feathers no one ever praised.",
+      "role": "detail"
+     },
+     {
+      "t": "When a hawk swooped down, the sparrow vanished into the bushes, but the peacock's heavy, shining tail caught on a branch.",
+      "role": "key"
+     },
+     {
+      "t": "Only the sparrow's warning cry gave him time to pull free.",
+      "role": "key"
+     }
+    ],
+    "explain": "The ending is a twist. The peacock's beautiful tail nearly costs him his life, and the plain sparrow saves him.\n\nMoral: **What looks impressive is not always what is most useful, so do not look down on others.**"
+   },
+   "together": {
+    "passage": "Mariam was certain that she could make bread as good as her grandmother's without the long kneading her grandmother insisted on. She mixed the dough quickly, left it for half the time, and put it in the oven. What came out was flat and hard, and her little brother used it as a plate. The following week, she stood beside her grandmother and kneaded until her arms ached, watching how the dough changed under her hands. When the loaf rose golden and soft, Mariam understood that some things cannot be rushed. Her grandmother only said, \"Now you know the bread.\"",
+    "stem": "What lesson does Mariam learn by the end of the story?",
+    "options": [
+     "Machines should never be used in a kitchen.",
+     "Real skill comes from patient practice, not from shortcuts.",
+     "Grandmothers are always right about everything.",
+     "Cooking is too difficult for young people."
+    ],
+    "answer": 1,
+    "hint": "That choice is too broad or not shown. Look at what Mariam does differently in the final sentences.",
+    "good": "Yes! Her shortcut failed, and she chose to learn the slow way. Patient practice is the lesson."
+   },
+   "evidence": {
+    "sentences": [
+     "Mariam was certain that she could make bread as good as her grandmother's without the long kneading her grandmother insisted on.",
+     "She mixed the dough quickly, left it for half the time, and put it in the oven.",
+     "What came out was flat and hard, and her little brother used it as a plate.",
+     "The following week, she stood beside her grandmother and kneaded until her arms ached, watching how the dough changed under her hands.",
+     "When the loaf rose golden and soft, Mariam understood that some things cannot be rushed.",
+     "Her grandmother only said, \"Now you know the bread.\""
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: real skill comes from patient practice. Tap the 2 sentences that show Mariam learning this.",
+    "wrong": "This sentence shows Mariam's first attitude, the failed result, or her grandmother's comment. Find where Mariam changes and what she understands."
+   },
+   "checks": [
+    {
+     "passage": "A wealthy merchant hid his gold under a stone in his garden and visited it every night. A thief watched him and took the gold. The merchant wept, but his neighbour said, \"Put a stone in the hole and visit it every night. You never used the gold, so the stone will serve you just as well.\"",
+     "stem": "What is the moral of this fable?",
+     "options": [
+      "Gardens are a safe place for gold.",
+      "Thieves always get caught in the end.",
+      "Neighbours give the best advice.",
+      "Wealth that is never used has no real value."
+     ],
+     "answer": 3,
+     "why": "The neighbour points out that unused gold is no better than a stone. That is the moral."
+    },
+    {
+     "passage": "Ibrahim was chosen to lead the science club and began giving orders at once. Members stopped coming. One afternoon, a quiet girl suggested an experiment he had dismissed, and the club voted for it. To his surprise, it was the best project of the year. At the next meeting, Ibrahim began by asking, \"What does everyone think?\"",
+     "stem": "Which statement best expresses the lesson Ibrahim learns?",
+     "options": [
+      "Science clubs need more members.",
+      "Quiet people always have the best ideas.",
+      "A good leader listens to others instead of only giving orders.",
+      "Experiments should be chosen by voting."
+     ],
+     "answer": 2,
+     "why": "His orders drove members away. At the end he starts by asking for others' ideas, which shows the lesson."
+    },
+    {
+     "passage": "A lion caught a mouse but let it go when the mouse begged. The lion laughed, \"What could a tiny thing like you ever do for me?\" Weeks later, the lion was trapped in a hunter's net. The mouse chewed through the ropes and set him free.",
+     "stem": "Which moral does the fable best support?",
+     "options": [
+      "Even the small and weak can repay kindness.",
+      "Lions are the kings of animals.",
+      "Hunters set clever traps.",
+      "Mice have very sharp teeth."
+     ],
+     "answer": 0,
+     "why": "The lion doubted the mouse could help, but the tiny mouse repaid his kindness by freeing him."
+    }
+   ],
+   "again": {
+    "title": "Start, test, end",
+    "text": "1. **Start:** What does the character believe?\n2. **Test:** What event proves that belief wrong?\n3. **End:** What do they believe now?\n\nThe lesson is the new belief, said as advice for everyone.",
+    "example": "Start: Saad thought asking for help made him look weak.\nTest: He failed a project he could not finish alone.\nEnd: He asked his classmates and they finished it together.\n\nLesson: **Asking for help is a strength, not a weakness.**"
+   }
+  }
+ }
+}

@@ -7,11 +7,30 @@
  * from the code strip (0° / 180°; a sideways photo is handled by the sheet's long side) → per-row alignment on the
  * printed bubble outlines → darkness of each bubble interior relative to the local paper and to the printer's black →
  * decision per row (OK / BLANK / MULTIPLE / UNSURE) relative to the sheet's own empty and filled bubbles.
+ *
+ * Real phone photos (Update 57): besides the mean darkness, each bubble's share of clearly dark pixels is measured,
+ * so a tick or a stroke through a bubble is never read as "blank" (it is flagged), a light but complete pencil fill
+ * that stands alone is read, and an eraser's grey smudge stays blank. Every row gets a confidence (0–1) and the sheet
+ * a confidence (HIGH / MEDIUM / LOW) with the list of questions to CHECK — the reader never guesses: an uncertain row
+ * has no answer until the teacher confirms one, and a LOW sheet is never saved without the teacher's confirmation.
  */
 import { A4_H, A4_W, MARKER_CENTERS, MARKER_SIZE, readStripBits, type SheetLayout } from "./layout";
 
-export interface OmrRow { q: number; answer: 0 | 1 | 2 | 3 | null; marks: number[]; status: "OK" | "BLANK" | "MULTIPLE" | "UNSURE"; fill: number[] }
-export interface OmrResult { ok: boolean; error?: "NO_MARKERS" | "TOO_BLURRY" | "WRONG_SHEET"; code: string | null; rows: OmrRow[]; warped?: ImageData }
+/**
+ * One question of the sheet. `answer` is the reader's answer only when status is OK; for UNSURE it is the most likely
+ * choice, shown to the teacher as a suggestion (`suggest`), never saved without the teacher's confirmation.
+ * `fill`: mean darkness of each bubble (0 = paper, 1 = printer black); `dark`: share of clearly dark pixels;
+ * `confidence`: 0 (a guess) … 1 (certain).
+ */
+export interface OmrRow { q: number; answer: 0 | 1 | 2 | 3 | null; marks: number[]; status: "OK" | "BLANK" | "MULTIPLE" | "UNSURE"; fill: number[]; dark?: number[]; peak?: number[]; confidence?: number; suggest?: 0 | 1 | 2 | 3 | null }
+/** How sure the reader is of the whole sheet: HIGH = every row clear · MEDIUM = a few rows to check · LOW = check the whole sheet. */
+export type SheetConfidence = "HIGH" | "MEDIUM" | "LOW";
+export interface OmrQuality {
+  confidence: SheetConfidence; score: number; check: number[]; reasons: ("BLUR" | "CONTRAST" | "ALIGN" | "MANY_UNSURE" | "LIGHT_MARKS")[];
+  /** the photo's measurements: edge width of the markers (mm), printer black vs paper, outline alignment, empty→full spread */
+  metrics: { blurMm: number; ink: number; align: number; lost: number; spread: number };
+}
+export interface OmrResult { ok: boolean; error?: "NO_MARKERS" | "TOO_BLURRY" | "WRONG_SHEET"; code: string | null; rows: OmrRow[]; warped?: ImageData; quality?: OmrQuality }
 
 /** Pixels per millimetre of the warped sheet (840 × 1188). */
 export const WARP_SCALE = 4;
@@ -21,6 +40,12 @@ const MAX_SIDE = 1600;
 const MARK = 0.45;
 const WEAK = 0.25;
 const CLEAR_GAP = 0.35;
+/** a light but complete pencil fill, alone in its row, is an answer (an eraser's smudge stays well under this) */
+const LIGHT_ALONE = 0.34;
+/** share of clearly dark pixels that is a stroke through a bubble (a tick, a cross, a line), not a stray dot */
+const STROKE = 0.1;
+/** a pencil line's darkest spot over the row's other bubbles (an eraser's smudge stays under 0.12, a line is 0.18+) */
+const PEAK_STROKE = 0.14;
 
 interface Gray { w: number; h: number; d: Uint8Array }
 type Pt = [number, number];
@@ -359,6 +384,44 @@ function fillOf(g: Gray, cx: number, cy: number, r: number, ink: number): number
   return Math.max(0, Math.min(1.2, (1 - refl) / Math.max(0.2, 1 - ink)));
 }
 
+/**
+ * Share (0..1) of the bubble interior that is clearly dark: darker than 45 % of the way from the local paper to the
+ * printer's black. A stroke (tick, cross) has many dark pixels and a low mean; an eraser's smudge has a raised mean
+ * but almost no dark pixels; the light printed letter inside each bubble stays under the cut.
+ */
+function darkFrac(g: Gray, cx: number, cy: number, r: number, ink: number): number {
+  const paper = paperAround(g, cx, cy, r + 0.6 * WARP_SCALE, r + 1.3 * WARP_SCALE);
+  const cut = paper * (1 - 0.45 * (1 - ink));
+  const rr = r * 0.8, r2 = rr * rr;
+  let n = 0, d = 0;
+  for (let y = Math.ceil(cy - rr); y <= cy + rr; y++) for (let x = Math.ceil(cx - rr); x <= cx + rr; x++) {
+    const dx = x - cx, dy = y - cy;
+    if (dx * dx + dy * dy > r2) continue;
+    n++;
+    if (at(g, x, y) < cut) d++;
+  }
+  return n ? d / n : 0;
+}
+
+/**
+ * The darkest spot of the bubble interior (3 × 3 px mean, so noise is not a spot), 0 = paper … 1 = printer black.
+ * Every bubble has its light printed letter, so only the EXCESS over the row's other bubbles counts: a pencil line
+ * through a bubble (a tick) stands out even when the photo is blurred; an eraser's even smudge does not.
+ */
+function peakDark(g: Gray, cx: number, cy: number, r: number, ink: number): number {
+  const paper = paperAround(g, cx, cy, r + 0.6 * WARP_SCALE, r + 1.3 * WARP_SCALE);
+  const rr = r * 0.85, r2 = rr * rr;
+  let lo = 255;
+  for (let y = Math.ceil(cy - rr); y <= cy + rr; y++) for (let x = Math.ceil(cx - rr); x <= cx + rr; x++) {
+    const dx = x - cx, dy = y - cy;
+    if (dx * dx + dy * dy > r2) continue;
+    let m = 0;
+    for (let j = -1; j <= 1; j++) for (let i = -1; i <= 1; i++) m += at(g, x + i, y + j);
+    if (m / 9 < lo) lo = m / 9;
+  }
+  return Math.max(0, Math.min(1.2, (1 - lo / paper) / Math.max(0.2, 1 - ink)));
+}
+
 function readStrip(g: Gray, layout: SheetLayout, ink: number): { code: string; questions: number } | null {
   const S = WARP_SCALE;
   const circles = layout.idBits.map((b) => ({ cx: b.cx * S, cy: b.cy * S, r: b.r * S }));
@@ -432,22 +495,67 @@ export function readSheet(img: ImageData, layout: SheetLayout): OmrResult {
   const lost = raw.filter((r) => Math.abs(r.dx) >= 6 || Math.abs(r.dy) >= 6).length / raw.length; // rows found only at the search limit
   if (edge < 0.06 || (!strip && lost > 0.4)) return { ok: false, error: strip ? "WRONG_SHEET" : "NO_MARKERS", code: strip?.code ?? null, rows: [], warped };
 
-  const fills = qs.map((q, i) => byQ.get(q)!.sort((a, b) => a.choice - b.choice).map((b) => fillOf(sheet, b.cx * S + offsets[i].dx, b.cy * S + offsets[i].dy, b.r * S, ms.ink)));
+  const sorted = qs.map((q) => byQ.get(q)!.sort((a, b) => a.choice - b.choice));
+  const fills = sorted.map((list, i) => list.map((b) => fillOf(sheet, b.cx * S + offsets[i].dx, b.cy * S + offsets[i].dy, b.r * S, ms.ink)));
+  const darks = sorted.map((list, i) => list.map((b) => darkFrac(sheet, b.cx * S + offsets[i].dx, b.cy * S + offsets[i].dy, b.r * S, ms.ink)));
+  const peaks = sorted.map((list, i) => list.map((b) => peakDark(sheet, b.cx * S + offsets[i].dx, b.cy * S + offsets[i].dy, b.r * S, ms.ink)));
   const all = fills.flat();
   const empty = percentile(all, 0.35);
   const full = Math.max(empty + 0.4, percentile(fills.map((f) => Math.max(...f)), 0.9));
-  const rows: OmrRow[] = qs.map((q, i) => decideRow(q, fills[i], empty, full));
-  return { ok: true, code: strip?.code ?? null, rows, warped };
+  const rows: OmrRow[] = qs.map((q, i) => decideRow(q, fills[i], darks[i], empty, full, peaks[i]));
+  return { ok: true, code: strip?.code ?? null, rows, warped, quality: sheetQuality(rows, { edgeMm: ms.edgeMm, ink: ms.ink, edge, lost, spread: full - empty }) };
 }
 
-function decideRow(q: number, fill: number[], empty: number, full: number): OmrRow {
+const r2 = (v: number) => Math.round(v * 100) / 100;
+const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
+
+/** One row: OK (one clear mark) · BLANK (nothing) · MULTIPLE (2+ clear marks) · UNSURE (a teacher must look). */
+export function decideRow(q: number, fill: number[], dark: number[], empty: number, full: number, peak: number[] = [0, 0, 0, 0]): OmrRow {
   const s = fill.map((f) => (f - empty) / (full - empty));
   const order = s.map((v, i) => i).sort((a, b) => s[b] - s[a]);
   const best = order[0], second = order[1];
   const marks = order.filter((i) => s[i] >= MARK).sort((a, b) => a - b);
-  const out = (answer: OmrRow["answer"], status: OmrRow["status"]): OmrRow => ({ q, answer, marks, status, fill: fill.map((f) => Math.round(f * 100) / 100) });
+  const byDark = dark.map((v, i) => i).sort((a, b) => dark[b] - dark[a]);
+  const out = (answer: OmrRow["answer"], status: OmrRow["status"], confidence: number, suggest: OmrRow["answer"] = status === "OK" ? answer : null): OmrRow =>
+    ({ q, answer: status === "OK" ? answer : status === "UNSURE" ? answer : null, marks, status, fill: fill.map(r2), dark: dark.map(r2), peak: peak.map(r2), confidence: r2(clamp01(confidence)), suggest: status === "UNSURE" ? suggest : status === "OK" ? answer : null });
   const ans = best as 0 | 1 | 2 | 3;
-  if (marks.length === 0) return s[best] >= WEAK ? out(ans, "UNSURE") : out(null, "BLANK");
-  if (marks.length === 1) return s[second] >= WEAK && s[best] - s[second] < CLEAR_GAP ? out(ans, "UNSURE") : out(ans, "OK");
-  return s[best] - s[second] >= MARK ? out(ans, "UNSURE") : out(null, "MULTIPLE");
+  if (marks.length === 0) {
+    // a light but complete fill standing alone: an answer (an eraser's smudge is far lower, and has no dark pixels)
+    if (s[best] >= LIGHT_ALONE && s[second] < 0.12 && dark[best] >= 0.2) return out(ans, "OK", 0.55 + (s[best] - LIGHT_ALONE));
+    if (s[best] >= WEAK) return out(ans, "UNSURE", 0.3, ans);
+    // a stroke through one bubble (a tick, a cross, a stray dot): never "blank" — the teacher decides
+    if (dark[byDark[0]] >= STROKE && dark[byDark[0]] - dark[byDark[1]] >= 0.07) return out(byDark[0] as 0 | 1 | 2 | 3, "UNSURE", 0.25, byDark[0] as 0 | 1 | 2 | 3);
+    const byPeak = peak.map((v, i) => i).sort((a, b) => peak[b] - peak[a]);
+    const others = byPeak.slice(1).map((i) => peak[i]).sort((a, b) => a - b);
+    if (peak[byPeak[0]] - others[Math.floor(others.length / 2)] >= PEAK_STROKE) return out(byPeak[0] as 0 | 1 | 2 | 3, "UNSURE", 0.25, byPeak[0] as 0 | 1 | 2 | 3);
+    return out(null, "BLANK", 1 - Math.max(s[best] / WEAK, dark[byDark[0]] / STROKE) * 0.5);
+  }
+  if (marks.length === 1) {
+    if (s[second] >= WEAK && s[best] - s[second] < CLEAR_GAP) return out(ans, "UNSURE", 0.35, ans);
+    // another bubble crossed by a clear stroke (a tick next to the fill): ask
+    const other = dark.map((v, i) => (i === best ? 0 : v));
+    if (Math.max(...other) >= 0.22) return out(ans, "UNSURE", 0.4, ans);
+    return out(ans, "OK", 0.6 + 0.4 * Math.min(clamp01((s[best] - MARK) / 0.35), clamp01((s[best] - s[second] - CLEAR_GAP) / 0.3)));
+  }
+  return s[best] - s[second] >= MARK ? out(ans, "UNSURE", 0.35, ans) : out(null, "MULTIPLE", 0.8);
+}
+
+/**
+ * The sheet's confidence and the questions to check: LOW when the photo itself is poor (blurred, little contrast, the
+ * printed bubbles hard to align) or many rows are unsure — then every answer must be checked; MEDIUM when a few rows
+ * are unsure; HIGH when every row is clear.
+ */
+export function sheetQuality(rows: OmrRow[], m: { edgeMm: number; ink: number; edge: number; lost: number; spread: number }): OmrQuality {
+  const check = rows.filter((r) => r.status === "UNSURE" || r.status === "MULTIPLE").map((r) => r.q);
+  const reasons: OmrQuality["reasons"] = [];
+  if (m.edgeMm > 1.1) reasons.push("BLUR");
+  if (m.ink > 0.5 || m.spread < 0.45) reasons.push("CONTRAST");
+  if (m.edge < 0.08 || m.lost > 0.15) reasons.push("ALIGN");
+  const unsure = rows.filter((r) => r.status === "UNSURE").length;
+  if (rows.length && unsure / rows.length > 0.15) reasons.push("MANY_UNSURE");
+  if (rows.some((r) => r.status === "OK" && (r.confidence ?? 1) < 0.6)) reasons.push("LIGHT_MARKS");
+  const rowScore = rows.length ? rows.reduce((t, r) => t + (r.confidence ?? 1), 0) / rows.length : 1;
+  const score = r2(clamp01(rowScore - (reasons.includes("BLUR") ? 0.25 : 0) - (reasons.includes("CONTRAST") ? 0.25 : 0) - (reasons.includes("ALIGN") ? 0.25 : 0)));
+  const low = reasons.some((x) => x === "BLUR" || x === "CONTRAST" || x === "ALIGN" || x === "MANY_UNSURE");
+  return { confidence: low ? "LOW" : check.length || reasons.length ? "MEDIUM" : "HIGH", score, check, reasons, metrics: { blurMm: r2(m.edgeMm), ink: r2(m.ink), align: r2(m.edge), lost: r2(m.lost), spread: r2(m.spread) } };
 }

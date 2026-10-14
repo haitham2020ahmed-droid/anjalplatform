@@ -5,7 +5,7 @@
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { isHiddenSkill } from "../skills/master";
-import { countUnclassified } from "../questions/link-bank-run";
+import { unclassifiedCount } from "./stuck-questions";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const CHUNK = 400;
@@ -76,7 +76,7 @@ export async function cleanupCounts(repo: Repo, actor: Actor): Promise<CleanupCo
   const taught = new Set(links.map((l) => s(l.classId)));
 
   return {
-    unclassified: await countUnclassified(repo, schoolId),
+    unclassified: await unclassifiedCount(repo, schoolId),
     underReview, drafts,
     studentsWithoutClass: active.filter((id) => !inClass.has(id)).length,
     classesWithoutTeacher: classes.filter((c) => !taught.has(s(c.id))).length,

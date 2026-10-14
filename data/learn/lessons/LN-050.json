@@ -1,0 +1,450 @@
+{
+ "code": "LN-050",
+ "title": "Past, present and future tense",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1.c"
+ ],
+ "families": [
+  "verb-tenses"
+ ],
+ "skillNames": [
+  "Present, Past, and Future Tenses",
+  "Verb Tenses (Simple, Progressive, Perfect)"
+ ],
+ "statements": [
+  "L-0196",
+  "L-0197",
+  "L-0198",
+  "L-0199",
+  "L-0291"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Verbs tell time",
+     "text": "**Past** = already happened: I **played**.\n**Present** = happens now or often: I **play**.\n**Future** = will happen: I **will play**."
+    },
+    {
+     "title": "Past with -ed",
+     "text": "Many verbs add **-ed** for the past.\n\nwalk → walk**ed** · jump → jump**ed** · help → help**ed**"
+    },
+    {
+     "title": "Future with will",
+     "text": "Put **will** before the verb.\n\n“Tomorrow I **will visit** my aunt.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look for **time clues** and verb endings.\n\n**yesterday, last** → past\n**now, every day** → present\n**tomorrow, next** → future\n\nPoint to the clue that proves the time."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yesterday, Fahad cleaned his room.",
+      "role": "key"
+     },
+     {
+      "t": "Tomorrow, he will wash the car.",
+      "role": "key"
+     }
+    ],
+    "explain": "“Yesterday” + **cleaned** (-ed) → past.\n\n“Tomorrow” + **will wash** → future."
+   },
+   "together": {
+    "passage": "Last Friday, my family visited the beach. We played in the sand. My dad cooked fish. Next week, we will go again.",
+    "stem": "Which verb shows something that WILL happen?",
+    "options": [
+     "visited",
+     "played",
+     "will go",
+     "cooked"
+    ],
+    "answer": 2,
+    "hint": "Look for the helper word that shows the future.",
+    "good": "Yes! **Will go** shows the future. The clue “next week” proves it."
+   },
+   "evidence": {
+    "sentences": [
+     "Last Friday, my family visited the beach.",
+     "We played in the sand.",
+     "My dad cooked fish.",
+     "Next week, we will go again."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with a clue that shows the future.",
+    "wrong": "This sentence tells about the past. Find the sentence with “next” and “will”."
+   },
+   "checks": [
+    {
+     "passage": "Rami jumped over the puddle.",
+     "stem": "When did this happen?",
+     "options": [
+      "In the past",
+      "Now",
+      "In the future",
+      "Every day"
+     ],
+     "answer": 0,
+     "why": "**Jumped** ends in -ed. It already happened."
+    },
+    {
+     "passage": "Tomorrow, Mona ___ her grandmother.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "visited",
+      "will visit",
+      "visiting",
+      "was visit"
+     ],
+     "answer": 1,
+     "why": "“Tomorrow” shows the future → **will visit**."
+    },
+    {
+     "passage": "I ___ my teeth every morning, and I do it again at night.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "brushed",
+      "brushes",
+      "brush",
+      "brushing"
+     ],
+     "answer": 2,
+     "why": "“Every morning” and “I do it” show the present. With **I** we use **brush**."
+    }
+   ],
+   "again": {
+    "title": "Yesterday, today, tomorrow",
+    "text": "Say the sentence with each word:\n\n**Yesterday** I walk**ed**.\n**Today** I walk.\n**Tomorrow** I **will** walk.",
+    "example": "“___ we will plant a tree.” → **will** = future → **Tomorrow** we will plant a tree."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Spelling the past tense",
+     "text": "Most verbs: add **-ed** → play**ed**\nEnds in **e**: add **-d** → bake**d**\nConsonant + **y**: change to **-ied** → cry → cr**ied**\nShort verb, one vowel + one consonant: double it → stop → sto**pped**"
+    },
+    {
+     "title": "The future tense",
+     "text": "**will + verb** (no -s, no -ed):\n\n“She **will help**.” Not “She will helps.”\n\nAlso: **am / is / are going to** + verb: “We **are going to travel**.”"
+    },
+    {
+     "title": "Spotting the past",
+     "text": "A past verb tells about an action that is **finished**.\n\nLook for -ed endings and irregular past forms: went, saw, ate."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the time clue in the text.\n2. Choose the verb form that matches it.\n3. Check the spelling rule for -ed.\n\nPoint to the sentences that prove the time."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Last night, the baby cried for an hour.",
+      "role": "key"
+     },
+     {
+      "t": "Then she finally slept.",
+      "role": "detail"
+     }
+    ],
+    "explain": "“Last night” → past. **Cry** ends in a consonant + y, so it becomes **cried**."
+   },
+   "together": {
+    "passage": "Last summer, my cousin Noura stayed with us for a month. Every morning, we ___ to the park before it got too hot. We studied English together in the afternoons. On her last day, she hugged everyone and promised to come back. Next year, we will visit her family in Madinah.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "hurry",
+     "hurryed",
+     "hurried",
+     "will hurry"
+    ],
+    "answer": 2,
+    "hint": "Is this part of the story in the past or the future? Then check how to spell a verb that ends in consonant + y.",
+    "good": "Yes! The story is in the past, and **hurry** changes y to i: **hurried**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last summer, my cousin Noura stayed with us for a month.",
+     "Every morning, we ___ to the park before it got too hot.",
+     "We studied English together in the afternoons.",
+     "On her last day, she hugged everyone and promised to come back.",
+     "Next year, we will visit her family in Madinah."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that prove these events happened in the past.",
+    "wrong": "This sentence is about the future. Find sentences with past time clues or past verbs."
+   },
+   "checks": [
+    {
+     "passage": "Four students wrote the past tense of a verb.",
+     "stem": "Which verb is spelled correctly?",
+     "options": [
+      "stoped",
+      "planed",
+      "carryed",
+      "stopped"
+     ],
+     "answer": 3,
+     "why": "**Stop** is short and ends in a vowel + consonant, so double the p: **stopped**."
+    },
+    {
+     "passage": "Next month, our class ___ a play for our parents.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "performed",
+      "will perform",
+      "will performs",
+      "performing"
+     ],
+     "answer": 1,
+     "why": "“Next month” shows the future. After **will**, the verb has no -s: **will perform**."
+    },
+    {
+     "passage": "The farmer planted wheat in the spring.",
+     "stem": "What does “planted” tell you?",
+     "options": [
+      "The planting is happening now.",
+      "The planting will happen soon.",
+      "The planting is finished.",
+      "He plants wheat every day."
+     ],
+     "answer": 2,
+     "why": "**Planted** is past tense. The action is finished."
+    }
+   ],
+   "again": {
+    "title": "Four spelling rules",
+    "text": "1. Most verbs → **+ed** (jumped)\n2. Ends in e → **+d** (smiled)\n3. Consonant + y → **ied** (tried)\n4. Short, ends vowel + consonant → **double + ed** (hopped)",
+    "example": "**drop** → short, ends o + p → double the p → **dropped**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "What the past tense means",
+     "text": "The simple past tells about an action that **started and finished** in the past.\n\n“Ibn Sina **wrote** books on medicine.” → finished long ago."
+    },
+    {
+     "title": "Actions in progress",
+     "text": "**-ing** forms show an action **in progress**:\n\nPast: “I **was reading** when you called.”\nPresent: “I **am reading** now.”\nFuture: “I **will be reading** at nine.”"
+    },
+    {
+     "title": "Irregular past verbs",
+     "text": "These change their spelling:\n\nbegin → **began** · bring → **brought** · catch → **caught**\nthink → **thought** · write → **wrote** · swim → **swam**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb and its helper (was, is, will).\n2. Decide: finished? in progress? not yet?\n3. Point to the sentences that prove the timing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda was painting when the phone rang.",
+      "role": "key"
+     },
+     {
+      "t": "She put down her brush and answered it.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Was painting** = in progress in the past. **Rang** = a finished action that interrupted it.\n\nThe painting started before the phone rang."
+   },
+   "together": {
+    "passage": "On Saturday morning, Khalid was fixing his bicycle in the yard. He was cleaning the chain with an old cloth. Suddenly, his little sister ran outside. “Grandpa is here!” she shouted. Khalid dropped his tools and rushed to the gate. Grandpa had brought a bag of fresh dates from his farm, and the whole family sat down together.",
+    "stem": "What does “was fixing” tell the reader?",
+    "options": [
+     "Khalid finished fixing the bike before Saturday.",
+     "Khalid was in the middle of fixing the bike.",
+     "Khalid will fix the bike later.",
+     "Khalid fixes his bike every Saturday."
+    ],
+    "answer": 1,
+    "hint": "“Was” + -ing shows an action in progress. What happened while Khalid was busy?",
+    "good": "Yes! **Was fixing** shows Khalid was in the middle of the job when his sister interrupted him."
+   },
+   "evidence": {
+    "sentences": [
+     "On Saturday morning, Khalid was fixing his bicycle in the yard.",
+     "He was cleaning the chain with an old cloth.",
+     "Suddenly, his little sister ran outside.",
+     "“Grandpa is here!” she shouted.",
+     "Khalid dropped his tools and rushed to the gate.",
+     "Grandpa had brought a bag of fresh dates from his farm, and the whole family sat down together."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show what interrupted Khalid.",
+    "wrong": "This sentence does not show the interruption. Find what happened suddenly while Khalid was working."
+   },
+   "checks": [
+    {
+     "passage": "When the bell rang, the students ___ their tests.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "were finishing",
+      "will finish",
+      "finish",
+      "are finishing"
+     ],
+     "answer": 0,
+     "why": "The bell rang in the past, in the middle of the work → **were finishing**."
+    },
+    {
+     "passage": "Yesterday, Sami ___ a big fish at the lake.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "catched",
+      "caught",
+      "catches",
+      "will catch"
+     ],
+     "answer": 1,
+     "why": "**Catch** is irregular. Its past form is **caught**."
+    },
+    {
+     "passage": "My grandmother lived in a village by the sea when she was young. Now she lives in the city.",
+     "stem": "What does “lived” tell you?",
+     "options": [
+      "She still lives in the village.",
+      "She will move to the village.",
+      "She lived there in the past, but not now.",
+      "She is visiting the village today."
+     ],
+     "answer": 2,
+     "why": "**Lived** is a finished past action, and “Now she lives in the city” confirms it."
+    }
+   ],
+   "again": {
+    "title": "Picture a timeline",
+    "text": "Draw a line: **past — now — future**.\n\nA dot = a finished action (wrote). A long bar = an action in progress (was writing). Put each verb on the line.",
+    "example": "“I was eating when the lights went out.” → Bar: **was eating**. Dot on the bar: **went out**. Both are in the past."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Perfect tenses",
+     "text": "**has / have + past participle**: started in the past, still matters now. “She **has lived** here for ten years.”\n\n**had + past participle**: finished before another past event. “The film **had started** when we arrived.”\n\n**will have + past participle**: finished before a future time. “By June, I **will have finished**.”"
+    },
+    {
+     "title": "Past habits",
+     "text": "**used to + verb** shows a past habit that has **stopped**: “People **used to** travel by camel.”\n\nThe simple past can also show a habit: “Every summer, we **visited** Taif.”"
+    },
+    {
+     "title": "Tense carries meaning",
+     "text": "The tense tells the reader **when**, and **whether** something is finished.\n\n“He **has visited** Makkah.” → at some time, up to now\n“He **visited** Makkah in 2020.” → a finished, dated event"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb and its helpers.\n2. Name the tense.\n3. Ask what it tells the reader: finished? earlier than another event? still true? a habit that stopped?\n4. Point to the sentences that confirm that timing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Before the airport was built, travelers had crossed the region by caravan.",
+      "role": "key"
+     },
+     {
+      "t": "Today, the same trip takes two hours by plane.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Had crossed** shows an action finished **before** another past event: the airport being built.\n\n“Today… takes” uses the present to show the contrast."
+   },
+   "together": {
+    "passage": "For hundreds of years, pearl diving was the main job in many towns along the Arabian Gulf. Divers used to hold their breath for more than a minute as they searched the sea floor for oysters. By the time the season ended, a crew had often spent four months at sea. In the 1930s, cheaper pearls grown on farms in Japan flooded the market, and prices fell sharply. Soon after, oil was discovered in the region, and many divers found new work. Today, the old pearling routes are part of the region's history, and some museums have rebuilt traditional boats.",
+    "stem": "What does “used to hold” tell the reader about the divers?",
+    "options": [
+     "They still do it today.",
+     "They will do it in the future.",
+     "It happened only one time.",
+     "It was a past habit that has stopped."
+    ],
+    "answer": 3,
+    "hint": "“Used to” describes a habit. Does the passage say pearl diving is still the main job?",
+    "good": "Yes! **Used to** shows a regular past habit that no longer happens, and the end of the passage confirms the change."
+   },
+   "evidence": {
+    "sentences": [
+     "For hundreds of years, pearl diving was the main job in many towns along the Arabian Gulf.",
+     "Divers used to hold their breath for more than a minute as they searched the sea floor for oysters.",
+     "By the time the season ended, a crew had often spent four months at sea.",
+     "In the 1930s, cheaper pearls grown on farms in Japan flooded the market, and prices fell sharply.",
+     "Soon after, oil was discovered in the region, and many divers found new work.",
+     "Today, the old pearling routes are part of the region's history, and some museums have rebuilt traditional boats."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show pearl diving stopped being the main job.",
+    "wrong": "This sentence describes pearl diving when it was still the main job. Find sentences about how things changed."
+   },
+   "checks": [
+    {
+     "passage": "By the time the rescue team arrived, the fire ___ out.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "has gone",
+      "had gone",
+      "will go",
+      "goes"
+     ],
+     "answer": 1,
+     "why": "The fire went out **before** the team arrived, another past event → **had gone**."
+    },
+    {
+     "passage": "Four sentences about a library.",
+     "stem": "Which one shows an action that began in the past and is still true now?",
+     "options": [
+      "The library opened in 1990.",
+      "The library had closed before we arrived.",
+      "The library has served the town for decades.",
+      "The library used to lend videos."
+     ],
+     "answer": 2,
+     "why": "**Has served** (present perfect) shows something that started in the past and continues now."
+    },
+    {
+     "passage": "By next June, Mona ___ all seven books in the series.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "will have read",
+      "has read",
+      "had read",
+      "reads"
+     ],
+     "answer": 0,
+     "why": "The reading will be finished **before** a future time (next June) → **will have read**."
+    }
+   ],
+   "again": {
+    "title": "Three helpers",
+    "text": "Look at the helper before the verb:\n\n**has / have** → up to now\n**had** → before another past event\n**will have** → before a future time",
+    "example": "“When we reached the stadium, the match ___ (has / had) begun.” → It began before we reached it, in the past → **had** begun."
+   }
+  }
+ }
+}

@@ -5,6 +5,7 @@ import { field, label } from "@/components/admin/styles";
 import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { useT } from "@/i18n/client";
 import { classesByGrade, DEFAULT_ROLE, FORM_ROLES, roleAfterResult, type FormClass } from "./form-state";
+import { Combo } from "@/components/ui/combo";
 
 /**
  * Create one user. Role-specific fields appear for the chosen role. Teachers: “Classes taught” (every class, grouped by
@@ -52,7 +53,7 @@ export function CreateUserForm({ grades, classes, teacherOnly = false, onDone }:
               <select name="gradeLevel" value={grade} onChange={(e) => setGrade(Number(e.target.value))} className={field}>{grades.map((g) => <option key={g} value={g}>{t("Grade {n}", { n: g })}</option>)}</select>
             </label>
             <label className={label}>{t("Class")}
-              <select name="classId" className={field}><option value="">{t("No class yet")}</option>{classes.filter((c) => c.grade === grade).map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select>
+              <Combo key={grade} name="classId" label={t("Class")} defaultValue="" options={[{ value: "", label: t("No class yet") }, ...classes.filter((c) => c.grade === grade).map((c) => ({ value: c.id, label: c.name }))]} />
             </label>
           </>
         )}

@@ -21,6 +21,7 @@ import { readableClasses } from "../teacher/coordinators";
 import { countGroups } from "../db/group-count";
 import { safeIfBehind } from "../db/schema-errors";
 import { isHiddenSkill } from "../skills/master";
+import { readRisePlaced } from "../readrise/engine";
 import { mapSummaries, studentNames } from "./student-data";
 import {
   DAY, DROPS, INVALID_WINDOW_DAYS, MAX_POINTS, MEASURES, MEASURE_KEYS, MIN_TEST_QUESTIONS, MIN_WEEK_ANSWERS, MOVES_DAYS, SCAN_CACHE_MS,
@@ -98,7 +99,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
 
   // skill average: careful answers per week (grouped counts: 2 per week)
   const weeks = await Promise.all(Array.from({ length: SKILL_WEEKS }, (_, k) => {
-    const where = { studentId: { in: ids }, rapidGuess: false, createdAt: { gte: new Date(t - (k + 1) * 7 * DAY), lt: new Date(t - k * 7 * DAY) } };
+    const where = { studentId: { in: ids }, rapidGuess: false, unreliable: false, createdAt: { gte: new Date(t - (k + 1) * 7 * DAY), lt: new Date(t - k * 7 * DAY) } };
     return Promise.all([countGroups(repo, "QuestionAttempt", "studentId", where), countGroups(repo, "QuestionAttempt", "studentId", { ...where, isCorrect: true })]);
   }));
   const answered14 = new Map<string, number>();
@@ -118,7 +119,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     safeIfBehind("early-warning.nafs", () => repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "points", "maxPoints", "submittedAt"] }), [] as Row[]),
     safeIfBehind("early-warning.writing", () => repo.findMany("WritingSubmission", { studentId: { in: ids }, scorePct: { not: null } }, { select: ["studentId", "scorePct", "returnedAt", "scoredAt", "submittedAt"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => repo.findMany("RRLevelChange", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "fromLevel", "toLevel", "createdAt"] }), [] as Row[]),
-    safeIfBehind("early-warning.readrise", () => repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "placedAt"] }), [] as Row[]),
+    safeIfBehind("early-warning.readrise", () => repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "placedAt", "source"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => countGroups(repo, "RRRun", "studentId", { studentId: { in: ids }, completedAt: { gte: new Date(t - 28 * DAY) }, firstTry: true }), new Map<string, number>()),
     safeIfBehind("early-warning.checks", () => repo.findMany("ProgressCheck", { classId: { in: classIds }, createdAt: { gte: since } }, { select: ["assignmentId"] }), [] as Row[]),
     repo.findMany("Assignment", { classId: { in: classIds }, testId: { not: null }, deletedAt: null, createdAt: { gte: since } }, { select: ["id"] }),
@@ -155,7 +156,8 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
   const rrBy = new Map<string, Row[]>();
   for (const c of rrChanges) (rrBy.get(s(c.studentId)) ?? rrBy.set(s(c.studentId), []).get(s(c.studentId))!).push(c);
   const rrFlatSince = new Map<string, number>();
-  for (const st of rrStudents) {
+  // only real levels (after the placement or set by a teacher): a first visit's working start is not a level
+  for (const st of rrStudents.filter((r) => readRisePlaced(r))) {
     const id = s(st.studentId), list = (rrBy.get(id) ?? []).sort((a, b) => time(a.createdAt) - time(b.createdAt));
     if (list.length) add(id, "READRISE", time(list[0].createdAt) - 1, Number(list[0].fromLevel));
     else add(id, "READRISE", Math.max(time(st.placedAt), since.getTime()), Number(st.level));

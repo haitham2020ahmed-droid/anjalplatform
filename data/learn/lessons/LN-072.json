@@ -1,0 +1,454 @@
+{
+ "code": "LN-072",
+ "title": "Reflexive pronouns",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "pronouns"
+ ],
+ "skillNames": [
+  "Reflexive Pronouns"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words with -self",
+     "text": "Some pronouns end in **-self** or **-selves**:\n\n**myself**, **yourself**, **himself**, **herself**, **itself**\n**ourselves**, **yourselves**, **themselves**"
+    },
+    {
+     "title": "When do we use them?",
+     "text": "We use them when a person does something **to** or **for** themselves.\n\nI looked at **myself** in the mirror.\nThe cat washed **itself**."
+    },
+    {
+     "title": "Match the person",
+     "text": "I → **myself**\nhe → **himself**\nshe → **herself**\nit → **itself**\n\n**Sara** cut **herself**.\n**Ali** hurt **himself**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find **who** did the action.\n2. Is it a boy, a girl, a thing, or many people?\n3. Pick the -self word that matches.\n\nThe sentence that tells who did it is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar fell off his bike.",
+      "role": "key"
+     },
+     {
+      "t": "He hurt himself.",
+      "role": "main"
+     },
+     {
+      "t": "Now his knee has a bandage.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 tells us **Omar** fell. Omar is a boy, so he hurt **himself**."
+   },
+   "together": {
+    "passage": "Lama is nine years old. Today she baked a cake. Nobody helped her. She made it all by ___.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "himself",
+     "itself",
+     "herself",
+     "themselves"
+    ],
+    "answer": 2,
+    "hint": "Who made the cake? Is that a boy, a girl or many people?",
+    "good": "Yes! Lama made the cake alone, so she made it by **herself**."
+   },
+   "evidence": {
+    "sentences": [
+     "Lama is nine years old.",
+     "Today she baked a cake.",
+     "Nobody helped her.",
+     "She made it all by ___."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: herself. Tap 2 sentences that show who baked and that she did it alone.",
+    "wrong": "This sentence tells about Lama, but not about the baking. Find who baked and who helped."
+   },
+   "checks": [
+    {
+     "passage": "I fell and hurt ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "myself",
+      "me",
+      "himself",
+      "yourself"
+     ],
+     "answer": 0,
+     "why": "The person is **I**, so we use **myself**."
+    },
+    {
+     "passage": "The dog scratched ___ behind the ear.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "himselfs",
+      "themselves",
+      "myself",
+      "itself"
+     ],
+     "answer": 3,
+     "why": "The dog is an animal, so we use **itself**."
+    },
+    {
+     "passage": "Badr dressed ___ for school.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "herself",
+      "himself",
+      "itself",
+      "ourselves"
+     ],
+     "answer": 1,
+     "why": "**Badr** is a boy, so he dressed **himself**."
+    }
+   ],
+   "again": {
+    "title": "The mirror trick",
+    "text": "Think of a mirror. The person does the action and **sees themselves**. Use a -self word.",
+    "example": "Huda looks in the mirror. She sees **herself**.\n\nThe boys look in the mirror. They see **themselves**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "One or many",
+     "text": "One person: **myself**, **yourself**, **himself**, **herself**, **itself**\n\nMany people: **ourselves**, **yourselves**, **themselves**\n\nFor many, the ending is **-selves**."
+    },
+    {
+     "title": "Words that do not exist",
+     "text": "These are **not** English words:\n\n✘ hisself → ✔ **himself**\n✘ theirselves → ✔ **themselves**\n✘ ourself → ✔ **ourselves**"
+    },
+    {
+     "title": "By myself",
+     "text": "**by + -self** means **alone**, with no help.\n\nI walked home **by myself**.\nThe children set up the tent **by themselves**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find who did the action.\n2. Count: one person or more than one?\n3. Look for clues that they acted **alone** or on **themselves**.\n\nThe sentences that name the people and show what they did are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our class planted a garden.",
+      "role": "key"
+     },
+     {
+      "t": "We dug the soil and watered the seeds by ourselves.",
+      "role": "main"
+     },
+     {
+      "t": "Our teacher only watched.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Our class** and **we** mean many people, so we use **ourselves**.\n\nThe teacher only watched, which shows the class did it **alone**."
+   },
+   "together": {
+    "passage": "Mom was tired after a long day at work. Her twin sons, Saad and Majed, wanted to help. They washed the dishes and cleaned the kitchen by ___. Nobody asked them to do it. When Mom came home, she smiled and said, \"You should be proud of yourselves!\"",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "theirselves",
+     "themselves",
+     "himself",
+     "themself"
+    ],
+    "answer": 1,
+    "hint": "How many boys cleaned? Which -self words are real English words?",
+    "good": "Yes! Two boys did the work alone, so: **by themselves**."
+   },
+   "evidence": {
+    "sentences": [
+     "Mom was tired after a long day at work.",
+     "Her twin sons, Saad and Majed, wanted to help.",
+     "They washed the dishes and cleaned the kitchen by ___.",
+     "Nobody asked them to do it.",
+     "When Mom came home, she smiled and said, \"You should be proud of yourselves!\""
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: themselves. Tap 2 sentences that show who did the work and that they did it alone.",
+    "wrong": "This sentence is about Mom, not about who cleaned. Find the sentences about the twins."
+   },
+   "checks": [
+    {
+     "passage": "You and Fahad can serve ___ some juice.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "yourself",
+      "themselves",
+      "yourselves",
+      "ourself"
+     ],
+     "answer": 2,
+     "why": "**You and Fahad** are two people, so we use **yourselves**."
+    },
+    {
+     "passage": "My grandfather taught hisself to read when he was young.",
+     "stem": "Which word is wrong?",
+     "options": [
+      "hisself",
+      "taught",
+      "read",
+      "young"
+     ],
+     "answer": 0,
+     "why": "**hisself** is not an English word. It should be **himself**."
+    },
+    {
+     "passage": "My sister and I made breakfast by ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "myself",
+      "ourself",
+      "themselves",
+      "ourselves"
+     ],
+     "answer": 3,
+     "why": "**My sister and I** = we, so the word is **ourselves**."
+    }
+   ],
+   "again": {
+    "title": "Swap and check",
+    "text": "Change the people to one simple word: I, he, she, it, we, you, they. Then add the ending.",
+    "example": "The players → **they** → **themselves**\nMy friends and I → **we** → **ourselves**\nMy aunt → **she** → **herself**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Reflexive or object?",
+     "text": "Use a **reflexive** pronoun when the subject and the object are the **same** person.\n\nAli taught **himself** to swim. (Ali taught Ali)\n\nUse an **object** pronoun when they are **different**.\n\nAli taught **him** to swim. (Ali taught another boy)"
+    },
+    {
+     "title": "You or you all?",
+     "text": "**yourself** = one person\n**yourselves** = more than one\n\nA teacher to one student: Be proud of **yourself**.\nA teacher to the class: Be proud of **yourselves**."
+    },
+    {
+     "title": "Not as a subject",
+     "text": "Do not use a -self word as the subject.\n\n✘ Hassan and **myself** went to the market.\n✔ Hassan and **I** went to the market."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the subject of the sentence.\n2. Ask: is the action going back to the **same** person or people?\n3. Check how many people are being spoken to or about.\n\nThe sentences that show who is involved are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The coach spoke to Noor after the match.",
+      "role": "key"
+     },
+     {
+      "t": "\"Don't blame yourself for the goal,\" she said.",
+      "role": "main"
+     },
+     {
+      "t": "\"Everyone makes mistakes.\"",
+      "role": "other"
+     }
+    ],
+    "explain": "The coach is speaking to **one** player, Noor. Noor should not blame Noor, so the coach says **yourself**."
+   },
+   "together": {
+    "passage": "Before the big race, our coach gathered the whole team together. \"Do not compare yourselves to other runners,\" she said. \"Just believe in ___ and run your best.\" Then she handed each of us a water bottle and wished us luck. Moments later, the starting whistle blew.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "yourself",
+     "you",
+     "themselves",
+     "yourselves"
+    ],
+    "answer": 3,
+    "hint": "Is the coach speaking to one runner or to the whole team?",
+    "good": "Yes! She is speaking to the **whole team**, and the runners should believe in themselves: **yourselves**."
+   },
+   "evidence": {
+    "sentences": [
+     "Before the big race, our coach gathered the whole team together.",
+     "\"Do not compare yourselves to other runners,\" she said.",
+     "\"Just believe in ___ and run your best.\"",
+     "Then she handed each of us a water bottle and wished us luck.",
+     "Moments later, the starting whistle blew."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: yourselves. Tap 2 sentences that show she is speaking to more than one person.",
+    "wrong": "This sentence does not show who the coach is talking to. Find the clues about the whole team."
+   },
+   "checks": [
+    {
+     "passage": "Reem looked at the photo of her cousin and smiled at ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "herself",
+      "her",
+      "itself",
+      "hers"
+     ],
+     "answer": 1,
+     "why": "Reem smiled at her **cousin**, a different person. So we use the object pronoun **her**."
+    },
+    {
+     "passage": "___ and my brother cleaned the yard.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "Myself",
+      "Me",
+      "I",
+      "Mine"
+     ],
+     "answer": 2,
+     "why": "This is the subject of the sentence, so we use **I**, not myself."
+    },
+    {
+     "passage": "The new robot can switch ___ off when the battery is low.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "itself",
+      "it",
+      "himself",
+      "themselves"
+     ],
+     "answer": 0,
+     "why": "The robot switches **the robot** off: same subject and object, so **itself**."
+    }
+   ],
+   "again": {
+    "title": "Who gets the action?",
+    "text": "Draw an arrow from the doer to the person who **receives** the action.\n\nArrow comes back to the doer? Use **-self**.\nArrow goes to someone else? Use **me, him, her, them**.",
+    "example": "Sami washed **himself**. (arrow comes back)\nSami washed **him**. (arrow goes to another boy)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Reflexive pronouns",
+     "text": "A **reflexive** pronoun is the **object** of the verb or a preposition. It refers back to the subject, and the sentence needs it.\n\nShe taught **herself** to code.\n(Remove it: 'She taught to code.' ✘)"
+    },
+    {
+     "title": "Intensive pronouns",
+     "text": "An **intensive** pronoun uses the same words, but only adds **emphasis**. The sentence works without it.\n\nThe principal **herself** greeted us.\n(Remove it: 'The principal greeted us.' ✔)"
+    },
+    {
+     "title": "Overusing myself",
+     "text": "Some people use **myself** to sound formal. It is incorrect when there is no 'I' doing the action.\n\n✘ Please send your questions to Ms Noura or **myself**.\n✔ Please send your questions to Ms Noura or **me**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use the **removal test** on each sentence.\n\n1. Cover the -self word.\n2. Does the sentence still make sense?\n3. Yes → intensive (emphasis). No → reflexive (needed as an object).\n\nSentences that fail the test prove the pronoun is reflexive."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The scientist herself checked every result.",
+      "role": "detail"
+     },
+     {
+      "t": "She reminded herself to stay patient.",
+      "role": "key"
+     },
+     {
+      "t": "The results themselves were surprising.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Remove **herself** from sentence 1: 'The scientist checked every result.' It works, so it is **intensive**.\n\nRemove **herself** from sentence 2: 'She reminded to stay patient.' It fails, so it is **reflexive**."
+   },
+   "together": {
+    "passage": "When the new community centre opened in our town, the mayor himself cut the ribbon. The building had been designed by a young architect who had taught herself to draw as a child. She told the crowd that the design itself came from the shapes of old mud-brick houses. Volunteers had painted the walls themselves over three weekends. After the speeches, visitors helped themselves to dates and coffee in the courtyard.",
+    "stem": "Which phrase uses a reflexive pronoun as the OBJECT of the verb?",
+    "options": [
+     "the mayor himself cut the ribbon",
+     "the design itself came from",
+     "visitors helped themselves to dates",
+     "had painted the walls themselves"
+    ],
+    "answer": 2,
+    "hint": "Cover the -self word in each choice. Which one no longer makes sense?",
+    "good": "Yes! 'Visitors helped to dates' makes no sense, so **themselves** is a needed object: it is reflexive."
+   },
+   "evidence": {
+    "sentences": [
+     "When the new community centre opened in our town, the mayor himself cut the ribbon.",
+     "The building had been designed by a young architect who had taught herself to draw as a child.",
+     "She told the crowd that the design itself came from the shapes of old mud-brick houses.",
+     "Volunteers had painted the walls themselves over three weekends.",
+     "After the speeches, visitors helped themselves to dates and coffee in the courtyard."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: visitors helped themselves. Tap 2 sentences where the -self word is a needed object (the removal test fails).",
+    "wrong": "Cover the -self word here and the sentence still works, so it only adds emphasis. Find one that fails the test."
+   },
+   "checks": [
+    {
+     "passage": "If you have any questions about the trip, please ask Mr Khalid or ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "myself",
+      "me",
+      "I",
+      "mine"
+     ],
+     "answer": 1,
+     "why": "The writer is not doing an action to himself, so the object pronoun **me** is correct."
+    },
+    {
+     "passage": "The students themselves chose the theme for the school festival.",
+     "stem": "What does 'themselves' do in this sentence?",
+     "options": [
+      "It is the subject of the sentence.",
+      "It shows the students did something to themselves.",
+      "It replaces the word 'theme'.",
+      "It adds emphasis and could be removed."
+     ],
+     "answer": 3,
+     "why": "'The students chose the theme' still works, so **themselves** is intensive. It adds emphasis."
+    },
+    {
+     "passage": "After the long hike, the travellers allowed ___ a short rest.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "themselves",
+      "them",
+      "theirselves",
+      "they"
+     ],
+     "answer": 0,
+     "why": "The travellers allowed **the travellers** a rest. Same subject and object, so: **themselves**."
+    }
+   ],
+   "again": {
+    "title": "Cover it up",
+    "text": "Put your finger over the -self word and read again.\n\nStill fine? It is just for **emphasis**.\nBroken? It is a **reflexive** object, and the sentence needs it.",
+    "example": "I made the bread **myself**. → 'I made the bread.' Still fine: **emphasis**.\n\nI burned **myself**. → 'I burned.' Broken: **reflexive**."
+   }
+  }
+ }
+}

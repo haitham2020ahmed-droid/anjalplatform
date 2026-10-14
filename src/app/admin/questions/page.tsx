@@ -11,6 +11,10 @@ import { teacherRoster } from "@/server/teacher/assign";
 import { LEVEL_LABELS } from "@/config/engine";
 import { BankTabs } from "./bank-tabs";
 import { QuestionList } from "./question-list";
+import { Combo } from "@/components/ui/combo";
+import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
+import { lastFixReport } from "@/server/admin/stuck-questions";
+import { FixStuck } from "./fix-stuck";
 
 export const metadata = { title: "Questions" };
 
@@ -22,7 +26,7 @@ const STATUS_LABEL: Record<QuestionStatus | "ALL", string> = { ALL: "All", PUBLI
 const SORT_LABEL: Record<SortKey, string> = { new: "Newest changes first", old: "Oldest first", easy: "Easiest first", hard: "Hardest first" };
 
 /**
- * 📚 Questions: one page of 50, filtered and sorted by the database (see src/server/admin/questions-list.ts).
+ * Questions: one page of 50, filtered and sorted by the database (see src/server/admin/questions-list.ts).
  * One tab row links the useful question pages; banners point to unsorted questions and drafts.
  */
 export default async function QuestionsPage({ searchParams }: { searchParams: Promise<SP> }) {
@@ -40,13 +44,14 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     skillId: sp.skill?.slice(0, 191) || undefined, mapCode: /^G\d+\.[A-Z0-9.]+$/i.test(sp.map ?? "") ? String(sp.map).toUpperCase() : undefined, ai: sp.ai === "1" || undefined,
     mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, grade: Number(sp.grade) || undefined,
     // 🏦 the bank (skill + level, no grade) or the Curriculum Map's own questions (grade → unit → lesson)
-    source: sp.source === "map" ? "MAP" : sp.source === "all" ? "ALL" : undefined,
+    source: sp.source === "map" ? "MAP" : sp.source === "all" ? "ALL" : sp.source === "copies" ? "COPIES" : undefined,
   };
-  const [list, counts, banners, families, matches, targets, deletions, roster] = await Promise.all([
+  const [list, counts, banners, families, matches, targets, deletions, roster, lastFix] = await Promise.all([
     listBankPage(repo, actor, filter), bankStatusCounts(repo, actor, filter), bankBanners(repo, actor), familyOptions(repo, actor),
     filter.q && !filter.family ? familiesMatching(repo, actor, filter.q) : Promise.resolve([]),
     can(actor, "questions:publish") ? moveTargets(repo, actor) : Promise.resolve([]), countDeletionRequests(repo, actor),
     actor.role === "TEACHER" ? teacherRoster(repo, actor) : Promise.resolve(undefined),
+    isAdmin && actor.schoolId && can(actor, "questions:publish") ? lastFixReport(repo, actor.schoolId) : Promise.resolve(null),
   ]);
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
@@ -56,7 +61,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   };
   const chips: { label: string; clear: Record<string, undefined> }[] = [
     ...(filter.skillId ? [{ label: `${t("Skill")}: ${list.rows[0]?.skill || filter.skillId}`, clear: { skill: undefined } }] : []),
-    ...(filter.mapCode ? [{ label: `🧭 ${filter.mapCode}`, clear: { map: undefined } }] : []),
+    ...(filter.mapCode ? [{ label: `${t("Map place")}: ${filter.mapCode}`, clear: { map: undefined } }] : []),
     ...(filter.ai ? [{ label: t("AI-drafted"), clear: { ai: undefined } }] : []),
     ...(filter.mapArea ? [{ label: `MAP · ${filter.mapArea === "NONE" ? t("not classified yet") : filter.mapArea}`, clear: { area: undefined } }] : []),
     ...(filter.grade ? [{ label: `${t("Grade")} ${filter.grade}`, clear: { grade: undefined } }] : []),
@@ -64,28 +69,24 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
   const sel = "min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm";
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="📚" title="Questions"
+      <PageHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="book" title="Questions"
         subtitle={t("Search, preview and edit every question. Open a row to see its choices and answer.")}>
         <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{t("New question")}</Link>
-        {actor.role === "SCHOOL_ADMIN" && <Link href="/admin/questions/load" prefetch={false} className="rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇️ {t("Load new questions")}</Link>}
+        {actor.role === "SCHOOL_ADMIN" && <Link href="/admin/questions/load" prefetch={false} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><LineIcon name="download" className="h-5 w-5" />{t("Load new questions")}</Link>}
       </PageHeader>
       {isAdmin && <BankTabs />}
       <div className="space-y-2">
+        {/* 🛠 one action for every stuck question: classify, repair, publish (drafts are published here, not elsewhere) */}
+        {isAdmin && actor.schoolId && can(actor, "questions:publish") && <FixStuck counts={{ unclassified: banners.unclassified, drafts: banners.drafts, waiting: banners.waiting }} last={lastFix} />}
         {isAdmin && banners.unclassified > 0 && (
           <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-amber-50 px-4 py-3 text-amber-950 ring-1 ring-amber-200">
-            <span aria-hidden="true">🗂</span>{t("{n} questions are not under a skill.", { n: banners.unclassified })}
-            <Link href="/admin/questions/unclassified" className="font-semibold underline">{t("Sort them")}</Link>
-          </p>
-        )}
-        {isAdmin && banners.drafts > 0 && (
-          <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-sky-50 px-4 py-3 text-sky-950 ring-1 ring-sky-200">
-            <span aria-hidden="true">📝</span>{t("{n} drafts.", { n: banners.drafts })}
-            <Link href="/admin/data-cleanup" className="font-semibold underline">{t("Publish them in Data Cleanup")}</Link>
+            <LineIcon name="layers" className="h-5 w-5 shrink-0" />{t("{n} questions are not under a skill.", { n: banners.unclassified.toLocaleString("en") })}
+            <Link href="/admin/questions/unclassified" prefetch={false} className="font-semibold underline">{t("Sort them")}</Link>
           </p>
         )}
         {deletions > 0 && (
           <p role="status" className="flex flex-wrap items-center gap-2 rounded-2xl bg-red-50 px-4 py-3 text-red-900 ring-1 ring-red-200">
-            <span aria-hidden="true">✏️</span>{t("{n} requests from teachers (changes or deletions).", { n: deletions })}
+            <LineIcon name="inbox" className="h-5 w-5 shrink-0" />{t("{n} requests from teachers (changes or deletions).", { n: deletions })}
             <Link href="/admin/questions/requests" className="font-semibold underline">{t("Decide")}</Link>
           </p>
         )}
@@ -94,10 +95,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
 
       <form method="get" className="mt-4 grid gap-2 rounded-2xl bg-white p-3 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-[minmax(0,2fr)_repeat(5,minmax(0,1fr))_auto]" aria-label={t("Filter questions")}>
         <input name="q" defaultValue={sp.q ?? ""} placeholder={t("Search the question text")} aria-label={t("Search")} className={sel} />
-        <select name="family" defaultValue={filter.family ?? ""} aria-label={t("Skill")} className={sel}>
-          <option value="">{t("All skills")}</option>
-          {families.map((f) => <option key={f.key} value={f.key}>{f.name}</option>)}
-        </select>
+        <Combo name="family" label={t("Skill")} defaultValue={filter.family ?? ""} options={[{ value: "", label: t("All skills") }, ...families.map((f) => ({ value: f.key, label: f.name }))]} className="min-w-56" dir="ltr" />
         <select name="type" defaultValue={filter.type ?? ""} aria-label={t("Question type")} className={sel}><option value="">{t("All types")}</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="status" defaultValue={status} aria-label={t("Status")} className={sel}>{(["ALL", ...STATUSES] as const).map((st) => <option key={st} value={st}>{t(STATUS_LABEL[st])}</option>)}</select>
         <select name="level" defaultValue={sp.level ?? ""} aria-label={t("Level")} className={sel}><option value="">{t("All levels")}</option>{Object.entries(LEVEL_LABELS).map(([n, l]) => <option key={n} value={n}>{n} · {l}</option>)}</select>
@@ -115,9 +113,10 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
       </form>
 
       <nav className="mt-3 flex flex-wrap gap-2" aria-label={t("Question source")}>
-        {([["", "🏦 Question Bank", "Skill + level (Approaching / Meeting / Exceeding), for every grade"], ["map", "🧭 Curriculum Map", "Grade → Unit → Lesson"]] as const).map(([v, label, hint]) => {
+        {([["", "Question Bank", "Skill + level (Approaching / Meeting / Exceeding), for every grade", "building"], ["map", "Curriculum Map", "Grade → Unit → Lesson", "compass"],
+          ["copies", isAdmin ? "Teacher copies" : "My edited copies", "Questions a teacher edited for a test: private to that teacher, never in the shared bank", "pen"]] as const).map(([v, label, hint, icon]) => {
           const on = (sp.source ?? "") === v;
-          return <Link key={v || "bank"} href={qs({ source: v || undefined, page: undefined })} aria-current={on ? "page" : undefined} title={t(hint)} className={`rounded-xl px-4 py-2 text-sm font-semibold ${on ? "bg-brand-teal text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t(label)}</Link>;
+          return <Link key={v || "bank"} href={qs({ source: v || undefined, page: undefined })} aria-current={on ? "page" : undefined} title={t(hint)} className={`inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold ${on ? "bg-brand-teal text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}><LineIcon name={icon as LineIconName} className="h-4 w-4" />{t(label)}</Link>;
         })}
       </nav>
       <nav className="mt-3 flex flex-wrap gap-2" aria-label={t("Status")}>

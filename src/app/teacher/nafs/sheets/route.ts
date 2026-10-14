@@ -11,7 +11,7 @@ export async function GET(req: Request) {
   const q = url.searchParams;
   const id = (k: string) => { const v = q.get(k) ?? ""; return /^[A-Za-z0-9_-]{1,64}$/.test(v) ? v : ""; };
   const test = id("test"), klass = id("class");
-  if (!test) return NextResponse.redirect(new URL("/teacher/nafs?tab=sheets", url));
+  if (!test) return NextResponse.redirect(new URL("/teacher/nafs?tab=marking#sheets", url));
   const go = q.get("go");
   const path = go === "grade" || go === "type" ? `/teacher/nafs/tests/${test}/grade?class=${klass}${go === "type" ? "&mode=type" : ""}` : `/teacher/nafs/tests/${test}/sheets?class=${klass}${q.get("blank") ? "&blank=1" : ""}`;
   return NextResponse.redirect(new URL(path, url));

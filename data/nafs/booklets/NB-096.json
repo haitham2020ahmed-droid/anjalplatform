@@ -1,0 +1,568 @@
+{
+  "code": "NB-096",
+  "title": "Letter from the Compost Corner",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 455,
+  "passage": "Dammam, 9 November\n\nDear Reem,\n\nI hope you and your family are well and that the mountains around Tabuk are as beautiful as you described in your last letter. I have exciting news to share, although I must admit that it begins with something rather unpleasant: rubbish, and plenty of it.\n\nLast month, our science teacher, Ms Nouf, asked our class to weigh all the food that was thrown away in the school canteen during a single week. Wearing protective gloves, we sorted the bins every afternoon and recorded the results on an enormous chart beside the classroom door. By Thursday, the total had reached forty-two kilograms! Surprisingly, most of it was not even spoiled; it consisted of bread crusts, banana peels, half-eaten sandwiches and mountains of rice that nobody had wanted. Everyone was astonished, and my friend Dana whispered, \"We are feeding the rubbish trucks instead of ourselves.\"\n\nMs Nouf explained that when food waste is buried in a landfill, it rots without air and releases methane, a gas that traps heat in the atmosphere even more powerfully than carbon dioxide. However, if the same scraps are composted in the open air, worms, insects and tiny bacteria break them down into dark, crumbly soil that is full of nutrients. That afternoon, we voted to build a compost corner behind the school garden.\n\nI will not pretend that everything went smoothly. During the first week, our compost heap produced such a terrible odour that the school caretaker threatened to remove it immediately. After some research, we discovered our mistake: we had added too many wet fruit scraps and not enough dry material. Once we began mixing in dry leaves and shredded cardboard and turning the heap every few days, the smell disappeared almost completely. Now, whenever I push my hand into the warm centre of the pile, I feel as if I am touching something alive, which, in a way, I am.\n\nThe second part of our plan was, in my opinion, even more important. We designed colourful posters encouraging students to take only the food they intended to eat, and the canteen began offering smaller portions of rice. After a month, the weekly waste had fallen to nineteen kilograms. Ms Nouf says that in about two more months, our compost will be ready to nourish the tomato and mint plants in the school garden.\n\nDo you think your school might try something similar? I would be delighted to send you our chart and our embarrassing list of mistakes, so that your class can avoid them entirely. Please write back soon and describe everything, especially the cool weather in Tabuk, which I envy enormously during these humid Dammam afternoons.\n\nWith love from your cousin,\nLina",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “astonished” in the paragraph beginning “Last month”?",
+      "options": [
+        "bored",
+        "annoyed",
+        "amazed",
+        "relieved"
+      ],
+      "answer": "C",
+      "why": "The class could not believe that forty-two kilograms of food had been wasted, so they were amazed (very surprised)."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “unpleasant” in the paragraph beginning “I hope you”?",
+      "options": [
+        "disgusting",
+        "pleasant",
+        "ordinary",
+        "noisy"
+      ],
+      "answer": "B",
+      "why": "Adding “un-” makes the opposite of “pleasant”, so the antonym is “pleasant”; “disgusting” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence: “our compost will be ready to nourish the tomato and mint plants in the school garden.” What does “nourish” mean?",
+      "options": [
+        "to protect from insects",
+        "to cut and harvest",
+        "to cover from the sun",
+        "to feed and help to grow"
+      ],
+      "answer": "D",
+      "why": "Compost is “full of nutrients,” so it will feed the plants and help them grow."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the paragraph beginning “Last month” is an adverb?",
+      "options": [
+        "Surprisingly",
+        "enormous",
+        "protective",
+        "spoiled"
+      ],
+      "answer": "A",
+      "why": "“Surprisingly” comments on the whole sentence and ends in -ly, so it is an adverb; “enormous” and “protective” are adjectives, and “spoiled” is used as an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the letter does NOT end in -s?",
+      "options": [
+        "worms",
+        "bacteria",
+        "nutrients",
+        "insects"
+      ],
+      "answer": "B",
+      "why": "“Bacteria” is an irregular plural (one bacterium, many bacteria); the others are regular plurals ending in -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “embarrassing”?",
+      "options": [
+        "embassy",
+        "barrier",
+        "embarrassment",
+        "harass"
+      ],
+      "answer": "C",
+      "why": "“Embarrassing” and “embarrassment” both come from the verb “embarrass”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “delighted” in a meaningful sentence of your own.",
+      "model": "My grandmother was delighted when we visited her with a basket of fresh dates.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “delighted” with its meaning (very pleased and happy)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Delighted” means very pleased."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “sandwiches” forms its plural by adding -es. Which word also adds -es to form its plural?",
+      "options": [
+        "box",
+        "chart",
+        "bin",
+        "worm"
+      ],
+      "answer": "A",
+      "why": "Nouns ending in -ch, -sh, -x or -s add -es: box → boxes. The others simply add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is exclamatory?",
+      "options": [
+        "Do you think your school might try something similar?",
+        "That afternoon, we voted to build a compost corner behind the school garden.",
+        "After a month, the weekly waste had fallen to nineteen kilograms.",
+        "By Thursday, the total had reached forty-two kilograms!"
+      ],
+      "answer": "D",
+      "why": "It shows Lina's shock and ends with an exclamation mark; the first is a question and the others are statements."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "The Weather in the Mountains of Tabuk",
+        "From Canteen Waste to Garden Soil",
+        "How to Build a Bigger Canteen",
+        "Dana's Favourite Sandwich"
+      ],
+      "answer": "B",
+      "why": "The letter describes how the class turned food waste into compost for the garden and reduced waste."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of Lina's letter?",
+      "options": [
+        "to share news of her class project and encourage Reem's school to try it",
+        "to complain to Reem about the food in her school canteen",
+        "to describe the weather and mountains of Tabuk",
+        "to explain how a landfill is built"
+      ],
+      "answer": "A",
+      "why": "Lina tells the story of the project and then asks, “Do you think your school might try something similar?”"
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph beginning “I will not pretend”?",
+      "options": [
+        "The caretaker disliked the garden and wanted it removed.",
+        "Fruit scraps should never be put into a compost heap.",
+        "The heap smelled at first, but research helped the class fix it.",
+        "Compost feels warm because the sun heats it."
+      ],
+      "answer": "C",
+      "why": "The heap smelled terrible, the class found out why, changed their method, and the smell disappeared."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Ms Nouf, why is it harmful to bury food waste in a landfill?",
+      "options": [
+        "It attracts worms and insects to the school.",
+        "It makes the rubbish trucks too heavy.",
+        "It produces dark soil that is full of nutrients.",
+        "It rots without air and releases methane, which traps heat."
+      ],
+      "answer": "D",
+      "why": "Food waste in a landfill “rots without air and releases methane, a gas that traps heat in the atmosphere.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a news report",
+        "a friendly letter",
+        "an expository text",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It has a date, a greeting (“Dear Reem”), a personal message and a closing (“With love from your cousin”)."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the compost heap smell so bad during the first week?",
+      "options": [
+        "It had too many wet scraps and too little dry material.",
+        "The caretaker had poured buckets of water over it.",
+        "The class had turned the heap far too often.",
+        "The class had added dry leaves and old cardboard."
+      ],
+      "answer": "A",
+      "why": "Lina writes that “we had added too many wet fruit scraps and not enough dry material.” Dry leaves and cardboard were the solution."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The class designed posters about food portions.",
+        "The caretaker threatened to remove the heap.",
+        "The class weighed the food thrown away in the canteen.",
+        "The class voted to build a compost corner."
+      ],
+      "answer": "C",
+      "why": "Weighing the waste for a week came first; the vote, the smell problem and the posters followed."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of this text?",
+      "options": [
+        "Ms Nouf, the class's science teacher",
+        "Reem, Lina's cousin in Tabuk",
+        "Dana, Lina's friend in class",
+        "Lina, a student in Dammam"
+      ],
+      "answer": "D",
+      "why": "The letter is written from Dammam and signed “Lina”, who calls herself Reem's cousin."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did the canteen begin to do as part of the second part of the plan?",
+      "options": [
+        "serve fruit instead of sandwiches",
+        "offer smaller portions of rice",
+        "close earlier every afternoon",
+        "sell compost to parents"
+      ],
+      "answer": "B",
+      "why": "“The canteen began offering smaller portions of rice.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What led the class to vote for a compost corner?",
+      "options": [
+        "Ms Nouf's lesson on landfills and composting",
+        "the caretaker's request for more soil for the garden",
+        "Reem's description of the green gardens in Tabuk",
+        "a recycling competition between schools in Dammam"
+      ],
+      "answer": "A",
+      "why": "Right after Ms Nouf explained that composting turns scraps into rich soil instead of methane, “we voted to build a compost corner.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes Reem want to keep reading after the paragraph beginning “I hope you”?",
+      "options": [
+        "a description of the weather in Dammam",
+        "a list of Lina's school subjects",
+        "curiosity about how “exciting news” could begin with rubbish",
+        "a question about Reem's family"
+      ],
+      "answer": "C",
+      "why": "Lina links exciting news with something unpleasant, which makes the reader curious."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Lina's feeling when she pushes her hand into the warm centre of the pile?",
+      "options": [
+        "disgust and regret",
+        "fear and worry",
+        "boredom and tiredness",
+        "wonder and fascination"
+      ],
+      "answer": "D",
+      "why": "She feels “as if I am touching something alive,” which shows wonder at the living process inside the heap."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is food waste in a landfill different from food waste in a compost heap?",
+      "options": [
+        "In a landfill it turns into soil; in compost it releases methane.",
+        "In a landfill it rots without air and releases methane; in compost it becomes rich soil.",
+        "In both places it disappears without any effect.",
+        "In a landfill it is eaten by worms; in compost it is burned."
+      ],
+      "answer": "B",
+      "why": "Ms Nouf contrasts rotting “without air” in a landfill with composting “in the open air” into soil “full of nutrients.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the posters and the smaller portions of rice?",
+      "options": [
+        "The weekly waste fell to nineteen kilograms.",
+        "The compost heap began to smell terrible again.",
+        "Many students stopped eating in the canteen.",
+        "The garden produced ripe tomatoes immediately."
+      ],
+      "answer": "A",
+      "why": "“After a month, the weekly waste had fallen to nineteen kilograms,” compared with forty-two at the start."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do dry leaves and shredded cardboard have in common in the letter?",
+      "options": [
+        "Both were thrown away by the canteen.",
+        "Both made the heap smell worse.",
+        "Both are dry and balance the wet scraps.",
+        "Both were weighed on Thursday."
+      ],
+      "answer": "C",
+      "why": "The heap needed more “dry material,” so the class added dry leaves and shredded cardboard."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Dana mean when she whispers, “We are feeding the rubbish trucks instead of ourselves”?",
+      "options": [
+        "The rubbish trucks need food to work.",
+        "Students should eat their lunch near the trucks.",
+        "The school should buy more rubbish trucks.",
+        "Much of the food is being thrown away instead of eaten."
+      ],
+      "answer": "D",
+      "why": "Dana uses a striking image: the food goes into the rubbish instead of into the students."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does Lina add “which, in a way, I am” after saying the pile feels “alive”?",
+      "options": [
+        "She is joking that the pile can talk.",
+        "The pile is full of living worms, insects and bacteria.",
+        "She has planted seeds in the pile.",
+        "The pile is warm because of the sun."
+      ],
+      "answer": "B",
+      "why": "Earlier, Ms Nouf explained that worms, insects and bacteria break down the scraps, so the pile really is full of life."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Lina honestly describe the smell problem instead of hiding it?",
+      "options": [
+        "to help Reem's class learn from her mistakes",
+        "to complain to Reem about the school caretaker",
+        "to persuade Reem never to try composting at all",
+        "to prove that her class did everything perfectly"
+      ],
+      "answer": "A",
+      "why": "She offers to send “our embarrassing list of mistakes, so that your class can avoid them entirely.”"
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action from the letter would help MOST to reduce food waste at any school?",
+      "options": [
+        "weighing the rubbish every day for a year",
+        "adding more cardboard to the canteen bins",
+        "taking only the food you intend to eat",
+        "building a larger landfill near the school"
+      ],
+      "answer": "C",
+      "why": "Taking less food stops waste before it happens, which is why the weekly waste fell so much."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer of this letter most likely sharing with readers?",
+      "options": [
+        "Composting is too difficult for schools.",
+        "Only teachers can solve environmental problems.",
+        "Food waste is not an important issue.",
+        "Small actions by students can really reduce waste."
+      ],
+      "answer": "D",
+      "why": "A class of students cut their canteen's waste by more than half and created compost for their garden."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the letter as a whole?",
+      "options": [
+        "enthusiasm and pride",
+        "jealousy and anger",
+        "fear and sadness",
+        "boredom and disappointment"
+      ],
+      "answer": "A",
+      "why": "Lina calls her news “exciting,” describes the success proudly and eagerly offers to share her chart."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "why the compost heap smelled so bad",
+        "what the canteen changed about its meals",
+        "how the class weighed the food waste",
+        "how much the weekly food waste fell"
+      ],
+      "answer": "C",
+      "why": "Lina says the class weighed the waste but never says what equipment they used; the other points are explained clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A compost heap turns food scraps into soil in a single afternoon.",
+        "Banana peels in a landfill turn into fresh bananas.",
+        "Worms in a compost heap start writing letters to the class.",
+        "A school cuts its weekly food waste by more than half after serving smaller portions."
+      ],
+      "answer": "D",
+      "why": "This is what happened in Lina's school and is realistic; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the letter?",
+      "options": [
+        "A Holiday in the Mountains of Tabuk",
+        "The Caretaker's Secret",
+        "Turning Waste into Soil",
+        "The Day the Canteen Closed"
+      ],
+      "answer": "C",
+      "why": "The letter follows the class from measuring waste to making compost for the garden."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter: write two or three sentences in which Lina describes ONE new idea her class could try next to reduce waste even further, and why it would work.",
+      "model": "Next term, we plan to ask the canteen to give leftover bread to a local charity at the end of each day. That way, food that is still fresh will feed people instead of going into the bins or even the compost. I hope you will tell me if your school has a better idea!",
+      "rubric": [
+        "2 = a clear new ending, written in Lina's voice, with a sensible idea to reduce waste and a reason that links to the letter",
+        "1 = an idea is given but it is unclear, does not fit the letter or is not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any realistic, explained idea in the style of a letter is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the letter, how could the class keep the compost heap from smelling again?",
+      "options": [
+        "Add only wet fruit scraps every day.",
+        "Keep mixing in dry material and turn the heap every few days.",
+        "Cover the heap tightly so that no air can reach it.",
+        "Move the heap into the canteen."
+      ],
+      "answer": "B",
+      "why": "Mixing in dry leaves and cardboard and turning the heap made the smell disappear; cutting off air would make it rot like a landfill."
+    }
+  ]
+}

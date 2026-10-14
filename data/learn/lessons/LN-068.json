@@ -1,0 +1,454 @@
+{
+ "code": "LN-068",
+ "title": "Possessive nouns",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "possessive-nouns"
+ ],
+ "skillNames": [
+  "Possessive Nouns",
+  "Singular Possessive Nouns",
+  "Plural Possessive Nouns",
+  "Apostrophes in Possessives"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who owns it?",
+     "text": "We add **'s** to a name or noun to show who **has** something.\n\n**Ali's** bag = the bag that Ali has\nthe **cat's** bowl = the bowl the cat has"
+    },
+    {
+     "title": "The little mark",
+     "text": "The mark **'** is called an **apostrophe**.\n\nIt goes **before** the s when there is **one** owner.\n\nthe **girl's** hat\nmy **dad's** car"
+    },
+    {
+     "title": "Not every s",
+     "text": "Do **not** add an apostrophe just because a word ends in s.\n\nI have two **cats**. (more than one)\nThe **cat's** tail is long. (the tail the cat has)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Ask: does someone **own** or **have** the thing?\n2. If yes, look for the **'s**.\n3. Find another word in the text with 's. It shows the same rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar has a pet bird.",
+      "role": "other"
+     },
+     {
+      "t": "The bird's cage is by the window.",
+      "role": "key"
+     },
+     {
+      "t": "Omar's sister gives it seeds.",
+      "role": "key"
+     }
+    ],
+    "explain": "**bird's** cage: the cage the bird has.\n**Omar's** sister: the sister Omar has.\n\nOne owner, so **'s**."
+   },
+   "together": {
+    "passage": "Huda has a little sister named Lama. ___ doll has a pink dress. Lama's bed is next to the window. Huda's books are on the shelf.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "Lamas",
+     "Lama's",
+     "Lamas'",
+     "Lama"
+    ],
+    "answer": 1,
+    "hint": "The doll belongs to Lama. One owner gets apostrophe + s.",
+    "good": "Yes! The doll is Lama's, so we write **Lama's**."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda has a little sister named Lama.",
+     "___ doll has a pink dress.",
+     "Lama's bed is next to the window.",
+     "Huda's books are on the shelf."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Lama's. Tap 2 sentences that also use 's to show who owns something.",
+    "wrong": "This sentence has no word with 's. Look for a name with an apostrophe."
+   },
+   "checks": [
+    {
+     "passage": "The ___ ball went over the wall.",
+     "stem": "Which word fills the blank? (one boy)",
+     "options": [
+      "boy's",
+      "boys",
+      "boy",
+      "boys's"
+     ],
+     "answer": 0,
+     "why": "The ball belongs to one boy, so we add **'s**: **boy's**."
+    },
+    {
+     "passage": "My mom's car is white. My dads car is blue.",
+     "stem": "Which word needs an apostrophe?",
+     "options": [
+      "mom's",
+      "car",
+      "dads",
+      "blue"
+     ],
+     "answer": 2,
+     "why": "The car belongs to Dad. It should be **dad's** car."
+    },
+    {
+     "passage": "I see three ___ in the tree.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "bird's",
+      "birds'",
+      "birds's",
+      "birds"
+     ],
+     "answer": 3,
+     "why": "Nobody owns anything here. There are just many birds, so **no apostrophe**."
+    }
+   ],
+   "again": {
+    "title": "Turn it around",
+    "text": "Say it the long way: **the ___ of ___**.\n\nIf it works, use 's.",
+    "example": "the toy of the baby → the **baby's** toy\n\nthe house of Sara → **Sara's** house"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "One owner",
+     "text": "For **one** owner, add **'s**.\n\nthe **teacher's** desk (one teacher)\nthe **horse's** saddle (one horse)"
+    },
+    {
+     "title": "Many owners",
+     "text": "For **many** owners, the noun usually already ends in **s**. Just add the apostrophe **after** the s.\n\nthe **teachers'** room (many teachers)\nthe **horses'** stable (many horses)"
+    },
+    {
+     "title": "Ask: one or many?",
+     "text": "1. Find the owner.\n2. Is there **one** or **more than one**?\n3. One: **'s**. Many (ending in s): **s'**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the owner word.\n2. Look in the text for clues: **two**, **both**, **all**, **many**, or a plural noun.\n3. Find other possessives in the text that follow the same rule.\n\nThe clues tell you if the owner is one or many."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our class has twenty students.",
+      "role": "other"
+     },
+     {
+      "t": "The students' paintings hang in the hall.",
+      "role": "key"
+     },
+     {
+      "t": "The teacher's painting hangs by the door.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**students'**: many students own the paintings, so the apostrophe goes **after** the s.\n\n**teacher's**: one teacher, so **'s**."
+   },
+   "together": {
+    "passage": "Our school has two football teams, one for boys and one for girls. The girls' team practises on Monday. The ___ team practises on Wednesday. The coach's whistle is very loud. Both teams' shirts are green.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "boy's",
+     "boys'",
+     "boys",
+     "boyes'"
+    ],
+    "answer": 1,
+    "hint": "The team is for many boys, not one boy. Where does the apostrophe go for many owners?",
+    "good": "Yes! Many boys share the team, so the apostrophe goes after the s: **boys'**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school has two football teams, one for boys and one for girls.",
+     "The girls' team practises on Monday.",
+     "The ___ team practises on Wednesday.",
+     "The coach's whistle is very loud.",
+     "Both teams' shirts are green."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: boys'. Tap 2 sentences that show the same rule: many owners, apostrophe after the s.",
+    "wrong": "This sentence shows one owner ('s) or no owner at all. Find sentences with s'."
+   },
+   "checks": [
+    {
+     "passage": "All the ___ bags were lined up by the door.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "students'",
+      "student's",
+      "students",
+      "studentes"
+     ],
+     "answer": 0,
+     "why": "**All** tells us there are many students, so the apostrophe goes after the s."
+    },
+    {
+     "passage": "My two sisters share a room. The ___ room is painted yellow.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "sister's",
+      "sisters",
+      "sisters'",
+      "sisters's"
+     ],
+     "answer": 2,
+     "why": "Two sisters own the room, so we write **sisters'**."
+    },
+    {
+     "passage": "The nurse's office is next to the library. The libraries books are new. The principal's office is upstairs.",
+     "stem": "Which word is wrong?",
+     "options": [
+      "nurse's",
+      "principal's",
+      "office",
+      "libraries"
+     ],
+     "answer": 3,
+     "why": "The books belong to one library. It should be **library's** books."
+    }
+   ],
+   "again": {
+    "title": "Write the owner first",
+    "text": "First write the owner word **without** an apostrophe. Then add the mark at the end.",
+    "example": "one dog → dog → **dog's** bone\n\nthree dogs → dogs → **dogs'** bones"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Plurals without s",
+     "text": "Some plural nouns do **not** end in s: children, men, women, people, mice.\n\nFor these, add **'s**, just like one owner:\nthe **children's** playground\nthe **women's** club"
+    },
+    {
+     "title": "Names ending in s",
+     "text": "For a name that ends in **s**, add **'s**.\n\n**Yunus's** bike\n**Idris's** notebook\n\nSome writers add only **'** (Yunus' bike). Both are seen, but **'s** is common in school writing."
+    },
+    {
+     "title": "Plural or possessive?",
+     "text": "A plural just means **more than one**. It has **no** apostrophe.\n\nThe **players** ran onto the field.\nThe **players'** boots were muddy.\n\nOnly use the apostrophe when something **belongs** to the noun."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Write the owner as a plural or singular word.\n2. Does it already end in s? If not, add **'s**.\n3. Look for other possessives in the passage that follow the same rule.\n\nCheck plurals too: if nothing is owned, there is no apostrophe."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum has a special room for families.",
+      "role": "other"
+     },
+     {
+      "t": "The children's games are on the left.",
+      "role": "key"
+     },
+     {
+      "t": "Their parents' chairs are by the wall.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**children** does not end in s, so we add **'s**: children's.\n\n**parents** ends in s, so we add only **'**: parents'."
+   },
+   "together": {
+    "passage": "The city library opened a new section last month. The children's corner has soft cushions and picture books. Upstairs, the men's and women's reading rooms are quiet places to study. In the hall, a board shows ___ favourite books. Many readers have added their own ideas.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "peoples'",
+     "peoples",
+     "people's",
+     "people'"
+    ],
+    "answer": 2,
+    "hint": "**People** is already plural, and it does not end in s. Which rule fits?",
+    "good": "Yes! **People** is plural but has no s, so we add **'s**: people's."
+   },
+   "evidence": {
+    "sentences": [
+     "The city library opened a new section last month.",
+     "The children's corner has soft cushions and picture books.",
+     "Upstairs, the men's and women's reading rooms are quiet places to study.",
+     "In the hall, a board shows ___ favourite books.",
+     "Many readers have added their own ideas."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: people's. Tap 2 sentences with plurals that do not end in s, but still take 's.",
+    "wrong": "This sentence has no plural like children, men or women with 's. Look again."
+   },
+   "checks": [
+    {
+     "passage": "The ___ shoes were lined up outside the classroom.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "childrens'",
+      "children's",
+      "childrens",
+      "childs'"
+     ],
+     "answer": 1,
+     "why": "**Children** is plural without s, so add **'s**: children's."
+    },
+    {
+     "passage": "Our neighbour Abbas has a new car. ___ car is silver.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "Abbas's",
+      "Abbass",
+      "Abbases",
+      "Abba's"
+     ],
+     "answer": 0,
+     "why": "The name is **Abbas**. To show he owns the car, add **'s** after the full name."
+    },
+    {
+     "passage": "The farmers' market opens at six. Many farmer's bring fresh vegetables. The market's busiest day is Friday.",
+     "stem": "Which word has an apostrophe it should NOT have?",
+     "options": [
+      "farmers'",
+      "market's",
+      "Friday",
+      "farmer's"
+     ],
+     "answer": 3,
+     "why": "Many farmers bring vegetables; they do not own anything here. It should be the plain plural **farmers**."
+    }
+   ],
+   "again": {
+    "title": "The owner stays whole",
+    "text": "Never cut the owner word. Write the whole word first, then add the mark.",
+    "example": "the toys of the children → children → **children's** toys\n\nthe bike of Idris → Idris → **Idris's** bike"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Owning together",
+     "text": "When two people own **one** thing **together**, add 's only to the **last** name.\n\n**Sami and Badr's** project (one project, shared)"
+    },
+    {
+     "title": "Owning separately",
+     "text": "When each person owns **their own** thing, add 's to **each** name.\n\n**Sami's and Badr's** bikes (two bikes, one each)\n\nThe apostrophes change the meaning."
+    },
+    {
+     "title": "Long owners",
+     "text": "For a compound noun, add 's to the **last word**.\n\nmy **brother-in-law's** shop\nthe **head teacher's** office\n\nFor a plural compound, keep the plural inside: my **sisters-in-law's** visit."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Apostrophes carry **meaning**, so the text must back up your choice.\n\n1. Find the owners.\n2. Look for words like **together**, **share**, **each**, **own**, **both**.\n3. Decide: one shared thing or separate things?\n\nPoint to the sentence that tells you how the owning works."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lina and Dana wrote one report together.",
+      "role": "key"
+     },
+     {
+      "t": "Lina and Dana's report won a prize.",
+      "role": "main"
+     },
+     {
+      "t": "Lina's and Dana's notebooks were full of notes.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 1 says they wrote **one** report together, so only the last name gets 's: **Lina and Dana's report**.\n\nThey each have their own notebook, so **both** names get 's."
+   },
+   "together": {
+    "passage": "My aunt and uncle opened a small bakery together ten years ago. Today, ___ bakery is famous in our neighbourhood for its date cakes. Every Friday, my cousins help out. Maha folds the cake boxes, while Khalid and Salem serve customers at separate counters. Last week, a food writer from the city newspaper visited and described the bakery as a family treasure.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "my aunt's and uncle's",
+     "my aunts and uncles",
+     "my aunt and uncle's",
+     "my aunt and uncles'"
+    ],
+    "answer": 2,
+    "hint": "Is this one bakery they share, or two bakeries? Find the word in the text that tells you.",
+    "good": "Yes! They opened **one** bakery **together**, so only the last owner gets 's."
+   },
+   "evidence": {
+    "sentences": [
+     "My aunt and uncle opened a small bakery together ten years ago.",
+     "Today, ___ bakery is famous in our neighbourhood for its date cakes.",
+     "Every Friday, my cousins help out.",
+     "Maha folds the cake boxes, while Khalid and Salem serve customers at separate counters.",
+     "Last week, a food writer from the city newspaper visited and described the bakery as a family treasure."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: my aunt and uncle's bakery. Tap the sentence that proves they own it together.",
+    "wrong": "This sentence does not tell us how the bakery is owned. Find the one with the word that shows sharing."
+   },
+   "checks": [
+    {
+     "passage": "Faisal and Noor each painted a picture for the art show. ___ paintings were hung side by side.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "Faisal and Noor's",
+      "Faisal's and Noor's",
+      "Faisals and Noors",
+      "Faisal's and Noor"
+     ],
+     "answer": 1,
+     "why": "Each painted their **own** picture, so **each** name takes 's."
+    },
+    {
+     "passage": "My uncle visits his mother-in-law every week. His mother-in-laws garden is full of roses.",
+     "stem": "How should the error be fixed?",
+     "options": [
+      "mother's-in-law's",
+      "mothers-in-law garden",
+      "mother-in-law's",
+      "mother-in-laws'"
+     ],
+     "answer": 2,
+     "why": "For a compound noun, add 's to the **last** word: **mother-in-law's**."
+    },
+    {
+     "passage": "The twins share a bedroom. The twins room has bunk beds.",
+     "stem": "How should the second sentence begin?",
+     "options": [
+      "The twins' room",
+      "The twin's room",
+      "The twins's room",
+      "The twin's' room"
+     ],
+     "answer": 0,
+     "why": "Two twins share one room. **Twins** is plural and ends in s, so add only **'**."
+    }
+   ],
+   "again": {
+    "title": "Draw it",
+    "text": "Picture the things being owned.\n\nOne thing with two owners → **one** 's at the end.\nTwo things with one owner each → 's on **both**.",
+    "example": "Ali and Hassan share one tent: **Ali and Hassan's** tent.\n\nAli and Hassan each have a tent: **Ali's and Hassan's** tents."
+   }
+  }
+ }
+}

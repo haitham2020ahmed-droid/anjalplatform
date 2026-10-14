@@ -1,7 +1,7 @@
 /**
  * Lesson details of the Curriculum Map (data/curriculum-map/lesson-details.json): the school's own summary of
  * each selection — genre, Text Idea, vocabulary words, vocabulary skill and reading skills — keyed by grade and
- * selection name. Grade 6 has names, genres and skills only (no vocabulary or Text Idea).
+ * selection name. Grade 6 has names, genres, skills and vocabulary (from the school booklets; no Text Idea).
  * The text is kept exactly as the school wrote it. Merged into the lesson cards on the server.
  */
 import type { Repo, Row } from "../seeding/repo";

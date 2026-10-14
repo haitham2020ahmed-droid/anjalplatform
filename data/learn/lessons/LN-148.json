@@ -1,0 +1,472 @@
+{
+ "code": "LN-148",
+ "title": "Pictures in stories",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.2.7",
+  "RL.3.7",
+  "RL.4.7",
+  "RL.5.7",
+  "RL.K.7"
+ ],
+ "families": [
+  "visualize"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0024",
+  "R-0075",
+  "R-0146",
+  "R-0256",
+  "R-0424",
+  "R-0610"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Pictures tell too",
+     "text": "Many stories have **pictures**.\n\nThe pictures help you understand the story. They can show things the words do **not** say."
+    },
+    {
+     "title": "Look at faces",
+     "text": "A picture can show how someone **feels**.\n\nA big smile: **happy**. Tears: **sad**. Wide eyes: **surprised**."
+    },
+    {
+     "title": "Words and picture together",
+     "text": "1. Read the words.\n2. Look at the picture.\n3. Ask: what does the picture **add**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "In this lesson, the picture is **told in words**. Sentences that start with **The picture shows** tell you what you would see.\n\n1. Read the question.\n2. Find the picture sentences.\n3. They **prove** your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Words: Tom got a gift.",
+      "role": "other"
+     },
+     {
+      "t": "The picture shows Tom jumping up and down with a big smile.",
+      "role": "key"
+     },
+     {
+      "t": "The picture also shows a red kite in his hands.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The words only say Tom got a gift. The picture shows **what** the gift is (a kite) and how Tom **feels** (very happy)."
+   },
+   "together": {
+    "passage": "The words say: Dana went to the park. The picture shows Dana sitting alone on a bench. The picture shows a tear on her cheek. Other children play ball far away.",
+    "stem": "What does the picture show that the words do not?",
+    "options": [
+     "Dana went to the park.",
+     "Dana feels sad and alone.",
+     "Dana likes to play ball.",
+     "The park is closed."
+    ],
+    "answer": 1,
+    "hint": "The words only say where Dana went. Look at the picture sentences. How does Dana look?",
+    "good": "Yes! She sits alone and has a tear. The picture shows she is sad."
+   },
+   "evidence": {
+    "sentences": [
+     "The words say: Dana went to the park.",
+     "The picture shows Dana sitting alone on a bench.",
+     "The picture shows a tear on her cheek.",
+     "Other children play ball far away."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Dana feels sad and alone. Tap 2 picture sentences that show it.",
+    "wrong": "This sentence is from the words, or is about other children. Find the picture sentences about Dana."
+   },
+   "checks": [
+    {
+     "passage": "The words say: Sam made a cake. The picture shows the cake is tall and has pink flowers on top.",
+     "stem": "What does the picture add?",
+     "options": [
+      "What the cake looks like",
+      "Who ate the cake",
+      "Where Sam lives",
+      "What time it is"
+     ],
+     "answer": 0,
+     "why": "Only the picture shows the cake is tall with pink flowers."
+    },
+    {
+     "passage": "The words say: The dog ran in. The picture shows the dog covered in mud and the mother with her hands on her head.",
+     "stem": "How does the mother feel?",
+     "options": [
+      "Happy",
+      "Sleepy",
+      "Upset",
+      "Hungry"
+     ],
+     "answer": 2,
+     "why": "Hands on her head and a muddy dog show she is upset."
+    },
+    {
+     "passage": "The words say: It was a big day for Ali. The picture shows Ali in a new uniform at the door of a school.",
+     "stem": "What does the picture tell us about the big day?",
+     "options": [
+      "It is Ali's birthday.",
+      "It is Ali's first day at school.",
+      "Ali is going on a trip.",
+      "Ali is sick at home."
+     ],
+     "answer": 1,
+     "why": "The new uniform and the school door show it is his first day at school."
+    }
+   ],
+   "again": {
+    "title": "Picture detective",
+    "text": "Look at the picture and name **three things** you see.\n\nThen ask: which of these did the words **not** tell me?",
+    "example": "Words: Mona went outside.\nPicture: rain, an umbrella, a puddle.\n\nThe words did not say it was **raining**. The picture did!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Why stories have pictures",
+     "text": "Illustrations are the pictures in a story. They are not just decoration.\n\nThey can show **details**, **feelings** and **what happens** that the words leave out."
+    },
+    {
+     "title": "What pictures can add",
+     "text": "1. **Details**: what a place or person looks like.\n2. **Feelings**: faces and body language.\n3. **Events**: something that happens without words.\n4. **Mood**: bright colours feel happy; dark colours feel sad or scary."
+    },
+    {
+     "title": "Read the picture",
+     "text": "After reading the words, study the picture.\n\nAsk: Does it **agree** with the words? Does it show **more**? What would I miss if there were no picture?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "In this lesson, the picture is described in sentences that start with **The picture shows** or **In the picture**.\n\n1. Read the words and the picture description.\n2. Find the picture details that answer the question.\n3. Your answer must match **what is in the picture**, not a guess."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Words: \"I am not scared,\" said Fahad.",
+      "role": "other"
+     },
+     {
+      "t": "The picture shows Fahad hiding behind his father, holding tightly to his sleeve.",
+      "role": "key"
+     },
+     {
+      "t": "In the picture, a large camel is looking down at Fahad.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The words say Fahad is **not scared**. The picture shows he is hiding and holding on tightly.\n\nThe picture adds the truth: **he is scared of the camel**. Words and picture together make the story funny."
+   },
+   "together": {
+    "passage": "The words say: Grandpa and Salma planted a lemon tree in the yard. \"One day, it will give us fruit,\" said Grandpa. The picture shows a tiny tree with only four leaves. In the picture, Salma is holding a watering can that is almost as big as she is. Grandpa is laughing as water splashes onto her shoes.",
+    "stem": "What does the picture add to the words?",
+    "options": [
+     "It shows the tree already has many lemons on it.",
+     "It shows that Grandpa is angry with Salma.",
+     "It shows that the tree is small and the moment is cheerful.",
+     "It shows that Salma does not want to plant the tree."
+    ],
+    "answer": 2,
+    "hint": "Look only at the picture sentences. How big is the tree? How does Grandpa look?",
+    "good": "Yes! The tiny tree shows it is new, and the big can and the laughing show a happy, funny moment."
+   },
+   "evidence": {
+    "sentences": [
+     "The words say: Grandpa and Salma planted a lemon tree in the yard.",
+     "\"One day, it will give us fruit,\" said Grandpa.",
+     "The picture shows a tiny tree with only four leaves.",
+     "In the picture, Salma is holding a watering can that is almost as big as she is.",
+     "Grandpa is laughing as water splashes onto her shoes."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the tree is small and the moment is cheerful. Tap 2 picture sentences that prove it.",
+    "wrong": "This sentence is part of the words. Find the sentences that describe the picture."
+   },
+   "checks": [
+    {
+     "passage": "The words say: Lulu finished the race. The picture shows Lulu crossing the line last, but her whole class is cheering and waving a banner with her name.",
+     "stem": "What does the picture show?",
+     "options": [
+      "Lulu won first prize and a gold medal in the race.",
+      "Lulu's class is proud of her even though she came last.",
+      "Lulu stopped and did not finish the race at all.",
+      "Lulu is sad and her class has gone home."
+     ],
+     "answer": 1,
+     "why": "She is last, but the class is cheering with a banner. They are proud of her."
+    },
+    {
+     "passage": "The words say: The old house stood at the end of the road. The picture shows the house with broken windows, dark clouds above it and a crow on the roof.",
+     "stem": "What mood does the picture create?",
+     "options": [
+      "Spooky",
+      "Cheerful",
+      "Silly",
+      "Peaceful"
+     ],
+     "answer": 0,
+     "why": "Broken windows, dark clouds and a crow make the house feel spooky."
+    },
+    {
+     "passage": "The words say: Hamad said he would clean his room. The picture shows Hamad pushing all his toys under the bed while his mother watches from the door.",
+     "stem": "What does the picture show that the words do not?",
+     "options": [
+      "Hamad cleaned every corner of his room very carefully.",
+      "Hamad's mother is happily helping him to tidy his room.",
+      "Hamad has no toys at all, so his room is already clean.",
+      "Hamad is hiding the mess instead of cleaning, and his mother sees it."
+     ],
+     "answer": 3,
+     "why": "The picture shows him pushing toys under the bed, with his mother watching. The words do not tell us this."
+    }
+   ],
+   "again": {
+    "title": "Cover and compare",
+    "text": "Imagine covering the picture with your hand.\n\n1. What do you know from the **words only**?\n2. Now uncover it. What **new** thing do you learn?\n\nThe new thing is what the picture adds.",
+    "example": "Words: The kitten found a new bed.\nPicture: the kitten asleep inside Dad's shoe.\n\nNew thing: the \"bed\" is **a shoe**. That makes the story funny."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Illustrations and meaning",
+     "text": "In picture books, comics and illustrated stories, the **images** and the **words** work as a team.\n\nSometimes the picture **repeats** the words. Often it **adds** information, **shows feelings**, or **sets the tone**."
+    },
+    {
+     "title": "How images create tone",
+     "text": "Artists make choices:\n\n1. **Colour**: warm and bright, or grey and dark.\n2. **Size**: a character drawn tiny can seem lonely or weak.\n3. **Light**: sunlight feels hopeful; shadows feel tense.\n4. **Faces and poses**: show what characters really feel."
+    },
+    {
+     "title": "When words and images differ",
+     "text": "If the picture shows something **different** from the words, pay attention. The difference can create **humour** or show what a character **really** thinks."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Here the picture is described for you. To prove what it adds:\n\n1. Separate the **words of the story** from the **picture description**.\n2. Find picture details (colour, size, light, faces) that support the answer.\n3. Choose the answer the picture details show, not just the words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Words: Noor's first day in the new city went well.",
+      "role": "other"
+     },
+     {
+      "t": "The picture shows Noor drawn very small at the bottom of a crowded street, surrounded by tall grey buildings.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone else in the picture is rushing past without looking at her.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The words say the day went well. But the picture makes Noor tiny and alone among grey buildings and hurrying people.\n\nThe picture adds a **lonely, overwhelmed** tone. It suggests Noor feels lost, even if she does not say so."
+   },
+   "together": {
+    "passage": "The words say: After the storm, the family returned to their farm. Nobody spoke for a long time. The picture shows the field flattened and brown under a grey sky. In the corner of the picture, however, the father is kneeling beside one small green shoot pushing up through the mud. A thin ray of sunlight falls on it and on his face. His children are walking toward him with seeds in their hands.",
+    "stem": "How does the picture change the tone of the words?",
+    "options": [
+     "It makes the scene feel more hopeless, because the field is destroyed.",
+     "It makes the scene funny, because the family looks silly in the mud.",
+     "It shows the family is angry and wants to leave the farm.",
+     "It adds hope, showing new life and the family ready to start again."
+    ],
+    "answer": 3,
+    "hint": "The words alone feel sad. Look for picture details that add something different: light, colour, actions.",
+    "good": "Yes! The green shoot, the ray of sunlight and the children bringing seeds add a feeling of hope."
+   },
+   "evidence": {
+    "sentences": [
+     "The words say: After the storm, the family returned to their farm.",
+     "Nobody spoke for a long time.",
+     "The picture shows the field flattened and brown under a grey sky.",
+     "In the corner of the picture, however, the father is kneeling beside one small green shoot pushing up through the mud.",
+     "A thin ray of sunlight falls on it and on his face.",
+     "His children are walking toward him with seeds in their hands."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the picture adds hope. Tap 2 picture sentences that show it.",
+    "wrong": "This sentence shows the damage or comes from the words. Find the picture details that show new life and a fresh start."
+   },
+   "checks": [
+    {
+     "passage": "The words say: \"This will be the best sandcastle ever,\" said Omar. The picture shows Omar smiling proudly next to his castle, while behind him a huge wave is about to crash onto the beach.",
+     "stem": "What effect does the picture have?",
+     "options": [
+      "It creates suspense and humour, because Omar cannot see the wave.",
+      "It shows that Omar built his castle far from the sea.",
+      "It proves the sandcastle will win a prize.",
+      "It shows Omar is afraid of the sea."
+     ],
+     "answer": 0,
+     "why": "The reader sees the wave, but Omar does not. This difference makes the scene tense and funny."
+    },
+    {
+     "passage": "The words say: Grandmother told stories every night. The picture shows the whole family sitting close together on cushions, lit by a warm orange lamp, with the children leaning in to listen.",
+     "stem": "What tone does the picture create?",
+     "options": [
+      "Cold and distant",
+      "Busy and noisy",
+      "Warm and close",
+      "Tense and worried"
+     ],
+     "answer": 2,
+     "why": "The warm light, the cushions and everyone sitting close together create a warm, close tone."
+    },
+    {
+     "passage": "The words say: The robot did its job perfectly. The picture shows the robot stacking boxes in a dark, empty factory, with one small flower growing in a crack in the floor beside it.",
+     "stem": "What does the flower in the picture add?",
+     "options": [
+      "It shows that the factory is really a garden.",
+      "It suggests a sign of life in a cold, lonely place.",
+      "It shows that the robot is broken and needs fixing.",
+      "It proves that the robot made a mistake in its job."
+     ],
+     "answer": 1,
+     "why": "In a dark, empty factory, one flower adds a small sign of life and hope that the words never mention."
+    }
+   ],
+   "again": {
+    "title": "Words, picture, feeling",
+    "text": "Make three short notes:\n\n1. **Words say**...\n2. **Picture shows**...\n3. **So I feel / understand**...\n\nThe third note is what the picture adds.",
+    "example": "Words say: the boy finished his homework.\nPicture shows: him asleep on the books, the clock at midnight.\nSo I understand: **it took him very long and he is exhausted.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Images as part of the text",
+     "text": "In illustrated stories and graphic novels, images are not extras. They carry **meaning**, **tone** and sometimes **irony**.\n\nA careful reader analyses the image as closely as the words."
+    },
+    {
+     "title": "Tools of the artist",
+     "text": "1. **Point of view**: seen from above, a character looks small; from below, powerful.\n2. **Colour and light**: shape mood and signal change.\n3. **Framing**: what is in focus, what is cut off.\n4. **Repetition**: an image that returns can mark how a character has changed."
+    },
+    {
+     "title": "Agree, add, or contrast",
+     "text": "Ask how the image relates to the words:\n\n1. **Agree**: it supports the words.\n2. **Add**: it gives new details or feelings.\n3. **Contrast**: it shows something different, creating irony, humour or tension.\n\nThen ask what that choice does to the **meaning**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Here each image is described. To analyse it:\n\n1. Identify the image details: point of view, colour, light, framing.\n2. Decide whether the image **agrees**, **adds**, or **contrasts** with the words.\n3. Choose the interpretation the image details support. Reject choices that rely on the words alone or ignore key details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Words, first page: Rami had never felt so small.",
+      "role": "other"
+     },
+     {
+      "t": "Image, first page: the school is drawn from far below, its doors towering over Rami, in grey and blue.",
+      "role": "detail"
+     },
+     {
+      "t": "Words, last page: Rami walked through the doors.",
+      "role": "other"
+     },
+     {
+      "t": "Image, last page: the same doors drawn at Rami's height, now painted with the bright colours of his class's mural.",
+      "role": "key"
+     }
+    ],
+    "explain": "The repeated image shows **change**. At first, low viewpoint and cold colours make the school huge and unwelcoming. At the end, the eye-level view and bright mural show Rami now belongs. The images tell the story of his growing confidence."
+   },
+   "together": {
+    "passage": "The words read: \"The village was quiet, as it had always been; nothing ever changed.\" The image, however, shows the village from high above. Bulldozers are lined up at its edge, and a long new road cuts through the palm groves toward the old houses. The colours of the houses are soft and golden, while the machines are painted in harsh, bright yellow. In the bottom corner, an old man sits by his door, his back to the machines, drinking tea. A small girl beside him is staring straight at them.",
+    "stem": "How does the image relate to the words, and what is the effect?",
+    "options": [
+     "It agrees with the words, showing a peaceful village where nothing changes.",
+     "It contrasts with the words, suggesting that big change is coming even though the old man has not noticed.",
+     "It adds a funny detail, showing the machines are toys that the girl is playing with.",
+     "It agrees with the words by showing the old man and the girl enjoying a quiet afternoon."
+    ],
+    "answer": 1,
+    "hint": "The words claim nothing changes. What do the bulldozers, the road and the girl's stare suggest?",
+    "good": "Yes! The machines and the new road contradict \"nothing ever changed.\" The man does not see them, but the girl does, which creates irony and tension."
+   },
+   "evidence": {
+    "sentences": [
+     "The words read: \"The village was quiet, as it had always been; nothing ever changed.\"",
+     "The image, however, shows the village from high above.",
+     "Bulldozers are lined up at its edge, and a long new road cuts through the palm groves toward the old houses.",
+     "The colours of the houses are soft and golden, while the machines are painted in harsh, bright yellow.",
+     "In the bottom corner, an old man sits by his door, his back to the machines, drinking tea.",
+     "A small girl beside him is staring straight at them."
+    ],
+    "proof": [
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the image contrasts with the words and suggests change is coming. Tap 2 image sentences that show it.",
+    "wrong": "This sentence is the story's words, a description of the view, or the old man's calm. Find the image details that show change approaching."
+   },
+   "checks": [
+    {
+     "passage": "The words say: \"I'm the bravest knight in the land!\" The image shows the knight standing on a chair, sword raised, while a tiny mouse looks up at him from the floor.",
+     "stem": "What does the contrast between the words and the image create?",
+     "options": [
+      "Fear, because the knight is in danger",
+      "Sadness, because the knight is alone",
+      "Respect, because the knight is truly brave",
+      "Humour, because the \"brave\" knight is scared of a mouse"
+     ],
+     "answer": 3,
+     "why": "The knight's boast clashes with the image of him fleeing a mouse. The contrast is funny."
+    },
+    {
+     "passage": "Words: The family moved to the coast that summer. Image: the first half of the book is drawn in dusty browns; on this page, for the first time, the sea fills the background in deep blue and turquoise, and the children's clothes are bright.",
+     "stem": "What does the change of colour suggest?",
+     "options": [
+      "The family has gone to sleep.",
+      "The artist ran out of brown paint.",
+      "A new, more hopeful chapter in the family's life",
+      "The story has moved into the past."
+     ],
+     "answer": 2,
+     "why": "Switching from dusty browns to bright sea colours marks a fresh, hopeful start."
+    },
+    {
+     "passage": "Words: \"Everyone was there to welcome the new student.\" Image: the classroom is shown from the doorway; the new student is in sharp focus, but the other students are blurred, and most are looking at their books.",
+     "stem": "What meaning does the image's framing add?",
+     "options": [
+      "The new student feels unnoticed, despite the words",
+      "The new student is famous",
+      "The classroom is very bright",
+      "Everyone is happy to see the new student"
+     ],
+     "answer": 0,
+     "why": "Focus on the new student while the others look away suggests the welcome is not as warm as the words claim."
+    }
+   ],
+   "again": {
+    "title": "Three-step image check",
+    "text": "1. **Describe** the image in one sentence.\n2. **Compare**: does it agree with, add to, or contrast with the words?\n3. **Explain** the effect: what do you now understand or feel?",
+    "example": "Words: \"It was a perfect picnic.\" Image: ants marching toward the food while the family looks at the view.\n\nCompare: **contrast**. Effect: **humour and suspense**: the picnic is about to go wrong."
+   }
+  }
+ }
+}

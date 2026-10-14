@@ -1,0 +1,449 @@
+{
+ "code": "LN-083",
+ "title": "Commas for direct address and tag questions",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [
+  "L.5.2.c"
+ ],
+ "families": [
+  "commas"
+ ],
+ "skillNames": [
+  "Punctuation and Commas"
+ ],
+ "statements": [
+  "L-0034",
+  "L-0035",
+  "L-0105",
+  "L-0106",
+  "L-0217",
+  "L-0218",
+  "L-0219",
+  "L-0301",
+  "L-0302",
+  "L-0331",
+  "L-0337"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Talking to someone",
+     "text": "Sometimes we **call someone by name** when we talk to them.\n\n**Ali**, come here.\nThank you, **Mom**.\n\nThis is called **direct address**."
+    },
+    {
+     "title": "Use a comma",
+     "text": "Put a **comma** between the name and the rest of the sentence.\n\nName at the start: **Sara,** let's play.\nName at the end: Let's play**, Sara**."
+    },
+    {
+     "title": "Check it",
+     "text": "1. Is someone being **spoken to**?\n2. Find their name.\n3. Put a comma next to the name to set it apart."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Ask: Is someone being **spoken to** by name?\n3. Is there a comma between the name and the other words?\n\nThe sentence with a missing comma is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mom, may I have some water?",
+      "role": "key"
+     },
+     {
+      "t": "Mom gave me a cup.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, I am **talking to** Mom, so a comma follows her name.\n\nIn sentence 2, I am **talking about** Mom. No comma is needed."
+   },
+   "together": {
+    "passage": "It is time to eat. Huda, come to the table. Wash your hands first. Thank you Huda.",
+    "stem": "How should the last sentence be written?",
+    "options": [
+     "Thank, you Huda.",
+     "Thank you Huda,.",
+     "Thank you. Huda.",
+     "Thank you, Huda."
+    ],
+    "answer": 3,
+    "hint": "Huda is the person listening. Put the comma between her name and the other words.",
+    "good": "Yes! Huda is spoken to, so a comma comes before her name: Thank you, Huda."
+   },
+   "evidence": {
+    "sentences": [
+     "It is time to eat.",
+     "Huda, come to the table.",
+     "Wash your hands first.",
+     "Thank you Huda."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where someone is spoken to but the comma is missing.",
+    "wrong": "This sentence is fine. Find the one where Huda is spoken to with no comma."
+   },
+   "checks": [
+    {
+     "passage": "Omar, pass the ball.",
+     "stem": "Why is there a comma after Omar?",
+     "options": [
+      "Omar is spoken to.",
+      "Omar is a ball.",
+      "It is a list.",
+      "It ends the sentence."
+     ],
+     "answer": 0,
+     "why": "The speaker is talking to Omar, so a comma sets his name apart."
+    },
+    {
+     "passage": "Good morning Grandma.",
+     "stem": "Where does the comma go?",
+     "options": [
+      "Good, morning Grandma.",
+      "Good morning, Grandma.",
+      "Good morning Grandma,.",
+      "Good morning Grand, ma."
+     ],
+     "answer": 1,
+     "why": "Grandma is spoken to, so the comma goes right before her name."
+    },
+    {
+     "passage": "Sara sat down. Sara, open your book. Sara smiled.",
+     "stem": "In which sentence is someone spoken to?",
+     "options": [
+      "Sara sat down.",
+      "Sara smiled.",
+      "Sara, open your book.",
+      "None of them."
+     ],
+     "answer": 2,
+     "why": "Someone tells Sara to open her book. The other sentences only tell about her."
+    }
+   ],
+   "again": {
+    "title": "Who is listening?",
+    "text": "Ask: **Who is listening?**\n\nIf the name is the person **listening**, put a comma next to it.\n\nIf the sentence just tells what the person did, no comma.",
+    "example": "**Fahad, sit down.** → Fahad is listening. Comma!\n\n**Fahad sat down.** → We tell about Fahad. No comma."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Direct address",
+     "text": "When a speaker talks **to** someone by name, the name is in **direct address**.\n\nIt can be a name (Noura), a title (Doctor), or a word like **Mom**, **friends** or **class**."
+    },
+    {
+     "title": "Start, middle or end",
+     "text": "**Start:** Class, please line up.\n**End:** Please line up, class.\n**Middle:** Please, class, line up quietly.\n\nIn the middle, the name needs **two commas**, one on each side."
+    },
+    {
+     "title": "Talking to or talking about?",
+     "text": "**Ahmed, the bus is here.** → talking **to** Ahmed. Comma.\n\n**Ahmed is on the bus.** → talking **about** Ahmed. No comma.\n\nThe comma changes the meaning!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each name or title in the passage.\n2. Ask: Is the speaker talking **to** this person, or **about** them?\n3. If talking to them, check for commas around the name.\n\nThe sentence where someone is spoken to but a comma is missing is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I think, Lina, that your poster is the best.",
+      "role": "key"
+     },
+     {
+      "t": "Lina smiled proudly.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, Lina is spoken to in the **middle** of the sentence, so commas go on **both sides** of her name.\n\nIn sentence 2, the text tells **about** Lina. No comma."
+   },
+   "together": {
+    "passage": "Good morning, class. Today we are going to plant seeds in the school garden. Faisal please bring the watering can. Reem, can you carry the small shovels? Everyone will get a chance to dig.",
+    "stem": "How should the third sentence be written?",
+    "options": [
+     "Faisal please, bring the watering can.",
+     "Faisal, please bring the watering can.",
+     "Faisal please bring, the watering can.",
+     "Faisal please bring the watering, can."
+    ],
+    "answer": 1,
+    "hint": "Who is the teacher talking to? Set that name apart from the rest of the sentence.",
+    "good": "Yes! The teacher is talking to Faisal, so a comma follows his name."
+   },
+   "evidence": {
+    "sentences": [
+     "Good morning, class.",
+     "Today we are going to plant seeds in the school garden.",
+     "Faisal please bring the watering can.",
+     "Reem, can you carry the small shovels?",
+     "Everyone will get a chance to dig."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where someone is spoken to but the comma is missing.",
+    "wrong": "This sentence is punctuated correctly. Find the one with a name that is not set apart."
+   },
+   "checks": [
+    {
+     "passage": "Can you help me with this box, Uncle Saleh?",
+     "stem": "Who is being spoken to?",
+     "options": [
+      "the box",
+      "the speaker",
+      "nobody",
+      "Uncle Saleh"
+     ],
+     "answer": 3,
+     "why": "The speaker asks Uncle Saleh for help, so his name is set off with a comma."
+    },
+    {
+     "passage": "I know, Maha, that you worked hard.",
+     "stem": "Why are there commas on both sides of Maha?",
+     "options": [
+      "She is being spoken to.",
+      "She is part of a list.",
+      "The sentence asks a question.",
+      "Maha is a place."
+     ],
+     "answer": 0,
+     "why": "Maha is spoken to in the middle of the sentence, so a comma goes on each side."
+    },
+    {
+     "passage": "Majed, is reading a book.",
+     "stem": "What is wrong with this sentence?",
+     "options": [
+      "A comma is missing after book.",
+      "The comma should be removed.",
+      "It needs a question mark.",
+      "Nothing is wrong."
+     ],
+     "answer": 1,
+     "why": "The sentence tells about Majed. Nobody speaks to him, so there should be no comma."
+    }
+   ],
+   "again": {
+    "title": "Cover the name",
+    "text": "Cover the name with your finger. Read the rest.\n\nIf the rest is still a full sentence, the name is just the person you are **talking to**. Set it off with commas.",
+    "example": "Please, **Sami**, close the door.\n\nCover Sami: 'Please close the door.' ✓ Still a full sentence, so Sami needs commas."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Tag questions",
+     "text": "A **tag question** is a short question added to the **end** of a statement.\n\nIt's hot today**, isn't it?**\nYou finished your work**, didn't you?**\n\nPut a **comma** before the tag and a **question mark** at the end."
+    },
+    {
+     "title": "How tags work",
+     "text": "A tag usually has a **helping verb** + a **pronoun**: isn't it, can't you, did she, are they.\n\nPositive statement → often a negative tag: She can swim, **can't she?**\n\nNegative statement → often a positive tag: He isn't late, **is he?**"
+    },
+    {
+     "title": "Address and tags together",
+     "text": "Both are **extra** parts added to a sentence, so both need commas.\n\nAisha, you read that book, didn't you?\n\nThe main sentence is 'you read that book.' The name and the tag are set off with commas."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the main statement.\n2. Look for extras: a **name** of someone spoken to, or a **tag** at the end.\n3. Check that a comma separates each extra, and that a tag ends with a question mark.\n\nThe sentence with a missing comma is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We are going to the museum tomorrow, aren't we?",
+      "role": "key"
+     },
+     {
+      "t": "I hope we see the old coins.",
+      "role": "other"
+     }
+    ],
+    "explain": "**aren't we?** is a tag question added to the statement.\n\nA comma comes before it, and a question mark ends the sentence."
+   },
+   "together": {
+    "passage": "Nasser and his sister were waiting at the bus stop. \"The bus is late again isn't it?\" Nasser asked. \"Yes, it is,\" his sister answered. \"We should leave the house earlier tomorrow, Nasser.\" Nasser nodded and checked the time on his watch. Five minutes later, the bus finally came around the corner.",
+    "stem": "How should Nasser's question be written?",
+    "options": [
+     "\"The bus is late, again isn't it?\"",
+     "\"The bus, is late again isn't it?\"",
+     "\"The bus is late again, isn't it?\"",
+     "\"The bus is late again isn't, it?\""
+    ],
+    "answer": 2,
+    "hint": "Find the tag question at the end. The comma goes right before the tag.",
+    "good": "Yes! The tag isn't it is added to the statement, so a comma comes before it."
+   },
+   "evidence": {
+    "sentences": [
+     "Nasser and his sister were waiting at the bus stop.",
+     "\"The bus is late again isn't it?\" Nasser asked.",
+     "\"Yes, it is,\" his sister answered.",
+     "\"We should leave the house earlier tomorrow, Nasser.\"",
+     "Nasser nodded and checked the time on his watch.",
+     "Five minutes later, the bus finally came around the corner."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where a comma is missing.",
+    "wrong": "The commas in this sentence are correct. Look for a tag question without a comma."
+   },
+   "checks": [
+    {
+     "passage": "You have finished your homework, haven't you?",
+     "stem": "What is the tag question?",
+     "options": [
+      "You have finished",
+      "your homework",
+      "haven't you?",
+      "finished your homework"
+     ],
+     "answer": 2,
+     "why": "Haven't you? is the short question added to the end of the statement."
+    },
+    {
+     "passage": "Sami can ride a bike can't he?",
+     "stem": "Where does the comma belong?",
+     "options": [
+      "after Sami",
+      "after ride",
+      "after bike",
+      "after can't"
+     ],
+     "answer": 2,
+     "why": "The statement ends at bike. The comma goes before the tag can't he?"
+    },
+    {
+     "passage": "Mona, the library opens at eight, doesn't it?",
+     "stem": "Why does this sentence have two commas?",
+     "options": [
+      "Both separate items in a list.",
+      "One sets off the name; one sets off the tag.",
+      "Both show where the speaker is.",
+      "One joins two sentences; one ends it."
+     ],
+     "answer": 1,
+     "why": "Mona is spoken to, and doesn't it? is a tag. Each extra part gets a comma."
+    }
+   ],
+   "again": {
+    "title": "Hear the pause",
+    "text": "Say the sentence out loud. You will hear a short **pause** before the tag.\n\nThat pause is where the comma goes.",
+    "example": "It's a nice day (pause) isn't it?\n\n→ **It's a nice day, isn't it?**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Commas that change meaning",
+     "text": "Leaving out a direct-address comma can change the meaning.\n\n**Call me, Fatima.** (asking Fatima to call)\n**Call me Fatima.** (my name is Fatima)\n\n**Stop, Ahmed!** (telling Ahmed to stop)\n**Stop Ahmed!** (telling someone else to stop him)"
+    },
+    {
+     "title": "Longer words of address",
+     "text": "Words of address can be more than one name:\n\n**My dear friends**, thank you for coming.\nThe results, **ladies and gentlemen**, are now ready.\nThank you, **Doctor**.\n\nThe whole phrase is set off with commas."
+    },
+    {
+     "title": "Putting it all together",
+     "text": "One sentence can have direct address **and** a tag question:\n\nYou checked the answers, Rashid, didn't you?\n\nEach extra part is set off by commas. Remove both, and a complete sentence remains: You checked the answers."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Decide who is **speaking** and who is **listening**.\n2. Mark every word or phrase that names the listener, and every tag question.\n3. Check that each one is set off by commas.\n4. Ask: would a missing comma change the meaning?\n\nPoint to the sentence where the listener or the tag is not set off."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"Call me, Fatima, when you arrive,\" said her aunt.",
+      "role": "key"
+     },
+     {
+      "t": "\"People call me Fatima,\" she told her new classmates.",
+      "role": "key"
+     }
+    ],
+    "explain": "In sentence 1, the aunt is **speaking to** Fatima, so commas set off her name.\n\nIn sentence 2, Fatima is **the name she is called**. Nobody is being addressed, so there are no commas around it."
+   },
+   "together": {
+    "passage": "The principal stepped up to the microphone and smiled at the crowd. \"Parents and teachers, welcome to our reading celebration.\" \"This year, our students read more than five thousand books.\" \"That is an amazing number isn't it?\" \"Students, you should be very proud of yourselves.\" \"Next, our librarian will announce the winners of this year's reading prizes.\" The students clapped and cheered loudly.",
+    "stem": "Which change corrects the principal's speech?",
+    "options": [
+     "Remove the comma after \"Students.\"",
+     "Add a comma after \"number.\"",
+     "Add a comma after \"amazing.\"",
+     "Remove the comma after \"teachers.\""
+    ],
+    "answer": 1,
+    "hint": "Look for a tag question at the end of a sentence. Is it set off?",
+    "good": "Yes! \"That is an amazing number, isn't it?\" needs a comma before the tag."
+   },
+   "evidence": {
+    "sentences": [
+     "The principal stepped up to the microphone and smiled at the crowd.",
+     "\"Parents and teachers, welcome to our reading celebration.\"",
+     "\"This year, our students read more than five thousand books.\"",
+     "\"That is an amazing number isn't it?\"",
+     "\"Students, you should be very proud of yourselves.\"",
+     "\"Next, our librarian will announce the winners of this year's reading prizes.\"",
+     "The students clapped and cheered loudly."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the missing comma.",
+    "wrong": "The commas in this sentence are correct. Students and Parents and teachers are words of address, and they are set off."
+   },
+   "checks": [
+    {
+     "passage": "Ahmed was running toward the busy road. His older brother shouted to him, \"Stop Ahmed!\"",
+     "stem": "How should the brother's words be punctuated?",
+     "options": [
+      "\"Stop, Ahmed!\"",
+      "\"Stop Ahmed!\"",
+      "\"Stop Ahmed,!\"",
+      "\"Stop! Ahmed,\""
+     ],
+     "answer": 0,
+     "why": "He is speaking TO Ahmed, so a comma sets off the name. Without it, he would be telling someone else to stop Ahmed."
+    },
+    {
+     "passage": "Your speech, my friends, was clear and powerful.",
+     "stem": "What do the commas set off?",
+     "options": [
+      "a list of items",
+      "a tag question",
+      "words of direct address",
+      "the subject of the sentence"
+     ],
+     "answer": 2,
+     "why": "My friends names the listeners, so the phrase is set off with commas."
+    },
+    {
+     "passage": "Lama turned to her friend Sara and asked, \"You have been to Abha before Sara haven't you?\"",
+     "stem": "Which version of Lama's question is correct?",
+     "options": [
+      "You have been to Abha, before Sara haven't you?",
+      "You have been, to Abha before Sara, haven't you?",
+      "You have been to Abha before Sara haven't, you?",
+      "You have been to Abha before, Sara, haven't you?"
+     ],
+     "answer": 3,
+     "why": "Sara is the listener and haven't you? is a tag. Each extra part is set off by a comma."
+    }
+   ],
+   "again": {
+    "title": "Speaker, listener, extras",
+    "text": "1. Who is **listening**? Their name is an extra.\n2. Is there a short question at the end? That tag is an extra.\n3. Put commas around every extra.\n4. Read the sentence without the extras. It should still make sense.",
+    "example": "Rashid you checked the answers didn't you?\n\nExtras: Rashid / didn't you\n→ **Rashid, you checked the answers, didn't you?**"
+   }
+  }
+ }
+}

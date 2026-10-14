@@ -1,0 +1,474 @@
+{
+ "code": "LN-204",
+ "title": "Sensory language and imagery",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "RL.1.4",
+  "RL.6.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "imagery"
+ ],
+ "skillNames": [
+  "Imagery and Sensory Language"
+ ],
+ "statements": [
+  "R-0052",
+  "R-0114",
+  "R-0598",
+  "R-0800",
+  "R-0962",
+  "R-1054",
+  "R-1102",
+  "R-1113"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Our five senses",
+     "text": "We know the world with our **five senses**:\n\n👀 see\n👂 hear\n👃 smell\n👅 taste\n✋ touch"
+    },
+    {
+     "title": "Words for the senses",
+     "text": "Writers use words that help us **see, hear, smell, taste** and **touch**.\n\n\"The bell went **ding**.\" → hear\n\"The lemon was **sour**.\" → taste\n\"The sand was **hot**.\" → touch"
+    },
+    {
+     "title": "How to find the sense",
+     "text": "1. Find the describing word.\n2. Ask: **how** would I know this? With my eyes? My ears? My nose? My tongue? My hands?\n3. That is the sense."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The sense words are **in the text**.\n\n1. Read the question.\n2. Find the sentence with the describing word.\n3. Ask which part of your body would notice it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went to the bakery.",
+      "role": "other"
+     },
+     {
+      "t": "The bread smelled warm and sweet.",
+      "role": "key"
+     },
+     {
+      "t": "I could not wait to eat it.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Smelled warm and sweet** tells us how the bread smells.\n\nYou use your **nose**. The sense is **smell**."
+   },
+   "together": {
+    "passage": "It was a rainy night. Rain tapped on the window. Thunder boomed far away. I hid under my blanket.",
+    "stem": "Which sense do the words tapped and boomed help you use?",
+    "options": [
+     "Taste",
+     "Smell",
+     "Touch",
+     "Hearing"
+    ],
+    "answer": 3,
+    "hint": "Tapped and boomed are sounds. What part of your body notices sounds?",
+    "good": "Yes! Tapped and boomed are sounds. You hear them with your ears."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a rainy night.",
+     "Rain tapped on the window.",
+     "Thunder boomed far away.",
+     "I hid under my blanket."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: hearing. Tap 2 sentences that have sound words.",
+    "wrong": "This sentence does not have a sound word. Find the sentences with sounds."
+   },
+   "checks": [
+    {
+     "passage": "The kitten's fur was soft and fluffy. I held it close.",
+     "stem": "Which sense does soft and fluffy help you use?",
+     "options": [
+      "Touch",
+      "Hearing",
+      "Taste",
+      "Smell"
+     ],
+     "answer": 0,
+     "why": "You feel soft and fluffy with your hands. That is touch."
+    },
+    {
+     "passage": "The sky was bright orange and pink. The sun went down behind the dunes.",
+     "stem": "Which sense do the words bright orange and pink help you use?",
+     "options": [
+      "Hearing",
+      "Sight",
+      "Smell",
+      "Taste"
+     ],
+     "answer": 1,
+     "why": "Colours are seen with your eyes. That is sight."
+    },
+    {
+     "passage": "The dates were sweet and sticky. I ate three of them.",
+     "stem": "Which sense does the word sweet help you use?",
+     "options": [
+      "Hearing",
+      "Sight",
+      "Taste",
+      "Smell"
+     ],
+     "answer": 2,
+     "why": "You taste sweet food with your tongue."
+    }
+   ],
+   "again": {
+    "title": "Point to your body",
+    "text": "Read the describing word. Then **point** to the part of your body that would notice it: eyes, ears, nose, mouth or hands.",
+    "example": "\"The soup was **salty**.\"\n\nPoint to your **mouth**. The sense is **taste**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sensory details",
+     "text": "**Sensory details** are words that appeal to the senses. Together they make an **image**: a picture in the reader's mind.\n\nThis is called **imagery**."
+    },
+    {
+     "title": "More than one sense",
+     "text": "Good writers mix senses.\n\n\"The souq was **loud** with voices, **bright** with cloth, and full of the **smell** of cardamom.\"\n\nHearing + sight + smell = a **busy, lively** market."
+    },
+    {
+     "title": "What does the image show?",
+     "text": "1. Find the sensory words.\n2. Name the senses.\n3. Ask: what picture or feeling do they create together?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **sensory words** that build the picture.\n\n1. Underline every word you can see, hear, smell, taste or touch.\n2. Look at what they have in common.\n3. Those sentences prove the feeling or picture you chose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandma's kitchen was full of life.",
+      "role": "main"
+     },
+     {
+      "t": "Onions sizzled in the pan.",
+      "role": "key"
+     },
+     {
+      "t": "The smell of fresh bread filled the air.",
+      "role": "key"
+     },
+     {
+      "t": "Grandma has lived in this house for forty years.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Sizzled** (hearing) and **smell of fresh bread** (smell) build a picture of a busy, warm kitchen.\n\nThe last sentence is a fact. It has no sensory words."
+   },
+   "together": {
+    "passage": "We reached the beach just after sunrise. Cold waves rushed over my toes and pulled the sand from under my feet. Seagulls cried above us, and the air tasted of salt. We had planned this trip for a whole month. I took a deep breath and smiled.",
+    "stem": "What do the sensory details mainly help the reader imagine?",
+    "options": [
+     "How long the trip took to plan",
+     "What it feels like to stand on the beach",
+     "Why the family chose this beach",
+     "What time the family went home"
+    ],
+    "answer": 1,
+    "hint": "Find the words you could feel, hear and taste. Where are you when you notice them?",
+    "good": "Yes! Cold waves on toes, crying seagulls and salty air help you feel what it is like to stand on the beach."
+   },
+   "evidence": {
+    "sentences": [
+     "We reached the beach just after sunrise.",
+     "Cold waves rushed over my toes and pulled the sand from under my feet.",
+     "Seagulls cried above us, and the air tasted of salt.",
+     "We had planned this trip for a whole month.",
+     "I took a deep breath and smiled."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: what it feels like to stand on the beach. Tap 2 sentences with sensory details.",
+    "wrong": "This sentence gives a fact or an action, without sense words. Find the sentences you can feel, hear or taste."
+   },
+   "checks": [
+    {
+     "passage": "The road was quiet except for the crunch of our shoes on the gravel. Stars glittered above, and a cool wind brushed our faces.",
+     "stem": "Which sense does the word crunch appeal to?",
+     "options": [
+      "Sight",
+      "Taste",
+      "Smell",
+      "Hearing"
+     ],
+     "answer": 3,
+     "why": "Crunch is the sound of shoes on gravel. You hear it."
+    },
+    {
+     "passage": "Steam rose from the bowl of lentil soup. It was thick, hot and spicy, and it warmed me from the inside.",
+     "stem": "Which TWO senses do the details mostly appeal to?",
+     "options": [
+      "Taste and touch",
+      "Hearing and smell",
+      "Sight and hearing",
+      "Hearing and touch"
+     ],
+     "answer": 0,
+     "why": "Spicy is taste; hot and warmed me are touch (feeling heat)."
+    },
+    {
+     "passage": "The classroom was silent. A clock ticked on the wall, and a pencil rolled off a desk and clattered onto the floor.",
+     "stem": "What do the sound details help show?",
+     "options": [
+      "The classroom is full of loud noise.",
+      "The room is very hot and stuffy.",
+      "The room is so quiet small sounds stand out.",
+      "The students are playing a game."
+     ],
+     "answer": 2,
+     "why": "Silent shows quiet; you can hear even a clock tick and a pencil fall."
+    }
+   ],
+   "again": {
+    "title": "Be a camera and a microphone",
+    "text": "Pretend you are a camera, then a microphone, then a nose. What does each one pick up from the text?",
+    "example": "\"Smoke from the barbecue curled into the sky while children shrieked with laughter.\"\n\nCamera: **curling smoke**. Microphone: **shrieking laughter**. Nose: **barbecue smoke**. Image: a **lively family picnic**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Imagery creates mood",
+     "text": "**Mood** is the feeling a reader gets from a text: peaceful, tense, joyful, gloomy.\n\nWriters choose sensory details to create that mood.\n\n**Soft light** and **gentle waves** → peaceful\n**Howling wind** and **black clouds** → tense"
+    },
+    {
+     "title": "Imagery shows character",
+     "text": "Imagery can also show how a **character** feels.\n\nA worried girl may notice the **ticking clock** and the **cold** of the floor. A happy one may notice **birdsong** and **sunlight**."
+    },
+    {
+     "title": "Analyse the effect",
+     "text": "1. Find the images.\n2. Decide which senses they use.\n3. Ask: what feeling do they share?\n4. Explain the **effect**: what mood or idea does the writer want you to feel?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a mood, find **several images** that point the same way.\n\n1. Collect the sensory details.\n2. Notice their connotation (positive or negative).\n3. Choose the mood that fits all of them, and point to the sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old house stood at the end of the road.",
+      "role": "other"
+     },
+     {
+      "t": "Its shutters banged in the wind, and the gate groaned on rusty hinges.",
+      "role": "key"
+     },
+     {
+      "t": "Inside, the air was damp and smelled of dust.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Banged**, **groaned**, **rusty**, **damp** and **dust** use hearing, sight, touch and smell.\n\nAll are unpleasant. Together they create a **gloomy, uneasy** mood."
+   },
+   "together": {
+    "passage": "Before dawn, the village was still. A thin silver light rose over the palm groves, and dew glittered on every leaf. Somewhere, a dove cooed softly, and the smell of cardamom coffee drifted from an open window. Ahmad's grandfather sat on the bench outside, his hands warm around a small cup. Later that day, the village would be full of noise and traffic.",
+    "stem": "What mood do the sensory details in sentences 2 to 4 create?",
+    "options": [
+     "Tense and frightening",
+     "Busy and noisy",
+     "Calm and peaceful",
+     "Sad and lonely"
+    ],
+    "answer": 2,
+    "hint": "Look at the words silver light, glittered, cooed softly, warm. Are they harsh or gentle?",
+    "good": "Yes! Soft light, dew, a gently cooing dove and warm coffee all create a calm, peaceful mood."
+   },
+   "evidence": {
+    "sentences": [
+     "Before dawn, the village was still.",
+     "A thin silver light rose over the palm groves, and dew glittered on every leaf.",
+     "Somewhere, a dove cooed softly, and the smell of cardamom coffee drifted from an open window.",
+     "Ahmad's grandfather sat on the bench outside, his hands warm around a small cup.",
+     "Later that day, the village would be full of noise and traffic."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: calm and peaceful. Tap 2 sentences with images that create that mood.",
+    "wrong": "This sentence sets the time or tells what will happen later. Find the sentences with gentle sensory images."
+   },
+   "checks": [
+    {
+     "passage": "Laila waited outside the head teacher's office. The plastic chair felt hard and cold. Every few seconds, the clock above the door ticked loudly, and she could hear her own heartbeat in her ears.",
+     "stem": "What does the imagery show about Laila?",
+     "options": [
+      "She is nervous.",
+      "She is sleepy.",
+      "She is bored.",
+      "She is cheerful."
+     ],
+     "answer": 0,
+     "why": "A hard, cold chair, a loud clock and hearing her heartbeat show she is tense and nervous."
+    },
+    {
+     "passage": "The festival filled the old town. Lanterns glowed red and gold, drums thundered, and the smell of grilled corn and sweet pastries drifted through the crowds.",
+     "stem": "What is the effect of the imagery?",
+     "options": [
+      "It makes the town seem empty.",
+      "It creates a lively, joyful mood.",
+      "It shows the festival is dangerous.",
+      "It suggests that everyone is tired."
+     ],
+     "answer": 1,
+     "why": "Glowing lanterns, thundering drums and delicious smells create a lively, joyful mood."
+    },
+    {
+     "passage": "After the storm, the garden was ruined. Broken branches lay across the paths, and the roses hung limp and brown. The only sound was water dripping from the roof.",
+     "stem": "What mood does the imagery create?",
+     "options": [
+      "Exciting",
+      "Funny",
+      "Hopeful",
+      "Sad"
+     ],
+     "answer": 3,
+     "why": "Broken branches, limp brown roses and lonely dripping create a sad mood of loss."
+    }
+   ],
+   "again": {
+    "title": "Colour the mood",
+    "text": "Imagine each image as a colour: bright or dark? Warm or cold? The colours together show the mood.",
+    "example": "\"Grey clouds pressed low over the empty field. A cold wind whistled through the dry grass.\"\n\nColours: **grey**, **cold**, **dry** → dark and cold. Mood: **gloomy and lonely**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Imagery and meaning",
+     "text": "In complex texts, imagery does more than describe. It can show a **change**, build **tension**, or point to a **theme**.\n\nAsk not only *what* you see, but **why** the writer shows it."
+    },
+    {
+     "title": "Contrast and pattern",
+     "text": "Watch for **contrasting images**: light and dark, noise and silence, heat and cold. A shift from one to the other often marks a turning point.\n\nWatch also for **repeated images**. A detail that returns may carry a deeper meaning."
+    },
+    {
+     "title": "Analyse the effect",
+     "text": "1. Identify key images and the senses they use.\n2. Look for patterns or contrasts.\n3. Connect them to a character's feelings, the mood, or the theme.\n4. Explain the effect in one clear sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove an effect by pointing to **images in more than one place**.\n\n1. Find the images at the start and at the end.\n2. Show how they connect or contrast.\n3. Reject answers that describe a single image without explaining its effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For months after his father left to work abroad, the apartment felt cold and silent to Faris.",
+      "role": "key"
+     },
+     {
+      "t": "His father's chair stood empty by the window, gathering dust.",
+      "role": "detail"
+     },
+     {
+      "t": "Then, one evening, the door swung open, the smell of his father's cologne filled the hallway, and warm laughter echoed through every room.",
+      "role": "key"
+     }
+    ],
+    "explain": "The images move from **cold, silent, empty, dust** to **warm laughter** and a familiar **smell**.\n\nThe contrast shows the family's change from **loneliness to joy** when the father returns."
+   },
+   "together": {
+    "passage": "The night before the exam, Rana sat at her desk under a single harsh lamp. The pages of her notes blurred together, and the hum of the air conditioner seemed to grow louder every minute. Her tea had gone cold, leaving a bitter taste in her mouth. At last she closed the book, opened the window, and let the cool night breeze brush her face. Far beneath her window, the city lights shimmered quietly, and she felt her shoulders loosen for the first time all evening. She slept deeply that night.",
+    "stem": "How does the imagery change across the passage, and what is the effect?",
+    "options": [
+     "It moves from bright to dark, showing Rana is losing hope.",
+     "It stays harsh throughout, showing Rana never stops worrying.",
+     "It moves from harsh, tiring details to soft, gentle ones, showing Rana's stress easing.",
+     "It focuses on the city, showing Rana wants to move away."
+    ],
+    "answer": 2,
+    "hint": "Compare the images in sentences 1 to 3 with those in sentences 4 and 5. Which are harsh? Which are gentle?",
+    "good": "Yes! A harsh lamp, a growing hum and bitter tea give way to a cool breeze and quietly shimmering lights as Rana relaxes."
+   },
+   "evidence": {
+    "sentences": [
+     "The night before the exam, Rana sat at her desk under a single harsh lamp.",
+     "The pages of her notes blurred together, and the hum of the air conditioner seemed to grow louder every minute.",
+     "Her tea had gone cold, leaving a bitter taste in her mouth.",
+     "At last she closed the book, opened the window, and let the cool night breeze brush her face.",
+     "Far beneath her window, the city lights shimmered quietly, and she felt her shoulders loosen for the first time all evening.",
+     "She slept deeply that night."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the images move from harsh to gentle, showing her stress easing. Tap 2 sentences with images that show the change.",
+    "wrong": "This sentence states a result, but it has no sensory images. Find the sentences with images that show the change."
+   },
+   "checks": [
+    {
+     "passage": "In the story, the dry riverbed appears three times. At first, cracked mud stretches under a white sky. Midway, the narrator notices a single green shoot pushing through a crack. In the final scene, after the rains, water rushes over the stones and children splash in it.",
+     "stem": "What is the effect of returning to the riverbed image?",
+     "options": [
+      "It shows that rivers are dangerous for children.",
+      "It shows the slow return of life and hope.",
+      "It shows that the narrator dislikes the countryside.",
+      "It shows that the drought will never end."
+     ],
+     "answer": 1,
+     "why": "The same place moves from cracked mud to a green shoot to rushing water: a pattern of life returning."
+    },
+    {
+     "passage": "The factory once roared day and night, its chimneys pouring black smoke over the town. Now its windows are broken, its gates are chained, and wild grass grows through the cracked yard. Only the wind moves through the empty halls.",
+     "stem": "What does the contrast in imagery suggest?",
+     "options": [
+      "The factory has become more successful.",
+      "The town has built a new park.",
+      "Busy, noisy work has given way to silence and decay.",
+      "The wind has damaged the town."
+     ],
+     "answer": 2,
+     "why": "Roaring and smoke contrast with broken windows, chains, grass and empty halls: activity has turned into decay."
+    },
+    {
+     "passage": "Through the narrow window of the hospital room, Yara could see only a small square of sky. Each day she watched a single cloud drift across it and disappear. On the day she was allowed to go home, she stood in the car park and stared at the endless blue above the hills.",
+     "stem": "What is the effect of the contrast between the 'small square of sky' and the 'endless blue'?",
+     "options": [
+      "It shows Yara's feeling of freedom after being confined.",
+      "It shows the weather has changed completely.",
+      "It shows the hospital is in a dark city.",
+      "It shows Yara is afraid of open spaces."
+     ],
+     "answer": 0,
+     "why": "The tiny square of sky reflects her limited life in hospital; the endless blue reflects her new freedom."
+    }
+   ],
+   "again": {
+    "title": "Before and after snapshot",
+    "text": "Take two **snapshots**: the images at the start and at the end. Put them side by side. What changed? That change is the effect.",
+    "example": "Start: **heavy grey sky, people hurrying with heads down**.\nEnd: **sun breaking through, children racing to the playground**.\n\nChange: gloom → joy. The imagery shows the town's **mood lifting**."
+   }
+  }
+ }
+}

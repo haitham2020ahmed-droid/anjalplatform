@@ -1,0 +1,471 @@
+{
+ "code": "LN-022",
+ "title": "Planning: graphic organizers and prewriting",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0169",
+  "L-0170",
+  "L-0171",
+  "L-0275"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Plan first",
+     "text": "Good writers **plan** before they write.\n\nA plan helps you remember your ideas and put them in order."
+    },
+    {
+     "title": "Two easy plans",
+     "text": "**Web:** Write your topic in a circle. Draw lines to small circles with details. Good for **describing**.\n\n**Steps chart:** Boxes with arrows: 1 → 2 → 3. Good for **how to do** something or **what happened**."
+    },
+    {
+     "title": "Pick the plan",
+     "text": "1. Read the writing task.\n2. Ask: **Am I describing, or telling steps?**\n3. Describing → web. Steps → steps chart."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The task tells you which plan to use.\n\n1. Read the task.\n2. Find the clue words: **describe**, **tell how**, **first**, **steps**.\n3. Pick the plan that matches."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Task: Describe your favourite animal.",
+      "role": "main"
+     },
+     {
+      "t": "The word describe is a clue.",
+      "role": "key"
+     },
+     {
+      "t": "A web lets you add many details around the animal.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The task says **describe**. A web holds many details about one thing.\n\nSo the web is the best plan."
+   },
+   "together": {
+    "passage": "Sara must write how to make a sandwich. First, she gets the bread. Next, she adds cheese and tomato. Last, she cuts it in half. She likes cheese the most.",
+    "stem": "Which plan should Sara use?",
+    "options": [
+     "A web with many circles",
+     "A steps chart with boxes and arrows",
+     "A list of her friends",
+     "A drawing of a sandwich shop"
+    ],
+    "answer": 1,
+    "hint": "Is Sara describing one thing, or telling steps in order?",
+    "good": "Yes! She is telling steps in order, so a steps chart fits."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara must write how to make a sandwich.",
+     "First, she gets the bread.",
+     "Next, she adds cheese and tomato.",
+     "Last, she cuts it in half.",
+     "She likes cheese the most."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a steps chart. Tap 2 sentences that show the steps.",
+    "wrong": "This sentence tells what she likes. Find the sentences with step words."
+   },
+   "checks": [
+    {
+     "passage": "Task: Describe your school.",
+     "stem": "Which plan fits best?",
+     "options": [
+      "A web with details about the school",
+      "A steps chart",
+      "A shopping list for the week",
+      "A calendar"
+     ],
+     "answer": 0,
+     "why": "Describing one thing with many details fits a web."
+    },
+    {
+     "passage": "Task: Tell how you plant a seed.",
+     "stem": "Which plan fits best?",
+     "options": [
+      "A web of seed colours",
+      "A list of animals",
+      "A steps chart: dig, plant, water",
+      "A map of the city"
+     ],
+     "answer": 2,
+     "why": "Planting is done in steps, so a steps chart fits."
+    },
+    {
+     "passage": "Task: Tell what you did on your last holiday, from start to end.",
+     "stem": "Which plan fits best?",
+     "options": [
+      "A web about one toy",
+      "A list of colours",
+      "A drawing of a cat",
+      "A steps chart: first, next, last"
+     ],
+     "answer": 3,
+     "why": "Events from start to end go in order, so a steps chart fits."
+    }
+   ],
+   "again": {
+    "title": "Circle or arrows?",
+    "text": "**Circle web** = many details about **one thing**.\n\n**Arrows** = things that happen **in order**.",
+    "example": "\"Describe a camel\" → **web**.\n\n\"How to wash a car\" → **arrows**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Graphic organizers",
+     "text": "A **graphic organizer** is a drawing that helps you plan. It shows your ideas and how they connect.\n\nDifferent tasks need different organizers."
+    },
+    {
+     "title": "Four common organizers",
+     "text": "1. **Web:** a topic in the middle and details around it (describing).\n2. **Sequence chart:** boxes in order (steps, events).\n3. **Venn diagram:** two circles that overlap (comparing two things).\n4. **T-chart:** two columns (for and against, facts and opinions)."
+    },
+    {
+     "title": "From organizer to paragraph",
+     "text": "Each part of the organizer becomes part of your writing.\n\nIn a web, the centre becomes your **topic sentence**, and each outer circle becomes a **detail sentence**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The writing task gives the **clues**.\n\n1. Find the key words: describe, compare, steps, pros and cons.\n2. Match them to an organizer.\n3. Check: will this organizer hold the kind of ideas the task needs?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Task: Compare a cat and a dog as pets.",
+      "role": "main"
+     },
+     {
+      "t": "Both need food and care.",
+      "role": "detail"
+     },
+     {
+      "t": "A cat can stay alone; a dog needs walks.",
+      "role": "detail"
+     },
+     {
+      "t": "A Venn diagram shows what is the same in the middle and what is different on the sides.",
+      "role": "key"
+     }
+    ],
+    "explain": "The key word is **compare**. A **Venn diagram** has room for what is the same (middle) and what is different (sides). That makes it the best organizer."
+   },
+   "together": {
+    "passage": "Faisal's teacher asked the class to write about whether students should wear uniforms. Faisal wants to list the good points of uniforms on one side. He also wants to list the bad points on the other side. After that, he will decide what he thinks. His uniform is blue.",
+    "stem": "Which graphic organizer would help Faisal most?",
+    "options": [
+     "A sequence chart",
+     "A web with one circle",
+     "A timeline of his life",
+     "A T-chart"
+    ],
+    "answer": 3,
+    "hint": "What does Faisal want to do with his ideas? Look for the clue about two sides.",
+    "good": "Yes! A T-chart has two columns: good points on one side, bad points on the other."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal's teacher asked the class to write about whether students should wear uniforms.",
+     "Faisal wants to list the good points of uniforms on one side.",
+     "He also wants to list the bad points on the other side.",
+     "After that, he will decide what he thinks.",
+     "His uniform is blue."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a T-chart. Tap the 2 sentences that show he needs two columns.",
+    "wrong": "This sentence gives the task, his next step, or his uniform colour. Find the sentences about the two lists."
+   },
+   "checks": [
+    {
+     "passage": "Task: Describe the city of Abha for a travel poster.",
+     "stem": "Which organizer fits best?",
+     "options": [
+      "A T-chart of good and bad points",
+      "A Venn diagram of two cities",
+      "A web with Abha in the centre",
+      "A sequence chart of steps"
+     ],
+     "answer": 2,
+     "why": "Describing one place with many details fits a web."
+    },
+    {
+     "passage": "Task: Compare summer and winter in your city.",
+     "stem": "Which organizer fits best?",
+     "options": [
+      "A sequence chart",
+      "A Venn diagram",
+      "A web with one circle",
+      "A list of numbers"
+     ],
+     "answer": 1,
+     "why": "A Venn diagram shows how the two seasons are alike and different."
+    },
+    {
+     "passage": "Task: Explain how to make a paper plane, step by step.",
+     "stem": "Which organizer fits best?",
+     "options": [
+      "A sequence chart",
+      "A Venn diagram",
+      "A T-chart",
+      "A web of plane colours"
+     ],
+     "answer": 0,
+     "why": "Steps in order fit a sequence chart."
+    }
+   ],
+   "again": {
+    "title": "Match the key word",
+    "text": "**Describe** → web\n**Steps / events** → sequence chart\n**Compare** → Venn diagram\n**Two sides** → T-chart",
+    "example": "\"Write about the pros and cons of video games\" → **two sides** → **T-chart**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The right tool for the job",
+     "text": "Choosing the **most appropriate** organizer saves time and makes writing clearer.\n\nThe wrong organizer can hide important connections, like causes and effects or the order of events."
+    },
+    {
+     "title": "More organizers",
+     "text": "1. **Cause-and-effect chart:** shows what happened and why.\n2. **Timeline:** shows events by date.\n3. **Main idea and details chart:** one big idea with supporting facts.\n4. **Problem-and-solution chart:** a problem, then possible solutions."
+    },
+    {
+     "title": "Build up your topic",
+     "text": "An organizer also helps you **develop** a topic: you can see which parts have many details and which need more.\n\nIf one box is empty, that is where you need to do more thinking or research."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best organizer, find the **purpose** of the writing.\n\n1. Look for clue words: because, as a result (cause and effect); in 1950, later (timeline); problem, fix (problem and solution).\n2. Find the sentences that show what the writer must explain.\n3. Choose the organizer that shows **that** kind of connection."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Topic: The history of the Hejaz Railway.",
+      "role": "main"
+     },
+     {
+      "t": "The railway opened in 1908.",
+      "role": "detail"
+     },
+     {
+      "t": "It carried pilgrims to Madinah for several years.",
+      "role": "detail"
+     },
+     {
+      "t": "Clue: dates and events in order point to a timeline.",
+      "role": "key"
+     }
+    ],
+    "explain": "The topic is history, and the facts come with **dates**. A **timeline** shows each event in its place in time. It is the best organizer for this report."
+   },
+   "together": {
+    "passage": "Huda is writing a report on why the school's plants died last summer. She found that the gardener was away for two weeks, so nobody watered the plants. She also learned that the hot sun burned the leaves because there was no shade. Her report must show each reason and what it caused. She will add photos at the end.",
+    "stem": "Which graphic organizer is most appropriate for Huda's report?",
+    "options": [
+     "A cause-and-effect chart",
+     "A Venn diagram",
+     "A web about plant colours",
+     "A timeline of the school's history"
+    ],
+    "answer": 0,
+    "hint": "What does Huda need to show? Look for words like \"so\" and \"because\".",
+    "good": "Yes! Her report shows causes (no water, no shade) and their effects, so a cause-and-effect chart fits."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda is writing a report on why the school's plants died last summer.",
+     "She found that the gardener was away for two weeks, so nobody watered the plants.",
+     "She also learned that the hot sun burned the leaves because there was no shade.",
+     "Her report must show each reason and what it caused.",
+     "She will add photos at the end."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a cause-and-effect chart. Tap 2 sentences that show a cause and its effect.",
+    "wrong": "This sentence tells the topic or the photos. Find the sentences that show what happened and why."
+   },
+   "checks": [
+    {
+     "passage": "Topic: Litter in the school yard. The student will describe the problem and suggest three ways to fix it.",
+     "stem": "Which organizer fits best?",
+     "options": [
+      "A timeline",
+      "A problem-and-solution chart",
+      "A Venn diagram",
+      "A list of dates and numbers"
+     ],
+     "answer": 1,
+     "why": "The writing names a problem and solutions, so a problem-and-solution chart fits."
+    },
+    {
+     "passage": "Topic: The life of a famous scientist, from birth to old age.",
+     "stem": "Which organizer fits best?",
+     "options": [
+      "A T-chart",
+      "A Venn diagram",
+      "A cause-and-effect chart",
+      "A timeline"
+     ],
+     "answer": 3,
+     "why": "Events across a whole life, in order of time, fit a timeline."
+    },
+    {
+     "passage": "A student's web about \"healthy habits\" has five details for food and none for sleep.",
+     "stem": "What does the organizer show the student?",
+     "options": [
+      "The topic is too easy.",
+      "Food is not a healthy habit.",
+      "The sleep part needs more ideas.",
+      "The web should be thrown away."
+     ],
+     "answer": 2,
+     "why": "An empty part of the organizer shows where the topic needs more development."
+    }
+   ],
+   "again": {
+    "title": "What connection?",
+    "text": "Ask: **How are my ideas connected?**\n\nBy **time** → timeline. By **cause** → cause-and-effect chart. By **same and different** → Venn. By **problem and fix** → problem-solution chart.",
+    "example": "\"Why did the town flood?\" Ideas are connected by **cause**. → **Cause-and-effect chart.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Prewriting strategies",
+     "text": "Before drafting, writers use **prewriting strategies** to generate and shape ideas:\n\n1. **Brainstorming:** listing every idea quickly.\n2. **Freewriting:** writing nonstop to discover what you think.\n3. **Questioning:** asking who, what, when, where, why, how.\n4. **Outlining:** arranging main points and supporting details.\n5. **Research notes and interviews:** gathering facts from sources and people."
+    },
+    {
+     "title": "Strategy and purpose",
+     "text": "The best strategy depends on the **purpose** and the **stage** of planning.\n\nNo topic yet? Brainstorm or freewrite. A topic but no facts? Ask research questions or interview someone. Ideas but no order? Outline."
+    },
+    {
+     "title": "Planning an argument",
+     "text": "For argument writing, an outline is powerful: claim, reasons in order of strength, evidence for each, and a counterclaim with a response.\n\nIt shows gaps before you begin, such as a reason without evidence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To pick the best strategy, prove **where the writer is** in the process and **what the task demands**.\n\n1. Find what the writer already has (a topic, facts, ideas, an order).\n2. Find what is still missing.\n3. Choose the strategy that supplies exactly that missing piece."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Laila must write a feature article about a local craftsman.",
+      "role": "main"
+     },
+     {
+      "t": "She has chosen her topic: an old man who makes traditional palm-leaf baskets.",
+      "role": "detail"
+     },
+     {
+      "t": "She does not yet know how he learned the craft or what makes it special.",
+      "role": "detail"
+     },
+     {
+      "t": "Her best next step is to interview him with prepared questions.",
+      "role": "key"
+     }
+    ],
+    "explain": "Laila has a **topic** but lacks **information** that only the craftsman can give. An **interview** with prepared questions fills exactly that gap. Brainstorming would not supply those facts."
+   },
+   "together": {
+    "passage": "Omar must write an argumentative essay on whether the city should ban cars from the old market streets. He has already read three articles and taken careful notes. His notes include facts about air quality, shop owners' opinions and the number of visitors each year. However, the notes are mixed together in the order he found them. He is not sure which reason is strongest or where the counterclaim should go. The essay is due on Thursday.",
+    "stem": "Which prewriting strategy would help Omar most now?",
+    "options": [
+     "Freewriting to find a topic",
+     "Brainstorming a list of new topics",
+     "Making an outline that orders his claim, reasons, evidence and counterclaim",
+     "Interviewing a friend about his favourite food"
+    ],
+    "answer": 2,
+    "hint": "Omar already has a topic and facts. What is he missing?",
+    "good": "Yes! His notes are complete but unordered, so an outline will arrange his reasons and place the counterclaim."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar must write an argumentative essay on whether the city should ban cars from the old market streets.",
+     "He has already read three articles and taken careful notes.",
+     "His notes include facts about air quality, shop owners' opinions and the number of visitors each year.",
+     "However, the notes are mixed together in the order he found them.",
+     "He is not sure which reason is strongest or where the counterclaim should go.",
+     "The essay is due on Thursday."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was an outline. Tap the 2 sentences that show what Omar still needs.",
+    "wrong": "This sentence tells the task, what he already has, or the due date. Find the sentences that show what is missing."
+   },
+   "checks": [
+    {
+     "passage": "Noura must write a personal essay but has no idea what to write about.",
+     "stem": "Which prewriting strategy fits best?",
+     "options": [
+      "Making a detailed outline",
+      "Writing the conclusion first",
+      "Checking spelling",
+      "Freewriting about memorable moments to discover a topic"
+     ],
+     "answer": 3,
+     "why": "With no topic yet, freewriting helps her discover ideas."
+    },
+    {
+     "passage": "Yousef is writing a report on how desert locusts swarm. He has a topic but almost no facts.",
+     "stem": "Which strategy should he use next?",
+     "options": [
+      "Write research questions and look for answers in reliable sources",
+      "Draw a cover picture",
+      "Freewrite about his weekend",
+      "Write the final copy"
+     ],
+     "answer": 0,
+     "why": "He needs facts, so research questions guide what to look for."
+    },
+    {
+     "passage": "A class is writing a persuasive letter about a new playground. They have many ideas but want to choose the best three reasons.",
+     "stem": "Which tool fits this step best?",
+     "options": [
+      "A timeline of events",
+      "A chart ranking each reason with its evidence",
+      "A Venn diagram of two playgrounds",
+      "A web describing one swing"
+     ],
+     "answer": 1,
+     "why": "Ranking reasons with evidence helps them choose the strongest support for persuasion."
+    }
+   ],
+   "again": {
+    "title": "What is missing?",
+    "text": "Planning is like packing for a trip. Check what you **have** and what you **need**.\n\nNo idea → **brainstorm/freewrite**. No facts → **research/interview**. No order → **outline**.",
+    "example": "\"I have lots of facts about camels, but they are all mixed up.\"\n\nMissing: **order**. Strategy: **outline**."
+   }
+  }
+ }
+}

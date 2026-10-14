@@ -1,0 +1,568 @@
+{
+  "code": "NB-069",
+  "title": "The Key Nawaf Did Not Read",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 468,
+  "passage": "On the morning of the final mathematics examination, the classroom felt unusually tense, as though the air itself were holding its breath. Nawaf had revised fractions and percentages until midnight, yet the formulas still seemed to slip away from him whenever he tried to recall them. Ten minutes before the bell, Mr. Adel was urgently summoned to the principal's office, and he hurried out, leaving a neat stack of papers on the corner of his desk.\n\nNawaf, who sat in the front row, glanced at the stack and froze. The top sheet was clearly labelled \"Answer Key\", and every solution was written in Mr. Adel's precise blue handwriting. Behind him, Saud leaned forward and whispered, \"Quick, nobody is watching. Just memorise the first five answers and pass them back to me.\" For a long, uncomfortable moment, Nawaf's heart pounded so loudly that he was absolutely certain the entire class could hear it.\n\nThe temptation was enormous, because Nawaf's father had promised him a new bicycle if his marks improved. However, he also remembered something his grandfather often said while they walked to the mosque together: \"A mark you steal is a debt you carry, while a mark you earn is a gift you keep.\" Nawaf realised that copying the answers would bring him a high score, but it would never bring him genuine confidence in his own ability.\n\nSlowly and deliberately, despite the trembling of his fingers, he reached out and turned the answer key face down. \"What are you doing?\" Saud hissed in disbelief. \"You have just wasted the easiest opportunity of the year!\" Nawaf did not reply, although his cheeks burned with embarrassment as several curious classmates turned around to stare at him.\n\nWhen Mr. Adel returned, Nawaf approached his desk nervously and explained what had happened. The teacher listened in silence, his expression gradually changing from surprise to admiration. \"Thank you for your honesty, Nawaf,\" he said quietly. \"Because the key was visible, I must give the class a different version of the test, but I will not forget what you did today.\"\n\nThe replacement test was considerably more difficult, and Nawaf struggled with two of the percentage problems. A week later, he received seventy-eight out of a hundred, which was lower than he had hoped, so he would not be getting the bicycle yet. Nevertheless, as he folded the paper into his bag, he felt strangely light, as if an invisible weight had been lifted from his shoulders.\n\nThat afternoon, Saud caught up with him at the school gate. \"I was annoyed with you at first,\" he admitted, staring at his shoes, \"but honestly, I would rather have a friend I can trust than five free answers.\" Nawaf smiled, and together they walked home, already planning to practise percentages together before the next examination.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “summoned” as it is used in paragraph 1?",
+      "options": [
+        "scolded",
+        "greeted",
+        "excused",
+        "called"
+      ],
+      "answer": "D",
+      "why": "Mr. Adel was called to the principal's office, so “summoned” means called."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “deliberately” as it is used in paragraph 4?",
+      "options": [
+        "carefully",
+        "slowly",
+        "accidentally",
+        "thoughtfully"
+      ],
+      "answer": "C",
+      "why": "Nawaf turned the key over on purpose (deliberately); the opposite is by accident. “Carefully” and “slowly” are close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “temptation” mean in paragraph 3?",
+      "options": [
+        "a strong wish to do something you know is wrong",
+        "a reward that is promised to a student for earning good marks",
+        "a difficult problem in a mathematics test",
+        "a feeling of tiredness after studying late"
+      ],
+      "answer": "A",
+      "why": "Nawaf strongly wanted to copy the answers even though he knew it was wrong; the bicycle is the reward, not the temptation itself."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is an adverb?",
+      "options": [
+        "nervously",
+        "honesty",
+        "visible",
+        "approached"
+      ],
+      "answer": "A",
+      "why": "“Nervously” tells how Nawaf approached the desk, so it is an adverb; “honesty” is a noun, “visible” an adjective and “approached” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “admiration” in paragraph 5?",
+      "options": [
+        "admit",
+        "adventure",
+        "advise",
+        "admire"
+      ],
+      "answer": "D",
+      "why": "“Admiration” is the noun form of the verb “admire”; the other words only begin with similar letters."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a PLURAL noun?",
+      "options": [
+        "class",
+        "answers",
+        "glanced",
+        "loudly"
+      ],
+      "answer": "B",
+      "why": "“Answers” means more than one answer. “Class” ends in -s but is singular; “glanced” is a verb and “loudly” an adverb."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “genuine” in a meaningful sentence of your own.",
+      "model": "My grandmother could tell that my apology was genuine because I offered to repair the damage myself.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “genuine” with its meaning (real and true, not false or pretended)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Genuine” means real or sincere, as in the “genuine confidence” Nawaf wants in paragraph 3."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The papers on the desk included an answer “Key”. What is the correct plural of “key”?",
+      "options": [
+        "kies",
+        "keies",
+        "keyes",
+        "keys"
+      ],
+      "answer": "D",
+      "why": "When a vowel comes before -y, we simply add -s: key → keys (compare day → days)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a COMMAND?",
+      "options": [
+        "What are you doing?",
+        "You have just wasted the easiest opportunity of the year!",
+        "The replacement test was considerably more difficult, and Nawaf struggled with two of the percentage problems.",
+        "Just memorise the first five answers and pass them back to me."
+      ],
+      "answer": "D",
+      "why": "Saud tells Nawaf to do something, so it is a command; the others are a question, an exclamation and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A New Bicycle for Nawaf",
+        "The Mark Worth Keeping",
+        "Saud's Clever Plan",
+        "Percentages Made Easy"
+      ],
+      "answer": "B",
+      "why": "Nawaf chooses an honest mark he can be proud of; he does not get the bicycle, and Saud's plan is rejected."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to show that honesty is worth more than an easy high mark",
+        "to explain how teachers prepare different tests",
+        "to describe a friendship that ends because of a single difficult test",
+        "to persuade schools to give bicycles as prizes"
+      ],
+      "answer": "A",
+      "why": "The story follows Nawaf's honest choice and the peace and trust it brings him, even with a lower mark."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Nawaf's father buys him a new bicycle as a reward for his improved marks.",
+        "Nawaf walks to the mosque with his grandfather every morning.",
+        "Nawaf decides that copying will give him real confidence.",
+        "Nawaf weighs a tempting reward against his grandfather's lesson about honesty."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 sets the promised bicycle against the grandfather's saying, and Nawaf realises copying would not give him real confidence."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Mr. Adel leave the classroom before the test?",
+      "options": [
+        "He was urgently called to the principal's office.",
+        "He went to print a new version of the test.",
+        "He went to telephone Nawaf's father.",
+        "He went to look for a missing answer key in the staff room."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says he was “urgently summoned to the principal's office”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "an informational article",
+        "a realistic narrative story",
+        "a friendly letter to a relative",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It has invented but believable characters, a problem, dialogue and events in a school setting."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Mr. Adel give the class a different version of the test?",
+      "options": [
+        "Nawaf had asked him for an easier test.",
+        "Saud had complained to him that the first test was unfair.",
+        "The first test contained several mistakes.",
+        "The answer key had been visible to the students."
+      ],
+      "answer": "D",
+      "why": "Mr. Adel says, “Because the key was visible, I must give the class a different version of the test.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Mr. Adel was called to the principal's office.",
+        "Saud whispered to Nawaf to memorise the answers.",
+        "Nawaf turned the answer key face down.",
+        "Nawaf explained to Mr. Adel what had happened."
+      ],
+      "answer": "A",
+      "why": "Mr. Adel left (paragraph 1) before the key was seen, before Saud whispered and before Nawaf acted."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story?",
+      "options": [
+        "Nawaf, using “I”",
+        "Saud, Nawaf's friend",
+        "a narrator who is not one of the characters",
+        "Mr. Adel, who describes his own class and students"
+      ],
+      "answer": "C",
+      "why": "The story uses “he” and “Nawaf” throughout, so it is told by an outside (third-person) narrator."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, how did Nawaf know that the papers contained the answers?",
+      "options": [
+        "Saud had seen Mr. Adel write the answers.",
+        "The top sheet was clearly labelled “Answer Key”.",
+        "Mr. Adel had told the class about the key.",
+        "He recognised the questions from his revision the night before."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2: “The top sheet was clearly labelled \"Answer Key\".”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Nawaf's cheeks to burn in paragraph 4?",
+      "options": [
+        "He was angry with Mr. Adel for leaving.",
+        "The classroom had become very hot.",
+        "He had run all the way back from the principal's office.",
+        "He felt embarrassed as classmates stared at him."
+      ],
+      "answer": "D",
+      "why": "“His cheeks burned with embarrassment as several curious classmates turned around to stare at him.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why was the temptation to copy especially strong for Nawaf? Use paragraphs 1 and 3.",
+      "options": [
+        "His father had promised him a bicycle if his marks improved.",
+        "The formulas kept slipping away even though he had revised.",
+        "A and B",
+        "Saud had threatened to stop being his friend."
+      ],
+      "answer": "C",
+      "why": "Paragraph 1 shows he was unsure of the formulas, and paragraph 3 mentions the bicycle; Saud never threatens him."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Nawaf's feeling as he folded his test paper into his bag?",
+      "options": [
+        "angry that he had missed the chance to win the bicycle",
+        "jealous of classmates with higher marks",
+        "at peace with himself despite the lower mark",
+        "worried that his father would punish him"
+      ],
+      "answer": "C",
+      "why": "He “felt strangely light, as if an invisible weight had been lifted from his shoulders”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Saud's attitude in paragraph 4 different from his attitude in paragraph 7?",
+      "options": [
+        "First he admires Nawaf; later he is annoyed with him.",
+        "First he thinks Nawaf is foolish; later he values Nawaf's trustworthiness.",
+        "First he wants to tell Mr. Adel the truth; later he wants to hide it from everyone.",
+        "First he feels guilty; later he feels proud of cheating."
+      ],
+      "answer": "B",
+      "why": "In paragraph 4 he says Nawaf “wasted the easiest opportunity”; in paragraph 7 he would “rather have a friend I can trust”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of Nawaf telling Mr. Adel about the answer key?",
+      "options": [
+        "The test was cancelled for the whole class.",
+        "The whole class took a harder replacement test.",
+        "Saud received a serious punishment from the principal.",
+        "Nawaf was given the bicycle by his teacher."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6: “The replacement test was considerably more difficult.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Nawaf's grandfather and Mr. Adel have in common in the story?",
+      "options": [
+        "Both promise Nawaf a reward for good marks.",
+        "Both walk with Nawaf to the mosque.",
+        "Both show that they value honesty.",
+        "Both are disappointed with Nawaf's final mark."
+      ],
+      "answer": "C",
+      "why": "The grandfather's saying warns against stolen marks, and Mr. Adel thanks Nawaf for his honesty."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “as if an invisible weight had been lifted from his shoulders” in paragraph 6?",
+      "options": [
+        "Nawaf's school bag had become lighter.",
+        "Nawaf felt free of guilt and worry.",
+        "Nawaf was too tired to carry his books.",
+        "Nawaf had dropped his test paper."
+      ],
+      "answer": "B",
+      "why": "The weight is figurative: Nawaf has nothing to hide, so he feels relieved and free."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the grandfather's saying “A mark you steal is a debt you carry” suggest?",
+      "options": [
+        "Students must pay money to their teachers in return for high marks.",
+        "Success gained dishonestly leaves a heavy burden.",
+        "Teachers lend marks to students who need them.",
+        "Stolen papers are too heavy to carry home."
+      ],
+      "answer": "B",
+      "why": "A “debt” is something you still owe; a dishonest mark keeps troubling you instead of making you proud."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer give Nawaf a mark of seventy-eight instead of a perfect score?",
+      "options": [
+        "to show that the replacement test was unfair",
+        "to prove that Nawaf is weak at mathematics",
+        "to show that honesty is valuable even without a reward",
+        "to make readers feel that Nawaf made the wrong choice in the end"
+      ],
+      "answer": "C",
+      "why": "Nawaf feels light and proud without the bicycle, so the writer shows that honesty is its own reward."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the wisest thing Nawaf did after turning the answer key face down?",
+      "options": [
+        "telling Mr. Adel exactly what had happened",
+        "refusing to speak to Saud again",
+        "asking Mr. Adel to give the class a much easier test",
+        "hiding his mark from his father"
+      ],
+      "answer": "A",
+      "why": "Telling the teacher protected the fairness of the test for everyone; the other actions are unkind, unfair or dishonest."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "An honest effort brings peace and trust that cheating cannot.",
+        "Hard tests are always unfair to students.",
+        "Friends should always share their answers with each other in difficult moments.",
+        "Prizes are the best reason to study hard."
+      ],
+      "answer": "A",
+      "why": "Nawaf's peace and Saud's new trust show the value of honesty over an easy mark."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in paragraphs 1 to 4?",
+      "options": [
+        "calm, cheerful happiness",
+        "quiet boredom",
+        "bitter anger",
+        "nervous tension"
+      ],
+      "answer": "D",
+      "why": "The tense classroom, pounding heart and burning cheeks all build nervous tension."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "why the principal called Mr. Adel",
+        "what mark Nawaf finally received",
+        "what reward Nawaf's father had promised",
+        "where the answer key was left"
+      ],
+      "answer": "A",
+      "why": "The reason for the principal's call is never explained; the other details are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A teacher gives a new test after students see the answers.",
+        "A boy's heartbeat is heard clearly from the principal's office.",
+        "A test paper changes its own questions.",
+        "A saying writes itself on the board."
+      ],
+      "answer": "A",
+      "why": "Teachers really do replace a test when the answers have been seen; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Saud's Lucky Morning at School",
+        "The Great Bicycle Race",
+        "The Key Nawaf Did Not Read",
+        "A Lesson in Fractions"
+      ],
+      "answer": "C",
+      "why": "The central event is Nawaf turning the answer key face down instead of reading it."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences showing what might have happened if Saud had read the answer key himself.",
+      "model": "Saud quickly read the first answers, but when Mr. Adel returned, Nawaf persuaded him to confess. Mr. Adel changed the test, and although Saud lost some marks for his behaviour, he thanked Nawaf later for helping him tell the truth.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and deals with the cheating problem honestly",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Nawaf and Saud and deals with the problem honestly is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could teachers prevent a problem like the one in the story from happening again?",
+      "options": [
+        "Keep answer keys in a closed folder or locked drawer.",
+        "Ask another teacher to watch the class if they must leave.",
+        "A and B",
+        "Never give mathematics tests again."
+      ],
+      "answer": "C",
+      "why": "Both actions keep the answers hidden and the class supervised; cancelling tests is not a sensible solution."
+    }
+  ]
+}

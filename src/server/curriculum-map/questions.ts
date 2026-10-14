@@ -190,76 +190,90 @@ export type { Row };
 
 export interface UnclassifiedRow { id: string; stem: string; grade: number; mapCode: string | null; status: string }
 
-/** Curriculum questions still on a grade's “Unclassified (Curriculum Map)” skill. */
-export async function unclassifiedQuestions(repo: Repo, schoolId: string): Promise<{ rows: UnclassifiedRow[]; skills: { id: string; name: string; grade: number }[] }> {
+const LIVE = ["DRAFT", "UNDER_REVIEW", "PUBLISHED"];
+
+/** The school's skills: hidden “Unclassified” ones and the active real ones (for the pickers), with their grade. */
+async function classifySkills(repo: Repo, schoolId: string): Promise<{ hidden: Row[]; gradeOfSkill: Map<string, number>; skills: { id: string; name: string; grade: number }[] }> {
   const grades = await repo.findMany("Grade", { schoolId }, { select: ["id", "level"] });
   const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] }) : [];
   const levelOfCur = new Map(curs.map((c) => [s(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
   const all = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "code", "name", "curriculumId", "isActive"] }) : [];
-  const unclassified = all.filter((k) => s(k.code).endsWith(".curriculum-map-unclassified"));
-  const qs = unclassified.length ? await repo.findMany("Question", { skillId: { in: unclassified.map((k) => k.id) }, deletedAt: null }, { select: ["id", "stem", "skillId", "status"] }) : [];
-  const places = await placesOf(repo, qs.map((q) => s(q.id)));
   const gradeOfSkill = new Map(all.map((k) => [s(k.id), levelOfCur.get(s(k.curriculumId)) ?? 0]));
   return {
-    rows: qs.map((q) => ({ id: s(q.id), stem: s(q.stem).slice(0, 200), grade: gradeOfSkill.get(s(q.skillId)) ?? 0, mapCode: places.get(s(q.id))?.code ?? null, status: s(q.status) })).sort((a, b) => a.grade - b.grade || s(a.mapCode).localeCompare(s(b.mapCode))),
-    skills: all.filter((k) => k.isActive !== false && !s(k.code).endsWith(".curriculum-map-unclassified")).map((k) => ({ id: s(k.id), name: s(k.name), grade: levelOfCur.get(s(k.curriculumId)) ?? 0 })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)),
+    hidden: all.filter((k) => s(k.code).endsWith(".curriculum-map-unclassified")), gradeOfSkill,
+    skills: all.filter((k) => k.isActive !== false && k.isActive !== 0 && !s(k.code).endsWith(".curriculum-map-unclassified")).map((k) => ({ id: s(k.id), name: s(k.name), grade: gradeOfSkill.get(s(k.id)) ?? 0 })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)),
   };
 }
 
-/** Gives Unclassified questions a real skill of the same grade (their map place does not change). */
-export async function classifyQuestions(repo: Repo, schoolId: string, actorId: string, items: { questionId: string; skillId: string }[], now = new Date()): Promise<number> {
-  const { rows, skills } = await unclassifiedQuestions(repo, schoolId);
-  const rowOf = new Map(rows.map((r) => [r.id, r]));
-  let n = 0;
-  for (const it of items.filter((x) => x.skillId)) {
-    const r = rowOf.get(it.questionId);
-    const k = skills.find((x) => x.id === it.skillId);
-    if (!r) throw new Error("That question is not waiting to be classified.");
-    if (!k) throw new Error("Choose an active skill.");
-    if (k.grade !== r.grade) throw new Error(`The skill is Grade ${k.grade}, the question is Grade ${r.grade}.`);
-    const link = (await repo.findMany("SkillStandard", { skillId: k.id }))[0];
-    const q = await repo.findUnique("Question", { id: r.id });
-    await repo.updateMany("Question", { id: r.id }, { skillId: k.id, ...(q?.standardId ? {} : link ? { standardId: link.standardId } : {}), updatedAt: now });
-    await repo.create("AuditLog", { actorId, action: "question.classify", entityType: "Question", entityId: r.id, after: { skillId: k.id }, createdAt: now });
-    n++;
-  }
-  return n;
+/**
+ * Curriculum questions still on a grade's “Unclassified (Curriculum Map)” skill (live ones: draft, waiting,
+ * published). `page` / `per` read one page in the database (the classify page shows 50 at a time — r67: it used to
+ * read and draw thousands at once, so the “Sort them” link seemed to do nothing); `total` is the same count as the
+ * Question Bank banner (src/server/admin/stuck-questions.ts unclassifiedCount).
+ */
+export async function unclassifiedQuestions(repo: Repo, schoolId: string, opts: { page?: number; per?: number; grade?: number } = {}): Promise<{ rows: UnclassifiedRow[]; total: number; skills: { id: string; name: string; grade: number }[] }> {
+  const { hidden, gradeOfSkill, skills } = await classifySkills(repo, schoolId);
+  const ids = hidden.filter((k) => !opts.grade || gradeOfSkill.get(s(k.id)) === opts.grade).map((k) => s(k.id));
+  if (!ids.length) return { rows: [], total: 0, skills };
+  const where = { skillId: { in: ids }, deletedAt: null, status: { in: LIVE } };
+  const per = opts.per ? Math.max(1, Math.min(200, Math.floor(opts.per))) : undefined;
+  const page = Math.max(1, Math.floor(opts.page ?? 1));
+  const [total, qs] = await Promise.all([
+    repo.count("Question", where),
+    repo.findMany("Question", where, { select: ["id", "stem", "skillId", "status"], orderBy: [{ field: "id", dir: "asc" }], ...(per ? { take: per, skip: (page - 1) * per } : {}) }),
+  ]);
+  const places = await placesOf(repo, qs.map((q) => s(q.id)));
+  return {
+    total,
+    rows: qs.map((q) => ({ id: s(q.id), stem: s(q.stem).slice(0, 200), grade: gradeOfSkill.get(s(q.skillId)) ?? 0, mapCode: places.get(s(q.id))?.code ?? null, status: s(q.status) })).sort((a, b) => a.grade - b.grade || s(a.mapCode).localeCompare(s(b.mapCode))),
+    skills,
+  };
 }
 
 /**
- * 🪄 Auto-classify: an Unclassified question with a CCSS standard goes to the platform skill of its grade that is
- * linked to that standard — when exactly one skill is. Several candidates: the one whose name shares the most
- * words with the question's Curriculum Map place skills. No standard / no candidate: left for a person.
+ * Gives Unclassified questions a real skill of the same grade (their map place does not change). Their students'
+ * answers move with them and mastery is recomputed (the same path as the automatic classifying). Throws on the first
+ * item that cannot be saved (the page saves the rows one by one and lists those).
+ */
+export async function classifyQuestions(repo: Repo, schoolId: string, actorId: string, items: { questionId: string; skillId: string }[], now = new Date()): Promise<number> {
+  const want = items.filter((x) => x.skillId);
+  if (!want.length) return 0;
+  const { hidden, gradeOfSkill, skills } = await classifySkills(repo, schoolId);
+  const hiddenIds = new Set(hidden.map((k) => s(k.id)));
+  const qs = await repo.findMany("Question", { id: { in: [...new Set(want.map((x) => x.questionId))] } }, { select: ["id", "skillId", "deletedAt"] });
+  const plan: { questionId: string; grade: number; place: string | null; fromSkillId: string; toSkillId: string; toSkill: string; via: "IMPORT_SKILL"; detail: string; confidence: number }[] = [];
+  for (const it of want) {
+    const q = qs.find((x) => s(x.id) === it.questionId);
+    if (!q || q.deletedAt || !hiddenIds.has(s(q.skillId))) throw new Error("That question is not waiting to be classified.");
+    const k = skills.find((x) => x.id === it.skillId);
+    if (!k) throw new Error("Choose an active skill.");
+    const grade = gradeOfSkill.get(s(q.skillId)) ?? 0;
+    if (k.grade !== grade) throw new Error(`The skill is Grade ${k.grade}, the question is Grade ${grade}.`);
+    plan.push({ questionId: s(q.id), grade, place: null, fromSkillId: s(q.skillId), toSkillId: k.id, toSkill: k.name, via: "IMPORT_SKILL", detail: "chosen by an admin", confidence: 1 });
+  }
+  const { applyRemap } = await import("./remap-skills");
+  await applyRemap(repo, schoolId, { actorId, now, questionIds: plan.map((x) => x.questionId), plan: { items: plan, mapped: plan.length, left: 0, attemptsToMove: 0 } });
+  await repo.createMany("AuditLog", plan.map((x) => ({ actorId, action: "question.classify", entityType: "Question", entityId: x.questionId, after: { skillId: x.toSkillId }, createdAt: now })));
+  return plan.length;
+}
+
+/**
+ * 🪄 Auto-classify (the whole bank at once; the page runs the same pass in batches with progress —
+ * src/server/admin/stuck-questions.ts classifyStep): every Unclassified question gets the real skill the platform's
+ * link pass finds — by its standard (a same-grade skill linked to it), by its Curriculum Map place (that lesson's
+ * skill), the import file / tags or the MAP goal. A wording guess is never applied. r67 bug fix: this used to look at
+ * the standard only (curriculum questions mostly have none: nothing happened) and stopped with an error on the first
+ * standard linked to a switched-off skill.
  */
 export async function autoClassify(repo: Repo, schoolId: string, actorId: string, now = new Date()): Promise<{ classified: number; left: number }> {
-  const grades = await repo.findMany("Grade", { schoolId }, { select: ["id", "level"] });
-  const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] }) : [];
-  const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "name", "code", "curriculumId"] }) : [];
-  const gradeOf = new Map(curs.map((c) => [String(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
-  const unclassified = skills.filter((k) => String(k.code).endsWith(".curriculum-map-unclassified"));
-  const real = skills.filter((k) => !String(k.code).endsWith(".curriculum-map-unclassified"));
-  if (!unclassified.length) return { classified: 0, left: 0 };
-  const qs = await repo.findMany("Question", { skillId: { in: unclassified.map((k) => k.id) }, deletedAt: null }, { select: ["id", "skillId", "standardId"] });
-  const links = real.length ? await repo.findMany("SkillStandard", { skillId: { in: real.map((k) => k.id) } }, { select: ["skillId", "standardId"] }) : [];
-  const nodes = qs.length ? await repo.findMany("QuestionMapLink", { questionId: { in: qs.map((q) => q.id) } }, { select: ["questionId", "nodeId"] }) : [];
-  const nodeRows = nodes.length ? await repo.findMany("CurriculumMapNode", { id: { in: [...new Set(nodes.map((n) => String(n.nodeId)))] } }, { select: ["id", "skills", "parentId"] }) : [];
-  const words = (t: unknown) => new Set(String(t ?? "").toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 3));
-  const items: { questionId: string; skillId: string }[] = [];
-  for (const q of qs) {
-    const g = gradeOf.get(String(unclassified.find((k) => k.id === q.skillId)?.curriculumId)) ?? 0;
-    if (!q.standardId) continue;
-    const cands = real.filter((k) => gradeOf.get(String(k.curriculumId)) === g && links.some((l) => l.skillId === k.id && l.standardId === q.standardId));
-    if (!cands.length) continue;
-    let pick = cands[0];
-    if (cands.length > 1) {
-      const node = nodeRows.find((n) => n.id === nodes.find((x) => x.questionId === q.id)?.nodeId);
-      const parent = node?.parentId ? nodeRows.find((n) => n.id === node.parentId) : undefined;
-      const placeWords = new Set([...words(node?.skills), ...words(parent?.skills)]);
-      const score = (k: (typeof cands)[number]) => [...words(k.name)].filter((w) => placeWords.has(w)).length;
-      pick = [...cands].sort((a, b) => score(b) - score(a))[0];
-    }
-    items.push({ questionId: String(q.id), skillId: String(pick.id) });
+  const { classifyStep } = await import("../admin/stuck-questions");
+  let after: string | null = null, classified = 0, left = 0;
+  for (let guard = 0; guard < 2000; guard++) {
+    const r = await classifyStep(repo, schoolId, actorId, after, now);
+    classified += r.classified;
+    left = r.remaining;
+    if (!r.next) break;
+    after = r.next;
   }
-  const classified = items.length ? await classifyQuestions(repo, schoolId, actorId, items, now) : 0;
-  return { classified, left: qs.length - classified };
+  return { classified, left };
 }

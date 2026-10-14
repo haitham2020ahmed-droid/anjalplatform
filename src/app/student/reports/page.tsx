@@ -21,7 +21,11 @@ import { approvedForFamily } from "@/server/reports/family-reports";
 import { setMyGoalAction } from "@/app/student/goal-actions";
 import { classChallenge } from "@/server/teacher/extras";
 import { LangSwitch } from "@/components/ui-kit";
+import { FamilyWeekPage, FamilyWeekStyles } from "@/components/reports/family-week";
+import { familyWeek } from "@/server/reports/family-week";
+import { myMonth } from "@/server/insights/class-compare";
 import { getT } from "@/i18n/server";
+import { LANG_NAMES } from "@/i18n";
 import type { TFn } from "@/i18n";
 
 export const metadata = { title: "My Reports" };
@@ -56,11 +60,14 @@ export default async function MyReportsPage({ searchParams }: { searchParams: Pr
   const view: View = sp.view === "progress" ? "progress" : sp.view === "family" ? "family" : "home";
   const { t } = await getT();
   const name = String(me.displayName);
+  const month = view === "home" ? await myMonth(repo, actor).catch(() => null) : null;
   return (
     <AppShell name={name}><PreviewFrame preview={preview}>
       {view === "home" && (
         <>
           <ReportHeader back={{ href: "/student", label: "My Work" }} icon="📊" title="My Reports" subtitle={t("All my reports in one place")} who={name} print={false} />
+          {/* ⭐ my own month: my numbers only — never a class, a rank or a level */}
+          {month && <p data-testid="my-month" className="mb-4 rounded-2xl bg-amber-50 px-5 py-4 text-lg font-semibold text-amber-950 ring-1 ring-amber-200">{t(month.template, month.vars)}</p>}
           <ul className="grid gap-4 sm:grid-cols-2" data-testid="report-cards">
             {reportCards().map((c, i) => (
               <li key={c.href}><Link prefetch={false} href={c.href} className={`tile flex min-h-28 items-center gap-4 rounded-3xl p-5 ring-1 sm:p-6 ${CARD_SOFT[i % CARD_SOFT.length]}`}>
@@ -76,7 +83,7 @@ export default async function MyReportsPage({ searchParams }: { searchParams: Pr
         </>
       )}
       {view === "progress" && <ProgressView actor={actor} name={name} t={t} goalMsg={sp.goal} />}
-      {view === "family" && <FamilyView actor={actor} name={name} t={t} />}
+      {view === "family" && <FamilyView actor={actor} name={name} t={t} preview={Boolean(preview)} />}
     </PreviewFrame></AppShell>
   );
 }
@@ -186,13 +193,19 @@ async function ProgressView({ actor, name, t, goalMsg }: { actor: Actor; name: s
   );
 }
 
-/** 👪 For my family (old Family Report): reports from the school, this week, MAP, teacher, diagnostic, reading — with the English | Arabic switch. */
-async function FamilyView({ actor, name, t }: { actor: Actor; name: string; t: TFn }) {
+/**
+ * 👪 For my family (old Family Report): THIS WEEK for the family first (Update 57 — what I worked on, my tests, things
+ * to practise at home with a home activity each, my teacher's note; Download PDF in English or Arabic, Print), then
+ * reports from the school, MAP, teacher, diagnostic, reading — with the English | Arabic switch.
+ */
+async function FamilyView({ actor, name, t, preview }: { actor: Actor; name: string; t: TFn; preview: boolean }) {
   const id = actor.studentId!;
-  const [shared, m, week, diag, coach, reports] = await Promise.all([
+  const [shared, m, week, diag, coach, reports, fw, { lang }] = await Promise.all([
     isReportShared(repo, String(actor.schoolId), id), myMap(repo, actor).catch(() => ({ subjects: [], plans: [] })), weekStats(repo, id),
     studentDiagnosticReport(repo, actor, id).catch(() => null), coachSummary(repo, id), approvedForFamily(repo, actor, id).catch(() => []),
+    familyWeek(repo, actor, id).catch(() => null), getT(),
   ]);
+  const pdf = (l: "en" | "ar") => `/api/family-week?lang=${l}${preview ? `&studentId=${encodeURIComponent(id)}` : ""}`;
   const hasMap = m.subjects.some((x) => x.profile.term);
   const card = "lift flex min-h-24 items-start gap-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200";
   const off = (icon: string, title: string, text: string) => <div className={`${card} opacity-70`}><span className="text-4xl" aria-hidden="true">{icon}</span><span><span className="block text-lg font-semibold text-slate-600">{t(title)}</span><span className="block text-sm text-slate-500">{t(text)}</span></span></div>;
@@ -201,6 +214,16 @@ async function FamilyView({ actor, name, t }: { actor: Actor; name: string; t: T
       <ReportHeader back={{ href: "/student/reports", label: "My Reports" }} icon="👪" title="For my family" subtitle={t("Show these to your family. Open one, then use Download PDF / Print.")} who={name}>
         <LangSwitch />
       </ReportHeader>
+      {fw && (
+        <section aria-label={t("For my family: this week")} className="mb-4">
+          <div className="mb-2 flex flex-wrap items-center gap-2 print:hidden">
+            <a href={pdf(lang)} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-teal-700 px-4 font-semibold text-white">⬇ {t("Download PDF")}</a>
+            <a href={pdf(lang === "ar" ? "en" : "ar")} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 font-semibold text-brand-navy ring-1 ring-slate-300">⬇ PDF · {LANG_NAMES[lang === "ar" ? "en" : "ar"]}</a>
+          </div>
+          <FamilyWeekStyles />
+          <FamilyWeekPage w={fw} t={t} lang={lang} />
+        </section>
+      )}
       {reports.length > 0 && (
         <ReportSection title="Reports from the school" icon="📬" className="mb-4">
           <ul className="space-y-2">{reports.map((r) => (

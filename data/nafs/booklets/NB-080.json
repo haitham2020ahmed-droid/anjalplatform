@@ -1,0 +1,568 @@
+{
+  "code": "NB-080",
+  "title": "A Letter from Farasan",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 462,
+  "passage": "Farasan Island, Jazan Region\nTuesday, 14 January\n\nDear Badr,\n\nI promised to write as soon as we arrived, but the past three days have been so crowded with adventures that this is the first quiet moment I have found. I am sitting on the balcony of my uncle's house, watching fishing boats return to the harbour, and I can honestly say that this journey has taught me more than an entire term of geography lessons.\n\nOur crossing from Jazan began smoothly enough, since the ferry was enormous, with rows of comfortable seats and a deck where passengers could watch the coastline disappear behind us. About forty minutes later, however, the wind strengthened, and the sea began heaving the ferry up and down like a restless camel. My stomach rolled with every wave, and I was convinced that I would never feel normal again. A sailor with a grey beard noticed my pale face and kindly guided me outside. \"Fix your eyes on the horizon,\" he advised, \"because your eyes and your ears must agree about which way the boat is moving.\" Astonishingly, his advice worked, and within a few minutes the dizziness began to fade.\n\nFarasan itself is completely different from Riyadh, because the island is low and flat, and the air smells of salt and seaweed rather than dust. On our first morning, my uncle drove us along sandy tracks, where we spotted a small herd of Farasan gazelles grazing among the thorn trees. These elegant animals are slender and extremely timid, and they bounded away the moment our engine stopped. Afterwards, we visited an old merchant's house built from blocks of coral stone, whose walls are decorated with plaster carved into patterns as fine as lace.\n\nThe most unforgettable experience, though, happened yesterday, when my uncle taught me to snorkel above a coral reef. At first, I panicked whenever water splashed into my breathing tube, but gradually I learned to breathe slowly and float calmly. Beneath me lay an entire underwater city of brain corals, darting blue fish and spiny sea urchins. Suddenly, a green sea turtle glided past so close that I could see the pattern on its shell, and I was so amazed that I almost forgot to breathe!\n\nMy uncle reminded me that the reefs are fragile, so we never touched the coral or stood on it, and we used sunscreen that is safe for sea creatures. He says that careless visitors can destroy in minutes what nature has built over hundreds of years.\n\nWe return to Riyadh on Friday, unfortunately. I am bringing you a small book about the island's wildlife, and I hope that one day you will make this journey yourself, preferably with someone who knows the trick about the horizon!\n\nYour friend,\nFaris",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “timid” as it is used in the letter?",
+      "options": [
+        "shy",
+        "hungry",
+        "graceful",
+        "wild"
+      ],
+      "answer": "A",
+      "why": "The gazelles “bounded away the moment our engine stopped”, so they are shy and easily frightened."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “fragile” as it is used in the paragraph that begins “My uncle reminded me”?",
+      "options": [
+        "delicate",
+        "colourful",
+        "sturdy",
+        "ancient"
+      ],
+      "answer": "C",
+      "why": "Fragile reefs break easily; the opposite is “sturdy” (strong). “Delicate” means almost the same as fragile."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase: “the sea began heaving the ferry up and down like a restless camel”. What does “heaving” mean here?",
+      "options": [
+        "sinking slowly beneath the waves",
+        "lifting and dropping with great force",
+        "pulling gently forward toward land",
+        "spinning round in tight circles"
+      ],
+      "answer": "B",
+      "why": "The ferry moved “up and down” powerfully, so heaving means lifting and dropping with force."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the paragraph that begins “Farasan itself is completely different” is an ADVERB?",
+      "options": [
+        "elegant",
+        "timid",
+        "herd",
+        "extremely"
+      ],
+      "answer": "D",
+      "why": "“Extremely” tells HOW timid the gazelles are, so it is an adverb; the others are adjectives or a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the letter is an IRREGULAR plural?",
+      "options": [
+        "fish",
+        "waves",
+        "boats",
+        "lessons"
+      ],
+      "answer": "A",
+      "why": "“Fish” keeps the same form in the plural (one fish, many fish); the others add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “careless”?",
+      "options": [
+        "carry",
+        "caring",
+        "career",
+        "carpet"
+      ],
+      "answer": "B",
+      "why": "“Caring” and “careless” both come from “care”; the others only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “unforgettable” in a meaningful sentence of your own.",
+      "model": "Watching the sunrise from the top of the mountain was an unforgettable moment that I still describe to my friends.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “unforgettable” with its meaning (so special or strong that it cannot be forgotten)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Unforgettable” describes something so special that you will always remember it."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “ferry”?",
+      "options": [
+        "ferrys",
+        "ferryes",
+        "ferries",
+        "ferry"
+      ],
+      "answer": "C",
+      "why": "A consonant before -y changes to -ies: ferry → ferries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is a COMMAND?",
+      "options": [
+        "“We return to Riyadh on Friday, unfortunately.”",
+        "“Fix your eyes on the horizon.”",
+        "“Astonishingly, his advice worked.”",
+        "“Farasan itself is completely different from Riyadh.”"
+      ],
+      "answer": "B",
+      "why": "The sailor tells Faris what to do, so it is a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the letter?",
+      "options": [
+        "How to Build a Safe Passenger Ferry",
+        "Everyday Life in the City of Riyadh",
+        "Adventures Above and Below the Red Sea",
+        "A Report on Fishing Boats"
+      ],
+      "answer": "C",
+      "why": "Faris describes the sea crossing, the island and the reef he saw underwater."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the letter?",
+      "options": [
+        "to complain to Badr about a disappointing trip",
+        "to share Faris's experiences on Farasan with his friend",
+        "to explain how ferries are built",
+        "to persuade Badr to move to Jazan"
+      ],
+      "answer": "B",
+      "why": "Faris writes to tell Badr about the adventures he has had on the journey."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph that begins “Our crossing from Jazan”?",
+      "options": [
+        "Faris overcomes seasickness on the ferry with a sailor's help.",
+        "Faris describes the comfortable seats on the ferry.",
+        "Faris explains why the sea is windy in January.",
+        "Faris learns how to drive a boat."
+      ],
+      "answer": "A",
+      "why": "The paragraph tells how Faris felt sick and how the sailor's advice helped."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the sailor, why does looking at the horizon help a seasick passenger?",
+      "options": [
+        "It keeps the passenger warm on deck.",
+        "It helps the passenger see the island sooner.",
+        "It makes the waves smaller.",
+        "It helps the eyes and ears agree about how the boat is moving."
+      ],
+      "answer": "D",
+      "why": "He says, “your eyes and your ears must agree about which way the boat is moving.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a fable",
+        "a friendly letter",
+        "a travel advertisement"
+      ],
+      "answer": "C",
+      "why": "It has a place and date, a greeting (“Dear Badr”) and a closing (“Your friend, Faris”)."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Faris and his uncle never touch the coral or stand on it?",
+      "options": [
+        "The reefs are fragile and easily damaged.",
+        "The coral was too sharp and could cut them.",
+        "The water above the reef was far too deep.",
+        "The turtle was guarding that part of the reef."
+      ],
+      "answer": "A",
+      "why": "The letter says the reefs are fragile, so they never touched or stood on the coral."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these did Faris do FIRST on Farasan?",
+      "options": [
+        "learned to snorkel",
+        "sat on the balcony writing to Badr",
+        "saw Farasan gazelles among the thorn trees",
+        "saw a green sea turtle"
+      ],
+      "answer": "C",
+      "why": "He saw the gazelles on “our first morning”; snorkelling was “yesterday” and he is writing now."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of this letter, and who will read it?",
+      "options": [
+        "Badr writes to Faris.",
+        "Faris writes to Badr.",
+        "Faris writes to his uncle.",
+        "The sailor writes to Faris."
+      ],
+      "answer": "B",
+      "why": "It begins “Dear Badr” and is signed “Your friend, Faris”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Where was Faris when he wrote the letter?",
+      "options": [
+        "on the deck of the ferry",
+        "on a beach in Jazan",
+        "at his home in Riyadh",
+        "on the balcony of his uncle's house"
+      ],
+      "answer": "D",
+      "why": "He writes, “I am sitting on the balcony of my uncle's house”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Faris to feel sick on the ferry?",
+      "options": [
+        "The wind strengthened and the sea moved the ferry up and down.",
+        "He had eaten far too much breakfast before leaving Jazan.",
+        "The ferry was too crowded and the seats were uncomfortable.",
+        "The sailor with the grey beard frightened him."
+      ],
+      "answer": "A",
+      "why": "About forty minutes into the crossing the wind grew stronger and the sea began heaving the ferry."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the sailor's action tell us about him?",
+      "options": [
+        "He was angry with passengers who stayed inside.",
+        "He was kind and observant.",
+        "He wanted Faris to work on the deck.",
+        "He did not like children on the ferry."
+      ],
+      "answer": "B",
+      "why": "He noticed Faris's pale face and “kindly guided” him outside with useful advice."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Faris MOST LIKELY feel when the turtle glided past him?",
+      "options": [
+        "bored",
+        "frightened",
+        "disappointed",
+        "amazed"
+      ],
+      "answer": "D",
+      "why": "He says, “I was so amazed that I almost forgot to breathe!”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Farasan different from Riyadh, according to Faris?",
+      "options": [
+        "Farasan is low and flat and smells of salt and seaweed; Riyadh smells of dust.",
+        "Farasan is colder and has more mountains.",
+        "Riyadh has more gazelles than Farasan.",
+        "Farasan has taller buildings than Riyadh."
+      ],
+      "answer": "A",
+      "why": "Faris writes that the island is low and flat and “the air smells of salt and seaweed rather than dust.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Faris learning to breathe slowly while snorkelling?",
+      "options": [
+        "He swam straight back to the shore.",
+        "His breathing tube broke in the water.",
+        "He could float calmly and enjoy the reef.",
+        "He lost sight of his uncle in the waves."
+      ],
+      "answer": "C",
+      "why": "At first he panicked, “but gradually I learned to breathe slowly and float calmly.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the sailor and Faris's uncle have in common?",
+      "options": [
+        "Both work on the ferry between Jazan and Farasan.",
+        "Both live in Riyadh near Badr's family.",
+        "Both are afraid of the sea in windy weather.",
+        "Both teach Faris something useful about the sea."
+      ],
+      "answer": "D",
+      "why": "The sailor teaches him the horizon trick and the uncle teaches him to snorkel and protect the reef."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the letter is a METAPHOR?",
+      "options": [
+        "“like a restless camel”",
+        "“an entire underwater city”",
+        "“as fine as lace”",
+        "“with a grey beard”"
+      ],
+      "answer": "B",
+      "why": "The reef is called a city without using “like” or “as”, so it is a metaphor; the first and third are similes."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Faris mean when he says the journey “has taught me more than an entire term of geography lessons”?",
+      "options": [
+        "He did not like geography lessons.",
+        "His uncle is a geography teacher.",
+        "He missed school to make the journey.",
+        "He learned a great deal by seeing places for himself."
+      ],
+      "answer": "D",
+      "why": "Seeing the sea, the island and the reef taught him more than lessons in a classroom."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Faris end the letter by mentioning “the trick about the horizon”?",
+      "options": [
+        "to remind Badr of the seasickness story in a friendly, humorous way",
+        "to complain about the sailor",
+        "to explain a new geography lesson",
+        "to show that he is still feeling sick"
+      ],
+      "answer": "A",
+      "why": "He links back to his funny but useful lesson from the ferry and shares it with his friend."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of the uncle's actions was MOST beneficial to the reef?",
+      "options": [
+        "driving along the sandy tracks",
+        "teaching Faris to breathe slowly",
+        "using sunscreen that is safe for sea creatures and not touching the coral",
+        "visiting the old merchant's house"
+      ],
+      "answer": "C",
+      "why": "These choices protect the fragile reef; the other actions have nothing to do with it."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What MOST LIKELY made Faris write such a long letter?",
+      "options": [
+        "He was asked to write a school report.",
+        "He wanted to share an exciting journey with a close friend.",
+        "He needed to tell Badr that he would be late.",
+        "He wanted to sell the book about wildlife."
+      ],
+      "answer": "B",
+      "why": "He had promised to write and was eager to share his many adventures."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in the letter as a whole?",
+      "options": [
+        "enthusiasm",
+        "loneliness",
+        "anger",
+        "worry"
+      ],
+      "answer": "A",
+      "why": "Faris writes excitedly about “adventures” and his “most unforgettable experience”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "what the sailor told Faris to do",
+        "where the reef was or how they reached it",
+        "what the old merchant's house was built from",
+        "which day Faris will return to Riyadh"
+      ],
+      "answer": "B",
+      "why": "Faris never says where the reef was or how they got there; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A turtle speaks politely to a snorkeller.",
+        "Coral stone turns into lace on the walls.",
+        "A sea turtle swims close to a snorkeller near a reef.",
+        "A ferry is carried to the island by a camel."
+      ],
+      "answer": "C",
+      "why": "Green sea turtles really live near reefs in the Red Sea; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the letter?",
+      "options": [
+        "A Boring Week Away",
+        "My Journey to Farasan",
+        "The Sailor's Story",
+        "Shopping in Jazan"
+      ],
+      "answer": "B",
+      "why": "The letter describes the trip to Farasan from the crossing to the reef."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter. Write two or three sentences that Faris could write instead of the last paragraph.",
+      "model": "Tomorrow my uncle is taking me to see the migrating birds that stop on the island in winter, so I will write again and tell you all about them. I miss our football games, but I wish you were here to see the turtle with me. Please say hello to your family.",
+      "rubric": [
+        "2 = a clear new ending that suits a friendly letter, fits Faris's trip and closes the letter in a believable way",
+        "1 = an ending is given but it is unclear or does not fit the letter well",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible closing that fits a friendly letter about the Farasan trip is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the letter, how can visitors help to keep coral reefs healthy?",
+      "options": [
+        "Break off small pieces of coral as souvenirs.",
+        "Stand on the coral to rest while snorkelling.",
+        "Use any sunscreen they like.",
+        "Avoid touching the coral and use reef-safe sunscreen."
+      ],
+      "answer": "D",
+      "why": "Faris and his uncle never touched the coral and used sunscreen that is safe for sea creatures."
+    }
+  ]
+}

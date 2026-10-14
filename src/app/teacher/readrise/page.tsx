@@ -10,6 +10,7 @@ import { ENGINE } from "@/server/readrise/engine";
 import { exportsOf } from "@/components/reports/report-ui";
 import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
 import { getT } from "@/i18n/server";
+import type { TFn } from "@/i18n";
 import { ReadingLevelLabel } from "@/components/reading-level";
 import { skillName } from "@/app/admin/readrise/_components/article-view";
 import { ReadRiseTabs, TEACHER_TABS } from "@/app/admin/readrise/_components/tabs";
@@ -107,7 +108,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
         ))}
       </nav>
 
-      {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} />}
+      {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} t={t} />}
       {growth && <ClassGrowthTab g={growth} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
       {skills && <SkillsTab data={skills} />}
       {polls && <PollsTab rows={polls} />}
@@ -119,7 +120,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
 
 type Report = Awaited<ReturnType<typeof classReport>>;
 
-function StudentsTab({ r, canWrite, classId }: { r: Report; canWrite: boolean; classId: string }) {
+function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean; classId: string; t: TFn }) {
   const series = [
     ...r.history.series.map((x, i) => ({ name: x.name, color: LINE_COLORS[i % LINE_COLORS.length], points: x.points, width: 1.5, dots: false, legend: false })),
     { name: "Class median", color: "#0f766e", points: r.history.median, width: 4 },
@@ -151,7 +152,7 @@ function StudentsTab({ r, canWrite, classId }: { r: Report; canWrite: boolean; c
               {r.students.map((x) => (
                 <tr key={x.studentId} className="border-b align-top last:border-0">
                   <td className="p-2 font-semibold text-brand-navy"><Link href={`/teacher/readrise?class=${classId}&student=${x.studentId}`} className="hover:underline">{x.name}</Link></td>
-                  <td className="p-2 font-bold tabular-nums">{fmt(x.level)}{x.source === "TEACHER" && <span className="ms-1 text-xs font-normal text-slate-400" title="Set by a teacher">✎</span>}</td>
+                  <td className="p-2 font-bold tabular-nums">{x.placed ? <>{fmt(x.level)}{x.source === "TEACHER" && <span className="ms-1 text-xs font-normal text-slate-400" title="Set by a teacher">✎</span>}</> : <span data-testid="rr-no-placement" className="text-xs font-semibold text-amber-800">{x.placementOpen ? t("Placement in progress") : t("No placement yet")}</span>}</td>
                   <td className="p-2 tabular-nums text-slate-600">{fmt(x.startLevel)}</td>
                   <td className={`p-2 font-semibold tabular-nums ${x.growth === null ? "" : x.growth > 0 ? "text-emerald-700" : x.growth < 0 ? "text-red-700" : "text-slate-600"}`}>{signed(x.growth)}</td>
                   <td className="p-2 tabular-nums text-slate-600">{x.mapLexile === null ? "—" : `${x.mapLexile}L`}</td>
@@ -178,12 +179,12 @@ function StudentsTab({ r, canWrite, classId }: { r: Report; canWrite: boolean; c
                             <label className="block font-semibold">Reason<input name="reason" required minLength={3} maxLength={250} placeholder="e.g. MAP Lexile 820 in the winter test" className={`${field} mt-1 block w-full`} /></label>
                             <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Set level</button>
                           </form>
-                          {x.placed && (
+                          {(x.placed || x.placementOpen) && (
                             <form action={allowReadRiseRetakeAction} className="space-y-1.5 border-t border-slate-200 pt-3">
                               <input type="hidden" name="classId" value={classId} /><input type="hidden" name="studentId" value={x.studentId} />
                               <input name="reason" maxLength={200} placeholder="Why (optional)" className={`${field} block w-full`} />
-                              <button className="rounded-lg bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300">Allow placement retake</button>
-                              <p className="text-[11px] text-slate-500">Once per term. The level stays until the new test ends.</p>
+                              <button className="rounded-lg bg-white px-3 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-300">{x.placementOpen ? t("Restart the placement") : "Allow placement retake"}</button>
+                              <p className="text-[11px] text-slate-500">{x.placementOpen ? t("The test starts again from the first passage.") : "Once per term. The level stays until the new test ends."}</p>
                             </form>
                           )}
                         </div>

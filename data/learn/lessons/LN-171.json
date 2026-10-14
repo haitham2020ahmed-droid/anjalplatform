@@ -1,0 +1,531 @@
+{
+ "code": "LN-171",
+ "title": "Summarizing stories",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.2",
+  "RL.3.2",
+  "RL.4.2",
+  "RL.5.2",
+  "RL.6.2",
+  "RL.7.2",
+  "RL.8.2"
+ ],
+ "families": [
+  "summarize"
+ ],
+ "skillNames": [
+  "Summarize",
+  "Paraphrasing and Sequence of Events"
+ ],
+ "statements": [
+  "R-0157",
+  "R-0271",
+  "R-0443",
+  "R-0460",
+  "R-0632",
+  "R-0646",
+  "R-0647",
+  "R-0666",
+  "R-0836",
+  "R-0837",
+  "R-0851",
+  "R-0982",
+  "R-1071",
+  "R-1105"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a summary?",
+     "text": "A **summary** tells a story in a **few words**.\n\nIt tells only the **most important** parts."
+    },
+    {
+     "title": "Beginning, middle, end",
+     "text": "A good summary tells:\n\n1. **Who** the story is about.\n2. **What happens** in the middle.\n3. **How it ends**."
+    },
+    {
+     "title": "Leave out small things",
+     "text": "Colours, small actions and extra words are **not** needed.\n\nAsk: **Would the story change without this?** If not, leave it out."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good summary matches the story.\n\n1. Find the sentence that tells the **problem**.\n2. Find the sentence that tells **how it ends**.\n3. Pick the summary that tells **both**.\n\nIf a summary tells only one small part, it is **not** the best one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar wanted to fly his kite.",
+      "role": "key"
+     },
+     {
+      "t": "The kite was red.",
+      "role": "other"
+     },
+     {
+      "t": "But there was no wind.",
+      "role": "key"
+     },
+     {
+      "t": "Omar sat by the sea and waited.",
+      "role": "detail"
+     },
+     {
+      "t": "Then the wind came, and the kite flew high.",
+      "role": "key"
+     }
+    ],
+    "explain": "The colour of the kite is a small thing. The story does not change without it.\n\nSummary: **Omar wanted to fly his kite, but there was no wind. Then the wind came, and it flew high.**"
+   },
+   "together": {
+    "passage": "Sara lost her cat. She looked under the bed. She looked in the garden. Then she heard a meow from the toy box. The cat was asleep inside it. Sara laughed.",
+    "stem": "Which is the best summary of the story?",
+    "options": [
+     "Sara looked under the bed.",
+     "Sara lost her cat and then found it asleep in the toy box.",
+     "The cat likes to play with toys.",
+     "Sara has a big garden."
+    ],
+    "answer": 1,
+    "hint": "That is only one small part. Which answer tells the problem AND how the story ends?",
+    "good": "Yes! The cat was lost, and then Sara found it. That is the whole story in a few words."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara lost her cat.",
+     "She looked under the bed.",
+     "She looked in the garden.",
+     "Then she heard a meow from the toy box.",
+     "The cat was asleep inside it.",
+     "Sara laughed."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Sara lost her cat and found it in the toy box. Tap 2 sentences that show the problem and how it ends.",
+    "wrong": "This sentence is a small part of the story. Find the sentences that tell the problem and where the cat was found."
+   },
+   "checks": [
+    {
+     "passage": "Hamad planted a seed. He gave it water every day. Soon a small green plant came up. Hamad was proud.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Hamad likes cold water.",
+      "The plant was small and green.",
+      "Hamad was sad all day.",
+      "Hamad cared for a seed, and it grew."
+     ],
+     "answer": 3,
+     "why": "It tells who (Hamad), what he did (cared for a seed) and how it ended (it grew)."
+    },
+    {
+     "passage": "The school bus was late. Noor and her brother waited in the hot sun. A kind neighbour saw them. She drove them to school, and they were just in time.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "The bus was late, so a neighbour drove the children to school.",
+      "Noor and her brother waited in the hot sun.",
+      "A neighbour waited with Noor and her brother in the sun.",
+      "The sun was very hot that day."
+     ],
+     "answer": 0,
+     "why": "It tells the problem (the bus was late) and how it ended (a neighbour drove them to school)."
+    },
+    {
+     "passage": "A baby bird fell from its nest. Yusuf found it on the grass. He and his father put it back in the nest. Soon the mother bird came back.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "The grass was soft.",
+      "Mother birds fly fast.",
+      "Yusuf and his dad put a fallen bird back in its nest.",
+      "Yusuf found a baby bird and kept it as a pet."
+     ],
+     "answer": 2,
+     "why": "The bird fell, and Yusuf and his father helped it. The other choices are small parts or are not in the story."
+    }
+   ],
+   "again": {
+    "title": "Tell it to a friend",
+    "text": "Pretend your friend asks: **What was the story about?**\n\nYou would not tell every word. You would tell the **big parts** in two or three short sentences. That is a summary!",
+    "example": "Story: Laila made a cake. She forgot the sugar. It tasted bad. She made it again with sugar, and it was good.\n\nTell a friend: **Laila forgot the sugar in her cake, so she made it again, and it was good.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A good summary",
+     "text": "A **summary** retells a story **briefly** and **in your own words**.\n\nIt names the main **character**, the **problem**, the most important **events** and the **ending**."
+    },
+    {
+     "title": "Somebody, Wanted, But, So, Then",
+     "text": "1. **Somebody**: who is the story about?\n2. **Wanted**: what did they want?\n3. **But**: what was the problem?\n4. **So**: what did they do?\n5. **Then**: how did it end?"
+    },
+    {
+     "title": "Summarizing a poem",
+     "text": "A poem can be summarized too. Read it part by part.\n\nAsk: **What happens, or what does the poet describe, in each part?** Then join the parts in one or two sentences."
+    },
+    {
+     "title": "What to leave out",
+     "text": "Do **not** add small details, your opinion, or things that are **not** in the story.\n\nKeep the events in the **same order** as the story."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Every part of a good summary can be found **in the text**.\n\n1. Find the sentences that tell the **problem**.\n2. Find the sentences that tell **what the character did**.\n3. Find the **ending**.\n\nThe best summary matches all three. A choice that tells only the beginning, or adds something new, is not the best."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ahmed wanted to make his mother a birthday card.",
+      "role": "key"
+     },
+     {
+      "t": "He found paper, glue and his best pens.",
+      "role": "other"
+     },
+     {
+      "t": "But his little brother spilled juice all over the card.",
+      "role": "key"
+     },
+     {
+      "t": "Ahmed was upset, but he did not shout.",
+      "role": "detail"
+     },
+     {
+      "t": "Instead, the two boys made a new card together, and their mother loved it.",
+      "role": "key"
+     }
+    ],
+    "explain": "Somebody: **Ahmed**. Wanted: **to make a card**. But: **juice spilled on it**. So / Then: **he and his brother made a new one, and their mother loved it**.\n\nThe paper and pens are small details, so they are left out."
+   },
+   "together": {
+    "passage": "Faisal wanted to win the school reading prize. He read every evening, but by the end of the month he was still three books behind his friend Majid. One night Faisal noticed Majid's little sister struggling with a hard book. He sat beside her and helped her sound out the words. When the prize was announced, Majid won. Faisal did not mind, because Majid's sister had just finished her first book on her own, and she thanked him for his help.",
+    "stem": "Which is the best summary of the story?",
+    "options": [
+     "Faisal read every evening for a whole month.",
+     "Majid's little sister found a hard book at home.",
+     "Faisal lost the prize but was happy he helped a girl learn to read.",
+     "Majid won because he was the best reader in the school."
+    ],
+    "answer": 2,
+    "hint": "That answer tells only one part, or says something the story does not say. Which answer has the problem, the action AND the ending?",
+    "good": "Yes! It tells what Faisal wanted, what he did, and how he felt at the end."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal wanted to win the school reading prize.",
+     "He read every evening, but by the end of the month he was still three books behind his friend Majid.",
+     "One night Faisal noticed Majid's little sister struggling with a hard book.",
+     "He sat beside her and helped her sound out the words.",
+     "When the prize was announced, Majid won.",
+     "Faisal did not mind, because Majid's sister had just finished her first book on her own, and she thanked him for his help."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Faisal lost the prize but was happy he helped a girl. Tap 2 sentences that prove it.",
+    "wrong": "This sentence comes from the beginning of the story. Find the sentences that show what Faisal did and how the story ended."
+   },
+   "checks": [
+    {
+     "passage": "At dawn the sea is grey and still,\nThe boats sleep by the shore.\nBy noon the waves are bright and blue,\nThe fishermen row out once more.",
+     "stem": "Which best summarizes the poem?",
+     "options": [
+      "The sea is still at dawn and busy by noon.",
+      "Fishermen sleep in their boats until noon.",
+      "Fishermen are afraid of the sea.",
+      "The waves are blue at night."
+     ],
+     "answer": 0,
+     "why": "The first part describes a still sea at dawn. The second describes bright waves and boats going out at noon. The summary joins both parts."
+    },
+    {
+     "passage": "Lina had one line to say in the school play. When she stepped on stage, she forgot every word. Her friend Huda quietly whispered the first word from behind the curtain. Lina remembered the rest and said her line clearly. The audience clapped loudly.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Huda stood behind the curtain during the play.",
+      "Lina had only one line in the school play.",
+      "The audience at the school play clapped loudly.",
+      "Lina forgot her line, but a friend helped her."
+     ],
+     "answer": 3,
+     "why": "It tells the problem (Lina forgot) and how it was solved (Huda helped). The others are single details."
+    },
+    {
+     "passage": "Khalid's old bicycle had a flat tyre, so he could not ride to football practice. He did not want to miss it. He asked his grandfather for help. Together they found the hole, patched the tube and pumped up the tyre. Khalid reached practice just as it began.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Khalid's grandfather took him to football practice in the car.",
+      "Khalid and his grandfather fixed his tyre, so he got to practice.",
+      "Khalid's bicycle is very old.",
+      "Khalid missed football practice because of his tyre."
+     ],
+     "answer": 1,
+     "why": "It covers the problem, what they did and the ending. Saying he missed practice is wrong: he got there on time."
+    }
+   ],
+   "again": {
+    "title": "Use your hand",
+    "text": "Count on your fingers:\n\n1. Thumb: **Who?**\n2. Pointer: **Wanted?**\n3. Middle: **But?**\n4. Ring: **So?**\n5. Little finger: **Then?**\n\nJoin the five answers. You have a summary.",
+    "example": "Mona wanted to bake bread. But she had no yeast. So she asked her neighbour for some. Then the bread rose and was ready for dinner.\n\nSummary: **Mona needed yeast to bake bread, got some from her neighbour, and made it in time for dinner.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Summary vs paraphrase",
+     "text": "A **summary** is **shorter** than the text. It keeps only the main events or ideas.\n\nA **paraphrase** says one part of the text **in your own words**. It keeps **all** the meaning, so it is about the same length."
+    },
+    {
+     "title": "Summarizing a scene from a play",
+     "text": "A play is told through **dialogue** (what characters say) and **stage directions** (in brackets).\n\nTo summarize a scene, ask: **Who is in it? What do they want or argue about? How does the scene end?** Stage directions often show important actions."
+    },
+    {
+     "title": "Summarizing a poem",
+     "text": "1. Read each **stanza** (group of lines).\n2. Write a few words about what each stanza says.\n3. Join them in one or two sentences.\n\nTell what the poem **says**, not just how it sounds."
+    },
+    {
+     "title": "Paraphrasing a line",
+     "text": "Poems and stories often use **figurative language**. To paraphrase, explain what it **really means** in plain words.\n\nDo not copy the words. Do not change the meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Check each choice against the text.\n\n1. Does it include the **main event or idea** from the beginning, middle and end?\n2. Can you point to the **lines** that show each part?\n3. Does it leave out small details and opinions?\n\nA choice that only covers one speech or one stanza is too small."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The palm stands tall in the burning sun,",
+      "role": "detail"
+     },
+     {
+      "t": "It does not bend when the hot winds run.",
+      "role": "detail"
+     },
+     {
+      "t": "It drinks so little, yet gives so much:",
+      "role": "key"
+     },
+     {
+      "t": "Sweet dates and shade for all it can touch.",
+      "role": "key"
+     }
+    ],
+    "explain": "Lines 1–2 show the palm is **strong** in hard weather. Lines 3–4 show it **gives** a lot while needing little.\n\nSummary: **The palm tree survives harsh heat and still gives food and shade to others.**"
+   },
+   "together": {
+    "passage": "GRANDFATHER: (holding a small wooden boat) I carved this when I was your age. HASSAN: It's nice, but it's so old. Why do you keep it? GRANDFATHER: (smiling) My father helped me make it, the summer before he sailed with the pearl divers. HASSAN: (quietly) So it reminds you of him. GRANDFATHER: Every time I hold it. (He places the boat in Hassan's hands.) Now it can remind you of me. HASSAN: (holding it carefully) I'll keep it safe, Grandfather. I promise.",
+    "stem": "Which best summarizes this scene?",
+    "options": [
+     "Grandfather gives Hassan a treasured boat, and Hassan promises to keep it safe.",
+     "Hassan thinks the wooden boat is too old to keep.",
+     "Grandfather's father sailed with the pearl divers.",
+     "Hassan learns how to carve a wooden boat."
+    ],
+    "answer": 0,
+    "hint": "That is only one speech, or something that does not happen. What happens from the start of the scene to the end?",
+    "good": "Yes! The scene moves from an old boat full of memories to a gift and a promise."
+   },
+   "evidence": {
+    "sentences": [
+     "GRANDFATHER: (holding a small wooden boat) I carved this when I was your age.",
+     "HASSAN: It's nice, but it's so old. Why do you keep it?",
+     "GRANDFATHER: (smiling) My father helped me make it, the summer before he sailed with the pearl divers.",
+     "HASSAN: (quietly) So it reminds you of him.",
+     "GRANDFATHER: Every time I hold it. (He places the boat in Hassan's hands.) Now it can remind you of me.",
+     "HASSAN: (holding it carefully) I'll keep it safe, Grandfather. I promise."
+    ],
+    "proof": [
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Grandfather gives Hassan a treasured boat, and Hassan promises to keep it safe. Tap 2 parts that prove it.",
+    "wrong": "This part starts the conversation. Find the parts that show why the boat is special, the gift, or the promise."
+   },
+   "checks": [
+    {
+     "passage": "A line from a poem: 'The desert night is wide and deep, a blanket stitched with stars.'",
+     "stem": "Which is the best paraphrase of the line?",
+     "options": [
+      "People in the desert sleep under warm blankets.",
+      "Someone sewed stars onto a blanket.",
+      "At night, the desert sky is huge and covered with stars.",
+      "The desert is a deep hole in the ground."
+     ],
+     "answer": 2,
+     "why": "The 'blanket stitched with stars' is figurative. It means the wide night sky full of stars. The other choices read the words literally."
+    },
+    {
+     "passage": "My little brother cried when we left our old house.\nHe held the door and would not go.\n\nNow he runs through our new garden,\nAnd calls the lemon tree his own.",
+     "stem": "Which best summarizes the poem?",
+     "options": [
+      "The family's new house has a lemon tree.",
+      "A boy who was sad to move learns to love his new home.",
+      "A boy cries because he does not like lemons.",
+      "The speaker's brother likes to hold doors."
+     ],
+     "answer": 1,
+     "why": "Stanza 1: the brother is sad to leave. Stanza 2: he is happy in the new garden. The summary joins both stanzas."
+    },
+    {
+     "passage": "Rashid had never been in a desert storm. When the sky turned orange, his cousin Saleh pulled him into the tent and zipped the door shut. For an hour, sand hissed against the walls. When it was quiet again, the boys stepped out to find their footprints gone and the dunes reshaped.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Rashid was very brave and the best camper in his family.",
+      "The sky turned orange before the storm.",
+      "Rashid and Saleh walked through the storm to find their footprints.",
+      "The boys hid in a tent during a sandstorm and came out to a changed desert."
+     ],
+     "answer": 3,
+     "why": "It covers the beginning, middle and end. Calling Rashid 'very brave' is an opinion the story does not state."
+    }
+   ],
+   "again": {
+    "title": "Shrink it",
+    "text": "Imagine you can send only **one short message** about the text.\n\n1. Cover the text.\n2. Write what you remember happened.\n3. Check the text: did you miss the ending? Did you add anything that is not there?",
+    "example": "A poem says a small seed waits in the dry ground, then rain comes, and soon a flower opens.\n\nOne message: **After the rain, a waiting seed grows into a flower.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "An objective summary",
+     "text": "An **objective** summary reports what happens **without your opinions** or judgments.\n\nIt does not say who was right, who was nice or what you liked. It sticks to the text."
+    },
+    {
+     "title": "Show how the story develops",
+     "text": "A strong summary of a story shows the **conflict**, the **turning point** and the **resolution**.\n\nIt may also show how a character **changes** or what they **learn**, if the text makes that clear."
+    },
+    {
+     "title": "Plays and poems",
+     "text": "For a **scene**, summarize what the characters want, the conflict between them and how the scene ends.\n\nFor a **poem**, notice any **shift**: a change in mood, time or the speaker's feelings. A good summary shows the shift."
+    },
+    {
+     "title": "Choosing the best summary",
+     "text": "Wrong choices are often:\n\n1. **Too narrow**: only the beginning or one event.\n2. **Not objective**: they add a judgment.\n3. **Inaccurate**: they change what happened.\n\nThe best one covers the whole text, accurately and briefly."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Test each part of a summary against the text.\n\n1. Find the sentence where the **problem** begins.\n2. Find the **turning point**: the moment that changes things.\n3. Find the **outcome**.\n\nIf a choice includes a word like 'brilliant', 'unfair' or 'deserved', ask: does the text say this, or is it an opinion?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every evening, old Abu Nasser fed the stray cats behind the bakery, though the baker complained.",
+      "role": "key"
+     },
+     {
+      "t": "The cats were thin, and one had a torn ear.",
+      "role": "other"
+     },
+     {
+      "t": "One winter, mice began to eat the bakery's sacks of flour.",
+      "role": "key"
+     },
+     {
+      "t": "Within a week of the cats moving inside, the mice were gone.",
+      "role": "key"
+     },
+     {
+      "t": "After that, the baker left a bowl of milk by the back door himself.",
+      "role": "key"
+     }
+    ],
+    "explain": "Conflict: the baker complains about the cats. Turning point: mice attack the flour. Resolution: the cats solve the problem, and the baker changes his mind.\n\nObjective summary: **A baker who disliked the stray cats changed his mind after they drove the mice from his flour.**"
+   },
+   "together": {
+    "passage": "For three weeks, Dana had practised the speech she would give at the school science fair. She knew every fact about the solar panel she had built with her cousin, and she planned to present them in perfect order. On the day of the fair, the hall's lights flickered and went out just as the judges reached her table. Other students waited nervously for the power to return. Dana looked at her panel, then at the bright window behind her. She carried the small panel into the sunlight, connected it to a fan, and let the judges feel the cool air while she spoke. Her speech came out in the wrong order, and she forgot two of her facts. Still, when the results were posted, her project had won first place. Later, her cousin asked whether she was upset about the speech. Dana laughed. 'The judges did not need my speech,' she said. 'They needed to see that it worked.'",
+    "stem": "Which is the best objective summary of the story?",
+    "options": [
+     "Dana was a brilliant student who deserved first place more than anyone.",
+     "Dana practised her speech for three weeks and learned every fact.",
+     "The lights went out, and the other students waited for the power.",
+     "When the power failed, Dana showed her panel working in the sun and won."
+    ],
+    "answer": 3,
+    "hint": "Is that choice an opinion, or only one part of the story? Look for the conflict, the turning point and the outcome.",
+    "good": "Yes! It gives the problem (the power failed), what Dana did (used the sunlight) and the outcome (she won), with no opinions."
+   },
+   "evidence": {
+    "sentences": [
+     "For three weeks, Dana had practised the speech she would give at the school science fair.",
+     "She knew every fact about the solar panel she had built with her cousin, and she planned to present them in perfect order.",
+     "On the day of the fair, the hall's lights flickered and went out just as the judges reached her table.",
+     "Other students waited nervously for the power to return.",
+     "Dana looked at her panel, then at the bright window behind her.",
+     "She carried the small panel into the sunlight, connected it to a fan, and let the judges feel the cool air while she spoke.",
+     "Her speech came out in the wrong order, and she forgot two of her facts.",
+     "Still, when the results were posted, her project had won first place.",
+     "Later, her cousin asked whether she was upset about the speech.",
+     "Dana laughed.",
+     "'The judges did not need my speech,' she said.",
+     "'They needed to see that it worked.'"
+    ],
+    "proof": [
+     2,
+     5,
+     7
+    ],
+    "need": 3,
+    "stem": "The answer was: when the power failed, Dana showed her panel working in the sun and won. Tap 3 sentences: the problem, what Dana did, and the outcome.",
+    "wrong": "This sentence is background or a reaction. Find the power failure, Dana's action, and the result."
+   },
+   "checks": [
+    {
+     "passage": "I counted every box the day we moved,\nI hated the new street, the new grey door.\nNo one here knew my name, or cared to.\n\nBut Fahad next door brought dates and a ball,\nAnd by the end of spring, without a plan,\nThe grey door felt like home after all.",
+     "stem": "Which best summarizes the poem?",
+     "options": [
+      "The speaker counts boxes and hates the new street and the grey door.",
+      "The speaker hates a new home at first, but a neighbour's kindness changes that.",
+      "Fahad gives the speaker dates and a ball in spring.",
+      "The speaker is unfair to the people on the new street."
+     ],
+     "answer": 1,
+     "why": "The poem shifts from unhappy (stanza 1) to at home (stanza 2), and Fahad's kindness causes the change. Calling the speaker 'unfair' is a judgment, not a summary."
+    },
+    {
+     "passage": "MAHA: (pointing at the map) The shortest path goes over the hill.\nZAID: It's steep, and we have the heavy water bottles.\nMAHA: But we'll lose an hour on the valley road!\nZAID: (sitting down on his bag) Then go. I'll take the valley.\n(Maha looks at the hill, then at Zaid. She sighs and picks up one of his bottles.)\nMAHA: Fine. The valley. But you carry the map.",
+     "stem": "Which best summarizes this scene?",
+     "options": [
+      "Maha and Zaid get lost because they do not have a map.",
+      "Zaid is lazy and refuses to help carry the bottles.",
+      "Maha and Zaid disagree about the route, and Maha agrees to take the valley.",
+      "Maha wants to walk over the hill because it is the shortest way."
+     ],
+     "answer": 2,
+     "why": "The scene's conflict is the route, and it ends with Maha giving in. Calling Zaid 'lazy' is a judgment, and the hill choice is only the beginning."
+    },
+    {
+     "passage": "From a story: 'The news travelled through the village faster than the wind, and by evening even the goats seemed to know.'",
+     "stem": "Which is the best paraphrase?",
+     "options": [
+      "The news spread very quickly, and soon everyone in the village knew it.",
+      "A strong wind blew through the village in the evening.",
+      "The news reached the goats before it reached the people of the village.",
+      "By evening, the villagers were tired of hearing the news."
+     ],
+     "answer": 0,
+     "why": "'Faster than the wind' and 'even the goats' are exaggerations meaning the news spread fast and reached everyone. A paraphrase keeps that meaning in plain words."
+    }
+   ],
+   "again": {
+    "title": "Three sentences, no opinions",
+    "text": "Write just **three sentences**:\n\n1. **Problem**: what goes wrong or what is wanted?\n2. **Turning point**: what changes things?\n3. **Outcome**: how does it end?\n\nThen read them again and remove any word that judges a character.",
+    "example": "A boy refuses to share his new football. At the park, nobody else has a ball, so he plays alone and gets bored. He invites the others, and they play until sunset.\n\nThat is objective. 'He was selfish' would be an opinion."
+   }
+  }
+ }
+}

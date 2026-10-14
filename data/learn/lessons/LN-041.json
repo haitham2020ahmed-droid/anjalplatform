@@ -1,0 +1,454 @@
+{
+ "code": "LN-041",
+ "title": "Commonly confused words",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "homographs-homophones"
+ ],
+ "skillNames": [
+  "Frequently Confused Words (to/too/two and more)"
+ ],
+ "statements": [
+  "L-0020",
+  "L-0021",
+  "L-0083",
+  "L-0085",
+  "L-0187",
+  "L-0188",
+  "L-0190",
+  "L-0287",
+  "L-0288"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that sound the same",
+     "text": "Some words **sound the same** but have **different meanings** and spellings.\n\nYou must pick the right one for the sentence."
+    },
+    {
+     "title": "threw or through?",
+     "text": "**threw** = what you did with your arm. “Sami **threw** the ball.”\n\n**through** = in one side and out the other. “We walked **through** the door.”"
+    },
+    {
+     "title": "to, too or two?",
+     "text": "**two** = the number 2. “I have **two** pens.”\n\n**too** = also, or more than enough. “I want some **too**.” “It is **too** hot.”\n\n**to** = toward, or before an action. “Go **to** school.” “I like **to** read.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other words in the sentence tell you which one fits.\n\n1. Read the whole sentence.\n2. Ask: Is it a number? An action? Going in and out?\n3. Point to the clue words that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mona threw the paper in the bin.",
+      "role": "key"
+     },
+     {
+      "t": "Then she walked through the gate.",
+      "role": "key"
+     }
+    ],
+    "explain": "In sentence 1, Mona did an **action** with her arm: **threw**.\n\nIn sentence 2, she went in one side of the gate and out the other: **through**."
+   },
+   "together": {
+    "passage": "Ahmed has two goats. Every morning he feeds them. Yesterday he ___ some hay over the fence. The goats ran to eat it.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "through",
+     "threw",
+     "to",
+     "two"
+    ],
+    "answer": 1,
+    "hint": "Ahmed did something with his arm. Which word is an action?",
+    "good": "Yes! Ahmed **threw** the hay. It went over the fence, and the goats ran to eat it."
+   },
+   "evidence": {
+    "sentences": [
+     "Ahmed has two goats.",
+     "Every morning he feeds them.",
+     "Yesterday he ___ some hay over the fence.",
+     "The goats ran to eat it."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "Tap a sentence that shows what happened to the hay.",
+    "wrong": "This sentence does not tell about the hay. Look for the hay going over the fence."
+   },
+   "checks": [
+    {
+     "passage": "I ate ___ apples. They were sweet.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "to",
+      "too",
+      "two",
+      "threw"
+     ],
+     "answer": 2,
+     "why": "The blank tells how many apples, so use the number **two**."
+    },
+    {
+     "passage": "The bird flew in ___ the open window.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "threw",
+      "through",
+      "two",
+      "too"
+     ],
+     "answer": 1,
+     "why": "The bird went in one side of the window. **Through** means in one side and out the other."
+    },
+    {
+     "passage": "My brother wants to come ___. He likes the park.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "too",
+      "two",
+      "to",
+      "through"
+     ],
+     "answer": 0,
+     "why": "He wants to come **also**, so the word is **too**."
+    }
+   ],
+   "again": {
+    "title": "Quick tricks",
+    "text": "**two** has a **w**, like t**w**ins. It is a number.\n\n**too** has an extra **o**. It means also, or extra.\n\n**threw** comes from **throw**. Both are about your arm.",
+    "example": "“The sun shone ___ the window.” The light goes in one side and out the other → **through**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "loose or lose?",
+     "text": "**loose** (rhymes with goose) = not tight. “My tooth is **loose**.”\n\n**lose** (rhymes with shoes) = not have anymore, or not win. “Don't **lose** your keys.” “We may **lose** the game.”"
+    },
+    {
+     "title": "to, too, two",
+     "text": "**to** shows direction or comes before an action: “to the shop”, “to swim”.\n\n**too** means also, or more than you want: “too salty”.\n\n**two** is the number 2."
+    },
+    {
+     "title": "knew or new?",
+     "text": "**new** = not old. “a **new** bag”\n\n**knew** = the past of know. “I **knew** the answer.”\n\nTip: **kn**ew goes with **kn**ow."
+    },
+    {
+     "title": "Check the job",
+     "text": "1. Describing something that is not tight? → **loose**\n2. An action (miss, not win)? → **lose**\n3. Not old? → **new**. Already had it in your head? → **knew**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the clue words around the blank.\n\n“The belt is ___” → it describes the belt → **loose**.\n“I might ___ it” → after “might” comes an action → **lose**.\n\nPoint to the sentences with the clues that decide."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fahad's shoelace was loose.",
+      "role": "key"
+     },
+     {
+      "t": "He did not want to lose his shoe in the race, so he tied it.",
+      "role": "key"
+     },
+     {
+      "t": "Then he ran to the start line.",
+      "role": "other"
+     }
+    ],
+    "explain": "“Loose” describes the shoelace: it was not tight.\n\n“Lose” is an action: he did not want his shoe to come off and be gone."
+   },
+   "together": {
+    "passage": "The screws on Dana's bicycle seat were ___. Every time she rode over a bump, the seat moved. Her father said she should stop riding for a while. He tightened the screws with a small tool, and the seat stayed still.",
+    "stem": "Which word belongs in the blank?",
+    "options": [
+     "lose",
+     "loose",
+     "lost",
+     "losing"
+    ],
+    "answer": 1,
+    "hint": "The blank describes the screws. Were they missing, or were they not tight?",
+    "good": "Yes! The screws were **loose**: not tight. That is why the seat moved."
+   },
+   "evidence": {
+    "sentences": [
+     "The screws on Dana's bicycle seat were ___.",
+     "Every time she rode over a bump, the seat moved.",
+     "Her father said she should stop riding for a while.",
+     "He tightened the screws with a small tool, and the seat stayed still."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that prove the screws were not tight.",
+    "wrong": "This sentence does not show the screws were not tight. Look for the seat moving, or the screws being made tight."
+   },
+   "checks": [
+    {
+     "passage": "The team played hard, but they knew they might ___ the final.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "lose",
+      "loose",
+      "lost",
+      "loss"
+     ],
+     "answer": 0,
+     "why": "After “might” we need an action. To **lose** a match means not to win it."
+    },
+    {
+     "passage": "This tea is ___ hot to drink right now. Let's wait ___ minutes.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "to, two",
+      "too, two",
+      "two, to",
+      "too, to"
+     ],
+     "answer": 1,
+     "why": "The tea is hotter than we want → **too**. The number of minutes → **two**."
+    },
+    {
+     "passage": "Maha ___ the way to the museum because she had been there before.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "new",
+      "now",
+      "known",
+      "knew"
+     ],
+     "answer": 3,
+     "why": "She had the way in her head already. **Knew** is the past of know."
+    }
+   ],
+   "again": {
+    "title": "Say it out loud",
+    "text": "**loose** has a soft **s**, like a hiss: loo**ss**e.\n**lose** has a **z** sound: loo**z**.\n\nIf you mean “not tight”, say the hiss.",
+    "example": "“The goat got ___ and ran away.” It was not tied tight → loo**ss**e → **loose**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Spot the mix-up",
+     "text": "Spell-check will not catch these mistakes, because each one is a real word.\n\n**You** have to check the meaning of the sentence."
+    },
+    {
+     "title": "loose, lose, lost, loss",
+     "text": "**loose**: not tight, or free. “loose sand”, “The camel got **loose**.”\n\n**lose**: an action. “to **lose** a match”\n\n**lost**: the past of lose. **loss**: a thing (noun). “a **loss** for the team”"
+    },
+    {
+     "title": "The too … to pattern",
+     "text": "Before a describing word, **too** means more than is good: “too heavy”.\n\nOften it comes with **to**: **too** + describing word + **to** + action.\n\n“The box was **too** heavy **to** lift.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the whole paragraph, not just one sentence.\n2. Find the word that seems wrong.\n3. Look for the clue that proves the right word: a number, a describing job, or an action.\n\nPoint to the sentence where the wrong word is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The water was to cold for swimming.",
+      "role": "key"
+     },
+     {
+      "t": "We sat on the sand and ate our lunch instead.",
+      "role": "other"
+     }
+    ],
+    "explain": "“to cold” is a mistake. The water had **more cold than was good**, so the word is **too**: “too cold for swimming”.\n\nThe second sentence has no mistake."
+   },
+   "together": {
+    "passage": "Last week our class visited a farm outside the city. The farmer asked us to close the gate behind us, because a young camel sometimes gets lose and wanders onto the road. Two of my friends wanted to feed it, but the farmer said it was too early in the day. Later, we watched it drink from a big trough. Before we left, I checked the gate twice.",
+    "stem": "Which change corrects the mistake in the paragraph?",
+    "options": [
+     "Change “Two” to “Too”",
+     "Change “lose” to “loose”",
+     "Change “too early” to “to early”",
+     "Change “to close” to “too close”"
+    ],
+    "answer": 1,
+    "hint": "Find the word that describes the camel. Does the camel stop being tight, or does it get free?",
+    "good": "Yes! The camel gets **loose**: free from the farm. “Lose” would mean not having something anymore."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week our class visited a farm outside the city.",
+     "The farmer asked us to close the gate behind us, because a young camel sometimes gets lose and wanders onto the road.",
+     "Two of my friends wanted to feed it, but the farmer said it was too early in the day.",
+     "Later, we watched it drink from a big trough.",
+     "Before we left, I checked the gate twice."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that has the mistake.",
+    "wrong": "The words in this sentence are used correctly. Look for the sentence about an animal getting free."
+   },
+   "checks": [
+    {
+     "passage": "My grandmother's ring is a little ___ now, so she wears it on a chain. She does not want to ___ it.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "lose … loose",
+      "loose … loose",
+      "loose … lose",
+      "lose … lose"
+     ],
+     "answer": 2,
+     "why": "The ring is not tight → **loose**. She does not want it to be gone → **lose**."
+    },
+    {
+     "passage": "The suitcase was to heavy for me to carry up the two flights of stairs.",
+     "stem": "Which correction is needed?",
+     "options": [
+      "“to heavy” → “too heavy”",
+      "“to carry” → “too carry”",
+      "“two flights” → “too flights”",
+      "No correction is needed."
+     ],
+     "answer": 0,
+     "why": "The suitcase was heavier than was good: **too** heavy. “To carry” and “two flights” are correct."
+    },
+    {
+     "passage": "After the long match, both teams were tired. Our team did not want to lose, but we lost by ___ goals. Our coach said we played well ___.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "to, too",
+      "too, two",
+      "two, to",
+      "two, too"
+     ],
+     "answer": 3,
+     "why": "The number of goals → **two**. The coach says we played well **also** → **too**."
+    }
+   ],
+   "again": {
+    "title": "One question each",
+    "text": "Ask one question for each word:\n\n1. Can I put “very” in front of it? → **loose** (very loose)\n2. Can I put “will” in front of it? → **lose** (will lose)\n3. Can I count with it? → **two**",
+    "example": "“Don't ___ your ticket.” → “will ___”? Yes → **lose**.\n\n“My watch strap is ___.” → “very ___”? Yes → **loose**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "More words that trick writers",
+     "text": "**accept** = agree to take: “accept an invitation”\n**except** = but not: “everyone except Ali”\n\n**than** = compares: “taller than”\n**then** = time or next: “first… then…”"
+    },
+    {
+     "title": "affect or effect?",
+     "text": "**affect** is usually a **verb**: “Heat can **affect** your sleep.”\n\n**effect** is usually a **noun**: “Heat has an **effect** on sleep.”\n\nTip: **a**ffect = **a**ction; **e**ffect = **e**nd result."
+    },
+    {
+     "title": "quiet or quite?",
+     "text": "**quiet** = little noise: “a quiet room”\n**quite** = fairly or very: “quite late”\n\nAnd keep checking the old pairs: **lose / loose, to / too / two, threw / through, knew / new**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "In editing questions, the sentence around the word is your evidence.\n\n1. Decide what **job** the word does: verb, noun, describing word, comparison or time.\n2. Find the clue: an article (“an effect”), a comparison (“more… than”), or a group (“everyone except”).\n3. Choose the word whose meaning matches that job."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The new rules will effect every student.",
+      "role": "key"
+     },
+     {
+      "t": "After a month, the school will measure their effect.",
+      "role": "detail"
+     }
+    ],
+    "explain": "In sentence 1, “will ___ every student” needs a **verb**, so it should be **affect**.\n\nIn sentence 2, “their ___” needs a **noun**, so **effect** is correct."
+   },
+   "together": {
+    "passage": "Our school held a week without screens. At first, the week was harder then most students expected. Everyone except the teachers had to leave their tablets at home. During break, the playground looked quite different: instead of staring at screens, students played games and talked. By Thursday, the library was full, and it was quiet enough to hear pages turn. At the end of the week, many students agreed that the break had a good effect on their mood.",
+    "stem": "Which change corrects the error in the passage?",
+    "options": [
+     "Change “then” to “than”",
+     "Change “except” to “accept”",
+     "Change “quite” to “quiet”",
+     "Change “effect” to “affect”"
+    ],
+    "answer": 0,
+    "hint": "Look for a sentence that compares two things. Which word is used for comparing?",
+    "good": "Yes! “Harder **than** most students expected” is a comparison, so it needs **than**, not “then”."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school held a week without screens.",
+     "At first, the week was harder then most students expected.",
+     "Everyone except the teachers had to leave their tablets at home.",
+     "During break, the playground looked quite different: instead of staring at screens, students played games and talked.",
+     "By Thursday, the library was full, and it was quiet enough to hear pages turn.",
+     "At the end of the week, many students agreed that the break had a good effect on their mood."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that contains the error.",
+    "wrong": "Every word in this sentence is correct. Look for a comparison that uses the wrong word."
+   },
+   "checks": [
+    {
+     "passage": "The coach said he would ___ new players for the team, but only those who came to every practice.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "except",
+      "accept",
+      "effect",
+      "excess"
+     ],
+     "answer": 1,
+     "why": "The coach will agree to take new players → **accept**. “Except” means but not."
+    },
+    {
+     "passage": "Lack of sleep can ___ how well students remember what they learn.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "effects",
+      "effect",
+      "affection",
+      "affect"
+     ],
+     "answer": 3,
+     "why": "After “can” we need a verb meaning to change or influence → **affect**."
+    },
+    {
+     "passage": "The library was so ___ that Huda could hear the clock ticking.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "quite",
+      "quit",
+      "quiet",
+      "quietly"
+     ],
+     "answer": 2,
+     "why": "Hearing a clock tick shows there was very little noise → **quiet**."
+    }
+   ],
+   "again": {
+    "title": "Swap test",
+    "text": "Try a simple word in the blank:\n\n1. Can you use **“but not”**? → except\n2. Can you use **“next”**? → then\n3. Can you use **“the result”**? → effect\n4. Can you use **“change”**? → affect",
+    "example": "“The storm will ___ our trip.” → “The storm will **change** our trip.” Yes → **affect**."
+   }
+  }
+ }
+}

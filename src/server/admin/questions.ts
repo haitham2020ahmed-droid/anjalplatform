@@ -136,6 +136,12 @@ async function questionInSchool(repo: Repo, actor: Actor, id: string): Promise<R
 }
 
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
+/** A question's tags as an object (stored as JSON; older rows may hold a string). */
+const tagsOf = (v: unknown): Record<string, unknown> => {
+  if (!v) return {};
+  if (typeof v === "string") { try { return (JSON.parse(v) ?? {}) as Record<string, unknown>; } catch { return {}; } }
+  return v as Record<string, unknown>;
+};
 
 /**
  * Editing rule. Drafts and items under review: as before. PUBLISHED: may be edited directly by
@@ -509,11 +515,18 @@ async function publishChecked(repo: Repo, actor: Actor, q: Row, now: Date, extra
   // validate the stored item again before it can reach students
   const form = await getQuestion(repo, actor, id);
   await toBankItem(repo, actor, form.input, String(q.externalRef ?? id));
-  const revisionOf = (q.tags as { revisionOf?: string } | null)?.revisionOf;
+  const revisionOf = tagsOf(q.tags).revisionOf as string | undefined;
+  const old = revisionOf ? await repo.findUnique("Question", { id: revisionOf }) : null;
   await repo.transaction(async (tx) => {
     await tx.updateMany("Question", { id }, { status: "PUBLISHED", publishedAt: now, reviewedById: actor.userId, aiStatus: q.origin === "AI_GENERATED" ? "APPROVED" : q.aiStatus ?? null, updatedAt: now });
-    if (revisionOf) await tx.updateMany("Question", { id: revisionOf, status: "PUBLISHED" }, { status: "ARCHIVED", updatedAt: now });
+    // the old version is archived and points at the one that replaced it
+    if (old && old.status === "PUBLISHED") await tx.updateMany("Question", { id: revisionOf!, status: "PUBLISHED" }, { status: "ARCHIVED", tags: { ...tagsOf(old.tags), replacedBy: id }, updatedAt: now });
   });
+  // r67: the new version takes the old one's place everywhere (map place, uses, ReadMaster, NAFS bank, sets not started)
+  if (old && old.status === "PUBLISHED") {
+    const { swapInSets } = await import("../questions/question-sets");
+    await swapInSets(repo, schoolOf(actor), new Map([[String(revisionOf), id]]), now);
+  }
   await audit(repo, {
     actorId: actor.userId, action: "question.publish", entityType: "Question", entityId: id, before: { status: String(q.status) },
     after: { status: "PUBLISHED", note: extra.note ?? null, replaces: revisionOf ?? null, selfApproved: q.createdById === actor.userId, ...(extra.bulk ? { bulk: true } : {}) }, at: now,
@@ -588,13 +601,42 @@ export async function archiveQuestion(repo: Repo, actor: Actor, id: string, reas
   await audit(repo, { actorId: actor.userId, action: "question.archive", entityType: "Question", entityId: id, before: { status: q.status }, after: { status: "ARCHIVED", reason: r }, at: now });
 }
 
+/**
+ * The open new version (DRAFT / UNDER_REVIEW) of a published question, or null. Found by its reference (“<ref>.vN”,
+ * indexed) and its tags.revisionOf — not by skill: a draft moved to another skill is still found.
+ */
+export async function openRevisionOf(repo: Repo, id: string): Promise<string | null> {
+  const q = await repo.findUnique("Question", { id });
+  if (!q) return null;
+  const base = String(q.externalRef ?? id).replace(/\.v\d+$/, "");
+  const rows = await repo.findMany("Question", { externalRef: { contains: `${base}.v` }, status: { in: ["DRAFT", "UNDER_REVIEW"] }, deletedAt: null }, { select: ["id", "tags"], take: 20 });
+  return rows.map((r) => (tagsOf(r.tags).revisionOf === id ? String(r.id) : null)).find(Boolean) ?? null;
+}
+
+/**
+ * ✏️ An admin's “Edit anyway” of a published question students have answered (owner, r67): the change is saved as a
+ * new version behind the scenes and published at once — the old version (whose answers belong to its wording) is
+ * archived and the new one takes its place everywhere (publishChecked). Returns the new version's id.
+ */
+export async function editPublishedAsNewVersion(repo: Repo, actor: Actor, id: string, input: EditorInput, now = new Date()): Promise<string> {
+  assertCan(actor, "questions:publish");
+  if (!isAdmin(actor)) throw new ForbiddenError("Only an admin can change a question students have answered.");
+  const q = await questionInSchool(repo, actor, id);
+  if (q.status !== "PUBLISHED") throw new ValidationError("Only a published question is changed this way.");
+  const newId = await reviseQuestion(repo, actor, id, now);
+  await updateDraft(repo, actor, newId, input, now);
+  const fresh = (await repo.findUnique("Question", { id: newId }))!;
+  await publishChecked(repo, actor, fresh, now, { note: "Edit anyway: the change of an answered question, published as a new version" });
+  return newId;
+}
+
 /** New DRAFT version of a published question; the original stays live until the revision is approved. */
 export async function reviseQuestion(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<string> {
   assertCan(actor, "questions:edit");
   const q = await questionInSchool(repo, actor, id);
   if (q.status !== "PUBLISHED") throw new ValidationError("Only published questions are revised; edit drafts directly.");
-  const open = (await repo.findMany("Question", { skillId: q.skillId, status: { in: ["DRAFT", "UNDER_REVIEW"] } })).find((x) => (x.tags as { revisionOf?: string } | null)?.revisionOf === id);
-  if (open) return String(open.id);
+  const open = await openRevisionOf(repo, id);
+  if (open) return open;
   const form = await getQuestion(repo, actor, id);
   const version = num(q.version) + 1;
   const ref = `${String(q.externalRef ?? id).replace(/\.v\d+$/, "")}.v${version}`;
@@ -603,7 +645,7 @@ export async function reviseQuestion(repo: Repo, actor: Actor, id: string, now =
     const n = await tx.create("Question", {
       externalRef: ref, skillId: q.skillId, standardId, passageId, typeId: q.typeId, stem: item.stem, content: contentPayload(item), hint: q.hint ?? null,
       difficultyLevel: item.level, irtA: q.irtA, irtB: q.irtB, irtC: q.irtC, calibrated: q.calibrated, estimatedSeconds: item.estimatedSeconds,
-      tags: { ...((q.tags as Record<string, unknown> | null) ?? {}), revisionOf: id }, status: "DRAFT", origin: q.origin, aiStatus: q.aiStatus ?? null, contentHash: q.contentHash ?? null, imageId: q.imageId ?? null,
+      tags: { ...Object.fromEntries(Object.entries(tagsOf(q.tags)).filter(([k]) => k !== "replacedBy")), revisionOf: id }, status: "DRAFT", origin: q.origin, aiStatus: q.aiStatus ?? null, contentHash: q.contentHash ?? null, imageId: q.imageId ?? null,
       mapTest: q.mapTest ?? null, mapInstructionalArea: q.mapInstructionalArea ?? null, mapAreaSource: q.mapAreaSource ?? null,
       version, createdById: actor.userId, createdAt: now, updatedAt: now,
     });
@@ -815,6 +857,14 @@ export interface QuestionDetail {
   /** May approve or reject this AI-drafted question (teachers and admins with questions:review). */
   canReviewAi: boolean;
   revisionOf: string | null;
+  /** a published question's new version being edited (draft / waiting for review), if any */
+  openRevision: string | null;
+  /** students have answered it (its wording is then changed only through a new version) */
+  answered: boolean;
+  /** an archived old version: the question that replaced it */
+  replacedBy: string | null;
+  /** an admin may change this published, answered question anyway: the change is saved as a new version and published */
+  canEditAnyway: boolean;
   input: EditorInput;
   /** NWEA MAP: the saved area and how it was decided (STANDARD, SKILL, TEXT, IMPORT, ADMIN, AI …) */
   map: { test: string | null; area: string | null; source: string | null };
@@ -868,11 +918,17 @@ export async function getQuestion(repo: Repo, actor: Actor, id: string): Promise
   const users = logs.length ? await repo.findMany("User", { id: { in: [...new Set(logs.map((l) => l.actorId).filter(Boolean))] } }, { select: ["id", "displayName"] }) : [];
   const after = (l: Row) => (typeof l.after === "string" ? JSON.parse(l.after) : l.after ?? {}) as { note?: string; reason?: string };
   const editable = await mayEditQuestion(repo, actor, q).then(() => true, () => false);
+  const [openRevision, answered] = await Promise.all([
+    q.status === "PUBLISHED" ? openRevisionOf(repo, id) : Promise.resolve(null),
+    q.status === "PUBLISHED" ? repo.findMany("QuestionAttempt", { questionId: id }, { select: ["questionId"], take: 1 }).then((r) => r.length > 0) : Promise.resolve(false),
+  ]);
   return {
     id, ref: String(q.externalRef ?? ""), status: String(q.status) as QuestionStatus, origin: String(q.origin), version: num(q.version), mine: q.createdById === actor.userId,
     canEdit: editable, canReview: q.status === "UNDER_REVIEW" && can(actor, "questions:publish") && (q.createdById !== actor.userId || isAdmin(actor)),
     canReviewAi: q.origin === "AI_GENERATED" && (q.status === "DRAFT" || q.status === "UNDER_REVIEW") && can(actor, "questions:review") && (q.createdById !== actor.userId || isAdmin(actor)),
-    revisionOf: (q.tags as { revisionOf?: string } | null)?.revisionOf ?? null, input,
+    revisionOf: (tagsOf(q.tags).revisionOf as string | undefined) ?? null, input,
+    openRevision, answered, replacedBy: (tagsOf(q.tags).replacedBy as string | undefined) ?? null,
+    canEditAnyway: q.status === "PUBLISHED" && !editable && isAdmin(actor) && can(actor, "questions:publish"),
     map: { test: q.mapTest ? String(q.mapTest) : null, area: q.mapInstructionalArea ? String(q.mapInstructionalArea) : null, source: q.mapAreaSource ? String(q.mapAreaSource) : null },
     history: logs
       .map((l) => ({ at: (l.createdAt instanceof Date ? l.createdAt : new Date(String(l.createdAt))).toISOString(), action: String(l.action), by: String(users.find((u) => u.id === l.actorId)?.displayName ?? ""), note: after(l).note ?? after(l).reason ?? null }))

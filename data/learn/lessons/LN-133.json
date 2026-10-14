@@ -1,0 +1,486 @@
+{
+ "code": "LN-133",
+ "title": "Hidden connections between ideas",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.3.3",
+  "RI.4.3",
+  "RI.5.3",
+  "RI.6.3",
+  "RI.7.3",
+  "RI.8.3"
+ ],
+ "families": [
+  "inference"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0350",
+  "R-0351",
+  "R-0527",
+  "R-0528",
+  "R-0719",
+  "R-0720",
+  "R-0895",
+  "R-0906",
+  "R-1031",
+  "R-1040",
+  "R-1088",
+  "R-1109"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Ideas are linked",
+     "text": "Ideas in a text are **linked**. One thing can **cause** another.\n\nSometimes the author does **not** say *because* or *so*. You have to see the link yourself."
+    },
+    {
+     "title": "Find the hidden link",
+     "text": "*The ice cream sat in the sun. Soon it was a puddle.*\n\nThe text does not say *because*. But you can tell: the **sun** made the ice cream **melt**."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read two sentences.\n2. Ask: **Did the first thing make the second thing happen?**\n3. If yes, you found a hidden link."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The link is not written, but the **clues are**.\n\n1. Find the thing that happened.\n2. Look at the sentence **before** it.\n3. Ask: did that make it happen?\n\nThe two sentences together prove the link."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "No one watered the plant for two weeks.",
+      "role": "key"
+     },
+     {
+      "t": "Its leaves turned brown.",
+      "role": "key"
+     },
+     {
+      "t": "Then it died.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The text does not say why the plant died. But sentence 1 says **no one watered it**. That is the hidden cause."
+   },
+   "together": {
+    "passage": "Sami stayed up very late. He played games until midnight. In the morning, he could not wake up. He missed the bus.",
+    "stem": "Why did Sami miss the bus?",
+    "options": [
+     "The bus came too early.",
+     "He went to bed too late.",
+     "He lost his bag.",
+     "He did not like school."
+    ],
+    "answer": 1,
+    "hint": "The text does not say 'because'. What did Sami do the night before?",
+    "good": "Yes! He stayed up late, so he could not wake up, so he missed the bus."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami stayed up very late.",
+     "He played games until midnight.",
+     "In the morning, he could not wake up.",
+     "He missed the bus."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: he went to bed too late. Tap 2 sentences that show the link.",
+    "wrong": "This sentence is part of the story, but it does not show WHY he missed the bus. Find the cause and what it led to."
+   },
+   "checks": [
+    {
+     "passage": "Mona ran all the way to school. Her face was red. She could not stop breathing hard.",
+     "stem": "Why was Mona breathing hard?",
+     "options": [
+      "She was sick.",
+      "She was sad.",
+      "She had run fast.",
+      "She was cold."
+     ],
+     "answer": 2,
+     "why": "She ran all the way, so she was out of breath."
+    },
+    {
+     "passage": "The road was wet. A car came too fast. It slid off the road.",
+     "stem": "Why did the car slide?",
+     "options": [
+      "The wet road and its speed.",
+      "The car was new.",
+      "The road was dry.",
+      "The car was very small."
+     ],
+     "answer": 0,
+     "why": "A wet road and a fast car together made the car slide."
+    },
+    {
+     "passage": "Dad left the gate open. Our goat walked out. We looked for her all day.",
+     "stem": "How did the goat get out?",
+     "options": [
+      "She jumped the wall.",
+      "A friend took her.",
+      "She dug a hole.",
+      "The gate was left open."
+     ],
+     "answer": 3,
+     "why": "The open gate let the goat walk out."
+    }
+   ],
+   "again": {
+    "title": "What made it happen?",
+    "text": "Put your finger on the thing that happened. Then move back one sentence. Ask: **Is this the reason?**",
+    "example": "The baby heard a loud bang. She started to cry.\n\nWhat happened? **She cried.** Back one sentence: **a loud bang.** That is the reason."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Hidden links",
+     "text": "Authors connect ideas with words like *because*, *so*, *then* and *however*. But often they **leave those words out**.\n\nGood readers still see how the ideas are **connected**."
+    },
+    {
+     "title": "Kinds of links",
+     "text": "1. **Cause and effect:** one thing makes another happen.\n2. **Sequence:** one thing must happen before another.\n3. **Comparison:** two things are alike or different."
+    },
+    {
+     "title": "Fill in the missing word",
+     "text": "Try adding a linking word between two sentences.\n\n*The well dried up. The family moved to the city.*\n\nAdd **so**: *The well dried up, **so** the family moved.* If it makes sense, that is the hidden link."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a hidden link, find **both ideas** in the text.\n\n1. Find the first idea (the cause or the earlier step).\n2. Find the second idea (the effect or the later step).\n3. Check that the link makes sense with the facts.\n\nIf one of the ideas is not in the text, the link is not proved."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Strawberries grow well in the mountains near Taif.",
+      "role": "detail"
+     },
+     {
+      "t": "In winter, the nights there can become very cold.",
+      "role": "key"
+     },
+     {
+      "t": "Farmers cover their plants with plastic sheets in the evening.",
+      "role": "key"
+     },
+     {
+      "t": "In spring, the sheets come off.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The text never says **because**. But the cold nights (sentence 2) explain why the farmers covered the plants (sentence 3). Add **so** between them and it makes sense."
+   },
+   "together": {
+    "passage": "Bees visit flowers to collect nectar. As they move from flower to flower, yellow pollen sticks to their hairy bodies. Some of this pollen rubs off on the next flower they visit. Flowers that get pollen from other flowers of the same kind can make seeds and fruit. Farmers who grow almonds sometimes bring boxes of bees to their fields in spring.",
+    "stem": "Why do almond farmers most likely bring bees to their fields?",
+    "options": [
+     "Bees carry pollen that helps flowers make fruit.",
+     "Bees make the fields look nicer.",
+     "Bees eat insects that harm the trees.",
+     "Bees keep the flowers warm at night."
+    ],
+    "answer": 0,
+    "hint": "The last sentence does not say why. Go back: what do bees carry, and what does it help flowers do?",
+    "good": "Yes! Bees carry pollen between flowers, and pollen helps flowers make fruit, so farmers want bees."
+   },
+   "evidence": {
+    "sentences": [
+     "Bees visit flowers to collect nectar.",
+     "As they move from flower to flower, yellow pollen sticks to their hairy bodies.",
+     "Some of this pollen rubs off on the next flower they visit.",
+     "Flowers that get pollen from other flowers of the same kind can make seeds and fruit.",
+     "Farmers who grow almonds sometimes bring boxes of bees to their fields in spring."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: bees carry pollen that helps flowers make fruit. Tap 2 sentences that prove it.",
+    "wrong": "This sentence does not show how bees help the flowers make fruit. Find what bees carry and what it does."
+   },
+   "checks": [
+    {
+     "passage": "The town built a new park with tall shade trees and water fountains. In the past, families stayed indoors on summer evenings. This summer, the park is crowded every night.",
+     "stem": "What is the hidden link in this text?",
+     "options": [
+      "The fountains caused the hot weather.",
+      "Families stopped liking their homes.",
+      "The new park gave families a cool place to go out.",
+      "The park was built because families were bored."
+     ],
+     "answer": 2,
+     "why": "Shade and water make the park comfortable, so families who used to stay inside now go out."
+    },
+    {
+     "passage": "Laila practised the piece on the oud every afternoon for a month. At the school concert, her fingers moved smoothly and she did not miss a single note.",
+     "stem": "How are the two sentences connected?",
+     "options": [
+      "Laila was born a perfect player.",
+      "Laila played badly at the concert.",
+      "The concert was a month long.",
+      "Her practice led to playing well."
+     ],
+     "answer": 3,
+     "why": "The first sentence is the cause (daily practice) and the second is the effect (playing smoothly)."
+    },
+    {
+     "passage": "Long ago, before coins, people traded goods directly. A fisherman who wanted bread had to find a baker who wanted fish. Coins solved this. A baker could accept coins and later spend them on anything.",
+     "stem": "Why were coins easier than trading goods?",
+     "options": [
+      "Coins were made of fish.",
+      "Coins could be used to buy anything later.",
+      "Bakers did not like fish.",
+      "Paper money came before coins."
+     ],
+     "answer": 1,
+     "why": "With coins, the baker did not need to want fish; he could spend the coins on anything."
+    }
+   ],
+   "again": {
+    "title": "The 'so' test",
+    "text": "Read two sentences. Put **so** between them.\n\nIf the new sentence makes sense, the first idea **causes** the second.",
+    "example": "The shop had a big sale. The aisles were full of people.\n\n'The shop had a big sale, **so** the aisles were full.' It makes sense! The sale **caused** the crowd."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Reading between the ideas",
+     "text": "In longer texts, the most important links are often **implied**. The author gives the facts and trusts you to connect them.\n\nThis happens with events, steps in a process, and ideas in an explanation."
+    },
+    {
+     "title": "Ask connection questions",
+     "text": "1. **Why** did this happen? Look earlier in the text.\n2. **What did it lead to?** Look later.\n3. **How are these two alike or different?**\n4. **What must be true** for both facts to make sense?"
+    },
+    {
+     "title": "Across paragraphs",
+     "text": "A cause may be in the first paragraph and its effect in the last. Keep track of **important changes** in a text and look for what explains them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A hidden link is proved by **joining two pieces** of the text.\n\n1. Find a change or a result.\n2. Search the text for a fact that **explains** it.\n3. Check that nothing else in the text explains it better.\n\nYour answer should need **both** sentences. One alone is not enough."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For many years, the small island was known only to local fishermen.",
+      "role": "other"
+     },
+     {
+      "t": "Then scientists found that rare green turtles lay their eggs on its beaches each summer.",
+      "role": "key"
+     },
+     {
+      "t": "A short film about the turtles was shown on television.",
+      "role": "detail"
+     },
+     {
+      "t": "Today, visitors book boat trips to the island months in advance.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author never says why the island became famous. But the turtles (sentence 2) and the visitors (sentence 4) are joined: **people come to see the turtles.**"
+   },
+   "together": {
+    "passage": "In the 1800s, most families in the region lit their homes with oil lamps. Lamp oil was made from whale fat, and as demand grew, ships sailed farther and farther to find whales. The voyages became longer, more dangerous and more costly. Around the same time, a cheaper fuel called kerosene began to be made from petroleum. Within a few decades, many whaling ships stayed in port, and some whaling towns lost much of their business.",
+    "stem": "Which idea best explains the link between kerosene and the whaling towns?",
+    "options": [
+     "Kerosene was made from whale fat.",
+     "Whaling ships carried kerosene to other countries.",
+     "Cheaper kerosene replaced costly whale oil, so fewer whaling ships were needed.",
+     "The whaling towns started making kerosene."
+    ],
+    "answer": 2,
+    "hint": "The text does not say 'because of kerosene'. Compare the cost of whale oil and kerosene. What would buyers choose?",
+    "good": "Yes! Whale oil grew costly, kerosene was cheaper, so buyers switched and whaling towns lost business."
+   },
+   "evidence": {
+    "sentences": [
+     "In the 1800s, most families in the region lit their homes with oil lamps.",
+     "Lamp oil was made from whale fat, and as demand grew, ships sailed farther and farther to find whales.",
+     "The voyages became longer, more dangerous and more costly.",
+     "Around the same time, a cheaper fuel called kerosene began to be made from petroleum.",
+     "Within a few decades, many whaling ships stayed in port, and some whaling towns lost much of their business."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: cheaper kerosene replaced costly whale oil. Tap 2 sentences that, together, show this link.",
+    "wrong": "This sentence gives background about lamps. Find the sentences about cost and what happened to whaling."
+   },
+   "checks": [
+    {
+     "passage": "When the new highway opened, the drive from the village to the city fell from three hours to one. Within five years, many young people from the village were working in the city while still living at home.",
+     "stem": "What is the implied connection between the highway and the young people?",
+     "options": [
+      "The highway made city jobs reachable.",
+      "Young people built the highway.",
+      "The village had no schools.",
+      "The city moved closer to the village."
+     ],
+     "answer": 0,
+     "why": "A one-hour drive made it possible to work in the city and still live at home."
+    },
+    {
+     "passage": "In the first month, Khalid's small juice stand sold only a few cups a day. He moved the stand from a quiet side street to the gate of the football stadium. On match days, he now runs out of juice by halftime.",
+     "stem": "Why do Khalid's sales most likely go up on match days?",
+     "options": [
+      "He changed the taste of the juice.",
+      "Football players buy all his juice.",
+      "The juice is free on match days.",
+      "Crowds of thirsty fans pass by the new spot."
+     ],
+     "answer": 3,
+     "why": "Moving from a quiet street to the stadium gate put the stand where large crowds pass."
+    },
+    {
+     "passage": "Polar bears hunt seals from the edge of sea ice. Scientists report that the ice now forms later in autumn and melts earlier in spring. Many bears are thinner than bears measured thirty years ago.",
+     "stem": "What hidden link does the text suggest?",
+     "options": [
+      "Seals are hunting the bears.",
+      "Shorter ice seasons give bears less time to hunt.",
+      "Thin bears make the sea ice melt faster.",
+      "Scientists feed the bears too little."
+     ],
+     "answer": 1,
+     "why": "Bears hunt from the ice; shorter ice seasons mean fewer chances to catch seals, so the bears are thinner."
+    }
+   ],
+   "again": {
+    "title": "Connect the dots",
+    "text": "Draw an arrow between two facts in your head.\n\n**Fact A → Fact B.** Then read the arrow as **'led to'**. If it makes sense, you found the link.",
+    "example": "The school added a water fountain on each floor. Students bought fewer bottled drinks.\n\n**Fountains → fewer bought drinks.** 'The fountains **led to** students buying fewer drinks.' It makes sense."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex connections",
+     "text": "Advanced texts link ideas in ways that are **unstated and layered**: a cause with several effects, an effect with several causes, or a chain where each step triggers the next.\n\nIn memoirs and biographies, the link may be between a person's **early experience** and their **later choices**."
+    },
+    {
+     "title": "Types to watch for",
+     "text": "1. **Chain:** A → B → C, with only A and C clearly stated.\n2. **Multiple causes:** two conditions that together produce a result.\n3. **Influence:** an event that shapes a person's beliefs or actions years later.\n4. **Contrast:** an unexpected result that hints at a hidden factor."
+    },
+    {
+     "title": "Infer carefully",
+     "text": "An inferred link must be **supported**, not just possible. Ask: does the text give me the pieces? A choice that adds new facts the text never mentions is a guess, not an inference."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Build the connection from **pieces scattered** across the text.\n\n1. Identify the outcome the question asks about.\n2. Gather every detail that could explain it, even from distant paragraphs.\n3. Choose the link that uses the text's own facts and needs no outside guesses."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When Reem was eight, her brother fell ill, and the nearest clinic was two hours away by a rough road.",
+      "role": "key"
+     },
+     {
+      "t": "She remembered sitting in the back of the truck, counting the kilometres.",
+      "role": "detail"
+     },
+     {
+      "t": "She studied hard and won a place at medical school in the capital.",
+      "role": "detail"
+     },
+     {
+      "t": "After graduating, she turned down a hospital job in the city and opened a clinic in her home village.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author never says why Reem chose medicine. But the early detail (**the clinic was two hours away**) and the later choice (**she opened a clinic in her home village**) are connected: her childhood experience shaped her career."
+   },
+   "together": {
+    "passage": "In the early twentieth century, a small coastal town depended almost entirely on pearl diving. Divers spent the summer months at sea, and nearly every family had a father, son or cousin on the boats. Meanwhile, in a distant country, scientists had perfected a method of growing pearls on farms, producing them in large numbers. Merchants who once paid high prices for natural pearls began offering far less. The diving boats returned with the same hard-won harvest, yet families found they could no longer live on it. Within a generation, the town's young people were training as engineers, clerks and teachers, and the old boats were pulled onto the sand.",
+    "stem": "What implied chain of events best explains why the town's young people chose new careers?",
+    "options": [
+     "Pearl diving became illegal, so the boats were pulled onto the sand.",
+     "Farmed pearls lowered prices, diving no longer paid enough, so young people sought other work.",
+     "The divers found fewer pearls each year, so they stopped diving.",
+     "Engineers and teachers earned more because the town grew larger."
+    ],
+    "answer": 1,
+    "hint": "The text says the harvest stayed 'the same'. So the problem was not fewer pearls. What changed instead?",
+    "good": "Yes! Farmed pearls flooded the market, prices fell, diving stopped paying, and young people turned to new careers."
+   },
+   "evidence": {
+    "sentences": [
+     "In the early twentieth century, a small coastal town depended almost entirely on pearl diving.",
+     "Divers spent the summer months at sea, and nearly every family had a father, son or cousin on the boats.",
+     "Meanwhile, in a distant country, scientists had perfected a method of growing pearls on farms, producing them in large numbers.",
+     "Merchants who once paid high prices for natural pearls began offering far less.",
+     "The diving boats returned with the same hard-won harvest, yet families found they could no longer live on it.",
+     "Within a generation, the town's young people were training as engineers, clerks and teachers, and the old boats were pulled onto the sand."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: farmed pearls lowered prices, so diving no longer paid. Tap 2 sentences that form this chain.",
+    "wrong": "This sentence describes the town or its final change, but not what caused it. Find the links in the chain."
+   },
+   "checks": [
+    {
+     "passage": "The author's father refused to buy a television until the author was twelve. Evenings were spent in the courtyard, where neighbours gathered to tell stories of journeys and old trades. Today the author, a writer of travel books, says her best ideas come from listening to strangers talk.",
+     "stem": "What implied connection does the passage suggest?",
+     "options": [
+      "Childhood storytelling shaped her career.",
+      "Her father was a travel writer.",
+      "Television made her want to travel.",
+      "She dislikes television programmes about travel."
+     ],
+     "answer": 0,
+     "why": "Evenings of listening to stories in childhood link to a career built on listening to people."
+    },
+    {
+     "passage": "After the factory upstream closed, fishermen downstream noticed clearer water. Two years later, a species of small fish that had vanished from the river was seen again. Birds that feed on the fish began nesting along the banks.",
+     "stem": "Which chain does the passage imply?",
+     "options": [
+      "Birds cleaned the river, so the fish returned.",
+      "Fishermen caught all the birds, so fish increased.",
+      "The fish made the water clearer, so the factory closed.",
+      "Cleaner water after the factory closed brought fish, then birds."
+     ],
+     "answer": 3,
+     "why": "Each step leads to the next: no factory → clearer water → fish return → birds that eat fish nest nearby."
+    },
+    {
+     "passage": "Two neighbouring villages received the same new water pumps. In the first, a committee of residents was trained to repair them. In the second, the pumps were simply installed. Five years later, most pumps worked in the first village; in the second, most stood broken.",
+     "stem": "What hidden factor best explains the different results?",
+     "options": [
+      "The second village used more water.",
+      "The pumps in the first village were newer and stronger models.",
+      "The first village could repair its own pumps.",
+      "The first village had more rain."
+     ],
+     "answer": 2,
+     "why": "Everything was the same except the trained repair committee, so that training explains the difference."
+    }
+   ],
+   "again": {
+    "title": "The missing middle",
+    "text": "When the text gives a **start** and an **end**, look for the missing **middle step**.\n\nAsk: what had to happen in between for the end to make sense?",
+    "example": "Start: the city added bike lanes. End: fewer cars were on the main road.\n\nMissing middle: **some drivers switched to bikes.** That step connects the start and the end."
+   }
+  }
+ }
+}

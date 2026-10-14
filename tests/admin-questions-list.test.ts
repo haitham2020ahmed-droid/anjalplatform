@@ -153,7 +153,8 @@ describe("📚 Questions list on a 14,000-question bank", () => {
     const tabs = [...readFileSync("src/app/admin/questions/bank-tabs.tsx", "utf8").matchAll(/\{ href: "([^"]+)"/g)].map((m) => m[1]);
     assert.deepEqual(tabs, ["/admin/questions", "/admin/question-review", "/admin/question-flags", "/admin/item-quality", "/admin/bank-gaps", "/admin/questions/duplicates", "/admin/questions/import", "/admin/questions/load"]);
     const page = readFileSync("src/app/admin/questions/page.tsx", "utf8");
-    for (const want of ["questions are not under a skill.", "Sort them", "Publish them in Data Cleanup", "/admin/questions/unclassified", "/admin/data-cleanup", "listBankPage", "<BankTabs />"]) assert.ok(page.includes(want), want);
+    // r67: drafts and waiting questions are published by “Fix stuck questions” on this page (no second place)
+    for (const want of ["questions are not under a skill.", "Sort them", "/admin/questions/unclassified", "<FixStuck ", "listBankPage", "<BankTabs />"]) assert.ok(page.includes(want), want);
     for (const gone of ["MapPlacePicker", "editorOptions", "listQuestions(", "PrintToggle", "view=skills"]) assert.ok(!page.includes(gone), `removed: ${gone}`);
     for (const f of ["question-review", "question-flags", "item-quality", "bank-gaps", "questions/import", "questions/duplicates"]) assert.match(readFileSync(`src/app/admin/${f}/page.tsx`, "utf8"), /<BankTabs \/>/, f);
   });

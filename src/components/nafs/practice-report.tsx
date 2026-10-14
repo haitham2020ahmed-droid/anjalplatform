@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { TFn } from "@/i18n";
 import type { PracticeReport } from "@/server/nafs/practice";
 import { DIFFICULTY_NAME } from "@/server/nafs/framework";
+import { CodeHead } from "./code-name";
 
 const mmss = (sec: number) => { const m = Math.floor(sec / 60), s = sec % 60; return `${m}:${String(s).padStart(2, "0")}`; };
 const STATUS: Record<PracticeReport["students"][number]["status"], string> = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", DONE: "Finished" };
@@ -27,7 +28,7 @@ export function PracticeReportView({ r, t, closeHref }: { r: PracticeReport; t: 
               <th className="py-2 pe-3 text-start">{t("Status")}</th>
               <th className="py-2 pe-3 text-end">{t("Accuracy")}</th>
               <th className="py-2 pe-3 text-end">{t("Time spent")}</th>
-              {r.targets.map((x) => <th key={x.code} className="py-2 pe-3 text-start" title={t(x.name)}><span dir="ltr">{t(x.short)}</span></th>)}
+              {r.targets.map((x) => <th key={x.code} className="py-2 pe-3 align-bottom"><CodeHead code={x.code} t={t} /></th>)}
             </tr>
           </thead>
           <tbody className="divide-y divide-line">

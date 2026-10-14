@@ -1,0 +1,501 @@
+{
+ "code": "LN-125",
+ "title": "Comparing two texts on a topic",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.1.9",
+  "RI.2.9",
+  "RI.3.9",
+  "RI.4.6",
+  "RI.4.9",
+  "RI.5.6",
+  "RI.5.9",
+  "RI.6.6",
+  "RI.7.9",
+  "RI.8.9"
+ ],
+ "families": [
+  "compare-texts"
+ ],
+ "skillNames": [
+  "Compare and Contrast Texts"
+ ],
+ "statements": [
+  "R-0325",
+  "R-0338",
+  "R-0345",
+  "R-0499",
+  "R-0536",
+  "R-0537",
+  "R-0684",
+  "R-0736",
+  "R-0756",
+  "R-0880",
+  "R-0924",
+  "R-1048"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two texts, same topic",
+     "text": "Two texts can be about the **same topic** but tell **different things**.\n\nYou can **compare** them: what is the **same**? What is **different**?"
+    },
+    {
+     "title": "Same details",
+     "text": "Sometimes both texts tell the **same fact**.\n\nText 1: Owls hunt at night.\nText 2: Owls look for food in the dark.\n\nThe words are different, but the fact is the **same**."
+    },
+    {
+     "title": "Different details",
+     "text": "Sometimes one text tells something the other does **not**.\n\n1. Read Text 1. Read Text 2.\n2. Find a fact in **both**.\n3. Find a fact in only **one**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to **both** texts.\n\n1. To show a **same** fact, find it in Text 1 **and** in Text 2.\n2. To show a **different** fact, find it in only one text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: Lions live in Africa.",
+      "role": "key"
+     },
+     {
+      "t": "They live in big groups.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: Most lions live in Africa.",
+      "role": "key"
+     },
+     {
+      "t": "They sleep most of the day.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Same:** both texts say lions live in Africa.\n\n**Different:** only Text 1 tells about groups. Only Text 2 tells about sleep."
+   },
+   "together": {
+    "passage": "Text 1: Rain helps plants grow. Farmers are happy when it rains.\n\nText 2: Plants need rain to grow. Too much rain can flood a farm.",
+    "stem": "What do BOTH texts say?",
+    "options": [
+     "Rain can flood a farm.",
+     "Farmers are happy.",
+     "Plants need rain to grow.",
+     "Rain is cold."
+    ],
+    "answer": 2,
+    "hint": "Only one text says that. Find a fact that is in Text 1 AND Text 2.",
+    "good": "Yes! Text 1 says rain helps plants grow, and Text 2 says plants need rain to grow."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Rain helps plants grow.",
+     "Farmers are happy when it rains.",
+     "Text 2: Plants need rain to grow.",
+     "Too much rain can flood a farm."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: plants need rain to grow. Tap the sentence in Text 1 and the sentence in Text 2 that say this.",
+    "wrong": "This fact is in only one text. Find the sentence about plants growing in each text."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: Dolphins live in the sea. They are very smart.\n\nText 2: Dolphins swim in groups. They are clever animals.",
+     "stem": "What do both texts say?",
+     "options": [
+      "Dolphins swim in groups.",
+      "Dolphins are smart.",
+      "Dolphins eat fish.",
+      "Dolphins live in rivers."
+     ],
+     "answer": 1,
+     "why": "Text 1 says smart and Text 2 says clever. Both mean the same thing."
+    },
+    {
+     "passage": "Text 1: Our school has a big library. It has many books.\n\nText 2: Our school library has many books. It also has computers.",
+     "stem": "What does only Text 2 tell?",
+     "options": [
+      "The library has computers.",
+      "The library has many books.",
+      "The school has a library.",
+      "The library is big."
+     ],
+     "answer": 0,
+     "why": "Only Text 2 says the library has computers."
+    },
+    {
+     "passage": "Text 1: Kites fly in the wind. Many kites are red.\n\nText 2: Kites need wind to fly. Kids fly kites at the beach.",
+     "stem": "What does only Text 1 tell?",
+     "options": [
+      "Kites need wind.",
+      "Kids go to the beach.",
+      "Kites fly high.",
+      "Many kites are red."
+     ],
+     "answer": 3,
+     "why": "Only Text 1 says that many kites are red."
+    }
+   ],
+   "again": {
+    "title": "Same or not same?",
+    "text": "Read one fact from Text 1. Look for it in Text 2.\n\nIf you find it, it is **the same**. If you do not, it is **different**.",
+    "example": "Text 1: Ants are strong. Ants live in nests.\nText 2: Ants live in nests. Ants are small.\n\nSame: **ants live in nests**. Different: strong (Text 1), small (Text 2)."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Comparing two texts",
+     "text": "When two texts share a topic, good readers compare their **details** and their **focus**.\n\nThe **focus** is the part of the topic each author pays most attention to."
+    },
+    {
+     "title": "Different focus",
+     "text": "Two texts about dates might focus on different things:\n\nText 1: how date palms are grown.\nText 2: why dates are healthy to eat.\n\nSame topic, **different focus**."
+    },
+    {
+     "title": "Summarize the comparison",
+     "text": "1. Name the shared **topic**.\n2. Say what **both** texts tell.\n3. Say what **each** text focuses on.\n\nPut it in one or two sentences: Both texts... but Text 1... while Text 2..."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the focus of each text.\n\n1. Find the sentences that most of each text is about.\n2. Show a sentence from **Text 1** and one from **Text 2**.\n3. Reject answers that describe only one text or neither."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: The Masjid an-Nabawi in Madinah has huge umbrellas that open to give shade in the courtyard.",
+      "role": "detail"
+     },
+     {
+      "t": "They protect worshippers from the strong sun.",
+      "role": "key"
+     },
+     {
+      "t": "Text 2: The Masjid an-Nabawi was first built by the Prophet Muhammad (peace be upon him) and his companions.",
+      "role": "detail"
+     },
+     {
+      "t": "Over the centuries, it has been expanded many times.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both texts are about the same mosque. **Text 1** focuses on **its shade umbrellas today**. **Text 2** focuses on **its history**.\n\nSame topic, different focus."
+   },
+   "together": {
+    "passage": "Text 1: Falconry has been part of life on the Arabian Peninsula for thousands of years. In the past, Bedouins trained falcons to hunt birds and hares in the desert. This helped families find food.\n\nText 2: Today, falcon owners bring their birds to festivals and races. Judges score the falcons on speed and beauty. Some falcons even travel with passports.",
+    "stem": "How is the focus of Text 1 different from the focus of Text 2?",
+    "options": [
+     "Text 1 tells how to buy a falcon; Text 2 tells how to feed one.",
+     "Text 1 focuses on falconry in the past; Text 2 focuses on falconry today.",
+     "Text 1 is about hares; Text 2 is about passports.",
+     "Both texts focus only on falcon races."
+    ],
+    "answer": 1,
+    "hint": "Look at time words: for thousands of years, in the past, today.",
+    "good": "Yes! Text 1 tells how falcons helped families hunt long ago. Text 2 tells about festivals and races today."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Falconry has been part of life on the Arabian Peninsula for thousands of years.",
+     "In the past, Bedouins trained falcons to hunt birds and hares in the desert.",
+     "This helped families find food.",
+     "Text 2: Today, falcon owners bring their birds to festivals and races.",
+     "Judges score the falcons on speed and beauty.",
+     "Some falcons even travel with passports."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Text 1 is about the past, Text 2 is about today. Tap 1 sentence from each text that shows its focus.",
+    "wrong": "This sentence adds a detail but does not show the time focus. Find the sentences with in the past or today."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: Solar panels turn sunlight into electricity. They work best in sunny places.\n\nText 2: Saudi Arabia gets strong sunshine for most of the year. Large solar farms are being built in the desert.",
+     "stem": "Which sentence best summarizes how the two texts are alike?",
+     "options": [
+      "Both texts explain how electricity is stored.",
+      "Both texts are about deserts without sunshine.",
+      "Both texts say that sunshine is useless.",
+      "Both texts connect sunshine with making electricity."
+     ],
+     "answer": 3,
+     "why": "Text 1 explains that panels turn sunlight into electricity; Text 2 tells about solar farms in a sunny country."
+    },
+    {
+     "passage": "Text 1: The Arabian leopard is the largest wild cat in Arabia. It has a pale coat with dark spots.\n\nText 2: Fewer than 200 Arabian leopards may be left in the wild. Scientists are working to protect them.",
+     "stem": "What is the focus of Text 2?",
+     "options": [
+      "How the leopard looks and its coat",
+      "Protecting a leopard that is in danger",
+      "Where the leopard hunts for food",
+      "Why leopards have dark spots"
+     ],
+     "answer": 1,
+     "why": "Text 2 talks about how few leopards are left and how scientists protect them."
+    },
+    {
+     "passage": "Text 1: Trains carry many people at once and cause less traffic.\n\nText 2: Trains carry heavy goods, like steel and grain, across long distances.",
+     "stem": "How do the details in the two texts differ?",
+     "options": [
+      "Text 1 is about carrying people; Text 2 is about carrying goods.",
+      "Text 1 is about planes; Text 2 is about ships at sea.",
+      "Both texts say that trains are slow and carry little.",
+      "Both texts are only about traffic in big cities."
+     ],
+     "answer": 0,
+     "why": "Text 1 focuses on passengers, while Text 2 focuses on heavy goods."
+    }
+   ],
+   "again": {
+    "title": "One topic, two spotlights",
+    "text": "Imagine a stage with **one topic** on it. Each author shines a **spotlight** on a different part.\n\nAsk: **Where is each spotlight shining?** That is each text's focus.",
+    "example": "Topic: camels.\nText 1 spotlight: **how camels survive heat**.\nText 2 spotlight: **camel races and festivals**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Comparing main ideas",
+     "text": "Two texts on the same topic may have **different main ideas**: different points the authors want you to understand.\n\nTo compare them, first find the **main idea of each text**, then ask how they **relate**."
+    },
+    {
+     "title": "How main ideas relate",
+     "text": "1. They may **agree** and support each other.\n2. One may **add to** the other (a cause and its effect, a problem and a solution).\n3. They may **differ**, looking at the topic from different sides."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Write the main idea of Text 1 in one sentence.\n2. Write the main idea of Text 2.\n3. Compare: same, adds to, or different?\n4. Check each against its own text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your comparison with **each text's main idea sentence** or key details.\n\n1. Find the sentence that sums up Text 1.\n2. Find the sentence that sums up Text 2.\n3. Make sure your answer describes **both** correctly."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: Video games can improve problem-solving, because players must plan and think quickly.",
+      "role": "key"
+     },
+     {
+      "t": "Some games even teach history and science.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: Playing video games for many hours can harm sleep and reduce time for exercise.",
+      "role": "key"
+     },
+     {
+      "t": "Doctors suggest setting time limits.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Main idea of Text 1: **games can help thinking**. Main idea of Text 2: **too much gaming can harm health**.\n\nThe main ideas **differ**: one looks at benefits, the other at risks."
+   },
+   "together": {
+    "passage": "Text 1: Coral reefs are some of the richest habitats on Earth. Thousands of kinds of fish, crabs and other animals live among the coral. Reefs also protect coastlines by breaking the force of waves.\n\nText 2: Around the world, many coral reefs are in trouble. When ocean water becomes too warm, corals lose the tiny algae that give them food and colour, and they turn white. If the water stays warm too long, the corals can die.",
+    "stem": "How does the main idea of Text 2 relate to the main idea of Text 1?",
+    "options": [
+     "Text 2 repeats exactly what Text 1 says about fish and crabs.",
+     "Text 2 disagrees that reefs are home to many kinds of animals.",
+     "Text 1 shows reefs are valuable, and Text 2 shows they are in danger.",
+     "Both texts explain how waves are formed."
+    ],
+    "answer": 2,
+    "hint": "First find the main idea of each text. Is Text 2 about the value of reefs or about a problem?",
+    "good": "Yes! Text 1's main idea is that reefs are rich and useful. Text 2's main idea is that reefs are threatened by warming water."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Coral reefs are some of the richest habitats on Earth.",
+     "Thousands of kinds of fish, crabs and other animals live among the coral.",
+     "Reefs also protect coastlines by breaking the force of waves.",
+     "Text 2: Around the world, many coral reefs are in trouble.",
+     "When ocean water becomes too warm, corals lose the tiny algae that give them food and colour, and they turn white.",
+     "If the water stays warm too long, the corals can die."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Text 1 shows reefs are valuable, Text 2 shows they are in danger. Tap the main idea sentence of each text.",
+    "wrong": "This sentence is a supporting detail. Find the sentence in each text that sums it up."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: Reading on paper helps many students remember more, because they can see where information sits on the page.\n\nText 2: E-readers let students carry many books, change the text size and look up words instantly.",
+     "stem": "How do the main ideas of the two texts differ?",
+     "options": [
+      "Text 1 says paper helps memory; Text 2 says e-readers are convenient.",
+      "Both texts say e-readers are better than paper for memory.",
+      "Text 1 is about libraries; Text 2 is about school lessons.",
+      "Both texts argue that students should read less each day."
+     ],
+     "answer": 0,
+     "why": "Each text points to a different advantage: memory for paper, convenience for e-readers."
+    },
+    {
+     "passage": "Text 1: Bees pollinate many of the crops people eat, from apples to almonds.\n\nText 2: Without pollinators like bees, farmers would harvest far less fruit and many foods would cost more.",
+     "stem": "How does Text 2 relate to Text 1?",
+     "options": [
+      "It disagrees with Text 1 about what bees do.",
+      "It is about a different topic from Text 1.",
+      "It gives the history of farming apples and almonds.",
+      "It explains what would happen if the role in Text 1 were lost."
+     ],
+     "answer": 3,
+     "why": "Text 1 explains bees' role; Text 2 adds the effect of losing that role."
+    },
+    {
+     "passage": "Text 1: Building a new road through the valley will cut travel time to the city in half.\n\nText 2: The planned road through the valley would destroy the habitat of rare birds.",
+     "stem": "Which statement best compares the main ideas?",
+     "options": [
+      "Both texts support building the road through the valley.",
+      "Text 1 shows a benefit of the road; Text 2 shows a cost.",
+      "Both texts are mainly about rare birds and their nests.",
+      "Text 2 explains how roads through valleys are built."
+     ],
+     "answer": 1,
+     "why": "Text 1 focuses on a benefit (faster travel), Text 2 on a cost (lost habitat). The main ideas look at different sides."
+    }
+   ],
+   "again": {
+    "title": "Two headlines",
+    "text": "Write a short **headline** for each text, like a newspaper.\n\nPut the two headlines side by side. Do they **agree**, **add to each other** or **disagree**?",
+    "example": "Text 1 headline: **New park opens downtown.**\nText 2 headline: **Park brings more families outdoors.**\n\nText 2 **adds to** Text 1: it shows a result of the new park."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Comparing viewpoints",
+     "text": "Texts on the same issue may present different **viewpoints**: the position or perspective each author takes.\n\nComparing viewpoints means explaining **where the authors agree, where they differ, and why**."
+    },
+    {
+     "title": "Clues to viewpoint",
+     "text": "1. **Claims**: what each author argues should happen.\n2. **Evidence choice**: which facts each one includes or leaves out.\n3. **Word choice**: burden vs. investment, risk vs. opportunity.\n4. **Concessions**: what each admits about the other side."
+    },
+    {
+     "title": "Find common ground",
+     "text": "Authors who disagree often share **some** ground: the same goal, the same facts, or the same concern.\n\nThe best comparison names the **common ground** and the **key difference**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a comparison of viewpoints with a **claim sentence from each text**.\n\n1. Find each author's main claim.\n2. Find any shared facts or goals.\n3. Choose the answer that represents **both** authors fairly."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: A four-day school week would give students time to rest and pursue hobbies.",
+      "role": "key"
+     },
+     {
+      "t": "Some schools that tried it reported better attendance.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: Longer school days in a four-day week may leave young children too tired to focus.",
+      "role": "key"
+     },
+     {
+      "t": "Working parents may also struggle to find care on the fifth day.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Common ground: both discuss **the effect on students' well-being**. Key difference: Text 1 sees **rest and better attendance**, Text 2 sees **tiredness and childcare problems**."
+   },
+   "together": {
+    "passage": "Text 1: Homework helps students practise what they learn in class. When students review at home, they remember more and build habits of responsibility that will help them later in life. Teachers can also use homework to see who needs extra help. Of course, assignments should be short and meaningful.\n\nText 2: Many students already spend six or seven hours a day at school. Large amounts of homework can cut into sleep, family time and exercise, all of which matter for learning too. Some studies suggest that for younger students, homework adds little to test scores. Short reading at home may be useful, but long worksheets often are not.",
+    "stem": "Which statement best compares the two authors' viewpoints?",
+    "options": [
+     "Both authors want to ban homework completely for students of all ages.",
+     "Text 1 says homework should be long; Text 2 says it should be even longer.",
+     "Text 2 agrees with Text 1 that homework always improves test scores.",
+     "Text 1 supports homework but wants it short; Text 2 doubts its value but accepts short reading."
+    ],
+    "answer": 3,
+    "hint": "Find each author's main claim, then look for what each one ADMITS. Where do they meet?",
+    "good": "Yes! Text 1 supports homework but says it should be short. Text 2 doubts its value but accepts short reading. Their common ground is keeping it short and useful."
+   },
+   "evidence": {
+    "sentences": [
+     "Text 1: Homework helps students practise what they learn in class.",
+     "When students review at home, they remember more and build habits of responsibility that will help them later in life.",
+     "Teachers can also use homework to see who needs extra help.",
+     "Of course, assignments should be short and meaningful.",
+     "Text 2: Many students already spend six or seven hours a day at school.",
+     "Large amounts of homework can cut into sleep, family time and exercise, all of which matter for learning too.",
+     "Some studies suggest that for younger students, homework adds little to test scores.",
+     "Short reading at home may be useful, but long worksheets often are not."
+    ],
+    "proof": [
+     0,
+     3,
+     5,
+     6,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: Text 1 supports short homework; Text 2 doubts its value but accepts short reading. Tap 2 sentences that show these viewpoints or where they meet.",
+    "wrong": "This sentence is a supporting reason or a fact. Find each author's main claim or the sentences where they admit a point."
+   },
+   "checks": [
+    {
+     "passage": "Text 1: Zoos protect endangered animals and help them breed. Many children see wild animals up close for the first time at a zoo.\n\nText 2: Even good zoos cannot give large animals the space they have in the wild. Money spent on zoos might do more good if it protected natural habitats.",
+     "stem": "Which statement best describes the difference in viewpoint?",
+     "options": [
+      "Text 1 sees zoos as helpful; Text 2 doubts they are the best way to protect animals.",
+      "Both authors say all zoos should close as soon as possible.",
+      "Text 2 says zoos protect animals better than wild habitats do.",
+      "Text 1 argues against programs that help endangered animals breed."
+     ],
+     "answer": 0,
+     "why": "Text 1 praises zoos' benefits; Text 2 raises doubts and suggests habitat protection instead."
+    },
+    {
+     "passage": "Text 1: Uniforms make students equal and save families money on clothes.\n\nText 2: Uniforms limit how students express themselves, though they can reduce competition over clothing.",
+     "stem": "What common ground do the two authors share?",
+     "options": [
+      "Both say uniforms are too expensive for most families.",
+      "Both think students should choose all the clothes they wear.",
+      "Both admit uniforms can reduce differences in clothing among students.",
+      "Both say uniforms help students express who they are."
+     ],
+     "answer": 2,
+     "why": "Text 1 says uniforms make students equal; Text 2 admits they reduce competition over clothing. Both see this benefit."
+    },
+    {
+     "passage": "Text 1: Robots in factories free workers from dangerous jobs and make products cheaper.\n\nText 2: When robots replace workers, many people must find new jobs, and not all of them can afford new training.",
+     "stem": "How do the authors' viewpoints differ?",
+     "options": [
+      "Both authors focus only on the prices of factory products.",
+      "Text 1 stresses benefits of robots; Text 2 stresses the cost to workers.",
+      "Text 2 says robots make factory jobs more dangerous for workers.",
+      "Text 1 argues that robots should be banned from all factories."
+     ],
+     "answer": 1,
+     "why": "Text 1 highlights safety and cheaper products; Text 2 highlights job losses and the cost of retraining."
+    }
+   ],
+   "again": {
+    "title": "Agree, differ, why",
+    "text": "Fill in three blanks:\n\n1. Both authors **agree** that...\n2. But they **differ** on...\n3. Because Text 1 focuses on... while Text 2 focuses on...",
+    "example": "Topic: phones in school.\nAgree: phones can distract.\nDiffer: whether to ban them.\nWhy: Text 1 focuses on **focus in class**; Text 2 on **safety and contacting parents**."
+   }
+  }
+ }
+}

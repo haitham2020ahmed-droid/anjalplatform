@@ -1,0 +1,568 @@
+{
+  "code": "NB-083",
+  "title": "Sand on the Rails",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 472,
+  "passage": "I had travelled by aeroplane many times, but the journey my grandmother and I made last winter, from Riyadh to her old family home in Al-Jouf, was my first long journey by train. I expected it to be fast, comfortable and slightly boring. It turned out to be comfortable, occasionally boring and, for a few anxious hours, not fast at all.\n\nFor most of the morning, the train glided northward across a landscape that changed like the pages of a picture book: flat gravel plains, farms with circular green fields, and finally the reddish dunes of the Nafud. Grandmother sat beside the window, sipping tea from a flask and naming every town we passed, while I tried to count the camels grazing near the tracks and gave up after fifty-three.\n\nShortly after we left Ha'il, the train slowed, jolted gently and then stopped completely in the middle of the desert. A calm voice announced that strong winds during the night had blown sand across the rails ahead, and that a maintenance team was already working to clear it. Around us, passengers groaned with irritation, and a businessman began making impatient phone calls, and across the aisle a young mother tried desperately to calm her baby, who had started to wail.\n\nI felt my own patience draining away, until Grandmother placed her hand on mine. \"When I was your age,\" she said, \"my father made this same journey on camels with a group of traders. It took them nearly three weeks, and once they waited four days at a dry well for a caravan carrying water. Today we are sitting in a warm carriage with tea, and our delay will be measured in hours. Which situation would you prefer?\"\n\nEmbarrassed, I looked at the crying baby and remembered the colourful wooden puzzle in my backpack. I asked the mother politely whether I might show it to her son, and to everyone's relief, he soon stopped crying and began banging the pieces together with delight. His mother thanked me so warmly that I felt my cheeks grow hot.\n\nThrough the window, we watched the maintenance team at work. Their heavy machine pushed the sand aside in long golden waves, while workers in orange vests swept the remaining grains from the rails by hand. Even the businessman put away his phone to watch them.\n\nAfter almost three hours, the train moved again, and the passengers applauded. We eventually reached Al-Jouf long after dark, exhausted but surprisingly cheerful. As we stepped onto the platform, Grandmother laughed and said that I had just experienced a very small piece of the patience her father had needed every single day.\n\nI have thought about that journey often since then. Delays still annoy me, but now I ask myself Grandmother's question, and the answer usually helps me wait more calmly.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “anxious” as it is used in paragraph 1?",
+      "options": [
+        "sleepy",
+        "cheerful",
+        "worried",
+        "noisy"
+      ],
+      "answer": "C",
+      "why": "The hours when the train stopped in the desert were full of worry, so “anxious” means worried."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “impatient” as it is used in paragraph 3?",
+      "options": [
+        "calm",
+        "annoyed",
+        "busy",
+        "hurried"
+      ],
+      "answer": "A",
+      "why": "The businessman's impatient calls show he could not bear to wait; the opposite is calm. “Annoyed” and “hurried” are close in meaning to impatient."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 4: “I felt my own patience draining away”. What does “draining away” mean here?",
+      "options": [
+        "growing much stronger",
+        "slowly disappearing",
+        "staying exactly the same",
+        "returning very quickly"
+      ],
+      "answer": "B",
+      "why": "Like water running out of a sink, her patience was slowly running out."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a VERB?",
+      "options": [
+        "landscape",
+        "circular",
+        "glided",
+        "finally"
+      ],
+      "answer": "C",
+      "why": "“Glided” is the action of the train; “landscape” is a noun, “circular” an adjective and “finally” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is SINGULAR?",
+      "options": [
+        "workers",
+        "waves",
+        "vests",
+        "machine"
+      ],
+      "answer": "D",
+      "why": "“Machine” names one thing; the other words are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “maintenance”?",
+      "options": [
+        "maintain",
+        "mountain",
+        "main",
+        "remain"
+      ],
+      "answer": "A",
+      "why": "“Maintenance” is the noun formed from the verb “maintain”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “delay” in a meaningful sentence of your own.",
+      "model": "Because of the heavy rain, there was a delay of two hours before our plane could take off.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “delay” with its meaning (a time when something happens later than planned)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "A “delay” is a period of waiting because something happens later than planned."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “businessman”, which appears in paragraph 3?",
+      "options": [
+        "businessmans",
+        "businessmen",
+        "businessmanes",
+        "businessesman"
+      ],
+      "answer": "B",
+      "why": "Like man → men, businessman → businessmen."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a QUESTION?",
+      "options": [
+        "“Which situation would you prefer?”",
+        "“I expected it to be fast, comfortable and slightly boring.”",
+        "“Even the businessman put away his phone to watch them.”",
+        "“After almost three hours, the train moved again.”"
+      ],
+      "answer": "A",
+      "why": "Grandmother asks the narrator to choose, and the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the story?",
+      "options": [
+        "The Fastest Train in Arabia",
+        "Grandmother's Question",
+        "Building a Railway",
+        "A Puzzle for Grandmother"
+      ],
+      "answer": "B",
+      "why": "Grandmother's question changes how the narrator thinks about waiting, and she still uses it today."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how railways are built across deserts",
+        "to describe all the towns between Riyadh and Al-Jouf",
+        "to show how a girl learns to be patient during a delay",
+        "to persuade readers to travel by aeroplane"
+      ],
+      "answer": "C",
+      "why": "The narrator moves from impatience to calm, thanks to Grandmother's story."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Grandmother compares the short train delay with the hardships of travelling by camel.",
+        "Grandmother explains how to look after camels.",
+        "The narrator tells Grandmother that she is hungry.",
+        "Grandmother asks the train driver how long they must wait."
+      ],
+      "answer": "A",
+      "why": "Grandmother describes her father's three-week camel journey to help the narrator see that their delay is small."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the train stop in the middle of the desert?",
+      "options": [
+        "The engine had broken down.",
+        "Camels were standing on the tracks.",
+        "Strong winds had blown sand across the rails ahead.",
+        "The driver was waiting for other passengers."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: “strong winds during the night had blown sand across the rails ahead”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a personal narrative",
+        "a train timetable",
+        "a news report",
+        "a fable"
+      ],
+      "answer": "A",
+      "why": "The narrator tells about an experience from her own life using “I”."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How did the narrator calm the crying baby?",
+      "options": [
+        "She sang a song to him.",
+        "She gave him some of Grandmother's tea.",
+        "She showed him a colourful wooden puzzle.",
+        "She carried him up and down the carriage."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: she remembered “the colourful wooden puzzle in my backpack” and showed it to him."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "The passengers applauded.",
+        "The narrator tried to count the camels.",
+        "The businessman put away his phone.",
+        "The narrator showed the puzzle to the baby."
+      ],
+      "answer": "B",
+      "why": "Counting camels happened in the morning (paragraph 2), before the train stopped."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "the young mother",
+        "the businessman",
+        "Grandmother",
+        "Grandmother's granddaughter"
+      ],
+      "answer": "D",
+      "why": "The narrator travels with “my grandmother” and speaks as “I”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail did Grandmother give about her father's journey?",
+      "options": [
+        "It took nearly three weeks by camel.",
+        "It took three hours by train.",
+        "It started in Al-Jouf and ended in Riyadh.",
+        "He travelled alone across the Nafud."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “It took them nearly three weeks”; he travelled with “a group of traders”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the narrator to feel embarrassed in paragraph 5?",
+      "options": [
+        "The baby threw the puzzle at her.",
+        "She realised her impatience was small compared with her great-grandfather's hardships.",
+        "Grandmother scolded her loudly in front of everyone.",
+        "She had forgotten her ticket."
+      ],
+      "answer": "B",
+      "why": "After Grandmother's question, she felt embarrassed about losing patience over a short delay."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did the young mother thank the narrator “so warmly”?",
+      "options": [
+        "The narrator gave her a seat by the window.",
+        "The narrator fetched her a cup of tea.",
+        "The narrator helped calm her crying baby.",
+        "The narrator told her when the train would move."
+      ],
+      "answer": "C",
+      "why": "The narrator's puzzle stopped the baby crying, which was a great relief to the mother."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which word BEST describes Grandmother's way of helping the narrator?",
+      "options": [
+        "wise",
+        "strict",
+        "careless",
+        "impatient"
+      ],
+      "answer": "A",
+      "why": "Instead of scolding, she gently uses a story and a question to change the narrator's thinking."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the narrator's attitude to delays different at the end of the story compared with paragraph 4?",
+      "options": [
+        "At first she enjoys delays; at the end she hates them.",
+        "At first she is calm; at the end she is angry.",
+        "At first her patience is draining away; at the end she uses Grandmother's question to wait more calmly.",
+        "There is no difference in her attitude."
+      ],
+      "answer": "C",
+      "why": "In paragraph 4 she is losing patience; in paragraph 8 the question “usually helps me wait more calmly”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of watching the maintenance team at work?",
+      "options": [
+        "The passengers became angrier.",
+        "Even the businessman put away his phone to watch them.",
+        "The narrator fell asleep.",
+        "The baby started crying again."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6: “Even the businessman put away his phone to watch them.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was her great-grandfather's journey DIFFERENT from the narrator's journey?",
+      "options": [
+        "His took weeks on camels and had dangerous water shortages; hers took one day by train.",
+        "His was by aeroplane; hers was by car.",
+        "His was shorter than hers.",
+        "His had no stops; hers had many."
+      ],
+      "answer": "A",
+      "why": "He travelled nearly three weeks by camel and once waited four days for water; she travelled in a warm carriage with tea."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the story is a SIMILE?",
+      "options": [
+        "“a landscape that changed like the pages of a picture book”",
+        "“A calm voice announced”",
+        "“workers in orange vests”",
+        "“exhausted but surprisingly cheerful”"
+      ],
+      "answer": "A",
+      "why": "The changing landscape is compared to the pages of a book using “like”."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “pushed the sand aside in long golden waves” describe?",
+      "options": [
+        "the sea near Al-Jouf",
+        "the way the machine moved the sand off the rails",
+        "a sandstorm blowing toward the train",
+        "the dunes seen from the aeroplane"
+      ],
+      "answer": "B",
+      "why": "The machine pushed sand away in long curves that looked like waves."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer let Grandmother end her story with a question instead of an order?",
+      "options": [
+        "because Grandmother did not know the answer",
+        "to make the narrator think for herself and reach the lesson on her own",
+        "to show that Grandmother was angry",
+        "because the narrator asked her to"
+      ],
+      "answer": "B",
+      "why": "A question invites the narrator to compare the two situations and understand by herself."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the MOST helpful thing a passenger did during the delay?",
+      "options": [
+        "making impatient phone calls",
+        "groaning with irritation",
+        "complaining to the driver",
+        "entertaining a crying baby so his mother could rest"
+      ],
+      "answer": "D",
+      "why": "Calming the baby helped the mother and the other passengers; groaning and impatient calls helped nobody."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer MOST LIKELY sharing?",
+      "options": [
+        "Trains are always slower than aeroplanes.",
+        "Comparing our problems with harder times can help us be patient and helpful.",
+        "Travellers should never take long journeys.",
+        "Sand should be cleared by hand only."
+      ],
+      "answer": "B",
+      "why": "Grandmother's comparison makes the narrator calmer and more helpful."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present among the passengers in paragraph 7?",
+      "options": [
+        "joy and relief",
+        "fear and worry",
+        "sadness and regret",
+        "anger and blame"
+      ],
+      "answer": "A",
+      "why": "The train moves again and “the passengers applauded”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "where the train stopped",
+        "why the train stopped",
+        "how long the delay lasted",
+        "how the maintenance team knew where the sand was"
+      ],
+      "answer": "D",
+      "why": "The story does not say how the team found out about the sand; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A train flies over the sand on the rails.",
+        "Wind blows sand onto railway tracks and a team clears it.",
+        "A camel caravan arrives inside the carriage.",
+        "The dunes move out of the way of the train by themselves."
+      ],
+      "answer": "B",
+      "why": "Desert railways really do face sand drifting onto the tracks; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "A Quick Trip by Aeroplane",
+        "Three Hours in the Desert",
+        "The Lost Wooden Puzzle",
+        "Grandmother's Camel Race"
+      ],
+      "answer": "B",
+      "why": "The main event is the three-hour delay in the desert."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that show another way the narrator learns to be patient.",
+      "model": "While we waited, the businessman asked the narrator to help him read a map of the railway, and together they counted the stations still ahead. By the time they had finished, the train began to move, and the narrator realised that the time had passed quickly because she had kept busy helping someone. She decided that next time she would bring a book and a game for long journeys.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and setting and shows how the narrator learns patience in a believable way",
+        "1 = an ending is given but it is unclear, unrealistic, or does not show any lesson",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the train journey and shows the narrator growing more patient is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how can passengers make a long delay easier to bear?",
+      "options": [
+        "Help others around them and stay calm.",
+        "Think about how much harder travel was in the past.",
+        "A and B",
+        "Make many phone calls to complain."
+      ],
+      "answer": "C",
+      "why": "The narrator becomes calmer by remembering Grandmother's story and by helping the baby."
+    }
+  ]
+}

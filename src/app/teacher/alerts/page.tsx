@@ -3,21 +3,31 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { ALERT_INFO, alertList, type AlertKind } from "@/server/insights/alerts";
+import { ALERT_INFO, alertList, type AlertKind, type AlertRow } from "@/server/insights/alerts";
 import { readableClasses } from "@/server/teacher/coordinators";
+import { getT } from "@/i18n/server";
+import { InsightActions } from "@/components/teacher/insight-actions";
 import { handleAlertAction } from "./actions";
+import { FlagsView } from "./flags-view";
 
 export const metadata = { title: "Student alerts" };
 
 const QUICK = ["Talked with the student", "Called / messaged the parent", "Reteaching in a small group", "Sent easier practice", "Asked for a MAP retest"];
 
-/** 🚨 Students who need attention: act, write what you did, mark handled. The head of department sees all. */
-export default async function AlertsPage({ searchParams }: { searchParams: Promise<{ status?: string; classId?: string; kind?: string; msg?: string }> }) {
+/**
+ * 🚨 Students who need attention (Reports → Follow-up): act, write what you did, mark handled. The head of department
+ * sees all. Two views of ONE page: the alerts (default) and the MAP and practice flags (?view=flags — the former "Who
+ * Needs Help" page, which redirects here). Every alert has the action buttons: Create plan · Small group · Re-teach ·
+ * Contact parent · Send a Learn lesson.
+ */
+export default async function AlertsPage({ searchParams }: { searchParams: Promise<{ status?: string; classId?: string; kind?: string; msg?: string; view?: string; flag?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  const { t } = await getT();
+  const flags = sp.view === "flags";
   const status = sp.status === "HANDLED" ? "HANDLED" : sp.status === "ALL" ? "ALL" : "OPEN";
-  const [rows, classes] = await Promise.all([alertList(repo, actor, { status, classId: sp.classId || null, kind: sp.kind || null }), readableClasses(repo, actor)]);
+  const [rows, classes] = await Promise.all([flags ? Promise.resolve([] as AlertRow[]) : alertList(repo, actor, { status, classId: sp.classId || null, kind: sp.kind || null }), readableClasses(repo, actor)]);
   const isAdmin = actor.role !== "TEACHER";
   const link = (p: Record<string, string>) => `/teacher/alerts?${new URLSearchParams({ status, classId: sp.classId ?? "", kind: sp.kind ?? "", ...p })}`;
   const chip = (on: boolean) => `rounded-full px-3 py-1 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
@@ -30,6 +40,19 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
         <Link href={`/api/alerts-export?status=${status}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal print:hidden">⬇ Excel</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
+      <nav aria-label={t("View")} className="mb-3 flex flex-wrap gap-2 print:hidden">
+        <Link prefetch={false} href={`/teacher/alerts${sp.classId ? `?${new URLSearchParams({ classId: sp.classId })}` : ""}`} aria-current={!flags ? "page" : undefined} className={chip(!flags)}>🚨 {t("Alerts")}</Link>
+        <Link prefetch={false} href={`/teacher/alerts?${new URLSearchParams({ view: "flags", ...(sp.classId ? { classId: sp.classId } : {}) })}`} aria-current={flags ? "page" : undefined} className={chip(flags)}>🗺️ {t("MAP and practice flags")}</Link>
+      </nav>
+      {flags ? (
+        <>
+          <div className="flex flex-wrap gap-2 print:hidden">
+            <Link href="/teacher/alerts?view=flags" className={chip(!sp.classId)}>All classes</Link>
+            {classes.map((c) => <Link key={String(c.id)} href={`/teacher/alerts?${new URLSearchParams({ view: "flags", classId: String(c.id) })}`} className={chip(sp.classId === c.id)}>{String(c.name)}</Link>)}
+          </div>
+          <FlagsView actor={actor} t={t} flag={sp.flag} classId={sp.classId} />
+        </>
+      ) : <>
       <div className="flex flex-wrap gap-2 print:hidden">
         {([["OPEN", "Not handled"], ["HANDLED", "Handled"], ["ALL", "All"]] as const).map(([k, l]) => <Link key={k} href={link({ status: k })} className={chip(status === k)}>{l}</Link>)}
         <span className="mx-1 h-6 w-px bg-slate-300" aria-hidden="true" />
@@ -52,6 +75,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
                   {r.status === "HANDLED" && <p className="mt-1 text-sm text-emerald-800">✅ {r.action} — {r.handledBy} · {r.handledAt?.slice(0, 10)}</p>}
                 </div>
               </div>
+              {r.status === "OPEN" && <InsightActions t={t} target={{ classId: r.classId, studentId: r.studentId }} className="mt-3" />}
               {r.status === "OPEN" ? (
                 <form action={handleAlertAction} className="mt-3 flex flex-wrap items-center gap-2 print:hidden">
                   <input type="hidden" name="alertId" value={r.id} /><input type="hidden" name="status" value={status} /><input type="hidden" name="classId" value={sp.classId ?? ""} />
@@ -65,6 +89,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
           ))}
         </ul>
       )}
+      </>}
       <datalist id="quick-actions">{QUICK.map((q) => <option key={q} value={q} />)}</datalist>
     </AppShell>
   );

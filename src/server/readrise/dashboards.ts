@@ -16,7 +16,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { RR_SKILLS } from "./import";
-import { weekStart as engineWeekStart } from "./engine";
+import { readRisePlaced, weekStart as engineWeekStart } from "./engine";
 import { questionKeys } from "./question-key";
 
 const s = (v: unknown) => String(v ?? "");
@@ -79,11 +79,13 @@ interface Data {
   map: Map<string, { lexile: number; at: number }>;
   /** students with a completed placement test */
   placedTest: Set<string>;
+  /** students taking the placement now (a test started, not finished: a teacher can restart it) */
+  openTest: Set<string>;
 }
 
 /** `runCols` = the reading columns a report needs (default: all it may show; the school dashboard needs only scores and times) */
 async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCols?: string[] } = {}): Promise<Data> {
-  if (!ids.length) return { names: new Map(), rr: new Map(), changes: new Map(), runs: [], map: new Map(), placedTest: new Set() };
+  if (!ids.length) return { names: new Map(), rr: new Map(), changes: new Map(), runs: [], map: new Map(), placedTest: new Set(), openTest: new Set() };
   const chunks: string[][] = [];
   for (let i = 0; i < ids.length; i += 500) chunks.push(ids.slice(i, i + 500));
   const many = async (model: string, where: (part: string[]) => Record<string, unknown>, select?: string[]) =>
@@ -94,7 +96,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
     many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt"]),
     many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt"]),
     opts.map === false ? Promise.resolve([] as Row[]) : many("MapResult", (p) => ({ studentId: { in: p }, lexile: { not: null } }), ["studentId", "lexile", "testDate"]),
-    many("RRPlacement", (p) => ({ studentId: { in: p }, completedAt: { not: null } }), ["studentId"]),
+    many("RRPlacement", (p) => ({ studentId: { in: p } }), ["studentId", "completedAt"]),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const uname = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
@@ -106,7 +108,11 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
     const at = time(m.testDate) ?? 0, cur = map.get(s(m.studentId));
     if (!cur || at > cur.at) map.set(s(m.studentId), { lexile: Number(m.lexile), at });
   }
-  return { names: new Map(students.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"])), rr: new Map(rr.map((r) => [s(r.studentId), r])), changes: ch, runs, map, placedTest: new Set(placements.map((p) => s(p.studentId))) };
+  const placedTest = new Set(placements.filter((p) => p.completedAt).map((p) => s(p.studentId)));
+  const openTest = new Set(placements.filter((p) => !p.completedAt).map((p) => s(p.studentId)));
+  // 🎯 only REAL levels (readRisePlaced): the working start of a first visit (MAP / grade default) is "No placement yet"
+  const placedRR = rr.filter((r) => readRisePlaced(r, placedTest.has(s(r.studentId))));
+  return { names: new Map(students.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"])), rr: new Map(placedRR.map((r) => [s(r.studentId), r])), changes: ch, runs, map, placedTest, openTest };
 }
 
 const firstTryDone = (runs: Row[]) => runs.filter((r) => r.completedAt && (r.firstTry === true || r.firstTry === 1) && r.score !== null && r.score !== undefined);
@@ -126,6 +132,8 @@ export interface StudentReportRow {
   /** completed readings, first tries and re-reads (Update 39C, ReadRise export) */
   runs: number;
   lastActivity: string | null; writingToScore: number; flags: { notPlaced: boolean; inactive: boolean; belowBand: boolean };
+  /** a placement test is started and not finished (a teacher can restart it) */
+  placementOpen: boolean;
 }
 export interface ClassReport {
   classId: string; className: string; grade: number; band: { low: number; high: number };
@@ -169,6 +177,7 @@ export async function classReport(repo: Repo, actor: Actor, classId: string, now
       lastActivity: last ? new Date(last).toISOString() : null,
       writingToScore: runs.filter((r) => s(r.writing).trim() && (r.writingScore === null || r.writingScore === undefined)).length,
       flags: { notPlaced: !st, inactive: !!st && nowT - lastRef >= INACTIVE_DAYS * DAY, belowBand: level !== null && level < band.low },
+      placementOpen: d.openTest.has(id),
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
   // weekly history (end of each week), oldest first

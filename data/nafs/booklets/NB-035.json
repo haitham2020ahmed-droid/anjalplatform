@@ -1,0 +1,568 @@
+{
+  "code": "NB-035",
+  "title": "A Letter from Grandfather's Boat",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 445,
+  "passage": "Dear Yaseen,\n\nI hope this letter finds you and your family in good health, and that the winter in Toronto is not as freezing as you described in your last message. Mine is a letter full of salt and sea breeze, because I have just spent the most memorable weekend of my life with Grandfather in Al-Qatif, and I simply have to tell you about it.\n\nAs you know, Grandfather was a fisherman on the Arabian Gulf for more than forty years before he retired. On Friday, after the dawn prayer, he took me out in his small wooden boat to check his gargoor, the traditional dome-shaped fish traps that he weaves himself from wire. The sea was as smooth as polished glass, and the rising sun painted it the colour of ripe apricots. Grandfather steered with one hand and pointed out landmarks with the other, explaining how fishermen once navigated by the stars and the shape of the coastline long before anyone owned a phone.\n\nWhen we hauled up the first trap, I was thrilled to see it crowded with fish, including several hamour with their orange spots. To my astonishment, however, Grandfather immediately began releasing the smaller ones back into the water. When I protested that we were throwing away perfectly good fish, he smiled patiently and said, \"If we take the little ones today, there will be no big ones tomorrow.\" He explained that these young fish had not yet had the chance to lay eggs, so catching them would leave fewer fish for the future.\n\nLater, as we drank sweet tea on the shore, Grandfather told me that the Gulf had changed considerably during his lifetime. When he was young, he said, hamour were so plentiful that a single trap could feed several families. Nowadays, there are fewer of them, partly because too many fish were caught for too many years, and partly because some of the shallow areas where young fish shelter have been damaged. He was pleased, though, that there are now rules to protect the sea, such as a season each year when shrimp fishing is not allowed, so that the shrimp can breed in peace.\n\nI have been thinking about his words ever since. I always imagined the sea as a treasure chest that could never be emptied, but now I understand that it is more like a garden: if you harvest everything and plant nothing, it eventually runs out.\n\nPlease write back soon and tell me whether people in Canada have similar rules for their lakes and rivers. Grandfather sends his greetings and says that next summer you must come fishing with us.\n\nYour cousin,\nAli",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from the letter: “When he was young, he said, hamour were so plentiful that a single trap could feed several families.” Which word is closest in meaning to “plentiful”?",
+      "options": [
+        "expensive",
+        "abundant",
+        "dangerous",
+        "colourful"
+      ],
+      "answer": "B",
+      "why": "If one trap could feed several families, there were very many fish, so “plentiful” means abundant."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “releasing” in the sentence “Grandfather immediately began releasing the smaller ones back into the water”?",
+      "options": [
+        "freeing",
+        "returning",
+        "throwing",
+        "keeping"
+      ],
+      "answer": "D",
+      "why": "Releasing the fish means letting them go; the opposite is “keeping”. “Freeing” and “returning” are close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence: “When we hauled up the first trap, I was thrilled to see it crowded with fish.” What does “hauled up” mean?",
+      "options": [
+        "painted carefully",
+        "pulled up with effort",
+        "sold quickly",
+        "dropped suddenly"
+      ],
+      "answer": "B",
+      "why": "A trap full of fish is heavy and lies under the water, so “hauled up” means pulled it up with effort."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the letter is an ADVERB?",
+      "options": [
+        "patiently",
+        "traditional",
+        "memorable",
+        "astonishment"
+      ],
+      "answer": "A",
+      "why": "“Patiently” describes how Grandfather smiled; “traditional” and “memorable” are adjectives and “astonishment” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In the sentence “so that the shrimp can breed in peace”, the word “shrimp” is plural. Which other word from the letter is also an IRREGULAR plural?",
+      "options": [
+        "traps",
+        "landmarks",
+        "stars",
+        "fish"
+      ],
+      "answer": "D",
+      "why": "Like “shrimp”, “fish” keeps the same form in the plural (“crowded with fish”); “traps”, “landmarks” and “stars” simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “navigated”?",
+      "options": [
+        "navigation",
+        "native",
+        "nature",
+        "naval"
+      ],
+      "answer": "A",
+      "why": "“Navigation” is the noun formed from the verb “navigate”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “considerably” in a meaningful sentence of your own.",
+      "model": "Our neighbourhood has changed considerably since my parents moved here, because there are now three new schools and a large park.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “considerably” with its meaning (a lot; to a large degree)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Considerably” means by a large amount."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “family”, as in “a single trap could feed several families”?",
+      "options": [
+        "familys",
+        "familyes",
+        "family's",
+        "families"
+      ],
+      "answer": "D",
+      "why": "A consonant + y changes to -ies: family → families. “Family's” shows possession."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is a COMMAND (an instruction or request)?",
+      "options": [
+        "“Please write back soon and tell me whether people in Canada have similar rules for their lakes and rivers.”",
+        "“I have been thinking about his words ever since.”",
+        "“The sea was as smooth as polished glass”",
+        "“As you know, Grandfather was a fisherman on the Arabian Gulf for more than forty years before he retired.”"
+      ],
+      "answer": "A",
+      "why": "Ali asks Yaseen to do something (“Please write back …”), so it is a polite command; the others are statements."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "Winter in Toronto",
+        "How to Weave a Fish Trap",
+        "A Lesson from Grandfather's Boat",
+        "The Biggest Fish in the Gulf"
+      ],
+      "answer": "C",
+      "why": "The letter describes a fishing trip with Grandfather and the lesson Ali learns about protecting the sea."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is Ali's main purpose in writing this letter?",
+      "options": [
+        "to invite Yaseen and his family to move to Al-Qatif",
+        "to share a memorable trip and the lesson he learned",
+        "to complain about the freezing weather in Canada",
+        "to explain to Yaseen how to cook hamour at home"
+      ],
+      "answer": "B",
+      "why": "Ali says he “simply has to tell” Yaseen about the weekend, and most of the letter describes the trip and what he learned."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the part of the letter that begins “Later, as we drank sweet tea on the shore”?",
+      "options": [
+        "Grandfather prefers tea to coffee.",
+        "The Gulf has changed, but new rules help to protect it.",
+        "Shrimp are more important than hamour.",
+        "Grandfather caught many fish when he was young."
+      ],
+      "answer": "B",
+      "why": "That paragraph explains how fish numbers have fallen and how rules, such as the shrimp season, now protect the sea."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandfather throw the smaller fish back into the water?",
+      "options": [
+        "Small fish are not good to eat and taste bitter.",
+        "The trap was too heavy for him to lift into the boat.",
+        "Fishing for small fish is allowed only in the summer.",
+        "They had not laid eggs yet, so keeping them would mean fewer fish later."
+      ],
+      "answer": "D",
+      "why": "He explained that “these young fish had not yet had the chance to lay eggs, so catching them would leave fewer fish for the future”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a science textbook page",
+        "a friendly letter",
+        "a poem"
+      ],
+      "answer": "C",
+      "why": "It begins with a greeting (“Dear Yaseen”) and ends with a closing (“Your cousin, Ali”), and shares personal news."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the letter, why are there fewer hamour in the Gulf today?",
+      "options": [
+        "Too many were caught, and some shallow shelters were damaged.",
+        "The water of the Gulf became far too cold for them.",
+        "Large numbers of shrimp ate all the young hamour.",
+        "Fishermen stopped using traps and switched to nets."
+      ],
+      "answer": "A",
+      "why": "Grandfather says “too many fish were caught for too many years” and some shallow areas where young fish shelter “have been damaged”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST on Friday?",
+      "options": [
+        "Ali and Grandfather drank sweet tea on the shore.",
+        "Grandfather released the smaller fish.",
+        "They hauled up the first trap.",
+        "Grandfather steered the boat out after the dawn prayer."
+      ],
+      "answer": "D",
+      "why": "They set out “after the dawn prayer” before any traps were hauled up; the tea came later on the shore."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of the letter, and who is it written to?",
+      "options": [
+        "Yaseen is writing to Ali.",
+        "Grandfather is writing to Ali.",
+        "Ali is writing to his cousin Yaseen.",
+        "Ali is writing to Grandfather."
+      ],
+      "answer": "C",
+      "why": "It begins “Dear Yaseen” and ends “Your cousin, Ali”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why Ali asks about rules in Canada?",
+      "options": [
+        "Yaseen lives in Toronto, Canada.",
+        "Grandfather weaves his own traps.",
+        "The sun painted the sea the colour of apricots.",
+        "Hamour have orange spots."
+      ],
+      "answer": "A",
+      "why": "Yaseen lives in Toronto, so Ali wants to compare the Gulf's rules with those in Yaseen's country."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Ali protest when Grandfather released the small fish?",
+      "options": [
+        "He was afraid of the sharp spines on the fish.",
+        "He thought they were wasting perfectly good fish.",
+        "He wanted to take them home and keep them as pets.",
+        "He thought the fish were too big for the trap."
+      ],
+      "answer": "B",
+      "why": "Ali “protested that we were throwing away perfectly good fish”, because he did not yet understand Grandfather's reason."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the purpose of the season when shrimp fishing is not allowed?",
+      "options": [
+        "to give fishermen a holiday",
+        "to keep the price of shrimp high",
+        "to let the shrimp breed in peace",
+        "to allow hamour to eat the shrimp"
+      ],
+      "answer": "C",
+      "why": "Grandfather says the season exists “so that the shrimp can breed in peace”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Ali's feelings change when he understood why Grandfather released the fish?",
+      "options": [
+        "from confusion to understanding",
+        "from joy to anger and disappointment",
+        "from respect to boredom and impatience",
+        "from fear of the sea to excitement"
+      ],
+      "answer": "A",
+      "why": "He was astonished and protested at first, but later says he has been “thinking about his words ever since” and now understands."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the Gulf today DIFFERENT from the Gulf when Grandfather was young?",
+      "options": [
+        "Today there are more hamour than before.",
+        "Today there are fewer hamour than before.",
+        "Today fishermen navigate only by the stars.",
+        "Today there are no rules at all."
+      ],
+      "answer": "B",
+      "why": "When he was young hamour were “so plentiful”, but “Nowadays, there are fewer of them”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What would be the EFFECT of catching all the young fish, according to Grandfather?",
+      "options": [
+        "The traps would break.",
+        "The fish would grow faster.",
+        "The shrimp season would end.",
+        "There would be no big fish in the future."
+      ],
+      "answer": "D",
+      "why": "“If we take the little ones today, there will be no big ones tomorrow.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to Ali's comparison, what do the sea and a garden have in common?",
+      "options": [
+        "Both are full of gold and hidden treasure.",
+        "Both must be watered carefully every day.",
+        "Both run out if you take everything.",
+        "Both belong to Grandfather and his family."
+      ],
+      "answer": "C",
+      "why": "Ali writes that “if you harvest everything and plant nothing, it eventually runs out”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the simile “The sea was as smooth as polished glass” suggest?",
+      "options": [
+        "The sea was dangerous and stormy.",
+        "The sea was calm, flat and shiny.",
+        "The sea was frozen.",
+        "The sea was full of broken glass."
+      ],
+      "answer": "B",
+      "why": "Polished glass is flat and shiny, so the sea had no waves and reflected the light."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Ali writes that he once imagined the sea as “a treasure chest that could never be emptied”. What did he mean?",
+      "options": [
+        "He thought there was gold at the bottom of the sea.",
+        "He thought the sea's fish would never run out.",
+        "He thought the sea was locked.",
+        "He thought fishing was a waste of time."
+      ],
+      "answer": "B",
+      "why": "He believed the sea's riches were endless, before he learned that fish can run out."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Ali include Grandfather's exact words in the letter?",
+      "options": [
+        "to make the letter longer and more detailed",
+        "to show that Grandfather talks far too much",
+        "so that Yaseen hears the lesson clearly",
+        "to prove that Grandfather was once a teacher"
+      ],
+      "answer": "C",
+      "why": "Quoting the memorable saying makes the lesson clear and powerful for the reader."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Grandfather's actions is MOST helpful for the future of the Gulf?",
+      "options": [
+        "weaving his own traps",
+        "releasing young fish so they can lay eggs",
+        "navigating by the stars",
+        "drinking sweet tea on the shore"
+      ],
+      "answer": "B",
+      "why": "Releasing young fish lets them breed, which keeps the fish population healthy."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the letter?",
+      "options": [
+        "The sea's riches must be used wisely so they last for the future.",
+        "Fishing should be banned everywhere.",
+        "Old ways are always better than new ones.",
+        "Toronto is colder than Al-Qatif."
+      ],
+      "answer": "A",
+      "why": "The lesson of the letter is to take only what the sea can replace: “if you harvest everything and plant nothing, it eventually runs out”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling does Ali show most strongly toward Grandfather in the letter?",
+      "options": [
+        "fear",
+        "jealousy",
+        "respect",
+        "boredom"
+      ],
+      "answer": "C",
+      "why": "Ali describes Grandfather's skill and wisdom and keeps thinking about his words, which shows respect."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "where Grandfather lives",
+        "what a gargoor is",
+        "how many years Grandfather was a fisherman",
+        "exactly when the shrimp season begins and ends"
+      ],
+      "answer": "D",
+      "why": "Ali mentions “a season each year” but gives no dates; the other details are explained in the letter."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A single fish trap feeds a whole city for a year.",
+        "A hamour jumps back into the trap to thank Grandfather.",
+        "The sea turns into a real treasure chest full of gold.",
+        "A fisherman releases young fish so they can lay eggs."
+      ],
+      "answer": "D",
+      "why": "Releasing young fish is a real practice; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the letter?",
+      "options": [
+        "No Big Fish Without Little Fish",
+        "The Lost Boat",
+        "A Holiday in Canada",
+        "The Golden Hamour"
+      ],
+      "answer": "A",
+      "why": "The key event is Grandfather releasing the little fish so that there will be big fish in the future."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter. Write two or three sentences in which Ali describes something he plans to do to help protect the sea.",
+      "model": "When I return to school, I am going to give a short talk in assembly about why we should not buy very small fish at the market. I will also ask Grandfather to teach my class how to weave a gargoor, so that everyone can learn about the old ways and the new rules.",
+      "rubric": [
+        "2 = a clear new ending, written as Ali, with a realistic action that connects to the lesson about protecting the sea",
+        "1 = an ending is given but it is vague, does not fit the letter, or is only loosely linked to protecting the sea",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible new ending in Ali's voice that shows a realistic plan to protect the sea is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How can families who buy fish help to protect the Gulf?",
+      "options": [
+        "by choosing only the smallest fish at the market",
+        "by buying shrimp during the season when fishing is not allowed",
+        "None of the above",
+        "by buying as many fish as possible while prices are low"
+      ],
+      "answer": "C",
+      "why": "Each listed action would harm fish populations, so “None of the above” is correct; families should avoid very small fish and respect the closed seasons."
+    }
+  ]
+}

@@ -1,0 +1,468 @@
+{
+ "code": "LN-027",
+ "title": "Transitions for examples, emphasis and conclusions",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.c",
+  "W.5.2.c"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0150",
+  "L-0253",
+  "L-0317",
+  "L-0318"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that link ideas",
+     "text": "**Transition words** join one idea to the next.\n\nThey help the reader know what is coming."
+    },
+    {
+     "title": "Give an example",
+     "text": "**For example** shows one small piece of a big idea.\n\nI like fruit. **For example**, I eat dates every day."
+    },
+    {
+     "title": "Show the end",
+     "text": "**In the end** and **Finally** tell the reader you are finishing.\n\nWe played all day. **In the end**, we were tired and happy."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentence **before** the blank.\n2. Read the sentence **with** the blank.\n3. Is it one small piece of the idea before? Use **for example**.\n4. Does it finish the story? Use **in the end**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our class helps the school.",
+      "role": "main"
+     },
+     {
+      "t": "For example, we pick up litter.",
+      "role": "key"
+     },
+     {
+      "t": "We water the trees too.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Picking up litter is **one way** the class helps.\n\nSo **For example** fits. It shows one small piece of the big idea."
+   },
+   "together": {
+    "passage": "My little sister is very kind. ___, she shares her toys with her friends. She also helps Mom in the kitchen.",
+    "stem": "Which words fit best in the blank?",
+    "options": [
+     "In the end",
+     "For example",
+     "But",
+     "Because"
+    ],
+    "answer": 1,
+    "hint": "Is sharing toys the end of a story? Or is it one way to be kind?",
+    "good": "Yes! Sharing toys is one example of being kind."
+   },
+   "evidence": {
+    "sentences": [
+     "My little sister is very kind.",
+     "___, she shares her toys with her friends.",
+     "She also helps Mom in the kitchen."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: For example. Tap 2 sentences: the big idea and the example right after it.",
+    "wrong": "This sentence adds one more kind act, but it has no blank. Find the big idea and the sentence with the blank."
+   },
+   "checks": [
+    {
+     "passage": "We had a busy day at the beach. We swam in the sea. We built a sand castle. ___, we went home very tired.",
+     "stem": "Which words fit best in the blank?",
+     "options": [
+      "For example",
+      "In the end",
+      "Such as",
+      "Because"
+     ],
+     "answer": 1,
+     "why": "Going home is the last thing that happened. In the end shows the finish."
+    },
+    {
+     "passage": "Many animals live in the desert. ___, lizards hide under the rocks.",
+     "stem": "Which words fit best in the blank?",
+     "options": [
+      "For example",
+      "In the end",
+      "Finally",
+      "At last"
+     ],
+     "answer": 0,
+     "why": "Lizards are one example of desert animals."
+    },
+    {
+     "passage": "Omar likes sports. ___, he plays football every week.",
+     "stem": "Which words fit best in the blank?",
+     "options": [
+      "In the end",
+      "Finally",
+      "For example",
+      "At last"
+     ],
+     "answer": 2,
+     "why": "Football is one example of a sport Omar likes. The other words are for endings."
+    }
+   ],
+   "again": {
+    "title": "Small piece or the end?",
+    "text": "Ask one question about the sentence with the blank.\n\n1. Is it **one piece** of the big idea? Use **for example**.\n2. Is it the **last thing**? Use **in the end**.",
+    "example": "I love my town. **For example**, it has a big park.\n\nWe cooked and ate. **In the end**, we washed the plates."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Signal the ending",
+     "text": "Some transitions tell the reader: **the summary is coming**.\n\n**In conclusion**, **to sum up**, **overall**, **in short** and **all in all** all do this job."
+    },
+    {
+     "title": "A summary, not a new idea",
+     "text": "After an ending transition, the sentence must **sum up** what you already said.\n\nIt should **not** bring in a brand-new detail."
+    },
+    {
+     "title": "Mix them up",
+     "text": "Good writers do not use **in conclusion** every time.\n\nTry **overall** or **in short** for a short paragraph. Save **in conclusion** for the end of a longer piece."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentence with the blank.\n2. Check: does it **repeat the big idea** in new words?\n3. Find the details above it that it **adds up**.\n\nIf the sentence sums up those details, an ending transition fits."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school started recycling last year.",
+      "role": "main"
+     },
+     {
+      "t": "Every class has a blue box for paper.",
+      "role": "detail"
+     },
+     {
+      "t": "Students bring empty bottles to a big bin near the gate.",
+      "role": "detail"
+     },
+     {
+      "t": "Overall, recycling has made our school cleaner and greener.",
+      "role": "key"
+     }
+    ],
+    "explain": "The last sentence does not add a new detail. It **sums up** the paper boxes and the bottle bin.\n\nSo **Overall** is a good ending transition."
+   },
+   "together": {
+    "passage": "Our school started a reading club this year. Every Monday, members meet in the library to talk about a book. Older students read aloud to younger ones. Each month, the club chooses a new book together. ___, the club has helped many students enjoy reading more.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "For instance",
+     "Next",
+     "In short",
+     "Because"
+    ],
+    "answer": 2,
+    "hint": "Does the last sentence give a new example, or does it sum up the whole paragraph?",
+    "good": "Yes! The last sentence sums up the club's good work, so In short fits."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school started a reading club this year.",
+     "Every Monday, members meet in the library to talk about a book.",
+     "Older students read aloud to younger ones.",
+     "Each month, the club chooses a new book together.",
+     "___, the club has helped many students enjoy reading more."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: In short. Tap 2 detail sentences that the last sentence sums up.",
+    "wrong": "This sentence introduces the club or is the summary itself. Find the details that the summary adds up."
+   },
+   "checks": [
+    {
+     "passage": "Water keeps our bodies working well. It helps us stay cool on hot days. It carries food to every part of the body. It also helps us think clearly. ___, drinking enough water every day is good for our health.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "In conclusion",
+      "For example",
+      "However",
+      "Such as"
+     ],
+     "answer": 0,
+     "why": "The last sentence sums up all the ways water helps us, so it needs an ending transition."
+    },
+    {
+     "passage": "Our city's winter festival brings many events each year. There are concerts, food stalls and shows for families. Visitors come from other cities to join in.",
+     "stem": "Which sentence is the best ending for this paragraph?",
+     "options": [
+      "To sum up, some shows start at nine.",
+      "To sum up, the food stalls sell sweets.",
+      "To sum up, visitors come from far away.",
+      "To sum up, the season fills the city with fun for everyone."
+     ],
+     "answer": 3,
+     "why": "Only this sentence sums up the whole paragraph. The others add one small detail."
+    },
+    {
+     "passage": "In conclusion, the trip was long. We drove for six hours. In conclusion, it was worth it because we saw the sea.",
+     "stem": "The writer used In conclusion twice. Which words could replace the second one?",
+     "options": [
+      "For example",
+      "All in all",
+      "Such as",
+      "At first"
+     ],
+     "answer": 1,
+     "why": "All in all also sums up, so it keeps the meaning and avoids repeating the same words."
+    }
+   ],
+   "again": {
+    "title": "The wrap-up test",
+    "text": "Read the last sentence by itself.\n\n1. Could it be a **short answer** to \"What was the whole paragraph about?\"\n2. If yes, put **in short**, **overall** or **to sum up** before it.",
+    "example": "Bees make honey. They help flowers grow. Many farms need them.\n\nWhat was it all about? Bees are useful. **Overall, bees are very useful insects.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Transitions for examples",
+     "text": "Use these to show a **specific case** of a general idea: **for example**, **for instance**, **such as**, **in particular**.\n\nThe idea comes first. The example comes after the transition."
+    },
+    {
+     "title": "Transitions for emphasis",
+     "text": "Use these to make a point **stronger**: **in fact**, **indeed**, **above all**, **most importantly**, **even**.\n\nThey tell the reader: this next part matters even more, or it is more surprising than you think."
+    },
+    {
+     "title": "Which job is it?",
+     "text": "1. Is the next sentence a **case** of the idea before it? Choose an **example** transition.\n2. Does it **push the idea further** or correct a wrong belief? Choose an **emphasis** transition.\n3. Read the sentence aloud with your choice. Does the meaning hold?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your choice must match the link between **two sentences**.\n\n1. Name the idea in the sentence before the blank.\n2. Name what the sentence with the blank adds.\n3. Ask: is it an example of that idea, or a stronger version of it?\n\nPoint to both sentences to prove your choice."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many people think the desert is empty at night.",
+      "role": "main"
+     },
+     {
+      "t": "In fact, it is full of life after dark.",
+      "role": "key"
+     },
+     {
+      "t": "Foxes, owls and beetles come out when the air cools down.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The second sentence is not an example. It **corrects** a wrong belief and makes the point stronger.\n\nSo **In fact** is the right transition. The third sentence then gives examples."
+   },
+   "together": {
+    "passage": "Many animals in Saudi Arabia have clever ways to survive the heat. ___, the Arabian oryx has a white coat that reflects sunlight. The sand cat rests in a burrow during the day and hunts at night. The spiny-tailed lizard digs deep tunnels where the ground stays cooler. These habits help them stay alive in one of the hottest places on Earth.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "For instance",
+     "In conclusion",
+     "On the other hand",
+     "As a result"
+    ],
+    "answer": 0,
+    "hint": "Is the oryx a result, a contrast, or one case of the general idea in the first sentence?",
+    "good": "Yes! The oryx is one specific case of an animal with a clever way to survive the heat."
+   },
+   "evidence": {
+    "sentences": [
+     "Many animals in Saudi Arabia have clever ways to survive the heat.",
+     "___, the Arabian oryx has a white coat that reflects sunlight.",
+     "The sand cat rests in a burrow during the day and hunts at night.",
+     "The spiny-tailed lizard digs deep tunnels where the ground stays cooler.",
+     "These habits help them stay alive in one of the hottest places on Earth."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: For instance. Tap the general idea and the sentence that gives the first example of it.",
+    "wrong": "This sentence is a later example or the ending. Find the general idea and the first example that follows it."
+   },
+   "checks": [
+    {
+     "passage": "Some people believe that reading is only for school. ___, many adults read every day for fun and to learn new skills.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "For example",
+      "Such as",
+      "In particular",
+      "In fact"
+     ],
+     "answer": 3,
+     "why": "The second sentence corrects a wrong belief and makes the point stronger, so In fact fits."
+    },
+    {
+     "passage": "Healthy snacks give you energy for school. Fruits ___ bananas, apples and grapes are easy to carry in a lunch box.",
+     "stem": "Which words best fit the blank?",
+     "options": [
+      "in fact",
+      "such as",
+      "above all",
+      "in conclusion"
+     ],
+     "answer": 1,
+     "why": "Such as introduces examples of fruits inside the same sentence."
+    },
+    {
+     "passage": "There are many ways to stay safe in the summer heat. Wear a hat and light clothes. Rest in the shade when you can. ___, drink water often, even before you feel thirsty.",
+     "stem": "Which transition best shows that the last tip is the most important?",
+     "options": [
+      "For instance",
+      "Such as",
+      "Above all",
+      "In particular"
+     ],
+     "answer": 2,
+     "why": "Above all tells the reader that this tip matters more than the others."
+    }
+   ],
+   "again": {
+    "title": "Example or stronger?",
+    "text": "Picture a staircase.\n\n1. **Example** transitions stay on the **same step**: they show a case of the idea.\n2. **Emphasis** transitions go **one step up**: they make the idea stronger or more surprising.",
+    "example": "Ahmed loves science. **For example**, he reads about planets. (same step)\n\nAhmed loves science. **In fact**, he wants to be an astronaut. (one step up)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "A toolbox of transitions",
+     "text": "Strong writing uses **different kinds** of transitions, each for its own job:\n\n**Example:** for instance, to illustrate\n**Emphasis:** indeed, above all, in fact\n**Contrast:** however, on the other hand\n**Cause and effect:** as a result, consequently\n**Conclusion:** ultimately, in conclusion, overall"
+    },
+    {
+     "title": "Choose by meaning",
+     "text": "A transition is a **promise** about how two ideas are related. If the promise is wrong, the reader is confused.\n\n\"However\" promises a contrast. If the next idea agrees with the last, \"however\" breaks that promise."
+    },
+    {
+     "title": "Vary and place well",
+     "text": "1. Avoid using the same transition again and again.\n2. Put a transition where the **logic** changes, not in every sentence.\n3. Check the whole passage: does each transition match the link between its two ideas?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For each blank, look at the idea **before** and the idea **after**.\n\n1. Agree and add an example? **Example** transition.\n2. Turn in a new direction? **Contrast** transition.\n3. Show what happened because of it? **Cause and effect**.\n4. Pull the whole passage together? **Conclusion**.\n\nThe sentences on both sides of the blank are your evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Solar panels turn sunlight into electricity.",
+      "role": "other"
+     },
+     {
+      "t": "Sunny countries, for instance, can produce large amounts of solar power.",
+      "role": "detail"
+     },
+     {
+      "t": "However, panels make little power at night.",
+      "role": "key"
+     },
+     {
+      "t": "As a result, engineers are building better batteries to store energy for later.",
+      "role": "key"
+     },
+     {
+      "t": "Ultimately, sunlight could become a main source of power for many homes.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Each transition does a different job. **For instance** gives an example, **However** turns to a problem, **As a result** shows what the problem led to, and **Ultimately** concludes.\n\nThe passage uses several types, and each one matches the logic."
+   },
+   "together": {
+    "passage": "Volunteering helps both the community and the volunteer. (1) ___, young people who clean beaches protect sea animals and keep the shore beautiful for everyone. (2) ___, volunteering can take time away from homework and rest. Even so, many students say they feel happier and more confident after helping others. (3) ___, giving a few hours each month can make a real difference to a town and to the person who gives.",
+    "stem": "Which set of transitions best fits blanks (1), (2) and (3)?",
+    "options": [
+     "(1) As a result (2) For example (3) However",
+     "(1) In conclusion (2) Indeed (3) For instance",
+     "(1) However (2) As a result (3) In fact",
+     "(1) For instance (2) However (3) Overall"
+    ],
+    "answer": 3,
+    "hint": "Blank (1) begins a case of the first idea. Blank (2) turns to a downside. Blank (3) pulls everything together.",
+    "good": "Yes! For instance gives an example, However marks the downside, and Overall concludes."
+   },
+   "evidence": {
+    "sentences": [
+     "Volunteering helps both the community and the volunteer.",
+     "(1) ___, young people who clean beaches protect sea animals and keep the shore beautiful for everyone.",
+     "(2) ___, volunteering can take time away from homework and rest.",
+     "Even so, many students say they feel happier and more confident after helping others.",
+     "(3) ___, giving a few hours each month can make a real difference to a town and to the person who gives."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Blank (2) needs a contrast word. Tap the sentence with blank (2) and the sentence just before it that it turns away from.",
+    "wrong": "Look at blank (2) and the sentence before it: one shows a benefit, the next shows a cost. That turn is the contrast."
+   },
+   "checks": [
+    {
+     "passage": "Our city planted thousands of trees last year. As a result, some streets are now several degrees cooler in summer. As a result, birds have returned to the parks. As a result, people walk more.",
+     "stem": "How could the writer best improve this passage?",
+     "options": [
+      "Replace two of the repeated transitions with different ones that fit, such as In addition and Indeed",
+      "Take out every transition word",
+      "Change every As a result to However",
+      "Add For example before the first sentence"
+     ],
+     "answer": 0,
+     "why": "The writer repeats the same transition. Varying them, with words that still fit the logic, makes the writing smoother."
+    },
+    {
+     "passage": "Smartphones can help students learn. A student can look up a word in seconds. ___, phones can also distract students from their work.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "For instance",
+      "However",
+      "Indeed",
+      "As a result"
+     ],
+     "answer": 1,
+     "why": "The last sentence turns to a problem with phones, so a contrast transition is needed."
+    },
+    {
+     "passage": "The old market had been empty for years. Then the town turned it into a weekend fair for local farmers and crafts. ___, the market is busier than it has been in decades. ___, some shops have reopened on the streets nearby.",
+     "stem": "Which pair best fits the two blanks, in order?",
+     "options": [
+      "However / For example",
+      "For instance / However",
+      "Today / In fact",
+      "In conclusion / On the other hand"
+     ],
+     "answer": 2,
+     "why": "Today marks the change in time, and In fact adds a stronger, surprising point. The other pairs break the logic."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Cover the blank with your finger. Read only the idea before and the idea after.\n\n1. Same direction, more detail? **For instance**.\n2. Same direction, stronger? **In fact**.\n3. Opposite direction? **However**.\n4. Because of it? **As a result**.\n5. Wrapping up? **Overall**.",
+    "example": "It rained all week. ___, the football match was cancelled.\n\nBefore: rain. After: match cancelled. The second happened **because of** the first, so **As a result** fits."
+   }
+  }
+ }
+}

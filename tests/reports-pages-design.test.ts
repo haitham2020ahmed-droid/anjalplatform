@@ -37,9 +37,10 @@ const html = (el: React.ReactElement, lang: "en" | "ar" = "en") => renderToStati
 /** Every on-screen report page → the loader(s) it must still call (the numbers come from them, untouched). */
 const PAGES: Record<string, string[]> = {
   "src/app/teacher/reports/page.tsx": ["readableClasses"],
-  "src/app/teacher/reports/needs-help/page.tsx": ["repeatedMistakes"],
+  // r67: Needs help merged into Mistakes and root causes; Student Progress into the student file (both redirect)
+  "src/app/teacher/reports/errors/page.tsx": ["repeatedMistakes", "classErrors"],
+  "src/app/teacher/reports/class/page.tsx": ["classMonth", "peerCompare"],
   "src/app/teacher/progress/page.tsx": ["classProgress"],
-  "src/app/teacher/progress/[studentId]/page.tsx": ["studentProgress"],
   "src/components/teacher/class-overview.tsx": [],
   "src/components/analytics/class-analytics.tsx": [],
   "src/app/teacher/curriculum-results/page.tsx": ["curriculumResults"],

@@ -8,6 +8,7 @@ import { can } from "@/server/auth/rbac";
 import { listUsers, manageableUser } from "@/server/admin/users";
 import { ResetPasswordButton } from "@/app/teacher/students/[studentId]/reset-password-button";
 import { linkParentAction, moveStudentAction, setActiveAction, teacherClassesAction, unlinkParentAction, updateUserAction } from "../../actions";
+import { Combo } from "@/components/ui/combo";
 
 export default async function UserPage({ params }: { params: Promise<{ userId: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -75,7 +76,7 @@ export default async function UserPage({ params }: { params: Promise<{ userId: s
           <p className="text-sm text-slate-600">Moving keeps the student&apos;s history. Choosing a class in another grade also moves the student to that grade.</p>
           <ActionForm action={moveStudentAction} submit="Move" className="mt-3 flex flex-wrap items-end gap-3">
             <input type="hidden" name="userId" value={userId} />
-            <label className={label}>Class<select name="classId" defaultValue={currentClass ? String(currentClass) : ""} className={field}><option value="">No class</option>{classes.map((c) => <option key={c.id} value={c.id}>{c.name} (Grade {c.grade})</option>)}</select></label>
+            <label className={label}>Class<Combo name="classId" label="Class" defaultValue={currentClass ? String(currentClass) : ""} options={[{ value: "", label: "No class" }, ...classes.map((c) => ({ value: c.id, label: c.name, group: `Grade ${c.grade}` }))]} /></label>
           </ActionForm>
         </section>
       )}
@@ -97,7 +98,7 @@ export default async function UserPage({ params }: { params: Promise<{ userId: s
           </ul>
           <ActionForm action={linkParentAction} submit="Link child" className="mt-4 flex flex-wrap items-end gap-3">
             <input type="hidden" name="parentUserId" value={userId} />
-            <label className={label}>Student<select name="studentUserId" required className={field}>{studentsList.map((s) => <option key={s.userId} value={s.userId}>{s.displayName} ({s.studentNumber})</option>)}</select></label>
+            <label className={label}>Student<Combo name="studentUserId" required label="Student" options={studentsList.map((s) => ({ value: s.userId, label: s.displayName, hint: String(s.studentNumber ?? "") }))} /></label>
             <label className={label}>Relationship<input name="relationship" placeholder="mother, father, guardian" maxLength={30} className={field} /></label>
           </ActionForm>
         </section>

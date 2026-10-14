@@ -77,12 +77,13 @@ export const firstFamily = (fam: Map<string, string>, list: string[] | undefined
 export async function skillHistoryWithEvidence(repo: Repo, studentId: string, skillId: string, items: Map<string, PracticeItem>, window = 60): Promise<ResponseEvidence[]> {
   const [rows, ext] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, skillId }, {
-      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source"],
+      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess"],
       orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: window,
     }),
     repo.findMany("SkillEvidence", { studentId, skillId }, { select: ["source", "refId", "credit", "difficultyB", "guessC", "weight", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: window }),
   ]);
-  const bank = markRepeats(rows.reverse().map((r) => {
+  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history
+  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess).map((r) => {
     const it = items.get(s(r.questionId));
     const w = ATTEMPT_SOURCE_WEIGHT[s(r.source)];
     return {

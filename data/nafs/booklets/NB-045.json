@@ -1,0 +1,568 @@
+{
+  "code": "NB-045",
+  "title": "Two Wheels, Two Hundred Years: The Story of the Bicycle",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 429,
+  "passage": "The bicycle looks so simple that it is easy to assume it was invented in a single afternoon. In reality, it took nearly seventy years of experiments, failures and clever improvements. Only then did the machine we ride today finally appear. Its story shows that many great inventions are not created by one genius at one moment, but are gradually shaped by many people who each solve a different problem.\n\nThe earliest ancestor of the bicycle was built in 1817 by Karl Drais, a German inventor. His wooden \"running machine\" had two wheels in a line and a seat, but no pedals at all. Riders sat on it and pushed themselves along the road with their feet, rather like a child on a balance bike. Although people laughed at it, the machine proved something important: a person could stay balanced on two wheels while moving forward.\n\nIn the 1860s, inventors in France attached pedals directly to the front wheel. This was a significant step, yet the new machines had iron tyres and wooden frames, and they shook their riders so violently on stony roads that people nicknamed them \"boneshakers.\" Because every turn of the pedals turned the front wheel only once, designers soon made that wheel larger and larger in order to travel faster. The result was the penny-farthing, with a front wheel that could be taller than a man. It was fast but dangerous, since riders sat so high that a small stone could throw them headfirst onto the ground.\n\nThe breakthrough came in 1885, when the English inventor John Kemp Starley produced the \"safety bicycle.\" It had two wheels of similar size and a chain that connected the pedals to the rear wheel. Thanks to the chain, a rider could travel quickly without needing a gigantic wheel, so the bicycle became lower, steadier and far less frightening. Three years later, John Boyd Dunlop developed a practical air-filled tyre, which made the ride remarkably comfortable.\n\nWithin a few years, bicycles had transformed daily life. Workers could live farther from their factories, and doctors could reach patients more quickly. Moreover, the bicycle gave ordinary people a new kind of freedom. It was cheap, it needed no fuel and it could be repaired at home.\n\nToday, engineers continue to improve the design with light metals, gears and even electric motors. In many cities, including Riyadh, new cycling paths encourage people to ride for health and to reduce traffic. How remarkable it is that a wooden machine that people once laughed at became one of the most efficient machines ever invented!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “gradually” as it is used in paragraph 1?",
+      "options": [
+        "all at once",
+        "in secret",
+        "slowly, step by step",
+        "without care"
+      ],
+      "answer": "C",
+      "why": "The writer contrasts one genius “at one moment” with many people improving the bicycle over time, so “gradually” means slowly, step by step."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “cheap” as it is used in paragraph 5?",
+      "options": [
+        "expensive",
+        "useful",
+        "simple",
+        "modern"
+      ],
+      "answer": "A",
+      "why": "“Cheap” means costing little money; its opposite is “expensive”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 4: “The breakthrough came in 1885.” What does “breakthrough” mean here?",
+      "options": [
+        "an accident that damaged a machine",
+        "an important advance that solves a problem",
+        "a race between two rival inventors",
+        "a broken part that must be replaced"
+      ],
+      "answer": "B",
+      "why": "The safety bicycle solved the dangers of earlier designs, so a “breakthrough” is an important advance that solves a problem."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "stony",
+        "dangerous",
+        "larger",
+        "violently"
+      ],
+      "answer": "D",
+      "why": "“Violently” describes how the machines shook their riders. “Stony” and “dangerous” are adjectives; “larger” is a comparative adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “wheels” is a regular plural. Which plural noun from the text is IRREGULAR?",
+      "options": [
+        "riders",
+        "people",
+        "pedals",
+        "tyres"
+      ],
+      "answer": "B",
+      "why": "“People” is the irregular plural of “person”; the other words simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “efficient” in paragraph 6?",
+      "options": [
+        "effort",
+        "efficiency",
+        "effect",
+        "official"
+      ],
+      "answer": "B",
+      "why": "“Efficiency” is the noun form of “efficient”; the other words only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “transformed” in a meaningful sentence of your own.",
+      "model": "The new library transformed our school, because students now spend their breaks reading instead of waiting in the corridor.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “transformed” with its meaning (changed completely or greatly)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Transformed” means changed completely or in a major way."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “factory”, a word used in its plural form in paragraph 5?",
+      "options": [
+        "factorys",
+        "factoryes",
+        "factorees",
+        "factories"
+      ],
+      "answer": "D",
+      "why": "A consonant + y ending changes y to i and adds -es: factory → factories."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Within a few years, bicycles had transformed daily life.",
+        "It was fast but dangerous, since riders sat so high that a small stone could throw them headfirst onto the ground.",
+        "How remarkable it is that a wooden machine that people once laughed at became one of the most efficient machines ever invented!",
+        "Today, engineers continue to improve the design with light metals, gears and even electric motors."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark, even though it begins with “How”."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Karl Drais and His Childhood",
+        "New Cycling Paths in Riyadh",
+        "From Running Machine to Safety Bicycle",
+        "How to Repair a Flat Tyre"
+      ],
+      "answer": "C",
+      "why": "The text traces the bicycle from Drais's running machine to the safety bicycle and beyond; the other titles cover a detail or are not discussed."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to buy electric bicycles",
+        "to explain how the bicycle developed over time",
+        "to describe the life of John Boyd Dunlop",
+        "to warn readers about riding on stony roads"
+      ],
+      "answer": "B",
+      "why": "Each paragraph describes a stage in the bicycle's development and why it mattered."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Pedals helped, but the new machines were rough or dangerous.",
+        "French inventors were busy during the 1860s.",
+        "Some front wheels were taller than a grown man.",
+        "Roads in the 1860s were often covered in stones."
+      ],
+      "answer": "A",
+      "why": "The paragraph explains that pedals were progress, but boneshakers were rough and penny-farthings were dangerous."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did designers make the front wheel larger and larger?",
+      "options": [
+        "to make the bicycle easier to climb onto",
+        "to protect the rider from stones on the road",
+        "to make room for a chain and gears",
+        "to go faster, as one pedal turn moved it once"
+      ],
+      "answer": "D",
+      "why": "“Because every turn of the pedals turned the front wheel only once, designers soon made that wheel larger… in order to travel faster.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "an expository text",
+        "a fairy tale",
+        "a personal letter",
+        "a play"
+      ],
+      "answer": "A",
+      "why": "It explains the real history of an invention with facts and dates; it has no plot or dialogue."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why did the chain make the bicycle safer?",
+      "options": [
+        "It stopped the wheels from ever turning too fast.",
+        "Riders could go fast without a gigantic wheel.",
+        "It replaced the hard iron tyres of older machines.",
+        "It allowed riders to push along with their feet."
+      ],
+      "answer": "B",
+      "why": "“Thanks to the chain, a rider could travel quickly without needing a gigantic wheel, so the bicycle became lower, steadier and far less frightening.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these came FIRST?",
+      "options": [
+        "the penny-farthing",
+        "the safety bicycle",
+        "the air-filled tyre",
+        "the boneshaker"
+      ],
+      "answer": "D",
+      "why": "Boneshakers (1860s) came before the penny-farthing, the safety bicycle (1885) and Dunlop's tyre (three years later)."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must a reader consider to understand why people called early machines “boneshakers”?",
+      "options": [
+        "Their iron tyres and wooden frames bounced on stony roads.",
+        "They had no pedals of any kind.",
+        "They used a chain to turn the rear wheel.",
+        "They were first built in Germany."
+      ],
+      "answer": "A",
+      "why": "Iron tyres and wooden frames shook riders “so violently on stony roads” that the nickname fitted."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What happened three years after the safety bicycle appeared?",
+      "options": [
+        "Karl Drais built his first running machine.",
+        "Pedals were attached to the front wheel.",
+        "Dunlop developed an air-filled tyre.",
+        "Riyadh opened new cycling paths."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “Three years later, John Boyd Dunlop developed a practical air-filled tyre.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What made the penny-farthing dangerous?",
+      "options": [
+        "Its chain often snapped on steep hills.",
+        "It had no seat, so riders had to stand.",
+        "It was too slow to share busy roads.",
+        "Riders sat so high that a stone could throw them."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3: “riders sat so high that a small stone could throw them headfirst onto the ground.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on paragraphs 1 and 2, why might people have laughed at Drais's running machine?",
+      "options": [
+        "It was made entirely of shiny metal.",
+        "It went much faster than horses.",
+        "Riders pushed it with their feet.",
+        "Its front wheel was taller than a man."
+      ],
+      "answer": "C",
+      "why": "It had no pedals, so riders pushed with their feet like a child on a balance bike, which must have looked odd."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "wanting to know what problems the inventors solved",
+        "wanting to know what Karl Drais liked to eat",
+        "wanting to know the price of bicycles today",
+        "wanting to know which factory makes tyres"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says the bicycle took seventy years of failures and improvements, which makes readers curious about them."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the safety bicycle DIFFERENT from the penny-farthing?",
+      "options": [
+        "It had no pedals at all.",
+        "It had similar-sized wheels and a chain.",
+        "It had iron tyres and a wooden frame.",
+        "It had a much taller front wheel."
+      ],
+      "answer": "B",
+      "why": "The safety bicycle “had two wheels of similar size and a chain that connected the pedals to the rear wheel.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the running machine and a modern balance bike have in common?",
+      "options": [
+        "Both are pushed with the rider's feet.",
+        "Both use a chain to turn the wheels.",
+        "Both were first made in the year 1885.",
+        "Both are powered by electric motors."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 compares running-machine riders to “a child on a balance bike”: both push with their feet."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what was one effect of the bicycle on daily life?",
+      "options": [
+        "Doctors stopped visiting their patients.",
+        "Many factories closed their doors.",
+        "Families needed to buy much more fuel.",
+        "Workers could live farther from work."
+      ],
+      "answer": "D",
+      "why": "“Workers could live farther from their factories, and doctors could reach patients more quickly.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the nickname “boneshakers” suggest about riding those machines?",
+      "options": [
+        "They were good for the rider's bones.",
+        "They were built from animal bones.",
+        "They were used mainly by doctors.",
+        "The ride felt rough enough to rattle bones."
+      ],
+      "answer": "D",
+      "why": "The expressive nickname exaggerates how violently the machines shook their riders."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare the running machine to “a child on a balance bike”?",
+      "options": [
+        "to suggest that only small children rode it",
+        "to help readers picture it through something familiar",
+        "to show that balance bikes are very dangerous",
+        "to prove that Karl Drais only built toys"
+      ],
+      "answer": "B",
+      "why": "Most readers have seen a balance bike, so the comparison makes the old machine easy to imagine."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which phrase from the text expresses the writer's OPINION rather than a fact?",
+      "options": [
+        "“built in 1817 by Karl Drais, a German inventor”",
+        "“two wheels of similar size and a chain”",
+        "“one of the most efficient machines ever invented”",
+        "“Three years later, John Boyd Dunlop”"
+      ],
+      "answer": "C",
+      "why": "Calling it “one of the most efficient machines ever invented” is a judgement; the other phrases state facts."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which benefit of cycling mentioned in the text matters MOST for a city like Riyadh today?",
+      "options": [
+        "riding for health and to reduce traffic",
+        "laughing at old wooden running machines",
+        "sitting high above the busy road",
+        "using iron tyres on stony roads"
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 says new cycling paths in Riyadh encourage people to ride “for health and to reduce traffic”."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to sell old penny-farthings to collectors",
+        "a wish to show how an invention grew step by step",
+        "anger at the people who laughed at Karl Drais",
+        "a belief that cars are completely useless"
+      ],
+      "answer": "B",
+      "why": "The writer's opening and closing stress that the bicycle was shaped by many people over many years."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final sentence?",
+      "options": [
+        "fear",
+        "boredom",
+        "admiration",
+        "regret"
+      ],
+      "answer": "C",
+      "why": "“How remarkable it is…!” shows admiration for how far the bicycle has come."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "who built the first running machine",
+        "how gears on modern bicycles work",
+        "when the safety bicycle appeared",
+        "why penny-farthings were dangerous"
+      ],
+      "answer": "B",
+      "why": "The writer mentions gears only briefly and never explains them; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A penny-farthing rider falls after hitting a stone.",
+        "A running machine flies over the busy road.",
+        "A broken bicycle chain repairs itself overnight.",
+        "An iron tyre fills itself with air."
+      ],
+      "answer": "A",
+      "why": "The text explains that a small stone could throw a penny-farthing rider to the ground."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "One Inventor, One Afternoon",
+        "The Dangerous Chain",
+        "Many Hands, One Machine",
+        "Bicycles Are for Children"
+      ],
+      "answer": "C",
+      "why": "The text's main idea is that many people improved the bicycle over time; the first title states the opposite."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences describing one improvement you would make to bicycles in the future and why it would help.",
+      "model": "In the future, I would design a bicycle with a small solar panel that powers a light and a fan for hot summer days. This would make cycling more comfortable in Saudi cities, so more people would choose bicycles instead of cars. Like the inventors before me, I would test it many times and keep improving it.",
+      "rubric": [
+        "2 = a clear new ending with a sensible improvement and a reason linked to the text's ideas (safety, comfort, health, traffic)",
+        "1 = an improvement is given but the reason is missing or unclear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible improvement with a clear reason is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could a school encourage more students to cycle safely, based on the ideas in the text?",
+      "options": [
+        "Teach students to check their tyres and chains.",
+        "Provide safe places to park bicycles.",
+        "A and B",
+        "Ban bicycles from the school area."
+      ],
+      "answer": "C",
+      "why": "The text shows that home repairs and safe conditions make cycling practical; banning bicycles contradicts its message."
+    }
+  ]
+}

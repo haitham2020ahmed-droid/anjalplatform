@@ -1,0 +1,514 @@
+{
+ "code": "LN-164",
+ "title": "Poem structure and form",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.2.5",
+  "RL.3.5",
+  "RL.5.5",
+  "RL.6.5",
+  "RL.7.3",
+  "RL.7.5"
+ ],
+ "families": [
+  "poetry-elements"
+ ],
+ "skillNames": [
+  "Poetry: Structure, Rhyme, Meter and Form"
+ ],
+ "statements": [
+  "R-0143",
+  "R-0253",
+  "R-0257",
+  "R-0419",
+  "R-0604",
+  "R-0620",
+  "R-0668",
+  "R-0812",
+  "R-0816",
+  "R-0858",
+  "R-0973",
+  "R-0977"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Poems have lines",
+     "text": "A poem is written in **lines**. Each line can be short.\n\nWe read a poem line by line, like steps."
+    },
+    {
+     "title": "Rhyme and repeat",
+     "text": "Some words **rhyme**: they end with the same sound, like **cat** and **hat**.\n\nSome poems **repeat** words. Repeated words help us hear and feel the poem."
+    },
+    {
+     "title": "Why does it matter?",
+     "text": "Every part of a poem has a job.\n\nAsk: **Why did the poet write it this way?** What does it help me see, hear or feel?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the part the question asks about: a word, a line or a rhyme.\n2. Read the lines around it.\n3. Ask: what does it help me **see, hear or feel**?\n\nTap the lines that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Buzz, buzz, goes the bee,",
+      "role": "key"
+     },
+     {
+      "t": "from the flower to the tree.",
+      "role": "detail"
+     },
+     {
+      "t": "Buzz, buzz, all day long,",
+      "role": "key"
+     },
+     {
+      "t": "busy bee sings her song.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The poet repeats **Buzz, buzz**. It helps us **hear** the bee.\n\n**Bee** and **tree** rhyme. **Long** and **song** rhyme. The rhymes make the poem fun to say."
+   },
+   "together": {
+    "passage": "Tap, tap, tap on the window,\nrain is here today.\nTap, tap, tap on the roof,\nthe plants all drink and play.",
+    "stem": "Why does the poet repeat \"Tap, tap, tap\"?",
+    "options": [
+     "To show that someone is at the door",
+     "To name the plants",
+     "To tell the time",
+     "To help us hear the sound of rain"
+    ],
+    "answer": 3,
+    "hint": "What makes a tap, tap sound on a window and a roof in this poem?",
+    "good": "Yes! The rain taps on the window and roof. The repeated words help us hear it."
+   },
+   "evidence": {
+    "sentences": [
+     "Tap, tap, tap on the window,",
+     "rain is here today.",
+     "Tap, tap, tap on the roof,",
+     "the plants all drink and play."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: to help us hear the rain. Tap the 2 lines that repeat the sound.",
+    "wrong": "This line does not have the tap sound. Find the 2 lines that repeat it."
+   },
+   "checks": [
+    {
+     "passage": "The sun is hot,\nthe sand is gold,\nmy cup of water\nis nice and cold.",
+     "stem": "Which word rhymes with \"gold\"?",
+     "options": [
+      "hot",
+      "cold",
+      "sand",
+      "water"
+     ],
+     "answer": 1,
+     "why": "Gold and cold end with the same sound, so they rhyme."
+    },
+    {
+     "passage": "Up, up, up,\nmy kite goes high.\nUp, up, up,\ninto the sky.",
+     "stem": "What do the words \"Up, up, up\" help you see?",
+     "options": [
+      "The kite going higher",
+      "A kite falling down to the ground",
+      "Birds sitting in a tree",
+      "A boy running back home"
+     ],
+     "answer": 0,
+     "why": "The repeated word up shows the kite climbing higher and higher."
+    },
+    {
+     "passage": "Little fish, little fish,\nswimming in the sea,\nlittle fish, little fish,\nswim along with me.",
+     "stem": "What is the poem mostly about?",
+     "options": [
+      "A big boat",
+      "A sunny beach",
+      "A little fish swimming",
+      "A sea bird"
+     ],
+     "answer": 2,
+     "why": "The poem keeps repeating little fish and tells about it swimming."
+    }
+   ],
+   "again": {
+    "title": "Read it out loud",
+    "text": "Say the poem out loud.\n\n1. Which words do you say **more than once**?\n2. Which words **sound the same** at the end?\n\nThose parts help you hear and feel the poem.",
+    "example": "Clap, clap, clap your hands,\nstamp, stamp, stamp your feet.\n\nSay it. The repeated words make you want to **clap and stamp** along!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Lines and stanzas",
+     "text": "A **stanza** is a group of lines in a poem. Stanzas are separated by a space.\n\nStanzas in a poem are like **paragraphs** in a story."
+    },
+    {
+     "title": "How a poem is organised",
+     "text": "Poets organise stanzas on purpose. Each stanza may:\n\n1. Show a different **time** (morning, noon, night)\n2. Show a different **place** or **thing**\n3. Show a new **step** in what happens"
+    },
+    {
+     "title": "Rhyme and rhythm",
+     "text": "**Rhythm** is the beat of a poem. **Rhyme** is when line endings sound alike.\n\nTogether they make a poem musical and help important words **stand out**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find how a poem is organised:\n\n1. Read the **first line** of each stanza.\n2. Ask: what does each stanza talk about?\n3. Look for a **pattern**: times, places, steps, or a change.\n\nTap the lines that show the pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In spring, the field is soft and green,",
+      "role": "key"
+     },
+     {
+      "t": "the smallest shoots can just be seen.",
+      "role": "detail"
+     },
+     {
+      "t": "In summer, wheat stands tall and gold,",
+      "role": "key"
+     },
+     {
+      "t": "more grain than any hand can hold.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first stanza is about **spring**. The second is about **summer**.\n\nThe poem is organised by **seasons**. This shows how the field changes over time."
+   },
+   "together": {
+    "passage": "At dawn, the desert wakes up cool,\nthe lizards blink, the birds take flight.\n\nAt noon, the sun burns hard and high,\nand every creature hides from light.\n\nAt night, the sand turns soft and cold,\nthe foxes come out, the stars shine bright.",
+    "stem": "How is this poem organised?",
+    "options": [
+     "Each stanza shows the desert at a different time of day.",
+     "Each stanza tells about a different animal.",
+     "Each stanza asks a question about the sand.",
+     "Each stanza describes a different country."
+    ],
+    "answer": 0,
+    "hint": "Read the first words of each stanza. What do they have in common?",
+    "good": "Yes! At dawn, at noon and at night: each stanza shows a different time of day."
+   },
+   "evidence": {
+    "sentences": [
+     "At dawn, the desert wakes up cool,",
+     "the lizards blink, the birds take flight.",
+     "At noon, the sun burns hard and high,",
+     "and every creature hides from light.",
+     "At night, the sand turns soft and cold,",
+     "the foxes come out, the stars shine bright."
+    ],
+    "proof": [
+     0,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: each stanza shows a different time of day. Tap 2 lines that name a time of day.",
+    "wrong": "This line tells what happens, but it does not name the time. Find the lines that begin with a time of day."
+   },
+   "checks": [
+    {
+     "passage": "I pack my bag, I tie my shoe,\nI kiss my mother at the door.\n\nI walk the road, I cross the street,\nI count the steps, one, two, three, four.\n\nI see the gate, I hear the bell,\nmy school day starts once more.",
+     "stem": "How do the stanzas organise the poem?",
+     "options": [
+      "Each stanza is about a different friend.",
+      "Each stanza asks a question.",
+      "Each stanza is a step on the way to school.",
+      "Each stanza describes the weather."
+     ],
+     "answer": 2,
+     "why": "First the speaker gets ready, then walks, then reaches school. Each stanza is a step on the way."
+    },
+    {
+     "passage": "The kettle sings,\nthe bread is warm,\nthe tea is sweet,\nwe're safe from storm.",
+     "stem": "Which two words rhyme in this poem?",
+     "options": [
+      "sings and sweet",
+      "kettle and bread",
+      "tea and we're",
+      "warm and storm"
+     ],
+     "answer": 3,
+     "why": "Warm and storm end with the same sound, so they rhyme."
+    },
+    {
+     "passage": "My grandpa's hands are rough and strong,\nthey built our wall, they dug our well.\n\nMy grandpa's hands are slow and kind,\nthey turn the pages as he tells\nthe stories only he can tell.",
+     "stem": "What does the repeated line opening \"My grandpa's hands are\" help the poem do?",
+     "options": [
+      "It shows that the poem is about a garden.",
+      "It links the stanzas and shows two sides of Grandpa.",
+      "It tells us that Grandpa is still young.",
+      "It turns the poem into a list of tools."
+     ],
+     "answer": 1,
+     "why": "Both stanzas start the same way. The first shows his hands as strong, the second as kind."
+    }
+   ],
+   "again": {
+    "title": "Name each stanza",
+    "text": "Give each stanza a short **name**, like a title.\n\nThen look at all the names together. Do you see a pattern? That is how the poem is organised.",
+    "example": "Stanza 1: **seed in the ground**. Stanza 2: **small green shoot**. Stanza 3: **tall flower**.\n\nPattern: the poem follows a plant as it **grows**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Poems can tell stories",
+     "text": "Some poems are **narrative**: they tell a story with characters, a setting and events.\n\nOther poems are **descriptive**: they paint a picture with details of sight, sound, smell and touch."
+    },
+    {
+     "title": "Every part has a job",
+     "text": "Each stanza, line or image adds to the poem's meaning.\n\nA stanza might set the **scene**, build **tension**, or show how things **end**. One strong image might show a **feeling**."
+    },
+    {
+     "title": "Ask about purpose",
+     "text": "1. What does this part **say**?\n2. What does it help the reader **see or feel**?\n3. How does it connect to the **whole** poem?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When a question asks about one part of a poem:\n\n1. Reread that part and the lines **before and after** it.\n2. Decide its job: setting the scene, building action, showing feeling, or ending the story.\n3. Choose the answer that explains its job in the **whole** poem."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The market smells of cardamom and bread,",
+      "role": "key"
+     },
+     {
+      "t": "the sellers call out prices, loud and long,",
+      "role": "key"
+     },
+     {
+      "t": "bright cloth is piled in towers, blue and red,",
+      "role": "key"
+     },
+     {
+      "t": "and every street is singing its own song.",
+      "role": "detail"
+     }
+    ],
+    "explain": "This is a **descriptive** poem. Each line uses a different sense: **smell**, **sound**, **sight**.\n\nTogether they make the market feel busy and alive. The last line sums up the lively feeling."
+   },
+   "together": {
+    "passage": "The storm rolled in across the bay,\nthe little boat was far from shore,\nthe sky went black, the wind went wild,\nthe waves rose higher than before.\n\nOn land, young Sara climbed the tower\nand lit the lamp with steady hands;\nits golden beam swept out to sea\nand showed the way to safer sands.\n\nAt dawn the boat came gliding home,\nher father waving from its side,\nand Sara ran across the beach\nwith arms and heart both open wide.",
+    "stem": "What does the last stanza add to the poem's story?",
+    "options": [
+     "It describes the storm getting stronger.",
+     "It shows how Sara lit the lamp.",
+     "It shows the happy ending when the boat returns safely.",
+     "It explains why the boat went to sea."
+    ],
+    "answer": 2,
+    "hint": "The first stanza shows the danger, and the second shows Sara's action. What happens in the third?",
+    "good": "Yes! The last stanza shows the boat coming home and Sara running to her father. It ends the story happily."
+   },
+   "evidence": {
+    "sentences": [
+     "The storm rolled in across the bay,",
+     "the little boat was far from shore,",
+     "the sky went black, the wind went wild,",
+     "the waves rose higher than before.",
+     "On land, young Sara climbed the tower",
+     "and lit the lamp with steady hands;",
+     "its golden beam swept out to sea",
+     "and showed the way to safer sands.",
+     "At dawn the boat came gliding home,",
+     "her father waving from its side,",
+     "and Sara ran across the beach",
+     "with arms and heart both open wide."
+    ],
+    "proof": [
+     8,
+     9,
+     10,
+     11
+    ],
+    "need": 2,
+    "stem": "The answer was: the last stanza shows the happy ending. Tap 2 lines that show the ending.",
+    "wrong": "This line comes from an earlier stanza, about the storm or Sara's action. Find lines in the last stanza."
+   },
+   "checks": [
+    {
+     "passage": "The old tree by our gate is bent and grey,\nits branches thin, its bark is cracked and dry,\nyet every spring it pushes out new leaves\nas if it has forgotten it is old.",
+     "stem": "What do the last two lines add to the description of the tree?",
+     "options": [
+      "They show that the tree is still full of life.",
+      "They show that the tree is about to fall.",
+      "They explain where the gate is.",
+      "They describe the tree in winter."
+     ],
+     "answer": 0,
+     "why": "After describing how old the tree is, the poet shows it still grows new leaves every spring."
+    },
+    {
+     "passage": "Omar found a bird with a broken wing.\nHe made a nest from cloth inside a box.\nHe fed it seeds and water every day.\nOne morning, it flew up and over the rocks.",
+     "stem": "What makes this a narrative poem?",
+     "options": [
+      "It only describes how a bird looks.",
+      "It tells a story with a character and events.",
+      "It has no characters.",
+      "It gives facts about birds."
+     ],
+     "answer": 1,
+     "why": "The poem tells a story: Omar finds a bird, cares for it, and it flies away."
+    },
+    {
+     "passage": "Hush, the baby sleeps.\nThe fan turns slow and soft,\nthe curtains barely move,\nthe cat curls on the mat.\nHush, the baby sleeps.",
+     "stem": "Why does the poet repeat the line \"Hush, the baby sleeps\" at the start and end?",
+     "options": [
+      "To tell a story about the cat",
+      "To show that the baby is waking up",
+      "To list everything in the house",
+      "To wrap the poem in a quiet, calm mood"
+     ],
+     "answer": 3,
+     "why": "The repeated line opens and closes the poem like a frame, keeping the quiet, sleepy mood."
+    }
+   ],
+   "again": {
+    "title": "Story map for poems",
+    "text": "For a story poem, label each stanza:\n\n1. **Setting / problem**\n2. **Action**\n3. **Ending**\n\nThen you can say what any stanza adds.",
+    "example": "Stanza 1: a girl loses her ring in the sand (**problem**).\nStanza 2: she digs all afternoon (**action**).\nStanza 3: at sunset, it sparkles in the light (**ending**)."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Form shapes meaning",
+     "text": "A poem's **form** is its shape: line length, stanza size, rhyme pattern, and where lines break.\n\nPoets choose form to **support** meaning. A change in form often signals a change in **meaning**."
+    },
+    {
+     "title": "Common forms",
+     "text": "**Free verse:** no fixed rhyme or rhythm; it follows natural speech.\n\n**Rhymed stanzas:** regular pattern, often musical.\n\n**Haiku:** three short lines (5-7-5 syllables), usually about a moment in nature."
+    },
+    {
+     "title": "Watch for shifts",
+     "text": "Look for places where the pattern **breaks**: a line set apart, a sudden short line, a stanza that changes tone.\n\nAsk: Why does the poet break the pattern **here**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse form:\n\n1. Describe the pattern: line lengths, stanza sizes, rhyme.\n2. Find where the pattern **changes**.\n3. Explain what the change **emphasises** or reveals.\n\nThe best answer links a feature of form to the poem's **meaning**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The runner pounds along the track,",
+      "role": "detail"
+     },
+     {
+      "t": "her breath a steady drum,",
+      "role": "detail"
+     },
+     {
+      "t": "her legs grow heavy,",
+      "role": "key"
+     },
+     {
+      "t": "slower,",
+      "role": "key"
+     },
+     {
+      "t": "done.",
+      "role": "key"
+     }
+    ],
+    "explain": "The lines get **shorter and shorter**, just as the runner gets slower and more tired.\n\nThe form **acts out** the meaning: the poem runs out of breath with her."
+   },
+   "together": {
+    "passage": "Each morning, the fishermen push their boats\ninto the grey water, singing old songs\ntheir fathers sang, nets folded at their feet,\nhopeful as the tide.\n\nEach evening, they return with silver piles,\nthe harbour loud with bargaining and laughter,\nchildren racing to the water's edge\nto count the catch.\n\nFor forty years the pattern held:\nthe same boats out, the same boats in,\nas certain as the rising sun\nand the salt wind on their skin.\n\nToday,\none boat\nhas not come home.",
+    "stem": "Why does the poet make the last stanza so short and break it into tiny lines?",
+    "options": [
+     "To show that the fishermen are tired of singing",
+     "To slow the reader down and stress a sudden, worrying change",
+     "To describe the fish in more detail",
+     "To show that the harbour is loud and busy"
+    ],
+    "answer": 1,
+    "hint": "Compare the last stanza with the ones before it. How is the rhythm different, and what news does it bring?",
+    "good": "Yes! After three long, steady stanzas, the short broken lines make us slow down and feel the shock that one boat is missing."
+   },
+   "evidence": {
+    "sentences": [
+     "Each morning, the fishermen push their boats",
+     "into the grey water, singing old songs",
+     "their fathers sang, nets folded at their feet,",
+     "hopeful as the tide.",
+     "Each evening, they return with silver piles,",
+     "the harbour loud with bargaining and laughter,",
+     "children racing to the water's edge",
+     "to count the catch.",
+     "For forty years the pattern held:",
+     "the same boats out, the same boats in,",
+     "as certain as the rising sun",
+     "and the salt wind on their skin.",
+     "Today,",
+     "one boat",
+     "has not come home."
+    ],
+    "proof": [
+     12,
+     13,
+     14
+    ],
+    "need": 2,
+    "stem": "The answer was: the short lines stress a sudden, worrying change. Tap 2 lines that break the pattern.",
+    "wrong": "This line belongs to the long, regular stanzas that set up the pattern. Find the short lines that break it."
+   },
+   "checks": [
+    {
+     "passage": "Silent palm at noon,\nits shadow a small dark pool,\nthe goat sleeps inside.",
+     "stem": "How does the haiku form suit this poem's meaning?",
+     "options": [
+      "Its long lines tell a full story.",
+      "Its rhyme pattern makes it sound like a song.",
+      "Its many stanzas show the passing of a year.",
+      "Its three short lines capture one still moment."
+     ],
+     "answer": 3,
+     "why": "A haiku is three short lines about one moment in nature, like the still, hot noon under the palm."
+    },
+    {
+     "passage": "I used to think my city was all noise:\nthe horns, the drills, the crowds that never rest,\nthe buildings rising higher every year.\n\nBut walking home tonight, I heard the call\nto prayer float soft above the busy roads,\nand all the city seemed to pause and listen.",
+     "stem": "What does the change from the first stanza to the second show?",
+     "options": [
+      "The speaker decides to move to a new city.",
+      "The speaker describes more noise in the city.",
+      "The speaker notices a peaceful side of the city.",
+      "The speaker explains how buildings are built."
+     ],
+     "answer": 2,
+     "why": "The first stanza lists noise. The word But opens the second stanza, where the speaker notices a calm, peaceful moment."
+    },
+    {
+     "passage": "My brother left for university\nin a city far away.\nHis room is tidy now. His shoes\nare gone from by the door.\nNobody steals my last biscuit.\nNobody laughs too loud.\nI didn't think I'd miss that noise.\nI miss it more and more.",
+     "stem": "Which feature of the poem's form best shows the speaker's feeling?",
+     "options": [
+      "The repeated \"Nobody\" lines about what is missing",
+      "The mention of a city far away",
+      "The single long stanza about the university",
+      "The description of the brother's tidy room"
+     ],
+     "answer": 0,
+     "why": "The two lines starting Nobody list what is missing, which builds the feeling that leads to the last line."
+    }
+   ],
+   "again": {
+    "title": "Look at the shape",
+    "text": "Before you read the words, look at the **shape** of the poem.\n\n1. Are the lines long or short?\n2. Do the stanzas look the same?\n3. Where does the shape suddenly **change**?\n\nThat change is usually where the important meaning is.",
+    "example": "A poem has four long stanzas about a noisy wedding party. The fifth stanza is one line: **Then, silence.** The change in shape tells you the most important moment has arrived."
+   }
+  }
+ }
+}

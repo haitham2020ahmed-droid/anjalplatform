@@ -8,6 +8,7 @@ import type { Prisma, PrismaClient } from "@prisma/client";
 import type { FindOptions, Repo, Row, Where } from "../seeding/repo";
 import { prismaUniqueWhere } from "./unique-keys";
 import { bankVersion, bumpBankVersion, noteWrite } from "../cache/bank-version";
+import { isMissingPrivateColumn, sharedBankWhere } from "../questions/private-copies";
 
 type Delegate = {
   upsert(args: unknown): Promise<Row>;
@@ -21,6 +22,7 @@ type Delegate = {
   deleteMany(args: unknown): Promise<{ count: number }>;
 };
 
+let noPrivateColumn = false;
 const lcfirst = (s: string) => s[0].toLowerCase() + s.slice(1);
 
 export interface PrismaRepoOptions {
@@ -62,23 +64,33 @@ export class PrismaRepo implements Repo {
     for (let i = 0; i < rows.length; i += 500) n += (await this.d(model).createMany({ data: rows.slice(i, i + 500) })).count;
     return n;
   }
+  /**
+   * ✏️ Reads of the Question table see the shared bank only, unless they read by id or name privateToId (teachers'
+   * private copies: src/server/questions/private-copies.ts). A database without the column yet (the update's
+   * `prisma db push` has not run) is read as before.
+   */
+  private shared<T>(model: string, where: Where | undefined, run: (w: Where | undefined) => Promise<T>): Promise<T> {
+    const w = noPrivateColumn ? where : sharedBankWhere(model, where);
+    if (w === where) return run(where);
+    return run(w).catch((e) => { if (!isMissingPrivateColumn(e)) throw e; noPrivateColumn = true; return run(where); });
+  }
   findUnique(model: string, where: Record<string, unknown>) {
     return this.d(model).findUnique({ where: prismaUniqueWhere(model, where) });
   }
   findMany(model: string, where?: Where, opts: FindOptions = {}) {
-    return this.d(model).findMany({
-      where: where,
+    return this.shared(model, where, (w) => this.d(model).findMany({
+      where: w,
       ...(opts.select ? { select: Object.fromEntries(opts.select.map((k) => [k, true])) } : {}),
       ...(opts.orderBy?.length ? { orderBy: opts.orderBy.map((o) => ({ [o.field]: o.dir ?? "asc" })) } : {}),
       ...(opts.take !== undefined ? { take: opts.take } : {}),
       ...(opts.skip ? { skip: opts.skip } : {}),
-    });
+    }));
   }
   count(model: string, where?: Where) {
-    return this.d(model).count({ where: where });
+    return this.shared(model, where, (w) => this.d(model).count({ where: w }));
   }
   async groupCount(model: string, by: string, where?: Where) {
-    const rows = await this.d(model).groupBy({ by: [by], where: where, _count: { _all: true } });
+    const rows = await this.shared(model, where, (w) => this.d(model).groupBy({ by: [by], where: w, _count: { _all: true } }));
     return new Map(rows.map((r) => [String(r[by] ?? ""), Number((r._count as { _all: number })._all)]));
   }
   async updateMany(model: string, where: Where, data: Row) {

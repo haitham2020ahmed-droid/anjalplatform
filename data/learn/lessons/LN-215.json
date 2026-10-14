@@ -1,0 +1,475 @@
+{
+ "code": "LN-215",
+ "title": "Phrases and nonliteral meanings",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.4.a",
+  "L.4.4.a",
+  "L.6.4.a",
+  "L.7.4.a",
+  "L.8.4.a",
+  "RL.3.4"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [
+  "Nonliteral Phrases in Context"
+ ],
+ "statements": [
+  "R-0377",
+  "R-0381",
+  "R-0597",
+  "R-0803",
+  "R-0966",
+  "R-1066"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that mean something else",
+     "text": "Some groups of words do **not** mean exactly what they say.\n\n“It is **raining cats and dogs**.” No animals fall! It means it is raining **very hard**."
+    },
+    {
+     "title": "Use the story",
+     "text": "Read the other sentences. They tell you what the words **really** mean."
+    },
+    {
+     "title": "How to find the meaning",
+     "text": "1. Find the strange words.\n2. Ask: can this really happen?\n3. Read the sentences around them.\n4. Choose the meaning that fits."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences show what is **really** happening.\n\n1. Find the strange words.\n2. Read the next sentence.\n3. Tap the sentence that shows the real meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali was feeling blue.",
+      "role": "main"
+     },
+     {
+      "t": "His best friend had moved away.",
+      "role": "key"
+     },
+     {
+      "t": "He sat alone and did not smile.",
+      "role": "key"
+     }
+    ],
+    "explain": "Ali is not really blue! His friend moved away, and he did not smile.\n\n**Feeling blue** means **feeling sad**."
+   },
+   "together": {
+    "passage": "Rana looked at the test. Her mind went blank. She could not remember any answers. She took a deep breath and tried again.",
+    "stem": "What does “her mind went blank” mean?",
+    "options": [
+     "Her head turned white.",
+     "She could not think of anything.",
+     "She fell asleep.",
+     "She wrote very fast."
+    ],
+    "answer": 1,
+    "hint": "A mind cannot really turn white. Read the next sentence. What could Rana not do?",
+    "good": "Yes! She could not remember any answers. Her mind was empty for a moment."
+   },
+   "evidence": {
+    "sentences": [
+     "Rana looked at the test.",
+     "Her mind went blank.",
+     "She could not remember any answers.",
+     "She took a deep breath and tried again."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: she could not think of anything. Tap the sentence that proves it.",
+    "wrong": "This sentence does not show what “her mind went blank” means. Find the sentence that tells what Rana could NOT do."
+   },
+   "checks": [
+    {
+     "passage": "Dad gave me a hand with my heavy bag. He carried it to the car for me.",
+     "stem": "What does “gave me a hand” mean?",
+     "options": [
+      "He helped me.",
+      "He waved at me.",
+      "He gave me his hand to keep.",
+      "He clapped."
+     ],
+     "answer": 0,
+     "why": "Dad carried the bag for me. He helped me."
+    },
+    {
+     "passage": "This test is a piece of cake! I know every answer.",
+     "stem": "What does “a piece of cake” mean?",
+     "options": [
+      "The test is hard.",
+      "The test is about food.",
+      "The test is easy.",
+      "The test is long."
+     ],
+     "answer": 2,
+     "why": "I know every answer, so the test is easy."
+    },
+    {
+     "passage": "Sami was all ears when Grandpa told the story. He did not move or talk. He listened to every word.",
+     "stem": "What does “all ears” mean?",
+     "options": [
+      "Sami had big ears.",
+      "Sami was sleepy.",
+      "Sami was talking.",
+      "Sami listened carefully."
+     ],
+     "answer": 3,
+     "why": "He did not move or talk and listened to every word. He listened carefully."
+    }
+   ],
+   "again": {
+    "title": "Play detective",
+    "text": "1. Read the strange words.\n2. Say: **That can't be true!**\n3. Look for clues: what are the people doing or feeling?\n4. The clues give the real meaning.",
+    "example": "“Mum has eyes in the back of her head. She knew I took a biscuit without turning around.”\n\nClue: she knew without looking. Meaning: **she notices everything**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Idioms",
+     "text": "An **idiom** is a phrase with a special meaning. You cannot get the meaning from the single words.\n\n“**Break the ice**” does not mean breaking real ice. It means **helping people relax** when they first meet."
+    },
+    {
+     "title": "Context is the key",
+     "text": "You may not know an idiom. But the sentences around it often explain it through **actions**, **results** or **feelings**."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find the phrase.\n2. Read what happens before and after.\n3. Think of a meaning that fits.\n4. Put your meaning in place of the phrase. Does the sentence still make sense?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The proof is in the **actions and results** around the phrase.\n\n1. Read the phrase.\n2. Look before and after it.\n3. Tap the sentences that show what really happened."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On the first day of camp, nobody spoke.",
+      "role": "key"
+     },
+     {
+      "t": "Then Coach Hamad told a funny story about his own first camp, and everyone laughed.",
+      "role": "detail"
+     },
+     {
+      "t": "His story broke the ice.",
+      "role": "main"
+     },
+     {
+      "t": "Soon the boys were chatting like old friends.",
+      "role": "key"
+     }
+    ],
+    "explain": "Before the story, nobody spoke. After it, everyone chatted.\n\n**Broke the ice** means **helped people start talking and feel comfortable**."
+   },
+   "together": {
+    "passage": "Jawaher had been working on her science poster for two weeks. The night before the fair, she realised she had forgotten to add her results. She burned the midnight oil, measuring, writing and colouring until her eyes ached. When she finally finished, the clock showed almost two in the morning.",
+    "stem": "What does “burned the midnight oil” mean?",
+    "options": [
+     "She cooked a late dinner.",
+     "She lit a lamp because the power was off.",
+     "She stayed up very late working.",
+     "She spilled oil on her poster."
+    ],
+    "answer": 2,
+    "hint": "The text says nothing about cooking or a power cut. What time did she finish, and what was she doing?",
+    "good": "Yes! She worked on her poster until almost two in the morning."
+   },
+   "evidence": {
+    "sentences": [
+     "Jawaher had been working on her science poster for two weeks.",
+     "The night before the fair, she realised she had forgotten to add her results.",
+     "She burned the midnight oil, measuring, writing and colouring until her eyes ached.",
+     "When she finally finished, the clock showed almost two in the morning."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: she stayed up very late working. Tap 2 sentences that prove it.",
+    "wrong": "This sentence only tells how long she had worked on the poster. Find sentences that show she worked LATE at night."
+   },
+   "checks": [
+    {
+     "passage": "Ibrahim wanted to tell his friend about the surprise party, but he bit his tongue. He did not want to ruin the secret.",
+     "stem": "What does “bit his tongue” mean?",
+     "options": [
+      "He hurt his mouth.",
+      "He stopped himself from speaking.",
+      "He shouted the secret.",
+      "He ate too quickly."
+     ],
+     "answer": 1,
+     "why": "He did not want to ruin the secret, so he stopped himself from speaking."
+    },
+    {
+     "passage": "When the teacher asked who had broken the window, the boys all looked at one another. Finally, Turki decided to face the music. He stood up and said, “It was me. I am sorry.”",
+     "stem": "What does “face the music” mean?",
+     "options": [
+      "listen to a song",
+      "run away from a problem",
+      "look at a band",
+      "accept the results of what he did"
+     ],
+     "answer": 3,
+     "why": "Turki admitted what he did and said sorry. He accepted the results of his action."
+    },
+    {
+     "passage": "The new phones sold like hot cakes. By noon, the shop had none left.",
+     "stem": "What does “sold like hot cakes” mean?",
+     "options": [
+      "sold very quickly",
+      "were sold with breakfast",
+      "were very hot",
+      "were very cheap"
+     ],
+     "answer": 0,
+     "why": "By noon there were none left, so they sold very quickly."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Look at the story **before** the phrase and **after** it.\n\n1. What was the situation before?\n2. What changed after?\n3. The phrase usually names that change.",
+    "example": "“Huda was nervous about her speech. Her friend said, ‘Break a leg!’ Huda smiled and walked on stage feeling braver.”\n\nBefore: nervous. After: braver. **Break a leg** means **good luck**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Phrases that need thinking",
+     "text": "Some phrases are not famous idioms, but they still mean more than their words.\n\n“The town was **at a crossroads**” means it had to **make an important choice**.\n\nYou work out the meaning from the situation."
+    },
+    {
+     "title": "Look for the situation",
+     "text": "Ask: what is going on in the passage? What problem, choice or feeling is described?\n\nThe phrase usually sums up that situation in a picture."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find the phrase and picture it literally.\n2. Connect the picture to the situation in the passage.\n3. Write a plain meaning.\n4. Check it against at least two details."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your meaning with details from **before and after** the phrase.\n\nA meaning that only matches the literal words, and not the situation, is a **trap**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hamza found one broken tile in the bathroom.",
+      "role": "detail"
+     },
+     {
+      "t": "When the plumber looked under the floor, he found that the pipes had been leaking for months and the wood below was rotting.",
+      "role": "key"
+     },
+     {
+      "t": "The broken tile was only the tip of the iceberg.",
+      "role": "main"
+     }
+    ],
+    "explain": "Most of an iceberg is hidden under the water. The tile was a small sign of a **much bigger hidden problem**: leaking pipes and rotting wood."
+   },
+   "together": {
+    "passage": "For years, the small bakery on our street did well. Then two large supermarkets opened nearby, selling cheap bread all day long. Customers stopped coming, and the owner, Uncle Mansour, had to decide what to do. He could close the shop, or he could try something new. He chose to turn the tables. He began baking fresh traditional breads that the supermarkets did not sell, such as warm tannour bread and sweet date pastries. Soon there were queues outside his door every morning, and the supermarkets started copying his ideas.",
+    "stem": "What does “turn the tables” mean in this passage?",
+    "options": [
+     "move the furniture in his shop",
+     "close the bakery for good",
+     "change a losing situation into a winning one",
+     "sell the same bread as the supermarkets"
+    ],
+    "answer": 2,
+    "hint": "Nothing in the passage is about furniture. Compare his situation BEFORE and AFTER the phrase.",
+    "good": "Yes! He was losing customers, and then the supermarkets were copying HIM. He turned a losing position into a winning one."
+   },
+   "evidence": {
+    "sentences": [
+     "For years, the small bakery on our street did well.",
+     "Then two large supermarkets opened nearby, selling cheap bread all day long.",
+     "Customers stopped coming, and the owner, Uncle Mansour, had to decide what to do.",
+     "He could close the shop, or he could try something new.",
+     "He chose to turn the tables.",
+     "He began baking fresh traditional breads that the supermarkets did not sell, such as warm tannour bread and sweet date pastries.",
+     "Soon there were queues outside his door every morning, and the supermarkets started copying his ideas."
+    ],
+    "proof": [
+     1,
+     2,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: change a losing situation into a winning one. Tap 2 sentences that show the losing and the winning.",
+    "wrong": "This sentence tells how things were at first, lists his choices, or holds the phrase itself. Find where he was LOSING and where he was WINNING."
+   },
+   "checks": [
+    {
+     "passage": "The coach said that skipping practice might feel good today, but in the long run, it would hurt the team. Players who trained every week would be stronger by the end of the season.",
+     "stem": "What does “in the long run” mean?",
+     "options": [
+      "during a running race",
+      "over a longer period of time",
+      "right now",
+      "on a long track"
+     ],
+     "answer": 1,
+     "why": "“By the end of the season” shows the coach is talking about a long period of time, not a race."
+    },
+    {
+     "passage": "When Abeer saw her little brother take an extra sweet, she turned a blind eye. It was his birthday, after all.",
+     "stem": "What does “turned a blind eye” mean?",
+     "options": [
+      "She could not see well.",
+      "She closed her eyes to sleep.",
+      "She told her parents.",
+      "She chose to ignore it."
+     ],
+     "answer": 3,
+     "why": "“It was his birthday, after all” explains why she let it go. She chose to ignore it."
+    },
+    {
+     "passage": "The two teams were neck and neck for the whole match. Every time one scored, the other scored right back, and the final whistle blew with the score tied.",
+     "stem": "What does “neck and neck” mean?",
+     "options": [
+      "very close in score",
+      "hurt in the neck",
+      "far apart",
+      "standing near each other"
+     ],
+     "answer": 0,
+     "why": "Each team scored right back and the score was tied. They were very close."
+    }
+   ],
+   "again": {
+    "title": "Picture to point",
+    "text": "1. Picture the phrase **literally**.\n2. Ask: what part of that picture matches the story?\n3. Turn that match into plain words.",
+    "example": "“Back to square one”: in a board game, going back to the first square. In the story, the team's model broke and they had to rebuild it. Meaning: **start again from the beginning**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Literal or nonliteral?",
+     "text": "The same phrase can be literal in one text and nonliteral in another.\n\n“The plane **took off**” is literal.\n“The new business **took off**” means it **suddenly became successful**."
+    },
+    {
+     "title": "Formal phrases",
+     "text": "Academic and news writing uses phrases such as **shed light on**, **at stake**, **come to terms with** and **a double-edged sword**.\n\nThey are rarely explained, so readers rely on context."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Decide whether the phrase is literal or nonliteral here.\n2. If nonliteral, identify the idea it stands for.\n3. Look for restatements, examples or contrasts that confirm it.\n4. Choose the most precise meaning, not just a general one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Writers often **restate** a phrase in plainer words, or show its result in the next sentence.\n\nFind those sentences. They are your strongest proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Social media can be a double-edged sword for young people.",
+      "role": "main"
+     },
+     {
+      "t": "It helps them stay in touch with family abroad and find useful information.",
+      "role": "key"
+     },
+     {
+      "t": "At the same time, it can waste hours and spread rumours quickly.",
+      "role": "key"
+     }
+    ],
+    "explain": "A sword with two edges can cut both ways. The next sentences give **benefits** and **harms**.\n\nSo the phrase means **something with both good and bad effects**."
+   },
+   "together": {
+    "passage": "When archaeologists began digging near an old desert well, they hoped to find a few pieces of pottery. Instead, they uncovered the remains of an entire market: stone counters, broken scales and hundreds of coins from distant lands. The discovery shed new light on the region's past. Until then, many experts had believed the area was only a quiet stop for travellers. The coins, however, showed that merchants from as far away as India and the Mediterranean had traded there. With so much at stake, the team now works slowly, recording the exact position of every object before it is moved.",
+    "stem": "What does “shed new light on” mean in this passage?",
+    "options": [
+     "made the dig site brighter",
+     "revealed new information about",
+     "hid important facts about",
+     "damaged part of"
+    ],
+    "answer": 1,
+    "hint": "Nothing in the passage is about lamps or sunlight. What did experts learn that they did not know before?",
+    "good": "Yes! Experts had believed the area was quiet, but the coins showed it was a busy trading place. The discovery revealed new information."
+   },
+   "evidence": {
+    "sentences": [
+     "When archaeologists began digging near an old desert well, they hoped to find a few pieces of pottery.",
+     "Instead, they uncovered the remains of an entire market: stone counters, broken scales and hundreds of coins from distant lands.",
+     "The discovery shed new light on the region's past.",
+     "Until then, many experts had believed the area was only a quiet stop for travellers.",
+     "The coins, however, showed that merchants from as far away as India and the Mediterranean had traded there.",
+     "With so much at stake, the team now works slowly, recording the exact position of every object before it is moved."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: revealed new information about. Tap 2 sentences that show what new information was found.",
+    "wrong": "This sentence tells what they hoped for, holds the phrase itself, or describes how they work now. Find what experts LEARNED."
+   },
+   "checks": [
+    {
+     "passage": "After months of disagreement, the two neighbours finally buried the hatchet. They shared a meal, laughed about old arguments and agreed to build a new fence together.",
+     "stem": "What does “buried the hatchet” mean?",
+     "options": [
+      "hid a tool in the garden",
+      "started a new fight",
+      "dug a hole for the fence",
+      "made peace and became friendly"
+     ],
+     "answer": 3,
+     "why": "Sharing a meal and laughing about old arguments show they ended their quarrel."
+    },
+    {
+     "passage": "The new recycling programme got off to a slow start: few families used the bins in the first month. By the end of the year, however, it had taken off, and the town was recycling twice as much as before.",
+     "stem": "What does “taken off” mean here?",
+     "options": [
+      "become very successful",
+      "removed the bins",
+      "left on a plane",
+      "been cancelled"
+     ],
+     "answer": 0,
+     "why": "“However” contrasts the slow start with the result: twice as much recycling. The programme became very successful."
+    },
+    {
+     "passage": "With the final exam only a week away, Bader knew he had to buckle down. He switched off his games, made a study timetable and spent every afternoon at the library.",
+     "stem": "What does “buckle down” mean?",
+     "options": [
+      "fasten his seat belt",
+      "take a long rest",
+      "begin working seriously and with focus",
+      "ask others to do his work"
+     ],
+     "answer": 2,
+     "why": "Switching off games, a timetable and daily library visits show he started working seriously."
+    }
+   ],
+   "again": {
+    "title": "Find the restatement",
+    "text": "Writers often explain a tricky phrase without saying so.\n\n1. Read the sentence **after** the phrase.\n2. Ask: does it give an example, a result, or the same idea in plain words?\n3. Use it to write the meaning.",
+    "example": "“Our team was on thin ice with the referee. One more foul and a player would be sent off.”\n\nNext sentence: one more foul means trouble. **On thin ice** means **in a risky position, close to trouble**."
+   }
+  }
+ }
+}

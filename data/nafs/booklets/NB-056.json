@@ -1,0 +1,568 @@
+{
+  "code": "NB-056",
+  "title": "Sweet but Sneaky: Sugar in Our Drinks",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 456,
+  "passage": "A cold fizzy drink after school can feel like the perfect reward on a hot afternoon. Few people, however, stop to consider what is actually inside the can. A standard 330-millilitre can of regular cola contains about 35 grams of sugar, which is roughly nine teaspoons. If you would never stir nine spoonfuls of sugar into a glass of water, why do so many of us swallow that amount without a second thought?\n\nHealth experts are concerned about what they call \"free sugars\". These are sugars that are added to food and drinks by manufacturers, cooks or consumers, together with the sugars naturally present in honey, syrups and fruit juice. The World Health Organization recommends that free sugars should provide less than ten percent of a person's daily energy, and it suggests that keeping them below five percent brings even greater benefits. For an adult, five percent is about 25 grams, or six teaspoons. In other words, a single can of cola can contain more sugar than the ideal limit for an entire day.\n\nSugary drinks are particularly troublesome for several reasons. Liquid sugar does not make us feel full in the way that solid food does, so people rarely eat less at their next meal to make up for it. Over time, these extra calories can lead to unhealthy weight gain, which increases the risk of type 2 diabetes. Sugar also harms teeth. Bacteria in the mouth feed on it and produce acids that gradually dissolve the hard enamel, creating holes known as cavities.\n\nEven drinks with a healthy image can be misleading. Fruit juice contains vitamins, but when fruit is squeezed, the fibre that slows down digestion is largely left behind, and the sugar is released more quickly into the blood. That is why eating a whole orange is generally better than drinking a glass of orange juice. Sports drinks and flavoured milks may also contain surprising quantities of sugar, so it is wise to read the nutrition label carefully. Sugar can hide behind many names, including sucrose, glucose, fructose and syrup.\n\nGovernments have started to take action as well. In 2017, Saudi Arabia introduced a tax that raised the price of fizzy drinks by fifty percent and doubled the price of energy drinks. Two years later, the tax was extended to other sweetened drinks. The aim was not simply to collect money but to encourage people to choose healthier options.\n\nFortunately, the healthiest drink of all is also the cheapest. Plain water quenches thirst without adding a single calorie, and milk provides calcium for growing bones. A slice of lemon or a few mint leaves can make water more refreshing. Small choices, repeated every day, can make a remarkable difference to our health.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “misleading” as it is used in paragraph 4?",
+      "options": [
+        "giving a false idea",
+        "clearly very helpful",
+        "extremely expensive",
+        "freshly prepared"
+      ],
+      "answer": "A",
+      "why": "Drinks with a “healthy image” can be misleading because they look healthy but may contain a lot of sugar, so they give a wrong idea."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is the OPPOSITE of “cheapest” as it is used in paragraph 6?",
+      "options": [
+        "least costly",
+        "healthiest",
+        "most expensive",
+        "most common"
+      ],
+      "answer": "C",
+      "why": "“Cheapest” means costing the least; its opposite is “most expensive”. “Least costly” means the same as “cheapest”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 6: “Plain water quenches thirst without adding a single calorie.” What does “quenches” mean?",
+      "options": [
+        "increases",
+        "hides",
+        "causes",
+        "satisfies"
+      ],
+      "answer": "D",
+      "why": "Water puts an end to thirst, so “quenches” means satisfies."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "rarely",
+        "unhealthy",
+        "acids",
+        "dissolve"
+      ],
+      "answer": "A",
+      "why": "“Rarely” tells how often people eat less, so it is an adverb; “unhealthy” is an adjective, “acids” a noun and “dissolve” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 does NOT name a kind of sugar?",
+      "options": [
+        "sucrose",
+        "glucose",
+        "fibre",
+        "fructose"
+      ],
+      "answer": "C",
+      "why": "Sucrose, glucose and fructose are names that sugar can hide behind on a label; fibre is the part of fruit that slows digestion."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “recommends” in paragraph 2 and is a NOUN?",
+      "options": [
+        "recommended",
+        "recommendation",
+        "remind",
+        "recommence"
+      ],
+      "answer": "B",
+      "why": "“Recommendation” is the noun form. “Recommended” is in the same family but is a verb form, and “remind” and “recommence” are different words."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “encourage” in a meaningful sentence of your own.",
+      "model": "Our teacher hung colourful posters in the corridor to encourage students to drink more water during the day.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “encourage” with its meaning (to give someone support or a reason to do something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Encourage” means to persuade or support someone to do something."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 6 mentions “mint leaves”, the plural of “leaf”. Which word forms its plural in the SAME way?",
+      "options": [
+        "roof",
+        "chief",
+        "loaf",
+        "belief"
+      ],
+      "answer": "C",
+      "why": "Leaf → leaves and loaf → loaves (f changes to -ves). Roof, chief and belief simply add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a question?",
+      "options": [
+        "In other words, a single can of cola can contain more sugar than the ideal limit for an entire day.",
+        "If you would never stir nine spoonfuls of sugar into a glass of water, why do so many of us swallow that amount without a second thought?",
+        "Sugar can hide behind many names, including sucrose, glucose, fructose and syrup.",
+        "Small choices, repeated every day, can make a remarkable difference to our health."
+      ],
+      "answer": "B",
+      "why": "It asks “why do so many of us…?” and ends with a question mark, even though it begins with “If”."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "How Cola Was First Invented",
+        "The Hidden Sugar in Our Drinks",
+        "Why Oranges Are Called Orange",
+        "A Visit to the Family Dentist"
+      ],
+      "answer": "B",
+      "why": "The whole text reveals how much sugar is hidden in common drinks and why it matters."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to inform readers about sugar in drinks and urge better choices",
+        "to tell the story of a family that stopped drinking cola",
+        "to explain how fizzy drinks are manufactured in factories",
+        "to argue that every kind of sugar should be banned"
+      ],
+      "answer": "A",
+      "why": "The writer gives facts about sugar in drinks and its effects, then encourages readers to choose water and milk."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Fruit juice contains more vitamins than whole fruit.",
+        "Sports drinks are the best choice after exercise.",
+        "Some drinks that seem healthy can still contain a lot of sugar.",
+        "Nutrition labels are too difficult for most people to read."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 begins “Even drinks with a healthy image can be misleading” and gives juice, sports drinks and flavoured milks as examples."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why do sugary drinks often add extra calories to a person's diet?",
+      "options": [
+        "Liquid sugar does not make people feel full.",
+        "Sugary drinks are usually drunk late at night.",
+        "The bacteria in the mouth turn sugar into calories.",
+        "People drink them instead of eating any food."
+      ],
+      "answer": "A",
+      "why": "“Liquid sugar does not make us feel full … so people rarely eat less at their next meal to make up for it.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which BEST describes this text?",
+      "options": [
+        "a story told by a dentist about his patients",
+        "a recipe for a healthy homemade drink",
+        "a news report about a single shop",
+        "an informational text that also gives advice"
+      ],
+      "answer": "D",
+      "why": "It gives facts and figures about sugar, and it also tries to persuade readers to choose healthier drinks."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what was the main aim of the tax on sugary drinks?",
+      "options": [
+        "to collect money to build new hospitals",
+        "to stop shops from selling bottled water",
+        "to encourage healthier choices",
+        "to make energy drinks more popular"
+      ],
+      "answer": "C",
+      "why": "“The aim was not simply to collect money but to encourage people to choose healthier options.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which idea does the writer present immediately BEFORE describing the tax on sugary drinks?",
+      "options": [
+        "how bacteria damage the enamel of teeth",
+        "the names that sugar can hide behind",
+        "why water is the healthiest drink of all",
+        "how much sugar is in a can of cola"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 ends with the names of sugar on labels; paragraph 5 then describes the tax."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which details must be considered together to understand why one can of cola contains “more sugar than the ideal limit for an entire day”?",
+      "options": [
+        "The can holds about 35 grams; the ideal limit is about 25 grams.",
+        "The can holds 330 millilitres; the limit is ten percent of energy.",
+        "The can is very cold, and the drink inside it is fizzy.",
+        "The can costs more than water because of the 2017 tax."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 gives about 35 grams in a can, and paragraph 2 gives the ideal limit of about 25 grams for an adult, so the can is over the limit."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the text, about how many teaspoons of sugar are equal to 25 grams?",
+      "options": [
+        "four",
+        "nine",
+        "ten",
+        "six"
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: “about 25 grams, or six teaspoons.” Nine teaspoons is the amount in a can of cola."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what causes cavities in the teeth?",
+      "options": [
+        "Fizzy bubbles slowly wear tiny holes in the teeth.",
+        "Very cold drinks crack the hard outer enamel.",
+        "Bacteria feed on sugar and make acids that dissolve enamel.",
+        "Sugar sticks to the teeth and turns into soft calcium."
+      ],
+      "answer": "C",
+      "why": "Bacteria feed on sugar “and produce acids that gradually dissolve the hard enamel, creating holes known as cavities.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by calling a fizzy drink “the perfect reward”?",
+      "options": [
+        "to begin with a familiar pleasure before a surprising fact",
+        "to persuade readers to buy fizzy drinks after school",
+        "to show that the writer enjoys drinking cola every day",
+        "to explain how fizzy drinks are made and sold"
+      ],
+      "answer": "A",
+      "why": "Beginning with a familiar pleasure makes the surprising nine teaspoons of sugar more striking."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why is eating a whole orange generally better than drinking orange juice?",
+      "options": [
+        "Orange juice contains no vitamins at all.",
+        "Its fibre slows down how fast the sugar enters the blood.",
+        "Whole oranges do not contain any sugar.",
+        "Orange juice is more expensive than whole oranges."
+      ],
+      "answer": "B",
+      "why": "Squeezing leaves the fibre behind, so juice sugar is released more quickly; the whole fruit keeps the fibre that slows digestion."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How does the World Health Organization's ten percent advice differ from its five percent advice?",
+      "options": [
+        "Ten percent is for children, while five percent is for adults.",
+        "Five percent is the most sugar anyone may ever eat.",
+        "Ten percent is the limit; below five percent is even better.",
+        "Ten percent applies to drinks, while five percent applies to food."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: free sugars should be less than ten percent, and below five percent “brings even greater benefits.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what can be the long-term effect of drinking many sugary drinks?",
+      "options": [
+        "stronger bones and healthier teeth",
+        "a lower risk of tooth decay and cavities",
+        "feeling full for the whole of the day",
+        "weight gain and a higher risk of diabetes"
+      ],
+      "answer": "D",
+      "why": "Over time, the extra calories “can lead to unhealthy weight gain, which increases the risk of type 2 diabetes.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do sports drinks and flavoured milks have in common, according to paragraph 4?",
+      "options": [
+        "Both are taxed at exactly fifty percent.",
+        "Both have no sugar listed on their labels.",
+        "Both are always healthier than plain water.",
+        "Both may hide surprising amounts of sugar."
+      ],
+      "answer": "D",
+      "why": "The writer says both “may also contain surprising quantities of sugar,” so labels should be read carefully."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer change “35 grams” into “nine teaspoons”?",
+      "options": [
+        "to make the amount of sugar easier to picture",
+        "to show that teaspoons are more accurate than grams",
+        "to explain how sugar is measured in factories",
+        "to make the text sound more scientific"
+      ],
+      "answer": "A",
+      "why": "Most readers cannot picture 35 grams, but they can imagine nine spoonfuls of sugar stirred into a glass."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the expression “without a second thought” in paragraph 1 mean?",
+      "options": [
+        "after thinking about it twice",
+        "without stopping to think",
+        "while worrying about it greatly",
+        "only on the second attempt"
+      ],
+      "answer": "B",
+      "why": "People swallow the sugar without stopping to think carefully about what they are drinking."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is an OPINION rather than a fact?",
+      "options": [
+        "A standard 330-millilitre can of regular cola contains about 35 grams of sugar …",
+        "In 2017, Saudi Arabia introduced a tax …",
+        "A slice of lemon or a few mint leaves can make water more refreshing.",
+        "For an adult, five percent is about 25 grams, or six teaspoons."
+      ],
+      "answer": "C",
+      "why": "Whether lemon or mint makes water “more refreshing” is a matter of personal taste; the others can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which drink would be the HEALTHIEST choice with lunch, based on the text?",
+      "options": [
+        "a carton of orange juice",
+        "a bottle of sports drink",
+        "a glass of water with mint leaves",
+        "a strawberry-flavoured milkshake"
+      ],
+      "answer": "C",
+      "why": "The text calls water “the healthiest drink of all” and suggests mint leaves to make it more refreshing; the others may hide sugar."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to sell more bottled water to schools",
+        "anger at the government's tax on drinks",
+        "a plan to open a fresh juice shop",
+        "concern about how much hidden sugar people drink"
+      ],
+      "answer": "D",
+      "why": "The writer opens by asking why people swallow so much sugar “without a second thought” and then explains the hidden risks."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement would the writer MOST likely DISAGREE with?",
+      "options": [
+        "Reading labels can help us find hidden sugar.",
+        "Small daily choices can improve our health.",
+        "Fruit juice is always as healthy as whole fruit.",
+        "Water is the healthiest drink of all."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 explains that juice loses its fibre and that a whole orange is generally better."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how much sugar is in a can of cola",
+        "how much the tax on other sweetened drinks was",
+        "why fruit juice can be less healthy than fruit",
+        "what the WHO says about free sugars"
+      ],
+      "answer": "B",
+      "why": "The text says the tax was “extended to other sweetened drinks” but never says by how much; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A glass of plain water contains 35 grams of sugar.",
+        "Sugar from cola turns into calcium in the bones.",
+        "A new tax makes all fizzy drinks free.",
+        "A boy who drinks cola every day develops cavities."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 explains that sugar feeds mouth bacteria whose acids create cavities."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "Nine Spoonfuls of Happiness",
+        "Think Before You Drink",
+        "The History of Cola",
+        "Taxes Around the World"
+      ],
+      "answer": "B",
+      "why": "The text urges readers to consider the hidden sugar in drinks before choosing what to drink."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with a solution a school canteen could use to reduce sugary drinks, and explain why it works.",
+      "model": "Our school canteen could stop selling fizzy drinks and offer free chilled water with lemon slices instead. If water is easy to find and costs nothing, students will choose it more often. Over a year, this one change could save each student thousands of grams of sugar.",
+      "rubric": [
+        "2 = a clear new ending with a sensible canteen solution and a reason that links to the text (less free sugar, healthier choices)",
+        "1 = an ending is given but the solution is vague, unrelated or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any realistic canteen solution that reduces free sugars and is explained is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A family wants to reduce the free sugars they drink. Which solution fits the advice in the text?",
+      "options": [
+        "Replace fizzy drinks with water or milk.",
+        "Check labels for names such as glucose and syrup.",
+        "Eat whole fruit instead of drinking juice.",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "The text recommends water and milk, reading labels for sugar's many names, and choosing whole fruit over juice."
+    }
+  ]
+}

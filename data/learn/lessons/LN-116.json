@@ -1,0 +1,477 @@
+{
+ "code": "LN-116",
+ "title": "Following directions",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.2.6",
+  "RI.3.3"
+ ],
+ "families": [
+  "sequence"
+ ],
+ "skillNames": [
+  "Following Directions and Procedures"
+ ],
+ "statements": [
+  "R-0183",
+  "R-0208",
+  "R-0354",
+  "R-0356",
+  "R-0534"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What are directions?",
+     "text": "**Directions** tell you **how to do** something, step by step.\n\nA recipe, a game's rules and a map note are all directions."
+    },
+    {
+     "title": "Steps in order",
+     "text": "Directions have **steps**. You do them **in order**.\n\nStep 1 comes first. Then step 2. If you skip a step, it may not work!"
+    },
+    {
+     "title": "How to read them",
+     "text": "1. Read the title. What will you make or do?\n2. Read **all** the steps first.\n3. Then do one step at a time."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is in **one step**.\n\n1. Find the step the question asks about.\n2. Point to it.\n3. Read it again to check."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "How to wash your hands.",
+      "role": "other"
+     },
+     {
+      "t": "Step 1: Wet your hands.",
+      "role": "detail"
+     },
+     {
+      "t": "Step 2: Rub them with soap.",
+      "role": "key"
+     },
+     {
+      "t": "Step 3: Rinse and dry them.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **What do you do in step 2?**\n\nFind **Step 2**. It says: **Rub them with soap**."
+   },
+   "together": {
+    "passage": "How to feed the fish.\nStep 1: Open the food box.\nStep 2: Take a small pinch of food.\nStep 3: Drop it in the water.\nStep 4: Close the box.",
+    "stem": "What do you do in step 3?",
+    "options": [
+     "Drop the food in the water.",
+     "Open the food box.",
+     "Close the box.",
+     "Wash the fish."
+    ],
+    "answer": 0,
+    "hint": "Find the words Step 3. What does that step say?",
+    "good": "Yes! Step 3 says: Drop it in the water."
+   },
+   "evidence": {
+    "sentences": [
+     "How to feed the fish.",
+     "Step 1: Open the food box.",
+     "Step 2: Take a small pinch of food.",
+     "Step 3: Drop it in the water.",
+     "Step 4: Close the box."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: drop the food in the water. Tap step 3.",
+    "wrong": "This is a different step. Find Step 3."
+   },
+   "checks": [
+    {
+     "passage": "How to make a card.\nStep 1: Fold the paper in half.\nStep 2: Draw a picture on the front.\nStep 3: Write a kind note inside.",
+     "stem": "What do you do first?",
+     "options": [
+      "Write a note",
+      "Draw a picture",
+      "Fold the paper in half",
+      "Mail the card"
+     ],
+     "answer": 2,
+     "why": "Step 1 says: Fold the paper in half."
+    },
+    {
+     "passage": "How to plant a seed.\nStep 1: Fill a cup with soil.\nStep 2: Push the seed into the soil.\nStep 3: Give it a little water.\nStep 4: Put it in the sun.",
+     "stem": "Where do you put the cup at the end?",
+     "options": [
+      "In the fridge",
+      "In the sun",
+      "In a box",
+      "Under the bed"
+     ],
+     "answer": 1,
+     "why": "Step 4 says: Put it in the sun."
+    },
+    {
+     "passage": "How to line up for lunch.\nStep 1: Stand up quietly.\nStep 2: Push in your chair.\nStep 3: Walk to the door.",
+     "stem": "What do you do after you stand up?",
+     "options": [
+      "Run to the door",
+      "Sit down",
+      "Eat lunch",
+      "Push in your chair"
+     ],
+     "answer": 3,
+     "why": "Step 2 comes after Step 1: Push in your chair."
+    }
+   ],
+   "again": {
+    "title": "Point and say",
+    "text": "Put your finger on each step. Say it out loud.\n\nOne step, then the next, then the next.",
+    "example": "Step 1: Get a cup. Step 2: Pour water. Step 3: Drink.\n\nFinger on Step 2: **Pour water.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Parts of a set of directions",
+     "text": "Many directions have:\n\n**A title**: what you will make or do.\n**A list of things you need**: tools or ingredients.\n**Numbered steps**: what to do, in order.\n**Tips or warnings**: things to be careful about."
+    },
+    {
+     "title": "Finding information",
+     "text": "A question may ask **how much**, **how long**, **what you need** or **which step**.\n\nGo to the **right part**: amounts are usually in the list of things you need; times are usually in the steps."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the question. What information do you need?\n2. Decide which part of the directions has it.\n3. Scan that part and find the exact words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the **exact line** that gives the information.\n\nCheck the number, the time or the tool. A small mistake (5 minutes instead of 15) makes the answer wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Simple Lemon Drink.",
+      "role": "other"
+     },
+     {
+      "t": "You need: 2 lemons, 4 cups of cold water and 2 spoons of honey.",
+      "role": "key"
+     },
+     {
+      "t": "Step 1: Squeeze the lemons into a jug.",
+      "role": "detail"
+     },
+     {
+      "t": "Step 2: Add the water and honey, then stir for one minute.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **How much water do you need?**\n\nAmounts are in the **You need** line: **4 cups of cold water**."
+   },
+   "together": {
+    "passage": "Date Energy Balls.\nYou need: 1 cup of soft dates without pits, half a cup of oats and 2 spoons of sesame seeds.\nStep 1: Ask an adult to help you chop the dates into small pieces.\nStep 2: Mix the dates and oats in a bowl with clean hands.\nStep 3: Roll the mixture into small balls.\nStep 4: Roll each ball in sesame seeds.\nStep 5: Put the balls in the fridge for 20 minutes before eating.",
+    "stem": "How long should the balls stay in the fridge?",
+    "options": [
+     "5 minutes",
+     "2 hours",
+     "20 minutes",
+     "1 day"
+    ],
+    "answer": 2,
+    "hint": "Find the step that talks about the fridge. What time does it give?",
+    "good": "Yes! Step 5 says to put them in the fridge for 20 minutes."
+   },
+   "evidence": {
+    "sentences": [
+     "Date Energy Balls.",
+     "You need: 1 cup of soft dates without pits, half a cup of oats and 2 spoons of sesame seeds.",
+     "Step 1: Ask an adult to help you chop the dates into small pieces.",
+     "Step 2: Mix the dates and oats in a bowl with clean hands.",
+     "Step 3: Roll the mixture into small balls.",
+     "Step 4: Roll each ball in sesame seeds.",
+     "Step 5: Put the balls in the fridge for 20 minutes before eating."
+    ],
+    "proof": [
+     6
+    ],
+    "need": 1,
+    "stem": "The answer was: 20 minutes. Tap the line that gives the time.",
+    "wrong": "This line does not give the fridge time. Find the step about the fridge."
+   },
+   "checks": [
+    {
+     "passage": "How to Make a Bird Feeder.\nYou need: an empty plastic bottle, two wooden spoons, string and birdseed.\nStep 1: Ask an adult to make two small holes on each side of the bottle.\nStep 2: Push the spoons through the holes.\nStep 3: Fill the bottle with birdseed.\nStep 4: Tie string around the top and hang it from a tree.",
+     "stem": "What do you push through the holes?",
+     "options": [
+      "String",
+      "Birdseed",
+      "A branch",
+      "Wooden spoons"
+     ],
+     "answer": 3,
+     "why": "Step 2 says: Push the spoons through the holes."
+    },
+    {
+     "passage": "Fire Drill Directions.\nWhen the alarm rings, stop what you are doing.\nLeave your bags in the classroom.\nWalk, do not run, to the nearest exit.\nMeet your class at the flagpole in the front yard.\nWait there until your teacher calls your name.",
+     "stem": "Where should students meet their class?",
+     "options": [
+      "At the flagpole in the front yard",
+      "In the classroom",
+      "At the nearest exit",
+      "In the school hall"
+     ],
+     "answer": 0,
+     "why": "The directions say: Meet your class at the flagpole in the front yard."
+    },
+    {
+     "passage": "How to Care for a Cut.\nStep 1: Wash your hands.\nStep 2: Rinse the cut with clean water.\nStep 3: Cover it with a clean bandage.\nTip: If the cut is deep or will not stop bleeding, tell an adult right away.",
+     "stem": "What should you do if a cut will not stop bleeding?",
+     "options": [
+      "Rinse it again",
+      "Tell an adult right away",
+      "Use two bandages",
+      "Wash your hands"
+     ],
+     "answer": 1,
+     "why": "The tip says: If the cut will not stop bleeding, tell an adult right away."
+    }
+   ],
+   "again": {
+    "title": "Which part?",
+    "text": "Directions are like a house with rooms.\n\n**Need** room: things and amounts.\n**Steps** room: actions and times.\n**Tip** room: warnings.\n\nGo to the right room first.",
+    "example": "Question: How many lemons?\n\nRoom: **You need**. Answer: **2 lemons**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why directions are written",
+     "text": "Directions have a **specific purpose**: to help the reader **do** something correctly and safely, such as build a model, use a machine or reach a place.\n\nThe title and the first line usually tell you that purpose."
+    },
+    {
+     "title": "Steps and their reasons",
+     "text": "Some steps include a **reason**: \"Let the glue dry so the pieces do not slip.\"\n\nOthers have **conditions**: \"If the light is red, press reset.\" Read these carefully, because they change what you do."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the title and the first line: what is the goal?\n2. Number the actions, even if there are no numbers.\n3. Notice words like **before**, **after**, **until**, **if** and **do not**.\n4. Find the step that answers the question."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your answer with the step's **exact words**, including small words like **before**, **only** or **do not**.\n\nThese words often decide which answer is right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "These directions explain how to set up your new desk lamp.",
+      "role": "key"
+     },
+     {
+      "t": "Screw the bulb in gently before you plug in the lamp.",
+      "role": "detail"
+     },
+     {
+      "t": "Do not touch the bulb while it is on, because it gets very hot.",
+      "role": "detail"
+     },
+     {
+      "t": "If the lamp does not light, check that the switch is on.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first line gives the **purpose**: to explain how to set up the lamp. The other lines give an order (**before**), a warning (**do not**) and a condition (**if**)."
+   },
+   "together": {
+    "passage": "Using the School Microscope.\nThese directions will help you look at a slide safely without damaging the microscope.\nFirst, carry the microscope with two hands: one under the base and one on the arm.\nPlace your slide on the stage and hold it with the clips.\nStart with the smallest lens, and turn the large knob slowly until the picture is clear.\nDo not let the lens touch the slide, because it can crack the glass.\nWhen you finish, turn off the light and cover the microscope.",
+    "stem": "What is the specific purpose of these directions?",
+    "options": [
+     "To explain how microscopes were invented",
+     "To help students use the microscope safely and carefully",
+     "To describe the parts of a cell",
+     "To persuade the school to buy microscopes"
+    ],
+    "answer": 1,
+    "hint": "Read the line right after the title. What does it say the directions will help you do?",
+    "good": "Yes! The first line says the directions help you look at a slide safely without damaging the microscope."
+   },
+   "evidence": {
+    "sentences": [
+     "Using the School Microscope.",
+     "These directions will help you look at a slide safely without damaging the microscope.",
+     "First, carry the microscope with two hands: one under the base and one on the arm.",
+     "Place your slide on the stage and hold it with the clips.",
+     "Start with the smallest lens, and turn the large knob slowly until the picture is clear.",
+     "Do not let the lens touch the slide, because it can crack the glass.",
+     "When you finish, turn off the light and cover the microscope."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: to help students use the microscope safely. Tap the line that states the purpose.",
+    "wrong": "This line is one step. Find the line that tells why the directions were written."
+   },
+   "checks": [
+    {
+     "passage": "To get to the science museum from the bus stop, walk north along King Street. Pass the park on your right. At the second traffic light, turn left. The museum is the white building after the bank.",
+     "stem": "What should you do at the second traffic light?",
+     "options": [
+      "Turn left",
+      "Turn right",
+      "Cross the park",
+      "Go into the bank"
+     ],
+     "answer": 0,
+     "why": "The directions say: At the second traffic light, turn left."
+    },
+    {
+     "passage": "How to Charge the Tablet.\nPlug the small end of the cable into the tablet.\nPlug the other end into the wall.\nA red light means the tablet is charging.\nWhen the light turns green, unplug the cable.\nDo not charge the tablet on a bed or sofa, because it can get too warm.",
+     "stem": "When should you unplug the cable?",
+     "options": [
+      "When the light turns red",
+      "After ten minutes",
+      "Before you plug it into the wall",
+      "When the light turns green"
+     ],
+     "answer": 3,
+     "why": "The directions say: When the light turns green, unplug the cable."
+    },
+    {
+     "passage": "Class Library Rules.\nYou may borrow two books at a time.\nWrite your name and the date on the card inside the cover.\nReturn books within one week.\nIf a book is damaged, tell the teacher instead of trying to fix it.",
+     "stem": "What should you do if a book is damaged?",
+     "options": [
+      "Fix it with tape",
+      "Borrow another book",
+      "Tell the teacher",
+      "Write on the card"
+     ],
+     "answer": 2,
+     "why": "The rule says: If a book is damaged, tell the teacher instead of trying to fix it."
+    }
+   ],
+   "again": {
+    "title": "Goal, steps, warnings",
+    "text": "Sort the directions into three piles:\n\n**Goal**: what the directions help you do.\n**Steps**: the actions in order.\n**Warnings and conditions**: do not, if, until.",
+    "example": "Lamp directions.\nGoal: **set up the lamp**. Steps: **screw in bulb, plug in**. Warning: **do not touch the hot bulb**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex directions",
+     "text": "Some directions have **branches**: \"If you are using the large pot, add more water.\" Others have **notes** that change a step, or steps that must happen **at the same time**.\n\nYou must follow the exact path for **your** situation."
+    },
+    {
+     "title": "Why each step matters",
+     "text": "Good directions explain **why**: \"Wait until the paint is dry, so the colors do not mix.\"\n\nKnowing the reason helps you see what would go wrong if you skipped a step, and why the author put it there."
+    },
+    {
+     "title": "Method",
+     "text": "1. Find the goal of the directions.\n2. Find your situation (which branch applies?).\n3. Follow the steps in order, including notes.\n4. For a why question, look for **so**, **because**, **to** or **otherwise**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove answers about complex directions by pointing to **both**:\n\n1. the condition that applies (If..., When..., For...), and\n2. the step or note that tells you what to do in that case."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Soak the rice for 30 minutes.",
+      "role": "detail"
+     },
+     {
+      "t": "If you are cooking brown rice, soak it for one hour instead.",
+      "role": "key"
+     },
+     {
+      "t": "Rinse the rice until the water runs clear, so the grains do not stick together.",
+      "role": "detail"
+     }
+    ],
+    "explain": "For **brown** rice, the condition **If you are cooking brown rice** changes step 1: soak for **one hour**. The word **so** explains why rinsing matters: to stop sticking."
+   },
+   "together": {
+    "passage": "Setting Up the Class Aquarium.\nThese directions explain how to prepare a tank so that fish can live in it safely.\nStep 1: Rinse the gravel in a bucket until the water runs clear, then spread it on the bottom of the tank.\nStep 2: Fill the tank with tap water.\nStep 3: Add the water conditioner, which removes chemicals in tap water that can harm fish.\nStep 4: Switch on the filter and heater.\nNote: If you are keeping tropical fish, set the heater to 25 degrees; for goldfish, leave the heater off.\nStep 5: Wait at least one week before adding any fish, so that helpful bacteria can grow in the filter.",
+    "stem": "According to the directions, why must you wait a week before adding fish?",
+    "options": [
+     "The gravel needs time to dry.",
+     "The heater takes a week to warm up.",
+     "The tank must be cleaned again.",
+     "Helpful bacteria need time to grow in the filter."
+    ],
+    "answer": 3,
+    "hint": "Find Step 5. What reason follows the word so?",
+    "good": "Yes! Step 5 says to wait so that helpful bacteria can grow in the filter."
+   },
+   "evidence": {
+    "sentences": [
+     "Setting Up the Class Aquarium.",
+     "These directions explain how to prepare a tank so that fish can live in it safely.",
+     "Step 1: Rinse the gravel in a bucket until the water runs clear, then spread it on the bottom of the tank.",
+     "Step 2: Fill the tank with tap water.",
+     "Step 3: Add the water conditioner, which removes chemicals in tap water that can harm fish.",
+     "Step 4: Switch on the filter and heater.",
+     "Note: If you are keeping tropical fish, set the heater to 25 degrees; for goldfish, leave the heater off.",
+     "Step 5: Wait at least one week before adding any fish, so that helpful bacteria can grow in the filter."
+    ],
+    "proof": [
+     7
+    ],
+    "need": 1,
+    "stem": "The answer was: helpful bacteria need time to grow. Tap the step that proves it.",
+    "wrong": "This line is about a different step. Find the step that says to wait one week."
+   },
+   "checks": [
+    {
+     "passage": "Printing a Document in the Library.\nLog in with your student number.\nOpen your file and choose Print.\nFor black-and-white pages, choose Printer A; for color pages, choose Printer B, which is beside the front desk.\nCollect your pages within ten minutes, or they will be deleted from the queue.",
+     "stem": "A student wants to print a color poster. Where should she collect it?",
+     "options": [
+      "From Printer A",
+      "From the printer beside the front desk",
+      "From the student number machine",
+      "From the queue screen"
+     ],
+     "answer": 1,
+     "why": "For color pages, choose Printer B, which is beside the front desk."
+    },
+    {
+     "passage": "Painting the Model.\nCover the table with newspaper.\nPaint the base coat and wait until it is completely dry; otherwise the next color will smudge.\nAdd details with a thin brush.\nWhen you are finished, wash brushes in water if you used water paints, or in the special cleaner if you used oil paints.",
+     "stem": "Why do the directions say to wait until the base coat is dry?",
+     "options": [
+      "To clean the brushes",
+      "To save paint",
+      "So the next color does not smudge",
+      "So the newspaper stays clean"
+     ],
+     "answer": 2,
+     "why": "The step says: wait until it is completely dry; otherwise the next color will smudge."
+    },
+    {
+     "passage": "Emergency Exit Instructions for Bus Passengers.\nIn an emergency, stay calm and follow the driver.\nIf the front door cannot be used, pull the red handle above the rear door.\nIf both doors are blocked, use the hammer beside each window to break the glass at a corner.\nLeave the bus and move away from the road.",
+     "stem": "What should passengers do if both doors are blocked?",
+     "options": [
+      "Use the hammer to break a window at a corner",
+      "Pull the red handle above the rear door",
+      "Wait for the driver to open the front door",
+      "Stay on the bus and call for help"
+     ],
+     "answer": 0,
+     "why": "The instructions say: If both doors are blocked, use the hammer beside each window to break the glass at a corner."
+    }
+   ],
+   "again": {
+    "title": "Which road is mine?",
+    "text": "Think of **if** as a fork in the road.\n\n1. Find each **if** or **for**.\n2. Pick the road that fits **your** case.\n3. Follow only that road.",
+    "example": "Note: For tropical fish, set the heater to 25 degrees; for goldfish, leave it off.\n\nMy case: **goldfish**. My road: **leave the heater off**."
+   }
+  }
+ }
+}

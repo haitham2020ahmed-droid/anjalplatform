@@ -5,6 +5,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classIntelligence, copilotAnswer, intentOf, PRESETS } from "@/server/copilot/copilot";
 import { assignCopilotQuestionsAction } from "./actions";
+import { InsightActions } from "@/components/teacher/insight-actions";
+import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Class AI" };
 const RISK = { HIGH: "bg-red-100 text-red-800", MEDIUM: "bg-amber-100 text-amber-900", LOW: "bg-emerald-100 text-emerald-800" } as const;
@@ -17,6 +19,7 @@ export default async function TeacherAiPage({ searchParams }: { searchParams: Pr
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  const { t } = await getT();
   const classes = (await readableClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const klass = classes.find((c) => c.id === sp.class) ?? classes[0];
   if (!klass) return <AppShell name={String(me.displayName)}><p>No class yet.</p></AppShell>;
@@ -84,7 +87,7 @@ export default async function TeacherAiPage({ searchParams }: { searchParams: Pr
             <tr key={r.studentId} className="border-t align-top">
               <td className="py-2 pe-2"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{nameOf(r.studentId)}</bdi></Link><br /><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${RISK[r.level]}`}>{r.score}%</span></td>
               <td className="py-2 text-xs"><ul className="space-y-0.5">{r.reasons.slice(0, 3).map((x) => <li key={x.key}>• {x.text}</li>)}</ul></td>
-              <td className="py-2 ps-2 text-xs text-slate-700">→ {r.reasons[0]?.action ?? "Check in."}</td>
+              <td className="py-2 ps-2 text-xs text-slate-700">→ {r.reasons[0]?.action ?? "Check in."}<InsightActions t={t} target={{ classId: String(klass.id), studentId: r.studentId }} only={["plan", "group", "parent", "lesson"]} className="mt-2" /></td>
             </tr>
           ))}</tbody></table>
           {!atRisk.length && <p className="mt-2 text-sm text-slate-500">No student at medium or high risk. 🎉</p>}

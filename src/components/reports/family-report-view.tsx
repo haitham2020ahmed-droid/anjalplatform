@@ -1,5 +1,5 @@
 import type { FamilyContent, FamilyReportRow, ReportStatus } from "@/server/reports/family-reports";
-import { KIND_LABEL } from "@/server/reports/family-reports";
+import { contentIn, KIND_LABEL } from "@/server/reports/family-reports";
 import type { TFn } from "@/i18n";
 import { cycleColor } from "@/components/print/print-kit";
 import { SOURCE_COLORS } from "@/components/print/tokens";
@@ -16,8 +16,9 @@ export function StatusChip({ status }: { status: ReportStatus }) {
 }
 
 /** 👪 The report as the family sees it (also the preview for the teacher and the admin). Prints on A4. */
-export function FamilyReportView({ r, content, school, t }: { r: Pick<FamilyReportRow, "title" | "studentName" | "grade" | "className" | "kind" | "reviewedAt" | "createdAt" | "author">; content?: FamilyContent; school?: string; t?: TFn }) {
-  const c = content ?? (r as FamilyReportRow).content;
+export function FamilyReportView({ r, content, school, t, lang }: { r: Pick<FamilyReportRow, "title" | "studentName" | "grade" | "className" | "kind" | "reviewedAt" | "createdAt" | "author">; content?: FamilyContent; school?: string; t?: TFn; lang?: string }) {
+  // the monthly report carries its own Arabic copy: the family reads it in their language
+  const c = contentIn(content ?? (r as FamilyReportRow).content, lang ?? "en");
   // section headings are interface words (translated when known); the report's lines stay as written
   const h = (x: string) => (t ? t(x) : x);
   return (

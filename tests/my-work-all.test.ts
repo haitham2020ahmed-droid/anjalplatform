@@ -19,6 +19,7 @@ import { assignSkill } from "../src/server/teacher/assign";
 import { assignTest } from "../src/server/tests/assessments";
 import { createMapTest } from "../src/server/map/map-test";
 import { openStrategySurvey } from "../src/server/surveys/strategy";
+import { assignLearn } from "../src/server/learn/teacher";
 import { allWorkItems, extraWorkItems, KIND_LABEL, WORK_KINDS } from "../src/server/student/all-work";
 import { studentHome } from "../src/server/student/student-home";
 import { myWorkView } from "../src/server/student/program-work";
@@ -77,6 +78,8 @@ describe("My Work: everything a teacher assigns", () => {
     ids.plan = String((await repo.create("SkillPlan", { schoolId, classId, title: "Grade curriculum plan", kind: "CURRICULUM", gradeLevel: Number(grade!.level), status: "SENT", createdAt: now })).id);
     await repo.create("SkillPlanItem", { planId: ids.plan, code: "U1", label: "Unit 1", assignmentIds: [ids.skill], order: 1 });
     await openStrategySurvey(repo, teacher, classId, now);
+    // 📘 a Learn lesson (the sample lesson data/learn/lessons/LN-000.json), to me only
+    await assignLearn(repo, teacher, { kind: "LESSON", ref: "LN-000", classId, target: "STUDENTS", studentIds: [sid], dueAt: new Date(now.getTime() + 5 * DAY) }, now);
   });
 
   test("every assignable kind is a My Work row, once each, with its title, kind, date and the same player", async () => {
@@ -99,6 +102,7 @@ describe("My Work: everything a teacher assigns", () => {
     assert.ok(by(`lesson:${ids.lesson}`)[0].href.startsWith("/student/lesson?skillId="));
     assert.equal(by(`plan:${ids.plan}`)[0].href, `/student/plans/${ids.plan}`);
     assert.equal(by("survey:strategy")[0].href, "/student/strategy-survey");
+    assert.equal(by("learn:LESSON:LN-000")[0].href, "/student/learn/LN-000");
     assert.ok(rows.filter((r) => r.kind).every((r) => r.status === "Not started" && r.action === "Start"));
     // the kind chips are translated
     for (const l of Object.values(KIND_LABEL)) { assert.ok((UI_STRINGS as readonly string[]).includes(l), l); assert.ok(ar[l as (typeof UI_STRINGS)[number]], l); }
@@ -126,6 +130,7 @@ describe("My Work: everything a teacher assigns", () => {
     await repo.updateMany("RespondAssignmentStudent", { assignmentId: ids.respond, studentId: sid }, { finishedAt: now, updatedAt: now });
     await repo.updateMany("LessonRun", { id: ids.lesson }, { finishedAt: now });
     await repo.create("StrategySurvey", { studentId: sid, schoolId, answers: {}, result: {}, createdAt: now });
+    await repo.updateMany("LearnAssignee", { studentId: sid }, { status: "DONE", updatedAt: now });
     const rows = await allWorkItems(repo, me, now);
     // (the Test School's own seeded skill work stays as it was)
     const mine = rows.filter((r) => r.kind);
@@ -139,11 +144,11 @@ describe("My Work: everything a teacher assigns", () => {
 
   test("a table missing from an older database never breaks My Work", async () => {
     resetSchemaGaps();
-    dropRecent(db, ["RRClassArticle", "ExitTicket", "NafsPractice"], { MapSimWindow: ["kind", "classIds", "studentIds", "itemIds", "areaShares", "excludedIds", "draft", "settings", "updatedAt"] });
+    dropRecent(db, ["RRClassArticle", "ExitTicket", "NafsPractice", "LearnAssignee"], { MapSimWindow: ["kind", "classIds", "studentIds", "itemIds", "areaShares", "excludedIds", "draft", "settings", "updatedAt"] });
     const behind = prismaLike(repo, parseSchema(join(ROOT, "prisma/schema.prisma")));
     const extra = await extraWorkItems(behind, me, now);
     const kinds = new Set(extra.map((r) => r.kind));
-    for (const k of ["READRISE", "EXIT_TICKET", "NAFS_PRACTICE", "MAP_TEST"]) assert.ok(!kinds.has(k as never), `${k}: no rows, no error`);
+    for (const k of ["READRISE", "EXIT_TICKET", "NAFS_PRACTICE", "MAP_TEST", "LEARN"]) assert.ok(!kinds.has(k as never), `${k}: no rows, no error`);
     for (const k of ["TEST", "WRITING", "NAFS_TEST", "RESPOND", "LESSON"]) assert.ok(kinds.has(k as never), `${k} still listed`);
     const h = await studentHome(behind, me, now);
     assert.ok(h.work.length > 0);

@@ -17,6 +17,7 @@ import { assertCanEditSharedCatalogue } from "../curriculum-manage";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { bandSettings, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
+import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -207,6 +208,10 @@ export interface LinkRow { familyId: string; family: string; skills: string[]; g
 /** Every skill family of the school's skills with its MAP goal area (or none) and the suggestion from its standard. */
 export async function mapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRow[]; areas: { code: string; name: string; group: string }[] }> {
   assertCan(actor, "curriculum:edit");
+  // ⚡ built from every question of the school's skills: kept while the bank is unchanged
+  return keptWhileUnchanged(repo, `maplinks|${actor.schoolId}`, BANK_MODELS, 5 * 60_000, () => buildMapLinks(repo, actor));
+}
+async function buildMapLinks(repo: Repo, actor: Actor): Promise<{ rows: LinkRow[]; areas: { code: string; name: string; group: string }[] }> {
   const [fams, areas] = await Promise.all([repo.findMany("SkillFamily", {}), repo.findMany("MapGoalArea", {}, { select: ["id", "code", "name"] })]);
   const master = await masterSkills(repo, actor.schoolId!);
   const skills = master.length ? await repo.findMany("Skill", { id: { in: master.map((k) => k.id) } }, { select: ["id", "name", "familyId"] }) : [];

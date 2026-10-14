@@ -20,7 +20,8 @@ function Tile({ href, line, label, hint, t }: { href: string; line: LineIconName
 }
 
 /**
- * Reading in one place (student menu): ReadMaster, ReadRise, Fluency Coach and My Words — calm line-icon cards.
+ * Reading in one place (student menu): ReadMaster and ReadRise — calm line-icon cards. Fluency Coach and My Words
+ * have their own menu entries (owner's request).
  * Respond to Reading opens from the Curriculum Map study plan.
  */
 export default async function StudentReading() {
@@ -30,11 +31,9 @@ export default async function StudentReading() {
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "Home" }} title="ReadMaster / ReadRise" subtitle={t("Read, listen and practise reading.")} />
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid gap-3 sm:grid-cols-2">
         <Tile href="/student/readmaster" line="star" label="ReadMaster" hint="All the articles for your grade" t={t} />
         <Tile href="/student/readrise" line="rise" label="ReadRise" hint="Articles on every topic" t={t} />
-        <Tile href="/student/fluency-coach" line="mic" label="Fluency Coach" hint="Read aloud and get feedback" t={t} />
-        <Tile href="/student/words" line="words" label="My Words" hint="The words you collected" t={t} />
       </ul>
     </AppShell>
   );

@@ -1,0 +1,445 @@
+{
+ "code": "LN-221",
+ "title": "Homographs and homophones",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [],
+ "families": [
+  "homographs-homophones"
+ ],
+ "skillNames": [
+  "Homographs and Homophones"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that sound the same",
+     "text": "Some words **sound the same** but have **different meanings** and **spellings**.\n\n**see** (with your eyes) / **sea** (big water)\n**sun** (in the sky) / **son** (a boy in a family)"
+    },
+    {
+     "title": "Words spelled the same",
+     "text": "Some words are **spelled the same** but mean different things.\n\n**bat**: a small animal that flies\n**bat**: a stick for hitting a ball"
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Find the word.\n2. Read the whole sentence.\n3. Ask: which meaning **fits**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other words in the sentence show which meaning is right.\n\n1. Read each sentence.\n2. Ask: does this word make sense here?\n3. Tap the sentence where it does **not**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We went to the sea.",
+      "role": "main"
+     },
+     {
+      "t": "We swam in the waves.",
+      "role": "key"
+     },
+     {
+      "t": "We played in the sand.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Sea** means the big water. Waves and sand prove it.\n\nIt is not **see** (to look with your eyes)."
+   },
+   "together": {
+    "passage": "Fahad got up at eight. He ate eggs for breakfast. Then he went to the park. He played in the son.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "eight",
+     "ate",
+     "park",
+     "son"
+    ],
+    "answer": 3,
+    "hint": "“Eight” is a number and “ate” means had food. Both are right here! Which word does not make sense?",
+    "good": "Yes! You play in the **sun** (the hot light in the sky). A **son** is a boy in a family."
+   },
+   "evidence": {
+    "sentences": [
+     "Fahad got up at eight.",
+     "He ate eggs for breakfast.",
+     "Then he went to the park.",
+     "He played in the son."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: son. Tap the sentence with the wrong word.",
+    "wrong": "Every word in this sentence is right. Find the sentence where a word does not make sense."
+   },
+   "checks": [
+    {
+     "passage": "I can see a bird. It is in the tree.",
+     "stem": "What does “see” mean here?",
+     "options": [
+      "big water",
+      "look at with your eyes",
+      "a letter",
+      "a boat"
+     ],
+     "answer": 1,
+     "why": "You look at a bird with your eyes. That is “see”. “Sea” is big water."
+    },
+    {
+     "passage": "Sara has two cats. She feeds them every day.",
+     "stem": "Which word sounds the same as “two” but means “also”?",
+     "options": [
+      "too",
+      "tow",
+      "toe",
+      "ten"
+     ],
+     "answer": 0,
+     "why": "“Too” sounds like “two” and means also: “I like cats too.”"
+    },
+    {
+     "passage": "The cricket player held his bat. At night, a bat flew out of the cave.",
+     "stem": "What is the second “bat”?",
+     "options": [
+      "a stick for hitting a ball",
+      "a ball",
+      "a small animal that flies",
+      "a cave"
+     ],
+     "answer": 2,
+     "why": "It flew out of a cave at night. That is the animal."
+    }
+   ],
+   "again": {
+    "title": "Picture both",
+    "text": "Make a picture of both meanings.\n\n**sun** ☀️ / **son** 👦\n\nThen ask: which picture fits the sentence?",
+    "example": "“The sun is hot.” ☀️ or 👦? It is ☀️: the **sun**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Homophones",
+     "text": "**Homophones** sound the same but are spelled differently and mean different things.\n\n**there** (a place) / **their** (belongs to them) / **they're** (they are)\n**hear** (with your ears) / **here** (this place)"
+    },
+    {
+     "title": "Homographs",
+     "text": "**Homographs** are spelled the same but have different meanings. Some are also said differently.\n\n“A **tear** rolled down her cheek.” (sounds like “ear”)\n“Don't **tear** the paper.” (sounds like “air”)"
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Find the word.\n2. List its possible meanings.\n3. Use the other words in the sentence to choose."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The words around a homophone or homograph show which meaning is right.\n\nTo find a mistake, test each word in its sentence. Tap the sentence where the spelling does **not** match the meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The wind was strong.",
+      "role": "main"
+     },
+     {
+      "t": "It blew the leaves off the trees.",
+      "role": "key"
+     },
+     {
+      "t": "Dad had to wind the rope around the tent pole.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first **wind** (sounds like “pinned”) is moving air: it **blew** the leaves.\n\nThe second **wind** (sounds like “find”) means to **wrap around**."
+   },
+   "together": {
+    "passage": "Our class went on a trip to the science museum. Their was a huge model of the solar system in the main hall. We could hear the guide explain each planet. Then we ate lunch in the garden.",
+    "stem": "Which word is used incorrectly?",
+    "options": [
+     "hear",
+     "each",
+     "Their",
+     "ate"
+    ],
+    "answer": 2,
+    "hint": "That word is correct. Test each word: does its spelling match its meaning in the sentence?",
+    "good": "Yes! It should be **There** (a place). **Their** means belonging to them."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class went on a trip to the science museum.",
+     "Their was a huge model of the solar system in the main hall.",
+     "We could hear the guide explain each planet.",
+     "Then we ate lunch in the garden."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: Their. Tap the sentence with the mistake.",
+    "wrong": "Every word in this sentence is used correctly. Find the sentence with the wrong spelling."
+   },
+   "checks": [
+    {
+     "passage": "Hamad read the book last night. Today he will read the next one.",
+     "stem": "How is the first “read” said?",
+     "options": [
+      "like “red”",
+      "like “reed”",
+      "like “road”",
+      "like “ride”"
+     ],
+     "answer": 0,
+     "why": "“Last night” shows the past, so it is said like “red”. The second “read” (future) is said like “reed”."
+    },
+    {
+     "passage": "The puppy wagged ___ tail when we came home.",
+     "stem": "Which word belongs in the blank?",
+     "options": [
+      "it's",
+      "its",
+      "its'",
+      "it is"
+     ],
+     "answer": 1,
+     "why": "The tail belongs to the puppy, so we use “its”. “It's” means “it is”."
+    },
+    {
+     "passage": "Please close the door. The shop is close to our house.",
+     "stem": "What does the second “close” mean?",
+     "options": [
+      "shut",
+      "far",
+      "open",
+      "near"
+     ],
+     "answer": 3,
+     "why": "“Close to our house” means near. The first “close” means shut."
+    }
+   ],
+   "again": {
+    "title": "Swap test",
+    "text": "For homophones, swap in the long form.\n\n**they're** → “they are”\n**it's** → “it is”\n\nIf the swap sounds right, keep the word. If not, choose another.",
+    "example": "“It's tail is long.” → “It is tail is long”? Wrong! Use **its**: “Its tail is long.”"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Stress changes meaning",
+     "text": "Some homographs change which part is said **louder**.\n\n**PRE**-sent: a gift / pre-**SENT**: to show\n**RE**-cord: a written result / re-**CORD**: to save sound or data\n**DE**-sert: dry land / de-**SERT**: to leave someone"
+    },
+    {
+     "title": "Tricky homophones",
+     "text": "**weather** (rain, sun) / **whether** (if)\n**principal** (head of a school; main) / **principle** (a rule or belief)\n**stationary** (not moving) / **stationery** (paper and pens)"
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Decide what **job** the word does: is it a thing (noun), an action (verb) or a describing word?\n2. Match the meaning to the context.\n3. For homophones, check that the spelling matches that meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the clue words that show the word's **job** or the **topic**.\n\nThey prove which meaning, or which spelling, fits. A wrong spelling sits in a sentence whose clues point to the **other** meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At the science fair, Lina will present her project to the judges.",
+      "role": "key"
+     },
+     {
+      "t": "She hopes they will like how she recorded her results each day.",
+      "role": "detail"
+     },
+     {
+      "t": "Her brother bought her a present to wish her luck.",
+      "role": "key"
+     }
+    ],
+    "explain": "In the first sentence, **present** comes after “will”, so it is an action: pre-**SENT** (to show).\n\nIn the last sentence, “a present” is a thing: **PRE**-sent (a gift)."
+   },
+   "together": {
+    "passage": "Every Monday, our principle stands at the school gate to welcome students. Last week she reminded us to bring our stationery, because the shop near the school was closed. She also told us to check the weather report, since sports day might move indoors if it rained. Whether it rained or not, she said, everyone should wear the school uniform.",
+    "stem": "Which word is used incorrectly?",
+    "options": [
+     "stationery",
+     "weather",
+     "principle",
+     "Whether"
+    ],
+    "answer": 2,
+    "hint": "That word is spelled correctly for its meaning. Which word names a PERSON but is spelled like a rule or belief?",
+    "good": "Yes! The head of a school is the **principal**. A **principle** is a rule or belief."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Monday, our principle stands at the school gate to welcome students.",
+     "Last week she reminded us to bring our stationery, because the shop near the school was closed.",
+     "She also told us to check the weather report, since sports day might move indoors if it rained.",
+     "Whether it rained or not, she said, everyone should wear the school uniform."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: principle. Tap the sentence with the mistake.",
+    "wrong": "The tricky words in this sentence are used correctly. Find the sentence with the wrong spelling."
+   },
+   "checks": [
+    {
+     "passage": "The camel caravan crossed the desert for three days. On the fourth day, two guides decided to desert the group and return home.",
+     "stem": "What does the second “desert” mean?",
+     "options": [
+      "a dry, sandy place",
+      "to leave someone behind",
+      "a sweet food",
+      "to cross the sand"
+     ],
+     "answer": 1,
+     "why": "“Decided to desert the group and return home” is an action: de-SERT, to leave someone."
+    },
+    {
+     "passage": "After dinner, Grandma served her famous date ______.",
+     "stem": "Which word belongs in the blank?",
+     "options": [
+      "desert",
+      "deserted",
+      "dessert",
+      "desserted"
+     ],
+     "answer": 2,
+     "why": "A sweet food after dinner is a dessert, with two s's. A desert is dry land."
+    },
+    {
+     "passage": "The bus remained stationary at the red light while children waved from the windows.",
+     "stem": "What does “stationary” mean?",
+     "options": [
+      "not moving",
+      "selling paper",
+      "very noisy",
+      "full of stations"
+     ],
+     "answer": 0,
+     "why": "A bus at a red light is not moving. Paper and pens are “stationery” with an e."
+    }
+   ],
+   "again": {
+    "title": "Thing or action?",
+    "text": "Many homographs that change their stress follow a pattern:\n\n**Thing** (noun) → loud **first** part: a **RE**-cord, a **PRE**-sent\n**Action** (verb) → loud **second** part: to re-**CORD**, to pre-**SENT**\n\nFind the word's job, and the sound follows.",
+    "example": "“Please re-CORD the results.” (after “Please” → action)\n“Our team set a new RE-cord.” (after “a new” → thing)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Advanced homographs",
+     "text": "**minute** (MIN-it): sixty seconds / **minute** (my-NOOT): tiny\n**content** (CON-tent): what is inside / **content** (con-TENT): satisfied\n**wound** (rhymes with “spooned”): an injury / **wound** (rhymes with “found”): wrapped\n\nOnly context shows which is meant."
+    },
+    {
+     "title": "Advanced homophones",
+     "text": "**complement**: something that completes / **compliment**: praise\n**council**: a group that makes decisions / **counsel**: advice; to advise\n**discreet**: careful, private / **discrete**: separate"
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Identify the word's part of speech.\n2. Test each meaning in the sentence.\n3. Check the surrounding sentences for topic clues.\n4. In writing, check that the spelling matches the meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the words that **fix** the meaning: an article (a, the), a helping verb, or a topic word nearby.\n\nTo prove a spelling error, show that the sentence's clues demand the **other** word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The scientist examined a minute crystal under the microscope.",
+      "role": "key"
+     },
+     {
+      "t": "It was so small that she needed the strongest lens to see its edges.",
+      "role": "key"
+     },
+     {
+      "t": "After a minute, she wrote down its shape.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first **minute** describes the crystal: my-NOOT, tiny. “So small” and “strongest lens” prove it.\n\nThe last **minute** means **sixty seconds**."
+   },
+   "together": {
+    "passage": "The city counsel met on Tuesday to discuss plans for a new public park. Residents had asked for more shade, so the designers chose trees that complement the palms along the main road. One member paid the architects a compliment, saying the design was both practical and beautiful. Before the vote, the council's lawyer gave counsel on the cost of the land.",
+    "stem": "Which word is used incorrectly?",
+    "options": [
+     "complement",
+     "compliment",
+     "counsel (in the last sentence)",
+     "counsel (in the first sentence)"
+    ],
+    "answer": 3,
+    "hint": "That word is used correctly. Which word names a GROUP that meets, but is spelled like the word for advice?",
+    "good": "Yes! A group that meets and decides is a **council**. **Counsel** means advice, which is correct in the last sentence."
+   },
+   "evidence": {
+    "sentences": [
+     "The city counsel met on Tuesday to discuss plans for a new public park.",
+     "Residents had asked for more shade, so the designers chose trees that complement the palms along the main road.",
+     "One member paid the architects a compliment, saying the design was both practical and beautiful.",
+     "Before the vote, the council's lawyer gave counsel on the cost of the land."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: counsel (in the first sentence). Tap the sentence with the mistake.",
+    "wrong": "The tricky words in this sentence are used correctly. Find the sentence where a GROUP is spelled like the word for advice."
+   },
+   "checks": [
+    {
+     "passage": "After months of hard training, Majed felt content with his performance, even though he did not win a medal.",
+     "stem": "How is “content” said here, and what does it mean?",
+     "options": [
+      "CON-tent: the material inside something",
+      "con-TENT: satisfied",
+      "CON-tent: the topic of a book",
+      "con-TENT: angry"
+     ],
+     "answer": 1,
+     "why": "“Felt content with his performance” describes a feeling: con-TENT, satisfied."
+    },
+    {
+     "passage": "The nurse wound a clean bandage around the cut on the boy's arm.",
+     "stem": "What does “wound” mean here?",
+     "options": [
+      "an injury",
+      "hurt badly",
+      "washed",
+      "wrapped"
+     ],
+     "answer": 3,
+     "why": "The nurse did something with a bandage “around” the cut. Here “wound” is the past of “wind”: wrapped."
+    },
+    {
+     "passage": "The data was divided into five discrete groups, so that each group could be studied separately.",
+     "stem": "Why is “discrete” the correct spelling here?",
+     "options": [
+      "It means separate and distinct.",
+      "It means careful about keeping secrets.",
+      "It means very large.",
+      "It means mixed together."
+     ],
+     "answer": 0,
+     "why": "“Studied separately” shows the groups are separate: discrete. “Discreet” means careful and private."
+    }
+   ],
+   "again": {
+    "title": "Spell by meaning",
+    "text": "Make a memory link for each tricky pair.\n\n**complEment** completes something (both have “ple”).\n**complIment**: “I like what you did.”\n**discreTe**: the **t** keeps the two e's apart, just as discrete things are separate.",
+    "example": "“Her blue scarf ______ her dress.”\n\nDoes the scarf **complete** the look? Yes → **complements**, with an e."
+   }
+  }
+ }
+}

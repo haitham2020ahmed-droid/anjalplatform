@@ -1,0 +1,512 @@
+{
+ "code": "LN-194",
+ "title": "Context clues",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.1.4.a",
+  "L.2.4.a",
+  "L.3.4.a",
+  "L.4.4.a",
+  "L.5.4.a",
+  "L.6.4.a",
+  "L.7.4.a",
+  "L.7.4.d",
+  "L.8.4.a",
+  "RL.K.4"
+ ],
+ "families": [
+  "context-clues"
+ ],
+ "skillNames": [
+  "Context Clues"
+ ],
+ "statements": [
+  "R-0011",
+  "R-0019",
+  "R-0047",
+  "R-0053",
+  "R-0054",
+  "R-0121",
+  "R-0122",
+  "R-0134",
+  "R-0219",
+  "R-0220",
+  "R-0232",
+  "R-0243",
+  "R-0246",
+  "R-0248",
+  "R-0370",
+  "R-0380",
+  "R-0382",
+  "R-0391",
+  "R-0400",
+  "R-0402",
+  "R-0403",
+  "R-0411",
+  "R-0555",
+  "R-0560",
+  "R-0561",
+  "R-0570",
+  "R-0577",
+  "R-0578",
+  "R-0590",
+  "R-0596",
+  "R-0599",
+  "R-0761",
+  "R-0762",
+  "R-0766",
+  "R-0775",
+  "R-0776",
+  "R-0787",
+  "R-0798",
+  "R-0802",
+  "R-0804",
+  "R-0931",
+  "R-0933",
+  "R-0937",
+  "R-0938",
+  "R-0948",
+  "R-0949",
+  "R-0958",
+  "R-0965",
+  "R-1053",
+  "R-1056",
+  "R-1062",
+  "R-1065",
+  "R-1098",
+  "R-1103"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A word you do not know",
+     "text": "Sometimes you read a word you do not know.\n\nDo not stop! The **other words** can help you."
+    },
+    {
+     "title": "Clues",
+     "text": "The words around a new word are **clues**.\n\nThe kitten was **tiny**. It fit in my hand.\n\nIt fit in my hand, so **tiny** must mean **very small**."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Find the new word.\n2. Read the sentence **before** and **after** it.\n3. Ask: what would make sense here?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to your clues.\n\n1. Find the new word.\n2. Find the sentences that tell more about it.\n3. Those sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The soup was scalding.",
+      "role": "main"
+     },
+     {
+      "t": "It was so hot that it burned my tongue.",
+      "role": "key"
+     },
+     {
+      "t": "I had to wait for it to cool.",
+      "role": "key"
+     }
+    ],
+    "explain": "**So hot it burned my tongue** and **wait for it to cool** are clues.\n\n**Scalding** means very, very hot."
+   },
+   "together": {
+    "passage": "Grandma made a huge cake for Eid. It was so big that it covered the whole table. Ten people ate some, and there was still a lot left.",
+    "stem": "What does huge mean?",
+    "options": [
+     "Very small.",
+     "Very sweet.",
+     "Very big.",
+     "Very old."
+    ],
+    "answer": 2,
+    "hint": "Read the next sentences. How much of the table did the cake cover?",
+    "good": "Yes! It covered the whole table and fed ten people. Huge means very big."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandma made a huge cake for Eid.",
+     "It was so big that it covered the whole table.",
+     "Ten people ate some, and there was still a lot left."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: very big. Tap 2 sentences that are clues.",
+    "wrong": "This sentence has the new word. Find the sentences after it that tell how big the cake was."
+   },
+   "checks": [
+    {
+     "passage": "The floor was wet and slippery. Ali slid and almost fell.",
+     "stem": "What does slippery mean?",
+     "options": [
+      "Easy to slide on.",
+      "Very dry.",
+      "Very dirty.",
+      "Soft and warm."
+     ],
+     "answer": 0,
+     "why": "Ali **slid and almost fell**, so the floor was easy to slide on."
+    },
+    {
+     "passage": "The kitten was frightened by the loud noise. It hid under the bed and shook.",
+     "stem": "What does frightened mean?",
+     "options": [
+      "Happy.",
+      "Hungry.",
+      "Sleepy.",
+      "Scared."
+     ],
+     "answer": 3,
+     "why": "It **hid and shook**. That is what a scared kitten does."
+    },
+    {
+     "passage": "Sara's room is always tidy. Her books are on the shelf, and her bed is made.",
+     "stem": "What does tidy mean?",
+     "options": [
+      "Messy.",
+      "Neat.",
+      "Big.",
+      "Dark."
+     ],
+     "answer": 1,
+     "why": "Books on the shelf and a made bed show the room is **neat**."
+    }
+   ],
+   "again": {
+    "title": "Try a word",
+    "text": "Put a word **you know** in place of the new word.\n\nDoes the sentence still make sense with the clues? Then you are right!",
+    "example": "\"The road was **narrow**. Only one car could fit.\"\n\nTry **thin**: \"The road was thin. Only one car could fit.\" ✔ Narrow means not wide."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Context clues",
+     "text": "**Context** means the words and sentences around a word.\n\n**Context clues** are hints in the text that help you work out a word you do not know."
+    },
+    {
+     "title": "Kinds of clues",
+     "text": "**Definition:** the text tells you. *an oasis, a green place in the desert with water*\n\n**Same meaning:** another word means the same. *He was famished, so hungry he...*\n\n**Opposite:** but, unlike. *Hamad is talkative, but Saud is silent.*\n\n**Example:** such as. *citrus fruits, such as lemons*"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Stop at the new word.\n2. Look for a clue: a definition, a same-meaning word, an opposite or examples.\n3. Make a guess.\n4. Put your guess in the sentence. Does it fit?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Good readers can **show** the clue.\n\n1. Find the sentences around the word.\n2. Look for details that describe the word, or an opposite.\n3. Choose the meaning those details support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The caravan stopped at an oasis, a green place in the desert with water and palm trees.",
+      "role": "key"
+     },
+     {
+      "t": "The camels drank, and the travellers rested in the shade.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The clue is a **definition** right after the comma: *a green place in the desert with water and palm trees*."
+   },
+   "together": {
+    "passage": "Tariq was famished after the long hike in the mountains. He had not eaten anything since breakfast, and his stomach growled loudly. As soon as the group reached the camp, he ate two plates of rice and three pieces of bread. Then he asked if there was any more.",
+    "stem": "What does famished mean?",
+    "options": [
+     "Very tired.",
+     "Very hungry.",
+     "Very cold.",
+     "Very happy."
+    ],
+    "answer": 1,
+    "hint": "Look at what Tariq did at the camp. What do the clues tell you?",
+    "good": "Yes! No food since breakfast, a growling stomach and two plates of rice: famished means very hungry."
+   },
+   "evidence": {
+    "sentences": [
+     "Tariq was famished after the long hike in the mountains.",
+     "He had not eaten anything since breakfast, and his stomach growled loudly.",
+     "As soon as the group reached the camp, he ate two plates of rice and three pieces of bread.",
+     "Then he asked if there was any more."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: very hungry. Tap 2 sentences that are clues.",
+    "wrong": "This sentence has the new word, but the clues come after it. Find the sentences about his stomach and what he ate."
+   },
+   "checks": [
+    {
+     "passage": "Hamad is usually talkative, but today he was silent. He did not say a single word all morning.",
+     "stem": "What does silent mean?",
+     "options": [
+      "Talking a lot.",
+      "Not making any sound.",
+      "Feeling sick.",
+      "Very busy."
+     ],
+     "answer": 1,
+     "why": "**But** shows the opposite of talkative, and he **did not say a single word**."
+    },
+    {
+     "passage": "Nadia loves citrus fruits, such as oranges, lemons and limes.",
+     "stem": "What are citrus fruits?",
+     "options": [
+      "Fruits that grow under the ground.",
+      "Fruits with no juice.",
+      "Dried fruits like dates.",
+      "Fruits like oranges, lemons and limes."
+     ],
+     "answer": 3,
+     "why": "**Such as** gives examples: oranges, lemons and limes."
+    },
+    {
+     "passage": "The path to the top of the hill was steep. We had to climb slowly, and we stopped many times to catch our breath.",
+     "stem": "What does steep mean?",
+     "options": [
+      "Going up sharply.",
+      "Flat and smooth.",
+      "Wet and muddy.",
+      "Short and easy."
+     ],
+     "answer": 0,
+     "why": "Climbing slowly and **stopping to catch our breath** show the path went up sharply."
+    }
+   ],
+   "again": {
+    "title": "Clue detective",
+    "text": "Circle these clue signals in your mind:\n\n**,** (comma after a word) · **or** · **such as** · **but** · **unlike** · **so**\n\nThey point to the clue.",
+    "example": "\"The cup was **fragile**, **so** Mom wrapped it in thick paper before the move.\"\n\nSignal: **so**. Wrapping it carefully shows it breaks easily. Fragile = **easy to break**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Clues across sentences",
+     "text": "In longer texts, the clues may be spread over **several sentences**. One sentence may describe what something looks like; another may show what people do because of it.\n\nAdd the clues together."
+    },
+    {
+     "title": "Contrast and cause",
+     "text": "**Contrast:** *Most students were anxious, but Lulwa was serene.* → serene is the opposite of anxious.\n\n**Cause and effect:** *Because the medicine was potent, the doctor gave only half a tablet.* → potent means strong."
+    },
+    {
+     "title": "Check your meaning",
+     "text": "1. Collect all the clues.\n2. Make a meaning that fits **every** clue.\n3. Swap it into the sentence.\n4. If one clue does not fit, rethink."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is the **details** that show the word in action.\n\n1. Find sentences that describe the thing the word names.\n2. Find what people do because of it.\n3. Choose the meaning that all those details support.\n\nA choice that fits only the sentence with the word, but not the details, is a trap."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Most of the class was anxious before the exam.",
+      "role": "detail"
+     },
+     {
+      "t": "Lulwa, however, was serene.",
+      "role": "main"
+     },
+     {
+      "t": "She sat calmly, smiled at her friends and quietly read her notes.",
+      "role": "key"
+     }
+    ],
+    "explain": "**However** signals a contrast with *anxious*, and the next sentence shows her **calm** and **smiling**.\n\nSerene means calm and peaceful."
+   },
+   "together": {
+    "passage": "The old rope bridge over the wadi looked precarious. Its wooden boards were cracked, several were missing, and the whole bridge swayed whenever the wind blew. The guide told us to cross one at a time and to hold the side ropes tightly. When the last person reached the other side, everyone let out a long breath of relief.",
+    "stem": "What does precarious mean?",
+    "options": [
+     "Beautiful and well made.",
+     "Long and very high.",
+     "Unsafe and likely to fall.",
+     "New and strong."
+    ],
+    "answer": 2,
+    "hint": "Look at the details about the boards and the wind, and at the guide's warning.",
+    "good": "Yes! Cracked and missing boards, swaying and careful crossing show the bridge was unsafe."
+   },
+   "evidence": {
+    "sentences": [
+     "The old rope bridge over the wadi looked precarious.",
+     "Its wooden boards were cracked, several were missing, and the whole bridge swayed whenever the wind blew.",
+     "The guide told us to cross one at a time and to hold the side ropes tightly.",
+     "When the last person reached the other side, everyone let out a long breath of relief."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: unsafe and likely to fall. Tap 2 sentences that are clues.",
+    "wrong": "This sentence has the word itself, or tells what happened at the end. Find the sentences that describe the bridge and the guide's warning."
+   },
+   "checks": [
+    {
+     "passage": "The museum guide was very knowledgeable. She answered every question, from the age of the oldest coin to the name of the potter who made a jar five hundred years ago.",
+     "stem": "What does knowledgeable mean?",
+     "options": [
+      "Friendly and kind.",
+      "Knowing a lot.",
+      "Speaking quickly.",
+      "Very old."
+     ],
+     "answer": 1,
+     "why": "She **answered every question**, even very detailed ones."
+    },
+    {
+     "passage": "Because the medicine was so potent, the doctor told Dad to take only half a tablet each day.",
+     "stem": "What does potent mean?",
+     "options": [
+      "Cheap.",
+      "Sweet.",
+      "Very strong.",
+      "Very weak."
+     ],
+     "answer": 2,
+     "why": "**Because** it was potent, Dad must take only **half**: the medicine is very strong."
+    },
+    {
+     "passage": "Most of the young camels wandered off when the herder called, but one was docile. It walked quietly to him and let him lead it by the rope.",
+     "stem": "What does docile mean?",
+     "options": [
+      "Calm and easy to lead.",
+      "Wild and fast.",
+      "Sick and weak.",
+      "Loud and angry."
+     ],
+     "answer": 0,
+     "why": "**But** contrasts it with the camels that wandered off, and it **let him lead it**."
+    }
+   ],
+   "again": {
+    "title": "Add up the clues",
+    "text": "Make a quick list:\n\nClue 1: ___\nClue 2: ___\nClue 3: ___\n\nThen ask: what one word or phrase explains all of them?",
+    "example": "\"The room was **cluttered**. Boxes covered the floor, papers were piled on the chairs, and we could barely reach the window.\"\n\nClues: boxes everywhere, piled papers, hard to move. Meaning: **full of things, messy**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Context in complex texts",
+     "text": "In advanced texts, words like *frugal, meticulous, ubiquitous* or *ephemeral* are rarely defined. The writer **shows** them through details, examples and contrasts, sometimes across a whole paragraph."
+    },
+    {
+     "title": "Shades and limits",
+     "text": "Context also shows what a word does **not** mean.\n\n*He is frugal, yet not mean.* → frugal means careful with money, **without** being unkind.\n\nA close but wrong meaning is the most common trap."
+    },
+    {
+     "title": "A careful method",
+     "text": "1. Read to the end of the paragraph before deciding.\n2. List the examples the writer gives.\n3. Note any **contrast** (yet, however, although) that limits the meaning.\n4. Choose the meaning that fits the examples **and** the limit."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Precise meanings are proved by **several** details working together.\n\n1. Find the examples that show the word in action.\n2. Find any sentence that rules out a nearby meaning.\n3. Choose the answer that fits every example and every limit.\n\nIf one detail contradicts a choice, reject it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The calligrapher was meticulous.",
+      "role": "main"
+     },
+     {
+      "t": "He spent an hour on a single letter, checking every curve against his model.",
+      "role": "key"
+     },
+     {
+      "t": "If a line was even slightly too thick, he started again.",
+      "role": "key"
+     }
+    ],
+    "explain": "An hour per letter, checking every curve, restarting for a tiny flaw: **meticulous** means extremely careful about every detail."
+   },
+   "together": {
+    "passage": "My grandfather is famously frugal. He has worn the same leather sandals for twenty years, repairing them himself whenever a strap breaks. He saves glass jars to store spices, turns old shirts into cleaning cloths and switches off every light the moment someone leaves a room. Yet he is not mean: when a neighbour's family could not pay for a hospital stay, he quietly gave them a large sum from the savings he had built over decades.",
+    "stem": "What does frugal mean in this passage?",
+    "options": [
+     "Unwilling to help other people.",
+     "Careful not to waste money or things.",
+     "Poor and unable to buy anything new.",
+     "Fond of old-fashioned clothes."
+    ],
+    "answer": 1,
+    "hint": "Look at all the examples, then at the sentence that begins with \"Yet\". Which meaning fits both?",
+    "good": "Yes! He repairs, reuses and saves, yet he gives generously. Frugal means careful not to waste, not unkind."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandfather is famously frugal.",
+     "He has worn the same leather sandals for twenty years, repairing them himself whenever a strap breaks.",
+     "He saves glass jars to store spices, turns old shirts into cleaning cloths and switches off every light the moment someone leaves a room.",
+     "Yet he is not mean: when a neighbour's family could not pay for a hospital stay, he quietly gave them a large sum from the savings he had built over decades."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: careful not to waste money or things. Tap 2 sentences that are clues.",
+    "wrong": "This sentence only names the word. Find the sentences with examples of his habits, or the one that shows what frugal does NOT mean."
+   },
+   "checks": [
+    {
+     "passage": "Mobile phones have become ubiquitous. You see them on buses, in markets, in classrooms and even in the hands of shepherds watching their flocks in the desert.",
+     "stem": "What does ubiquitous mean?",
+     "options": [
+      "Very expensive.",
+      "Found almost everywhere.",
+      "Recently invented.",
+      "Hard to use."
+     ],
+     "answer": 1,
+     "why": "The examples cover **buses, markets, classrooms and the desert**: phones are everywhere."
+    },
+    {
+     "passage": "The desert flowers that appear after a rare rain are ephemeral. Within two weeks they have bloomed, dropped their seeds and vanished, leaving the sand as bare as before.",
+     "stem": "What does ephemeral mean?",
+     "options": [
+      "Brightly coloured.",
+      "Growing very tall.",
+      "Lasting only a short time.",
+      "Needing a lot of water."
+     ],
+     "answer": 2,
+     "why": "**Within two weeks** they bloom and **vanish**: they last a very short time."
+    },
+    {
+     "passage": "At first the committee's response to the complaint was tepid. Members nodded politely, but nobody offered a plan, and the topic was dropped after five minutes.",
+     "stem": "What does tepid mean here?",
+     "options": [
+      "Angry and loud.",
+      "Warm and welcoming.",
+      "Fast and well organised.",
+      "Showing little interest or energy."
+     ],
+     "answer": 3,
+     "why": "Polite nods, **no plan** and dropping the topic quickly show a response with little interest."
+    }
+   ],
+   "again": {
+    "title": "What it is, what it isn't",
+    "text": "Make two quick notes:\n\n**It is:** what the examples show.\n**It isn't:** what a contrast word (yet, but, although) rules out.\n\nThe meaning sits between the two notes.",
+    "example": "\"She was **reserved**: she spoke little in large groups, **although** she was warm and friendly with close friends.\"\n\nIt is: quiet, keeps feelings private. It isn't: unfriendly. Reserved = **quiet and slow to share**."
+   }
+  }
+ }
+}

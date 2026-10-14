@@ -1,0 +1,492 @@
+{
+ "code": "LN-111",
+ "title": "Cause and effect",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.1.3",
+  "RI.2.3",
+  "RI.3.3",
+  "RI.4.3",
+  "RI.5.3",
+  "RI.6.3",
+  "RI.6.5",
+  "RI.7.3",
+  "RI.8.3"
+ ],
+ "families": [
+  "cause-effect"
+ ],
+ "skillNames": [
+  "Text Structure: Cause and Effect"
+ ],
+ "statements": [
+  "R-0107",
+  "R-0201",
+  "R-0207",
+  "R-0352",
+  "R-0353",
+  "R-0530",
+  "R-0531",
+  "R-0532",
+  "R-0546",
+  "R-0701",
+  "R-0722",
+  "R-0723",
+  "R-0724",
+  "R-0725",
+  "R-0896",
+  "R-0897",
+  "R-0916",
+  "R-0917",
+  "R-1032",
+  "R-1039",
+  "R-1042",
+  "R-1043"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Why did it happen?",
+     "text": "A **cause** is **why** something happens.\n\nAn **effect** is **what** happens."
+    },
+    {
+     "title": "An example",
+     "text": "It rained. The street got wet.\n\nCause: **it rained**.\nEffect: **the street got wet**."
+    },
+    {
+     "title": "Clue words",
+     "text": "Look for **because** and **so**.\n\nI was cold, **so** I put on a coat.\nI put on a coat **because** I was cold."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentence that shows **what happened** and **why**.\n\n1. Look for because or so.\n2. Point to the sentence.\n3. It proves your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali did not water his plant.",
+      "role": "detail"
+     },
+     {
+      "t": "So the plant got dry and brown.",
+      "role": "key"
+     }
+    ],
+    "explain": "Cause: Ali did not water the plant. Effect: **the plant got dry and brown**. The word **so** shows the effect."
+   },
+   "together": {
+    "passage": "The wind blew hard all day. A big branch fell from the tree. It landed on our fence. Now the fence is broken.",
+    "stem": "What happened because the branch fell?",
+    "options": [
+     "The fence broke.",
+     "The wind blew.",
+     "The tree grew.",
+     "It was a sunny day."
+    ],
+    "answer": 0,
+    "hint": "The wind came before the branch fell. What happened AFTER the branch fell?",
+    "good": "Yes! The branch landed on the fence, and now the fence is broken."
+   },
+   "evidence": {
+    "sentences": [
+     "The wind blew hard all day.",
+     "A big branch fell from the tree.",
+     "It landed on our fence.",
+     "Now the fence is broken."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the fence broke. Tap 2 sentences that show it.",
+    "wrong": "This sentence happens before the branch falls. Find what happened after."
+   },
+   "checks": [
+    {
+     "passage": "Nora ate a big lunch. She was very full. So she did not want a snack.",
+     "stem": "Why did Nora not want a snack?",
+     "options": [
+      "She was sick.",
+      "She did not like snacks.",
+      "She was busy.",
+      "She was full from lunch."
+     ],
+     "answer": 3,
+     "why": "Nora ate a big lunch, so she was full and did not want a snack."
+    },
+    {
+     "passage": "The baby was tired. Mom sang a soft song. The baby fell asleep.",
+     "stem": "What happened after Mom sang?",
+     "options": [
+      "The baby cried.",
+      "The baby fell asleep.",
+      "Mom went out.",
+      "The baby ate."
+     ],
+     "answer": 1,
+     "why": "Mom sang a soft song, and the baby fell asleep."
+    },
+    {
+     "passage": "Omar left his ice cream in the sun. The sun was very hot. The ice cream melted.",
+     "stem": "Why did the ice cream melt?",
+     "options": [
+      "Omar ate it.",
+      "It was in the freezer.",
+      "It was in the hot sun.",
+      "It fell on the floor."
+     ],
+     "answer": 2,
+     "why": "The ice cream was left in the hot sun, so it melted."
+    }
+   ],
+   "again": {
+    "title": "Why and what",
+    "text": "Ask **What happened?** That is the effect.\n\nThen ask **Why?** That is the cause.",
+    "example": "Sara fell and hurt her knee.\n\nWhat happened? **Her knee hurt** (effect). Why? **She fell** (cause)."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Cause and effect",
+     "text": "In informational texts, authors explain **why** things happen in nature, history and daily life.\n\nThe **cause** makes something happen. The **effect** is the result."
+    },
+    {
+     "title": "Signal words",
+     "text": "**because, since, due to** point to a **cause**.\n**so, as a result, therefore, this led to** point to an **effect**.\n\nSome texts have no signal word. Then ask: did one thing **make** the other happen?"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the question: does it ask **why** (cause) or **what happened** (effect)?\n2. Find the event in the text.\n3. Look before it for the cause, or after it for the effect.\n4. Check with the signal words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A cause-effect answer needs **both parts** in the text.\n\n1. Find the event the question names.\n2. Find the sentence that gives its cause or effect.\n3. Point to the signal word if there is one.\n\nSomething that just happens nearby is not always a cause."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Camels can live for days without drinking.",
+      "role": "detail"
+     },
+     {
+      "t": "This is because their bodies lose very little water.",
+      "role": "key"
+     },
+     {
+      "t": "They hardly sweat, even when the air is hot.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **Why can camels live for days without drinking?**\n\nThe signal word **because** gives the cause: **their bodies lose very little water**. The last sentence explains more about how."
+   },
+   "together": {
+    "passage": "Last winter, heavy rains fell on the hills near our town for three days. The dry ground could not soak up so much water at once. As a result, water rushed down into the valley and flooded several roads. Schools closed for two days, and workers cleared mud from the streets. Now the town is building channels to carry rainwater away safely.",
+    "stem": "Why did the roads flood?",
+    "options": [
+     "Workers cleared mud from the streets.",
+     "The town built new channels.",
+     "Rainwater from the hills rushed into the valley.",
+     "Schools closed for two days."
+    ],
+    "answer": 2,
+    "hint": "Find the words As a result. What happened just before the roads flooded?",
+    "good": "Yes! Heavy rain on dry ground rushed down into the valley, and as a result the roads flooded."
+   },
+   "evidence": {
+    "sentences": [
+     "Last winter, heavy rains fell on the hills near our town for three days.",
+     "The dry ground could not soak up so much water at once.",
+     "As a result, water rushed down into the valley and flooded several roads.",
+     "Schools closed for two days, and workers cleared mud from the streets.",
+     "Now the town is building channels to carry rainwater away safely."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: rainwater rushed down into the valley. Tap 2 sentences that show the cause of the flood.",
+    "wrong": "This sentence tells what happened after the flood. Find the sentences that explain why it happened."
+   },
+   "checks": [
+    {
+     "passage": "Long ago, sailors on long voyages often became sick with a disease called scurvy. Their gums bled and they felt very weak. Doctors later learned this was due to a lack of vitamin C. Ships began carrying lemons and limes, and the disease became much rarer.",
+     "stem": "What caused scurvy?",
+     "options": [
+      "Not enough vitamin C",
+      "Eating lemons and limes",
+      "Bleeding gums",
+      "Long voyages on ships"
+     ],
+     "answer": 0,
+     "why": "The text says scurvy was due to a lack of vitamin C. Bleeding gums were an effect."
+    },
+    {
+     "passage": "Our class planted ten small trees around the playground. Two years later, the trees had grown tall. Their branches now give shade during break time. Because of this, more students play outside on hot days.",
+     "stem": "What is one effect of the trees growing tall?",
+     "options": [
+      "The class planted ten trees.",
+      "The playground got bigger.",
+      "Students stopped playing.",
+      "More students play outside on hot days."
+     ],
+     "answer": 3,
+     "why": "Because of this shows that the shade from the tall trees leads to more students playing outside."
+    },
+    {
+     "passage": "The bakery's oven broke early in the morning. The baker could not make bread for the day. Since there was no fresh bread, the shop sold only cakes and biscuits.",
+     "stem": "Why did the shop sell only cakes and biscuits?",
+     "options": [
+      "The baker liked cakes better.",
+      "There was no fresh bread.",
+      "People did not want bread.",
+      "The shop was closing."
+     ],
+     "answer": 1,
+     "why": "The word Since gives the cause: there was no fresh bread because the oven broke."
+    }
+   ],
+   "again": {
+    "title": "The arrow trick",
+    "text": "Draw an arrow: **cause → effect**.\n\nThe thing at the start of the arrow **makes** the thing at the end happen.",
+    "example": "Heavy rain → dry ground cannot soak it up → flooded roads.\n\nWhy did roads flood? Look **left** of the arrow: heavy rain rushing down."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Causes in true stories",
+     "text": "In biographies and true stories, causes and effects explain **why people acted** and **how events changed their lives**.\n\nOne event can cause a choice, and that choice can cause new events."
+    },
+    {
+     "title": "Cause-effect structure",
+     "text": "Some texts are **organized** around cause and effect. The whole passage explains why something happened, or what it led to.\n\nClues: many signal words, and each paragraph builds on the one before."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Name the event the question asks about.\n2. Decide: cause (why) or effect (result)?\n3. Search for linking words: because, led to, so, since, therefore.\n4. Check: did one thing **make** the other happen, or did it only happen **before** it?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a cause, find the sentence that **links** the two events.\n\n1. Look for linking words.\n2. Check the order: the cause comes first in time.\n3. Reject a choice that only happened at the same time, or that is an effect, not a cause."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In 1928, the scientist Alexander Fleming returned from a holiday to find mold growing on one of his dishes of bacteria.",
+      "role": "detail"
+     },
+     {
+      "t": "Around the mold, the bacteria had died.",
+      "role": "detail"
+     },
+     {
+      "t": "Because he noticed this, Fleming went on to study the mold, which led to the discovery of penicillin.",
+      "role": "key"
+     },
+     {
+      "t": "Penicillin later saved millions of lives.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **cause** of Fleming's discovery was that he **noticed** the bacteria had died around the mold. The words **Because** and **led to** link the events. Saving lives is a later **effect**."
+   },
+   "together": {
+    "passage": "When Amal was eleven, her grandmother's eyesight began to fail. Her grandmother had always read the newspaper aloud to the family each evening, but now the small print was impossible for her. Amal decided to take over. At first she stumbled over long words, so she began looking them up and practicing every afternoon. By the end of the year, she read more smoothly than anyone in her class, and her teacher asked her to read at the school assembly.",
+    "stem": "Why did Amal begin practicing every afternoon?",
+    "options": [
+     "Her teacher asked her to read at the assembly.",
+     "Her grandmother wanted a new newspaper.",
+     "She wanted to be the best reader in her class.",
+     "She stumbled over long words while reading aloud."
+    ],
+    "answer": 3,
+    "hint": "The assembly came later, so it is an effect. Find the word so. What came just before it?",
+    "good": "Yes! She stumbled over long words, so she began practicing."
+   },
+   "evidence": {
+    "sentences": [
+     "When Amal was eleven, her grandmother's eyesight began to fail.",
+     "Her grandmother had always read the newspaper aloud to the family each evening, but now the small print was impossible for her.",
+     "Amal decided to take over.",
+     "At first she stumbled over long words, so she began looking them up and practicing every afternoon.",
+     "By the end of the year, she read more smoothly than anyone in her class, and her teacher asked her to read at the school assembly."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: she stumbled over long words. Tap the sentence that shows this cause.",
+    "wrong": "This sentence tells an earlier cause or a later effect. Find the sentence with the word so."
+   },
+   "checks": [
+    {
+     "passage": "In the early 1900s, cities grew quickly as people moved from farms to find factory work. Many families lived in crowded buildings with little fresh air. As a result, diseases spread easily. To fix this, cities built parks, wider streets and new water systems.",
+     "stem": "According to the passage, why did diseases spread easily?",
+     "options": [
+      "Cities built new water systems.",
+      "People moved from farms.",
+      "Families lived in crowded buildings with little fresh air.",
+      "Streets became wider."
+     ],
+     "answer": 2,
+     "why": "As a result links crowded buildings with little fresh air to the spread of disease."
+    },
+    {
+     "passage": "When the factory near the river closed, it stopped dumping waste into the water. Over the next ten years, the river slowly became cleaner. Fish returned, and soon birds that eat fish came back too.",
+     "stem": "What was one effect of the river becoming cleaner?",
+     "options": [
+      "Fish returned to the river.",
+      "The factory closed.",
+      "The waste was dumped in the river.",
+      "Ten years passed."
+     ],
+     "answer": 0,
+     "why": "After the river became cleaner, fish returned, and then the birds that eat them."
+    },
+    {
+     "passage": "Hamad's family moved from a village to a big city when he was nine. He missed the open desert and the stars at night. In the city, the bright lights hid most of the stars. So he joined an astronomy club that traveled outside the city once a month to look at the night sky.",
+     "stem": "Why did Hamad join the astronomy club?",
+     "options": [
+      "His family moved to a village.",
+      "He wanted to see the stars that the city lights hid.",
+      "His school required it.",
+      "He did not like the desert."
+     ],
+     "answer": 1,
+     "why": "City lights hid the stars, so he joined a club that traveled outside the city to see them."
+    }
+   ],
+   "again": {
+    "title": "Before, or because?",
+    "text": "Things that happen **before** are not always **causes**.\n\nAsk: **Did this make the next thing happen?** If yes, it is a cause. If it just happened earlier, it is not.",
+    "example": "Amal's grandmother's eyes failed → Amal read the newspaper → she stumbled → **so** she practiced.\n\nWhy did she practice? The **nearest** cause: she stumbled over long words."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Chains and webs",
+     "text": "Real events often have **several causes**, and one cause can have **several effects**.\n\nOften causes form a **chain**: A causes B, B causes C. A question may ask about any link in the chain."
+    },
+    {
+     "title": "Implied causes",
+     "text": "Advanced texts may not use signal words. The author places events side by side and expects you to see the link.\n\nAsk: **What explanation does the text give or suggest?** Be careful not to add causes the text does not support."
+    },
+    {
+     "title": "Analyze the structure",
+     "text": "1. Map the events in order.\n2. Draw arrows only where the text shows one event made another happen.\n3. Find the link the question asks about: direct cause, underlying cause, short-term or long-term effect.\n4. Ask why the author used a cause-effect structure: to explain, warn or persuade."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For a chain, you may need **two pieces of evidence**: one for each link.\n\n1. Find the sentence that shows A led to B.\n2. Find the sentence that shows B led to C.\n3. Reject choices that skip a link, reverse the direction, or name something the text only mentions."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For centuries, many children in a desert region worked long hours fetching water.",
+      "role": "detail"
+     },
+     {
+      "t": "When wells and water pipes reached their villages, that task disappeared.",
+      "role": "key"
+     },
+     {
+      "t": "Children had more free hours, and school attendance rose.",
+      "role": "key"
+     },
+     {
+      "t": "Within a generation, the region had many more teachers and engineers.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The chain: **water pipes** → **less time fetching water** → **more school** → **more teachers and engineers**. The long-term effect of the pipes was not only water: it was education."
+   },
+   "together": {
+    "passage": "For thousands of years, the Aral Sea in Central Asia was one of the largest lakes in the world, fed by two great rivers. In the 1960s, planners decided to turn the dry land nearby into cotton fields. Huge canals were dug to take water from the rivers to the farms. With far less river water reaching it, the sea began to shrink. By the early 2000s, it had lost most of its water and split into smaller lakes. Fishing towns that once stood on the shore found themselves many kilometers from the water, and thousands of people lost their jobs. Winds now blow salty dust from the dry seabed across the region.",
+    "stem": "What was the underlying cause of the fishing towns losing their jobs?",
+    "options": [
+     "Winds blowing salty dust across the region",
+     "The decision to use river water to grow cotton",
+     "The two great rivers flowing into the sea",
+     "The sea splitting into smaller lakes"
+    ],
+    "answer": 1,
+    "hint": "Follow the chain back from the lost jobs. What started the sea shrinking in the first place?",
+    "good": "Yes! The cotton plan led to canals, less water in the sea, a shrinking shore and lost jobs."
+   },
+   "evidence": {
+    "sentences": [
+     "For thousands of years, the Aral Sea in Central Asia was one of the largest lakes in the world, fed by two great rivers.",
+     "In the 1960s, planners decided to turn the dry land nearby into cotton fields.",
+     "Huge canals were dug to take water from the rivers to the farms.",
+     "With far less river water reaching it, the sea began to shrink.",
+     "By the early 2000s, it had lost most of its water and split into smaller lakes.",
+     "Fishing towns that once stood on the shore found themselves many kilometers from the water, and thousands of people lost their jobs.",
+     "Winds now blow salty dust from the dry seabed across the region."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the decision to use river water for cotton. Tap 2 sentences that show how this started the chain.",
+    "wrong": "This sentence gives background or an effect at the end of the chain. Find the links near the start."
+   },
+   "checks": [
+    {
+     "passage": "In the eighteenth century, new machines allowed cloth to be made in factories instead of homes. Factory owners needed many workers in one place, so people moved from the countryside into towns. The towns grew so fast that housing could not keep up, and many families lived in crowded, unhealthy conditions.",
+     "stem": "According to the passage, what led people to move into towns?",
+     "options": [
+      "Factories needed many workers in one place.",
+      "Housing could not keep up.",
+      "Families lived in unhealthy conditions.",
+      "Cloth was made at home."
+     ],
+     "answer": 0,
+     "why": "The text says factory owners needed many workers in one place, so people moved into towns. Crowded housing was an effect."
+    },
+    {
+     "passage": "After her father lost his sight, the young Huda learned to read aloud to him every night. She read history books, poems and newspapers, often stopping to look up words. Years later, she said those evenings taught her to love language. She became a translator who brought dozens of books from English into Arabic.",
+     "stem": "According to the passage, what was a long-term effect of Huda reading to her father?",
+     "options": [
+      "Her father lost his sight.",
+      "She stopped reading newspapers.",
+      "She became a translator who loved language.",
+      "She learned to read history quickly."
+     ],
+     "answer": 2,
+     "why": "She said those evenings taught her to love language, and she later became a translator."
+    },
+    {
+     "passage": "Wolves were removed from a large national park in the United States in the 1920s. Without wolves, the number of elk grew, and the elk ate young willow trees along the rivers. When wolves were brought back in 1995, elk began to avoid open riverbanks. Willows grew again, and beavers, which use willow to build dams, returned to the streams.",
+     "stem": "Why did beavers return to the streams?",
+     "options": [
+      "The elk population grew.",
+      "Wolves were removed in the 1920s.",
+      "Beavers moved away from the rivers.",
+      "Willows grew again after elk avoided the riverbanks."
+     ],
+     "answer": 3,
+     "why": "Wolves made elk avoid the riverbanks, willows grew back, and beavers that need willow returned."
+    }
+   ],
+   "again": {
+    "title": "Walk the chain backwards",
+    "text": "When a question asks for the **underlying** or **first** cause:\n\n1. Start at the final effect.\n2. Ask **why?** and step back one link.\n3. Keep asking why until you reach the start.",
+    "example": "Lost jobs ← why? towns far from water ← why? sea shrank ← why? rivers taken for canals ← why? **the cotton plan**."
+   }
+  }
+ }
+}

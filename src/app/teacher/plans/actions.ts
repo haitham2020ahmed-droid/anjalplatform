@@ -116,7 +116,7 @@ async function sendFromPlansPage(actor: Actor, f: FormData, kind: "nafs" | "cust
       const members = (await repo.findMany("ClassMembership", { classId: form.classId, leftAt: null }, { select: ["studentId"] })).map((m) => String(m.studentId));
       plan = applyEdits([], null, added, form.studentIds.length ? form.studentIds : members);
     }
-    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)) });
+    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
     msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
     tab = "sent";
   } catch (e) {

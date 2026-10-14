@@ -1,0 +1,462 @@
+{
+ "code": "LN-053",
+ "title": "Active and passive voice",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "verbs"
+ ],
+ "skillNames": [
+  "Active and Passive Voice"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who does it?",
+     "text": "In many sentences, the **subject** does the action.\n\n**Omar kicked the ball.**\n\nOmar did the kicking. This is the **active voice**."
+    },
+    {
+     "title": "Who gets it?",
+     "text": "Sometimes the subject **gets** the action.\n\n**The ball was kicked by Omar.**\n\nThe ball did nothing. It got kicked. This is the **passive voice**."
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Find the subject.\n2. Ask: **Did it do the action?**\n3. Yes: active. No, it got the action: passive.\n\nTip: passive sentences often have **was** or **were**, and sometimes **by**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the text**.\n\n1. Read the question.\n2. Find the sentence in the text.\n3. Look for **was** or **were** + an action word, and **by**.\n\nPoint to the words that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sara baked a cake.",
+      "role": "other"
+     },
+     {
+      "t": "The cake was eaten by her brothers.",
+      "role": "key"
+     },
+     {
+      "t": "They said thank you.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, Sara **does** the baking. Active.\n\nIn sentence 2, the cake does nothing. It **was eaten**. Passive."
+   },
+   "together": {
+    "passage": "Our class planted a tree. The tree was watered by Ali. Huda painted a sign. The sign was hung by the teacher.",
+    "stem": "Which sentence from the text is in the passive voice?",
+    "options": [
+     "Our class planted a tree.",
+     "Huda painted a sign.",
+     "The tree was watered by Ali.",
+     "The class likes the tree."
+    ],
+    "answer": 2,
+    "hint": "In that sentence the subject DOES the action. Look for was + an action word.",
+    "good": "Yes! The tree did nothing. It was watered by Ali."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planted a tree.",
+     "The tree was watered by Ali.",
+     "Huda painted a sign.",
+     "The sign was hung by the teacher."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: The tree was watered by Ali. Tap 2 sentences where the subject GETS the action.",
+    "wrong": "In this sentence the subject DOES the action. Look for was + an action word + by."
+   },
+   "checks": [
+    {
+     "passage": "The dog was fed by Sami.",
+     "stem": "Who did the action?",
+     "options": [
+      "The dog",
+      "Sami",
+      "The food",
+      "Nobody"
+     ],
+     "answer": 1,
+     "why": "Sami did the feeding. The dog got fed."
+    },
+    {
+     "passage": "Mona wrote a letter.",
+     "stem": "Is this sentence active or passive?",
+     "options": [
+      "Active, because Mona did the writing.",
+      "Passive, because Mona got written.",
+      "Passive, because it has by.",
+      "It has no action."
+     ],
+     "answer": 0,
+     "why": "Mona is the subject, and she did the writing. So it is active."
+    },
+    {
+     "passage": "The windows were cleaned by Dad. Then Dad cooked lunch.",
+     "stem": "Which words show the passive voice?",
+     "options": [
+      "Dad cooked",
+      "cooked lunch",
+      "Then Dad",
+      "were cleaned by"
+     ],
+     "answer": 3,
+     "why": "The windows did nothing. They were cleaned by Dad."
+    }
+   ],
+   "again": {
+    "title": "Doer or getter?",
+    "text": "Point to the subject.\n\nIs it the **doer**? Active.\n\nIs it the **getter**? Passive.",
+    "example": "The cup was broken by the baby.\n\nSubject: **the cup**. Did the cup break something? No. It **got** broken. So it is **passive**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Active voice",
+     "text": "In the **active voice**, the subject does the action.\n\n**The students cleaned the beach.**\n\nActive sentences are clear and strong."
+    },
+    {
+     "title": "Passive voice",
+     "text": "In the **passive voice**, the subject receives the action.\n\n**The beach was cleaned by the students.**\n\nPassive = a form of **be** (is, are, was, were) + a **past participle** (cleaned, written, built)."
+    },
+    {
+     "title": "Switch it",
+     "text": "1. Find the doer and the receiver.\n2. Put the receiver first.\n3. Add **was/were** + the past participle.\n4. Add **by** + the doer.\n\nThe cat chased the mouse. → The mouse **was chased by** the cat."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the subject of the sentence.\n2. Find its verb.\n3. Is the verb **be + past participle** (was built, were sent)? Then the subject is receiving the action.\n\nPoint to those exact words. That is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old mosque was built two hundred years ago.",
+      "role": "key"
+     },
+     {
+      "t": "Workers carried stones from the hills.",
+      "role": "other"
+     },
+     {
+      "t": "The walls were covered with white plaster.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 1 and 3 have **was built** and **were covered**: be + past participle. The mosque and the walls receive the action. **Passive.**\n\nIn sentence 2, the workers **do** the carrying. **Active.**"
+   },
+   "together": {
+    "passage": "Last week, our school held a science fair. Every project was checked by two judges. Faisal built a model of a solar oven. His oven was tested in the hot sun. The best projects were chosen on Thursday. Faisal's name was called first.",
+    "stem": "Which sentence from the text is in the active voice?",
+    "options": [
+     "Every project was checked by two judges.",
+     "Faisal built a model of a solar oven.",
+     "The best projects were chosen on Thursday.",
+     "His oven was tested in the hot sun."
+    ],
+    "answer": 1,
+    "hint": "That sentence has was or were + a past participle, so the subject receives the action. Find a subject that DOES something.",
+    "good": "Yes! Faisal is the subject, and he did the building."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week, our school held a science fair.",
+     "Every project was checked by two judges.",
+     "Faisal built a model of a solar oven.",
+     "His oven was tested in the hot sun.",
+     "The best projects were chosen on Thursday.",
+     "Faisal's name was called first."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Faisal built a model of a solar oven. Tap 2 sentences where the subject DOES the action.",
+    "wrong": "This sentence has was or were + a past participle. Its subject receives the action, so it is passive."
+   },
+   "checks": [
+    {
+     "passage": "The letters were delivered by a new postman.",
+     "stem": "Who did the delivering?",
+     "options": [
+      "The letters",
+      "The readers",
+      "A new postman",
+      "Nobody"
+     ],
+     "answer": 2,
+     "why": "The by-phrase names the doer: a new postman. The letters only received the action."
+    },
+    {
+     "passage": "The wind blew the tent away.",
+     "stem": "Which sentence is the passive voice of this one?",
+     "options": [
+      "The tent blew the wind away.",
+      "The wind was blowing the tent.",
+      "The tent is blowing away.",
+      "The tent was blown away by the wind."
+     ],
+     "answer": 3,
+     "why": "The receiver (the tent) comes first, then was + blown, then by + the doer (the wind)."
+    },
+    {
+     "passage": "The bread is baked every morning. The baker sells it at seven.",
+     "stem": "Which words in the text are in the passive voice?",
+     "options": [
+      "is baked",
+      "sells it",
+      "the baker",
+      "at seven"
+     ],
+     "answer": 0,
+     "why": "Is + baked is be + past participle. The bread receives the baking."
+    }
+   ],
+   "again": {
+    "title": "Look for the helper",
+    "text": "Passive sentences need a helper verb: **is, are, was, were, be, been**.\n\nThen comes a past participle like **made, seen, written, cleaned**.\n\nHelper + past participle = passive.",
+    "example": "The juice was made by Grandma.\n\n**was** + **made** = passive. Grandma did the making, but she comes last."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Passive without by",
+     "text": "Many passive sentences never name the doer.\n\n**The window was broken.**\n\nWho broke it? We do not know. The passive is useful when the doer is **unknown** or **not important**."
+    },
+    {
+     "title": "Passive in any tense",
+     "text": "is cleaned / was cleaned / will be cleaned / has been cleaned / is being cleaned\n\nThe helper changes with the time. The past participle stays the same."
+    },
+    {
+     "title": "Choose the better voice",
+     "text": "Use **active** when the doer matters: **Dr. Noura found the answer.**\n\nUse **passive** when the action or the receiver matters most: **The results were checked three times.**\n\nNews reports and science reports often use the passive."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence is passive, point to three things:\n\n1. a subject that **receives** the action\n2. a **be** helper (is, was, were, been, be)\n3. a **past participle** (found, taken, treated)\n\nIf all three are there, it is passive, even with no **by**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The seeds were planted in two trays.",
+      "role": "key"
+     },
+     {
+      "t": "One tray was kept in the sun.",
+      "role": "key"
+     },
+     {
+      "t": "After a week, the sunny tray had taller plants.",
+      "role": "other"
+     }
+    ],
+    "explain": "This is a science report. Sentences 1 and 2 are passive, and they never say **who** planted or kept anything.\n\nThat is on purpose. In a science report, the **steps** matter more than the person."
+   },
+   "together": {
+    "passage": "A rare sea turtle was found on a beach near Jeddah last Friday. The turtle had been caught in an old fishing net. Two fishermen saw it and called the coast guard. The animal was taken to a marine center, where its injured flipper was treated. Volunteers fed it squid for three weeks. Yesterday the turtle was released into the Red Sea.",
+    "stem": "Why does the writer use the passive voice so often in this news report?",
+    "options": [
+     "The turtle did most of the actions.",
+     "The writer does not know who saved the turtle.",
+     "The turtle is the focus of the story.",
+     "Passive is always better than active."
+    ],
+    "answer": 2,
+    "hint": "Look at the subjects of the passive sentences. Who or what keeps receiving the action?",
+    "good": "Yes! In the passive sentences the turtle is the subject, so the story stays focused on it."
+   },
+   "evidence": {
+    "sentences": [
+     "A rare sea turtle was found on a beach near Jeddah last Friday.",
+     "The turtle had been caught in an old fishing net.",
+     "Two fishermen saw it and called the coast guard.",
+     "The animal was taken to a marine center, where its injured flipper was treated.",
+     "Volunteers fed it squid for three weeks.",
+     "Yesterday the turtle was released into the Red Sea."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the turtle is the focus. Tap 2 sentences where the turtle is the subject and receives the action.",
+    "wrong": "In this sentence people DO the action (active voice). Find sentences where the turtle receives the action."
+   },
+   "checks": [
+    {
+     "passage": "The new bridge will be opened next month.",
+     "stem": "Which words are in the passive voice?",
+     "options": [
+      "next month",
+      "the new bridge",
+      "will be opened",
+      "bridge will"
+     ],
+     "answer": 2,
+     "why": "Will be + opened is a be helper + past participle. The bridge receives the action."
+    },
+    {
+     "passage": "Someone left the gate open, and the goats escaped.",
+     "stem": "Which passive sentence keeps the same meaning?",
+     "options": [
+      "The gate was left open, and the goats escaped.",
+      "The goats left the gate open.",
+      "The gate left the goats open.",
+      "Someone was left open by the gate."
+     ],
+     "answer": 0,
+     "why": "The gate receives the action (was left). We still do not know who left it, just like in the original."
+    },
+    {
+     "passage": "The scientist mixed the two liquids carefully.",
+     "stem": "In a lab report, the steps matter more than who did them. Which version fits best?",
+     "options": [
+      "The scientist was mixing carefully.",
+      "The two liquids were mixed carefully.",
+      "Carefully the scientist mixes.",
+      "The liquids mixed the scientist."
+     ],
+     "answer": 1,
+     "why": "The passive puts the liquids first and keeps the focus on the step, not the person."
+    }
+   ],
+   "again": {
+    "title": "The three-part test",
+    "text": "1. Find a **be** helper (is, was, were, been, be).\n2. Find a **past participle** right after it.\n3. Is the subject the **receiver**?\n\nThree yeses = passive.",
+    "example": "The cookies have been eaten.\n\nHelper: **been**. Past participle: **eaten**. Did the cookies eat? No. **Passive**, and we do not know who ate them!"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Voice changes meaning",
+     "text": "Active voice is direct. It names **who is responsible**.\n\nPassive voice moves the focus to the action or the result. It can also **hide** who is responsible: **Mistakes were made.**"
+    },
+    {
+     "title": "Avoid needless shifts",
+     "text": "Keep the voice steady in one sentence unless you have a reason to change.\n\n✗ Hassan **designed** the poster, and the colors **were chosen** by him too.\n✓ Hassan **designed** the poster and **chose** the colors."
+    },
+    {
+     "title": "Read the author's choice",
+     "text": "Ask:\n\n1. Who is in the **subject** position?\n2. Whose actions are **hidden**?\n3. Why might the author want that?\n\nScience writers use the passive to sound objective. Storytellers use the active to keep the action moving."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you explain the effect of voice, quote the **exact verb phrase** (were found, will be taken).\n\nThen point to the sentences around it that show what the voice **reveals or hides**. A good answer always rests on the words of the text, not on a guess."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The city council promised a new park in 2020.",
+      "role": "other"
+     },
+     {
+      "t": "Plans were drawn up, and land was cleared.",
+      "role": "detail"
+     },
+     {
+      "t": "However, the opening was delayed again and again.",
+      "role": "key"
+     },
+     {
+      "t": "No reason was given.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 is active: it names the council. Then the writer switches to passive. **Was delayed** and **was given** never say who delayed the park or who failed to explain.\n\nThe writer hints that someone is avoiding responsibility."
+   },
+   "together": {
+    "passage": "Every summer, the coral off our coast is studied by a team from the local university. Divers count the fish, photograph the reefs and measure the water temperature. This year, large patches of white coral were found. Coral can turn white, or bleach, when the water stays too warm for too long. In the team's report, the cause is stated clearly: rising sea temperatures. However, the report does not say who should act to protect the reef. It ends with one short sentence: \"Further steps will be taken.\"",
+    "stem": "What is the effect of the passive voice in the last sentence of the report?",
+    "options": [
+     "It makes the coral the doer of the action.",
+     "It leaves unclear who will take the steps.",
+     "It shows the divers will act tomorrow.",
+     "It proves the water is cooling down."
+    ],
+    "answer": 1,
+    "hint": "Ask: by whom will the steps be taken? Does the report say?",
+    "good": "Yes! \"Will be taken\" names no doer, so the reader cannot tell who is responsible for acting."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, the coral off our coast is studied by a team from the local university.",
+     "Divers count the fish, photograph the reefs and measure the water temperature.",
+     "This year, large patches of white coral were found.",
+     "Coral can turn white, or bleach, when the water stays too warm for too long.",
+     "In the team's report, the cause is stated clearly: rising sea temperatures.",
+     "However, the report does not say who should act to protect the reef.",
+     "It ends with one short sentence: \"Further steps will be taken.\""
+    ],
+    "proof": [
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the passive leaves unclear who will act. Tap 2 sentences that show this.",
+    "wrong": "This sentence describes the study or the cause. Find the sentences about who should act."
+   },
+   "checks": [
+    {
+     "passage": "Maha planned the trip, and the tickets were booked by her as well.",
+     "stem": "Which revision fixes the needless shift in voice?",
+     "options": [
+      "Maha planned the trip, and she booked the tickets as well.",
+      "The trip was planned, and Maha booked the tickets.",
+      "Maha planned the trip, and tickets were booked.",
+      "The trip and the tickets were planned by booking."
+     ],
+     "answer": 0,
+     "why": "Both verbs are now active, with Maha as the doer. The other choices still mix voices or lose the meaning."
+    },
+    {
+     "passage": "The experiment was repeated five times, and the average was recorded.",
+     "stem": "Why might a scientist write this sentence in the passive voice?",
+     "options": [
+      "To show that the scientist was careless.",
+      "Because passive sentences are always shorter.",
+      "To keep the focus on the method, not the person.",
+      "To make the experiment sound exciting."
+     ],
+     "answer": 2,
+     "why": "In science writing, what was done matters more than who did it, so the passive keeps the method in focus."
+    },
+    {
+     "passage": "The company's statement said only that \"errors were made in the delivery schedule.\"",
+     "stem": "What does the passive phrase \"errors were made\" suggest?",
+     "options": [
+      "The customers made the errors.",
+      "No errors happened at all.",
+      "The deliveries arrived early.",
+      "The company avoids saying who made the errors."
+     ],
+     "answer": 3,
+     "why": "The passive names no doer, so the company admits errors without taking clear blame."
+    }
+   ],
+   "again": {
+    "title": "Ask \"By whom?\"",
+    "text": "In any passive sentence, ask **\"By whom?\"**\n\nIf the text answers, the doer has only moved to the end. If it does not, the author has left the doer out. Think about **why**.",
+    "example": "\"The rules were changed last night.\"\n\nBy whom? The text does not say. Maybe the doer is unknown, or maybe the writer does not want to blame anyone."
+   }
+  }
+ }
+}

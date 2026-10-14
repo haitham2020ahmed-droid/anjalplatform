@@ -10,6 +10,7 @@ import { getT } from "@/i18n/server";
 import { SortQuestions } from "./sort-questions";
 import { AcceptConfident, GroupView, ImproveWithAi } from "./bulk-review";
 import { reviewGroups } from "@/server/questions/link-review-bulk";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Skill links: needs review" };
 
@@ -77,12 +78,7 @@ export default async function SkillLinksReviewPage({ searchParams }: { searchPar
                 {r.kind !== "READRISE" && (
                   <form action={approveReviewAction} className="flex flex-wrap items-center gap-2">
                     <input type="hidden" name="id" value={r.id} />{kind && <input type="hidden" name="kind" value={kind} />}<input type="hidden" name="page" value={v.page} />{kind === "QUESTION" && <input type="hidden" name="view" value="list" />}
-                    <select name="choice" defaultValue={r.guessId ?? ""} aria-label={t("Choose")} className="min-h-11 max-w-xs rounded-lg border border-slate-300 px-2">
-                      <option value="">— {t("choose")} —</option>
-                      {r.kind === "QUESTION" && (v.skillsByGrade[r.grade ?? 0] ?? []).map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}
-                      {r.kind === "FAMILY_NAFS" && nafs.map((a) => <option key={a.code} value={a.code}>{a.name}</option>)}
-                      {r.kind === "FAMILY_MAP" && mapAreas.map((a) => <option key={String(a.code)} value={String(a.code)}>{String(a.name)}</option>)}
-                    </select>
+                    <Combo name="choice" label={t("Choose")} defaultValue={r.guessId ?? ""} className="w-72" options={[{ value: "", label: `— ${t("choose")} —` }, ...(r.kind === "QUESTION" ? (v.skillsByGrade[r.grade ?? 0] ?? []).map((k) => ({ value: k.id, label: k.name })) : []), ...(r.kind === "FAMILY_NAFS" ? nafs.map((a) => ({ value: a.code, label: a.name })) : []), ...(r.kind === "FAMILY_MAP" ? mapAreas.map((a) => ({ value: String(a.code), label: String(a.name) })) : [])]} />
                     <button className="min-h-11 rounded-lg bg-brand-navy px-4 font-semibold text-white">{t("Save")}</button>
                   </form>
                 )}

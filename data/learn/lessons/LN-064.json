@@ -1,0 +1,450 @@
+{
+ "code": "LN-064",
+ "title": "Modal verbs: can, may, must",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "verbs"
+ ],
+ "skillNames": [
+  "Modal Auxiliaries (can, may, must)"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Can = able to",
+     "text": "**can** tells what someone is **able** to do.\n\nA fish **can** swim.\nA baby **can't** drive."
+    },
+    {
+     "title": "Must = have to",
+     "text": "**must** tells what you **have to** do. It is a rule or a need.\n\nYou **must** wear a seat belt."
+    },
+    {
+     "title": "Then the plain verb",
+     "text": "After can and must, use the **plain** action word.\n\n✓ She can **swim**.\n✗ She can swims."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentences around the blank.\n2. Is it about being **able** to do something, or about a **rule**?\n3. Point to the words that tell you."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Birds can fly.",
+      "role": "key"
+     },
+     {
+      "t": "We must feed our bird every day.",
+      "role": "key"
+     },
+     {
+      "t": "Its name is Sunny.",
+      "role": "other"
+     }
+    ],
+    "explain": "**can fly**: birds are able to fly.\n\n**must feed**: feeding the bird is something we have to do."
+   },
+   "together": {
+    "passage": "Our class has a pet turtle. It ___ swim very well. It cannot run fast. We must feed it every morning.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "can",
+     "must",
+     "cans",
+     "can to"
+    ],
+    "answer": 0,
+    "hint": "Is the sentence about a rule, or about what the turtle is able to do?",
+    "good": "Yes! Swimming well is something the turtle is able to do, so we use can."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class has a pet turtle.",
+     "It ___ swim very well.",
+     "It cannot run fast.",
+     "We must feed it every morning."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: can. Tap 2 sentences that tell what the turtle is or is not able to do.",
+    "wrong": "This sentence is not about what the turtle is able to do. Look for can or cannot."
+   },
+   "checks": [
+    {
+     "passage": "Students ___ wear their uniform at school. It is a rule.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "can",
+      "must",
+      "may",
+      "might"
+     ],
+     "answer": 1,
+     "why": "It is a rule, so we use must."
+    },
+    {
+     "passage": "My little brother ___ count to ten. He is very proud!",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "must",
+      "mustn't",
+      "can",
+      "should"
+     ],
+     "answer": 2,
+     "why": "Counting to ten is something he is able to do, so we use can."
+    },
+    {
+     "passage": "Omar can rides a bike.",
+     "stem": "Which sentence is correct?",
+     "options": [
+      "Omar can ride a bike.",
+      "Omar cans ride a bike.",
+      "Omar can to ride a bike.",
+      "Omar can riding a bike."
+     ],
+     "answer": 0,
+     "why": "After can, we use the plain verb: ride."
+    }
+   ],
+   "again": {
+    "title": "Able or rule?",
+    "text": "**Able to do it?** → can\n**Have to do it?** → must\n\nThen add the plain action word.",
+    "example": "Cats ___ climb trees. → able → **can** climb\nWe ___ wash our hands before we eat. → have to → **must** wash"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "May = permission",
+     "text": "**may** asks for or gives **permission**. It is polite.\n\n**May** I come in?\nYou **may** leave early today."
+    },
+    {
+     "title": "Should = good idea",
+     "text": "**should** gives **advice**. It is a good idea, not a rule.\n\nYou look tired. You **should** rest."
+    },
+    {
+     "title": "Must or should?",
+     "text": "**must** = there is no choice: You **must** stop at a red light.\n\n**should** = it is a good idea: You **should** eat breakfast."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Ask: Is the speaker **asking permission**, **giving advice**, or stating a **strict rule**?\n2. Point to the clue words: please, it will help you, it is the law.\n3. Choose the modal that matches."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "May I borrow your pencil?",
+      "role": "key"
+     },
+     {
+      "t": "You should drink water on hot days.",
+      "role": "key"
+     },
+     {
+      "t": "It is very hot today.",
+      "role": "other"
+     }
+    ],
+    "explain": "**May I** asks for permission politely.\n\n**should drink** gives advice: it is a good idea on hot days."
+   },
+   "together": {
+    "passage": "Faris had a sore throat and a cough. His mother took him to the clinic. The doctor checked him and said, \"You ___ drink warm water and rest at home for two days. It will help you get better faster.\" Faris nodded and thanked the doctor.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "should",
+     "may not",
+     "can't",
+     "mustn't"
+    ],
+    "answer": 0,
+    "hint": "The doctor wants to help Faris get better. Is she giving advice or saying he is not allowed?",
+    "good": "Yes! The doctor gives advice that will help Faris get better, so we use should."
+   },
+   "evidence": {
+    "sentences": [
+     "Faris had a sore throat and a cough.",
+     "His mother took him to the clinic.",
+     "The doctor checked him and said, \"You ___ drink warm water and rest at home for two days.",
+     "It will help you get better faster.\"",
+     "Faris nodded and thanked the doctor."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: should. Tap 2 sentences that show why the doctor gave this advice.",
+    "wrong": "This sentence does not show why the doctor gave advice. Find Faris's problem and how the advice will help."
+   },
+   "checks": [
+    {
+     "passage": "Student: \"___ I go to the library, please?\" Teacher: \"Yes, you may.\"",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "Must",
+      "Should",
+      "Might",
+      "May"
+     ],
+     "answer": 3,
+     "why": "The student is asking permission politely, so we use May."
+    },
+    {
+     "passage": "It is the law. Drivers ___ stop at a red light.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "should",
+      "may",
+      "must",
+      "might"
+     ],
+     "answer": 2,
+     "why": "A law gives no choice, so we use must."
+    },
+    {
+     "passage": "Reem wants to do well on her test. Her friend says, \"You ___ study a little every day. That is what helped me.\"",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "should",
+      "mustn't",
+      "may not",
+      "can't"
+     ],
+     "answer": 0,
+     "why": "Her friend is giving advice from her own experience, so we use should."
+    }
+   ],
+   "again": {
+    "title": "Three jobs",
+    "text": "**May I ...?** → asking permission\n**You should ...** → advice\n**You must ...** → a rule, no choice",
+    "example": "\"You ___ brush your teeth twice a day,\" said the dentist.\n\nIt is advice for good health → **should**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Might and may = maybe",
+     "text": "**might** and **may** can show that something is **possible**, but not sure.\n\nTake an umbrella. It **might** rain.\nThe shop **may** be closed on Friday morning."
+    },
+    {
+     "title": "Mustn't or don't have to?",
+     "text": "**must not** (mustn't) = it is **not allowed**: You **mustn't** touch the wires.\n\n**don't have to** = it is **not needed**: Tomorrow is a holiday, so we **don't have to** wake up early."
+    },
+    {
+     "title": "Modal rules",
+     "text": "1. Modal + **plain verb**: She can **swim**.\n2. No **-s** on the modal: ✗ He cans.\n3. No **to** after can, may, must, should, might: ✗ You must to go."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the clue that shows how **sure** or how **strict** the writer is.\n2. Maybe, perhaps → might or may. Not allowed → mustn't. Not needed → don't have to.\n3. Your proof is the reason given in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sky is cloudy, so it might rain later.",
+      "role": "key"
+     },
+     {
+      "t": "We don't have to cancel the game yet.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone is waiting.",
+      "role": "other"
+     }
+    ],
+    "explain": "**might rain**: rain is possible, not sure.\n\n**don't have to cancel**: cancelling is not needed yet. It is not a rule against it."
+   },
+   "together": {
+    "passage": "The school trip to the science museum is on Thursday. Students must bring a signed form by Tuesday. Lunch will be provided, so you don't have to bring food. However, the museum café might be busy, so you may want to bring a small snack. You mustn't touch the glass cases in the space gallery.",
+    "stem": "Which sentence tells something students do NOT need to do?",
+    "options": [
+     "Students must bring a signed form by Tuesday.",
+     "Lunch will be provided, so you don't have to bring food.",
+     "You mustn't touch the glass cases in the space gallery.",
+     "The museum café might be busy."
+    ],
+    "answer": 1,
+    "hint": "Mustn't means not allowed. Which modal means not needed?",
+    "good": "Yes! Don't have to means it is not needed. Lunch is provided, so food is not needed."
+   },
+   "evidence": {
+    "sentences": [
+     "The school trip to the science museum is on Thursday.",
+     "Students must bring a signed form by Tuesday.",
+     "Lunch will be provided, so you don't have to bring food.",
+     "However, the museum café might be busy, so you may want to bring a small snack.",
+     "You mustn't touch the glass cases in the space gallery."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer used don't have to (not needed). Tap 2 sentences that give strict rules instead.",
+    "wrong": "This sentence is not a strict rule. Look for must or mustn't."
+   },
+   "checks": [
+    {
+     "passage": "Take your jacket. It ___ get cold tonight.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "must",
+      "might",
+      "mustn't",
+      "can't"
+     ],
+     "answer": 1,
+     "why": "We are not sure it will get cold. It is possible, so we use might."
+    },
+    {
+     "passage": "Swimming in this lake is dangerous. You ___ swim here.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "don't have to",
+      "might",
+      "may",
+      "mustn't"
+     ],
+     "answer": 3,
+     "why": "Swimming here is not allowed because it is dangerous, so we use mustn't."
+    },
+    {
+     "passage": "She should to call her grandmother today.",
+     "stem": "Which sentence is correct?",
+     "options": [
+      "She shoulds call her grandmother today.",
+      "She should calls her grandmother today.",
+      "She should call her grandmother today.",
+      "She should to calling her grandmother today."
+     ],
+     "answer": 2,
+     "why": "After should, we use the plain verb with no to: should call."
+    }
+   ],
+   "again": {
+    "title": "Not allowed or not needed?",
+    "text": "Ask: **Would it be wrong to do it?**\n\nYes → **mustn't**.\nNo, it just is not necessary → **don't have to**.",
+    "example": "It is Friday. Students ___ wear their uniform.\n\nWould wearing it be wrong? No. It is just not needed → **don't have to**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "How sure?",
+     "text": "might / may / could → **possible**\nshould → **expected**\nmust → **almost certain** (a logical guess)\n\nThe lights are off and the car is gone. They **must** be out."
+    },
+    {
+     "title": "Modals about the past",
+     "text": "modal + **have** + past participle\n\n**should have**: a good idea that did not happen. I **should have** studied.\n**must have**: almost sure it happened. He **must have** missed the bus.\n**might have**: maybe it happened. She **might have** forgotten."
+    },
+    {
+     "title": "Reading tone",
+     "text": "Modals show a speaker's **attitude**.\n\nYou **must** apologize. → firm\nYou **might** want to apologize. → gentle\n\nWriters choose modals to sound polite, firm or unsure."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the **evidence** the speaker has.\n2. Strong evidence → **must**. Some evidence → **might** or **may**.\n3. A good idea that did not happen → **should have**.\n\nThe proof is the clue in the text that makes the speaker sure or unsure."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The ground is wet, and there are puddles everywhere.",
+      "role": "detail"
+     },
+     {
+      "t": "It must have rained during the night.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker did not see the rain, but the wet ground and puddles are strong evidence.\n\nSo the speaker is almost sure: **must have rained**."
+   },
+   "together": {
+    "passage": "When Salma reached the classroom, the door was locked and the lights were off. A note on the door said, \"Back in ten minutes.\" Her friend Dana arrived a moment later. \"Ms. Huda's car is still in the parking lot,\" Dana said. \"She ___ be somewhere in the school.\" Salma looked at her phone and sighed. \"We should have read the school messages last night.\"",
+    "stem": "Which word best fits Dana's guess?",
+    "options": [
+     "must",
+     "can't",
+     "shouldn't",
+     "mustn't"
+    ],
+    "answer": 0,
+    "hint": "Look at the clues Dana and Salma have. Are they strong enough for Dana to be almost sure?",
+    "good": "Yes! The car is still there and the note says she will be back soon, so Dana is almost certain: she must be in the school."
+   },
+   "evidence": {
+    "sentences": [
+     "When Salma reached the classroom, the door was locked and the lights were off.",
+     "A note on the door said, \"Back in ten minutes.\"",
+     "Her friend Dana arrived a moment later.",
+     "\"Ms. Huda's car is still in the parking lot,\" Dana said.",
+     "\"She ___ be somewhere in the school.\"",
+     "Salma looked at her phone and sighed.",
+     "\"We should have read the school messages last night.\""
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: must (almost certain). Tap 2 sentences that give the evidence.",
+    "wrong": "This sentence is not evidence about where Ms. Huda is. Find the clues on the door and in the parking lot."
+   },
+   "checks": [
+    {
+     "passage": "I can't find my keys. I remember putting them on my office desk this morning, and I didn't touch them after that. I ___ have left them at the office.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "should",
+      "must",
+      "can",
+      "mustn't"
+     ],
+     "answer": 1,
+     "why": "The speaker has strong evidence, so they are almost sure: must have left."
+    },
+    {
+     "passage": "You didn't drink any water during the long hike, and now you feel dizzy.",
+     "stem": "Which comment fits best?",
+     "options": [
+      "You must drink water yesterday.",
+      "You should have drunk some water.",
+      "You might have drink water.",
+      "You can have drunk water."
+     ],
+     "answer": 1,
+     "why": "Drinking water was a good idea that did not happen, so we use should have + the past participle drunk."
+    },
+    {
+     "passage": "Teacher A: \"You must hand in the report by Sunday.\" Teacher B: \"You might want to hand in the report by Sunday.\"",
+     "stem": "How is Teacher B different?",
+     "options": [
+      "Teacher B is stricter.",
+      "Teacher B is talking about the past.",
+      "There is no difference.",
+      "Teacher B is gentler, so it sounds like advice."
+     ],
+     "answer": 3,
+     "why": "Might want to softens the message. It sounds like a suggestion, while must sounds like a firm rule."
+    }
+   ],
+   "again": {
+    "title": "Weigh the evidence",
+    "text": "Strong clues → **must** (have)\nSome clues → **might** / **may** (have)\nA missed good idea → **should have**",
+    "example": "Ahmad's bag is gone and his jacket is gone.\n\nStrong clues → He **must have** gone home.\n\nHe forgot his book → He **should have** checked his desk."
+   }
+  }
+ }
+}

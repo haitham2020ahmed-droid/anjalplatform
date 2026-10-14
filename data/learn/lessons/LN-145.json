@@ -1,0 +1,464 @@
+{
+ "code": "LN-145",
+ "title": "Rhetorical questions",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [],
+ "families": [
+  "author-purpose"
+ ],
+ "skillNames": [
+  "Rhetorical Questions"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A question with no answer needed",
+     "text": "Some questions are not asked to get an answer.\n\nThe writer asks them to make you **think** or to make you **agree**."
+    },
+    {
+     "title": "Look at this one",
+     "text": "**Who does not love a cold drink on a hot day?**\n\nThe writer does not want you to answer. The writer means: **Everyone loves a cold drink on a hot day.**"
+    },
+    {
+     "title": "How to spot it",
+     "text": "1. Find the question mark.\n2. Ask: does the writer **want an answer** from me?\n3. If the answer is clear and the writer goes on, it is a question **for effect**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the text**.\n\n1. Find the question.\n2. Read the sentences **around** it.\n3. Find the sentence that shows what the writer **really means**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Who wants to be sick?",
+      "role": "key"
+     },
+     {
+      "t": "Nobody does.",
+      "role": "detail"
+     },
+     {
+      "t": "So wash your hands before you eat.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer does not wait for you to answer. The next sentence says **Nobody does**.\n\nThe question makes you think: **I do not want to be sick, so I will wash my hands.**"
+   },
+   "together": {
+    "passage": "Is there anything better than a day at the beach? You can swim in the sea. You can build a sand castle. You can eat lunch on the soft sand.",
+    "stem": "Why does the writer ask the first question?",
+    "options": [
+     "To learn where the beach is.",
+     "To show that a beach day is great.",
+     "To ask you to swim.",
+     "To find out what you eat."
+    ],
+    "answer": 1,
+    "hint": "The writer does not want you to tell them anything. What do the other sentences say about the beach?",
+    "good": "Yes! The writer means: nothing is better than a day at the beach."
+   },
+   "evidence": {
+    "sentences": [
+     "Is there anything better than a day at the beach?",
+     "You can swim in the sea.",
+     "You can build a sand castle.",
+     "You can eat lunch on the soft sand."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a beach day is great. Tap 2 sentences that show why.",
+    "wrong": "This is the question itself. Find sentences that show the good things you can do at the beach."
+   },
+   "checks": [
+    {
+     "passage": "Who likes to wait in a long line? Not me! I come to the shop early.",
+     "stem": "What does the writer mean by the question?",
+     "options": [
+      "Nobody likes long lines.",
+      "Lines are fun.",
+      "The shop is big.",
+      "I like to wait."
+     ],
+     "answer": 0,
+     "why": "The writer answers right away: Not me! The question means nobody likes long lines."
+    },
+    {
+     "passage": "Do you want a clean class? Then put your trash in the bin.",
+     "stem": "Why does the writer ask the question?",
+     "options": [
+      "To find a bin.",
+      "To count the trash.",
+      "To get you to keep the class clean.",
+      "To ask your name."
+     ],
+     "answer": 2,
+     "why": "The writer wants you to say yes in your head and then put trash in the bin."
+    },
+    {
+     "passage": "Mom made rice and chicken. Could anything smell better? I ran to the table.",
+     "stem": "What does the question show?",
+     "options": [
+      "The food smells bad.",
+      "The food smells great.",
+      "Mom is not home.",
+      "The table is small."
+     ],
+     "answer": 1,
+     "why": "The question means nothing smells better. The food smells great."
+    }
+   ],
+   "again": {
+    "title": "Answer it in your head",
+    "text": "When you see a question, say the answer **in your head**.\n\nIf the answer is easy and the writer does not wait, the question is for effect.",
+    "example": "Who wants a broken toy?\n\nIn your head: **Nobody!** The writer means: **Take care of your toys.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Questions for effect",
+     "text": "A **rhetorical question** is a question a writer asks **for effect**, not to get an answer.\n\nThe writer already knows the answer. The reader knows it too."
+    },
+    {
+     "title": "Why writers use them",
+     "text": "Writers use rhetorical questions to:\n\n1. **Catch your attention** at the start.\n2. **Make you think** about an idea.\n3. **Make a point** stronger."
+    },
+    {
+     "title": "Real question or not?",
+     "text": "A **real question** wants new information: What time does the bus come?\n\nA **rhetorical question** has an answer that is obvious: Who wants to miss the bus?\n\nIf the writer moves on without waiting, it is for effect."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "You can **prove** what a rhetorical question means.\n\n1. Find the question.\n2. Say the obvious answer.\n3. Look for the sentences that **back up** that answer. They show the writer's point.\n\nIf no sentence supports your idea, look again."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Have you ever thought about how much water a dripping tap wastes?",
+      "role": "key"
+     },
+     {
+      "t": "One drip a second can waste many litres in a single day.",
+      "role": "detail"
+     },
+     {
+      "t": "Fixing a tap is quick and costs very little.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer does not expect you to answer yes or no. The question makes you **stop and think**.\n\nThen the details show the point: **a dripping tap wastes a lot of water, so fix it.**"
+   },
+   "together": {
+    "passage": "Why should you read before bed? Reading helps your mind slow down after a busy day. A good story can make you forget your worries. Many people find that they fall asleep more easily after reading. So tonight, why not pick up a book instead of a screen?",
+    "stem": "What is the main purpose of the questions in this paragraph?",
+    "options": [
+     "To ask the reader which book to buy.",
+     "To find out when the reader sleeps.",
+     "To get the reader to think about reading at night.",
+     "To show that screens are broken."
+    ],
+    "answer": 2,
+    "hint": "The writer is not asking for information. What do the questions make you think about?",
+    "good": "Yes! The questions make you think about reading before bed, and the details give reasons to do it."
+   },
+   "evidence": {
+    "sentences": [
+     "Why should you read before bed?",
+     "Reading helps your mind slow down after a busy day.",
+     "A good story can make you forget your worries.",
+     "Many people find that they fall asleep more easily after reading.",
+     "So tonight, why not pick up a book instead of a screen?"
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the questions get you thinking about reading at night. Tap 2 sentences that give reasons to do it.",
+    "wrong": "This sentence is a question. Find the sentences that give reasons for reading before bed."
+   },
+   "checks": [
+    {
+     "passage": "What is better than fresh bread from the oven? It is warm, soft and smells wonderful. Our bakery opens at six every morning.",
+     "stem": "Why does the writer ask the question?",
+     "options": [
+      "To ask what to bake.",
+      "To find out the time.",
+      "To learn about ovens.",
+      "To make the reader want fresh bread."
+     ],
+     "answer": 3,
+     "why": "The writer means nothing is better than fresh bread. It makes readers want some."
+    },
+    {
+     "passage": "Can you name a sport that the whole family can enjoy together? Walking! Anyone can do it, and it costs nothing.",
+     "stem": "How do you know the question is for effect?",
+     "options": [
+      "The writer answers it right away.",
+      "The writer asks a friend.",
+      "The question has no question mark.",
+      "The writer is not sure of the answer."
+     ],
+     "answer": 0,
+     "why": "The writer gives the answer at once: Walking! So the question was asked for effect."
+    },
+    {
+     "passage": "Sara made a poster for the book fair. At the top she wrote, \"Who doesn't love a good story?\" Then she asked her teacher, \"What time does the hall open on Friday?\" Her teacher said it opens at nine.",
+     "stem": "Which question did Sara ask to get real information?",
+     "options": [
+      "Who doesn't love a good story?",
+      "What time does the hall open on Friday?",
+      "Who wants to read a book?",
+      "Isn't the book fair fun?"
+     ],
+     "answer": 1,
+     "why": "Sara needed to know the time, and the teacher answered: nine. The poster question was asked for effect."
+    }
+   ],
+   "again": {
+    "title": "The obvious answer",
+    "text": "Every rhetorical question has an **obvious answer** hidden in it.\n\n1. Say that answer.\n2. Turn it into a sentence.\n3. That sentence is the writer's point.",
+    "example": "Isn't it time we planted more trees in our school?\n\nObvious answer: **Yes!** Point: **We should plant more trees in our school.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Questions that make a point",
+     "text": "A **rhetorical question** is asked to make a point, not to get information.\n\nIt often **hides a statement**. \"Who would choose to breathe dirty air?\" really says: **No one wants dirty air.**"
+    },
+    {
+     "title": "What they do to the reader",
+     "text": "Rhetorical questions pull the reader into the text. They:\n\n1. **Hook** the reader at the start.\n2. **Lead** the reader to the writer's opinion.\n3. **Stress** an idea the writer cares about."
+    },
+    {
+     "title": "Turn it into a statement",
+     "text": "To understand a rhetorical question:\n\n1. Find the expected answer (often yes, no, or no one).\n2. Turn the question into a statement.\n3. Ask: how does this statement help the writer's purpose?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text tells you what the question is doing.\n\n1. Turn the question into a statement.\n2. Find sentences that **give reasons or facts** for that statement.\n3. Pick the answer those sentences support.\n\nWrong answers often treat the question as if the writer really wanted information."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Why do so many families still travel hours to visit their grandparents during Eid?",
+      "role": "key"
+     },
+     {
+      "t": "For many, it is the only time the whole family can sit together.",
+      "role": "detail"
+     },
+     {
+      "t": "Children hear stories about the past and learn where they come from.",
+      "role": "detail"
+     },
+     {
+      "t": "No video call can replace a hug from a grandparent.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer is not asking for a list of reasons from you. The question **opens the topic** and leads you to the writer's answer.\n\nThe details answer it: family time, stories and hugs. The point: **these visits matter.**"
+   },
+   "together": {
+    "passage": "How many times have you thrown away food that was still good to eat? In many homes, bread, fruit and rice end up in the bin every week. Yet planning meals and storing leftovers in the fridge can stop most of this waste. Families who plan their shopping also save money. Isn't it worth a few minutes of planning to save food and money?",
+    "stem": "What is the writer suggesting with the last question?",
+    "options": [
+     "The writer is not sure if planning helps.",
+     "The writer wants to know how long planning takes.",
+     "Planning meals takes too much time.",
+     "Planning is worth it because it saves food and money."
+    ],
+    "answer": 3,
+    "hint": "The writer already knows the answer. Turn the question into a statement. Which facts in the text support it?",
+    "good": "Yes! The question means: planning is worth it. The text shows that planning stops waste and saves money."
+   },
+   "evidence": {
+    "sentences": [
+     "How many times have you thrown away food that was still good to eat?",
+     "In many homes, bread, fruit and rice end up in the bin every week.",
+     "Yet planning meals and storing leftovers in the fridge can stop most of this waste.",
+     "Families who plan their shopping also save money.",
+     "Isn't it worth a few minutes of planning to save food and money?"
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: planning is worth it because it saves food and money. Tap the 2 sentences that prove it.",
+    "wrong": "This sentence asks a question or describes the problem. Find the sentences that show what planning does."
+   },
+   "checks": [
+    {
+     "passage": "Do we really need another car park in the middle of our neighbourhood? The only green space left is the small park where children play after school. Without it, where would they go?",
+     "stem": "What point does the writer make with the questions?",
+     "options": [
+      "The neighbourhood needs more car parks.",
+      "The park should not be replaced with a car park.",
+      "Children do not play outside.",
+      "The writer is asking where the park is."
+     ],
+     "answer": 1,
+     "why": "Both questions lead to one idea: the park matters to children and should stay."
+    },
+    {
+     "passage": "Ahmed looked at the mountain of homework and sighed. \"Could this day get any longer?\" he said to his little sister.",
+     "stem": "What does Ahmed's question show?",
+     "options": [
+      "He wants to know the time.",
+      "He thinks the day is short.",
+      "He feels tired of a long day.",
+      "He is asking his sister for help."
+     ],
+     "answer": 2,
+     "why": "Ahmed does not want an answer. The sigh and the question show he feels the day is too long."
+    },
+    {
+     "passage": "Our school's reading club meets every Monday. Members choose books together and talk about them. Who says reading has to be a lonely hobby? Join us this week!",
+     "stem": "What is the purpose of the question?",
+     "options": [
+      "To show reading can be done with others.",
+      "To ask who is lonely.",
+      "To find the club's leader.",
+      "To list the club's books."
+     ],
+     "answer": 0,
+     "why": "The question means reading does not have to be lonely, which the club proves."
+    }
+   ],
+   "again": {
+    "title": "Swap the question",
+    "text": "Rewrite the question as a sentence that starts with **No one**, **Everyone**, **Yes** or **No**.\n\nThat sentence is the hidden point.",
+    "example": "Why would anyone skip breakfast before a big test?\n\nRewrite: **No one should skip breakfast before a big test.** That is the writer's advice."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Rhetorical questions in argument",
+     "text": "In persuasive writing, a **rhetorical question** is a tool. It invites the reader to supply an answer the writer has **already chosen**.\n\nBecause readers answer it themselves, the idea can feel like their own conclusion."
+    },
+    {
+     "title": "Different jobs",
+     "text": "A rhetorical question can:\n\n1. **Open** an argument and frame the issue.\n2. **Challenge** an opposing view (\"But is cheaper always better?\").\n3. **Emphasise** a conclusion at the end.\n\nAsk where the question appears and what it does there."
+    },
+    {
+     "title": "Real question or rhetorical?",
+     "text": "Some texts ask a **real question** and then answer it with research. That is a guiding question, not a rhetorical one.\n\nA rhetorical question's answer is **assumed**, not investigated. Read what follows to tell the difference."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse a rhetorical question, connect it to the **argument around it**.\n\n1. Decide what answer the writer assumes.\n2. Find the sentences that **set up** or **support** that answer.\n3. Name the effect: does it frame, challenge or emphasise?\n\nReject choices that treat the question as a real request, or that ignore where it sits in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some people argue that school trips waste valuable class time.",
+      "role": "other"
+     },
+     {
+      "t": "But is a classroom really the only place where students learn?",
+      "role": "key"
+     },
+     {
+      "t": "On a visit to a desalination plant, students see science working on a scale no textbook can show.",
+      "role": "detail"
+     },
+     {
+      "t": "At a heritage village, history becomes something they can touch.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The question comes straight after an opposing view. It **challenges** that view: the assumed answer is **No**.\n\nThe examples that follow prove the writer's side: students learn outside the classroom too."
+   },
+   "together": {
+    "passage": "Supporters of the new rule say that banning phones during lunch break will make students talk to each other again. Yet is silence around a screen really worse than silence around a table? Many students use their phones at lunch to message family, check homework or read the news. A ban would also be hard to enforce in a crowded cafeteria. Shouldn't a school teach students to manage their phones wisely rather than simply take them away? The school council should reject the ban and create clear guidelines instead.",
+    "stem": "What is the main effect of the two questions in this passage?",
+    "options": [
+     "They show the writer has not made up their mind about the ban.",
+     "They challenge the ban and steer readers toward guidelines instead.",
+     "They ask the school council for more information about phones.",
+     "They support the idea that phones should be banned at lunch."
+    ],
+    "answer": 1,
+    "hint": "Does the writer really want answers, or do the questions lead somewhere? Look at the sentence after each question and at the last sentence.",
+    "good": "Yes! The first question challenges the supporters' claim, and the second leads to the writer's conclusion: guidelines, not a ban."
+   },
+   "evidence": {
+    "sentences": [
+     "Supporters of the new rule say that banning phones during lunch break will make students talk to each other again.",
+     "Yet is silence around a screen really worse than silence around a table?",
+     "Many students use their phones at lunch to message family, check homework or read the news.",
+     "A ban would also be hard to enforce in a crowded cafeteria.",
+     "Shouldn't a school teach students to manage their phones wisely rather than simply take them away?",
+     "The school council should reject the ban and create clear guidelines instead."
+    ],
+    "proof": [
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the questions challenge the ban and lead readers to guidelines. Tap 2 sentences that support the writer's side.",
+    "wrong": "This sentence gives the other side's view or is one of the questions. Find sentences that give the writer's reasons or conclusion."
+   },
+   "checks": [
+    {
+     "passage": "Why do people sleep? Scientists have studied this question for more than a century. Experiments show that during sleep the brain clears away waste and strengthens new memories. Researchers are still testing other explanations.",
+     "stem": "Is the opening question rhetorical? Why or why not?",
+     "options": [
+      "Yes, because it has an obvious answer.",
+      "Yes, because the writer wants the reader to agree.",
+      "No, because the passage asks the reader to reply.",
+      "No, because the passage investigates and answers it with research."
+     ],
+     "answer": 3,
+     "why": "The question guides an explanation. Scientists study it and give evidence, so it is not asked for effect."
+    },
+    {
+     "passage": "Every summer, our city's beaches are covered with plastic bottles and bags. Volunteers clean them on weekends, only to find the same mess a week later. How long can we keep cleaning up after ourselves before we change our habits?",
+     "stem": "What does the final question suggest?",
+     "options": [
+      "Cleaning alone will not fix the problem; habits must change.",
+      "Volunteers should clean more often.",
+      "The writer wants to know how long cleaning takes.",
+      "Beaches in other cities are cleaner."
+     ],
+     "answer": 0,
+     "why": "The question implies that cleaning cannot go on forever: people need to change their habits."
+    },
+    {
+     "passage": "Critics call the new metro line too expensive. But what is the cost of millions of hours lost in traffic each year? What is the cost of the air we breathe on crowded roads?",
+     "stem": "Why does the writer repeat questions about cost?",
+     "options": [
+      "To admit the metro costs too much.",
+      "To ask readers to calculate the price.",
+      "To show that traffic and pollution also have a cost.",
+      "To change the topic from the metro to the weather."
+     ],
+     "answer": 2,
+     "why": "Repeating \"What is the cost\" turns the critics' word against them: not building the metro is costly too."
+    }
+   ],
+   "again": {
+    "title": "Where and why",
+    "text": "Look at **where** the question sits.\n\n1. After an opposing view? It probably **challenges** it.\n2. At the start? It **frames** the topic.\n3. At the end? It **drives home** the conclusion.",
+    "example": "\"Some say homework should be banned. But how else will students practise what they learn?\"\n\nPosition: right after an opposing view. Effect: it **challenges** the ban by implying homework is needed for practice."
+   }
+  }
+ }
+}

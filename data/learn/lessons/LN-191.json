@@ -1,0 +1,466 @@
+{
+ "code": "LN-191",
+ "title": "Prefixes",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.b",
+  "L.3.4.b",
+  "L.4.4.b",
+  "L.K.4.b"
+ ],
+ "families": [
+  "prefixes"
+ ],
+ "skillNames": [
+  "Prefixes",
+  "Suffixes and Prefixes: -less, -ful, -er, -or, -ist, re-"
+ ],
+ "statements": [
+  "R-0013",
+  "R-0058",
+  "R-0123",
+  "R-0234",
+  "R-0383",
+  "R-0768"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A part at the start",
+     "text": "A **prefix** is a small part at the **start** of a word.\n\nIt changes what the word means.\n\n**un** + happy = **unhappy**"
+    },
+    {
+     "title": "un- and re-",
+     "text": "**un-** means **not**, or the opposite.\nunhappy = not happy. unlock = open the lock.\n\n**re-** means **again**.\nredo = do again. rebuild = build again."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Find the prefix.\n2. Find the word after it.\n3. Put them together: **not ___** or **___ again**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The story shows you the meaning.\n\n1. Find the word with the prefix.\n2. Read what happened **before** it.\n3. Does it match **not** or **again**? Then you are right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hana painted a picture.",
+      "role": "key"
+     },
+     {
+      "t": "She did not like it.",
+      "role": "detail"
+     },
+     {
+      "t": "So she repainted it.",
+      "role": "main"
+     }
+    ],
+    "explain": "**re** + **painted** = painted **again**.\n\nShe painted it once, then she painted it again."
+   },
+   "together": {
+    "passage": "Lina built a tall tower with her blocks. Her baby brother knocked it down. Lina did not cry. She rebuilt the tower, even taller!",
+    "stem": "What does rebuilt mean?",
+    "options": [
+     "Built again.",
+     "Knocked down.",
+     "Not built.",
+     "Built very fast."
+    ],
+    "answer": 0,
+    "hint": "Look at the prefix re-. What does it mean?",
+    "good": "Yes! re- means again. Lina built the tower again."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina built a tall tower with her blocks.",
+     "Her baby brother knocked it down.",
+     "Lina did not cry.",
+     "She rebuilt the tower, even taller!"
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: built again. Tap 2 sentences that show Lina built the tower more than once.",
+    "wrong": "This sentence does not tell about building. Find sentences that show the tower being built, knocked down and built again."
+   },
+   "checks": [
+    {
+     "passage": "The box was locked. Dad used a key to unlock it.",
+     "stem": "What does unlock mean?",
+     "options": [
+      "Lock it again.",
+      "Lose the key.",
+      "Open the lock.",
+      "Close the box."
+     ],
+     "answer": 2,
+     "why": "**un-** means the opposite. Unlock is the opposite of lock: Dad **opened** it."
+    },
+    {
+     "passage": "Ali was unhappy. His new kite was broken.",
+     "stem": "What does unhappy mean?",
+     "options": [
+      "Very happy.",
+      "Not happy.",
+      "Happy again.",
+      "Sleepy."
+     ],
+     "answer": 1,
+     "why": "**un-** means not. His kite broke, so he was **not happy**."
+    },
+    {
+     "passage": "Sara read the story. She liked it so much that she reread it.",
+     "stem": "What does reread mean?",
+     "options": [
+      "Read it again.",
+      "Did not read it.",
+      "Read it fast.",
+      "Wrote a story."
+     ],
+     "answer": 0,
+     "why": "**re-** means again. She liked it, so she **read it again**."
+    }
+   ],
+   "again": {
+    "title": "Not or again?",
+    "text": "Look at the first letters.\n\n**un** → say **not**.\n**re** → say **again**.\n\nThen say the rest of the word.",
+    "example": "**un**kind → **not** kind.\n**re**fill → fill **again**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Prefixes change meaning",
+     "text": "A **prefix** goes at the start of a **base word** and changes its meaning.\n\n**fair** → **un**fair\n**write** → **re**write"
+    },
+    {
+     "title": "un- and re-",
+     "text": "**un-** = not, or the opposite of: *unsafe, unfair, unpack, unkind*\n\n**re-** = again, or back: *refill, reheat, rewrite, return*"
+    },
+    {
+     "title": "Read the clues",
+     "text": "1. Cover the prefix and read the base word.\n2. Add the meaning of the prefix.\n3. Read the sentences around it to check.\n\nCareful: not every word that starts with *un* or *re* has a prefix. *Uncle* and *ready* do not!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentences that show **why** the prefix fits.\n\n1. For **re-**: find where the action happened the **first** time.\n2. For **un-**: find what shows the **opposite** is true.\n3. Those sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mr. Saleh packed his suitcase for the trip.",
+      "role": "key"
+     },
+     {
+      "t": "When he got home a week later, he unpacked it.",
+      "role": "main"
+     },
+     {
+      "t": "He put his clothes back in the cupboard.",
+      "role": "key"
+     }
+    ],
+    "explain": "**un** + **packed** = the opposite of packed. He took things **out**.\n\nThe last sentence proves it: clothes went **back in the cupboard**."
+   },
+   "together": {
+    "passage": "After football practice, Dana's water bottle was empty. She walked to the cooler and refilled it with cold water. Then she saw a younger girl about to drink from an old, dirty cup. \"That cup is not clean,\" Dana said kindly, and she gave the girl a fresh one.",
+    "stem": "What does refilled mean?",
+    "options": [
+     "Emptied again.",
+     "Did not fill.",
+     "Washed carefully.",
+     "Filled again."
+    ],
+    "answer": 3,
+    "hint": "The prefix re- means again. Was the bottle full before?",
+    "good": "Yes! The bottle was full, then empty after practice, so Dana filled it again."
+   },
+   "evidence": {
+    "sentences": [
+     "After football practice, Dana's water bottle was empty.",
+     "She walked to the cooler and refilled it with cold water.",
+     "Then she saw a younger girl about to drink from an old, dirty cup.",
+     "\"That cup is not clean,\" Dana said kindly, and she gave the girl a fresh one."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: filled again. Tap 2 sentences that show the bottle was empty and then filled.",
+    "wrong": "This sentence is about the younger girl. Find the sentences about Dana's bottle."
+   },
+   "checks": [
+    {
+     "passage": "\"Your story is good,\" said the teacher, \"but please rewrite the ending more neatly.\"",
+     "stem": "What does rewrite mean?",
+     "options": [
+      "Read again.",
+      "Write again.",
+      "Not write.",
+      "Write fast."
+     ],
+     "answer": 1,
+     "why": "**re-** means again. The teacher wants the ending **written again** more neatly."
+    },
+    {
+     "passage": "\"It's unfair!\" said Omar. \"My brother got two cookies, and I got none.\"",
+     "stem": "What does unfair mean?",
+     "options": [
+      "Not fair.",
+      "Very fair.",
+      "Fair again.",
+      "Funny."
+     ],
+     "answer": 0,
+     "why": "**un-** means not. Two cookies and none is **not fair**."
+    },
+    {
+     "passage": "The rice had gone cold, so Mom reheated it in the pan.",
+     "stem": "What does reheated mean?",
+     "options": [
+      "Cooled down.",
+      "Threw away.",
+      "Heated again.",
+      "Did not heat."
+     ],
+     "answer": 2,
+     "why": "**re-** means again. The rice was hot, then cold, so she **heated it again**."
+    }
+   ],
+   "again": {
+    "title": "Swap in the meaning",
+    "text": "Read the sentence again, but swap the prefix for its meaning.\n\nIf the sentence still makes sense, you are right.",
+    "example": "\"The road is **unsafe** at night.\" → \"The road is **not safe** at night.\" ✔ Makes sense!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More prefixes",
+     "text": "**dis-** = not, or the opposite: *disagree, dislike, disappear*\n\n**mis-** = wrongly, or badly: *misread, misplace, mispronounce*\n\n**non-** = not, or without: *nonstop, nonfiction*"
+    },
+    {
+     "title": "Same base, new meaning",
+     "text": "One base word can take different prefixes:\n\n**read** → **re**read (read again) → **mis**read (read wrongly)\n\nThe prefix is the key to the new meaning."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the prefix and the base word.\n2. Join their meanings.\n3. Check the context: what **happened** in the story?\n4. Your meaning should explain it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A prefix meaning is proved by **what happens** in the text.\n\n1. Join the prefix and the base word.\n2. Find sentences that show the result (something went wrong, something stopped, people did not agree).\n3. Choose the meaning those sentences show."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Slowly, the full moon began to disappear.",
+      "role": "main"
+     },
+     {
+      "t": "At first it lit up the whole beach.",
+      "role": "key"
+     },
+     {
+      "t": "Then a thick cloud covered it, and nobody could see it at all.",
+      "role": "key"
+     }
+    ],
+    "explain": "**dis** + **appear** = the opposite of appear.\n\nThe moon was there, then **nobody could see it**. It went out of sight."
+   },
+   "together": {
+    "passage": "Hamad misread the sign at the train station. He thought it said Platform 4, but it really said Platform 1. He waited at the wrong platform for ten minutes. Just in time, he heard his train being called and ran across the bridge. He jumped on board as the doors were closing.",
+    "stem": "What does misread mean?",
+    "options": [
+     "Read again carefully.",
+     "Did not read at all.",
+     "Read wrongly.",
+     "Read out loud."
+    ],
+    "answer": 2,
+    "hint": "mis- means wrongly. What happened because of the way Hamad read the sign?",
+    "good": "Yes! mis- (wrongly) + read: he read Platform 1 as Platform 4."
+   },
+   "evidence": {
+    "sentences": [
+     "Hamad misread the sign at the train station.",
+     "He thought it said Platform 4, but it really said Platform 1.",
+     "He waited at the wrong platform for ten minutes.",
+     "Just in time, he heard his train being called and ran across the bridge.",
+     "He jumped on board as the doors were closing."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: read wrongly. Tap 2 sentences that show Hamad made a mistake.",
+    "wrong": "This sentence shows what happened later. Find the sentences that show his mistake with the sign."
+   },
+   "checks": [
+    {
+     "passage": "Rana and her sister disagree about what to do after school. Rana wants to play chess, but her sister wants to draw.",
+     "stem": "What does disagree mean?",
+     "options": [
+      "Agree again.",
+      "Have different opinions.",
+      "Play together.",
+      "Agree completely."
+     ],
+     "answer": 1,
+     "why": "**dis-** means not. They want **different** things, so they do not agree."
+    },
+    {
+     "passage": "This is a nonstop flight from Jeddah to Riyadh. The plane will not land anywhere on the way.",
+     "stem": "What does nonstop mean?",
+     "options": [
+      "Without stopping.",
+      "Stopping many times.",
+      "Stopping again.",
+      "Very slow."
+     ],
+     "answer": 0,
+     "why": "**non-** means without. The plane **will not land anywhere** on the way."
+    },
+    {
+     "passage": "Faisal misplaced his house keys. He looked in his bag, his pockets and under the sofa, but he could not find them.",
+     "stem": "What does misplaced mean?",
+     "options": [
+      "Put in the right place.",
+      "Placed again.",
+      "Bought new ones.",
+      "Put somewhere wrong and lost."
+     ],
+     "answer": 3,
+     "why": "**mis-** means wrongly. He put them in the **wrong place** and could not find them."
+    }
+   ],
+   "again": {
+    "title": "Prefix sentence frame",
+    "text": "Use a frame for each prefix:\n\n**dis**___ = **not** ___ / the opposite of ___\n**mis**___ = ___ **wrongly**\n**non**___ = **without** ___",
+    "example": "**mis**spell → spell **wrongly**.\n\"He misspelled 'beautiful'.\" He wrote it with the wrong letters."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Prefixes in harder words",
+     "text": "In school texts you meet prefixes on longer words:\n\n**non**renewable, **mis**information, **dis**qualified, **un**predictable, **re**consider\n\nThe prefix still gives you the key to the meaning."
+    },
+    {
+     "title": "Prefix + base + suffix",
+     "text": "Build long words in layers:\n\n**un** + **predict** + **able** → can be predicted → **not** able to be predicted\n\nStart from the base word, add the suffix, then add the prefix."
+    },
+    {
+     "title": "Confirm in context",
+     "text": "1. Build a meaning from the parts.\n2. Look for **contrast** (but, unlike, instead) or **explanation** (because, which means) in the text.\n3. Make sure your meaning fits the whole passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "In informational texts, writers often **explain** or **contrast** a prefixed word.\n\n1. Find the sentences that explain what the word means.\n2. Look for an opposite idea (renewable vs. nonrenewable).\n3. Choose the meaning the explanation supports."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The referee disqualified the swimmer.",
+      "role": "main"
+     },
+     {
+      "t": "She had started before the signal.",
+      "role": "key"
+     },
+     {
+      "t": "Her name was removed from the results.",
+      "role": "key"
+     }
+    ],
+    "explain": "**dis** + **qualified** = no longer qualified.\n\nBreaking a rule and being **removed from the results** show what disqualified means."
+   },
+   "together": {
+    "passage": "Oil and natural gas are nonrenewable resources. They formed over millions of years from the remains of ancient plants and sea creatures. Once we burn them, they cannot be replaced within a human lifetime. Sunlight and wind are different: nature renews them every day. For this reason, many countries, including Saudi Arabia, are building large solar and wind farms to produce more of their electricity.",
+    "stem": "What does nonrenewable mean in this passage?",
+    "options": [
+     "Produced fresh by nature every day.",
+     "Not able to be replaced once used up.",
+     "Burned to make electricity.",
+     "Found only under the sea."
+    ],
+    "answer": 1,
+    "hint": "non- means not. The passage also contrasts oil and gas with sunlight and wind. What is the difference?",
+    "good": "Yes! Oil and gas took millions of years to form and cannot be replaced, unlike sunlight and wind."
+   },
+   "evidence": {
+    "sentences": [
+     "Oil and natural gas are nonrenewable resources.",
+     "They formed over millions of years from the remains of ancient plants and sea creatures.",
+     "Once we burn them, they cannot be replaced within a human lifetime.",
+     "Sunlight and wind are different: nature renews them every day.",
+     "For this reason, many countries, including Saudi Arabia, are building large solar and wind farms to produce more of their electricity."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: not able to be replaced once used up. Tap 2 sentences that explain or contrast this idea.",
+    "wrong": "This sentence is about what countries are building. Find the sentences that explain why oil and gas cannot be replaced, or how sun and wind are different."
+   },
+   "checks": [
+    {
+     "passage": "Misinformation spread quickly online. Many posts said that the school would close for a month, but the principal announced that the claim was false.",
+     "stem": "What does misinformation mean?",
+     "options": [
+      "Information that is false or wrong.",
+      "Information that is very old.",
+      "Information shared again.",
+      "Information about schools."
+     ],
+     "answer": 0,
+     "why": "**mis-** means wrongly. The principal said the claim was **false**."
+    },
+    {
+     "passage": "The weather in the mountains is unpredictable. One minute the sky is clear, and the next minute a storm rolls in without warning.",
+     "stem": "What does unpredictable mean?",
+     "options": [
+      "Always the same.",
+      "Very cold and wet.",
+      "Easy to forecast.",
+      "Not able to be known ahead of time."
+     ],
+     "answer": 3,
+     "why": "**un** + **predict** + **able**: storms come **without warning**, so you cannot know ahead."
+    },
+    {
+     "passage": "At first, the council planned to cut down the old trees to widen the road. After hundreds of families asked them to reconsider, they met again and chose a different route.",
+     "stem": "What does reconsider mean?",
+     "options": [
+      "Agree immediately.",
+      "Forget about something.",
+      "Think about again, possibly to change a decision.",
+      "Refuse to listen."
+     ],
+     "answer": 2,
+     "why": "**re-** means again. They **met again** and changed the plan."
+    }
+   ],
+   "again": {
+    "title": "Layers of a word",
+    "text": "Peel a long word in this order:\n\n1. **Base** in the middle.\n2. **Suffix** at the end.\n3. **Prefix** at the start.\n\nRead the meanings in that order and you have the definition.",
+    "example": "**disagreement**: agree → agree**ment** (the act of agreeing) → **dis**agreement (the opposite: **not** agreeing)."
+   }
+  }
+ }
+}

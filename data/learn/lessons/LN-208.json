@@ -1,0 +1,474 @@
+{
+ "code": "LN-208",
+ "title": "Synonym and antonym clues",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.4.5.c",
+  "L.5.5.c",
+  "L.6.5.b",
+  "L.7.5.b",
+  "L.8.5.b",
+  "RL.3.4"
+ ],
+ "families": [
+  "context-clues",
+  "synonyms-antonyms"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0137",
+  "R-0244",
+  "R-0247",
+  "R-0376",
+  "R-0396",
+  "R-0397",
+  "R-0583",
+  "R-0584",
+  "R-0778",
+  "R-0794",
+  "R-0954",
+  "R-0961",
+  "R-0967"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A new word?",
+     "text": "Sometimes you read a word you do not know.\n\nDon't stop! Look at the words **near it**. They can give you a **clue**."
+    },
+    {
+     "title": "Same-meaning clue",
+     "text": "Sometimes the writer gives a word that means the **same**.\n\n\"The cake was **enormous**. It was **huge**!\"\n\n**Huge** is the clue. **Enormous** means **very big**."
+    },
+    {
+     "title": "Opposite clue",
+     "text": "Sometimes the writer gives a word that means the **opposite**.\n\n\"Ali was **cheerful**, but his sister was **sad**.\"\n\n**But** tells you the words are opposite. **Cheerful** means **happy**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The clue is **near the word**.\n\n1. Find the new word.\n2. Read the sentence before and after it.\n3. Find a word that means the same or the opposite."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The room was silent.",
+      "role": "main"
+     },
+     {
+      "t": "It was very quiet.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone was asleep.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Quiet** is a clue with the **same** meaning.\n\nSo **silent** means **quiet**, with no sound."
+   },
+   "together": {
+    "passage": "Fahad was weary after the long game. He was so tired that he fell asleep on the sofa. His shoes were still on his feet.",
+    "stem": "What does weary mean?",
+    "options": [
+     "Hungry",
+     "Tired",
+     "Happy",
+     "Fast"
+    ],
+    "answer": 1,
+    "hint": "Look at the next sentence. Which word means the same as weary?",
+    "good": "Yes! The next sentence says he was so tired. Weary means tired."
+   },
+   "evidence": {
+    "sentences": [
+     "Fahad was weary after the long game.",
+     "He was so tired that he fell asleep on the sofa.",
+     "His shoes were still on his feet."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: tired. Tap the sentence with the clue word.",
+    "wrong": "This sentence does not have a word that means the same as weary. Find the clue word."
+   },
+   "checks": [
+    {
+     "passage": "The puppy was tiny. It was so small it fit in a cup.",
+     "stem": "Which word is a clue to the meaning of tiny?",
+     "options": [
+      "Puppy",
+      "Cup",
+      "Small",
+      "Fit"
+     ],
+     "answer": 2,
+     "why": "Small means the same as tiny. It is the clue."
+    },
+    {
+     "passage": "The soup was scalding, but the juice was cold.",
+     "stem": "What does scalding mean?",
+     "options": [
+      "Very hot",
+      "Very cold",
+      "Very sweet",
+      "Very old"
+     ],
+     "answer": 0,
+     "why": "But shows an opposite. Cold is the opposite clue, so scalding means very hot."
+    },
+    {
+     "passage": "Mona was glad. She felt happy all day after she won the race.",
+     "stem": "What does glad mean?",
+     "options": [
+      "Sad",
+      "Sleepy",
+      "Angry",
+      "Happy"
+     ],
+     "answer": 3,
+     "why": "The next sentence says she felt happy. Glad and happy mean the same."
+    }
+   ],
+   "again": {
+    "title": "Look next door",
+    "text": "The clue lives **next door** to the new word: in the same sentence or the one right after.",
+    "example": "\"My cat is **timid**. She is shy and hides when people visit.\"\n\nNext door: **shy**. So **timid** means **shy**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Signal words for synonyms",
+     "text": "Some words tell you a **same-meaning clue** is coming:\n\n**or**, **also**, **like**, **in other words**, **that is**\n\n\"The path was **steep**, **or** sharply sloped.\""
+    },
+    {
+     "title": "Signal words for antonyms",
+     "text": "Some words tell you an **opposite clue** is coming:\n\n**but**, **however**, **unlike**, **instead of**, **although**\n\n\"**Unlike** his **noisy** brother, Hamad was **reserved**.\" → reserved = quiet"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the new word.\n2. Look for a signal word nearby.\n3. Same signal → the clue means the same.\n4. Opposite signal → the word means the **opposite** of the clue."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the **signal word** and the **clue word**.\n\n1. Find the sentence with the new word.\n2. Find the signal (or, but, unlike...).\n3. Find the clue word it points to. That sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Unlike the crowded city, the village was deserted.",
+      "role": "key"
+     },
+     {
+      "t": "We did not see a single person in the streets.",
+      "role": "key"
+     },
+     {
+      "t": "The houses were made of mud brick.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Unlike** signals an opposite. The opposite of **crowded** is **empty**.\n\nThe next sentence agrees: not a single person. **Deserted** means **empty of people**."
+   },
+   "together": {
+    "passage": "Some students rush through their homework. Lama, however, is diligent. She works slowly and carefully, checking every answer twice. Her teacher says she is the most hard-working student in the class. Every afternoon, she does her homework at the kitchen table.",
+    "stem": "What does diligent mean?",
+    "options": [
+     "Lazy and slow",
+     "Hard-working and careful",
+     "Quick and messy",
+     "Quiet and shy"
+    ],
+    "answer": 1,
+    "hint": "'However' signals an opposite of rushing. Then look for a word later that means the same as diligent.",
+    "good": "Yes! She is the opposite of students who rush, and the teacher calls her hard-working."
+   },
+   "evidence": {
+    "sentences": [
+     "Some students rush through their homework.",
+     "Lama, however, is diligent.",
+     "She works slowly and carefully, checking every answer twice.",
+     "Her teacher says she is the most hard-working student in the class.",
+     "Every afternoon, she does her homework at the kitchen table."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: hard-working and careful. Tap 2 sentences with clues that prove it.",
+    "wrong": "This sentence names the word or tells where she works. Find the sentences with a same or opposite clue."
+   },
+   "checks": [
+    {
+     "passage": "The guide told us to be cautious, or careful, near the edge of the cliff.",
+     "stem": "What does cautious mean?",
+     "options": [
+      "Brave",
+      "Fast",
+      "Careful",
+      "Loud"
+     ],
+     "answer": 2,
+     "why": "The signal word 'or' gives the same-meaning clue: careful."
+    },
+    {
+     "passage": "Yesterday the sea was rough, but today it is calm and flat.",
+     "stem": "What does rough mean in this sentence?",
+     "options": [
+      "Wild and stormy",
+      "Clean and blue",
+      "Smooth and still",
+      "Warm and deep"
+     ],
+     "answer": 0,
+     "why": "'But' signals an opposite. The opposite of calm and flat is wild and stormy."
+    },
+    {
+     "passage": "Instead of being generous with his toys, the boy was stingy and refused to share.",
+     "stem": "What does stingy mean?",
+     "options": [
+      "Kind",
+      "Funny",
+      "Sleepy",
+      "Not willing to share"
+     ],
+     "answer": 3,
+     "why": "'Instead of' signals an opposite of generous, and 'refused to share' confirms it."
+    }
+   ],
+   "again": {
+    "title": "Same road or opposite road?",
+    "text": "Signal words are like road signs.\n\n**or, also, like** → same road ➡️➡️\n**but, unlike, instead of** → opposite road ⬅️➡️",
+    "example": "\"The tea was **bland**, **not** spicy like Mom's.\"\n\n**not** → opposite road. The opposite of spicy is **without much flavour**. That is **bland**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Clues across sentences",
+     "text": "In longer texts, the clue may be a **few sentences away**, and there may be **no signal word**.\n\nRead the whole paragraph. Look for an idea that **repeats** (synonym) or **contrasts** (antonym) with the new word."
+    },
+    {
+     "title": "Find the pair",
+     "text": "Sometimes the question asks you to find which two words in a passage are **synonyms** or **antonyms**.\n\nLook for words that describe the **same thing** in the same way, or describe two things that are **contrasted**."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the whole paragraph.\n2. Ask: what is the new word describing?\n3. Find other words describing the same thing (synonyms) or the opposite (antonyms).\n4. Test your meaning in the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is the **clue sentence**, even if it is not next to the word.\n\n1. Find the word.\n2. Search the whole paragraph for a word that repeats or contrasts its idea.\n3. Point to both sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At first, the new student seemed aloof.",
+      "role": "main"
+     },
+     {
+      "t": "She sat alone at lunch and answered questions with one word.",
+      "role": "detail"
+     },
+     {
+      "t": "By the end of the month, however, she had become friendly and talkative, and she laughed with everyone at our table.",
+      "role": "key"
+     }
+    ],
+    "explain": "**However** shows a change to the opposite. She became **friendly** and **talkative**.\n\nSo **aloof** means the opposite: **distant and unfriendly**. Sitting alone and one-word answers support this."
+   },
+   "together": {
+    "passage": "The first desert explorers made very slow progress. Their camels carried heavy loads, and sandstorms often forced them to stop for days. Modern travellers, by contrast, cross the same desert swiftly. A journey that once took weeks now takes only a few hours by car. Even so, many visitors say the old, unhurried way of travelling showed them more of the land.",
+    "stem": "Which word in the passage is an ANTONYM of swiftly?",
+    "options": [
+     "Modern",
+     "Unhurried",
+     "Heavy",
+     "Desert"
+    ],
+    "answer": 1,
+    "hint": "Swiftly describes how modern travellers move. Which word describes the opposite way of travelling?",
+    "good": "Yes! Swiftly means quickly. Unhurried, describing the old, slow way of travelling, is its opposite."
+   },
+   "evidence": {
+    "sentences": [
+     "The first desert explorers made very slow progress.",
+     "Their camels carried heavy loads, and sandstorms often forced them to stop for days.",
+     "Modern travellers, by contrast, cross the same desert swiftly.",
+     "A journey that once took weeks now takes only a few hours by car.",
+     "Even so, many visitors say the old, unhurried way of travelling showed them more of the land."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: unhurried, the opposite of swiftly. Tap 2 sentences that show the contrast between slow and fast travel.",
+    "wrong": "This sentence gives a reason or uses the word itself. Find sentences that show how SLOW or FAST travel was."
+   },
+   "checks": [
+    {
+     "passage": "The museum's ancient coins are fragile. Workers handle them with soft gloves, because the delicate metal can crack under a little pressure.",
+     "stem": "Which word from the passage is a SYNONYM of fragile?",
+     "options": [
+      "Ancient",
+      "Soft",
+      "Delicate",
+      "Pressure"
+     ],
+     "answer": 2,
+     "why": "Fragile and delicate both describe the coins as easily broken."
+    },
+    {
+     "passage": "Some people thought the plan was absurd. They laughed and said it could never work. But the engineers showed that the idea was perfectly sensible, and the bridge was finished on time.",
+     "stem": "What does absurd mean?",
+     "options": [
+      "Silly and unreasonable",
+      "Expensive",
+      "Clever and careful",
+      "Very old"
+     ],
+     "answer": 0,
+     "why": "'But' contrasts absurd with sensible, and people laughing shows they thought it silly."
+    },
+    {
+     "passage": "In the morning, the market was tranquil. Only a few sellers were setting up their stalls. By noon, it had turned chaotic, with shouting buyers, honking carts, and crowds pushing in every direction.",
+     "stem": "Which word is an ANTONYM of tranquil?",
+     "options": [
+      "Morning",
+      "Sellers",
+      "Stalls",
+      "Chaotic"
+     ],
+     "answer": 3,
+     "why": "The market changes from tranquil (calm) in the morning to chaotic (wild and confused) at noon."
+    }
+   ],
+   "again": {
+    "title": "Two columns",
+    "text": "Make two columns: **like the word** and **unlike the word**. Sort the describing words from the passage into them.",
+    "example": "\"The old bridge was **sturdy**. Unlike the weak wooden one beside it, it was strong enough for trucks.\"\n\nLike sturdy: **strong**. Unlike sturdy: **weak**. So sturdy means **strong and solid**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Subtle relationships",
+     "text": "In advanced texts, a synonym clue may be a **phrase** or an **example**, not one word.\n\n\"The writer's style was **verbose**; she used fifty words where five would do.\" The example **explains** the meaning."
+    },
+    {
+     "title": "Contrast structures",
+     "text": "Antonym clues can hide in sentence structure:\n\n**Whereas** / **while** / **on the other hand** / **rather than** / **far from being**\n\n\"**Far from being** **frugal**, the king spent his fortune on palaces.\" → frugal = careful with money."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the word and what it describes.\n2. Find every contrast or restatement in the passage.\n3. Decide if each is a same-meaning or opposite-meaning clue.\n4. Combine the clues to reach a precise meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "At this stage, use **two clues** if you can: one restatement and one contrast.\n\n1. Point to the sentence that restates the idea.\n2. Point to the sentence that contrasts it.\n3. The right meaning fits both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rather than being candid about the delay, the company published a vague statement about 'technical matters'.",
+      "role": "key"
+     },
+     {
+      "t": "Customers wanted an honest, open explanation of what had gone wrong.",
+      "role": "key"
+     },
+     {
+      "t": "The new phones were finally delivered two months later.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Rather than** shows **candid** is the opposite of **vague**. The next sentence restates what candid means: **honest and open**.\n\nTwo clues, one meaning: **candid** = **honest and direct**."
+   },
+   "together": {
+    "passage": "In her early years as a scientist, Dr. Salma was known for being impetuous. She would announce a new theory before finishing her experiments, and twice she had to withdraw a paper after other researchers found mistakes. Over time, however, she became famously deliberate. She tested each idea for months, checked every result with colleagues, and published only when she was certain. Her later work, slow as it was, changed how doctors treat burns. Younger scientists now ask her for advice on patience.",
+    "stem": "Based on the clues, what does impetuous mean?",
+    "options": [
+     "Careful and patient",
+     "Acting quickly without thinking things through",
+     "Famous and admired",
+     "Unwilling to share ideas"
+    ],
+    "answer": 1,
+    "hint": "Look at what she did in her early years. Then find the word that 'however' sets against impetuous.",
+    "good": "Yes! She announced theories before finishing experiments, and 'however' contrasts impetuous with deliberate, which means careful."
+   },
+   "evidence": {
+    "sentences": [
+     "In her early years as a scientist, Dr. Salma was known for being impetuous.",
+     "She would announce a new theory before finishing her experiments, and twice she had to withdraw a paper after other researchers found mistakes.",
+     "Over time, however, she became famously deliberate.",
+     "She tested each idea for months, checked every result with colleagues, and published only when she was certain.",
+     "Her later work, slow as it was, changed how doctors treat burns.",
+     "Younger scientists now ask her for advice on patience."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: acting quickly without thinking things through. Tap 2 sentences with clues that prove it.",
+    "wrong": "This sentence names the word or tells about her later success. Find the sentences that show her early behaviour or the contrasting word."
+   },
+   "checks": [
+    {
+     "passage": "Whereas the first speaker's talk was concise, the second speaker rambled for over an hour, repeating the same points again and again.",
+     "stem": "What does concise mean?",
+     "options": [
+      "Short and to the point",
+      "Long and repetitive",
+      "Loud and angry",
+      "Funny and lively"
+     ],
+     "answer": 0,
+     "why": "'Whereas' sets concise against rambling for over an hour with repetition, so concise means short and clear."
+    },
+    {
+     "passage": "The village elder was revered by everyone. Children listened silently when he spoke, and adults came from distant towns to ask for his advice.",
+     "stem": "What does revered mean?",
+     "options": [
+      "Feared",
+      "Ignored",
+      "Deeply respected",
+      "Forgotten"
+     ],
+     "answer": 2,
+     "why": "Silent listening and people travelling far for his advice show deep respect."
+    },
+    {
+     "passage": "Far from being benevolent, the ruler in the old story taxed the poor heavily and showed no mercy to anyone who disagreed with him.",
+     "stem": "What does benevolent mean?",
+     "options": [
+      "Cruel",
+      "Wealthy",
+      "Powerful",
+      "Kind and generous"
+     ],
+     "answer": 3,
+     "why": "'Far from being' signals the opposite. The ruler was cruel and merciless, so benevolent means kind and generous."
+    }
+   ],
+   "again": {
+    "title": "Clue sandwich",
+    "text": "Put the word in the middle. On one side, write the **restatement** clue. On the other, the **contrast** clue. The meaning is what fits between them.",
+    "example": "Restatement: \"he never gave up\" | **tenacious** | Contrast: \"unlike his brother, who quit after one try\"\n\nMeaning: **determined and persistent**."
+   }
+  }
+ }
+}

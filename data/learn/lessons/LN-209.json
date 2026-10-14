@@ -1,0 +1,475 @@
+{
+ "code": "LN-209",
+ "title": "Multiple-meaning words",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.a",
+  "L.3.4.a",
+  "L.4.4.a",
+  "L.5.4.a",
+  "L.6.4.a",
+  "L.7.4.a",
+  "L.8.4.a"
+ ],
+ "families": [
+  "multiple-meaning"
+ ],
+ "skillNames": [
+  "Multiple-Meaning Words",
+  "Advanced Multiple-Meaning Words"
+ ],
+ "statements": [
+  "R-0120",
+  "R-0218",
+  "R-0379",
+  "R-0410",
+  "R-0559",
+  "R-0568",
+  "R-0760",
+  "R-0784",
+  "R-0936",
+  "R-0947",
+  "R-0963",
+  "R-1055"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "One word, two meanings",
+     "text": "Some words have **more than one meaning**.\n\n**bat** 🦇 an animal that flies at night\n**bat** 🏏 a stick you use to hit a ball"
+    },
+    {
+     "title": "Which one?",
+     "text": "The **other words** in the sentence tell you which meaning fits.\n\n\"The **bat** flew out of the cave.\" → the animal\n\"Ali hit the ball with his **bat**.\" → the stick"
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Read the whole sentence.\n2. Think of the meanings you know.\n3. Pick the one that **makes sense** in the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **clue words** in the text.\n\n1. Find the word.\n2. Look at the words around it.\n3. They tell you which meaning fits."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our dog likes to bark.",
+      "role": "main"
+     },
+     {
+      "t": "He makes a loud sound when the doorbell rings.",
+      "role": "key"
+     },
+     {
+      "t": "He is brown and white.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Bark** can mean the sound a dog makes, or the outside of a tree.\n\nThe clue: **a loud sound**. Here bark means **the sound a dog makes**."
+   },
+   "together": {
+    "passage": "Mom gave me a gold ring. I wear it on my finger. It has a small red stone. I love it.",
+    "stem": "What does ring mean in this text?",
+    "options": [
+     "The sound a bell makes",
+     "A circle of people",
+     "Jewellery worn on a finger",
+     "To call on the phone"
+    ],
+    "answer": 2,
+    "hint": "Where does the writer wear it? What is it made of?",
+    "good": "Yes! It is gold, has a stone, and goes on a finger. It is jewellery."
+   },
+   "evidence": {
+    "sentences": [
+     "Mom gave me a gold ring.",
+     "I wear it on my finger.",
+     "It has a small red stone.",
+     "I love it."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: a piece of jewellery. Tap a sentence that proves it.",
+    "wrong": "This sentence does not show what kind of ring it is. Find a clue about how it is worn or what it looks like."
+   },
+   "checks": [
+    {
+     "passage": "Turn on the light. It is too dark to read.",
+     "stem": "What does light mean here?",
+     "options": [
+      "Not heavy",
+      "A lamp that helps you see",
+      "Pale in colour",
+      "To start a fire"
+     ],
+     "answer": 1,
+     "why": "The clues are 'turn on' and 'too dark to read'. Light means a lamp."
+    },
+    {
+     "passage": "The box is light. Even my little brother can lift it.",
+     "stem": "What does light mean here?",
+     "options": [
+      "Not heavy",
+      "A lamp",
+      "Bright",
+      "Morning"
+     ],
+     "answer": 0,
+     "why": "A little brother can lift it, so light means not heavy."
+    },
+    {
+     "passage": "We sat by the bank of the river and watched the fish swim.",
+     "stem": "What does bank mean here?",
+     "options": [
+      "A place to keep money",
+      "A pile of snow",
+      "A kind of boat",
+      "The land along the side of a river"
+     ],
+     "answer": 3,
+     "why": "'Of the river' is the clue. Bank means the land beside a river."
+    }
+   ],
+   "again": {
+    "title": "Try both meanings",
+    "text": "Put **each meaning** into the sentence. Only one will make sense.",
+    "example": "\"I need a **pen** to write my name.\"\n\nTry: a place for animals? \"I need a place for animals to write my name.\" ✘\nTry: a tool for writing? ✔ So pen means **a tool for writing**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Many meanings",
+     "text": "Some words have **three or more** meanings.\n\n**fair**: honest and equal • a festival with games and rides • light in colour (fair hair)\n\nThe context tells you which one."
+    },
+    {
+     "title": "Same spelling, different jobs",
+     "text": "A word may be a **noun** in one sentence and a **verb** in another.\n\n\"Light the **match**.\" (noun: a small stick that makes fire)\n\"Do your socks **match**?\" (verb: look the same)"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the word.\n2. Ask: is it a thing (noun), an action (verb) or a describing word?\n3. Look for clue words.\n4. Choose the meaning that fits **both**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The clue is usually **in the same sentence** or **the next one**.\n\n1. Find the word.\n2. Find the words that tell you what kind of thing or action it is.\n3. Point to that sentence as your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The elephant lifted water with its trunk.",
+      "role": "main"
+     },
+     {
+      "t": "It sprayed the water over its back to cool down.",
+      "role": "key"
+     },
+     {
+      "t": "Elephants live in groups.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Trunk** can mean the main stem of a tree, a big box for storing things, the back of a car, or an elephant's long nose.\n\nClues: the **elephant** **lifted water** and **sprayed** it. Here trunk means **an elephant's long nose**."
+   },
+   "together": {
+    "passage": "Before the game, both captains met the referee in the middle of the field. The referee flipped a coin to decide which team would kick first. Then he reminded the players to play fair. \"No pushing, no tripping, and respect each other,\" he said. Both teams shook hands.",
+    "stem": "What does fair mean in this passage?",
+    "options": [
+     "Light in colour",
+     "A festival with rides",
+     "Honest, by the rules",
+     "Sunny and dry"
+    ],
+    "answer": 2,
+    "hint": "What did the referee say right after 'play fair'?",
+    "good": "Yes! No pushing, no tripping and respecting each other show that fair means following the rules."
+   },
+   "evidence": {
+    "sentences": [
+     "Before the game, both captains met the referee in the middle of the field.",
+     "The referee flipped a coin to decide which team would kick first.",
+     "Then he reminded the players to play fair.",
+     "\"No pushing, no tripping, and respect each other,\" he said.",
+     "Both teams shook hands."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: following the rules and being honest. Tap the sentence that proves it.",
+    "wrong": "This sentence tells about the game, but it does not explain what playing fair means."
+   },
+   "checks": [
+    {
+     "passage": "The baseball player threw the first pitch. It flew straight over the plate, and the batter missed it.",
+     "stem": "What does pitch mean here?",
+     "options": [
+      "How high or low a sound is",
+      "A throw of the ball to the batter",
+      "A sports field",
+      "A dark, sticky material"
+     ],
+     "answer": 1,
+     "why": "'Threw', 'flew over the plate' and 'the batter' show that pitch means a throw."
+    },
+    {
+     "passage": "Huda's scarf does not match her dress. The scarf is bright orange, and the dress is purple.",
+     "stem": "What does match mean here?",
+     "options": [
+      "A small stick for lighting fires",
+      "A game between two teams",
+      "To win against",
+      "To look good together"
+     ],
+     "answer": 3,
+     "why": "The clue is the different colours: orange and purple do not go well together."
+    },
+    {
+     "passage": "Grandpa keeps his old letters in a wooden trunk at the foot of his bed.",
+     "stem": "What does trunk mean here?",
+     "options": [
+      "A large box for storing things",
+      "An elephant's nose",
+      "The main stem of a tree",
+      "The back of a car"
+     ],
+     "answer": 0,
+     "why": "Old letters kept in a wooden trunk by a bed show it is a storage box."
+    }
+   ],
+   "again": {
+    "title": "Picture test",
+    "text": "Picture each meaning in the scene. Which picture fits?",
+    "example": "\"The fans watched the **match** from the stands.\"\n\nPicture a tiny stick for lighting a fire? It does not fit. Picture a football game? ✔ So match means **a game between two teams**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Everyday word, special meaning",
+     "text": "In school subjects, common words often have **special meanings**.\n\n**cell**: a small room • a tiny unit of living things (science)\n**current**: happening now • the flow of water or electricity (science)\n**yield**: to give way • the amount a farm produces"
+    },
+    {
+     "title": "Read the whole context",
+     "text": "The clue may come in the **next sentence**, or from the **topic** of the passage.\n\nIn a science passage about rivers, **current** probably means **the flow of water**, not \"happening now\"."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Name the topic of the passage.\n2. List the meanings you know.\n3. Use clue words and the topic to pick one.\n4. Replace the word with your meaning and reread."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use **two kinds of clues**:\n\n1. **Nearby words** that show what the word is doing.\n2. The **topic** of the whole passage.\n\nPoint to the sentences that make your meaning clear."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "This year, the date farm's yield was the best it has ever been.",
+      "role": "main"
+     },
+     {
+      "t": "The farmers picked more than twenty tonnes of fruit.",
+      "role": "key"
+     },
+     {
+      "t": "Rain had fallen early in the season.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Yield** can mean **to give way** (like at a road sign) or **the amount produced**.\n\nThe clue **twenty tonnes of fruit** shows it means **the amount of crop produced**."
+   },
+   "together": {
+    "passage": "Swimmers at the beach were warned to stay close to the shore. A strong current was flowing along the coast that afternoon. It could pull a swimmer far out to sea in just a few minutes. Lifeguards placed red flags where the water was moving fastest. By evening, the wind had dropped and the sea was calm again.",
+    "stem": "What does current mean in this passage?",
+    "options": [
+     "Happening at the present time",
+     "The flow of electricity through a wire",
+     "A small dried fruit",
+     "A steady flow of water in one direction"
+    ],
+    "answer": 3,
+    "hint": "The topic is the sea. What could pull a swimmer out? Look at where the water was 'moving fastest'.",
+    "good": "Yes! It flowed along the coast, could pull swimmers out, and was where the water moved fastest."
+   },
+   "evidence": {
+    "sentences": [
+     "Swimmers at the beach were warned to stay close to the shore.",
+     "A strong current was flowing along the coast that afternoon.",
+     "It could pull a swimmer far out to sea in just a few minutes.",
+     "Lifeguards placed red flags where the water was moving fastest.",
+     "By evening, the wind had dropped and the sea was calm again."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a steady flow of water. Tap 2 sentences that prove it.",
+    "wrong": "This sentence gives the warning or tells how the day ended. Find the sentences that describe what the current did."
+   },
+   "checks": [
+    {
+     "passage": "Under the microscope, we could see that the onion skin was made of thousands of tiny cells, each with its own thin wall.",
+     "stem": "What does cell mean here?",
+     "options": [
+      "A small room in a prison",
+      "A tiny unit that living things are made of",
+      "A mobile phone",
+      "A box in a table"
+     ],
+     "answer": 1,
+     "why": "The microscope, onion skin and thin walls show the science meaning: a tiny unit of a living thing."
+    },
+    {
+     "passage": "Ahmad wrote a first draft of his essay on Monday. On Tuesday, his teacher returned it with comments, and he rewrote it to make it clearer.",
+     "stem": "What does draft mean here?",
+     "options": [
+      "An early version of a piece of writing",
+      "A cold wind in a room",
+      "A drink from a tap",
+      "A drawing of a building"
+     ],
+     "answer": 0,
+     "why": "He wrote it first, got comments, and rewrote it: a draft is an early version."
+    },
+    {
+     "passage": "The old wooden shelf could not bear the weight of so many books. With a loud crack, it broke in half.",
+     "stem": "What does bear mean here?",
+     "options": [
+      "A large wild animal",
+      "To give birth",
+      "To hold up or carry",
+      "To turn left"
+     ],
+     "answer": 2,
+     "why": "The shelf broke under the weight, so bear means to hold up or support."
+    }
+   ],
+   "again": {
+    "title": "Topic first",
+    "text": "Before choosing a meaning, say the **topic** in two words. Many meanings will not fit that topic.",
+    "example": "Passage about **electric circuits**: \"The **current** stopped when the switch was turned off.\"\n\nTopic: electricity. So current = **the flow of electricity**, not \"happening now\"."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Shifting meanings",
+     "text": "Advanced texts often use the **less common** meaning of a familiar word.\n\n**sound**: a noise • **healthy, strong, reliable** (a sound argument)\n**grave**: a place of burial • **very serious** (a grave mistake)\n**novel**: a long story • **new and unusual** (a novel idea)"
+    },
+    {
+     "title": "Part of speech helps",
+     "text": "Ask what **job** the word does in the sentence.\n\n\"The town lies in a **sound** position.\" → describing word → strong, safe\n\"They heard a **sound**.\" → noun → a noise"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Decide the word's part of speech.\n2. List every meaning you know for that part of speech.\n3. Use the context and the tone to choose.\n4. Reread with your meaning. It must fit the whole passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your choice with **context and grammar**.\n\n1. Point to the sentence that shows what the word describes or does.\n2. Point to a second clue (a restatement, an example or the tone).\n3. Reject meanings that fit the word but not the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The committee rejected the plan because it was not financially sound.",
+      "role": "main"
+     },
+     {
+      "t": "The costs were higher than the expected income, and there was no money saved for emergencies.",
+      "role": "key"
+     },
+     {
+      "t": "The meeting lasted two hours.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Sound** here describes the plan, so it is not a noise. Clues: costs higher than income, **no money for emergencies**.\n\n**Sound** means **reliable and well-planned**. The plan was not."
+   },
+   "together": {
+    "passage": "When the engineers inspected the dam after the earthquake, their faces were grave. A long crack ran down the concrete wall, and water was already seeping through. The chief engineer called the mayor at once and advised that the villages downstream be evacuated before nightfall. Nobody spoke on the drive back to the office. Within hours, buses were carrying families to higher ground.",
+    "stem": "What does grave mean in the first sentence?",
+    "options": [
+     "Very serious and worried",
+     "A place where someone is buried",
+     "Carved into stone",
+     "Tired after hard work"
+    ],
+    "answer": 0,
+    "hint": "Grave here describes the engineers' faces. What did they find, and how did everyone act afterwards?",
+    "good": "Yes! A dangerous crack, an urgent evacuation and a silent drive all show their faces were very serious."
+   },
+   "evidence": {
+    "sentences": [
+     "When the engineers inspected the dam after the earthquake, their faces were grave.",
+     "A long crack ran down the concrete wall, and water was already seeping through.",
+     "The chief engineer called the mayor at once and advised that the villages downstream be evacuated before nightfall.",
+     "Nobody spoke on the drive back to the office.",
+     "Within hours, buses were carrying families to higher ground."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: very serious and worried. Tap 2 sentences that prove it.",
+    "wrong": "This sentence uses the word itself or tells what happened later. Find the sentences that show why the engineers looked so serious."
+   },
+   "checks": [
+    {
+     "passage": "The inventor's novel approach surprised the judges. Instead of using batteries, her toy car was powered by the heat from a child's hand.",
+     "stem": "What does novel mean here?",
+     "options": [
+      "A long written story",
+      "Old-fashioned",
+      "New and original",
+      "Very expensive"
+     ],
+     "answer": 2,
+     "why": "Novel describes her approach, and using hand heat instead of batteries is a new, original idea."
+    },
+    {
+     "passage": "Although Majed was angry at the unfair decision, he managed to temper his words. He spoke calmly and politely to the referee.",
+     "stem": "What does temper mean here?",
+     "options": [
+      "A bad mood",
+      "To treat metal with heat",
+      "To lose control",
+      "To make something less strong"
+     ],
+     "answer": 3,
+     "why": "Temper is a verb here. He spoke calmly despite his anger, so he softened his words."
+    },
+    {
+     "passage": "For years, Aisha harboured a dream of becoming a pilot. She never told anyone, but she kept a notebook full of drawings of planes under her bed.",
+     "stem": "What does harboured mean here?",
+     "options": [
+      "Kept a feeling or idea in her mind",
+      "Sailed a ship into port",
+      "Gave shelter to a criminal",
+      "Painted a picture of the sea"
+     ],
+     "answer": 0,
+     "why": "She kept the dream secretly for years. Harboured means held or kept in her mind."
+    }
+   ],
+   "again": {
+    "title": "Ask what job it does",
+    "text": "First ask: is the word a **thing**, an **action**, or a **describing word**? That rules out many meanings at once.",
+    "example": "\"The scientists **checked** their results twice.\"\nJob: action. Not a pattern of squares or a bill in a restaurant.\nMeaning: **examined to make sure they were correct**."
+   }
+  }
+ }
+}

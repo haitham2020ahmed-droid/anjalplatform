@@ -14,17 +14,47 @@ import { listNafsPractice } from "./practice";
 
 const s = (v: unknown) => String(v ?? "");
 
-/** The center's tabs, in the owner's order (About NAFS is a small link at the top): Home · Dashboard · Adaptive practice ·
- * Create test · Question bank · Marking · Reports. */
+/** The center's tabs, in the owner's order (About NAFS is a small link at the top): Home · Dashboard · Practice · Tests ·
+ * Question bank · Marking · Reports — every capability once, in one place. */
 export const CENTER_TABS = [
   { key: "home", label: "Home" },
   { key: "dashboard", label: "Dashboard" },
-  { key: "practice", label: "Adaptive practice" },
-  { key: "tests", label: "Create test" },
+  { key: "practice", label: "Practice" },
+  { key: "tests", label: "Tests" },
   { key: "bank", label: "Question bank" },
   { key: "marking", label: "Marking" },
   { key: "reports", label: "Reports" },
 ] as const;
+
+/** Old tab keys that now live inside another tab (links keep working). */
+export const OLD_TABS: Record<string, string> = { sheets: "marking", create: "tests", adaptive: "practice" };
+
+/**
+ * The ONE NAFS test builder's link. The old six modes (?mode=FULL · SIMULATION · MINISTRY · AUTO · MANUAL · AI) are
+ * the builder's three starts now; an old link is redirected to the matching start (other parameters kept).
+ */
+export const LEGACY_MODE_START: Record<string, { start: "BOOKLET" | "ALL" | "CHOOSE"; shape?: "BOOKLET"; add?: "BANK" | "AI" }> = {
+  FULL: { start: "ALL" }, MINISTRY: { start: "BOOKLET" }, SIMULATION: { start: "CHOOSE", shape: "BOOKLET" },
+  AUTO: { start: "CHOOSE" }, MANUAL: { start: "CHOOSE", add: "BANK" }, AI: { start: "CHOOSE", add: "AI" },
+};
+export function builderHref(p: { start?: string | null; purpose?: string | null; codes?: string[] | null; classId?: string | null; id?: string | null; shape?: string | null; add?: string | null }): string {
+  const q = new URLSearchParams();
+  if (p.id) q.set("id", p.id);
+  if (p.start) q.set("start", p.start);
+  if (p.shape) q.set("shape", p.shape);
+  if (p.add) q.set("add", p.add);
+  if (p.purpose === "PRACTICE") q.set("purpose", "PRACTICE");
+  if (p.classId) q.set("class", p.classId);
+  if (p.codes?.length) q.set("codes", p.codes.join(","));
+  const s = q.toString();
+  return `/teacher/nafs/tests/new${s ? `?${s}` : ""}`;
+}
+/** The new address of an old builder link (null = nothing to redirect). */
+export function legacyBuilderRedirect(sp: Record<string, string | undefined>): string | null {
+  if (!sp.mode || sp.start) return null;
+  const to = LEGACY_MODE_START[String(sp.mode).toUpperCase()] ?? { start: "CHOOSE" as const };
+  return builderHref({ id: sp.id, start: to.start, shape: to.shape, add: to.add, purpose: sp.purpose, classId: sp.class, codes: sp.codes ? sp.codes.split(",") : null });
+}
 
 export interface CenterSummary {
   openTests: number; openPractice: number; waiting: number;

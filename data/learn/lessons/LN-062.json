@@ -1,0 +1,453 @@
+{
+ "code": "LN-062",
+ "title": "Gerunds, participles and infinitives",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "verbs"
+ ],
+ "skillNames": [
+  "Verbals: Gerunds, Participles and Infinitives"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "To + action word",
+     "text": "**to** + an action word is called an **infinitive**.\n\nI want **to play**.\nShe likes **to read**."
+    },
+    {
+     "title": "-ing words as names",
+     "text": "An action word + **-ing** can name an activity.\n\n**Swimming** is fun.\nI love **drawing**.\n\nThis is called a **gerund**."
+    },
+    {
+     "title": "Find them",
+     "text": "1. Look for **to** + an action word.\n2. Look for an **-ing** word that names an activity.\n\nCareful: **to the park** is not an infinitive. Park is not an action."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the question.\n2. Find the words in the text.\n3. Point to **to + action word**, or to the **-ing** word that names an activity."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar likes to cook.",
+      "role": "key"
+     },
+     {
+      "t": "Cooking makes him happy.",
+      "role": "key"
+     },
+     {
+      "t": "He made rice.",
+      "role": "other"
+     }
+    ],
+    "explain": "**to cook** = to + action word. It is an infinitive.\n\n**Cooking** names an activity. It is a gerund."
+   },
+   "together": {
+    "passage": "Lina loves reading. She goes to the library every week. She wants to read every book there!",
+    "stem": "Which words are an infinitive (to + action word)?",
+    "options": [
+     "to the library",
+     "to read",
+     "loves reading",
+     "every week"
+    ],
+    "answer": 1,
+    "hint": "Library is a place, not an action. Find to + an action word.",
+    "good": "Yes! To read is to + the action word read."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina loves reading.",
+     "She goes to the library every week.",
+     "She wants to read every book there!"
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: to read. Tap the sentence with to + an action word.",
+    "wrong": "This sentence has no to + action word. To the library is a place."
+   },
+   "checks": [
+    {
+     "passage": "Running makes me strong.",
+     "stem": "Which word names an activity?",
+     "options": [
+      "Running",
+      "makes",
+      "me",
+      "strong"
+     ],
+     "answer": 0,
+     "why": "Running names an activity. It is a gerund."
+    },
+    {
+     "passage": "We need to leave now.",
+     "stem": "Which words are an infinitive?",
+     "options": [
+      "We need",
+      "to leave",
+      "leave now",
+      "need to"
+     ],
+     "answer": 1,
+     "why": "To leave is to + the action word leave."
+    },
+    {
+     "passage": "My sister enjoys ___.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "paint",
+      "to painting",
+      "painting",
+      "painted"
+     ],
+     "answer": 2,
+     "why": "After enjoys, we use an -ing word: enjoys painting."
+    }
+   ],
+   "again": {
+    "title": "Two patterns",
+    "text": "Pattern 1: **to** + action → to **jump**, to **eat**\n\nPattern 2: action + **ing** as a name → **jumping**, **eating**",
+    "example": "I want to swim. Swimming is my favorite sport.\n\n**to swim** → pattern 1. **Swimming** → pattern 2."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Gerund or verb?",
+     "text": "**Swimming** is fun. → gerund. It names an activity and acts like a noun.\n\nAli **is swimming**. → part of the verb (is + -ing).\n\nIf is, are, was or were comes right before the -ing word, it is part of the verb."
+    },
+    {
+     "title": "Gerund jobs",
+     "text": "A gerund can be the **subject**: **Reading** helps you learn.\n\nIt can be the **object**: I enjoy **reading**."
+    },
+    {
+     "title": "-ing or to?",
+     "text": "After **enjoy, finish, avoid, keep** → -ing: I finished **writing**.\n\nAfter **want, hope, decide, plan** → to: I decided **to write**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the -ing word.\n2. Look at the word just before it.\n3. A form of **be** (is, was) → part of the verb. No be, and it names an activity → **gerund**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hiking in the mountains is hard work.",
+      "role": "key"
+     },
+     {
+      "t": "Our group was hiking near Abha last week.",
+      "role": "other"
+     },
+     {
+      "t": "We hope to go again soon.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Hiking** in sentence 1 is the subject. It is a gerund.\n\nIn sentence 2, **was hiking** is the verb, so it is not a gerund.\n\n**to go** is an infinitive after hope."
+   },
+   "together": {
+    "passage": "My cousin Turki has a new hobby. Every evening after dinner, he is practicing on his drums. He says drumming helps him relax after a long school day. His parents enjoy listening to him play. Next year, he hopes to join the school band.",
+    "stem": "Which word in the text is a gerund used as the subject?",
+    "options": [
+     "practicing",
+     "drumming",
+     "listening",
+     "evening"
+    ],
+    "answer": 1,
+    "hint": "Find an -ing word with no is or was before it that does the action of the sentence.",
+    "good": "Yes! Drumming is the subject of helps. It names the activity."
+   },
+   "evidence": {
+    "sentences": [
+     "My cousin Turki has a new hobby.",
+     "Every evening after dinner, he is practicing on his drums.",
+     "He says drumming helps him relax after a long school day.",
+     "His parents enjoy listening to him play.",
+     "Next year, he hopes to join the school band."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use a gerund.",
+    "wrong": "This sentence has no gerund. Is practicing is part of the verb, and to join is an infinitive."
+   },
+   "checks": [
+    {
+     "passage": "The children were laughing loudly.",
+     "stem": "Is laughing a gerund?",
+     "options": [
+      "Yes, it is the subject.",
+      "Yes, because it ends in -ing.",
+      "No, it is an infinitive.",
+      "No, it is part of the verb were laughing."
+     ],
+     "answer": 3,
+     "why": "Were comes right before laughing, so it is part of the verb."
+    },
+    {
+     "passage": "I finished ___ my homework before dinner.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "to do",
+      "doing",
+      "do",
+      "to doing"
+     ],
+     "answer": 1,
+     "why": "After finish, we use an -ing word: finished doing."
+    },
+    {
+     "passage": "Ahmed decided ___ a model plane.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "to build",
+      "building",
+      "builds",
+      "to building"
+     ],
+     "answer": 0,
+     "why": "After decide, we use an infinitive: decided to build."
+    }
+   ],
+   "again": {
+    "title": "Check the word before",
+    "text": "See **is, are, was, were** before the -ing word? → it is a **verb**.\n\nNo helper, and it names an activity? → it is a **gerund**.",
+    "example": "Cooking is fun. / Mom is cooking.\n\n**Cooking is fun** → no helper → gerund.\n**is cooking** → helper → verb."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Participles describe",
+     "text": "A **participle** is a verb form used as an **adjective**.\n\nthe **running** water (present participle, -ing)\nthe **broken** window (past participle, -ed or -en)"
+    },
+    {
+     "title": "Same -ing, three jobs",
+     "text": "**Gerund** = noun: **Baking** is fun.\n**Participle** = adjective: the smell of **baking** bread\n**Verb** = action with a helper: She **is baking**.\n\nAsk: is it **naming**, **describing** or **doing**?"
+    },
+    {
+     "title": "Infinitives do many jobs",
+     "text": "**To win** was her goal. → noun\nShe needs a book **to read**. → adjective (which book?)\nHe trained hard **to win**. → adverb (why?)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the -ing or -ed word.\n2. Point to the word it goes with.\n3. Describes a noun → **participle**. Names an activity → **gerund**. Has a helper → **verb**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The frightened kitten hid under the car.",
+      "role": "key"
+     },
+     {
+      "t": "Coaxing it out took an hour.",
+      "role": "key"
+     },
+     {
+      "t": "Finally, it came to us.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Frightened** describes the kitten. It is a past participle.\n\n**Coaxing** names an activity and is the subject. It is a gerund."
+   },
+   "together": {
+    "passage": "On the morning of the trip, the excited students climbed onto the bus. The rising sun lit up the desert. Some students were chatting with friends, while others looked out at the shifting sand dunes. Watching the dunes change shape was everyone's favorite part. After two hours, the tired but happy group arrived at the camp.",
+    "stem": "Which word from the text is a gerund?",
+    "options": [
+     "excited",
+     "rising",
+     "Watching",
+     "shifting"
+    ],
+    "answer": 2,
+    "hint": "That word describes a noun. Which -ing word names an activity and acts as the subject?",
+    "good": "Yes! Watching names the activity, and it is the subject of was."
+   },
+   "evidence": {
+    "sentences": [
+     "On the morning of the trip, the excited students climbed onto the bus.",
+     "The rising sun lit up the desert.",
+     "Some students were chatting with friends, while others looked out at the shifting sand dunes.",
+     "Watching the dunes change shape was everyone's favorite part.",
+     "After two hours, the tired but happy group arrived at the camp."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer names an activity. Tap 2 sentences with a participle that describes a noun instead.",
+    "wrong": "This sentence uses its -ing word to name an activity, not to describe a noun."
+   },
+   "checks": [
+    {
+     "passage": "The whistling kettle woke everyone up.",
+     "stem": "How is whistling used?",
+     "options": [
+      "as a gerund, naming an activity",
+      "as a participle, describing the kettle",
+      "as the main verb",
+      "as an infinitive"
+     ],
+     "answer": 1,
+     "why": "Whistling tells what kind of kettle, so it is a participle used as an adjective."
+    },
+    {
+     "passage": "She saved her money to buy a bike.",
+     "stem": "What does the infinitive to buy tell?",
+     "options": [
+      "what she saved",
+      "when she saved",
+      "who saved",
+      "why she saved her money"
+     ],
+     "answer": 3,
+     "why": "To buy a bike tells why she saved. It works like an adverb."
+    },
+    {
+     "passage": "The ___ glass lay in pieces on the floor.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "breaking",
+      "broke",
+      "broken",
+      "to break"
+     ],
+     "answer": 2,
+     "why": "The glass was already broken, so we use the past participle broken as an adjective."
+    }
+   ],
+   "again": {
+    "title": "Naming, describing, doing",
+    "text": "**Naming** an activity → gerund\n**Describing** a noun → participle\n**Doing** with is or was → verb",
+    "example": "The crying baby stopped. Crying tires babies out. The baby was crying.\n\n**crying baby** → describing. **Crying tires** → naming. **was crying** → doing."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Verbal phrases",
+     "text": "A verbal can bring its own words: a **verbal phrase**.\n\n**Walking along the shore**, we found a crab. → participial phrase (describes we)\n**Learning a language** takes time. → gerund phrase (subject)\nHe stopped **to tie his shoes**. → infinitive phrase (why)"
+    },
+    {
+     "title": "Dangling participles",
+     "text": "An opening participial phrase must describe the **subject** right after the comma.\n\n✗ **Walking to school**, the rain started.\n(Was the rain walking?)\n\n✓ **Walking to school**, **I** felt the rain start."
+    },
+    {
+     "title": "Why writers use them",
+     "text": "Verbal phrases pack action into fewer words and let writers vary how sentences begin.\n\n**Hearing the call to prayer**, the shopkeepers closed their doors."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the verbal phrase.\n2. Point to the word it describes, or name its job (subject, object, why).\n3. For an opening phrase, point to the subject after the comma and ask: **could that subject do this action?**"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Covered in dust, the old map was found in a trunk.",
+      "role": "key"
+     },
+     {
+      "t": "Unfolding it carefully, my uncle traced the faded roads.",
+      "role": "key"
+     },
+     {
+      "t": "He wanted to find the village of his childhood.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Covered in dust** describes the map. **Unfolding it carefully** describes my uncle. Each phrase sits right before the noun it describes.\n\n**to find the village** is an infinitive phrase: it tells what he wanted."
+   },
+   "together": {
+    "passage": "Last spring, our class visited the mangrove forest near the coast. Wading through the shallow water, we saw small crabs hiding among the roots. Our guide, pointing at a heron, explained how the birds catch fish. Learning about the forest made us want to protect it. Looking through binoculars, a flock of flamingos appeared on the far side of the lagoon. Climbing back onto the bus, we promised to return in winter to count the birds.",
+    "stem": "Which sentence has a dangling participle?",
+    "options": [
+     "Looking through binoculars, a flock of flamingos appeared.",
+     "Wading through the shallow water, we saw small crabs.",
+     "Our guide, pointing at a heron, explained how the birds catch fish.",
+     "Climbing back onto the bus, we promised to return."
+    ],
+    "answer": 0,
+    "hint": "Point to the subject after each comma. Could that subject do the action in the opening phrase?",
+    "good": "Yes! The flamingos were not looking through binoculars. The students were."
+   },
+   "evidence": {
+    "sentences": [
+     "Last spring, our class visited the mangrove forest near the coast.",
+     "Wading through the shallow water, we saw small crabs hiding among the roots.",
+     "Our guide, pointing at a heron, explained how the birds catch fish.",
+     "Learning about the forest made us want to protect it.",
+     "Looking through binoculars, a flock of flamingos appeared on the far side of the lagoon.",
+     "Climbing back onto the bus, we promised to return in winter to count the birds."
+    ],
+    "proof": [
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences where the opening participial phrase correctly describes the subject after the comma.",
+    "wrong": "This sentence does not open with a phrase that correctly describes its subject. Check who is doing the action."
+   },
+   "checks": [
+    {
+     "passage": "Hoping to win the prize, the poster was decorated with gold paint.",
+     "stem": "Which revision fixes the dangling participle?",
+     "options": [
+      "Hoping to win the prize, the poster had gold paint.",
+      "The poster, hoping to win the prize, was decorated.",
+      "Hoping to win the prize, Mona decorated the poster with gold paint.",
+      "Hoping to win, gold paint decorated the poster."
+     ],
+     "answer": 2,
+     "why": "Mona is the one hoping to win, so she must be the subject right after the comma."
+    },
+    {
+     "passage": "Learning to swim in the sea takes courage.",
+     "stem": "What job does the phrase Learning to swim in the sea do?",
+     "options": [
+      "It is a participial phrase describing courage.",
+      "It is a gerund phrase that is the subject of the sentence.",
+      "It is an infinitive phrase that tells why.",
+      "It is the main verb of the sentence."
+     ],
+     "answer": 1,
+     "why": "The phrase names an activity and is the subject of takes, so it is a gerund phrase."
+    },
+    {
+     "passage": "The engineers met early to test the new bridge.",
+     "stem": "What does the infinitive phrase to test the new bridge do?",
+     "options": [
+      "It names who met.",
+      "It describes the engineers.",
+      "It is the subject of the sentence.",
+      "It tells why the engineers met."
+     ],
+     "answer": 3,
+     "why": "To test the new bridge answers why they met, so it works like an adverb."
+    }
+   ],
+   "again": {
+    "title": "Who is doing it?",
+    "text": "Read the opening phrase. Ask **who** is doing that action.\n\nThen look right after the comma. Is that the same person or thing? If not, the participle is **dangling**.",
+    "example": "Opening the door, the cat ran out.\n\nWho opened the door? Not the cat! → **Opening the door, I let the cat run out.**"
+   }
+  }
+ }
+}

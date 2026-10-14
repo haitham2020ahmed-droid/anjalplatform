@@ -1,0 +1,568 @@
+{
+  "code": "NB-051",
+  "title": "A Letter About My First Invention",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 483,
+  "passage": "Dear Uncle Khalid,\n\nAssalamu alaikum! I hope you are well and that your work at the engineering company in Jubail is not too exhausting. Do you remember telling me last summer that every invention begins with a problem that somebody refuses to ignore? I did not fully understand you then, but after the past two months, I think I finally do.\n\nMy problem began at home. Since Grandmother came to live with us, she has needed to take three different medicines at different times of the day. Although she is sharp and witty, she often forgets whether she has already taken her tablets, and Mama worries constantly. When our science teacher announced the school invention fair, I immediately knew what I wanted to create: a pill box that would remind Grandmother at exactly the right moment.\n\nMy first prototype was embarrassingly simple. I divided a shoebox into small compartments and attached a tiny light that switched on according to a timer. Unfortunately, my first test was a complete disaster. The light was so faint that Grandmother could not see it in her sunny sitting room, and when I added a beeping sound, she could not hear it because her hearing is not as strong as it used to be. I felt so frustrated that I almost abandoned the whole project.\n\nInstead, I did what you always advise: I asked the person who would actually use the invention. Grandmother suggested that the box should shake gently, like her phone does when someone calls, and that each compartment should be a different colour so that she could recognise it easily. With Baba's help, I added a small vibrating motor and a much brighter light, and I also designed a lid that opens only the compartment for the correct time. That way, she can tell at a glance whether today's tablets are gone.\n\nAt the fair, the judges asked me many challenging questions, particularly about the batteries and about how much it would cost to manufacture each box. Although I could not answer every question perfectly, I explained how each unsuccessful test had helped me to improve the design, and the judges seemed genuinely impressed by my notebook of observations. In the end, I was awarded second place! What a wonderful surprise that was!\n\nThe most valuable prize, however, came from Grandmother. Last week she proudly informed me that she has not missed a single dose since she started using the box, and Mama no longer looks so anxious whenever the clock approaches medicine time.\n\nNow I have a question for you, Uncle. The judges suggested that a real company might be interested in manufacturing my pill box, but I have no idea how an invention travels from a school fair to the shelves of a pharmacy. Could you explain how engineers turn a prototype into a real product?\n\nWith love and respect,\n\nYour niece, Noura",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “abandoned” as it is used in the paragraph about Noura's first prototype?",
+      "options": [
+        "improved",
+        "explained",
+        "gave up",
+        "repeated"
+      ],
+      "answer": "C",
+      "why": "Noura felt so frustrated that she almost stopped the project completely, so “abandoned” means gave up."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “faint” as it is used in the letter?",
+      "options": [
+        "bright",
+        "weak",
+        "small",
+        "pale"
+      ],
+      "answer": "A",
+      "why": "A “faint” light is weak and hard to see; its opposite is “bright”, the word Noura uses for the improved light."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence: “Although she is sharp and witty, she often forgets whether she has already taken her tablets.” What does “witty” mean?",
+      "options": [
+        "tired and slow",
+        "clever and funny",
+        "strict and serious",
+        "quiet and shy"
+      ],
+      "answer": "B",
+      "why": "“Witty” describes someone who is quick and amusing with words; the sentence contrasts this with her forgetting."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the letter is an adjective?",
+      "options": [
+        "remind",
+        "embarrassingly",
+        "compartment",
+        "frustrated"
+      ],
+      "answer": "D",
+      "why": "“Frustrated” describes how Noura felt. “Remind” is a verb, “compartment” is a noun and “embarrassingly” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the letter is a PLURAL noun?",
+      "options": [
+        "tablets",
+        "motor",
+        "lid",
+        "dose"
+      ],
+      "answer": "A",
+      "why": "“Tablets” ends in -s and means more than one tablet; the others are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “invention”?",
+      "options": [
+        "inventor",
+        "intention",
+        "invisible",
+        "investigate"
+      ],
+      "answer": "A",
+      "why": "An inventor is a person who invents; “intention”, “invisible” and “investigate” only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “prototype” in a meaningful sentence of your own.",
+      "model": "Before building the real bridge, the engineers tested a small prototype to see how much weight it could hold.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “prototype” with its meaning (a first model of something, built to test the idea)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "A prototype is an early model built to test an idea before the final version."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “medicines” is a regular plural. Which of these nouns has an IRREGULAR plural?",
+      "options": [
+        "box",
+        "judge",
+        "child",
+        "company"
+      ],
+      "answer": "C",
+      "why": "Child → children is irregular; box → boxes, judge → judges and company → companies follow spelling rules."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is a question?",
+      "options": [
+        "What a wonderful surprise that was!",
+        "Could you explain how engineers turn a prototype into a real product?",
+        "Now I have a question for you, Uncle.",
+        "I felt so frustrated that I almost abandoned the whole project."
+      ],
+      "answer": "B",
+      "why": "It asks Uncle Khalid for information and ends with a question mark. “Now I have a question for you” is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "Grandmother Moves House",
+        "Second Place in Jubail",
+        "A Box Built with Love and Patience",
+        "My Uncle's Engineering Company"
+      ],
+      "answer": "C",
+      "why": "The letter tells how Noura patiently improved a pill box to help her grandmother. The fair was at school, not in Jubail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of Noura's letter?",
+      "options": [
+        "to complain about the judges' very difficult questions",
+        "to share her invention story and ask for advice",
+        "to ask her uncle to come and visit Grandmother soon",
+        "to explain to readers how to take medicines safely"
+      ],
+      "answer": "B",
+      "why": "Noura describes how she created the pill box and ends by asking how a prototype becomes a real product."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph that begins “My problem began at home”?",
+      "options": [
+        "Grandmother has to take three different medicines.",
+        "Mama worries about almost everything at home.",
+        "The science teacher announced the invention fair.",
+        "Grandmother's forgetting inspired Noura's invention."
+      ],
+      "answer": "D",
+      "why": "The paragraph explains the problem at home that led to the pill-box idea; the other options are supporting details."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why could Grandmother not hear the beeping sound?",
+      "options": [
+        "The beeping was switched off at night.",
+        "Her hearing is not as strong as it used to be.",
+        "The sitting room was too noisy.",
+        "The battery was too weak."
+      ],
+      "answer": "B",
+      "why": "Noura writes that “her hearing is not as strong as it used to be.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a news report",
+        "a poem",
+        "a friendly letter",
+        "an instruction manual"
+      ],
+      "answer": "C",
+      "why": "It has a greeting (“Dear Uncle Khalid”), personal news and a closing (“With love and respect”)."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Noura design a lid that opens only the compartment for the correct time?",
+      "options": [
+        "so Grandmother can see if today's tablets are gone",
+        "so that young children cannot open the box at all",
+        "so that the whole box costs less to manufacture",
+        "so that the light shines more brightly in the room"
+      ],
+      "answer": "A",
+      "why": "Noura writes: “That way, she can tell at a glance whether today's tablets are gone.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "Noura added a vibrating motor.",
+        "The judges asked about the batteries.",
+        "Noura divided a shoebox into compartments.",
+        "Grandmother suggested that the box should shake."
+      ],
+      "answer": "C",
+      "why": "The shoebox prototype came first; Grandmother's suggestion, the motor and the fair came later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of this letter, and who is it written to?",
+      "options": [
+        "Noura, writing to her uncle Khalid",
+        "Uncle Khalid, writing to Noura",
+        "Grandmother, writing to Mama",
+        "the science teacher, writing to the judges"
+      ],
+      "answer": "A",
+      "why": "It begins “Dear Uncle Khalid” and is signed “Your niece, Noura”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which TWO changes did Grandmother suggest?",
+      "options": [
+        "a louder beep and a bigger box",
+        "a locking lid and longer battery life",
+        "a flashing light and a phone timer",
+        "gentle shaking and different colours"
+      ],
+      "answer": "D",
+      "why": "Grandmother suggested the box should “shake gently” and that “each compartment should be a different colour”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Noura's first test to be “a complete disaster”?",
+      "options": [
+        "The light was too faint and the beep unheard.",
+        "The shoebox fell apart as soon as it was opened.",
+        "Grandmother refused to try the box at all.",
+        "The timer switched the light on at the wrong time."
+      ],
+      "answer": "A",
+      "why": "The light was too faint to see in the sunny room, and Grandmother could not hear the beep."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Noura ask her grandmother for ideas?",
+      "options": [
+        "She wanted Grandmother to build the whole box for her.",
+        "Her science teacher told her that she had to.",
+        "Her uncle advises asking the person who will use it.",
+        "The judges at the fair asked her to do so."
+      ],
+      "answer": "C",
+      "why": "She writes: “I did what you always advise: I asked the person who would actually use the invention.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Noura's feelings toward her grandmother?",
+      "options": [
+        "impatient and annoyed",
+        "caring and respectful",
+        "afraid and nervous",
+        "jealous and unhappy"
+      ],
+      "answer": "B",
+      "why": "She works for two months to help Grandmother, values her ideas and calls Grandmother's success “The most valuable prize”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the final pill box DIFFERENT from the first prototype?",
+      "options": [
+        "It used a shoebox and a very faint light.",
+        "It had no light or sound of any kind.",
+        "It simply beeped much more loudly than before.",
+        "It had a motor, a brighter light and coloured parts."
+      ],
+      "answer": "D",
+      "why": "Noura added “a small vibrating motor and a much brighter light”, coloured compartments and a special lid."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of the pill box on Mama?",
+      "options": [
+        "She began to worry even more than before.",
+        "She entered the school invention fair herself.",
+        "She bought Grandmother a brand-new phone.",
+        "She is no longer so anxious."
+      ],
+      "answer": "D",
+      "why": "Noura writes that “Mama no longer looks so anxious whenever the clock approaches medicine time.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Uncle Khalid's advice and Grandmother's suggestions have in common?",
+      "options": [
+        "Both helped Noura improve her invention.",
+        "Both were about the box's batteries.",
+        "Both came from the judges at the fair.",
+        "Both made Noura want to give up."
+      ],
+      "answer": "A",
+      "why": "Following his advice to ask the user led to Grandmother's ideas, which improved the box."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Noura mean when she writes, “The most valuable prize, however, came from Grandmother”?",
+      "options": [
+        "Grandmother gave her money as a reward.",
+        "Helping Grandmother mattered more to her than winning.",
+        "Grandmother was secretly one of the judges.",
+        "Grandmother won first place at the fair."
+      ],
+      "answer": "B",
+      "why": "The “prize” is figurative: Grandmother's success with the box meant more to Noura than the award."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Noura begin her letter by recalling her uncle's words about “a problem that somebody refuses to ignore”?",
+      "options": [
+        "to show that her uncle's advice had been wrong",
+        "to complain about her school's science teacher",
+        "to connect her uncle's advice to her own experience",
+        "to ask her uncle for money for her project"
+      ],
+      "answer": "C",
+      "why": "Her story proves his words true, which links the whole letter together."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is exclamatory?",
+      "options": [
+        "Could you explain how engineers turn a prototype into a real product?",
+        "My problem began at home.",
+        "The most valuable prize, however, came from Grandmother.",
+        "What a wonderful surprise that was!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Noura's actions was MOST important to the success of her invention?",
+      "options": [
+        "choosing a shoebox as her very first model",
+        "answering every judge's question perfectly",
+        "winning second place at the school fair",
+        "listening to the needs of the box's user"
+      ],
+      "answer": "D",
+      "why": "Grandmother's suggestions solved the problems of the first test. Noura admits she could not answer every question perfectly."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated Noura to create the pill box?",
+      "options": [
+        "a wish to help Grandmother and ease Mama's worry",
+        "a wish to become famous across the country",
+        "the chance to win money from the school",
+        "her uncle's request for a new product to sell"
+      ],
+      "answer": "A",
+      "why": "She explains that Grandmother forgets her tablets and Mama “worries constantly”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the letter as a whole?",
+      "options": [
+        "anger at the strict judges",
+        "loneliness without her uncle",
+        "fear of failing again",
+        "pride mixed with gratitude"
+      ],
+      "answer": "D",
+      "why": "Noura is proud of her invention and grateful to her uncle, Baba and Grandmother."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "what problem the pill box is meant to solve",
+        "how the timer is set for each medicine",
+        "who suggested making the box vibrate",
+        "which place Noura won at the fair"
+      ],
+      "answer": "B",
+      "why": "Noura says the light works “according to a timer” but never explains how the times are set; the other facts are clear."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A pill box reads Grandmother's mind and opens by itself.",
+        "A shoebox turns into a phone.",
+        "A small motor makes a box vibrate as a reminder.",
+        "The tablets jump into Grandmother's hand."
+      ],
+      "answer": "C",
+      "why": "Small vibrating motors are used in phones, so a vibrating reminder box is realistic."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the letter?",
+      "options": [
+        "The Lost Tablets",
+        "Failing Forward",
+        "A Trip to Jubail",
+        "Mama's Worries"
+      ],
+      "answer": "B",
+      "why": "Noura's failed tests led to a better design, which is the main lesson of her story."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Imagine you are Uncle Khalid. Write two or three sentences as a different ending: a short reply that answers Noura's question or gives her helpful advice.",
+      "model": "Dear Noura, I am so proud of you! To turn a prototype into a product, engineers first make it cheaper and stronger, then test it with many users and finally work with a factory to make it in large numbers. Keep your notebook of failed tests, because companies will want to see how carefully you improved your design.",
+      "rubric": [
+        "2 = a clear reply in Uncle Khalid's voice that sensibly answers Noura's question or gives advice linked to the letter",
+        "1 = a reply is given but it does not really answer the question or is unclear",
+        "0 = no answer, or the letter is copied"
+      ],
+      "why": "Any sensible reply that answers her question or gives fitting advice is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could Noura make her pill box even more helpful for Grandmother?",
+      "options": [
+        "Add a large, clear label for each time of day.",
+        "Make the box send a message to Mama's phone after each dose.",
+        "A and B",
+        "Remove the light and the motor."
+      ],
+      "answer": "C",
+      "why": "Both ideas support the goals in the letter (easy recognition and easing Mama's worry); removing the light and motor would undo the improvements."
+    }
+  ]
+}

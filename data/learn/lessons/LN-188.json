@@ -1,0 +1,463 @@
+{
+ "code": "LN-188",
+ "title": "Base words",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.1.4.c",
+  "L.2.4.c",
+  "L.3.4.b",
+  "L.4.4.b"
+ ],
+ "families": [
+  "prefixes",
+  "suffixes"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0020",
+  "R-0055",
+  "R-0125",
+  "R-0222"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a base word?",
+     "text": "A **base word** is a word with nothing added to it.\n\n**jump** is a base word.\n\n**jumps**, **jumped** and **jumping** are made from it."
+    },
+    {
+     "title": "Find the small word",
+     "text": "Cover the ending with your finger.\n\njump**ing** → **jump**\nplay**ed** → **play**\ncat**s** → **cat**"
+    },
+    {
+     "title": "Use it to know the word",
+     "text": "1. Find the base word.\n2. Think what the base word means.\n3. The long word means almost the same thing.\n\n**-s** can mean more than one. **-ed** means it already happened."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text can help you check.\n\n1. Find the long word.\n2. Find other sentences that show what is happening.\n3. Do they match the base word? Then you are right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The baby is crying.",
+      "role": "main"
+     },
+     {
+      "t": "Tears run down her face.",
+      "role": "key"
+     },
+     {
+      "t": "Mom picks her up.",
+      "role": "other"
+     }
+    ],
+    "explain": "Take off **-ing** and you get **cry**.\n\nTears on her face show the baby is crying, just like the base word says."
+   },
+   "together": {
+    "passage": "Sam has a new puppy. The puppy jumps on the bed. Now it is jumping on the sofa too! Up and down, up and down it goes.",
+    "stem": "Look at the base word. What is the puppy doing when it is jumping?",
+    "options": [
+     "Going up and down.",
+     "Lying very still.",
+     "Eating its food.",
+     "Sleeping on the bed."
+    ],
+    "answer": 0,
+    "hint": "Take off -ing. What does jump mean?",
+    "good": "Yes! The base word is jump. The puppy goes up and down."
+   },
+   "evidence": {
+    "sentences": [
+     "Sam has a new puppy.",
+     "The puppy jumps on the bed.",
+     "Now it is jumping on the sofa too!",
+     "Up and down, up and down it goes."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: going up and down. Tap 2 sentences that show what the puppy does.",
+    "wrong": "This sentence names the puppy or only uses the word. Find sentences that show the puppy going up and down."
+   },
+   "checks": [
+    {
+     "passage": "Nora played with her friends. They played tag in the yard.",
+     "stem": "What is the base word in played?",
+     "options": [
+      "plays",
+      "lay",
+      "play",
+      "yard"
+     ],
+     "answer": 2,
+     "why": "Cover **-ed**. The base word is **play**."
+    },
+    {
+     "passage": "The birds are singing in the tree. I can hear them from my window.",
+     "stem": "What are the birds doing?",
+     "options": [
+      "Making music with their voices.",
+      "Flying away fast.",
+      "Eating seeds.",
+      "Building a nest."
+     ],
+     "answer": 0,
+     "why": "The base word is **sing**. Singing birds make music you can **hear**."
+    },
+    {
+     "passage": "Two cats sat on the wall. The cats were sleeping in the sun.",
+     "stem": "What does cats mean?",
+     "options": [
+      "A big cat.",
+      "A cat that is sleeping.",
+      "A cat on a wall.",
+      "More than one cat."
+     ],
+     "answer": 3,
+     "why": "Base word **cat** + **-s** means more than one. The text says **two** cats."
+    }
+   ],
+   "again": {
+    "title": "Cover and say",
+    "text": "Put your finger over the ending.\n\nSay the small word that is left. That is the base word.\n\nNow say what it means.",
+    "example": "kick**ed** → cover -ed → **kick**.\n\n\"Ali kicked the ball.\" Ali hit the ball with his foot."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Base word + ending",
+     "text": "Many words are a **base word** with an ending, called a **suffix**.\n\n**help** + **ful** = **helpful**\n**slow** + **ly** = **slowly**"
+    },
+    {
+     "title": "Common endings",
+     "text": "**-er** = a person who does it (teach**er**)\n**-ful** = full of (care**ful**)\n**-less** = without (fear**less**)\n**-ly** = in that way (quiet**ly**)"
+    },
+    {
+     "title": "Work it out",
+     "text": "1. Find the base word.\n2. Find the ending.\n3. Put the meanings together.\n\n**use** + **less** = without use → **useless** means it does not work."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "After you work out the meaning, **check it in the text**.\n\n1. Find sentences that describe the person or thing.\n2. Do they match your meaning?\n3. Those sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our teacher is very careful.",
+      "role": "main"
+     },
+     {
+      "t": "She checks every answer twice.",
+      "role": "key"
+     },
+     {
+      "t": "She never rushes when she marks our work.",
+      "role": "key"
+     }
+    ],
+    "explain": "**care** + **ful** = full of care.\n\nChecking twice and never rushing prove she is full of care."
+   },
+   "together": {
+    "passage": "My big brother Khalid is very helpful. When Mom carries heavy bags, he takes them from her. He helps me with my maths homework every night. He even waters our old neighbour's plants when she is sick. Khalid is also the tallest boy in our family.",
+    "stem": "What does helpful mean?",
+    "options": [
+     "Very tall and strong.",
+     "Always ready to help others.",
+     "Full of homework.",
+     "Sick and tired."
+    ],
+    "answer": 1,
+    "hint": "Find the base word and the ending. What does -ful mean?",
+    "good": "Yes! help + ful = full of help. Khalid helps everyone."
+   },
+   "evidence": {
+    "sentences": [
+     "My big brother Khalid is very helpful.",
+     "When Mom carries heavy bags, he takes them from her.",
+     "He helps me with my maths homework every night.",
+     "He even waters our old neighbour's plants when she is sick.",
+     "Khalid is also the tallest boy in our family."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: always ready to help others. Tap 2 sentences that show Khalid helping.",
+    "wrong": "This sentence names the word or tells something else about Khalid. Find sentences that show him helping."
+   },
+   "checks": [
+    {
+     "passage": "Our teacher is a fast reader. She can read a whole book in one day.",
+     "stem": "What does reader mean?",
+     "options": [
+      "A book you read.",
+      "A person who reads.",
+      "A place for reading.",
+      "A very long story."
+     ],
+     "answer": 1,
+     "why": "**read** + **-er** = a person who reads."
+    },
+    {
+     "passage": "Fahad hurt his foot. He walked slowly to the car.",
+     "stem": "What does slowly mean?",
+     "options": [
+      "In a slow way.",
+      "Very fast.",
+      "With a hurt foot.",
+      "Without stopping."
+     ],
+     "answer": 0,
+     "why": "**slow** + **-ly** = in a slow way."
+    },
+    {
+     "passage": "The old radio is useless. It makes no sound at all, even with new batteries.",
+     "stem": "What does useless mean?",
+     "options": [
+      "Very loud.",
+      "Brand new.",
+      "Easy to carry.",
+      "Not working; of no use."
+     ],
+     "answer": 3,
+     "why": "**use** + **-less** = without use. The radio makes **no sound**."
+    }
+   ],
+   "again": {
+    "title": "Two small meanings",
+    "text": "Split the word into two parts. Give each part a meaning. Join them.",
+    "example": "**thankful** → **thank** + **ful** (full of) → full of thanks.\n\n\"Mona was thankful for her gift.\" She felt very grateful."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Parts at both ends",
+     "text": "Some long words have parts **before** and **after** the base word.\n\n**un** + **break** + **able** = **unbreakable**\n**re** + **read** = **reread**"
+    },
+    {
+     "title": "Know the parts",
+     "text": "**un-** = not\n**re-** = again\n**-able** = can be done\n**-ness** = being something (kind**ness**)\n**-ful**, **-less**, **-ly**, **-er**"
+    },
+    {
+     "title": "Build the meaning",
+     "text": "1. Find the base word in the middle.\n2. Add the meaning of the ending.\n3. Add the meaning of the beginning.\n\nunbreakable: **break** → can be broken → **not** able to be broken."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Writers often show the meaning in the next sentences.\n\n1. Build your meaning from the parts.\n2. Look for sentences that **show** that meaning in action.\n3. If they match, you have proved it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem was hopeless at drawing horses.",
+      "role": "main"
+     },
+     {
+      "t": "Every horse she drew looked like a dog.",
+      "role": "key"
+     },
+     {
+      "t": "Her little sister laughed at every picture.",
+      "role": "other"
+     }
+    ],
+    "explain": "**hope** + **less** = without hope. Reem was very bad at drawing horses.\n\nThe proof: every horse **looked like a dog**."
+   },
+   "together": {
+    "passage": "Mom bought new plates for our family picnic. \"These plates are unbreakable,\" she said proudly. To show us, she dropped one on the hard kitchen floor. It bounced twice and did not even crack. My little brother tried too, and the plate was still in one piece.",
+    "stem": "What does unbreakable mean?",
+    "options": [
+     "Very easy to break.",
+     "Made of glass.",
+     "Not able to be broken.",
+     "Bought for a picnic."
+    ],
+    "answer": 2,
+    "hint": "Split it: un + break + able. What does each part mean?",
+    "good": "Yes! un (not) + break + able (can be) = cannot be broken."
+   },
+   "evidence": {
+    "sentences": [
+     "Mom bought new plates for our family picnic.",
+     "\"These plates are unbreakable,\" she said proudly.",
+     "To show us, she dropped one on the hard kitchen floor.",
+     "It bounced twice and did not even crack.",
+     "My little brother tried too, and the plate was still in one piece."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: not able to be broken. Tap 2 sentences that show the plate did not break.",
+    "wrong": "This sentence does not show what happened to the plate. Find sentences that show it stayed whole."
+   },
+   "checks": [
+    {
+     "passage": "Majed did not understand the question at first. He reread it slowly, and then he knew the answer.",
+     "stem": "What does reread mean?",
+     "options": [
+      "Read again.",
+      "Read for the first time.",
+      "Not read.",
+      "Read very fast."
+     ],
+     "answer": 0,
+     "why": "**re-** means again. He read the question **again**."
+    },
+    {
+     "passage": "The fearless firefighter ran straight into the smoke to carry out a little cat.",
+     "stem": "What does fearless mean?",
+     "options": [
+      "Full of fear.",
+      "Very tired.",
+      "Not able to see.",
+      "Without fear; very brave."
+     ],
+     "answer": 3,
+     "why": "**fear** + **-less** = without fear. Running into smoke shows great bravery."
+    },
+    {
+     "passage": "Everyone noticed the new student's kindness. She shared her pencils, helped others find their classes and smiled at everyone.",
+     "stem": "What does kindness mean?",
+     "options": [
+      "Being lonely.",
+      "Being kind.",
+      "Being clever.",
+      "Being new."
+     ],
+     "answer": 1,
+     "why": "**kind** + **-ness** = being kind. Sharing and helping show it."
+    }
+   ],
+   "again": {
+    "title": "Peel the word",
+    "text": "Peel a long word like an orange, one part at a time.\n\n1. Peel off the **front** part.\n2. Peel off the **end** part.\n3. Look at the **base word** left in the middle.",
+    "example": "**unhelpful** → peel **un-** → peel **-ful** → **help**.\n\nhelp → full of help → **not** full of help. \"An unhelpful answer\" does not help you."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Hidden base words",
+     "text": "Sometimes the base word **changes spelling** when a part is added.\n\nhapp**y** → happ**i**ness\nmak**e** → making\nargu**e** → argument\n\nLook for the base word even if a letter has changed."
+    },
+    {
+     "title": "Many parts",
+     "text": "Long words can have several parts:\n\n**dis** + **agree** + **ment** = disagreement\n**un** + **comfort** + **able** = uncomfortable\n\n**-ment** and **-ness** turn words into nouns (things or ideas)."
+    },
+    {
+     "title": "Base word + context",
+     "text": "1. Find the base word and its meaning.\n2. Add the meanings of the other parts.\n3. Read the sentences around it.\n4. Choose the meaning that fits **both** the parts and the context."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Word parts give you a first meaning. The **context** proves it.\n\n1. Build the meaning from the base word.\n2. Find sentences that show what the word looks like in real life.\n3. Choose the answer that fits both.\n\nIf a choice matches the word parts but not the story, keep looking."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The steep path left Dana breathless.",
+      "role": "main"
+     },
+     {
+      "t": "She sat on a rock and gulped the air.",
+      "role": "key"
+     },
+     {
+      "t": "For a minute, she could not say a single word.",
+      "role": "key"
+     }
+    ],
+    "explain": "**breath** + **less** = without breath.\n\nGulping air and being unable to speak prove that Dana was **out of breath**."
+   },
+   "together": {
+    "passage": "The Al-Harbi family reached the camping area late on Thursday afternoon. Father wanted to set up the tent in the wadi, where acacia trees gave cool shade. Mother thought the high ground was safer, because rain could turn a dry wadi into a river very quickly. The children took sides, and soon everyone was talking at once. In the end, Grandmother settled the disagreement by choosing a spot halfway up the hill, close to the trees but safely above the wadi.",
+    "stem": "What does disagreement mean?",
+    "options": [
+     "A plan for a family trip.",
+     "A safe place to put a tent.",
+     "A feeling of being tired after a drive.",
+     "A situation where people have different opinions."
+    ],
+    "answer": 3,
+    "hint": "Break it into parts: dis + agree + ment. Then look at what the family was doing.",
+    "good": "Yes! dis (not) + agree + ment (a thing) = a time when people do not agree. Father and Mother wanted different places."
+   },
+   "evidence": {
+    "sentences": [
+     "The Al-Harbi family reached the camping area late on Thursday afternoon.",
+     "Father wanted to set up the tent in the wadi, where acacia trees gave cool shade.",
+     "Mother thought the high ground was safer, because rain could turn a dry wadi into a river very quickly.",
+     "The children took sides, and soon everyone was talking at once.",
+     "In the end, Grandmother settled the disagreement by choosing a spot halfway up the hill, close to the trees but safely above the wadi."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a situation where people have different opinions. Tap 2 sentences that show people disagreeing.",
+    "wrong": "This sentence tells when they arrived or how the problem ended. Find the sentences that show people wanting different things."
+   },
+   "checks": [
+    {
+     "passage": "When the results were announced, Salma's happiness showed on her face. She smiled from ear to ear and hugged her friends.",
+     "stem": "What is the base word of happiness, and what does the word mean?",
+     "options": [
+      "happen; something that occurs",
+      "happy; the feeling of being happy",
+      "hope; wishing for something",
+      "hip; a part of the body"
+     ],
+     "answer": 1,
+     "why": "The **y** in **happy** changes to **i**. Happiness is the feeling of being happy, shown by her smile."
+    },
+    {
+     "passage": "The old chair was so uncomfortable that Hassan kept moving in his seat. After ten minutes, he stood up and rubbed his back.",
+     "stem": "What does uncomfortable mean?",
+     "options": [
+      "Not pleasant to sit on; causing discomfort.",
+      "Soft and relaxing.",
+      "Very old and valuable.",
+      "Easy to carry."
+     ],
+     "answer": 0,
+     "why": "**un** + **comfort** + **able** = not able to give comfort. Moving and rubbing his back prove it."
+    },
+    {
+     "passage": "Our neighbour is very dependable. Whenever we travel, he feeds our cat and waters our plants. In five years, he has never forgotten once.",
+     "stem": "What does dependable mean?",
+     "options": [
+      "Hard to find.",
+      "Always busy.",
+      "Able to be trusted to do what he says.",
+      "Living very close by."
+     ],
+     "answer": 2,
+     "why": "**depend** + **-able** = can be depended on. He has **never forgotten once**."
+    }
+   ],
+   "again": {
+    "title": "Strip it down",
+    "text": "Write the word, then cross out one part at a time.\n\nAfter each crossing-out, say the word that is left. Stop at the smallest real word. Then build the meaning back up.",
+    "example": "**carelessness** → careless**ness** → care**less** → **care**.\n\nBuild up: care → without care → **being** without care. \"His carelessness broke the vase.\""
+   }
+  }
+ }
+}

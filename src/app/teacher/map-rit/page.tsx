@@ -32,7 +32,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/map-center?tab=results", label: "MAP" }} icon="🗺️" title="MAP Reading · RIT" subtitle={<>Students ranked by RIT, compared with the national average for their grade and season (NWEA norms) and with their class average (±{3} RIT counts as “at” the average).</>}><Link href="/teacher/map-entry" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">✏️ Enter MAP data</Link>
-          <Link href="/teacher/intervention" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link></PageHeader>
+          <Link href="/teacher/alerts?view=flags" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link></PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {v.canEdit && (
         <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} />

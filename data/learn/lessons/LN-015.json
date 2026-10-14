@@ -1,0 +1,472 @@
+{
+ "code": "LN-015",
+ "title": "Using subject vocabulary in writing",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "W.5.2.d",
+  "W.5.4"
+ ],
+ "families": [
+  "academic-vocabulary"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0047",
+  "L-0121",
+  "L-0129",
+  "L-0237",
+  "L-0244"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Topic words",
+     "text": "Every subject has its own words. Science has **roots**, **seeds** and **leaves**. Maths has **add** and **total**.\n\nThese are **topic words**."
+    },
+    {
+     "title": "Use the exact word",
+     "text": "**Weak:** The plant drinks water with its bottom parts.\n\n**Better:** The plant drinks water with its **roots**.\n\nThe topic word is shorter and clearer."
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Ask: **What is my topic?**\n2. Think of the words that topic uses.\n3. Pick the word that says it **exactly**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences tell you the **topic**.\n\n1. Read all the sentences.\n2. Find words that show the topic (plants? weather? the body?).\n3. Pick the word that belongs to **that** topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our class planted beans.",
+      "role": "other"
+     },
+     {
+      "t": "First, a small root grew down.",
+      "role": "key"
+     },
+     {
+      "t": "Then a green stem grew up.",
+      "role": "key"
+     },
+     {
+      "t": "Soon we saw two leaves.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The topic is **how a plant grows**. So the writer uses plant words: **root**, **stem**, **leaves**.\n\nThese words are exact. A reader knows just what grew."
+   },
+   "together": {
+    "passage": "The sky got dark. We heard loud thunder. Then heavy rain fell for an hour.",
+    "stem": "A student wants to name what happened. Which word fits best?",
+    "options": [
+     "party",
+     "picnic",
+     "storm",
+     "race"
+    ],
+    "answer": 2,
+    "hint": "Does that word fit dark skies and rain? Read the sentences again.",
+    "good": "Yes! Dark sky, thunder and heavy rain are all parts of a storm."
+   },
+   "evidence": {
+    "sentences": [
+     "The sky got dark.",
+     "We heard loud thunder.",
+     "Then heavy rain fell for an hour."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: storm. Tap 2 sentences that show it was a storm.",
+    "wrong": "A dark sky alone could just mean night. Find the sentences with storm sounds and storm water."
+   },
+   "checks": [
+    {
+     "passage": "My heart beats fast when I run. It pumps ____ to my whole body.",
+     "stem": "Which word fits best?",
+     "options": [
+      "blood",
+      "juice",
+      "air",
+      "sand"
+     ],
+     "answer": 0,
+     "why": "The heart pumps blood. That is the exact science word."
+    },
+    {
+     "passage": "We need to find the ____. We add 5 and 3. The answer is 8.",
+     "stem": "Which maths word fits best?",
+     "options": [
+      "story",
+      "colour",
+      "shape",
+      "total"
+     ],
+     "answer": 3,
+     "why": "When you add numbers, the answer is the total."
+    },
+    {
+     "passage": "The bird sat in its ____. It had made it from twigs and grass.",
+     "stem": "Which word fits best?",
+     "options": [
+      "box",
+      "nest",
+      "house",
+      "room"
+     ],
+     "answer": 1,
+     "why": "Birds make nests from twigs and grass. Nest is the exact word."
+    }
+   ],
+   "again": {
+    "title": "Name it!",
+    "text": "Do not say \"thing\" or \"stuff\".\n\nAsk: **What is it called in this subject?** Use that name.",
+    "example": "\"The thing on the map that shows north\" → the **compass**.\n\n\"The stuff that falls from clouds\" → **rain**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Content words",
+     "text": "When you write about a subject, use its **content words**: the special words experts use.\n\nIn a report on the moon, words like **orbit**, **crater** and **phase** show you know the topic."
+    },
+    {
+     "title": "Think of your reader",
+     "text": "Choose words that fit your **audience** and **purpose**.\n\nFor classmates: \"The moon **orbits** the Earth.\"\n\nNot: \"The moon goes round and round the big ball we live on.\" That is long and not exact."
+    },
+    {
+     "title": "Check your word",
+     "text": "1. Is it the word used in this **subject**?\n2. Is it **exact**, not general?\n3. Will my **reader** understand it?\n\nIf yes to all three, use it!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a word fits, look at the **other sentences**.\n\n1. Find the subject (space, weather, the body, history).\n2. Find the clue words around the blank.\n3. Choose the word that matches those clues **and** that subject.\n\nA word from a different subject does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A volcano is an opening in the Earth's surface.",
+      "role": "other"
+     },
+     {
+      "t": "Deep underground, rock melts into hot liquid called magma.",
+      "role": "key"
+     },
+     {
+      "t": "When the volcano erupts, the magma pours out.",
+      "role": "key"
+     },
+     {
+      "t": "Above ground, this melted rock is called lava.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer uses the exact science words **magma**, **erupts** and **lava**. Each one is the right word for this subject.\n\nA reader learns more from \"erupts\" than from \"does something big\"."
+   },
+   "together": {
+    "passage": "Plants make their own food in their leaves. They take in sunlight, water and air. The leaves use these to make sugar, which gives the plant energy. This process is called ____. A green material in the leaves helps catch the light.",
+    "stem": "A student is writing a science report. Which word should go in the blank?",
+    "options": [
+     "photosynthesis",
+     "cooking",
+     "weather",
+     "digestion"
+    ],
+    "answer": 0,
+    "hint": "Does that word belong to how plants make food? Look at the clues about sunlight and leaves.",
+    "good": "Yes! Photosynthesis is the science word for how plants use sunlight, water and air to make food."
+   },
+   "evidence": {
+    "sentences": [
+     "Plants make their own food in their leaves.",
+     "They take in sunlight, water and air.",
+     "The leaves use these to make sugar, which gives the plant energy.",
+     "This process is called ____.",
+     "A green material in the leaves helps catch the light."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: photosynthesis. Tap 2 sentences that describe how plants make food.",
+    "wrong": "That sentence is the blank itself or tells about the green material. Find the sentences that describe the food-making process."
+   },
+   "checks": [
+    {
+     "passage": "In our history report: Long ago, ____ crossed the desert with camels, carrying goods from town to town.",
+     "stem": "Which word fits best?",
+     "options": [
+      "swimmers",
+      "astronauts",
+      "traders",
+      "farmers in fields"
+     ],
+     "answer": 2,
+     "why": "People who carry goods from town to town to sell are traders."
+    },
+    {
+     "passage": "For a weather report: The ____ shows the air is 45 degrees Celsius today.",
+     "stem": "Which word fits best?",
+     "options": [
+      "ruler",
+      "thermometer",
+      "calendar",
+      "compass"
+     ],
+     "answer": 1,
+     "why": "A thermometer measures temperature. The others measure length, dates or direction."
+    },
+    {
+     "passage": "For a health poster for classmates: Wash your hands to remove ____ that can make you sick.",
+     "stem": "Which word fits best?",
+     "options": [
+      "shadows",
+      "colours",
+      "numbers",
+      "germs"
+     ],
+     "answer": 3,
+     "why": "Germs are the tiny living things that cause sickness. It is the exact health word."
+    }
+   ],
+   "again": {
+    "title": "Swap the long phrase",
+    "text": "If you write a long phrase, ask: **Is there one subject word for this?**",
+    "example": "\"The line where the sky seems to meet the land\" → **horizon**.\n\n\"An animal that eats only plants\" → **herbivore**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Help your reader",
+     "text": "Content words make writing exact, but a reader may not know them.\n\nGood writers add **details that explain** a new word right in the sentence."
+    },
+    {
+     "title": "Ways to give context",
+     "text": "1. **Definition:** A **desalination plant**, a factory that removes salt from seawater, gives the city drinking water.\n2. **Example:** **Reptiles**, such as lizards and snakes, live in the desert.\n3. **Restatement:** The camel is **nocturnal** in the summer heat; in other words, it rests in the day."
+    },
+    {
+     "title": "Where to put it",
+     "text": "Put the explaining detail **right after** the word, often between commas or after \"such as\", \"which is\" or \"in other words\".\n\nDo not explain words every reader already knows."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the best context detail, ask what a reader **needs to know**.\n\n1. Find the content word that is new.\n2. Look for the sentences that tell what it **is** or **does**.\n3. Choose the detail that matches those facts.\n\nA detail that is true but does not explain the word does **not** help."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many desert plants are succulents, which store water in thick, fleshy leaves.",
+      "role": "key"
+     },
+     {
+      "t": "This stored water helps them survive long dry periods.",
+      "role": "detail"
+     },
+     {
+      "t": "Some, like aloe, are also grown in homes.",
+      "role": "detail"
+     }
+    ],
+    "explain": "\"Succulents\" is a content word. The writer explains it at once: **which store water in thick, fleshy leaves**.\n\nNow a reader who never heard the word understands it."
+   },
+   "together": {
+    "passage": "Saudi Arabia has very little rain, and few rivers flow all year. Even so, many coastal cities get most of their drinking water from the sea. They do this with desalination. In large plants on the coast, seawater is pushed through special filters that hold back the salt. The clean water then travels through long pipes to homes and schools. This process uses a lot of energy, so engineers keep looking for cheaper ways to do it.",
+    "stem": "The writer wants to explain the word \"desalination\" for younger readers. Which detail should be added after it?",
+    "options": [
+     ", a long pipe that goes under the city",
+     ", which uses a lot of energy",
+     ", a kind of sea animal",
+     ", which means removing salt from seawater"
+    ],
+    "answer": 3,
+    "hint": "Is that what the word means, or just another fact? Read how the process works.",
+    "good": "Yes! The passage shows salt being removed from seawater, so that detail explains the word."
+   },
+   "evidence": {
+    "sentences": [
+     "Saudi Arabia has very little rain, and few rivers flow all year.",
+     "Even so, many coastal cities get most of their drinking water from the sea.",
+     "They do this with desalination.",
+     "In large plants on the coast, seawater is pushed through special filters that hold back the salt.",
+     "The clean water then travels through long pipes to homes and schools.",
+     "This process uses a lot of energy, so engineers keep looking for cheaper ways to do it."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: removing salt from seawater. Tap the 2 sentences that show seawater being turned into drinking water.",
+    "wrong": "That sentence gives background, names the process or tells the energy cost. Find the sentences about turning seawater into fresh water."
+   },
+   "checks": [
+    {
+     "passage": "Draft: Our school garden has a compost bin. Readers are younger students.",
+     "stem": "Which revision best explains the content word?",
+     "options": [
+      "Our school garden has a big compost bin in it.",
+      "Our school garden has a compost bin, where food scraps break down into rich soil.",
+      "Our school garden has a compost bin, which is green.",
+      "Our school garden has a compost bin near the gate."
+     ],
+     "answer": 1,
+     "why": "Only this detail tells what compost is: scraps turning into rich soil."
+    },
+    {
+     "passage": "Draft: The oryx is a herbivore. The writer wants readers to understand 'herbivore'.",
+     "stem": "Which revision best gives context?",
+     "options": [
+      "The oryx is a herbivore, so it eats only plants, such as grasses.",
+      "The oryx is a herbivore that lives in Arabia.",
+      "The oryx is a herbivore with long horns.",
+      "The oryx is a herbivore, and it is white."
+     ],
+     "answer": 0,
+     "why": "It explains the word by telling what a herbivore eats, with an example."
+    },
+    {
+     "passage": "Draft: The falcon has very sharp eyesight. Scientists call this 'keen vision.'",
+     "stem": "Which revision best restates the content phrase?",
+     "options": [
+      "Falcons have keen vision and fly fast.",
+      "Keen vision is something falcons have.",
+      "Falcons have keen vision; in other words, they can spot small animals from far away.",
+      "Falcons are birds with keen vision and wings."
+     ],
+     "answer": 2,
+     "why": "\"In other words\" introduces a restatement that tells what keen vision means."
+    }
+   ],
+   "again": {
+    "title": "Word + what it means",
+    "text": "When you use a hard word, add a quick **\"which means…\"** or **\"such as…\"**.",
+    "example": "\"Mammals, **such as camels and goats**, feed their babies milk.\"\n\nThe example shows the reader what mammals are."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Precise, academic words",
+     "text": "In reports and essays, choose the **most precise** word for the subject: **migrate** instead of \"move\", **erosion** instead of \"wearing away\", **population** instead of \"how many there are\".\n\nPrecise words make you sound informed and save space."
+    },
+    {
+     "title": "Audience and purpose",
+     "text": "The best word depends on **who** reads and **why**.\n\nA report for scientists can use **arid** and **precipitation** freely. A leaflet for young children may say **dry** and **rain**, or use the term and explain it."
+    },
+    {
+     "title": "Words and context together",
+     "text": "When a term is necessary but new to your reader, combine it with a clear **context detail**: a definition, an example, a contrast or a cause-and-effect clue.\n\nThe goal is writing that is **both** exact and understandable."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To judge a word choice, read the passage for **subject, audience and purpose**.\n\n1. Find who the writing is for and what it explains.\n2. Look at the facts around the word: they show what the word must mean.\n3. Choose the term that is precise **and** matches those facts.\n\nA word can sound impressive and still be wrong for the meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Each autumn, millions of birds migrate from Europe and Asia to Africa, and many pass over the Arabian Peninsula.",
+      "role": "key"
+     },
+     {
+      "t": "They fly thousands of kilometres to reach warmer areas with more food.",
+      "role": "detail"
+     },
+     {
+      "t": "Scientists track this journey with tiny devices attached to some of the birds.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Migrate** is the precise science word for a seasonal journey. The next sentence gives context (thousands of kilometres, warmer areas, more food), so even a new reader understands it."
+   },
+   "together": {
+    "passage": "Along some desert roads, tall rock pillars stand alone in the sand, shaped like mushrooms or arches. They were not carved by people. For thousands of years, strong winds have carried sand that strikes the rock. Slowly, the sand scrapes away the softer layers near the ground, while harder rock above lasts longer. Rain, though rare, also washes loose grains away. Geologists use a single word for this slow wearing away of rock by wind and water. Visitors, however, often think the shapes were built on purpose.",
+    "stem": "A student is writing a geography report for classmates. Which word should name the process in this passage?",
+    "options": [
+     "construction",
+     "erosion",
+     "evaporation",
+     "eruption"
+    ],
+    "answer": 1,
+    "hint": "Look at what is happening to the rock: is something being built, heated or worn away?",
+    "good": "Yes! Wind-blown sand and rain wearing away rock is erosion."
+   },
+   "evidence": {
+    "sentences": [
+     "Along some desert roads, tall rock pillars stand alone in the sand, shaped like mushrooms or arches.",
+     "They were not carved by people.",
+     "For thousands of years, strong winds have carried sand that strikes the rock.",
+     "Slowly, the sand scrapes away the softer layers near the ground, while harder rock above lasts longer.",
+     "Rain, though rare, also washes loose grains away.",
+     "Geologists use a single word for this slow wearing away of rock by wind and water.",
+     "Visitors, however, often think the shapes were built on purpose."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: erosion. Tap 2 sentences that show the rock being worn away.",
+    "wrong": "That sentence describes the shapes, names the scientists' word, or tells what visitors think. Find the sentences that show the wearing away."
+   },
+   "checks": [
+    {
+     "passage": "Report for Grade 6 science: Because the region gets very little rain, its climate is ____.",
+     "stem": "Which word is most precise?",
+     "options": [
+      "hot and bad",
+      "nice",
+      "kind of dry",
+      "arid"
+     ],
+     "answer": 3,
+     "why": "Arid is the exact climate word for very low rainfall."
+    },
+    {
+     "passage": "A leaflet for young children explains the term 'endangered'. Which sentence best fits this audience and purpose?",
+     "stem": "Choose the best sentence.",
+     "options": [
+      "The species' conservation status is critical due to anthropogenic factors.",
+      "Animals are cute.",
+      "An endangered animal is one with so few left that it could disappear forever.",
+      "Endangered is a word."
+     ],
+     "answer": 2,
+     "why": "It keeps the content word and explains it in simple, clear language for children."
+    },
+    {
+     "passage": "History essay: The old market town grew because it lay on a ____ that traders used to cross the peninsula.",
+     "stem": "Which word is most precise and fits the context?",
+     "options": [
+      "trade route",
+      "nice road",
+      "thing",
+      "path you walk on"
+     ],
+     "answer": 0,
+     "why": "\"Trade route\" names exactly what traders used to cross the land. The others are vague."
+    }
+   ],
+   "again": {
+    "title": "Three questions for every term",
+    "text": "1. Is this the **exact** word for my subject?\n2. Will my **reader** know it?\n3. If not, did I add a **clue** (definition, example, contrast)?",
+    "example": "\"The city's **population**, the number of people who live there, has doubled.\"\n\nExact word + quick clue = clear writing."
+   }
+  }
+ }
+}

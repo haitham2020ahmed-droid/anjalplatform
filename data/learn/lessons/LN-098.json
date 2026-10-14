@@ -1,0 +1,497 @@
+{
+ "code": "LN-098",
+ "title": "Charts and graphs",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.1.5",
+  "RI.2.5",
+  "RI.2.7",
+  "RI.3.7",
+  "RI.4.7",
+  "RI.5.7",
+  "RI.6.7"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0002",
+  "R-0007",
+  "R-0035",
+  "R-0041",
+  "R-0096",
+  "R-0191",
+  "R-0195",
+  "R-0321",
+  "R-0502",
+  "R-0685"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Charts give facts",
+     "text": "A **chart** or **graph** shows facts in a quick way.\n\nIt has a **title**. The title tells what the chart is about.\n\nIn these lessons, each chart is written out line by line."
+    },
+    {
+     "title": "Labels and numbers",
+     "text": "Each line of a chart has a **label** and a **number**.\n\nCats: **6**\n\nThe label is **Cats**. The number tells **how many**."
+    },
+    {
+     "title": "How to find a fact",
+     "text": "1. Read the **title**.\n2. Find the **label** you need.\n3. Read the **number** next to it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the chart**.\n\n1. Find the label the question asks about.\n2. Read its number.\n3. Point to that line of the chart."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Chart: Fruit we like.",
+      "role": "other"
+     },
+     {
+      "t": "Apples: 5 children.",
+      "role": "other"
+     },
+     {
+      "t": "Dates: 8 children.",
+      "role": "key"
+     },
+     {
+      "t": "Grapes: 3 children.",
+      "role": "other"
+     }
+    ],
+    "explain": "Which fruit do the most children like? Look for the **biggest number**: 8. The label is **Dates**."
+   },
+   "together": {
+    "passage": "Chart: Our class pets. Cats: 6 students. Fish: 3 students. Birds: 4 students. Rabbits: 2 students.",
+    "stem": "How many students have birds?",
+    "options": [
+     "3",
+     "4",
+     "6",
+     "2"
+    ],
+    "answer": 1,
+    "hint": "Find the label Birds. What number is next to it?",
+    "good": "Yes! The line for Birds says **4 students**."
+   },
+   "evidence": {
+    "sentences": [
+     "Chart: Our class pets.",
+     "Cats: 6 students.",
+     "Fish: 3 students.",
+     "Birds: 4 students.",
+     "Rabbits: 2 students."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: 4. Tap the line of the chart that shows it.",
+    "wrong": "This line is not about birds. Find the label Birds."
+   },
+   "checks": [
+    {
+     "passage": "Chart: Juice sold at the school fair. Orange: 20 cups. Mango: 35 cups. Lemon: 15 cups.",
+     "stem": "Which juice sold the most?",
+     "options": [
+      "Orange",
+      "Lemon",
+      "Apple",
+      "Mango"
+     ],
+     "answer": 3,
+     "why": "Mango has the biggest number: 35 cups."
+    },
+    {
+     "passage": "Graph: Hours of sun each day. Sunday: 10. Monday: 8. Tuesday: 9.",
+     "stem": "What is the graph about?",
+     "options": [
+      "hours of sun each day",
+      "how hot it was",
+      "days at school",
+      "the number of clouds"
+     ],
+     "answer": 0,
+     "why": "The **title** tells us: Hours of sun each day."
+    },
+    {
+     "passage": "Chart: Books we read this month. Sara: 5. Omar: 7. Lina: 3.",
+     "stem": "Who read the fewest books?",
+     "options": [
+      "Sara",
+      "Omar",
+      "Lina",
+      "Huda"
+     ],
+     "answer": 2,
+     "why": "Lina has the smallest number: 3 books."
+    }
+   ],
+   "again": {
+    "title": "Title, label, number",
+    "text": "Think of a chart like a shelf with boxes.\n\nThe **title** is the name of the shelf. Each **label** is a box. The **number** tells what is in the box.",
+    "example": "Chart: Toys in the box. Balls: 4. Cars: 2.\n\nHow many cars? Find the **Cars** label: **2**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Read, then compare",
+     "text": "Graphs help you **compare**.\n\nWhich is the most? Which is the least? How many more?\n\nTo find **how many more**, subtract the smaller number from the bigger one."
+    },
+    {
+     "title": "Look for a pattern",
+     "text": "A **line graph** shows how something **changes over time**.\n\nAre the numbers going **up**, going **down**, or staying the **same**? That pattern is often the main message."
+    },
+    {
+     "title": "Picture graphs have a key",
+     "text": "In a **pictograph**, one picture can stand for **more than one** thing.\n\nKey: ★ = 2 students\n★★★ = **6** students\n\nAlways read the **key** first."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what a graph shows:\n\n1. Find the numbers the question is about.\n2. Compare them or look for a pattern.\n3. If the text gives extra facts, connect them to the numbers.\n4. Point to the lines that prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Line graph: Cups of water Ali drank.",
+      "role": "other"
+     },
+     {
+      "t": "Monday: 3.",
+      "role": "other"
+     },
+     {
+      "t": "Tuesday: 5.",
+      "role": "other"
+     },
+     {
+      "t": "Wednesday: 7.",
+      "role": "other"
+     },
+     {
+      "t": "Ali drank more water each day.",
+      "role": "key"
+     }
+    ],
+    "explain": "3, then 5, then 7: the numbers go **up** each day. So the graph shows that Ali drank more water each day."
+   },
+   "together": {
+    "passage": "Mr. Fahad's class counted the birds that visited the school garden for one week. They made a bar graph of the results. Sunday: 4 birds. Monday: 6 birds. Tuesday: 12 birds. Wednesday: 5 birds. Thursday: 3 birds. On Tuesday morning, the students had put out a new water dish.",
+    "stem": "What do the graph and the text suggest?",
+    "options": [
+     "Birds did not like the new water dish.",
+     "The dish was put out on Thursday.",
+     "The most birds came on the day the dish was put out.",
+     "The dish made fewer birds come."
+    ],
+    "answer": 2,
+    "hint": "Which day has the biggest number? What else happened on that day?",
+    "good": "Yes! Tuesday had 12 birds, the most of the week, and that is the day the new water dish was put out."
+   },
+   "evidence": {
+    "sentences": [
+     "Mr. Fahad's class counted the birds that visited the school garden for one week.",
+     "They made a bar graph of the results.",
+     "Sunday: 4 birds.",
+     "Monday: 6 birds.",
+     "Tuesday: 12 birds.",
+     "Wednesday: 5 birds.",
+     "Thursday: 3 birds.",
+     "On Tuesday morning, the students had put out a new water dish."
+    ],
+    "proof": [
+     4,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: the most birds came the day the dish was put out. Tap 2 lines that prove it.",
+    "wrong": "This line does not connect to the dish. Find the day with the most birds and the line about the dish."
+   },
+   "checks": [
+    {
+     "passage": "Table: Dates sold at a market stall. Saturday: 15 kg. Sunday: 25 kg.",
+     "stem": "How many more kilograms were sold on Sunday than on Saturday?",
+     "options": [
+      "10 kg",
+      "40 kg",
+      "15 kg",
+      "25 kg"
+     ],
+     "answer": 0,
+     "why": "25 − 15 = **10 kg** more on Sunday."
+    },
+    {
+     "passage": "Line graph: Height of a bean plant. Week 1: 2 cm. Week 2: 5 cm. Week 3: 9 cm. Week 4: 14 cm.",
+     "stem": "What does the graph show?",
+     "options": [
+      "The plant stopped growing.",
+      "The plant grew the same each week.",
+      "The plant got shorter.",
+      "The plant grew more each week."
+     ],
+     "answer": 3,
+     "why": "It grew 3 cm, then 4 cm, then 5 cm. Each week it grew a little **more**."
+    },
+    {
+     "passage": "Pictograph: Favourite sport. Key: ★ = 2 students. Football: ★★★★. Swimming: ★★★.",
+     "stem": "How many students chose swimming?",
+     "options": [
+      "3",
+      "6",
+      "8",
+      "5"
+     ],
+     "answer": 1,
+     "why": "Swimming has 3 stars, and each star means 2 students: 3 × 2 = **6**."
+    }
+   ],
+   "again": {
+    "title": "Ask three questions",
+    "text": "Before you answer, ask the graph:\n\n1. **What** is it about? (title)\n2. **Which** is biggest and smallest?\n3. **How** do the numbers change?",
+    "example": "Graph: Rain each month. Jan: 8 mm. Feb: 5 mm. Mar: 2 mm.\n\nAbout: rain. Biggest: Jan. Change: the rain **goes down** each month."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Different graphs, different jobs",
+     "text": "**Bar graph**: compares amounts.\n**Line graph**: shows change over time.\n**Pie chart**: shows parts of a whole.\n**Table**: lists exact numbers.\n\nKnowing the type tells you what to look for."
+    },
+    {
+     "title": "Read the scale",
+     "text": "On a bar graph, the **scale** is the numbers on the side. It may go up by 2, 5, 10 or more.\n\nIf a bar stops **between** two numbers, estimate: halfway between 20 and 30 is about **25**."
+    },
+    {
+     "title": "Graph + text",
+     "text": "Often the text gives a rule or a fact, and the graph gives the numbers. You need **both** to answer.\n\nExample: the text says fans turn on above 32°C. The graph shows the temperatures. Now you can tell when the fans were on."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an answer from a graph:\n\n1. Name the type of graph and read its title and scale.\n2. Find every number or part you need. Some questions need **two or more**.\n3. Do any maths step by step.\n4. Point to each line you used."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Pie chart: How 40 students spend break time.",
+      "role": "key"
+     },
+     {
+      "t": "Half of the circle: playing football.",
+      "role": "key"
+     },
+     {
+      "t": "A quarter: reading in the library.",
+      "role": "other"
+     },
+     {
+      "t": "A quarter: eating and talking.",
+      "role": "other"
+     }
+    ],
+    "explain": "How many students play football? The **whole** is 40 students. **Half** of 40 is **20**. You need both lines to answer."
+   },
+   "together": {
+    "passage": "A student asked 80 classmates how they travel to school and showed the results in a pie chart. Half of the circle is labelled \"Car\". One quarter is labelled \"School bus\". The rest of the circle is split equally between \"Walk\" and \"Bicycle\". Under the chart, the student wrote that most of his classmates live too far away to walk.",
+    "stem": "How many of the classmates walk to school?",
+    "options": [
+     "10",
+     "20",
+     "40",
+     "5"
+    ],
+    "answer": 0,
+    "hint": "Car is half (40) and bus is a quarter (20). How many are left, and how is the rest split?",
+    "good": "Yes! 40 go by car and 20 by bus, so 20 are left. Split equally, that is **10** who walk and 10 who cycle."
+   },
+   "evidence": {
+    "sentences": [
+     "A student asked 80 classmates how they travel to school and showed the results in a pie chart.",
+     "Half of the circle is labelled \"Car\".",
+     "One quarter is labelled \"School bus\".",
+     "The rest of the circle is split equally between \"Walk\" and \"Bicycle\".",
+     "Under the chart, the student wrote that most of his classmates live too far away to walk."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: 10. Tap 2 lines you need to work it out.",
+    "wrong": "This line is the student's opinion, not part of the chart. Use the chart lines and the total."
+   },
+   "checks": [
+    {
+     "passage": "Bar graph: Rain in a mountain town (mm). The scale goes up by 10. January's bar stops halfway between 20 and 30.",
+     "stem": "About how much rain fell in January?",
+     "options": [
+      "20 mm",
+      "30 mm",
+      "25 mm",
+      "50 mm"
+     ],
+     "answer": 2,
+     "why": "Halfway between 20 and 30 is about **25 mm**."
+    },
+    {
+     "passage": "Table: Visitors to a science museum. 2022: 12,000. 2023: 15,000. 2024: 15,000. 2025: 21,000.",
+     "stem": "Which statement does the table support?",
+     "options": [
+      "Visitors went down every year.",
+      "The number did not change from 2023 to 2024.",
+      "The museum had the most visitors in 2022.",
+      "The number of visitors doubled every year."
+     ],
+     "answer": 1,
+     "why": "2023 and 2024 both show 15,000, so the number stayed the same."
+    },
+    {
+     "passage": "Line graph: Temperature in a greenhouse. 8 a.m.: 22°C. 11 a.m.: 30°C. 2 p.m.: 36°C. 5 p.m.: 27°C. The text says the fans turn on when it is hotter than 32°C.",
+     "stem": "At which time were the fans on?",
+     "options": [
+      "8 a.m.",
+      "11 a.m.",
+      "5 p.m.",
+      "2 p.m."
+     ],
+     "answer": 3,
+     "why": "Only 2 p.m. (36°C) is hotter than 32°C."
+    }
+   ],
+   "again": {
+    "title": "Whole, then parts",
+    "text": "For a pie chart, always find the **whole** first.\n\nThen work out each part: half = ÷2, a quarter = ÷4.",
+    "example": "Whole: 60 students.\nHalf like football: 60 ÷ 2 = **30**.\nA quarter like basketball: 60 ÷ 4 = **15**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Beyond single numbers",
+     "text": "With bigger sets of data, you **interpret**: you look at trends, totals and relationships between two sets of numbers.\n\nAsk: what story do **all** the numbers tell together?"
+    },
+    {
+     "title": "Check the claim",
+     "text": "Writers sometimes use a graph to support a claim. Test it.\n\n1. What exactly does the claim say?\n2. Do the numbers show that, or only **part** of it?\n3. Is something missing, like a total?"
+    },
+    {
+     "title": "Graphs can mislead",
+     "text": "Watch for tricks:\n\n1. A scale that does **not start at zero** makes small differences look huge.\n2. Only **part** of the data is shown.\n3. Two things change together, but one does not **cause** the other."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an interpretation:\n\n1. Find all the data the conclusion depends on.\n2. Calculate totals, differences or fractions where needed.\n3. Reject conclusions that go beyond the data or use only part of it.\n4. Point to the lines that support the conclusion."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Table: Students in two clubs.",
+      "role": "other"
+     },
+     {
+      "t": "Chess: 12 in September, 18 in June.",
+      "role": "key"
+     },
+     {
+      "t": "Drama: 20 in September, 20 in June.",
+      "role": "key"
+     },
+     {
+      "t": "Claim: \"Drama is the fastest-growing club.\"",
+      "role": "other"
+     }
+    ],
+    "explain": "Drama is the **bigger** club, but it did not grow at all. Chess grew by 6. The data does **not** support the claim."
+   },
+   "together": {
+    "passage": "A city library recorded how many printed books and e-books were borrowed each year. In 2021, readers borrowed 50,000 printed books and 10,000 e-books. In 2022, they borrowed 48,000 printed books and 18,000 e-books. In 2023, printed books fell to 45,000, while e-books rose to 27,000. In 2024, readers borrowed 44,000 printed books and 36,000 e-books. A local newspaper used these numbers to claim that people in the city were reading less.",
+    "stem": "Which conclusion is best supported by the data?",
+    "options": [
+     "Readers borrowed fewer items in total each year.",
+     "E-books will soon replace all printed books.",
+     "Printed books are no longer borrowed at all.",
+     "Total borrowing grew, so the claim is not supported."
+    ],
+    "answer": 3,
+    "hint": "Add the printed books and e-books for each year. Is the total going up or down?",
+    "good": "Yes! The totals were 60,000, 66,000, 72,000 and 80,000. Borrowing grew, so the claim is not supported."
+   },
+   "evidence": {
+    "sentences": [
+     "A city library recorded how many printed books and e-books were borrowed each year.",
+     "In 2021, readers borrowed 50,000 printed books and 10,000 e-books.",
+     "In 2022, they borrowed 48,000 printed books and 18,000 e-books.",
+     "In 2023, printed books fell to 45,000, while e-books rose to 27,000.",
+     "In 2024, readers borrowed 44,000 printed books and 36,000 e-books.",
+     "A local newspaper used these numbers to claim that people in the city were reading less."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: total borrowing grew. Tap 2 lines that show the totals going up.",
+    "wrong": "This line does not give the numbers. Find the lines with data for each year."
+   },
+   "checks": [
+    {
+     "passage": "A bar graph compares the sales of two juices. Its side scale starts at 90 instead of 0. Juice A's bar reaches 95 and Juice B's reaches 100, so B's bar looks twice as tall.",
+     "stem": "Why is this graph misleading?",
+     "options": [
+      "It uses two different colours for the bars.",
+      "The scale starts at 90, so a small gap looks big.",
+      "It compares only two juices instead of more.",
+      "It shows sales instead of the juice prices."
+     ],
+     "answer": 1,
+     "why": "B sold only about 5% more than A, but because the scale starts at 90, its bar looks twice as tall."
+    },
+    {
+     "passage": "Table: Water used by a family. Week 1: 1,400 litres. Week 2, after fixing a leaking tap: 1,050 litres.",
+     "stem": "By what fraction did the family's water use fall?",
+     "options": [
+      "one half",
+      "one third",
+      "one quarter",
+      "one tenth"
+     ],
+     "answer": 2,
+     "why": "1,400 − 1,050 = 350. 350 out of 1,400 is **one quarter**."
+    },
+    {
+     "passage": "Line graph: Members of two school clubs. Robotics: Sep 10, Dec 14, Mar 18, Jun 20. Art: Sep 22, Dec 19, Mar 17, Jun 15.",
+     "stem": "Which statement best describes the graph?",
+     "options": [
+      "Robotics grew, art shrank, and robotics passed art by March.",
+      "Both clubs grew steadily throughout the whole school year.",
+      "The art club was bigger than robotics all year long.",
+      "Robotics was the bigger club at the start of the year."
+     ],
+     "answer": 0,
+     "why": "Robotics rose from 10 to 20 while art fell from 22 to 15. In March, robotics (18) was ahead of art (17)."
+    }
+   ],
+   "again": {
+    "title": "Make a mini table",
+    "text": "When a text gives many numbers, make a **quick table** in your head or on paper.\n\nAdd a column for **totals** or **changes**. The pattern often jumps out.",
+    "example": "Year | A | B | Total\n2023 | 30 | 10 | **40**\n2024 | 25 | 25 | **50**\n\nA fell, but the total **rose**."
+   }
+  }
+ }
+}

@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { canSeeNafs } from "@/server/teacher/nafs-access";
 import { NAFS_GROUPS, nafsStudentDashboard } from "@/server/nafs/dashboard";
-import { DIFFICULTY_NAME } from "@/server/nafs/framework";
+import { DIFFICULTY_NAME, codeName } from "@/server/nafs/framework";
 import { getT } from "@/i18n/server";
 import { PrintButton } from "@/components/plans/print-button";
 import { AttemptsView, Delta, GROUP_CLS, kindName, Pc } from "@/components/nafs/dashboard-tab";
@@ -103,7 +103,7 @@ export default async function NafsStudentPage({ params, searchParams }: { params
               {d.practice.map((p) => (
                 <li key={p.id} className="py-2 text-sm">
                   <p className="font-semibold text-ink"><span className="me-1 rounded-full bg-teal-50 px-2 py-0.5 text-[11px] font-semibold text-teal-900 ring-1 ring-teal-200">{t(kindName("PRACTICE"))}</span>{p.title} <span className="text-xs font-normal text-muted">· {new Date(p.date).toLocaleDateString("en-GB", { day: "numeric", month: "short" })} · {t("{n} answers", { n: p.asked })} · <Pc v={p.pct} />{p.seconds ? ` · ${t("{n} min", { n: Math.round(p.seconds / 60) })}` : ""}</span></p>
-                  {p.targets.length > 0 && <p className="mt-1 flex flex-wrap gap-1.5 text-xs">{p.targets.map((x) => <span key={x.code} className={`rounded-full px-2 py-0.5 ring-1 ${x.mastered ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b dir="ltr">{x.short}</b> · <Pc v={x.pct} /> ({x.n}) · {t("reached")} {x.reached ? t(DIFFICULTY_NAME[x.reached]) : "—"}{x.mastered ? " ✓" : ""}</span>)}</p>}
+                  {p.targets.length > 0 && <p className="mt-1 flex flex-wrap gap-1.5 text-xs">{p.targets.map((x) => <span key={x.code} className={`rounded-full px-2 py-0.5 ring-1 ${x.mastered ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{codeName(x.code, t)}</b> · <Pc v={x.pct} /> ({x.n}) · {t("reached")} {x.reached ? t(DIFFICULTY_NAME[x.reached]) : "—"}{x.mastered ? " ✓" : ""}</span>)}</p>}
                 </li>
               ))}
             </ul>

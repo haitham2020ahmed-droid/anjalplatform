@@ -1,0 +1,485 @@
+{
+ "code": "LN-210",
+ "title": "Similes",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.5.a",
+  "L.4.5.a",
+  "L.5.5.a",
+  "L.6.5.a",
+  "L.7.5.a",
+  "L.8.5.a",
+  "RI.6.4",
+  "RI.7.4",
+  "RL.3.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0133",
+  "R-0230",
+  "R-0375",
+  "R-0389",
+  "R-0567",
+  "R-0765",
+  "R-0934",
+  "R-1061",
+  "R-1100"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a simile?",
+     "text": "A **simile** compares two different things.\n\nIt uses the word **like** or **as**.\n\n“The baby is as light as a feather.”"
+    },
+    {
+     "title": "What does it mean?",
+     "text": "Ask: **how** are the two things the same?\n\nA feather is very light. So the baby is **very light**."
+    },
+    {
+     "title": "How to read a simile",
+     "text": "1. Find **like** or **as**.\n2. Name the two things.\n3. Ask: how are they the same?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences help you.\n\n1. Find the simile.\n2. Read the sentences around it.\n3. Find a sentence that **shows** the meaning.\n\nIf no sentence shows it, it is **not** the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar ran to the bus.",
+      "role": "other"
+     },
+     {
+      "t": "He was as fast as a cheetah.",
+      "role": "main"
+     },
+     {
+      "t": "He got there first.",
+      "role": "key"
+     }
+    ],
+    "explain": "A cheetah is a very fast animal. Omar was **very fast**.\n\nHow do we know? **He got there first.**"
+   },
+   "together": {
+    "passage": "Lina's new kitten is tiny. It is as small as a cup. It fits in her hands. It sleeps in a shoebox.",
+    "stem": "“As small as a cup” means the kitten is…",
+    "options": [
+     "very loud",
+     "very small",
+     "made of glass",
+     "full of milk"
+    ],
+    "answer": 1,
+    "hint": "A cup is not loud or full here. What is a cup like? Look at the other sentences.",
+    "good": "Yes! A cup is small, and the kitten fits in Lina's hands."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina's new kitten is tiny.",
+     "It is as small as a cup.",
+     "It fits in her hands.",
+     "It sleeps in a shoebox."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: very small. Tap 2 sentences that show the kitten is small.",
+    "wrong": "This is the simile itself. Find sentences that SHOW how small the kitten is."
+   },
+   "checks": [
+    {
+     "passage": "The sun was strong today. The sand was as hot as an oven. We put on our shoes fast.",
+     "stem": "What does “as hot as an oven” mean?",
+     "options": [
+      "The sand was soft.",
+      "The sand was wet.",
+      "The sand was very hot.",
+      "We baked bread."
+     ],
+     "answer": 2,
+     "why": "An oven is very hot. We put on our shoes fast because the sand was very hot."
+    },
+    {
+     "passage": "My dad snores at night. His snore is like a big truck. I can hear it from my room.",
+     "stem": "What does the simile tell us about the snore?",
+     "options": [
+      "It is very loud.",
+      "It is very soft.",
+      "It smells bad.",
+      "It is fast."
+     ],
+     "answer": 0,
+     "why": "A big truck is loud. I can hear the snore from my room, so it is very loud."
+    },
+    {
+     "passage": "Huda's dress is white. It is as white as milk. It is very clean.",
+     "stem": "Which two things does the simile compare?",
+     "options": [
+      "Huda and milk",
+      "the dress and a cup",
+      "Huda and her dress",
+      "the dress and milk"
+     ],
+     "answer": 3,
+     "why": "“It is as white as milk.” “It” is the dress. The dress is compared to milk."
+    }
+   ],
+   "again": {
+    "title": "Look for like or as",
+    "text": "A simile is a **same-as** sentence.\n\n1. Find **like** or **as**.\n2. What is the first thing? What is the second thing?\n3. What is the **same** about them?",
+    "example": "“The bed is as soft as a cloud.”\n\nBed and cloud. What is the same? Both are **soft**. So the bed is **very soft**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Similes compare",
+     "text": "A **simile** compares two things that are different in most ways. It uses **like** or **as**.\n\nThe writer wants you to see one thing in a new way."
+    },
+    {
+     "title": "Find the shared quality",
+     "text": "“The classroom was as quiet as a library.”\n\nA library is very quiet. So the classroom was **very quiet**.\n\nA simile picks **one** quality that the two things share."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find **like** or **as**.\n2. Name the two things being compared.\n3. Ask: what quality do they share?\n4. Check the sentences around it. Do they fit your meaning?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The sentences around a simile are **clues**.\n\n1. Read the simile.\n2. Look back and forward in the passage.\n3. Find the sentences that show the same quality.\n\n🔎 If the text says the room was calm and nobody spoke, that **proves** “as quiet as a library” means very quiet."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Before the race, Faisal stood at the starting line.",
+      "role": "other"
+     },
+     {
+      "t": "His heart was beating like a drum.",
+      "role": "main"
+     },
+     {
+      "t": "He took a deep breath and waited for the whistle.",
+      "role": "key"
+     }
+    ],
+    "explain": "A drum beats loud and fast. Faisal is waiting for a race, so his heart is beating **hard and fast**.\n\nThe deep breath shows he is **nervous and excited**."
+   },
+   "together": {
+    "passage": "On the first day of the holiday, Reem's little brother woke up at six o'clock. He jumped out of bed and ran from room to room. He climbed onto the sofa, then onto the chair, then back onto the floor. He was like a bouncing ball all morning. By noon, the rest of the family was tired just watching him.",
+    "stem": "What does the simile “like a bouncing ball” tell you about Reem's brother?",
+    "options": [
+     "He was round and small.",
+     "He was full of energy and kept moving.",
+     "He liked to play football.",
+     "He fell down many times."
+    ],
+    "answer": 1,
+    "hint": "The text does not talk about his size or a football. What does a bouncing ball DO?",
+    "good": "Yes! Jumping, running and climbing all show he was full of energy, like a ball that never stops."
+   },
+   "evidence": {
+    "sentences": [
+     "On the first day of the holiday, Reem's little brother woke up at six o'clock.",
+     "He jumped out of bed and ran from room to room.",
+     "He climbed onto the sofa, then onto the chair, then back onto the floor.",
+     "He was like a bouncing ball all morning.",
+     "By noon, the rest of the family was tired just watching him."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: he was full of energy. Tap 2 sentences that prove it.",
+    "wrong": "This sentence tells WHEN he woke up, or it is the simile itself. Find sentences that show him moving or the family getting tired."
+   },
+   "checks": [
+    {
+     "passage": "The old road had not been fixed for years. Driving on it, our car shook like a leaf in the wind. Our bags fell off the seat.",
+     "stem": "What does the simile show?",
+     "options": [
+      "The car was green.",
+      "The car shook a lot.",
+      "The wind was cold.",
+      "The car drove fast."
+     ],
+     "answer": 1,
+     "why": "A leaf in the wind moves all the time. The bags falling off the seat show the car shook a lot."
+    },
+    {
+     "passage": "Grandmother's voice is as soft as silk when she reads to us at night. We close our eyes and listen.",
+     "stem": "What does “as soft as silk” mean here?",
+     "options": [
+      "Her voice is gentle and calm.",
+      "Her clothes are made of silk.",
+      "She reads very fast.",
+      "She never speaks."
+     ],
+     "answer": 0,
+     "why": "Silk is smooth and soft. We close our eyes and listen, so her voice is gentle and calm."
+    },
+    {
+     "passage": "After the long hike, Majed drank his whole water bottle in seconds. “My throat was as dry as the desert,” he said.",
+     "stem": "Why does Majed compare his throat to the desert?",
+     "options": [
+      "He was lost in the desert.",
+      "He likes sand.",
+      "He was very thirsty.",
+      "His throat was hot."
+     ],
+     "answer": 2,
+     "why": "A desert has almost no water. Drinking the whole bottle fast shows he was very thirsty."
+    }
+   ],
+   "again": {
+    "title": "Picture it",
+    "text": "Make a picture in your head.\n\n1. Picture the **second** thing (the drum, the ball, the desert).\n2. Say one word that describes it.\n3. Give that word to the **first** thing.",
+    "example": "“The baby's cheeks were as red as tomatoes.”\n\nPicture tomatoes. One word: **red**. So the cheeks were **very red**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Similes show feelings",
+     "text": "A simile does more than describe. It can show how a character **feels**.\n\n“The test paper sat on my desk like a heavy stone.” The paper is not heavy. The student **dreads** the test."
+    },
+    {
+     "title": "Same thing, different simile",
+     "text": "“The wind sang like a choir.”\n“The wind howled like a wolf.”\n\nBoth describe wind. The first feels **pleasant**; the second feels **scary**. What you compare to changes the feeling."
+    },
+    {
+     "title": "Read a simile closely",
+     "text": "1. Find the simile.\n2. List what you know about the second thing.\n3. Choose the quality that fits the story.\n4. Ask: what feeling or idea does it add?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the words **around** the simile: actions, feelings and results.\n\n1. Choose a meaning.\n2. Find two sentences in the passage that agree with it.\n3. If the passage does not agree, change your meaning.\n\nA meaning is right only when the **rest of the passage** supports it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser had practised his speech for a week.",
+      "role": "other"
+     },
+     {
+      "t": "But when he stood before the whole school, his legs felt like jelly.",
+      "role": "main"
+     },
+     {
+      "t": "His voice shook on the first line.",
+      "role": "key"
+     },
+     {
+      "t": "Then he saw his friend smile and grew calmer.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Jelly is soft and wobbly. Nasser's legs felt **weak and shaky** because he was **nervous**.\n\nHis shaking voice proves it."
+   },
+   "together": {
+    "passage": "The old fishing boat had been tied to the dock for twenty years. Its paint had peeled away, and its ropes had turned grey. Every morning, the newer boats rushed out to sea while it rocked quietly in the harbour. Hassan's grandfather still visited it each evening, wiping the salt from its wooden rail. To him, the boat was like an old friend who had shared many journeys. He told Hassan stories of storms they had survived together and of nights they had come home with nets full of fish.",
+    "stem": "What does the simile “like an old friend” suggest about the grandfather's feelings for the boat?",
+    "options": [
+     "He wants to sell it to a new owner.",
+     "He is afraid to sail it in a storm.",
+     "He thinks it is the fastest boat in the harbour.",
+     "He cares about it and treasures their memories."
+    ],
+    "answer": 3,
+    "hint": "Look at what the grandfather DOES with the boat and what he SAYS about it. Does the text show that?",
+    "good": "Yes! He visits it every evening and tells stories of their journeys. He treats it like a dear friend."
+   },
+   "evidence": {
+    "sentences": [
+     "The old fishing boat had been tied to the dock for twenty years.",
+     "Its paint had peeled away, and its ropes had turned grey.",
+     "Every morning, the newer boats rushed out to sea while it rocked quietly in the harbour.",
+     "Hassan's grandfather still visited it each evening, wiping the salt from its wooden rail.",
+     "To him, the boat was like an old friend who had shared many journeys.",
+     "He told Hassan stories of storms they had survived together and of nights they had come home with nets full of fish."
+    ],
+    "proof": [
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: he cares about the boat and treasures their memories. Tap 2 sentences that prove it.",
+    "wrong": "This sentence describes the boat or the harbour, or it is the simile itself. Find what the grandfather DOES and SAYS."
+   },
+   "checks": [
+    {
+     "passage": "The hall was packed for the final match. When the referee blew the whistle, the crowd's cheer rose like a wave crashing on the shore. People jumped to their feet and waved their flags.",
+     "stem": "What does the simile suggest about the cheer?",
+     "options": [
+      "It was quiet and slow.",
+      "It was sudden, loud and powerful.",
+      "It came from people at the beach.",
+      "It made the players wet."
+     ],
+     "answer": 1,
+     "why": "A crashing wave is sudden and strong. People jumping to their feet confirm the cheer was loud and powerful."
+    },
+    {
+     "passage": "Sara had waited all year for the science fair. When the judges called her name for first prize, she felt as light as a feather. She almost floated up to the stage.",
+     "stem": "What does the simile show about Sara?",
+     "options": [
+      "She was full of joy.",
+      "She had lost weight during the year.",
+      "She was nervous about the judges.",
+      "She walked slowly to the stage."
+     ],
+     "answer": 0,
+     "why": "Feeling light and almost floating shows great happiness after winning first prize."
+    },
+    {
+     "passage": "Waiting for the doctor, Ali watched the clock. The minutes crawled like snails across a garden path. He read the same poster on the wall five times.",
+     "stem": "What does the simile show about how Ali felt?",
+     "options": [
+      "The clock was broken.",
+      "He was interested in snails.",
+      "Time seemed to pass very slowly.",
+      "He arrived late."
+     ],
+     "answer": 2,
+     "why": "Snails move very slowly. Reading the same poster five times shows Ali was bored and time felt slow."
+    }
+   ],
+   "again": {
+    "title": "Two-question test",
+    "text": "1. **What is the second thing like?** (A snail is slow. A feather is light.)\n2. **Which of those qualities fits the story?**\n\nThe quality that fits is the meaning. Then ask what **feeling** it shows.",
+    "example": "“The empty house was as silent as a cave.”\n\nA cave is dark, silent and lonely. The story says the family has moved away. So the simile shows the house feels **empty and lonely**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Similes in every kind of text",
+     "text": "Similes appear in science articles and speeches, not only in stories. A writer might say the heart works **like a pump** to make a hard idea easy to picture.\n\nIn nonfiction, a simile usually **explains**. In fiction, it often **reveals feeling**."
+    },
+    {
+     "title": "Read beyond the obvious",
+     "text": "Many similes could mean several things. “The city lights spread like spilled honey” could suggest colour, warmth or slow movement.\n\nThe **context** decides which meaning the writer intends, and sometimes it is more than one."
+    },
+    {
+     "title": "Ask what the simile does",
+     "text": "1. State the literal meaning in plain words.\n2. Ask what the comparison **adds**: a picture, a feeling, an explanation?\n3. Check that your reading fits the purpose and tone of the whole passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong readers support an interpretation with **more than one** sentence.\n\n1. The sentence before the simile often sets it up.\n2. Later sentences often confirm it.\n3. Reject a meaning that matches the comparison word but **not** the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The inside of a cell is busy all the time.",
+      "role": "other"
+     },
+     {
+      "t": "Like workers in a large factory, its parts each have a job: some make materials, some store them and some carry them where they are needed.",
+      "role": "main"
+     },
+     {
+      "t": "If one part stops working, the whole cell can suffer.",
+      "role": "key"
+     }
+    ],
+    "explain": "The simile explains a hard science idea through something familiar. A factory has many workers with different jobs who **depend on each other**, just like the parts of a cell.\n\nThe last sentence confirms that idea."
+   },
+   "together": {
+    "passage": "Desert locusts usually live alone and cause little harm. But after heavy rains, when plants grow quickly, their numbers can rise sharply. Crowded together, the insects change colour and behaviour and begin to move as a group. A large swarm can travel more than a hundred kilometres in a day. When it lands on a farm, it moves across the fields like a fire through dry grass, leaving bare stems behind. Within hours, crops that took months to grow can be gone. For this reason, countries across Africa and Asia share information to spot swarms early.",
+    "stem": "What does the simile “like a fire through dry grass” suggest about a locust swarm?",
+    "options": [
+     "It spreads fast and destroys nearly everything.",
+     "It is hot and dangerous to touch.",
+     "It only attacks fields that are already dry.",
+     "It is bright and easy to see from far away."
+    ],
+    "answer": 0,
+    "hint": "The passage never says locusts are hot or bright. What does fire in dry grass DO, and which sentences show locusts doing the same?",
+    "good": "Yes! Like fire in dry grass, a swarm moves fast and leaves almost nothing behind."
+   },
+   "evidence": {
+    "sentences": [
+     "Desert locusts usually live alone and cause little harm.",
+     "But after heavy rains, when plants grow quickly, their numbers can rise sharply.",
+     "Crowded together, the insects change colour and behaviour and begin to move as a group.",
+     "A large swarm can travel more than a hundred kilometres in a day.",
+     "When it lands on a farm, it moves across the fields like a fire through dry grass, leaving bare stems behind.",
+     "Within hours, crops that took months to grow can be gone.",
+     "For this reason, countries across Africa and Asia share information to spot swarms early."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the swarm spreads fast and destroys nearly everything. Tap 2 sentences that show its speed and its damage.",
+    "wrong": "This sentence gives background or explains what countries do. Find the sentences about SPEED and DAMAGE."
+   },
+   "checks": [
+    {
+     "passage": "For weeks Yusuf had argued with his older brother over small things: the remote, the last piece of bread, whose turn it was to wash up. When his brother left for university, the house grew quiet. Yusuf found himself standing at his brother's door, the silence pressing on him like a heavy blanket on a hot night.",
+     "stem": "What does the simile suggest about Yusuf's feelings?",
+     "options": [
+      "He is relieved that the arguments are over.",
+      "He is cold and needs a blanket.",
+      "He finds the silence uncomfortable and misses his brother.",
+      "He wants to sleep in his brother's room."
+     ],
+     "answer": 2,
+     "why": "A heavy blanket on a hot night is uncomfortable. Standing at his brother's door shows Yusuf misses him."
+    },
+    {
+     "passage": "Our school library is like a well in the desert. In a town with no bookshop and few quiet places, it is where students find what they cannot find anywhere else. Closing it would leave many of them with nowhere to turn.",
+     "stem": "Why does the writer compare the library to a well in the desert?",
+     "options": [
+      "To show that the library is old and deep.",
+      "To show it is a vital resource people depend on.",
+      "To show it is located far outside the town.",
+      "To show that students drink water there."
+     ],
+     "answer": 1,
+     "why": "A well in the desert is rare and life-giving. The writer says students have nowhere else to turn, so the library is vital."
+    },
+    {
+     "passage": "The meeting had turned into a shouting match. Then the head of the committee spoke, and her calm words settled over the room like dust after a storm. One by one, people sat down.",
+     "stem": "What does the simile show about the effect of her words?",
+     "options": [
+      "They made the room dirty.",
+      "They were difficult to hear.",
+      "They came too late to help.",
+      "They brought quiet after noise and conflict."
+     ],
+     "answer": 3,
+     "why": "Dust settles when a storm ends. People sitting down one by one shows her words calmed the room."
+    }
+   ],
+   "again": {
+    "title": "Literal first, then effect",
+    "text": "1. Rewrite the simile **without** the comparison: what is literally happening?\n2. Ask: why not just say that? What does the comparison **add**?\n3. Find one more sentence that agrees.",
+    "example": "“The news ran through the school like water through a crack.”\n\nLiterally: many students heard the news. The comparison adds that it spread **fast**, **everywhere**, and was **hard to stop**."
+   }
+  }
+ }
+}

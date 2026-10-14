@@ -4,10 +4,12 @@ import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { listNafsTests, nafsClasses } from "@/server/nafs/tests";
 import { cleanCuts, LEVEL_MARK, LEVEL_NAME, LEVELS, MIN_ITEMS, nafsAcrossReport, nafsStudentHistory, nafsTestReport, nafsTrend, ROUNDING_RULE, type Cuts, type Level, type StudentStd, type Summary } from "@/server/nafs/reports";
-import { MOE_AREA_NAME, MOE_BY_CODE, PROCESSES } from "@/server/nafs/framework";
+import { codeName, MOE_AREA_NAME, MOE_BY_CODE, PROCESSES } from "@/server/nafs/framework";
 import { PrintButton } from "@/components/plans/print-button";
 import { listNafsPractice, nafsPracticeReport } from "@/server/nafs/practice";
 import { PracticeReportView } from "./practice-report";
+import { Combo } from "@/components/ui/combo";
+import { CodeHead } from "./code-name";
 
 const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
@@ -56,9 +58,9 @@ export async function ReportsTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: R
       </nav>
       <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3 print:hidden`}>
         <input type="hidden" name="tab" value="reports" /><input type="hidden" name="view" value={view} />
-        {view === "test" && <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Test")}<select name="test" defaultValue={testId} className={SEL}>{tests.map((x) => <option key={x.id} value={x.id}>{x.title}{x.results ? ` (${x.results})` : ""}</option>)}</select></label>}
-        <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Class")}<select name="class" defaultValue={classId} className={SEL}>{view !== "trend" && <option value="">{t("All my Grade 6 classes")}</option>}{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
-        {view === "student" && <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Student")}<select name="student" defaultValue={sp.student ?? ""} className={SEL}>{classes.filter((c) => !classId || c.id === classId).flatMap((c) => c.students.map((x) => <option key={x.id} value={x.id}>{x.name} · {c.name}</option>))}</select></label>}
+        {view === "test" && <div className="grid min-w-60 gap-1 text-sm font-semibold text-ink-2"><span>{t("Test")}</span><Combo name="test" label={t("Test")} defaultValue={testId} options={tests.map((x) => ({ value: x.id, label: x.title, hint: x.results ? t("{n} result(s)", { n: x.results }) : undefined }))} /></div>}
+        <div className="grid min-w-52 gap-1 text-sm font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" label={t("Class")} defaultValue={classId} options={[...(view !== "trend" ? [{ value: "", label: t("All my Grade 6 classes") }] : []), ...classes.map((c) => ({ value: c.id, label: c.name }))]} /></div>
+        {view === "student" && <div className="grid min-w-60 gap-1 text-sm font-semibold text-ink-2"><span>{t("Student")}</span><Combo name="student" label={t("Student")} defaultValue={sp.student ?? ""} options={classes.filter((c) => !classId || c.id === classId).flatMap((c) => c.students.map((x) => ({ value: x.id, label: x.name, group: c.name })))} /></div>}
         <fieldset className="flex items-end gap-2">
           <legend className="mb-1 text-sm font-semibold text-ink-2">{t("Cut-offs")}</legend>
           <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Mastered from")} %<input type="number" name="hi" min={1} max={100} defaultValue={cuts.hi} className={`${SEL} w-20`} /></label>
@@ -86,7 +88,7 @@ async function PracticeResults({ actor, t, practiceId }: { actor: Actor; t: TFn;
     <>
       <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3 print:hidden`}>
         <input type="hidden" name="tab" value="reports" /><input type="hidden" name="view" value="practice" />
-        <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Adaptive practice")}<select name="practice" defaultValue={id} className={SEL}>{list.map((x) => <option key={x.id} value={x.id}>{x.title} · {x.className}</option>)}</select></label>
+        <div className="grid min-w-60 gap-1 text-sm font-semibold text-ink-2"><span>{t("Adaptive practice")}</span><Combo name="practice" label={t("Adaptive practice")} defaultValue={id} options={list.map((x) => ({ value: x.id, label: x.title, hint: x.className }))} /></div>
         <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
         <PrintButton label={t("Print")} />
       </form>
@@ -117,7 +119,7 @@ function Cell({ c, t }: { c: StudentStd | undefined; t: TFn }) {
 
 /** The views shared by one test and every test together. */
 function SummaryViews({ t, sum, students, cuts }: { t: TFn; sum: Summary; students: { id: string; name: string; className: string; standards: Record<string, StudentStd> }[]; cuts: Cuts }) {
-  const name = (code: string) => MOE_BY_CODE.get(code)?.short ?? code;
+  const name = (code: string) => codeName(code, t);
   if (!sum.standards.length) return <p className={`${CARD} text-sm text-muted`}>{t("No question of these results has a Ministry standard yet: set the standard in the Question bank (the model booklets have one).")}</p>;
   return (
     <>
@@ -162,7 +164,7 @@ function SummaryViews({ t, sum, students, cuts }: { t: TFn; sum: Summary; studen
         {!students.length ? <p className="mt-3 text-sm text-muted">{t("No results yet.")}</p> : (
           <div className="mt-2 overflow-x-auto">
             <table className="w-full min-w-[40rem] border-separate border-spacing-0 text-sm">
-              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th>{sum.standards.map((x) => <th key={x.key} className="px-0.5 font-mono" dir="ltr" title={t(x.text)}>{x.short}</th>)}</tr></thead>
+              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th>{sum.standards.map((x) => <th key={x.key} className="px-0.5 align-bottom"><CodeHead code={x.key} t={t} /></th>)}</tr></thead>
               <tbody>
                 {students.map((st) => (
                   <tr key={st.id}>
@@ -196,7 +198,7 @@ function SummaryViews({ t, sum, students, cuts }: { t: TFn; sum: Summary; studen
           <h2 className="text-lg font-semibold text-ink">{t("Classes compared")}</h2>
           <div className="mt-2 overflow-x-auto">
             <table className="w-full min-w-[36rem] text-sm">
-              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Class")}</th><th>{t("Students")}</th><th>{t("Overall")}</th>{sum.standards.map((x) => <th key={x.key} className="font-mono" dir="ltr">{x.short}</th>)}</tr></thead>
+              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Class")}</th><th>{t("Students")}</th><th>{t("Overall")}</th>{sum.standards.map((x) => <th key={x.key} className="px-0.5 align-bottom"><CodeHead code={x.key} t={t} /></th>)}</tr></thead>
               <tbody className="divide-y divide-line">{sum.classCompare.map((c) => <tr key={c.classId}><td className="py-2 font-semibold text-ink">{c.name}</td><td className="text-center tabular-nums">{c.taken}</td><td className="text-center"><P v={c.pct} cuts={cuts} /></td>{sum.standards.map((x) => <td key={x.key} className="text-center"><P v={c.standards[x.key]} cuts={cuts} /></td>)}</tr>)}</tbody>
             </table>
           </div>
@@ -277,8 +279,8 @@ async function TestReport({ actor, t, testId, classId, cuts }: { actor: Actor; t
                     <tr key={x.id}>
                       <td className="py-2 font-semibold text-ink">{x.n}</td>
                       <td className="max-w-xs truncate text-ink-2" lang="en" dir="ltr" title={x.stem}>{x.kind === "WRITTEN" ? "✍ " : ""}{x.stem}</td>
-                      <td className="font-mono text-xs text-ink-2" dir="ltr">{x.standard ? MOE_BY_CODE.get(x.standard)?.short : "—"}</td>
-                      <td className="text-xs text-ink-2">{t(x.skill)} · {x.process}</td>
+                      <td className="max-w-[14rem] text-xs text-ink-2">{x.standard ? codeName(x.standard, t) : "—"}</td>
+                      <td className="text-xs text-ink-2">{t(x.skill)} · {codeName(x.process, t)}</td>
                       <td><P v={x.pct} cuts={cuts} />{x.pending ? <span className="block text-[11px] text-muted">{t("{n} to mark", { n: x.pending })}</span> : null}</td>
                       <td className={`text-center tabular-nums ${x.d !== null && x.d < 0.2 ? "font-bold text-rose-700" : "text-ink-2"}`}>{x.d === null ? "—" : x.d.toFixed(2)}</td>
                       {x.kind === "WRITTEN" ? <td colSpan={5} className="text-center text-xs text-muted">{t("Written (rubric)")}</td> : <>
@@ -346,7 +348,7 @@ async function Trend({ actor, t, classId, cuts }: { actor: Actor; t: TFn; classI
       </ol>
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[32rem] text-sm">
-          <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Test")}</th><th className="text-start">{t("Taken")}</th><th className="text-start">{t("Class average")}</th>{PROCESSES.map((p) => <th key={p} className="text-start">{p}</th>)}{stds.map((c) => <th key={c} className="font-mono" dir="ltr">{MOE_BY_CODE.get(c)?.short}</th>)}</tr></thead>
+          <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Test")}</th><th className="text-start">{t("Taken")}</th><th className="text-start">{t("Class average")}</th>{PROCESSES.map((p) => <th key={p} className="px-0.5 align-bottom"><CodeHead code={p} t={t} /></th>)}{stds.map((c) => <th key={c} className="px-0.5 align-bottom"><CodeHead code={c} t={t} /></th>)}</tr></thead>
           <tbody className="divide-y divide-line">{points.map((p) => <tr key={p.testId}><td className="py-2"><Link href={`/teacher/nafs?tab=reports&test=${p.testId}&class=${classId}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{p.title}</Link></td><td className="tabular-nums">{p.taken}</td><td><P v={p.pct} cuts={cuts} /></td>{PROCESSES.map((k) => <td key={k}><P v={p.processes[k]} cuts={cuts} /></td>)}{stds.map((c) => <td key={c} className="text-center"><P v={p.standards[c]} cuts={cuts} /></td>)}</tr>)}</tbody>
         </table>
       </div>

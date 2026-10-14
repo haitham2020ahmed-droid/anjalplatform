@@ -1,0 +1,472 @@
+{
+ "code": "LN-138",
+ "title": "Author's main claim",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.6.8",
+  "RI.7.8",
+  "RI.8.8"
+ ],
+ "families": [
+  "author-claim"
+ ],
+ "skillNames": [
+  "Author's Claim and Evidence"
+ ],
+ "statements": [
+  "R-0709",
+  "R-0886",
+  "R-1012",
+  "R-1080"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a claim?",
+     "text": "A **claim** is what the author wants you to **believe**.\n\nIt is an idea that some people might **disagree** with."
+    },
+    {
+     "title": "Claim and reasons",
+     "text": "The author gives **reasons** to support the claim.\n\n**Claim:** Kids should drink more water.\n**Reason:** Water helps your body work well."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Ask: **What does the author want me to believe?**\n2. Check: do the other sentences give **reasons** for it?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The claim is **in the text**.\n\n1. Look for words like **should**, **must**, **best**.\n2. Find the sentences that give **reasons**.\n3. The claim is the idea the reasons support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school should have a garden.",
+      "role": "main"
+     },
+     {
+      "t": "We could grow our own vegetables.",
+      "role": "detail"
+     },
+     {
+      "t": "We could learn about plants outside.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The author wants you to believe **we should have a school garden**. The other sentences are **reasons**."
+   },
+   "together": {
+    "passage": "Every child should learn to swim. Swimming keeps you safe near water. It makes your body strong. It is also great fun.",
+    "stem": "What is the author's claim?",
+    "options": [
+     "Swimming is fun.",
+     "Water is deep.",
+     "Every child should learn to swim.",
+     "Bodies need to be strong."
+    ],
+    "answer": 2,
+    "hint": "Look for the word should. What does the author want you to believe?",
+    "good": "Yes! The author wants you to believe every child should learn to swim. The other sentences are reasons."
+   },
+   "evidence": {
+    "sentences": [
+     "Every child should learn to swim.",
+     "Swimming keeps you safe near water.",
+     "It makes your body strong.",
+     "It is also great fun."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: every child should learn to swim. Tap the sentence that states the claim.",
+    "wrong": "This sentence is a reason. Find the sentence the reasons support."
+   },
+   "checks": [
+    {
+     "passage": "Cats are the best pets. They are quiet. They clean themselves. They do not need long walks.",
+     "stem": "What is the claim?",
+     "options": [
+      "Cats are quiet.",
+      "Cats are the best pets.",
+      "Cats clean themselves.",
+      "Dogs need walks."
+     ],
+     "answer": 1,
+     "why": "'Best pets' is what the author wants you to believe. The other sentences are reasons."
+    },
+    {
+     "passage": "We must stop wasting bread. Many people do not have enough food. Old bread can be used to make other dishes.",
+     "stem": "What does the author want you to believe?",
+     "options": [
+      "We must stop wasting bread.",
+      "Bread is soft.",
+      "Many people cook.",
+      "Dishes are hard to wash."
+     ],
+     "answer": 0,
+     "why": "The word must shows the claim. The other sentences give reasons."
+    },
+    {
+     "passage": "Our town needs a new library. The old one is too small. It has very few new books. Many students have nowhere to study.",
+     "stem": "Which sentence is a reason, not the claim?",
+     "options": [
+      "Our town needs a new library.",
+      "We should not build anything.",
+      "Libraries are only for adults.",
+      "The old one is too small."
+     ],
+     "answer": 3,
+     "why": "'The old one is too small' is one reason the town needs a new library."
+    }
+   ],
+   "again": {
+    "title": "Because test",
+    "text": "Put the word **because** after a sentence. If the other sentences fit after it, you found the claim.",
+    "example": "'Fruit is a good snack **because** it is sweet, healthy and easy to carry.'\n\nThe claim: **Fruit is a good snack.** The rest are reasons."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "The author's main claim",
+     "text": "In an argument, the **main claim** is the author's position: the idea the whole text tries to prove.\n\nIt is an **opinion**, not a fact, because people could disagree."
+    },
+    {
+     "title": "Where to find it",
+     "text": "The main claim is often in the **first** or **last** sentence. It may use words like *should*, *must*, *need to*, *it is time*, *the best way*."
+    },
+    {
+     "title": "Claim, reason, evidence",
+     "text": "**Claim:** what the author wants you to believe.\n**Reason:** why it is true.\n**Evidence:** facts, numbers or examples that back up the reason."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Test your answer.\n\n1. Does it state an **opinion** someone could argue with?\n2. Do **most sentences** support it?\n3. Can you point to the reasons?\n\nA fact from the text (like a number) is evidence, not the claim."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Schools should start the day with twenty minutes of exercise.",
+      "role": "main"
+     },
+     {
+      "t": "Students who move before class pay better attention afterwards.",
+      "role": "detail"
+     },
+     {
+      "t": "In one study, children who exercised in the morning did better on maths tests.",
+      "role": "detail"
+     },
+     {
+      "t": "A short, active start could help every student learn.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence is the **main claim**. Sentences 2 and 3 give **reasons and evidence**. The last sentence repeats the claim in a new way."
+   },
+   "together": {
+    "passage": "Some people think video calls are just as good as meeting in person. But when we visit someone, we notice small things a screen hides, like a tired face or a happy smile that lasts. We can share a meal, help with a task, or simply sit together. Visiting grandparents and older relatives takes more time than calling, but it builds closer bonds. Families should make in-person visits a regular habit, not something saved for holidays.",
+    "stem": "What is the author's main claim?",
+    "options": [
+     "Video calls show tired faces.",
+     "Families should visit each other in person regularly.",
+     "Grandparents like video calls.",
+     "Holidays are the best time to visit."
+    ],
+    "answer": 1,
+    "hint": "Which sentence uses 'should'? Do the other sentences give reasons for it?",
+    "good": "Yes! The author argues for regular in-person visits, and the other sentences give reasons."
+   },
+   "evidence": {
+    "sentences": [
+     "Some people think video calls are just as good as meeting in person.",
+     "But when we visit someone, we notice small things a screen hides, like a tired face or a happy smile that lasts.",
+     "We can share a meal, help with a task, or simply sit together.",
+     "Visiting grandparents and older relatives takes more time than calling, but it builds closer bonds.",
+     "Families should make in-person visits a regular habit, not something saved for holidays."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: families should visit each other in person regularly. Tap the sentence that states this claim.",
+    "wrong": "This sentence gives a reason or tells what others think. Find the sentence the whole text is trying to prove."
+   },
+   "checks": [
+    {
+     "passage": "Teenagers need more sleep than they often get. Studies show that people aged 13 to 18 need around eight to ten hours a night. Many students sleep fewer than seven. Schools should not begin before 8:30 a.m.",
+     "stem": "What is the author's main claim?",
+     "options": [
+      "People aged 13 to 18 need eight to ten hours.",
+      "Many students sleep fewer than seven hours.",
+      "Teenagers need sleep.",
+      "Schools should not start before 8:30 a.m."
+     ],
+     "answer": 3,
+     "why": "The numbers are evidence. The author wants schools to start later, which is the claim."
+    },
+    {
+     "passage": "Plastic straws are used for a few minutes but can last in the ocean for many years. Paper and metal straws work just as well. It is time for restaurants to stop handing out plastic straws.",
+     "stem": "Which sentence states the claim?",
+     "options": [
+      "It is time for restaurants to stop handing out plastic straws.",
+      "Paper and metal straws work just as well.",
+      "Plastic straws last for years.",
+      "Straws are used for a few minutes."
+     ],
+     "answer": 0,
+     "why": "'It is time' shows the author's position. The other sentences are reasons."
+    },
+    {
+     "passage": "Learning a second language opens doors. It helps people travel, make friends from other places and find better jobs. Research even suggests it can keep the brain active. Every student should begin learning another language in primary school.",
+     "stem": "Which is evidence, NOT the main claim?",
+     "options": [
+      "Every student should begin learning another language.",
+      "Primary school is the best time to start.",
+      "Research suggests it can keep the brain active.",
+      "Students should study languages."
+     ],
+     "answer": 2,
+     "why": "Research is evidence that supports the claim. It is not what the author is arguing for."
+    }
+   ],
+   "again": {
+    "title": "What is the author arguing FOR?",
+    "text": "Finish this sentence: **The author is arguing that…**\n\nThe best ending is the main claim.",
+    "example": "'Bicycles cause no pollution. They are cheap. They keep riders fit. Cities should build more bike lanes.'\n\nThe author is arguing that **cities should build more bike lanes.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Claims can hide",
+     "text": "The main claim is not always in the first sentence. Sometimes the author starts with a **story**, a **question** or the **opposite view**, and states the claim later.\n\nSometimes the claim is never stated in one sentence and you must **put it together**."
+    },
+    {
+     "title": "Claim vs. reasons",
+     "text": "A **reason** supports one part of the argument.\n\nThe **main claim** is what all the reasons support together.\n\nIf an answer is supported by only one paragraph, it is probably a reason."
+    },
+    {
+     "title": "Watch for the turn",
+     "text": "Words like **but**, **however**, **yet**, **in fact** often mark the turn from the other side's view to the author's claim."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the main claim with **several reasons** from the text.\n\n1. List the reasons the author gives.\n2. Ask what idea **all** of them support.\n3. Choose the answer that names that idea, and point to at least two reasons."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some say the old mud-brick buildings in our town centre should be torn down to make room for new shops.",
+      "role": "other"
+     },
+     {
+      "t": "However, these buildings are part of our history and attract visitors from across the country.",
+      "role": "detail"
+     },
+     {
+      "t": "Restoring them would create jobs for local builders and keep traditional skills alive.",
+      "role": "detail"
+     },
+     {
+      "t": "Our town should restore its old buildings, not destroy them.",
+      "role": "main"
+     }
+    ],
+    "explain": "The text opens with the **other side's view**. After **However**, the author gives the real claim: the old buildings should be **restored**, not removed."
+   },
+   "together": {
+    "passage": "Each spring, our class runs a small market where students sell crafts they have made. Last year, Rakan priced his woven baskets, kept a record of his costs and learned that he had spent more on materials than he earned. This year he changed his prices and made a profit. Other students learned to speak politely to customers, work in teams and solve problems when change ran out. No textbook chapter taught these skills as well as a single afternoon behind a table. Every school would benefit from giving students real business projects like this one.",
+    "stem": "Which statement best expresses the author's main claim?",
+    "options": [
+     "Rakan made a profit this year.",
+     "Schools should give students real business projects.",
+     "Students should not use textbooks.",
+     "Baskets are expensive to make."
+    ],
+    "answer": 1,
+    "hint": "The text starts with an example. What do the examples of Rakan and the other students all support?",
+    "good": "Yes! The examples show what students learn, and the last sentence states the claim they support."
+   },
+   "evidence": {
+    "sentences": [
+     "Each spring, our class runs a small market where students sell crafts they have made.",
+     "Last year, Rakan priced his woven baskets, kept a record of his costs and learned that he had spent more on materials than he earned.",
+     "This year he changed his prices and made a profit.",
+     "Other students learned to speak politely to customers, work in teams and solve problems when change ran out.",
+     "No textbook chapter taught these skills as well as a single afternoon behind a table.",
+     "Every school would benefit from giving students real business projects like this one."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: schools should give students real business projects. Tap 2 sentences where the author states a judgement rather than an example.",
+    "wrong": "This sentence is an example of what happened. Find where the author states the point the examples prove."
+   },
+   "checks": [
+    {
+     "passage": "Imagine a city where the streets are quiet, the air is clean and children can walk safely to school. This is possible. When some city centres closed their main streets to cars, shops reported more visitors, not fewer. Air pollution dropped. Our city should create car-free zones in its centre.",
+     "stem": "Why does the author begin with 'Imagine a city…'?",
+     "options": [
+      "To state the main claim directly",
+      "To give evidence with numbers",
+      "To present the other side's view",
+      "To draw readers in before stating the claim"
+     ],
+     "answer": 3,
+     "why": "The opening paints a picture to interest readers; the claim comes in the last sentence."
+    },
+    {
+     "passage": "Many people believe that talent decides who succeeds in music or sport. Yet studies of top performers show that most practised for thousands of hours. Even gifted players improved slowly without steady effort. Hard work, more than natural talent, is the key to becoming excellent.",
+     "stem": "What is the main claim?",
+     "options": [
+      "Hard work matters more than talent for becoming excellent.",
+      "Top performers practise.",
+      "Talent decides who succeeds.",
+      "Music is harder than sport."
+     ],
+     "answer": 0,
+     "why": "After 'Yet', the author argues against the talent view. The last sentence states the claim."
+    },
+    {
+     "passage": "Reading on paper and reading on a screen are not the same. Readers of printed texts often remember the order of events better. Screens tempt readers to skim and jump between links. Notifications break concentration. For serious study, students should choose printed materials when they can.",
+     "stem": "Which sentence is a reason, not the main claim?",
+     "options": [
+      "Students should choose printed materials for serious study.",
+      "Paper is the best choice for studying.",
+      "Screens tempt readers to skim and jump between links.",
+      "Printed texts should be used for study."
+     ],
+     "answer": 2,
+     "why": "Skimming on screens is one reason. The claim is that students should use print for study."
+    }
+   ],
+   "again": {
+    "title": "Claim pyramid",
+    "text": "Picture a pyramid.\n\n**Top:** the main claim.\n**Middle:** the reasons.\n**Bottom:** the evidence.\n\nEverything below holds up the top.",
+    "example": "Top: **The school day should include a reading hour.** Middle: reading builds vocabulary; it calms students. Bottom: a study of 500 students; teacher reports."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Precise claims",
+     "text": "Skilled authors make **qualified** claims: not *X is good* but *X is good when…*, or *X is better than Y for this purpose*.\n\nA precise answer includes the claim's **limits and conditions**, not just its topic."
+    },
+    {
+     "title": "Claims among counterclaims",
+     "text": "Authors often present a **counterclaim** (the opposing view), grant part of it (**concession**), then answer it (**rebuttal**).\n\nThe main claim is what remains after the rebuttal."
+    },
+    {
+     "title": "Distractors to avoid",
+     "text": "1. **Too broad:** the general topic, not the position.\n2. **Too narrow:** one reason or piece of evidence.\n3. **Counterclaim:** the view the author argues against.\n4. **Too extreme:** stronger than the author's actual claim."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Defend your answer by showing that it fits the **whole argument**, including its limits.\n\n1. Identify the counterclaim and the concession.\n2. Find where the author's position is stated or implied.\n3. Check that your answer is neither stronger nor weaker than the author's words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Supporters of national tests argue that they measure all students fairly with the same questions.",
+      "role": "other"
+     },
+     {
+      "t": "This is partly true; tests do allow comparisons across schools.",
+      "role": "detail"
+     },
+     {
+      "t": "But a single morning's exam cannot show a student's creativity, teamwork or progress over a year.",
+      "role": "detail"
+     },
+     {
+      "t": "Tests should be one part of how we judge learning, not the whole of it.",
+      "role": "main"
+     }
+    ],
+    "explain": "The author **concedes** that tests have value, then argues they should be **only one part** of judging students. The claim is qualified, not extreme."
+   },
+   "together": {
+    "passage": "Online learning was once seen as a temporary fix, something to use only when schools had to close. It is true that a screen cannot replace a teacher who notices a confused face, or the friendships formed in a classroom. Yet for some students, online courses offer what their local school cannot: advanced subjects, flexible hours for those who work or care for family, and lessons that can be replayed as often as needed. A student in a small town can now study a subject that no teacher nearby is able to offer. The question, then, is not whether online learning should replace schools, but how it can widen the choices schools provide.",
+    "stem": "Which statement best expresses the author's main claim?",
+    "options": [
+     "Online learning should replace schools entirely.",
+     "Online learning was only a temporary fix.",
+     "Online learning should be used to add options to schools, not to replace them.",
+     "Teachers notice when students are confused."
+    ],
+    "answer": 2,
+    "hint": "The author admits limits of online learning, then turns with 'Yet'. Read the final sentence closely: replace, or widen?",
+    "good": "Yes! The author rejects replacing schools but argues online learning should widen the choices they offer."
+   },
+   "evidence": {
+    "sentences": [
+     "Online learning was once seen as a temporary fix, something to use only when schools had to close.",
+     "It is true that a screen cannot replace a teacher who notices a confused face, or the friendships formed in a classroom.",
+     "Yet for some students, online courses offer what their local school cannot: advanced subjects, flexible hours for those who work or care for family, and lessons that can be replayed as often as needed.",
+     "A student in a small town can now study a subject that no teacher nearby is able to offer.",
+     "The question, then, is not whether online learning should replace schools, but how it can widen the choices schools provide."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: online learning should add options, not replace schools. Tap 2 sentences that most directly support this claim.",
+    "wrong": "This sentence gives the old view, a concession or a single example. Find the turn and the conclusion."
+   },
+   "checks": [
+    {
+     "passage": "Critics say that building more desalination plants is too costly and harms marine life with salty waste water. These concerns are serious. However, in a region with very little fresh water, there are few alternatives. Newer plants that use solar power and spread their waste carefully can reduce both cost and harm. Desalination, done responsibly, remains essential.",
+     "stem": "Which choice is too EXTREME to be the author's claim?",
+     "options": [
+      "Desalination remains essential when done responsibly.",
+      "Desalination has no costs or risks at all.",
+      "Newer plants can reduce harm.",
+      "The critics' concerns are serious."
+     ],
+     "answer": 1,
+     "why": "The author admits real costs and harms, so claiming there are none goes beyond the author's position."
+    },
+    {
+     "passage": "Some argue that zoos are cruel and should be closed. Certainly, cramped cages cause animals to suffer. But modern zoos with large habitats have helped save species such as the Arabian oryx, which was once extinct in the wild. The goal should be better zoos, not no zoos.",
+     "stem": "What is the author's main claim?",
+     "options": [
+      "Zoos should be improved rather than closed.",
+      "All zoos are cruel.",
+      "The Arabian oryx was once extinct in the wild.",
+      "Animals suffer in cramped cages."
+     ],
+     "answer": 0,
+     "why": "The author concedes problems but concludes 'better zoos, not no zoos'."
+    },
+    {
+     "passage": "Many people praise multitasking as a modern skill. Studies, however, find that switching between tasks slows people down and increases mistakes, because the brain must refocus each time. Some simple tasks, like listening to music while tidying, can be combined. For work that needs thought, doing one thing at a time produces better results.",
+     "stem": "Which statement best captures the author's qualified claim?",
+     "options": [
+      "Multitasking is a modern skill everyone needs.",
+      "Music should never be played while working.",
+      "The brain refocuses each time it switches.",
+      "For thoughtful work, single-tasking is better."
+     ],
+     "answer": 3,
+     "why": "The author allows multitasking for simple tasks but argues single-tasking is better for thinking work."
+    }
+   ],
+   "again": {
+    "title": "Say it with 'but'",
+    "text": "Many claims have the shape **'Not X, but Y.'**\n\nFind the X the author rejects and the Y the author supports.",
+    "example": "'The answer is not banning phones in school, but teaching students when to use them.'\n\nX (rejected): **banning phones.** Y (claim): **teach students when to use them.**"
+   }
+  }
+ }
+}

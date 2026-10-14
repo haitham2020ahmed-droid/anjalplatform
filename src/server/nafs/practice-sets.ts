@@ -29,9 +29,9 @@ export interface PracticeRead { valid: Booklet[]; invalid: { file: string; probl
 let dirOverride: string | null = null;
 let packDirHint: string | null = null;
 /** Tests: point the loader at a folder of small fixture sets (null = the default). */
-export function usePracticeDir(dir: string | null): void { dirOverride = dir; parsed = null; }
+export function usePracticeDir(dir: string | null): void { dirOverride = dir; parsed = null; sigMemo = null; complete.clear(); }
 /** load-packs: when the packs read from another folder (tests), the sets are its "nafs-practice" sub-folder. */
-export function practicePackDir(dir: string | null): void { packDirHint = dir; parsed = null; }
+export function practicePackDir(dir: string | null): void { packDirHint = dir; parsed = null; sigMemo = null; complete.clear(); }
 export const practiceDir = () => dirOverride ?? (packDirHint ? join(packDirHint, "nafs-practice") : join(process.cwd(), "data", "nafs", "practice"));
 
 export function practiceFiles(dir = practiceDir()): string[] {
@@ -139,14 +139,24 @@ export async function practiceCount(repo: Repo, schoolId: string, dir = practice
 }
 
 const running = new Map<string, Promise<PracticeLoad | null>>();
+/** Schools whose center already holds every set of the folder's signature (200 sets: no count on each visit). */
+const complete = new Map<string, string>();
+let sigMemo: { at: number; dir: string; sig: string | null } | null = null;
+function practiceSignatureCached(now = Date.now()): string | null {
+  const dir = practiceDir();
+  if (sigMemo && sigMemo.dir === dir && now - sigMemo.at < 2_000) return sigMemo.sig;
+  sigMemo = { at: now, dir, sig: practiceSignature(dir) };
+  return sigMemo.sig;
+}
 /** When the NAFS icon opens and the school's center lacks practice-set questions: loads them IN THE BACKGROUND. */
 export function ensureNafsPracticeSets(repo: Repo, schoolId: string, byUserId: string | null): Promise<PracticeLoad | null> {
   const busy = running.get(schoolId);
   if (busy) return busy;
   const p = (async () => {
-    if (!practiceSignature()) return null;
+    const sig = practiceSignatureCached();
+    if (!sig || complete.get(schoolId) === sig) return null;
     const c = await practiceCount(repo, schoolId);
-    if (!c.questions || c.inBank >= c.questions) return null;
+    if (!c.questions || c.inBank >= c.questions) { complete.set(schoolId, sig); return null; }
     return loadNafsPracticeSets(repo, schoolId, byUserId);
   })().catch((e) => { console.error("nafs practice sets", e); return null; }).finally(() => running.delete(schoolId));
   running.set(schoolId, p);

@@ -1,0 +1,568 @@
+{
+  "code": "NB-042",
+  "title": "Clay Remembers Every Hurry",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 468,
+  "passage": "Every summer, Hamad spent his holidays in Al-Ahsa with his grandfather, Abu Saleh, whose modest pottery workshop stood in the shadow of Jabal Al-Qarah. The mountain's narrow, cool caves offered welcome protection from the burning sun, and for generations the men of the family had shaped clay there into jars, bowls and incense burners. Hamad loved the earthy fragrance of the workshop and the steady hum of the wheel, which his grandfather turned with his foot while his hands rose and fell like the patient waves of the Gulf.\n\nThis year, Hamad had an ambitious plan, because his teacher had invited every student to contribute a handmade object to an exhibition called \"Crafts of Our Land,\" which would open in just six days. \"I'm going to make a water jar, Grandfather,\" Hamad announced confidently on his first morning, \"exactly like the ones you sell in the market.\"\n\nAbu Saleh smiled and placed a lump of damp clay in front of him. \"Then begin by listening to the clay,\" he advised. \"It will tell you when it is ready, but it will never be hurried.\"\n\nFor three days, Hamad worked with fierce concentration. Although his first attempts collapsed into shapeless heaps, gradually his fingers learned to raise the walls evenly. At last an elegant jar stood on the board, and Hamad gazed at it with tremendous pride. \"Now it must dry slowly in the shade for at least a week,\" his grandfather explained, \"otherwise it will crack in the kiln.\"\n\nA week! With the exhibition only three days away, that seemed impossibly long. That afternoon, while Abu Saleh was resting, Hamad carried the jar outside and set it in the blazing sunlight, convinced that he had discovered an ingenious solution. By sunset, however, a thin, jagged crack ran down its side like a bolt of lightning, and Hamad's heart sank.\n\nHe expected his grandfather to be furious, but Abu Saleh simply examined the jar and sighed gently. \"The outside dried rapidly while the inside remained wet,\" he said, \"so the clay pulled against itself. Clay remembers every hurry, Hamad.\"\n\nHamad swallowed his disappointment and began a new jar, although he knew it could never be ready in time. Therefore, he did not bring a perfect jar to the exhibition. Instead, he displayed the cracked one, together with a card that explained precisely why it had failed and how pottery should be dried. Curious visitors gathered around it, asking questions, and his teacher praised the honesty of his display.\n\nTwo weeks later, his second jar emerged whole from the kiln. When Abu Saleh filled it, tiny drops seeped through the clay and evaporated, keeping the water deliciously cool. Hamad took a long sip and smiled, realising that the most valuable things are often the ones we have to wait for.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “ingenious” as it is used in paragraph 5?",
+      "options": [
+        "foolish",
+        "clever",
+        "careful",
+        "ordinary"
+      ],
+      "answer": "B",
+      "why": "Hamad believed he had found a clever, inventive solution; “foolish” describes how the plan turned out, not what the word means."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “rapidly” as it is used in paragraph 6?",
+      "options": [
+        "quickly",
+        "suddenly",
+        "evenly",
+        "slowly"
+      ],
+      "answer": "D",
+      "why": "“Rapidly” means quickly, so its opposite is “slowly”, which is exactly how the jar should have dried."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 1: “whose modest pottery workshop stood in the shadow of Jabal Al-Qarah”. What does “modest” mean here?",
+      "options": [
+        "small and simple",
+        "proud and boastful",
+        "old and broken",
+        "famous and crowded"
+      ],
+      "answer": "A",
+      "why": "Here “modest” describes the workshop: small and simple, not grand."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a VERB?",
+      "options": [
+        "concentration",
+        "shapeless",
+        "gazed",
+        "elegant"
+      ],
+      "answer": "C",
+      "why": "“Gazed” is an action; “concentration” is a noun, and “shapeless” and “elegant” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these plural nouns from the story is IRREGULAR?",
+      "options": [
+        "jars",
+        "men",
+        "burners",
+        "generations"
+      ],
+      "answer": "B",
+      "why": "“Men” is the irregular plural of “man”; the others add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “disappointment” in paragraph 7?",
+      "options": [
+        "appointment",
+        "disappear",
+        "disappointed",
+        "pointed"
+      ],
+      "answer": "C",
+      "why": "“Disappointed” and “disappointment” both come from the verb “disappoint”. “Appointment” and “disappear” only share some letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “ambitious” in a meaningful sentence of your own.",
+      "model": "My cousin has an ambitious goal: she wants to read one hundred books before the end of the school year.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “ambitious” with its meaning (aiming to achieve something big or difficult)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Ambitious” describes a plan or person aiming for something difficult or impressive."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “shelf”?",
+      "options": [
+        "shelfs",
+        "shelves",
+        "shelfes",
+        "shelvs"
+      ],
+      "answer": "B",
+      "why": "Many nouns ending in -f change to -ves in the plural: shelf → shelves (like leaf → leaves)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is EXCLAMATORY?",
+      "options": [
+        "A week!",
+        "Clay remembers every hurry, Hamad.",
+        "Then begin by listening to the clay.",
+        "Two weeks later, his second jar emerged whole from the kiln."
+      ],
+      "answer": "A",
+      "why": "“A week!” expresses Hamad's shock and ends with an exclamation mark; the second is a statement and the third a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Busy Market of Al-Ahsa",
+        "A Lesson Learned from a Cracked Jar",
+        "How to Build a Kiln",
+        "Hamad's Teacher Goes on Holiday"
+      ],
+      "answer": "B",
+      "why": "The story is about the lesson Hamad learns when his hurried jar cracks."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how to sell pottery in the market",
+        "to describe the geography of Jabal Al-Qarah",
+        "to show how a boy learns the value of patience",
+        "to persuade readers to visit an exhibition"
+      ],
+      "answer": "C",
+      "why": "The story follows Hamad from impatience to understanding that valuable things take time."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 5?",
+      "options": [
+        "Hamad's attempt to rush the drying makes the jar crack.",
+        "Abu Saleh rests in the cool cave every afternoon.",
+        "A storm with lightning damages the workshop at sunset.",
+        "The exhibition is postponed for another week."
+      ],
+      "answer": "A",
+      "why": "In paragraph 5 Hamad puts the jar in the sun to dry it quickly, and by sunset it has cracked."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Hamad want to make a jar quickly?",
+      "options": [
+        "His grandfather needed jars to sell.",
+        "The exhibition would open in just six days.",
+        "The clay was about to run out.",
+        "He was going home the next day."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2: his teacher's exhibition “would open in just six days.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a narrative story",
+        "a set of instructions",
+        "an informational report",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It has characters, a setting, a problem and a resolution, with dialogue."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to Abu Saleh, why did the jar crack?",
+      "options": [
+        "Hamad dropped it on the hard floor of the cave.",
+        "The kiln was much too hot for such thin walls.",
+        "The clay had been stored for too many years.",
+        "The outside dried quickly while the inside stayed wet."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6: “The outside dried rapidly while the inside remained wet, so the clay pulled against itself.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Hamad's first attempts collapsed.",
+        "Hamad put the jar in the sunlight.",
+        "Hamad displayed the cracked jar at the exhibition.",
+        "Hamad's second jar came out of the kiln whole."
+      ],
+      "answer": "D",
+      "why": "The second jar emerged “two weeks later”, after the exhibition."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells the story?",
+      "options": [
+        "Hamad himself, using “I”",
+        "a narrator outside the story, using “he”",
+        "Abu Saleh",
+        "Hamad's teacher"
+      ],
+      "answer": "B",
+      "why": "The narrator refers to Hamad as “he” and is not a character in the story, so it is a third-person narrator."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 7, what did Hamad bring to the exhibition?",
+      "options": [
+        "a perfect water jar",
+        "a bowl made by his grandfather",
+        "the cracked jar with an explanation card",
+        "photographs of the workshop"
+      ],
+      "answer": "C",
+      "why": "He “displayed the cracked one, together with a card that explained precisely why it had failed.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Hamad put the jar in the blazing sunlight?",
+      "options": [
+        "He wanted it to dry quickly before the exhibition.",
+        "His grandfather had told him to do so.",
+        "He wanted the sun to change its colour.",
+        "The workshop was too crowded with jars."
+      ],
+      "answer": "A",
+      "why": "A week seemed “impossibly long” with the exhibition three days away, so he tried to dry it faster."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Hamad most likely feel when he saw the crack at sunset?",
+      "options": [
+        "relieved",
+        "disappointed",
+        "amused",
+        "bored"
+      ],
+      "answer": "B",
+      "why": "“Hamad's heart sank”, and later he “swallowed his disappointment”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Hamad decide to display the cracked jar?",
+      "options": [
+        "He hoped nobody would notice the crack.",
+        "He wanted to blame his grandfather for it.",
+        "He no longer cared about the exhibition.",
+        "He turned his mistake into a lesson for others."
+      ],
+      "answer": "D",
+      "why": "His card explained “why it had failed and how pottery should be dried”, sharing what he learned."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the drying of Hamad's two jars DIFFERENT?",
+      "options": [
+        "The first was dried in a cave; the second in the hot kiln.",
+        "Both were dried in the sun, but on different days.",
+        "The first was rushed in the sun; the second dried slowly.",
+        "The first dried for a week; the second for one afternoon."
+      ],
+      "answer": "C",
+      "why": "The first was set in “blazing sunlight”; the second took two weeks, following his grandfather's advice, and survived the kiln."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of tiny drops seeping through the clay of the second jar?",
+      "options": [
+        "The jar cracked again in the kiln.",
+        "The water kept deliciously cool.",
+        "The water slowly turned muddy.",
+        "The jar became too heavy to lift."
+      ],
+      "answer": "B",
+      "why": "Paragraph 8: the drops “evaporated, keeping the water deliciously cool.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Abu Saleh's words in paragraph 3 and paragraph 6 have in common?",
+      "options": [
+        "Both warn that clay cannot be rushed.",
+        "Both praise Hamad's first jar.",
+        "Both describe the market.",
+        "Both are angry."
+      ],
+      "answer": "A",
+      "why": "“It will never be hurried” and “Clay remembers every hurry” express the same idea."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Abu Saleh mean when he says “Clay remembers every hurry”?",
+      "options": [
+        "Clay has a real memory, just like a person.",
+        "Clay should always be shaped as quickly as possible.",
+        "Rushing the work leaves damage that shows later.",
+        "Hamad should remember to hurry next time."
+      ],
+      "answer": "C",
+      "why": "The clay is personified: any shortcut taken while working it shows up later as damage, like the crack."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which phrase from the story is a SIMILE?",
+      "options": [
+        "the earthy fragrance of the workshop",
+        "his second jar emerged whole",
+        "the steady hum of the wheel",
+        "like a bolt of lightning"
+      ],
+      "answer": "D",
+      "why": "It compares the crack to lightning using “like”."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare Abu Saleh's hands to “the patient waves of the Gulf”?",
+      "options": [
+        "to show that his hands were wet",
+        "to show that the workshop was near the sea",
+        "to suggest that he works steadily and calmly",
+        "to show that he was tired"
+      ],
+      "answer": "C",
+      "why": "Waves rise and fall in a steady, unhurried rhythm, matching the patience Abu Saleh teaches."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was Hamad's BEST decision in the story?",
+      "options": [
+        "putting the jar in the sunlight to save time",
+        "deciding to make a water jar in only six days",
+        "hiding the cracked jar from his grandfather",
+        "displaying the cracked jar with an honest card"
+      ],
+      "answer": "D",
+      "why": "His honest display taught others and earned his teacher's praise; it turned a failure into something useful."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Grandfathers always know more than teachers.",
+        "School exhibitions are too stressful for students.",
+        "The most valuable things are often worth waiting for.",
+        "Pottery is an easy craft that anyone can master."
+      ],
+      "answer": "C",
+      "why": "The last sentence states that “the most valuable things are often the ones we have to wait for.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Abu Saleh's reaction to the cracked jar?",
+      "options": [
+        "furious and impatient",
+        "calm and understanding",
+        "surprised and frightened",
+        "proud and boastful"
+      ],
+      "answer": "B",
+      "why": "He “simply examined the jar and sighed gently” and explained what went wrong instead of being angry."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "where Abu Saleh's workshop is",
+        "why the jar cracked",
+        "how Hamad's classmates reacted to his display",
+        "what Hamad decided to make"
+      ],
+      "answer": "C",
+      "why": "The story mentions visitors and his teacher, but not his classmates; the other details are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A clay jar speaks aloud to warn the young potter.",
+        "A cracked jar repairs itself completely overnight.",
+        "A bolt of lightning turns the clay into gold.",
+        "A clay jar cracks because it dried too fast in the sun."
+      ],
+      "answer": "D",
+      "why": "Uneven drying really does crack clay; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Jar That Couldn't Wait",
+        "A Holiday by the Sea",
+        "The Fastest Potter in Al-Ahsa",
+        "Lost in the Caves"
+      ],
+      "answer": "A",
+      "why": "The story is about a jar whose drying was rushed, and the lesson that followed."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which Hamad finds another way to solve his problem.",
+      "model": "Instead of rushing, Hamad asked his teacher whether he could bring the jar after it had been fired. His teacher agreed, so Hamad displayed photographs of each stage of his work at the exhibition, and the finished jar joined the display two weeks later.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and solves Hamad's problem in a believable way",
+        "1 = an ending is given but it is unclear or does not fit the story well",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the characters and solves Hamad's problem believably is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, what could Hamad do next time to avoid the same problem?",
+      "options": [
+        "Put the wet jar straight into the hot kiln.",
+        "Leave the jar in the sun for even longer.",
+        "Start early so the clay has time to dry.",
+        "None of the above"
+      ],
+      "answer": "C",
+      "why": "Starting early would allow the week of slow drying that Abu Saleh said was needed."
+    }
+  ]
+}

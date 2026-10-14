@@ -15,6 +15,7 @@
  *   LESSON         short lessons the teacher sent (LessonRun, source TEACHER)
  *   PLAN           study plans from the Curriculum Map (their places live in the plan, not as single rows)
  *   SURVEY         the Reading Strategy Survey the teacher opened for the class
+ *   LEARN          Learn lessons and curriculum words the teacher assigned (LearnAssignee, one read)
  *
  * Each row has its title, its kind, its due / close date, Start / Continue opening the same player as its own icon
  * (which keeps it too), and Done when finished. Each row is listed ONCE (tests are not skill rows: their sets are kept
@@ -35,6 +36,7 @@ import { myTasks } from "../teacher/writing";
 import { studentRespondWork, type StudentRespondTask } from "../curriculum-map/respond-assign";
 import { STUDY_PLAN_KINDS } from "../curriculum-map/plans";
 import { myStrategySurvey, OPEN_KEY, surveyTerm } from "../surveys/strategy";
+import { hiddenWorkKeys, withoutCancelled } from "./cancelled-work";
 
 export { WORK_KIND_LABEL as KIND_LABEL, WORK_KINDS } from "../../lib/work-kinds";
 
@@ -191,6 +193,26 @@ async function lessonRows(repo: Repo, sid: string): Promise<MyWorkItem[]> {
   return runs.map((r) => row("LESSON", s(r.id), `Lesson — ${s(skills.find((k) => k.id === r.skillId)?.name) || "Skill"}`, r.finishedAt ? "Done" : Number(r.attempts ?? 0) > 0 || s(r.phase) !== "MODEL" ? "In progress" : "Not started", `/student/lesson?skillId=${encodeURIComponent(s(r.skillId))}`));
 }
 
+/**
+ * Learn lessons and curriculum words the teacher assigned me (LearnAssignee: ONE read, title / due date kept on the
+ * row). The same lesson or selection given twice is one row (the latest due date).
+ */
+async function learnRows(repo: Repo, sid: string, now: Date): Promise<MyWorkItem[]> {
+  const rows = await repo.findMany("LearnAssignee", { studentId: sid }, { select: ["kind", "ref", "title", "dueAt", "status", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
+  const seen = new Set<string>();
+  const out: MyWorkItem[] = [];
+  for (const r of rows) {
+    const k = `${s(r.kind)}:${s(r.ref)}`;
+    if (seen.has(k)) continue;
+    seen.add(k);
+    const due = iso(r.dueAt);
+    const words = s(r.kind) === "WORDS";
+    const href = words ? `/student/words?sel=${encodeURIComponent(s(r.ref))}` : `/student/learn/${encodeURIComponent(s(r.ref))}`;
+    out.push(row("LEARN", k, `${words ? "Words" : "Learn"} — ${hideLevels(s(r.title))}`, statusOf(s(r.status) === "DONE" ? "COMPLETED" : r.status), href, { dueAt: due, overdue: late(due, now) }));
+  }
+  return out;
+}
+
 /** The Reading Strategy Survey, when the teacher opened it for my class this term (Done once I took it). */
 async function surveyRows(repo: Repo, actor: Actor, classIds: string[], now: Date): Promise<MyWorkItem[]> {
   const set = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: OPEN_KEY }, { select: ["value"], take: 1 }))[0];
@@ -224,6 +246,7 @@ export async function extraWorkItems(repo: Repo, actor: Actor, now = new Date(),
     safeIfBehind("work.lessons", () => lessonRows(repo, sid), none),
     safeIfBehind("work.plans", () => planRows(repo, classIds, mine), none),
     safeIfBehind("work.survey", () => surveyRows(repo, actor, classIds, now), none),
+    safeIfBehind("work.learn", () => learnRows(repo, sid, now), none),
   ]);
   return lists.flat();
 }
@@ -235,9 +258,13 @@ export function sortWork<T extends Pick<MyWorkItem, "status" | "overdue" | "dueA
   return [...rows].sort((a, b) => rank(a) - rank(b) || (a.dueAt ?? "9").localeCompare(b.dueAt ?? "9"));
 }
 
-/** Everything in My Work: the skill / question-set rows and every other assigned thing, each once, in My Work order. */
+/**
+ * Everything in My Work: the skill / question-set rows and every other assigned thing, each once, in My Work order.
+ * Work the teacher cancelled (for everyone or for me — "Assigned") is left out; its answers are kept.
+ */
 export async function allWorkItems(repo: Repo, actor: Actor, now = new Date(), pre: Prefetched = {}): Promise<MyWorkItem[]> {
-  const [skills, extra] = await Promise.all([myWorkItems(repo, actor, now), extraWorkItems(repo, actor, now, pre)]);
+  const [skills, extra, hidden] = await Promise.all([myWorkItems(repo, actor, now), extraWorkItems(repo, actor, now, pre),
+    actor.studentId ? hiddenWorkKeys(repo, actor.studentId, actor.schoolId) : Promise.resolve(new Set<string>())]);
   const seen = new Set<string>();
-  return sortWork([...skills, ...extra].filter((r) => (seen.has(r.assignmentId) ? false : (seen.add(r.assignmentId), true))));
+  return sortWork(withoutCancelled([...skills, ...extra], hidden).filter((r) => (seen.has(r.assignmentId) ? false : (seen.add(r.assignmentId), true))));
 }

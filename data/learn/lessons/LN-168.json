@@ -1,0 +1,475 @@
+{
+ "code": "LN-168",
+ "title": "Dialogue in stories",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.3",
+  "RL.4.3",
+  "RL.5.5",
+  "RL.6.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "character"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0159",
+  "R-0267",
+  "R-0461",
+  "R-0660",
+  "R-0863",
+  "R-1003",
+  "R-1077"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is dialogue?",
+     "text": "**Dialogue** is what characters **say** to each other.\n\nThe words they say go inside **quotation marks**: \"Hello!\""
+    },
+    {
+     "title": "Words show feelings",
+     "text": "What a character says tells us how they **feel**.\n\n\"Yay! We won!\" = **happy**\n\"Leave me alone!\" = **angry**"
+    },
+    {
+     "title": "How they say it",
+     "text": "Look at the words after the quote: **shouted**, **whispered**, **cried**, **laughed**.\n\nThey show **how** the character feels."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the words inside **quotation marks**.\n2. Find words like **shouted** or **whispered**.\n3. Ask: what do they tell me about the character?\n\nTap those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dana looked at her drawing.",
+      "role": "other"
+     },
+     {
+      "t": "\"I love it!\" she shouted.",
+      "role": "key"
+     },
+     {
+      "t": "\"It is the best one I have made!\"",
+      "role": "key"
+     }
+    ],
+    "explain": "Dana says **\"I love it!\"** and **shouts**.\n\nHer words show that she is **proud and happy**."
+   },
+   "together": {
+    "passage": "The lights went out. \"What was that noise?\" Fahad whispered. \"I don't like the dark,\" he said. Mom lit a candle.",
+    "stem": "How does Fahad feel?",
+    "options": [
+     "Happy",
+     "Sleepy",
+     "Scared",
+     "Angry"
+    ],
+    "answer": 2,
+    "hint": "Read what Fahad says and how he says it.",
+    "good": "Yes! Fahad whispers, \"What was that noise? I don't like the dark.\" He is scared."
+   },
+   "evidence": {
+    "sentences": [
+     "The lights went out.",
+     "\"What was that noise?\" Fahad whispered.",
+     "\"I don't like the dark,\" he said.",
+     "Mom lit a candle."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Fahad is scared. Tap 2 sentences where Fahad speaks.",
+    "wrong": "This sentence does not have Fahad's words. Find what Fahad says."
+   },
+   "checks": [
+    {
+     "passage": "\"Thank you for the gift!\" said Lulu. \"You are so kind!\"",
+     "stem": "What do Lulu's words show?",
+     "options": [
+      "She is angry.",
+      "She is thankful.",
+      "She is sad.",
+      "She is bored."
+     ],
+     "answer": 1,
+     "why": "Lulu says thank you and calls her friend kind. She is thankful."
+    },
+    {
+     "passage": "\"I can do it myself!\" shouted Bilal. He grabbed the box. \"I don't need help!\"",
+     "stem": "What kind of boy is Bilal?",
+     "options": [
+      "He is shy.",
+      "He is sleepy.",
+      "He wants help.",
+      "He wants to do it alone."
+     ],
+     "answer": 3,
+     "why": "Bilal says he can do it himself and does not need help."
+    },
+    {
+     "passage": "Rana sat on the step. \"My kitten is lost,\" she cried. \"I can't find her anywhere.\"",
+     "stem": "How does Rana feel?",
+     "options": [
+      "Sad",
+      "Happy",
+      "Silly",
+      "Proud"
+     ],
+     "answer": 0,
+     "why": "Rana cries and says her kitten is lost. She is sad."
+    }
+   ],
+   "again": {
+    "title": "Say it out loud",
+    "text": "Read the dialogue out loud in the **way** the character says it.\n\nDoes your voice sound happy, sad, angry or scared? That is how the character feels.",
+    "example": "\"Oh no! My ice cream fell!\" cried Sami.\n\nSay it out loud. Your voice sounds **upset**. Sami is upset."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Dialogue moves the story",
+     "text": "Dialogue does more than show feelings. It can also **move the plot forward**.\n\nWhat characters say can start a problem, give important news, or lead to a decision."
+    },
+    {
+     "title": "Dialogue reveals character",
+     "text": "How a character speaks shows what they are like.\n\nPolite words show a **polite** person. Boasting shows a **proud** person. Many questions show a **curious** person."
+    },
+    {
+     "title": "Ask two questions",
+     "text": "When you read dialogue, ask:\n\n1. What does this tell me about the **character**?\n2. What **happens** because of what was said?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what dialogue does:\n\n1. Find the line of dialogue.\n2. Look at what happens **right after** it.\n3. If the story changes because of the words, the dialogue **moves the plot**.\n\nTap the line that causes the change."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The class was planning a picnic for Thursday.",
+      "role": "other"
+     },
+     {
+      "t": "\"The weather report says there will be a sandstorm on Thursday,\" said Majed.",
+      "role": "key"
+     },
+     {
+      "t": "The teacher checked her phone and nodded.",
+      "role": "detail"
+     },
+     {
+      "t": "They moved the picnic to the following week.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Majed's words give **important news**. Because of what he says, the class **changes its plan**.\n\nThis dialogue moves the plot forward."
+   },
+   "together": {
+    "passage": "The school library needed new books, but there was no money to buy them. \"Why don't we sell my mother's date cakes after school?\" Huda asked her friends. \"That's a great idea!\" said Mona. The next week, the girls set up a table by the gate. By Thursday, they had raised enough money for twenty new books.",
+    "stem": "How does Huda's dialogue move the story forward?",
+    "options": [
+     "Her idea leads the girls to start a bake sale.",
+     "It shows that Huda likes dates.",
+     "It makes the girls stop helping the library.",
+     "It explains why the library is old."
+    ],
+    "answer": 0,
+    "hint": "Read what Huda says. Then look at what the girls do next.",
+    "good": "Yes! Huda suggests a bake sale, and the next sentences show the girls doing it."
+   },
+   "evidence": {
+    "sentences": [
+     "The school library needed new books, but there was no money to buy them.",
+     "\"Why don't we sell my mother's date cakes after school?\" Huda asked her friends.",
+     "\"That's a great idea!\" said Mona.",
+     "The next week, the girls set up a table by the gate.",
+     "By Thursday, they had raised enough money for twenty new books."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Huda's idea leads to a bake sale. Tap Huda's idea and the sentence that shows what happens because of it.",
+    "wrong": "This sentence shows the problem, a reaction or the final result. Find Huda's idea and the action it causes right after."
+   },
+   "checks": [
+    {
+     "passage": "\"I already know everything about computers,\" said Turki. \"I don't need to listen to the lesson.\" Later, he could not open the file the teacher asked for.",
+     "stem": "What does Turki's dialogue show about him?",
+     "options": [
+      "He is shy and quiet.",
+      "He is very careful.",
+      "He is polite to his teacher.",
+      "He is too sure of himself."
+     ],
+     "answer": 3,
+     "why": "He says he knows everything and does not need the lesson, but then he cannot open the file. He is too sure of himself."
+    },
+    {
+     "passage": "Omar was about to throw away the old radio. \"Wait!\" said Grandpa. \"That radio belonged to my father. I can fix it.\" Omar put it down, and the two of them spent the afternoon repairing it together.",
+     "stem": "What happens because of Grandpa's words?",
+     "options": [
+      "Omar throws away the radio.",
+      "Omar buys a new radio.",
+      "Omar and Grandpa repair the radio together.",
+      "Grandpa gets angry with Omar."
+     ],
+     "answer": 2,
+     "why": "Because Grandpa says the radio was his father's and he can fix it, they spend the afternoon repairing it."
+    },
+    {
+     "passage": "\"Excuse me, sir,\" said Laila. \"Could you please tell me where the science room is? I am new here, and I don't want to be late.\"",
+     "stem": "What does Laila's dialogue show about her?",
+     "options": [
+      "She is rude and impatient.",
+      "She is polite and careful.",
+      "She is a science teacher.",
+      "She does not care about being late."
+     ],
+     "answer": 1,
+     "why": "She says excuse me and please, and she does not want to be late. She is polite and careful."
+    }
+   ],
+   "again": {
+    "title": "Then what?",
+    "text": "After a line of dialogue, ask: **Then what happened?**\n\nIf something happens **because** of the words, the dialogue moved the story.",
+    "example": "\"There's smoke coming from the kitchen!\" shouted Nada.\n\nThen what? Dad ran to turn off the oven.\n\nNada's words **made Dad act**. The dialogue moved the story."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Voice and tone",
+     "text": "Each character has a **voice**: the way they speak. Some speak in short, sharp words. Others speak gently or with long explanations.\n\nThe **tone** of their words (kind, sarcastic, nervous) reveals their personality and feelings."
+    },
+    {
+     "title": "Dialogue and relationships",
+     "text": "How characters speak **to each other** shows their relationship.\n\nFriends may joke. A worried parent may ask many questions. Rivals may speak coldly."
+    },
+    {
+     "title": "Tags and actions",
+     "text": "Look at the **dialogue tags** (said, snapped, mumbled) and the **actions** next to the words (she crossed her arms).\n\nThey tell you **how** to read the line."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To use dialogue as evidence:\n\n1. Find the exact words the character says.\n2. Notice the tag and action around them.\n3. Ask: what trait, feeling or relationship do they reveal?\n\nChoose the answer that fits the words **and** the way they are said."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"Did you eat? Are you warm enough? Did you remember your inhaler?\" Mother asked as soon as Hamad came through the door.",
+      "role": "key"
+     },
+     {
+      "t": "\"Yes, yes, and yes,\" Hamad laughed, hugging her.",
+      "role": "key"
+     },
+     {
+      "t": "\"You worry too much.\"",
+      "role": "detail"
+     }
+    ],
+    "explain": "Mother's **many questions** show she is **caring and worried**.\n\nHamad's **laugh** and **hug** show he loves her and does not mind. The dialogue reveals a warm, close relationship."
+   },
+   "together": {
+    "passage": "The team walked off the pitch with their heads down after losing four goals to one. \"Lift your heads,\" Coach Saeed said calmly, looking at each player in turn. \"You played with heart today, and that is something I can't teach.\" Bader kicked the grass and muttered that they were useless. \"Not useless,\" said the coach, putting a hand on his shoulder. \"Not yet finished. I'm proud of you.\"",
+    "stem": "What does the dialogue reveal about Coach Saeed?",
+    "options": [
+     "He is angry and wants to punish the team.",
+     "He is encouraging and believes in his players.",
+     "He does not care whether the team wins.",
+     "He is nervous and unsure of himself."
+    ],
+    "answer": 1,
+    "hint": "Look at what the coach says after the team loses. Are his words harsh or hopeful?",
+    "good": "Yes! He tells them to lift their heads, that they played with heart, and that he is proud. He encourages them."
+   },
+   "evidence": {
+    "sentences": [
+     "The team walked off the pitch with their heads down after losing four goals to one.",
+     "\"Lift your heads,\" Coach Saeed said calmly, looking at each player in turn.",
+     "\"You played with heart today, and that is something I can't teach.\"",
+     "Bader kicked the grass and muttered that they were useless.",
+     "\"Not useless,\" said the coach, putting a hand on his shoulder. \"Not yet finished. I'm proud of you.\""
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the coach is encouraging and believes in his players. Tap 2 sentences where the coach speaks.",
+    "wrong": "This sentence shows the result of the match or how a player feels. Find the coach's words."
+   },
+   "checks": [
+    {
+     "passage": "\"Oh, wonderful,\" said Rasha, looking at the rain pouring down on the day of the class trip. \"Just what I wanted.\" She dropped into her chair and folded her arms.",
+     "stem": "What does Rasha's dialogue show?",
+     "options": [
+      "She is annoyed and means the opposite.",
+      "She is truly happy about the rain.",
+      "She wants to stay at home today.",
+      "She is excited about the trip."
+     ],
+     "answer": 0,
+     "why": "She says \"wonderful\", but she drops into her chair and folds her arms. She means the opposite; she is annoyed."
+    },
+    {
+     "passage": "\"I—I think the answer might be ... um ... maybe the moon?\" said Ziad quietly, staring at his desk. When the teacher said he was right, he looked up in surprise.",
+     "stem": "What does Ziad's way of speaking reveal?",
+     "options": [
+      "He is bored by the lesson.",
+      "He is sure of the answer.",
+      "He is unsure and lacks confidence.",
+      "He is rude to the teacher."
+     ],
+     "answer": 2,
+     "why": "He stutters, says \"um\" and \"maybe\", speaks quietly and stares at his desk. He lacks confidence."
+    },
+    {
+     "passage": "\"You took my seat,\" said Dalal coldly. \"I always sit here.\" Sara moved without a word. The next day, Dalal arrived to find Sara had saved the seat for her, with a note that said, \"Good morning!\"",
+     "stem": "How does the dialogue help show the relationship between the girls at first?",
+     "options": [
+      "It shows that they are best friends.",
+      "It shows that Sara is angry with Dalal.",
+      "It shows that they are sisters.",
+      "It shows that Dalal is unfriendly toward Sara."
+     ],
+     "answer": 3,
+     "why": "Dalal speaks coldly and accuses Sara. Her words show she is unfriendly at first."
+    }
+   ],
+   "again": {
+    "title": "Words + how",
+    "text": "Look at two things together:\n\n1. **The words** inside the quotation marks.\n2. **How** they are said (the tag or action).\n\nTogether they tell you the real meaning.",
+    "example": "\"I'm fine,\" she said, wiping her eyes.\n\nWords: fine. How: **wiping her eyes**.\n\nReal meaning: **she is not fine; she is sad.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "What is not said",
+     "text": "In complex stories, characters do not always say what they mean. The real meaning lies **under** the words. This is called **subtext**.\n\nA character may change the subject, give a short answer, or joke to hide a feeling."
+    },
+    {
+     "title": "Dialogue reveals conflict",
+     "text": "Dialogue often shows **tension** between characters: disagreements, secrets, unspoken hurt.\n\nWatch for pauses, interruptions, and answers that do not match the question."
+    },
+    {
+     "title": "Contrast voices",
+     "text": "Authors give characters different **voices** to contrast them: formal vs. casual, patient vs. impatient, hopeful vs. bitter.\n\nComparing voices helps you understand each character and their relationship."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse dialogue:\n\n1. Note what the character **says** and what they **avoid** saying.\n2. Note gestures and pauses around the words.\n3. Ask: what is the **gap** between the words and the real feeling?\n\nThe best answer explains the meaning beneath the surface."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"How was the exam?\" asked Father.",
+      "role": "other"
+     },
+     {
+      "t": "\"The weather was nice today,\" said Yazan, opening the fridge.",
+      "role": "key"
+     },
+     {
+      "t": "\"Yazan, the exam.\"",
+      "role": "detail"
+     },
+     {
+      "t": "\"I said the weather was nice.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "Yazan does not answer the question. He **changes the subject** twice and turns away to the fridge.\n\nThe subtext: the exam went badly, and he does not want to talk about it."
+   },
+   "together": {
+    "passage": "\"So you're really going,\" Majid said, folding his brother's shirts into the suitcase more carefully than he needed to. \"It's a good job, Majid. It's only Jeddah, not the moon.\" \"I know. It's nothing to make a fuss about.\" Majid's voice broke slightly on the last word, and he turned to look out of the window. \"I'll call every Friday,\" his brother said quietly. \"Make sure you do.\"",
+    "stem": "What does the dialogue suggest about Majid's true feelings?",
+    "options": [
+     "He is excited about the new job in another city.",
+     "He is angry with his brother for leaving.",
+     "He does not care whether his brother leaves.",
+     "He is sad to see his brother go but tries to hide it."
+    ],
+    "answer": 3,
+    "hint": "Look at the gap between what Majid says and what he does. Does he really not mind?",
+    "good": "Yes! He says it is nothing to make a fuss about, but his voice breaks and he cannot look at his brother."
+   },
+   "evidence": {
+    "sentences": [
+     "\"So you're really going,\" Majid said, folding his brother's shirts into the suitcase more carefully than he needed to.",
+     "\"It's a good job, Majid. It's only Jeddah, not the moon.\"",
+     "\"I know. It's nothing to make a fuss about.\"",
+     "Majid's voice broke slightly on the last word, and he turned to look out of the window.",
+     "\"I'll call every Friday,\" his brother said quietly.",
+     "\"Make sure you do.\""
+    ],
+    "proof": [
+     0,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Majid is sad but tries to hide it. Tap 2 sentences that reveal his true feelings.",
+    "wrong": "This line shows the brother's words or what Majid claims. Find the details that show how Majid really feels."
+   },
+   "checks": [
+    {
+     "passage": "\"Congratulations on winning,\" said Hana, with a bright smile that did not reach her eyes. \"I'm sure the judges had their reasons.\" Then she turned and walked quickly toward the door.",
+     "stem": "What does Hana's dialogue suggest?",
+     "options": [
+      "She is truly happy for the winner.",
+      "She agrees completely with the judges.",
+      "She is disappointed and thinks the result was unfair.",
+      "She did not enter the contest."
+     ],
+     "answer": 2,
+     "why": "Her smile does not reach her eyes, she hints the judges were wrong, and she leaves quickly. She is disappointed."
+    },
+    {
+     "passage": "\"You should have asked before borrowing my bike,\" said Adel. \"You always do this.\"\n\"And you always make a big deal out of nothing,\" Salem shot back.\n\"Nothing? The tyre is flat!\"\n\"Fine. I'll fix your precious tyre.\"",
+     "stem": "What does this exchange reveal about the brothers' relationship?",
+     "options": [
+      "It has a long-running pattern of conflict.",
+      "They rarely see each other.",
+      "They never disagree about anything.",
+      "Salem is very careful with Adel's things."
+     ],
+     "answer": 0,
+     "why": "Both say \"always\", which shows an old pattern, and their sharp words show ongoing conflict."
+    },
+    {
+     "passage": "The old shopkeeper spoke slowly and formally: \"Young man, a fair price is a promise between two people.\" The boy answered quickly, \"Yeah, but online it's cheaper, and it comes in a day.\" The shopkeeper only smiled and wrapped the book in brown paper.",
+     "stem": "Why does the author give the two characters such different ways of speaking?",
+     "options": [
+      "To show that both of them work in the shop",
+      "To contrast traditional values with modern convenience",
+      "To show that the boy is rude and unkind",
+      "To explain how books are wrapped"
+     ],
+     "answer": 1,
+     "why": "The shopkeeper's formal words about promises contrast with the boy's quick words about price and speed. This shows two sets of values."
+    }
+   ],
+   "again": {
+    "title": "Say vs. mean",
+    "text": "Make two columns:\n\n**What they SAY** | **What they MEAN**\n\nUse the character's actions and tone to fill in the second column.",
+    "example": "Say: \"Oh, sure, I'd love to clean the whole house today.\"\nAction: rolls her eyes.\n\nMean: **She does not want to clean at all.**"
+   }
+  }
+ }
+}

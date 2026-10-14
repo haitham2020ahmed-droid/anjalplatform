@@ -60,7 +60,7 @@ export default async function ImportJobPage({ params, searchParams }: { params: 
         {done && done.imported > 0 && can(actor, "questions:publish") && (
           <div className="mt-4 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
             <p className="text-sm text-slate-700"><b>Replacing this file with a newer version?</b> Archive the questions of this import first, then import the new file. Students' past answers are kept.</p>
-            <ActionForm action={archiveImportAction} submit={`🗄 Archive the ${done.imported} question(s) of this import`} danger className="mt-2">
+            <ActionForm action={archiveImportAction} submit={`Archive the ${done.imported} question(s) of this import`} danger className="mt-2">
               <input type="hidden" name="jobId" value={job.id} />
             </ActionForm>
           </div>

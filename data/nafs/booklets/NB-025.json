@@ -1,0 +1,568 @@
+{
+  "code": "NB-025",
+  "title": "Al-Sufi and the Book of Fixed Stars",
+  "kind": "INFORMATIONAL",
+  "genre": "biography",
+  "words": 427,
+  "passage": "More than a thousand years ago, long before the invention of the telescope, a patient astronomer spent countless nights studying the sky with nothing but his eyes and a few simple instruments. His name was Abd al-Rahman al-Sufi, and the book he produced became one of the most admired works of astronomy in history.\n\nAl-Sufi was born in 903 CE in the city of Rayy, near modern Tehran, and he later worked at the court of a ruler named Adud al-Dawla, who greatly valued learning. At that time, scholars across the Islamic world were translating and studying earlier Greek writings. The most important astronomy book among them was the work of Ptolemy, a scholar of Alexandria, who had listed more than a thousand stars about eight hundred years earlier.\n\nAl-Sufi respected Ptolemy, yet he refused to accept every statement simply because it was old. Instead, he compared the book with what he observed for himself. He noticed that some of the brightness measurements were inaccurate and that the positions of certain stars had been recorded incorrectly. He therefore checked each star carefully and corrected the errors he found. Around 964 CE, he published his results in \"The Book of Fixed Stars.\"\n\nThe book was remarkable for its clarity. Al-Sufi drew each of the forty-eight constellations twice: once as it appears to a person looking up at the sky, and once as it appears on a star globe, which shows the sky reversed, like a mirror image. In this way, readers could use the book both under the open sky and beside a globe. He also wrote down the old names that Arabs had given to many stars. Several of these names, such as Aldebaran, Altair and Rigel, still appear on star maps all over the world today.\n\nAl-Sufi's sharp eyes also noticed something unusual. In the constellation we now call Andromeda, he described a faint patch of light that he called a \"little cloud.\" He had no way of knowing what it was. Today, astronomers know that this patch is the Andromeda Galaxy, a huge family of stars more than two million light-years away. Al-Sufi's description is the earliest written record of it that has survived.\n\nFor centuries, scholars copied his book by hand, and translations helped it travel far beyond the lands where it was written. In his honour, a crater on the Moon is named Azophi, the name by which Europeans knew him. Al-Sufi showed that respecting earlier scholars and checking their work carefully are not opposites; together, they are the true foundation of science.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “inaccurate” as it is used in paragraph 3?",
+      "options": [
+        "incorrect",
+        "incomplete",
+        "ancient",
+        "unclear"
+      ],
+      "answer": "A",
+      "why": "Measurements that are inaccurate are incorrect; the same sentence says positions “had been recorded incorrectly.”"
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “faint” as it is used in paragraph 5?",
+      "options": [
+        "dim",
+        "bright",
+        "distant",
+        "small"
+      ],
+      "answer": "B",
+      "why": "A faint patch of light is hard to see; the opposite is “bright”. “Dim” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read the last sentence of the text: “together, they are the true foundation of science.” What does “foundation” mean here?",
+      "options": [
+        "the building where scientists work",
+        "the final result of an experiment",
+        "the base that something is built on",
+        "a reward for good work"
+      ],
+      "answer": "C",
+      "why": "Respect and careful checking are described as the base on which all science is built."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "inaccurate",
+        "measurements",
+        "certain",
+        "carefully"
+      ],
+      "answer": "D",
+      "why": "“Carefully” tells how he checked each star; the others are two adjectives and a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 4 is SINGULAR?",
+      "options": [
+        "constellations",
+        "names",
+        "globe",
+        "maps"
+      ],
+      "answer": "C",
+      "why": "“A star globe” refers to one globe; the other nouns are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “observed” in paragraph 3?",
+      "options": [
+        "obey",
+        "observatory",
+        "obstacle",
+        "obvious"
+      ],
+      "answer": "B",
+      "why": "An observatory is a place for observing the sky; it shares the root “observe”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “clarity” in a meaningful sentence of your own.",
+      "model": "Our teacher praised the clarity of Reem's science report, because every step of the experiment was explained in simple, exact language.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “clarity” with its meaning (the quality of being clear and easy to understand)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Clarity” means the quality of being clear and easy to understand."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Most plural nouns end in -s, such as “eyes” in paragraph 1. Which noun from the text has a plural that does NOT end in -s?",
+      "options": [
+        "person",
+        "scholar",
+        "star",
+        "map"
+      ],
+      "answer": "A",
+      "why": "One person, two people. Scholars, stars and maps all add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences, based on paragraph 3, is a COMMAND?",
+      "options": [
+        "Al-Sufi checked each star carefully.",
+        "Did al-Sufi check each star?",
+        "Check each star carefully.",
+        "How carefully al-Sufi checked each star!"
+      ],
+      "answer": "C",
+      "why": "A command tells someone to do something and begins with a verb; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Life of Ptolemy",
+        "A Visit to the Moon",
+        "How Telescopes Were Invented",
+        "The Astronomer Who Checked the Stars"
+      ],
+      "answer": "D",
+      "why": "The text is about al-Sufi, who carefully checked and corrected the star records; the other titles do not match its topic."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to describe al-Sufi's life and his lasting work in astronomy",
+        "to explain step by step how to build a star globe at home",
+        "to persuade readers that Ptolemy's book was useless",
+        "to tell an imaginary story about a little cloud"
+      ],
+      "answer": "A",
+      "why": "The text follows al-Sufi's life, his book and its influence today; it says he respected Ptolemy."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Al-Sufi copied Ptolemy's book exactly as it was written, without changes.",
+        "Al-Sufi tested Ptolemy's work against his own observations and corrected it.",
+        "Al-Sufi believed that old books are always wrong.",
+        "Al-Sufi discovered more than a thousand new stars with his own eyes."
+      ],
+      "answer": "B",
+      "why": "The paragraph explains that he compared the book with what he saw and corrected the errors; he respected Ptolemy, so he did not think old books are always wrong."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why did al-Sufi draw each constellation twice?",
+      "options": [
+        "because the first set of drawings was lost or damaged",
+        "because Ptolemy had asked him to",
+        "so the book could be used both under the sky and beside a globe",
+        "so that each constellation looked larger and more beautiful"
+      ],
+      "answer": "C",
+      "why": "One drawing showed the sky as people see it, and the other as it appears on a star globe, so readers could use the book in both ways."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a fable",
+        "a news report",
+        "a poem",
+        "a biography"
+      ],
+      "answer": "D",
+      "why": "It tells the true story of a real person's life and work."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Based on paragraphs 1 and 5, why could al-Sufi not know what the “little cloud” really was?",
+      "options": [
+        "He had no telescope, only his eyes and simple instruments.",
+        "He was not interested in faint objects in the night sky.",
+        "The ruler did not allow him to study it.",
+        "It could only be seen from the city of Alexandria in Egypt."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says he worked “long before the invention of the telescope”; without one, the galaxy looks only like a faint patch."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Al-Sufi was born in Rayy.",
+        "Ptolemy listed more than a thousand stars.",
+        "The Book of Fixed Stars was published.",
+        "A crater on the Moon was named Azophi."
+      ],
+      "answer": "B",
+      "why": "Ptolemy wrote about eight hundred years before al-Sufi, so his list came first."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who was Adud al-Dawla, according to the text?",
+      "options": [
+        "a Greek scholar of Alexandria",
+        "al-Sufi's teacher of astronomy",
+        "a ruler who valued learning, at whose court al-Sufi worked",
+        "the European astronomer who named the lunar crater Azophi"
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: al-Sufi “worked at the court of a ruler named Adud al-Dawla, who greatly valued learning.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In which paragraph does the writer explain how modern astronomers understand something al-Sufi saw?",
+      "options": [
+        "paragraph 2",
+        "paragraph 3",
+        "paragraph 4",
+        "paragraph 5"
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 explains that the “little cloud” is now known to be the Andromeda Galaxy."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused al-Sufi to check each star carefully?",
+      "options": [
+        "He noticed errors in the brightness and positions recorded by Ptolemy.",
+        "He wanted to be the first person to find the Andromeda Galaxy.",
+        "The ruler ordered him to write a completely new book of stars.",
+        "He had lost his copy of Ptolemy's book."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: he noticed inaccurate measurements and positions, and “therefore checked each star carefully.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe al-Sufi's attitude toward Ptolemy's work?",
+      "options": [
+        "careless and hasty",
+        "questioning but respectful",
+        "proud and disrespectful",
+        "shy and uncertain"
+      ],
+      "answer": "B",
+      "why": "“Al-Sufi respected Ptolemy, yet he refused to accept every statement simply because it was old.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which sentence in paragraph 5 most makes readers want to keep reading?",
+      "options": [
+        "“Al-Sufi's sharp eyes also noticed something unusual.”",
+        "“he described a faint patch of light”",
+        "“He had no way of knowing what it was.”",
+        "“Al-Sufi's description is the earliest written record of it that has survived.”"
+      ],
+      "answer": "C",
+      "why": "Saying that al-Sufi could not know what he had seen creates a mystery that the next sentence solves."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was al-Sufi's book different from Ptolemy's original list?",
+      "options": [
+        "It described fewer constellations.",
+        "It was written in Greek for scholars in Alexandria.",
+        "It contained no drawings at all.",
+        "It corrected errors and added traditional Arab star names."
+      ],
+      "answer": "D",
+      "why": "Al-Sufi corrected inaccurate brightness and positions and wrote down the old Arab names of many stars."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, what was the effect of the translations of al-Sufi's book?",
+      "options": [
+        "They helped the book travel far beyond the lands where it was written.",
+        "They replaced the drawings with new ones.",
+        "They made the book much shorter and far easier to copy by hand.",
+        "They proved that Ptolemy had been right."
+      ],
+      "answer": "A",
+      "why": "“translations helped it travel far beyond the lands where it was written.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the star name Aldebaran and the lunar crater Azophi have in common?",
+      "options": [
+        "Both were named by Ptolemy about eight hundred years earlier.",
+        "Both are names linked to al-Sufi's work that are still used today.",
+        "Both are names used to describe the Andromeda Galaxy.",
+        "Both were discovered with a telescope."
+      ],
+      "answer": "B",
+      "why": "Aldebaran is one of the Arab names al-Sufi recorded, and Azophi is his European name; both are still used."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying that translations helped the book “travel far beyond the lands where it was written”?",
+      "options": [
+        "The book was carried on long journeys by its author.",
+        "The book was lost on a voyage at sea.",
+        "The book became known and used in distant countries.",
+        "The book described faraway lands."
+      ],
+      "answer": "C",
+      "why": "A book does not literally travel; the phrase means it became known in many distant places."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by saying al-Sufi worked “long before the invention of the telescope”?",
+      "options": [
+        "to show that he disliked new inventions",
+        "to suggest that his book is no longer useful",
+        "to explain how the first telescopes were designed and made",
+        "to emphasise how impressive his work with the naked eye was"
+      ],
+      "answer": "D",
+      "why": "Pointing out that he had no telescope makes his careful observations seem even more remarkable."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text expresses an OPINION rather than a fact?",
+      "options": [
+        "The book was remarkable for its clarity.",
+        "Al-Sufi was born in 903 CE in the city of Rayy, near modern Tehran.",
+        "Al-Sufi drew each of the forty-eight constellations twice.",
+        "In his honour, a crater on the Moon is named Azophi."
+      ],
+      "answer": "A",
+      "why": "“Remarkable” is the writer's judgement; the other sentences give facts that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from al-Sufi's life is MOST useful for students today?",
+      "options": [
+        "Old books should never be read, because they are always wrong.",
+        "Check information carefully, even from a respected source.",
+        "Work only at night when it is quiet.",
+        "Give every star in the sky a brand-new name of your own."
+      ],
+      "answer": "B",
+      "why": "The text praises al-Sufi for respecting Ptolemy while carefully checking his work."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best describes the writer's attitude toward al-Sufi?",
+      "options": [
+        "The writer doubts that his work was accurate.",
+        "The writer thinks he was less important than Ptolemy.",
+        "The writer deeply respects his careful work.",
+        "The writer believes he should have used a telescope."
+      ],
+      "answer": "C",
+      "why": "The writer calls his book “one of the most admired works” and praises his “sharp eyes” and careful checking."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to prove that Ptolemy invented astronomy",
+        "a plan to sell many printed copies of an old star map",
+        "a belief that astronomy is no longer useful",
+        "a wish to honour a scholar whose careful methods still matter"
+      ],
+      "answer": "D",
+      "why": "The text ends by presenting al-Sufi's method as “the true foundation of science.”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "the city near modern Tehran where al-Sufi was born",
+        "what al-Sufi called the faint patch of light",
+        "when al-Sufi published his book",
+        "which simple instruments al-Sufi used to study the sky"
+      ],
+      "answer": "D",
+      "why": "Paragraph 1 mentions “a few simple instruments” but never says what they were; the other facts are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A star in the sky suddenly changes its Arabic name all by itself.",
+        "Al-Sufi's book spreads its pages and flies across the sea to Europe.",
+        "On a very dark night, a student sees the Andromeda Galaxy as a faint patch.",
+        "A crater on the Moon writes a long book about the life of al-Sufi."
+      ],
+      "answer": "C",
+      "why": "Al-Sufi himself saw it without a telescope, so a student under a very dark sky can see it too; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Telescope That Al-Sufi Lost",
+        "Respect and Proof: The Careful Astronomer",
+        "The Night a Galaxy Fell to Earth",
+        "Ptolemy's Greatest Mistake"
+      ],
+      "answer": "B",
+      "why": "The text praises al-Sufi for both respecting Ptolemy and proving facts through careful observation."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences that end it by explaining how a student today could follow al-Sufi's example.",
+      "model": "A student today can follow al-Sufi's example by reading what experts have written and then testing it with careful observation. For instance, a student could record the position of the Moon every evening for a month and compare the notes with a textbook. In this way, every young scientist can respect the past while still searching for the truth.",
+      "rubric": [
+        "2 = a clear new ending that fits the text and shows a realistic way to respect earlier knowledge while checking it carefully",
+        "1 = an ending is given but the link to al-Sufi's example is unclear or does not fit the text",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that links al-Sufi's method of respecting and checking earlier work to a student's life today is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A student finds that a fact in an old textbook does not match what she observes in her experiment. Based on al-Sufi's example, what should she do?",
+      "options": [
+        "Ignore her observation, because the book is older.",
+        "Repeat her observation carefully and compare it with the book.",
+        "Throw the old textbook away at once and never use it again.",
+        "Change her notes so that they match the book."
+      ],
+      "answer": "B",
+      "why": "Like al-Sufi, she should respect the source but check it carefully against her own observations before correcting it."
+    }
+  ]
+}

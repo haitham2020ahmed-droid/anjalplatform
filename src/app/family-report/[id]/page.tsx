@@ -14,13 +14,13 @@ export default async function FamilyReportPage({ params }: { params: Promise<{ i
   const actor = await requireActor({ roles: ["STUDENT", "PARENT", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const me = (await getActor())!.user;
   const { id } = await params;
-  const { t } = await getT();
+  const { t, lang } = await getT();
   const r = await familyReport(repo, actor, id).catch((e) => { if (e instanceof ForbiddenError) return null; throw e; });
   const back = actor.role === "STUDENT" ? "/student/family" : actor.role === "PARENT" ? (r ? `/parent/family/${r.studentId}` : "/parent") : r ? `/teacher/family-reports/${r.id}` : "/teacher";
   return (
     <AppShell name={String(me.displayName)}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2 print:hidden"><Link href={back} className="font-semibold text-brand-teal">← Back</Link>{r && <PrintButton />}</div>
-      {r ? <FamilyReportView r={r} t={t} /> : <p className="rounded-2xl bg-white p-6 text-lg text-slate-700 ring-1 ring-slate-200">This report is not available.</p>}
+      {r ? <FamilyReportView r={r} t={t} lang={lang} /> : <p className="rounded-2xl bg-white p-6 text-lg text-slate-700 ring-1 ring-slate-200">This report is not available.</p>}
     </AppShell>
   );
 }

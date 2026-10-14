@@ -1,0 +1,443 @@
+{
+ "code": "LN-045",
+ "title": "Fixing run-on sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "fragments-run-ons"
+ ],
+ "skillNames": [
+  "Run-On Sentences and Comma Splices",
+  "Correcting Fragments and Run-Ons",
+  "Fragments and Run-On Sentences"
+ ],
+ "statements": [
+  "L-0099",
+  "L-0100",
+  "L-0212",
+  "L-0298",
+  "L-0299",
+  "L-0330"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "One idea, one sentence",
+     "text": "A sentence tells **one complete idea**. It ends with a period (.)\n\n“I like apples.” “My sister likes bananas.”"
+    },
+    {
+     "title": "A run-on",
+     "text": "A **run-on** is two sentences stuck together with no stop.\n\n“I like apples my sister likes bananas.”\n\nTwo ideas, no period. That is a run-on."
+    },
+    {
+     "title": "Fix it",
+     "text": "Find where the first idea ends. Put a **period** there.\n\nStart the next sentence with a **capital letter**.\n\n“I like apples. **M**y sister likes bananas.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentence slowly.\n2. Find each **who + what happens**.\n3. Are there two, with nothing between them? It is a run-on. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The bell rang we went home.",
+      "role": "key"
+     },
+     {
+      "t": "We were happy to see our parents.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 has two ideas: **the bell rang** and **we went home**. There is no period between them.\n\nFix: “The bell rang. We went home.”"
+   },
+   "together": {
+    "passage": "It was a hot day. Ali went to the pool he swam for an hour. Then he ate ice cream.",
+    "stem": "How should the run-on be fixed?",
+    "options": [
+     "Ali went to the pool. He swam for an hour.",
+     "Ali went to the pool he. Swam for an hour.",
+     "Ali went. To the pool he swam for an hour.",
+     "Ali went to the pool he swam. For an hour."
+    ],
+    "answer": 0,
+    "hint": "Find the two ideas: who went, and who swam. Put the stop between them.",
+    "good": "Yes! **Ali went to the pool** is one idea. **He swam for an hour** is another. Each gets its own sentence."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a hot day.",
+     "Ali went to the pool he swam for an hour.",
+     "Then he ate ice cream."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the run-on in the text.",
+    "wrong": "This sentence has only one idea. Find the one with two ideas and no stop between them."
+   },
+   "checks": [
+    {
+     "passage": "My cat is white her name is Snow.",
+     "stem": "Where should the period go?",
+     "options": [
+      "after “cat”",
+      "after “white”",
+      "after “name”",
+      "after “her”"
+     ],
+     "answer": 1,
+     "why": "**My cat is white** is one idea. **Her name is Snow** is the next. The period goes after “white”."
+    },
+    {
+     "passage": "Four sentences from a story.",
+     "stem": "Which one is a run-on?",
+     "options": [
+      "We baked a cake.",
+      "The cake was big we ate it all.",
+      "Dad cut the cake.",
+      "It was very sweet."
+     ],
+     "answer": 1,
+     "why": "“The cake was big” and “we ate it all” are two ideas with no stop between them."
+    },
+    {
+     "passage": "The rain stopped. The sun came out.",
+     "stem": "Is this a run-on?",
+     "options": [
+      "Yes, it needs a comma.",
+      "Yes, it is too long.",
+      "No, each idea has its own sentence.",
+      "No, it is a fragment."
+     ],
+     "answer": 2,
+     "why": "Each idea has its own period. It is written correctly."
+    }
+   ],
+   "again": {
+    "title": "Stop sign",
+    "text": "A period is like a **stop sign** for ideas.\n\nWhen one idea is finished, **stop**. Then start the next one with a capital letter.",
+    "example": "“We played we won.” → Two ideas: **we played** / **we won**. Stop between them: “We played. We won.”"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Run-ons and comma splices",
+     "text": "A **run-on** joins two complete sentences with **no** punctuation.\n\nA **comma splice** joins them with **only a comma**.\n\nBoth are mistakes."
+    },
+    {
+     "title": "Three ways to fix",
+     "text": "1. **Period**: “The wind blew. The door slammed.”\n2. **Comma + and / but / so**: “The wind blew, and the door slammed.”\n3. **Semicolon**: “The wind blew; the door slammed.”"
+    },
+    {
+     "title": "Find the joint",
+     "text": "Look for the place where the second subject begins.\n\n“The wind blew **the door** slammed.”\n\n“The door” starts the second idea. Fix it there."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every subject and verb pair in the sentence.\n2. If there are two complete ideas, check what joins them.\n3. Nothing, or only a comma? It is a run-on. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda finished her project early, she helped her friend with his.",
+      "role": "key"
+     },
+     {
+      "t": "Their teacher was pleased.",
+      "role": "other"
+     }
+    ],
+    "explain": "Two complete ideas are joined by **only a comma**. That is a comma splice.\n\nFix: “Huda finished her project early, **so** she helped her friend with his.”"
+   },
+   "together": {
+    "passage": "On Saturday, my family drove to the beach in Jeddah. The water was calm and warm. My brothers built a sandcastle my sister collected shells. In the evening, we watched the sun set over the Red Sea.",
+    "stem": "Which is the best way to fix the run-on?",
+    "options": [
+     "My brothers built a sandcastle, my sister collected shells.",
+     "My brothers built a sandcastle, and my sister collected shells.",
+     "My brothers built a sandcastle and, my sister collected shells.",
+     "My brothers built. A sandcastle my sister collected shells."
+    ],
+    "answer": 1,
+    "hint": "A comma alone is too weak. Which choice uses a comma AND a joining word in the right place?",
+    "good": "Yes! A comma plus **and** joins the two complete ideas correctly."
+   },
+   "evidence": {
+    "sentences": [
+     "On Saturday, my family drove to the beach in Jeddah.",
+     "The water was calm and warm.",
+     "My brothers built a sandcastle my sister collected shells.",
+     "In the evening, we watched the sun set over the Red Sea."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that was a run-on.",
+    "wrong": "This sentence has only one complete idea. Find the one where two ideas run together."
+   },
+   "checks": [
+    {
+     "passage": "We wanted to play outside, it was raining.",
+     "stem": "Which is the best fix?",
+     "options": [
+      "We wanted to play outside, but it was raining.",
+      "We wanted to play outside it was raining.",
+      "We wanted, to play outside it was raining.",
+      "We wanted to play outside, it, was raining."
+     ],
+     "answer": 0,
+     "why": "A comma plus **but** joins the two ideas and shows the contrast."
+    },
+    {
+     "passage": "Our teacher read a story the class listened quietly.",
+     "stem": "Which punctuation could fix this run-on?",
+     "options": [
+      "A comma after “story”",
+      "A semicolon after “story”",
+      "A period after “class”",
+      "A comma after “teacher”"
+     ],
+     "answer": 1,
+     "why": "A semicolon can join two complete ideas. A comma alone would make a comma splice."
+    },
+    {
+     "passage": "A student checks four sentences.",
+     "stem": "Which sentence is NOT a run-on?",
+     "options": [
+      "The market was busy it was full of people.",
+      "The market was busy, it was full of people.",
+      "The market was busy it was full, of people.",
+      "The market was busy; it was full of people."
+     ],
+     "answer": 3,
+     "why": "The semicolon correctly joins the two complete ideas."
+    }
+   ],
+   "again": {
+    "title": "Count the ideas",
+    "text": "Count the **who + what happens** pairs in the sentence.\n\nTwo pairs need a strong join: a **period**, a **semicolon**, or a **comma + and / but / so**. A comma alone is too weak.",
+    "example": "“Sami was hungry he ate a sandwich.” → Pairs: Sami was / he ate = **2**.\n\nFix: “Sami was hungry, **so** he ate a sandwich.”"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Long run-ons",
+     "text": "Some run-ons pile up three or more ideas, joined by nothing or by commas.\n\nThe best fix is often to **divide** them into separate sentences."
+    },
+    {
+     "title": "How to divide",
+     "text": "1. Underline each subject + verb.\n2. Group the words that belong to each one.\n3. End each group with a period. Capitalize the next.\n4. Keep “and / so / but” only where two ideas truly belong together."
+    },
+    {
+     "title": "Long is not always wrong",
+     "text": "“When the rain stopped, the children ran outside and played until sunset.”\n\nThis is long but correct: one main idea with a dependent clause.\n\nA run-on is about **joining**, not length."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each subject + verb that could stand alone.\n2. Check the joints between them.\n3. The sentence with weak or missing joints is the run-on. Point to it and say where it should be divided."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum opened at nine we arrived at ten the guide showed us old maps.",
+      "role": "key"
+     },
+     {
+      "t": "We stayed until lunchtime.",
+      "role": "other"
+     }
+    ],
+    "explain": "Three ideas, no joins: the museum opened / we arrived / the guide showed.\n\nDivide: “The museum opened at nine. We arrived at ten. The guide showed us old maps.”"
+   },
+   "together": {
+    "passage": "Last winter, our class went camping in the desert near Riyadh. On the first night, we gathered around the fire. Our teacher told stories about the stars, the wind grew cold, we wrapped ourselves in blankets. Later, he pointed out the Big Dipper and the North Star. Before we slept, we wrote in our journals about everything we had seen.",
+    "stem": "What is the best way to correct the run-on sentence?",
+    "options": [
+     "Our teacher told stories about the stars, the wind grew cold. We wrapped ourselves in blankets.",
+     "Our teacher told stories about the stars the wind grew cold, we wrapped ourselves in blankets.",
+     "Our teacher told stories. About the stars, the wind grew cold, we wrapped ourselves in blankets.",
+     "Our teacher told stories about the stars. The wind grew cold, so we wrapped ourselves in blankets."
+    ],
+    "answer": 3,
+    "hint": "There are three ideas. Check every joint in each choice. Is any comma still joining two full sentences?",
+    "good": "Yes! The first idea gets its own sentence, and “so” correctly joins the cold wind to what we did about it."
+   },
+   "evidence": {
+    "sentences": [
+     "Last winter, our class went camping in the desert near Riyadh.",
+     "On the first night, we gathered around the fire.",
+     "Our teacher told stories about the stars, the wind grew cold, we wrapped ourselves in blankets.",
+     "Later, he pointed out the Big Dipper and the North Star.",
+     "Before we slept, we wrote in our journals about everything we had seen."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the run-on sentence in the paragraph.",
+    "wrong": "This sentence has one main idea, joined correctly. Find the one where three ideas are joined only by commas."
+   },
+   "checks": [
+    {
+     "passage": "My uncle is a pilot he flies to many countries he has visited Japan and Brazil.",
+     "stem": "How many sentences should this run-on become?",
+     "options": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+     ],
+     "answer": 2,
+     "why": "There are three ideas: my uncle is a pilot / he flies to many countries / he has visited Japan and Brazil."
+    },
+    {
+     "passage": "Although the shop was small, it sold everything from rice to rope.",
+     "stem": "Is this a run-on?",
+     "options": [
+      "Yes, it has two ideas.",
+      "No, it is a complex sentence joined correctly.",
+      "Yes, it needs a period after “small”.",
+      "Yes, it is too long."
+     ],
+     "answer": 1,
+     "why": "“Although the shop was small” cannot stand alone. It is correctly joined to the main clause with a comma."
+    },
+    {
+     "passage": "The storm knocked down a palm tree, it fell across the road, cars could not pass.",
+     "stem": "Which revision divides it correctly?",
+     "options": [
+      "The storm knocked down a palm tree. It fell across the road, cars could not pass.",
+      "The storm knocked down a palm tree. It fell across the road. Cars could not pass.",
+      "The storm knocked down. A palm tree it fell across the road. Cars could not pass.",
+      "The storm knocked down a palm tree, it fell. Across the road cars could not pass."
+     ],
+     "answer": 1,
+     "why": "Each of the three ideas becomes its own sentence. The first choice still has a comma splice."
+    }
+   ],
+   "again": {
+    "title": "Read and breathe",
+    "text": "Read the sentence out loud.\n\nWhere do you **need to breathe** because a new idea starts? That is where a period belongs.",
+    "example": "“We cleaned the classroom we put the chairs up we went home.” → Breathe after **classroom** and after **up**.\n\n“We cleaned the classroom. We put the chairs up. We went home.”"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Run-ons in disguise",
+     "text": "Some run-ons are hard to spot because the second idea starts with a small word:\n\n“The road was closed, **then** we took a detour.”\n“The plan was risky, **however** it worked.”\n\nWords like then, however and therefore cannot join sentences with only a comma."
+    },
+    {
+     "title": "Watch for pronouns",
+     "text": "Watch for a second idea that begins with **it, this, they, he** or **she**:\n\n“The museum was crowded, **it** was the first day of the holiday.”\n\nThe pronoun is a new subject, so a new sentence begins."
+    },
+    {
+     "title": "Correct joins",
+     "text": "“The plan was risky; **however,** it worked.”\n“The plan was risky. **However,** it worked.”\n“**Although** the plan was risky, it worked.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. After each comma, ask: could the words after it stand alone as a sentence?\n2. If yes, look at the joining word. Is it and, but, or, so, yet? If not, the comma is too weak.\n3. Point to the sentence where two full sentences meet at a comma, or at nothing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The experiment failed twice, however the scientists did not give up.",
+      "role": "key"
+     },
+     {
+      "t": "They changed one setting and tried again.",
+      "role": "other"
+     }
+    ],
+    "explain": "After the comma, “however the scientists did not give up” could stand alone. **However** is not a joining word like **but**, so this is a run-on.\n\nFix: “The experiment failed twice; however, the scientists did not give up.”"
+   },
+   "together": {
+    "passage": "The Hejaz Railway once carried pilgrims from Damascus to Medina. Before it opened in 1908, the journey by camel could take more than a month. The train shortened the trip to just a few days. The railway was badly damaged during the First World War, it never ran its full length again. Today, parts of the old track and several stations can still be seen in the desert. In Medina, the old station has become a museum. Visitors can walk beside an old locomotive and imagine the excitement of those early journeys.",
+    "stem": "Which revision corrects the run-on in the passage?",
+    "options": [
+     "The railway was badly damaged during the First World War, then it never ran its full length again.",
+     "The railway was badly damaged, during the First World War it never ran its full length again.",
+     "The railway was badly damaged during the First World War, and it never ran its full length again.",
+     "The railway was badly damaged during the First World War, it, never ran its full length again."
+    ],
+    "answer": 2,
+    "hint": "Which choice joins the two full sentences with a real joining word, not a comma alone or “then”?",
+    "good": "Yes! A comma plus **and** correctly joins the two complete ideas."
+   },
+   "evidence": {
+    "sentences": [
+     "The Hejaz Railway once carried pilgrims from Damascus to Medina.",
+     "Before it opened in 1908, the journey by camel could take more than a month.",
+     "The train shortened the trip to just a few days.",
+     "The railway was badly damaged during the First World War, it never ran its full length again.",
+     "Today, parts of the old track and several stations can still be seen in the desert.",
+     "In Medina, the old station has become a museum.",
+     "Visitors can walk beside an old locomotive and imagine the excitement of those early journeys."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that was a run-on.",
+    "wrong": "This sentence is joined correctly. Find the one where two full sentences meet at only a comma."
+   },
+   "checks": [
+    {
+     "passage": "Four sentences from a report.",
+     "stem": "Which sentence is a run-on?",
+     "options": [
+      "When the dam was finished, the valley flooded slowly.",
+      "The dam was finished in spring, the valley flooded slowly.",
+      "The dam was finished in spring, and the valley flooded slowly.",
+      "Because the dam was finished, the valley flooded slowly."
+     ],
+     "answer": 1,
+     "why": "Both halves can stand alone, and only a comma joins them. The others use “and”, or start with a dependent clause."
+    },
+    {
+     "passage": "The library extended its hours during exams, therefore more students could study in the evening.",
+     "stem": "What is the problem with this sentence?",
+     "options": [
+      "It is a fragment.",
+      "“Therefore” should be “then”.",
+      "Nothing; it is correct.",
+      "It joins two sentences with a comma."
+     ],
+     "answer": 3,
+     "why": "“Therefore” cannot join sentences after a comma. Fix: “…during exams; therefore, more students…”"
+    },
+    {
+     "passage": "The volunteers who planted trees along the highway last spring were thanked by the mayor at a ceremony that afternoon.",
+     "stem": "Is this a run-on?",
+     "options": [
+      "Yes, because it is very long.",
+      "Yes, because it has the word “who”.",
+      "No, it has one main subject and verb.",
+      "No, because it has no commas."
+     ],
+     "answer": 2,
+     "why": "The main clause is “The volunteers … were thanked”. “Who planted trees” is a dependent clause. Long, but not a run-on."
+    }
+   ],
+   "again": {
+    "title": "The cover test",
+    "text": "Cover everything before a comma. Can the rest stand alone as a sentence?\n\nIf yes, a comma alone is not enough. Use a period, a semicolon, or add **and / but / so**.",
+    "example": "“The shop was closed, it was prayer time.” → “It was prayer time” can stand alone.\n\nFix: “The shop was closed **because** it was prayer time.”"
+   }
+  }
+ }
+}

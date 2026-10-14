@@ -1,0 +1,446 @@
+{
+ "code": "LN-060",
+ "title": "Compound sentences and conjunctions",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [],
+ "families": [
+  "compound-sentences"
+ ],
+ "skillNames": [
+  "Compound Sentences and Conjunctions",
+  "Simple and Compound Sentences",
+  "Coordinating Conjunctions (and, but, or, so)"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two sentences, one sentence",
+     "text": "A **compound sentence** joins two sentences.\n\nI have a pen. You have a book.\n→ I have a pen, **and** you have a book."
+    },
+    {
+     "title": "And or but?",
+     "text": "**and** adds: I like tea, **and** I like milk.\n\n**but** shows something different: I like tea, **but** I do not like coffee."
+    },
+    {
+     "title": "Each part is a sentence",
+     "text": "Cover the joining word.\n\nCan **each side** stand alone as a sentence? Then it is a compound sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentence with the blank.\n2. Read the two ideas on each side.\n3. Are they the **same kind** of idea (and) or **different** (but)?\n\nPoint to the words that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "It was raining, but we played outside.",
+      "role": "key"
+     },
+     {
+      "t": "We got very wet!",
+      "role": "other"
+     }
+    ],
+    "explain": "**It was raining** is a sentence. **We played outside** is a sentence.\n\nRain and playing outside do not usually go together, so we join them with **but**."
+   },
+   "together": {
+    "passage": "Huda wanted to bake a cake. She had flour, ___ she had no eggs. Her mother went to the shop for eggs. Soon they baked the cake together.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "and",
+     "but",
+     "so",
+     "or"
+    ],
+    "answer": 1,
+    "hint": "Having flour is good news. Having no eggs is a problem. Which word shows something different?",
+    "good": "Yes! Flour and no eggs are different kinds of news, so we use but."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda wanted to bake a cake.",
+     "She had flour, ___ she had no eggs.",
+     "Her mother went to the shop for eggs.",
+     "Soon they baked the cake together."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: but. Tap the sentence that shows the two different ideas.",
+    "wrong": "This sentence does not show the two different ideas. Find what Huda had and did not have."
+   },
+   "checks": [
+    {
+     "passage": "I like apples, ___ I like grapes.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "but",
+      "and",
+      "or",
+      "so"
+     ],
+     "answer": 1,
+     "why": "Both ideas are things I like, so we add them with and."
+    },
+    {
+     "passage": "The sun is out, ___ it is still cold.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "and",
+      "so",
+      "but",
+      "or"
+     ],
+     "answer": 2,
+     "why": "Sun usually means warm, but it is still cold. These ideas are different, so we use but."
+    },
+    {
+     "passage": "Sami ran. Sami ran, and Omar walked. Sami and Omar ran.",
+     "stem": "Which is a compound sentence?",
+     "options": [
+      "Sami ran, and Omar walked.",
+      "Sami ran.",
+      "Sami and Omar ran.",
+      "Omar and Sami."
+     ],
+     "answer": 0,
+     "why": "Sami ran and Omar walked can each stand alone. They are joined with a comma and and."
+    }
+   ],
+   "again": {
+    "title": "Same or different?",
+    "text": "Two ideas that **go together** → **and**.\n\nTwo ideas that are **different** → **but**.",
+    "example": "The bag is big, ___ it is light.\n\nBig bags are usually heavy. This one is light: **different** → **but**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Four joining words",
+     "text": "**and** adds an idea\n**but** shows a difference\n**or** gives a choice\n**so** shows a result"
+    },
+    {
+     "title": "The comma rule",
+     "text": "Put a **comma** before the joining word when it joins two sentences.\n\nWe can walk, **or** we can take the bus."
+    },
+    {
+     "title": "Pick by meaning",
+     "text": "Ask: **How do the two ideas connect?**\n\nIt was late, **so** we went home. (result)\nIt was late, **but** we kept playing. (difference)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentences before the blank.\n2. Ask: Is the second idea a **result**, a **difference**, a **choice** or just **more**?\n3. Point to the sentence that gives the reason for your choice."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The road was closed, so we took another way.",
+      "role": "key"
+     },
+     {
+      "t": "It took longer, but we still arrived on time.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone was happy.",
+      "role": "other"
+     }
+    ],
+    "explain": "Taking another way is the **result** of the closed road → **so**.\n\nArriving on time is **different** from what we expected → **but**."
+   },
+   "together": {
+    "passage": "Our class planned a picnic for Thursday. On Wednesday night, the weather report warned of a strong sandstorm. The teacher wanted to keep everyone safe, ___ she moved the picnic to the next week. We were a little sad. On the new day, the sky was clear and blue.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "but",
+     "or",
+     "so",
+     "and"
+    ],
+    "answer": 2,
+    "hint": "Why did the teacher move the picnic? Is moving it a result, a difference or a choice?",
+    "good": "Yes! Moving the picnic was the result of the sandstorm warning, so we use so."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planned a picnic for Thursday.",
+     "On Wednesday night, the weather report warned of a strong sandstorm.",
+     "The teacher wanted to keep everyone safe, ___ she moved the picnic to the next week.",
+     "We were a little sad.",
+     "On the new day, the sky was clear and blue."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: so. Tap 2 sentences that show why the picnic was moved.",
+    "wrong": "This sentence does not explain why the picnic was moved. Find the warning and the teacher's reason."
+   },
+   "checks": [
+    {
+     "passage": "Choose one drink. You can have juice, ___ you can have water.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "so",
+      "but",
+      "because",
+      "or"
+     ],
+     "answer": 3,
+     "why": "You must choose one, so or gives the choice."
+    },
+    {
+     "passage": "I studied hard for the test, ___ I got a good mark.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "but",
+      "or",
+      "so",
+      "because"
+     ],
+     "answer": 2,
+     "why": "The good mark is the result of studying hard, so we use so."
+    },
+    {
+     "passage": "We wanted to swim but the pool was closed.",
+     "stem": "Which sentence uses the comma correctly?",
+     "options": [
+      "We wanted, to swim but the pool was closed.",
+      "We wanted to swim, but the pool was closed.",
+      "We wanted to swim but, the pool was closed.",
+      "We, wanted to swim but the pool was closed."
+     ],
+     "answer": 1,
+     "why": "The comma goes right before but, which joins the two sentences."
+    }
+   ],
+   "again": {
+    "title": "Ask four questions",
+    "text": "Is it **more** of the same? → and\nIs it **different**? → but\nIs it a **choice**? → or\nIs it a **result**? → so",
+    "example": "I was hungry, ___ I ate a sandwich.\n\nEating is the **result** of being hungry → **so**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Simple or compound?",
+     "text": "A **simple sentence** has one subject and its verb: Noor **painted** a picture.\n\nA **compound sentence** joins two complete sentences: Noor **painted** a picture, and her brother **built** a frame."
+    },
+    {
+     "title": "Watch out for and",
+     "text": "Noor and her brother painted. → **simple** (two subjects, one verb)\n\nNoor painted and framed the picture. → **simple** (one subject, two verbs)\n\nIt is compound only if **both sides** can stand alone."
+    },
+    {
+     "title": "Fix run-ons",
+     "text": "✗ The bell rang we went inside. (run-on)\n✗ The bell rang, we went inside. (comma splice)\n✓ The bell rang, **so** we went inside.\n\nA comma alone cannot join two sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Cover the joining word.\n2. Point to a **subject and a verb** on each side.\n3. If one side cannot stand alone, it is **not** a compound sentence.\n\nThe proof is a full sentence on both sides."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hamad and Yaser fixed the bike.",
+      "role": "other"
+     },
+     {
+      "t": "Hamad held the wheel, and Yaser tightened the chain.",
+      "role": "key"
+     },
+     {
+      "t": "Then they rode to the park.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 has two subjects but only one verb, **fixed**. It is simple.\n\nIn sentence 2, **Hamad held** and **Yaser tightened** can each stand alone. It is compound."
+   },
+   "together": {
+    "passage": "Abdullah wanted to raise money for a charity that plants trees. He and his sister made fresh lemon juice at home. They set up a small table outside their house. Many neighbors stopped to buy a cup, and some gave extra money. By the afternoon, the jug was empty. Abdullah counted the coins and smiled proudly.",
+    "stem": "Which sentence from the text is a compound sentence?",
+    "options": [
+     "He and his sister made fresh lemon juice at home.",
+     "Many neighbors stopped to buy a cup, and some gave extra money.",
+     "They set up a small table outside their house.",
+     "Abdullah counted the coins and smiled proudly."
+    ],
+    "answer": 1,
+    "hint": "Cover and. Can BOTH sides stand alone as sentences?",
+    "good": "Yes! Many neighbors stopped to buy a cup and some gave extra money can each stand alone."
+   },
+   "evidence": {
+    "sentences": [
+     "Abdullah wanted to raise money for a charity that plants trees.",
+     "He and his sister made fresh lemon juice at home.",
+     "They set up a small table outside their house.",
+     "Many neighbors stopped to buy a cup, and some gave extra money.",
+     "By the afternoon, the jug was empty.",
+     "Abdullah counted the coins and smiled proudly."
+    ],
+    "proof": [
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer had a full sentence on both sides of and. Tap 2 sentences that use and but are still simple sentences.",
+    "wrong": "This sentence does not use and to join two subjects or two verbs. Look for and inside a simple sentence."
+   },
+   "checks": [
+    {
+     "passage": "The wind blew hard, the tent fell down.",
+     "stem": "What is wrong, and how can it be fixed?",
+     "options": [
+      "It is a simple sentence. Remove the comma.",
+      "It needs a capital letter on tent.",
+      "It is a comma splice. Add so after the comma.",
+      "Nothing is wrong with it."
+     ],
+     "answer": 2,
+     "why": "Two sentences are joined with only a comma. Adding so makes a correct compound sentence."
+    },
+    {
+     "passage": "(A) Lina sang and danced. (B) Lina sang, and her friends clapped. (C) Lina and her friends sang.",
+     "stem": "Which sentence is compound?",
+     "options": [
+      "A",
+      "B",
+      "C",
+      "None of them"
+     ],
+     "answer": 1,
+     "why": "In B, Lina sang and her friends clapped can each stand alone. A and C are simple."
+    },
+    {
+     "passage": "Majed finished his homework he went out to play.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "Majed finished his homework, he went out to play.",
+      "Majed finished, his homework he went out to play.",
+      "Majed finished his homework so, he went out to play.",
+      "Majed finished his homework, so he went out to play."
+     ],
+     "answer": 3,
+     "why": "A comma plus so joins the two sentences correctly. The first choice is a comma splice."
+    }
+   ],
+   "again": {
+    "title": "The cover test",
+    "text": "Put your finger over **and**, **but**, **or** or **so**.\n\nRead the left side. Read the right side.\n\nTwo full sentences? **Compound.** Not two? **Simple.**",
+    "example": "Rami washed and dried the dishes.\n\nCover **and**: \"Rami washed\" / \"dried the dishes\". The right side has no subject, so it is **simple**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Seven joining words",
+     "text": "**F**or (reason)\n**A**nd (addition)\n**N**or (a second negative)\n**B**ut (contrast)\n**O**r (choice)\n**Y**et (surprising contrast)\n**S**o (result)\n\nThese are the **coordinating conjunctions**: FANBOYS."
+    },
+    {
+     "title": "Yet, for and nor",
+     "text": "**yet** = but, with surprise: The test was hard, **yet** everyone passed.\n\n**for** = because (formal): We rested, **for** the climb was long.\n\n**nor** = and not. The verb comes before the subject: He did not call, **nor did he** write."
+    },
+    {
+     "title": "Choose with precision",
+     "text": "Writers choose the conjunction that shows the **exact** link.\n\nThe bridge was old, **and** it was closed. (weak)\nThe bridge was old, **so** it was closed. (clear: result)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the idea on each side of the blank.\n2. Name the link: reason, result, contrast, surprise, choice or addition.\n3. Point to the sentences in the text that show that link.\n\nThe right conjunction matches what the text says happened."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The well had been dry for years, yet the old farmer still kept it clean.",
+      "role": "key"
+     },
+     {
+      "t": "He believed the rain would return one day.",
+      "role": "detail"
+     }
+    ],
+    "explain": "A dry well is useless, so keeping it clean is **surprising**. **Yet** shows that surprise.\n\nSentence 2 explains why he did it."
+   },
+   "together": {
+    "passage": "In the 1930s, geologists began searching for oil in the eastern part of Saudi Arabia. The first wells they drilled near Dhahran found little oil, ___ the team did not give up. They drilled Dammam Well No. 7 deeper than any of the wells before it. In March 1938, it finally struck oil in large amounts. That discovery changed the economy of the whole country, and the well later became known as Prosperity Well.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "so",
+     "or",
+     "for",
+     "yet"
+    ],
+    "answer": 3,
+    "hint": "Finding little oil would usually make people stop. Did the team stop? Which word shows a surprising contrast?",
+    "good": "Yes! After disappointing wells, you would expect the team to quit. They kept going, so yet shows the surprise."
+   },
+   "evidence": {
+    "sentences": [
+     "In the 1930s, geologists began searching for oil in the eastern part of Saudi Arabia.",
+     "The first wells they drilled near Dhahran found little oil, ___ the team did not give up.",
+     "They drilled Dammam Well No. 7 deeper than any of the wells before it.",
+     "In March 1938, it finally struck oil in large amounts.",
+     "That discovery changed the economy of the whole country, and the well later became known as Prosperity Well."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: yet. Tap 2 sentences that prove the team kept going after the disappointing wells.",
+    "wrong": "This sentence gives background or the results for the country. Find what the team did next."
+   },
+   "checks": [
+    {
+     "passage": "Salma did not like the noise of the city, ___ did she enjoy the long drive to work.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "nor",
+      "or",
+      "so",
+      "for"
+     ],
+     "answer": 0,
+     "why": "Two negative ideas are joined, and the verb did comes before she. That is the pattern for nor."
+    },
+    {
+     "passage": "We stayed home all weekend, ___ a strong storm had closed the roads.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "yet",
+      "for",
+      "or",
+      "nor"
+     ],
+     "answer": 1,
+     "why": "The second idea gives the reason we stayed home. For means because."
+    },
+    {
+     "passage": "The bridge was old and cracked, and the city closed it.",
+     "stem": "Which conjunction would show the link most precisely in place of the second and?",
+     "options": [
+      "or",
+      "nor",
+      "yet",
+      "so"
+     ],
+     "answer": 3,
+     "why": "The city closed the bridge because it was old and cracked. Closing it is a result, so so is the most precise."
+    }
+   ],
+   "again": {
+    "title": "Name the link first",
+    "text": "Before you choose, say the link in plain words:\n\n\"because\" → for\n\"and then as a result\" → so\n\"but surprisingly\" → yet\n\"and also not\" → nor",
+    "example": "She was tired, ___ she finished the race.\n\nTired people often stop. She did not: **but surprisingly** → **yet**."
+   }
+  }
+ }
+}

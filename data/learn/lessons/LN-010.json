@@ -1,0 +1,449 @@
+{
+ "code": "LN-010",
+ "title": "Adding visuals to writing",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.2.a"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0057",
+  "L-0145",
+  "L-0146"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Pictures help",
+     "text": "A **visual** is a picture, map or chart you add to your writing.\n\nIt helps the reader **see** what the words say."
+    },
+    {
+     "title": "Match the words",
+     "text": "The visual must **match** the writing.\n\nA report about frogs needs a picture of a **frog**, not a car."
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Ask: **What is my writing about?**\n2. Ask: **What do I want the reader to see?**\n3. Pick the visual that shows that."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The words tell you which visual fits.\n\n1. Find the sentences that say what the writing is about.\n2. Find what the reader needs to **see**.\n3. Pick the visual that shows it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My report tells how to get from school to the park.",
+      "role": "detail"
+     },
+     {
+      "t": "A map with the path drawn on it will help.",
+      "role": "key"
+     }
+    ],
+    "explain": "The report is about **getting somewhere**. A **map** shows the way."
+   },
+   "together": {
+    "passage": "Our class wrote a report about the parts of a plant. We wrote about the roots, the stem, the leaves and the flower. We want readers to see where each part is.",
+    "stem": "Which picture would help the report most?",
+    "options": [
+     "A photo of our teacher",
+     "A plant drawing with each part labelled",
+     "A map of the town",
+     "A picture of a red car"
+    ],
+    "answer": 1,
+    "hint": "Does that picture show the parts of a plant?",
+    "good": "Yes! A labelled drawing shows where the roots, stem, leaves and flower are."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class wrote a report about the parts of a plant.",
+     "We wrote about the roots, the stem, the leaves and the flower.",
+     "We want readers to see where each part is."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a plant drawing with each part labelled. Tap the 2 sentences that show what the picture must show.",
+    "wrong": "This sentence names the topic. Find the sentences that tell which parts readers must see."
+   },
+   "checks": [
+    {
+     "passage": "Hind wrote about how a butterfly grows: egg, caterpillar, chrysalis, butterfly.",
+     "stem": "Which picture would help most?",
+     "options": [
+      "A photo of a bee",
+      "A picture of a cake",
+      "A map of Africa",
+      "Pictures of each stage in order"
+     ],
+     "answer": 3,
+     "why": "Pictures of each stage show how the butterfly grows."
+    },
+    {
+     "passage": "Khalid wrote how to walk from his house to the park.",
+     "stem": "Which picture would help most?",
+     "options": [
+      "A photo of his shoes",
+      "A map with the path on it",
+      "A drawing of a fish",
+      "A picture of the moon"
+     ],
+     "answer": 1,
+     "why": "A map shows the way to walk."
+    },
+    {
+     "passage": "Our class counted our pets. We have 8 cats, 5 fish and 3 birds.",
+     "stem": "Which picture would help most?",
+     "options": [
+      "A photo of one cat",
+      "A drawing of our school",
+      "A picture of a tree",
+      "A chart of how many of each pet"
+     ],
+     "answer": 3,
+     "why": "A chart shows how many cats, fish and birds there are."
+    }
+   ],
+   "again": {
+    "title": "Close your eyes",
+    "text": "Read your writing. Close your eyes.\n\nWhat do you **see** in your head? Draw or choose **that**.",
+    "example": "Writing: The camel has a big hump and long legs.\nIn my head I see **a camel**. So I add **a picture of a camel**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Kinds of visuals",
+     "text": "**Photo**: shows what something looks like\n**Labelled diagram**: shows the parts of something\n**Map**: shows places and routes\n**Timeline**: shows events in date order\n**Graph or chart**: shows and compares numbers"
+    },
+    {
+     "title": "Pick by what you explain",
+     "text": "Ask what your writing explains:\n\nparts → diagram\nplaces → map\ndates → timeline\nnumbers → graph\nsteps → numbered pictures"
+    },
+    {
+     "title": "A visual must help",
+     "text": "A visual should make the writing **easier** to understand.\n\nA pretty picture that does not match the main point does not help."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The writing gives clues about the **kind** of information.\n\n1. Find the sentences with the key information: dates? numbers? parts? places?\n2. Name the kind.\n3. Pick the visual made for that kind."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rainfall in our city: January 20 mm, April 10 mm, July 0 mm.",
+      "role": "detail"
+     },
+     {
+      "t": "A bar graph would show these amounts side by side.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writing gives **numbers** to compare. A **bar graph** shows numbers side by side."
+   },
+   "together": {
+    "passage": "Dana is writing a report about how her town grew. In 1950, it was a small village with one market. By 1980, it had a hospital and two schools. In 2010, a large university opened at the edge of town.",
+    "stem": "Which visual would best support Dana's report?",
+    "options": [
+     "A timeline of the important dates",
+     "A diagram of a plane's engine",
+     "A chart of favourite foods",
+     "A photo of Dana's family"
+    ],
+    "answer": 0,
+    "hint": "Look at the information in the report. Is it about parts, places, numbers or dates?",
+    "good": "Yes! The report gives events and **dates** in order. A timeline shows that best."
+   },
+   "evidence": {
+    "sentences": [
+     "Dana is writing a report about how her town grew.",
+     "In 1950, it was a small village with one market.",
+     "By 1980, it had a hospital and two schools.",
+     "In 2010, a large university opened at the edge of town."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a timeline. Tap 2 sentences that show the report is about events and dates.",
+    "wrong": "This sentence only names the topic. Find sentences with dates and events."
+   },
+   "checks": [
+    {
+     "passage": "A report compares the average rainfall in four different cities.",
+     "stem": "Which visual would best support it?",
+     "options": [
+      "A timeline",
+      "A diagram of a cloud",
+      "A bar graph",
+      "A photo of an umbrella"
+     ],
+     "answer": 2,
+     "why": "The report compares **numbers**. A bar graph shows them side by side."
+    },
+    {
+     "passage": "A report explains how the parts of the human eye work together.",
+     "stem": "Which visual would best support it?",
+     "options": [
+      "A map of a hospital",
+      "A timeline of eye doctors",
+      "A labelled diagram of the eye",
+      "A graph of glasses sales"
+     ],
+     "answer": 2,
+     "why": "A labelled diagram shows each **part** of the eye."
+    },
+    {
+     "passage": "Instructions explain how to fold a paper boat, one fold at a time.",
+     "stem": "Which visual would best support them?",
+     "options": [
+      "Numbered drawings of each fold",
+      "A photo of a real ship",
+      "A map of the sea",
+      "A chart of paper colours"
+     ],
+     "answer": 0,
+     "why": "Numbered drawings show each **step** in order."
+    }
+   ],
+   "again": {
+    "title": "Kind of info",
+    "text": "Circle the important words in the writing. Then ask what kind they are:\n\n1950, 1980 → **dates** → timeline\n20 mm, 10 mm → **numbers** → graph\nroots, stem → **parts** → diagram",
+    "example": "Writing: Riyadh, Jeddah and Dammam are big cities.\nKind: **places**. Visual: **a map**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Where does it go?",
+     "text": "A visual should be placed **next to the words it supports**.\n\nThe reader reads about something, then sees it. If the visual is far away, the reader will not connect them."
+    },
+    {
+     "title": "Not too early, not too late",
+     "text": "- Too early: the reader does not know what it shows yet.\n- Too late: it sits next to a different idea.\n- Just right: right after the part it explains."
+    },
+    {
+     "title": "In a presentation",
+     "text": "Each slide has **one main idea**.\n\nShow the visual on the slide whose idea it supports, not on the title slide or a slide about something else."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove where a visual belongs, find the sentences it **shows**.\n\n1. Name what the visual shows.\n2. Find the sentences that explain the same thing.\n3. The visual goes **right after** those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Slide 1: What is a coral reef?",
+      "role": "other"
+     },
+     {
+      "t": "Slide 2: Animals that live on reefs",
+      "role": "key"
+     },
+     {
+      "t": "Slide 3: How to protect reefs",
+      "role": "other"
+     }
+    ],
+    "explain": "A photo of reef fish and turtles shows **animals that live on reefs**. It belongs on **slide 2**."
+   },
+   "together": {
+    "passage": "(1) Water is always moving around our planet. (2) First, the sun heats water in seas and lakes, and it rises into the air as vapour. (3) High in the sky, the vapour cools and forms clouds. (4) When the drops in clouds become heavy, they fall as rain or snow. (5) The water flows back to the sea, and the cycle begins again. (6) Saving water at home helps protect this precious resource.",
+    "stem": "Where is the best place for a diagram showing the steps of the water cycle?",
+    "options": [
+     "After sentence 6, by the tip on saving water",
+     "On the last page, with no caption",
+     "Between sentences 3 and 4, mid-steps",
+     "After sentence 5, right after the steps"
+    ],
+    "answer": 3,
+    "hint": "Would the reader connect the diagram to the steps there? Find where the steps end.",
+    "good": "Yes! Sentences 2 to 5 explain the steps. The diagram goes right after them, so the reader can see what they just read."
+   },
+   "evidence": {
+    "sentences": [
+     "(1) Water is always moving around our planet.",
+     "(2) First, the sun heats water in seas and lakes, and it rises into the air as vapour.",
+     "(3) High in the sky, the vapour cools and forms clouds.",
+     "(4) When the drops in clouds become heavy, they fall as rain or snow.",
+     "(5) The water flows back to the sea, and the cycle begins again.",
+     "(6) Saving water at home helps protect this precious resource."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: after sentence 5. Tap 2 sentences that explain the steps the diagram will show.",
+    "wrong": "This sentence is not one of the steps. Find sentences that explain what happens to the water."
+   },
+   "checks": [
+    {
+     "passage": "A report says that the number of students in the school's reading club grew every year from 2019 to 2024.",
+     "stem": "Which visual would best support this?",
+     "options": [
+      "A photo of the club's room",
+      "A line graph of members each year",
+      "A diagram of a computer",
+      "A map of the school"
+     ],
+     "answer": 1,
+     "why": "A line graph shows how a number **changes over time**."
+    },
+    {
+     "passage": "Majed's presentation has three slides: (1) What are sand dunes? (2) How wind shapes dunes. (3) Where dunes are found in Saudi Arabia.",
+     "stem": "Where should he show a map of the Kingdom's large deserts?",
+     "options": [
+      "On slide 1",
+      "On slide 2",
+      "Before slide 1",
+      "On slide 3"
+     ],
+     "answer": 3,
+     "why": "A map shows **where** things are. Slide 3 is about where dunes are found."
+    },
+    {
+     "passage": "A paragraph explains what share of a school's rubbish is food, paper and plastic, as parts of the whole.",
+     "stem": "Which visual would best support it?",
+     "options": [
+      "A timeline",
+      "A pie chart",
+      "A map",
+      "A diagram of a truck"
+     ],
+     "answer": 1,
+     "why": "A pie chart shows **parts of a whole**."
+    }
+   ],
+   "again": {
+    "title": "Point and place",
+    "text": "Point to the visual. Say what it shows in three words.\n\nNow find those three words in the writing. Place the visual right after them.",
+    "example": "Visual: a labelled diagram of a date palm.\nThree words: **parts of palm**.\nFind the paragraph about the trunk, fronds and fruit. Place it **after** that paragraph."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Support the point, not just the topic",
+     "text": "The best visual supports the writer's **main point**.\n\nIf a report argues that fruit sales rose, a photo of the canteen is on topic, but only a graph of sales proves the point."
+    },
+    {
+     "title": "Choose for your data",
+     "text": "- **Change over time** → line graph\n- **Comparing groups** → bar graph\n- **Parts of a whole** → pie chart\n- **How something works** → labelled diagram or cross-section\n- **One moment only** → a single pie chart or photo will not show change"
+    },
+    {
+     "title": "Captions and placement",
+     "text": "A short **caption** tells the reader what to notice.\n\nPlace the visual in the section that discusses the same information, so text and visual work together."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a visual is the best choice, find the **evidence sentences** it would display.\n\n1. Find the main point.\n2. Find the sentences with the facts or numbers that prove it.\n3. Pick the visual that shows **those** facts most clearly."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Point: a camel's wide, padded feet stop it from sinking into sand.",
+      "role": "other"
+     },
+     {
+      "t": "Best visual: a close-up photo of a camel's foot on sand, with a caption.",
+      "role": "key"
+     },
+     {
+      "t": "Weaker visual: a photo of a camel race.",
+      "role": "other"
+     }
+    ],
+    "explain": "The point is about the **feet** and the **sand**. Only the close-up shows that. A camel race is on topic but does not show the point."
+   },
+   "together": {
+    "passage": "Last September, our school canteen replaced most sweets and fizzy drinks with fruit, yoghurt and water. Some students complained at first, and a few said they would bring snacks from home instead. However, the canteen's records tell a different story. In the month before the change, students bought about 400 sweets and only 50 pieces of fruit each week. Three months later, they were buying about 300 pieces of fruit a week, while sweet sales had dropped almost to zero. The canteen manager says that students now ask for new fruits to try.",
+    "stem": "The writer wants to add one visual that best supports the main point. Which should it be?",
+    "options": [
+     "A photo of the canteen's colourful new menu board",
+     "A line graph of the school's total number of students",
+     "A bar graph of weekly fruit and sweet sales, before and after",
+     "A labelled diagram showing the different parts of an apple"
+    ],
+    "answer": 2,
+    "hint": "Is that visual about the change in what students buy? Look for the numbers in the passage.",
+    "good": "Yes! The point is that students now buy fruit instead of sweets. A bar graph of the sales before and after shows that clearly."
+   },
+   "evidence": {
+    "sentences": [
+     "Last September, our school canteen replaced most sweets and fizzy drinks with fruit, yoghurt and water.",
+     "Some students complained at first, and a few said they would bring snacks from home instead.",
+     "However, the canteen's records tell a different story.",
+     "In the month before the change, students bought about 400 sweets and only 50 pieces of fruit each week.",
+     "Three months later, they were buying about 300 pieces of fruit a week, while sweet sales had dropped almost to zero.",
+     "The canteen manager says that students now ask for new fruits to try."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a bar graph of fruit and sweet sales, before and after. Tap the 2 sentences with the numbers the graph would show.",
+    "wrong": "This sentence has no numbers to show. Find the sentences with the sales before and after the change."
+   },
+   "checks": [
+    {
+     "passage": "A science article has four sections: Introduction, How Volcanoes Form, Famous Eruptions, and Staying Safe.",
+     "stem": "Where should a cross-section diagram of a volcano's magma chamber and vent go?",
+     "options": [
+      "In How Volcanoes Form",
+      "In the Introduction",
+      "In Famous Eruptions",
+      "In Staying Safe"
+     ],
+     "answer": 0,
+     "why": "A cross-section shows the inside structure. That section explains how magma moves up to form a volcano."
+    },
+    {
+     "passage": "A writer argues that fewer students walk to school now than ten years ago. She has survey results for every year from 2015 to 2024.",
+     "stem": "Which visual would best support her argument?",
+     "options": [
+      "A line graph showing the change across the years",
+      "A pie chart of the results from one single year",
+      "A map of the streets near the school",
+      "A photo of a student walking to school"
+     ],
+     "answer": 0,
+     "why": "Her point is about **change over time**. A pie chart of one year cannot show change."
+    },
+    {
+     "passage": "A report section explains how the blades, shaft and generator of a wind turbine work together to turn wind into electricity.",
+     "stem": "Which visual best supports this section?",
+     "options": [
+      "A photo of a windy beach at sunset",
+      "A map of wind farms around the world",
+      "A labelled diagram of a turbine's parts",
+      "A chart of electricity prices"
+     ],
+     "answer": 2,
+     "why": "The section explains **how parts work together**. A labelled diagram shows each part and how they connect."
+    }
+   ],
+   "again": {
+    "title": "What does it prove?",
+    "text": "Finish this sentence for each visual: **This visual proves that ___.**\n\nIf your answer is not the writer's main point, choose another visual.",
+    "example": "Main point: Riyadh's summers are much hotter than its winters.\nPhoto of a sunny street → proves it is sunny ✘\nBar graph of monthly temperatures → proves summers are hotter ✔"
+   }
+  }
+ }
+}

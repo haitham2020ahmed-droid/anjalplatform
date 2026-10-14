@@ -1,0 +1,568 @@
+{
+  "code": "NB-058",
+  "title": "The Bottle Marked Thursday",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 502,
+  "passage": "The academy pitch on the edge of Riyadh shimmered in the late-afternoon heat, and the white lines seemed to wobble as if they were slowly melting into the grass. With the regional final only four days away, Faris had convinced himself that every single minute of practice was precious. When Coach Saleh blew his whistle for a water break, the other players jogged gratefully towards the shade of the stands, but Faris remained behind, dribbling the ball in determined circles around a row of orange cones.\n\n\"Faris, water!\" the coach called across the field, but Faris simply waved without looking up and replied that he was not thirsty and would rather practise with his weaker left foot. His friend Majed, who had been watching from the bench with an anxious frown, shook his head. \"Nobody wins a final from a hospital bed,\" he muttered, yet Faris pretended not to hear.\n\nFor the next twenty minutes, Faris charged up and down the wing as though he were racing the sun itself. Gradually, however, something began to change. His legs, which usually felt light and springy, became unbearably heavy, and a dull headache started to pound behind his eyes. When a long pass floated towards him, he stretched for it a fraction too late, and the ball rolled lazily out of play. Bending over with his hands on his knees, he noticed with alarm that the green pitch was tilting beneath him like the deck of a ship.\n\nMajed reached him first and immediately shouted for assistance. Within moments, Coach Saleh was kneeling beside Faris, carefully studying his flushed, sweat-soaked face. Without wasting a second, the coach guided him into the shade, loosened his shirt and placed a cool, damp towel across the back of his neck before handing him a bottle of water. \"Take small sips,\" he instructed calmly. \"This is heat exhaustion. If you were confused, or if your body had stopped sweating, I would already be calling an ambulance.\"\n\nEventually, the spinning world settled, and a wave of embarrassment replaced Faris's dizziness. He mumbled apologetically that he had only wanted to be completely prepared for Thursday. The coach sat down beside him on the bench and spoke quietly. \"Your muscles are like the engine of a car, Faris, and water is the coolant that protects it. If you ignore the warning lights, even the fastest car ends up broken at the side of the road. Being ready means training intelligently, not only training hard.\"\n\nThat evening, Faris filled a large bottle with water and wrote a single word on its side in black marker: THURSDAY. For the rest of the week, he drank at every break, frequently before anyone needed to remind him. In the final, with the score level in the eighty-fifth minute, his legs still felt powerful enough to sprint past two exhausted defenders. As the ball struck the back of the net, Faris glanced towards the bench, where Majed was triumphantly holding up a water bottle and grinning.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “convinced” as it is used in paragraph 1?",
+      "options": [
+        "warned",
+        "persuaded",
+        "reminded",
+        "doubted"
+      ],
+      "answer": "B",
+      "why": "Faris “had convinced himself” that every minute was precious, which means he had persuaded himself to believe it."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “triumphantly” as it is used in paragraph 6?",
+      "options": [
+        "proudly",
+        "joyfully",
+        "loudly",
+        "miserably"
+      ],
+      "answer": "D",
+      "why": "“Triumphantly” means with the joy of victory; its opposite is “miserably”. “Proudly” and “joyfully” are close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 1: “The academy pitch on the edge of Riyadh shimmered in the late-afternoon heat.” What does “shimmered” mean?",
+      "options": [
+        "was covered in puddles of water",
+        "was freshly painted with lines",
+        "seemed to shine and waver",
+        "was hidden in deep, cool shadow"
+      ],
+      "answer": "C",
+      "why": "The next words say the white lines “seemed to wobble”, so the pitch seemed to shine and waver in the hot air."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an ADVERB?",
+      "options": [
+        "heavy",
+        "lazily",
+        "pass",
+        "springy"
+      ],
+      "answer": "B",
+      "why": "“Lazily” describes how the ball rolled, so it is an adverb; “heavy” and “springy” are adjectives and “pass” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these words names a FEELING rather than a physical sign of illness?",
+      "options": [
+        "headache",
+        "dizziness",
+        "embarrassment",
+        "perspiration"
+      ],
+      "answer": "C",
+      "why": "Embarrassment is an emotion; headache, dizziness and perspiration (sweat) are physical signs in Faris's body."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “determined” in paragraph 1?",
+      "options": [
+        "determination",
+        "terminate",
+        "detergent",
+        "undermined"
+      ],
+      "answer": "A",
+      "why": "“Determination” comes from the same root as “determined”; the others only share some letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “precious” in a meaningful sentence of your own.",
+      "model": "Clean water is precious in the desert, so my grandfather never lets a single drop go to waste.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “precious” with its meaning (very valuable and important, not to be wasted)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Precious” means of great value, something to be treated carefully."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “coach” appears in the story. Which is its correct PLURAL form?",
+      "options": [
+        "coachs",
+        "coach's",
+        "coaches",
+        "coaches'"
+      ],
+      "answer": "C",
+      "why": "Nouns ending in -ch add -es: one coach, two coaches. “Coach's” and “coaches'” show possession, not the plural."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Faris, water!” in paragraph 2?",
+      "options": [
+        "a question asking Faris for water",
+        "a statement describing the weather",
+        "a description of the setting",
+        "a command spoken with strong feeling"
+      ],
+      "answer": "D",
+      "why": "The coach is telling Faris to come and drink, and the exclamation mark shows urgency; it is a command, even without a verb."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Majed's Winning Goal",
+        "Training Smart, Not Just Hard",
+        "A Summer Holiday in Riyadh",
+        "The Broken Car Engine"
+      ],
+      "answer": "B",
+      "why": "This is the coach's lesson, and the story shows Faris learning it. It is Faris, not Majed, who scores."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain the rules of a football final",
+        "to describe the city of Riyadh in summer",
+        "to teach readers how car engines are cooled",
+        "to show that ignoring the body can undo hard work"
+      ],
+      "answer": "D",
+      "why": "Faris's refusal to drink nearly ruins his preparation, and his new habit helps him win; the car engine is only a comparison."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Faris practises with his weaker left foot.",
+        "The pitch is damaged by the summer sun.",
+        "Faris scores a goal after a long pass.",
+        "The heat starts to overpower Faris as he trains."
+      ],
+      "answer": "D",
+      "why": "His legs grow heavy, his head pounds, he misses a pass and the pitch seems to tilt: the heat is overpowering him."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Faris stay on the pitch during the water break?",
+      "options": [
+        "He thought every minute of practice was precious.",
+        "The coach had asked him to collect the cones.",
+        "He had already drunk a large bottle of water.",
+        "He was angry with Majed for frowning."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says he “had convinced himself that every single minute of practice was precious”, and in paragraph 2 he says he would rather practise."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a fable with talking animals",
+        "an informational report",
+        "realistic fiction",
+        "a biography of a real footballer"
+      ],
+      "answer": "C",
+      "why": "The characters and events are invented but could really happen, and the story has dialogue and a plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does Coach Saleh say he would call an ambulance if Faris were confused or had stopped sweating?",
+      "options": [
+        "Those signs would mean a more dangerous illness.",
+        "Faris had asked to be taken to the hospital.",
+        "The ambulance could drive Faris home quickly.",
+        "Confused players are not allowed to play in a final."
+      ],
+      "answer": "A",
+      "why": "The coach is calm because Faris shows only heat exhaustion; confusion or no sweating would mean an emergency."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Majed shouted for assistance.",
+        "Coach Saleh placed a damp towel on Faris's neck.",
+        "A long pass rolled out of play.",
+        "Faris wrote a word on his water bottle."
+      ],
+      "answer": "C",
+      "why": "The ball rolled out of play in paragraph 3, before Majed shouted, the coach helped, and Faris wrote on the bottle that evening."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story?",
+      "options": [
+        "Faris, who describes himself as “I”",
+        "Majed, who watches from the bench",
+        "Coach Saleh, remembering the season",
+        "an outside narrator who follows Faris"
+      ],
+      "answer": "D",
+      "why": "The story uses “he” and “Faris” and describes Faris's private thoughts, so it is told by a third-person narrator."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of the following did Coach Saleh NOT do to help Faris?",
+      "options": [
+        "guided him into the shade",
+        "loosened his shirt",
+        "poured ice water over his head",
+        "handed him a bottle of water"
+      ],
+      "answer": "C",
+      "why": "The coach guided him to the shade, loosened his shirt, put a cool, damp towel on his neck and gave him water; there was no ice water."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What most likely caused Faris to reach the long pass “a fraction too late”?",
+      "options": [
+        "He had not drunk water and was overheating.",
+        "Majed had kicked the ball much too hard.",
+        "He was still practising with his left foot.",
+        "The coach had just blown the whistle."
+      ],
+      "answer": "A",
+      "why": "The paragraph describes heavy legs and a pounding headache just before the missed pass, after twenty minutes without water."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
+      "options": [
+        "wondering whether Majed's warning will come true",
+        "wanting to learn the official rules of football",
+        "wanting to find out the colour of the cones",
+        "wanting to know where exactly the academy is"
+      ],
+      "answer": "A",
+      "why": "Majed's words about a hospital bed suggest danger, and the reader wants to see if Faris will suffer for ignoring them."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Faris's feelings in paragraph 5?",
+      "options": [
+        "proud and very stubborn",
+        "embarrassed but ready to learn",
+        "angry and quite jealous",
+        "bored and rather careless"
+      ],
+      "answer": "B",
+      "why": "Embarrassment replaces his dizziness, he apologises, and he listens to the coach; later he follows the advice."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Faris at the end of the story different from Faris at the beginning?",
+      "options": [
+        "At first he trains with the team; at the end he trains alone.",
+        "At first he is a defender; at the end he is a goalkeeper.",
+        "At first he is careful; at the end he is careless.",
+        "At first he skips water breaks; later he drinks at every break."
+      ],
+      "answer": "D",
+      "why": "In paragraph 1 he skips the break; in paragraph 6 he drinks at every break, “frequently before anyone needed to remind him.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of Faris's new habit during the final?",
+      "options": [
+        "He was too tired to finish the match.",
+        "He spent the second half on the bench.",
+        "He could still sprint late in the game.",
+        "He missed the winning chance in the last minute."
+      ],
+      "answer": "C",
+      "why": "In the eighty-fifth minute “his legs still felt powerful enough to sprint past two exhausted defenders.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Majed and Coach Saleh have in common in the story?",
+      "options": [
+        "Both care about Faris's health.",
+        "Both are angry that Faris trains too much.",
+        "Both play in the regional final.",
+        "Both ignore the water breaks."
+      ],
+      "answer": "A",
+      "why": "Majed warns Faris and shouts for help; the coach calls him to drink, treats him and teaches him the lesson."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the story with Majed holding up a water bottle and grinning?",
+      "options": [
+        "to show that Majed is thirsty after the match",
+        "to show that Majed is still angry with Faris",
+        "to suggest that Majed scored the winning goal",
+        "to link the victory to the lesson about water"
+      ],
+      "answer": "D",
+      "why": "The bottle reminds readers that drinking water helped Faris win, and Majed's grin shows friendly pride."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer says the pitch was “tilting beneath him like the deck of a ship.” What does this simile show?",
+      "options": [
+        "Faris was so dizzy the ground seemed to move.",
+        "The pitch was flooded with water from the sprinklers.",
+        "Faris wanted to go sailing after training.",
+        "The pitch was built on a hill."
+      ],
+      "answer": "A",
+      "why": "The ground did not really move; the comparison shows how dizzy the heat had made him."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Coach Saleh compares Faris's muscles to a car engine. In this comparison, what are the “warning lights”?",
+      "options": [
+        "the floodlights around the pitch",
+        "signs that the body is in trouble",
+        "the coach's whistle at the start of a break",
+        "the flashing lights of the ambulance"
+      ],
+      "answer": "B",
+      "why": "Like a car's warning lights, Faris's headache, heavy legs and dizziness were signals that his body was overheating."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from the story is MOST useful for young athletes?",
+      "options": [
+        "Practising alone is better than practising with a team.",
+        "Being ready includes looking after your body.",
+        "Friends should never warn each other about mistakes.",
+        "Only coaches need to know about heat illness."
+      ],
+      "answer": "B",
+      "why": "The coach says “Being ready means training intelligently, not only training hard,” and the ending proves it."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Hard work succeeds when we also care for our bodies.",
+        "Football is too dangerous to play in summer.",
+        "Winning a final is the most important thing in life.",
+        "It is wrong to practise with your weaker foot."
+      ],
+      "answer": "A",
+      "why": "Faris's hard work almost fails because he ignores water, and it succeeds once he trains wisely."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in the final paragraph?",
+      "options": [
+        "fear",
+        "boredom",
+        "jealousy",
+        "triumph"
+      ],
+      "answer": "D",
+      "why": "Faris scores in the final minutes, and Majed grins as he holds up the bottle: the mood is happy and victorious."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "what Faris wrote on his water bottle",
+        "in which minute Faris scored",
+        "which team the academy played",
+        "on which day the final was played"
+      ],
+      "answer": "C",
+      "why": "The opposing team is never named; the bottle said THURSDAY, the goal came in the eighty-fifth minute and the final was on Thursday."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "The white lines of a pitch melt and wobble away in the heat.",
+        "A car engine joins a football team.",
+        "A water bottle speaks to remind a player to drink.",
+        "A footballer feels dizzy after training without water."
+      ],
+      "answer": "D",
+      "why": "Heat exhaustion causing dizziness is realistic; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The THURSDAY Bottle",
+        "The Pitch That Melted",
+        "Majed's Big Mistake",
+        "Coach Saleh's Car"
+      ],
+      "answer": "A",
+      "why": "The bottle shows Faris's change and links his lesson to his success in Thursday's final."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which Faris shows that he has learned the coach's lesson in a different way.",
+      "model": "The day before the final, Faris stood up in front of the team and told them what had happened to him on the hot pitch. He handed every player a bottle with THURSDAY written on it and reminded them to drink at every break. Even though the match ended in a draw, not one player felt dizzy, and the coach shook Faris's hand proudly.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and shows Faris has learned to look after his body",
+        "1 = an ending is given but it is unclear, does not fit the story, or does not show the lesson",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the characters and shows Faris's lesson about water and training wisely is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could the academy stop other players from making the same mistake as Faris?",
+      "options": [
+        "Make water breaks compulsory for every player.",
+        "Teach players the warning signs of heat exhaustion.",
+        "A and B",
+        "Train only at midday, when the sun is strongest."
+      ],
+      "answer": "C",
+      "why": "Both ideas would protect players: compulsory breaks make sure they drink, and knowing the signs helps them act early. Training at midday would make the danger worse."
+    }
+  ]
+}

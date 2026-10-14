@@ -1,0 +1,461 @@
+{
+ "code": "LN-032",
+ "title": "Technology for writing and publishing",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [],
+ "families": [],
+ "skillNames": [
+  "Technology for Writing and Publishing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Write on a computer",
+     "text": "You can **type** your writing on a computer or tablet.\n\nIt is easy to **fix** mistakes and make it neat."
+    },
+    {
+     "title": "Helpful tools",
+     "text": "A **red line** under a word can mean it is spelled wrong.\n\nThe **delete** key takes away letters.\n\n**Save** keeps your work safe."
+    },
+    {
+     "title": "Share your work",
+     "text": "When you finish, you can **print** your writing.\n\nOr you can **send** it to your teacher."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read what the child does.\n2. Find the sentence that tells **what happened** on the screen.\n3. Find the sentence that tells **what the child did next**.\n\nThey prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ahmed typed his poem.",
+      "role": "detail"
+     },
+     {
+      "t": "He clicked Save.",
+      "role": "key"
+     },
+     {
+      "t": "The next day, his poem was still there.",
+      "role": "key"
+     }
+    ],
+    "explain": "Ahmed **saved** his poem. That is why it was still there the next day.\n\nSaving keeps your work safe."
+   },
+   "together": {
+    "passage": "Mona types her story on the computer. She sees a red line under the word freind. She fixes it to friend. Then she saves her story.",
+    "stem": "What did the red line show Mona?",
+    "options": [
+     "A word was spelled wrong.",
+     "The story was saved.",
+     "The story was too long.",
+     "It was time to print."
+    ],
+    "answer": 0,
+    "hint": "What did Mona do right after she saw the red line?",
+    "good": "Yes! The red line showed a spelling mistake, so Mona fixed it."
+   },
+   "evidence": {
+    "sentences": [
+     "Mona types her story on the computer.",
+     "She sees a red line under the word freind.",
+     "She fixes it to friend.",
+     "Then she saves her story."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a word was spelled wrong. Tap 2 sentences that prove it.",
+    "wrong": "This sentence does not tell about the red line. Find the red line and what Mona fixed."
+   },
+   "checks": [
+    {
+     "passage": "Ali wrote a long story on the tablet. He wants to keep it for tomorrow.",
+     "stem": "What should Ali do?",
+     "options": [
+      "Turn it off fast",
+      "Save it",
+      "Delete it",
+      "Close it"
+     ],
+     "answer": 1,
+     "why": "Saving keeps the story safe for tomorrow."
+    },
+    {
+     "passage": "Sara typed: I like to reed books.",
+     "stem": "Which word should Sara fix?",
+     "options": [
+      "like",
+      "books",
+      "I",
+      "reed"
+     ],
+     "answer": 3,
+     "why": "Reed should be read."
+    },
+    {
+     "passage": "Omar finished his story. He wants to give a paper copy to his grandmother.",
+     "stem": "What should Omar do?",
+     "options": [
+      "Delete it",
+      "Type more",
+      "Print it",
+      "Close the tablet"
+     ],
+     "answer": 2,
+     "why": "Printing makes a paper copy he can give."
+    }
+   ],
+   "again": {
+    "title": "Type, fix, save",
+    "text": "Remember three steps.\n\n1. **Type** your words.\n2. **Fix** words with a red line.\n3. **Save** your work.",
+    "example": "Type: **My cat is cute.**\n\nFix: **cuet** → **cute**.\n\nSave: click **Save**. Done!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Drafting is easier",
+     "text": "On a computer, you can write a **draft** quickly and change it later.\n\nYou can **cut and paste** to move a sentence, and **insert** new ideas anywhere."
+    },
+    {
+     "title": "Spell check is not perfect",
+     "text": "Spell check finds many mistakes, but **not all**.\n\nIf you type **their** instead of **there**, it may not notice, because both are real words. Always **reread** your work yourself."
+    },
+    {
+     "title": "Save and share",
+     "text": "1. **Save** often, with a clear file name like **Science Report Draft 2**.\n2. **Share** your draft with your teacher for comments.\n3. Add a **picture** or **title** to make your final copy look good."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When a text describes someone writing with technology:\n\n1. Find what **problem** they had.\n2. Find what **tool** or step they used.\n3. Find the **result**.\n\nThe sentences that show the problem and result prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem's paragraph about the sea had the best sentence at the very end.",
+      "role": "detail"
+     },
+     {
+      "t": "She cut that sentence and pasted it at the beginning.",
+      "role": "key"
+     },
+     {
+      "t": "Now her paragraph starts with a strong hook.",
+      "role": "key"
+     }
+    ],
+    "explain": "Reem used **cut and paste** to move a sentence.\n\nThe result: a stronger beginning, without retyping anything."
+   },
+   "together": {
+    "passage": "Khalid wrote his report about falcons on the computer. The spell check found no mistakes, so he almost printed it. Then his sister read it and pointed to a sentence: Falcons use there sharp eyes to hunt. Khalid realized he should have written their, not there. The spell check had missed the mistake because there is also a real word.",
+    "stem": "What lesson does Khalid learn?",
+    "options": [
+     "Spell check finds every mistake.",
+     "Reports should never be typed.",
+     "He should always reread his work, even after spell check.",
+     "Falcons do not have sharp eyes."
+    ],
+    "answer": 2,
+    "hint": "What did spell check miss, and who found it?",
+    "good": "Yes! Spell check missed there/their, so he needs to reread his work himself."
+   },
+   "evidence": {
+    "sentences": [
+     "Khalid wrote his report about falcons on the computer.",
+     "The spell check found no mistakes, so he almost printed it.",
+     "Then his sister read it and pointed to a sentence: Falcons use there sharp eyes to hunt.",
+     "Khalid realized he should have written their, not there.",
+     "The spell check had missed the mistake because there is also a real word."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: always reread, even after spell check. Tap 2 sentences that prove spell check is not enough.",
+    "wrong": "This sentence does not show spell check missing anything. Find where it missed the mistake."
+   },
+   "checks": [
+    {
+     "passage": "Nada has a paragraph about plants. The sentence about roots is in the wrong place.",
+     "stem": "Which tool helps her most?",
+     "options": [
+      "Print",
+      "Cut and paste",
+      "Delete the whole paragraph",
+      "Change the font color"
+     ],
+     "answer": 1,
+     "why": "Cut and paste lets her move the sentence to the right place."
+    },
+    {
+     "passage": "Yousef has three files named story, story new and story final final.",
+     "stem": "What would help Yousef the most?",
+     "options": [
+      "Delete all the old files and start again",
+      "Never save his work, so there are no files",
+      "Use one long name for every single file",
+      "Name files clearly, like Desert Story Draft 1 and Draft 2"
+     ],
+     "answer": 3,
+     "why": "Clear names show which draft is which."
+    },
+    {
+     "passage": "Lulu finished her draft. Her teacher can read files online.",
+     "stem": "What is the best next step to get feedback?",
+     "options": [
+      "Share the draft with her teacher",
+      "Print ten copies",
+      "Close the file without saving",
+      "Change all the words"
+     ],
+     "answer": 0,
+     "why": "Sharing lets the teacher give comments before the final copy."
+    }
+   ],
+   "again": {
+    "title": "The computer is a helper, not the boss",
+    "text": "The computer can help you:\n\n1. move sentences\n2. find some spelling mistakes\n3. keep your work safe\n\nBut **you** are the writer. **You** must reread and decide.",
+    "example": "Spell check says: no mistakes.\n\nYou read: **I want to by a book.**\n\nYou fix it: **by** → **buy**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Writing together online",
+     "text": "Shared documents let several people work on the same piece.\n\nClassmates and teachers can add **comments** or make **suggested edits** that the writer can accept or reject. The writer stays in charge of the final choices."
+    },
+    {
+     "title": "Research online",
+     "text": "The internet has a lot of information, but not all of it is **reliable**.\n\nPrefer sites from schools, museums, governments and well-known science groups. Write down the **title** and **website** of each source so you can credit it."
+    },
+    {
+     "title": "Publishing features",
+     "text": "Digital tools help readers find their way:\n\n1. **headings** for each section\n2. **bullet points** for lists\n3. **pictures with captions**\n4. a **list of sources** at the end"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To judge how a writer used technology, look for:\n\n1. what tool or feature they used\n2. **why** they used it\n3. what **changed** because of it\n\nPoint to the sentences that show the cause and the effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bader's report on volcanoes was one long block of text.",
+      "role": "detail"
+     },
+     {
+      "t": "He added headings: How Volcanoes Form, Famous Eruptions, and Staying Safe.",
+      "role": "key"
+     },
+     {
+      "t": "His classmates said the report was now much easier to follow.",
+      "role": "key"
+     }
+    ],
+    "explain": "Bader used **headings** to organize his report.\n\nThe result: readers could find each part easily."
+   },
+   "together": {
+    "passage": "Our group wrote a report on water saving in a shared document. Each of us wrote one section from home. Our teacher added a comment beside Fahad's part: Where did this number come from? Fahad found the website he had used, checked that it was a government water agency, and added it to our list of sources. Later, Maryam suggested an edit to my conclusion. I read it, agreed it was clearer, and accepted the change.",
+    "stem": "How did the shared document help the group improve their report?",
+    "options": [
+     "It wrote the report for them automatically.",
+     "It let the teacher and classmates give feedback that the writers could act on.",
+     "It removed the need to check any sources.",
+     "It made each section longer by itself."
+    ],
+    "answer": 1,
+    "hint": "Find the comment and the suggested edit. What did the writers do with them?",
+    "good": "Yes! The teacher's comment and Maryam's suggestion helped the writers fix and improve their work."
+   },
+   "evidence": {
+    "sentences": [
+     "Our group wrote a report on water saving in a shared document.",
+     "Each of us wrote one section from home.",
+     "Our teacher added a comment beside Fahad's part: Where did this number come from?",
+     "Fahad found the website he had used, checked that it was a government water agency, and added it to our list of sources.",
+     "Later, Maryam suggested an edit to my conclusion.",
+     "I read it, agreed it was clearer, and accepted the change."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: it let others give feedback the writers could act on. Tap 2 sentences that show feedback or how it was used.",
+    "wrong": "This sentence tells how the group set up the work. Find the feedback or what the writers did with it."
+   },
+   "checks": [
+    {
+     "passage": "Hamad needs facts about the Red Sea for his report. He finds three websites: a personal page with no author, a marine science institute, and a page selling holiday trips.",
+     "stem": "Which source is most reliable?",
+     "options": [
+      "The personal page with no author",
+      "The holiday sales page",
+      "All three are equally reliable",
+      "The marine science institute"
+     ],
+     "answer": 3,
+     "why": "A science institute is an expert source. The others have no author or want to sell something."
+    },
+    {
+     "passage": "In a shared document, a classmate suggests changing the writer's sentence Bees is important to Bees are important.",
+     "stem": "What should the writer do?",
+     "options": [
+      "Accept the suggestion, because it fixes a grammar mistake",
+      "Reject it, because only the writer is allowed to edit",
+      "Delete the whole sentence so there is no mistake",
+      "Ignore all suggestions from classmates in the document"
+     ],
+     "answer": 0,
+     "why": "The suggestion corrects subject-verb agreement, so accepting it improves the writing."
+    },
+    {
+     "passage": "Ruba's online report includes a list of five steps for planting seeds, written as one long paragraph.",
+     "stem": "Which feature would make the steps easiest to read?",
+     "options": [
+      "A bigger font for the whole report",
+      "A numbered list",
+      "A longer title",
+      "A different background color"
+     ],
+     "answer": 1,
+     "why": "A numbered list shows steps in order clearly."
+    }
+   ],
+   "again": {
+    "title": "Tool, reason, result",
+    "text": "For any digital tool, ask three questions:\n\n1. **Tool**: What did the writer use?\n2. **Reason**: Why?\n3. **Result**: What got better?",
+    "example": "Tool: **a comment** from the teacher.\n\nReason: a fact had no source.\n\nResult: the writer **added the source**, and the report became more trustworthy."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Choosing a publishing format",
+     "text": "Digital publishing offers many formats: a class blog, a slideshow, an e-book, a podcast, a short video.\n\nChoose the format that best fits your **purpose** and **audience**. A step-by-step science experiment might work best as a video; a persuasive letter, as a formatted document."
+    },
+    {
+     "title": "Using others' work responsibly",
+     "text": "Images, music and text online usually belong to someone. Use materials that are **free to reuse** or that you have **permission** to use, and **credit** the creator.\n\nCopying without credit is plagiarism, even online."
+    },
+    {
+     "title": "Safe and smart sharing",
+     "text": "Before you publish:\n\n1. Remove **personal details** (address, phone number, full name if not allowed).\n2. Check **links** work and lead to reliable pages.\n3. Read comments critically: use feedback that improves the work, and ignore unkind or unhelpful remarks."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To evaluate a digital publishing decision:\n\n1. Identify the **audience** and **purpose** in the text.\n2. Identify what the writer **did** with technology.\n3. Judge whether that choice serves the audience and follows responsible use.\n\nThe sentences that state the audience and the action are your evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lina wanted to teach younger students how to make a paper boat.",
+      "role": "other"
+     },
+     {
+      "t": "She first wrote long instructions, but the Grade 2 students got lost after step three.",
+      "role": "detail"
+     },
+     {
+      "t": "She then recorded a short video showing each fold up close, with one sentence per step.",
+      "role": "key"
+     },
+     {
+      "t": "This time, every student finished a boat.",
+      "role": "key"
+     }
+    ],
+    "explain": "Lina changed the **format** to fit her **audience**. Young students learn a hands-on task better by watching.\n\nThe result proves the choice worked."
+   },
+   "together": {
+    "passage": "Our class created a website about the history of our town. Sami wanted to use a beautiful photo of the old fort that he found online. Before adding it, he checked the page and saw that the photographer allowed people to reuse it with credit. He added the photo with a caption naming the photographer. Rana wrote an interview with her grandfather about the town in the past. At first she included his full name and home address, but she removed the address before we published. The website was shared with families across the town.",
+    "stem": "What do Sami's and Rana's actions have in common?",
+    "options": [
+     "Both made the website more colourful.",
+     "Both added more information than was needed.",
+     "Both made sure the site was published responsibly before sharing it.",
+     "Both changed the format of the website."
+    ],
+    "answer": 2,
+    "hint": "Look at what each of them checked or changed before publishing.",
+    "good": "Yes! Sami respected the photographer's rights, and Rana protected her grandfather's privacy."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class created a website about the history of our town.",
+     "Sami wanted to use a beautiful photo of the old fort that he found online.",
+     "Before adding it, he checked the page and saw that the photographer allowed people to reuse it with credit.",
+     "He added the photo with a caption naming the photographer.",
+     "Rana wrote an interview with her grandfather about the town in the past.",
+     "At first she included his full name and home address, but she removed the address before we published.",
+     "The website was shared with families across the town."
+    ],
+    "proof": [
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: both published responsibly. Tap 2 sentences that show a responsible choice.",
+    "wrong": "This sentence gives background. Find what Sami or Rana checked or changed before publishing."
+   },
+   "checks": [
+    {
+     "passage": "A group wants to persuade families in their neighbourhood to recycle. Many of the families do not read long texts but often watch short clips on their phones.",
+     "stem": "Which publishing format best fits this audience?",
+     "options": [
+      "A ten-page printed report with many tables",
+      "A one-minute video with clear steps and a call to action",
+      "A long essay emailed only to the school principal",
+      "A spreadsheet listing recycling numbers by street"
+     ],
+     "answer": 1,
+     "why": "A short video reaches an audience that prefers quick clips, and the call to action serves the persuasive purpose."
+    },
+    {
+     "passage": "Ziad's class blog post gets two comments. One says: The second paragraph needs a source for the statistic. The other says: This is boring lol.",
+     "stem": "How should Ziad respond?",
+     "options": [
+      "Delete his blog post and stop writing for the blog",
+      "Change everything in the post to please both readers",
+      "Add a source for the statistic and set the unhelpful comment aside",
+      "Reply angrily to the second comment so it stops"
+     ],
+     "answer": 2,
+     "why": "The first comment gives specific, useful feedback. The second gives nothing to act on."
+    },
+    {
+     "passage": "Ahmad wants to add background music to his class podcast. He finds a song online.",
+     "stem": "What should he do before using it?",
+     "options": [
+      "Check that it is free to reuse or that he has permission, and credit the creator",
+      "Use it freely, since everything that is posted online is free",
+      "Change the speed of the song so that nobody recognizes it",
+      "Use only a short part of it without telling anyone about it"
+     ],
+     "answer": 0,
+     "why": "Music belongs to its creator. He needs permission or a free-to-reuse licence, and should give credit."
+    }
+   ],
+   "again": {
+    "title": "Three publishing questions",
+    "text": "Before you click **Publish**, ask:\n\n1. **Who** will see this, and is this the best format for them?\n2. Did I **credit** everything I did not create?\n3. Did I remove **private** information?",
+    "example": "A class e-book of family recipes:\n\n1. Families: an e-book with photos is easy to share.\n2. Credit each family member who gave a recipe.\n3. Do not include anyone's phone number."
+   }
+  }
+ }
+}

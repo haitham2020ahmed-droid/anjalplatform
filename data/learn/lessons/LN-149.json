@@ -1,0 +1,503 @@
+{
+ "code": "LN-149",
+ "title": "Conflict and resolution",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.1.3",
+  "RL.2.3",
+  "RL.3.3",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.6.3",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "plot-conflict"
+ ],
+ "skillNames": [
+  "Plot: Conflict and Resolution"
+ ],
+ "statements": [
+  "R-0032",
+  "R-0077",
+  "R-0162",
+  "R-0277",
+  "R-0284",
+  "R-0297",
+  "R-0445",
+  "R-0451",
+  "R-0452",
+  "R-0453",
+  "R-0468",
+  "R-0634",
+  "R-0640",
+  "R-0828",
+  "R-0832",
+  "R-0854",
+  "R-0859"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Every story has a problem",
+     "text": "In a story, a character has a **problem**. This is called the **conflict**.\n\nThe problem makes the story interesting."
+    },
+    {
+     "title": "The fix",
+     "text": "At the end, the problem is **solved**. This is called the **resolution**.\n\nProblem: the cat is up a tree. Fix: Dad gets a ladder."
+    },
+    {
+     "title": "Find them",
+     "text": "1. Ask: **What goes wrong?** That is the problem.\n2. Ask: **How is it fixed?** That is the resolution."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The problem and the fix are **in the story**.\n\n1. Find the sentence where something **goes wrong**.\n2. Find the sentence where it is **made right**.\n3. These sentences prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yara's kite got stuck in a tree.",
+      "role": "key"
+     },
+     {
+      "t": "It was a windy day.",
+      "role": "other"
+     },
+     {
+      "t": "Her brother climbed up and got it down.",
+      "role": "key"
+     }
+    ],
+    "explain": "Problem: **the kite got stuck.** Resolution: **her brother got it down.**\n\nThe windy day is just a detail."
+   },
+   "together": {
+    "passage": "Majid wanted to play football. But his ball was flat. He was sad. Then his dad pumped air into the ball. Majid ran out to play.",
+    "stem": "What is Majid's problem?",
+    "options": [
+     "He does not like football.",
+     "His ball was flat.",
+     "His dad was not home.",
+     "It was raining outside."
+    ],
+    "answer": 1,
+    "hint": "What went wrong for Majid? Look before he was sad.",
+    "good": "Yes! The ball was flat, so he could not play."
+   },
+   "evidence": {
+    "sentences": [
+     "Majid wanted to play football.",
+     "But his ball was flat.",
+     "He was sad.",
+     "Then his dad pumped air into the ball.",
+     "Majid ran out to play."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: his ball was flat. Tap the sentence that shows the problem.",
+    "wrong": "This sentence shows what Majid wanted, how he felt, or how the problem was fixed. Find what went WRONG."
+   },
+   "checks": [
+    {
+     "passage": "Lama could not find her shoes. She was late for school. She looked under her bed. There they were!",
+     "stem": "How is the problem solved?",
+     "options": [
+      "Lama went to school in her socks.",
+      "Her mom bought new shoes.",
+      "Lama found her shoes under the bed.",
+      "Lama stayed at home all day."
+     ],
+     "answer": 2,
+     "why": "She looked under her bed and found them. That solves the problem."
+    },
+    {
+     "passage": "The baby bird could not fly. It sat on the ground. A girl put it back in its nest. Its mother came to feed it.",
+     "stem": "What is the problem in the story?",
+     "options": [
+      "A girl lost her nest.",
+      "The mother bird was hungry.",
+      "The nest was too big.",
+      "The baby bird could not fly."
+     ],
+     "answer": 3,
+     "why": "The story starts with the problem: the bird could not fly and was on the ground."
+    },
+    {
+     "passage": "Sara and Amal both wanted the red crayon. They started to argue. Then Sara had an idea. \"Let's take turns!\" she said.",
+     "stem": "How do the girls solve the problem?",
+     "options": [
+      "They take turns.",
+      "They break the crayon.",
+      "They stop drawing.",
+      "They ask for a new box."
+     ],
+     "answer": 0,
+     "why": "Sara's idea was to take turns. That ends the argument."
+    }
+   ],
+   "again": {
+    "title": "Uh-oh and phew",
+    "text": "Every story has an **uh-oh** and a **phew**.\n\n**Uh-oh** = the problem.\n**Phew** = the problem is fixed.",
+    "example": "The milk spilled on the floor. (**Uh-oh!**) Mom got a cloth and wiped it up. (**Phew!**)"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Conflict and resolution",
+     "text": "The **conflict** is the main problem a character faces.\n\nThe **resolution** is how the problem is solved or how the story ends."
+    },
+    {
+     "title": "Kinds of problems",
+     "text": "A character can have a problem with:\n\n1. **Another person**: two friends disagree.\n2. **Nature**: a storm, a flood, getting lost.\n3. **Themselves**: being scared, or not able to decide."
+    },
+    {
+     "title": "Steps to the solution",
+     "text": "The problem is usually **not** solved at once. **Events** happen that lead to the solution.\n\n1. Find the problem.\n2. List what the character **tries**.\n3. Find the event that finally **fixes** it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the conflict and resolution with sentences from the story.\n\n1. Find the sentence that shows **what goes wrong**.\n2. Find the events where the character **tries** to fix it.\n3. Find the event that **solves** it.\n\nYour answer must match what the story says happened."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hassan was supposed to read a poem at the school assembly, but his hands shook whenever he thought about it.",
+      "role": "key"
+     },
+     {
+      "t": "He practised in front of his mirror every night.",
+      "role": "detail"
+     },
+     {
+      "t": "Then he read it to his family, and then to his whole class.",
+      "role": "detail"
+     },
+     {
+      "t": "On the day of the assembly, he took a deep breath and read every line clearly.",
+      "role": "key"
+     }
+    ],
+    "explain": "Conflict: Hassan is **afraid** to read in public (a problem with himself).\n\nThe practice steps lead to the resolution: **he reads the poem clearly**."
+   },
+   "together": {
+    "passage": "On the morning of the class trip, Reem woke up to find that her alarm had not rung. The bus would leave in twenty minutes! She jumped out of bed and dressed as fast as she could. Her father grabbed the car keys while her mother packed a sandwich. They drove to school and arrived just as the bus doors were closing. The driver smiled and waited while Reem climbed on.",
+    "stem": "Which event leads to the resolution of Reem's problem?",
+    "options": [
+     "Her alarm does not ring in the morning.",
+     "Her mother packs a sandwich for her lunch.",
+     "Her father drives her quickly to school.",
+     "The bus leaves without her and she goes home."
+    ],
+    "answer": 2,
+    "hint": "The problem is that she might miss the bus. Which event gets her to the bus in time?",
+    "good": "Yes! Her father drove her to school, and they arrived just in time to catch the bus."
+   },
+   "evidence": {
+    "sentences": [
+     "On the morning of the class trip, Reem woke up to find that her alarm had not rung.",
+     "The bus would leave in twenty minutes!",
+     "She jumped out of bed and dressed as fast as she could.",
+     "Her father grabbed the car keys while her mother packed a sandwich.",
+     "They drove to school and arrived just as the bus doors were closing.",
+     "The driver smiled and waited while Reem climbed on."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: her father drives her to school. Tap 2 sentences that show how she got to the bus in time.",
+    "wrong": "This sentence shows the problem or something that does not get her to the bus. Find the events that lead to the solution."
+   },
+   "checks": [
+    {
+     "passage": "Two brothers both wanted to sit by the window on the long car trip. They argued until their mother made a plan: each brother would sit there for half of the journey.",
+     "stem": "What kind of conflict is this?",
+     "options": [
+      "A problem with nature, like a storm",
+      "A problem between two people",
+      "A problem with a broken car",
+      "A problem with a character's own fear"
+     ],
+     "answer": 1,
+     "why": "The brothers disagree with each other, so it is a conflict between two people."
+    },
+    {
+     "passage": "Rain poured down, and the river near the farm began to rise. The farmer and his sons filled bags with sand and piled them along the bank. By morning, the water had gone down, and the fields were safe.",
+     "stem": "How is the conflict resolved?",
+     "options": [
+      "The sandbags keep the water out, and the fields are safe.",
+      "The farmer and his family leave the farm.",
+      "The rain stops before it can begin.",
+      "The river floods all of the fields."
+     ],
+     "answer": 0,
+     "why": "Their sandbags held back the river. In the morning, the fields were safe."
+    },
+    {
+     "passage": "Nawaf broke his neighbour's window with his ball. He wanted to run away. Instead, he knocked on the door and told the truth. The neighbour thanked him for being honest, and Nawaf offered to help pay for the glass.",
+     "stem": "What is Nawaf's main problem?",
+     "options": [
+      "He cannot find his ball anywhere.",
+      "His neighbour is angry with his parents.",
+      "He does not like his neighbour.",
+      "He broke a window and must decide whether to tell the truth."
+     ],
+     "answer": 3,
+     "why": "He broke the window and was tempted to run. Deciding to be honest is his struggle."
+    }
+   ],
+   "again": {
+    "title": "Story mountain",
+    "text": "Picture a mountain.\n\n1. At the bottom: the **problem** starts.\n2. Climbing up: the character **tries** things.\n3. At the top: the **big moment**.\n4. Down the other side: the **resolution**.",
+    "example": "Problem: the puppy is lost. Tries: look in the park, ask neighbours. Big moment: hear barking in the garage. Resolution: **the puppy is found.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "What drives a story",
+     "text": "The **conflict** is the struggle at the centre of a story. Without it, nothing much would happen.\n\nConflict can be **external** (against another person, nature, or society) or **internal** (inside a character's mind: fear, guilt, a hard choice)."
+    },
+    {
+     "title": "How conflict builds",
+     "text": "Conflict grows through **events**. Each event can make the problem **worse** or bring the character **closer** to a solution.\n\nAsk: Which events **cause** the problem? Which events make it **grow**? Which events **lead to** the end?"
+    },
+    {
+     "title": "Conflict in poems",
+     "text": "Poems can have conflict too. A speaker may struggle with a feeling, a choice or the weather.\n\nLook for words that show a **struggle** and lines that show a **change** or **peace** at the end."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer about conflict:\n\n1. Find the event where the problem **begins** or **gets worse**.\n2. Find the event that **turns** things toward a solution.\n3. Choose the answer those sentences support.\n\nWrong answers often name a small detail instead of the event that matters."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Abdullah had promised to help his grandfather in the shop on Saturday.",
+      "role": "key"
+     },
+     {
+      "t": "Then his friends invited him to the final match of the school tournament, on the same day.",
+      "role": "key"
+     },
+     {
+      "t": "He lay awake, unable to choose.",
+      "role": "detail"
+     },
+     {
+      "t": "In the morning, he asked his grandfather if he could come to the shop early and leave at noon.",
+      "role": "detail"
+     },
+     {
+      "t": "His grandfather laughed and said he had once loved football too.",
+      "role": "other"
+     }
+    ],
+    "explain": "The **two promises on the same day** cause an internal conflict: Abdullah must choose.\n\nHis idea to work early and leave at noon **leads to** the resolution: he can do both."
+   },
+   "together": {
+    "passage": "Lina had trained for months to run in the school's long race. Two days before it, she twisted her ankle on the stairs. The doctor said she could walk, but not run, for a week. At first, Lina refused to go to the race at all; she did not want to watch others run without her. Then her coach asked her to help at the finish line, handing water to the runners. As Lina cheered each tired runner across the line, she realised she was still part of the team. Next year, she promised herself, she would run.",
+    "stem": "Which event turns Lina's conflict toward a resolution?",
+    "options": [
+     "She twists her ankle on the stairs before the race.",
+     "The doctor tells her not to run for a week.",
+     "She refuses to go to the race at all.",
+     "Her coach asks her to help at the finish line."
+    ],
+    "answer": 3,
+    "hint": "Which event changes how Lina feels about the race? Look for a turning point after her refusal.",
+    "good": "Yes! Helping at the finish line lets her feel part of the team again. That turns her disappointment into hope."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina had trained for months to run in the school's long race.",
+     "Two days before it, she twisted her ankle on the stairs.",
+     "The doctor said she could walk, but not run, for a week.",
+     "At first, Lina refused to go to the race at all; she did not want to watch others run without her.",
+     "Then her coach asked her to help at the finish line, handing water to the runners.",
+     "As Lina cheered each tired runner across the line, she realised she was still part of the team.",
+     "Next year, she promised herself, she would run."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: her coach asks her to help at the finish line. Tap 2 sentences that show this event and how it changes Lina.",
+    "wrong": "This sentence shows how the conflict starts or grows, or what she plans for later. Find the turning point and its effect."
+   },
+   "checks": [
+    {
+     "passage": "A farmer's well dried up during a long, hot summer. His crops began to wilt. He tried carrying water from the next village, but it was not enough. Finally, the villagers worked together to dig a deeper well that reached fresh water.",
+     "stem": "What kind of conflict does the farmer face?",
+     "options": [
+      "Against his own fear",
+      "Against another farmer",
+      "Against nature",
+      "Against the villagers"
+     ],
+     "answer": 2,
+     "why": "The drought and the dry well are forces of nature working against him."
+    },
+    {
+     "passage": "Fatima and her best friend both entered the poetry contest. When Fatima won, her friend stopped speaking to her. Fatima felt proud and guilty at the same time.",
+     "stem": "Which event makes the conflict between the friends begin?",
+     "options": [
+      "Fatima wins the poetry contest.",
+      "Both girls decide to write poems.",
+      "Fatima feels guilty and proud.",
+      "The friends begin talking again."
+     ],
+     "answer": 0,
+     "why": "The trouble begins when Fatima wins and her friend stops speaking to her."
+    },
+    {
+     "passage": "In a poem, the speaker writes: \"The wind pushed hard against my door, / It howled and shook the ground, / But I held on through all the storm, / And morning found me sound.\"",
+     "stem": "How is the conflict in the poem resolved?",
+     "options": [
+      "The speaker runs away from the storm.",
+      "The speaker survives the storm and is safe in the morning.",
+      "The wind blows the door away.",
+      "The storm never ends."
+     ],
+     "answer": 1,
+     "why": "\"I held on\" and \"morning found me sound\" show the speaker came through the storm safely."
+    }
+   ],
+   "again": {
+    "title": "Cause, grow, turn, end",
+    "text": "Sort the events into four boxes:\n\n1. **Cause**: what starts the problem?\n2. **Grow**: what makes it worse?\n3. **Turn**: what changes things?\n4. **End**: how is it settled?",
+    "example": "A boy loses his library book (**cause**), gets a late notice (**grow**), finds it in his cousin's bag (**turn**), and returns it with an apology (**end**)."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Analysing conflict",
+     "text": "Strong stories often contain **more than one conflict**: an outside struggle and an inner one. The way a writer develops these conflicts shapes the plot and reveals character.\n\nAsk not only **what** the conflict is, but **why** it matters and **how** it changes."
+    },
+    {
+     "title": "Events that cause and resolve",
+     "text": "Some events **intensify** the conflict: a new obstacle, a bad decision, a misunderstanding.\n\nOther events **lead to the resolution**: a discovery, a choice, help from someone.\n\nThe resolution is not always happy. Sometimes a character simply **accepts** a situation or **learns** something."
+    },
+    {
+     "title": "Linking conflict to meaning",
+     "text": "Often the inner conflict is resolved when the character **changes**. The outer problem may be solved because of that change.\n\nLook for the moment when a character's thinking shifts. It is usually the key to the resolution."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you analyse conflict, support your answer with **cause-and-effect** evidence.\n\n1. Identify the conflict and its type.\n2. Find the event that **causes** or **intensifies** it.\n3. Find the decision or discovery that **leads to** the resolution.\n4. Reject choices that name a minor event or misread the character's motive."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Tariq had always been the fastest coder in his robotics team, and he hated slowing down to explain things.",
+      "role": "detail"
+     },
+     {
+      "t": "When the team's robot failed in the regional trial, the others blamed his messy code, which no one else could read.",
+      "role": "key"
+     },
+     {
+      "t": "Angry, Tariq rewrote it alone all night, but the robot failed again.",
+      "role": "detail"
+     },
+     {
+      "t": "Only when he finally sat with the team and let them check each line did they find the error together.",
+      "role": "key"
+     }
+    ],
+    "explain": "There are two conflicts: the robot keeps failing (**external**) and Tariq resists working with others (**internal**).\n\nThe failed night alone **intensifies** both. The resolution comes when Tariq **changes**: he works with the team, and that solves the outer problem too."
+   },
+   "together": {
+    "passage": "When the town council announced that the old souq would be torn down to build a car park, Musa's grandfather said nothing. He had sold spices from the same narrow shop for fifty years. Musa, who was sixteen, started an online petition, but only a handful of people signed it. Frustrated, he began photographing the souq instead: the carved wooden doors, the shopkeepers weighing cardamom, the children chasing pigeons between the stalls. When he posted the photographs with short stories from each shopkeeper, the response was immediate. Hundreds of residents wrote to the council, and a local newspaper printed his pictures. Two months later, the council voted to restore the souq rather than demolish it. His grandfather, who rarely praised anyone, hung one of the photographs above his scales.",
+    "stem": "Which event most directly leads to the resolution of the conflict?",
+    "options": [
+     "The council announces that the souq will be torn down to build a car park.",
+     "Musa's grandfather says nothing about the council's plan at first.",
+     "Musa's online petition gets only a handful of signatures.",
+     "Musa posts photographs and shopkeepers' stories, and residents respond."
+    ],
+    "answer": 3,
+    "hint": "The petition failed. What did Musa do next that made people act? Follow the cause and effect to the council's vote.",
+    "good": "Yes! The photographs and stories moved hundreds of residents to write, and that pressure led the council to restore the souq."
+   },
+   "evidence": {
+    "sentences": [
+     "When the town council announced that the old souq would be torn down to build a car park, Musa's grandfather said nothing.",
+     "He had sold spices from the same narrow shop for fifty years.",
+     "Musa, who was sixteen, started an online petition, but only a handful of people signed it.",
+     "Frustrated, he began photographing the souq instead: the carved wooden doors, the shopkeepers weighing cardamom, the children chasing pigeons between the stalls.",
+     "When he posted the photographs with short stories from each shopkeeper, the response was immediate.",
+     "Hundreds of residents wrote to the council, and a local newspaper printed his pictures.",
+     "Two months later, the council voted to restore the souq rather than demolish it.",
+     "His grandfather, who rarely praised anyone, hung one of the photographs above his scales."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Musa's photographs and stories make residents respond. Tap 2 sentences that show this event and its effect.",
+    "wrong": "This sentence shows the cause of the conflict, a failed attempt, or what happens after it is settled. Find the event that turns things around."
+   },
+   "checks": [
+    {
+     "passage": "Amira's family moved from a small town to a busy capital city. At her new school, she understood the lessons but felt too shy to speak. She ate lunch alone for weeks. One day, a teacher asked her to help a new student who had just arrived from abroad. Explaining the school's routines, Amira found her voice, and soon both girls were part of a group of friends.",
+     "stem": "What is the main conflict, and how is it resolved?",
+     "options": [
+      "Amira cannot do the schoolwork, so a teacher helps her study.",
+      "Amira feels isolated and shy, and helping someone else gives her confidence.",
+      "Amira's family dislikes the city, so they move back to their town.",
+      "The new student is unkind to Amira until a teacher steps in."
+     ],
+     "answer": 1,
+     "why": "Her struggle is loneliness and shyness. Helping the new student builds her confidence and leads to friendship."
+    },
+    {
+     "passage": "The ship's engine failed far from shore. The captain wanted to wait for rescue, but the young engineer insisted she could repair it. They argued while the storm approached. Finally, the captain gave her one hour. She found a cracked fuel line, sealed it, and the engine roared back to life just as the first waves crashed over the deck.",
+     "stem": "Which event intensifies the conflict?",
+     "options": [
+      "The engine starts again just in time.",
+      "The engineer seals the cracked fuel line.",
+      "The captain and the engineer argue as a storm approaches.",
+      "The captain gives her one hour to try."
+     ],
+     "answer": 2,
+     "why": "The argument, with a storm approaching, raises the danger and the tension before anything is solved."
+    },
+    {
+     "passage": "For years, the old fisherman had blamed the new factory for the empty nets. When his granddaughter showed him a report proving the factory had cleaned its water years ago, and that warming seas were moving the fish, he said nothing for a long time. Then he began to sail further out, to deeper waters.",
+     "stem": "How is the fisherman's conflict resolved?",
+     "options": [
+      "He accepts the truth and changes how he fishes.",
+      "He proves the factory polluted the sea.",
+      "He forces the factory to close.",
+      "He stops fishing and sells his boat."
+     ],
+     "answer": 0,
+     "why": "He accepts the evidence and adapts by sailing to deeper waters. His thinking changes, and so do his actions."
+    }
+   ],
+   "again": {
+    "title": "Two questions",
+    "text": "For any story, ask:\n\n1. **What does the character want, and what stands in the way?** (the conflict)\n2. **What changes, outside or inside, so the struggle ends?** (the resolution)\n\nThe change is often a decision.",
+    "example": "A girl wants to win the chess final, but she panics under pressure. After losing a game, she decides to slow down and breathe before each move. She wins.\n\nConflict: **her panic.** Change: **her decision to slow down.**"
+   }
+  }
+ }
+}

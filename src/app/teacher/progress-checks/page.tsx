@@ -7,6 +7,7 @@ import { readableClasses } from "@/server/teacher/coordinators";
 import { classTextSets, progressCheckResults, type ClassResults } from "@/server/progress-checks/progress-checks";
 import { cycleStatus, type CycleStatus } from "@/server/assessment-cycle/status";
 import { createProgressCheckAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Progress checks" };
 
@@ -89,9 +90,7 @@ export default async function ProgressChecksPage({ searchParams }: { searchParam
         <form action={createProgressCheckAction} className="mb-4 flex flex-wrap items-end gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
           <input type="hidden" name="classId" value={classId} />
           <label className="text-sm font-semibold">Text set
-            <select name="lessonId" defaultValue={sp.lesson ?? sets.find((t) => !t.checks)?.lessonId ?? ""} required className="mt-1 block max-w-md rounded-lg border-slate-300 text-sm">
-              {sets.map((t) => <option key={t.lessonId} value={t.lessonId}>{t.code} · {t.title}{t.checks ? ` ✓ (${t.checks} form${t.checks === 1 ? "" : "s"})` : ""}</option>)}
-            </select></label>
+            <Combo name="lessonId" required label="Text set" defaultValue={sp.lesson ?? sets.find((t) => !t.checks)?.lessonId ?? ""} options={sets.map((t) => ({ value: t.lessonId, label: `${t.code} · ${t.title}`, hint: t.checks ? `✓ (${t.checks} form${t.checks === 1 ? "" : "s"})` : undefined }))} className="mt-1 w-80 max-w-full font-normal" /></label>
           <label className="text-sm font-semibold">Due<input type="date" name="dueAt" defaultValue={due} className="mt-1 block rounded-lg border-slate-300 text-sm" /></label>
           <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="retake" value="1" /> New form (retake)</label>
           <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">📋 Assign progress check</button>

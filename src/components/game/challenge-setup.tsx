@@ -14,6 +14,7 @@ import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { SkillQuestionPicker, type PickerValue } from "@/components/skill-picker";
 import { SKILL_TABS, filterSkills, questionBadge } from "@/lib/skill-picker";
 import { deleteChallengeTemplateAction, saveChallengeTemplateAction, searchChallengeSkillsAction, startChallengeAction } from "@/app/games/live-actions";
+import { Combo } from "@/components/ui/combo";
 
 const box = "min-h-11 rounded-xl border border-slate-300 bg-white px-3";
 
@@ -91,9 +92,7 @@ export function ChallengeSetup({ classes, initialClassId, initialSkills, templat
       <section className="space-y-5 rounded-3xl bg-white p-5 ring-1 ring-slate-200 sm:p-6">
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Class")}
-            <select value={classId} onChange={(e) => setClassId(e.target.value)} className={box}>
-              {classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
-            </select>
+            <Combo label={t("Class")} value={classId} onChange={setClassId} options={classes.map((c) => ({ value: c.id, label: c.name }))} />
           </label>
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Name (optional)")}
             <input value={title} onChange={(e) => setTitle(e.target.value)} maxLength={150} className={box} />

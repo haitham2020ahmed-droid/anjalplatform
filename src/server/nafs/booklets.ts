@@ -34,9 +34,9 @@ export interface BookletRead { valid: Booklet[]; invalid: { file: string; proble
 let dirOverride: string | null = null;
 let packDirHint: string | null = null;
 /** Tests: point the loader at a folder of small fixture booklets (null = the default). */
-export function useBookletDir(dir: string | null): void { dirOverride = dir; parsed = null; }
+export function useBookletDir(dir: string | null): void { dirOverride = dir; parsed = null; sigMemo = null; complete.clear(); }
 /** load-packs: when the packs read from another folder (tests), the booklets are its "nafs-booklets" sub-folder. */
-export function bookletPackDir(dir: string | null): void { packDirHint = dir; parsed = null; }
+export function bookletPackDir(dir: string | null): void { packDirHint = dir; parsed = null; sigMemo = null; complete.clear(); }
 export const bookletDir = () => dirOverride ?? (packDirHint ? join(packDirHint, "nafs-booklets") : join(process.cwd(), "data", "nafs", "booklets"));
 
 export function bookletFiles(dir = bookletDir()): string[] {
@@ -190,6 +190,16 @@ export async function bookletCount(repo: Repo, schoolId: string, dir = bookletDi
 }
 
 const running = new Map<string, Promise<BookletLoad | null>>();
+/** Schools whose bank already holds every booklet of the folder's signature (100 booklets: no count on each visit). */
+const complete = new Map<string, string>();
+let sigMemo: { at: number; dir: string; sig: string | null } | null = null;
+/** The folder's signature, kept two seconds (several page views at once stat the 100 files once). */
+function bookletSignatureCached(now = Date.now()): string | null {
+  const dir = bookletDir();
+  if (sigMemo && sigMemo.dir === dir && now - sigMemo.at < 2_000) return sigMemo.sig;
+  sigMemo = { at: now, dir, sig: bookletSignature(dir) };
+  return sigMemo.sig;
+}
 /**
  * The first time the NAFS section opens (and after new booklet files arrive): when the school's bank lacks booklet
  * questions, loads them IN THE BACKGROUND — the caller does not wait (one run per school at a time; errors are logged).
@@ -198,9 +208,10 @@ export function ensureNafsBooklets(repo: Repo, schoolId: string, byUserId: strin
   const busy = running.get(schoolId);
   if (busy) return busy;
   const p = (async () => {
-    if (!bookletSignature()) return null;
+    const sig = bookletSignatureCached();
+    if (!sig || complete.get(schoolId) === sig) return null;
     const c = await bookletCount(repo, schoolId);
-    if (!c.questions || c.inBank >= c.questions) return null;
+    if (!c.questions || c.inBank >= c.questions) { complete.set(schoolId, sig); return null; }
     return loadNafsBooklets(repo, schoolId, byUserId);
   })().catch((e) => { console.error("nafs booklets", e); return null; }).finally(() => running.delete(schoolId));
   running.set(schoolId, p);

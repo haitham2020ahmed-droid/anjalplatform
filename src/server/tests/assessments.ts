@@ -26,6 +26,8 @@ import { questionsOfSkill, type QLevel } from "./question-source";
 import { familyRepresentatives } from "../questions/skill-questions";
 import { TEST_MARK, testOrder } from "./runtime";
 import { contentKeysForIds, Sitting } from "../questions/fresh";
+import { DELETED_OWNER, isMissingPrivateColumn } from "../questions/private-copies";
+import { hiddenWorkKeys } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -293,6 +295,10 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
   const qOf = (key: "SAME" | QLevel): string[] => { const l = versions[key] ?? []; return l.length ? l : versions.ON?.length ? versions.ON : (Object.values(versions).find((x) => x && x.length) ?? []); };
   const allIds = [...new Set(groups.flatMap((g) => qOf(g.key)))];
   const qRows = await repo.findMany("Question", { id: { in: allIds } }, { select: ["id", "skillId"] });
+  // ✏️ another teacher's private edited copy is never in this teacher's test (src/server/questions/private-copies.ts)
+  const foreign = await repo.findMany("Question", { id: { in: allIds }, privateToId: { not: null } }, { select: ["privateToId"] }).catch((e) => { if (isMissingPrivateColumn(e)) return [] as Row[]; throw e; });
+  if (foreign.some((q) => s(q.privateToId) === DELETED_OWNER)) throw new ValidationError("A question of this test was deleted by the admin. Choose the questions again.");
+  if (foreign.some((q) => s(q.privateToId) !== actor.userId && s(q.privateToId) !== s(teacher.userId))) throw new ForbiddenError("A question of this test is another teacher's private copy.");
   // one question bank: the questions of one skill family count for ONE skill — the picked one (skillIds), else the
   // class's grade copy, else the family's row most of the test's questions come from
   const classGrade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
@@ -620,11 +626,13 @@ export async function autoPersonalizeNafsTests(repo: Repo, schoolId: string, now
 export interface MyTest { assignmentId: string; title: string; tag: string; type: TestType; openAt: string | null; dueAt: string | null; startsLater: boolean; overdue: boolean; timeLimitMin: number | null; questions: number; status: string; correct: number; pct: number | null; completedAt: string | null }
 export interface MyTests { toDo: MyTest[]; completed: MyTest[] }
 
-async function myTestRows(repo: Repo, studentId: string): Promise<{ rows: Row[]; sets: Row[] }> {
-  const rows = await repo.findMany("AssignmentStudent", { studentId });
+async function myTestRows(repo: Repo, studentId: string, schoolId?: string | null): Promise<{ rows: Row[]; sets: Row[] }> {
+  const [rows, hidden] = await Promise.all([repo.findMany("AssignmentStudent", { studentId }), hiddenWorkKeys(repo, studentId, schoolId).catch(() => new Set<string>())]);
   if (!rows.length) return { rows, sets: [] };
+  // a test the teacher cancelled ("Assigned") leaves the to-do list; a finished one keeps its result
+  const done = new Set(rows.filter((r) => r.status === "COMPLETED").map((r) => s(r.assignmentId)));
   const sets = (await inBatches(rows.map((r) => s(r.assignmentId)), 500, (c) => repo.findMany("Assignment", { id: { in: c }, curriculumPlanId: TEST_MARK, deletedAt: null })))
-    .filter((a) => a.testId);
+    .filter((a) => a.testId && (done.has(s(a.id)) || !hidden.has(`test:${s(a.id)}`)));
   return { rows, sets };
 }
 
@@ -632,7 +640,7 @@ async function myTestRows(repo: Repo, studentId: string): Promise<{ rows: Row[];
 export async function myTests(repo: Repo, actor: Actor, now = new Date()): Promise<MyTests> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students have My Tests.");
   const studentId = actor.studentId;
-  const { sets } = await myTestRows(repo, studentId);
+  const { sets } = await myTestRows(repo, studentId, actor.schoolId);
   if (!sets.length) return { toDo: [], completed: [] };
   await refreshQuestionSets(repo, sets, [studentId], now);
   const [fresh, tests, aqs, sessions] = await Promise.all([
@@ -667,7 +675,7 @@ export async function myTests(repo: Repo, actor: Actor, now = new Date()): Promi
 /** The badge on My Tests (for the student home page): tests still to do that are open now. */
 export async function testsToDoCount(repo: Repo, actor: Actor, now = new Date()): Promise<number> {
   if (actor.role !== "STUDENT" || !actor.studentId) return 0;
-  const { rows, sets } = await myTestRows(repo, actor.studentId);
+  const { rows, sets } = await myTestRows(repo, actor.studentId, actor.schoolId);
   const done = new Set(rows.filter((r) => r.status === "COMPLETED").map((r) => s(r.assignmentId)));
   return sets.filter((a) => !done.has(s(a.id)) && !(d(a.startAt) && d(a.startAt)! > now)).length;
 }

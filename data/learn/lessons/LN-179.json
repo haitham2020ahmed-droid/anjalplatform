@@ -1,0 +1,489 @@
+{
+ "code": "LN-179",
+ "title": "Fiction and history",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.7.9"
+ ],
+ "families": [
+  "compare-texts"
+ ],
+ "skillNames": [
+  "Fiction and History"
+ ],
+ "statements": [
+  "R-1000"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "History or story?",
+     "text": "A **history text** tells **true facts** about the past: real people, real places and dates.\n\nA **story** (fiction) is **made up** by an author."
+    },
+    {
+     "title": "Stories set in the past",
+     "text": "Some stories happen in a **real time and place** from history.\n\nThe place may be real, but the author **adds** made-up characters, talking and feelings."
+    },
+    {
+     "title": "Compare them",
+     "text": "1. What do **both** texts tell about?\n2. What does the **history** text give? (facts, dates)\n3. What does the **story** add? (characters, talk, feelings)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentence in the **history** text about the topic.\n2. Find the sentence in the **story** about the same thing.\n3. If they tell about the same thing, you found what they **share**.\n\nPoint to one sentence in **each** text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "History: The Hejaz Railway opened in 1908.",
+      "role": "key"
+     },
+     {
+      "t": "It ran from Damascus to Medina.",
+      "role": "key"
+     },
+     {
+      "t": "Story: Young Yusuf pressed his face to the train window.",
+      "role": "detail"
+     },
+     {
+      "t": "'Medina, here we come!' he laughed.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Both** texts tell about the **train to Medina**.\n\nThe history text gives **facts** (1908, Damascus). The story **adds** a boy, Yusuf, and his happy words."
+   },
+   "together": {
+    "passage": "History: Long ago, pearl divers in the Gulf sailed out every summer. They dived to the sea floor for oysters.\n\nStory: Salem tied the clip on his nose. 'Today I will find the biggest pearl!' he told his friend. Then he jumped into the warm sea.",
+    "stem": "What do BOTH texts tell about?",
+    "options": [
+     "A boy named Salem",
+     "Diving into the sea for pearls",
+     "A trip across the desert",
+     "Salem's best friend"
+    ],
+    "answer": 1,
+    "hint": "Is that in BOTH texts? Find what the history text and the story both describe.",
+    "good": "Yes! The history text tells about pearl divers, and the story shows Salem diving for a pearl."
+   },
+   "evidence": {
+    "sentences": [
+     "History: Long ago, pearl divers in the Gulf sailed out every summer.",
+     "They dived to the sea floor for oysters.",
+     "Story: Salem tied the clip on his nose.",
+     "'Today I will find the biggest pearl!' he told his friend.",
+     "Then he jumped into the warm sea."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: diving into the sea for pearls. Tap 2 sentences, one from each text, that show it.",
+    "wrong": "This sentence does not show diving for pearls. Find the diving in the history text and in the story."
+   },
+   "checks": [
+    {
+     "passage": "Text A: In 1938, oil was found in large amounts at Dammam in Saudi Arabia.\n\nText B: Fahad's grandfather wiped the black oil from his hands and laughed. 'We found it!' he shouted.",
+     "stem": "Which text is a story (fiction)?",
+     "options": [
+      "Text A, because it has a date",
+      "Both texts are stories",
+      "Text B, because it has made-up talk and feelings",
+      "Neither text is a story"
+     ],
+     "answer": 2,
+     "why": "Text A gives a real fact with a date. Text B has a character, his feelings and his words, so it is a story."
+    },
+    {
+     "passage": "History: The Hejaz Railway opened in 1908. Trains carried pilgrims to Medina.\n\nStory: Mariam held her mother's hand on the crowded train. She was excited to see Medina for the first time.",
+     "stem": "What does the story add that the history text does not?",
+     "options": [
+      "A girl's feelings",
+      "The year 1908",
+      "The name Medina",
+      "That trains carried pilgrims"
+     ],
+     "answer": 0,
+     "why": "Only the story tells how someone felt: Mariam was excited. The year and the trains come from the history text."
+    },
+    {
+     "passage": "History: Camels can walk for days without drinking water. Traders used them to cross the desert.\n\nStory: Bilal patted his camel. 'Five days without water, and still you walk on, my friend.'",
+     "stem": "What fact do both texts share?",
+     "options": [
+      "The camel's name is Bilal.",
+      "Camels can run faster than horses.",
+      "Bilal's friend is a trader.",
+      "Camels can go for days without water."
+     ],
+     "answer": 3,
+     "why": "The history text says camels walk for days without water. In the story, Bilal's camel goes five days without water."
+    }
+   ],
+   "again": {
+    "title": "Fact or made up?",
+    "text": "Read each sentence and ask: **Could I find this in an encyclopedia?**\n\nIf yes, it is probably a **fact**. If it tells what one person **said** or **felt**, it is probably made up for the **story**.",
+    "example": "'The Hejaz Railway opened in 1908.' → **fact**\n\n'Yusuf laughed and waved at the camels.' → **story**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Two ways to tell the past",
+     "text": "A **history text** explains what happened, using **facts**, **dates** and **numbers**.\n\nA **historical story** shows the same time through the eyes of **one character**, with **dialogue** and **feelings**."
+    },
+    {
+     "title": "Same and different",
+     "text": "When you compare, look for:\n\n1. **Same**: facts that appear in **both** texts.\n2. **Different**: what **only one** text gives.\n\nThe history text usually gives the big picture. The story shows how it felt to live it."
+    },
+    {
+     "title": "Use a Venn diagram",
+     "text": "Draw two circles that overlap.\n\nLeft: only in the history text. Right: only in the story. **Middle**: in both.\n\nAnswers about what is 'the same' come from the middle."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the texts are the **same** in some way, point to a sentence in **each** text that says the same thing.\n\nTo prove they are **different**, point to a detail in one text that the other does **not** have.\n\nIf you can only find it in one text, it is not 'the same'."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "History: Pearl diving was the main work in many Gulf towns until the 1930s.",
+      "role": "detail"
+     },
+     {
+      "t": "Then cheaper pearls grown on farms in Japan were sold around the world, and the trade fell.",
+      "role": "key"
+     },
+     {
+      "t": "Story: Old Jassim stared at the boats rotting on the beach.",
+      "role": "key"
+     },
+     {
+      "t": "'No one wants our pearls now,' he sighed.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Same**: both texts show the pearl trade ending.\n\n**Different**: only the history text explains **why** (farmed pearls from Japan). Only the story shows how it **felt** to an old diver."
+   },
+   "together": {
+    "passage": "History: The Hejaz Railway opened in 1908. It ran about 1,300 kilometres from Damascus to Medina. Before the railway, the journey by camel caravan could take more than a month. By train, it took only a few days.\n\nStory: Grandfather Ali leaned out of the carriage window, letting the wind cool his face. 'When I was your age,' he told Khalid, 'we walked beside the camels for forty days. My feet were full of blisters.' Khalid watched the desert rushing past and tried to imagine walking all that way.",
+    "stem": "How are the two texts the same?",
+    "options": [
+     "Both give the exact length of the railway.",
+     "Both tell about a boy named Khalid.",
+     "Both describe Grandfather's blisters.",
+     "Both show the train was much faster than camels."
+    ],
+    "answer": 3,
+    "hint": "Is that in BOTH texts? Find something the history text says that the story also shows.",
+    "good": "Yes! The history text says a month by camel but a few days by train. The story shows forty days walking with camels, and now the desert 'rushing past'."
+   },
+   "evidence": {
+    "sentences": [
+     "History: The Hejaz Railway opened in 1908.",
+     "It ran about 1,300 kilometres from Damascus to Medina.",
+     "Before the railway, the journey by camel caravan could take more than a month.",
+     "By train, it took only a few days.",
+     "Story: Grandfather Ali leaned out of the carriage window, letting the wind cool his face.",
+     "'When I was your age,' he told Khalid, 'we walked beside the camels for forty days.",
+     "My feet were full of blisters.'",
+     "Khalid watched the desert rushing past and tried to imagine walking all that way."
+    ],
+    "proof": [
+     2,
+     3,
+     5,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: both show the train was much faster than camels. Tap 2 sentences, one from each text, that prove it.",
+    "wrong": "This sentence gives another detail. Find sentences that compare travel by camel with travel by train."
+   },
+   "checks": [
+    {
+     "passage": "History: Pearl diving was the main work in many Gulf towns until the 1930s. Then cheaper pearls grown on farms in Japan were sold around the world, and the trade fell.\n\nStory: Old Jassim stared at the boats rotting on the beach. 'No one wants our pearls now,' he sighed.",
+     "stem": "What does the history text give that the story does not?",
+     "options": [
+      "The reason the pearl trade fell",
+      "A man's sad feelings",
+      "Boats lying on the beach",
+      "Old Jassim's name"
+     ],
+     "answer": 0,
+     "why": "Only the history text explains why the trade fell: cheaper farmed pearls from Japan. The story shows feelings, not reasons."
+    },
+    {
+     "passage": "History: Ibn Battuta left Tangier in 1325 to make the pilgrimage to Makkah. He went on to travel for almost thirty years.\n\nStory: Idris ran to catch up with the tall traveller. 'Sheikh Ibn Battuta, may I carry your bags?' The traveller smiled. 'If you can keep up, you may come all the way to Makkah.'",
+     "stem": "How is the story different from the history text?",
+     "options": [
+      "It says Ibn Battuta never travelled.",
+      "It gives more dates than the history text.",
+      "It adds a made-up boy and conversations.",
+      "It is set in a different century."
+     ],
+     "answer": 2,
+     "why": "The history text gives facts and dates. The story adds a boy, Idris, and what he and Ibn Battuta say."
+    },
+    {
+     "passage": "History: At Hegra, near AlUla, the Nabataeans carved more than one hundred large tombs into sandstone rocks about two thousand years ago.\n\nStory: Raed traced the carved stone doorway with his fingers. 'Imagine,' his teacher said, 'people cut this from solid rock two thousand years ago.'",
+     "stem": "What do both texts agree on?",
+     "options": [
+      "Raed's teacher carved the tombs.",
+      "The tombs were carved from rock long ago.",
+      "There are exactly fifty tombs.",
+      "The tombs are in the city of Riyadh."
+     ],
+     "answer": 1,
+     "why": "Both texts say the tombs were carved from rock about two thousand years ago."
+    }
+   ],
+   "again": {
+    "title": "Two columns",
+    "text": "Make two columns: **History** and **Story**.\n\nWrite each detail in its column. Then circle the details that appear in **both**. Those are what the texts **share**. Everything else shows how they are **different**.",
+    "example": "History: 1908, Damascus to Medina, a month by camel, a few days by train.\nStory: Grandfather, Khalid, forty days with camels, desert rushing past.\n\nCircle: **camels were slow, the train was fast.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Historical fiction",
+     "text": "**Historical fiction** is a made-up story set in a real past. Authors often keep the **big facts** (dates, places, events) and invent the **people**, **dialogue** and **small moments**."
+    },
+    {
+     "title": "Why authors change or add",
+     "text": "Authors add or change details to:\n\n1. Help readers **imagine** how an event felt.\n2. Show the event through an **ordinary person's** eyes.\n3. Create **drama**: a hero, a problem, a moment of joy.\n\nA history text aims to **inform**; a story aims to make us **feel and understand**."
+    },
+    {
+     "title": "Check the facts",
+     "text": "Use the history text to **test** the story.\n\n1. Which story details **match** the history?\n2. Which are clearly **invented** but possible?\n3. Which details **could not** have happened at that time?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **fact** in the history text.\n2. Find how the **story** shows the same fact.\n3. Note what the story **adds**: a character's view, feelings, conversation.\n\nYour proof is a pair: a history sentence and a story sentence, plus what is different about them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "History: Archaeologists have found a village near the Great Pyramid where workers lived, with bakeries and places to eat.",
+      "role": "key"
+     },
+     {
+      "t": "Evidence suggests the builders were paid workers, not slaves.",
+      "role": "detail"
+     },
+     {
+      "t": "Story: Every evening, Neferu walked back to the workers' village, where the smell of fresh bread filled the air.",
+      "role": "key"
+     },
+     {
+      "t": "His arms ached, but tonight he would collect his pay: bread, onions and a jar of oil.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The story **matches** the history: a workers' village with bakeries, and builders who were paid.\n\nThe author **adds** Neferu, his aching arms and the smell of bread to help us imagine daily life for a real kind of person."
+   },
+   "together": {
+    "passage": "History: In the 1930s, geologists from an American company working in Saudi Arabia drilled several wells near Dammam. For years they found little oil, and some people wanted to give up. Then, in March 1938, the well known as Dammam No. 7 began producing oil in large amounts. The discovery changed the country's economy.\n\nStory: Saad had carried water to the drilling camp for two years. He had watched the men's faces grow tired each time a well came up dry. One morning in March, a roar shook the ground, and the workers began to shout and hug each other. Saad dropped his water skins and ran toward the noise. 'Number Seven!' someone cried. That night, Saad's father told him, 'Remember this day. Our lives will not be the same.'",
+    "stem": "How does the story's portrayal of the discovery differ from the history text?",
+    "options": [
+     "It shows the discovery through one boy's eyes and feelings.",
+     "It changes the year of the discovery to the 1950s.",
+     "It says that none of the wells ever produced oil.",
+     "It gives more exact dates and numbers than the history."
+    ],
+    "answer": 0,
+    "hint": "Does the story really do that? Compare HOW each text tells about the same event.",
+    "good": "Yes! The history text gives facts and results. The story lets us see the tired faces, hear the roar and feel the joy through Saad."
+   },
+   "evidence": {
+    "sentences": [
+     "History: In the 1930s, geologists from an American company working in Saudi Arabia drilled several wells near Dammam.",
+     "For years they found little oil, and some people wanted to give up.",
+     "Then, in March 1938, the well known as Dammam No. 7 began producing oil in large amounts.",
+     "The discovery changed the country's economy.",
+     "Story: Saad had carried water to the drilling camp for two years.",
+     "He had watched the men's faces grow tired each time a well came up dry.",
+     "One morning in March, a roar shook the ground, and the workers began to shout and hug each other.",
+     "Saad dropped his water skins and ran toward the noise.",
+     "'Number Seven!' someone cried.",
+     "That night, Saad's father told him, 'Remember this day. Our lives will not be the same.'"
+    ],
+    "proof": [
+     5,
+     6,
+     7,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: the story shows the discovery through one boy's eyes and feelings. Tap 2 story sentences that show what Saad sees, hears or feels.",
+    "wrong": "This sentence gives a fact from the history text or a simple detail. Find story sentences that show the event through Saad's experience."
+   },
+   "checks": [
+    {
+     "passage": "History: Building the Great Pyramid of Giza took about twenty years. Archaeologists have found a village where the workers lived, with bakeries and places to eat.\n\nStory: Every evening, Neferu returned from the pyramid to the workers' village. The smell of fresh bread filled the narrow streets, and his arms ached from pulling stone all day.",
+     "stem": "Which detail in the story is supported by the history text?",
+     "options": [
+      "Neferu's arms ached that evening.",
+      "Neferu was the king's own son.",
+      "The pyramid took two years to build.",
+      "Workers lived in a village with bread."
+     ],
+     "answer": 3,
+     "why": "The history text says workers lived in a village with bakeries. Neferu's aching arms are invented, and the other two choices are not in either text."
+    },
+    {
+     "passage": "History: The Hejaz Railway reached Medina in 1908.\n\nStory: Ten-year-old Mariam waved from the window of the first train as it pulled into Medina, while crowds cheered on the platform.",
+     "stem": "Why might the author invent a character like Mariam?",
+     "options": [
+      "To prove that the history books are wrong about the date",
+      "To help readers imagine how the real event felt to a person",
+      "Because no real people ever rode on the railway",
+      "To change the city where the railway ended"
+     ],
+     "answer": 1,
+     "why": "Mariam is made up, but she lets readers experience the real arrival of the railway through a child's eyes."
+    },
+    {
+     "passage": "History: In 1325, Ibn Battuta set out from Tangier. He travelled on foot, by camel and on sailing ships for almost thirty years.\n\nStory: Ibn Battuta crossed North Africa with a caravan of pilgrims, riding a camel through the heat. Years later, in India, he boarded a great steamship bound for China.",
+     "stem": "Which detail in the story does NOT fit the history of that time?",
+     "options": [
+      "travelling with a caravan of pilgrims",
+      "riding a camel across North Africa",
+      "boarding a steamship in India",
+      "setting out to travel in 1325"
+     ],
+     "answer": 2,
+     "why": "Steamships were not invented until hundreds of years later. The history text says he used sailing ships."
+    }
+   ],
+   "again": {
+    "title": "Three colours",
+    "text": "Imagine highlighting the story in three colours:\n\n1. **Green**: matches the history text.\n2. **Yellow**: made up, but could have happened.\n3. **Red**: could **not** have happened at that time.\n\nGreen shows what they share. Yellow shows what the author added. Red shows a mistake or a deliberate change.",
+    "example": "'Saad heard a roar in March.' → **green** (March 1938).\n'Saad dropped his water skins.' → **yellow**.\n'Saad filmed it on his phone.' → **red**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Portrayal and purpose",
+     "text": "A **portrayal** is how a text presents a person, place or time. History and fiction may portray the same past very differently.\n\nA history text aims for **accuracy** and the **big picture**. Fiction may focus on **one experience**, and may **simplify**, **combine** or **dramatise** events."
+    },
+    {
+     "title": "What fiction can reveal",
+     "text": "Fiction can show what history texts often leave out: **feelings**, **daily life**, and the views of **ordinary people**.\n\nBut it can also give a **one-sided** or **romantic** picture if it shows only the exciting moments."
+    },
+    {
+     "title": "Comparing portrayals",
+     "text": "1. What does each text **emphasise**?\n2. Whose **perspective** does each show?\n3. Where does the fiction **match**, **add to** or **alter** the history?\n4. **Why** might the author have made those choices?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong comparisons use evidence from **both** texts.\n\n1. Quote what the history text says is **typical** or **true for most**.\n2. Quote what the story **chooses to show**.\n3. Explain the **gap** between them and what it reveals about each text's purpose.\n\nWatch for answers that are true for one text but claimed for both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "History: Archaeologists believe Hegra's tombs were carved over about a hundred years by many teams of craftsmen.",
+      "role": "key"
+     },
+     {
+      "t": "Story: In the novel, a single master sculptor, Malik, carves the great tomb alone in one burning summer.",
+      "role": "key"
+     },
+     {
+      "t": "He works by moonlight and sleeps beside his tools.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The novel **compresses** a century of work by many people into one hero and one summer.\n\nThis makes a more dramatic story, but it **alters** the history: readers might wrongly think one person did it all."
+   },
+   "together": {
+    "passage": "History: For centuries, pearling was the main source of wealth for many towns on the Gulf coast. During the summer season, crews spent about four months at sea. Divers made dozens of dives a day, holding their breath for a minute or more, while pullers on deck hauled them up by rope. Most divers earned little. Many borrowed money from boat captains or merchants before the season, and some stayed in debt for years.\n\nStory: Hamad rose from the green water with his basket full, his lungs burning. On deck, the old puller grinned as Hamad cracked open the last oyster. Inside lay a pearl as large as a chickpea, glowing like the moon. The crew cheered and sang all the way home. 'This one,' the captain said, 'will pay every debt your family owes.'",
+    "stem": "How does the story's portrayal of pearl diving compare with the history text?",
+    "options": [
+     "Both texts suggest that most divers became wealthy from their work at sea.",
+     "The story gives more facts about the season's length than the history does.",
+     "Both show hard work, but the story centres on a rare lucky find, while the history shows most divers stayed poor.",
+     "The history text describes one diver's feelings, while the story gives only general facts."
+    ],
+    "answer": 2,
+    "hint": "Check what each text says about money. Is the story's ending typical, according to the history text?",
+    "good": "Yes! Both show the hard work (burning lungs, pullers on deck). But the history says most divers earned little and stayed in debt; the story shows a rare pearl that clears every debt."
+   },
+   "evidence": {
+    "sentences": [
+     "History: For centuries, pearling was the main source of wealth for many towns on the Gulf coast.",
+     "During the summer season, crews spent about four months at sea.",
+     "Divers made dozens of dives a day, holding their breath for a minute or more, while pullers on deck hauled them up by rope.",
+     "Most divers earned little.",
+     "Many borrowed money from boat captains or merchants before the season, and some stayed in debt for years.",
+     "Story: Hamad rose from the green water with his basket full, his lungs burning.",
+     "On deck, the old puller grinned as Hamad cracked open the last oyster.",
+     "Inside lay a pearl as large as a chickpea, glowing like the moon.",
+     "The crew cheered and sang all the way home.",
+     "'This one,' the captain said, 'will pay every debt your family owes.'"
+    ],
+    "proof": [
+     3,
+     4,
+     7,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: the story centres on a rare lucky find, while the history shows most divers stayed poor. Tap 2 sentences, one from each text, that show this difference.",
+    "wrong": "This sentence shows the work or the setting, which both texts share. Find what each text says about money and debt."
+   },
+   "checks": [
+    {
+     "passage": "History: During the First World War, the Hejaz Railway was attacked many times during the Arab Revolt, and sections of track were destroyed. After the war, the line south of Ma'an was never fully reopened.\n\nStory: Old Musa, the guard at a lonely desert station, polished the brass bell every morning, though no train had come in months. 'They will repair it,' he told the boy who brought his water. 'A road of iron does not simply die.'",
+     "stem": "What does the story add to the historical account?",
+     "options": [
+      "The military reasons the railway line was attacked",
+      "A personal view of loss and hope from someone who depended on it",
+      "The exact dates when each section of track was destroyed",
+      "Proof that the railway was quickly repaired after the war"
+     ],
+     "answer": 1,
+     "why": "The history gives events and results. The story shows how the railway's end felt to one man, and his hope is moving because readers know the line never reopened."
+    },
+    {
+     "passage": "History: Archaeologists believe the tombs of Hegra were carved over roughly a hundred years by many teams of craftsmen.\n\nNovel: In one burning summer, the master sculptor Malik carves the great tomb alone, working by moonlight and sleeping beside his tools.",
+     "stem": "How does the novel alter the history, and what is the likely purpose?",
+     "options": [
+      "It matches the history exactly, to teach accurate facts.",
+      "It adds more craftsmen, to show the project was huge.",
+      "It moves the tombs to a different country, to surprise.",
+      "It turns a century of team work into one hero, for drama."
+     ],
+     "answer": 3,
+     "why": "The history describes many teams over a century. The novel compresses this into one man and one summer, creating a single dramatic hero."
+    },
+    {
+     "passage": "History: Ibn Battuta reached Makkah in 1326, after travelling across North Africa, Egypt and Syria.\n\nStory: After more than a year on the road, Ibn Battuta stood before the Kaaba at last. He could not stop the tears running into his beard.",
+     "stem": "What is the main difference in the two texts' purposes?",
+     "options": [
+      "The history informs about facts; the story helps us feel the arrival.",
+      "Both texts mainly try to make readers laugh.",
+      "The story's purpose is to correct the history text's route.",
+      "The history text is mainly meant to persuade people to travel."
+     ],
+     "answer": 0,
+     "why": "The history gives the date and route. The story shows Ibn Battuta's tears so readers feel what the arrival meant to him."
+    }
+   ],
+   "again": {
+    "title": "Typical or special?",
+    "text": "Ask: **Is the story showing what was typical, or something special?**\n\n1. Find what the history text says was true for **most** people.\n2. Find what happens to the story's character.\n3. If they differ, ask **why** the author chose the special case.",
+    "example": "History: most divers stayed in debt.\nStory: Hamad finds a huge pearl that pays every debt.\n\nThe story shows a **rare, hopeful** case. That makes an exciting story, but it is not the typical diver's life."
+   }
+  }
+ }
+}

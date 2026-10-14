@@ -1,0 +1,468 @@
+{
+ "code": "LN-181",
+ "title": "Different interpretations of a text",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [],
+ "families": [
+  "theme"
+ ],
+ "skillNames": [
+  "Multiple Interpretations of a Text"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Different ideas",
+     "text": "Two readers can read the **same story** and have **different ideas** about it.\n\nThat is OK! But every idea needs **proof** from the text."
+    },
+    {
+     "title": "Proof makes an idea strong",
+     "text": "A **strong** idea has sentences in the story that show it.\n\nA **weak** idea has no proof, or the story shows the **opposite**."
+    },
+    {
+     "title": "How to check an idea",
+     "text": "1. Read the idea.\n2. Look for sentences that **show** it.\n3. Look for sentences that show it is **wrong**.\n4. The idea with the **most proof** wins."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For each idea, ask: **Which sentence shows this?**\n\nIf you can point to sentences, the idea is strong.\n\nIf you can't, or if a sentence says the opposite, the idea is weak."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar sat alone at lunch.",
+      "role": "detail"
+     },
+     {
+      "t": "He watched the other boys play football.",
+      "role": "key"
+     },
+     {
+      "t": "He held his own ball tight in his lap.",
+      "role": "key"
+     }
+    ],
+    "explain": "Reader 1: **Omar wants to play.** Reader 2: **Omar is angry.**\n\nOmar **watches** the game and **holds his ball**. That shows he wants to join in. Nothing shows he is angry. Reader 1 has more proof."
+   },
+   "together": {
+    "passage": "Sara got a new puppy. She hugged him all day. She laughed when he licked her face. She did not want to go to bed without him.",
+    "stem": "Ali thinks Sara is scared of the puppy. Mona thinks Sara loves the puppy. Whose idea does the story prove?",
+    "options": [
+     "Ali's, because she got a new puppy",
+     "Neither idea has any proof",
+     "Ali's, because she did not want to go to bed",
+     "Mona's, because she hugged him and laughed"
+    ],
+    "answer": 3,
+    "hint": "Look at what Sara DOES with the puppy. Would a scared girl do that?",
+    "good": "Yes! Hugging, laughing and keeping him close all prove that Sara loves the puppy."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara got a new puppy.",
+     "She hugged him all day.",
+     "She laughed when he licked her face.",
+     "She did not want to go to bed without him."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Mona's idea, Sara loves the puppy. Tap 2 sentences that prove it.",
+    "wrong": "This sentence only tells that Sara got a puppy. Find what she does that shows love."
+   },
+   "checks": [
+    {
+     "passage": "Huda's grandmother gave her an old ring. Huda wore it every day. She touched it when she felt nervous.",
+     "stem": "Reader A: The ring is special to Huda. Reader B: Huda does not like the ring. Which reading has proof?",
+     "options": [
+      "Reader A, because she wears it every day",
+      "Reader B, because the ring is old",
+      "Reader B, because she touches it",
+      "Neither reading has proof"
+     ],
+     "answer": 0,
+     "why": "She wears it every day and touches it when nervous. That shows the ring is special to her."
+    },
+    {
+     "passage": "The dog barked at the door. It wagged its tail and jumped up and down. Then Dad came in.",
+     "stem": "Reader A: The dog was angry. Reader B: The dog was happy Dad was home. Which reading is better?",
+     "options": [
+      "Reader A, because dogs bark when they are angry",
+      "Reader B, because the dog wagged its tail and jumped",
+      "Reader A, because Dad came in the door",
+      "Both readings are just as good"
+     ],
+     "answer": 1,
+     "why": "Barking alone could mean many things, but wagging and jumping show the dog was happy."
+    },
+    {
+     "passage": "Nasser looked at the big hill. He tied his shoes tight. He took a deep breath and started to climb.",
+     "stem": "Reader A: Nasser is lazy. Reader B: Nasser is ready to try something hard. Which reading is better?",
+     "options": [
+      "Reader A, because the hill is big",
+      "Reader A, because he took a breath",
+      "Reader B, because he got ready and climbed",
+      "Neither reading is better"
+     ],
+     "answer": 2,
+     "why": "He ties his shoes, breathes deeply and starts to climb. A lazy boy would not do that."
+    }
+   ],
+   "again": {
+    "title": "Count the proof",
+    "text": "Put each idea at the top of a list.\n\nUnder each idea, write the sentences that **show** it.\n\nThe idea with the **longer list** is the better idea.",
+    "example": "Idea 1: Sara loves the puppy → hugged him, laughed, wanted him at bedtime. (**3**)\nIdea 2: Sara is scared → nothing. (**0**)\n\nIdea 1 wins!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "More than one reading",
+     "text": "Readers sometimes **interpret** a story in different ways, especially when the author does not say everything directly.\n\nAn **interpretation** is your explanation of what something in the text means."
+    },
+    {
+     "title": "The best reading",
+     "text": "The best interpretation:\n\n1. Is **supported** by several details.\n2. Fits the **whole** story, including the ending.\n3. Is **not contradicted** by any part of the text."
+    },
+    {
+     "title": "Test each reading",
+     "text": "1. List the details that **support** the reading.\n2. Look for details that **go against** it.\n3. Choose the reading with the most support and no contradictions."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To support a reading, point to **two or more** details that fit it.\n\nTo reject a reading, point to a detail that **goes against** it, or show that nothing in the text supports it.\n\nOne detail that could mean many things is weak proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lama kept looking at the clock during the party.",
+      "role": "detail"
+     },
+     {
+      "t": "Every few minutes she checked the door.",
+      "role": "key"
+     },
+     {
+      "t": "When her older brother finally walked in from the airport, she ran to hug him.",
+      "role": "key"
+     }
+    ],
+    "explain": "Reader 1: **Lama is bored at the party.** Reader 2: **Lama is waiting for someone special.**\n\nThe clock could fit either reading. But checking the door and running to hug her brother support **Reader 2** much better."
+   },
+   "together": {
+    "passage": "Every afternoon, Rakan sat on the bench outside the bakery. He never bought anything. He watched the baker, Abu Ali, shape the dough and slide the trays into the hot oven. Sometimes he moved his hands in the air, copying the baker's movements. One day, Abu Ali came out holding a lump of dough. 'Here,' he said. 'Show me what you have learned.'",
+    "stem": "Which reading of Rakan is best supported by the story?",
+    "options": [
+     "Rakan is hungry; he waits for free bread.",
+     "Rakan wants to learn to bake; he copies the baker.",
+     "Rakan is bored; he has nothing else to do.",
+     "Rakan dislikes Abu Ali; he looks for mistakes."
+    ],
+    "answer": 1,
+    "hint": "Does the story support that? Look at what Rakan does with his hands and what Abu Ali says at the end.",
+    "good": "Yes! Rakan watches closely, copies the baker's movements, and Abu Ali asks him to show what he has learned."
+   },
+   "evidence": {
+    "sentences": [
+     "Every afternoon, Rakan sat on the bench outside the bakery.",
+     "He never bought anything.",
+     "He watched the baker, Abu Ali, shape the dough and slide the trays into the hot oven.",
+     "Sometimes he moved his hands in the air, copying the baker's movements.",
+     "One day, Abu Ali came out holding a lump of dough.",
+     "'Here,' he said.",
+     "'Show me what you have learned.'"
+    ],
+    "proof": [
+     2,
+     3,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: Rakan wants to learn to bake. Tap 2 sentences that support this reading.",
+    "wrong": "This sentence could fit many readings. Find the details that show Rakan is learning."
+   },
+   "checks": [
+    {
+     "passage": "At the end of the race, Lina was far behind. Her friend Dana, who was in first place, slowed down and waited. The two girls crossed the finish line together, holding hands.",
+     "stem": "Reader A: Dana was too tired to win. Reader B: Dana cared more about her friend than about winning. Which reading is better supported?",
+     "options": [
+      "Reader A, because Dana slowed down",
+      "Reader A, because Lina was far behind",
+      "Reader B, because Dana waited and held Lina's hand",
+      "Both readings are equally well supported"
+     ],
+     "answer": 2,
+     "why": "Slowing down could mean tiredness, but waiting for Lina and holding her hand show Dana chose friendship over winning."
+    },
+    {
+     "passage": "The old door creaks when the wind comes in,\nIt groans when children run.\nBut still it opens every day\nTo let in light and sun.",
+     "stem": "Reader A: The door stands for someone old but still giving. Reader B: The door is broken and useless. Which reading fits the WHOLE poem?",
+     "options": [
+      "Reader A, because the door still opens to let in light",
+      "Reader B, because the door creaks in the wind",
+      "Reader B, because it groans when children run",
+      "Neither, because poems never have a meaning"
+     ],
+     "answer": 0,
+     "why": "The creaking and groaning show the door is old, but 'But still it opens every day' shows it is still useful and giving. Reader B ignores the last two lines."
+    },
+    {
+     "passage": "Faris tore up his drawing and threw it in the bin. Then he took a fresh sheet of paper and began again, slower this time.",
+     "stem": "Reader A says Faris gave up on drawing. Which detail best shows Reader A is wrong?",
+     "options": [
+      "Faris tore up his drawing.",
+      "He threw it in the bin.",
+      "Faris was making a drawing.",
+      "He took a fresh sheet and began again."
+     ],
+     "answer": 3,
+     "why": "Faris starts again, more carefully. Someone who gave up would not do that."
+    }
+   ],
+   "again": {
+    "title": "For and against",
+    "text": "Draw a line down a page. Write **For** on one side and **Against** on the other.\n\nFor each reading, list details that support it (For) and details that go against it (Against).\n\nThe best reading has a long **For** list and an empty **Against** list.",
+    "example": "Reading: Rakan wants to learn to bake.\nFor: watches the baker; copies his moves; 'show me what you have learned'.\nAgainst: nothing.\n\nA strong reading!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Interpreting symbols and themes",
+     "text": "Readers often disagree about what an object **stands for** (a symbol) or what a story **means** (its theme).\n\nSeveral interpretations can be reasonable, but some are **better supported** than others."
+    },
+    {
+     "title": "Judging an interpretation",
+     "text": "Ask:\n\n1. Does it use **specific details** from the text?\n2. Does it explain the **ending**?\n3. Does it explain **why** the author included key moments?\n4. Is anything in the text **against** it?"
+    },
+    {
+     "title": "Weak interpretations",
+     "text": "Watch out for readings that:\n\n1. Use only **one** detail.\n2. **Ignore** the ending or a turning point.\n3. Bring in ideas the text **never** suggests.\n4. Judge a whole group of people instead of reading the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support an interpretation with details from **different parts** of the text: the beginning, a turning point and the ending.\n\nIf an interpretation needs you to **ignore** an important part of the text, it is weaker than one that explains everything."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "All through the story, the brothers argue, and dark clouds gather over the farm.",
+      "role": "key"
+     },
+     {
+      "t": "When they begin shouting, thunder cracks.",
+      "role": "key"
+     },
+     {
+      "t": "On the last page, they shake hands, and the sun breaks through.",
+      "role": "key"
+     }
+    ],
+    "explain": "Reader A: **The storm stands for the brothers' anger.** Reader A points out that the storm grows when they argue and clears when they make peace.\n\nThis reading is strong because it connects the storm to events at the **start**, **middle** and **end**."
+   },
+   "together": {
+    "passage": "After his grandfather passed away, Majed found the old brass lantern in the storeroom. It was dented and black with soot. His mother wanted to throw it away, but Majed cleaned it every evening for a week until the brass shone. He remembered sitting beside his grandfather on the roof on summer nights, the lantern glowing between them while his grandfather named the stars. On the last night of the week, the power went out across the neighbourhood. Majed lit the lantern and carried it up to the roof. His little sister followed him, and he began to name the stars for her.",
+    "stem": "Which interpretation of the lantern is best supported by the whole story?",
+    "options": [
+     "It shows that Majed is afraid of the dark.",
+     "It shows Majed plans to sell it for money.",
+     "It stands for his grandfather's memory and the knowledge Majed now passes on.",
+     "It shows that old things are useless and should be thrown away."
+    ],
+    "answer": 2,
+    "hint": "Does that reading explain the ending? Think about who sat with the lantern before, and who sits with it now.",
+    "good": "Yes! The lantern brings back his grandfather naming the stars, and at the end Majed does the same for his sister."
+   },
+   "evidence": {
+    "sentences": [
+     "After his grandfather passed away, Majed found the old brass lantern in the storeroom.",
+     "It was dented and black with soot.",
+     "His mother wanted to throw it away, but Majed cleaned it every evening for a week until the brass shone.",
+     "He remembered sitting beside his grandfather on the roof on summer nights, the lantern glowing between them while his grandfather named the stars.",
+     "On the last night of the week, the power went out across the neighbourhood.",
+     "Majed lit the lantern and carried it up to the roof.",
+     "His little sister followed him, and he began to name the stars for her."
+    ],
+    "proof": [
+     2,
+     3,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the lantern stands for his grandfather's memory and the knowledge Majed passes on. Tap 2 sentences that support this interpretation.",
+    "wrong": "This sentence describes the lantern or the setting but does not connect it to the grandfather or to passing knowledge on."
+   },
+   "checks": [
+    {
+     "passage": "Throughout the story, Jana refuses to share her paints with her classmates. At the end, when a younger girl spills water on her picture, Jana quietly hands her the best brush and helps her start again.",
+     "stem": "A reader says: 'This story is about a selfish girl who never changes.' Why is this interpretation weak?",
+     "options": [
+      "It uses too many quotes from the story.",
+      "It mentions the younger girl.",
+      "It agrees with how the story ends.",
+      "It ignores the ending, where Jana helps."
+     ],
+     "answer": 3,
+     "why": "The ending shows Jana sharing her best brush and helping. A reading that says she never changes ignores this turning point."
+    },
+    {
+     "passage": "In a poem, the speaker plants a young palm tree that will take years to give fruit. The last line says: 'I will not taste these dates. Someone will.'",
+     "stem": "Reader A: The poem is about patience. Reader B: The poem is about working for people in the future. Which statement is most accurate?",
+     "options": [
+      "Only Reader A can possibly be right.",
+      "Both fit, but the last line supports B most.",
+      "Neither reading is supported by the poem.",
+      "Reader B is wrong because a tree is planted."
+     ],
+     "answer": 1,
+     "why": "Waiting years for fruit fits patience, but 'I will not taste these dates. Someone will' points most strongly to working for others in the future."
+    },
+    {
+     "passage": "Reader A says the storm in a story stands for the family's arguments. Reader A points out that the storm starts when the brothers begin shouting and ends on the day they make peace.",
+     "stem": "What makes Reader A's interpretation convincing?",
+     "options": [
+      "It links the storm's start and end to family events.",
+      "It is the longest interpretation in the class.",
+      "It agrees with what most readers like best.",
+      "It does not need any details from the story."
+     ],
+     "answer": 0,
+     "why": "A strong interpretation connects details from different parts of the story. Reader A links both the start and end of the storm to the family."
+    }
+   ],
+   "again": {
+    "title": "Does it explain the ending?",
+    "text": "A quick test for any interpretation:\n\n**Read the last paragraph. Does the interpretation explain it?**\n\nIf the ending makes more sense with this reading, it is probably strong. If the ending makes no sense with it, look again.",
+    "example": "Reading: 'The lantern shows Majed is afraid of the dark.'\nEnding: Majed names the stars for his sister.\n\nFear does not explain that. 'Passing on his grandfather's memory' does."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Open texts",
+     "text": "Some texts are **ambiguous** on purpose: the author leaves the meaning **open**.\n\nThen more than one interpretation can be **reasonable**. Your job is to decide which is **most** convincing, and why."
+    },
+    {
+     "title": "Evaluating interpretations",
+     "text": "Compare readings using four questions:\n\n1. **Coverage**: does it explain the most important details?\n2. **Consistency**: is anything in the text against it?\n3. **Specificity**: does it use exact words and images?\n4. **Fairness**: does it read the text, not stereotypes?"
+    },
+    {
+     "title": "Writing your own",
+     "text": "State your interpretation clearly, then support it with evidence from **several** parts of the text.\n\nA strong reader can also say what another reading **gets right**, and why theirs explains **more**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Gather details that **build up** to the moment you are interpreting.\n2. Note any detail that **contradicts** each reading.\n3. Choose the reading that accounts for **the most** evidence with **no** contradictions.\n\nIn an open ending, the best reading still grows from the text's own clues."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After the canary flew away, Dalia refused to put its cage in the storeroom.",
+      "role": "key"
+     },
+     {
+      "t": "Every evening she cleaned it and filled the little water dish.",
+      "role": "key"
+     },
+     {
+      "t": "And every night she left the cage door wide open.",
+      "role": "key"
+     },
+     {
+      "t": "Her father said nothing, but he stopped closing the window.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Reader A: **Dalia hopes the bird will come back.** Reader B: **Dalia has accepted that the bird is gone.**\n\nThe fresh water, the open door and the open window all fit Reader A. Nothing shows Dalia accepting the loss yet. Reader A explains **more** of the text with **no** contradictions."
+   },
+   "together": {
+    "passage": "The old fisherman, Abu Rashid, had promised his son that this would be his last season at sea. On the final morning, the boat returned heavy with fish, and the crew sang as they unloaded. Abu Rashid stood alone at the end of the pier, looking at the horizon long after the others had gone home. His son came to fetch him. 'Baba, the house is ready for you. No more early mornings.' Abu Rashid nodded slowly and put the boat's keys in his son's hand. But that night, his wife woke to find his side of the bed empty. She walked to the window. Down at the harbour, a small light was moving on the water, far out, past the breakwater.",
+    "stem": "Which interpretation of the ending is best supported by the evidence?",
+    "options": [
+     "Abu Rashid cannot let go of the sea, which is part of who he is.",
+     "Abu Rashid is secretly planning to sell the boat for money.",
+     "Abu Rashid is happy to retire and is sleeping peacefully.",
+     "The story shows that all fishermen break their promises."
+    ],
+    "answer": 0,
+    "hint": "Test each reading against the details: the long look at the horizon, the empty bed, the light far out on the water. Which reading do they support, and which do they contradict?",
+    "good": "Yes! He lingers looking at the horizon, and that night he is gone while a light moves far out at sea. The details point to a man who cannot leave the sea behind."
+   },
+   "evidence": {
+    "sentences": [
+     "The old fisherman, Abu Rashid, had promised his son that this would be his last season at sea.",
+     "On the final morning, the boat returned heavy with fish, and the crew sang as they unloaded.",
+     "Abu Rashid stood alone at the end of the pier, looking at the horizon long after the others had gone home.",
+     "His son came to fetch him.",
+     "'Baba, the house is ready for you. No more early mornings.'",
+     "Abu Rashid nodded slowly and put the boat's keys in his son's hand.",
+     "But that night, his wife woke to find his side of the bed empty.",
+     "She walked to the window.",
+     "Down at the harbour, a small light was moving on the water, far out, past the breakwater."
+    ],
+    "proof": [
+     2,
+     6,
+     8
+    ],
+    "need": 2,
+    "stem": "The answer was: Abu Rashid cannot let go of the sea. Tap 2 sentences that support this interpretation.",
+    "wrong": "This sentence gives background or shows the family, but does not show Abu Rashid's pull toward the sea."
+   },
+   "checks": [
+    {
+     "passage": "I built a wall around my garden\nTo keep the wild goats out.\nNow nothing eats my roses,\nAnd no one comes about.",
+     "stem": "Reader A: The poem is about protecting what you love. Reader B: The poem warns that shutting others out can bring loneliness. Which evaluation is most accurate?",
+     "options": [
+      "Reader A is better, because the wall keeps out goats.",
+      "Reader B also explains the last line, so it covers more.",
+      "Both readings ignore the roses completely.",
+      "Neither reading uses any evidence."
+     ],
+     "answer": 1,
+     "why": "Both readings use evidence, but only Reader B explains 'And no one comes about': the wall keeps out people too."
+    },
+    {
+     "passage": "In the last scene, Amal holds the acceptance letter from a university abroad. She looks at her sleeping grandmother for a long time, then slowly folds the letter and puts it in her pocket. The story ends.",
+     "stem": "Which statement about interpreting this ending is most reasonable?",
+     "options": [
+      "The ending clearly shows Amal will go abroad.",
+      "The ending clearly shows Amal will throw the letter away.",
+      "There is only one correct way to read the ending.",
+      "The ending is open and supports more than one reading."
+     ],
+     "answer": 3,
+     "why": "The author does not say what Amal decides. Folding the letter could mean delaying, hiding or keeping her choice. The ending is deliberately open."
+    },
+    {
+     "passage": "Hessa's teacher praised her essay in front of the whole class. Hessa stared at her desk, her face hot, and did not smile. When the bell rang and she was alone in the corridor, she grinned and skipped all the way to the stairs.",
+     "stem": "A reader says Hessa is unhappy about the praise. Which detail contradicts this reading?",
+     "options": [
+      "Her teacher praised her essay.",
+      "She stared at her desk.",
+      "Alone, she grinned and skipped.",
+      "Her face felt hot."
+     ],
+     "answer": 2,
+     "why": "Grinning and skipping when alone show she was happy. The other details fit a shy girl who is embarrassed in front of others."
+    }
+   ],
+   "again": {
+    "title": "Judge like a referee",
+    "text": "Imagine each interpretation is a player. As the referee, you check:\n\n1. **Points**: how many details support it?\n2. **Fouls**: does any detail contradict it?\n3. **Winner**: most points, no fouls.",
+    "example": "'Abu Rashid is sleeping peacefully.'\nPoints: none. Foul: 'his side of the bed was empty'.\n\n'He cannot let go of the sea.'\nPoints: the long look, the empty bed, the light at sea. Fouls: none. **Winner!**"
+   }
+  }
+ }
+}

@@ -1,3 +1,4 @@
+import { StarAssign } from "@/components/assign/star-assign";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { TFn } from "@/i18n";
@@ -10,6 +11,7 @@ import { pickField } from "@/server/plans/plan-form";
 import { AUTO, SkillQuestionPicker, dedupeSkillsByName, questionIdsField } from "@/components/skill-picker";
 import { StudentPlanPreview } from "./student-preview";
 import { builderDraftAction } from "@/app/teacher/plans/editor-actions";
+import { PlanMasteredPrompt } from "./mastered-prompt";
 
 /**
  * The program pages' plan builder (server-rendered, one GET form): 1 Who → 2 the suggested skills (untick to
@@ -80,6 +82,8 @@ export interface BuilderProps {
   canSend: boolean;
   /** shown when nothing is suggested */
   empty: { title: string; text: string };
+  /** ☆ quick assign beside each suggested skill (owner r67): the class, the skills already assigned, the default due date */
+  star?: { classId: string; assigned: Record<string, string>; defaultDue: string; track: string } | null;
 }
 
 /** A skill of the plan opens to its questions: "the platform chooses" (default) or the teacher's own picks. */
@@ -141,6 +145,7 @@ export function PlanBuilder(p: BuilderProps) {
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Due date (optional)")}<input type="date" name="dueAt" defaultValue={form.dueText} className={BOX} /></label>
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Note to students (optional)")}<input name="note" defaultValue={form.note} maxLength={1000} className={BOX} /></label>
         </div>
+        <PlanMasteredPrompt t={t} classId={p.carry.find(([k]) => k === "classId")?.[1] ?? ""} plan={p.plan} excluded={form.excludeMastered} />
         <p className="mt-3 text-sm text-slate-600">{t("{skills} skill(s) for {students} student(s).", { skills: p.plan.length, students: withWork.length })}{pickedPairs.length > 0 && <> {t("Your own questions: {n} skill(s). The others: the platform chooses at each student's level.", { n: pickedPairs.length })}</>}</p>
         <div className="mt-4 flex flex-wrap justify-end gap-3">
           <button name="step" value="edit" className={BTN_SOFT}>{t("Change the skills")}</button>
@@ -168,6 +173,7 @@ export function PlanBuilder(p: BuilderProps) {
                 <span className="font-medium text-slate-900">{k.name}</span>
                 <span className="text-sm text-slate-500">{t(k.reason)}{k.studentIds.length < p.students.length ? ` · ${k.studentIds.slice(0, 4).map((id) => nameOf.get(id) ?? "").join(", ")}${k.studentIds.length > 4 ? ` +${k.studentIds.length - 4}` : ""}` : ` · ${t("everyone")}`}</span>
               </label>
+              {p.star && <div className="-mt-1 px-4 ps-12"><StarAssign kind="SKILL" refId={k.id} classId={p.star.classId} assignedId={p.star.assigned[k.id] ?? null} defaultDue={p.star.defaultDue} track={p.star.track} label={k.name} /></div>}
               <QuestionsOf t={t} id={k.id} picked={picks[k.id]} />
             </li>
           ))}

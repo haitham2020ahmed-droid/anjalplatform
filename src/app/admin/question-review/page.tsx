@@ -5,10 +5,11 @@ import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { reviewBatch, reviewBatches, type QuestionTags } from "@/server/questions/tag-review";
 import { reviewAction } from "./actions";
+import { LineIcon } from "@/components/ui/line-icon";
 
 export const metadata = { title: "Tags & review" };
 
-const LV: Record<string, string> = { BELOW: "🟠 Approaching", ON: "🔵 Meeting", ABOVE: "🟢 Exceeding" };
+const LV: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 
 /** 🏷️ Every question's tags (derived) and the admin's check: a ~10% random sample per skill, or the whole batch. */
 export default async function QuestionReviewPage({ searchParams }: { searchParams: Promise<{ grade?: string; skillId?: string; msg?: string }> }) {
@@ -32,9 +33,9 @@ export default async function QuestionReviewPage({ searchParams }: { searchParam
   );
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="🏷️" title="Question Tags & Review"
+      <PageHeader back={{ href: "/admin", label: "Administration" }} icon="check" title="Question Tags & Review"
         subtitle={<>Every question is in one bank. Its tags come from its place on the Curriculum Map, its skill and standard, and its difficulty — marked <b>Suggested</b> until you check them. Open a skill (one batch), look at the random ~10% sample, fix anything with <b>Edit</b>, then verify the ticked questions or the whole batch.</>}>
-        <form action={reviewAction}><input type="hidden" name="grade" value={grade} /><input type="hidden" name="op" value="recalibrate" /><button className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Uses real answers of students with a MAP score">📐 Recalibrate RIT (Grade {grade})</button></form>
+        <form action={reviewAction}><input type="hidden" name="grade" value={grade} /><input type="hidden" name="op" value="recalibrate" /><button className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Uses real answers of students with a MAP score"><LineIcon name="scale" className="me-1 inline-block h-4 w-4 align-[-3px]" />Recalibrate RIT (Grade {grade})</button></form>
       </PageHeader>
       <BankTabs />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
@@ -58,14 +59,14 @@ export default async function QuestionReviewPage({ searchParams }: { searchParam
               {Object.keys(v.summary.missing).length > 0 && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">Missing tags: {Object.entries(v.summary.missing).map(([k, n]) => `${k} (${n})`).join(" · ")}. Fix them in the question editor or by placing the questions on the Curriculum Map.</p>}
               <form action={reviewAction} className="mt-4">
                 <input type="hidden" name="grade" value={grade} /><input type="hidden" name="skillId" value={skillId} />
-                <h3 className="font-bold text-slate-700">🎲 Random sample ({v.sample.length} of {v.total})</h3>
+                <h3 className="font-bold text-slate-700"><LineIcon name="layers" className="me-1 inline-block h-4 w-4 align-[-3px]" />Random sample ({v.sample.length} of {v.total})</h3>
                 <ul className="mt-2 space-y-3">{v.sample.map((t) => (
                   <li key={t.id} className="rounded-2xl p-3 ring-1 ring-slate-200">
                     <label className="flex items-start gap-3"><input type="checkbox" name="q" value={t.id} defaultChecked={t.review !== "VERIFIED"} className="mt-1 h-4 w-4" />
                       <span className="min-w-0 flex-1"><span className="font-medium text-slate-900">{t.stem.length > 260 ? `${t.stem.slice(0, 260)}…` : t.stem}</span>
                         <span className={`ms-2 rounded-full px-2 py-0.5 text-xs font-bold ${t.review === "VERIFIED" ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>{t.review === "VERIFIED" ? "✓ Verified" : "Suggested"}</span>
                         {tags(t)}</span></label>
-                    <Link href={`/admin/questions/${t.id}`} className="ms-7 mt-1 inline-block text-sm font-semibold text-brand-teal underline">✏️ Edit</Link>
+                    <Link href={`/admin/questions/${t.id}`} className="ms-7 mt-1 inline-block text-sm font-semibold text-brand-teal underline"><LineIcon name="pen" className="me-1 inline-block h-4 w-4 align-[-3px]" />Edit</Link>
                   </li>
                 ))}</ul>
                 <div className="mt-4 flex flex-wrap gap-2">

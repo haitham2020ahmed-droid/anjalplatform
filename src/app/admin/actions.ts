@@ -204,14 +204,21 @@ export async function saveQuestionAction(questionId: string | null, input: unkno
 export async function questionStepAction(_: Result, f: FormData): Promise<Result> {
   const actor = await requireActor({ permission: "questions:read" });
   const qid = id.parse(f.get("questionId"));
-  const step = z.enum(["submit", "approve", "reject", "archive", "revise"]).parse(f.get("step"));
-  return run(["/admin/questions", `/admin/questions/${qid}`], async () => {
+  const step = z.enum(["submit", "approve", "reject", "archive", "revise", "publish"]).parse(f.get("step"));
+  let made: string | null = null;
+  const r = await run(["/admin/questions", `/admin/questions/${qid}`], async () => {
     if (step === "submit") await submitForReview(repo, actor, qid);
     if (step === "approve" || step === "reject") await reviewQuestion(repo, actor, qid, step, str(f, "note") || null);
     if (step === "archive") await archiveQuestion(repo, actor, qid, str(f, "note"));
-    if (step === "revise") return { id: await reviseQuestion(repo, actor, qid), message: "New version created." };
-    return { message: { submit: "Sent for review.", approve: "Published.", reject: "Sent back to the author.", archive: "Archived." }[step] };
+    // a draft published directly (reviewers / admins): the same validated publish step; a new version replaces the old one
+    if (step === "publish") { const p = await publishQuestions(repo, actor, [qid]); if (p.skipped.length) throw new ValidationError(p.skipped[0].reason); }
+    if (step === "revise") { made = await reviseQuestion(repo, actor, qid); return { id: made, message: "New version created." }; }
+    return { message: { submit: "Sent for review.", approve: "Published.", reject: "Sent back to the author.", archive: "Archived.", publish: "Published." }[step] };
   });
+  // r67 bug fix: the new draft version opens in its editor (it used to say “New version created.” and stay on the
+  // old, read-only question, with no way to reach the draft)
+  if (made && r.ok) goTo(`/admin/questions/${made}?msg=${encodeURIComponent("New version created. Edit it below, then publish it: it replaces the old one everywhere.")}`);
+  return r;
 }
 
 // ------------------------------------------------------- AI question bank

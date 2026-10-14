@@ -1,0 +1,568 @@
+{
+  "code": "NB-100",
+  "title": "The Walking Bus",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 433,
+  "passage": "Every morning at a quarter to seven, the narrow street outside Al-Yasmin Boys' School became a frustrating knot of honking cars, idling engines and impatient drivers. Ziyad, who was eleven, pressed his forehead against the car window and watched the grey exhaust curl upwards in the morning light. \"Baba,\" he asked, \"why does it take us fifteen minutes to drive to a school that is only a kilometre away?\"\n\nHis father sighed and drummed his fingers on the steering wheel. \"Because every family has exactly the same idea as we do, my son.\"\n\nThat evening, Ziyad found an article in a children's science magazine about something called a \"walking bus.\" It was not really a bus at all, but a group of children who walked to school together along a fixed route, led by an adult at the front and another at the back. Like a real bus, it collected passengers at \"stops\" outside their houses. Ziyad read the article twice, then rushed into the living room, waving the magazine.\n\n\"Baba, we could start one in our neighbourhood! We would save fuel, reduce the pollution outside the school, and get valuable exercise at the same time.\"\n\nHis father studied the article thoughtfully, stroking his beard, but his younger brother Hamad looked extremely doubtful. \"Walking in Riyadh? We will melt like ice cream!\"\n\n\"Not if we walk in the morning, when it is still cool,\" Ziyad replied, \"and the article says the route should be as shaded as possible.\"\n\nThe next obstacle was more serious. Their neighbour, Abu Faisal, worried about the wide road the children would have to cross. Instead of giving up, Ziyad drew a careful map that avoided the busiest junction and used the pedestrian crossing beside the mosque. Impressed by his planning, Abu Faisal agreed to walk at the back of the line every Sunday and Tuesday.\n\nOn the first morning in October, only five sleepy boys gathered at the corner, yawning and clutching their heavy schoolbags. Within a month, however, the walking bus had grown to twenty-three passengers, and three fathers took turns leading it. The boys arrived at school energetic and talkative, while the queue of cars at the gate grew noticeably shorter.\n\nOne morning, the principal stood at the gate and applauded as the line marched in. \"This is exactly the kind of initiative our city needs,\" he announced. \"What a wonderful example you have set!\"\n\nZiyad grinned at Hamad, who, despite all his earlier complaints about melting, had somehow become the most enthusiastic passenger of all, arriving at the corner before anyone else every single morning.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “obstacle” as it is used in paragraph 7?",
+      "options": [
+        "reward",
+        "difficulty",
+        "shortcut",
+        "decision"
+      ],
+      "answer": "B",
+      "why": "The wide road was a difficulty standing in the way of the plan, which Ziyad had to solve."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “doubtful” as it is used in paragraph 5?",
+      "options": [
+        "unsure",
+        "tired",
+        "angry",
+        "confident"
+      ],
+      "answer": "D",
+      "why": "Hamad was “doubtful” (unsure the plan would work); the opposite is “confident”. “Unsure” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 9: “This is exactly the kind of initiative our city needs.” What does “initiative” mean here?",
+      "options": [
+        "a new plan started to solve a problem",
+        "a long queue of cars at a gate",
+        "a magazine article about science",
+        "a reward given to the best student"
+      ],
+      "answer": "A",
+      "why": "The principal is praising the walking bus, a new plan the boys started to solve the traffic problem."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 1 is an adverb?",
+      "options": [
+        "frustrating",
+        "impatient",
+        "upwards",
+        "exhaust"
+      ],
+      "answer": "C",
+      "why": "“Upwards” tells the direction in which the exhaust curled, so it is an adverb; “frustrating” and “impatient” are adjectives and “exhaust” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the story is IRREGULAR (it does not add -s)?",
+      "options": [
+        "passengers",
+        "children",
+        "fathers",
+        "engines"
+      ],
+      "answer": "B",
+      "why": "One child, many children; the other plurals are formed by adding -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “enthusiastic” in paragraph 10?",
+      "options": [
+        "entire",
+        "enter",
+        "enthrone",
+        "enthusiasm"
+      ],
+      "answer": "D",
+      "why": "“Enthusiastic” is the adjective of the noun “enthusiasm”; the others only begin with “ent-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “impressed” in a meaningful sentence of your own.",
+      "model": "The teacher was impressed by how neatly Ali had organised his science project.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “impressed” with its meaning (feeling admiration for someone or something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Impressed” means feeling admiration because something is good or skilful."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “bus”?",
+      "options": [
+        "buses",
+        "buss",
+        "busies",
+        "bus's"
+      ],
+      "answer": "A",
+      "why": "Nouns ending in -s add -es: bus → buses. “Bus's” shows possession, not a plural."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Because every family has exactly the same idea as we do, my son.” in paragraph 2?",
+      "options": [
+        "a question",
+        "a command",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "Baba answers Ziyad's question with information and ends with a full stop, so it is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Fifteen Minutes of Honking",
+        "Ziyad's Walking Bus",
+        "A Magazine for Children",
+        "The Principal's Speech"
+      ],
+      "answer": "B",
+      "why": "The story is about Ziyad's idea of a walking bus and how it succeeds. The traffic is only the problem at the start."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Children should never ask their parents questions in the car.",
+        "Living near school is always boring.",
+        "Only adults can solve problems in a city.",
+        "A young person's idea, planned carefully, can solve a real community problem."
+      ],
+      "answer": "D",
+      "why": "Ziyad turns a magazine idea into a carefully planned walking bus that reduces traffic at the school."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 7?",
+      "options": [
+        "Ziyad answers a neighbour's safety worry by planning a careful route.",
+        "Abu Faisal refuses to let the children walk to school.",
+        "The busiest junction in Riyadh is beside the mosque.",
+        "Abu Faisal walks to the mosque every Sunday and Tuesday."
+      ],
+      "answer": "A",
+      "why": "Abu Faisal worried about the wide road, so Ziyad drew a map that avoided the busy junction, and Abu Faisal agreed to help."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did it take fifteen minutes to drive one kilometre to school?",
+      "options": [
+        "The car had a problem with its engine.",
+        "The road was closed for repairs.",
+        "Every family drove to school at the same time.",
+        "Baba stopped to buy a magazine."
+      ],
+      "answer": "C",
+      "why": "Baba explains, “Because every family has exactly the same idea as we do.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "an expository text",
+        "a dialogue story",
+        "a friendly letter",
+        "a biography"
+      ],
+      "answer": "B",
+      "why": "It is an invented story with characters, a problem and a solution, told largely through conversations."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was Abu Faisal worried about the plan?",
+      "options": [
+        "He thought the children would get lost.",
+        "He believed walking was bad for children.",
+        "He did not like the morning heat.",
+        "The children would have to cross a wide road."
+      ],
+      "answer": "D",
+      "why": "He “worried about the wide road the children would have to cross.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Ziyad found an article about a walking bus.",
+        "Hamad said they would melt like ice cream.",
+        "Abu Faisal agreed to walk at the back of the line.",
+        "The principal applauded at the gate."
+      ],
+      "answer": "A",
+      "why": "Ziyad read the article (paragraph 3) before talking to Hamad, solving Abu Faisal's worry and receiving the principal's praise."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who says, “We will melt like ice cream!”?",
+      "options": [
+        "Ziyad",
+        "Baba",
+        "Hamad",
+        "Abu Faisal"
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: “his younger brother Hamad looked extremely doubtful. ‘Walking in Riyadh? We will melt like ice cream!’”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How many passengers did the walking bus have within a month?",
+      "options": [
+        "five",
+        "twenty-three",
+        "three",
+        "fifteen"
+      ],
+      "answer": "B",
+      "why": "“Within a month, however, the walking bus had grown to twenty-three passengers.” Five was the first morning and three is the number of fathers."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Abu Faisal agree to walk at the back of the line?",
+      "options": [
+        "He was impressed by Ziyad's careful planning.",
+        "The principal ordered him to do it.",
+        "He wanted to sell fuel to the other parents.",
+        "His own car was broken."
+      ],
+      "answer": "A",
+      "why": "“Impressed by his planning, Abu Faisal agreed to walk at the back of the line.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 7?",
+      "options": [
+        "a description of the science magazine's cover",
+        "an explanation of how cars produce exhaust",
+        "a list of the streets in the neighbourhood",
+        "wondering whether the walking bus will succeed on its first morning"
+      ],
+      "answer": "D",
+      "why": "After the doubts and the safety problem, readers want to know whether the plan will actually work."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe Ziyad, based on his actions in paragraphs 6 and 7?",
+      "options": [
+        "lazy and careless",
+        "shy and fearful",
+        "determined and resourceful",
+        "proud and unkind"
+      ],
+      "answer": "C",
+      "why": "Instead of giving up, he answers Hamad's worry and draws a careful map to solve Abu Faisal's concern."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Hamad's attitude at the end of the story different from his attitude in paragraph 5?",
+      "options": [
+        "He was eager at first but later refused to walk.",
+        "He doubted the plan at first but became its most enthusiastic passenger.",
+        "He liked walking at first but later preferred the car.",
+        "He was angry at first and stayed angry."
+      ],
+      "answer": "B",
+      "why": "He first said they would “melt like ice cream” but ended as “the most enthusiastic passenger of all.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What effect did the walking bus have on the queue of cars at the school gate?",
+      "options": [
+        "It grew much longer.",
+        "It stayed exactly the same.",
+        "It moved to the mosque.",
+        "It became noticeably shorter."
+      ],
+      "answer": "D",
+      "why": "Paragraph 8 says “the queue of cars at the gate grew noticeably shorter.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Hamad and Abu Faisal have in common in the story?",
+      "options": [
+        "Both lead the walking bus every day.",
+        "Both find the article in the magazine.",
+        "Both raise concerns at first that Ziyad answers.",
+        "Both are students at Al-Yasmin Boys' School."
+      ],
+      "answer": "C",
+      "why": "Hamad worries about the heat and Abu Faisal about the road; Ziyad answers each concern."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “a frustrating knot of honking cars”?",
+      "options": [
+        "a tangled traffic jam in which cars could hardly move",
+        "a rope used to tow broken cars",
+        "a group of cars parked neatly in a row",
+        "a car race outside the school"
+      ],
+      "answer": "A",
+      "why": "Like a knot that is hard to undo, the cars were tangled together and could not move freely."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does Hamad say, “We will melt like ice cream!”?",
+      "options": [
+        "He really believes that people can melt.",
+        "He wants to buy ice cream on the way to school.",
+        "He is praising the cool morning weather.",
+        "He is exaggerating to show he thinks the walk will be too hot."
+      ],
+      "answer": "D",
+      "why": "Hamad uses a funny exaggeration to express his worry about walking in the Riyadh heat."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "Walking in Riyadh?",
+        "What a wonderful example you have set!",
+        "Because every family has exactly the same idea as we do, my son.",
+        "The next obstacle was more serious."
+      ],
+      "answer": "B",
+      "why": "It expresses strong admiration and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which part of the plan was MOST important for keeping the children safe?",
+      "options": [
+        "walking in the early morning",
+        "collecting passengers outside their houses",
+        "adults at the front and back, and a route using the pedestrian crossing",
+        "reading the article twice"
+      ],
+      "answer": "C",
+      "why": "Adult supervision and a route that avoids the busiest junction protect the children from traffic."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Cars should be banned from every city.",
+        "Small actions by a community can make a city healthier.",
+        "Children should always walk to school alone.",
+        "Science magazines are only for adults."
+      ],
+      "answer": "B",
+      "why": "A group of neighbours reduced traffic and pollution while getting exercise, and the principal called it what “our city needs.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "pride and satisfaction",
+        "fear and worry",
+        "boredom and tiredness",
+        "jealousy and anger"
+      ],
+      "answer": "A",
+      "why": "The principal applauds, and Ziyad grins at Hamad, now the most enthusiastic walker."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "why Abu Faisal was worried",
+        "what a walking bus is",
+        "how many boys came on the first morning",
+        "how many minutes the walk to school took"
+      ],
+      "answer": "D",
+      "why": "The story says the drive took fifteen minutes but never says how long the walk took; the other points are clear."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A real bus drives itself to school with no driver and no road.",
+        "Hamad melts like ice cream on the walk to school.",
+        "A group of neighbourhood children walks to school together each morning with two adults.",
+        "The traffic jam disappears forever after one walk."
+      ],
+      "answer": "C",
+      "why": "Walking buses like this are realistic; the other events are impossible or exaggerated."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Broken Car",
+        "Hamad's Ice Cream",
+        "Lost on the Way to School",
+        "How the Walking Bus Beat the Traffic"
+      ],
+      "answer": "D",
+      "why": "The story follows the walking bus from idea to success as the queue of cars shrinks."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story: imagine that on the first morning nobody except Ziyad and Hamad came. Write two or three sentences that show what Ziyad could do next.",
+      "model": "Ziyad felt disappointed, but he did not give up. That afternoon, he and Hamad made colourful leaflets showing the route and the safe crossing and gave them to every family on their street. By the next week, eight boys were waiting at the corner, and Abu Faisal was proudly leading the line.",
+      "rubric": [
+        "2 = a clear new ending that follows from nobody coming, shows a sensible action by Ziyad and a result",
+        "1 = a new ending is given but the action is unclear or does not fit the story",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any logical ending in which Ziyad responds sensibly to the setback is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could the boys keep their walking bus going when the weather becomes hot in May?",
+      "options": [
+        "Start walking earlier in the morning.",
+        "Choose the most shaded streets for the route.",
+        "A and B",
+        "Change the walk to midday."
+      ],
+      "answer": "C",
+      "why": "The story says to walk while it is “still cool” and to keep the route “as shaded as possible”; midday is the hottest time."
+    }
+  ]
+}

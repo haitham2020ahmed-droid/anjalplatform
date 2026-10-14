@@ -13,6 +13,7 @@ import { RosterForm } from "../roster/roster-form";
 import { normSearch as norm } from "./search";
 import { archiveClassAction, renameClassAction } from "../actions";
 import { addClassAction, addGradeAction, addStudentsAction, changeTeacherAction, moveStudentToClassAction, resetClassPasswordsAction, type SchoolResult } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 export type OpenDialog = "roster" | "add-student" | "new-teacher" | "teacher" | "no-class" | "add-grade";
 type Dialog =
@@ -271,7 +272,7 @@ function AddStudentsDialog({ classes, classId, onClose }: { classes: { id: strin
         <form onSubmit={(e) => { e.preventDefault(); go(async () => { const r = await addStudentsAction(cid, names); if (r.result) setDone(r.result); return r; }); }} className="space-y-3">
           {!classId && (
             <label className={label}>{t("Class")}
-              <select value={cid} onChange={(e) => setCid(e.target.value)} className={`${field} min-h-11`}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name} · {t("Grade {n}", { n: c.grade })}</option>)}</select>
+              <Combo label={t("Class")} value={cid} onChange={setCid} options={classes.map((c) => ({ value: c.id, label: c.name, group: t("Grade {n}", { n: c.grade }) }))} />
             </label>
           )}
           <label className={label}>{t("Student names, one per line (add “, number” if the student has a number)")}
@@ -300,9 +301,7 @@ function MoveDialog({ student, fromClassId, classes, onClose }: { student: TreeS
       {others.length === 0 ? <p className="text-slate-600">{t("Add another class first.")}</p> : (
         <div className="space-y-3">
           <label className={label}>{t("Move to")}
-            <select value={to} onChange={(e) => setTo(e.target.value)} className={`${field} min-h-11`}>
-              {grades.map((g) => <optgroup key={g} label={t("Grade {n}", { n: g })}>{others.filter((c) => c.grade === g).map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>)}
-            </select>
+            <Combo label={t("Move to")} value={to} onChange={setTo} options={grades.flatMap((g) => others.filter((c) => c.grade === g).map((c) => ({ value: c.id, label: c.name, group: t("Grade {n}", { n: g }) })))} />
           </label>
           {from && target && target.grade !== from.grade && <p className="rounded-xl bg-orange-50 px-3 py-2 text-sm text-orange-900 ring-1 ring-orange-200">{t("This class is in another grade: the student's grade changes too, and their level is worked out again for the new grade.")}</p>}
           <p className="text-sm text-slate-600">{t("Unfinished work of the old class leaves the student's list. Answers and history are kept.")}</p>
@@ -328,12 +327,12 @@ function TeacherDialog({ tree, classId, onClose }: { tree: SchoolTree; classId: 
         <div className="space-y-3">
           {!classId && (
             <label className={label}>{t("Class")}
-              <select value={cid} onChange={(e) => setCid(e.target.value)} className={`${field} min-h-11`}>{classes.map((x) => <option key={x.id} value={x.id}>{x.name} · {t("Grade {n}", { n: x.grade })}</option>)}</select>
+              <Combo label={t("Class")} value={cid} onChange={setCid} options={classes.map((x) => ({ value: x.id, label: x.name, group: t("Grade {n}", { n: x.grade }) }))} />
             </label>
           )}
           <p className="text-sm text-slate-700">{t("Teacher now")}: {c?.teachers.length ? <bdi>{c.teachers.map((x) => x.name).join(", ")}</bdi> : t("No teacher")}</p>
           <label className={label}>{t("New teacher")}
-            <select value={teacherId} onChange={(e) => setTeacherId(e.target.value)} className={`${field} min-h-11`}>{tree.teachers.map((x) => <option key={x.teacherId} value={x.teacherId}>{x.name}</option>)}</select>
+            <Combo label={t("New teacher")} value={teacherId} onChange={setTeacherId} options={tree.teachers.map((x) => ({ value: x.teacherId, label: x.name }))} />
           </label>
           {c?.teachers.length ? <label className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" checked={keep} onChange={(e) => setKeep(e.target.checked)} className="h-4 w-4" />{t("Keep the old teacher as a co-teacher")}</label> : null}
           <p className="text-sm text-slate-600">{t("The class keeps its students, work, plans and reports. The new teacher gets a notification.")}</p>

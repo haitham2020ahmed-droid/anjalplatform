@@ -1,0 +1,470 @@
+{
+ "code": "LN-028",
+ "title": "Formal and informal language",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "L.5.3.b",
+  "W.5.4"
+ ],
+ "families": [
+  "precise-language"
+ ],
+ "skillNames": [
+  "Formal and Informal English"
+ ],
+ "statements": [
+  "L-0130",
+  "L-0134",
+  "L-0245",
+  "L-0250",
+  "L-0316",
+  "L-0335"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two ways to talk",
+     "text": "**Formal** language is polite and careful. We use it with teachers, the principal and in school reports.\n\n**Informal** language is relaxed. We use it with friends and family."
+    },
+    {
+     "title": "Spot the difference",
+     "text": "Informal: **Hi!** Formal: **Good morning.**\n\nInformal: **Thanks a lot!** Formal: **Thank you very much.**\n\nInformal: **gonna** Formal: **going to**"
+    },
+    {
+     "title": "Who will read it?",
+     "text": "1. Ask: **who** will read or hear my words?\n2. A teacher or a stranger? Be **formal**.\n3. A friend or my brother? You can be **informal**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the words that show **who** the reader is, like **Dear Mr. Ali**.\n2. Then look for words that are **too relaxed** for that reader, like **Hey** or **super cool**.\n\nPoint to both to prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Mrs. Huda,",
+      "role": "key"
+     },
+     {
+      "t": "Thank you for the new books in our class.",
+      "role": "detail"
+     },
+     {
+      "t": "We enjoy reading them very much.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Dear Mrs. Huda** shows the note is to a teacher.\n\nSo the writer uses polite, **formal** words: thank you, very much."
+   },
+   "together": {
+    "passage": "Dear Mr. Khalid, thank you for our science lesson today. We learned how plants drink water. Hey, that was super cool!",
+    "stem": "This note is to a teacher. Which part is too informal?",
+    "options": [
+     "Dear Mr. Khalid",
+     "thank you for our science lesson",
+     "Hey, that was super cool!",
+     "We learned how plants drink water."
+    ],
+    "answer": 2,
+    "hint": "Which words would you say to a friend, not to a teacher?",
+    "good": "Yes! Hey and super cool are words for friends. To a teacher, write: It was very interesting."
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Mr. Khalid, thank you for our science lesson today.",
+     "We learned how plants drink water.",
+     "Hey, that was super cool!"
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: the one that shows the reader is a teacher, and the one that is too informal.",
+    "wrong": "This sentence is polite and fine. Find who the note is for and the words that are too relaxed."
+   },
+   "checks": [
+    {
+     "passage": "Sara meets the school principal in the morning. She wants to greet her politely.",
+     "stem": "What should Sara say?",
+     "options": [
+      "Hey there, how's it going?",
+      "Hiya, nice shoes today!",
+      "What's up, Mrs. Noura?",
+      "Good morning, Mrs. Noura."
+     ],
+     "answer": 3,
+     "why": "Good morning is polite and formal. It is right for a principal."
+    },
+    {
+     "passage": "Fahad writes a note to his best friend. He wants to ask him to play football after school.",
+     "stem": "Which is the best way to start the note?",
+     "options": [
+      "Dear Sir,",
+      "Hi Majed!",
+      "To whom it may concern,",
+      "Respected Principal,"
+     ],
+     "answer": 1,
+     "why": "Majed is his best friend, so a relaxed Hi is fine."
+    },
+    {
+     "passage": "Our class is writing a report about the moon. The moon goes around the Earth.",
+     "stem": "Which sentence fits a school report best?",
+     "options": [
+      "It takes about 27 days to go around once.",
+      "The moon is, like, totally awesome, right!",
+      "Wow, the moon is sooo big and shiny!!!",
+      "Moon stuff is super cool, you know?"
+     ],
+     "answer": 0,
+     "why": "A report uses clear, careful words. The other sentences sound like chatting with a friend."
+    }
+   ],
+   "again": {
+    "title": "Teacher voice or friend voice?",
+    "text": "Before you write, close your eyes and picture the reader.\n\n1. Do you see a **teacher** or a **guest**? Use your polite **teacher voice**.\n2. Do you see a **friend**? You can use your **friend voice**.",
+    "example": "To a friend: **See you later!**\n\nTo a teacher: **Thank you. Goodbye.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Tone fits the reader",
+     "text": "**Tone** is the feeling your words give. The right tone depends on your **purpose** (why you write) and your **audience** (who reads it).\n\nA letter asking an official for help needs a **formal** tone. A message to a cousin can be **informal**."
+    },
+    {
+     "title": "Signs of formal writing",
+     "text": "1. Full words: **do not**, **I am**\n2. No slang: **children**, not **kids**\n3. Polite phrases: **Thank you for considering…**\n4. Complete sentences and calm punctuation"
+    },
+    {
+     "title": "Keep the tone steady",
+     "text": "Once you choose a tone, **keep it** from start to finish.\n\nOne slang sentence in a formal letter sounds out of place and can make the reader take you less seriously."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentences that show the **purpose** and **audience**, such as a greeting or a request.\n2. Decide which tone they set.\n3. Look for the one sentence that **breaks** that tone.\n\nThe sentences around it prove what the tone should be."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Principal,",
+      "role": "key"
+     },
+     {
+      "t": "I am writing to suggest a reading corner in the school library.",
+      "role": "key"
+     },
+     {
+      "t": "Students could relax there and choose books during break.",
+      "role": "detail"
+     },
+     {
+      "t": "Thank you for your time.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The greeting and **I am writing to suggest** show a formal purpose and audience.\n\nEvery sentence keeps that polite, careful tone."
+   },
+   "together": {
+    "passage": "Dear Sir, I am writing to ask the municipality to plant more shade trees in the park near our school. Many students walk through the park every afternoon. In summer, the sun is very strong, and there are only two shady benches. Seriously, it's way too hot, no joke! Thank you for considering my request.",
+    "stem": "Which sentence does not match the tone of the letter?",
+    "options": [
+     "Many students walk through the park every afternoon.",
+     "Seriously, it's way too hot, no joke!",
+     "Thank you for considering my request.",
+     "In summer, the sun is very strong."
+    ],
+    "answer": 1,
+    "hint": "The letter is to an official. Which sentence sounds like chatting with a friend?",
+    "good": "Yes! Seriously and no joke are slang. A formal version is: The heat can be very uncomfortable."
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Sir, I am writing to ask the municipality to plant more shade trees in the park near our school.",
+     "Many students walk through the park every afternoon.",
+     "In summer, the sun is very strong, and there are only two shady benches.",
+     "Seriously, it's way too hot, no joke!",
+     "Thank you for considering my request."
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Seriously, it's way too hot, no joke! Tap 2 sentences that show the letter should be formal.",
+    "wrong": "This sentence gives a detail or is the informal one. Find the opening request and the polite closing."
+   },
+   "checks": [
+    {
+     "passage": "Ali is sending a phone message to his cousin about the Eid visit next week.",
+     "stem": "Which message has the best tone for this purpose?",
+     "options": [
+      "Dear Cousin, I hereby inform you of my arrival.",
+      "To whom it may concern: Ali will visit.",
+      "Can't wait to see you at Eid! Bring your bike!",
+      "Respected Sir, I request a meeting at Eid."
+     ],
+     "answer": 2,
+     "why": "A message to a cousin can be friendly and informal. The others are far too stiff."
+    },
+    {
+     "passage": "Report sentence: The kids in our school collected 200 books for the library.",
+     "stem": "Which word should replace kids to make the sentence more formal?",
+     "options": [
+      "guys",
+      "folks",
+      "buddies",
+      "students"
+     ],
+     "answer": 3,
+     "why": "Students is the formal word. The others are slang."
+    },
+    {
+     "passage": "Noura has three writing jobs today: a science report, an email to the school principal, and a message to her sister.",
+     "stem": "For which piece is informal language the best choice?",
+     "options": [
+      "The message to her sister",
+      "The email to the principal",
+      "The science report",
+      "All three pieces"
+     ],
+     "answer": 0,
+     "why": "Her sister is family, so relaxed language fits. The report and the email need a formal tone."
+    }
+   ],
+   "again": {
+    "title": "Dress up your words",
+    "text": "Think of words like clothes.\n\n1. At home with family, you wear **relaxed** clothes: informal words.\n2. At a ceremony, you wear your **best** clothes: formal words.\n\nDon't wear slippers with your best suit! Keep the whole piece the same.",
+    "example": "Relaxed: **The trip was awesome!**\n\nDressed up: **The trip was very enjoyable.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Varieties of English",
+     "text": "English changes with the situation. A science report, a speech, a text to a friend and a story's dialogue each use a **different variety** of English.\n\nGood writers choose the variety that fits the **task**."
+    },
+    {
+     "title": "Dialogue can be informal",
+     "text": "In stories, characters often speak **informally**, just like real people. This shows their personality and makes them sound real.\n\nBut the **narration** in many stories, and all reports and formal letters, stay careful and clear."
+    },
+    {
+     "title": "Revise for a formal tone",
+     "text": "1. **a bunch of** → **many**\n2. **got** → **received**\n3. **really big** → **enormous** or **large**\n4. **Honestly,** / **So yeah,** → remove it\n\nFormal words are often **more precise**, too."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To decide the right tone, look at the **rest of the text**.\n\n1. Read the sentences around the problem.\n2. Notice their word choice: precise words, no slang, no jokes?\n3. Choose the revision that **sounds like those sentences**.\n\nThose sentences are your evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum displays tools used by early farmers in the region.",
+      "role": "detail"
+     },
+     {
+      "t": "Visitors can see stone grinders, clay pots and woven baskets.",
+      "role": "detail"
+     },
+     {
+      "t": "The guide explained how each tool was made and used.",
+      "role": "key"
+     }
+    ],
+    "explain": "A student first wrote: **The guide told us a bunch of cool stuff.**\n\nThe revision **The guide explained how each tool was made and used** matches the formal, precise tone of the other sentences."
+   },
+   "together": {
+    "passage": "Honeybees are important insects for farmers. As they move from flower to flower, they carry pollen, which helps plants produce fruit and seeds. Crops such as almonds and apples depend heavily on bees. Honestly, without bees, farmers would be in big trouble. For this reason, many farmers keep beehives near their fields.",
+    "stem": "This is a formal science report. Which is the best way to revise sentence 4?",
+    "options": [
+     "Honestly, without bees, farmers would be totally stuck.",
+     "No bees? No crops, guys.",
+     "Without bees, farmers would be in big, big trouble!",
+     "Without bees, many farmers would struggle to grow these crops."
+    ],
+    "answer": 3,
+    "hint": "Read the sentences around it. Which choice sounds like them: precise, calm and without slang?",
+    "good": "Yes! It removes Honestly and in big trouble, and it is more precise about the problem."
+   },
+   "evidence": {
+    "sentences": [
+     "Honeybees are important insects for farmers.",
+     "As they move from flower to flower, they carry pollen, which helps plants produce fruit and seeds.",
+     "Crops such as almonds and apples depend heavily on bees.",
+     "Honestly, without bees, farmers would be in big trouble.",
+     "For this reason, many farmers keep beehives near their fields."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the formal tone the rest of the report uses.",
+    "wrong": "This is the informal sentence that needs revising. Find sentences written in a careful, formal style."
+   },
+   "checks": [
+    {
+     "passage": "\"Come on, kids, let's go see the camels!\" Grandpa called, grabbing his hat.",
+     "stem": "Why is informal language fine in this sentence from a story?",
+     "options": [
+      "Stories must always use slang.",
+      "It shows how a real grandfather might talk to his family.",
+      "The writer forgot to use formal words.",
+      "Informal words are more correct."
+     ],
+     "answer": 1,
+     "why": "Dialogue shows how characters really speak. Grandpa sounds warm and excited."
+    },
+    {
+     "passage": "Email to a museum: Dear Sir or Madam, Our class would like to visit the museum on 12 March. We are studying the history of our region. Could you send us information about group tours? Thanks a million, see ya!",
+     "stem": "Which part of the email breaks its formal tone?",
+     "options": [
+      "Dear Sir or Madam",
+      "We are studying the history of our region.",
+      "Could you send us information about group tours?",
+      "Thanks a million, see ya!"
+     ],
+     "answer": 3,
+     "why": "See ya and Thanks a million are for friends. A formal ending is: Thank you for your help."
+    },
+    {
+     "passage": "Report sentence: We got a lot of info from the guide.",
+     "stem": "Which revision is the most formal?",
+     "options": [
+      "We got loads and loads of info from the guide.",
+      "We received a great deal of information from the guide.",
+      "The guide gave us tons of really cool facts.",
+      "We got, like, a whole lot of info from him."
+     ],
+     "answer": 1,
+     "why": "Received, a great deal and information are formal, precise words."
+    }
+   ],
+   "again": {
+    "title": "Match the neighbours",
+    "text": "A sentence should sound like the sentences **next to it**.\n\n1. Read the sentences before and after.\n2. Do they use slang? Jokes? Exclamation marks?\n3. Make your sentence sound like them.",
+    "example": "Neighbours: **The desert receives very little rain. Plants store water in their leaves.**\n\nDoes not fit: **Plants are super smart about water!**\n\nFits: **Plants have adapted to save water.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Register",
+     "text": "**Register** is the level of formality a writer or speaker chooses. It can range from very formal (a speech at a ceremony) to very informal (a chat with a close friend).\n\nSkilled writers shift register **on purpose**, to fit the audience and to create effects."
+    },
+    {
+     "title": "Why authors use informal speech",
+     "text": "In literature, an author may give a character informal or regional speech to:\n\n1. reveal **personality** (playful, nervous, proud)\n2. show **relationships** (close family, strangers)\n3. make a **place or time** feel real\n\nThe contrast with formal narration can be a clue to meaning."
+    },
+    {
+     "title": "Consistency in your own writing",
+     "text": "In essays, reports and formal letters, a shift into slang **weakens** your credibility.\n\nCheck each sentence: does its word choice, sentence length and punctuation match the register of the whole piece?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain a writer's choice of register, point to **specific words**.\n\n1. Find the informal or formal words.\n2. Find how other characters or the narrator **react** or **differ**.\n3. Explain what the contrast reveals.\n\nYour answer must be supported by both kinds of evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The ceremony began precisely at nine o'clock, and the hall fell silent as the principal stepped forward.",
+      "role": "detail"
+     },
+     {
+      "t": "Behind the stage, Rakan whispered to his friend, \"Man, my knees are shaking like jelly.\"",
+      "role": "key"
+     },
+     {
+      "t": "Moments later, he walked to the stage with a calm face, accepted his certificate, and bowed politely.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The narration is formal, but Rakan's whisper is informal. The contrast reveals **what he really feels** behind his calm public face.\n\nThe register shift is a deliberate choice, not a mistake."
+   },
+   "together": {
+    "passage": "The family gathered in the courtyard as the evening air finally cooled. Grandmother poured the coffee with careful, practised hands while the younger cousins sat in respectful silence. Then Uncle Saad arrived, swinging a bag of fresh dates. \"Well, well, who let all these sleepy faces in here?\" he boomed. \"Come on, grab a date before I eat 'em all myself!\" The cousins burst out laughing, and even Grandmother smiled as the stiff quiet melted into chatter. For the rest of the evening, the courtyard was loud and warm.",
+    "stem": "Why does the author give Uncle Saad informal speech while the narration stays formal?",
+    "options": [
+     "To show he does not know how to speak correctly",
+     "To show that the cousins are afraid of him",
+     "To show his joking nature and how he makes the gathering relaxed",
+     "To show that the evening is ending soon"
+    ],
+    "answer": 2,
+    "hint": "Look at how the room changes after he speaks. What does his way of talking do to the others?",
+    "good": "Yes! His playful, informal words break the stiff silence, and everyone relaxes and laughs."
+   },
+   "evidence": {
+    "sentences": [
+     "The family gathered in the courtyard as the evening air finally cooled.",
+     "Grandmother poured the coffee with careful, practised hands while the younger cousins sat in respectful silence.",
+     "Then Uncle Saad arrived, swinging a bag of fresh dates.",
+     "\"Well, well, who let all these sleepy faces in here?\" he boomed.",
+     "\"Come on, grab a date before I eat 'em all myself!\"",
+     "The cousins burst out laughing, and even Grandmother smiled as the stiff quiet melted into chatter.",
+     "For the rest of the evening, the courtyard was loud and warm."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: to show his joking nature and how he relaxes the gathering. Tap 2 sentences that prove it: his informal words or their effect.",
+    "wrong": "This sentence sets the scene. Find Uncle Saad's own words or how the family reacts to them."
+   },
+   "checks": [
+    {
+     "passage": "Hessa has been chosen to give the opening speech at her school's graduation ceremony. Parents, teachers and guests from the education office will attend.",
+     "stem": "Which opening line best suits this audience and purpose?",
+     "options": [
+      "Hey everyone, what's up? Let's get this party started!",
+      "Respected guests, teachers and families, welcome to this proud day.",
+      "OK so, um, thanks for coming, I guess. Let's just start.",
+      "Yo, graduates! We did it, finally! Make some noise!"
+     ],
+     "answer": 1,
+     "why": "The occasion is formal and the audience includes officials, so a respectful, formal register fits."
+    },
+    {
+     "passage": "Dear Librarian, I am researching the history of the pearl trade in the Gulf. I would be grateful for any books on this topic. Anyway, gimme whatever you've got, it's due Thursday lol.",
+     "stem": "Which revision of the last sentence best keeps the register consistent?",
+     "options": [
+      "Any books would be totally awesome, thanks a lot!!",
+      "Anyway, just send me whatever stuff you have by Thursday.",
+      "Gimme the books before Thursday, please, it's urgent.",
+      "My project is due on Thursday, so any help before then would be appreciated."
+     ],
+     "answer": 3,
+     "why": "It keeps the polite, formal register of the first two sentences and still gives the deadline."
+    },
+    {
+     "passage": "In a novel set in a small fishing village, the old fishermen use local words for winds and boats, while the visiting scientist speaks in long, technical sentences.",
+     "stem": "What is the most likely reason the author uses two different varieties of English?",
+     "options": [
+      "To highlight the difference between the villagers and the outsider",
+      "To make the book harder to read",
+      "Because the author could not decide on one style",
+      "To show that technical language is always better"
+     ],
+     "answer": 0,
+     "why": "Contrasting varieties of speech shows who belongs to the village and who is an outsider."
+    }
+   ],
+   "again": {
+    "title": "Ask: who, where, why?",
+    "text": "Every time you meet a shift in formality, ask three questions:\n\n1. **Who** is speaking or writing?\n2. **Where** are they, and to whom?\n3. **Why** might the author want them to sound this way?",
+    "example": "A narrator describes a formal meeting. Then a boy mutters, \"This is taking forever.\"\n\nWho? A bored boy. Where? A serious meeting. Why? His informal words show his **impatience** and add humour."
+   }
+  }
+ }
+}

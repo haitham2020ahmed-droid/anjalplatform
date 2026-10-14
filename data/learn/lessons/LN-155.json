@@ -1,0 +1,492 @@
+{
+ "code": "LN-155",
+ "title": "Fiction, fantasy and poetry",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.1.5",
+  "RL.4.5",
+  "RL.K.5"
+ ],
+ "families": [
+  "poetry-elements"
+ ],
+ "skillNames": [
+  "Genres: Fiction, Fantasy and Poetry"
+ ],
+ "statements": [
+  "R-0068",
+  "R-0069",
+  "R-0071",
+  "R-0139",
+  "R-0249",
+  "R-0264",
+  "R-0426",
+  "R-0612"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Kinds of stories",
+     "text": "Some stories could **really happen**. A girl goes to school. A boy helps his dad.\n\nSome stories are **make-believe**. They **could not** really happen."
+    },
+    {
+     "title": "Make-believe clues",
+     "text": "In a make-believe story:\n\n**Animals talk.**\n**Toys come alive.**\n**People fly like birds.**"
+    },
+    {
+     "title": "What is a poem?",
+     "text": "A **poem** is written in short **lines**.\n\nMany poems have words that **rhyme**: cat, hat. Sun, fun."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the text**.\n\n1. Read each sentence.\n2. Ask: **Could this really happen?**\n3. The sentence that could **not** happen proves it is make-believe."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Leo the lion lived in a big zoo.",
+      "role": "other"
+     },
+     {
+      "t": "One day, Leo said, \"I want an ice cream!\"",
+      "role": "key"
+     },
+     {
+      "t": "The zoo keeper gave him a big cone.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Real lions do **not** talk. The sentence where Leo speaks proves this is a **make-believe** story."
+   },
+   "together": {
+    "passage": "Sara went to the park. She sat under a tree. The tree bent down and said, \"Hello, Sara, would you like an apple?\" Sara took the apple and said thank you.",
+    "stem": "How do you know this story is make-believe?",
+    "options": [
+     "Sara goes to the park.",
+     "Sara sits under a tree.",
+     "The tree talks to Sara.",
+     "Sara says thank you."
+    ],
+    "answer": 2,
+    "hint": "Which thing could NOT happen in real life?",
+    "good": "Yes! Trees cannot bend down and talk. That is make-believe."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara went to the park.",
+     "She sat under a tree.",
+     "The tree bent down and said, \"Hello, Sara, would you like an apple?\"",
+     "Sara took the apple and said thank you."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the tree talks. Tap the sentence that proves it.",
+    "wrong": "This could really happen. Find the sentence that could NOT really happen."
+   },
+   "checks": [
+    {
+     "passage": "My cat sat on the mat. / It wore a little hat. / It looked so round and fat.",
+     "stem": "What kind of text is this?",
+     "options": [
+      "A poem",
+      "A letter",
+      "A list",
+      "A recipe"
+     ],
+     "answer": 0,
+     "why": "It is in short lines, and the words mat, hat and fat rhyme."
+    },
+    {
+     "passage": "Ali woke up. He ate his bread. He walked to school with his sister.",
+     "stem": "What kind of story is this?",
+     "options": [
+      "Make-believe",
+      "A poem",
+      "It could really happen",
+      "A song"
+     ],
+     "answer": 2,
+     "why": "Everything in it could happen in real life."
+    },
+    {
+     "passage": "The little fish wanted to see the moon. So it grew wings and flew up into the sky.",
+     "stem": "Which part is make-believe?",
+     "options": [
+      "The fish is little.",
+      "The fish wants to see the moon.",
+      "The moon is in the sky.",
+      "The fish grows wings and flies."
+     ],
+     "answer": 3,
+     "why": "Real fish cannot grow wings and fly."
+    }
+   ],
+   "again": {
+    "title": "Real or not real?",
+    "text": "Read each sentence and say **real** or **not real**.\n\nIf one is **not real**, the story is make-believe.",
+    "example": "The bear went to the shop. (**not real**: bears do not shop.) He bought a cake.\n\nThis story is **make-believe**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Fiction",
+     "text": "**Fiction** is a story that a writer **made up**. It has:\n\n1. **Characters**: who is in it.\n2. **Setting**: where and when.\n3. **Plot**: what happens, often with a problem."
+    },
+    {
+     "title": "Realistic or fantasy?",
+     "text": "**Realistic fiction**: made up, but **could** happen. A boy loses his bag on a trip.\n\n**Fantasy**: has things that **could not** happen: talking animals, toys that come alive, flying carpets, dragons."
+    },
+    {
+     "title": "Poems",
+     "text": "**Poems** are written in **lines** and often in groups of lines called **stanzas**.\n\nPoems may use **rhyme** and a **beat** (rhythm). They often describe feelings or pictures with few words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what kind of text it is:\n\n1. Look for **features**: lines and rhyme (poem), characters and plot (fiction).\n2. For fiction, find any event that **could not** happen. That sentence proves fantasy.\n3. If every event could happen, it is realistic fiction."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nora found an old pencil in her grandmother's cupboard.",
+      "role": "detail"
+     },
+     {
+      "t": "She wiped it to clean off the dust.",
+      "role": "detail"
+     },
+     {
+      "t": "Suddenly, the pencil jumped out of her hand, and a tiny voice said, \"At last, someone has found me!\"",
+      "role": "key"
+     }
+    ],
+    "explain": "The first two sentences could really happen. But a pencil that **jumps and speaks** could not.\n\nThat sentence proves this is **fantasy**."
+   },
+   "together": {
+    "passage": "Kareem's grandfather kept bees on the farm. Every spring, Kareem helped him check the hives, wearing a white suit and a net over his face. One morning, Kareem noticed that a hive was very quiet. His grandfather explained that the queen bee had died. Together, they moved a new queen into the hive, and by the end of the week, the bees were busy again.",
+    "stem": "What kind of story is this?",
+    "options": [
+     "Fantasy, because the bees talk to Kareem",
+     "A poem, because it has lines that rhyme",
+     "Realistic fiction, because everything could really happen",
+     "Fantasy, because Kareem can fly over the farm"
+    ],
+    "answer": 2,
+    "hint": "Look for anything that could NOT happen in real life. Is there anything impossible, like a talking animal?",
+    "good": "Yes! Checking hives and replacing a queen bee are things beekeepers really do. It is realistic fiction."
+   },
+   "evidence": {
+    "sentences": [
+     "Kareem's grandfather kept bees on the farm.",
+     "Every spring, Kareem helped him check the hives, wearing a white suit and a net over his face.",
+     "One morning, Kareem noticed that a hive was very quiet.",
+     "His grandfather explained that the queen bee had died.",
+     "Together, they moved a new queen into the hive, and by the end of the week, the bees were busy again."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: realistic fiction. Tap 2 sentences that show events that could really happen.",
+    "wrong": "This sentence only names a character or gives a detail. Find events that show real beekeeping work."
+   },
+   "checks": [
+    {
+     "passage": "The wind came down from the hill, / And made the palm trees sway; / It whispered past my windowsill, / Then softly blew away.",
+     "stem": "Which feature shows that this is a poem?",
+     "options": [
+      "It has characters who solve a problem.",
+      "It is written in lines that rhyme.",
+      "It explains how to do something.",
+      "It tells facts about the weather."
+     ],
+     "answer": 1,
+     "why": "It is written in short lines, and hill/windowsill and sway/away rhyme."
+    },
+    {
+     "passage": "Huda's camel was tired of the desert. One night, it flew up to the stars and asked the moon for directions to the sea.",
+     "stem": "What kind of text is this?",
+     "options": [
+      "Realistic fiction",
+      "A poem",
+      "A news report",
+      "Fantasy"
+     ],
+     "answer": 3,
+     "why": "Camels cannot fly to the stars or talk to the moon. That is fantasy."
+    },
+    {
+     "passage": "Faisal forgot his lines in the school play. His friend whispered them from behind the curtain, and the audience never noticed.",
+     "stem": "Why is this realistic fiction?",
+     "options": [
+      "It could really happen.",
+      "It has a talking animal.",
+      "It is written in rhyming lines.",
+      "It has a flying carpet in it."
+     ],
+     "answer": 0,
+     "why": "Forgetting lines and a friend helping are things that could really happen."
+    }
+   ],
+   "again": {
+    "title": "Three questions",
+    "text": "Ask:\n\n1. Is it in **lines**, with rhyme or a beat? → **poem**\n2. Is there something **impossible**? → **fantasy**\n3. Could it all **really happen**? → **realistic fiction**",
+    "example": "\"The goat climbed the tree to eat leaves.\" Goats really do this! → **realistic**.\n\n\"The goat climbed the tree and read a book.\" → **fantasy**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Features of poetry",
+     "text": "Poems are built differently from stories. Look for:\n\n1. **Lines** and **stanzas** instead of paragraphs.\n2. **Rhyme**: matching end sounds.\n3. **Rhythm**: a regular beat.\n4. **Repetition**: words or lines used again for effect.\n5. **Imagery**: words that help you see, hear or feel."
+    },
+    {
+     "title": "Figurative language",
+     "text": "Poets often compare things in fresh ways:\n\n**Simile**: \"The moon is **like** a silver plate.\"\n**Metaphor**: \"The moon **is** a silver plate.\"\n\nThese comparisons create pictures in the reader's mind."
+    },
+    {
+     "title": "Poem or story?",
+     "text": "A **story** tells events through characters and plot in paragraphs.\n\nA **poem** may also tell a story, but it uses **lines**, **sound** and **images** to make you feel something."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a poetry feature:\n\n1. Find the lines that show it.\n2. For rhyme, compare the **last words** of lines.\n3. For repetition, look for words that **come back**.\n4. For imagery or comparison, look for **like**, **as**, or one thing described as another."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The market wakes at early light.",
+      "role": "detail"
+     },
+     {
+      "t": "The market hums with sound.",
+      "role": "detail"
+     },
+     {
+      "t": "The market is a beating heart / That keeps the town spinning round.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Repetition**: \"The market\" begins each line.\n\n**Metaphor**: the market **is** a beating heart. **Rhyme**: sound / round. All of these are features of poetry."
+   },
+   "together": {
+    "passage": "The sea is a restless giant; / he rolls and turns in bed. / He tosses boats like pebbles / and wears the clouds upon his head. / When storms arrive, he roars and stamps / and shakes the harbour wall. / He throws white spray across the rocks / and will not rest at all. / At night he hums a lullaby; / the silver fish swim near. / By morning he is calm again, / the water smooth and clear.",
+    "stem": "Which feature of poetry does the poet use most to describe the sea?",
+    "options": [
+     "The poet compares the sea to a giant who moves, sleeps and sings.",
+     "Every line of the poem asks the reader a question.",
+     "The poem gives scientific facts about how waves form.",
+     "The poem tells about characters solving a problem."
+    ],
+    "answer": 0,
+    "hint": "Look at how the sea is described. Is it called something else? What does \"he\" do?",
+    "good": "Yes! The poem uses a metaphor: the sea is a giant who rolls in bed, tosses boats and hums."
+   },
+   "evidence": {
+    "sentences": [
+     "The sea is a restless giant;",
+     "he rolls and turns in bed.",
+     "He tosses boats like pebbles",
+     "and wears the clouds upon his head.",
+     "When storms arrive, he roars and stamps",
+     "and shakes the harbour wall.",
+     "He throws white spray across the rocks",
+     "and will not rest at all.",
+     "At night he hums a lullaby;",
+     "the silver fish swim near.",
+     "By morning he is calm again,",
+     "the water smooth and clear."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    "need": 2,
+    "stem": "The answer was: the poet compares the sea to a giant. Tap 2 lines that show the sea acting like a giant.",
+    "wrong": "This line describes the fish or the water itself, not the sea as a giant. Find lines where the sea acts like a person."
+   },
+   "checks": [
+    {
+     "passage": "Rain on the roof, / Rain on the street, / Rain on the flowers / And rain on my feet.",
+     "stem": "Which feature does the poem use?",
+     "options": [
+      "A plot with a problem",
+      "Talking animals",
+      "Facts and numbers",
+      "Repetition of the word \"rain\""
+     ],
+     "answer": 3,
+     "why": "\"Rain\" is repeated at the start of every line."
+    },
+    {
+     "passage": "The old door creaks, / The kettle sings, / The morning wakes / With sleepy wings.",
+     "stem": "What do the last words of lines 2 and 4 show?",
+     "options": [
+      "They show a simile.",
+      "They rhyme.",
+      "They are repeated.",
+      "They are the title."
+     ],
+     "answer": 1,
+     "why": "\"Sings\" and \"wings\" have the same end sound. They rhyme."
+    },
+    {
+     "passage": "Grandmother's hands are as soft as bread dough, / Warm from the oven, / Folded in prayer.",
+     "stem": "Which line contains a simile?",
+     "options": [
+      "\"Warm from the oven\"",
+      "\"Folded in prayer\"",
+      "\"Grandmother's hands are as soft as bread dough\"",
+      "None of these lines has a simile"
+     ],
+     "answer": 2,
+     "why": "It compares her hands to bread dough using \"as soft as\". That is a simile."
+    }
+   ],
+   "again": {
+    "title": "Poem checklist",
+    "text": "Read the text and tick each one you find:\n\n- **Lines / stanzas**\n- **Rhyme**\n- **Repetition**\n- **Comparison** (like, as, is)\n- **Images** you can see or hear\n\nSeveral ticks? It is a poem, and you can name its features.",
+    "example": "\"The sun is a coin / Of shining gold.\"\n\nTicks: **lines**, **comparison** (the sun **is** a coin, a metaphor), **image** (shining gold)."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "How poetry works",
+     "text": "Poets choose **form** and **sound** as carefully as words. Line breaks, stanza shapes, rhythm and rhyme all shape meaning.\n\nSome poems use a strict pattern. **Free verse** has no regular rhyme or beat, but still uses line breaks, images and repetition."
+    },
+    {
+     "title": "The speaker",
+     "text": "The **speaker** is the voice in the poem. It is not always the poet.\n\nAsk: who is speaking? To whom? How do they feel? The speaker's attitude creates the poem's **tone**."
+    },
+    {
+     "title": "Features and their effects",
+     "text": "1. **Line breaks**: slow you down or stress a word.\n2. **Repetition**: builds emphasis or feeling.\n3. **Imagery and figurative language**: make ideas vivid.\n4. **Shift**: a change in tone or idea, often near the end.\n\nAlways ask what effect each feature creates."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove how a poetic feature works:\n\n1. Find the lines that show the feature.\n2. Say what the feature is: repetition, image, line break, shift, rhyme.\n3. Explain the **effect**: what it stresses or how it changes the feeling.\n\nReject choices that name a feature the poem does not use, or that ignore the speaker."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I walked the same street every day, / past the same grey wall.",
+      "role": "detail"
+     },
+     {
+      "t": "I walked it tired. / I walked it late. / I walked it in the rain.",
+      "role": "detail"
+     },
+     {
+      "t": "Then, one spring morning, / someone had painted the wall / with a hundred flying birds.",
+      "role": "key"
+     }
+    ],
+    "explain": "This is **free verse**: no regular rhyme. The repeated \"I walked it\" creates a dull, **heavy** rhythm.\n\nThe **shift** in the last stanza (\"Then, one spring morning\") breaks the pattern, just as the birds break the grey wall. Form and meaning work together."
+   },
+   "together": {
+    "passage": "My grandfather's hands were maps. / Every line on them was a road / he had walked to feed us. / Every scar was a river / he had crossed in the dark. / I used to laugh at how rough they were. / Now, when I hold my own son's hand, / soft as a new leaf, / I understand / what those roads cost. / I trace them in my memory, / and I am not laughing.",
+    "stem": "Which statement best describes how the poem develops its meaning?",
+    "options": [
+     "It uses a regular rhyme and beat to tell a funny story about a grandfather's hands.",
+     "It uses a metaphor of hands as maps, then shifts as the speaker grows up and understands the sacrifice.",
+     "It lists facts about how hands change as people grow older.",
+     "It is a fantasy story in which a grandfather's hands turn into real maps."
+    ],
+    "answer": 1,
+    "hint": "Look at the comparison at the start, then at the shift near the end. How has the speaker's attitude changed?",
+    "good": "Yes! Hands are maps, lines are roads, scars are rivers. Then the speaker shifts from laughing to understanding what it cost."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandfather's hands were maps.",
+     "Every line on them was a road",
+     "he had walked to feed us.",
+     "Every scar was a river",
+     "he had crossed in the dark.",
+     "I used to laugh at how rough they were.",
+     "Now, when I hold my own son's hand,",
+     "soft as a new leaf,",
+     "I understand",
+     "what those roads cost.",
+     "I trace them in my memory,",
+     "and I am not laughing."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     5,
+     8,
+     9,
+     11
+    ],
+    "need": 2,
+    "stem": "The answer was: a metaphor of hands as maps, then a shift to understanding. Tap 2 lines that show the metaphor or the speaker's change.",
+    "wrong": "This line adds a detail to an image. Find where the hands become maps, roads and rivers, or where the speaker's feelings change."
+   },
+   "checks": [
+    {
+     "passage": "Wait, says the clock. / Wait, says the door. / Wait, says the rain / on the dusty floor. / And still I wait, / and wait some more.",
+     "stem": "What is the effect of repeating \"wait\"?",
+     "options": [
+      "It makes the poem sound cheerful and fast.",
+      "It shows the speaker is late for school.",
+      "It explains why the clock is broken.",
+      "It stresses a long, tiring feeling of waiting."
+     ],
+     "answer": 3,
+     "why": "Repeating \"wait\" slows the poem down and builds a feeling of endless waiting."
+    },
+    {
+     "passage": "A short text: \"The fox told the crow that its voice was the most beautiful in the forest. The crow opened its beak to sing, and the cheese it held fell straight into the fox's mouth.\"",
+     "stem": "What kind of text is this, and why?",
+     "options": [
+      "Fantasy, because animals talk and act like people",
+      "A poem, because it has rhyme and stanzas",
+      "Realistic fiction, because it could happen",
+      "Free verse, because it has line breaks"
+     ],
+     "answer": 0,
+     "why": "A fox and a crow cannot really talk or plan tricks. That makes it fantasy (this kind, with a lesson, is called a fable)."
+    },
+    {
+     "passage": "Speaker in a poem: \"Do not pity me, little sapling, / for I have stood here a hundred years. / The wind has broken my branches, / but never my roots.\"",
+     "stem": "Who is the speaker, and what is the tone?",
+     "options": [
+      "A young tree, with a frightened tone",
+      "A gardener, with an angry tone",
+      "An old tree, with a proud, strong tone",
+      "The wind, with a playful tone"
+     ],
+     "answer": 2,
+     "why": "The speaker has stood a hundred years and talks to a sapling. Keeping its roots despite broken branches gives a proud tone."
+    }
+   ],
+   "again": {
+    "title": "Feature, lines, effect",
+    "text": "For any poem, fill in three boxes:\n\n1. **Feature**: what did the poet do?\n2. **Lines**: where is it?\n3. **Effect**: what does it make me feel or notice?",
+    "example": "Feature: **simile**. Lines: \"Her laugh was like a bell at noon.\" Effect: her laugh feels **bright, clear and joyful**."
+   }
+  }
+ }
+}

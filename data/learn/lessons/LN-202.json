@@ -1,0 +1,476 @@
+{
+ "code": "LN-202",
+ "title": "Word choice and tone",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.6",
+  "L.4.6",
+  "RI.6.4",
+  "RI.7.4",
+  "RI.8.4",
+  "RL.2.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "precise-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0065",
+  "R-0138",
+  "R-0214",
+  "R-0409",
+  "R-0586",
+  "R-0772",
+  "R-0935",
+  "R-1049"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Describing words",
+     "text": "**Describing words** tell us more about a thing.\n\nA **big** dog. A **soft** pillow. A **loud** bell.\n\nThey help us **see**, **hear** and **feel** what the writer means."
+    },
+    {
+     "title": "Feeling words",
+     "text": "Some words show how a person **feels**.\n\nSami **smiled**. → happy\nSami **cried**. → sad\nSami **stomped** his feet. → angry"
+    },
+    {
+     "title": "How to find them",
+     "text": "1. Read the sentence.\n2. Find the word that tells **what kind** or **how**.\n3. Ask: what does this word make me see or feel?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The words are **in the text**.\n\n1. Read the question.\n2. Find the sentence it is about.\n3. Point to the word that shows the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lulu got a new kitten.",
+      "role": "other"
+     },
+     {
+      "t": "She hugged it and laughed.",
+      "role": "key"
+     },
+     {
+      "t": "She jumped up and down.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Hugged**, **laughed** and **jumped up and down** all show a feeling.\n\nLulu is **happy** and **excited**."
+   },
+   "together": {
+    "passage": "Omar lost his ball. He looked under the bed. He looked in the yard. He sat down and frowned. A tear fell down his face.",
+    "stem": "How does Omar feel at the end?",
+    "options": [
+     "Happy",
+     "Sleepy",
+     "Sad",
+     "Hungry"
+    ],
+    "answer": 2,
+    "hint": "Look at what Omar does at the end. What do a frown and a tear show?",
+    "good": "Yes! Frowned and a tear show that Omar is sad."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar lost his ball.",
+     "He looked under the bed.",
+     "He looked in the yard.",
+     "He sat down and frowned.",
+     "A tear fell down his face."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: sad. Tap 2 sentences with words that show Omar is sad.",
+    "wrong": "This sentence tells what Omar did, but not how he feels. Find the words that show a feeling."
+   },
+   "checks": [
+    {
+     "passage": "The tea was hot. Steam came out of the cup. Dad blew on it before he drank.",
+     "stem": "Which word tells about the tea?",
+     "options": [
+      "Cup",
+      "Hot",
+      "Dad",
+      "Drank"
+     ],
+     "answer": 1,
+     "why": "Hot is a describing word. It tells what kind of tea it was."
+    },
+    {
+     "passage": "The baby saw the dog. She screamed and hid behind her mom.",
+     "stem": "Which words show the baby is scared?",
+     "options": [
+      "Saw the dog",
+      "Her mom",
+      "The baby",
+      "Screamed and hid"
+     ],
+     "answer": 3,
+     "why": "People scream and hide when they are scared."
+    },
+    {
+     "passage": "The rug was soft. Mona lay on it and rubbed her cheek on it.",
+     "stem": "What does the word soft help you know?",
+     "options": [
+      "How the rug feels",
+      "What colour the rug is",
+      "How big the rug is",
+      "Where the rug is"
+     ],
+     "answer": 0,
+     "why": "Soft tells how something feels when you touch it."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "Pretend to **do** the action in the text. How do you feel when you do it?",
+    "example": "\"Huda **giggled**.\"\n\nTry to giggle. You feel **happy** and silly! So giggled shows Huda is happy."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Words that show emotion",
+     "text": "Writers pick words that show **exactly** how a character feels.\n\n**walked** tells us little.\n**trudged** shows he is tired or sad.\n**skipped** shows she is happy."
+    },
+    {
+     "title": "Strong and weak words",
+     "text": "**Said** is plain. **Whispered**, **shouted**, **snapped** and **begged** show feeling.\n\n\"Give it back!\" she **snapped**. → She is **annoyed**."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the verbs and describing words.\n2. Ask: why did the writer choose **this** word?\n3. Ask: how would it change with a plain word?\n4. Name the feeling."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **exact words** that create the feeling.\n\n1. Look at the verbs (actions) and adjectives (describing words).\n2. Choose the ones that a plainer word could replace.\n3. Those special words are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After the long match, the players trudged off the field.",
+      "role": "key"
+     },
+     {
+      "t": "Their shoulders drooped.",
+      "role": "key"
+     },
+     {
+      "t": "Nobody said a word on the bus home.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Trudged** means walked slowly and heavily. **Drooped** shows they were low and tired.\n\nThe words show the team is **tired and disappointed**, probably after losing."
+   },
+   "together": {
+    "passage": "Dana's science project was due the next morning. At nine o'clock, she discovered that the glue had not dried. Her heart pounded. She paced around the kitchen, twisting her fingers together. \"What am I going to do?\" she muttered again and again.",
+    "stem": "Which feeling do the words pounded, paced and twisting show?",
+    "options": [
+     "Calm",
+     "Bored",
+     "Proud",
+     "Worried"
+    ],
+    "answer": 3,
+    "hint": "Imagine your heart pounding while you pace around a room. How would you feel?",
+    "good": "Yes! A pounding heart, pacing and twisting fingers all show that Dana is worried."
+   },
+   "evidence": {
+    "sentences": [
+     "Dana's science project was due the next morning.",
+     "At nine o'clock, she discovered that the glue had not dried.",
+     "Her heart pounded.",
+     "She paced around the kitchen, twisting her fingers together.",
+     "\"What am I going to do?\" she muttered again and again."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: worried. Tap 2 sentences with words that show Dana is worried.",
+    "wrong": "This sentence gives the facts of the problem. Find the sentences with words that show how Dana FEELS."
+   },
+   "checks": [
+    {
+     "passage": "When Nasser saw the gift, his eyes sparkled. He tore off the paper and whooped with joy.",
+     "stem": "Which word best shows Nasser is excited?",
+     "options": [
+      "Saw",
+      "Paper",
+      "Whooped",
+      "Gift"
+     ],
+     "answer": 2,
+     "why": "Whooped is a loud, happy shout. It shows strong excitement."
+    },
+    {
+     "passage": "\"Please, please let me come,\" Talal begged, tugging at his brother's sleeve.",
+     "stem": "What does the word begged tell you about Talal?",
+     "options": [
+      "He really wants to go.",
+      "He is angry at his brother.",
+      "He is too tired to go.",
+      "He does not care."
+     ],
+     "answer": 0,
+     "why": "Begging and tugging show Talal wants very much to go."
+    },
+    {
+     "passage": "The old house creaked in the wind. Shadows crept across the empty hall.",
+     "stem": "What feeling do the words creaked and crept create?",
+     "options": [
+      "Cheerful",
+      "Spooky",
+      "Sleepy",
+      "Proud"
+     ],
+     "answer": 1,
+     "why": "Creaking sounds and creeping shadows make the house feel spooky."
+    }
+   ],
+   "again": {
+    "title": "Swap the word",
+    "text": "Change the special word to a plain one. What is **lost**? That is the feeling the writer wanted.",
+    "example": "\"Hamad **slammed** the door.\"\nPlain: \"Hamad **closed** the door.\"\n\nWhat is lost? The anger! So **slammed** shows Hamad is **angry**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Tone",
+     "text": "**Tone** is the author's **attitude** toward the topic: cheerful, serious, worried, angry, admiring...\n\nYou hear tone in a voice. In writing, you find it in the **word choice**."
+    },
+    {
+     "title": "Connotation",
+     "text": "Words with similar meanings can have different **feelings**.\n\n**slim** (positive) / **skinny** (negative)\n**curious** (positive) / **nosy** (negative)\n**old** (neutral) / **ancient** (very old) / **crumbling** (falling apart)"
+    },
+    {
+     "title": "Find the tone",
+     "text": "1. Collect the strong words in the passage.\n2. Mark each one positive (+) or negative (−).\n3. See what most words share.\n4. Name the attitude: that is the tone."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tone is proved by **several words working together**, not one.\n\n1. Find two or three strong words with the same feeling.\n2. Point to the sentences that hold them.\n3. Check that the tone you chose fits all of them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The tiny shop on the corner is a treasure.",
+      "role": "key"
+     },
+     {
+      "t": "Its shelves overflow with colourful notebooks, and the owner greets every child by name.",
+      "role": "key"
+     },
+     {
+      "t": "It opens at eight each morning.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Treasure**, **overflow**, **colourful** and **greets every child by name** are all positive words.\n\nThe tone is **warm and admiring**. The opening time is a plain fact with no tone."
+   },
+   "together": {
+    "passage": "The playground behind our building has been forgotten. Its swings hang from rusted chains, and the slide is cracked down the middle. Weeds choke the sandpit where children once built castles. Each week, families walk past it on their way to the bus stop. Surely our neighbourhood's children deserve better than this sad, neglected place.",
+    "stem": "What is the author's tone toward the playground?",
+    "options": [
+     "Excited and hopeful",
+     "Disappointed and concerned",
+     "Calm and uninterested",
+     "Funny and playful"
+    ],
+    "answer": 1,
+    "hint": "List the words: forgotten, rusted, cracked, choke, sad, neglected. Are they positive or negative?",
+    "good": "Yes! Forgotten, rusted, choke and neglected are negative words, and 'deserve better' shows concern."
+   },
+   "evidence": {
+    "sentences": [
+     "The playground behind our building has been forgotten.",
+     "Its swings hang from rusted chains, and the slide is cracked down the middle.",
+     "Weeds choke the sandpit where children once built castles.",
+     "Each week, families walk past it on their way to the bus stop.",
+     "Surely our neighbourhood's children deserve better than this sad, neglected place."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: disappointed and concerned. Tap 2 sentences whose words create that tone.",
+    "wrong": "This sentence gives a plain fact without strong feeling words. Find the sentences with negative words."
+   },
+   "checks": [
+    {
+     "passage": "Our class trip to the planetarium was an adventure. We gasped as the dome went dark and thousands of stars burst into light above our heads.",
+     "stem": "Which words best show the tone of excitement?",
+     "options": [
+      "Class trip, dome",
+      "Gasped, burst into light",
+      "Thousands, above",
+      "Our, heads"
+     ],
+     "answer": 1,
+     "why": "Gasped shows amazement, and burst into light is a lively, exciting image."
+    },
+    {
+     "passage": "The new rules were announced without any explanation. Students were simply ordered to obey them.",
+     "stem": "How does the word ordered affect the tone?",
+     "options": [
+      "It makes the rules sound fair and friendly.",
+      "It makes the writer sound cheerful.",
+      "It makes the rules sound harsh and strict.",
+      "It shows the students are excited."
+     ],
+     "answer": 2,
+     "why": "Ordered sounds stronger and less kind than asked. With 'without any explanation', the tone is critical."
+    },
+    {
+     "passage": "My grandfather's hands are wrinkled and rough from years of work on the farm. Yet those same hands gently lift each newborn lamb as if it were made of glass.",
+     "stem": "What is the tone toward the grandfather?",
+     "options": [
+      "Loving and admiring",
+      "Angry and bitter",
+      "Bored and flat",
+      "Afraid and nervous"
+     ],
+     "answer": 0,
+     "why": "Gently and 'as if it were made of glass' show tenderness. The writer admires his hard work and care."
+    }
+   ],
+   "again": {
+    "title": "Plus and minus",
+    "text": "Put a **+** above happy words and a **−** above unhappy words. Count them. The bigger pile shows the tone.",
+    "example": "\"The **bright** market was **buzzing** with **friendly** voices and **delicious** smells.\"\n\n+ bright, + buzzing, + friendly, + delicious → tone: **cheerful and lively**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Word choice shapes meaning",
+     "text": "Authors choose words to make readers **see** a topic in a certain way.\n\nA new building can be a **landmark**, a **monument**, or an **eyesore**. Each word gives the same building a different meaning."
+    },
+    {
+     "title": "Loaded words",
+     "text": "In nonfiction, **loaded words** push the reader to agree.\n\n\"The council **wasted** money on the fountain\" vs. \"The council **invested** in the fountain.\"\n\nThe facts are the same. The **attitude** is not."
+    },
+    {
+     "title": "Analyse the effect",
+     "text": "1. Find words with strong connotations.\n2. Think of a more neutral word for each.\n3. Ask what the author's choice **adds**: emotion, judgement, urgency.\n4. Explain how it supports the author's purpose or the mood."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an effect, quote the word **and** explain its connotation.\n\n1. Point to the sentences with the strongest word choices.\n2. Show that they share one attitude.\n3. Reject answers that describe the topic but not the author's attitude."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The developers claim the new tower will bring jobs.",
+      "role": "key"
+     },
+     {
+      "t": "Yet to build it, they plan to bulldoze a park that has served families for forty years.",
+      "role": "key"
+     },
+     {
+      "t": "The tower would have thirty floors.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Claim** suggests the author doubts the promise. **Bulldoze** is violent and harsh compared with \"remove\".\n\nTogether they show the author is **critical** of the project. The number of floors is neutral."
+   },
+   "together": {
+    "passage": "For three days, the volunteers battled the oil that had spilled onto the shore. They knelt on the black sand from sunrise until dark, scrubbing rocks and rescuing birds whose feathers were soaked and heavy. Many had travelled from other cities, sleeping in tents near the beach. The spill covered about two kilometres of coastline. By the fourth morning, the water sparkled again and the first gulls returned to the clean rocks. Their tireless effort had given the beach a second life.",
+    "stem": "How does the author's word choice shape the reader's view of the volunteers?",
+    "options": [
+     "Words like 'battled' and 'tireless' present them as determined heroes.",
+     "Words like 'spilled' and 'soaked' show that they were careless.",
+     "Words like 'kilometres' and 'coastline' keep the tone neutral.",
+     "Words like 'tents' and 'cities' show they were tourists."
+    ],
+    "answer": 0,
+    "hint": "Which words describe what the volunteers DID? Are they positive or negative? Do they sound strong or weak?",
+    "good": "Yes! Battled, knelt from sunrise until dark, rescuing and tireless all present the volunteers as determined heroes."
+   },
+   "evidence": {
+    "sentences": [
+     "For three days, the volunteers battled the oil that had spilled onto the shore.",
+     "They knelt on the black sand from sunrise until dark, scrubbing rocks and rescuing birds whose feathers were soaked and heavy.",
+     "Many had travelled from other cities, sleeping in tents near the beach.",
+     "The spill covered about two kilometres of coastline.",
+     "By the fourth morning, the water sparkled again and the first gulls returned to the clean rocks.",
+     "Their tireless effort had given the beach a second life."
+    ],
+    "proof": [
+     0,
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: they are presented as determined heroes. Tap 2 sentences whose word choice creates that view.",
+    "wrong": "This sentence is a plain fact or describes the beach. Find sentences with strong words about the volunteers' effort."
+   },
+   "checks": [
+    {
+     "passage": "Critics call the new law a 'scheme' to raise taxes. Its supporters call it a 'plan' to repair the roads.",
+     "stem": "What is the effect of the word 'scheme'?",
+     "options": [
+      "It makes the law sound simple and clear.",
+      "It shows the law is about roads.",
+      "It praises the government for its hard work.",
+      "It suggests the law is sneaky or dishonest."
+     ],
+     "answer": 3,
+     "why": "'Plan' is neutral, but 'scheme' suggests a secret or dishonest purpose. The critics want readers to distrust the law."
+    },
+    {
+     "passage": "The old fishermen do not merely work the sea; they read it. They know from the colour of the water where the fish are, and from the shape of the clouds when a storm is coming.",
+     "stem": "Why does the author choose the word 'read' instead of 'work'?",
+     "options": [
+      "To show the fishermen like books",
+      "To show their deep understanding of the sea",
+      "To show the fishermen cannot see well",
+      "To show the sea is calm"
+     ],
+     "answer": 1,
+     "why": "Reading means understanding signs. The examples of water colour and clouds show the fishermen understand the sea deeply."
+    },
+    {
+     "passage": "The city's announcement promised a 'modest' rise in bus fares. In fact, prices doubled overnight, and many workers now spend a quarter of their wages getting to their jobs.",
+     "stem": "What effect do the author's words create?",
+     "options": [
+      "A calm, approving tone toward the city",
+      "A playful tone about buses",
+      "An angry, critical tone toward the city",
+      "A neutral tone with no opinion"
+     ],
+     "answer": 2,
+     "why": "Putting 'modest' in quotation marks, then saying 'in fact, prices doubled overnight', shows the author thinks the city misled people."
+    }
+   ],
+   "again": {
+    "title": "Neutral twin",
+    "text": "For each strong word, write a **neutral twin**. Compare them. The difference is the effect.",
+    "example": "\"The crowd **stormed** into the stadium.\"\nNeutral twin: \"The crowd **went** into the stadium.\"\n\nEffect of **stormed**: fast, forceful, perhaps a little out of control. It creates **energy and excitement**."
+   }
+  }
+ }
+}

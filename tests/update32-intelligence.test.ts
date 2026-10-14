@@ -120,11 +120,12 @@ describe("🧠 Update 32: the learning engine on the test school", () => {
     // answer wrong on purpose until a multiple-choice question comes
     let v = await startPractice(repo, student, skillId);
     const items = new Map((await loadSkillItems(repo, skillId)).map((i) => [i.questionId, i]));
-    let recorded = false;
+    let recorded = false; let clock = Date.now();
     for (let i = 0; i < 12 && v.question; i++) {
       const it = items.get(v.question.questionId)!;
       const response = it.options ? (it.type === "MULTI_SELECT" ? [it.options.find((o) => !o.correct)!.label] : it.options.find((o) => !o.correct)!.label) : it.type === "TRUE_FALSE" ? !it.answer : it.type === "ERROR_CORRECTION" ? (it.errorIndex! + 1) % it.segments!.length : it.type === "FILL_BLANK" ? "zzz" : it.sequence ? [...it.sequence].reverse() : Object.fromEntries(it.pairs!.map((p, k, a) => [p.left, a[(k + 1) % a.length].right]));
-      const res = await submitAnswer(repo, student, { sessionId: v.sessionId, questionId: it.questionId, response });
+      // r67: a reader's time (an instant answer is a rapid guess: it counts for nothing and 5 of them pause the practice)
+      const res = await submitAnswer(repo, student, { sessionId: v.sessionId, questionId: it.questionId, response }, new Date((clock += 90_000)));
       v = res.view;
       if (it.type === "MULTIPLE_CHOICE") {
         const last = (await repo.findMany("QuestionAttempt", { studentId: student.studentId!, questionId: it.questionId }, { orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: 1 }))[0];

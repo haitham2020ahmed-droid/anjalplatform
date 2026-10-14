@@ -1,0 +1,484 @@
+{
+ "code": "LN-107",
+ "title": "How ideas are connected",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.2.3",
+  "RI.3.3",
+  "RI.4.3",
+  "RI.5.3",
+  "RI.6.3",
+  "RI.7.3",
+  "RI.8.3",
+  "RI.K.3"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "R-0045",
+  "R-0112",
+  "R-0203",
+  "R-0343",
+  "R-0521",
+  "R-0726",
+  "R-0735",
+  "R-0903",
+  "R-0922",
+  "R-1028",
+  "R-1046",
+  "R-1093",
+  "R-1096"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Ideas hold hands",
+     "text": "In a text, ideas are **connected**.\n\nOne thing can **cause** another. Two things can be **alike** or **different**. One thing can **help** another."
+    },
+    {
+     "title": "Joining words",
+     "text": "Small words show how ideas connect.\n\n**because** gives a reason.\n**so** tells what happens next.\n**but** shows a difference.\n**and** adds one more."
+    },
+    {
+     "title": "How to find the link",
+     "text": "1. Find the two things the question names.\n2. Find where the text talks about both.\n3. Look for a joining word.\n4. Say how they are connected."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text **tells** you the link.\n\n1. Find the sentence that has both things.\n2. Point to the joining word.\n3. That sentence proves your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "It rained all night.",
+      "role": "detail"
+     },
+     {
+      "t": "The ground was wet, so we did not play outside.",
+      "role": "key"
+     },
+     {
+      "t": "We played a game inside.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **How are the wet ground and playing connected?**\n\nThe word **so** links them. The ground was wet, **so** we did not play outside."
+   },
+   "together": {
+    "passage": "Bees and flowers need each other. Flowers give bees sweet food. Bees carry pollen from flower to flower. This helps flowers make seeds.",
+    "stem": "How are bees and flowers connected?",
+    "options": [
+     "They help each other.",
+     "They are both green.",
+     "They live in water.",
+     "They do not meet."
+    ],
+    "answer": 0,
+    "hint": "What do flowers give bees? What do bees do for flowers?",
+    "good": "Yes! Flowers feed bees, and bees help flowers make seeds."
+   },
+   "evidence": {
+    "sentences": [
+     "Bees and flowers need each other.",
+     "Flowers give bees sweet food.",
+     "Bees carry pollen from flower to flower.",
+     "This helps flowers make seeds."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: they help each other. Tap 2 sentences that show how they help.",
+    "wrong": "This sentence says they need each other but not how. Find a sentence that shows one helping the other."
+   },
+   "checks": [
+    {
+     "passage": "Sara and Reem are sisters. Sara likes to read. Reem likes to read too. They read together every night.",
+     "stem": "How are Sara and Reem alike?",
+     "options": [
+      "They both like to swim.",
+      "They both like to read.",
+      "They are the same age.",
+      "They both have a cat."
+     ],
+     "answer": 1,
+     "why": "The text says Sara likes to read, and Reem likes to read too."
+    },
+    {
+     "passage": "The lamp did not work. Dad put in a new bulb. Now the lamp gives light.",
+     "stem": "Why does the lamp work now?",
+     "options": [
+      "Mom fixed it.",
+      "It was turned off.",
+      "The sun came out.",
+      "Dad put in a new bulb."
+     ],
+     "answer": 3,
+     "why": "The lamp did not work. Then Dad put in a new bulb, and now it gives light."
+    },
+    {
+     "passage": "A whale lives in the sea. A fish lives in the sea too. But a whale breathes air, and a fish does not.",
+     "stem": "How is a whale different from a fish?",
+     "options": [
+      "A whale lives in the sea.",
+      "A whale is small.",
+      "A whale breathes air.",
+      "A whale eats sand."
+     ],
+     "answer": 2,
+     "why": "The word but shows the difference: a whale breathes air, and a fish does not."
+    }
+   ],
+   "again": {
+    "title": "Find the little word",
+    "text": "Look for the little joining word between the two ideas.\n\n**because**, **so**, **but**, **too**.\n\nIt tells you how the ideas connect.",
+    "example": "Ali was hungry, **so** he ate an apple.\n\nThe word **so** shows: being hungry made Ali eat."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Kinds of connections",
+     "text": "Authors connect ideas in different ways:\n\n**Cause and effect**: one thing makes another happen.\n**Compare**: two things are alike or different.\n**Sequence**: one thing happens before another.\n**Problem and solution**: a problem is fixed."
+    },
+    {
+     "title": "Signal words",
+     "text": "Signal words show the kind of connection.\n\nCause: **because, so, as a result**\nCompare: **like, both, unlike, however**\nSequence: **first, then, after**\nSolution: **to fix this, solved**"
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Find the two ideas the question asks about.\n2. Find the signal word near them.\n3. Name the connection and choose the answer that matches it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The connection is **stated** in the text.\n\n1. Find the sentence where the two ideas meet.\n2. Point to the signal word.\n3. Check that your answer says the **same kind** of link as the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Long ago, people in hot places built houses with thick walls.",
+      "role": "detail"
+     },
+     {
+      "t": "Thick walls take a long time to heat up.",
+      "role": "detail"
+     },
+     {
+      "t": "As a result, the rooms inside stayed cool during the day.",
+      "role": "key"
+     }
+    ],
+    "explain": "Question: **How are the thick walls and the cool rooms connected?**\n\nThe signal words **As a result** show cause and effect. The thick walls **caused** the rooms to stay cool."
+   },
+   "together": {
+    "passage": "Our town had a problem with litter near the beach. Plastic bags and bottles blew into the water. To fix this, students from three schools started a cleanup club. Every month, they collect rubbish along the sand. The town also put new bins with lids beside the paths. Now the beach is much cleaner.",
+    "stem": "How is the cleanup club connected to the litter?",
+    "options": [
+     "The club made more litter.",
+     "The club only worked at school.",
+     "The club was started before the problem.",
+     "The club was started to solve the litter problem."
+    ],
+    "answer": 3,
+    "hint": "Look for the signal words To fix this. What problem were the students fixing?",
+    "good": "Yes! The words To fix this show the club was a solution to the litter problem."
+   },
+   "evidence": {
+    "sentences": [
+     "Our town had a problem with litter near the beach.",
+     "Plastic bags and bottles blew into the water.",
+     "To fix this, students from three schools started a cleanup club.",
+     "Every month, they collect rubbish along the sand.",
+     "The town also put new bins with lids beside the paths.",
+     "Now the beach is much cleaner."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the club was started to solve the litter problem. Tap the problem and the sentence that starts the solution.",
+    "wrong": "This sentence gives another detail. Find the problem and the sentence with the signal words To fix this."
+   },
+   "checks": [
+    {
+     "passage": "Lions and cheetahs are both big cats that live in Africa. Lions live in groups called prides. Unlike lions, cheetahs usually hunt alone. Cheetahs are also much faster runners.",
+     "stem": "How are lions and cheetahs different?",
+     "options": [
+      "Only lions live in Africa.",
+      "Only cheetahs are big cats.",
+      "Cheetahs usually hunt alone, but lions live in groups.",
+      "Lions are faster than cheetahs."
+     ],
+     "answer": 2,
+     "why": "The word Unlike shows the difference: lions live in prides, while cheetahs usually hunt alone."
+    },
+    {
+     "passage": "The road to the village was very narrow and rocky. Because of this, trucks could not bring food quickly. In 2020, workers built a wide new road. After that, deliveries took half the time.",
+     "stem": "Why could trucks not bring food quickly at first?",
+     "options": [
+      "The road was narrow and rocky.",
+      "The village was very large.",
+      "Workers were building a road.",
+      "The trucks were old."
+     ],
+     "answer": 0,
+     "why": "The text says the road was narrow and rocky, and Because of this, trucks could not bring food quickly."
+    },
+    {
+     "passage": "First, the farmer plants the wheat seeds in autumn. Then the winter rain helps the young plants grow. In spring, the wheat turns golden. After that, the farmer cuts and collects it.",
+     "stem": "What happens right after the winter rain helps the plants grow?",
+     "options": [
+      "The farmer plants seeds.",
+      "The wheat turns golden in spring.",
+      "The farmer cuts the wheat.",
+      "It rains again in autumn."
+     ],
+     "answer": 1,
+     "why": "The order is: plant in autumn, rain in winter, then in spring the wheat turns golden."
+    }
+   ],
+   "again": {
+    "title": "Name the link",
+    "text": "Ask: what does the signal word **do**?\n\nDoes it give a **reason**? Show a **difference**? Tell **what came next**? Fix a **problem**?\n\nThat is the connection.",
+    "example": "The shop was busy. **However**, the line moved fast.\n\n**However** shows a difference: you might expect a slow line, but it was fast."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Connections between people and events",
+     "text": "True stories about real people (biographies and memoirs) show how **people**, **ideas** and **events** affect each other.\n\nA teacher can inspire a student. An event can change someone's plans. One discovery can lead to another."
+    },
+    {
+     "title": "Stated, not guessed",
+     "text": "These connections are **stated** in the text. Look for words like **inspired, led to, because of, after, encouraged, influenced, as a result**.\n\nThey tell you exactly how one thing is tied to another."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the two people, ideas or events in the question.\n2. Find every place they appear together.\n3. Read the linking words.\n4. Choose the answer that names the link the text gives."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a connection with the sentence that **states it**.\n\n1. Find the linking words (led to, because, inspired).\n2. Check that the answer has the right **direction**: which one affected which?\n\nA choice that flips the direction is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "As a boy, Khalid watched his grandfather repair old radios in a tiny shop.",
+      "role": "detail"
+     },
+     {
+      "t": "His grandfather let him hold the tools and explained how each part worked.",
+      "role": "detail"
+     },
+     {
+      "t": "Those afternoons inspired Khalid to study electrical engineering.",
+      "role": "key"
+     },
+     {
+      "t": "Today he designs solar panels.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **How is Khalid's grandfather connected to his career?**\n\nThe word **inspired** states the link: time with his grandfather made Khalid want to study engineering. The direction matters: the grandfather influenced Khalid, not the other way round."
+   },
+   "together": {
+    "passage": "Ibn al-Haytham was a scientist who lived about a thousand years ago. Many thinkers of his time believed that our eyes send out rays to see objects. Ibn al-Haytham doubted this idea. He tested it in a dark room with a tiny hole in one wall and watched how light entered. His experiments led him to explain that we see because light travels from objects into our eyes. His Book of Optics was later translated into Latin, and it influenced scientists in Europe for centuries.",
+    "stem": "How are Ibn al-Haytham's experiments connected to his explanation of sight?",
+    "options": [
+     "His explanation came first, so he did not need experiments.",
+     "His experiments led him to his explanation.",
+     "His experiments proved that eyes send out rays.",
+     "His experiments were done by scientists in Europe."
+    ],
+    "answer": 1,
+    "hint": "Look for the words led him to. Which came first, the experiments or the explanation?",
+    "good": "Yes! The text says his experiments led him to explain that light travels from objects into our eyes."
+   },
+   "evidence": {
+    "sentences": [
+     "Ibn al-Haytham was a scientist who lived about a thousand years ago.",
+     "Many thinkers of his time believed that our eyes send out rays to see objects.",
+     "Ibn al-Haytham doubted this idea.",
+     "He tested it in a dark room with a tiny hole in one wall and watched how light entered.",
+     "His experiments led him to explain that we see because light travels from objects into our eyes.",
+     "His Book of Optics was later translated into Latin, and it influenced scientists in Europe for centuries."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: his experiments led him to his explanation. Tap 2 sentences that show this link.",
+    "wrong": "This sentence gives background or tells what happened later. Find the experiment and the sentence that says what it led to."
+   },
+   "checks": [
+    {
+     "passage": "When Fatima was ten, a flood damaged many homes in her neighborhood. She saw volunteers giving out food and blankets. The next year, she joined a youth volunteer group. Years later, she studied emergency planning so she could help cities prepare for floods.",
+     "stem": "How is the flood connected to Fatima's later studies?",
+     "options": [
+      "Seeing the flood and the help made her want to prepare cities for floods.",
+      "Her studies caused the flood to happen.",
+      "The flood made her stop volunteering.",
+      "She studied floods before she saw one."
+     ],
+     "answer": 0,
+     "why": "The text moves from the flood, to volunteering, to studying emergency planning so she could help cities prepare for floods."
+    },
+    {
+     "passage": "The printing press made books faster and cheaper to produce. Because more books were available, more people learned to read. As more people read, new ideas spread quickly from city to city.",
+     "stem": "According to the passage, what was one result of more people learning to read?",
+     "options": [
+      "Books became more expensive.",
+      "The printing press was invented.",
+      "New ideas spread quickly.",
+      "Fewer books were printed."
+     ],
+     "answer": 2,
+     "why": "The last sentence says that as more people read, new ideas spread quickly."
+    },
+    {
+     "passage": "Before the 1930s, most people in the Arabian Peninsula worked in farming, herding, trade or pearling. In 1938, oil was found in large amounts at Dammam. Over the next decades, oil money helped build roads, schools and hospitals across Saudi Arabia.",
+     "stem": "How is the discovery of oil connected to the new schools and hospitals?",
+     "options": [
+      "Schools were built before oil was found.",
+      "Pearling paid for the hospitals.",
+      "Hospitals helped people find oil.",
+      "Money from oil helped build them."
+     ],
+     "answer": 3,
+     "why": "The text says oil money helped build roads, schools and hospitals."
+    }
+   ],
+   "again": {
+    "title": "Draw an arrow",
+    "text": "Picture an **arrow** from one idea to the other.\n\n1. Which idea is at the start of the arrow?\n2. Which idea does the arrow point to?\n3. What word in the text makes the arrow? (led to, inspired, because)",
+    "example": "A coach encouraged Huda to keep running. She later won a school race.\n\nArrow: **coach's encouragement → Huda keeps running → wins**. The word **encouraged** makes the arrow."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Webs of connection",
+     "text": "In complex texts, ideas link in **chains** and **webs**. One event causes another, which changes a person's thinking, which leads to a new idea.\n\nYou must follow the chain exactly as the author states it, step by step."
+    },
+    {
+     "title": "Precise relationships",
+     "text": "Read linking language carefully:\n\n**enabled, contributed to, in response to, despite, built on, contradicted, prompted**.\n\n**Despite** means something happened even though another thing could have stopped it. **Built on** means one idea used an earlier one."
+    },
+    {
+     "title": "Analyze the link",
+     "text": "1. Identify the two ideas, events or people.\n2. Find each step that joins them.\n3. Decide the **kind** of link: cause, response, contrast, influence, building on.\n4. Reject choices that reverse, exaggerate or skip a step."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For a complex link, you often need **more than one sentence**.\n\n1. Find the sentence that introduces the first idea.\n2. Find the sentence that states what it led to or how it was answered.\n3. Check the answer matches the **exact** relationship (for example: partly, despite, in response to)."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the 1840s, many mothers in one Vienna hospital ward became ill after giving birth.",
+      "role": "detail"
+     },
+     {
+      "t": "The doctor Ignaz Semmelweis noticed that doctors in that ward often came straight from examining dead bodies.",
+      "role": "key"
+     },
+     {
+      "t": "In response, he ordered everyone to wash their hands in a chlorine solution before treating patients.",
+      "role": "key"
+     },
+     {
+      "t": "Deaths in the ward dropped sharply, yet many doctors rejected his idea for years.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The chain: **observation** (doctors came from examining bodies) → **response** (handwashing rule) → **result** (fewer deaths). The word **yet** adds a contrast: the idea worked, but was not accepted. Each link is stated in the text."
+   },
+   "together": {
+    "passage": "For most of history, sailors far from land had trouble knowing exactly where they were. They could measure how far north or south they were by the stars, but finding their east-west position, called longitude, required knowing the exact time at home. Clocks with swinging pendulums were useless on rolling ships. In response to many shipwrecks, the British government offered a large prize in 1714 for a reliable method. John Harrison, a self-taught carpenter, spent decades building sea clocks that kept accurate time despite waves and changing temperatures. His fourth clock performed very well on a test voyage that began in 1761. Even so, the prize committee was slow to pay him, and he received most of the money only near the end of his life.",
+    "stem": "What is the relationship between the shipwrecks and Harrison's work?",
+    "options": [
+     "Harrison's clocks caused the shipwrecks to increase.",
+     "Harrison built clocks before anyone had a problem at sea.",
+     "The shipwrecks prompted a prize that led Harrison to build sea clocks.",
+     "The shipwrecks proved that pendulum clocks worked well on ships."
+    ],
+    "answer": 2,
+    "hint": "Follow the chain: what did the shipwrecks lead the government to do, and how did Harrison respond?",
+    "good": "Yes! The shipwrecks led to the prize, and Harrison spent decades building clocks to win it."
+   },
+   "evidence": {
+    "sentences": [
+     "For most of history, sailors far from land had trouble knowing exactly where they were.",
+     "They could measure how far north or south they were by the stars, but finding their east-west position, called longitude, required knowing the exact time at home.",
+     "Clocks with swinging pendulums were useless on rolling ships.",
+     "In response to many shipwrecks, the British government offered a large prize in 1714 for a reliable method.",
+     "John Harrison, a self-taught carpenter, spent decades building sea clocks that kept accurate time despite waves and changing temperatures.",
+     "His fourth clock performed very well on a test voyage that began in 1761.",
+     "Even so, the prize committee was slow to pay him, and he received most of the money only near the end of his life."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the shipwrecks led to a prize that prompted Harrison's clocks. Tap 2 sentences that show this chain.",
+    "wrong": "This sentence explains the background or what happened afterwards. Find the prize sentence and the sentence about Harrison's work."
+   },
+   "checks": [
+    {
+     "passage": "Rachel Carson spent years studying the effects of chemical sprays used to kill insects. In 1962 she published a book showing that these sprays were also harming birds and fish. Chemical companies attacked her work. Despite the criticism, her careful evidence persuaded many readers, and the United States later banned the chemical DDT for most uses on farms.",
+     "stem": "How is the criticism connected to the outcome?",
+     "options": [
+      "The criticism caused the ban.",
+      "The criticism proved her evidence was wrong.",
+      "The criticism came after the ban.",
+      "Her work led to change even though it was criticized."
+     ],
+     "answer": 3,
+     "why": "The word Despite shows the ban followed her evidence even though companies attacked it."
+    },
+    {
+     "passage": "Early mapmakers drew coastlines from sailors' sketches, so many maps were inaccurate. Later, surveyors used careful angle measurements to fix positions on land. Photographs taken from aircraft in the twentieth century built on this work, and today satellites allow maps to be updated within days.",
+     "stem": "How are aircraft photographs connected to the surveyors' work?",
+     "options": [
+      "They replaced sketches, which surveyors still used.",
+      "They built on the surveyors' careful measurements.",
+      "They proved surveyors had been wrong.",
+      "They came before the surveyors."
+     ],
+     "answer": 1,
+     "why": "The text says photographs from aircraft built on this work, meaning they extended the surveyors' methods."
+    },
+    {
+     "passage": "For years, women and girls in a small mountain village walked for hours each day to fetch water from a distant spring. Then engineers built a pipeline that brought clean water to taps in the village. Once the pipeline opened, many girls who had spent their mornings carrying water were able to attend school every day. A village teacher later said that the most important result of the project was not the pipe, but the full classrooms.",
+     "stem": "According to the passage, how did the pipeline affect girls' education?",
+     "options": [
+      "It freed girls from carrying water so they could attend school.",
+      "It required girls to study engineering.",
+      "It made schools close for repairs.",
+      "It made the walk to school longer."
+     ],
+     "answer": 0,
+     "why": "Before the pipeline, girls fetched water; once it opened, they could attend school regularly."
+    }
+   ],
+   "again": {
+    "title": "Build the chain",
+    "text": "Write the ideas as a **chain of boxes**:\n\n[first event] → [what it caused or prompted] → [what came next]\n\nThen check each arrow is **stated** in the text.",
+    "example": "Shipwrecks → government offers a prize → Harrison builds sea clocks → sailors can find longitude.\n\nThe question about shipwrecks and Harrison needs the **middle box**: the prize."
+   }
+  }
+ }
+}

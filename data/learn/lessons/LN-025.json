@@ -1,0 +1,478 @@
+{
+ "code": "LN-025",
+ "title": "Taking and using notes",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.4"
+ ],
+ "families": [
+  "writing-research"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0164",
+  "L-0166",
+  "L-0270"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What are notes?",
+     "text": "When you learn about a topic, you write **notes**: short words or sentences about what you read.\n\nNotes help you remember facts for your writing."
+    },
+    {
+     "title": "Keep the right notes",
+     "text": "Only keep notes about **your topic**.\n\nTopic: **Lions**.\n\nKeep: Lions live in groups.\nDo not keep: My cousin has a cat."
+    },
+    {
+     "title": "How to check",
+     "text": "1. Say your topic.\n2. Read each note.\n3. Ask: **Is this about my topic?** If not, cross it out."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your notes must **match** your topic.\n\n1. Find the topic.\n2. Look at each note.\n3. The notes about the topic **prove** which one does not belong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Topic: The moon",
+      "role": "main"
+     },
+     {
+      "t": "The moon goes around the Earth.",
+      "role": "detail"
+     },
+     {
+      "t": "The moon has no air.",
+      "role": "detail"
+     },
+     {
+      "t": "I like pizza.",
+      "role": "other"
+     }
+    ],
+    "explain": "Three notes tell about **the moon**. \"I like pizza\" is not about the moon.\n\nCross it out!"
+   },
+   "together": {
+    "passage": "Topic: Camels. Camels can walk on hot sand. Camels store fat in their humps. My bike is red. Camels can go many days without water.",
+    "stem": "Which note does NOT belong?",
+    "options": [
+     "Camels can walk on hot sand.",
+     "Camels store fat in their humps.",
+     "My bike is red.",
+     "Camels can go many days without water."
+    ],
+    "answer": 2,
+    "hint": "Is that note about camels? Read the topic again.",
+    "good": "Yes! A red bike is not about camels, so that note does not belong."
+   },
+   "evidence": {
+    "sentences": [
+     "Topic: Camels.",
+     "Camels can walk on hot sand.",
+     "Camels store fat in their humps.",
+     "My bike is red.",
+     "Camels can go many days without water."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: My bike is red. Tap 2 notes that ARE about camels.",
+    "wrong": "This line is the topic or the note that does not belong. Find notes with facts about camels."
+   },
+   "checks": [
+    {
+     "passage": "Topic: Bees. Notes: Bees make honey. Bees have six legs. ____",
+     "stem": "Which note fits best?",
+     "options": [
+      "Bees help flowers grow.",
+      "I have a blue bag.",
+      "Dogs bark at night.",
+      "My school is big."
+     ],
+     "answer": 0,
+     "why": "It is about bees. The others are about different things."
+    },
+    {
+     "passage": "Topic: Rain. Which note does NOT belong?",
+     "stem": "Choose one.",
+     "options": [
+      "Rain falls from clouds.",
+      "Plants need rain.",
+      "Rain makes puddles.",
+      "Cats like to sleep."
+     ],
+     "answer": 3,
+     "why": "Cats sleeping is not about rain."
+    },
+    {
+     "passage": "Topic: Our school. Which note fits best?",
+     "stem": "Choose one.",
+     "options": [
+      "The sea is blue.",
+      "Our school has 300 students.",
+      "Lions eat meat.",
+      "I went to the zoo."
+     ],
+     "answer": 1,
+     "why": "Only this note tells about our school."
+    }
+   ],
+   "again": {
+    "title": "Topic check",
+    "text": "Put your **topic** at the top of the page.\n\nPoint to each note and say: **\"Is this about ___?\"** Yes = keep. No = cross out.",
+    "example": "Topic: **Dates**.\n\n\"Dates grow on palm trees.\" **Keep.** \"I have a new phone.\" **Cross out.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Notes for a question",
+     "text": "Research starts with a **question**, like: **How do camels survive in the desert?**\n\nGood notes answer **that question**, not just the general topic."
+    },
+    {
+     "title": "Relevant notes",
+     "text": "A **relevant** note helps answer your question.\n\nQuestion: How do camels survive in the desert?\n\n**Relevant:** Thick lips let them eat thorny plants.\n**Not relevant:** Camel races are held in some countries.\n\nBoth are about camels, but only one answers the question."
+    },
+    {
+     "title": "Notes in your own words",
+     "text": "Write notes in **short phrases** and **your own words**.\n\nDo not copy whole paragraphs. Write the key facts, and note where you found them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To check a note, go back to the **research question**.\n\n1. Read the question carefully.\n2. Read the note.\n3. Ask: **Does this help answer the question?**\n\nA note can be about the topic and still not answer the question."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Question: Why do leaves change colour in autumn?",
+      "role": "main"
+     },
+     {
+      "t": "Green colour fades when days get shorter.",
+      "role": "detail"
+     },
+     {
+      "t": "Yellow and orange colours were hidden under the green.",
+      "role": "detail"
+     },
+     {
+      "t": "Some trees are very tall.",
+      "role": "other"
+     }
+    ],
+    "explain": "The first two notes explain **why** leaves change colour. \"Some trees are very tall\" is about trees, but it does **not** answer the question."
+   },
+   "together": {
+    "passage": "Research question: How do people in hot countries keep their homes cool? Thick walls keep out the daytime heat. Some old houses have wind towers that catch the breeze. Light-coloured roofs reflect sunlight. Hot countries often have many sunny days.",
+    "stem": "Which note is about the topic but does NOT help answer the research question?",
+    "options": [
+     "Hot countries often have many sunny days.",
+     "Thick walls keep out the daytime heat.",
+     "Some old houses have wind towers that catch the breeze.",
+     "Light-coloured roofs reflect sunlight."
+    ],
+    "answer": 0,
+    "hint": "Does that note explain HOW people keep homes cool? Read the question again.",
+    "good": "Yes! It tells about the weather, but not how people keep their homes cool."
+   },
+   "evidence": {
+    "sentences": [
+     "Research question: How do people in hot countries keep their homes cool?",
+     "Thick walls keep out the daytime heat.",
+     "Some old houses have wind towers that catch the breeze.",
+     "Light-coloured roofs reflect sunlight.",
+     "Hot countries often have many sunny days."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was the note about sunny days. Tap 2 notes that DO show how people keep homes cool.",
+    "wrong": "This line is the question or the note that does not answer it. Find notes that describe a way to keep homes cool."
+   },
+   "checks": [
+    {
+     "passage": "Question: What do pandas eat?",
+     "stem": "Which note is relevant?",
+     "options": [
+      "Pandas are black and white.",
+      "Pandas live in China.",
+      "Pandas eat mostly bamboo.",
+      "Pandas are popular in zoos."
+     ],
+     "answer": 2,
+     "why": "Only this note answers what pandas eat."
+    },
+    {
+     "passage": "Question: How can students save water at school?",
+     "stem": "Which note is NOT relevant?",
+     "options": [
+      "Turn off taps while soaping hands.",
+      "The sea covers most of the Earth.",
+      "Report leaking taps to the caretaker.",
+      "Use a refillable bottle instead of buying water."
+     ],
+     "answer": 1,
+     "why": "It is a fact about water, but it is not a way for students to save water at school."
+    },
+    {
+     "passage": "A student copied this whole sentence: \"The falcon, which is the national bird of several Gulf countries, can dive at extremely high speeds.\"",
+     "stem": "Which is the best short note in the student's own words?",
+     "options": [
+      "The falcon, which is the national bird of several Gulf countries, can dive.",
+      "Falcons are birds.",
+      "I like falcons.",
+      "Falcon: national bird in some Gulf countries; very fast dive"
+     ],
+     "answer": 3,
+     "why": "It keeps the key facts in a short phrase, in the student's own words."
+    }
+   ],
+   "again": {
+    "title": "Question at the top",
+    "text": "Write your **question** at the top of your notes.\n\nAfter every note, look up. Does the note **answer** the question?",
+    "example": "Question: **What do owls eat?**\n\n\"Owls eat mice.\" **Yes.** \"Owls have big eyes.\" **No, not for this question.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Evaluating notes",
+     "text": "After research, you often have **more notes than you need**. Good writers **evaluate** them: they keep notes that are relevant to the topic **and** to the part of the writing they are planning."
+    },
+    {
+     "title": "Notes by subtopic",
+     "text": "Sort notes into **subtopics**. For a report on the Red Sea:\n\n1. **Coral reefs**\n2. **Fish and other sea life**\n3. **Ports and trade**\n\nA note about trade belongs under trade, not under coral reefs, even though both are about the Red Sea."
+    },
+    {
+     "title": "Useful details",
+     "text": "Keep notes with **specific** details: numbers, names, examples.\n\n\"Many fish\" is vague. \"More than 1,000 kinds of fish\" is useful. Drop notes that repeat each other."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To evaluate a note, check it against the **subtopic** it is meant for.\n\n1. Read the subtopic heading.\n2. Read the notes listed under it.\n3. Ask which note fits the heading and which belongs somewhere else, or nowhere."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Subtopic: How bees make honey",
+      "role": "main"
+     },
+     {
+      "t": "Bees collect nectar from flowers.",
+      "role": "detail"
+     },
+     {
+      "t": "They store the nectar in wax cells and fan it with their wings until it thickens.",
+      "role": "detail"
+     },
+     {
+      "t": "A bee sting can be painful.",
+      "role": "other"
+     }
+    ],
+    "explain": "The first two notes explain how honey is made. The sting note is about bees, but it does **not** fit this subtopic. It should move to another heading or be dropped."
+   },
+   "together": {
+    "passage": "Subtopic heading: How date palms are grown. Farmers plant young offshoots taken from the base of an older palm. Date palms need a lot of water at their roots, even though they grow in hot, dry places. Workers climb the trees to help pollinate the flowers by hand. Dates are often served with coffee to welcome guests.",
+    "stem": "Which note does NOT fit under this subtopic heading?",
+    "options": [
+     "Farmers plant young offshoots taken from the base of an older palm.",
+     "Date palms need a lot of water at their roots, even though they grow in hot, dry places.",
+     "Workers climb the trees to help pollinate the flowers by hand.",
+     "Dates are often served with coffee to welcome guests."
+    ],
+    "answer": 3,
+    "hint": "Does that note explain how the palms are GROWN? Or is it about something else to do with dates?",
+    "good": "Yes! Serving dates to guests is about culture, not growing. It belongs under another heading."
+   },
+   "evidence": {
+    "sentences": [
+     "Subtopic heading: How date palms are grown.",
+     "Farmers plant young offshoots taken from the base of an older palm.",
+     "Date palms need a lot of water at their roots, even though they grow in hot, dry places.",
+     "Workers climb the trees to help pollinate the flowers by hand.",
+     "Dates are often served with coffee to welcome guests."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was the note about serving dates to guests. Tap 2 notes that DO explain how date palms are grown.",
+    "wrong": "This line is the heading or the note about serving dates. Find the notes about planting, watering or pollinating."
+   },
+   "checks": [
+    {
+     "passage": "Subtopic: Dangers to sea turtles",
+     "stem": "Which note fits best?",
+     "options": [
+      "Sea turtles can live for many years.",
+      "Plastic bags in the sea can be mistaken for food.",
+      "Turtles have hard shells.",
+      "Baby turtles hatch on beaches."
+     ],
+     "answer": 1,
+     "why": "Only this note names a danger to sea turtles."
+    },
+    {
+     "passage": "Two notes for a report on deserts: (A) \"Deserts get very little rain.\" (B) \"Some deserts get less than 25 centimetres of rain a year.\"",
+     "stem": "Which note is more useful, and why?",
+     "options": [
+      "B, because it gives a specific amount",
+      "A, because it is shorter",
+      "A, because it has no numbers",
+      "Both are useless"
+     ],
+     "answer": 0,
+     "why": "B gives an exact, checkable detail, which makes the writing stronger."
+    },
+    {
+     "passage": "Subtopic: Why the Hejaz Railway was built. Notes: (1) to carry pilgrims to Madinah more quickly, (2) the trains used steam engines, (3) to link distant regions.",
+     "stem": "Which note should move to a different subtopic?",
+     "options": [
+      "Note 1",
+      "Note 3",
+      "Note 2",
+      "None of them"
+     ],
+     "answer": 2,
+     "why": "Steam engines tell how the trains worked, not why the railway was built."
+    }
+   ],
+   "again": {
+    "title": "Right note, right box",
+    "text": "Draw a box for each **subtopic**.\n\nPut each note in the box where it fits. A note that fits **no box** is not needed.",
+    "example": "Boxes: **Food**, **Homes**.\n\n\"Foxes dig dens\" → **Homes**. \"Foxes eat insects\" → **Food**. \"Foxes appear in stories\" → **no box**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "From notes to an argument",
+     "text": "For an argument, notes are not just facts to collect. They are **evidence** for specific reasons.\n\nBefore drafting, sort notes by the **reason** they support and mark notes that support the **counterclaim**."
+    },
+    {
+     "title": "Find the gaps",
+     "text": "When notes are sorted, gaps appear: a reason with **no evidence**, a reason supported only by opinion, or a counterclaim without a response.\n\nThese gaps tell you what to research next."
+    },
+    {
+     "title": "Plan the next search",
+     "text": "A good research plan turns a gap into a **focused question**:\n\nGap: no evidence that the plan saves money.\nQuestion: **How much would the plan cost, and how much would it save each year?**\n\nThen choose sources likely to answer it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To use notes for planning, prove **which reason has support and which does not**.\n\n1. Identify the claim and each reason.\n2. Match every note to a reason or to the counterclaim.\n3. Any reason with no matching notes is a gap, and that is where research should go next."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: Our school should start a vegetable garden.",
+      "role": "main"
+     },
+     {
+      "t": "Reason 1 (learning): Notes from a science teacher say gardens help students understand plant life cycles.",
+      "role": "detail"
+     },
+     {
+      "t": "Reason 2 (healthy eating): No notes yet.",
+      "role": "key"
+     },
+     {
+      "t": "Next step: research whether students who grow vegetables eat more of them.",
+      "role": "key"
+     }
+    ],
+    "explain": "Reason 1 has evidence. Reason 2 has **none**, so it is the gap. The research plan targets exactly that gap with a focused question."
+   },
+   "together": {
+    "passage": "Claim: The city should create car-free streets in the old market area on weekends. Reason 1, cleaner air: A city report found that air pollution near the market is highest on weekend afternoons. Reason 2, safety: Shop owners interviewed said children often run between moving cars. Reason 3, more visitors and sales: No notes yet. Counterclaim: Some shop owners fear customers will not come without parking. Response to counterclaim: No notes yet.",
+    "stem": "Which is the best plan for the student's next research?",
+    "options": [
+     "Find more notes about air pollution near the market.",
+     "Look for evidence of how car-free streets affected visitors and sales in other markets.",
+     "Interview children about their favourite games.",
+     "Stop researching, because the notes are complete."
+    ],
+    "answer": 1,
+    "hint": "Which reasons already have notes, and which do not? Research should fill a gap.",
+    "good": "Yes! Evidence about visitors and sales in other car-free markets would fill Reason 3 and help answer the shop owners' worry."
+   },
+   "evidence": {
+    "sentences": [
+     "Claim: The city should create car-free streets in the old market area on weekends.",
+     "Reason 1, cleaner air: A city report found that air pollution near the market is highest on weekend afternoons.",
+     "Reason 2, safety: Shop owners interviewed said children often run between moving cars.",
+     "Reason 3, more visitors and sales: No notes yet.",
+     "Counterclaim: Some shop owners fear customers will not come without parking.",
+     "Response to counterclaim: No notes yet."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer filled the gaps. Tap 2 lines that show what the notes are missing or must answer.",
+    "wrong": "This line has notes already, or it states the claim. Find the lines that show missing evidence or a worry to answer."
+   },
+   "checks": [
+    {
+     "passage": "Claim: Students should have a weekly class on managing money. A student's notes support only one reason, and all three notes are her own opinions.",
+     "stem": "What should she do next?",
+     "options": [
+      "Begin drafting immediately",
+      "Delete the claim",
+      "Add more of her own opinions",
+      "Find facts or expert views to support each reason"
+     ],
+     "answer": 3,
+     "why": "Opinions are weak evidence. She needs facts or expert sources for each reason."
+    },
+    {
+     "passage": "Notes for an argument that schools should use solar panels: (1) panels lower electricity bills; (2) the sun is a star; (3) panels can teach students about energy.",
+     "stem": "Which note should be removed?",
+     "options": [
+      "Note 1",
+      "Note 3",
+      "Note 2",
+      "None"
+     ],
+     "answer": 2,
+     "why": "\"The sun is a star\" is true but supports no reason in the argument."
+    },
+    {
+     "passage": "A student's argument says the library should open on Saturdays. Her notes include a survey of 120 students saying they would visit, but nothing about cost.",
+     "stem": "Which research question best fills the gap?",
+     "options": [
+      "How much would it cost to keep the library open on Saturdays?",
+      "What is the oldest library in the world?",
+      "What colour are the library chairs?",
+      "How many books does the student own?"
+     ],
+     "answer": 0,
+     "why": "Cost is the missing piece, and a reader deciding on the plan would ask about it."
+    }
+   ],
+   "again": {
+    "title": "Notes map",
+    "text": "Draw the claim at the top. Under it, draw a box for each reason and one for the counterclaim.\n\nPut every note in a box. **Empty boxes** show what to research next.",
+    "example": "Claim: **More shade in the playground.** Box 1 (heat): 3 notes. Box 2 (health): **empty**. → Research: **What does heat do to students' health?**"
+   }
+  }
+ }
+}

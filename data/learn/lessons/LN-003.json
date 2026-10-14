@@ -1,0 +1,469 @@
+{
+ "code": "LN-003",
+ "title": "Ending a story well",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.3.e"
+ ],
+ "families": [
+  "writing-narrative"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0014",
+  "L-0068",
+  "L-0069",
+  "L-0161",
+  "L-0162",
+  "L-0267"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Every story ends",
+     "text": "A story has a **beginning**, a **middle** and an **end**.\n\nThe end is the last part. It finishes the story."
+    },
+    {
+     "title": "A good ending",
+     "text": "A good ending **finishes the problem**.\n\nIf a boy lost his ball, the ending tells if he **found it**."
+    },
+    {
+     "title": "How to pick an ending",
+     "text": "1. Find the **problem** in the story.\n2. Ask: **How does it end?**\n3. Pick the ending that is about the **same** problem."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The ending must match the story.\n\n1. Find the sentences that tell the **problem**.\n2. Read each ending.\n3. Pick the ending that **finishes** that problem.\n\nPoint to the problem sentences. They prove your choice."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem's cat was stuck up a tree.",
+      "role": "detail"
+     },
+     {
+      "t": "Reem called her dad.",
+      "role": "detail"
+     },
+     {
+      "t": "Dad used a ladder and brought the cat down safely.",
+      "role": "key"
+     }
+    ],
+    "explain": "The problem is: the cat is **stuck**. The ending tells how the cat got **down**. It finishes the problem."
+   },
+   "together": {
+    "passage": "Hamad lost his kite in the wind. He looked in the park. He looked by the school. ___",
+    "stem": "Which is the best ending for the story?",
+    "options": [
+     "Hamad likes to eat rice.",
+     "The next day was Monday.",
+     "Some kites are red.",
+     "He found it in a tree and smiled."
+    ],
+    "answer": 3,
+    "hint": "That ending is not about the lost kite. What was Hamad looking for?",
+    "good": "Yes! Hamad lost his kite. The ending tells that he **found** it."
+   },
+   "evidence": {
+    "sentences": [
+     "Hamad lost his kite in the wind.",
+     "He looked in the park.",
+     "He looked by the school.",
+     "He found it in a tree and smiled."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: He found it in a tree. Tap 2 sentences that show the problem the ending finishes.",
+    "wrong": "This is the ending. Find sentences that show Hamad's problem and his search."
+   },
+   "checks": [
+    {
+     "passage": "Noor wanted to bake a cake for Mom. She mixed the eggs and flour. She put it in the oven.",
+     "stem": "Which is the best ending?",
+     "options": [
+      "Eggs come from hens.",
+      "Mom loved the cake.",
+      "The oven is big.",
+      "Noor has a cat."
+     ],
+     "answer": 1,
+     "why": "The story is about a cake for Mom. The ending tells that Mom loved it."
+    },
+    {
+     "passage": "Ali's puppy was scared of the rain. It hid under the bed. Ali sat with it and petted it.",
+     "stem": "Which is the best ending?",
+     "options": [
+      "Puppies have four legs.",
+      "Ali has blue shoes.",
+      "It rains in winter.",
+      "Soon the puppy felt safe."
+     ],
+     "answer": 3,
+     "why": "The problem is a scared puppy. The ending tells that it felt safe."
+    },
+    {
+     "passage": "Maha could not ride her bike. She fell many times. She kept trying every day.",
+     "stem": "Which is the best ending?",
+     "options": [
+      "Bikes have two wheels.",
+      "At last, she rode down the street!",
+      "Her brother has a bike.",
+      "Maha likes the colour green."
+     ],
+     "answer": 1,
+     "why": "Maha kept trying. The ending tells that she could ride at last."
+    }
+   ],
+   "again": {
+    "title": "Problem, then answer",
+    "text": "Every story asks a question.\n\nWill he find it? Will she win? Will they get home?\n\nThe ending **answers** the question.",
+    "example": "Question: Will Sami find his shoe?\nEnding: **Sami found his shoe under the sofa.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "What a good ending does",
+     "text": "A good ending **wraps up** the story.\n\nIt solves the problem, and it often shows how the character **feels** or what the character **learned**."
+    },
+    {
+     "title": "Weak endings",
+     "text": "Some endings leave the reader unhappy:\n\n- \"The end.\" with nothing else\n- \"Then I woke up. It was a dream.\"\n- A **new problem** that never gets solved\n- A sentence about something **else**"
+    },
+    {
+     "title": "Make the ending stronger",
+     "text": "1. Find the main **problem** of the story.\n2. Show how it is **solved**.\n3. Add how the character **feels** or **changed**.\n\nKeep it short. One or two sentences is enough."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good ending is connected to the **problem** at the start.\n\n1. Find the sentences that show the problem.\n2. Check each ending: does it solve **that** problem?\n3. Point to the problem sentences as your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Salem was afraid to jump into the pool.",
+      "role": "detail"
+     },
+     {
+      "t": "His coach held his hand and counted to three.",
+      "role": "detail"
+     },
+     {
+      "t": "Salem jumped, came up laughing, and asked to go again.",
+      "role": "key"
+     }
+    ],
+    "explain": "The problem is Salem's **fear**. The ending shows him jumping and **laughing**. The fear is gone, so the story is wrapped up."
+   },
+   "together": {
+    "passage": "Layla had never spoken in front of the whole school. On the morning of the assembly, her hands shook as she walked to the microphone. She took a deep breath and began to read her poem about the sea. Her voice grew stronger with every line. ___",
+    "stem": "Which ending best wraps up the story?",
+    "options": [
+     "Then the bell rang for lunch, and that was all.",
+     "The sea is very big and very blue.",
+     "When everyone clapped, Layla smiled. Her fear was gone.",
+     "The next week, her brother lost his school bag."
+    ],
+    "answer": 2,
+    "hint": "That ending does not finish Layla's problem. What was she afraid of at the start?",
+    "good": "Yes! Layla was afraid to speak. The ending shows that her fear is gone."
+   },
+   "evidence": {
+    "sentences": [
+     "Layla had never spoken in front of the whole school.",
+     "On the morning of the assembly, her hands shook as she walked to the microphone.",
+     "She took a deep breath and began to read her poem about the sea.",
+     "Her voice grew stronger with every line.",
+     "When everyone clapped, Layla smiled. Her fear was gone."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: When everyone clapped, Layla smiled. Tap the 2 sentences that show Layla's problem.",
+    "wrong": "This sentence does not show the problem. Find the sentences that show Layla was nervous."
+   },
+   "checks": [
+    {
+     "passage": "Yusuf planted a lemon seed in a pot. He watered it every day for weeks, but nothing grew. He almost gave up. One morning, he saw a tiny green shoot. The end.",
+     "stem": "Which sentence would be a stronger ending than \"The end.\"?",
+     "options": [
+      "Yusuf grinned. His patience had paid off.",
+      "Lemons are yellow and sour.",
+      "Then Yusuf went to buy a new pot.",
+      "Yusuf's sister likes oranges."
+     ],
+     "answer": 0,
+     "why": "It shows how Yusuf feels and ties back to his long wait."
+    },
+    {
+     "passage": "Faisal and his brother argued about who would use the computer. They shouted until their father came in. He asked them to make a plan together.",
+     "stem": "Which ending best wraps up the story?",
+     "options": [
+      "They agreed to take turns, and the shouting stopped.",
+      "Their father works at a hospital.",
+      "The computer was new and silver.",
+      "Then Faisal found a coin under the desk."
+     ],
+     "answer": 0,
+     "why": "The problem was the argument. Taking turns solves it."
+    },
+    {
+     "passage": "Huda's team was losing the science quiz. On the last question, everyone looked at her. She remembered a fact from her grandfather's book about stars.",
+     "stem": "Which ending best wraps up the story?",
+     "options": [
+      "Suddenly, a dog ran into the room.",
+      "Stars are very far away from Earth.",
+      "She gave the answer, and her team won by one point.",
+      "Then Huda woke up. It was all a dream."
+     ],
+     "answer": 2,
+     "why": "The story is about winning the quiz. Her answer helps the team win."
+    }
+   ],
+   "again": {
+    "title": "Look back to the start",
+    "text": "To write an ending, **look back** at the first sentence.\n\nWhat did the character want or fear? Your ending should tell what **happened** to that want or fear.",
+    "example": "Start: Ahmed wanted to score a goal.\nWeak end: The game was on Tuesday.\nStrong end: **In the last minute, Ahmed kicked the ball into the net.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Closure",
+     "text": "**Closure** is the feeling that a story is truly finished.\n\nA strong ending solves the problem **and** shows what the experience meant to the character."
+    },
+    {
+     "title": "Ways to close a story",
+     "text": "- Show how the character has **changed**.\n- **Echo** something from the beginning.\n- Let the character **reflect** on what happened.\n- End with a small action that shows the new feeling."
+    },
+    {
+     "title": "Revise a weak ending",
+     "text": "1. Reread the beginning. What did the character think or want?\n2. Reread the middle. What changed?\n3. Write an ending that shows that change.\n\nAvoid endings that only repeat events, add a new problem or stop suddenly."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best ending, find **how the character changed**.\n\n1. Find a sentence that shows the character **before**.\n2. Find a sentence that shows the character **after**.\n3. The best ending fits the **after**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every summer, Huda said museums were boring.",
+      "role": "detail"
+     },
+     {
+      "t": "This summer, a guide showed her a meteorite you could touch.",
+      "role": "detail"
+     },
+     {
+      "t": "On the way home, Huda asked when they could go back.",
+      "role": "key"
+     }
+    ],
+    "explain": "At the start Huda thinks museums are **boring**. The ending shows she wants to **go back**. It closes the story by showing her change."
+   },
+   "together": {
+    "passage": "Every summer, Saad's grandmother asked him to help in her small vegetable garden, and every summer he found an excuse. Gardening seemed slow and boring. This year, she had hurt her wrist, so Saad had no choice. At first he grumbled as he pulled weeds in the morning heat. But slowly he began to notice how the cucumber vines curled around the fence and how the tomatoes turned from green to red. By August, he was checking the plants before breakfast without being asked. ___",
+    "stem": "Which ending gives the story the best closure?",
+    "options": [
+     "Cucumbers grow best when the weather is warm and sunny.",
+     "When her wrist healed, Saad asked to keep a corner of the garden.",
+     "Then a huge storm hit the town, and nobody knew what to do.",
+     "Saad pulled weeds and watered the plants in the garden."
+    ],
+    "answer": 1,
+    "hint": "That ending does not show how Saad changed. Compare what he thought at the start with what he does by August.",
+    "good": "Yes! Saad once made excuses. Now he wants his own corner of the garden. The ending shows the change and closes the story."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, Saad's grandmother asked him to help in her small vegetable garden, and every summer he found an excuse.",
+     "Gardening seemed slow and boring.",
+     "This year, she had hurt her wrist, so Saad had no choice.",
+     "At first he grumbled as he pulled weeds in the morning heat.",
+     "But slowly he began to notice how the cucumber vines curled around the fence and how the tomatoes turned from green to red.",
+     "By August, he was checking the plants before breakfast without being asked.",
+     "When her wrist healed, Saad asked to keep a corner of the garden."
+    ],
+    "proof": [
+     0,
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Saad asked to keep a corner of the garden. Tap 2 sentences: one that shows Saad at the start and one that shows him at the end.",
+    "wrong": "This sentence is part of the middle of the story. Find what Saad thought at first and what he does by August."
+   },
+   "checks": [
+    {
+     "passage": "Rana spent a week building a model bridge from wooden sticks for the science fair. On the day of the fair, her bridge held twenty books before it cracked. The judges gave first prize to another student. Rana went home.",
+     "stem": "Which revision of the last sentence gives the best closure?",
+     "options": [
+      "Rana went home and ate dinner with her family.",
+      "The other student's project was about volcanoes.",
+      "Rana went home, and the fair ended at five o'clock.",
+      "On the way home, Rana was already sketching a stronger bridge."
+     ],
+     "answer": 3,
+     "why": "It shows how Rana responds to losing: she plans to do better. That gives the story meaning."
+    },
+    {
+     "passage": "On his first day at the new school, Omar sat alone at lunch and wished he could go back to his old town. Over the next months, he joined the robotics club and learned to laugh at his own mistakes.",
+     "stem": "Which ending best connects back to the beginning?",
+     "options": [
+      "Omar's club built a robot that could move and turn left.",
+      "In June, Omar saw a new boy eating alone and sat beside him.",
+      "In June, the school closed for the long summer holiday.",
+      "Omar decided that robots are very hard to build well."
+     ],
+     "answer": 1,
+     "why": "Omar once sat alone at lunch. Now he helps a new boy who is alone. The ending echoes the start."
+    },
+    {
+     "passage": "Jana was afraid of the sea. Her cousin taught her to swim slowly, one small step at a time. On the last day of the holiday, Jana swam out to the rock by herself. Then a huge fish appeared, and Jana didn't know what to do.",
+     "stem": "Why is the last sentence a weak ending?",
+     "options": [
+      "It uses too many describing words.",
+      "It repeats the first sentence of the story.",
+      "It explains how Jana learned to swim.",
+      "It starts a new problem instead of closing the story."
+     ],
+     "answer": 3,
+     "why": "Jana's fear was solved, but the fish opens a new problem that is never finished."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Draw two boxes: **Before** and **After**.\n\nWrite how the character feels at the start in the first box. Write how the character feels at the end in the second box. Your ending should show the **After** box.",
+    "example": "Before: Ali hates vegetables.\nAfter: Ali grows his own tomatoes.\nEnding: **Ali proudly served his tomatoes at dinner.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Endings that resonate",
+     "text": "The strongest endings do more than stop the action. They leave the reader with the story's **meaning**.\n\nThey resolve the conflict and show, rather than state, what the character has understood."
+    },
+    {
+     "title": "Show, don't preach",
+     "text": "Weak: \"Tariq learned that pride is bad.\"\nStronger: an action that **proves** he learned it.\n\nA final action, image or line of dialogue often says more than a moral."
+    },
+    {
+     "title": "Revising for closure",
+     "text": "1. Name the central conflict and the character's change.\n2. Check that the ending resolves **that** conflict.\n3. Match the story's **tone**: a funny story needs a light ending.\n4. Consider echoing an image from the opening."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A revised ending must be supported by the **whole story**.\n\n1. Find the sentences that set up the conflict or the character's flaw.\n2. Find the turning point.\n3. Choose the ending that answers both, and point to them as proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At the start, Nasser never lets anyone touch his new football.",
+      "role": "detail"
+     },
+     {
+      "t": "By the middle, he is kicking it alone against a wall, with no one to pass to.",
+      "role": "detail"
+     },
+     {
+      "t": "On the last page, Nasser rolls the ball to the new boy waiting at the edge of the field.",
+      "role": "key"
+     }
+    ],
+    "explain": "The ending never says \"Nasser learned to share.\" It **shows** it with one action, and that action resolves the problem set up at the start."
+   },
+   "together": {
+    "passage": "Tariq had always been the fastest runner in his class, and he knew it. During every race on sports day, he glanced back to see how far behind the others were. This year, a quiet new student named Bilal joined the class. In the final race, Tariq glanced back as usual, and in that moment Bilal passed him. Tariq crossed the line second. For a while he sat alone, angry at himself. Then Bilal walked over and asked if Tariq would help him train for the regional race. The two boys trained together all spring. Tariq learned that you should never look back.",
+    "stem": "Which revision of the final sentence gives the story the strongest closure?",
+    "options": [
+     "At the regional race, Tariq kept his eyes on the finish line, and the two friends crossed it side by side.",
+     "Tariq learned a very important lesson that every runner and every student should learn one day.",
+     "The regional race was held in a large stadium in the city, and many families came to watch.",
+     "Bilal won the regional race easily, and Tariq went home feeling angry and sad all over again."
+    ],
+    "answer": 0,
+    "hint": "Does that ending show Tariq's change? Think about his habit of glancing back, and about Bilal.",
+    "good": "Yes! Tariq no longer looks back, and he and Bilal are now friends. The ending shows both changes instead of stating a lesson."
+   },
+   "evidence": {
+    "sentences": [
+     "Tariq had always been the fastest runner in his class, and he knew it.",
+     "During every race on sports day, he glanced back to see how far behind the others were.",
+     "This year, a quiet new student named Bilal joined the class.",
+     "In the final race, Tariq glanced back as usual, and in that moment Bilal passed him.",
+     "Tariq crossed the line second.",
+     "For a while he sat alone, angry at himself.",
+     "Then Bilal walked over and asked if Tariq would help him train for the regional race.",
+     "The two boys trained together all spring.",
+     "Tariq learned that you should never look back."
+    ],
+    "proof": [
+     1,
+     3,
+     6,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: Tariq kept his eyes on the finish line, and the two friends crossed it side by side. Tap 2 sentences that this ending answers.",
+    "wrong": "This sentence does not set up what the ending resolves. Find Tariq's habit of looking back, or how the friendship with Bilal began."
+   },
+   "checks": [
+    {
+     "passage": "Grandfather was sure he could fix the washing machine without help. He took off the back panel, tightened every screw he could find and pressed START. Water sprayed across the kitchen, and the cat leapt onto the fridge. Grandmother appeared in the doorway with a mop in one hand and the repairman's number in the other.",
+     "stem": "Which ending best fits the light, funny tone of the story?",
+     "options": [
+      "Grandfather felt deep sorrow for the rest of his life.",
+      "Washing machines use a great deal of water every year.",
+      "Grandfather handed her the screwdriver. \"Maybe you should call him.\"",
+      "The kitchen floor was covered with clean white tiles."
+     ],
+     "answer": 2,
+     "why": "The story is playful. Grandfather giving up with a joke keeps the light tone and resolves his overconfidence."
+    },
+    {
+     "passage": "After weeks of saving her pocket money, Dana finally had enough to buy the telescope she wanted. At the shop, she saw a poster asking for donations for a family whose home had burned.",
+     "stem": "Which ending best shows Dana's choice instead of stating a lesson?",
+     "options": [
+      "Dana learned that helping others is the most important thing in the world.",
+      "The moral of this story is that we should always be kind to others.",
+      "Dana counted out half her coins, dropped them in the box and walked home lighter.",
+      "Telescopes help people see the moon, the planets and the distant stars."
+     ],
+     "answer": 2,
+     "why": "Her action shows the choice. Two other endings only state a lesson, and one is off topic."
+    },
+    {
+     "passage": "The story opens: \"For ten years, the old fishing boat had not left the harbour.\" It tells how Maryam and her father repair the boat together after his long illness.",
+     "stem": "Which ending best echoes the beginning to give a sense of completion?",
+     "options": [
+      "At sunrise, the old boat slipped out of the harbour.",
+      "Maryam's father had been a fisherman for thirty years.",
+      "Repairing a boat takes wood, paint and a lot of patience.",
+      "Maryam decided that she would become a doctor one day."
+     ],
+     "answer": 0,
+     "why": "The opening says the boat had not left the harbour. Now it does, which shows the work and the recovery are complete."
+    }
+   ],
+   "again": {
+    "title": "Three-question check",
+    "text": "Read the ending and ask:\n\n1. Is the **main problem** solved?\n2. Can I **see** how the character changed?\n3. Does it **sound like** the rest of the story?\n\nIf any answer is no, revise.",
+    "example": "Draft: \"And that was the end of the trip.\"\nRevised: **Back home, Lina pinned the desert photo above her bed, already planning the next trip.**\nThe problem is solved, the change is shown, and the tone fits."
+   }
+  }
+ }
+}

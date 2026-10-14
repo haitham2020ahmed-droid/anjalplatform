@@ -16,7 +16,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { fitOf, measuredLevel, type Fit } from "./level";
-import { ENGINE, RETAKE_REASON, countsForLevel, goalStats, s, toDate, yearEndFor, type LevelPoint } from "./engine";
+import { ENGINE, RETAKE_REASON, countsForLevel, goalStats, readRisePlaced, s, toDate, yearEndFor, type LevelPoint } from "./engine";
 import { GOAL_SCORE, INACTIVE_DAYS, gradeBand, histogram, levelAt as levelAtTime, median, type ClassReport } from "./dashboards";
 import {
   confidenceText, gradePosition, growthConfidence, keyOf, perWeek, projectionRange, scoreTrend, skillBreakdown, skillCell, storyLines, stretchSuccess, strongerSkills,
@@ -92,7 +92,9 @@ export interface StudentGrowthData {
 
 /** Everything about one student's growth (no access check: callers check). */
 export async function loadStudentGrowth(repo: Repo, studentId: string, now = new Date()): Promise<StudentGrowthData> {
-  const [st, rr] = await Promise.all([repo.findUnique("Student", { id: studentId }), repo.findUnique("RRStudent", { studentId })]);
+  const [st, row] = await Promise.all([repo.findUnique("Student", { id: studentId }), repo.findUnique("RRStudent", { studentId })]);
+  // 🎯 only a REAL level (after the placement, or set by a teacher): a first visit's working start is "not placed"
+  const rr = readRisePlaced(row) ? row : null;
   if (!st) throw new ForbiddenError("Student not found.");
   const [user, grade] = await Promise.all([
     repo.findUnique("User", { id: s(st.userId) }), st.gradeId ? repo.findUnique("Grade", { id: s(st.gradeId) }) : Promise.resolve(null),
@@ -255,7 +257,7 @@ export async function classGrowth(repo: Repo, actor: Actor, classId: string, now
     const rr = rrBy.get(id);
     const mine = runBy.get(id) ?? [];
     const last = Math.max(0, ...mine.map((r) => Math.max(time(r.completedAt), time(r.startedAt))));
-    if (!rr) return { studentId: id, name: names.get(id) ?? "Student", level: null, growthTerm: null, confirmedBy: 0, against: 0, confidence: "Not placed", projection: null, position: null, lastActivity: last ? iso(last) : null };
+    if (!rr || !readRisePlaced(rr)) return { studentId: id, name: names.get(id) ?? "Student", level: null, growthTerm: null, confirmedBy: 0, against: 0, confidence: "Not placed", projection: null, position: null, lastActivity: last ? iso(last) : null };
     const changes = changeEvents(chBy.get(id) ?? []);
     const placedAt = time(rr.placedAt), level = Number(rr.level);
     const atTerm = levelAtTime({ startLevel: Number(rr.startLevel), placedAt }, changes.map((c) => ({ at: c.at, toLevel: c.to })), termT) ?? Number(rr.startLevel);

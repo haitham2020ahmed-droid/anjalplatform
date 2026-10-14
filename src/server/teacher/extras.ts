@@ -174,14 +174,29 @@ export async function growthReport(repo: Repo, actor: Actor, subject: Subject = 
   assertCan(actor, "reports:read");
   if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError();
   const classes = (await readableClasses(repo, actor)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  // ⚡ Update 57: every class's students, grades, names and MAP rows in four reads (before: four per class, in turn)
+  const classIds = classes.map((c) => s(c.id));
+  const [members, gradeRows] = await Promise.all([
+    classIds.length ? repo.findMany("ClassMembership", { classId: { in: classIds }, leftAt: null }, { select: ["classId", "studentId"] }) : Promise.resolve([] as Row[]),
+    classes.length ? repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const membersOf = new Map<string, string[]>();
+  for (const m of members) { const k = s(m.classId); const l = membersOf.get(k); if (l) l.push(s(m.studentId)); else membersOf.set(k, [s(m.studentId)]); }
+  const levelOf = new Map(gradeRows.map((g) => [s(g.id), Number(g.level)]));
+  const allIds = [...new Set(members.map((m) => s(m.studentId)))];
+  const [names, maps] = await Promise.all([
+    studentNames(repo, allIds),
+    allIds.length ? repo.findMany("MapResult", { studentId: { in: allIds }, goalName: null }, { select: ["studentId", "subject", "termName", "testDate", "rit", "projectedGrowth"] }) : Promise.resolve([] as Row[]),
+  ]);
+  const mapsOf = new Map<string, Row[]>();
+  for (const m of maps) { const k = s(m.studentId); const l = mapsOf.get(k); if (l) l.push(m); else mapsOf.set(k, [m]); }
   const out: GrowthClass[] = [];
   for (const c of classes) {
-    const ids = await classMembers(repo, s(c.id));
-    const grade = Number((await repo.findUnique("Grade", { id: c.gradeId }))?.level ?? 0);
-    const [names, maps] = await Promise.all([studentNames(repo, ids), ids.length ? repo.findMany("MapResult", { studentId: { in: ids }, goalName: null }) : Promise.resolve([] as Row[])]);
+    const ids = membersOf.get(s(c.id)) ?? [];
+    const grade = levelOf.get(s(c.gradeId)) ?? 0;
     const rows: GrowthRow[] = [];
     for (const id of ids) {
-      const mine = maps.filter((m) => m.studentId === id && (subject === "READING" ? /read/i : /language/i).test(s(m.subject))).sort((a, b) => time(a.testDate) - time(b.testDate));
+      const mine = (mapsOf.get(id) ?? []).filter((m) => (subject === "READING" ? /read/i : /language/i).test(s(m.subject))).sort((a, b) => time(a.testDate) - time(b.testDate));
       const fall = [...mine].reverse().find((m) => seasonOf(m.termName, m.testDate) === "FALL");
       if (!fall) continue;
       const latest = mine.filter((m) => time(m.testDate) > time(fall.testDate)).pop();

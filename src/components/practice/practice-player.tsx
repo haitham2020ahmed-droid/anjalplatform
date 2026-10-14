@@ -29,6 +29,14 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   // ✅ finished (the last answer saved, or nothing left in this skill): "Great job! ✓", then back to My Work
   const [done, setDone] = useState<string | null>(initial.ended && initial.endReason && CELEBRATE.has(initial.endReason) ? initial.endReason : null);
   const sending = useRef(false); // one answer at a time (double clicks), before React shows "Checking…"
+  // r67 guessing: after "take your time" the next question's answer buttons enable after a few seconds
+  const [locked, setLocked] = useState(false);
+  const lockMs = useRef(0);
+  useEffect(() => {
+    if (!locked) return;
+    const id = window.setTimeout(() => setLocked(false), lockMs.current);
+    return () => window.clearTimeout(id);
+  }, [locked]);
 
   const check = () => {
     if (sending.current || pending) return;
@@ -57,6 +65,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   };
 
   const next = () => {
+    if (feedback?.guess?.action === "SLOW_DOWN") { lockMs.current = feedback.guess.waitMs; setLocked(true); }
     setShown(view.question);
     setValue(null);
     setFeedback(null);
@@ -70,7 +79,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   return (
     <WordLookup>
       <PracticeFrame view={view} shownQuestion={shown} value={value} onChange={setValue} feedback={feedback}
-        ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} onNext={next} unitHref={unitHref}
+        ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} onNext={next} unitHref={unitHref} locked={locked}
         onFinish={() => setDone(feedback?.next.hasQuestion ? "COMPLETED" : feedback?.next.endReason ?? "COMPLETED")} />
       {shown && hint && !feedback && (
         <div className="mx-auto mt-3 max-w-5xl">

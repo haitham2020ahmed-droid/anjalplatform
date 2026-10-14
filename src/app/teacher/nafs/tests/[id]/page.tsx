@@ -5,10 +5,11 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { canSeeNafs } from "@/server/teacher/nafs-access";
-import { builderRows } from "@/server/nafs/build";
+import { builderRows, isAdaptiveTest } from "@/server/nafs/build";
 import { getNafsTest, givenClasses, markOf, MODE_NAME, nafsClasses } from "@/server/nafs/tests";
 import { getT } from "@/i18n/server";
-import { MAX_NAFS_MINUTES, MOE_BY_CODE } from "@/server/nafs/framework";
+import { codeName, MAX_NAFS_MINUTES } from "@/server/nafs/framework";
+import { Combo } from "@/components/ui/combo";
 import { assignOnlineAction, deleteTestAction, releaseAction, updateAssignmentAction } from "../../actions";
 
 export const metadata = { title: "NAFS test" };
@@ -35,6 +36,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
   const total = Math.round(test.questionIds.reduce((a, q) => a + markOf(test.marks, q), 0) * 100) / 100;
   const first = classes[0]?.id ?? "";
   const written = rows.filter((r) => r.kind === "WRITTEN").length;
+  const adaptive = isAdaptiveTest(test.settings);
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/nafs?tab=tests", label: "Tests" }} icon="🇸🇦" title={test.title}
@@ -46,6 +48,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
       <div className="grid gap-4 lg:grid-cols-2">
         <section className="rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line">
           <h2 className="text-lg font-semibold text-ink">💻 {t("Assign to students (online)")}</h2>
+          {adaptive && <p className="mt-1 rounded-xl bg-teal-50 px-3 py-2 text-sm text-teal-900 ring-1 ring-teal-200">↕ {t("Adaptive test: online, each student starts at Medium and the next question is harder after a right answer, easier after a wrong one, inside the test's standards (results under Practice). Printed, it is the Mixed list below.")}</p>}
           <p className="mt-1 text-sm text-ink-2">{t("Students solve it on the platform (My Tests): a timer, the passage with its questions, a warning about unanswered questions, no hints. Multiple-choice answers are graded automatically; written answers go to the Marking tab; results go to Reports. Students see their score after you release the results.")}</p>
           {!classes.length ? <p className="mt-3 text-sm text-muted">{t("You have no Grade 6 class yet.")}</p> : (
             <div className="mt-3 grid gap-2">
@@ -58,9 +61,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
                       <legend className="text-xs font-semibold text-ink-2">{t("Who")}</legend>
                       <label className="flex items-center gap-2 text-sm text-ink"><input type="radio" name="who" value="class" defaultChecked className="h-4 w-4" /> {t("The whole class")}</label>
                       <label className="flex items-center gap-2 text-sm text-ink"><input type="radio" name="who" value="some" className="h-4 w-4" /> {t("Only the students I tick")}</label>
-                      <div className="grid max-h-48 gap-1 overflow-y-auto rounded-lg bg-surface p-2 ring-1 ring-line sm:grid-cols-2">
-                        {c.students.map((x) => <label key={x.id} className="flex min-h-9 items-center gap-2 text-sm text-ink"><input type="checkbox" name="sid" value={x.id} className="h-4 w-4" /><bdi>{x.name}</bdi></label>)}
-                      </div>
+                      <Combo multiple name="sid" label={t("Only the students I tick")} options={c.students.map((x) => ({ value: x.id, label: x.name }))} />
                     </fieldset>
                     <div className="flex flex-wrap items-end gap-2">
                       <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Time (minutes)")}<input type="number" name="minutes" required min={1} max={MAX_NAFS_MINUTES} defaultValue={test.timeLimitMin ?? ""} className={`${SEL} w-24`} /></label>
@@ -108,7 +109,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
           {classes.length > 0 && (
             <form method="get" action="/teacher/nafs/sheets" className="mt-3 flex flex-wrap items-end gap-2">
               <input type="hidden" name="test" value={id} />
-              <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Class")}<select name="class" defaultValue={first} className={SEL}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
+              <div className="grid min-w-48 gap-1 text-xs font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" required label={t("Class")} defaultValue={first} options={classes.map((c) => ({ value: c.id, label: c.name, hint: t("{n} students", { n: c.students.length }) }))} /></div>
               <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Print bubble sheets")}</button>
               <button name="blank" value="1" className={LINK}>{t("Blank sheets")}</button>
               <button name="go" value="grade" className="min-h-11 rounded-xl bg-teal-700 px-4 font-semibold text-white">📷 {t("Grade bubble sheets")}</button>
@@ -124,7 +125,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
             <li key={r.id} className="py-2">
               {r.passageId && rows[i - 1]?.passageId !== r.passageId && <p className="text-xs font-semibold text-teal-ink">📄 {r.passageTitle}</p>}
               <p className="text-sm text-ink" lang="en" dir="ltr"><b>{r.n}.</b> {r.stem}</p>
-              <p className="text-xs text-muted">{r.standard ? <b className="me-1 text-ink-2" dir="ltr">{MOE_BY_CODE.get(r.standard)?.short}</b> : null}{t(r.skill)} · {r.process} · {r.kind === "WRITTEN" ? `✍ ${t("Short written answer")}` : `${t("Answer")}: ${"ABCD"[r.correct]}`} · {t("{n} marks", { n: markOf(test.marks, r.id) })}</p>
+              <p className="text-xs text-muted">{r.standard ? <b className="me-1 text-ink-2">{codeName(r.standard, t)} ·</b> : null}{t(r.skill)} · {codeName(r.process, t)} · {r.kind === "WRITTEN" ? `✍ ${t("Short written answer")}` : `${t("Answer")}: ${"ABCD"[r.correct]}`} · {t("{n} marks", { n: markOf(test.marks, r.id) })}</p>
             </li>
           ))}
         </ol>

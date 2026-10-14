@@ -1,0 +1,568 @@
+{
+  "code": "NB-077",
+  "title": "Reading the Ripples",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 452,
+  "passage": "My mother is a field geologist. When she announced that she would be measuring the moving dunes of the Nafud Desert during the mid-year holiday, I begged to go with her until she finally agreed. I imagined an effortless adventure in which I would photograph golden sand from the air-conditioned comfort of our four-wheel drive. Within a single day, however, the Nafud had demonstrated that it was a demanding teacher rather than a postcard.\n\nWe left Ha'il before sunrise. We followed a faint track that wound between huge ridges of reddish sand. My mother drove cautiously, consulting her satellite navigator every few minutes, while I recorded the temperature in her notebook. Around noon, the screen of the navigator flickered, displayed a confusing jumble of numbers, and then went completely dark. My mother pressed every button patiently, but the device remained as silent as a stone.\n\n\"We are not lost,\" she declared calmly, although I noticed that her fingers were gripping the steering wheel rather tightly. \"We simply have to read the desert instead of the screen.\" I stared at her in disbelief. To me, every dune looked exactly like the one before it.\n\nShe stepped out of the vehicle and knelt beside a smooth slope, pointing at the tiny parallel ripples that decorated its surface like the lines of a fingerprint. \"The wind in this season blows steadily from the north-west,\" she explained, \"so these ripples always form at right angles to it. If we drive so that the ripples always cross our path at right angles, we will be travelling south-east, toward the highway.\" Then she showed me how the gentle side of each dune faced the wind, whereas the steep side, where sand avalanched downward, faced away from it.\n\nFor the next two hours, I was the navigator. Whenever we reached a new ridge, I scrambled out, examined the ripples, compared the two slopes of the dune, and announced our direction with growing confidence. Occasionally I hesitated, especially where two dunes had merged into a tangled shape, and my mother encouraged me to examine several slopes before deciding, rather than trusting the first one I saw.\n\nLate in the afternoon, a dark line appeared on the horizon, shimmering in the heat. At first I suspected it was a mirage, but as we approached, it sharpened into the unmistakable shape of a paved highway with trucks crawling along it. I shouted so loudly that my mother laughed.\n\nThat evening, while she repaired the navigator in our hotel room, I copied a sketch of the ripples into my own notebook. Technology is a wonderful assistant, I wrote beneath it, but it should never be the only guide we know how to follow.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “cautiously” as it is used in paragraph 2?",
+      "options": [
+        "carefully",
+        "quickly",
+        "noisily",
+        "proudly"
+      ],
+      "answer": "A",
+      "why": "The mother checks her navigator every few minutes, so she drives with care: “cautiously” means carefully."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “effortless” as it is used in paragraph 1?",
+      "options": [
+        "pleasant",
+        "exhausting",
+        "peaceful",
+        "familiar"
+      ],
+      "answer": "B",
+      "why": "“Effortless” means needing no effort; the opposite is something that is hard and tiring, “exhausting”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “Occasionally I hesitated, especially where two dunes had merged into a tangled shape.” What does “merged” mean here?",
+      "options": [
+        "moved apart",
+        "grown taller",
+        "joined together",
+        "blown away"
+      ],
+      "answer": "C",
+      "why": "Two dunes that form one “tangled shape” have joined together."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADVERB?",
+      "options": [
+        "faint",
+        "patiently",
+        "navigator",
+        "flickered"
+      ],
+      "answer": "B",
+      "why": "“Patiently” tells HOW the mother pressed the buttons, so it is an adverb; “faint” is an adjective, “navigator” a noun and “flickered” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a PLURAL noun?",
+      "options": [
+        "track",
+        "numbers",
+        "sunrise",
+        "device"
+      ],
+      "answer": "B",
+      "why": "“Numbers” means more than one number; “track”, “sunrise” and “device” are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “navigator”?",
+      "options": [
+        "navy",
+        "native",
+        "navigation",
+        "nature"
+      ],
+      "answer": "C",
+      "why": "“Navigation” shares the root of “navigate” with “navigator”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “demanding” in a meaningful sentence of your own.",
+      "model": "Our football coach is very demanding, because he expects every player to arrive early and practise until the last minute.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “demanding” with its meaning (needing a lot of effort, skill or attention)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Demanding” describes someone or something that needs a lot of effort, skill or attention."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “hotel room”, which appears in paragraph 7?",
+      "options": [
+        "hotels room",
+        "hotel rooms",
+        "hotels rooms",
+        "hotel roomes"
+      ],
+      "answer": "B",
+      "why": "In a compound noun like this, only the main noun “room” becomes plural: hotel rooms."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “We are not lost,” in paragraph 3?",
+      "options": [
+        "a command",
+        "a question",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "C",
+      "why": "The mother simply tells something she believes is true; she is not asking, ordering or showing strong feeling, so it is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the story?",
+      "options": [
+        "The Day the Desert Became My Map",
+        "How to Repair a Satellite Navigator",
+        "A Holiday Hotel in Ha'il",
+        "Trucks on the Northern Highway"
+      ],
+      "answer": "A",
+      "why": "The story is about finding the way by reading the dunes when the screen fails."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the writer's main purpose in this story?",
+      "options": [
+        "to persuade readers to buy better navigation devices",
+        "to explain how sand dunes are formed over thousands of years",
+        "to warn readers never to travel in the Nafud Desert",
+        "to show how a girl learns to rely on observation when technology fails"
+      ],
+      "answer": "D",
+      "why": "The narrator learns to read ripples and slopes when the navigator stops working, and she ends with a lesson about technology."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "The mother kneels down because she is tired from driving.",
+        "The mother explains how wind ripples and dune slopes show direction.",
+        "The wind in the Nafud changes direction every hour.",
+        "The narrator photographs the sand for her school project."
+      ],
+      "answer": "B",
+      "why": "The whole paragraph explains how ripples and the gentle and steep slopes reveal the wind direction."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why do the ripples show the travellers which way to go?",
+      "options": [
+        "They always point toward the nearest town.",
+        "They are darker on the side that faces south.",
+        "They form at right angles to a wind that blows steadily from the north-west.",
+        "They are made by trucks driving along the highway."
+      ],
+      "answer": "C",
+      "why": "The mother says the wind blows steadily from the north-west, “so these ripples always form at right angles to it.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a personal narrative",
+        "a science report",
+        "a biography",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "The narrator tells a true-to-life experience from her own life using “I”."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the narrator at first think the dark line on the horizon was a mirage?",
+      "options": [
+        "Her mother told her it was not real.",
+        "It was shimmering in the heat.",
+        "It disappeared every few minutes.",
+        "It appeared on the navigator's screen."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6 says the line appeared “shimmering in the heat”, which is how a mirage looks."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "The navigator's screen went completely dark.",
+        "The narrator recorded the temperature in the notebook.",
+        "The mother knelt beside a smooth slope.",
+        "The narrator copied a sketch of the ripples into her notebook."
+      ],
+      "answer": "D",
+      "why": "She copied the sketch that evening in the hotel, after all the other events."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "the geologist mother",
+        "a truck driver on the highway",
+        "the geologist's daughter",
+        "an outside narrator who is not in the story"
+      ],
+      "answer": "C",
+      "why": "The narrator says “My mother is a field geologist” and takes part in the events using “I”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must the travellers check to know which side of a dune faced the wind?",
+      "options": [
+        "the gentle side of the dune",
+        "the colour of the sand",
+        "the height of the dune",
+        "the number of trucks nearby"
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “the gentle side of each dune faced the wind, whereas the steep side … faced away from it.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the travellers to “read the desert instead of the screen”?",
+      "options": [
+        "They had forgotten to bring the navigator.",
+        "The navigator flickered, showed confusing numbers and went dark.",
+        "The mother wanted to test her daughter's knowledge.",
+        "The track was covered by a sandstorm."
+      ],
+      "answer": "B",
+      "why": "The navigator stopped working at noon, so they had to find the way another way."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the mother MOST LIKELY feel when the navigator stopped working, even though she spoke calmly?",
+      "options": [
+        "bored",
+        "amused",
+        "angry",
+        "worried"
+      ],
+      "answer": "D",
+      "why": "Her words were calm, but “her fingers were gripping the steering wheel rather tightly”, which shows hidden worry."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
+      "options": [
+        "wanting to know how they will find their way without the navigator",
+        "wanting to know what temperature the narrator recorded",
+        "wanting to learn what time they left Ha'il",
+        "wanting to know what colour the car was"
+      ],
+      "answer": "A",
+      "why": "The navigator's failure creates a problem, and readers want to know how it will be solved."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the narrator in paragraph 3 different from the narrator in paragraph 5?",
+      "options": [
+        "In paragraph 3 she is confident; in paragraph 5 she is frightened.",
+        "In paragraph 3 she doubts she can read the desert; in paragraph 5 she gives directions with growing confidence.",
+        "In paragraph 3 she is driving; in paragraph 5 she is resting.",
+        "In paragraph 3 she is happy; in paragraph 5 she is angry with her mother."
+      ],
+      "answer": "B",
+      "why": "At first “every dune looked exactly like the one before it”, but later she “announced our direction with growing confidence.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the mother's advice to “examine several slopes before deciding”?",
+      "options": [
+        "The narrator stopped trusting a single, confusing dune and chose the direction more reliably.",
+        "The narrator refused to be the navigator any longer.",
+        "The car became stuck in the merged dunes.",
+        "The mother decided to drive back to Ha'il."
+      ],
+      "answer": "A",
+      "why": "Checking several slopes where dunes had merged helped her avoid being misled by one tangled shape; they reached the highway."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the satellite navigator and the ripples in the sand have in common in this story?",
+      "options": [
+        "Both stopped working at noon.",
+        "Both were drawn in the narrator's notebook in the morning.",
+        "Both helped the travellers to find their direction.",
+        "Both were repaired in the hotel room."
+      ],
+      "answer": "C",
+      "why": "The navigator guided them in the morning, and the ripples guided them after it failed."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying that the Nafud was “a demanding teacher rather than a postcard”?",
+      "options": [
+        "The desert was full of teachers and tourists.",
+        "The desert taught her hard lessons instead of just looking pretty.",
+        "The desert was too hot to take good photographs.",
+        "The desert reminded her of a strict teacher at school."
+      ],
+      "answer": "B",
+      "why": "A postcard is only nice to look at; a demanding teacher makes you work and learn. The desert made her learn to navigate."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which figurative phrase compares something in the desert to a part of the human body?",
+      "options": [
+        "“as silent as a stone”",
+        "“a confusing jumble of numbers”",
+        "“trucks crawling along it”",
+        "“like the lines of a fingerprint”"
+      ],
+      "answer": "D",
+      "why": "The ripples are compared to the lines of a fingerprint, which is on a finger."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the story with the sentence the narrator writes in her notebook?",
+      "options": [
+        "to show the lesson she learned from the journey",
+        "to give the exact location of the highway",
+        "to explain how to repair a navigator",
+        "to introduce a new character"
+      ],
+      "answer": "A",
+      "why": "The notebook sentence sums up what she learned: technology should not be the only guide."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which skill was MOST useful to the travellers on this journey?",
+      "options": [
+        "driving very fast across the dunes",
+        "taking good photographs of the sand",
+        "observing nature carefully and patiently",
+        "pressing every button on the navigator"
+      ],
+      "answer": "C",
+      "why": "Careful observation of ripples and slopes is what brought them safely to the highway."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer MOST LIKELY sharing?",
+      "options": [
+        "Children should never travel into the desert.",
+        "Technology is useless and should be avoided.",
+        "Geologists always know the way home.",
+        "It is wise to understand the world around us and not depend only on machines."
+      ],
+      "answer": "D",
+      "why": "The narrator calls technology “a wonderful assistant” but says it should not be “the only guide”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in paragraph 6?",
+      "options": [
+        "excitement and relief",
+        "fear and confusion",
+        "boredom and tiredness",
+        "anger and disappointment"
+      ],
+      "answer": "A",
+      "why": "The narrator shouts loudly when she sees the highway, and her mother laughs: they are relieved and excited."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "why the navigator stopped working",
+        "from which direction the wind blows in this season",
+        "which side of a dune faces the wind",
+        "where the travellers started their journey"
+      ],
+      "answer": "A",
+      "why": "The story never explains why the navigator failed; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A dune speaks and tells travellers the way home.",
+        "Travellers use wind ripples on dunes to judge their direction.",
+        "A satellite navigator repairs itself in the desert heat.",
+        "A mirage turns into a real highway because someone wishes for it."
+      ],
+      "answer": "B",
+      "why": "Wind ripples really do form across the wind direction, so they can help travellers find their way."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Lost Forever in the Nafud",
+        "The Broken Steering Wheel",
+        "My Mother's Holiday Photographs",
+        "When the Screen Went Dark"
+      ],
+      "answer": "D",
+      "why": "The key event is the navigator going dark and the travellers navigating without it."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which the travellers reach safety in another believable way.",
+      "model": "As the sun began to set, the ripples led us to a small camp where a family was resting with their camels. The father kindly offered us tea and drew a map of the route to the highway in the sand with a stick. My mother thanked him, and I realised that people, too, can be a reliable guide in the desert.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and setting and brings the travellers to safety in a believable way",
+        "1 = an ending is given but it is unclear, unrealistic, or does not show how they reach safety",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic ending that fits the desert journey and resolves the problem is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how could desert travellers avoid being in danger if their navigator fails?",
+      "options": [
+        "Carry a paper map and a compass as a backup.",
+        "Learn natural signs such as the wind direction shown by dunes.",
+        "A and B",
+        "Drive faster so they reach the road before dark."
+      ],
+      "answer": "C",
+      "why": "Both a backup map and compass and knowing natural signs would help; driving fast without direction would not."
+    }
+  ]
+}

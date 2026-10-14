@@ -1,0 +1,488 @@
+{
+ "code": "LN-146",
+ "title": "Summarizing what you hear and watch",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Speaking and Listening",
+ "standards": [],
+ "families": [
+  "summarize"
+ ],
+ "skillNames": [
+  "Summarizing Read-Alouds and Media"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Listen and tell",
+     "text": "Your teacher reads a story. You watch a short video.\n\nAfter, can you **tell it back** in a few words? That is a **summary**."
+    },
+    {
+     "title": "Big things only",
+     "text": "A summary tells the **most important** things.\n\nIt does **not** tell every little thing."
+    },
+    {
+     "title": "Three questions",
+     "text": "1. **Who** or **what** was it about?\n2. **What happened**?\n3. **How did it end**?\n\nSay your answers in one or two sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in what you heard**. Here the words are written for you.\n\n1. Read them again.\n2. Find the sentences that tell the **big things**.\n3. Your summary must match them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The teacher read: A little bird fell from its nest.",
+      "role": "key"
+     },
+     {
+      "t": "A boy saw it on the grass.",
+      "role": "detail"
+     },
+     {
+      "t": "He gently put it back in the nest.",
+      "role": "key"
+     },
+     {
+      "t": "The bird had brown wings.",
+      "role": "other"
+     }
+    ],
+    "explain": "Summary: **A boy saved a little bird that fell from its nest.**\n\nThe brown wings are a small thing. We leave them out."
+   },
+   "together": {
+    "passage": "The teacher read this story. Noor lost her red pen at school. She looked in her bag. She looked under her desk. Then her friend Lina found it by the door and gave it back.",
+    "stem": "Which is the best summary of the story?",
+    "options": [
+     "Noor looked in her school bag.",
+     "Noor lost her pen, and Lina found it.",
+     "Lina was standing by the door.",
+     "Noor had a pen that was red."
+    ],
+    "answer": 1,
+    "hint": "That is just one small thing. What is the whole story about?",
+    "good": "Yes! The pen was lost, then found. That is the whole story in a few words."
+   },
+   "evidence": {
+    "sentences": [
+     "The teacher read this story.",
+     "Noor lost her red pen at school.",
+     "She looked in her bag.",
+     "She looked under her desk.",
+     "Then her friend Lina found it by the door and gave it back."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Noor lost her pen, and Lina found it. Tap the 2 sentences that tell these big things.",
+    "wrong": "This sentence tells a small step. Find where the pen is lost and where it is found."
+   },
+   "checks": [
+    {
+     "passage": "You watched a video. A man said: Bees fly from flower to flower. They take nectar home. They make honey with it.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Bees make honey from flower nectar.",
+      "Bees can fly to many places.",
+      "Flowers come in many colours.",
+      "A man made a video."
+     ],
+     "answer": 0,
+     "why": "The video is about how bees get nectar and make honey."
+    },
+    {
+     "passage": "The teacher read: Omar wanted to ride a bike. He fell many times. He kept trying. At last, he rode all the way home.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Omar went home after school.",
+      "Omar fell down on the road.",
+      "Omar kept trying and learned to ride a bike.",
+      "Omar has a big, blue, new bike."
+     ],
+     "answer": 2,
+     "why": "The big things are: he wanted to ride, he kept trying, and he did it."
+    },
+    {
+     "passage": "You heard a radio report: It will rain today. Take an umbrella. The rain will stop at night.",
+     "stem": "What is the main thing the report said?",
+     "options": [
+      "The night will be dark and cold.",
+      "It will rain today, so take an umbrella.",
+      "Umbrellas come in many sizes.",
+      "The man on the radio is loud."
+     ],
+     "answer": 1,
+     "why": "The report tells about the rain today and what to do about it."
+    }
+   ],
+   "again": {
+    "title": "Use your fingers",
+    "text": "Hold up three fingers.\n\n1. **Beginning**: what happened first?\n2. **Middle**: what happened next?\n3. **End**: how did it finish?\n\nNow say them in one sentence.",
+    "example": "A cat was stuck in a tree. A firefighter climbed up. The cat was safe.\n\nSummary: **A firefighter saved a cat stuck in a tree.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Summing up what you hear",
+     "text": "When you listen to a read-aloud or watch a video, you can **summarise** it.\n\nA summary tells the **main points** in your own words. It is much shorter than the original."
+    },
+    {
+     "title": "Listen for signals",
+     "text": "Speakers often give clues to the main points:\n\n**First... Next... The most important thing is... So...**\n\nWhen you hear these words, pay attention."
+    },
+    {
+     "title": "Build your summary",
+     "text": "1. Name the **topic**.\n2. Pick the **two or three main points**.\n3. Leave out small details, jokes and examples.\n4. Say it in your own words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Here the words you heard are written down, so you can **check** your summary.\n\n1. Find the sentences that give the **main points**.\n2. Make sure your summary includes them.\n3. A choice that only gives one small detail is **not** a summary."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the video, a ranger said that sea turtles lay their eggs on sandy beaches.",
+      "role": "main"
+     },
+     {
+      "t": "After about two months, the babies hatch at night.",
+      "role": "detail"
+     },
+     {
+      "t": "The ranger wore a big hat.",
+      "role": "other"
+     },
+     {
+      "t": "The babies follow the light of the moon on the water to reach the sea.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Main points: turtles lay eggs on beaches, the babies hatch, and they find their way to the sea.\n\nThe ranger's hat is not important. Summary: **Sea turtle babies hatch on beaches and find their way to the sea.**"
+   },
+   "together": {
+    "passage": "In a short video, a chef explains how to make a simple salad. First, she washes the tomatoes, cucumbers and lettuce in cold water. Next, she cuts the vegetables into small pieces. She jokes that her knife is older than her son. Then she mixes olive oil, lemon juice and a little salt. Finally, she pours the dressing over the vegetables and serves the salad.",
+    "stem": "Which is the best summary of the video?",
+    "options": [
+     "A chef jokes that her kitchen knife is older than her son.",
+     "A chef washes tomatoes in cold water.",
+     "A chef explains why eating salad every day keeps you healthy.",
+     "A chef shows how to wash, cut and dress vegetables to make a salad."
+    ],
+    "answer": 3,
+    "hint": "A summary covers the main steps, not one small part. Does your answer include the whole video?",
+    "good": "Yes! Washing, cutting and adding the dressing are the main steps of the video."
+   },
+   "evidence": {
+    "sentences": [
+     "In a short video, a chef explains how to make a simple salad.",
+     "First, she washes the tomatoes, cucumbers and lettuce in cold water.",
+     "Next, she cuts the vegetables into small pieces.",
+     "She jokes that her knife is older than her son.",
+     "Then she mixes olive oil, lemon juice and a little salt.",
+     "Finally, she pours the dressing over the vegetables and serves the salad."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 3,
+    "stem": "The answer was: the chef washes, cuts and dresses the vegetables. Tap 3 sentences that show these steps.",
+    "wrong": "This sentence is an introduction or a joke. Find the steps the chef follows."
+   },
+   "checks": [
+    {
+     "passage": "In a read-aloud, the teacher read: The ant worked hard all summer, collecting food. The grasshopper sang and played. When winter came, the ant had food, but the grasshopper was hungry.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "The grasshopper liked to sing and play all summer long.",
+      "The ant worked and was ready for winter, but the grasshopper was not.",
+      "Winter is a cold and hungry time for every animal.",
+      "The ant collected food in summer."
+     ],
+     "answer": 1,
+     "why": "The summary tells what both characters did and what happened in winter."
+    },
+    {
+     "passage": "A podcast host said: Our town library is changing. It now opens on weekends. It has a new room for children. And soon, you will be able to borrow books online. The host also said he loves the library's café.",
+     "stem": "Which detail should be LEFT OUT of a summary?",
+     "options": [
+      "The host loves the library's café.",
+      "The library now opens on weekends.",
+      "There is a new children's room.",
+      "Books can soon be borrowed online."
+     ],
+     "answer": 0,
+     "why": "The café is the host's personal opinion, not one of the changes. The other three are main points."
+    },
+    {
+     "passage": "In a school announcement, the principal said: Sports day is next Thursday. Students should wear their sports uniform and bring water. The day will start at eight and end at noon.",
+     "stem": "Which is the best summary of the announcement?",
+     "options": [
+      "Students like sports.",
+      "Sports day starts at eight and ends at noon.",
+      "Sports day is next Thursday; wear sports clothes and bring water.",
+      "Students should bring water to school every day of the year."
+     ],
+     "answer": 2,
+     "why": "This covers the date and what students must do. The other choices are too small or not said."
+    }
+   ],
+   "again": {
+    "title": "Tell a friend",
+    "text": "Imagine a friend missed the video. What would you tell them in **two sentences**?\n\nThose two sentences are your summary.",
+    "example": "A clip shows how rain forms: the sun heats water, it rises and makes clouds, and the drops fall as rain.\n\nTo a friend: **The video shows how rain forms. Water rises, makes clouds, and falls as rain.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Summarising spoken texts",
+     "text": "Read-alouds, videos, podcasts and talks are **texts** too. You can summarise them.\n\nBut you hear them only once, so you must **listen for the main points** while the speaker talks."
+    },
+    {
+     "title": "What to keep, what to drop",
+     "text": "**Keep:** the topic, the main points, and the conclusion.\n\n**Drop:** examples that repeat a point, jokes, side stories, and the speaker's greetings.\n\nUse your own words, but do not add your own opinion."
+    },
+    {
+     "title": "Take quick notes",
+     "text": "1. Write the **topic** at the top.\n2. Jot down **key words** for each new point.\n3. Listen for the **ending**: speakers often repeat their main message.\n4. Turn your notes into two or three sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When the words are written, you can **check** a summary.\n\n1. Find the sentences that state each **main point**.\n2. Find the sentence that gives the **conclusion**.\n3. The best summary includes all of them and adds nothing that was not said.\n\nWatch out for choices that add an opinion or focus on a side detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Good morning, everyone, and thank you for listening.",
+      "role": "other"
+     },
+     {
+      "t": "Today I will talk about why sleep matters for students.",
+      "role": "main"
+     },
+     {
+      "t": "When we sleep, the brain stores what we learned that day.",
+      "role": "detail"
+     },
+     {
+      "t": "Sleep also helps the body grow and fight illness.",
+      "role": "detail"
+     },
+     {
+      "t": "So, if you want to do well at school, get enough sleep every night.",
+      "role": "key"
+     }
+    ],
+    "explain": "We drop the greeting. We keep the topic, the two reasons and the conclusion.\n\nSummary: **The speaker explains that sleep helps students remember, grow and stay healthy, so they should sleep well every night.**"
+   },
+   "together": {
+    "passage": "In a short documentary, the narrator explains how the Arabian oryx was saved. By the early 1970s, hunting had wiped out the last wild oryx. A few animals, however, still lived in zoos and private herds. Scientists bred these animals carefully until there were enough to return to the wild. The narrator mentions that the oryx's white coat reflects the sun's heat. In the 1980s and 1990s, oryx were released into protected areas, including reserves in Saudi Arabia. Today, the narrator says, the oryx is a symbol of what conservation can achieve.",
+    "stem": "Which is the best summary of the documentary?",
+    "options": [
+     "The oryx has a white coat that reflects the heat of the sun, which helps it stay cool in the desert.",
+     "Hunting is the biggest danger to desert animals today.",
+     "After the oryx vanished from the wild, animals bred in captivity were returned to protected areas, showing that conservation works.",
+     "Many zoos around the world keep oryx and other desert animals so that visitors can see them up close."
+    ],
+    "answer": 2,
+    "hint": "That is only one detail, or something the narrator did not say. Which choice covers the problem, the solution and the result?",
+    "good": "Yes! It covers the problem (hunting), the solution (breeding and release) and the message (conservation works)."
+   },
+   "evidence": {
+    "sentences": [
+     "In a short documentary, the narrator explains how the Arabian oryx was saved.",
+     "By the early 1970s, hunting had wiped out the last wild oryx.",
+     "A few animals, however, still lived in zoos and private herds.",
+     "Scientists bred these animals carefully until there were enough to return to the wild.",
+     "The narrator mentions that the oryx's white coat reflects the sun's heat.",
+     "In the 1980s and 1990s, oryx were released into protected areas, including reserves in Saudi Arabia.",
+     "Today, the narrator says, the oryx is a symbol of what conservation can achieve."
+    ],
+    "proof": [
+     1,
+     3,
+     5,
+     6
+    ],
+    "need": 3,
+    "stem": "The answer was: the oryx vanished, was bred in captivity and released, and conservation worked. Tap 3 sentences that give these main points.",
+    "wrong": "This sentence is an introduction, a side fact or a supporting detail. Find the main points: the problem, the solution and the result."
+   },
+   "checks": [
+    {
+     "passage": "A science podcast said: Plastic in the ocean breaks into tiny pieces called microplastics. Fish and birds eat these pieces by mistake. Scientists have found microplastics even in deep-sea animals. The host suggested using fewer plastic bags and bottles to help.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Scientists have found plastic even inside animals that live deep in the sea.",
+      "Ocean plastic breaks into tiny pieces that harm sea life, so we should use less plastic.",
+      "Birds sometimes eat fish.",
+      "Plastic bags and bottles are cheaper and more useful than paper ones."
+     ],
+     "answer": 1,
+     "why": "It covers the problem, the harm and the suggested solution, and adds nothing new."
+    },
+    {
+     "passage": "In a video, a student explained her science fair project. She grew bean plants with different amounts of water. The plants with a little water each day grew tallest. The plants with too much water turned yellow. She said she hopes to win first prize.",
+     "stem": "Which summary adds an idea that was NOT said?",
+     "options": [
+      "Beans grew best with a little water each day; too much water made them yellow.",
+      "A student tested how water amounts affect bean plants.",
+      "The student showed that plants need just the right amount of water.",
+      "The student proved that all plants need lots of water to grow tall."
+     ],
+     "answer": 3,
+     "why": "The video showed that too much water harmed the plants. A good summary never changes or adds to what was said."
+    },
+    {
+     "passage": "At an assembly, a guest speaker said: When I was your age, I was afraid to speak in class. My teacher asked me to read one sentence aloud each day. Slowly, I grew more confident. Now I speak to hundreds of people. Small steps, practised every day, can help you beat your fears.",
+     "stem": "What is the speaker's main message?",
+     "options": [
+      "Small daily steps can help you overcome fear.",
+      "Teachers should ask students to read aloud.",
+      "The speaker talks to hundreds of people.",
+      "Speaking in class is easy for everyone."
+     ],
+     "answer": 0,
+     "why": "The speaker's story leads to the message in the last sentence: small steps help you beat fears."
+    }
+   ],
+   "again": {
+    "title": "Headline and two points",
+    "text": "Pretend you are writing a news headline for what you heard.\n\n1. Write the **headline** (the topic and main message).\n2. Add the **two most important points**.\n\nThat is your summary.",
+    "example": "A talk about saving electricity: turn off lights, unplug chargers, use fans before air conditioners.\n\nHeadline: **Simple habits save electricity.** Points: **switch off lights and chargers; use fans when you can.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Summarising media",
+     "text": "Videos, podcasts and talks combine words, images and sound. A good summary captures the speaker's **main claims**, the **key evidence**, and the **conclusion**.\n\nIt stays **objective**: it reports what was said, not what you think about it."
+    },
+    {
+     "title": "Main claim or support?",
+     "text": "Speakers mix many kinds of information:\n\n1. **Claims**: the ideas they want you to accept.\n2. **Evidence**: facts, numbers, examples.\n3. **Extras**: personal stories, jokes, greetings.\n\nA summary keeps the claims, mentions the strongest evidence briefly, and drops the extras."
+    },
+    {
+     "title": "Check your summary",
+     "text": "Ask:\n\n1. Would someone who missed the clip understand the **main message**?\n2. Did I keep the speaker's **meaning**, without changing or exaggerating it?\n3. Did I leave out my own **opinion**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "With a transcript, you can **test** a summary line by line.\n\n1. Mark the sentences that state the speaker's **claims** and **conclusion**.\n2. Check that the summary includes each one, in fair words.\n3. Reject summaries that exaggerate, add opinions, or focus on an extra.\n\nThe best summary is short, complete and faithful."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hello again, listeners. I just got back from a long trip, so forgive my tired voice.",
+      "role": "other"
+     },
+     {
+      "t": "Today's question: are electric buses ready for hot cities?",
+      "role": "main"
+     },
+     {
+      "t": "Tests in several hot countries show that air conditioning can drain a bus battery faster.",
+      "role": "detail"
+     },
+     {
+      "t": "However, newer batteries and charging stations at the end of each route solve much of the problem.",
+      "role": "detail"
+     },
+     {
+      "t": "My conclusion: electric buses can work in hot cities, but only with planning.",
+      "role": "key"
+     }
+    ],
+    "explain": "The greeting and the trip are extras. The claim is the conclusion, and the two middle sentences are the evidence.\n\nSummary: **The host argues that electric buses can work in hot cities if planners deal with the battery drain from air conditioning.**"
+   },
+   "together": {
+    "passage": "In a recorded talk, a city planner discusses why some neighbourhoods are hotter than others. She begins by recalling a summer evening when the pavement outside her home was still too hot to touch at ten o'clock at night. Dark roofs and wide roads, she explains, absorb sunlight all day and release heat at night. Areas with few trees have no shade to cool them. Studies she cites show that tree-lined streets can be several degrees cooler than bare ones. She argues that cities should plant trees, use light-coloured roofs and add shaded walkways. These changes, she concludes, are not decoration; they protect people's health during heatwaves.",
+    "stem": "Which is the most accurate summary of the talk?",
+    "options": [
+     "A planner remembers a hot evening when the pavement outside her home stayed hot until ten o'clock at night.",
+     "A planner proves that trees are the only way to cool a city, so roads should be removed.",
+     "A planner explains that dark surfaces and lack of trees make areas hotter, and urges cities to add trees, light roofs and shade to protect health.",
+     "A planner believes cities look more beautiful when they plant trees and build walkways."
+    ],
+    "answer": 2,
+    "hint": "Is that the speaker's main claim, or an extra? Does the choice change or exaggerate what she said?",
+    "good": "Yes! It gives the cause, the solutions and the conclusion, without the personal story or any exaggeration."
+   },
+   "evidence": {
+    "sentences": [
+     "In a recorded talk, a city planner discusses why some neighbourhoods are hotter than others.",
+     "She begins by recalling a summer evening when the pavement outside her home was still too hot to touch at ten o'clock at night.",
+     "Dark roofs and wide roads, she explains, absorb sunlight all day and release heat at night.",
+     "Areas with few trees have no shade to cool them.",
+     "Studies she cites show that tree-lined streets can be several degrees cooler than bare ones.",
+     "She argues that cities should plant trees, use light-coloured roofs and add shaded walkways.",
+     "These changes, she concludes, are not decoration; they protect people's health during heatwaves."
+    ],
+    "proof": [
+     2,
+     3,
+     5,
+     6
+    ],
+    "need": 3,
+    "stem": "The answer was: dark surfaces and few trees cause heat, so cities should add trees, light roofs and shade to protect health. Tap 3 sentences that state these main points.",
+    "wrong": "This sentence is an introduction, a personal story or supporting evidence. Find the main claims: the causes, the solutions and the conclusion."
+   },
+   "checks": [
+    {
+     "passage": "In a video essay, a historian argues that the invention of printing changed how people learned. Before printing, books were copied by hand and were rare. Printing made books cheaper and more common, so more people learned to read. The historian adds that he owns an old printed map. He concludes that printing helped knowledge spread faster than ever before.",
+     "stem": "Which summary is the most faithful?",
+     "options": [
+      "Printing made books cheap and common, helping more people read and spreading knowledge faster.",
+      "Printing was the most important invention ever made.",
+      "A historian talks about the old printed map that he owns and keeps at home.",
+      "Before printing, nobody could read."
+     ],
+     "answer": 0,
+     "why": "It keeps the claim and evidence. The others add an exaggeration, focus on an extra, or overstate the facts."
+    },
+    {
+     "passage": "A radio interview with a nutritionist: Many children skip breakfast because they are in a hurry. Research suggests that children who eat breakfast concentrate better in morning lessons. The nutritionist recommends quick options such as dates, yoghurt or a boiled egg. The interviewer says that he personally never eats breakfast.",
+     "stem": "Which sentence should NOT appear in an objective summary?",
+     "options": [
+      "Children who eat breakfast concentrate better.",
+      "Quick options like dates or yoghurt can help.",
+      "Breakfast is boring, and nobody needs it.",
+      "Many children skip breakfast because they are rushed."
+     ],
+     "answer": 2,
+     "why": "This is an opinion that neither speaker gave. An objective summary reports only what was said."
+    },
+    {
+     "passage": "A documentary narrator says: The desert seems lifeless at noon. But at night, foxes, jerboas and beetles come out to hunt and feed. Many desert animals avoid the heat by sleeping in burrows during the day. Some get almost all the water they need from their food. The desert, the narrator concludes, is full of life adapted to extreme conditions.",
+     "stem": "What is the narrator's main message?",
+     "options": [
+      "Foxes and beetles hunt only at night, when it is cool.",
+      "Desert animals have adapted in many ways to survive harsh conditions.",
+      "Deserts are lifeless at noon, when the sun is hottest.",
+      "Jerboas sleep in burrows during the heat of the day."
+     ],
+     "answer": 1,
+     "why": "The details about nighttime activity, burrows and water all support the conclusion about adaptation."
+    }
+   ],
+   "again": {
+    "title": "Claim, proof, end",
+    "text": "Sort what you heard into three boxes:\n\n1. **Claim**: what does the speaker want me to believe?\n2. **Proof**: what is the best fact or example?\n3. **End**: what is the final message?\n\nJoin the boxes into two sentences.",
+    "example": "A video says recycling paper saves trees, shows that one tonne of recycled paper saves many trees, and ends by urging viewers to recycle.\n\nSummary: **The video argues that recycling paper saves trees, using figures on how many trees are saved, and urges viewers to recycle.**"
+   }
+  }
+ }
+}

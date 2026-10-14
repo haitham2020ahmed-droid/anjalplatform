@@ -1,0 +1,568 @@
+{
+  "code": "NB-052",
+  "title": "The Secret of the Triangle",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 496,
+  "passage": "The instructions for the class engineering challenge were printed in bold letters on the sheet that Faisal slapped onto the dining table. Each pair of students had to construct a bridge from wooden craft sticks and glue, position it across a forty-centimetre gap between two desks, and discover how much weight it could support before it collapsed.\n\n\"This will be easy,\" Faisal announced confidently. \"We'll simply glue the sticks side by side into one long, flat road, exactly like the bridge over the wadi near our house.\"\n\nHis sister Dana, who had been assigned as his partner, examined the drawing doubtfully. \"A flat road made of such thin sticks looks rather fragile to me,\" she warned, but Faisal was already squeezing glue onto the first row and was not really paying attention.\n\nBy the following afternoon, the flat bridge had dried completely, so the two of them tested it between two chairs in the living room. Faisal carefully placed one heavy encyclopedia in the middle and then a second, and with a sharp crack the whole structure folded in half and tumbled onto the carpet.\n\n\"It's your fault,\" Faisal grumbled, \"because you didn't press the sticks together firmly enough.\"\n\n\"My fault?\" Dana replied indignantly. \"You didn't even listen when I said it looked weak!\"\n\nTheir grandfather, who had worked as a civil engineer for nearly forty years before retiring, lowered his newspaper and chuckled. \"Before you begin a second bridge, perhaps you should stop arguing and start investigating,\" he suggested gently. \"Bring me four sticks and four pins from your mother's sewing box.\"\n\nCurious, the children watched as Grandfather pinned the four sticks together into a square. When he pressed one corner, the square leaned sideways and flattened effortlessly into a narrow diamond. Next, he pinned three sticks into a triangle and pressed it just as forcefully, yet the triangle refused to change its shape at all.\n\n\"Why doesn't the triangle move?\" Dana asked in amazement.\n\n\"Because each side supports the other two, so the shape cannot bend unless a stick actually breaks,\" Grandfather explained patiently. \"That is precisely why so many steel bridges, cranes and towers are built from triangles, and engineers call such a frame a truss.\"\n\nThat evening, Faisal and Dana worked side by side, and this time they genuinely listened to each other's suggestions. They constructed two long side walls from connected triangles, joined them with shorter sticks across the top and bottom, and allowed the glue to harden overnight.\n\nAt school, the whole class gathered around as their teacher hung a bucket beneath the bridge and slowly poured in sand. The bridge creaked alarmingly but held, while the bucket grew heavier and heavier, until it finally gave way at almost eight kilograms, the highest result in the class.\n\nOn the way home, Faisal turned to his sister with a sheepish smile. \"You were right about the flat bridge,\" he admitted, \"so next time, let's begin with the triangles and the listening.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “collapsed” as it is used in the first paragraph?",
+      "options": [
+        "fell down",
+        "grew longer",
+        "moved forward",
+        "stood still"
+      ],
+      "answer": "A",
+      "why": "The challenge measures the weight a bridge can support before it “collapsed”, which means fell down or broke."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “confidently” as it is used when Faisal first speaks?",
+      "options": [
+        "loudly",
+        "cheerfully",
+        "doubtfully",
+        "quickly"
+      ],
+      "answer": "C",
+      "why": "“Confidently” means feeling sure; “doubtfully” means feeling unsure. The writer even uses “doubtfully” for Dana in the next paragraph."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence: “Dana replied indignantly.” Based on what she says, what does “indignantly” mean?",
+      "options": [
+        "in a sleepy and bored way",
+        "angrily, feeling unfairly blamed",
+        "in a quiet and polite way",
+        "in a joking and playful way"
+      ],
+      "answer": "B",
+      "why": "Dana answers “My fault?” after Faisal blames her for something she had warned him about, so she feels angry at the unfair blame."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is a verb?",
+      "options": [
+        "sheepish",
+        "structure",
+        "grumbled",
+        "doubtfully"
+      ],
+      "answer": "C",
+      "why": "“Grumbled” is an action (what Faisal did). “Sheepish” is an adjective, “structure” a noun and “doubtfully” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is a SINGULAR noun?",
+      "options": [
+        "cranes",
+        "towers",
+        "sticks",
+        "bucket"
+      ],
+      "answer": "D",
+      "why": "“Bucket” names one thing; “cranes”, “towers” and “sticks” are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “engineer”?",
+      "options": [
+        "engineering",
+        "engage",
+        "energy",
+        "enter"
+      ],
+      "answer": "A",
+      "why": "“Engineering” is the work an engineer does and shares the same root; the story uses it in “engineering challenge”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “investigating” in a meaningful sentence of your own.",
+      "model": "The scientists are investigating why so many fish have disappeared from the bay this year.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “investigating” with its meaning (examining something carefully to find out the facts)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Investigating” means examining something carefully to discover the facts or the cause."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “wadi”, a word used in the story?",
+      "options": [
+        "wadis",
+        "wadies",
+        "wadees",
+        "wadi"
+      ],
+      "answer": "A",
+      "why": "“Wadi” forms a regular English plural by adding -s: wadis."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Bring me four sticks and four pins from your mother's sewing box.”?",
+      "options": [
+        "a question",
+        "an exclamation",
+        "a command",
+        "a statement of opinion"
+      ],
+      "answer": "C",
+      "why": "Grandfather tells the children to do something, so it is a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A Day at the Wadi",
+        "Grandfather's Newspaper",
+        "Stronger Together",
+        "The Bucket of Sand"
+      ],
+      "answer": "C",
+      "why": "The bridge becomes stronger with triangles, and the children succeed when they work together and listen."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to give exact instructions for building any bridge",
+        "to describe a grandfather's career as an engineer",
+        "to show how listening and a simple idea can solve a problem",
+        "to persuade readers that flat bridges are best"
+      ],
+      "answer": "C",
+      "why": "The children fail when they argue, then succeed by listening and using Grandfather's idea about triangles."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph that begins “Curious, the children watched”?",
+      "options": [
+        "Grandfather borrows pins from the family sewing box.",
+        "The square of sticks becomes a narrow diamond.",
+        "The children are curious about their grandfather's pins.",
+        "A triangle keeps its shape, but a square does not."
+      ],
+      "answer": "D",
+      "why": "The paragraph compares the square, which flattens, with the triangle, which keeps its shape; the other options are details."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why does the triangle refuse to change its shape, according to Grandfather?",
+      "options": [
+        "It is made of steel instead of wood.",
+        "Each side supports the other two.",
+        "It has more pins than the square.",
+        "Its sticks are glued, not pinned."
+      ],
+      "answer": "B",
+      "why": "Grandfather explains: “Because each side supports the other two, so the shape cannot bend unless a stick actually breaks.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a news report",
+        "a dialogue story",
+        "an instruction manual",
+        "a poem"
+      ],
+      "answer": "B",
+      "why": "It tells a story with characters and events, and much of it is told through the characters' conversations."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Faisal first want to build a flat bridge?",
+      "options": [
+        "Grandfather had told him that it was the best design.",
+        "Dana had already drawn and designed it for him.",
+        "It was the only design the teacher would allow.",
+        "He thought it would be easy, like the wadi bridge."
+      ],
+      "answer": "D",
+      "why": "Faisal says, “This will be easy… like the bridge over the wadi near our house.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "The flat bridge folded in half.",
+        "Grandfather pinned sticks into a square.",
+        "The teacher poured sand into a bucket.",
+        "Faisal and Dana argued about whose fault it was."
+      ],
+      "answer": "C",
+      "why": "The sand test happened at school, after the failure, the argument and Grandfather's demonstration."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the speaker in the sentence, “Engineers call such a frame a truss”?",
+      "options": [
+        "Faisal",
+        "Dana",
+        "the teacher",
+        "Grandfather"
+      ],
+      "answer": "D",
+      "why": "These are Grandfather's words as he explains why bridges use triangles."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How was the second bridge tested at school?",
+      "options": [
+        "Sand was poured into a bucket hanging below it.",
+        "Heavy books were piled on top of it.",
+        "Students stood on it one at a time.",
+        "Water was poured over it to soften the glue."
+      ],
+      "answer": "A",
+      "why": "The teacher “hung a bucket beneath the bridge and slowly poured in sand.” Books were used for the first bridge at home."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the children to stop arguing?",
+      "options": [
+        "Their teacher scolded them for being noisy.",
+        "Grandfather told them to investigate instead.",
+        "The glue ran out before they could finish.",
+        "Dana decided to build the bridge alone."
+      ],
+      "answer": "B",
+      "why": "Grandfather says they should “stop arguing and start investigating” and then shows them the experiment."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Faisal's feelings at the END of the story?",
+      "options": [
+        "angry and jealous of Dana",
+        "proud and boastful about winning",
+        "bored and tired of bridges",
+        "embarrassed but grateful"
+      ],
+      "answer": "D",
+      "why": "He gives a “sheepish smile” and admits that Dana was right, which shows embarrassment mixed with gratitude."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after the flat bridge breaks?",
+      "options": [
+        "wanting to know what Grandfather was reading",
+        "wanting to know the colour of the living-room carpet",
+        "wanting to know exactly where the wadi is",
+        "wanting to know how both problems will be solved"
+      ],
+      "answer": "D",
+      "why": "The double problem of a broken bridge and an argument creates suspense about how both will be solved."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the second bridge DIFFERENT from the first?",
+      "options": [
+        "It was a flat road of sticks glued side by side.",
+        "It was built from connected triangles.",
+        "It used pins instead of glue.",
+        "It was tested with books."
+      ],
+      "answer": "B",
+      "why": "The second bridge had “two long side walls from connected triangles”, unlike the flat first bridge."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do steel bridges, cranes and towers have in common, according to Grandfather?",
+      "options": [
+        "They are all made of craft sticks.",
+        "They all collapse easily.",
+        "Many of them are built from triangles.",
+        "They were all designed by Grandfather."
+      ],
+      "answer": "C",
+      "why": "Grandfather says that “so many steel bridges, cranes and towers are built from triangles”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of the children listening to each other the second time?",
+      "options": [
+        "They argued even more.",
+        "They gave up the challenge.",
+        "They built a much stronger bridge.",
+        "They built a flat bridge again."
+      ],
+      "answer": "C",
+      "why": "Working “side by side” and listening, they built the triangle bridge, which held almost eight kilograms."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the triangle “refused to change its shape”?",
+      "options": [
+        "The triangle could really speak to the children.",
+        "It stayed firm however hard it was pushed.",
+        "Grandfather would not let anyone else touch it.",
+        "The triangle had been glued to the table."
+      ],
+      "answer": "B",
+      "why": "“Refused” gives the triangle a human quality (personification) to show how strongly it kept its shape."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer let Grandfather demonstrate with sticks and pins instead of just explaining?",
+      "options": [
+        "to show that Grandfather enjoys sewing in his free time",
+        "to make the story longer and more difficult",
+        "to help readers see the idea through an experiment",
+        "to prove that squares are stronger than triangles"
+      ],
+      "answer": "C",
+      "why": "Watching the square flatten and the triangle hold makes the scientific idea easy to understand."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "“You didn't even listen when I said it looked weak!”",
+        "“Why doesn't the triangle move?”",
+        "“This will be easy,” Faisal announced confidently.",
+        "“You were right about the flat bridge,” he admitted."
+      ],
+      "answer": "A",
+      "why": "Dana's words express strong feeling and end with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the BEST lesson for a pair of students working on a project?",
+      "options": [
+        "One partner should make every decision.",
+        "Listen to each other's ideas before building.",
+        "Blame your partner when something fails.",
+        "Always choose the easiest design."
+      ],
+      "answer": "B",
+      "why": "The children succeed only after they listen to each other, as Faisal admits at the end."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Grandparents should never read newspapers.",
+        "Teamwork and simple science can solve problems.",
+        "Bridges are far too difficult for children.",
+        "Squares are the strongest shape of all."
+      ],
+      "answer": "B",
+      "why": "The story links the triangle idea with the lesson of listening, which together lead to success."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present when Grandfather pushes the triangle?",
+      "options": [
+        "amazement",
+        "anger",
+        "sadness",
+        "fear"
+      ],
+      "answer": "A",
+      "why": "Dana asks the question “in amazement”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "how far the bridge had to stretch",
+        "what Grandfather's job used to be",
+        "how much weight the second bridge held",
+        "how many sticks the second bridge needed"
+      ],
+      "answer": "D",
+      "why": "The gap, the job and the weight are stated, but the number of sticks is never given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A stick bridge holds a bucket of sand.",
+        "A triangle of sticks speaks to Dana.",
+        "A flat bridge repairs itself overnight.",
+        "Glue turns wooden sticks into steel."
+      ],
+      "answer": "A",
+      "why": "Well-designed stick bridges can hold surprising weights; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Flat Bridge Wins",
+        "From Crack to Truss",
+        "Grandfather's Sewing Box",
+        "Sand in the Living Room"
+      ],
+      "answer": "B",
+      "why": "The story moves from the cracked flat bridge to the strong truss bridge."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which the triangle bridge does NOT win, but the children still feel that the project was worthwhile.",
+      "model": "At school, another team's bridge held ten kilograms, so Faisal and Dana came second. Still, they were delighted, because their triangle bridge had held far more weight than the flat one. On the way home, they agreed that learning to listen to each other was the real prize.",
+      "rubric": [
+        "2 = a clear new ending that follows the instruction and shows a sensible reason the project was still worthwhile",
+        "1 = an ending is given but it does not follow the instruction or the reason is unclear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that follows the instruction and fits the story's ideas is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could the children make their triangle bridge even stronger next time?",
+      "options": [
+        "Remove all the triangles to make it lighter.",
+        "Use much less glue at every single joint.",
+        "Build it once again as one flat road.",
+        "Add triangles across the top and bottom too."
+      ],
+      "answer": "D",
+      "why": "The story shows that triangles keep their shape, so adding more triangles is the solution that follows its ideas."
+    }
+  ]
+}

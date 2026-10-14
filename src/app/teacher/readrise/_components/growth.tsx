@@ -48,7 +48,7 @@ export function confidenceWords(c: StudentGrowthReport["confidence"], t: TFn): s
 
 export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; t: TFn; backHref: string }) {
   const back = <p className="mb-4"><Link href={backHref} className="text-sm font-semibold text-brand-teal hover:underline">‹ {t("Back to the class")}</Link></p>;
-  if (!g.placed || g.level === null) return <>{back}<p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{t("{name} has not started ReadRise yet.", { name: g.name })}</p></>;
+  if (!g.placed || g.level === null) return <>{back}<p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{g.name}: {t("No placement yet")}</p></>;
   const growth = g.level - (g.startLevel ?? g.level);
   const pts = g.history.map((e) => e.level);
   const proj = g.projection;
@@ -149,7 +149,7 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
         <Section title="Not reading" icon="💤" hint={t("No reading started or finished for 2 weeks.")}>
           {g.notReading.length === 0 ? <p className="text-sm text-slate-600">{t("Everyone read in the last 2 weeks.")}</p> : (
             <ul className="divide-y divide-slate-100 text-sm">
-              {g.notReading.map((x) => <li key={x.studentId} className="flex justify-between gap-2 py-1.5"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline">{x.name}</Link><span className="text-slate-500">{x.placed ? t("last activity {d}", { d: day(x.lastActivity) }) : t("not started")}</span></li>)}
+              {g.notReading.map((x) => <li key={x.studentId} className="flex justify-between gap-2 py-1.5"><Link href={studentHref(x.studentId)} className="font-semibold text-brand-navy hover:underline">{x.name}</Link><span className="text-slate-500">{x.placed ? t("last activity {d}", { d: day(x.lastActivity) }) : t("No placement yet")}</span></li>)}
             </ul>
           )}
         </Section>

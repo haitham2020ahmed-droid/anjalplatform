@@ -1,0 +1,482 @@
+{
+ "code": "LN-129",
+ "title": "How sentences and paragraphs build meaning",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.6.5",
+  "RI.7.5",
+  "RI.8.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "R-0334",
+  "R-0511",
+  "R-0512",
+  "R-0513",
+  "R-0697",
+  "R-0698",
+  "R-0699",
+  "R-0874",
+  "R-0875",
+  "R-0876",
+  "R-0889",
+  "R-1006",
+  "R-1013",
+  "R-1019",
+  "R-1020",
+  "R-1085"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Every sentence has a job",
+     "text": "In a true story, each sentence **adds** something.\n\nOne sentence might tell **where** we are. Another might show a **feeling**. Another might tell **how it ended**."
+    },
+    {
+     "title": "Sentence jobs",
+     "text": "1. **Start**: tells who and where.\n2. **Problem**: something goes wrong.\n3. **Feeling**: shows how someone feels.\n4. **Ending**: tells how it turned out."
+    },
+    {
+     "title": "Find the job",
+     "text": "1. Read the whole story.\n2. Read the sentence again.\n3. Ask: **What does this sentence add to the story?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the sentence **and** the sentences around it.\n\n1. Read the sentence before it.\n2. Read the sentence after it.\n3. Ask: what would be **missing** without it?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yesterday I went to the beach with my dad.",
+      "role": "other"
+     },
+     {
+      "t": "Suddenly, a big wave knocked over my sandcastle.",
+      "role": "key"
+     },
+     {
+      "t": "I was sad, but Dad helped me build a new one.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The second sentence adds the **problem**: the wave knocks over the sandcastle.\n\nWithout it, we would not know **why** the boy was sad."
+   },
+   "together": {
+    "passage": "Fahad got a new kite for his birthday. He ran to the park to fly it. But there was no wind at all. Fahad sat down and waited. At last, a breeze came, and his kite flew high.",
+    "stem": "What does the sentence But there was no wind at all add to the story?",
+    "options": [
+     "It tells who Fahad is.",
+     "It tells about Fahad's birthday.",
+     "It shows a problem for Fahad.",
+     "It tells how the story ends."
+    ],
+    "answer": 2,
+    "hint": "Can a kite fly with no wind? Is that good or bad for Fahad?",
+    "good": "Yes! No wind is a problem, because a kite needs wind to fly."
+   },
+   "evidence": {
+    "sentences": [
+     "Fahad got a new kite for his birthday.",
+     "He ran to the park to fly it.",
+     "But there was no wind at all.",
+     "Fahad sat down and waited.",
+     "At last, a breeze came, and his kite flew high."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it shows a problem. Tap the problem sentence and the sentence that shows what Fahad does because of it.",
+    "wrong": "This sentence tells the start or the ending. Find the problem and what Fahad did about it."
+   },
+   "checks": [
+    {
+     "passage": "Noor lost her cat. She looked under the bed. She looked in the garden. At last, she found the cat asleep in a box.",
+     "stem": "What does the last sentence add?",
+     "options": [
+      "It tells how the problem was solved.",
+      "It tells the problem.",
+      "It tells who Noor is.",
+      "It tells where Noor lives."
+     ],
+     "answer": 0,
+     "why": "Finding the cat solves the problem of the lost cat."
+    },
+    {
+     "passage": "My first day at the new school was hard. I did not know anyone. Then a girl named Reem smiled and asked me to sit with her.",
+     "stem": "What does the sentence about Reem add?",
+     "options": [
+      "It tells the problem.",
+      "It shows things getting better.",
+      "It tells the name of the school.",
+      "It shows Reem was sad."
+     ],
+     "answer": 1,
+     "why": "Reem's smile and kind words show the day getting better."
+    },
+    {
+     "passage": "We climbed the tall hill. My legs hurt. When we got to the top, I could see the whole city. I felt so proud.",
+     "stem": "What does the sentence I felt so proud add?",
+     "options": [
+      "It tells where they climbed.",
+      "It tells what they saw.",
+      "It tells the problem.",
+      "It shows how the writer felt at the end."
+     ],
+     "answer": 3,
+     "why": "It tells the writer's feeling after reaching the top."
+    }
+   ],
+   "again": {
+    "title": "Take it out",
+    "text": "Cover the sentence with your hand. Read the story without it.\n\n**What is missing now?** That is what the sentence adds.",
+    "example": "Ali dropped his ice cream. **He started to cry.** His mom bought him another one.\n\nWithout the middle sentence, we do not know **how Ali felt**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sentences build meaning",
+     "text": "In an informational text, each sentence has a **role**. Together, they build the reader's understanding.\n\nKey sentences often **introduce** the topic, give an **example**, show a **cause** or an **effect**, add a **contrast**, or **sum up**."
+    },
+    {
+     "title": "Signal words help",
+     "text": "**For example** → an example.\n**Because, so** → cause or effect.\n**However, but** → a contrast.\n**In short, overall** → a summary.\n\nEven without signal words, ask what the sentence does."
+    },
+    {
+     "title": "Analyze a sentence",
+     "text": "1. Read the sentence.\n2. Look at what comes **before** and **after**.\n3. Ask: Does it introduce, explain, give an example, contrast or conclude?\n4. Ask: How does it help the **main idea**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the role with **connections**.\n\n1. Tap the sentence you are asked about.\n2. Tap the sentence it connects to (the idea it explains, contrasts or sums up).\n3. The right answer explains that connection."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many animals change their behaviour to survive hot summers.",
+      "role": "main"
+     },
+     {
+      "t": "For example, desert foxes rest in cool burrows during the day.",
+      "role": "key"
+     },
+     {
+      "t": "Some birds fly to cooler places.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The second sentence gives an **example** of the main idea in the first sentence.\n\n**For example** signals this. It helps readers see what changing behaviour looks like."
+   },
+   "together": {
+    "passage": "People have used salt for thousands of years. Before refrigerators, salt was one of the best ways to keep food from spoiling. Fish and meat were packed in salt so they could last for months. However, eating too much salt can be harmful to our health. Doctors advise people to check food labels and use salt carefully.",
+    "stem": "What does the sentence beginning with However add to the passage?",
+    "options": [
+     "It gives another example of salted food.",
+     "It introduces a different side: salt can also be harmful.",
+     "It explains how refrigerators work.",
+     "It tells the history of fishing."
+    ],
+    "answer": 1,
+    "hint": "What does the signal word However tell you about the next idea?",
+    "good": "Yes! However turns from the benefits of salt to a warning about its harm, and the last sentence follows from it."
+   },
+   "evidence": {
+    "sentences": [
+     "People have used salt for thousands of years.",
+     "Before refrigerators, salt was one of the best ways to keep food from spoiling.",
+     "Fish and meat were packed in salt so they could last for months.",
+     "However, eating too much salt can be harmful to our health.",
+     "Doctors advise people to check food labels and use salt carefully."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: it introduces a different side: salt can be harmful. Tap the However sentence and the sentence that follows from it.",
+    "wrong": "This sentence is about how salt was useful. Find the sentences about salt's harm."
+   },
+   "checks": [
+    {
+     "passage": "Bats sleep during the day and hunt at night. Because they hunt in the dark, they use sound to find their food. They make high squeaks and listen for the echoes.",
+     "stem": "What does the second sentence add?",
+     "options": [
+      "It explains the cause of the bats' use of sound.",
+      "It gives the bats' size.",
+      "It describes where bats sleep.",
+      "It sums up the whole passage."
+     ],
+     "answer": 0,
+     "why": "Because they hunt in the dark explains why bats use sound."
+    },
+    {
+     "passage": "Recycling one aluminium can saves energy. In fact, recycling a can uses much less energy than making a new can from raw materials. In short, recycling cans is a smart way to save energy.",
+     "stem": "What is the role of the last sentence?",
+     "options": [
+      "It gives a new example.",
+      "It shows a contrast.",
+      "It asks a question.",
+      "It sums up the main point."
+     ],
+     "answer": 3,
+     "why": "In short signals that the sentence sums up the passage's main point."
+    },
+    {
+     "passage": "The Jeddah Tower is being built to be very tall. Engineers planned its shape carefully. Its narrow top helps it stand up to strong winds.",
+     "stem": "What does the last sentence add?",
+     "options": [
+      "It tells when the tower will open.",
+      "It compares the tower to a mountain.",
+      "It explains one reason for the tower's shape.",
+      "It tells who paid for the tower."
+     ],
+     "answer": 2,
+     "why": "It explains how the narrow top helps against wind, a reason for the careful shape."
+    }
+   ],
+   "again": {
+    "title": "Which job?",
+    "text": "Hold up one finger for each job: **introduce, example, cause, contrast, sum up**.\n\nRead the sentence and pick the finger that fits best.",
+    "example": "Plants need water. **For example, cactus plants store water in their stems.**\nWhich job? **Example.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Paragraphs build the whole",
+     "text": "Longer informational texts are built from **paragraphs**. Each paragraph adds a **piece** to the author's explanation or argument.\n\nAsk: **What does this paragraph contribute to the whole text?**"
+    },
+    {
+     "title": "Paragraph roles",
+     "text": "1. **Introduce** the topic or question.\n2. **Explain** a cause or process.\n3. **Give evidence** or examples.\n4. **Present a problem**, or a **solution**.\n5. **Shift** to a new angle or a contrast.\n6. **Conclude** or look to the future."
+    },
+    {
+     "title": "Analyze a paragraph",
+     "text": "1. Summarize the paragraph in a few words.\n2. Compare it with the paragraphs **before** and **after**.\n3. Name its role and explain how it helps the **central idea**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your answer with the paragraph's **key sentence** and its link to the rest.\n\n1. Tap the sentences that show what the paragraph does.\n2. Notice signal words: as a result, one solution, however.\n3. Reject choices that describe a different paragraph."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Paragraph 1: Across the world, many rivers carry plastic waste into the sea.",
+      "role": "other"
+     },
+     {
+      "t": "Paragraph 2: Ocean currents gather this plastic into huge floating patches.",
+      "role": "other"
+     },
+     {
+      "t": "Paragraph 3: One solution is to place barriers at river mouths to catch plastic before it reaches the ocean.",
+      "role": "key"
+     },
+     {
+      "t": "Some cities have already removed tonnes of waste this way.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Paragraphs 1 and 2 present the **problem**. Paragraph 3 **shifts to a solution**, with evidence that it works.\n\nIt contributes the hopeful part of the text: what can be done."
+   },
+   "together": {
+    "passage": "Paragraph 1: For centuries, people believed that the brain stopped changing after childhood. Adults, it was thought, could not truly build new skills in the same way children do.\n\nParagraph 2: In recent decades, however, scientists have found that the brain keeps forming new connections throughout life. When adults learn a language or a musical instrument, scans show changes in the brain.\n\nParagraph 3: This discovery has practical uses. Doctors now design exercises that help patients recover skills after brain injuries.",
+    "stem": "What does Paragraph 2 contribute to the passage?",
+    "options": [
+     "It repeats the old belief from Paragraph 1.",
+     "It describes exercises for patients.",
+     "It explains how musical instruments are made.",
+     "It presents new evidence that challenges the old belief."
+    ],
+    "answer": 3,
+    "hint": "Look at the word however in Paragraph 2. What is it turning away from?",
+    "good": "Yes! Paragraph 2 shows new scientific evidence that overturns the old belief in Paragraph 1."
+   },
+   "evidence": {
+    "sentences": [
+     "Paragraph 1: For centuries, people believed that the brain stopped changing after childhood.",
+     "Adults, it was thought, could not truly build new skills in the same way children do.",
+     "Paragraph 2: In recent decades, however, scientists have found that the brain keeps forming new connections throughout life.",
+     "When adults learn a language or a musical instrument, scans show changes in the brain.",
+     "Paragraph 3: This discovery has practical uses.",
+     "Doctors now design exercises that help patients recover skills after brain injuries."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it presents new evidence that challenges the old belief. Tap the 2 sentences from Paragraph 2 that prove it.",
+    "wrong": "This sentence is from Paragraph 1 or 3. Find the sentences in Paragraph 2."
+   },
+   "checks": [
+    {
+     "passage": "Paragraph 1: Locusts are a type of grasshopper. Most of the time they live alone. Paragraph 2: But when rain brings lots of plants and their numbers grow, they gather into huge swarms that can destroy whole fields of crops in hours.",
+     "stem": "What does Paragraph 2 add to the passage?",
+     "options": [
+      "It explains what a locust is.",
+      "It shows how locusts can change into a serious danger.",
+      "It tells how to grow crops.",
+      "It concludes that locusts are harmless."
+     ],
+     "answer": 1,
+     "why": "Paragraph 2 turns from quiet locusts to destructive swarms, showing the danger."
+    },
+    {
+     "passage": "Paragraph 1: Our school's old playground had broken swings and no shade. Paragraph 2: Students wrote letters and raised money at a bake sale. Paragraph 3: Six months later, the new playground opened with shaded seats and safe equipment.",
+     "stem": "What is the role of Paragraph 3?",
+     "options": [
+      "It shows the result of the students' efforts.",
+      "It describes the original problem.",
+      "It explains how to bake.",
+      "It introduces the topic."
+     ],
+     "answer": 0,
+     "why": "Paragraph 3 tells the outcome of the letters and fundraising."
+    },
+    {
+     "passage": "Paragraph 1: Electric scooters are popular in many cities. Paragraph 2: They are cheap to ride and produce no exhaust. Paragraph 3: However, scooters left on pavements can block people who use wheelchairs.",
+     "stem": "What does Paragraph 3 contribute?",
+     "options": [
+      "It gives another benefit of scooters.",
+      "It introduces scooters for the first time.",
+      "It adds a problem that balances the benefits.",
+      "It explains how scooters are charged."
+     ],
+     "answer": 2,
+     "why": "However signals a shift to a problem, which balances the benefits in Paragraph 2."
+    }
+   ],
+   "again": {
+    "title": "Give each paragraph a label",
+    "text": "Write a **one-word label** beside each paragraph: problem, cause, example, solution, contrast, result.\n\nRead the labels in order. You will see how the text is **built**, and what each paragraph adds.",
+    "example": "1 **problem**: traffic jams. 2 **cause**: too many cars. 3 **solution**: a new metro.\n\nParagraph 3 contributes the **solution**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Paragraphs in true stories",
+     "text": "In memoirs, biographies and narrative histories, each paragraph advances the story **and** its meaning.\n\nA paragraph might **build tension**, show a **turning point**, **slow down** a key moment, offer a **flashback**, or **reflect** on what an experience meant."
+    },
+    {
+     "title": "Structure creates meaning",
+     "text": "Where a paragraph is placed matters.\n\n1. A **short paragraph** after long ones can create emphasis.\n2. A **reflective final paragraph** can turn events into a lesson.\n3. A **flashback** can explain why a moment matters so much."
+    },
+    {
+     "title": "Analyze a paragraph",
+     "text": "1. What happens or is said in the paragraph?\n2. How does it change the reader's understanding of what came before?\n3. What would the text lose without it: tension, explanation, meaning?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Cite the sentences that show **how** the paragraph changes the story or its meaning.\n\n1. Find the paragraph's key sentences.\n2. Connect them to earlier events or to the central idea.\n3. Choose the answer that names the paragraph's **effect**, not just its content."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Paragraph 1: All season, our team lost match after match, and some players stopped coming to practice.",
+      "role": "other"
+     },
+     {
+      "t": "Paragraph 2: In the final game, we were behind by one goal with a minute left.",
+      "role": "other"
+     },
+     {
+      "t": "Paragraph 3: We lost.",
+      "role": "key"
+     },
+     {
+      "t": "Paragraph 4: Yet when I think of that season, I remember not the scores but the friends who kept showing up.",
+      "role": "key"
+     }
+    ],
+    "explain": "The very short Paragraph 3 creates **emphasis**: after the build-up, the loss hits hard.\n\nParagraph 4 **reflects**, turning a losing season into a lesson about loyalty."
+   },
+   "together": {
+    "passage": "My grandmother's hands were always busy. She kneaded dough before sunrise, stitched our torn clothes, and pressed dates into small cakes for every guest who came to the door.\n\nWhen I was ten, I asked her why she never rested. She laughed and said that resting was for later. I did not understand her answer then.\n\nLast winter, I visited her house after she had passed away. On the kitchen shelf was a notebook full of recipes, each one with a name beside it: the neighbour who loved the date cakes, the cousin who needed soup when sick. Her busy hands, I realised, had been a way of caring for everyone around her.",
+    "stem": "What does the final paragraph contribute to the meaning of the passage?",
+    "options": [
+     "It describes how to make date cakes and soup.",
+     "It explains when the grandmother was born.",
+     "It shows the grandmother was too busy to notice others.",
+     "It reveals that her constant work was really an expression of love for others."
+    ],
+    "answer": 3,
+    "hint": "Notice the word realised. What does the narrator finally understand?",
+    "good": "Yes! The notebook of names helps the narrator realise that her grandmother's busy work was a way of caring for people."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandmother's hands were always busy.",
+     "She kneaded dough before sunrise, stitched our torn clothes, and pressed dates into small cakes for every guest who came to the door.",
+     "When I was ten, I asked her why she never rested.",
+     "She laughed and said that resting was for later.",
+     "I did not understand her answer then.",
+     "Last winter, I visited her house after she had passed away.",
+     "On the kitchen shelf was a notebook full of recipes, each one with a name beside it: the neighbour who loved the date cakes, the cousin who needed soup when sick.",
+     "Her busy hands, I realised, had been a way of caring for everyone around her."
+    ],
+    "proof": [
+     6,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: it reveals her work was an expression of love. Tap the 2 sentences in the final paragraph that show this.",
+    "wrong": "This sentence is from an earlier paragraph, or only sets the scene. Find the notebook and the narrator's realisation."
+   },
+   "checks": [
+    {
+     "passage": "Paragraph 1: The village had waited months for rain, and the wells were nearly dry. Paragraph 2: Then, one afternoon, the sky darkened. Paragraph 3: The first drops fell, and children ran outside, laughing with their faces turned up.",
+     "stem": "What is the effect of the short Paragraph 2?",
+     "options": [
+      "It builds suspense just before the rain arrives.",
+      "It explains why the wells were dry.",
+      "It describes the children's games.",
+      "It gives the date of the rainstorm."
+     ],
+     "answer": 0,
+     "why": "The short paragraph creates a pause: the sky darkening builds suspense before the joyful rain."
+    },
+    {
+     "passage": "A biography of an engineer describes her designing a bridge. In the middle, a paragraph flashes back to her childhood, when a flood washed away the only bridge in her village and cut off her family from the market.",
+     "stem": "What does the flashback paragraph add?",
+     "options": [
+      "It describes the bridge's materials.",
+      "It interrupts the story with unrelated facts.",
+      "It explains why building bridges matters so much to her.",
+      "It concludes the biography."
+     ],
+     "answer": 2,
+     "why": "The flashback reveals her personal reason for building bridges, deepening the reader's understanding."
+    },
+    {
+     "passage": "A memoir describes a boy's fear before reading his poem aloud. The next paragraph slows down: his hands shaking, the paper rustling, the silence of the hall. In the last paragraph, the audience claps.",
+     "stem": "What does the slow, detailed middle paragraph contribute?",
+     "options": [
+      "It explains what the poem was about.",
+      "It stretches the tense moment so readers feel the boy's fear.",
+      "It ends the story.",
+      "It introduces a new character."
+     ],
+     "answer": 1,
+     "why": "Slowing down with small details lets readers feel the tension before the applause."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Read the paragraph, then ask:\n\n1. What did I understand **before** this paragraph?\n2. What do I understand **after** it?\n\nThe difference is what the paragraph **contributes**.",
+    "example": "Before: a man is planting trees in the desert, and people think he is foolish.\nAfter the last paragraph: forty years later, a forest stands there.\n\nContribution: **it shows his patience was worth it.**"
+   }
+  }
+ }
+}

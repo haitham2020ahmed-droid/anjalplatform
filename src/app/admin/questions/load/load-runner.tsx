@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useT } from "@/i18n/client";
 import { checkChunkAction, finishLoadAction, loadChunkAction, startLoadAction, stopLoadAction } from "./actions";
+import { LineIcon } from "@/components/ui/line-icon";
 
 export interface RunnerPack {
   key: string; title: string; hint: string; file: string; present: boolean;
@@ -133,9 +134,9 @@ export function LoadRunner({ packs, running, last }: { packs: RunnerPack[]; runn
     <div className="space-y-4">
       {running && !busy && <p role="status" className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200">{t("A load is already running ({name}). Wait until it ends, or try again in a minute.", { name: running })}</p>}
       <div className="flex flex-wrap items-center gap-2">
-        <button type="button" disabled={blocked || counting || !todo.length} onClick={() => go(todo.map((p) => p.key))} className={`${btn} bg-brand-navy text-white hover:bg-brand-purple`}>⬇️ {t("Load everything")}</button>
+        <button type="button" disabled={blocked || counting || !todo.length} onClick={() => go(todo.map((p) => p.key))} className={`${btn} bg-brand-navy text-white hover:bg-brand-purple`}><LineIcon name="download" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Load everything")}</button>
         {busy && <button type="button" onClick={() => { stop.current = true; }} className={`${btn} bg-white text-red-700 ring-1 ring-red-300 hover:bg-red-50`}>⏹ {t("Stop")}</button>}
-        {!todo.length && !busy && !counting && usable.length > 0 && <span className="text-sm text-emerald-700">✅ {t("Everything is loaded.")}</span>}
+        {!todo.length && !busy && !counting && usable.length > 0 && <span className="text-sm text-emerald-700"><LineIcon name="check" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Everything is loaded.")}</span>}
         {counting && !busy && <span role="status" className="text-sm text-slate-500">{t("Counting…")}</span>}
         {busy && <span role="status" className="text-sm text-slate-600">{busy === "check" ? t("Question Check: {n} questions checked…", { n: check?.checked ?? 0 }) : t("Loading… you can keep using the platform in another tab.")}</span>}
         {retrying && <span role="status" className="text-sm text-amber-800">{t("A part did not answer; trying again ({n} of {max})…", { n: retrying.n, max: BACKOFF_MS.length })}</span>}
@@ -201,7 +202,7 @@ export function LoadRunner({ packs, running, last }: { packs: RunnerPack[]; runn
       )}
       {summary && !busy && (
         <section aria-label={t("Last load")} className="rounded-2xl bg-emerald-50 p-4 text-sm text-emerald-950 ring-1 ring-emerald-200">
-          <h2 className="font-semibold">✅ {t("Last load")} · <span dir="ltr">{summary.at.slice(0, 16).replace("T", " ")}</span>{summary.byName ? <> · <bdi>{summary.byName}</bdi></> : null}</h2>
+          <h2 className="font-semibold"><LineIcon name="check" className="me-1 inline-block h-4 w-4 align-[-3px]" />{t("Last load")} · <span dir="ltr">{summary.at.slice(0, 16).replace("T", " ")}</span>{summary.byName ? <> · <bdi>{summary.byName}</bdi></> : null}</h2>
           <p className="mt-1">{t("{n} questions added · {k} skills created", { n: summary.added, k: summary.created })}</p>
           <p>{t("Question Check: {n} questions checked, {h} hidden from students (waiting for review)", { n: summary.checked, h: summary.hidden })}</p>
           <p>{t("Skills still under 25 questions: {n}", { n: summary.stillUnder25 })}</p>

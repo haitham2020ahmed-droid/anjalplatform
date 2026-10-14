@@ -1,0 +1,453 @@
+{
+ "code": "LN-080",
+ "title": "Vowel pairs and diphthongs",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0041",
+  "L-0117",
+  "L-0234"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two vowels, one sound",
+     "text": "Some words have **two vowels together**. They make **one sound**.\n\nr**ai**n, b**oa**t, s**ee**d, t**ea**m"
+    },
+    {
+     "title": "Long vowel sounds",
+     "text": "**ai** says long a: r**ai**n, m**ai**l\n\n**ee** and **ea** say long e: f**ee**t, m**ea**l\n\n**oa** says long o: b**oa**t, r**oa**d"
+    },
+    {
+     "title": "Check the word",
+     "text": "1. Say the word slowly.\n2. Listen for the vowel sound.\n3. Look: are the **right two vowels** there?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Look closely at words with two vowels together.\n3. Say the word. Do the letters match the sound?\n\nThe sentence with the wrong letters is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My sister has a new bike.",
+      "role": "other"
+     },
+     {
+      "t": "She rides it on the rood.",
+      "role": "key"
+     },
+     {
+      "t": "I run next to her.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 has a mistake. **rood** is not right.\n\nThe long o sound here is spelled **oa**: **road**."
+   },
+   "together": {
+    "passage": "We went to the park. It began to rane. We ran to the car. We got wet feet.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "park",
+     "rane",
+     "wet",
+     "feet"
+    ],
+    "answer": 1,
+    "hint": "Say each word. Look at the letters. Which one does not look right?",
+    "good": "Yes! It should be rain. The long a sound in the middle is spelled ai."
+   },
+   "evidence": {
+    "sentences": [
+     "We went to the park.",
+     "It began to rane.",
+     "We ran to the car.",
+     "We got wet feet."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the word that is spelled wrong.",
+    "wrong": "All the words in this sentence are spelled right. Look for the one that is not."
+   },
+   "checks": [
+    {
+     "passage": "I can see the boat. It has a red sail.",
+     "stem": "Which word has oa that says long o?",
+     "options": [
+      "boat",
+      "see",
+      "red",
+      "sail"
+     ],
+     "answer": 0,
+     "why": "In boat, the two vowels o and a make one sound: long o."
+    },
+    {
+     "passage": "Hamad has a gote. It likes to eat grass.",
+     "stem": "What is the right way to spell the word that is wrong?",
+     "options": [
+      "gott",
+      "goat",
+      "gaot",
+      "geot"
+     ],
+     "answer": 1,
+     "why": "The long o sound in the middle is spelled oa: goat, like boat and coat."
+    },
+    {
+     "passage": "It is hot. I need a cold drink. Then I will feel better.",
+     "stem": "Which word has two vowels that make one long e sound?",
+     "options": [
+      "hot",
+      "cold",
+      "need",
+      "drink"
+     ],
+     "answer": 2,
+     "why": "In need, ee makes one long e sound."
+    }
+   ],
+   "again": {
+    "title": "Look and say",
+    "text": "Cover the word. Say it. Write it. Then look again.\n\nAsk: which **two vowels** make the sound in the middle?",
+    "example": "r _ _ d (the way cars drive on)\n\nThe sound is long o. Long o in the middle is often **oa** → **road**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Vowel teams",
+     "text": "A **vowel team** is two letters that work together to make one vowel sound.\n\n**ai, ay**: rain, play\n**ee, ea**: green, beach\n**oa, ow**: coat, snow"
+    },
+    {
+     "title": "Middle or end?",
+     "text": "Some teams like the **middle** of a word. Others like the **end**.\n\n**ai** in the middle: tr**ai**n. **ay** at the end: d**ay**.\n\n**oi** in the middle: c**oi**n. **oy** at the end: t**oy**."
+    },
+    {
+     "title": "Sliding sounds",
+     "text": "In some words, the sound **slides** as you say it. These are called **diphthongs**.\n\n**oi, oy**: coin, boy\n**ou, ow**: cloud, cow\n\nSay them slowly and feel your mouth move."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read every sentence.\n2. Stop at each word with a vowel team.\n3. Ask: Is it the right team for this sound? Is it in the right place, middle or end?\n\nPoint to the word that breaks the pattern. Its sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Every morning, Yousef walks to school.",
+      "role": "other"
+     },
+     {
+      "t": "He waits for his friend at the corner.",
+      "role": "key"
+     },
+     {
+      "t": "They enjoy the walk together.",
+      "role": "key"
+     }
+    ],
+    "explain": "In **waits**, the long a sound is in the middle, so it is spelled **ai**.\n\nIn **enjoy**, the oi sound is at the end, so it is spelled **oy**. Both words follow the pattern."
+   },
+   "together": {
+    "passage": "Last Friday, my family went to the beach. The water was clear, and the waves were small. My little brother poynted at a tiny crab. It ran sideways into a hole. We played in the sand until the sun went down.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "beach",
+     "clear",
+     "poynted",
+     "played"
+    ],
+    "answer": 2,
+    "hint": "Find the oi sound. Is it in the middle or at the end of the word?",
+    "good": "Yes! The oi sound is in the middle, so it is spelled oi: pointed, like coin."
+   },
+   "evidence": {
+    "sentences": [
+     "Last Friday, my family went to the beach.",
+     "The water was clear, and the waves were small.",
+     "My little brother poynted at a tiny crab.",
+     "It ran sideways into a hole.",
+     "We played in the sand until the sun went down."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "Every word in this sentence is spelled correctly. Keep looking."
+   },
+   "checks": [
+    {
+     "passage": "The train will leave at nine. We must not be late.",
+     "stem": "Which word uses ai because the long a sound is in the middle?",
+     "options": [
+      "train",
+      "leave",
+      "nine",
+      "late"
+     ],
+     "answer": 0,
+     "why": "In train, the long a sound is in the middle of the word, so it uses ai."
+    },
+    {
+     "passage": "My baby cousin has a new toi. It makes a funny noise.",
+     "stem": "Which word is spelled wrong, and what is the right spelling?",
+     "options": [
+      "noise → noyse",
+      "toi → toy",
+      "funny → funy",
+      "new → noo"
+     ],
+     "answer": 1,
+     "why": "The oi sound is at the end of the word, so it is spelled oy: toy, like boy."
+    },
+    {
+     "passage": "We heard a loud sound outside. A brown cow was standing by the gate.",
+     "stem": "Which word has the same vowel sound as cloud but is spelled with ow?",
+     "options": [
+      "loud",
+      "sound",
+      "brown",
+      "gate"
+     ],
+     "answer": 2,
+     "why": "Brown has the same sliding sound as cloud, but it is spelled with ow."
+    }
+   ],
+   "again": {
+    "title": "Where does the sound sit?",
+    "text": "Listen for **where** the sound is in the word.\n\n1. **Middle?** Often ai or oi.\n2. **End?** Often ay or oy.\n\nThis works for many words.",
+    "example": "pl _ _ (a game) → the sound is at the end → **play**\n\nr _ _ n (water from the sky) → the sound is in the middle → **rain**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More vowel teams",
+     "text": "**au, aw**: the sound in **August** and **draw**\n\n**oo, ew, ue**: moon, flew, blue\n\n**aw, ew** and **ue** often come at the **end** of a word. **au** usually comes in the middle."
+    },
+    {
+     "title": "One team, two sounds",
+     "text": "Some teams can make more than one sound.\n\n**ea**: long e in b**ea**ch, short e in br**ea**d\n**ow**: c**ow** and sn**ow**\n**oo**: m**oo**n and b**oo**k\n\nIf a word looks odd, try the other sound."
+    },
+    {
+     "title": "Long words",
+     "text": "Long words have vowel teams too. Break them into **syllables** and check each part.\n\nex·**plain**, al·**low**, a·**void**, **sea**·son"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word that looks unusual.\n2. Break it into syllables.\n3. Check the vowel team in each syllable: right letters? right place?\n4. Compare it with a word you know that has the same sound (point → avoid).\n\nThe sentence with the wrong spelling is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our teacher asked us to draw a map of the town.",
+      "role": "other"
+     },
+     {
+      "t": "I painted the river a deep blue.",
+      "role": "key"
+     },
+     {
+      "t": "Then I wrote the street names neatly.",
+      "role": "other"
+     }
+    ],
+    "explain": "**painted** has long a in the middle, so it uses **ai**. **blue** ends with **ue**, and **deep** uses **ee**.\n\nAll three vowel teams are spelled correctly."
+   },
+   "together": {
+    "passage": "In August, the weather in Riyadh is very hot. Many families travel to cooler places for a few weaks. Others stay at home and enjoy the cool air inside. Children often spend their afternoons reading or drawing. When the sun goes down, people walk in the parks, and the streets slowly become crowded.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "August",
+     "enjoy",
+     "crowded",
+     "weaks"
+    ],
+    "answer": 3,
+    "hint": "Look for a long e sound. Which team is used in seven days?",
+    "good": "Yes! Seven days make a week, spelled with ee: weeks. (Weak, with ea, means not strong.)"
+   },
+   "evidence": {
+    "sentences": [
+     "In August, the weather in Riyadh is very hot.",
+     "Many families travel to cooler places for a few weaks.",
+     "Others stay at home and enjoy the cool air inside.",
+     "Children often spend their afternoons reading or drawing.",
+     "When the sun goes down, people walk in the parks, and the streets slowly become crowded."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "Every word here is spelled correctly. Look for a word with the wrong vowel team."
+   },
+   "checks": [
+    {
+     "passage": "We had freshly baked bread for breakfast.",
+     "stem": "In which word does ea make the SHORT e sound, as in bed?",
+     "options": [
+      "bread",
+      "breakfast",
+      "both bread and breakfast",
+      "neither word"
+     ],
+     "answer": 2,
+     "why": "Say them: br-e-d and br-e-k-fast. In both words, ea makes the short e sound."
+    },
+    {
+     "passage": "The noo student was shy at first. Soon she found a group of good friends.",
+     "stem": "Which is the correct spelling of the wrong word?",
+     "options": [
+      "nue",
+      "neu",
+      "new",
+      "nooe"
+     ],
+     "answer": 2,
+     "why": "New ends with the team ew, like few and flew."
+    },
+    {
+     "passage": "Please explane the rules of the game before we start.",
+     "stem": "Which word is misspelled?",
+     "options": [
+      "Please",
+      "explane",
+      "rules",
+      "start"
+     ],
+     "answer": 1,
+     "why": "Explain: the long a in the last syllable is spelled with the team ai, like rain."
+    }
+   ],
+   "again": {
+    "title": "Find a buddy word",
+    "text": "When you are not sure, think of a word you know with the **same sound in the same place**.\n\nNot sure about c**oi**n? Think of **join**.\nNot sure about en**joy**? Think of **boy**.",
+    "example": "Is it 'avoyd' or 'avoid'?\n\nThe sound is in the middle, like in **point**. → **avoid**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "ie or ei?",
+     "text": "A helpful guide: **i before e, except after c**, when the sound is long e.\n\nbel**ie**ve, ach**ie**ve, rec**ei**ve, c**ei**ling\n\nWhen the sound is long a, use **ei**: n**ei**ghbor, w**ei**gh. Some words break the guide (seize, protein), so check when unsure."
+    },
+    {
+     "title": "ou has many sounds",
+     "text": "**ou** can sound different in different words: l**ou**d, s**ou**p, y**ou**ng, f**ou**r.\n\nIn c**ou**ntry, tr**ou**ble and t**ou**ch, **ou** spells a short u sound. Learn these words by sight."
+    },
+    {
+     "title": "Teams in longer words",
+     "text": "Check the team in each syllable: ap·**point**·ment, **bound**·a·ry, en·**coun**·ter, ex·**haust**·ed.\n\nMany mistakes happen in the **middle** syllables, where we say the word quickly."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read carefully. Misspellings often hide in long words.\n2. Split each long word into syllables.\n3. Check each vowel team against a word you know.\n4. Remember the special cases: ie and ei, and ou with a short u sound.\n\nPoint to the exact sentence and word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The hikers had walked for hours along the mountain trail.",
+      "role": "other"
+     },
+     {
+      "t": "They were exhausted but proud of what they had achieved.",
+      "role": "key"
+     },
+     {
+      "t": "At the top, they paused to admire the view.",
+      "role": "other"
+     }
+    ],
+    "explain": "**exhausted** has **au** in its second syllable (ex·haust·ed). **achieved** follows i before e: ach**ie**ved.\n\nBoth words are spelled correctly."
+   },
+   "together": {
+    "passage": "The neighborhood council held a meeting about the new park. Residents had different points of view about the plan. Some believed the park should have a playground for young children. Others wanted a quiet garden where elderly neighbors could relax. After a long discussion, the council recieved a drawing from a local designer. It showed a playground near the entrance and a peaceful garden along the boundary.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "believed",
+     "boundary",
+     "neighbors",
+     "recieved"
+    ],
+    "answer": 3,
+    "hint": "Remember: i before e, except after c. Check the word with c before the vowel team.",
+    "good": "Yes! After c, the long e sound is spelled ei: received, like ceiling and receipt."
+   },
+   "evidence": {
+    "sentences": [
+     "The neighborhood council held a meeting about the new park.",
+     "Residents had different points of view about the plan.",
+     "Some believed the park should have a playground for young children.",
+     "Others wanted a quiet garden where elderly neighbors could relax.",
+     "After a long discussion, the council recieved a drawing from a local designer.",
+     "It showed a playground near the entrance and a peaceful garden along the boundary."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The vowel teams in this sentence are all correct. Check the words with ie or ei again."
+   },
+   "checks": [
+    {
+     "passage": "Fahad had trouble finding the address, so he called a friend for directions.",
+     "stem": "In which word does ou make the same sound as the u in cup?",
+     "options": [
+      "called",
+      "trouble",
+      "address",
+      "directions"
+     ],
+     "answer": 1,
+     "why": "Trouble is one of the words where ou spells a short u sound, like country and touch."
+    },
+    {
+     "passage": "The athletes felt disappointed when the match was delayed by the storm. They waited in the lownge until the announcement came.",
+     "stem": "Which word is spelled INCORRECTLY?",
+     "options": [
+      "disappointed",
+      "delayed",
+      "lownge",
+      "announcement"
+     ],
+     "answer": 2,
+     "why": "Lounge has the ou team in the middle, like round and found."
+    },
+    {
+     "passage": "The scientist was pleased with the results of her experiment. She would present her findings at a conference in the autumn.",
+     "stem": "Which word has the same vowel team and sound as caught and launch?",
+     "options": [
+      "autumn",
+      "pleased",
+      "results",
+      "present"
+     ],
+     "answer": 0,
+     "why": "Autumn begins with the au team, which makes the same sound as in caught and launch."
+    }
+   ],
+   "again": {
+    "title": "Slow down the long word",
+    "text": "1. Say the word slowly, one syllable at a time.\n2. Write each syllable on its own.\n3. Check the vowel team in each part.\n4. Join the parts back together.",
+    "example": "boundary → bound / a / ry\n\nThe first part has the **ou** team, as in **found**. → **boundary**, not 'bowndary'."
+   }
+  }
+ }
+}

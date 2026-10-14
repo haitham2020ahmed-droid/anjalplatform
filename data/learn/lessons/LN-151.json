@@ -1,0 +1,514 @@
+{
+ "code": "LN-151",
+ "title": "Plot events and sequence",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.1.2",
+  "RL.1.3",
+  "RL.2.2",
+  "RL.2.3",
+  "RL.3.2",
+  "RL.3.3",
+  "RL.4.2",
+  "RL.4.3",
+  "RL.5.2",
+  "RL.5.3",
+  "RL.K.3"
+ ],
+ "families": [
+  "plot-events"
+ ],
+ "skillNames": [
+  "Plot: Sequence of Events",
+  "Paraphrasing and Sequence of Events"
+ ],
+ "statements": [
+  "R-0027",
+  "R-0030",
+  "R-0085",
+  "R-0088",
+  "R-0089",
+  "R-0156",
+  "R-0158",
+  "R-0165",
+  "R-0166",
+  "R-0272",
+  "R-0286",
+  "R-0287",
+  "R-0292",
+  "R-0442",
+  "R-0444",
+  "R-0631",
+  "R-0633",
+  "R-0654",
+  "R-0827",
+  "R-0834",
+  "R-0835",
+  "R-0981"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What happens in a story",
+     "text": "The **events** are the things that happen in a story.\n\nThey happen in an **order**: first, next, last."
+    },
+    {
+     "title": "Order words",
+     "text": "Look for words that tell the order:\n\n**first, then, next, after that, later, at last**"
+    },
+    {
+     "title": "Put them in order",
+     "text": "1. What happened **first**?\n2. What happened **next**?\n3. What happened **last**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The order is **in the story**.\n\n1. Find the event in the question.\n2. Look at the sentence **just before** or **just after** it.\n3. Order words like **then** and **at last** help you."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, Hala put on her shoes.",
+      "role": "detail"
+     },
+     {
+      "t": "Then she picked up her bag.",
+      "role": "key"
+     },
+     {
+      "t": "At last, she walked to school.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**First**: shoes. **Then**: bag. **At last**: walk to school.\n\nThe order words show what happened when."
+   },
+   "together": {
+    "passage": "Fahad planted a seed in a pot. Next, he gave it water every day. After a week, a small green leaf came up. At last, it grew into a tall plant.",
+    "stem": "What happened right after Fahad planted the seed?",
+    "options": [
+     "A green leaf came up.",
+     "It grew tall.",
+     "He gave it water every day.",
+     "He bought a pot."
+    ],
+    "answer": 2,
+    "hint": "Find the sentence about planting. What does the NEXT sentence say?",
+    "good": "Yes! Next, he gave it water every day."
+   },
+   "evidence": {
+    "sentences": [
+     "Fahad planted a seed in a pot.",
+     "Next, he gave it water every day.",
+     "After a week, a small green leaf came up.",
+     "At last, it grew into a tall plant."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: he gave it water every day. Tap the 2 sentences that show this order.",
+    "wrong": "This sentence tells what happened later. Find the planting and what came right after it."
+   },
+   "checks": [
+    {
+     "passage": "Lulu woke up. She ate her eggs. Then she brushed her teeth. Last, she went to school.",
+     "stem": "What did Lulu do first?",
+     "options": [
+      "She brushed her teeth.",
+      "She woke up.",
+      "She ate her eggs.",
+      "She went to school."
+     ],
+     "answer": 1,
+     "why": "The story starts with: Lulu woke up."
+    },
+    {
+     "passage": "The class went to the zoo. First, they saw the lions. Then they saw the birds. Last, they ate lunch.",
+     "stem": "What did the class do last?",
+     "options": [
+      "Saw the lions",
+      "Saw the birds",
+      "Went home",
+      "Ate lunch"
+     ],
+     "answer": 3,
+     "why": "The word **Last** tells us: they ate lunch."
+    },
+    {
+     "passage": "Mom made tea. She boiled the water. Then she put in the tea leaves. After that, she added milk.",
+     "stem": "What did Mom do before she put in the tea leaves?",
+     "options": [
+      "She boiled the water.",
+      "She added milk.",
+      "She drank the tea.",
+      "She added sugar."
+     ],
+     "answer": 0,
+     "why": "She boiled the water, then put in the leaves."
+    }
+   ],
+   "again": {
+    "title": "Use your fingers",
+    "text": "Hold up a finger for each event.\n\n**Finger 1**: first.\n**Finger 2**: next.\n**Finger 3**: last.\n\nSay them in order.",
+    "example": "The dog barked. The cat ran. The bird flew away.\n\n1: **dog barked**. 2: **cat ran**. 3: **bird flew away**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Plot",
+     "text": "The **plot** is the series of events in a story. Each event leads to the next.\n\nKnowing the order helps you understand **why** things happen."
+    },
+    {
+     "title": "Clues to order",
+     "text": "Writers use **time words**: first, then, before, after, while, finally, the next day.\n\nSometimes there are no time words. Then you follow what makes sense: you must **find** a key before you **open** a door."
+    },
+    {
+     "title": "Summing up events",
+     "text": "To **summarise** a sequence, tell only the **important events**, in order, in a few sentences.\n\nLeave out small details like colours or what someone wore."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an order:\n\n1. Find the sentences for each event.\n2. Look at time words: **before**, **after**, **then**, **finally**.\n3. Check that your order matches the story.\n\nFor a summary, check that it includes the important events, in the right order."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The power went out during the storm.",
+      "role": "detail"
+     },
+     {
+      "t": "Dad lit a lantern, and the family gathered in the living room.",
+      "role": "detail"
+     },
+     {
+      "t": "The lantern had a green handle.",
+      "role": "other"
+     },
+     {
+      "t": "When the lights came back on, nobody wanted to stop telling stories.",
+      "role": "key"
+     }
+    ],
+    "explain": "Important events in order: the power goes out, the family gathers around a lantern, the lights return but they keep telling stories.\n\nThe green handle is not important. Leave it out of a summary."
+   },
+   "together": {
+    "passage": "On the first day of the holidays, Yasir decided to build a birdhouse. He found some old wood in the garage and asked his father for help. Together they measured and cut the pieces. Then Yasir hammered them together while his father held the roof steady. After the glue dried, Yasir painted the birdhouse blue. The next morning, they hung it on the lemon tree. Two days later, a pair of sparrows moved in.",
+    "stem": "Which is the best summary of the events, in order?",
+    "options": [
+     "Sparrows moved into a tree, and then Yasir found wood and painted it blue.",
+     "Yasir and his father built and painted a birdhouse, hung it in a tree, and sparrows moved in.",
+     "Yasir painted wood blue, asked his father for help, and then went on holiday.",
+     "Yasir's father built a birdhouse alone while Yasir watched the birds in the tree."
+    ],
+    "answer": 1,
+    "hint": "Check the order of the events. Does the summary match what happened first, next and last?",
+    "good": "Yes! It gives the important events in the right order: build, paint, hang, birds move in."
+   },
+   "evidence": {
+    "sentences": [
+     "On the first day of the holidays, Yasir decided to build a birdhouse.",
+     "He found some old wood in the garage and asked his father for help.",
+     "Together they measured and cut the pieces.",
+     "Then Yasir hammered them together while his father held the roof steady.",
+     "After the glue dried, Yasir painted the birdhouse blue.",
+     "The next morning, they hung it on the lemon tree.",
+     "Two days later, a pair of sparrows moved in."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: they built it, painted it, hung it, and sparrows moved in. Tap 2 sentences that show these events.",
+    "wrong": "This sentence starts the story or gives a small step. Find the important events in the summary."
+   },
+   "checks": [
+    {
+     "passage": "Rania found a lost kitten in the rain. She wrapped it in her scarf and carried it home. Her mother warmed some milk. The kitten drank it all and fell asleep by the heater.",
+     "stem": "What happened right before the kitten drank the milk?",
+     "options": [
+      "Her mother warmed some milk.",
+      "Rania found the kitten in the rain.",
+      "The kitten fell asleep by the heater.",
+      "Rania put on her scarf to go out."
+     ],
+     "answer": 0,
+     "why": "Her mother warmed the milk, and then the kitten drank it."
+    },
+    {
+     "passage": "After the football match, the team went to eat. Before the match, the coach had given a short talk. During the match, Ali scored two goals.",
+     "stem": "Which event happened first?",
+     "options": [
+      "The team went to eat together.",
+      "Ali scored two goals in the match.",
+      "The team won the match easily.",
+      "The coach gave a short talk."
+     ],
+     "answer": 3,
+     "why": "\"Before the match\" shows the coach's talk came first, even though it is written second."
+    },
+    {
+     "passage": "Ibrahim wanted to surprise his mother. He saved his pocket money for a month. Then he went to the market and bought a scarf. He wrapped it in paper and gave it to her on Mother's Day.",
+     "stem": "Which event comes between saving money and giving the gift?",
+     "options": [
+      "He wanted to surprise his mother.",
+      "He gave it to her on Mother's Day.",
+      "He bought a scarf at the market.",
+      "He lost all of his money."
+     ],
+     "answer": 2,
+     "why": "He saved money, then bought the scarf, and then gave it."
+    }
+   ],
+   "again": {
+    "title": "First, then, finally",
+    "text": "Retell the story in three sentences that begin:\n\n**First,...**\n**Then,...**\n**Finally,...**\n\nThat is a short summary in order.",
+    "example": "A boy loses his ball, looks for it in the garden, and finds it under a bush.\n\n**First**, he lost his ball. **Then**, he searched the garden. **Finally**, he found it under a bush."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Following the plot",
+     "text": "A plot is a chain of events. Some come in **time order**. Some stories jump back to the past (**flashback**) or tell two things happening **at the same time**.\n\nTime words help: **meanwhile, earlier, years before, by then**."
+    },
+    {
+     "title": "Summarising a plot",
+     "text": "A good plot summary:\n\n1. Names the main character and problem.\n2. Tells the key events **in order**.\n3. Gives the ending.\n4. Leaves out minor details and dialogue."
+    },
+    {
+     "title": "Comparing events",
+     "text": "You can **compare** events in a story. How is the second try different from the first? What changed?\n\nComparing events helps you see how a character or situation develops."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sequence or comparison:\n\n1. Find each event in the story.\n2. Look for time clues (**earlier**, **meanwhile**, **later**) or cause clues (**so**, **because**).\n3. For a comparison, find the sentences that show **what is the same** and **what is different**.\n\nThe right answer matches the order the events really happened, not just the order they are written."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser stood at the starting line, his heart pounding.",
+      "role": "detail"
+     },
+     {
+      "t": "A year earlier, he had fallen at the first hurdle and finished last.",
+      "role": "key"
+     },
+     {
+      "t": "Since then, he had practised every morning before school.",
+      "role": "detail"
+     },
+     {
+      "t": "Now, as the whistle blew, he cleared every hurdle and crossed the line in second place.",
+      "role": "key"
+     }
+    ],
+    "explain": "The second sentence is a **flashback**: the fall happened **a year earlier**. So the real order is: fall, practice, this race.\n\nComparing the two races shows how much Nasser has improved."
+   },
+   "together": {
+    "passage": "Samira and her cousin Huda both entered the school's bread-baking contest. Samira followed her grandmother's recipe exactly, measuring every spoonful. Meanwhile, Huda decided to try something new and added dates and cardamom without testing the recipe first. On contest day, Samira's loaf came out soft and golden. Huda's loaf looked lovely but had sunk in the middle because the dough was too wet. The judges praised Samira's careful work. Still, they told Huda her flavour idea was the most original they had tasted. Huda smiled and said that next year she would test her recipe first.",
+    "stem": "How is Huda's baking different from Samira's?",
+    "options": [
+     "Huda followed an old recipe exactly, while Samira tried new flavours.",
+     "Both girls tested their recipes many times before the contest.",
+     "Huda tried new flavours without testing, while Samira followed a recipe exactly.",
+     "Samira's loaf sank in the middle, but Huda's came out perfectly."
+    ],
+    "answer": 2,
+    "hint": "Find what each girl did. Who measured carefully? Who added something new?",
+    "good": "Yes! Samira followed her grandmother's recipe exactly; Huda added dates and cardamom without testing."
+   },
+   "evidence": {
+    "sentences": [
+     "Samira and her cousin Huda both entered the school's bread-baking contest.",
+     "Samira followed her grandmother's recipe exactly, measuring every spoonful.",
+     "Meanwhile, Huda decided to try something new and added dates and cardamom without testing the recipe first.",
+     "On contest day, Samira's loaf came out soft and golden.",
+     "Huda's loaf looked lovely but had sunk in the middle because the dough was too wet.",
+     "The judges praised Samira's careful work.",
+     "Still, they told Huda her flavour idea was the most original they had tasted.",
+     "Huda smiled and said that next year she would test her recipe first."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Huda tried new flavours without testing, while Samira followed a recipe exactly. Tap 2 sentences that show the difference.",
+    "wrong": "This sentence introduces the contest or tells what the judges said. Find the sentences that show what each girl DID."
+   },
+   "checks": [
+    {
+     "passage": "Meanwhile, at the other end of the village, Waleed was also looking for the lost goat. He had searched the riverbank while his sister checked the hills. By the time they met at the old well, the sun had set.",
+     "stem": "Which is true about the order of events?",
+     "options": [
+      "Waleed searched the hills after the sun set.",
+      "Waleed and his sister searched at the same time, then met at the well.",
+      "His sister searched after they met at the well.",
+      "They met at the well before they started searching."
+     ],
+     "answer": 1,
+     "why": "\"While\" shows they searched at the same time; then they met at the well at sunset."
+    },
+    {
+     "passage": "Long ago, a merchant lost his way in a sandstorm. He followed the stars to an oasis and rested there. He told the people about the town he came from, and they agreed to trade dates for his cloth. Soon, caravans travelled between the two towns every month.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "A merchant found his way to an oasis.",
+      "A sandstorm blew for many days.",
+      "The merchant loved his cloth.",
+      "A lost merchant found an oasis and started trade between two towns."
+     ],
+     "answer": 3,
+     "why": "It names the problem, the key events and the result in order."
+    },
+    {
+     "passage": "On Monday, Aisha forgot her homework and lost points. On Tuesday, she wrote a list of her tasks. By Thursday, she had handed in every assignment on time.",
+     "stem": "What does comparing Monday with Thursday show?",
+     "options": [
+      "Aisha has become more organised.",
+      "Aisha forgot her homework twice.",
+      "Aisha does not like lists.",
+      "Aisha's teacher gave less homework."
+     ],
+     "answer": 0,
+     "why": "On Monday she forgot; by Thursday everything was on time. Her list made her more organised."
+    }
+   ],
+   "again": {
+    "title": "Timeline",
+    "text": "Draw a line. Put each event on it **in the order it really happened**, not the order it is written.\n\nWords like **earlier**, **years before** and **meanwhile** tell you where to place it.",
+    "example": "\"Ali opened the letter. Years before, he had written to the museum.\"\n\nTimeline: **wrote the letter** → **opened the reply**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Major and minor events",
+     "text": "A **major event** changes the direction of the plot. If you removed it, the story would not work.\n\nA **minor event** adds detail, humour or atmosphere, but the story would still make sense without it."
+    },
+    {
+     "title": "Testing an event",
+     "text": "Ask:\n\n1. Does this event **cause** later events?\n2. Does it change the **problem** or the **character**?\n3. Would the ending be different without it?\n\nIf yes, it is major."
+    },
+    {
+     "title": "Summarising complex plots",
+     "text": "A strong summary of a long story keeps only the **major events**, in order, and shows how they connect: **because of this, that happened**.\n\nIt does not include opinions or minor scenes."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an event is major:\n\n1. Find the event in the story.\n2. Find the later sentences it **causes** or **changes**.\n3. If you can trace a chain from it to the ending, it is major.\n\nIf an event leads nowhere, it is minor, however vivid it is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On the first night of the school camping trip, Omar forgot to close the food box.",
+      "role": "key"
+     },
+     {
+      "t": "His friend Sultan told a funny joke about a talking camel.",
+      "role": "other"
+     },
+     {
+      "t": "By morning, foxes had eaten most of the food.",
+      "role": "key"
+     },
+     {
+      "t": "The group had to hike to the next village for supplies, where they met a shepherd who showed them a hidden waterfall.",
+      "role": "key"
+     }
+    ],
+    "explain": "Forgetting the food box is **major**: it causes the lost food, the hike, and the discovery of the waterfall.\n\nThe joke is **minor**: nothing that follows depends on it."
+   },
+   "together": {
+    "passage": "The museum was closing when Latifa noticed that the old astronomer's notebook was missing from its glass case. The guard had stepped away to answer the phone, and a group of tourists was crowding the exit. Latifa, a volunteer, remembered that a boy in a red cap had been sketching the notebook all afternoon. She hurried outside and saw him on the steps, his own sketchbook open. Before she could speak, a cleaner rushed out holding the notebook; she had moved it to dust the case and forgot to put it back. Latifa laughed with relief, then sat down beside the boy, who showed her his careful drawings of the star charts. A year later, he returned to the museum as its youngest volunteer.",
+    "stem": "Which event is a MINOR event in the story?",
+    "options": [
+     "Latifa notices that the old notebook is missing from its glass case.",
+     "The cleaner rushes out holding the notebook she had moved to dust the case.",
+     "Latifa sits beside the boy and sees his drawings of the star charts.",
+     "A group of tourists is crowding the exit as the museum is closing."
+    ],
+    "answer": 3,
+    "hint": "Which event could you remove without changing what happens next? Check whether each event causes anything later.",
+    "good": "Yes! The crowd of tourists adds atmosphere, but nothing later depends on it. The other events drive the plot."
+   },
+   "evidence": {
+    "sentences": [
+     "The museum was closing when Latifa noticed that the old astronomer's notebook was missing from its glass case.",
+     "The guard had stepped away to answer the phone, and a group of tourists was crowding the exit.",
+     "Latifa, a volunteer, remembered that a boy in a red cap had been sketching the notebook all afternoon.",
+     "She hurried outside and saw him on the steps, his own sketchbook open.",
+     "Before she could speak, a cleaner rushed out holding the notebook; she had moved it to dust the case and forgot to put it back.",
+     "Latifa laughed with relief, then sat down beside the boy, who showed her his careful drawings of the star charts.",
+     "A year later, he returned to the museum as its youngest volunteer."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the crowd of tourists is a minor event. Tap 2 sentences that show MAJOR events that the plot depends on.",
+    "wrong": "This sentence is a minor detail, or tells what happened long after. Find events that cause later events in the story."
+   },
+   "checks": [
+    {
+     "passage": "A young fisherman ignored his father's warning about the clouds and sailed out alone. A storm broke his mast, and he drifted for a day. Along the way, he watched dolphins play near the boat. A coastguard boat finally found him, and from then on he always checked the weather with his father before sailing.",
+     "stem": "Which event is minor?",
+     "options": [
+      "He ignores his father's warning and sails out.",
+      "A storm breaks his mast.",
+      "He watches dolphins playing near the boat.",
+      "A coastguard boat finds him."
+     ],
+     "answer": 2,
+     "why": "The dolphins add a vivid moment but cause nothing. The other events lead to the lesson he learns."
+    },
+    {
+     "passage": "Reem broke her grandmother's favourite vase while playing indoors. She hid the pieces. That night, she could not sleep. In the morning, she confessed. Her grandmother hugged her and showed her a vase she herself had broken and repaired as a girl. Together, they glued the pieces back.",
+     "stem": "Which is the best summary of the major events?",
+     "options": [
+      "Reem broke a vase, hid it, confessed, and repaired it with her grandmother.",
+      "Reem played indoors and could not sleep.",
+      "Reem's grandmother once broke a vase when she was a girl.",
+      "Reem and her grandmother enjoy gluing things together."
+     ],
+     "answer": 0,
+     "why": "This keeps the major events in order and shows how they connect."
+    },
+    {
+     "passage": "Badr entered the robotics contest with a robot that could sort recycling. During testing, its arm jammed. He stayed up late redesigning the gears, ate a quick sandwich, and fixed the problem. On contest day, the robot sorted every item correctly and won.",
+     "stem": "Which event is the turning point that makes the ending possible?",
+     "options": [
+      "Badr eats a quick sandwich while working late.",
+      "Badr enters the robotics contest with his robot.",
+      "The robot sorts every item correctly on contest day.",
+      "Badr redesigns the gears to fix the jammed arm."
+     ],
+     "answer": 3,
+     "why": "Redesigning the gears solves the problem, which allows the robot to win."
+    }
+   ],
+   "again": {
+    "title": "Remove and test",
+    "text": "Imagine **deleting** an event from the story.\n\n1. Does the rest still make sense? → **minor**\n2. Does something later fall apart? → **major**",
+    "example": "A boy buys a train ticket, misses the train, and meets an old friend while waiting.\n\nDelete \"misses the train\": he never meets the friend. **Major.** Delete \"the station was cold\": nothing changes. **Minor.**"
+   }
+  }
+ }
+}

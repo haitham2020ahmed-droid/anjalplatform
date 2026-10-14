@@ -10,6 +10,7 @@ import { SkillListPicker } from "@/components/skill-picker";
 import { lexileBands } from "@/server/curriculum-map/lexile";
 import { autoLoadReadMasterLibrary, LIBRARY_LABEL } from "@/server/readmaster/library";
 import { bulkStatusAction, createArticleAction, importReadMasterAction, linkToMapAction, loadLibraryAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "ReadMaster" };
 
@@ -73,9 +74,7 @@ export default async function ReadMasterAdmin({ searchParams }: { searchParams: 
             <label className={label}>Title<input name="title" required maxLength={255} placeholder="Our Solar System" className={field} /></label>
             <label className={label}>Topic <span className="font-normal text-slate-400">(optional)</span><input name="topic" maxLength={191} placeholder="Science · Space" className={field} /></label>
             <label className={`${label} md:col-span-2`}>Common Core standard (Grade {grade})
-              <select name="standard" className={field}><option value="">— choose a standard —</option>
-                {standards.map((g) => <optgroup key={g.strand} label={g.strand}>{g.items.map((x) => <option key={x.code} value={x.short}>{x.short} — {x.description.length > 100 ? `${x.description.slice(0, 100)}…` : x.description}</option>)}</optgroup>)}
-              </select>
+              <Combo name="standard" label="Standard" placeholder="— choose a standard —" options={standards.flatMap((g) => g.items.map((x) => ({ value: x.short, label: `${x.short} — ${x.description.length > 100 ? `${x.description.slice(0, 100)}…` : x.description}`, group: g.strand })))} />
             </label>
             <label className={label}>Skill name <span className="font-normal text-slate-400">(optional)</span><input name="skillName" maxLength={191} placeholder="e.g. Main Idea and Key Details" className={field} /></label>
             <SkillListPicker skills={skills} mode="single" name="skillId" optional allowEmpty legend="Platform skill (optional)" height="max-h-64" />

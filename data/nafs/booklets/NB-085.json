@@ -1,0 +1,568 @@
+{
+  "code": "NB-085",
+  "title": "Ibn al-Nafis and the Journey of the Blood",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 419,
+  "passage": "For more than a thousand years, doctors believed an idea about the human heart that was completely wrong. They thought that blood passed from the right side of the heart to the left side through tiny invisible holes in the thick wall between them. Almost everyone accepted this idea, because it came from Galen, a famous Greek physician. In the thirteenth century, however, an Arab doctor named Ibn al-Nafis dared to question it. In doing so, he described how blood really travels through the lungs.\n\nIbn al-Nafis was born around 1213 in Damascus, Syria. As a young man, he studied medicine at the Nuri Hospital in Damascus, which was one of the finest teaching hospitals of its time. Later, he moved to Cairo, where he worked as a physician and eventually became the head of the great Mansuri Hospital. Students travelled long distances to learn from him. He was famous for his excellent memory, and it was said that he could write for hours without looking at a single book.\n\nAt about the age of twenty-nine, Ibn al-Nafis wrote a commentary on the anatomy section of the Canon of Medicine, the celebrated book by Ibn Sina. In it, he boldly disagreed with both Galen and Ibn Sina. He pointed out that the wall between the two sides of the heart is solid and has no visible holes. Therefore, he argued, blood must leave the right side of the heart and travel to the lungs. There it mixes with air, and then it returns to the left side. This journey is now called the pulmonary circulation.\n\nRemarkably, his explanation was largely forgotten for centuries. European scientists described the same journey of the blood about three hundred years later, and William Harvey explained the full circulation of the blood in 1628. Then, in 1924, an Egyptian doctor studying old manuscripts in a library in Berlin discovered Ibn al-Nafis's commentary. Historians were astonished to realise how far ahead of his time the Arab physician had been.\n\nIbn al-Nafis also planned an enormous medical encyclopedia and completed many volumes of it before his death in 1288. Generous to the end, he left his house and his library to the Mansuri Hospital so that future doctors could continue to learn.\n\nHow courageous it was to challenge the greatest experts of his age! Ibn al-Nafis respected earlier scholars, but he trusted careful observation and reasoning more than reputation. His life teaches us that real progress often begins when someone politely asks, \"Is this really true?\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “boldly” as it is used in paragraph 3?",
+      "options": [
+        "bravely",
+        "politely",
+        "quietly",
+        "carelessly"
+      ],
+      "answer": "A",
+      "why": "Disagreeing with Galen and Ibn Sina took courage, so he disagreed “boldly”, or bravely."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “enormous” as it is used in paragraph 5?",
+      "options": [
+        "tiny",
+        "huge",
+        "ancient",
+        "useful"
+      ],
+      "answer": "A",
+      "why": "An “enormous” encyclopedia is extremely large; the opposite is “tiny”. “Huge” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “manuscripts” mean in this phrase from paragraph 4: “studying old manuscripts in a library in Berlin”?",
+      "options": [
+        "printed newspapers from the last century",
+        "old books or papers written by hand",
+        "paintings of famous doctors",
+        "maps of ancient cities"
+      ],
+      "answer": "B",
+      "why": "Ibn al-Nafis's commentary was an old handwritten book, found among other manuscripts in a library."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a VERB?",
+      "options": [
+        "argued",
+        "solid",
+        "commentary",
+        "therefore"
+      ],
+      "answer": "A",
+      "why": "“Argued” is an action; “solid” is an adjective, “commentary” a noun and “therefore” a linking adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is PLURAL?",
+      "options": [
+        "hospital",
+        "memory",
+        "distances",
+        "physician"
+      ],
+      "answer": "C",
+      "why": "“Distances” means more than one distance; the other words are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “observation”?",
+      "options": [
+        "observe",
+        "obstacle",
+        "obvious",
+        "orbit"
+      ],
+      "answer": "A",
+      "why": "Observe, observer and observation share the same root; the others only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “challenge” in a meaningful sentence of your own.",
+      "model": "During the science lesson, Reem politely challenged the idea that heavy objects fall faster, and her experiment showed she was right.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “challenge” with its meaning (to question whether something is true or right; it may also mean a difficult task)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 6, Ibn al-Nafis had the courage “to challenge the greatest experts of his age”."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Ibn al-Nafis left his library to the hospital. What is the correct plural of “library”?",
+      "options": [
+        "librarys",
+        "libraries",
+        "libraryes",
+        "librares"
+      ],
+      "answer": "B",
+      "why": "A consonant + y changes to -ies: library → libraries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Is this really true?” at the end of the passage?",
+      "options": [
+        "a command",
+        "an exclamation",
+        "a question",
+        "a statement"
+      ],
+      "answer": "C",
+      "why": "It asks something and ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Life in a Library in Berlin",
+        "Famous Greek Physicians",
+        "A Forgotten Discovery About the Heart",
+        "How to Build a Hospital"
+      ],
+      "answer": "C",
+      "why": "The passage is about Ibn al-Nafis's discovery about the heart and lungs, which was forgotten for centuries."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to explain how to care for your heart and lungs",
+        "to describe the history of the city of Damascus",
+        "to compare Greek and Egyptian libraries",
+        "to show how a doctor's careful reasoning corrected an old mistake"
+      ],
+      "answer": "D",
+      "why": "The passage tells how Ibn al-Nafis questioned Galen's idea and described how blood really travels."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "William Harvey copied the work of Ibn al-Nafis.",
+        "His explanation was forgotten for centuries and then rediscovered.",
+        "Berlin has the largest library in the world.",
+        "European scientists never studied the heart."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 explains that his work was “largely forgotten” until it was found in Berlin in 1924."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, why did almost everyone accept the idea about holes in the heart?",
+      "options": [
+        "It came from Galen, a famous Greek physician.",
+        "Doctors had seen the holes with their own eyes.",
+        "Ibn Sina had proved it with experiments.",
+        "It was written on the walls of every hospital."
+      ],
+      "answer": "A",
+      "why": "“Almost everyone accepted this idea, because it came from Galen, a famous Greek physician.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the passage, what is the “pulmonary circulation”?",
+      "options": [
+        "the movement of air in and out of the nose",
+        "the path of food through the stomach",
+        "the flow of blood through holes in the heart wall",
+        "the journey of blood from the heart to the lungs and back"
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 describes blood travelling to the lungs, mixing with air and returning: “This journey is now called the pulmonary circulation.”"
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Ibn al-Nafis leave his house and library to the Mansuri Hospital?",
+      "options": [
+        "so that future doctors could continue to learn",
+        "because he was moving back to Damascus",
+        "because his books were too heavy to carry",
+        "so that the hospital could sell them"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: he left them “so that future doctors could continue to learn.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "An Egyptian doctor found the commentary in Berlin.",
+        "William Harvey explained the full circulation.",
+        "Ibn al-Nafis wrote his commentary.",
+        "Ibn al-Nafis studied at the Nuri Hospital."
+      ],
+      "answer": "A",
+      "why": "The commentary was found in 1924, after Harvey's work (1628) and long after Ibn al-Nafis's life."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to Ibn al-Nafis, where does blood go right AFTER it leaves the right side of the heart?",
+      "options": [
+        "to the left side of the heart",
+        "to the lungs",
+        "through holes in the heart wall",
+        "to the brain"
+      ],
+      "answer": "B",
+      "why": "Blood “must leave the right side of the heart and travel to the lungs”; only after that does it return to the left side."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Where did Ibn al-Nafis become the head of a hospital?",
+      "options": [
+        "at the Nuri Hospital in Damascus",
+        "at a library in Berlin",
+        "at a medical school in Greece",
+        "at the Mansuri Hospital in Cairo"
+      ],
+      "answer": "D",
+      "why": "Paragraph 2: he moved to Cairo and “eventually became the head of the great Mansuri Hospital.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What led Ibn al-Nafis to reject the idea that blood passes through holes in the heart wall?",
+      "options": [
+        "Ibn Sina asked him to correct Galen's book.",
+        "His students refused to believe Galen.",
+        "He saw that the wall is solid, with no visible holes.",
+        "He read William Harvey's explanation."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: “He pointed out that the wall … is solid and has no visible holes. Therefore, he argued…”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How did historians feel when they learned about the commentary found in 1924?",
+      "options": [
+        "bored",
+        "angry",
+        "amazed",
+        "frightened"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “Historians were astonished to realise how far ahead of his time the Arab physician had been.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which pair of words best describes Ibn al-Nafis?",
+      "options": [
+        "rude and careless",
+        "timid and obedient",
+        "respectful yet independent",
+        "boastful and lazy"
+      ],
+      "answer": "C",
+      "why": "He “respected earlier scholars” but trusted his own observation and reasoning more than their reputation."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Ibn al-Nafis's explanation DIFFERENT from Galen's?",
+      "options": [
+        "He said the heart has no left or right side at all.",
+        "He said blood does not travel anywhere in the body.",
+        "He said the holes in the wall were larger than Galen thought.",
+        "He said blood passes through the lungs, not through holes in the heart wall."
+      ],
+      "answer": "D",
+      "why": "Galen believed in invisible holes; Ibn al-Nafis said blood travels from the right side to the lungs and back to the left side."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the discovery made in Berlin in 1924?",
+      "options": [
+        "Hospitals stopped teaching about the heart.",
+        "William Harvey's work was forgotten.",
+        "Galen's idea became popular again.",
+        "People learned how early Ibn al-Nafis had described the blood's journey."
+      ],
+      "answer": "D",
+      "why": "The find showed historians “how far ahead of his time” he had been."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Ibn al-Nafis and William Harvey have in common?",
+      "options": [
+        "Both lived in the thirteenth century.",
+        "Both worked at the Mansuri Hospital.",
+        "Both explained how blood travels through the body.",
+        "Both agreed with Galen's idea about the heart."
+      ],
+      "answer": "C",
+      "why": "Ibn al-Nafis described the pulmonary circulation, and Harvey explained the full circulation of the blood."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “how far ahead of his time” in paragraph 4 mean?",
+      "options": [
+        "He always arrived early for his work.",
+        "His ideas were much more advanced than those of people in his age.",
+        "He lived many years longer than other doctors.",
+        "He travelled farther than other physicians."
+      ],
+      "answer": "B",
+      "why": "The phrase is figurative: his understanding came centuries before others reached the same idea."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by describing a mistaken idea about the heart?",
+      "options": [
+        "to teach readers that Galen was a poor doctor",
+        "to suggest that the mistaken idea is still taught today",
+        "to explain how hospitals were built in Greece",
+        "to show how important it was that Ibn al-Nafis corrected it"
+      ],
+      "answer": "D",
+      "why": "Starting with a belief accepted for a thousand years makes Ibn al-Nafis's correction stand out."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage is EXCLAMATORY?",
+      "options": [
+        "Remarkably, his explanation was largely forgotten for centuries.",
+        "Students travelled long distances to learn from him.",
+        "How courageous it was to challenge the greatest experts of his age!",
+        "This journey is now called the pulmonary circulation."
+      ],
+      "answer": "C",
+      "why": "It expresses strong admiration and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "According to the passage, which quality made Ibn al-Nafis's discovery possible?",
+      "options": [
+        "having the largest library in Cairo",
+        "trusting careful observation more than reputation",
+        "being the youngest doctor in Damascus",
+        "travelling to Greece to meet Galen"
+      ],
+      "answer": "B",
+      "why": "The last paragraph says he “trusted careful observation and reasoning more than reputation.”"
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best expresses the writer's view of Galen and Ibn Sina?",
+      "options": [
+        "They were respected scholars, but they could still be wrong.",
+        "They were careless doctors whom nobody respected.",
+        "They were always right about every subject.",
+        "They copied their ideas from Ibn al-Nafis."
+      ],
+      "answer": "A",
+      "why": "The writer calls them famous and celebrated, yet shows that their idea about the heart was “completely wrong”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling toward Ibn al-Nafis is most present in the passage?",
+      "options": [
+        "pity",
+        "suspicion",
+        "disappointment",
+        "respect"
+      ],
+      "answer": "D",
+      "why": "Words such as “courageous”, “Generous” and “far ahead of his time” show the writer's respect."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "the year Ibn al-Nafis died",
+        "the city where he first studied",
+        "the year Harvey explained the circulation",
+        "the name of the doctor who found the commentary"
+      ],
+      "answer": "D",
+      "why": "The passage mentions “an Egyptian doctor” but never gives his name; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A doctor sees blood flowing through invisible holes.",
+        "A doctor disagrees with a famous book after careful study.",
+        "A manuscript writes a new chapter by itself.",
+        "A doctor reads every book in a library in one hour."
+      ],
+      "answer": "B",
+      "why": "Ibn al-Nafis did exactly this; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The Physician Who Questioned Galen",
+        "The Holes in the Heart Wall",
+        "A Library Lost in Berlin",
+        "Greek Medicine in Cairo"
+      ],
+      "answer": "A",
+      "why": "The central event is Ibn al-Nafis questioning Galen's idea and describing the true path of the blood."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending: imagine that doctors everywhere had read Ibn al-Nafis's commentary soon after he wrote it. Write two or three sentences about what might have happened.",
+      "model": "Doctors in many countries might have stopped believing in the invisible holes centuries earlier. Medical students could have learned about the pulmonary circulation in the thirteenth century, and later scientists might have explained the full circulation of the blood much sooner. Ibn al-Nafis would have become famous in his own lifetime instead of hundreds of years later.",
+      "rubric": [
+        "2 = a clear, believable new ending that follows logically from the commentary being widely read",
+        "1 = an ending is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that follows from his work being known early is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, what is the best way for students to follow Ibn al-Nafis's example?",
+      "options": [
+        "Accept everything written in a famous book.",
+        "Ask respectful questions and check the evidence before accepting an idea.",
+        "Argue with every teacher about every fact.",
+        "Ignore what earlier scholars have written."
+      ],
+      "answer": "B",
+      "why": "He respected earlier scholars but checked the evidence; he did not accept or reject ideas without reason."
+    }
+  ]
+}

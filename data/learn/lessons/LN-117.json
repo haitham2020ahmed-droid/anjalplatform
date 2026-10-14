@@ -1,0 +1,499 @@
+{
+ "code": "LN-117",
+ "title": "Headings, sidebars and typeface",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.5",
+  "RI.3.5",
+  "RI.6.5",
+  "RI.7.5",
+  "RI.8.5"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [
+  "Sidebars, Captions and Typeface",
+  "Text Features"
+ ],
+ "statements": [
+  "R-0180",
+  "R-0307",
+  "R-0308",
+  "R-0315",
+  "R-0482",
+  "R-0515",
+  "R-0516",
+  "R-0702",
+  "R-0715"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a heading?",
+     "text": "A **heading** is a title at the top of a part of a text.\n\nIt is often in **big** or **dark** letters."
+    },
+    {
+     "title": "Headings help you",
+     "text": "A heading tells you what that part is **about**.\n\nIt helps you **find** things fast."
+    },
+    {
+     "title": "How to use headings",
+     "text": "1. Read the question.\n2. Look at the headings.\n3. Pick the heading that matches.\n4. Read that part to find the answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The heading and the sentences under it **match**.\n\n1. Find the heading.\n2. Read the sentences under it.\n3. They tell about the heading."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Heading: What Cats Eat.",
+      "role": "key"
+     },
+     {
+      "t": "Cats eat meat and fish.",
+      "role": "detail"
+     },
+     {
+      "t": "Heading: Where Cats Sleep.",
+      "role": "other"
+     },
+     {
+      "t": "Cats sleep in warm, soft places.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **What do cats eat?**\n\nGo to the heading **What Cats Eat**. Under it: **meat and fish**."
+   },
+   "together": {
+    "passage": "Heading: How Bees Help.\nBees help flowers make seeds.\nHeading: What Bees Make.\nBees make honey and wax.",
+    "stem": "Which heading tells where to find out what bees make?",
+    "options": [
+     "How Bees Help",
+     "Bees Like Flowers",
+     "Where Bees Live",
+     "What Bees Make"
+    ],
+    "answer": 3,
+    "hint": "The question asks what bees MAKE. Which heading has that word?",
+    "good": "Yes! The heading What Bees Make tells you that part is about honey and wax."
+   },
+   "evidence": {
+    "sentences": [
+     "Heading: How Bees Help.",
+     "Bees help flowers make seeds.",
+     "Heading: What Bees Make.",
+     "Bees make honey and wax."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: What Bees Make. Tap the heading or the sentence under it.",
+    "wrong": "This part is about how bees help. Find the part about what bees make."
+   },
+   "checks": [
+    {
+     "passage": "Heading: Food for Dogs.\nDogs eat meat and dog food.\nHeading: Playing with Dogs.\nDogs like to run and catch balls.",
+     "stem": "Which heading tells about what dogs eat?",
+     "options": [
+      "Food for Dogs",
+      "Playing with Dogs",
+      "Dogs at Night",
+      "Dog Beds"
+     ],
+     "answer": 0,
+     "why": "The heading Food for Dogs tells about what dogs eat."
+    },
+    {
+     "passage": "Heading: Rain.\nRain falls from clouds.\nHeading: Snow.\nSnow is cold and white.",
+     "stem": "Under which heading can you read about cold, white snow?",
+     "options": [
+      "Rain",
+      "Snow",
+      "Clouds",
+      "Sun"
+     ],
+     "answer": 1,
+     "why": "The heading Snow tells about snow."
+    },
+    {
+     "passage": "Heading: Our Class Pet.\nWe have a fish named Bubbles.\nHeading: Our Class Trip.\nWe went to the farm.",
+     "stem": "What is the part under Our Class Trip about?",
+     "options": [
+      "Our fish",
+      "Our teacher",
+      "Going to the farm",
+      "Our lunch"
+     ],
+     "answer": 2,
+     "why": "Under Our Class Trip, it says: We went to the farm."
+    }
+   ],
+   "again": {
+    "title": "Headings are signs",
+    "text": "Headings are like signs on doors in a school.\n\n**Library**, **Office**, **Gym**.\n\nThey tell you what is inside before you go in.",
+    "example": "You want to know where foxes live.\n\nHeadings: **What Foxes Eat**, **Where Foxes Live**. Go to the door: **Where Foxes Live**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Headings and subheadings",
+     "text": "The **heading** tells what the whole text is about.\n\n**Subheadings** split it into smaller parts. Each subheading tells what **one section** is about."
+    },
+    {
+     "title": "Special print",
+     "text": "Authors change the **typeface** to help you.\n\n**Bold** words are often key words, sometimes explained in a glossary.\n*Italic* words may be names of books, special terms or words from another language."
+    },
+    {
+     "title": "Using them",
+     "text": "1. Skim the subheadings first.\n2. Pick the section that matches your question.\n3. Look for bold words: they are often the key ideas.\n4. Read that section carefully."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your answer with the **section** where you found it.\n\nName the subheading, then point to the sentence under it. For special print, point to the bold or italic word and its meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Heading: The Desert.",
+      "role": "other"
+     },
+     {
+      "t": "Subheading: Desert Animals.",
+      "role": "key"
+     },
+     {
+      "t": "Many desert animals are nocturnal, which means they are active at night. [The word nocturnal is printed in bold.]",
+      "role": "key"
+     },
+     {
+      "t": "Subheading: Desert Plants.",
+      "role": "other"
+     },
+     {
+      "t": "Cactus plants store water in their thick stems.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The subheading **Desert Animals** tells you that section is about animals. The **bold** word **nocturnal** is a key word, and the sentence explains it: active at night."
+   },
+   "together": {
+    "passage": "Heading: All About Volcanoes.\nSubheading: How Volcanoes Form.\nDeep under the ground, rock gets so hot that it melts. This melted rock is called magma. [The word magma is printed in bold.]\nSubheading: When Volcanoes Erupt.\nMagma pushes up and bursts out of the top of the volcano. Once it reaches the surface, it is called lava.\nSubheading: Volcanoes in Arabia.\nThere are many old volcanic fields in western Saudi Arabia, such as Harrat Rahat near Madinah.",
+    "stem": "Under which subheading would you read about what happens when magma bursts out?",
+    "options": [
+     "How Volcanoes Form",
+     "When Volcanoes Erupt",
+     "Volcanoes in Arabia",
+     "All About Volcanoes"
+    ],
+    "answer": 1,
+    "hint": "Bursting out is an eruption. Which subheading talks about erupting?",
+    "good": "Yes! The section When Volcanoes Erupt explains magma bursting out of the top."
+   },
+   "evidence": {
+    "sentences": [
+     "Heading: All About Volcanoes.",
+     "Subheading: How Volcanoes Form.",
+     "Deep under the ground, rock gets so hot that it melts.",
+     "This melted rock is called magma.",
+     "[The word magma is printed in bold.]",
+     "Subheading: When Volcanoes Erupt.",
+     "Magma pushes up and bursts out of the top of the volcano.",
+     "Once it reaches the surface, it is called lava.",
+     "Subheading: Volcanoes in Arabia.",
+     "There are many old volcanic fields in western Saudi Arabia, such as Harrat Rahat near Madinah."
+    ],
+    "proof": [
+     5,
+     6
+    ],
+    "need": 1,
+    "stem": "The answer was: When Volcanoes Erupt. Tap that subheading or the sentence under it about magma bursting out.",
+    "wrong": "This line is in a different section. Find the section about erupting."
+   },
+   "checks": [
+    {
+     "passage": "Heading: Saving Water at Home.\nSubheading: In the Kitchen.\nWash fruit in a bowl instead of under running water.\nSubheading: In the Bathroom.\nTurn off the tap while you brush your teeth.\nSubheading: In the Garden.\nWater plants early in the morning, when less water dries up in the sun.",
+     "stem": "Which section tells about watering plants?",
+     "options": [
+      "In the Kitchen",
+      "In the Bathroom",
+      "In the Garden",
+      "Saving Water at Home"
+     ],
+     "answer": 2,
+     "why": "The subheading In the Garden is followed by the sentence about watering plants."
+    },
+    {
+     "passage": "The giant squid has the largest eyes of any animal. Each eye can be as big as a dinner plate. [The words largest eyes are printed in bold.]",
+     "stem": "Why are the words largest eyes printed in bold?",
+     "options": [
+      "They are the name of a book.",
+      "They are a word from another language.",
+      "They are the title of the text.",
+      "They show the most important fact."
+     ],
+     "answer": 3,
+     "why": "Bold print often shows a key idea. The largest eyes is the main fact of the text."
+    },
+    {
+     "passage": "Heading: Our School Garden.\nSubheading: What We Grow.\nWe grow tomatoes, mint and peppers.\nSubheading: Who Helps.\nStudents from Grades 4 and 5 water the plants every morning.",
+     "stem": "What is the purpose of the subheading Who Helps?",
+     "options": [
+      "To show this section is about the garden's helpers",
+      "To name the plants that grow in the school garden",
+      "To give the title of the whole text about the garden",
+      "To show a word that comes from another language"
+     ],
+     "answer": 0,
+     "why": "A subheading tells what its section is about. This section is about the students who help."
+    }
+   ],
+   "again": {
+    "title": "A book's map",
+    "text": "Subheadings are a **map** of the text. Read only the subheadings first, like a list of rooms.\n\nThen walk into the room you need.",
+    "example": "Map: **How Volcanoes Form**, **When Volcanoes Erupt**, **Volcanoes in Arabia**.\n\nQuestion: Where are there volcanoes near Madinah? Room: **Volcanoes in Arabia**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "What is a sidebar?",
+     "text": "A **sidebar** (or **text box**) is a small box of information beside or below the main text.\n\nIt often has a title like **Did You Know?** or **Fast Facts**."
+    },
+    {
+     "title": "Why sidebars exist",
+     "text": "A sidebar gives **extra** information: a fun fact, a definition, a short biography, a list of numbers, or a related story.\n\nIt is connected to the main text, but it is **not** part of the main flow."
+    },
+    {
+     "title": "Using sidebars",
+     "text": "1. Read the main text first.\n2. Read the sidebar's title: what extra information does it give?\n3. If a question asks for a fact that is **not** in the main text, check the sidebar.\n4. Ask how the sidebar connects to the main text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you use a sidebar, say **where** the answer is: \"The sidebar says...\"\n\nPoint to the line in the box. Check that the main text does not say something different."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Main text: The Hejaz Railway once carried travelers from Damascus to Madinah.",
+      "role": "detail"
+     },
+     {
+      "t": "It made the long journey much faster than travel by camel.",
+      "role": "detail"
+     },
+     {
+      "t": "Sidebar, Fast Facts: The railway opened in 1908.",
+      "role": "key"
+     },
+     {
+      "t": "Its route was more than 1,300 kilometers long.",
+      "role": "key"
+     }
+    ],
+    "explain": "The main text tells **what** the railway did. The sidebar adds **numbers**: the year it opened and the length of the route. To find the opening year, look in the sidebar."
+   },
+   "together": {
+    "passage": "Main text: Honeybees live together in large groups called colonies. Each bee has a job. Worker bees collect nectar, build the wax comb and protect the hive. The queen lays eggs, and drones help start new colonies. On hot days, some workers fan their wings at the entrance to keep the hive cool.\nSidebar, Did You Know? To make one spoonful of honey, worker bees may visit thousands of flowers. A honeybee's wings beat about 200 times every second.",
+    "stem": "Where can a reader find out how fast a bee's wings beat?",
+    "options": [
+     "In the sidebar",
+     "In the first sentence of the main text",
+     "In the part about the queen",
+     "Nowhere in the text"
+    ],
+    "answer": 0,
+    "hint": "The main text is about jobs in the hive. Where is the extra fact about wings?",
+    "good": "Yes! The sidebar says a honeybee's wings beat about 200 times every second."
+   },
+   "evidence": {
+    "sentences": [
+     "Main text: Honeybees live together in large groups called colonies.",
+     "Each bee has a job.",
+     "Worker bees collect nectar, build the wax comb and protect the hive.",
+     "The queen lays eggs, and drones help start new colonies.",
+     "On hot days, some workers fan their wings at the entrance to keep the hive cool.",
+     "Sidebar, Did You Know?",
+     "To make one spoonful of honey, worker bees may visit thousands of flowers.",
+     "A honeybee's wings beat about 200 times every second."
+    ],
+    "proof": [
+     7
+    ],
+    "need": 1,
+    "stem": "The answer was: in the sidebar. Tap the line that tells how fast the wings beat.",
+    "wrong": "This line does not give the wing speed. Look in the Did You Know? box."
+   },
+   "checks": [
+    {
+     "passage": "Main text: The Red Sea is home to many coral reefs. Divers come from around the world to see them.\nSidebar, Word Box: A coral reef is made of the hard skeletons of tiny animals called coral polyps.",
+     "stem": "What does the sidebar add to the main text?",
+     "options": [
+      "A list of countries divers come from",
+      "The meaning of the words coral reef",
+      "Directions to the Red Sea",
+      "A story about a diver"
+     ],
+     "answer": 1,
+     "why": "The Word Box explains what a coral reef is made of."
+    },
+    {
+     "passage": "Main text: Ibn Sina was a scholar who wrote about medicine, science and philosophy. His medical book was studied in universities for hundreds of years.\nSidebar, Life at a Glance: Born around 980 near Bukhara. Wrote more than 200 works. Died in 1037.",
+     "stem": "According to the sidebar, about how many works did Ibn Sina write?",
+     "options": [
+      "About 20",
+      "About 980",
+      "About 1,037",
+      "More than 200"
+     ],
+     "answer": 3,
+     "why": "The sidebar says he wrote more than 200 works."
+    },
+    {
+     "passage": "Main text: Many families in hot countries now use solar panels on their roofs. The panels turn sunlight into electricity for lights and fans.\nSidebar, Try This: Place a dark cloth and a white cloth in the sun for one hour. Touch both. Which is warmer?",
+     "stem": "What is the purpose of this sidebar?",
+     "options": [
+      "To give the history of solar panels",
+      "To explain the cost of electricity",
+      "To give a simple activity about the sun's heat",
+      "To list countries that use solar power"
+     ],
+     "answer": 2,
+     "why": "The Try This box gives a short activity to explore the sun's heat."
+    }
+   ],
+   "again": {
+    "title": "Main road and side path",
+    "text": "The main text is the **main road**. A sidebar is a **side path** with something extra to see.\n\nIf the main road does not have what you need, take the side path.",
+    "example": "Main text: how bees work. Side path: Did You Know? facts about wings.\n\nQuestion about wings? Take the **side path**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Why authors use text features",
+     "text": "Headings, subheadings, sidebars and special print are **choices**. They show how the author **organized** ideas and what the author thinks is **most important**.\n\nAnalyzing them helps you understand the structure of the whole text."
+    },
+    {
+     "title": "What each feature does",
+     "text": "**Subheadings** break the topic into parts and show how it is organized (by time, by cause, by type).\n**Sidebars** add a related but separate idea: an example, a profile, a different viewpoint.\n**Bold** marks key terms; **italics** mark titles, foreign words or emphasis."
+    },
+    {
+     "title": "Analyze",
+     "text": "1. Read all subheadings: what pattern do they make?\n2. For a sidebar, ask: why is this **separate** from the main text?\n3. For special print, ask: what does it signal?\n4. Choose the answer that explains the feature's **job**, not just its content."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain a feature's purpose, compare it with the main text.\n\n1. What does the main text focus on?\n2. What does the feature add or signal?\n3. Point to both to prove the link."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Subheading: The Problem.",
+      "role": "key"
+     },
+     {
+      "t": "Subheading: Early Attempts.",
+      "role": "key"
+     },
+     {
+      "t": "Subheading: A New Solution.",
+      "role": "key"
+     },
+     {
+      "t": "Sidebar, One Engineer's Story: an interview with a woman who designed one of the pumps.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The subheadings form a **problem → attempts → solution** pattern, which reveals the text's structure. The sidebar adds a **personal story**, separate from the main explanation, to make the solution feel real."
+   },
+   "together": {
+    "passage": "Heading: Fighting the Locust Swarms.\nSubheading: A Plague on the Wind.\nDesert locusts can form swarms of millions of insects that travel long distances in a single day, eating crops as they go.\nSubheading: Watching from Above.\nToday, scientists use satellite images to find green areas where rain has fallen, because that is where locusts are likely to breed.\nSubheading: Stopping Swarms Early.\nTeams then visit those areas to treat young locusts before they can fly.\nSidebar, Voices from the Field: A farmer in Yemen remembers waking to find his entire field of sorghum gone in one morning.",
+    "stem": "What is the most likely purpose of the sidebar?",
+    "options": [
+     "To explain how satellites take pictures",
+     "To give the scientific name of the locust",
+     "To add a personal example that shows how serious the damage can be",
+     "To list the steps teams follow to treat young locusts"
+    ],
+    "answer": 2,
+    "hint": "The main text explains the science. What kind of information is in the sidebar, and why is it separate?",
+    "good": "Yes! The farmer's memory is a personal example, set apart from the main text, that shows the real damage locusts do."
+   },
+   "evidence": {
+    "sentences": [
+     "Heading: Fighting the Locust Swarms.",
+     "Subheading: A Plague on the Wind.",
+     "Desert locusts can form swarms of millions of insects that travel long distances in a single day, eating crops as they go.",
+     "Subheading: Watching from Above.",
+     "Today, scientists use satellite images to find green areas where rain has fallen, because that is where locusts are likely to breed.",
+     "Subheading: Stopping Swarms Early.",
+     "Teams then visit those areas to treat young locusts before they can fly.",
+     "Sidebar, Voices from the Field: A farmer in Yemen remembers waking to find his entire field of sorghum gone in one morning."
+    ],
+    "proof": [
+     2,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: to add a personal example of the damage. Tap 2 lines that show the damage: one from the main text and the sidebar.",
+    "wrong": "This line is about finding or stopping locusts. Find the lines that show what locusts destroy."
+   },
+   "checks": [
+    {
+     "passage": "Heading: How a City Grew.\nSubheading: A Small Oasis Town.\nSubheading: The Arrival of the Railway.\nSubheading: Rapid Growth.\nSubheading: The City Today.",
+     "stem": "What do the subheadings show about the text's organization?",
+     "options": [
+      "It compares two cities.",
+      "It explains a problem and its solution.",
+      "It lists the parts of a railway.",
+      "It follows the city's history in time order."
+     ],
+     "answer": 3,
+     "why": "The subheadings move from a small town, to the railway, to growth, to today: time order."
+    },
+    {
+     "passage": "The author writes: \"Ships from Gulf ports carried pearls to India and returned with spices and cloth.\" Later she writes that the word dhow [printed in italics] is used for many kinds of traditional wooden boats.",
+     "stem": "Why is the word dhow most likely printed in italics?",
+     "options": [
+      "To mark a special word from another language",
+      "To show it is the title of a book",
+      "To show it is the most important idea",
+      "To show it is a heading"
+     ],
+     "answer": 0,
+     "why": "Italics often mark a word from another language. Dhow is the name used in the region for traditional boats."
+    },
+    {
+     "passage": "Main text: The article explains how a hospital cut its waiting times by using a new booking system.\nSidebar, Another View: A nurse explains that some older patients find online booking difficult and prefer to call.",
+     "stem": "Why did the author most likely put the nurse's comment in a sidebar?",
+     "options": [
+      "To give the hospital's opening hours",
+      "To set apart a different viewpoint",
+      "To define the words booking system",
+      "To repeat the main idea in other words"
+     ],
+     "answer": 1,
+     "why": "The sidebar, titled Another View, sets apart a different opinion about the new system."
+    }
+   ],
+   "again": {
+    "title": "Ask: why is it here?",
+    "text": "For every feature, ask **Why is it here?**\n\n**Subheading**: to show a new part.\n**Sidebar**: to add something separate.\n**Bold**: to mark a key term.\n**Italics**: to mark a title or special word.",
+    "example": "Sidebar: a farmer's memory of losing his field.\n\nWhy is it here? To add a **real person's experience** that the main text does not include."
+   }
+  }
+ }
+}

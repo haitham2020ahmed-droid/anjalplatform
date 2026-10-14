@@ -1,0 +1,568 @@
+{
+  "code": "NB-092",
+  "title": "Wangari Maathai and the Green Belt Movement",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 436,
+  "passage": "When Wangari Maathai was a little girl in the green hills of central Kenya, her mother sent her to collect water from a clear stream near a huge fig tree. She loved to watch the tiny frog eggs floating among the reeds, and she drank the cool water straight from the stream. Years later, she returned to the same place and discovered, to her dismay, that the fig tree had been cut down and the stream had dried up. That painful discovery helped to shape the rest of her life.\n\nMaathai was born in 1940 in the village of Ihithe. At a time when few girls in her region attended school, her parents allowed her to study, and she excelled in science. In 1960, she was one of several hundred young Kenyans chosen to study at universities in the United States, where she earned degrees in biology. After returning home, she became the first woman in East and Central Africa to earn a doctorate, which she received from the University of Nairobi in 1971.\n\nAs a scientist, Maathai understood that many of Kenya's problems were connected. When forests were cleared, rainwater rushed away instead of soaking into the ground, so streams dried up and soil washed off the hills. Women in the countryside told her that they had to walk farther and farther to find firewood and clean water, and that their families were not getting enough nutritious food. Maathai realised that one simple solution could help with all of these problems: planting trees.\n\nIn 1977, she founded the Green Belt Movement, an organisation that paid women a small amount for every seedling they grew and planted successfully. At first, some officials doubted that ordinary village women could make any real difference. However, the movement spread rapidly from village to village, and over the following decades its members planted tens of millions of trees across Kenya. The trees provided firewood, shade and fruit, protected the soil and helped bring streams back to life.\n\nIn 2004, Maathai was awarded the Nobel Peace Prize, becoming the first African woman to receive a Nobel Prize. The committee explained that caring for the environment can help to build peace, because communities often struggle over scarce land and water.\n\nMaathai often told a story about a hummingbird that carried tiny drops of water, one beakful at a time, to put out a forest fire while larger animals simply watched. \"I am doing the best I can,\" the little bird said. How powerful that message is! Maathai's life proves that small actions, repeated patiently by many people, can transform an entire nation.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “dismay” as it is used in paragraph 1?",
+      "options": [
+        "distress",
+        "delight",
+        "surprise",
+        "boredom"
+      ],
+      "answer": "A",
+      "why": "Finding the tree cut down and the stream dry was a “painful discovery”, so she felt distress, not just surprise."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “scarce” as it is used in paragraph 5?",
+      "options": [
+        "rare",
+        "plentiful",
+        "expensive",
+        "distant"
+      ],
+      "answer": "B",
+      "why": "“Scarce” means in short supply; the opposite is “plentiful”. “Rare” has a similar meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “transform” mean in this phrase from paragraph 6: “can transform an entire nation”?",
+      "options": [
+        "to change something completely",
+        "to damage something slowly",
+        "to leave a place forever",
+        "to measure the size of something"
+      ],
+      "answer": "A",
+      "why": "Small actions repeated by many people can completely change a country, as the Green Belt Movement changed Kenya."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an ADJECTIVE?",
+      "options": [
+        "realised",
+        "countryside",
+        "nutritious",
+        "farther"
+      ],
+      "answer": "C",
+      "why": "In “nutritious food”, “nutritious” describes the noun; “realised” is a verb, “countryside” a noun and “farther” an adverb here."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is SINGULAR?",
+      "options": [
+        "seedling",
+        "officials",
+        "members",
+        "decades"
+      ],
+      "answer": "A",
+      "why": "“Seedling” names one young plant; the other words are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “environment”?",
+      "options": [
+        "envelope",
+        "entertainment",
+        "environmental",
+        "enjoyment"
+      ],
+      "answer": "C",
+      "why": "Environment and environmental share the same root; the others only begin with “en-” or end in “-ment”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “excelled” in a meaningful sentence of your own.",
+      "model": "Omar excelled in mathematics this year, so his teacher asked him to help other students prepare for the test.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “excelled” with its meaning (did extremely well at something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 2, Maathai “excelled in science”, meaning she did extremely well."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the SINGULAR form of “families” as it is used in paragraph 3?",
+      "options": [
+        "familie",
+        "familys",
+        "family",
+        "famili"
+      ],
+      "answer": "C",
+      "why": "A plural ending in -ies comes from a singular ending in consonant + y: families → family."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What type of sentence is “I am doing the best I can,” said by the hummingbird in paragraph 6?",
+      "options": [
+        "a command",
+        "a question",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "D",
+      "why": "The bird simply tells the other animals a fact about what it is doing, so it is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Frogs of the Kenyan Streams",
+        "One Seedling at a Time",
+        "Studying Biology in America",
+        "The Fastest Hummingbird"
+      ],
+      "answer": "B",
+      "why": "The passage shows how planting seedlings one by one changed Kenya."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to explain how frogs lay eggs in streams",
+        "to describe the universities of the United States",
+        "to tell a story about animals fighting a fire",
+        "to show how one woman's tree-planting idea helped people and nature"
+      ],
+      "answer": "D",
+      "why": "The passage explains Maathai's life and how the Green Belt Movement helped both communities and the land."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Women in Kenya preferred firewood to any other kind of fuel.",
+        "Maathai saw that losing forests caused connected problems that trees could help solve.",
+        "Rainwater in Kenya always soaked deep into the ground.",
+        "Maathai thought that each problem needed a different solution."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 links forests to water, soil, firewood and food, and ends with “one simple solution … planting trees.”"
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did streams dry up when forests were cleared?",
+      "options": [
+        "People drank all of the water from the streams.",
+        "The fig trees blocked the water from flowing.",
+        "Rainwater rushed away instead of soaking into the ground.",
+        "The weather in Kenya became much colder."
+      ],
+      "answer": "C",
+      "why": "“When forests were cleared, rainwater rushed away instead of soaking into the ground, so streams dried up.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did the Green Belt Movement pay women for?",
+      "options": [
+        "each kilometre they walked to find water",
+        "each seedling they grew and planted successfully",
+        "each piece of firewood they collected",
+        "each official they persuaded to join"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: it “paid women a small amount for every seedling they grew and planted successfully.”"
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, why can caring for the environment help to build peace?",
+      "options": [
+        "Trees make people too busy to argue.",
+        "Communities often struggle over scarce land and water.",
+        "Peace prizes are given only for tree planting.",
+        "Forests keep soldiers away from villages."
+      ],
+      "answer": "B",
+      "why": "The committee explained that communities “often struggle over scarce land and water”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Maathai studied biology in the United States.",
+        "Maathai earned her doctorate in Nairobi.",
+        "Maathai founded the Green Belt Movement.",
+        "Maathai received the Nobel Peace Prize."
+      ],
+      "answer": "A",
+      "why": "She went to the United States in 1960, then earned her doctorate (1971), founded the movement (1977) and won the prize (2004)."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who told Maathai that they had to walk farther and farther to find firewood and water?",
+      "options": [
+        "women in the countryside",
+        "officials of the government",
+        "her university teachers",
+        "the Nobel committee"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: “Women in the countryside told her that they had to walk farther and farther.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Maathai find when she returned to the stream of her childhood?",
+      "options": [
+        "The stream was full of frog eggs again.",
+        "The fig tree was gone and the stream was dry.",
+        "A new school had been built beside it.",
+        "The fig tree had grown even larger."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1: “the fig tree had been cut down and the stream had dried up.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why was Maathai's doctorate a special achievement?",
+      "options": [
+        "She was the first woman in East and Central Africa to earn one.",
+        "It was the first doctorate ever given in Kenya.",
+        "She earned it before she finished school.",
+        "It was awarded by the Nobel committee."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: she “became the first woman in East and Central Africa to earn a doctorate.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did the movement most likely pay women only for seedlings that were planted successfully?",
+      "options": [
+        "to encourage them to care for the trees until they grew",
+        "to save money by paying for very few trees",
+        "to stop women from planting fruit trees",
+        "to make the work as difficult as possible"
+      ],
+      "answer": "A",
+      "why": "Paying for success rewarded women for looking after the seedlings, not just putting them in the ground."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the officials' doubts about village women turn out?",
+      "options": [
+        "They were correct, and the movement failed.",
+        "They were proved wrong as the movement spread.",
+        "They stopped the movement after a few years.",
+        "They were never mentioned to Maathai."
+      ],
+      "answer": "B",
+      "why": "Despite the doubts, “the movement spread rapidly” and planted tens of millions of trees."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the stream in Maathai's childhood DIFFERENT from the same place years later?",
+      "options": [
+        "It was dry at first, but later it was full of water.",
+        "It was far from any trees, but later a fig tree grew there.",
+        "It was dangerous to drink, but later it was clean.",
+        "It was clear and full of life, but later it had dried up."
+      ],
+      "answer": "D",
+      "why": "As a girl she drank “cool water straight from the stream”; later “the stream had dried up.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what was one effect of planting the trees?",
+      "options": [
+        "Women had to walk even farther for water.",
+        "The officials closed the movement down.",
+        "Fewer people in Kenya had firewood.",
+        "The soil was protected and streams returned."
+      ],
+      "answer": "D",
+      "why": "The trees “protected the soil and helped bring streams back to life.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Maathai and the hummingbird in her story have in common?",
+      "options": [
+        "Both tackled a huge problem one small step at a time.",
+        "Both lived beside a stream near a fig tree.",
+        "Both waited for larger animals to help first.",
+        "Both won a prize for their hard work."
+      ],
+      "answer": "A",
+      "why": "The bird carried one beakful at a time; Maathai's movement planted one seedling at a time."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “helped bring streams back to life” in paragraph 4 mean?",
+      "options": [
+        "helped frogs return to the forests",
+        "helped people swim in the streams",
+        "helped dried-up streams flow with water again",
+        "helped scientists study dead streams"
+      ],
+      "answer": "C",
+      "why": "Streams cannot really be alive; the phrase is figurative and means they began to flow again."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the passage with the hummingbird story?",
+      "options": [
+        "to sum up the lesson that small actions add up",
+        "to show that Maathai studied birds at university",
+        "to begin a new topic about forest fires",
+        "to prove that hummingbirds can put out fires"
+      ],
+      "answer": "A",
+      "why": "The story illustrates the final idea that “small actions, repeated patiently by many people, can transform an entire nation.”"
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage is EXCLAMATORY?",
+      "options": [
+        "That painful discovery helped to shape the rest of her life.",
+        "Maathai was born in 1940 in the village of Ihithe.",
+        "As a scientist, Maathai understood that many of Kenya's problems were connected.",
+        "How powerful that message is!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the MAIN reason the Green Belt Movement succeeded?",
+      "options": [
+        "It was run entirely by government officials.",
+        "It planted trees only in large cities.",
+        "It asked people to work without any reward.",
+        "It solved real problems in women's lives and rewarded their work."
+      ],
+      "answer": "D",
+      "why": "The trees gave firewood, shade and fruit, and women were paid for each successful seedling."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through this passage?",
+      "options": [
+        "Only scientists can solve environmental problems.",
+        "Trees are more important than people.",
+        "Prizes are the best reason to help others.",
+        "Small actions by many people can make a big difference."
+      ],
+      "answer": "D",
+      "why": "The final sentence states this message directly."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the passage?",
+      "options": [
+        "regret",
+        "fear",
+        "hope",
+        "jealousy"
+      ],
+      "answer": "C",
+      "why": "The ending celebrates what small actions can achieve and how a nation can be transformed."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "the year the movement was founded",
+        "the year Maathai won the Nobel Peace Prize",
+        "exactly how many trees the movement planted",
+        "where Maathai earned her doctorate"
+      ],
+      "answer": "C",
+      "why": "The passage says only “tens of millions of trees”, which is not an exact number; the other facts are given precisely."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A tiny bird puts out a huge forest fire by itself.",
+        "Planting trees helps a dried-up stream to flow again.",
+        "A seedling grows into a tall fig tree in one night.",
+        "A fig tree walks back to the stream where it grew."
+      ],
+      "answer": "B",
+      "why": "Trees help rain soak into the ground and feed streams; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The Girl Who Collected Frog Eggs",
+        "Officials Who Planted Forests",
+        "A Fire in the Kenyan Hills",
+        "The Woman Who Planted Millions of Trees"
+      ],
+      "answer": "D",
+      "why": "It describes Maathai's life and the tens of millions of trees her movement planted."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different solution: besides planting trees, what else could a village do to help its streams flow again? Write two or three sentences.",
+      "model": "The villagers could agree to stop cutting trees near the streams and protect the banks with grass and bushes. They could also build small walls of stones across the hillsides so that rainwater slows down and soaks into the ground. In this way, more water would reach the streams throughout the year.",
+      "rubric": [
+        "2 = a clear, sensible new solution that would really help the streams, with a reason linked to the passage",
+        "1 = a solution is given but it is unclear or not explained",
+        "0 = no answer, or the passage's solution (planting trees) is simply copied"
+      ],
+      "why": "Any sensible solution that keeps rainwater in the ground or protects the streams is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how could students follow Maathai's example at school?",
+      "options": [
+        "Plant and care for trees in the schoolyard.",
+        "Encourage friends and families to join in.",
+        "A and B",
+        "Wait for others to solve the problem first."
+      ],
+      "answer": "C",
+      "why": "Maathai planted trees and encouraged many people to join her; the hummingbird did not wait for others."
+    }
+  ]
+}

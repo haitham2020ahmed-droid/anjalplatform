@@ -2,6 +2,7 @@
 import { useActionState, useState } from "react";
 import { createAssignmentAction } from "../../actions";
 import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
+import { Combo } from "@/components/ui/combo";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 
@@ -24,7 +25,7 @@ export function AssignmentForm({ classId, units, skills }: { classId: string; un
           <SkillListPicker skills={skills} mode="multiple" name="skillIds" />
         </div>
       ) : (
-        <label className="block font-medium">Unit<select name="unitId" className={input}>{units.map((u) => <option key={u.id} value={u.id}>{u.label}</option>)}</select></label>
+        <label className="block font-medium">Unit<Combo name="unitId" label="Unit" defaultValue={units[0]?.id ?? ""} options={units.map((u) => ({ value: u.id, label: u.label }))} className="mt-1" /></label>
       )}
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block font-medium">Due date<input type="date" name="dueAt" className={input} /></label>

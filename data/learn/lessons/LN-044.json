@@ -1,0 +1,454 @@
+{
+ "code": "LN-044",
+ "title": "Complete sentences and fragments",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "sentences",
+  "fragments-run-ons"
+ ],
+ "skillNames": [
+  "Correcting Fragments and Run-Ons",
+  "Fragments and Run-On Sentences",
+  "Sentences and Sentence Fragments"
+ ],
+ "statements": [
+  "L-0096",
+  "L-0098",
+  "L-0296"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A complete sentence",
+     "text": "A complete sentence has **two parts**:\n\n1. **Who or what** it is about\n2. **What happens**\n\n“The dog barks.”"
+    },
+    {
+     "title": "A fragment",
+     "text": "A **fragment** is a piece of a sentence. A part is missing.\n\n“Ran to the shop.” → **Who** ran? Missing!\n\n“My big brother.” → **What** did he do? Missing!"
+    },
+    {
+     "title": "Fix it",
+     "text": "Add the missing part.\n\n“Ran to the shop.” → “**Omar** ran to the shop.”\n\n“My big brother.” → “My big brother **plays football**.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Ask two questions about each sentence:\n\n1. **Who or what?**\n2. **What happens?**\n\nIf one answer is missing, it is a fragment. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Laila has a kite.",
+      "role": "other"
+     },
+     {
+      "t": "Flies it at the beach.",
+      "role": "key"
+     }
+    ],
+    "explain": "“Flies it at the beach” does not say **who** flies it. It is a fragment.\n\nFix: “**She** flies it at the beach.”"
+   },
+   "together": {
+    "passage": "We went to the zoo. Saw a big lion. It was asleep. My sister took a photo.",
+    "stem": "How can we fix “Saw a big lion.”?",
+    "options": [
+     "We saw a big lion.",
+     "Saw a big lion today.",
+     "A big lion.",
+     "Saw a lion that was big."
+    ],
+    "answer": 0,
+    "hint": "Ask: WHO saw the lion? Which answer tells you?",
+    "good": "Yes! Now it says **who** (we) and **what happened** (saw a big lion)."
+   },
+   "evidence": {
+    "sentences": [
+     "We went to the zoo.",
+     "Saw a big lion.",
+     "It was asleep.",
+     "My sister took a photo."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the fragment in the text.",
+    "wrong": "This one is complete. It tells who or what, and what happens. Find the one with no who."
+   },
+   "checks": [
+    {
+     "passage": "The cat. It sleeps on my bed.",
+     "stem": "Which one is a fragment?",
+     "options": [
+      "It sleeps on my bed.",
+      "The cat.",
+      "Both are complete.",
+      "Neither is complete."
+     ],
+     "answer": 1,
+     "why": "“The cat” tells who, but not what the cat does."
+    },
+    {
+     "passage": "My mother bakes bread.",
+     "stem": "Is it a complete sentence?",
+     "options": [
+      "No, it has no action.",
+      "No, it has no who.",
+      "Yes, it has who and what happens.",
+      "No, it is too short."
+     ],
+     "answer": 2,
+     "why": "Who? My mother. What happens? She bakes bread. Both parts are there."
+    },
+    {
+     "passage": "Plays with blocks.",
+     "stem": "What is missing?",
+     "options": [
+      "Who plays",
+      "What happens",
+      "A word at the end",
+      "Nothing is missing"
+     ],
+     "answer": 0,
+     "why": "We know what happens (plays with blocks), but not **who** plays."
+    }
+   ],
+   "again": {
+    "title": "Two fingers",
+    "text": "Hold up **two fingers**.\n\nFinger 1: **who or what**. Finger 2: **what happens**.\n\nA sentence needs both fingers.",
+    "example": "“Swims fast.” → Finger 1? Missing! → “**The fish** swims fast.” Two fingers. Complete!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Simple sentences",
+     "text": "A **simple sentence** has a subject and a verb, and it is a **complete thought**.\n\n“The bus stopped.” Short, but complete!"
+    },
+    {
+     "title": "Three kinds of fragments",
+     "text": "1. No subject: “Walked home slowly.”\n2. No verb: “The old man with the cane.”\n3. Not a complete thought: “Because I was tired.”"
+    },
+    {
+     "title": "Ways to fix",
+     "text": "1. Add the missing subject or verb.\n2. Or join the fragment to the sentence next to it.\n\n“I stayed home. Because I was sick.” → “I stayed home because I was sick.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence alone, as if it were the only one.\n2. Find its subject and its verb.\n3. Does it make sense on its own?\n\nThe one that fails is the fragment. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our class went to the museum.",
+      "role": "other"
+     },
+     {
+      "t": "Saw old swords and coins.",
+      "role": "key"
+     },
+     {
+      "t": "We learned a lot.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 has no subject. **Who** saw the swords?\n\nFix: “**We** saw old swords and coins.”"
+   },
+   "together": {
+    "passage": "Every Friday, my family eats lunch at my grandmother's house. She cooks rice and chicken in a big pot. My cousins and I set the table. After lunch, the adults drink tea. The children in the garden. Then everyone says goodbye.",
+    "stem": "Which is the best way to fix the fragment?",
+    "options": [
+     "The children in the big garden.",
+     "The children play in the garden.",
+     "In the garden, the children.",
+     "The children, in the garden."
+    ],
+    "answer": 1,
+    "hint": "The fragment has a subject (the children). What is it missing?",
+    "good": "Yes! **Play** is the verb. Now we know what the children do."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Friday, my family eats lunch at my grandmother's house.",
+     "She cooks rice and chicken in a big pot.",
+     "My cousins and I set the table.",
+     "After lunch, the adults drink tea.",
+     "The children in the garden.",
+     "Then everyone says goodbye."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that was a fragment.",
+    "wrong": "This sentence has a subject and a verb. Find the one where we do not know what happens."
+   },
+   "checks": [
+    {
+     "passage": "A student wrote these notes about a trip.",
+     "stem": "Which one is a complete sentence?",
+     "options": [
+      "Drove for three hours.",
+      "The long road to Taif.",
+      "We stopped at a fruit stand.",
+      "After the long drive."
+     ],
+     "answer": 2,
+     "why": "“We stopped at a fruit stand” has a subject (we) and a verb (stopped). The others are missing a part."
+    },
+    {
+     "passage": "My brother loves trains. Reads books about them every night.",
+     "stem": "How should the second sentence be fixed?",
+     "options": [
+      "Books about them every night.",
+      "Reading books about them every night.",
+      "Reads books every night about them.",
+      "He reads books about them every night."
+     ],
+     "answer": 3,
+     "why": "The second sentence has no subject. Adding **He** tells who reads."
+    },
+    {
+     "passage": "The sun set. The sky turned orange and pink.",
+     "stem": "Which is true?",
+     "options": [
+      "Both sentences are complete.",
+      "Only the first is complete.",
+      "Only the second is complete.",
+      "Both are fragments."
+     ],
+     "answer": 0,
+     "why": "“The sun set” is short, but it has a subject (sun) and a verb (set). Both are complete."
+    }
+   ],
+   "again": {
+    "title": "Read it alone",
+    "text": "Imagine the sentence is on a card by itself.\n\nWould a friend understand it? Or would they ask “Who?” or “What about it?”\n\nIf they would ask, it is a fragment.",
+    "example": "Card: “The tall boy in the red shirt.” Friend: “What about him?” → Fragment.\n\nFix: “The tall boy in the red shirt **won the race**.”"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Name the problem",
+     "text": "Not every fragment is missing the same thing. Name what is missing:\n\n1. **A subject**\n2. **A verb**, or part of a verb\n3. **A complete thought** (a dependent clause alone)"
+    },
+    {
+     "title": "-ing words are not enough",
+     "text": "An -ing word alone cannot be the main verb.\n\n“The students waiting for the bus.” → fragment.\n\nAdd a helper: “The students **were** waiting for the bus.”"
+    },
+    {
+     "title": "Length does not decide",
+     "text": "A **fragment** can look like a sentence: capital letter, period at the end. But it is **not** a complete thought.\n\nA complete sentence can be very short: “I agree.” “Birds sing.”\n\nSubject + full verb + complete thought decides."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence on its own.\n2. Find the subject and the **complete** verb.\n3. Name what is missing.\n\nPoint to the sentence that is a fragment, and say why."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Volunteers from the neighborhood cleaning the beach on Saturday.",
+      "role": "key"
+     },
+     {
+      "t": "They collected plastic bottles and old nets.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 has a subject (volunteers) but only **cleaning**. An -ing word cannot be the verb alone. It is a fragment.\n\nFix: “Volunteers **were cleaning** the beach” or “Volunteers **cleaned** the beach.”"
+   },
+   "together": {
+    "passage": "The school's robotics team had only two weeks to build their robot. Every afternoon, the members stayed late in the lab. Some wrote the code, while others built the wheels and arms. The team captain checking every part before the final test. On the day of the competition, the robot moved smoothly across the table and picked up all five blocks. The judges gave the team second place.",
+    "stem": "Why is “The team captain checking every part before the final test.” a fragment?",
+    "options": [
+     "It has no subject.",
+     "It has an -ing word but no complete verb.",
+     "It starts with a dependent clause.",
+     "It is too long to be a sentence."
+    ],
+    "answer": 1,
+    "hint": "Find the subject. Then look for the verb. Is “checking” enough on its own?",
+    "good": "Yes! “Checking” needs a helper: “The team captain **was checking** every part,” or simply “**checked**”."
+   },
+   "evidence": {
+    "sentences": [
+     "The school's robotics team had only two weeks to build their robot.",
+     "Every afternoon, the members stayed late in the lab.",
+     "Some wrote the code, while others built the wheels and arms.",
+     "The team captain checking every part before the final test.",
+     "On the day of the competition, the robot moved smoothly across the table and picked up all five blocks.",
+     "The judges gave the team second place."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that is a fragment.",
+    "wrong": "This sentence has a subject and a complete verb. Find the one where the verb is only an -ing word."
+   },
+   "checks": [
+    {
+     "passage": "Across the desert under the bright stars.",
+     "stem": "Why is this a fragment?",
+     "options": [
+      "It is missing a subject and a verb.",
+      "It is missing only a period.",
+      "It is a complete sentence.",
+      "It is a dependent clause."
+     ],
+     "answer": 0,
+     "why": "It only tells where. There is no subject and no verb."
+    },
+    {
+     "passage": "Stop!",
+     "stem": "Is this a complete sentence?",
+     "options": [
+      "No, it has no subject at all.",
+      "No, it is only one word.",
+      "Yes, the subject “you” is understood.",
+      "No, it needs a dependent clause."
+     ],
+     "answer": 2,
+     "why": "A command has an understood subject: (You) stop! So it is complete."
+    },
+    {
+     "passage": "Mona finished her homework. Then went to help her mother in the kitchen. Later, they ate dinner together.",
+     "stem": "Which sentence is a fragment, and what is it missing?",
+     "options": [
+      "Sentence 1; a verb",
+      "Sentence 3; a subject",
+      "Sentence 2; a verb",
+      "Sentence 2; a subject"
+     ],
+     "answer": 3,
+     "why": "Sentence 2 has a verb (went) but does not say **who** went. Fix: “Then **she** went…”"
+    }
+   ],
+   "again": {
+    "title": "Detective questions",
+    "text": "1. **Who** is doing it? No answer → missing subject.\n2. Is there a **full verb**? Only -ing → missing helper.\n3. Does it **finish** the thought? No → dependent clause alone.",
+    "example": "“Hoping to win the prize.” → Who is hoping? No answer. **Missing subject**.\n\nFix: “**Nadia was** hoping to win the prize.”"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Hidden fragments",
+     "text": "In longer writing, fragments often come **after** a complete sentence, as extra detail:\n\n1. “…many fruits. **Such as figs and grapes.**”\n2. “…the ancient city. **A place full of stone tombs.**”\n3. “…the price rose. **Which surprised everyone.**”"
+    },
+    {
+     "title": "Fix without changing the meaning",
+     "text": "The best fix usually **joins** the fragment to the sentence it belongs to:\n\n“…many fruits, **such as** figs and grapes.”\n\nOr it adds a subject and verb: “**It is** a place full of stone tombs.”"
+    },
+    {
+     "title": "Choose the best revision",
+     "text": "A good revision:\n\n1. is a complete sentence;\n2. keeps the writer's meaning;\n3. adds no new error, such as a comma joining two full sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentence **before** and **after** each suspect group of words.\n2. Ask: does this group have its own subject and complete verb?\n3. If not, find the sentence it depends on. That pair is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Al-Ula is famous for Hegra.",
+      "role": "other"
+     },
+     {
+      "t": "An ancient city with more than a hundred stone tombs.",
+      "role": "key"
+     },
+     {
+      "t": "Visitors come from around the world to see it.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 has no verb. It only describes Hegra.\n\nBest fix: join it with a comma. “Al-Ula is famous for Hegra, an ancient city with more than a hundred stone tombs.”"
+   },
+   "together": {
+    "passage": "Honeybees communicate in a surprising way. When a bee finds a field of flowers, it returns to the hive and performs a special movement known as the waggle dance. The direction of the dance shows other bees which way to fly. The length of the dance gives clues about the distance. Scientists have studied this behavior for many years. Including a famous researcher who won a Nobel Prize for his work. Their findings show that even small insects can share complex information.",
+    "stem": "Which is the best way to fix the fragment?",
+    "options": [
+     "Scientists have studied this behavior for many years. Including a famous researcher, who won a Nobel Prize.",
+     "Scientists have studied this behavior for many years, a famous researcher won a Nobel Prize for his work.",
+     "Scientists have studied this behavior for many years, including a famous researcher who won a Nobel Prize for his work.",
+     "Including a famous researcher who won a Nobel Prize, for his work."
+    ],
+    "answer": 2,
+    "hint": "Which choice joins the fragment to the sentence it belongs to, without joining two full sentences with only a comma?",
+    "good": "Yes! “Including a famous researcher…” now belongs to a complete sentence, and the meaning stays the same."
+   },
+   "evidence": {
+    "sentences": [
+     "Honeybees communicate in a surprising way.",
+     "When a bee finds a field of flowers, it returns to the hive and performs a special movement known as the waggle dance.",
+     "The direction of the dance shows other bees which way to fly.",
+     "The length of the dance gives clues about the distance.",
+     "Scientists have studied this behavior for many years.",
+     "Including a famous researcher who won a Nobel Prize for his work.",
+     "Their findings show that even small insects can share complex information."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: the fragment, and the sentence it belongs with.",
+    "wrong": "This sentence is complete and is not linked to the fragment. Find the words with no verb of their own, and the sentence just before them."
+   },
+   "checks": [
+    {
+     "passage": "The market sells many kinds of dates. For example, Sukkari, Ajwa and Khalas. Each kind has its own taste.",
+     "stem": "Which revision fixes the fragment best?",
+     "options": [
+      "The market sells many kinds of dates, such as Sukkari, Ajwa and Khalas.",
+      "The market sells many kinds of dates. For example Sukkari, Ajwa and Khalas.",
+      "The market sells many kinds of dates, Sukkari is one, Ajwa is another.",
+      "For example, the market. Sells Sukkari, Ajwa and Khalas."
+     ],
+     "answer": 0,
+     "why": "Joining the examples with “such as” makes one complete sentence and keeps the meaning."
+    },
+    {
+     "passage": "The new bridge cut the journey from forty minutes to ten. Which pleased the people who drove to work every day.",
+     "stem": "Why is the second group of words a fragment?",
+     "options": [
+      "It has no verb at all.",
+      "It is a dependent clause starting with “which”.",
+      "It is missing a period.",
+      "It is a question."
+     ],
+     "answer": 1,
+     "why": "“Which pleased…” depends on the sentence before it. Fix: “…to ten, which pleased the people…”"
+    },
+    {
+     "passage": "Exhausted after the long hike up the mountain.",
+     "stem": "Which revision makes a complete sentence?",
+     "options": [
+      "Exhausted after the long hike, up the mountain.",
+      "After the long hike up the mountain, exhausted.",
+      "Exhausted after the long hike, the climbers rested.",
+      "The long hike up the mountain, which exhausted."
+     ],
+     "answer": 2,
+     "why": "Only this choice has a subject (the climbers) and a verb (rested)."
+    }
+   ],
+   "again": {
+    "title": "Where does it belong?",
+    "text": "A hidden fragment is usually a detail that broke off from the sentence before it.\n\nRead the two together. Can you join them with a comma, or with “such as” or “including”? Then join them.",
+    "example": "“We packed snacks. Like dates, nuts and water.” → They belong together: “We packed snacks **such as** dates, nuts and water.”"
+   }
+  }
+ }
+}

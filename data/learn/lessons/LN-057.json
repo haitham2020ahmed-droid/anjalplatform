@@ -1,0 +1,459 @@
+{
+ "code": "LN-057",
+ "title": "Combining sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [],
+ "families": [
+  "combining-sentences"
+ ],
+ "skillNames": [
+  "Combining Sentences",
+  "Combining Sentences with Nouns"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Choppy sentences",
+     "text": "Short sentences that repeat words sound **choppy**.\n\nAli swims. Omar swims.\n\nWe can join them!"
+    },
+    {
+     "title": "Join with and",
+     "text": "Same action, two people? Join the **names** with **and**.\n\nAli swims. Omar swims. → **Ali and Omar swim.**\n\nTwo people → **swim**, not swims."
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Find the words that are the **same**.\n2. Keep them **once**.\n3. Join the different words with **and**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the two sentences.\n2. Point to the words that **repeat**.\n3. The words that are **different** are the ones you join with **and**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mona likes kites.",
+      "role": "detail"
+     },
+     {
+      "t": "Mona likes balls.",
+      "role": "detail"
+     },
+     {
+      "t": "Mona likes kites and balls.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Mona likes** is in both sentences. Keep it once.\n\nJoin the different words: **kites and balls**."
+   },
+   "together": {
+    "passage": "Sara has a cat. Huda has a cat. The cats are white. They play after school.",
+    "stem": "Which sentence joins the first two sentences?",
+    "options": [
+     "Sara has a cat and Huda.",
+     "Sara and Huda each have a cat.",
+     "Sara has Huda and a cat.",
+     "Sara and a cat have Huda."
+    ],
+    "answer": 1,
+    "hint": "Which words repeat? Join the two names with and.",
+    "good": "Yes! Has a cat repeats, so we join the names: Sara and Huda each have a cat."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara has a cat.",
+     "Huda has a cat.",
+     "The cats are white.",
+     "They play after school."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "Tap the 2 sentences that repeat the same words.",
+    "wrong": "This sentence does not repeat has a cat. Find the two sentences that do."
+   },
+   "checks": [
+    {
+     "passage": "The sun is hot. The sand is hot.",
+     "stem": "Which sentence joins them?",
+     "options": [
+      "The sun is sand and hot.",
+      "The hot sun is sand.",
+      "The sun and hot is sand.",
+      "The sun and the sand are hot."
+     ],
+     "answer": 3,
+     "why": "Is hot repeats. Join the sun and the sand with and."
+    },
+    {
+     "passage": "I ate rice. I ate fish.",
+     "stem": "Which sentence joins them?",
+     "options": [
+      "I ate rice fish.",
+      "I and fish ate rice.",
+      "I ate rice and fish.",
+      "Rice ate I and fish."
+     ],
+     "answer": 2,
+     "why": "I ate repeats. Join rice and fish with and."
+    },
+    {
+     "passage": "Dad reads. Mom reads.",
+     "stem": "Which sentence joins them?",
+     "options": [
+      "Dad reads Mom.",
+      "Dad and Mom read.",
+      "Dad and Mom reads.",
+      "Dad reads and Mom."
+     ],
+     "answer": 1,
+     "why": "Two people read, so we say Dad and Mom read."
+    }
+   ],
+   "again": {
+    "title": "Same, same, different",
+    "text": "Put your finger on the words that are the **same**.\n\nSay them once. Then add the **different** words with **and**.",
+    "example": "The cup is red. The plate is red.\n\nSame: **is red**. Different: **the cup**, **the plate**.\n\n**The cup and the plate are red.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Join the actions",
+     "text": "Same person, two actions? Join the **actions** with **and**.\n\nThe baby laughed. The baby clapped.\n→ **The baby laughed and clapped.**"
+    },
+    {
+     "title": "Join the things",
+     "text": "I bought apples. I bought bread. I bought milk.\n→ I bought **apples, bread and milk**.\n\nFor three or more, use commas and put **and** before the last one."
+    },
+    {
+     "title": "Keep the meaning",
+     "text": "A good combined sentence:\n\n1. keeps **every** fact\n2. does not repeat words it does not need\n3. still makes sense"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Check the combined sentence against the text.\n\n1. Point to each short sentence.\n2. Find its fact in the new sentence.\n3. If a fact is missing or changed, that choice is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The falcon spread its wings.",
+      "role": "detail"
+     },
+     {
+      "t": "The falcon flew away.",
+      "role": "detail"
+     },
+     {
+      "t": "The falcon spread its wings and flew away.",
+      "role": "key"
+     }
+    ],
+    "explain": "**The falcon** did two actions. Keep **the falcon** once.\n\nJoin the actions: **spread its wings and flew away**."
+   },
+   "together": {
+    "passage": "Every Friday, our family visits Grandpa. We bring him fresh bread. We bring him dates. We bring him laban. He tells us stories about his days as a fisherman. Then we all eat lunch together.",
+    "stem": "Which sentence best joins the three sentences about what we bring?",
+    "options": [
+     "We bring him fresh bread. And dates and laban.",
+     "We bring fresh bread, we bring dates, we bring laban.",
+     "We bring him fresh bread, dates and laban.",
+     "We bring him bread, and he tells stories."
+    ],
+    "answer": 2,
+    "hint": "Keep we bring him only once. Then list the three things with commas and and.",
+    "good": "Yes! It keeps all three things and says we bring him only once."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Friday, our family visits Grandpa.",
+     "We bring him fresh bread.",
+     "We bring him dates.",
+     "We bring him laban.",
+     "He tells us stories about his days as a fisherman.",
+     "Then we all eat lunch together."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 3,
+    "stem": "Tap the 3 sentences that were joined.",
+    "wrong": "This sentence is not about what we bring Grandpa. Find the ones that start with We bring him."
+   },
+   "checks": [
+    {
+     "passage": "Rashid washed the car. Rashid dried the car.",
+     "stem": "Which sentence joins them best?",
+     "options": [
+      "Rashid washed the car and Rashid.",
+      "Rashid washed and dried the car.",
+      "Rashid and the car washed and dried.",
+      "Rashid washed, the car dried."
+     ],
+     "answer": 1,
+     "why": "Rashid did two actions to the car. Join the actions: washed and dried."
+    },
+    {
+     "passage": "The garden has roses. The garden has mint. The garden has lemon trees.",
+     "stem": "Which sentence joins them best?",
+     "options": [
+      "The garden has roses, mint, lemon trees.",
+      "The garden has roses and mint. Lemon trees.",
+      "Roses, mint and lemon trees have the garden.",
+      "The garden has roses, mint and lemon trees."
+     ],
+     "answer": 3,
+     "why": "Keep the garden has once, and list the three things with commas and and before the last one."
+    },
+    {
+     "passage": "The kitten is small. The kitten is fluffy.",
+     "stem": "Which sentence joins them best?",
+     "options": [
+      "The kitten is small and fluffy.",
+      "The kitten is small, the kitten is fluffy.",
+      "The small kitten fluffy.",
+      "The kitten and fluffy is small."
+     ],
+     "answer": 0,
+     "why": "The kitten is repeats. Join the two describing words with and."
+    }
+   ],
+   "again": {
+    "title": "Cross out the repeats",
+    "text": "Write the short sentences one under the other.\n\nCross out the words that **repeat**. Join what is left with **and**.",
+    "example": "Lina sang. Lina danced.\n\nCross out the second **Lina**.\n\n**Lina sang and danced.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Move a describing word",
+     "text": "The falcon is a bird. The falcon is fast.\n→ The falcon is a **fast** bird.\n\nTuck the describing word in front of the noun."
+    },
+    {
+     "title": "Add a noun phrase",
+     "text": "Ms. Noura teaches science. She is our new teacher.\n→ **Ms. Noura, our new teacher,** teaches science.\n\nThe extra noun phrase goes right after the name, between commas."
+    },
+    {
+     "title": "Join with because or when",
+     "text": "It rained. The match was stopped.\n→ **The match was stopped because it rained.**\n\nChoose the joining word that shows **how** the ideas connect."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to each short sentence in the text.\n2. Find its idea in the combined sentence.\n3. Check the joining word: does the text support it?\n\nIf a fact is missing or the link is wrong, the combination is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Al-Masmak is a fort in Riyadh.",
+      "role": "detail"
+     },
+     {
+      "t": "Al-Masmak is made of mud bricks.",
+      "role": "detail"
+     },
+     {
+      "t": "Al-Masmak, a fort in Riyadh, is made of mud bricks.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 tells **what** Al-Masmak is. Sentence 2 tells what it is **made of**.\n\nThe noun phrase **a fort in Riyadh** goes right after the name, between commas. No fact is lost."
+   },
+   "together": {
+    "passage": "My uncle Saad lives in Tabuk. He is a farmer. He grows olives and wheat on his land. Last winter, snow fell on the mountains near his farm. The whole family drove up to see it. The snow was gone by noon, but we took many photos. Uncle Saad says it was the best day of the winter.",
+    "stem": "Which sentence best combines the first two sentences?",
+    "options": [
+     "My uncle Saad lives in a farmer in Tabuk.",
+     "My uncle, a farmer, Saad, Tabuk lives.",
+     "My uncle Saad lives in Tabuk, he is a farmer.",
+     "My uncle Saad, a farmer, lives in Tabuk."
+    ],
+    "answer": 3,
+    "hint": "Put the noun phrase a farmer right after the name, between commas.",
+    "good": "Yes! A farmer sits between commas after Uncle Saad, and both facts are kept."
+   },
+   "evidence": {
+    "sentences": [
+     "My uncle Saad lives in Tabuk.",
+     "He is a farmer.",
+     "He grows olives and wheat on his land.",
+     "Last winter, snow fell on the mountains near his farm.",
+     "The whole family drove up to see it.",
+     "The snow was gone by noon, but we took many photos.",
+     "Uncle Saad says it was the best day of the winter."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "Tap the 2 sentences that were combined.",
+    "wrong": "This sentence was not part of the combination. Find where Uncle Saad lives and what he is."
+   },
+   "checks": [
+    {
+     "passage": "The tent was big. The tent was white.",
+     "stem": "Which sentence combines them best?",
+     "options": [
+      "The tent was big and white.",
+      "The tent was big. White.",
+      "The big white tent.",
+      "The tent, white, big."
+     ],
+     "answer": 0,
+     "why": "The tent was repeats. Join big and white with and. The other choices are not complete sentences."
+    },
+    {
+     "passage": "Hamad missed the bus. He woke up late.",
+     "stem": "Which sentence joins them and shows the right link?",
+     "options": [
+      "Hamad woke up late because he missed the bus.",
+      "Hamad missed the bus because he woke up late.",
+      "Hamad missed the bus, he woke up late.",
+      "Hamad missed the bus or he woke up late."
+     ],
+     "answer": 1,
+     "why": "Waking up late is the cause, and missing the bus is the result, so because goes before he woke up late."
+    },
+    {
+     "passage": "Jeddah is a busy port. It is on the Red Sea.",
+     "stem": "Which sentence combines them best?",
+     "options": [
+      "Jeddah is on a busy port the Red Sea.",
+      "Jeddah, the Red Sea, is a busy port.",
+      "Jeddah is a busy port the Red Sea.",
+      "Jeddah is a busy port on the Red Sea."
+     ],
+     "answer": 3,
+     "why": "On the Red Sea tells where the port is, and every fact stays the same."
+    }
+   ],
+   "again": {
+    "title": "Read it both ways",
+    "text": "Read the short sentences. Then read your long one.\n\nDid any fact **disappear**? Did any fact **change**? If not, your sentence works.",
+    "example": "Huda baked cookies. They were for her class.\n\n**Huda baked cookies for her class.** Both facts are still there."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Combining for style",
+     "text": "Good writers mix short and long sentences.\n\nThey combine short sentences so that ideas **flow** and the **link** between them is clear: time, cause, contrast or extra detail."
+    },
+    {
+     "title": "Ways to combine",
+     "text": "1. Compound parts: Hana **and** Dalal won.\n2. Phrases: **Built in 1900,** the house still stands.\n3. Clauses: **Although** it was late, we kept working. The scientist **who** found it was young.\n\nPick the way that shows the **real** relationship."
+    },
+    {
+     "title": "Test your combination",
+     "text": "A strong combined sentence:\n\n✓ keeps every fact\n✓ adds no new facts\n✓ shows the right link (time, cause, contrast)\n✓ is not a run-on"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to each original sentence and find its idea in the combined one.\n2. Point to the joining word (and, because, although, who) and ask whether the text supports that link.\n3. Reject any choice that drops, adds or twists a fact."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Empty Quarter is one of the largest sand deserts in the world.",
+      "role": "detail"
+     },
+     {
+      "t": "It covers parts of four countries.",
+      "role": "detail"
+     },
+     {
+      "t": "The Empty Quarter, one of the largest sand deserts in the world, covers parts of four countries.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence becomes a noun phrase between commas. The second stays the main sentence.\n\nNo fact is lost, and nothing new is added."
+   },
+   "together": {
+    "passage": "Ibn Battuta was a traveler from Morocco. He set out to perform Hajj when he was twenty-one. He did not return home for many years. On his journeys, he reached places as far away as India and China. Later, he told his story to a writer, who recorded it in a famous book. Today, readers still learn about the fourteenth-century world from that book. Some places he described have changed so much that his book is now one of the few records of them.",
+    "stem": "Which is the best way to combine the sentences about setting out for Hajj and not returning?",
+    "options": [
+     "He set out to perform Hajj when he was twenty-one because he did not return home for many years.",
+     "He set out to perform Hajj when he was twenty-one, and he did not return home for nearly thirty years.",
+     "Although he set out to perform Hajj when he was twenty-one, he did not return home for many years.",
+     "He set out to perform Hajj when he was twenty-one and did not return home for many years."
+    ],
+    "answer": 3,
+    "hint": "Test each choice: does it add a new fact, or use a link (because, although) the text does not support?",
+    "good": "Yes! It joins the two actions with and, keeps both facts, and adds nothing new."
+   },
+   "evidence": {
+    "sentences": [
+     "Ibn Battuta was a traveler from Morocco.",
+     "He set out to perform Hajj when he was twenty-one.",
+     "He did not return home for many years.",
+     "On his journeys, he reached places as far away as India and China.",
+     "Later, he told his story to a writer, who recorded it in a famous book.",
+     "Today, readers still learn about the fourteenth-century world from that book.",
+     "Some places he described have changed so much that his book is now one of the few records of them."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap the 2 sentences that were combined.",
+    "wrong": "This sentence was not part of the combination. Find the sentences about leaving for Hajj and staying away."
+   },
+   "checks": [
+    {
+     "passage": "The bridge was built in 1960. It is now too narrow for modern traffic.",
+     "stem": "Which combination keeps the meaning and shows the link?",
+     "options": [
+      "The bridge was built in 1960 because it is too narrow for modern traffic.",
+      "The bridge, too narrow, was built in 1960 for modern traffic.",
+      "Built in 1960, the bridge is now too narrow for modern traffic.",
+      "The bridge was built in 1960, it is now too narrow for modern traffic."
+     ],
+     "answer": 2,
+     "why": "The phrase Built in 1960 keeps the date, and the main sentence keeps the problem. The others twist the link or make a run-on."
+    },
+    {
+     "passage": "Dr. Amal studies desert plants. She works at the university. She found a new kind of grass.",
+     "stem": "Which sentence combines all three best?",
+     "options": [
+      "Dr. Amal, who studies desert plants at the university, found a new kind of grass.",
+      "Dr. Amal studies desert plants, she works at the university, she found a new grass.",
+      "Dr. Amal found a university that studies desert grass.",
+      "Dr. Amal studies desert plants and found the university."
+     ],
+     "answer": 0,
+     "why": "The who clause holds two facts, and the main sentence holds the discovery. Nothing is lost or changed."
+    },
+    {
+     "passage": "It was very hot. The children kept playing football.",
+     "stem": "Which sentence shows the right link between these ideas?",
+     "options": [
+      "Because it was very hot, the children kept playing football.",
+      "Although it was very hot, the children kept playing football.",
+      "When the children kept playing football, it became very hot.",
+      "It was very hot, so the children kept playing football."
+     ],
+     "answer": 1,
+     "why": "The heat did not cause the playing. The children played in spite of it, so although shows the right link."
+    }
+   ],
+   "again": {
+    "title": "What is the link?",
+    "text": "Before you combine, ask how the ideas connect.\n\nSame subject, two actions → **and**\nCause → **because**\nSurprise or contrast → **although**\nExtra fact about a noun → **who** or a phrase between commas",
+    "example": "The road was closed. A water pipe had burst.\n\nLink: **cause**. → **The road was closed because a water pipe had burst.**"
+   }
+  }
+ }
+}

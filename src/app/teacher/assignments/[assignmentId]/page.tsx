@@ -4,6 +4,7 @@ import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses, assignmentDetail, type AssignmentDetail } from "@/server/teacher/assign";
 import { cancelAssignmentAction, copyAssignmentAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 const LABEL = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", COMPLETED: "Completed", OVERDUE: "Overdue" } as const;
 const TONE = { NOT_STARTED: "bg-slate-100 text-slate-700", IN_PROGRESS: "bg-sky-100 text-sky-900", COMPLETED: "bg-teal-100 text-teal-900", OVERDUE: "bg-red-100 text-red-800" } as const;
@@ -30,7 +31,7 @@ export default async function AssignmentResultsPage({ params, searchParams }: { 
         <form action={copyAssignmentAction} className="mt-3 flex flex-wrap items-end gap-2 rounded-2xl bg-white p-3 text-sm ring-1 ring-slate-200 print:hidden">
           <input type="hidden" name="assignmentId" value={assignmentId} />
           <span className="font-semibold text-brand-navy">📋 Copy to another class:</span>
-          <select name="classId" className="rounded-lg border border-slate-300 px-2 py-1.5">{twins.map((c) => <option key={String(c.id)} value={String(c.id)}>{String(c.name)}</option>)}</select>
+          <Combo name="classId" required label="Class" defaultValue={String(twins[0]?.id ?? "")} options={twins.map((c) => ({ value: String(c.id), label: String(c.name) }))} className="w-56" />
           <label className="flex items-center gap-1">due <input type="date" name="dueAt" className="rounded-lg border border-slate-300 px-2 py-1" /></label>
           <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Copy</button>
         </form>

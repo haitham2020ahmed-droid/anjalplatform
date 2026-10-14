@@ -1,0 +1,454 @@
+{
+ "code": "LN-141",
+ "title": "Asking and answering questions",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Reading Strategies",
+ "standards": [],
+ "families": [
+  "ask-answer-questions"
+ ],
+ "skillNames": [
+  "Ask and Answer Questions"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Question words",
+     "text": "Good readers ask questions.\n\n**Who?** a person or animal\n**What?** a thing or action\n**Where?** a place\n**When?** a time"
+    },
+    {
+     "title": "The answer is in the text",
+     "text": "After you ask a question, **look back** at the text.\n\nThe answer is often right there in one sentence."
+    },
+    {
+     "title": "How to answer",
+     "text": "1. Read the question word: who, what, where or when.\n2. Find the sentence with the answer.\n3. Choose the answer that matches it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the **sentence** with the answer.\n\n1. **Who** → look for a name.\n2. **Where** → look for a place.\n3. **When** → look for a time or day.\n\nIf no sentence says it, it is not the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On Friday, Noor went to the beach.",
+      "role": "key"
+     },
+     {
+      "t": "She built a sand castle.",
+      "role": "detail"
+     },
+     {
+      "t": "Her brother found a shell.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **Where** did they go? The answer is in sentence 1: **to the beach**."
+   },
+   "together": {
+    "passage": "Yousef has a new bike. It is red and fast. He rides it in the park after school. His father bought it for his birthday.",
+    "stem": "Where does Yousef ride his bike?",
+    "options": [
+     "At school",
+     "At home",
+     "On the beach",
+     "In the park"
+    ],
+    "answer": 3,
+    "hint": "Where is a place word. Find the sentence that names a place where he rides.",
+    "good": "Yes! The text says he rides it in the park."
+   },
+   "evidence": {
+    "sentences": [
+     "Yousef has a new bike.",
+     "It is red and fast.",
+     "He rides it in the park after school.",
+     "His father bought it for his birthday."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: in the park. Tap the sentence that tells where he rides.",
+    "wrong": "This sentence does not tell where he rides. Find the sentence with a place."
+   },
+   "checks": [
+    {
+     "passage": "Huda's cat is named Sukkar. He sleeps on the sofa. Huda feeds him every morning.",
+     "stem": "When does Huda feed the cat?",
+     "options": [
+      "Every morning",
+      "At night",
+      "On Friday",
+      "After lunch"
+     ],
+     "answer": 0,
+     "why": "The text says she feeds him every morning."
+    },
+    {
+     "passage": "Mr. Saleh teaches maths. He is kind. He gives us puzzles on Thursday.",
+     "stem": "Who teaches maths?",
+     "options": [
+      "Huda",
+      "Mr. Saleh",
+      "The puzzle",
+      "The class"
+     ],
+     "answer": 1,
+     "why": "The first sentence says Mr. Saleh teaches maths."
+    },
+    {
+     "passage": "A bird built a nest in our tree. It used sticks and grass. Soon there were three eggs.",
+     "stem": "What did the bird use to build the nest?",
+     "options": [
+      "Stones and sand",
+      "Paper and string",
+      "Sticks and grass",
+      "Eggs and leaves"
+     ],
+     "answer": 2,
+     "why": "The text says it used sticks and grass."
+    }
+   ],
+   "again": {
+    "title": "Match the word",
+    "text": "Each question word wants a **kind** of answer.\n\n**Who** wants a person. **Where** wants a place. **When** wants a time.\n\nFind that kind of word in the text.",
+    "example": "'At noon, the baker opened his shop in the market.'\n\nWho? **the baker**. When? **at noon**. Where? **in the market**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Why and how questions",
+     "text": "**Why** asks for a **reason**.\n\n**How** asks for the **way** something happens or is done.\n\nThese answers may take a whole sentence or more."
+    },
+    {
+     "title": "Ask before, during, after",
+     "text": "**Before reading:** What will this be about?\n**During:** Why did that happen?\n**After:** What did I learn?\n\nAsking questions keeps your mind active."
+    },
+    {
+     "title": "Find the answer",
+     "text": "1. Find the **key words** in the question.\n2. Look for the same or similar words in the text.\n3. Read the sentences around them for the answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the answer by pointing to the sentence that **gives the reason or the way**.\n\n1. Underline the key words in the question.\n2. Find them in the text.\n3. For **why**, look for *because*, *so*, *to*.\n4. For **how**, look for steps or actions."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Camels live in deserts.",
+      "role": "detail"
+     },
+     {
+      "t": "They have long eyelashes to keep blowing sand out of their eyes.",
+      "role": "key"
+     },
+     {
+      "t": "They can also close their nostrils during sandstorms.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Question: **Why** do camels have long eyelashes? Key word: eyelashes. Sentence 2 gives the reason: **to keep sand out of their eyes**."
+   },
+   "together": {
+    "passage": "Every autumn, millions of birds fly south. They leave because the cold weather makes it hard to find food. Many birds use the sun and stars to find their way. Some travel thousands of kilometres before they stop to rest. In spring, they return to the same places to build nests.",
+    "stem": "Why do the birds fly south in autumn?",
+    "options": [
+     "To build nests",
+     "Because food is hard to find in cold weather",
+     "To look at the stars",
+     "Because they are tired"
+    ],
+    "answer": 1,
+    "hint": "A why question wants a reason. Look for the word 'because'.",
+    "good": "Yes! The text says they leave because the cold weather makes food hard to find."
+   },
+   "evidence": {
+    "sentences": [
+     "Every autumn, millions of birds fly south.",
+     "They leave because the cold weather makes it hard to find food.",
+     "Many birds use the sun and stars to find their way.",
+     "Some travel thousands of kilometres before they stop to rest.",
+     "In spring, they return to the same places to build nests."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: because food is hard to find in cold weather. Tap the sentence that gives this reason.",
+    "wrong": "This sentence tells something else about the birds. Find the sentence with the reason they leave."
+   },
+   "checks": [
+    {
+     "passage": "Bees tell each other where to find flowers. A bee that finds flowers returns to the hive. It does a special dance. The dance shows the other bees which way to fly.",
+     "stem": "How do bees tell each other where flowers are?",
+     "options": [
+      "By humming a song",
+      "By leaving a smell on the ground",
+      "By doing a special dance",
+      "By flying in a circle around the hive"
+     ],
+     "answer": 2,
+     "why": "The text says the bee does a dance that shows which way to fly."
+    },
+    {
+     "passage": "Our school closed early on Tuesday. A big sandstorm was coming. The teachers wanted everyone home safely before it arrived.",
+     "stem": "Why did the school close early?",
+     "options": [
+      "A sandstorm was coming.",
+      "It was a holiday.",
+      "The teachers were sick.",
+      "There was no water."
+     ],
+     "answer": 0,
+     "why": "The text says a big sandstorm was coming, and teachers wanted students home safely."
+    },
+    {
+     "passage": "To make mint tea, Grandma boils water first. Then she adds tea leaves and fresh mint. She lets it sit for three minutes and pours it into small glasses.",
+     "stem": "How does Grandma make mint tea?",
+     "options": [
+      "She mixes cold water and sugar.",
+      "She buys it from a shop.",
+      "She grows the mint in a pot.",
+      "She boils water, adds tea and mint, then waits."
+     ],
+     "answer": 3,
+     "why": "The text gives the steps: boil water, add tea and mint, wait three minutes, pour."
+    }
+   ],
+   "again": {
+    "title": "Turn it into a sentence",
+    "text": "Turn the question into the start of an answer. Then find the end of it in the text.",
+    "example": "Question: **Why** do we wear seat belts?\nStart: 'We wear seat belts **because**…'\nText: '…they keep us safe if the car stops suddenly.'\nAnswer: **because they keep us safe.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Two kinds of answers",
+     "text": "**Right there:** the answer is in one sentence.\n\n**Think and search:** the answer is in **two or more** places, and you must put them together."
+    },
+    {
+     "title": "Asking deeper questions",
+     "text": "Strong readers ask questions like:\n\n• *What caused this?*\n• *How are these two things different?*\n• *What happened after that?*\n\nThese questions often need **think and search** answers."
+    },
+    {
+     "title": "Answering well",
+     "text": "1. Ask: is the answer in one place or several?\n2. Collect every piece.\n3. Choose the answer that includes **all** the pieces."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For think-and-search questions, prove your answer with **more than one sentence**.\n\n1. Find each part of the answer in the text.\n2. Check that your choice includes all of them.\n3. Reject choices that use only one part or add ideas not in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The new port opened in 1990.",
+      "role": "detail"
+     },
+     {
+      "t": "Hundreds of jobs were created for loading and unloading ships.",
+      "role": "key"
+     },
+     {
+      "t": "With more families moving in, the town built two new schools.",
+      "role": "key"
+     },
+     {
+      "t": "The old fishing boats still sail at dawn.",
+      "role": "other"
+     }
+    ],
+    "explain": "Question: **How did the town change** after the port opened? The answer is in **two** places: more jobs (sentence 2) and new schools (sentence 3)."
+   },
+   "together": {
+    "passage": "The Rub' al Khali, or Empty Quarter, is one of the largest sand deserts in the world. In summer, temperatures there can rise above 50°C. Rain is very rare, and some areas may go years without any. Despite these conditions, some plants and animals survive. Animals such as the sand gazelle get most of the water they need from the plants they eat. Some plants have roots that reach deep under the sand to find water.",
+    "stem": "How do living things in the Empty Quarter get water?",
+    "options": [
+     "They drink from rivers and lakes.",
+     "They wait for rain every week.",
+     "Animals eat watery plants; plants grow deep roots.",
+     "People bring water to them."
+    ],
+    "answer": 2,
+    "hint": "The answer is in more than one place. Find what the animals do and what the plants do.",
+    "good": "Yes! Animals get water from the plants they eat, and plants reach deep for water. You needed both sentences."
+   },
+   "evidence": {
+    "sentences": [
+     "The Rub' al Khali, or Empty Quarter, is one of the largest sand deserts in the world.",
+     "In summer, temperatures there can rise above 50°C.",
+     "Rain is very rare, and some areas may go years without any.",
+     "Despite these conditions, some plants and animals survive.",
+     "Animals such as the sand gazelle get most of the water they need from the plants they eat.",
+     "Some plants have roots that reach deep under the sand to find water."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: animals get water from plants they eat, and some plants have deep roots. Tap the 2 sentences that give this answer.",
+    "wrong": "This sentence tells about the desert's conditions, not how living things get water. Find the sentences about the animals and the plants."
+   },
+   "checks": [
+    {
+     "passage": "Before the 1930s, most people in the region earned a living from pearl diving, fishing and trade. After oil was discovered, new jobs appeared in drilling, building and transport. Cities grew quickly, and many families moved from villages to them.",
+     "stem": "How did work in the region change after oil was found?",
+     "options": [
+      "People stopped working, and the cities emptied.",
+      "New kinds of jobs appeared, and people moved to cities.",
+      "Pearl diving and fishing became the main jobs.",
+      "Everyone moved back to the villages."
+     ],
+     "answer": 1,
+     "why": "You need both parts: new kinds of jobs and families moving to growing cities."
+    },
+    {
+     "passage": "Lions and cheetahs are both big cats. Lions live in groups called prides and hunt together. Cheetahs usually hunt alone. Cheetahs are faster, but lions are stronger.",
+     "stem": "How are lions and cheetahs different?",
+     "options": [
+      "Lions hunt in groups and are stronger; cheetahs are faster loners.",
+      "They are both big cats that hunt.",
+      "Lions are faster, and they live and hunt alone.",
+      "Cheetahs live in prides and are the stronger cat."
+     ],
+     "answer": 0,
+     "why": "The text gives two differences in different sentences: how they hunt and speed versus strength."
+    },
+    {
+     "passage": "Salma wanted to join the school science fair. She chose to test which kind of soil helps beans grow best. For three weeks, she watered three pots the same amount and measured the plants every day. The beans in the pot with compost grew tallest.",
+     "stem": "Which question can be answered using this text?",
+     "options": [
+      "What is Salma's favourite food?",
+      "Who won the science fair?",
+      "How tall was Salma?",
+      "What did Salma test for the science fair?"
+     ],
+     "answer": 3,
+     "why": "The text tells exactly what Salma tested: which soil helps beans grow best."
+    }
+   ],
+   "again": {
+    "title": "Collect the pieces",
+    "text": "Think of the answer as a **puzzle**. Some pieces are in one sentence, some in another.\n\nCollect all the pieces before you choose.",
+    "example": "Question: What do pandas eat and where do they live?\nPiece 1: 'Pandas eat bamboo.' Piece 2: 'They live in the mountain forests of China.'\nAnswer: **They eat bamboo and live in China's mountain forests.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Questioning like an expert",
+     "text": "Expert readers ask questions **of** the text, not just **about** it.\n\n• *What does the author assume?*\n• *What is left unanswered?*\n• *What would I need to know to be sure?*"
+    },
+    {
+     "title": "Answered, inferred or unanswered?",
+     "text": "1. **Answered:** the text states it.\n2. **Inferred:** the text gives clues, and you reason to the answer.\n3. **Unanswered:** the text gives no basis; you would need another source."
+    },
+    {
+     "title": "Why it matters",
+     "text": "Knowing which questions a text **cannot** answer stops you from guessing, and tells you what to research next."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support each answer with the text, or show the text is **silent**.\n\n1. For inferred answers, point to the clues and explain the reasoning.\n2. For unanswered questions, check that no sentence addresses them.\n3. Never choose an answer that depends on facts the text does not give."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The team predicted that the new coating would keep panels free of dust for a month.",
+      "role": "detail"
+     },
+     {
+      "t": "After thirty days in the desert, the coated panels were still producing nearly full power.",
+      "role": "key"
+     },
+     {
+      "t": "Within a year, three other research centres were testing the same method.",
+      "role": "key"
+     }
+    ],
+    "explain": "Question: **Was the experiment a success?** The text never says so, but two clues let us **infer** it: the results matched the prediction, and other labs copied the method."
+   },
+   "together": {
+    "passage": "In 2019, a group of marine scientists placed small underwater loudspeakers near a damaged coral reef. They played recordings of a healthy reef: the crackle of shrimp and the grunts and clicks of fish. Over six weeks, about twice as many young fish settled on the reef with the sound as on a similar silent reef nearby. The scientists believe young fish use sound to choose where to live. They plan more studies to learn whether the fish stay, and whether the method could help reefs recover.",
+    "stem": "Which question about the experiment does the passage leave UNANSWERED?",
+    "options": [
+     "Do the young fish stay on the reef for a long time?",
+     "What sounds did the scientists play?",
+     "How many more fish settled on the reef with sound?",
+     "Why do the scientists think fish use sound?"
+    ],
+    "answer": 0,
+    "hint": "Check each question. Which one does the last sentence say the scientists still need to study?",
+    "good": "Yes! The scientists 'plan more studies to learn whether the fish stay', so the text cannot answer that yet."
+   },
+   "evidence": {
+    "sentences": [
+     "In 2019, a group of marine scientists placed small underwater loudspeakers near a damaged coral reef.",
+     "They played recordings of a healthy reef: the crackle of shrimp and the grunts and clicks of fish.",
+     "Over six weeks, about twice as many young fish settled on the reef with the sound as on a similar silent reef nearby.",
+     "The scientists believe young fish use sound to choose where to live.",
+     "They plan more studies to learn whether the fish stay, and whether the method could help reefs recover."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: whether the fish stay is unanswered. Tap the sentence that shows this question is still open.",
+    "wrong": "This sentence answers a question about the experiment. Find the sentence that shows what is still unknown."
+   },
+   "checks": [
+    {
+     "passage": "The village elders noticed that the old well had begun to taste salty. The following year, a new well was dug farther from the coast, and the families who had moved away during the dry years began returning.",
+     "stem": "Which question can be answered only by inference, not directly?",
+     "options": [
+      "Where was the new well dug?",
+      "What did the elders notice?",
+      "When was the new well dug?",
+      "Why did the families most likely return?"
+     ],
+     "answer": 3,
+     "why": "The text never states why they returned, but the new fresh-water well is a strong clue."
+    },
+    {
+     "passage": "A team of students tested whether plants grow faster with music. Plants in a room playing calm music grew 2 cm more in a month than plants in a silent room. The rooms had different windows.",
+     "stem": "Which question should a careful reader ask about this experiment?",
+     "options": [
+      "How many more centimetres did the plants grow?",
+      "Was it the music or the windows that made the difference?",
+      "What did the students test?",
+      "Which room played music?"
+     ],
+     "answer": 1,
+     "why": "The rooms differed in light as well as music, so a careful reader questions what caused the growth."
+    },
+    {
+     "passage": "The bridge, completed in 1986, links two countries across the sea. It is about 25 kilometres long and carries thousands of vehicles each day. Before it opened, travellers had to cross by boat or plane.",
+     "stem": "Which question CANNOT be answered from the text?",
+     "options": [
+      "How long is the bridge?",
+      "How did people travel before it opened?",
+      "How much did it cost to build the bridge?",
+      "When was the bridge completed?"
+     ],
+     "answer": 2,
+     "why": "The text gives the length, the date and the old ways of travel, but says nothing about cost."
+    }
+   ],
+   "again": {
+    "title": "Three-bin sort",
+    "text": "Sort each question into a bin:\n\n**Bin 1: Text says it.**\n**Bin 2: Text hints at it.**\n**Bin 3: Text is silent.**\n\nOnly bins 1 and 2 can be answered from the text.",
+    "example": "Text: 'The museum opened in 2010 and has had long queues every weekend.'\n\nWhen did it open? **Bin 1.** Is it popular? **Bin 2** (long queues). How much is a ticket? **Bin 3.**"
+   }
+  }
+ }
+}

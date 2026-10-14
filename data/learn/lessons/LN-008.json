@@ -1,0 +1,466 @@
+{
+ "code": "LN-008",
+ "title": "Writing for your reader and purpose",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.3.b",
+  "W.5.4",
+  "W.5.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0015",
+  "L-0017",
+  "L-0070",
+  "L-0078",
+  "L-0165",
+  "L-0180",
+  "L-0247",
+  "L-0271",
+  "L-0281",
+  "L-0284",
+  "L-0324"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who will read it?",
+     "text": "The **reader** is the person who will read your writing.\n\nIt might be your friend, your teacher or your little brother."
+    },
+    {
+     "title": "Why are you writing?",
+     "text": "The **purpose** is **why** you write.\n\nTo say thank you. To tell how to do something. To ask people to come."
+    },
+    {
+     "title": "Pick what fits",
+     "text": "1. Ask: **Who** will read it?\n2. Ask: **Why** am I writing?\n3. Write only things that help that reader and that purpose."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text tells you the **reader** and the **purpose**.\n\n1. Find the sentence that says **who** will read it.\n2. Find the sentence that says **why**.\n3. Pick the answer that fits both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem is writing to her grandma.",
+      "role": "detail"
+     },
+     {
+      "t": "She wants to say thank you for a gift.",
+      "role": "detail"
+     },
+     {
+      "t": "Thank you for the lovely scarf, Grandma!",
+      "role": "key"
+     }
+    ],
+    "explain": "The reader is **Grandma**. The purpose is **to say thank you**. So the note thanks Grandma for the gift."
+   },
+   "together": {
+    "passage": "Ali likes to draw. He is making a poster for his classmates. He wants them all to come to sports day.",
+    "stem": "What should Ali put on his poster?",
+    "options": [
+     "The name of his cat",
+     "What he ate for lunch",
+     "His favourite colour",
+     "The day and time of sports day"
+    ],
+    "answer": 3,
+    "hint": "Would that help his classmates come to sports day?",
+    "good": "Yes! His classmates need to know **when** sports day is, so they can come."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali likes to draw.",
+     "He is making a poster for his classmates.",
+     "He wants them all to come to sports day."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the day and time of sports day. Tap the 2 sentences that show who will read the poster and why.",
+    "wrong": "This sentence does not tell the reader or the purpose. Find who the poster is for and what Ali wants."
+   },
+   "checks": [
+    {
+     "passage": "Huda is writing a story for her little brother. He is four years old.",
+     "stem": "Which topic is best for him?",
+     "options": [
+      "How to pay a phone bill",
+      "A puppy who finds a friend",
+      "The history of banks",
+      "How to drive a truck"
+     ],
+     "answer": 1,
+     "why": "A four-year-old will enjoy a story about a puppy."
+    },
+    {
+     "passage": "Omar is writing a thank-you note to his teacher.",
+     "stem": "Which sentence belongs in his note?",
+     "options": [
+      "My shoes are new and black.",
+      "The bus was late today.",
+      "Thank you for helping me read.",
+      "I like rice and fish."
+     ],
+     "answer": 2,
+     "why": "The purpose is to say thank you. This sentence thanks the teacher."
+    },
+    {
+     "passage": "Sara wants to tell her friends how to make a paper boat.",
+     "stem": "What should she write?",
+     "options": [
+      "The steps to fold the paper",
+      "Where she bought her bag",
+      "How old her brother is",
+      "The name of her street"
+     ],
+     "answer": 0,
+     "why": "To make a boat, her friends need the folding steps."
+    }
+   ],
+   "again": {
+    "title": "Who and why",
+    "text": "Before you write, finish two sentences:\n\n**I am writing to ___.**\n**I want them to ___.**\n\nNow write only things that help.",
+    "example": "I am writing to **my class**. I want them to **bring a book on Monday**.\nNote: **Please bring your favourite book to class on Monday.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Audience and purpose",
+     "text": "Your **audience** is who will read your writing. Your **purpose** is what you want it to do: inform, explain, persuade, invite or thank.\n\nBoth decide **what** you write and **how** you write it."
+    },
+    {
+     "title": "Forms of writing",
+     "text": "**Poster**: tells many people about an event quickly\n**Letter or email**: speaks to one person or group\n**Instructions**: teaches how to do something step by step\n**Report**: gives facts about a topic\n**Story**: entertains"
+    },
+    {
+     "title": "Choosing information",
+     "text": "Give your reader what they **need**.\n\nA new student needs directions to the library, not the number of books inside it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the clues about **who** will read and **what** the writing must do.\n\n1. Find the sentence that names the readers.\n2. Find the sentence that says what they must know or do.\n3. Choose the form or detail that fits both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The school wants every family to know about a parents' evening.",
+      "role": "detail"
+     },
+     {
+      "t": "It must give the date, time and place.",
+      "role": "detail"
+     },
+     {
+      "t": "A printed invitation sent home with each student is the best form.",
+      "role": "key"
+     }
+    ],
+    "explain": "The audience is **every family**. The purpose is to **invite** and give details. An invitation sent home reaches every family."
+   },
+   "together": {
+    "passage": "The students in Grade 5 want to raise money for a local animal shelter. They plan a bake sale next Thursday in the school hall. They want every student and parent who walks past the front gate to know about it.",
+    "stem": "Which form of writing is best for this purpose?",
+    "options": [
+     "A colourful poster near the front gate",
+     "A private diary entry",
+     "A poem about cute animals",
+     "A science report on cats"
+    ],
+    "answer": 0,
+    "hint": "Would that form tell everyone who walks past the gate about the sale?",
+    "good": "Yes! A poster at the gate tells everyone who walks past about the bake sale."
+   },
+   "evidence": {
+    "sentences": [
+     "The students in Grade 5 want to raise money for a local animal shelter.",
+     "They plan a bake sale next Thursday in the school hall.",
+     "They want every student and parent who walks past the front gate to know about it."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a poster near the front gate. Tap the 2 sentences that show what must be shared and who must see it.",
+    "wrong": "This sentence tells why they want money. Find what they must announce and who must see it."
+   },
+   "checks": [
+    {
+     "passage": "Lina is writing an email to a new student. She wants to explain how to get to the school library.",
+     "stem": "Which detail fits her purpose best?",
+     "options": [
+      "The library has about three thousand books.",
+      "Lina's favourite book is about horses.",
+      "Go up the stairs and turn left at the art room.",
+      "The school was built many years ago."
+     ],
+     "answer": 2,
+     "why": "The new student needs **directions** to find the library."
+    },
+    {
+     "passage": "Faisal wants to teach his cousin how to set up a new board game, step by step.",
+     "stem": "Which form of writing is best?",
+     "options": [
+      "A poem",
+      "Numbered instructions",
+      "A news report",
+      "A birthday card"
+     ],
+     "answer": 1,
+     "why": "Instructions teach how to do something one step at a time."
+    },
+    {
+     "passage": "Maha is writing a short report about the moon for Grade 2 students.",
+     "stem": "Which sentence suits her readers best?",
+     "options": [
+      "Lunar soil is made of broken basalt fragments.",
+      "I think the moon is boring to read about.",
+      "Moons travel around planets in elliptical orbits.",
+      "The moon has no air, so people cannot breathe there."
+     ],
+     "answer": 3,
+     "why": "It gives a clear fact in simple words that young readers can understand."
+    }
+   ],
+   "again": {
+    "title": "Picture the reader",
+    "text": "Imagine your reader is sitting next to you.\n\nWhat would they ask? Answer **those** questions. Skip things they would not care about.",
+    "example": "Reader: a new student. Purpose: find the canteen.\nThey would ask: **Where is it? When does it open?**\nThey would not ask: How old is the canteen?"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Purpose shapes content",
+     "text": "To **inform**, give clear facts.\nTo **persuade**, give strong reasons.\nTo **explain how**, give steps in order.\n\nInformation that does not serve the purpose weakens the writing, even if it is true."
+    },
+    {
+     "title": "Audience shapes style",
+     "text": "Writing to a **friend** can be casual.\nWriting to an **official**, such as a principal or council, should be polite and formal.\n\nInsults, slang and jokes do not belong in a formal request."
+    },
+    {
+     "title": "Choose the right form",
+     "text": "Ask: How will the writing **reach** the readers? Do they need it **quickly**? Do they need to **keep** it?\n\nA phone message reaches every family fast. A poster reaches people who walk past it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a detail is appropriate, match it to the **purpose** stated in the text.\n\n1. Find the sentences that say what the writing must do.\n2. Ask: does this detail help do **that**?\n3. Check that its tone suits the readers."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Purpose: persuade the principal to allow a chess club.",
+      "role": "other"
+     },
+     {
+      "t": "Chess teaches students to plan ahead and solve problems.",
+      "role": "key"
+     },
+     {
+      "t": "Chess was invented a very long time ago.",
+      "role": "other"
+     }
+    ],
+    "explain": "Planning and problem-solving are **reasons** the principal may accept. The history of chess is true, but it does not persuade."
+   },
+   "together": {
+    "passage": "Students at a primary school are writing a letter to the city council. They want to ask for a pedestrian crossing outside their school. Many students walk to school along a busy road. Cars there often drive fast, and there is no safe place to cross. Last month, a student was nearly hit by a car. The students want the council to understand why a crossing is needed.",
+    "stem": "Which detail would be most appropriate to add to their letter?",
+    "options": [
+     "Our football team won the cup last year.",
+     "About 300 students cross that road every morning.",
+     "Our canteen sells very tasty sandwiches.",
+     "Some students think the council is lazy."
+    ],
+    "answer": 1,
+    "hint": "Does that detail help show why a crossing is needed? Is it polite enough for the council?",
+    "good": "Yes! A number showing how many students cross the road is a strong, polite reason for the council."
+   },
+   "evidence": {
+    "sentences": [
+     "Students at a primary school are writing a letter to the city council.",
+     "They want to ask for a pedestrian crossing outside their school.",
+     "Many students walk to school along a busy road.",
+     "Cars there often drive fast, and there is no safe place to cross.",
+     "Last month, a student was nearly hit by a car.",
+     "The students want the council to understand why a crossing is needed."
+    ],
+    "proof": [
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: About 300 students cross that road every morning. Tap the 2 sentences that show the purpose of the letter.",
+    "wrong": "This sentence names the readers or gives a reason already in the letter. Find the sentences that state what the letter must do."
+   },
+   "checks": [
+    {
+     "passage": "The school wants to tell parents about a change in pickup times next week. Every family must get the message, even families who do not visit the school.",
+     "stem": "Which form of writing is best?",
+     "options": [
+      "A poster inside the staff room",
+      "A poem read at the morning assembly",
+      "A story in the school library",
+      "A short message to every family's phone"
+     ],
+     "answer": 3,
+     "why": "Only a message to each family's phone reaches every family, even those who do not visit."
+    },
+    {
+     "passage": "Rana must give a two-minute speech to persuade her classmates to join the school recycling club.",
+     "stem": "Which opening sentence fits her purpose and audience best?",
+     "options": [
+      "Joining the recycling club is an easy way to help our school.",
+      "Recycling was practised in many forms centuries ago.",
+      "My little sister collects stickers of cartoon animals.",
+      "Plastic is made from oil in very large factories."
+     ],
+     "answer": 0,
+     "why": "It speaks to classmates and gives a reason to join, which is the purpose."
+    },
+    {
+     "passage": "Ahmed is writing a short guide for visitors to his town's old fort.",
+     "stem": "Which detail is most useful for the visitors?",
+     "options": [
+      "Ahmed's uncle once fixed a car near the fort.",
+      "Ahmed's favourite school subject is maths.",
+      "The fort is open from 8 a.m. to 6 p.m., and entry is free.",
+      "The gift shop's walls were painted last spring."
+     ],
+     "answer": 2,
+     "why": "Visitors need to know when they can go and what it costs."
+    }
+   ],
+   "again": {
+    "title": "Purpose sentence",
+    "text": "Write the purpose as one sentence: **This writing must ___.**\n\nRead each detail and ask: **Does it help the writing ___?** Keep only the yes details.",
+    "example": "This writing must **get the principal to allow a chess club**.\nChess builds problem-solving skills. ✔\nI won a chess game last week. ✘"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Consistent voice",
+     "text": "Once you choose a voice for your audience, **keep it** all the way through.\n\nA formal letter that suddenly says \"super cool\" or \"guys\" confuses the reader and weakens the message."
+    },
+    {
+     "title": "Consistent point of view",
+     "text": "If a guide speaks about \"members\", it should not suddenly switch to \"you guys\".\n\nPick one way to address the reader and use it in every sentence."
+    },
+    {
+     "title": "Details the objective needs",
+     "text": "Every piece of writing has an **objective**. Ask: What must the reader know or do at the end?\n\nDirections need every turn. An invitation needs the date, time and place. A request needs a clear reason."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a revision is right, show the **pattern** in the rest of the text.\n\n1. Find two or more sentences that show the voice or the objective.\n2. Find the sentence that breaks the pattern or leaves something out.\n3. Choose the revision that matches the pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Members should arrive by 4 p.m.",
+      "role": "detail"
+     },
+     {
+      "t": "Members must bring a notebook.",
+      "role": "detail"
+     },
+     {
+      "t": "You guys should grab some snacks too.",
+      "role": "other"
+     },
+     {
+      "t": "Members may also bring a small snack.",
+      "role": "key"
+     }
+    ],
+    "explain": "The guide speaks about **members** in a formal way. \"You guys\" breaks that pattern. The revision keeps the same voice."
+   },
+   "together": {
+    "passage": "I am writing on behalf of the Grade 6 science club to invite you to speak at our Science Day on 14 March. Our members have been studying renewable energy, and your research on solar power has inspired many of us. Anyway, it would be super cool if you came and talked to us about your stuff. We would be honoured to welcome you, and we will gladly arrange transport from your office.",
+    "stem": "One sentence in this letter to a university professor does not match the rest. Which revision fits the audience best?",
+    "options": [
+     "So, like, could you maybe come and talk to us?",
+     "You have to come because we really want you to.",
+     "We would be grateful if you could share your work with our members.",
+     "Hey, your solar stuff is awesome, so drop by!"
+    ],
+    "answer": 2,
+    "hint": "Does that revision sound like the rest of the letter? The other sentences are polite and formal.",
+    "good": "Yes! It is polite and formal, like the rest of the letter, and it still asks the professor to come."
+   },
+   "evidence": {
+    "sentences": [
+     "I am writing on behalf of the Grade 6 science club to invite you to speak at our Science Day on 14 March.",
+     "Our members have been studying renewable energy, and your research on solar power has inspired many of us.",
+     "Anyway, it would be super cool if you came and talked to us about your stuff.",
+     "We would be honoured to welcome you, and we will gladly arrange transport from your office."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: We would be grateful if you could share your work with our members. Tap 2 sentences that show the formal voice the revision must match.",
+    "wrong": "This is the sentence that breaks the formal voice. Find sentences that are polite and formal."
+   },
+   "checks": [
+    {
+     "passage": "Hassan is writing directions for new students to find the nurse's office. His draft says: \"Go down the main hallway. Turn at the corner. The office is there.\"",
+     "stem": "Which detail is most needed to make the directions work?",
+     "options": [
+      "Which way to turn at the corner",
+      "The nurse's favourite book",
+      "How long the school has had a nurse",
+      "The colour of the hallway floor"
+     ],
+     "answer": 0,
+     "why": "Without left or right, a new student could go the wrong way. The objective is to find the office."
+    },
+    {
+     "passage": "A notice for school visitors says: \"Please sign in at the front desk. Please wear your visitor badge at all times. Yo, don't wander off, okay?\"",
+     "stem": "Which revision of the last sentence addresses the audience consistently?",
+     "options": [
+      "Yo, stay with the group the whole time, okay?",
+      "Don't be wandering around, you know?",
+      "We'll be really mad if you get lost!",
+      "Please stay with your guide during your visit."
+     ],
+     "answer": 3,
+     "why": "The notice speaks politely to visitors and starts each rule with **Please**. This revision keeps that voice."
+    },
+    {
+     "passage": "Objective: persuade parents to donate tools for a new school garden.",
+     "stem": "Which detail best helps the writing meet its objective?",
+     "options": [
+      "Some gardens in other countries grow only roses.",
+      "The garden would let every class grow and study its own plants.",
+      "Some garden tools are made of steel or plastic.",
+      "The principal's office is near the garden area."
+     ],
+     "answer": 1,
+     "why": "It gives parents a clear reason to donate: the garden helps every class learn."
+    }
+   ],
+   "again": {
+    "title": "Read it in one voice",
+    "text": "Read the text aloud in the voice of the first sentence.\n\nIf one sentence sounds like a different person talking, it breaks the pattern. Rewrite it in the first sentence's voice.",
+    "example": "First sentence: \"We kindly request your attendance.\"\nOdd one: \"Be there or miss out!\"\nRevision: **\"We hope you will be able to join us.\"**"
+   }
+  }
+ }
+}

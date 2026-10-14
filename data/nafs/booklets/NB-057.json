@@ -1,0 +1,568 @@
+{
+  "code": "NB-057",
+  "title": "When Skin Meets Heat: First Aid for Burns",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 466,
+  "passage": "The kitchen is the warmest room in many homes, full of delicious smells and family conversation. Unfortunately, it is also the place where most household burns happen. A cup of tea knocked from a table, a splash of hot oil from a frying pan or a careless touch on a hot oven door can injure the skin in less than a second. Knowing exactly what to do in the first few minutes can reduce pain, prevent scarring and sometimes even save a life.\n\nA burn is damage to the skin caused by heat, chemicals, electricity or even strong sunlight. When the injury is caused by hot liquid or steam, it is called a scald, and scalds from hot drinks are among the most common injuries to young children. Doctors describe burns by their depth. A superficial burn affects only the top layer of skin, which turns red and painful, much like sunburn. A deeper burn may produce blisters or leave the skin white, brown or even black, and, surprisingly, it may hurt less because the nerves themselves have been damaged.\n\nFirst-aid organisations summarise the correct response in three words: cool, cover and call. The most important step is to cool the burn under cool or lukewarm running water for twenty minutes. This may seem like a long time, but the heat continues to travel deeper into the tissue after the accident, and cooling stops this hidden damage. While the water is running, any rings, watches or clothing near the burnt area should be removed, because the skin may swell. However, anything that is stuck to the skin must be left in place.\n\nNext, the burn should be covered loosely with a layer of cling film or a clean plastic bag. These materials protect the wound from germs without sticking to it, and they allow a doctor to see the injury later. Finally, call for help when necessary. In Saudi Arabia, the Red Crescent ambulance can be reached by dialling 997. Medical advice is needed for any burn larger than the injured person's hand, for burns on the face, hands or feet, for chemical or electrical burns, and for any burn to a young child.\n\nSeveral traditional remedies are still widely used, but they can make injuries worse. Ice and iced water can damage the skin further, while butter, oil and toothpaste trap heat inside the wound and increase the risk of infection. Blisters should never be burst, since they act as a natural shield.\n\nOf course, prevention is always better than treatment. Turning pan handles away from the edge of the cooker, keeping hot drinks out of the reach of toddlers and testing bath water before a child climbs in are simple habits. They may seem small, yet they prevent thousands of painful injuries every year.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “summarise” as it is used in paragraph 3?",
+      "options": [
+        "explain at great length",
+        "argue about",
+        "sum up briefly",
+        "repeat many times"
+      ],
+      "answer": "C",
+      "why": "First-aid organisations “summarise the correct response in three words”, so they sum it up briefly."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “superficial” as it is used in paragraph 2?",
+      "options": [
+        "deep",
+        "shallow",
+        "painful",
+        "red"
+      ],
+      "answer": "A",
+      "why": "A superficial burn affects only the top layer of skin; the writer contrasts it with “a deeper burn”. “Shallow” is a synonym, not an opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “Several traditional remedies are still widely used, but they can make injuries worse.” What does “remedies” mean?",
+      "options": [
+        "treatments used to cure a problem",
+        "stories told by our grandparents",
+        "tools kept in every kitchen",
+        "mistakes made by busy doctors"
+      ],
+      "answer": "A",
+      "why": "The writer goes on to list ice, butter, oil and toothpaste, which people put on burns to treat them."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is a VERB?",
+      "options": [
+        "traditional",
+        "infection",
+        "natural",
+        "trap"
+      ],
+      "answer": "D",
+      "why": "“Trap” tells what butter, oil and toothpaste do to heat, so it is a verb; the others are adjectives or a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 does NOT name a cause of burns?",
+      "options": [
+        "chemicals",
+        "electricity",
+        "blisters",
+        "sunlight"
+      ],
+      "answer": "C",
+      "why": "Heat, chemicals, electricity and sunlight cause burns; blisters are a result of a deeper burn."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “children” in paragraph 2 is an irregular plural. Which word from the text is ALSO an irregular plural?",
+      "options": [
+        "hands",
+        "feet",
+        "burns",
+        "toddlers"
+      ],
+      "answer": "B",
+      "why": "One foot, two feet: the vowels change instead of adding -s. Hands, burns and toddlers are regular plurals."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “prevention” in a meaningful sentence of your own.",
+      "model": "Wearing a helmet is the best prevention against serious head injuries when you ride a bicycle.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “prevention” with its meaning (stopping something bad from happening)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Prevention” means action taken to stop something harmful from happening."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 3 uses “watches”, the plural of “watch”. Which word forms its plural in the SAME way?",
+      "options": [
+        "glove",
+        "ring",
+        "cup",
+        "dish"
+      ],
+      "answer": "D",
+      "why": "Words ending in -ch, -sh, -s or -x add -es: watch → watches, dish → dishes. Glove, ring and cup just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a COMMAND?",
+      "options": [
+        "Blisters should never be burst, since they act as a natural shield.",
+        "Finally, call for help when necessary.",
+        "Of course, prevention is always better than treatment.",
+        "This may seem like a long time, but the heat continues to travel deeper into the tissue."
+      ],
+      "answer": "B",
+      "why": "“Call for help” begins with a verb and tells the reader directly what to do. The sentence about blisters gives advice, but it is written as a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Delicious Smells From the Kitchen",
+        "Treating and Preventing Burns",
+        "How Electricity Is Made",
+        "Why Sunburn Turns Skin Red"
+      ],
+      "answer": "B",
+      "why": "The text explains what burns are, how to treat them and how to prevent them. The other titles cover a single detail or a different topic."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to teach readers how to give first aid for burns and prevent them",
+        "to describe the long history of the Red Crescent",
+        "to persuade readers to stop cooking meals at home",
+        "to compare different kinds of modern kitchen equipment"
+      ],
+      "answer": "A",
+      "why": "Most paragraphs give first-aid steps, warnings about wrong remedies and prevention tips."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 5?",
+      "options": [
+        "Ice is the best way to cool a serious burn.",
+        "Toothpaste protects burns from infection.",
+        "Blisters should be burst to help the skin heal.",
+        "Some popular home remedies can make burns worse."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 begins “Several traditional remedies are still widely used, but they can make injuries worse” and gives examples."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why should a burn be cooled for as long as twenty minutes?",
+      "options": [
+        "Lukewarm water takes twenty minutes to feel cold.",
+        "The ambulance usually takes twenty minutes to arrive.",
+        "Heat keeps travelling deeper until it is cooled.",
+        "Cling film cannot be used until the skin is wet."
+      ],
+      "answer": "C",
+      "why": "“The heat continues to travel deeper into the tissue after the accident, and cooling stops this hidden damage.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which statement about the type of this text is correct?",
+      "options": [
+        "It is informational and gives steps to follow.",
+        "It is a personal story about the writer's own burn.",
+        "It is a letter to a hospital asking for help.",
+        "It is a poem about the dangers of the kitchen."
+      ],
+      "answer": "A",
+      "why": "It explains facts about burns and gives ordered steps (cool, cover, call); there is no narrator's story, letter form or verse."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why is cling film a good covering for a burn?",
+      "options": [
+        "It keeps the burn warm until help arrives.",
+        "It stops the skin around the burn from swelling.",
+        "It cools the burn faster than running water.",
+        "It blocks germs but does not stick."
+      ],
+      "answer": "D",
+      "why": "Cling film and clean plastic bags “protect the wound from germs without sticking to it” and let a doctor see the injury."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the text, what should be done FIRST after someone is burned?",
+      "options": [
+        "Cover the burn loosely with a layer of cling film.",
+        "Call the Red Crescent ambulance on 997.",
+        "Spread a little butter gently over the burn.",
+        "Cool the burn under running water."
+      ],
+      "answer": "D",
+      "why": "“The most important step is to cool the burn”; covering and calling come next, and butter should never be used."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Before removing clothing near a burn, which detail must the first-aider check?",
+      "options": [
+        "whether the clothing is stuck to the skin",
+        "whether the clothing is clean",
+        "whether the clothing is made of cotton",
+        "whether the clothing is wet"
+      ],
+      "answer": "A",
+      "why": "“Anything that is stuck to the skin must be left in place.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, WHEN should rings and watches near the burn be removed?",
+      "options": [
+        "before the person is taken to hospital",
+        "after the burn has been covered",
+        "while the burn is being cooled",
+        "only after the swelling has gone down"
+      ],
+      "answer": "C",
+      "why": "“While the water is running, any rings, watches or clothing near the burnt area should be removed.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why might a deep burn hurt LESS than a superficial one?",
+      "options": [
+        "The nerves themselves have been damaged.",
+        "Deep burns are always smaller in size.",
+        "The blisters completely stop the pain.",
+        "Deep burns are cooled more quickly."
+      ],
+      "answer": "A",
+      "why": "A deeper burn “may hurt less because the nerves themselves have been damaged.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by describing the kitchen as warm and full of delicious smells?",
+      "options": [
+        "to persuade readers to spend more time cooking",
+        "to show that a pleasant place hides dangers",
+        "to describe the writer's favourite meal",
+        "to explain how smells travel through a house"
+      ],
+      "answer": "B",
+      "why": "The pleasant description is followed by “Unfortunately, it is also the place where most household burns happen,” which makes the danger more surprising."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why does the writer advise removing rings and watches near a burn?",
+      "options": [
+        "They might be stolen at the hospital.",
+        "They make the water too hot.",
+        "The skin around the burn may swell.",
+        "They stop the cling film from sticking."
+      ],
+      "answer": "C",
+      "why": "They should be removed “because the skin may swell”; a swollen finger could become trapped by a ring."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a superficial burn different from a deeper burn?",
+      "options": [
+        "Only a deeper burn may blister or turn white, brown or black.",
+        "Only a superficial burn may blister; a deeper one just turns red.",
+        "A superficial burn needs an ambulance; a deeper burn needs no treatment.",
+        "A superficial burn damages the nerves; a deeper burn does not."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: a superficial burn is red and painful like sunburn, while a deeper one may blister or leave the skin white, brown or black."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what is the effect of putting butter or toothpaste on a burn?",
+      "options": [
+        "It cools the skin quickly.",
+        "It traps heat and may cause infection.",
+        "It stops blisters from forming.",
+        "It helps a doctor to see the wound."
+      ],
+      "answer": "B",
+      "why": "They “trap heat inside the wound and increase the risk of infection.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do ice and toothpaste have in common, according to the text?",
+      "options": [
+        "Both cool a burn safely.",
+        "Both are recommended by first-aid organisations.",
+        "Both can make a burn worse.",
+        "Both should be kept beside the cooker."
+      ],
+      "answer": "C",
+      "why": "Ice can damage the skin further, and toothpaste traps heat and increases the risk of infection."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer sum up the first aid in three short words: “cool, cover and call”?",
+      "options": [
+        "to make the steps easy to recall in an emergency",
+        "to show that first aid is only for trained doctors",
+        "to make the text sound like a short poem",
+        "to hide the most important step from readers"
+      ],
+      "answer": "A",
+      "why": "Three short words that begin with the same sound are easy to recall quickly when someone has been hurt."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer says blisters “act as a natural shield”. What does this suggest?",
+      "options": [
+        "Blisters are as hard as a metal shield.",
+        "Blisters protect the injured skin below.",
+        "Blisters should be cut off with scissors.",
+        "Blisters make the burn spread further."
+      ],
+      "answer": "B",
+      "why": "A shield protects; a blister's covering protects the injured skin beneath it from germs."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text expresses an OPINION rather than a fact?",
+      "options": [
+        "A burn is damage to the skin caused by heat, chemicals, electricity or even strong sunlight.",
+        "When the injury is caused by hot liquid or steam, it is called a scald …",
+        "Of course, prevention is always better than treatment.",
+        "In Saudi Arabia, the Red Crescent ambulance can be reached by dialling 997."
+      ],
+      "answer": "C",
+      "why": "“Prevention is always better than treatment” is a judgement that most people share, but it cannot be checked like the other facts."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Hot oil splashes onto Ali's hand while he is cooking. In your opinion, which response BEST follows the text?",
+      "options": [
+        "holding a bag of ice firmly against the burn",
+        "spreading cooking oil gently over the burn",
+        "bursting any blisters as soon as they appear",
+        "cooling it under running water for twenty minutes"
+      ],
+      "answer": "D",
+      "why": "The text says to cool the burn under cool or lukewarm running water for twenty minutes and warns against ice, oil and bursting blisters."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to sell more first-aid kits to families",
+        "a wish to replace harmful habits with correct ones",
+        "a dislike of traditional Saudi cooking",
+        "a plan to train new doctors and nurses"
+      ],
+      "answer": "B",
+      "why": "The writer explains the correct steps and warns that “traditional remedies … can make injuries worse.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement would the writer MOST likely agree with?",
+      "options": [
+        "Knowing simple first aid can make a real difference.",
+        "Only doctors should treat minor burns.",
+        "Burns are rare and not worth worrying about.",
+        "Traditional remedies are always the safest choice."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says knowing what to do “can reduce pain, prevent scarring and sometimes even save a life.”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how long a burn should be cooled for",
+        "what a burn should be covered with",
+        "which number to call for an ambulance",
+        "what to do without running water"
+      ],
+      "answer": "D",
+      "why": "The text gives the cooling time, the covering and the number 997, but it never says what to do without running water."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A toddler is scalded by a cup of tea pulled off a table.",
+        "A deep burn heals in one minute after toothpaste is added.",
+        "Cling film makes burnt skin grow back overnight.",
+        "Ice turns a deep burn into a superficial one."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 mentions a cup of tea knocked from a table, and paragraph 2 says scalds from hot drinks are common in young children."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "Butter: A Kitchen Cure",
+        "Cool, Cover, Call",
+        "The Warmest Room",
+        "Sunburn at the Beach"
+      ],
+      "answer": "B",
+      "why": "These three words sum up the first-aid steps at the heart of the text."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with one more way to prevent burns at home, and explain why it works.",
+      "model": "Another simple habit is to keep a fire blanket and a roll of cling film in a kitchen drawer that everyone knows about. If oil catches fire, the blanket can smother the flames, and the cling film is ready if someone is burned. Being prepared means no one wastes precious seconds searching.",
+      "rubric": [
+        "2 = a clear new ending with a sensible burn-prevention idea and a reason that links to the text",
+        "1 = an ending is given but the idea is vague, unsafe or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any safe, sensible prevention idea that is explained and fits the text is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A family keeps a jar of butter beside the cooker “for burns”. Based on the text, what is the best advice to give them?",
+      "options": [
+        "Keep the butter in the fridge so that it is colder.",
+        "Use the butter only on small or superficial burns.",
+        "Cool burns with running water and keep cling film nearby.",
+        "Mix the butter with toothpaste to make it work better."
+      ],
+      "answer": "C",
+      "why": "The text warns that butter traps heat and causes infection, and recommends cooling with running water and covering with cling film."
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-024",
+  "title": "Unfolding the Universe: The James Webb Space Telescope",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 437,
+  "passage": "When we look at a distant star, we are actually looking into the past. Light travels incredibly fast, yet the universe is so enormous that light from faraway galaxies has been travelling toward us for billions of years. To see some of the first galaxies that ever formed, astronomers needed a telescope more powerful than any ever built. The result was the James Webb Space Telescope, which was launched on 25 December 2021.\n\nWebb has an older and very famous relative, the Hubble Space Telescope, which has orbited the Earth since 1990. Hubble mainly observes visible and ultraviolet light, and it travels only about 540 kilometres above the ground. Webb, in contrast, was designed to detect infrared light, a kind of light that human eyes cannot see but that we can feel as heat. This choice is important for two reasons. First, infrared light can pass through the thick clouds of dust in which new stars are born. Second, as the universe expands, light from the most distant galaxies is stretched until it reaches us as infrared.\n\nBuilding such a telescope created a difficult puzzle. Its main mirror is 6.5 metres wide, nearly three times wider than Hubble's, so it was far too large to fit inside a rocket. Engineers solved the problem by dividing the mirror into eighteen six-sided segments, each coated with a very thin layer of gold, which reflects infrared light extremely well. The whole telescope was folded like a giant paper toy for launch and then slowly unfolded in space over about two weeks. A single serious failure during this process could have ruined the entire mission.\n\nBecause Webb detects heat, it must be kept extraordinarily cold, or its own warmth would blind it. For this reason, it carries a sunshield of five thin layers that is roughly the size of a tennis court. The shield blocks the heat of the sun, the Earth and the Moon, so that the instruments stay colder than minus 220 degrees Celsius. Webb also works much farther away than Hubble, at a point about 1.5 million kilometres from Earth, which is nearly four times the distance to the Moon.\n\nThe first images, released in July 2022, astonished scientists and the public alike. They revealed glowing clouds where stars are being born, as well as thousands of galaxies in a patch of sky about the size of a grain of sand held at arm's length.\n\nWebb is the product of cooperation between the space agencies of the United States, Europe and Canada. Its golden mirror has given humanity a new way to explore the story of the universe.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “astonished” as it is used in paragraph 5?",
+      "options": [
+        "amazed",
+        "annoyed",
+        "confused",
+        "frightened"
+      ],
+      "answer": "A",
+      "why": "Images that revealed thousands of galaxies in a tiny patch of sky greatly amazed people."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “enormous” as it is used in paragraph 1?",
+      "options": [
+        "huge",
+        "distant",
+        "tiny",
+        "bright"
+      ],
+      "answer": "C",
+      "why": "“Enormous” means extremely large; “tiny” means extremely small. “Huge” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “Webb, in contrast, was designed to detect infrared light, a kind of light that human eyes cannot see”. What does “detect” mean?",
+      "options": [
+        "to produce",
+        "to notice or sense",
+        "to destroy",
+        "to repair"
+      ],
+      "answer": "B",
+      "why": "Webb was built to notice a kind of light that our eyes cannot see."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an adjective?",
+      "options": [
+        "extraordinarily",
+        "blocks",
+        "shield",
+        "cold"
+      ],
+      "answer": "D",
+      "why": "“Cold” describes the telescope (“kept extraordinarily cold”). “Extraordinarily” is an adverb, “blocks” a verb and “shield” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “galaxies” in paragraph 1 is plural. What is its singular form?",
+      "options": [
+        "galaxie",
+        "galaxy",
+        "galaxys",
+        "galax"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in a consonant + y form the plural with -ies, so galaxies → galaxy."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “expands” in paragraph 2?",
+      "options": [
+        "expensive",
+        "expert",
+        "expansion",
+        "explain"
+      ],
+      "answer": "C",
+      "why": "“Expansion” is the noun form of the verb “expand”; the other words only begin with ex-."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “revealed” in a meaningful sentence of your own.",
+      "model": "When the old carpet was lifted, it revealed a beautiful tiled floor that nobody in the family had ever seen.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “revealed” with its meaning (showed or made known something that was hidden)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Revealed” means showed something that was hidden or unknown."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 6 mentions the space “agencies” of three regions. Which is the correct plural spelling of “agency”?",
+      "options": [
+        "agencys",
+        "agences",
+        "agencyes",
+        "agencies"
+      ],
+      "answer": "D",
+      "why": "A noun ending in a consonant + y changes y to i and adds -es: agency → agencies."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Suppose the writer added this sentence to paragraph 5: “What a breathtaking sight those first images were!” What type of sentence is it?",
+      "options": [
+        "a command",
+        "a question",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "C",
+      "why": "It begins with “What a…”, expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Seeing Back in Time with Infrared Light",
+        "The History of the Hubble Telescope",
+        "How Rockets Are Launched",
+        "A Tennis Court in Space"
+      ],
+      "answer": "A",
+      "why": "The text explains how Webb uses infrared light to see ancient, distant galaxies; the other titles cover a detail or another topic."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to buy their own telescopes",
+        "to explain how and why Webb was built to study the distant universe",
+        "to tell the life story of James Webb",
+        "to compare every telescope ever built on Earth and in space"
+      ],
+      "answer": "B",
+      "why": "The text explains Webb's purpose, design problems and first results."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Gold is the most valuable metal used in space.",
+        "Hubble's mirror is wider and heavier than the main mirror of Webb.",
+        "The telescope was unfolded on Earth before launch.",
+        "Engineers found a clever way to launch a mirror too large for any rocket."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 describes the puzzle of the huge mirror and how dividing and folding it solved the problem; the other statements are details or false."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why are the mirror segments coated with gold?",
+      "options": [
+        "Gold makes the telescope lighter.",
+        "Gold protects the mirror from the sun's heat.",
+        "Gold reflects infrared light extremely well.",
+        "Gold makes the telescope easier to see from Earth."
+      ],
+      "answer": "C",
+      "why": "“each coated with a very thin layer of gold, which reflects infrared light extremely well.” The sunshield, not the gold, blocks the heat."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "an informational text",
+        "a science-fiction story",
+        "a personal narrative",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It explains real scientific facts about a real telescope."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why must Webb be kept extremely cold?",
+      "options": [
+        "so that the gold coating does not melt",
+        "because its own warmth would blind it",
+        "so that it can travel faster through space",
+        "because the rocket could not carry heaters"
+      ],
+      "answer": "B",
+      "why": "“Because Webb detects heat, it must be kept extraordinarily cold, or its own warmth would blind it.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which event happened AFTER the launch but BEFORE the first images were released?",
+      "options": [
+        "Hubble began to orbit the Earth.",
+        "The mirror was divided into segments.",
+        "The telescope was folded for launch.",
+        "The telescope slowly unfolded in space."
+      ],
+      "answer": "D",
+      "why": "The telescope unfolded in space over about two weeks after launch; the images came in July 2022. The other events came before the launch."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why light from the most distant galaxies reaches us as infrared?",
+      "options": [
+        "As the universe expands, the light is stretched.",
+        "Gold reflects infrared light well.",
+        "Human eyes cannot see infrared light.",
+        "Webb works about 1.5 million kilometres from Earth."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “as the universe expands, light from the most distant galaxies is stretched until it reaches us as infrared.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, which two reasons explain why Webb was designed to detect infrared light?",
+      "options": [
+        "Infrared is brighter than visible light, and it is easier to photograph.",
+        "Infrared is cheaper to study, and Hubble could not be repaired.",
+        "Infrared passes through dust clouds, and the most distant light reaches us as infrared.",
+        "Infrared helps telescopes stay cold, and it travels faster than other light."
+      ],
+      "answer": "C",
+      "why": "The paragraph names exactly these two reasons: “First, … dust … Second, … stretched until it reaches us as infrared.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the engineers to divide the main mirror into eighteen segments?",
+      "options": [
+        "Gold is only sold in small pieces.",
+        "The mirror was too large to fit inside a rocket.",
+        "Hubble's mirror had broken into pieces.",
+        "Six-sided shapes are much easier to clean in space."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: the mirror “was far too large to fit inside a rocket,” and dividing it solved the problem."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the engineers most likely feel during the two weeks when the telescope was unfolding in space?",
+      "options": [
+        "bored, because nothing could go wrong",
+        "angry at the scientists",
+        "relaxed, because all of the hard work was already finished",
+        "anxious, because a single failure could ruin everything"
+      ],
+      "answer": "D",
+      "why": "The writer stresses that “a single serious failure during this process could have ruined the entire mission,” so the engineers would have felt anxious."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why is the first sentence, “When we look at a distant star, we are actually looking into the past,” an effective opening?",
+      "options": [
+        "Its surprising idea makes readers curious to learn more.",
+        "It gives the exact distance to the nearest star.",
+        "It explains how the sunshield works.",
+        "It tells readers the date of Webb's launch."
+      ],
+      "answer": "A",
+      "why": "The surprising claim makes readers wonder how it can be true, so they keep reading; it does not give distances, dates or sunshield details."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Webb different from Hubble?",
+      "options": [
+        "Webb is older and orbits closer to the Earth.",
+        "Webb has a smaller mirror and studies ultraviolet light.",
+        "Webb detects infrared light and works much farther from Earth.",
+        "Webb was built by one country, while Hubble was built by three."
+      ],
+      "answer": "C",
+      "why": "Hubble observes mainly visible and ultraviolet light about 540 km up; Webb detects infrared light about 1.5 million km away."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of Webb's five-layer sunshield?",
+      "options": [
+        "It makes the telescope fold more easily.",
+        "It keeps the instruments colder than minus 220 degrees Celsius.",
+        "It reflects infrared light onto the mirror.",
+        "It allows the telescope to orbit much closer to the hot sun."
+      ],
+      "answer": "B",
+      "why": "The shield blocks the heat of the sun, the Earth and the Moon, “so that the instruments stay colder than minus 220 degrees Celsius.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the gold coating and the sunshield have in common?",
+      "options": [
+        "Both were added after the first images were taken.",
+        "Both are made of five thin layers.",
+        "Both protect Webb from the heat of the Moon only.",
+        "Both help Webb observe infrared light successfully."
+      ],
+      "answer": "D",
+      "why": "The gold reflects infrared light well, and the shield keeps the telescope cold enough to detect it."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the comparison “folded like a giant paper toy” suggest about the telescope?",
+      "options": [
+        "It was carefully folded into a much smaller shape.",
+        "It was made mostly of paper.",
+        "It was a toy rather than a real telescope.",
+        "It could be folded only once."
+      ],
+      "answer": "A",
+      "why": "The comparison shows how the large telescope was folded neatly, like folded paper, to fit inside the rocket and then opened again."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying that looking at a distant star is “looking into the past”?",
+      "options": [
+        "Stars show pictures of events in human history.",
+        "Only old telescopes can see distant stars.",
+        "The light we see left the star long ago, so we see it as it was then.",
+        "Stars stop shining as soon as a telescope is pointed at them."
+      ],
+      "answer": "C",
+      "why": "The next sentence explains that light from far away has been travelling toward us for billions of years."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare the sunshield to a tennis court and a patch of sky to a grain of sand?",
+      "options": [
+        "to show that Webb was built near a sports club",
+        "to help readers picture sizes that are hard to imagine",
+        "to prove that the telescope is very light",
+        "to suggest that the images are blurry"
+      ],
+      "answer": "B",
+      "why": "Familiar objects help readers imagine an unusually large shield and an unusually small patch of sky."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Webb's abilities is MOST useful for studying how new stars are born?",
+      "options": [
+        "its location 1.5 million kilometres away",
+        "its launch on 25 December 2021",
+        "the cooperation of three space agencies in building it",
+        "its infrared vision, which can see through clouds of dust"
+      ],
+      "answer": "D",
+      "why": "Stars are born inside thick dust clouds, and paragraph 2 says infrared light can pass through them."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best describes the writer's view of the Webb telescope?",
+      "options": [
+        "It was too risky and should not have been launched.",
+        "It is less useful than the Hubble telescope.",
+        "It is a remarkable achievement that helps humanity understand the universe.",
+        "It is mainly important because its large mirror is covered in real gold."
+      ],
+      "answer": "C",
+      "why": "The writer says its images astonished everyone and that it gave humanity “a new way to explore the story of the universe.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text as a whole?",
+      "options": [
+        "disappointment",
+        "wonder",
+        "fear",
+        "boredom"
+      ],
+      "answer": "B",
+      "why": "Ideas such as looking into the past, thousands of galaxies and astonished scientists create a sense of wonder."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what the mirror segments are made of under the gold",
+        "how wide Webb's main mirror is compared with Hubble's",
+        "when Webb was launched",
+        "how far from the Earth the Webb telescope works"
+      ],
+      "answer": "A",
+      "why": "The text says the segments are coated with gold but never says what lies beneath; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "Webb's gold mirror melts the dust clouds it observes.",
+        "A person on Earth sees infrared light with their bare eyes.",
+        "A space telescope photographs a dust cloud where new stars are forming.",
+        "A telescope fits a 6.5-metre unfolded mirror inside a small rocket."
+      ],
+      "answer": "C",
+      "why": "Webb has already photographed such clouds; human eyes cannot see infrared, and the mirror had to be folded to fit."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Telescope That Failed",
+        "A Golden Eye on the Early Universe",
+        "Stars That Fell to Earth",
+        "Building a Rocket in Two Weeks"
+      ],
+      "answer": "B",
+      "why": "Webb's golden mirror lets scientists see some of the first galaxies, as the text explains."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text. Write two or three sentences describing what Webb might discover in the future and why that discovery would matter.",
+      "model": "In the coming years, Webb might observe the air around a distant planet and find signs of water vapour. Such a discovery would help scientists decide which faraway worlds could be most like our own. In this way, the golden telescope would continue to change how we understand our place in the universe.",
+      "rubric": [
+        "2 = a clear new ending that describes a believable future discovery and explains why it would matter, using ideas from the text (infrared, distant galaxies, star birth, etc.)",
+        "1 = an ending is given but the discovery or its importance is unclear or does not fit the text",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits what Webb can do and explains the importance of the discovery is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Engineers are planning a future telescope with a mirror even larger than Webb's. Based on the text, how could they solve the problem of launching it?",
+      "options": [
+        "Divide the mirror into smaller segments.",
+        "Fold the telescope for launch and unfold it in space.",
+        "A and B",
+        "Make the mirror from a thicker layer of gold."
+      ],
+      "answer": "C",
+      "why": "Webb's team solved the same problem by both dividing the mirror into segments and folding the telescope for launch."
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+ "code": "LN-216",
+ "title": "Symbolism",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [],
+ "skillNames": [
+  "Symbolism"
+ ],
+ "statements": [
+  "R-0595"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a symbol?",
+     "text": "A **symbol** is a thing that stands for a **big idea**.\n\nA **flag** stands for a **country**.\nA **trophy** stands for **winning**."
+    },
+    {
+     "title": "Symbols in stories",
+     "text": "In a story, a writer can use a thing to show a feeling or an idea.\n\nA boy keeps his dad's old watch. The watch shows he **loves and misses** his dad."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Find a thing the story talks about a lot.\n2. Ask: how do the people **feel** about it?\n3. Ask: what **big idea** could it stand for?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at how the people **feel** about the thing, or how it **changes**.\n\nTap the sentences that show what the thing stands for."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Noor has a small blue stone.",
+      "role": "other"
+     },
+     {
+      "t": "Her grandmother gave it to her before she moved away.",
+      "role": "key"
+     },
+     {
+      "t": "Noor holds it when she misses her.",
+      "role": "key"
+     }
+    ],
+    "explain": "The stone is from her grandmother. Noor holds it when she misses her.\n\nThe stone stands for **her love for her grandmother**."
+   },
+   "together": {
+    "passage": "Saad planted a tiny tree on his first day at school. Each year he watered it. Each year the tree grew taller. So did Saad. On his last day, the tree was taller than the school wall.",
+    "stem": "What does the tree stand for?",
+    "options": [
+     "the school wall",
+     "Saad growing up",
+     "the rain",
+     "a new book"
+    ],
+    "answer": 1,
+    "hint": "Look at what happens to the tree each year. What happens to Saad too?",
+    "good": "Yes! The tree grew taller, and so did Saad. The tree stands for Saad growing up."
+   },
+   "evidence": {
+    "sentences": [
+     "Saad planted a tiny tree on his first day at school.",
+     "Each year he watered it.",
+     "Each year the tree grew taller.",
+     "So did Saad.",
+     "On his last day, the tree was taller than the school wall."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Saad growing up. Tap 2 sentences that show the tree and Saad growing.",
+    "wrong": "This sentence tells what Saad did, not how the tree and Saad grew. Find the sentences about GROWING."
+   },
+   "checks": [
+    {
+     "passage": "Every Eid, the family lights the old lamp that was Grandpa's. It reminds them of him. Everyone sits near it and tells his stories.",
+     "stem": "What does the lamp stand for?",
+     "options": [
+      "Grandpa and the family's memories of him",
+      "a power cut",
+      "a new house",
+      "a long night"
+     ],
+     "answer": 0,
+     "why": "The lamp reminds them of Grandpa, and they tell his stories near it."
+    },
+    {
+     "passage": "The team kept the gold cup in the school hall. When new players saw it, they wanted to work hard and win too.",
+     "stem": "What does the gold cup stand for?",
+     "options": [
+      "a drink",
+      "gold coins",
+      "the school hall",
+      "winning and success"
+     ],
+     "answer": 3,
+     "why": "Seeing the cup makes players want to win. It stands for winning and success."
+    },
+    {
+     "passage": "Layla's door was always open. Friends came in to talk, and new students sat with her at lunch.",
+     "stem": "What does the open door stand for?",
+     "options": [
+      "a broken lock",
+      "a cold room",
+      "Layla being welcoming and friendly",
+      "a windy day"
+     ],
+     "answer": 2,
+     "why": "Friends come in and new students sit with her. The open door shows she welcomes everyone."
+    }
+   ],
+   "again": {
+    "title": "Thing + idea = symbol",
+    "text": "1. What is the **thing**?\n2. What **feeling** or **idea** goes with it in the story?\n3. Put them together: the thing **stands for** that idea.",
+    "example": "Ahmad keeps his first football boots on his shelf. They remind him how his dream began.\n\nThing: old boots. Idea: his dream. The boots stand for **his dream and hard work**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Things that mean more",
+     "text": "In stories, some objects, places or colours **mean more** than themselves.\n\nThey stand for an idea such as **hope**, **freedom** or **friendship**."
+    },
+    {
+     "title": "Common symbols",
+     "text": "**light** → hope or knowledge\n**a storm** → trouble or anger\n**a bird flying free** → freedom\n**spring** → a new beginning\n\nBut always check the story: a symbol means what the story **makes** it mean."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Notice an object the writer **repeats** or describes closely.\n2. Notice **when** it appears and how characters react.\n3. Ask what idea it stands for.\n4. Check that the idea fits the whole story."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A symbol appears at **important moments**.\n\nTap the sentences where the object appears together with the character's feelings. They show what it stands for."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After his family moved to a new city, Rayan felt lonely.",
+      "role": "other"
+     },
+     {
+      "t": "Every night he looked at the lighthouse blinking across the bay.",
+      "role": "detail"
+     },
+     {
+      "t": "Its steady light made him feel that things would get better.",
+      "role": "key"
+     },
+     {
+      "t": "By the end of the year, he had new friends, and the lighthouse still shone.",
+      "role": "key"
+     }
+    ],
+    "explain": "The lighthouse appears when Rayan is lonely and again when things are better. Its light **gives him hope**.\n\nSo the lighthouse is a symbol of **hope**."
+   },
+   "together": {
+    "passage": "When Dalal's family moved to the city, she brought a small pot of mint from her grandmother's garden in the village. At first the plant drooped in the new flat, and Dalal felt just as tired and homesick. She moved it to a sunny window and watered it every morning. Slowly, new leaves appeared. By the end of the school year, the mint was strong and green, and Dalal had made two good friends at her new school.",
+    "stem": "What does the mint plant most likely stand for?",
+    "options": [
+     "Dalal's love of cooking",
+     "the city's parks",
+     "Dalal settling into her new life",
+     "her grandmother's cooking"
+    ],
+    "answer": 2,
+    "hint": "The text never talks about cooking or parks. Look at what happens to the plant AND to Dalal at the same time.",
+    "good": "Yes! When the plant drooped, Dalal was homesick. When it grew strong, she had new friends."
+   },
+   "evidence": {
+    "sentences": [
+     "When Dalal's family moved to the city, she brought a small pot of mint from her grandmother's garden in the village.",
+     "At first the plant drooped in the new flat, and Dalal felt just as tired and homesick.",
+     "She moved it to a sunny window and watered it every morning.",
+     "Slowly, new leaves appeared.",
+     "By the end of the school year, the mint was strong and green, and Dalal had made two good friends at her new school."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Dalal settling into her new life. Tap the 2 sentences that show the plant and Dalal changing together.",
+    "wrong": "This sentence is only about the plant. Find sentences that link the PLANT and DALAL's feelings."
+   },
+   "checks": [
+    {
+     "passage": "The bird had lived in a cage all its life. When Talal opened the door, it waited, then flew high over the trees. Talal smiled; he had just finished his last exam, and the long summer stretched ahead.",
+     "stem": "What does the bird flying away most likely stand for?",
+     "options": [
+      "Talal's pet running away",
+      "freedom and new possibilities",
+      "the end of the trees",
+      "a coming storm"
+     ],
+     "answer": 1,
+     "why": "Talal has just finished his exams and has a free summer ahead. Like the bird, he feels free."
+    },
+    {
+     "passage": "As the brothers argued, dark clouds piled up over the farm. When they finally said sorry and shook hands, the clouds broke and sunlight fell across the fields.",
+     "stem": "What do the dark clouds stand for?",
+     "options": [
+      "the brothers' quarrel",
+      "rain for the crops",
+      "night time",
+      "the farm's animals"
+     ],
+     "answer": 0,
+     "why": "The clouds pile up during the argument and break when the brothers make peace."
+    },
+    {
+     "passage": "Mariam's old school bag was patched in three places. Her mother offered to buy a new one, but Mariam said no. It had been with her since her first day of school, through every test and every success.",
+     "stem": "What does the bag stand for to Mariam?",
+     "options": [
+      "being poor",
+      "her wish for a new bag",
+      "her mother's sewing",
+      "her journey through school"
+     ],
+     "answer": 3,
+     "why": "The bag has been with her through every test and success. It stands for her whole school journey."
+    }
+   ],
+   "again": {
+    "title": "When does it show up?",
+    "text": "A symbol often shows up at the **start**, the **middle** and the **end**.\n\n1. Find each time the object appears.\n2. What is happening to the character each time?\n3. If the object changes as the character changes, it stands for the character's feelings or journey.",
+    "example": "A kite is stuck in a tree when Omar is sad. It flies high when he wins the race.\n\nThe kite rises as Omar's mood rises. It stands for **how Omar feels**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Symbols point to themes",
+     "text": "Writers use symbols to point to a story's **theme**, its message about life.\n\nAn old well that dries up might stand for **a village losing its traditions**. The symbol lets you **feel** the idea instead of being told."
+    },
+    {
+     "title": "Watch the symbol change",
+     "text": "Watch what **happens** to the symbol.\n\nIf it breaks, grows, is lost or is found, the idea it stands for is changing too."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find the object that gets special attention.\n2. Trace how it changes and how characters treat it.\n3. Link those changes to the character's journey.\n4. State the idea: “The ___ stands for ___ because ___.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use **two** pieces of evidence: one where the symbol is introduced, and one where it changes or returns, or where a character shows what it means to them.\n\nTogether they show what it stands for."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandfather's compass had guided him across the desert as a young trader.",
+      "role": "key"
+     },
+     {
+      "t": "When Fahd could not decide which university to choose, his grandfather placed the compass in his hand.",
+      "role": "key"
+     },
+     {
+      "t": "“It will not tell you where to go,” he said, “but it will remind you to choose your own path.”",
+      "role": "detail"
+     }
+    ],
+    "explain": "The compass once guided Grandfather's journeys. Now it is given to Fahd at a moment of choice.\n\nIt stands for **finding your own direction in life**."
+   },
+   "together": {
+    "passage": "The family's old wooden door had been carved by Mona's great-grandfather. For seventy years it had welcomed guests during Eid, and every child in the family had learned to knock on it. When the house was sold, the new owners planned to throw the door away. Mona's father paid to have it taken down carefully. Now it stands in the entrance of their new flat in the city, almost too large for the small hallway. Visitors sometimes laugh at it, but Mona's father simply smiles and runs his hand along the carvings.",
+    "stem": "What does the old door most likely symbolise to Mona's father?",
+    "options": [
+     "the family's history and memories",
+     "his wish to move back to the old house",
+     "a mistake he made when buying the flat",
+     "his skill as a woodworker"
+    ],
+    "answer": 0,
+    "hint": "He did not carve the door, and he never says he wants to go back. Why would he pay to keep an old door?",
+    "good": "Yes! It was carved by his grandfather and welcomed the family for seventy years. Keeping it keeps the family's history alive."
+   },
+   "evidence": {
+    "sentences": [
+     "The family's old wooden door had been carved by Mona's great-grandfather.",
+     "For seventy years it had welcomed guests during Eid, and every child in the family had learned to knock on it.",
+     "When the house was sold, the new owners planned to throw the door away.",
+     "Mona's father paid to have it taken down carefully.",
+     "Now it stands in the entrance of their new flat in the city, almost too large for the small hallway.",
+     "Visitors sometimes laugh at it, but Mona's father simply smiles and runs his hand along the carvings."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the family's history and memories. Tap 2 sentences that show it.",
+    "wrong": "This sentence describes a problem or the size of the hallway, not why the door matters. Find sentences about the family's PAST or how the father TREATS the door."
+   },
+   "checks": [
+    {
+     "passage": "Each morning, Hamad passed a crack in the pavement where a small green plant was pushing through. Cars drove past it, people stepped over it, and the summer sun beat down on it. Still it grew. Hamad, who had failed his driving test twice, began to think of the plant before he tried again.",
+     "stem": "What does the plant most likely symbolise for Hamad?",
+     "options": [
+      "the city's need for more gardens",
+      "the danger of busy roads",
+      "the heat of summer",
+      "not giving up in hard conditions"
+     ],
+     "answer": 3,
+     "why": "The plant keeps growing in a hard place, and Hamad thinks of it before he tries his test again."
+    },
+    {
+     "passage": "The two sisters had shared a red scarf since childhood, trading it back and forth whenever one of them travelled. When the older sister moved abroad, she left the scarf folded on her sister's pillow.",
+     "stem": "What does the scarf symbolise?",
+     "options": [
+      "the cold weather abroad",
+      "the bond between the sisters",
+      "the older sister's wish to forget home",
+      "their love of the colour red"
+     ],
+     "answer": 1,
+     "why": "They have always shared it. Leaving it behind is a sign that their connection continues while they are apart."
+    },
+    {
+     "passage": "After the fire, only the stone fireplace remained standing in the middle of the ruined farmhouse. The family gathered beside it and began to plan how they would rebuild.",
+     "stem": "What does the fireplace most likely symbolise?",
+     "options": [
+      "the danger of fire",
+      "the family's loss of everything",
+      "the family's strength and a place to start again",
+      "the cold winter ahead"
+     ],
+     "answer": 2,
+     "why": "The fireplace survived, and the family gathers there to plan rebuilding. It stands for strength and a new start."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "1. How does the character feel **before** the symbol appears or changes?\n2. How do they feel **after**?\n3. The symbol often marks that change.",
+    "example": "A boy is afraid of the sea. His father gives him a seashell. At the end, he swims with the shell in his pocket.\n\nBefore: afraid. After: brave. The shell stands for **courage and his father's support**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Symbols with layers",
+     "text": "A strong symbol can hold **more than one meaning**. A river might stand for **time passing**, **a journey** and **change** in the same story.\n\nThe best interpretation explains the **most details** in the text."
+    },
+    {
+     "title": "Symbol and theme",
+     "text": "A symbol connects to the story's **theme**: its message about life.\n\nTo analyse a symbol, explain what it stands for **and** how it helps the reader understand the theme."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Identify the symbol and every place it appears.\n2. Note contrasts: how different characters see it, and how it changes.\n3. Propose a meaning and test it against every appearance.\n4. Explain how it develops the theme."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Weak answers use one detail. Strong answers connect the symbol's **first appearance**, its **changes** and its **final appearance**.\n\nTap the sentences that build the meaning across the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For years, the clock in the village square had been stopped at twenty past four.",
+      "role": "detail"
+     },
+     {
+      "t": "The older villagers said it had stopped in the year the old trade route closed and the village began to empty.",
+      "role": "key"
+     },
+     {
+      "t": "When young engineers arrived to build a solar farm nearby, the first thing they repaired was the clock.",
+      "role": "key"
+     },
+     {
+      "t": "That evening, people gathered to hear it strike again.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The stopped clock stands for a village **stuck in the past** after losing its purpose. Repairing it marks the return of **progress and hope**.\n\nIts two states support the theme that communities can renew themselves."
+   },
+   "together": {
+    "passage": "Ever since Khalid could remember, an old ghaf tree had stood alone on the edge of his family's land. Its roots reached deep under the sand, and it stayed green even in the hottest summers when every other plant turned brown. His grandfather used to rest beneath it after work, and later his father did the same. When a developer offered a large sum to buy the land and clear it for a road, Khalid's uncles were tempted. That evening Khalid found his father sitting under the tree in silence. The next morning his father refused the offer, and Khalid helped him build a low stone wall around the trunk.",
+    "stem": "Which interpretation of the ghaf tree is best supported by the passage?",
+    "options": [
+     "It is valuable wood that the family plans to sell.",
+     "It stands for the family's lasting roots across generations.",
+     "It shows that the land is too dry for farming.",
+     "It represents the developer's plan for the new road."
+    ],
+    "answer": 1,
+    "hint": "The family refuses to sell, and the text never says the land is too dry. What does the tree share with the family over many years?",
+    "good": "Yes! Deep roots, staying green through hard summers, and three generations resting under it all point to the family's lasting roots."
+   },
+   "evidence": {
+    "sentences": [
+     "Ever since Khalid could remember, an old ghaf tree had stood alone on the edge of his family's land.",
+     "Its roots reached deep under the sand, and it stayed green even in the hottest summers when every other plant turned brown.",
+     "His grandfather used to rest beneath it after work, and later his father did the same.",
+     "When a developer offered a large sum to buy the land and clear it for a road, Khalid's uncles were tempted.",
+     "That evening Khalid found his father sitting under the tree in silence.",
+     "The next morning his father refused the offer, and Khalid helped him build a low stone wall around the trunk."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the family's lasting roots across generations. Tap 2 sentences that support it.",
+    "wrong": "This sentence sets the scene or describes the offer. Find sentences that show the tree lasting, or the family's bond with it over generations."
+   },
+   "checks": [
+    {
+     "passage": "In a story, a girl keeps a jar of sand from every beach she visits with her family. While her family is separated by her father's work abroad, she stops adding jars. At the end, when they are together again at the airport, she quietly takes out a new, empty jar.",
+     "stem": "What does the new empty jar most likely symbolise?",
+     "options": [
+      "her plan to sell sand",
+      "her anger about the long separation",
+      "the end of her love of beaches",
+      "new shared memories as a family"
+     ],
+     "answer": 3,
+     "why": "The jars hold family memories. She stopped when they were apart, and a new jar appears when they are together again."
+    },
+    {
+     "passage": "Throughout the novel, the narrator describes the city wall: first as protection, later as something that keeps new ideas out. In the final chapter, children have painted a doorway on it.",
+     "stem": "What does the painted doorway suggest about the city's future?",
+     "options": [
+      "The city will build more walls.",
+      "The children have damaged public property.",
+      "The city may be opening up to change.",
+      "The wall will soon fall down."
+     ],
+     "answer": 2,
+     "why": "The wall came to stand for keeping new ideas out. A doorway, painted by the next generation, suggests openness to change."
+    },
+    {
+     "passage": "In a poem, a fisherman mends the same net every evening. The holes keep returning, but so does he.",
+     "stem": "What theme does the mended net best support?",
+     "options": [
+      "Steady persistence through endless problems.",
+      "Fishing is a difficult job.",
+      "Nets are expensive to replace.",
+      "The sea is dangerous at night."
+     ],
+     "answer": 0,
+     "why": "“The holes keep returning, but so does he” shows a man who never gives up, however often the problem returns."
+    }
+   ],
+   "again": {
+    "title": "Test every appearance",
+    "text": "1. List every time the symbol appears.\n2. Write your meaning beside each one.\n3. If your meaning fits **all** of them, keep it. If one does not fit, widen or change your meaning.",
+    "example": "A boat appears three times: built by a father, sailed by his son, repaired by the grandson.\n\nMeaning that fits all three: **a family's skills and values passed down**."
+   }
+  }
+ }
+}

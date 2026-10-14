@@ -1,0 +1,482 @@
+{
+ "code": "LN-139",
+ "title": "Two or more main ideas",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.5.2",
+  "RI.6.2",
+  "RI.7.2"
+ ],
+ "families": [
+  "central-idea"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0738",
+  "R-0749",
+  "R-0904",
+  "R-0905",
+  "R-1029",
+  "R-1030",
+  "R-1087",
+  "R-1090",
+  "R-1108",
+  "R-1111"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "More than one big idea",
+     "text": "Some texts have **two big ideas**, not one.\n\nThe first part tells about one thing. The next part tells about another thing."
+    },
+    {
+     "title": "Two boxes",
+     "text": "Think of **two boxes**. Some sentences go in box 1. Other sentences go in box 2.\n\nEach box has its own big idea."
+    },
+    {
+     "title": "How to find them",
+     "text": "1. Read the whole text.\n2. Find where the text **changes** to a new idea.\n3. Say the big idea of each part."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove **both** ideas.\n\n1. Find a sentence for idea 1.\n2. Find a sentence for idea 2.\n\nIf an answer tells only **one** part, it is not complete."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bees are small insects.",
+      "role": "detail"
+     },
+     {
+      "t": "They have yellow and black stripes.",
+      "role": "key"
+     },
+     {
+      "t": "Bees make honey.",
+      "role": "detail"
+     },
+     {
+      "t": "They also make wax.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 1 and 2 tell **what bees look like**. Sentences 3 and 4 tell **what bees make**. Two big ideas!"
+   },
+   "together": {
+    "passage": "Fatima has a cat. It is grey and fluffy. Fatima also likes to paint. She paints pictures of the sea.",
+    "stem": "What are the TWO big ideas in this text?",
+    "options": [
+     "Fatima's cat and her painting",
+     "The sea and fish",
+     "Cats and dogs",
+     "Painting and cooking"
+    ],
+    "answer": 0,
+    "hint": "Look at the first two sentences, then the last two. What is each part about?",
+    "good": "Yes! Part 1 is about her cat. Part 2 is about her painting."
+   },
+   "evidence": {
+    "sentences": [
+     "Fatima has a cat.",
+     "It is grey and fluffy.",
+     "Fatima also likes to paint.",
+     "She paints pictures of the sea."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Fatima's cat and her painting. Tap one sentence for each big idea.",
+    "wrong": "This sentence adds a small detail. Find the sentence that starts each big idea."
+   },
+   "checks": [
+    {
+     "passage": "Winter is cool here. We wear jackets. Summer is very hot. We swim in the sea.",
+     "stem": "What are the two big ideas?",
+     "options": [
+      "Jackets and hats",
+      "Winter and summer",
+      "Swimming and running",
+      "The sea and the sand"
+     ],
+     "answer": 1,
+     "why": "The first part is about winter. The second part is about summer."
+    },
+    {
+     "passage": "My school has a big library. It has many books. My school also has a big field. We play football there.",
+     "stem": "What are the two big ideas?",
+     "options": [
+      "Books and pens",
+      "Football and tennis",
+      "The library and the field",
+      "Teachers and friends"
+     ],
+     "answer": 2,
+     "why": "One part is about the library. The other part is about the field."
+    },
+    {
+     "passage": "Dates grow on palm trees. They are sweet. Palm leaves are used to make baskets. People also make mats from them.",
+     "stem": "Which pair tells the two big ideas?",
+     "options": [
+      "Sweet food and sour food",
+      "Mats, rugs and other things",
+      "Trees and the rain they need",
+      "Dates, and things made from palm leaves"
+     ],
+     "answer": 3,
+     "why": "Part 1 is about dates. Part 2 is about things made from palm leaves."
+    }
+   ],
+   "again": {
+    "title": "Find the switch",
+    "text": "Look for the sentence where the text **switches** to something new.\n\nWords like **also**, **another** or **too** often show the switch.",
+    "example": "'Ali loves football. He plays every day. Ali **also** loves reading. He reads at night.'\n\nThe switch is at **also**. Idea 1: football. Idea 2: reading."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Texts with several main ideas",
+     "text": "Longer texts often make **more than one important point**.\n\nEach paragraph may have its **own main idea**, and together they cover the topic."
+    },
+    {
+     "title": "Finding each main idea",
+     "text": "1. Read one paragraph or part at a time.\n2. Ask: **What is this part mostly about?**\n3. Write a short note for each part.\n4. Check your notes: these are the main ideas."
+    },
+    {
+     "title": "Main idea or detail?",
+     "text": "A **main idea** covers a whole part.\n\nA **detail** covers only one sentence. Do not mix them up when you list the main ideas."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For each main idea, find the **part of the text** it covers.\n\n1. Point to sentences that support idea 1.\n2. Point to sentences that support idea 2.\n3. The best answer names **both** ideas and leaves out small details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Falcons hunt by diving from high in the sky at great speed.",
+      "role": "key"
+     },
+     {
+      "t": "Their sharp eyes can spot prey from far away.",
+      "role": "detail"
+     },
+     {
+      "t": "In Saudi Arabia, people have trained falcons for hunting for centuries.",
+      "role": "key"
+     },
+     {
+      "t": "Trainers spend months teaching a young falcon to return to their arm.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first part explains **how the falcon hunts**. The second part explains **how people train falcons**. These are two main ideas."
+   },
+   "together": {
+    "passage": "Sea turtles spend almost their whole lives in the ocean. They swim long distances to find food such as jellyfish and seagrass. However, female turtles return to land to lay their eggs. At night, they crawl onto sandy beaches and dig deep nests. Weeks later, the baby turtles hatch and race toward the water.",
+    "stem": "Which choice best states the TWO main ideas of the text?",
+    "options": [
+     "Turtles eat jellyfish, and babies race to the water.",
+     "Turtles live in the ocean, but females come to land to lay eggs.",
+     "Turtles swim fast, and beaches are sandy.",
+     "Seagrass grows in the sea, and nests are deep."
+    ],
+    "answer": 1,
+    "hint": "Find where the text changes with 'However'. What is the part before it about? What is the part after it about?",
+    "good": "Yes! The first part is about life in the ocean. The second part is about laying eggs on land."
+   },
+   "evidence": {
+    "sentences": [
+     "Sea turtles spend almost their whole lives in the ocean.",
+     "They swim long distances to find food such as jellyfish and seagrass.",
+     "However, female turtles return to land to lay their eggs.",
+     "At night, they crawl onto sandy beaches and dig deep nests.",
+     "Weeks later, the baby turtles hatch and race toward the water."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: turtles live in the ocean, but females come to land to lay eggs. Tap the sentence that starts each main idea.",
+    "wrong": "This sentence is a detail. Find the sentences that introduce each main idea."
+   },
+   "checks": [
+    {
+     "passage": "Rain helps plants grow and fills wells and rivers. Farmers depend on it for their crops. But too much rain can cause floods. Floods can damage homes and wash away roads.",
+     "stem": "What are the two main ideas?",
+     "options": [
+      "Rain is helpful, but too much rain can be harmful.",
+      "Farmers grow crops and wells are deep.",
+      "Floods wash away roads and homes.",
+      "Rivers are long and roads are wide."
+     ],
+     "answer": 0,
+     "why": "The first part shows how rain helps. The second part shows how too much rain harms."
+    },
+    {
+     "passage": "Old maps were drawn by hand. Mapmakers used travellers' stories and their own journeys. Today, maps are made with photos from satellites. They can show streets and buildings very exactly.",
+     "stem": "Which choice states both main ideas?",
+     "options": [
+      "Travellers tell stories, and mapmakers listen.",
+      "Satellites take photos of buildings and streets.",
+      "Mapmakers like to travel and to draw pictures.",
+      "Maps were once drawn by hand; now satellites help make them."
+     ],
+     "answer": 3,
+     "why": "The text has two parts: how maps were made in the past, and how they are made today."
+    },
+    {
+     "passage": "Hiking is good for the body because it strengthens the legs and heart. It is also good for the mind. Being in nature can lower stress and help people think clearly.",
+     "stem": "Which choice is only a detail, not a main idea?",
+     "options": [
+      "Hiking is good for the body.",
+      "Hiking is good for the mind.",
+      "Hiking strengthens the legs.",
+      "Hiking helps both body and mind."
+     ],
+     "answer": 2,
+     "why": "Stronger legs is one detail that supports the main idea that hiking is good for the body."
+    }
+   ],
+   "again": {
+    "title": "Headline each part",
+    "text": "Give each part of the text a **short headline**, like in a newspaper.\n\nYour headlines are the main ideas.",
+    "example": "Part 1: The moon has no air or water. Part 2: Astronauts first walked on it in 1969.\n\nHeadlines: **What the moon is like** and **People visit the moon.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Multiple central ideas",
+     "text": "Many informational texts and true stories develop **two or more central ideas** at the same time.\n\nThey may be in different paragraphs, or they may be woven together through the whole text."
+    },
+    {
+     "title": "How ideas relate",
+     "text": "Main ideas in one text are often connected:\n\n1. **Two sides:** benefits and problems.\n2. **Then and now:** past and present.\n3. **Cause and effect:** what happened and what it led to.\n4. **Person and lesson:** what someone did and what it teaches."
+    },
+    {
+     "title": "Choose the complete answer",
+     "text": "When asked for the main ideas, the best answer:\n\n• covers **all** the important parts,\n• uses **general** statements, not small details,\n• shows how the ideas are **related**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove each central idea with **its own evidence**.\n\n1. Divide the text into its main parts.\n2. For each part, find the sentences that support it.\n3. Reject any answer that leaves out a major part or only gives details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ibn Battuta left Tangier in 1325 to travel to Makkah for Hajj.",
+      "role": "detail"
+     },
+     {
+      "t": "Over the next thirty years, he journeyed across Africa, Arabia, India and China, covering an enormous distance.",
+      "role": "key"
+     },
+     {
+      "t": "Later, he described his journeys in a famous book, giving us rare pictures of life in the fourteenth century.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first part is about **what Ibn Battuta did**: his travels. The last sentence is about **why it matters**: his book. Two central ideas, connected."
+   },
+   "together": {
+    "passage": "Mount Everest, on the border of Nepal and China, is the highest mountain on Earth. Its peak rises almost nine kilometres above sea level, where the air holds only about a third of the oxygen found at the coast. Strong winds and freezing temperatures make the final climb extremely dangerous. In recent years, however, the mountain has faced a different kind of danger. Hundreds of climbers each season leave behind tents, oxygen bottles and other waste. Teams of local guides and volunteers now carry tonnes of rubbish down the slopes each year to keep the mountain clean.",
+    "stem": "Which statement best expresses the TWO central ideas of the passage?",
+    "options": [
+     "Everest is very tall, and the wind is strong.",
+     "Climbing Everest is dangerous, and the mountain itself now suffers from climbers' waste.",
+     "Guides carry rubbish, and climbers use tents.",
+     "Everest is in Nepal and China, and oxygen is low."
+    ],
+    "answer": 1,
+    "hint": "The word 'however' marks a change. What danger is described before it, and what danger after it?",
+    "good": "Yes! The first part is about the danger to climbers; the second is about the danger climbers bring to the mountain."
+   },
+   "evidence": {
+    "sentences": [
+     "Mount Everest, on the border of Nepal and China, is the highest mountain on Earth.",
+     "Its peak rises almost nine kilometres above sea level, where the air holds only about a third of the oxygen found at the coast.",
+     "Strong winds and freezing temperatures make the final climb extremely dangerous.",
+     "In recent years, however, the mountain has faced a different kind of danger.",
+     "Hundreds of climbers each season leave behind tents, oxygen bottles and other waste.",
+     "Teams of local guides and volunteers now carry tonnes of rubbish down the slopes each year to keep the mountain clean."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: climbing is dangerous, and the mountain suffers from waste. Tap 2 sentences, one for each central idea.",
+    "wrong": "This sentence gives background or tells about the clean-up. Find a sentence for each kind of danger."
+   },
+   "checks": [
+    {
+     "passage": "Hassan started a small vegetable garden on the roof of his building during a long summer holiday. At first, most of his plants dried up in the heat. He read about shade cloth and watering at dawn, and slowly the garden came back to life. Soon neighbours asked for his advice, and three more rooftops in the street turned green.",
+     "stem": "Which choice best states the central ideas of this true story?",
+     "options": [
+      "Rooftops are hot, and plants need water.",
+      "Hassan read books, and his neighbours are very friendly.",
+      "Hassan overcame early failure, and his success inspired others.",
+      "Shade cloth is useful, and dawn is cool."
+     ],
+     "answer": 2,
+     "why": "The story shows Hassan learning from failure and then influencing his neighbours."
+    },
+    {
+     "passage": "Electric cars produce no exhaust from their tailpipes, which helps keep city air cleaner. They are also quieter than petrol cars. On the other hand, their batteries need rare metals that must be mined, and charging stations are still hard to find in many areas.",
+     "stem": "What are the two central ideas?",
+     "options": [
+      "Electric cars have benefits and also challenges.",
+      "Electric cars are quiet and clean.",
+      "Mining is hard, and stations are rare.",
+      "Petrol cars are noisy, and they make the air dirty."
+     ],
+     "answer": 0,
+     "why": "The passage first gives advantages, then, after 'on the other hand', gives problems."
+    },
+    {
+     "passage": "Coffee has been part of Arabian hospitality for centuries. A host pours a small cup for each guest, beginning with the most honoured. Today, coffee is also a major business: cafés in Saudi cities have multiplied, and some farmers in the southern mountains grow their own coffee beans.",
+     "stem": "Which choice states both central ideas?",
+     "options": [
+      "Hosts pour coffee, and the most honoured guest goes first.",
+      "Farmers in the mountains grow coffee beans to sell.",
+      "Cafés in Saudi cities have multiplied in recent years.",
+      "Coffee is a tradition of hospitality and a growing business."
+     ],
+     "answer": 3,
+     "why": "The first part is about tradition; the second part is about modern business."
+    }
+   ],
+   "again": {
+    "title": "Split and name",
+    "text": "1. **Split** the text where the subject or direction changes.\n2. **Name** each part in a short sentence.\n3. **Join** the names with *and*, *but*, or *so*.",
+    "example": "Split: the history of the Hejaz Railway / its ruins today. Name: it once linked Damascus and Madinah; today parts are a museum. Join: **The railway once connected cities, and now its remains preserve history.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Interwoven central ideas",
+     "text": "In complex texts, central ideas are often **interwoven**: they appear together in many paragraphs and **develop each other**.\n\nFor example, a biography may develop an idea about a person's achievement and an idea about what it cost them."
+    },
+    {
+     "title": "Analysing the relationship",
+     "text": "Ask how the ideas **interact**:\n\n1. Does one idea **cause** or **complicate** the other?\n2. Are they in **tension** (benefit vs. cost)?\n3. Does the text move from one to the other, or balance them throughout?"
+    },
+    {
+     "title": "Strong statements",
+     "text": "A strong statement of multiple central ideas is **specific**, covers the **whole** text, and shows the **relationship** between the ideas.\n\nWeak choices give one idea, list details, or name the topic only."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support each central idea with evidence from **different parts** of the text.\n\n1. Track each idea from beginning to end.\n2. Note where the ideas meet or pull against each other.\n3. Choose the statement that captures both ideas and their relationship."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Deep inside a mountain on a remote Arctic island, a vault stores seeds from crops around the world.",
+      "role": "detail"
+     },
+     {
+      "t": "Its cold, stable conditions can keep many seeds alive for decades or longer.",
+      "role": "key"
+     },
+     {
+      "t": "The vault exists because wars, disasters and disease can wipe out local seed collections.",
+      "role": "key"
+     },
+     {
+      "t": "In 2015, researchers withdrew seeds to replace a collection damaged during a war.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The text develops two ideas: the **scientific success** of the seed vault and the **worry** that makes it necessary. They are linked: the success exists because of the threat."
+   },
+   "together": {
+    "passage": "When the young engineer Sameer designed a water filter that cost less than a single meal, he hoped it would reach villages without clean water. The filter worked well in tests, removing most harmful bacteria with nothing more than sand, gravel and a special clay. Yet the first villages that received it soon stopped using it. Sameer returned and listened: the filter was too slow for large families, and no one had been shown how to clean it. He redesigned it with a wider basin and trained local women to teach their neighbours. Within two years, thousands of households relied on it. Sameer later said that the hardest part of his invention had not been the science, but understanding the people it was meant to serve.",
+    "stem": "Which statement best captures the central ideas of the passage and how they relate?",
+    "options": [
+     "A cheap water filter can remove bacteria using sand and clay.",
+     "Sameer's filter became popular because it was the cheapest one available.",
+     "Villages should be given more water filters.",
+     "A useful invention also needs an understanding of its users, and Sameer's success came from learning this."
+    ],
+    "answer": 3,
+    "hint": "The filter worked in tests but was not used at first. What changed? Read Sameer's final words.",
+    "good": "Yes! The passage develops both the invention and the lesson that success depends on understanding users, and links them."
+   },
+   "evidence": {
+    "sentences": [
+     "When the young engineer Sameer designed a water filter that cost less than a single meal, he hoped it would reach villages without clean water.",
+     "The filter worked well in tests, removing most harmful bacteria with nothing more than sand, gravel and a special clay.",
+     "Yet the first villages that received it soon stopped using it.",
+     "Sameer returned and listened: the filter was too slow for large families, and no one had been shown how to clean it.",
+     "He redesigned it with a wider basin and trained local women to teach their neighbours.",
+     "Within two years, thousands of households relied on it.",
+     "Sameer later said that the hardest part of his invention had not been the science, but understanding the people it was meant to serve."
+    ],
+    "proof": [
+     2,
+     3,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: an invention needs an understanding of its users. Tap 2 sentences that develop this idea.",
+    "wrong": "This sentence describes the filter or its later success. Find where the text shows the problem with users and what Sameer learned."
+   },
+   "checks": [
+    {
+     "passage": "The printing press, developed in Europe in the fifteenth century, allowed books to be copied quickly and cheaply. Ideas spread faster than ever before, and more people learned to read. But the same speed also spread rumours and false claims, and rulers struggled to control what was printed. Many historians compare that era to our own age of the internet.",
+     "stem": "Which statement best expresses the passage's central ideas?",
+     "options": [
+      "Printing spread knowledge and also false claims, much like the internet.",
+      "The printing press was developed in Europe and copied books fast.",
+      "Rulers liked to control books, so they banned the printing press.",
+      "More people learned to read, and books became the only source of news."
+     ],
+     "answer": 0,
+     "why": "The passage develops both the benefits and the dangers of fast printing and links them to the internet."
+    },
+    {
+     "passage": "Mariam, a long-distance runner, trained for six years to qualify for an international race. She woke before dawn, ran in the heat of summer, and balanced training with her university studies. In the race, she finished well behind the leaders. Afterwards, she wrote that the medal she missed mattered less than the person the years of training had made her.",
+     "stem": "How are the two central ideas of this account related?",
+     "options": [
+      "Her training made her fast enough to win, so she was proud of the medal.",
+      "Her discipline brought no medal, but it brought growth she valued more.",
+      "University studies are harder than running.",
+      "Running in summer heat is dangerous for athletes."
+     ],
+     "answer": 1,
+     "why": "The text develops her long effort and the lesson that growth mattered more than the result; the second idea reframes the first."
+    },
+    {
+     "passage": "Cities in hot climates are often several degrees warmer than the countryside around them, because roads and roofs absorb heat during the day and release it at night. This 'heat island' effect raises energy use as people run air conditioners longer. Planting trees, painting roofs white and adding shaded walkways can reduce it, and several Gulf cities have begun such projects.",
+     "stem": "Which choice best states the central ideas?",
+     "options": [
+      "Air conditioners use a lot of energy, so people should not use them.",
+      "Gulf cities have begun planting trees.",
+      "Cities trap heat and use more energy, but design changes can help.",
+      "White roofs are popular in many Gulf cities."
+     ],
+     "answer": 2,
+     "why": "The passage explains the problem (heat islands and energy use) and solutions (trees, white roofs, shade)."
+    }
+   ],
+   "again": {
+    "title": "Two threads",
+    "text": "Imagine the text is woven from **two threads** of different colours.\n\n1. Follow thread 1 through every paragraph.\n2. Follow thread 2.\n3. Ask: **where do they cross?** That shows how the ideas are related.",
+    "example": "Thread 1: a scientist's discovery. Thread 2: the years of failed experiments. They cross at the end: **the failures made the discovery possible.**"
+   }
+  }
+ }
+}

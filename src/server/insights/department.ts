@@ -6,8 +6,8 @@
 import type { Repo } from "../seeding/repo";
 import { isHiddenSkill } from "../skills/master";
 import { ForbiddenError, type Actor } from "../auth/rbac";
-import { classMembers, practiceStats } from "./student-data";
-import { gradeSummary, type GradeSummary } from "./progress";
+import { practiceStats, type PracticeStats } from "./student-data";
+import { gradeSummary } from "./progress";
 import { alertStats, weekKey } from "./alerts";
 import { coordinatorGrades } from "../teacher/coordinators";
 
@@ -20,21 +20,30 @@ export interface DeptSummary { week: string; from: string; to: string; classes: 
 
 export async function departmentSummary(repo: Repo, actor: Actor, now = new Date()): Promise<DeptSummary> {
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN" && !(actor.role === "TEACHER" && (await coordinatorGrades(repo, actor)).length)) throw new ForbiddenError("The department summary is for the head of department and grade coordinators.");
-  const grades: GradeSummary[] = await gradeSummary(repo, actor, "READING", now);
-  const alerts = await alertStats(repo, actor.schoolId!);
+  // ⚡ Update 57: the grade summary and the alerts side by side; every class's students in one read; the practice of
+  // every student and the weakest skills of every grade side by side (before: 2 reads one after another per class)
+  const [grades, alerts] = await Promise.all([gradeSummary(repo, actor, "READING", now), alertStats(repo, actor.schoolId!)]);
+  const allClassIds = grades.flatMap((g) => g.classes.map((c) => c.classId));
+  const members = allClassIds.length ? await repo.findMany("ClassMembership", { classId: { in: allClassIds }, leftAt: null }, { select: ["classId", "studentId"] }) : [];
+  const membersOf = new Map<string, string[]>();
+  for (const m of members) { const k = s(m.classId); const l = membersOf.get(k); if (l) l.push(s(m.studentId)); else membersOf.set(k, [s(m.studentId)]); }
+  const gradeIdsOf = grades.map((g) => [...new Set(g.classes.flatMap((c) => membersOf.get(c.classId) ?? []))]);
+  const [practice, weakestByGrade] = await Promise.all([
+    practiceStats(repo, [...new Set(gradeIdsOf.flat())], now),
+    Promise.all(gradeIdsOf.map((ids) => weakestSkills(repo, ids, now))),
+  ]);
   const classes: DeptClass[] = [];
   const weakest: DeptSummary["weakest"] = [];
-  for (const g of grades) {
-    const gradeIds: string[] = [];
+  for (const [gi, g] of grades.entries()) {
     for (const c of g.classes) {
-      const ids = await classMembers(repo, c.classId);
-      gradeIds.push(...ids);
-      const p = await practiceStats(repo, ids, now);
+      const ids = membersOf.get(c.classId) ?? [];
+      const p = new Map<string, PracticeStats>();
+      for (const id of ids) { const v = practice.get(id); if (v) p.set(id, v); }
       const answersWeek = [...p.values()].reduce((t, x) => t + x.week.answers, 0), minutesWeek = [...p.values()].reduce((t, x) => t + x.week.minutes, 0);
       const a = alerts.get(c.classId) ?? { open: 0, handled: 0, oldestOpenDays: null };
       classes.push({ classId: c.classId, className: c.className, grade: g.grade, teacher: c.teacher, students: c.students, activeWeek: c.activeWeek, activePct: c.students ? Math.round((100 * c.activeWeek) / c.students) : 0, answersWeek, minutesWeek, accuracy: c.accuracy, done: c.done, late: c.late, tested: c.tested, onTrack: c.onTrack, atRisk: c.atRisk, alertsOpen: a.open, alertsHandled: a.handled, oldestOpenDays: a.oldestOpenDays });
     }
-    weakest.push({ grade: g.grade, skills: await weakestSkills(repo, gradeIds, now) });
+    weakest.push({ grade: g.grade, skills: weakestByGrade[gi] });
   }
   const sum = (f: (c: DeptClass) => number) => classes.reduce((t, c) => t + f(c), 0);
   const from = new Date(now.getTime() - 7 * DAY);

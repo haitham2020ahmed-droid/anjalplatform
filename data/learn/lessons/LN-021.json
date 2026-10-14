@@ -1,0 +1,460 @@
+{
+ "code": "LN-021",
+ "title": "Using figurative language in writing",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "W.5.3.d"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0124",
+  "L-0127"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Big on purpose",
+     "text": "Sometimes writers say things that are **much bigger** than the truth. This is called **hyperbole**.\n\nIt is not a lie. It is a fun way to show a strong feeling."
+    },
+    {
+     "title": "Examples",
+     "text": "\"My bag weighs a ton!\" (It is just very heavy.)\n\n\"I have told you a million times!\" (Many times, not a million.)\n\n\"I am so tired I could sleep for a year!\""
+    },
+    {
+     "title": "Use it in your writing",
+     "text": "1. Think of a strong feeling: hungry, tired, happy.\n2. Make it **super big**.\n3. Use it **once**, where it really helps."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To pick the best hyperbole, look at the **feeling** in the text.\n\n1. Read the sentences.\n2. Find the feeling: hot? hungry? happy?\n3. Choose the big, funny sentence about **that** feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We walked home in the sun.",
+      "role": "other"
+     },
+     {
+      "t": "It was so hot that I melted into a puddle!",
+      "role": "key"
+     },
+     {
+      "t": "I drank three cups of water.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Did the writer really melt? No! It is **hyperbole**.\n\nIt shows how very, very hot the walk was."
+   },
+   "together": {
+    "passage": "We played football all morning. Then we ran races in the yard. At lunch, my stomach was growling. My team won.",
+    "stem": "The writer wants to add hyperbole to show how hungry he was. Which sentence fits best?",
+    "options": [
+     "I was so hungry I could eat a hundred sandwiches!",
+     "I ate one apple.",
+     "The yard was big.",
+     "My shoes were new."
+    ],
+    "answer": 0,
+    "hint": "Is that sentence a big, funny way to show hunger? Read the text again.",
+    "good": "Yes! Nobody can eat a hundred sandwiches. It is hyperbole that shows great hunger."
+   },
+   "evidence": {
+    "sentences": [
+     "We played football all morning.",
+     "Then we ran races in the yard.",
+     "At lunch, my stomach was growling.",
+     "My team won."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer showed he was very hungry. Tap 2 sentences that show why he was so hungry.",
+    "wrong": "Winning does not show hunger. Find sentences about the hard play or the growling stomach."
+   },
+   "checks": [
+    {
+     "passage": "Which sentence uses hyperbole?",
+     "stem": "Choose one.",
+     "options": [
+      "The dog in our house is brown.",
+      "I like rice.",
+      "We went to school.",
+      "This book is a million pages long!"
+     ],
+     "answer": 3,
+     "why": "No book has a million pages. It is a big, fun way to say the book is long."
+    },
+    {
+     "passage": "I was so happy I jumped to the moon!",
+     "stem": "What does the writer mean?",
+     "options": [
+      "The writer went to space.",
+      "The writer was very, very happy.",
+      "The writer is sad.",
+      "The moon was out."
+     ],
+     "answer": 1,
+     "why": "Jumping to the moon is impossible. It shows a very big feeling of joy."
+    },
+    {
+     "passage": "The writer wants to show the box was very heavy.",
+     "stem": "Which is the best hyperbole?",
+     "options": [
+      "The box was brown.",
+      "The box had a lid on the top of it.",
+      "The box weighed as much as an elephant!",
+      "The box was on a table."
+     ],
+     "answer": 2,
+     "why": "A box as heavy as an elephant is hyperbole for very heavy."
+    }
+   ],
+   "again": {
+    "title": "Too big to be true",
+    "text": "Ask: **Could this really happen?**\n\nIf the answer is **no**, and it shows a feeling, it is hyperbole.",
+    "example": "\"I waited forever for the bus.\"\n\nCould you wait **forever**? No! It means: **I waited a long time.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Things that act like people",
+     "text": "**Personification** gives human actions or feelings to things that are **not** people.\n\n\"The wind **whispered** through the trees.\" Wind cannot really whisper, but now we can hear it."
+    },
+    {
+     "title": "Examples",
+     "text": "\"The sun **smiled** down on us.\"\n\n\"My alarm clock **screamed** at six o'clock.\"\n\n\"The old door **groaned** when I opened it.\""
+    },
+    {
+     "title": "How to write it",
+     "text": "1. Choose a thing: the wind, the moon, a car.\n2. Ask: **What is it doing?**\n3. Pick a **human** action that matches: sings, sleeps, hurries, cries."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Good personification **fits** the scene.\n\n1. Find the mood: calm, scary, happy?\n2. Find the sentences that show it.\n3. Choose the human action that matches that mood.\n\nA happy action in a scary scene does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The rain tapped on the window.",
+      "role": "detail"
+     },
+     {
+      "t": "The tired old house groaned in the wind.",
+      "role": "key"
+     },
+     {
+      "t": "I pulled my blanket up high.",
+      "role": "other"
+     }
+    ],
+    "explain": "A house cannot be **tired** or **groan** like a person. The writer gives it human actions.\n\nThis personification makes the stormy night feel spooky."
+   },
+   "together": {
+    "passage": "It was a calm spring morning in the garden. Bees moved slowly from flower to flower. A soft breeze rocked the branches. Everything felt peaceful. Grandpa sat on a bench and read the newspaper.",
+    "stem": "The writer wants to add personification that fits this scene. Which sentence is best?",
+    "options": [
+     "The angry thunder shouted at the town.",
+     "The car honked three times.",
+     "The sleepy flowers stretched toward the sun.",
+     "The garden had six trees."
+    ],
+    "answer": 2,
+    "hint": "Is that sentence calm, and does it give a thing a human action? Read the scene again.",
+    "good": "Yes! Flowers cannot be sleepy or stretch, and the gentle action fits the calm morning."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a calm spring morning in the garden.",
+     "Bees moved slowly from flower to flower.",
+     "A soft breeze rocked the branches.",
+     "Everything felt peaceful.",
+     "Grandpa sat on a bench and read the newspaper."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer fit a calm scene. Tap 2 sentences that show the morning is calm.",
+    "wrong": "This sentence tells about the bees or Grandpa. Find the sentences that name the calm feeling."
+   },
+   "checks": [
+    {
+     "passage": "Which sentence uses personification?",
+     "stem": "Choose one.",
+     "options": [
+      "The leaves danced in the wind.",
+      "The leaves were green.",
+      "There are many leaves.",
+      "I raked the leaves."
+     ],
+     "answer": 0,
+     "why": "Leaves cannot dance. The writer gives them a human action."
+    },
+    {
+     "passage": "My phone ____ on the table when Mum called.",
+     "stem": "Which word makes personification?",
+     "options": [
+      "was",
+      "sang",
+      "stayed",
+      "lay"
+     ],
+     "answer": 1,
+     "why": "A phone cannot sing like a person, so \"sang\" is personification."
+    },
+    {
+     "passage": "A student is writing a happy story about a sunny day.",
+     "stem": "Which personification fits best?",
+     "options": [
+      "The dark clouds frowned.",
+      "The cold wind bit my face.",
+      "The thunder roared in anger.",
+      "The sun waved hello from the sky."
+     ],
+     "answer": 3,
+     "why": "A waving, friendly sun fits a happy, sunny day."
+    }
+   ],
+   "again": {
+    "title": "Pretend it is alive",
+    "text": "Look at a thing and pretend it is **a person**.\n\nWhat would it do? How would it feel? Write that!",
+    "example": "The kettle: \"The kettle **sang** on the stove.\"\n\nThe moon: \"The moon **peeked** through the clouds.\""
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Choosing on purpose",
+     "text": "Writers use hyperbole and personification **on purpose**, to make a point stronger or to set a mood.\n\nAsk: **What do I want the reader to feel?** Then choose the figure of speech that helps."
+    },
+    {
+     "title": "Hyperbole for feeling",
+     "text": "Hyperbole works best for **strong feelings** and **humour**.\n\n\"The line at the shop stretched all the way to Jeddah!\" shows how annoying the wait was.\n\nIt does not belong in a serious science report."
+    },
+    {
+     "title": "Personification for mood",
+     "text": "Personification makes a setting feel **alive**.\n\nA friendly mood: \"The palm trees **waved** at us.\"\nA tense mood: \"The shadows **crept** across the floor.\"\n\nThe human action must match the mood."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a choice fits, connect it to the **mood or feeling** already in the text.\n\n1. Find the sentences that show the mood or feeling.\n2. Decide which figure of speech fits: hyperbole for big feelings, personification for a living setting.\n3. Choose the option that matches **both** the purpose and the mood."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The test was in five minutes.",
+      "role": "other"
+     },
+     {
+      "t": "My heart was beating a thousand times a minute.",
+      "role": "key"
+     },
+     {
+      "t": "The clock on the wall seemed to laugh at me as it ticked.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **hyperbole** (a thousand beats) shows strong nerves. The **personification** (the clock laughing) makes the setting feel against the writer.\n\nBoth help the reader feel the worry before a test."
+   },
+   "together": {
+    "passage": "The bus to the museum was very late. We waited at the stop for almost an hour. My little brother kept asking, \"When will it come?\" By the time it arrived, the sky had turned orange. We finally got on and found seats. The driver smiled and said sorry.",
+    "stem": "The writer wants to add hyperbole to show how long the wait felt. Which sentence is best?",
+    "options": [
+     "The bus was painted white and green.",
+     "We waited so long that I grew a long white beard.",
+     "The bus stop had a small roof.",
+     "My brother was wearing his blue cap."
+    ],
+    "answer": 1,
+    "hint": "Is that a big exaggeration about the long wait? Read what the text says about time.",
+    "good": "Yes! Nobody grows a beard while waiting for a bus, so it is hyperbole that shows how long the wait felt."
+   },
+   "evidence": {
+    "sentences": [
+     "The bus to the museum was very late.",
+     "We waited at the stop for almost an hour.",
+     "My little brother kept asking, \"When will it come?\"",
+     "By the time it arrived, the sky had turned orange.",
+     "We finally got on and found seats.",
+     "The driver smiled and said sorry."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer showed a very long wait. Tap the 2 sentences that show how much time passed.",
+    "wrong": "This sentence is about the bus, the brother's question, getting on or the driver. Find the sentences that show how long they waited."
+   },
+   "checks": [
+    {
+     "passage": "A student is writing a funny story about a messy bedroom.",
+     "stem": "Which sentence uses hyperbole to fit the purpose?",
+     "options": [
+      "My room had a bed, a desk and a big brown chair.",
+      "The window looked out on the street.",
+      "My room was so messy that explorers got lost in it.",
+      "My bedroom has white walls."
+     ],
+     "answer": 2,
+     "why": "The exaggeration about explorers is funny and shows how messy the room is."
+    },
+    {
+     "passage": "A student is writing a spooky scene in an empty school at night.",
+     "stem": "Which personification fits the mood best?",
+     "options": [
+      "The empty hallway held its breath as I walked past.",
+      "The flowers giggled in the sunshine.",
+      "The happy bell danced at break time.",
+      "The teacher wrote the date on the white board."
+     ],
+     "answer": 0,
+     "why": "A hallway holding its breath creates a tense, spooky mood."
+    },
+    {
+     "passage": "A student is writing a serious science report about desert rain.",
+     "stem": "Should the writer use hyperbole such as \"It rained a billion litres in one second\"?",
+     "options": [
+      "Yes, because it makes the report funny.",
+      "Yes, because every report needs hyperbole.",
+      "No, because the report should not have any facts.",
+      "No, because a science report needs exact facts, not exaggeration."
+     ],
+     "answer": 3,
+     "why": "In a serious report, readers need accurate facts. Hyperbole would mislead them."
+    }
+   ],
+   "again": {
+    "title": "Feeling → figure",
+    "text": "**Big feeling** (tired, hungry, bored, excited)? Try **hyperbole**.\n\n**Setting with a mood** (calm, scary, cheerful)? Try **personification**.",
+    "example": "Bored in a long lesson: **\"The lesson lasted a hundred years.\"**\n\nCalm beach: **\"The waves gently kissed the shore.\"**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Figurative language as a tool",
+     "text": "Hyperbole and personification are tools for **emphasis** and **atmosphere**. Used well, they make a reader feel what a plain sentence only reports.\n\nUsed carelessly, they distract, confuse or clash with the tone."
+    },
+    {
+     "title": "Fit and freshness",
+     "text": "Strong figurative language:\n\n1. **Fits the tone**: a comic piece can exaggerate wildly; a tense scene needs a menacing image.\n2. **Fits the setting**: images drawn from the world of the story feel natural.\n3. **Is fresh**: \"as old as time\" is tired; find your own image."
+    },
+    {
+     "title": "Less is more",
+     "text": "One precise image is stronger than five piled together.\n\nWhen revising, keep the figure of speech that does the most work and cut the rest. Make sure it supports the **meaning**, not just decoration."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best figurative revision, gather evidence about **tone and setting**.\n\n1. Identify the tone (comic, tense, peaceful, sad) from the existing sentences.\n2. Note the images the writer already uses.\n3. Choose the option that matches the tone, fits the setting and makes the meaning clearer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For years, the fishing boat had sat on the beach, untouched.",
+      "role": "other"
+     },
+     {
+      "t": "Its paint had peeled away, and its ropes lay coiled and forgotten.",
+      "role": "detail"
+     },
+     {
+      "t": "Now the old boat dreamed of the open sea, listening to the waves it could no longer reach.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **personification** (the boat dreaming and listening) turns a description of an abandoned boat into a scene of **longing**. The image fits the setting (sea, waves) and the sad, quiet tone."
+   },
+   "together": {
+    "passage": "Every summer, my family drives from Riyadh to my grandparents' village in the mountains near Abha. The trip takes most of the day, and my brother and I have always counted the hours. This year, the car's air conditioner broke an hour after we left. Dad opened every window, but the hot wind only blew sand into our faces. My brother announced that he was being cooked like a loaf of bread. When the road finally began to climb, the air turned cool and green hills appeared. Even the tired old car seemed to sigh with relief.",
+    "stem": "Which sentence best combines hyperbole with the comic tone of this paragraph?",
+    "options": [
+     "The temperature in the car was approximately forty degrees.",
+     "The heat made the drive quite uncomfortable for all of us.",
+     "The desert stretched out on both sides of the road.",
+     "By noon, the car was so hot that the seats could have fried eggs for the whole village."
+    ],
+    "answer": 3,
+    "hint": "Is that a playful exaggeration? Some choices are plain facts or descriptions with no figurative language.",
+    "good": "Yes! Frying eggs for a whole village is a funny exaggeration that matches the comic complaints about the heat."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, my family drives from Riyadh to my grandparents' village in the mountains near Abha.",
+     "The trip takes most of the day, and my brother and I have always counted the hours.",
+     "This year, the car's air conditioner broke an hour after we left.",
+     "Dad opened every window, but the hot wind only blew sand into our faces.",
+     "My brother announced that he was being cooked like a loaf of bread.",
+     "When the road finally began to climb, the air turned cool and green hills appeared.",
+     "Even the tired old car seemed to sigh with relief."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer exaggerated the heat in a comic way. Tap the 2 sentences that show the comic heat complaints.",
+    "wrong": "This sentence describes the journey, the broken air conditioner or the cool mountains. Find the sentences that joke about the heat."
+   },
+   "checks": [
+    {
+     "passage": "Draft from a tense story: \"The forest was dark.\"",
+     "stem": "Which revision uses personification to increase tension?",
+     "options": [
+      "The forest was very, very dark that night.",
+      "The trees closed their branches around the path as if to trap us.",
+      "The forest was a happy place full of singing birds.",
+      "The forest had about three hundred trees."
+     ],
+     "answer": 1,
+     "why": "Trees closing around the path as if to trap the characters makes the setting threatening."
+    },
+    {
+     "passage": "A writer's paragraph uses five figures of speech in a row: the moon smiled, the stars giggled, the wind sang, the clouds danced and the sky yawned.",
+     "stem": "What is the best advice for revising it?",
+     "options": [
+      "Add more figures of speech to make it stronger.",
+      "Remove all the description from the paragraph.",
+      "Keep one or two of the strongest images and cut the rest.",
+      "Change every image into hyperbole."
+     ],
+     "answer": 2,
+     "why": "Piling up images distracts the reader. One or two precise images are stronger."
+    },
+    {
+     "passage": "A speech asks classmates to save water. The writer wants one line of hyperbole for emphasis.",
+     "stem": "Which line is most effective?",
+     "options": [
+      "If every student wasted a little water, we could empty a lake by Friday.",
+      "Water is made of hydrogen and oxygen.",
+      "The lake danced happily in the morning sun.",
+      "Water is a liquid that is often clear, and it usually has no smell."
+     ],
+     "answer": 0,
+     "why": "The exaggeration makes the cost of waste memorable and supports the speech's purpose."
+    }
+   ],
+   "again": {
+    "title": "Ask: what job does it do?",
+    "text": "Before keeping a figure of speech, ask: **What job does it do?**\n\n1. Makes a feeling stronger? (hyperbole)\n2. Makes the setting feel alive? (personification)\n\nIf it does neither, cut it.",
+    "example": "\"The exam was hard.\"\n\nHyperbole with a job: **\"The questions were so hard they needed their own teacher.\"** It shows the difficulty with humour."
+   }
+  }
+ }
+}

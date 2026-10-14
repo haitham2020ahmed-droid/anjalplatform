@@ -2,6 +2,7 @@
 import { useMemo, useState } from "react";
 import { useT } from "@/i18n/client";
 import { parseRubricText } from "@/server/writing/rubric-text";
+import { Combo } from "@/components/ui/combo";
 
 export interface BuilderLevel { label: string; points: number | ""; description: string }
 export interface BuilderCriterion { title: string; description: string; levels: BuilderLevel[] }
@@ -123,9 +124,7 @@ export function RubricBuilder({ saved, buildOnly = false }: { saved: PickRubric[
       )}
       {mode === "text" && !buildOnly ? <RubricTextInput /> : mode === "saved" && !buildOnly ? (
         <div>
-          <select name="rubricId" value={pick} onChange={(e) => setPick(e.target.value)} className={box}>
-            {saved.map((r) => <option key={r.id} value={r.id}>{r.title}{r.mine ? "" : ` · ${t("shared")}`}</option>)}
-          </select>
+          <Combo name="rubricId" label={t("Rubric")} value={pick} onChange={setPick} options={saved.map((r) => ({ value: r.id, label: r.title, hint: r.mine ? undefined : t("shared") }))} />
           {chosen && <RubricTable criteria={chosen.criteria} />}
         </div>
       ) : (

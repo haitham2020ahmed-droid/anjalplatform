@@ -1,0 +1,454 @@
+{
+ "code": "LN-011",
+ "title": "Sentence variety",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "L.5.3.a"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0050",
+  "L-0132"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Too many short sentences",
+     "text": "Lots of short sentences in a row can sound **choppy**.\n\nThe cat is small. The cat is black. The cat is soft."
+    },
+    {
+     "title": "Join them",
+     "text": "We can **join** short sentences with **and**, **but** or **because**.\n\nThe cat is small, black and soft."
+    },
+    {
+     "title": "How to join",
+     "text": "1. Find two short sentences about the **same thing**.\n2. Keep the words that are the same only **once**.\n3. Join the new parts with **and**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentences that **repeat** words.\n\n1. Read each sentence.\n2. Find two that say the same words again.\n3. Those are the ones to join. Point to them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sun is hot.",
+      "role": "detail"
+     },
+     {
+      "t": "The sun is bright.",
+      "role": "detail"
+     },
+     {
+      "t": "The sun is hot and bright.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both sentences start with **The sun is**. We say it once and join **hot** and **bright** with **and**."
+   },
+   "together": {
+    "passage": "Ali has a dog. The dog is big. The dog is brown. It likes to run in the park.",
+    "stem": "Which sentence best joins the second and third sentences?",
+    "options": [
+     "The dog is big, the dog is brown.",
+     "The dog is big because it is brown.",
+     "The dog is big but brown.",
+     "The dog is big and brown."
+    ],
+    "answer": 3,
+    "hint": "Does that sentence still repeat words, or change the meaning? Say \"The dog is\" only once.",
+    "good": "Yes! **The dog is big and brown** says both ideas in one smooth sentence."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali has a dog.",
+     "The dog is big.",
+     "The dog is brown.",
+     "It likes to run in the park."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: The dog is big and brown. Tap the 2 sentences that were joined.",
+    "wrong": "This sentence was not joined. Find the two short sentences that both start with \"The dog is\"."
+   },
+   "checks": [
+    {
+     "passage": "My sister likes to read. My sister likes to draw.",
+     "stem": "Which is the best way to join these sentences?",
+     "options": [
+      "My sister likes to read and draw.",
+      "My sister likes to read, my sister likes to draw.",
+      "My sister likes to read so she draws.",
+      "My sister likes to read but draw."
+     ],
+     "answer": 0,
+     "why": "Say **My sister likes to** once. Join **read** and **draw** with **and**."
+    },
+    {
+     "passage": "I went to the park. I played on the swings. I ate a snack.",
+     "stem": "Which is a new way to start the second sentence?",
+     "options": [
+      "I played on the swings.",
+      "I, I played on the swings.",
+      "Then I played on the swings.",
+      "Played I on the swings."
+     ],
+     "answer": 2,
+     "why": "Starting with **Then** makes the sentences sound less the same."
+    },
+    {
+     "passage": "We ate lunch. We were hungry.",
+     "stem": "Which is the best way to join these sentences?",
+     "options": [
+      "We ate lunch, we were hungry.",
+      "We ate lunch but we were hungry.",
+      "We ate lunch because we were hungry.",
+      "Because we ate lunch, we were hungry."
+     ],
+     "answer": 2,
+     "why": "We were hungry, so we ate. **Because** shows the reason. The last choice turns the meaning around."
+    }
+   ],
+   "again": {
+    "title": "Read it aloud",
+    "text": "Read your sentences out loud.\n\nDo they sound like a robot? **Stop. Stop. Stop.** Join some of them so they sound like a person talking.",
+    "example": "Robot: I like milk. I like dates. I like bread.\nPerson: **I like milk, dates and bread.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sentence variety",
+     "text": "**Sentence variety** means using different kinds of sentences: short and long, and with different beginnings.\n\nIt keeps the reader interested."
+    },
+    {
+     "title": "Ways to add variety",
+     "text": "- **Combine** choppy sentences.\n- **Start differently**: After lunch, ... / While we waited, ... / Suddenly, ...\n- **Add a short sentence** after long ones for power."
+    },
+    {
+     "title": "Keep the meaning",
+     "text": "A good revision sounds better **and** means the same thing.\n\nDo not add new facts or change who did what."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove which sentences need revising, find the ones that **sound the same**.\n\n1. Look for sentences that start with the same words.\n2. Look for many very short sentences in a row.\n3. Point to them. Those are the ones a revision should fix."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The players ran onto the field.",
+      "role": "detail"
+     },
+     {
+      "t": "The players waved to the crowd.",
+      "role": "detail"
+     },
+     {
+      "t": "Running onto the field, the players waved to the crowd.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both sentences begin with **The players**. The revision joins them and starts with **Running**, so it is smoother and more varied."
+   },
+   "together": {
+    "passage": "It was a windy afternoon at our desert camp. The wind blew hard. Sand flew everywhere. We went inside. We closed the windows. Then we waited for the storm to pass.",
+    "stem": "Which revision best combines the fourth and fifth sentences?",
+    "options": [
+     "We went inside and closed the windows.",
+     "We went inside, we closed the windows.",
+     "We went inside, and we went to close the windows.",
+     "Inside we went, the windows we closed."
+    ],
+    "answer": 0,
+    "hint": "Is that revision correct and smooth? Say \"We\" only once and join the two actions.",
+    "good": "Yes! **We went inside and closed the windows** joins two short actions into one smooth sentence."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a windy afternoon at our desert camp.",
+     "The wind blew hard.",
+     "Sand flew everywhere.",
+     "We went inside.",
+     "We closed the windows.",
+     "Then we waited for the storm to pass."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: We went inside and closed the windows. Tap the 2 sentences that this revision combines.",
+    "wrong": "This sentence is not part of the revision. Find the two short sentences that both begin with \"We\"."
+   },
+   "checks": [
+    {
+     "passage": "The students waited for the bus. The students talked about the trip. The students laughed.",
+     "stem": "Which revision adds the most variety?",
+     "options": [
+      "The students waited. The students talked. The students laughed.",
+      "The students waited for the bus, the students talked, the students laughed.",
+      "The students waited for the bus and the students talked and the students laughed.",
+      "While they waited for the bus, the students talked and laughed about the trip."
+     ],
+     "answer": 3,
+     "why": "It starts with **While**, joins the actions and says **the students** only once."
+    },
+    {
+     "passage": "We climbed for three hours over sharp rocks and loose stones, stopping only to drink water and rest our legs, until at last we reached the top and saw the whole valley below us.",
+     "stem": "The writer wants to add a short sentence for effect. Which works best right after it?",
+     "options": [
+      "We climbed the mountain for three hours over rocks.",
+      "It was worth it.",
+      "There were rocks and stones and water and legs.",
+      "The mountain, which we climbed, was a mountain."
+     ],
+     "answer": 1,
+     "why": "A short sentence after a long one is powerful. **It was worth it.** adds feeling without repeating."
+    },
+    {
+     "passage": "My uncle is a pilot. He flies to many countries.",
+     "stem": "Which is the best way to combine these sentences?",
+     "options": [
+      "My uncle is a pilot, he flies to many countries.",
+      "My uncle is a pilot and is a pilot who flies.",
+      "A pilot, my uncle, flies, to many countries.",
+      "My uncle, who is a pilot, flies to many countries."
+     ],
+     "answer": 3,
+     "why": "**who is a pilot** adds the first idea inside the second sentence. It is correct and smooth."
+    }
+   ],
+   "again": {
+    "title": "Change the start",
+    "text": "If three sentences start the same way, change the start of one.\n\nTry a **time** word (Later, After school), a **place** (At the park), or a **feeling** word (Happily, Sadly).",
+    "example": "I opened the box. I found a puppy. I shouted with joy.\nRevised: I opened the box. **Inside**, I found a puppy. **With a shout of joy**, I picked it up."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why variety matters",
+     "text": "When every sentence has the same length and pattern, readers get bored and stop paying attention.\n\nVariety makes writing sound natural and helps important ideas **stand out**."
+    },
+    {
+     "title": "Tools for variety",
+     "text": "- **Opening phrases**: After the game, ... / Without a word, ...\n- **Joining words**: while, although, because, when\n- **Lists**: plants, magnets and robots\n- **Contrast pairs**: Some..., while others..."
+    },
+    {
+     "title": "Revising a paragraph",
+     "text": "1. Read the paragraph aloud.\n2. Mark sentences that repeat the same start or pattern.\n3. Combine or rearrange **some** of them. Keep a few short sentences too.\n\nVariety means a **mix**, not all long sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove which sentences need variety by pointing to the **pattern** that repeats.\n\n1. Find two or more sentences with the same opening words or structure.\n2. Check that a revision would join or change exactly those sentences.\n3. Make sure the meaning stays the same."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The rain started at noon.",
+      "role": "detail"
+     },
+     {
+      "t": "The rain kept falling all afternoon.",
+      "role": "other"
+     },
+     {
+      "t": "All afternoon, it kept falling.",
+      "role": "key"
+     }
+    ],
+    "explain": "Starting with **All afternoon** breaks the pattern of **The rain... The rain...** and keeps the same meaning."
+   },
+   "together": {
+    "passage": "Last Thursday, our school held its yearly science fair in the main hall. Students made many kinds of projects. Some projects were about plants. Some projects were about magnets. Parents walked from table to table, asking questions. At the end of the day, the judges gave prizes to the three best projects.",
+    "stem": "Which revision of the third and fourth sentences best improves sentence variety?",
+    "options": [
+     "Some projects were about plants. Some projects were about magnets too.",
+     "Some projects were about plants, while others explored magnets.",
+     "Some projects were about plants, some projects were about magnets.",
+     "Projects were about plants, and projects were about magnets."
+    ],
+    "answer": 1,
+    "hint": "Does that revision still repeat the same words, or is it a run-on? Look for a smooth way to show two kinds of projects.",
+    "good": "Yes! **while others** joins the two ideas and removes the repeated **Some projects were about**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last Thursday, our school held its yearly science fair in the main hall.",
+     "Students made many kinds of projects.",
+     "Some projects were about plants.",
+     "Some projects were about magnets.",
+     "Parents walked from table to table, asking questions.",
+     "At the end of the day, the judges gave prizes to the three best projects."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Some projects were about plants, while others explored magnets. Tap the 2 sentences with the repeated pattern.",
+    "wrong": "This sentence does not repeat the pattern. Find the two sentences that begin with the same words."
+   },
+   "checks": [
+    {
+     "passage": "Huda finished her homework. She went outside to play.",
+     "stem": "Which revision adds variety and keeps the meaning?",
+     "options": [
+      "Huda finished her homework, she went outside to play.",
+      "Huda finished her homework and Huda went outside to play.",
+      "After she finished her homework, Huda went outside.",
+      "Finished her homework, Huda went outside to play."
+     ],
+     "answer": 2,
+     "why": "Starting with **After** shows the order, joins the ideas and is correct."
+    },
+    {
+     "passage": "A writer tried four versions of the same moment at the end of a school day.",
+     "stem": "Which version has the best sentence variety?",
+     "options": [
+      "The bell rang. Students rushed out, laughing and calling to their friends.",
+      "The bell rang. Students rushed out. They laughed. They called friends.",
+      "The bell rang and students rushed out and they laughed and called.",
+      "The bell rang, students rushed out, students laughed, students called."
+     ],
+     "answer": 0,
+     "why": "It mixes a short sentence with a longer one and adds detail with **laughing and calling**."
+    },
+    {
+     "passage": "The museum was quiet. The museum had old swords on the walls. The museum had a map of ancient trade routes.",
+     "stem": "Which revision best improves the variety?",
+     "options": [
+      "Inside the quiet museum, old swords hung beside a map of ancient trade routes.",
+      "The museum was quiet, the museum had swords, the museum had a map.",
+      "The museum was quiet. It had swords. It had a map. It had walls.",
+      "The museum was quiet and the museum had swords and the museum had a map."
+     ],
+     "answer": 0,
+     "why": "It begins with a place phrase and combines three choppy sentences into one smooth sentence."
+    }
+   ],
+   "again": {
+    "title": "Count the starts",
+    "text": "Write down the **first word** of each sentence.\n\nIf the list looks like **The, The, The, The**, change some starts. Try **After**, **When**, **Inside**, or an action word ending in **-ing**.",
+    "example": "The boat... The boat... The boat...\nRevised: **At dawn**, the boat left. **Gliding** past the reef, it headed out to sea."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Variety with purpose",
+     "text": "Skilled writers vary sentences to **control** how the reader feels.\n\nLong sentences can build detail or tension. A short sentence after them lands like a drumbeat."
+    },
+    {
+     "title": "More structures",
+     "text": "- **-ing opener**: Driving across the plain, we...\n- **Appositive**: Ibn Battuta, a traveller from Morocco, ...\n- **Question**: Do deserts really have no life?\n- **Contrast**: While some..., others..."
+    },
+    {
+     "title": "Avoid the opposite problem",
+     "text": "Variety does not mean joining everything with **and**.\n\nA **run-on** that strings many ideas together is as hard to read as a choppy paragraph. Aim for clear, correct sentences of different shapes."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a revision improves variety, identify **exactly what was repetitive** in the draft.\n\n1. Find the sentences that share the same opening or structure.\n2. Check that the revision fixes them without creating a run-on.\n3. Confirm that no meaning was lost or added."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We had trained for months, running in the cool early mornings and practising passes until our feet ached and our coach finally smiled.",
+      "role": "detail"
+     },
+     {
+      "t": "We were ready.",
+      "role": "key"
+     }
+    ],
+    "explain": "The long sentence shows months of hard work. The short one that follows lands with force and shows the team's confidence."
+   },
+   "together": {
+    "passage": "The Edge of the World is a dramatic cliff northwest of Riyadh. It rises high above a wide, flat plain. Visitors drive there on rough desert tracks. Visitors usually arrive in the late afternoon. Visitors walk to the edge and look out across the land. The view stretches for many kilometres. At sunset, the rocks glow orange and red, and the plain below fills with shadow.",
+    "stem": "Which revision of sentences 3 to 5 best improves sentence variety?",
+    "options": [
+     "Visitors drive on rough tracks, visitors arrive late, and visitors walk to the edge to look out across the land.",
+     "Visitors drive. Visitors arrive. Visitors walk to the edge. Visitors look out across the wide, flat land below.",
+     "Driving in on rough desert tracks, most visitors arrive in the late afternoon and walk to the edge to look out.",
+     "Visitors drive there on rough desert tracks and they arrive late and they walk to the edge and they look out."
+    ],
+    "answer": 2,
+    "hint": "Does that revision still repeat Visitors, or does it become a run-on with and... and... and?",
+    "good": "Yes! The **-ing** opener and one well-built sentence replace three that all began with **Visitors**."
+   },
+   "evidence": {
+    "sentences": [
+     "The Edge of the World is a dramatic cliff northwest of Riyadh.",
+     "It rises high above a wide, flat plain.",
+     "Visitors drive there on rough desert tracks.",
+     "Visitors usually arrive in the late afternoon.",
+     "Visitors walk to the edge and look out across the land.",
+     "The view stretches for many kilometres.",
+     "At sunset, the rocks glow orange and red, and the plain below fills with shadow."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Driving in on rough desert tracks, most visitors arrive... Tap 2 sentences from the draft that this revision replaces.",
+    "wrong": "This sentence is not part of the repetitive pattern. Find the sentences that all begin with \"Visitors\"."
+   },
+   "checks": [
+    {
+     "passage": "Many people think deserts are empty. Deserts are full of life. Lizards hide under rocks. Foxes hunt at night.",
+     "stem": "Which revision of the first two sentences adds the most variety and interest?",
+     "options": [
+      "Many people think deserts are empty, deserts are full of life.",
+      "Are deserts really empty? Look closer, and you will find them full of life.",
+      "Many people think deserts are empty and deserts are full of life too.",
+      "Deserts are empty, many people think, deserts are full of life."
+     ],
+     "answer": 1,
+     "why": "A question opener grabs attention, and the second sentence answers it. The other choices are run-ons or awkward."
+    },
+    {
+     "passage": "Ibn Battuta was a traveller from Morocco. He journeyed for nearly thirty years.",
+     "stem": "Which revision combines the sentences most effectively?",
+     "options": [
+      "Ibn Battuta was a traveller from Morocco, he journeyed for nearly thirty years.",
+      "Ibn Battuta was a traveller and from Morocco and journeyed for thirty years.",
+      "A traveller, Ibn Battuta, from Morocco, journeyed, for nearly thirty years.",
+      "Ibn Battuta, a traveller from Morocco, journeyed for nearly thirty years."
+     ],
+     "answer": 3,
+     "why": "The appositive **a traveller from Morocco** tucks one idea inside the other. It is correct and smooth."
+    },
+    {
+     "passage": "For hours, the search team crossed the hot sand, checking every shadow and calling the hikers' names, until their voices were rough and their water was nearly gone. Then they saw the smoke.",
+     "stem": "Why is the last sentence so short?",
+     "options": [
+      "The writer ran out of things to say about the search.",
+      "It creates a sudden, dramatic moment after the long search.",
+      "Short sentences are always better than long ones.",
+      "It repeats the information from the first sentence."
+     ],
+     "answer": 1,
+     "why": "The long first sentence builds tiredness and tension. The short one breaks it suddenly, which makes the discovery dramatic."
+    }
+   ],
+   "again": {
+    "title": "Shape check",
+    "text": "Draw each sentence as a line: long sentence = long line, short sentence = short line.\n\nIf all the lines are the same length, or all start the same way, revise until you see a **mix**.",
+    "example": "———— ———— ———— ———— (all the same: boring)\n—————————— —— ——————— (mixed: interesting)"
+   }
+  }
+ }
+}

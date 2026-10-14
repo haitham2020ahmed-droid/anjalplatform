@@ -1,0 +1,488 @@
+{
+ "code": "LN-135",
+ "title": "How a central idea develops",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.4.2",
+  "RI.6.2",
+  "RI.7.2",
+  "RI.8.2"
+ ],
+ "families": [
+  "central-idea"
+ ],
+ "skillNames": [
+  "How Authors Develop and Refine Ideas"
+ ],
+ "statements": [
+  "R-0538",
+  "R-0748",
+  "R-0750",
+  "R-0752",
+  "R-0912",
+  "R-0925",
+  "R-0927"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Ideas grow",
+     "text": "A text has a **big idea**. The author does not say everything at once.\n\nThe idea **grows**, one sentence at a time."
+    },
+    {
+     "title": "Building blocks",
+     "text": "Think of a wall. Each sentence is a **brick**.\n\nThe first brick starts the idea. The next bricks **add** to it. Together they build the whole idea."
+    },
+    {
+     "title": "How to see it grow",
+     "text": "1. Find the big idea.\n2. Read each sentence.\n3. Ask: **What does this sentence add?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show **how each sentence helps** the big idea.\n\n1. Find the big idea.\n2. Point to a sentence.\n3. Say what it adds: a reason, an example or a fact.\n\nIf a sentence adds nothing to the big idea, it is not the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dogs help people in many ways.",
+      "role": "main"
+     },
+     {
+      "t": "Some dogs guide people who cannot see.",
+      "role": "key"
+     },
+     {
+      "t": "Some dogs find people who are lost.",
+      "role": "key"
+     },
+     {
+      "t": "Some dogs keep sheep safe.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 gives the big idea: **dogs help people**. Each next sentence adds a new way they help."
+   },
+   "together": {
+    "passage": "Water is important for our bodies. It helps us stay cool on hot days. It helps our food move through our body. So drink water every day.",
+    "stem": "What do sentences 2 and 3 add to the big idea?",
+    "options": [
+     "They tell how water helps our bodies.",
+     "They tell where water comes from.",
+     "They tell what color water is.",
+     "They tell how to make juice."
+    ],
+    "answer": 0,
+    "hint": "The big idea is that water is important. What do the next sentences tell about it?",
+    "good": "Yes! Staying cool and moving food are ways water helps our bodies."
+   },
+   "evidence": {
+    "sentences": [
+     "Water is important for our bodies.",
+     "It helps us stay cool on hot days.",
+     "It helps our food move through our body.",
+     "So drink water every day."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: they tell how water helps our bodies. Tap the 2 sentences that tell how.",
+    "wrong": "This sentence gives the big idea or tells you what to do. Find the sentences that tell HOW water helps."
+   },
+   "checks": [
+    {
+     "passage": "Trees are good for a city. They give shade. They make the air clean. Birds live in them.",
+     "stem": "What does 'They give shade' add to the big idea?",
+     "options": [
+      "A reason trees are bad",
+      "A way trees are good for a city",
+      "The name of a tree",
+      "Where birds live"
+     ],
+     "answer": 1,
+     "why": "Shade is one good thing trees give a city."
+    },
+    {
+     "passage": "Our class trip was fun. First, we saw the old fort. Then we ate lunch by the sea. Last, we played a game on the sand.",
+     "stem": "How does the text build the big idea?",
+     "options": [
+      "It tells about the food only.",
+      "It tells why the fort is old.",
+      "It tells fun things in order.",
+      "It tells how to play a game."
+     ],
+     "answer": 2,
+     "why": "First, then and last show the fun parts of the trip in order."
+    },
+    {
+     "passage": "Exercise helps you. It makes your heart strong. It helps you sleep well. It puts you in a good mood.",
+     "stem": "Which sentence starts the big idea?",
+     "options": [
+      "It helps you sleep well.",
+      "It makes your heart strong.",
+      "It puts you in a good mood.",
+      "Exercise helps you."
+     ],
+     "answer": 3,
+     "why": "The first sentence gives the big idea. The others add ways exercise helps."
+    }
+   ],
+   "again": {
+    "title": "Start, add, add",
+    "text": "Most texts go like this:\n\n1. **Start:** the big idea.\n2. **Add:** one thing about it.\n3. **Add:** another thing about it.",
+    "example": "Start: **Phones are useful.** Add: we can call family. Add: we can check the time.\n\nEach **add** makes the big idea bigger."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Building an idea",
+     "text": "Authors **develop** a central idea. That means they make it clearer and stronger as the text goes on.\n\nEach paragraph or sentence has a **job** in building the idea."
+    },
+    {
+     "title": "Jobs of the parts",
+     "text": "1. **Introduce:** names the topic or the idea.\n2. **Explain:** tells what it means or why it matters.\n3. **Give examples:** shows the idea in real life.\n4. **Conclude:** sums up or tells what it means for us."
+    },
+    {
+     "title": "Trace the idea",
+     "text": "Read part by part. After each part, ask: **What do I know now that I did not know before?**\n\nThat new piece is how the part develops the idea."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To show how an idea develops, **point to the part** and **name its job**.\n\n1. Find the central idea.\n2. Look at the part the question asks about.\n3. Choose the answer that says what that part **adds**: an example, a reason, a result or a summary."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Recycling paper saves trees.",
+      "role": "main"
+     },
+     {
+      "t": "Paper is made from wood, so using old paper again means fewer trees are cut.",
+      "role": "detail"
+     },
+     {
+      "t": "Our school collects used paper in blue bins.",
+      "role": "key"
+     },
+     {
+      "t": "Last year, we filled more than one hundred bins.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 **introduces** the idea. Sentence 2 **explains** why. Sentences 3 and 4 **give examples**. The idea grows step by step."
+   },
+   "together": {
+    "passage": "Many people think of deserts as places with no life. In fact, deserts are home to many plants and animals that have special ways to survive. Desert foxes have large ears that release heat and help them stay cool. Some desert plants store water in thick stems, so they can live through months without rain. Learning about these clever adaptations shows us that the desert is far from empty.",
+    "stem": "How do sentences 3 and 4 help develop the central idea?",
+    "options": [
+     "They give examples of living things that survive in the desert.",
+     "They explain why deserts are hot.",
+     "They show that deserts have no water at all.",
+     "They describe how people travel across the desert."
+    ],
+    "answer": 0,
+    "hint": "The central idea is that deserts are full of life with special ways to survive. What do the fox and the plants show?",
+    "good": "Yes! The fox and the plants are examples of the special ways desert life survives."
+   },
+   "evidence": {
+    "sentences": [
+     "Many people think of deserts as places with no life.",
+     "In fact, deserts are home to many plants and animals that have special ways to survive.",
+     "Desert foxes have large ears that release heat and help them stay cool.",
+     "Some desert plants store water in thick stems, so they can live through months without rain.",
+     "Learning about these clever adaptations shows us that the desert is far from empty."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: they give examples of desert life surviving. Tap the 2 sentences that give these examples.",
+    "wrong": "This sentence introduces or sums up the idea. Find the sentences that give real examples."
+   },
+   "checks": [
+    {
+     "passage": "Reading every day makes you a better reader. Each book teaches new words. The more words you know, the faster you understand. In the end, reading becomes easier and more fun.",
+     "stem": "How does the author develop the central idea?",
+     "options": [
+      "By comparing books and films",
+      "By telling a story about a library",
+      "By listing the names of several famous books",
+      "By showing steps from new words to easy reading"
+     ],
+     "answer": 3,
+     "why": "The author moves step by step: new words → understand faster → reading becomes easier."
+    },
+    {
+     "passage": "Saudi Arabia is building large solar power plants. The country gets strong sunshine most of the year. Solar panels turn sunlight into electricity without burning fuel. This means cleaner air and energy that will not run out.",
+     "stem": "What does the last sentence add to the central idea?",
+     "options": [
+      "It explains the benefits of solar power.",
+      "It tells where the plants are built.",
+      "It gives a reason for strong sunshine.",
+      "It introduces the topic for the first time."
+     ],
+     "answer": 0,
+     "why": "The last sentence tells why solar power is good: cleaner air and energy that will not run out."
+    },
+    {
+     "passage": "Handwashing is one of the easiest ways to stay healthy. Our hands touch door handles, phones and money all day. Germs from these surfaces can enter our bodies when we touch our faces. Washing with soap for twenty seconds removes most of them.",
+     "stem": "What is the job of the second and third sentences?",
+     "options": [
+      "They give the solution.",
+      "They introduce a new topic.",
+      "They explain how germs get into our bodies.",
+      "They describe how soap is made in factories."
+     ],
+     "answer": 2,
+     "why": "They explain the problem: hands pick up germs, and germs enter when we touch our faces."
+    }
+   ],
+   "again": {
+    "title": "Label each part",
+    "text": "Give each sentence a **label**: Start, Why, Example or End.\n\nThe labels show how the idea is built.",
+    "example": "Start: **Sleep is important.** Why: the body repairs itself at night. Example: athletes sleep more before big races. End: **so get enough sleep.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Central idea across a text",
+     "text": "In longer texts, a central idea is **refined**: it starts simple and becomes more detailed or more precise.\n\nIn true stories (literary nonfiction), a **theme** can also develop: a lesson about life that grows from real events."
+    },
+    {
+     "title": "How authors refine an idea",
+     "text": "1. **Add evidence:** facts and examples that support it.\n2. **Add a contrast:** show what happens without it.\n3. **Show change over time:** before and after.\n4. **Narrow it:** move from a general idea to a specific point."
+    },
+    {
+     "title": "Theme in true stories",
+     "text": "A theme is not just the topic. *Friendship* is a topic. *True friends help even when it costs them something* is a theme.\n\nLook at how the person **changes** and what they **learn**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Trace the idea through **different parts** of the text.\n\n1. Find where the idea first appears.\n2. Find a later part that **changes, adds to or sharpens** it.\n3. Choose the answer that explains what that later part contributes.\n\nA good answer connects two parts of the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In parts of Oman, villages have used channels called aflaj to carry water for many centuries.",
+      "role": "main"
+     },
+     {
+      "t": "Water flows from underground sources through stone channels to homes and farms.",
+      "role": "detail"
+     },
+     {
+      "t": "Each family receives water for a set number of hours, measured in the past by the sun and stars.",
+      "role": "detail"
+     },
+     {
+      "t": "Today, as water grows scarce in many places, these old systems remind us that fair sharing can make a little water go a long way.",
+      "role": "key"
+     }
+    ],
+    "explain": "The text first says the falaj was a clever system. The last sentence **refines** the idea: such systems still teach us to share water carefully."
+   },
+   "together": {
+    "passage": "When Omar joined the school robotics club, he wanted to build everything himself. He ignored suggestions and worked alone late into the evenings. His robot arm kept failing, and he grew frustrated. One afternoon, a younger member quietly pointed out that one gear was turning the wrong way. Omar fixed it in minutes, and the arm lifted its first block. From then on, he began each project by asking the team what they thought. By the end of the year, the club's robot won second place at the regional fair, and Omar was the one who thanked his teammates on stage.",
+    "stem": "Which theme develops across this true story?",
+    "options": [
+     "Robots are difficult to build.",
+     "Younger students know more than older ones.",
+     "Working alone late at night is the best way to succeed.",
+     "Listening to others can lead to greater success than working alone."
+    ],
+    "answer": 3,
+    "hint": "Compare how Omar works at the start and at the end. What did he learn?",
+    "good": "Yes! Omar moves from working alone and failing to asking his team and succeeding."
+   },
+   "evidence": {
+    "sentences": [
+     "When Omar joined the school robotics club, he wanted to build everything himself.",
+     "He ignored suggestions and worked alone late into the evenings.",
+     "His robot arm kept failing, and he grew frustrated.",
+     "One afternoon, a younger member quietly pointed out that one gear was turning the wrong way.",
+     "Omar fixed it in minutes, and the arm lifted its first block.",
+     "From then on, he began each project by asking the team what they thought.",
+     "By the end of the year, the club's robot won second place at the regional fair, and Omar was the one who thanked his teammates on stage."
+    ],
+    "proof": [
+     1,
+     3,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: listening to others leads to greater success. Tap 2 sentences that show Omar changing.",
+    "wrong": "This sentence describes an event, but it does not show the change in how Omar works with others. Look before and after the turning point."
+   },
+   "checks": [
+    {
+     "passage": "Plastic was once seen as a wonder material: cheap, light and strong. Factories made it into toys, bottles and bags. But the same strength that made plastic useful also means it can take hundreds of years to break down. Today, scientists are searching for materials that are useful without lasting forever.",
+     "stem": "How does the central idea change across the passage?",
+     "options": [
+      "From a wonder material to a lasting problem",
+      "From toys to bottles",
+      "From scientists to factories",
+      "From weak plastic to strong plastic"
+     ],
+     "answer": 0,
+     "why": "The text starts by praising plastic, then shows its strength causes a lasting problem."
+    },
+    {
+     "passage": "My first attempts at baking bread were disasters. The loaves came out flat and hard. My grandmother told me to stop following the clock and start watching the dough. Slowly, I learned what 'ready' looked and felt like. Now my bread rises every time.",
+     "stem": "What theme develops in this account?",
+     "options": [
+      "Grandmothers are always right about food.",
+      "Bread should be baked at a set time.",
+      "Skill comes from careful attention and practice.",
+      "Baking is too hard for young people."
+     ],
+     "answer": 2,
+     "why": "The writer improves by learning to observe carefully over time, not by following a rule."
+    },
+    {
+     "passage": "Cities used to build wider roads to fix traffic jams. At first, traffic improved. But within a few years, the wider roads filled up again, because easier driving encouraged more people to drive. Now, some planners argue that better buses and trains are a longer-lasting answer.",
+     "stem": "What does the third sentence contribute to the central idea?",
+     "options": [
+      "It shows that wider roads solved traffic forever.",
+      "It explains why wider roads did not fix the problem for long.",
+      "It gives the cost of building trains.",
+      "It describes how roads are built."
+     ],
+     "answer": 1,
+     "why": "It adds a twist: wider roads attracted more drivers, so the jams returned. This refines the idea."
+    }
+   ],
+   "again": {
+    "title": "Beginning, turn, end",
+    "text": "Many texts develop an idea in three steps:\n\n1. **Beginning:** what was believed or done at first.\n2. **Turn:** something happens that changes it.\n3. **End:** the new, sharper idea.",
+    "example": "Beginning: Huda thought the new student was rude. Turn: she learned he was shy and new to the language. End: **first impressions can be wrong.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Development across a whole text",
+     "text": "In mature nonfiction, a central idea is **built and refined across sections**. Each part may add a new angle, answer an objection, or raise the stakes.\n\nAnalysing development means explaining **how** each part shapes the reader's understanding."
+    },
+    {
+     "title": "Moves authors make",
+     "text": "1. **Anecdote → principle:** a story that leads to a general idea.\n2. **Problem → complication → insight.**\n3. **Concession:** admitting a limit, which makes the idea more precise.\n4. **Echo:** returning at the end to an image from the start, now with new meaning."
+    },
+    {
+     "title": "Theme in literary nonfiction",
+     "text": "In memoirs and essays, the theme is often **implied** and develops as the writer reflects. The final reflection usually states or sharpens what the events mean."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse development, link **an early part** to **a later part** and say what changed.\n\n1. Identify how the idea is first presented.\n2. Find the sentences that complicate, refine or deepen it.\n3. Choose the answer that describes the movement, not just one detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On my first desert trip, I carried my father's old compass everywhere, checking it every few minutes.",
+      "role": "key"
+     },
+     {
+      "t": "Our guide rarely looked at it; he read the shapes of the dunes and the direction of the wind.",
+      "role": "detail"
+     },
+     {
+      "t": "Over the years, I learned to read them too.",
+      "role": "detail"
+     },
+     {
+      "t": "The compass broke long ago, and I keep it on my desk, no longer as a guide but as a reminder of how much I once depended on it.",
+      "role": "key"
+     }
+    ],
+    "explain": "The essay opens with a simple image (the **broken compass**). The ending **echoes** it with new meaning: the writer no longer needs it. The idea develops from depending on tools to trusting one's own knowledge."
+   },
+   "together": {
+    "passage": "When the old market in our neighbourhood was scheduled to be torn down, most residents felt only relief. The roof leaked, the alleys flooded in winter, and the shops seemed stuck in another century. Then a group of architecture students began interviewing the shopkeepers. They recorded how the narrow alleys kept the air cool without machines, how the thick walls held the heat of the day away until evening, and how the shop owners had trained one another for generations. The students' exhibition filled the town hall for weeks. In the end, the market was not demolished but restored, with new roofs and drains and the same cool alleys. What had looked like a problem to be removed turned out to be knowledge worth keeping.",
+    "stem": "How does the central idea develop over the course of the passage?",
+    "options": [
+     "It shifts from seeing the market as worthless to recognising the wisdom built into it.",
+     "It explains step by step how to fix a leaking roof.",
+     "It argues that every old building should be torn down.",
+     "It describes the students' exhibition as the main topic."
+    ],
+    "answer": 0,
+    "hint": "Compare how residents see the market in the first sentence and how the last sentence describes it. What part in the middle causes the change?",
+    "good": "Yes! The passage moves from relief at demolition to valuing the market's cooling design and shared skills."
+   },
+   "evidence": {
+    "sentences": [
+     "When the old market in our neighbourhood was scheduled to be torn down, most residents felt only relief.",
+     "The roof leaked, the alleys flooded in winter, and the shops seemed stuck in another century.",
+     "Then a group of architecture students began interviewing the shopkeepers.",
+     "They recorded how the narrow alleys kept the air cool without machines, how the thick walls held the heat of the day away until evening, and how the shop owners had trained one another for generations.",
+     "The students' exhibition filled the town hall for weeks.",
+     "In the end, the market was not demolished but restored, with new roofs and drains and the same cool alleys.",
+     "What had looked like a problem to be removed turned out to be knowledge worth keeping."
+    ],
+    "proof": [
+     0,
+     3,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the idea shifts from worthless to valuable. Tap 2 sentences that show the before and after of this shift.",
+    "wrong": "This sentence adds a detail but does not show how people's view of the market changed. Look for the beginning view, the evidence, and the final insight."
+   },
+   "checks": [
+    {
+     "passage": "Scientists once believed that adult brains could not change. Later research showed that learning new skills, such as playing an instrument or speaking a new language, can create new connections between brain cells at any age. Recovery after injuries offered further evidence. These findings have changed how teachers and doctors think about learning in adults.",
+     "stem": "How does the author develop the central idea?",
+     "options": [
+      "By listing the parts of the brain in order",
+      "By telling a personal story about a famous doctor",
+      "By comparing two languages",
+      "By showing an old belief, then evidence against it"
+     ],
+     "answer": 3,
+     "why": "The passage moves from the old belief to research evidence that replaced it, and then shows the effect of the new view."
+    },
+    {
+     "passage": "I used to think my grandfather's silence at dinner meant he was unhappy. He ate slowly and rarely joined our noisy talk. Years later, after he passed away, I found his notebooks full of careful notes about each of us: our marks at school, our favourite foods, the friends we mentioned. His silence, I realised, had been a way of listening.",
+     "stem": "Which theme develops in this memoir?",
+     "options": [
+      "Families should talk loudly at dinner.",
+      "Love can be shown through quiet attention.",
+      "Old notebooks should be kept forever.",
+      "Children should never misjudge adults."
+     ],
+     "answer": 1,
+     "why": "The writer's view changes when the notebooks reveal that the grandfather's silence was a form of caring attention."
+    },
+    {
+     "passage": "The first trains in many countries were greeted with fear: people worried that speeds of fifty kilometres per hour would harm the human body. Within a generation, trains had reshaped cities, trade and travel. The essay concludes that new technologies are often judged by our fears before they are judged by their uses.",
+     "stem": "What does the final sentence contribute to the development of the central idea?",
+     "options": [
+      "It gives the exact speed of early trains.",
+      "It describes how trains changed cities.",
+      "It turns one example into a general lesson.",
+      "It argues that trains are dangerous."
+     ],
+     "answer": 2,
+     "why": "The conclusion moves from one example (trains) to a broader principle about how people react to new technology."
+    }
+   ],
+   "again": {
+    "title": "Map the journey",
+    "text": "Treat the text like a journey.\n\n1. **Where does the idea start?** (the first view)\n2. **What happens on the way?** (evidence, a turn, a discovery)\n3. **Where does it arrive?** (the final, refined idea)\n\nThe development is the path between the start and the end.",
+    "example": "Start: 'Homework is a burden.' On the way: a study shows short daily practice improves memory. Arrive: '**Short, focused homework helps; long, repetitive homework does not.**'"
+   }
+  }
+ }
+}

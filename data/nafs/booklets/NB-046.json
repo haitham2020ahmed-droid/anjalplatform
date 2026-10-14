@@ -1,0 +1,568 @@
+{
+  "code": "NB-046",
+  "title": "Stored Power: How Batteries Work",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 454,
+  "passage": "Think about how many objects around you depend on a battery. A phone, a remote control, a smartwatch and even an electric car all carry their energy with them, so they do not need to stay connected to a wall socket. A battery, in other words, is a portable store of energy. Yet this ordinary object hides a remarkable piece of chemistry that took scientists more than two hundred years to perfect.\n\nThe story began in 1800, when the Italian scientist Alessandro Volta built a tall stack of zinc and copper discs. Between each pair of discs he placed a piece of cloth soaked in salt water. When he connected the top and bottom of the stack with a wire, a steady electric current flowed. Volta's invention, known as the voltaic pile, was the first battery that could produce electricity continuously, and the unit we use to measure electrical force, the volt, is named in his honour.\n\nAlthough modern batteries look very different, they still work on Volta's basic principle. Every battery has three essential parts: a negative end, a positive end and a substance between them called the electrolyte. A chemical reaction at the negative end releases tiny particles called electrons. Because the electrolyte does not let electrons pass through it, they must travel the long way around, through the wire and the device. That flow of electrons is the electric current that lights a torch or powers a game. When the chemicals are used up, the reaction stops and the battery is flat.\n\nOrdinary batteries are thrown away once they are empty, but rechargeable batteries can be used hundreds of times. The most common type today is the lithium-ion battery, which first went on sale in 1991. When you charge it, energy from the socket pushes lithium ions back to the negative side, ready for the next use. This lightweight design was so important that three scientists who developed it shared the Nobel Prize in Chemistry in 2019.\n\nBatteries are also becoming vital for clean energy. Solar panels produce electricity only while the sun shines, and wind turbines stop when the air is still. Huge battery systems can store the extra energy during the day and release it at night, which is why Saudi Arabia is building large battery projects beside its new solar farms.\n\nBatteries, however, must be treated with care. Heat can damage them, and a battery that is crushed or punctured may even catch fire. Used batteries should never be thrown in household rubbish, because they contain metals that can pollute the soil. Instead, they should be taken to a recycling point, where valuable materials are recovered. What an extraordinary amount of science fits inside such a small box!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “portable” as it is used in paragraph 1?",
+      "options": [
+        "expensive",
+        "fragile",
+        "easily carried",
+        "permanent"
+      ],
+      "answer": "C",
+      "why": "The writer explains that devices with batteries “carry their energy with them”, so a portable store can be easily carried."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “continuously” as it is used in paragraph 2?",
+      "options": [
+        "occasionally",
+        "constantly",
+        "steadily",
+        "quickly"
+      ],
+      "answer": "A",
+      "why": "“Continuously” means without stopping; “occasionally” means only now and then. “Constantly” and “steadily” are near-synonyms."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 6: “Instead, they should be taken to a recycling point, where valuable materials are recovered.” What does “recovered” mean here?",
+      "options": [
+        "made healthy again after an illness",
+        "covered again with a new layer",
+        "hidden so that no one can find them",
+        "taken back so they can be used again"
+      ],
+      "answer": "D",
+      "why": "At a recycling point, valuable metals are collected from old batteries so that they can be used again. “Made healthy again” is a different meaning of the word."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a verb?",
+      "options": [
+        "essential",
+        "releases",
+        "electrolyte",
+        "negative"
+      ],
+      "answer": "B",
+      "why": "“Releases” is the action the chemical reaction performs. “Essential” and “negative” are adjectives; “electrolyte” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “battery” changes -y to -ies in the plural. Which of these words forms its plural in the SAME way?",
+      "options": [
+        "day",
+        "key",
+        "energy",
+        "toy"
+      ],
+      "answer": "C",
+      "why": "Energy ends in a consonant + y, so it becomes energies, like battery → batteries. Day, key and toy end in a vowel + y and just add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “electric”?",
+      "options": [
+        "elect",
+        "electricity",
+        "elevator",
+        "eclectic"
+      ],
+      "answer": "B",
+      "why": "“Electricity” shares the root and meaning of “electric”; “elect” and “elevator” only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “vital” in a meaningful sentence of your own.",
+      "model": "Drinking enough water is vital in the hot Saudi summer, because the body loses a lot of water as sweat.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “vital” with its meaning (extremely important or necessary)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Vital” means extremely important or necessary."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The words “scientists” and “panels” in the text are regular plurals. Which of these nouns has an IRREGULAR plural?",
+      "options": [
+        "wire",
+        "battery",
+        "person",
+        "disc"
+      ],
+      "answer": "C",
+      "why": "Person → people is irregular; wire → wires, battery → batteries and disc → discs follow the usual spelling rules."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Think about how many objects around you depend on a battery.”?",
+      "options": [
+        "a question",
+        "an exclamation",
+        "a statement",
+        "a command"
+      ],
+      "answer": "D",
+      "why": "It tells the reader to do something (think), so it is a command, even though it contains the word “how”."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Alessandro Volta's Childhood",
+        "From Volta's Stack to Solar Storage",
+        "How to Build a Solar Farm",
+        "Why Phones Need Wall Sockets"
+      ],
+      "answer": "B",
+      "why": "The text moves from Volta's 1800 invention to modern batteries and solar storage. Volta's childhood and building solar farms are not discussed."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to explain how batteries work and why they matter",
+        "to persuade readers to buy electric cars",
+        "to tell the life story of Alessandro Volta",
+        "to warn readers never to use batteries"
+      ],
+      "answer": "A",
+      "why": "The text explains a battery's history, how it works, its uses and how to handle it safely; Volta is only part of paragraph 2."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Every battery makes a current using the same basic idea.",
+        "Electrons cannot pass through the electrolyte.",
+        "A torch needs electricity to give light.",
+        "Modern batteries look different from Volta's pile."
+      ],
+      "answer": "A",
+      "why": "The paragraph explains the basic principle shared by every battery; the other options are details or a side point."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why do electrons travel through the wire and the device?",
+      "options": [
+        "The wire is shorter than the electrolyte.",
+        "The positive end pushes them away.",
+        "The electrolyte does not let them pass through.",
+        "The device pulls them out of the battery."
+      ],
+      "answer": "C",
+      "why": "“Because the electrolyte does not let electrons pass through it, they must travel the long way around, through the wire and the device.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a narrative story",
+        "an expository text",
+        "a poem",
+        "a persuasive letter"
+      ],
+      "answer": "B",
+      "why": "It explains a topic with facts, history and advice, without characters or a plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, why should used batteries never go in household rubbish?",
+      "options": [
+        "They become heavier once they are empty.",
+        "Recycling points pay money for them.",
+        "They are needed again for solar farms.",
+        "They contain metals that can pollute the soil."
+      ],
+      "answer": "D",
+      "why": "The text says they contain metals that can pollute the soil, so they belong at a recycling point."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "The volt was named in Volta's honour.",
+        "The lithium-ion battery first went on sale.",
+        "Three scientists shared the Nobel Prize.",
+        "Volta built a stack of zinc and copper discs."
+      ],
+      "answer": "D",
+      "why": "Volta built his pile in 1800; the unit was named after him later; lithium-ion batteries went on sale in 1991 and the Nobel Prize came in 2019."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which three parts does EVERY battery have, according to the text?",
+      "options": [
+        "a wire, a device and a socket",
+        "a negative end, a positive end and an electrolyte",
+        "zinc, copper and salt water",
+        "lithium, solar panels and a charger"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: “Every battery has three essential parts: a negative end, a positive end and a substance between them called the electrolyte.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What happens to a lithium-ion battery while it is being charged?",
+      "options": [
+        "Lithium ions are pushed back to the negative side.",
+        "The electrolyte is replaced with salt water.",
+        "Electrons flow through the device to light it.",
+        "The chemicals are used up and it goes flat."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “energy from the socket pushes lithium ions back to the negative side, ready for the next use.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what causes a battery to go flat?",
+      "options": [
+        "The wire becomes too hot.",
+        "The chemicals are used up, so the reaction stops.",
+        "Electrons pass through the electrolyte.",
+        "The positive end becomes negative."
+      ],
+      "answer": "B",
+      "why": "“When the chemicals are used up, the reaction stops and the battery is flat.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why is Saudi Arabia building large battery projects beside its solar farms?",
+      "options": [
+        "Solar panels work better when they are cool.",
+        "Batteries make solar panels cheaper to build.",
+        "The batteries protect the panels from sandstorms.",
+        "Batteries can save daytime solar energy for use at night."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 explains that solar panels work only while the sun shines, so batteries store extra energy in the day and release it at night."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin by listing a phone, a remote control, a smartwatch and an electric car?",
+      "options": [
+        "to show readers how often they already depend on batteries",
+        "to advertise the newest kinds of smartwatches",
+        "to prove that electric cars are better than phones",
+        "to begin a story about the writer's own family"
+      ],
+      "answer": "A",
+      "why": "Familiar objects connect the topic to readers' daily lives before the science is explained."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a rechargeable battery DIFFERENT from an ordinary battery?",
+      "options": [
+        "It has no electrolyte inside it.",
+        "It can only be used once.",
+        "It can be used hundreds of times.",
+        "It was invented by Volta in 1800."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: ordinary batteries are thrown away once empty, but rechargeable ones “can be used hundreds of times.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do solar panels and wind turbines have in common, according to paragraph 5?",
+      "options": [
+        "Both store electricity for use at night.",
+        "Both are powered by lithium-ion batteries.",
+        "Both work best when the air is still.",
+        "Both stop producing electricity at certain times."
+      ],
+      "answer": "D",
+      "why": "Solar panels stop when the sun is not shining, and turbines stop when the air is still, so both depend on conditions."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on paragraph 6, what could be the effect of crushing an old phone battery?",
+      "options": [
+        "It could catch fire.",
+        "It could charge itself again.",
+        "It could turn into salt water.",
+        "It could become a solar panel."
+      ],
+      "answer": "A",
+      "why": "The text warns that “a battery that is crushed or punctured may even catch fire.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying an ordinary object “hides a remarkable piece of chemistry”?",
+      "options": [
+        "Batteries are dangerous secrets that no one should open.",
+        "The battery's surprising science is not visible from outside.",
+        "Scientists keep battery chemistry hidden from the public.",
+        "Batteries are made in secret laboratories."
+      ],
+      "answer": "B",
+      "why": "The battery looks plain, but surprising chemistry is at work inside it; “hides” is used figuratively, not to mean a real secret."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer explain the path of the electrons as “the long way around”?",
+      "options": [
+        "to suggest that electrons are lazy and slow",
+        "to complain that batteries waste time",
+        "to help readers picture why the current must flow through the device",
+        "to show that wires should always be very long"
+      ],
+      "answer": "C",
+      "why": "The everyday phrase helps readers imagine electrons being forced through the wire and device, which is exactly what makes the device work."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Batteries, however, must be treated with care.",
+        "Heat can damage them.",
+        "What an extraordinary amount of science fits inside such a small box!",
+        "Think about how many objects around you depend on a battery."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action best follows the advice in the text when a family's old phone battery stops working?",
+      "options": [
+        "throwing it in the kitchen rubbish bin",
+        "taking it to a recycling point",
+        "leaving it in a hot car to recharge",
+        "cutting it open to see the electrolyte"
+      ],
+      "answer": "B",
+      "why": "Paragraph 6 advises taking used batteries to a recycling point and warns about heat and punctures."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to help readers understand and safely use batteries",
+        "a plan to sell lithium-ion batteries",
+        "a belief that solar farms are a waste of money",
+        "anger at the scientists who won the Nobel Prize"
+      ],
+      "answer": "A",
+      "why": "The writer explains how batteries work, why they matter for clean energy and how to handle them safely."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final sentence of the text?",
+      "options": [
+        "worry",
+        "boredom",
+        "disappointment",
+        "wonder"
+      ],
+      "answer": "D",
+      "why": "“What an extraordinary amount of science fits inside such a small box!” expresses amazement."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "what Volta used to build his pile",
+        "where used batteries should be taken",
+        "what an electrolyte is actually made of in a modern battery",
+        "why batteries help solar energy"
+      ],
+      "answer": "C",
+      "why": "The writer names the electrolyte and says what it does, but never says what it is made of in modern batteries; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A phone battery recharges itself while switched off in a drawer.",
+        "A student builds a small battery with coins and salty cloth.",
+        "An ordinary battery is recharged a thousand times.",
+        "A battery makes electricity without any chemicals."
+      ],
+      "answer": "B",
+      "why": "Volta's pile used two metals and cloth soaked in salt water, so a simple model is possible. The text says ordinary batteries are thrown away, and every battery needs a chemical reaction."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Danger of Phones",
+        "Volta Goes to Italy",
+        "Energy in Your Pocket",
+        "The Nobel Prize Story"
+      ],
+      "answer": "C",
+      "why": "The text is about how batteries store energy we carry everywhere; the other titles are inaccurate or cover one detail."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with a practical way your school could help students use or dispose of batteries responsibly.",
+      "model": "Our school could place a clearly labelled battery box beside the library, so students can drop off used batteries instead of throwing them away. Each month, a student team could take the box to a recycling point, and the class that collects the most could be thanked at assembly. This would protect the soil and teach everyone that small actions matter.",
+      "rubric": [
+        "2 = a clear new ending with a sensible, practical idea that links to the text's advice (recycling, safety or clean energy)",
+        "1 = an ending is given but the idea is vague, unrelated or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible plan that reflects the text's advice on safety or recycling is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How can a family keep its rechargeable batteries safe, according to the text?",
+      "options": [
+        "Keep devices away from strong heat.",
+        "Do not crush or puncture batteries.",
+        "A and B",
+        "Throw old batteries in household rubbish."
+      ],
+      "answer": "C",
+      "why": "Paragraph 6 warns that heat can damage batteries and that crushed or punctured batteries may catch fire; household rubbish is specifically ruled out."
+    }
+  ]
+}

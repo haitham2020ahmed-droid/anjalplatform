@@ -62,6 +62,8 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
                 { icon: "⏱️", label: "Time", value: `${Math.floor(a.totals.minutes / 60)}h ${a.totals.minutes % 60}m`, meaning: "answering questions" },
                 { icon: "🙋", label: "Active", value: one ? (one.questions ? t("Yes") : t("No")) : `${a.totals.activeStudents}/${a.totals.students}`, meaning: one ? (one.lastActive ?? "") : "students practised", tone: one ? (one.questions ? "good" : "warn") : a.totals.activeStudents < a.totals.students ? "warn" : "good" },
                 { icon: "🏫", label: "At school", value: a.totals.questions ? `${Math.round((100 * a.totals.schoolQuestions) / a.totals.questions)}%` : "—", meaning: t("{n} at home", { n: a.totals.homeQuestions }) },
+                // r67 effort (teacher-only): careful answers / all answers; a session with over 20 % rapid guesses is Unreliable
+                { icon: "🧠", label: "Effort", value: a.totals.effort !== null ? `${a.totals.effort}%` : "—", meaning: a.totals.unreliable ? t("{n} unreliable sessions", { n: a.totals.unreliable }) : t("answers given with care"), tone: a.totals.effort === null ? "neutral" : a.totals.effort < 80 ? "warn" : "good" },
               ]} />
               <AtAGlance title="Skills" items={[
                 { icon: "🧩", label: "Skills", value: a.totals.skills, meaning: "practised" },
@@ -72,6 +74,7 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
                 <Callout kind="help" items={one ? [] : [
                   (() => { const n = a.students.filter((x) => !x.questions); return n.length ? <>{t("Did not practise")}: {n.slice(0, 10).map((x, i) => <span key={x.id}>{i ? ", " : ""}<bdi>{x.name}</bdi></span>)}{n.length > 10 ? ` +${n.length - 10}` : ""}</> : null; })(),
                   (() => { const n = a.students.filter((x) => x.questions && x.accuracy !== null && x.accuracy < 60); return n.length ? <>{t("Under 60% accuracy")}: {n.slice(0, 10).map((x, i) => <span key={x.id}>{i ? ", " : ""}<bdi>{x.name}</bdi></span>)}</> : null; })(),
+                  (() => { const n = a.students.filter((x) => x.unreliable > 0); return n.length ? <>{t("Guessing (talk with them)")}: {n.slice(0, 10).map((x, i) => <span key={x.id}>{i ? ", " : ""}<Link href={q({ student: x.id })} className="underline"><bdi>{x.name}</bdi></Link></span>)}</> : null; })(),
                 ]} />
                 <Callout kind="next" items={[
                   (() => { const w = [...a.skills].filter((k) => k.accuracy !== null).sort((x, y) => (x.accuracy ?? 0) - (y.accuracy ?? 0))[0]; return w && (w.accuracy ?? 100) < 60 ? <>{t("Reteach")} <b>{w.name}</b> ({w.accuracy}%)</> : null; })(),
@@ -86,8 +89,8 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
               {a.skills.length > 0 && (
                 <ReportSection title="Skills practised" icon="🧩">
                   <ReportTable label="Skills practised"
-                    cols={[{ key: "s", label: "Skill" }, { key: "q", label: "Questions", num: true }, { key: "st", label: "Students", num: true }, { key: "m", label: "Time", num: true }, { key: "acc", label: "Accuracy", num: true }]}
-                    rows={a.skills.map((k) => ({ id: k.skillId, flag: k.accuracy !== null && k.accuracy < 60 ? "bad" : undefined, sort: { m: k.minutes, acc: k.accuracy }, cells: { s: k.name, q: k.questions, st: k.students, m: `${k.minutes} min`, acc: <span className={`font-semibold ${k.accuracy !== null && k.accuracy < 60 ? "text-red-700" : "text-emerald-700"}`}>{k.accuracy !== null && k.accuracy < 60 ? "! " : ""}{k.accuracy ?? "—"}%</span> } }))} />
+                    cols={[{ key: "s", label: "Skill" }, { key: "q", label: "Questions", num: true }, { key: "st", label: "Students", num: true }, { key: "m", label: "Time", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "ef", label: "Effort", num: true }]}
+                    rows={a.skills.map((k) => ({ id: k.skillId, flag: k.accuracy !== null && k.accuracy < 60 ? "bad" : undefined, sort: { m: k.minutes, acc: k.accuracy, ef: k.effort }, cells: { s: k.name, q: k.questions, st: k.students, m: `${k.minutes} min`, acc: <span className={`font-semibold ${k.accuracy !== null && k.accuracy < 60 ? "text-red-700" : "text-emerald-700"}`}>{k.accuracy !== null && k.accuracy < 60 ? "! " : ""}{k.accuracy ?? "—"}%</span>, ef: <span className={k.effort !== null && k.effort < 80 ? "font-semibold text-amber-700" : "text-slate-700"}>{k.effort ?? "—"}%</span> } }))} />
                 </ReportSection>
               )}
               <section className="rk-section mb-5 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6">
@@ -97,7 +100,7 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
                     <details open={Boolean(one)} className="group py-2">
                       <summary className="flex cursor-pointer list-none flex-wrap items-center justify-between gap-2">
                         <span className="font-semibold text-brand-navy"><bdi>{x.name}</bdi>{!one && <Link href={q({ student: x.id })} className="ms-2 text-xs font-normal text-brand-teal underline">open</Link>}</span>
-                        <span className="flex flex-wrap gap-3 text-sm tabular-nums text-slate-600"><span>{x.questions} q</span><span>{x.minutes} min</span><span>{x.accuracy ?? "—"}%</span><span>{x.skills} skills</span><span>{x.proficient} proficient</span><span>{x.mastered} mastered</span><span>{x.schoolPct !== null ? `${x.schoolPct}% at school` : ""}</span><span className="text-slate-400">{x.lastActive ?? "not active"}</span></span>
+                        <span className="flex flex-wrap gap-3 text-sm tabular-nums text-slate-600"><span>{x.questions} q</span><span>{x.minutes} min</span><span>{x.accuracy ?? "—"}%</span><span className={x.effort !== null && x.effort < 80 ? "font-semibold text-amber-700" : ""}>{t("Effort")} {x.effort ?? "—"}%</span>{x.unreliable > 0 && <span className="rounded-full bg-amber-100 px-2 text-xs font-semibold text-amber-900">{t("{n} unreliable", { n: x.unreliable })}</span>}<span>{x.skills} skills</span><span>{x.proficient} proficient</span><span>{x.mastered} mastered</span><span>{x.schoolPct !== null ? `${x.schoolPct}% at school` : ""}</span><span className="text-slate-400">{x.lastActive ?? "not active"}</span></span>
                       </summary>
                       {x.detail.length > 0 && (
                         <div className="rk-box mt-2"><table className="w-full text-sm"><thead><tr className="text-left text-xs text-slate-500"><th className="py-1">Skill</th><th>Questions</th><th>Time</th><th>Accuracy</th><th>Change (first → last answers)</th><th>Mastery now</th></tr></thead>
@@ -108,6 +111,14 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
                   </li>
                 ))}</ul>
               </section>
+              {one && a.sessions.length > 0 && (
+                <ReportSection title="Sessions and effort" icon="🧠">
+                  <p className="mb-2 text-sm text-slate-600">{t("Effort = answers given with care. Over 20% fast guesses makes a session Unreliable: it does not change the student's level, tier or plan.")}</p>
+                  <ReportTable label="Sessions and effort"
+                    cols={[{ key: "d", label: "Day" }, { key: "s", label: "Skill" }, { key: "n", label: "Answers", num: true }, { key: "e", label: "Effort", num: true }]}
+                    rows={a.sessions.map((x) => ({ id: x.id, flag: x.unreliable ? "bad" : undefined, sort: { n: x.answers, e: x.effort }, cells: { d: x.day, s: x.skill, n: x.answers, e: <span className={x.unreliable ? "font-semibold text-amber-800" : "text-slate-700"}>{x.effort ?? "—"}%{x.unreliable ? ` · ${t("Unreliable")}` : ""}</span> } }))} />
+                </ReportSection>
+              )}
               {a.trouble.length > 0 && (
                 <section className="rk-callout mt-5 rounded-3xl bg-amber-50 p-5 ring-1 ring-amber-200">
                   <h2 className="font-bold text-amber-950">🚧 Trouble spots · questions most students missed</h2>

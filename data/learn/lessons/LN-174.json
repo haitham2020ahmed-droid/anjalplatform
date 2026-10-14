@@ -1,0 +1,490 @@
+{
+ "code": "LN-174",
+ "title": "Why events happen in a story",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.3",
+  "RL.4.3",
+  "RL.6.3"
+ ],
+ "families": [
+  "cause-effect"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0282",
+  "R-0466",
+  "R-0650",
+  "R-0840"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Why did it happen?",
+     "text": "In a story, things happen for a **reason**.\n\nThe **cause** is **why** something happens. The **effect** is **what** happens."
+    },
+    {
+     "title": "Cause and effect",
+     "text": "Ali forgot his hat, **so** his head got hot.\n\nCause: **Ali forgot his hat.**\nEffect: **His head got hot.**"
+    },
+    {
+     "title": "Clue words",
+     "text": "These words often point to a cause:\n\n**because**, **so**, **since**.\n\nTo find a cause, ask: **Why did this happen?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the question. What **happened**?\n2. Look **before** it in the story.\n3. Find the sentence that tells **why**.\n\nThat sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Laila went away for a week.",
+      "role": "detail"
+     },
+     {
+      "t": "No one watered her plants.",
+      "role": "key"
+     },
+     {
+      "t": "When she came home, the leaves were brown and dry.",
+      "role": "main"
+     }
+    ],
+    "explain": "What happened? **The leaves were brown and dry.**\n\nWhy? **No one watered her plants.** That is the cause."
+   },
+   "together": {
+    "passage": "Omar ran to the car with his ice cream. He was running too fast. He tripped on a rock. His ice cream fell on the ground. Omar felt very sad.",
+    "stem": "Why did Omar's ice cream fall?",
+    "options": [
+     "He tripped on a rock while running.",
+     "He gave it to his little sister.",
+     "It was too hot to hold.",
+     "A bird flew down and took it."
+    ],
+    "answer": 0,
+    "hint": "Does the story say that? Look at what happened just BEFORE the ice cream fell.",
+    "good": "Yes! He ran too fast and tripped on a rock. That is why the ice cream fell."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar ran to the car with his ice cream.",
+     "He was running too fast.",
+     "He tripped on a rock.",
+     "His ice cream fell on the ground.",
+     "Omar felt very sad."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: he tripped on a rock while running. Tap the 2 sentences that tell why the ice cream fell.",
+    "wrong": "This sentence does not tell WHY the ice cream fell. Look just before it fell."
+   },
+   "checks": [
+    {
+     "passage": "It rained all night. In the morning, the streets were full of water. The children could not walk to school, so their fathers drove them.",
+     "stem": "Why did the fathers drive the children to school?",
+     "options": [
+      "The cars were new.",
+      "The school was far away.",
+      "The streets were full of water.",
+      "The children were late."
+     ],
+     "answer": 2,
+     "why": "The streets were full of water, so the children could not walk."
+    },
+    {
+     "passage": "Noor's kite got stuck in a tree because the wind was too strong. Her brother climbed up and got it down.",
+     "stem": "Why did the kite get stuck?",
+     "options": [
+      "Noor threw it.",
+      "Her brother climbed the tree.",
+      "The kite was broken.",
+      "The wind was too strong."
+     ],
+     "answer": 3,
+     "why": "The clue word 'because' tells the cause: the wind was too strong."
+    },
+    {
+     "passage": "Sami's baby sister was sleeping. Sami spoke very quietly. He did not want to wake her.",
+     "stem": "Why did Sami speak quietly?",
+     "options": [
+      "He had a sore throat.",
+      "He did not want to wake his sister.",
+      "He was in the library.",
+      "He was sad."
+     ],
+     "answer": 1,
+     "why": "The story tells us: he did not want to wake his sleeping sister."
+    }
+   ],
+   "again": {
+    "title": "Ask 'Why?'",
+    "text": "Point to the thing that happened. Then ask **Why?**\n\nLook back in the story for the answer. It often comes **just before**.",
+    "example": "The cat ran up the tree. A big dog was barking at it.\n\nWhat happened? The cat ran up the tree. **Why?** A dog was barking at it. That is the cause."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Causes in stories",
+     "text": "Every event in a story has a **cause**: the reason it happens.\n\nFinding causes helps you understand **why characters act** the way they do."
+    },
+    {
+     "title": "No clue word?",
+     "text": "Sometimes the author does **not** write 'because'. The cause is in a **different sentence**.\n\nAsk: what happened **earlier** that led to this event?"
+    },
+    {
+     "title": "Steps to find the cause",
+     "text": "1. Find the **event** in the question.\n2. Read the sentences **before** it.\n3. Ask: did this **make** the event happen?\n4. Test it: '**Because** ..., the event happened.' Does it make sense?"
+    },
+    {
+     "title": "Cause or effect?",
+     "text": "Be careful! Some answers tell what happened **after** the event. That is an **effect**, not a cause.\n\nA cause always comes **first**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use the **because test**.\n\n1. Pick the sentence you think is the cause.\n2. Say: '**Because** [that sentence], [the event] happened.'\n3. If it makes sense and the text supports it, you have your proof.\n\nIf the sentence happens **after** the event, it cannot be the cause."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bilal's new shoes were too big.",
+      "role": "key"
+     },
+     {
+      "t": "They slipped off his heels with every step.",
+      "role": "key"
+     },
+     {
+      "t": "During the race, he fell behind all the other runners.",
+      "role": "main"
+     },
+     {
+      "t": "After the race, his mother took the shoes back to the shop.",
+      "role": "other"
+     }
+    ],
+    "explain": "Event: **Bilal fell behind in the race.**\n\nBecause test: '**Because** his shoes were too big and slipped off, he fell behind.' ✓\n\nThe last sentence happens **after** the race, so it is an effect, not a cause."
+   },
+   "together": {
+    "passage": "The class had planned a picnic in the park for weeks. On Thursday morning, Ms. Aisha looked out of the window and frowned. Dark clouds covered the sky, and the wind was bending the palm trees. Thunder rumbled far away. She told the class they would eat their picnic lunch on the classroom floor instead. The students spread blankets between the desks and laughed.",
+    "stem": "Why did the class have their picnic in the classroom?",
+    "options": [
+     "The park was closed for repairs.",
+     "The students wanted to stay near their desks.",
+     "Ms. Aisha forgot the picnic blankets.",
+     "A storm was coming."
+    ],
+    "answer": 3,
+    "hint": "Does the story say that? Look at what Ms. Aisha saw out of the window.",
+    "good": "Yes! Dark clouds, strong wind and thunder showed a storm was coming, so the picnic moved inside."
+   },
+   "evidence": {
+    "sentences": [
+     "The class had planned a picnic in the park for weeks.",
+     "On Thursday morning, Ms. Aisha looked out of the window and frowned.",
+     "Dark clouds covered the sky, and the wind was bending the palm trees.",
+     "Thunder rumbled far away.",
+     "She told the class they would eat their picnic lunch on the classroom floor instead.",
+     "The students spread blankets between the desks and laughed."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a storm was coming. Tap the 2 sentences that show the cause.",
+    "wrong": "This sentence does not show a storm. Find the sentences about the sky, wind and thunder."
+   },
+   "checks": [
+    {
+     "passage": "Hamza saved his pocket money for three months. He wanted to buy a telescope to look at the moon. When he finally bought it, he stayed up late every night watching the sky.",
+     "stem": "Why did Hamza save his money?",
+     "options": [
+      "He wanted to buy a telescope.",
+      "His father told him to save it.",
+      "He wanted to stay up late at night.",
+      "He needed a new bicycle."
+     ],
+     "answer": 0,
+     "why": "He saved because he wanted a telescope. Staying up late happened AFTER he bought it, so it is an effect."
+    },
+    {
+     "passage": "Rana's team lost the quiz. They knew all the science and history answers. But the last round was about sports, and no one on the team followed sports. They scored zero in that round.",
+     "stem": "Why did Rana's team lose the quiz?",
+     "options": [
+      "They did not know the science answers.",
+      "They scored zero in the sports round.",
+      "Rana arrived late to the quiz.",
+      "The other team asked easier questions."
+     ],
+     "answer": 1,
+     "why": "They knew science and history, but they knew nothing about sports and scored zero in that round."
+    },
+    {
+     "passage": "Majed's grandmother lives alone in a village. Last week she fell and hurt her ankle. Now Majed's family drives to the village every afternoon to cook her dinner.",
+     "stem": "Why does Majed's family drive to the village every afternoon?",
+     "options": [
+      "They like the food in the village.",
+      "Majed's grandmother is a famous cook.",
+      "His grandmother hurt her ankle and needs help.",
+      "They are moving to the village soon."
+     ],
+     "answer": 2,
+     "why": "Because she hurt her ankle, she needs help, so the family comes to cook for her."
+    }
+   ],
+   "again": {
+    "title": "Draw an arrow",
+    "text": "Write the event on the **right** side of a page.\n\nLook back in the story. Write what came **before** on the **left**. Draw an arrow → from left to right.\n\nIf the left side **made** the right side happen, it is the cause.",
+    "example": "The bread burned → ? No. Try again:\n\n**Mona fell asleep on the sofa** → **the bread burned in the oven.**\n\nFalling asleep made the bread burn. That is the cause."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Causes you must infer",
+     "text": "In many stories, the author does **not** state the cause. You must **infer** it.\n\nCombine clues from the text with what you know about people, then decide **why** something happened."
+    },
+    {
+     "title": "Feelings and goals as causes",
+     "text": "A character's **feelings** (fear, pride, kindness) and **goals** (what they want) often cause their actions.\n\nAsk: **What does this character want or feel?** How does that explain what they do?"
+    },
+    {
+     "title": "Look far back",
+     "text": "A cause may be **many sentences** before the event, or even revealed **after** it, when the author finally explains.\n\nRead the whole passage before you decide."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "An inferred cause still needs **evidence**.\n\n1. Find the event in the question.\n2. Find **clues** about the character's feelings, goals or situation.\n3. Choose the cause those clues support.\n\nIf an answer sounds possible but **no clue** in the text supports it, reject it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ibrahim walked past the bakery three times before he went in.",
+      "role": "main"
+     },
+     {
+      "t": "Inside, he counted the coins in his pocket twice.",
+      "role": "key"
+     },
+     {
+      "t": "He pointed to the smallest cake and asked the price in a quiet voice.",
+      "role": "key"
+     },
+     {
+      "t": "Tomorrow was his mother's birthday.",
+      "role": "key"
+     }
+    ],
+    "explain": "Why did Ibrahim walk past three times? The author does not say.\n\nClues: he counts his coins twice, asks the price quietly, and it is his mother's birthday. **Inference**: he wants to buy her a cake but worries he cannot afford it."
+   },
+   "together": {
+    "passage": "Every afternoon, Basil rushed home from school, grabbed a bag of bread and disappeared toward the old wadi. His mother noticed that the bread kept vanishing, but Basil never explained. One Friday, his little sister followed him. Behind a large rock, she found a thin, sand-coloured dog with three puppies curled against her. Basil was breaking the bread into small pieces and setting down a bowl of water. When he saw his sister, he held a finger to his lips. 'Their mother was hurt by a car,' he whispered. 'She can't hunt yet.'",
+    "stem": "Why does Basil take bread to the wadi every afternoon?",
+    "options": [
+     "He likes to eat his lunch alone in the wadi.",
+     "His mother asked him to feed the birds there.",
+     "He is feeding a hurt dog and her puppies.",
+     "He wants to hide the bread from his sister."
+    ],
+    "answer": 2,
+    "hint": "Is there a clue for that in the story? Read what his sister finds behind the rock and what Basil whispers.",
+    "good": "Yes! The mother dog was hurt and cannot hunt, so Basil feeds her and the puppies."
+   },
+   "evidence": {
+    "sentences": [
+     "Every afternoon, Basil rushed home from school, grabbed a bag of bread and disappeared toward the old wadi.",
+     "His mother noticed that the bread kept vanishing, but Basil never explained.",
+     "One Friday, his little sister followed him.",
+     "Behind a large rock, she found a thin, sand-coloured dog with three puppies curled against her.",
+     "Basil was breaking the bread into small pieces and setting down a bowl of water.",
+     "When he saw his sister, he held a finger to his lips.",
+     "'Their mother was hurt by a car,' he whispered.",
+     "'She can't hunt yet.'"
+    ],
+    "proof": [
+     3,
+     4,
+     6,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: he is feeding a hurt dog and her puppies. Tap 2 sentences that prove the cause.",
+    "wrong": "This sentence shows what Basil does or who follows him, not WHY. Find the dog, the feeding, or what Basil whispers."
+   },
+   "checks": [
+    {
+     "passage": "Lama practised the long jump every morning before school. Last year she had finished last at sports day, and some students had laughed. This year she was the first one at the field every day.",
+     "stem": "What most likely causes Lama to practise so hard this year?",
+     "options": [
+      "Her coach makes everyone practise early.",
+      "She wants to do better than last year.",
+      "She enjoys being alone at the field.",
+      "Sports day has been cancelled this year."
+     ],
+     "answer": 1,
+     "why": "She finished last and was laughed at last year. That memory drives her to improve."
+    },
+    {
+     "passage": "The village had always been quiet, but this year its streets were full of visitors. A new road now connected it to the city, cutting the trip from four hours to one. Families came on weekends to see the old mud houses and buy honey from local farms.",
+     "stem": "What caused the change in the village?",
+     "options": [
+      "A new road made it much quicker to reach.",
+      "The farmers began selling honey this year.",
+      "The old mud houses were built this year.",
+      "The villagers all moved away to the city."
+     ],
+     "answer": 0,
+     "why": "The new road cut the trip from four hours to one, so many more visitors could come."
+    },
+    {
+     "passage": "When the teacher announced the class trip to the museum, everyone cheered except Yazan. He stared at his desk. That morning, his father had said that money was tight this month because the car needed expensive repairs. The trip cost fifty riyals for the bus.",
+     "stem": "Why doesn't Yazan cheer?",
+     "options": [
+      "He has visited the museum before.",
+      "He does not like his classmates.",
+      "He feels sick that morning.",
+      "He worries his family cannot pay right now."
+     ],
+     "answer": 3,
+     "why": "Money is tight because of the car repairs, and the trip costs fifty riyals. Yazan is worried about asking his family for it."
+    }
+   ],
+   "again": {
+    "title": "Be a detective",
+    "text": "A detective asks: **What made this happen?**\n\n1. Write the event.\n2. List every clue about the character: what they **feel**, **want** and **have**.\n3. Choose the cause that fits **all** the clues.",
+    "example": "Event: Sultan gave his lunch to the new boy.\nClues: the new boy had no lunch box; Sultan remembered his own first day.\n\nCause: **Sultan understood how the new boy felt and wanted to help.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Chains of causes",
+     "text": "In longer stories, one event causes another, which causes another. This is a **chain** of causes.\n\nTo understand the ending, trace the chain **back** to where it began."
+    },
+    {
+     "title": "Immediate and deeper causes",
+     "text": "The **immediate cause** is what happens just before an event.\n\nThe **deeper (underlying) cause** is the reason behind it, often a character's **trait**, belief or situation.\n\nExample: a boy misses the bus (immediate: he left late). Deeper cause: he stayed up all night playing games."
+    },
+    {
+     "title": "Analysing causes",
+     "text": "1. Name the event.\n2. Find the immediate cause.\n3. Ask **why** again: what caused **that**?\n4. Keep asking until you reach the root, often something about the character."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For a deeper cause, gather evidence from **across** the passage.\n\n1. Find the character's attitude or trait **early** in the story.\n2. Find where that trait leads to a **choice**.\n3. Find where the choice leads to the **event**.\n\nAn answer that names only one small step, or something the text never shows, is not the deeper cause."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nawaf never wrote anything down; he trusted his memory.",
+      "role": "key"
+     },
+     {
+      "t": "When his teacher changed the project deadline to Sunday, he nodded and kept talking to his friend.",
+      "role": "key"
+     },
+     {
+      "t": "On Sunday, he came to class without his project.",
+      "role": "main"
+     },
+     {
+      "t": "He had been sure it was due on Tuesday.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Immediate cause: he thought the deadline was Tuesday.\n\nAsk **why** again: he did not write the new date down and was not listening. Deeper cause: **his habit of trusting his memory instead of writing things down.**"
+   },
+   "together": {
+    "passage": "Khaled had always been the best footballer in his neighbourhood, and he knew it. When the school coach called a meeting before the final, Khaled arrived ten minutes late and leaned against the wall. The coach explained a new plan: the team would pass more and shoot only from close range. Khaled rolled his eyes. He had scored most of the team's goals that season by shooting from far away, and he did not see why he should change. In the final, he ignored the plan twice and shot from the middle of the field. Both shots went wide, and each time the other team raced forward and scored. Early in the second half, the coach replaced him with Tamer, a younger boy who passed carefully. The team fought back to draw level but lost on penalties. On the bus home, Khaled sat alone and stared out of the window.",
+    "stem": "What is the deeper cause of Khaled being taken off the field?",
+    "options": [
+     "Tamer was a faster runner than Khaled.",
+     "His pride made him ignore the coach's plan.",
+     "The other team had a much stronger goalkeeper.",
+     "He arrived ten minutes late to the meeting."
+    ],
+    "answer": 1,
+    "hint": "That is a small step or is not in the text. Ask WHY Khaled made the choices he made in the final.",
+    "good": "Yes! Khaled's pride ('he knew it', rolling his eyes) led him to ignore the plan, his shots led to goals for the other team, and so he was replaced."
+   },
+   "evidence": {
+    "sentences": [
+     "Khaled had always been the best footballer in his neighbourhood, and he knew it.",
+     "When the school coach called a meeting before the final, Khaled arrived ten minutes late and leaned against the wall.",
+     "The coach explained a new plan: the team would pass more and shoot only from close range.",
+     "Khaled rolled his eyes.",
+     "He had scored most of the team's goals that season by shooting from far away, and he did not see why he should change.",
+     "In the final, he ignored the plan twice and shot from the middle of the field.",
+     "Both shots went wide, and each time the other team raced forward and scored.",
+     "Early in the second half, the coach replaced him with Tamer, a younger boy who passed carefully.",
+     "The team fought back to draw level but lost on penalties.",
+     "On the bus home, Khaled sat alone and stared out of the window."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: his pride made him ignore the coach's plan. Tap 2 sentences that show his pride or his choice to ignore the plan.",
+    "wrong": "This sentence shows the plan or a result. Find sentences that show Khaled's pride or how he acted on it."
+   },
+   "checks": [
+    {
+     "passage": "The well in the village dried up during a long drought. Without water, the farmers could not irrigate their date palms, and the harvest failed. Many young people left to find jobs in the city. By the time the rains returned, half the houses stood empty.",
+     "stem": "What was the first cause in the chain of events that emptied the houses?",
+     "options": [
+      "Young people found jobs in the city.",
+      "The date harvest failed.",
+      "The rains returned to the village.",
+      "A long drought dried up the well."
+     ],
+     "answer": 3,
+     "why": "Drought → no water → failed harvest → young people left → empty houses. The drought started the chain."
+    },
+    {
+     "passage": "Rahaf snapped at her brother when he asked to borrow her pencils. A moment later she apologised, surprised at herself. She had been awake late every night that week finishing a project, worrying that it would not be good enough.",
+     "stem": "What is the main underlying cause of Rahaf's sharp reply?",
+     "options": [
+      "Her brother always loses her pencils.",
+      "She does not really like her brother.",
+      "She is tired and stressed by her project.",
+      "She needed the pencils at that moment."
+     ],
+     "answer": 2,
+     "why": "Late nights and worry have left her tired and stressed. The text never says her brother loses pencils or that she needed them."
+    },
+    {
+     "passage": "Old Abu Fahd shouted at the boys every time their ball landed in his yard. The boys thought he simply disliked children. One day, Abu Fahd's grandson explained that his grandfather's roses had taken twenty years to grow, and that the ball had broken three bushes that spring. The next day, the boys moved their game to the empty lot down the street.",
+     "stem": "Why did the boys move their game?",
+     "options": [
+      "They learned why Abu Fahd protected his garden.",
+      "Abu Fahd took their ball and kept it.",
+      "Their ball had broken during the game.",
+      "The empty lot was closer to their homes."
+     ],
+     "answer": 0,
+     "why": "Once the grandson explained about the precious roses, the boys understood the shouting and moved their game to protect the garden."
+    }
+   ],
+   "again": {
+    "title": "Ask 'why' three times",
+    "text": "Start with the event and ask **Why?** Then ask **Why?** about your answer. Then once more.\n\nThe first answer is the immediate cause. The last one is usually the **deeper** cause.",
+    "example": "Khaled was replaced. **Why?** The other team scored after his shots.\n**Why?** He shot from far away against the plan.\n**Why?** He was too proud to change.\n\nDeeper cause: **pride**."
+   }
+  }
+ }
+}

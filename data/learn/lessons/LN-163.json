@@ -1,0 +1,480 @@
+{
+ "code": "LN-163",
+ "title": "How characters change",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.3",
+  "RL.4.3",
+  "RL.5.2",
+  "RL.5.3",
+  "RL.6.3",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "character"
+ ],
+ "skillNames": [
+  "Character Traits & Development"
+ ],
+ "statements": [
+  "R-0169",
+  "R-0288",
+  "R-0301",
+  "R-0455",
+  "R-0476",
+  "R-0643",
+  "R-0844",
+  "R-0999"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Characters can change",
+     "text": "At the start of a story, a character feels or acts one way.\n\nBy the end, the character may feel or act in a **new** way."
+    },
+    {
+     "title": "Start and end",
+     "text": "Look at the character at the **start**.\n\nLook at the character at the **end**.\n\nWhat is **different**? That is the change."
+    },
+    {
+     "title": "Why do they change?",
+     "text": "Something **happens** to the character. It helps them learn or grow.\n\nAsk: **What made them change?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find **two** sentences:\n\n1. One that shows the character at the **start**.\n2. One that shows the character at the **end**.\n\nTogether they prove the change."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At first, Dana was scared of the big slide.",
+      "role": "key"
+     },
+     {
+      "t": "Her brother held her hand on the first try.",
+      "role": "detail"
+     },
+     {
+      "t": "Now Dana goes down the slide again and again.",
+      "role": "key"
+     }
+    ],
+    "explain": "Start: Dana is **scared**.\n\nEnd: Dana goes down **again and again**.\n\nShe changed from scared to brave. Her brother's help made her change."
+   },
+   "together": {
+    "passage": "On his first day, Zaid did not talk to anyone. A boy asked him to play ball. Now Zaid plays with five friends every day.",
+    "stem": "How does Zaid change?",
+    "options": [
+     "He gets a new bike.",
+     "He stops liking cats.",
+     "He goes from shy to friendly.",
+     "He goes from happy to sad."
+    ],
+    "answer": 2,
+    "hint": "Look at Zaid at the start and at the end. How is he different?",
+    "good": "Yes! At first Zaid did not talk to anyone. At the end, he plays with new friends."
+   },
+   "evidence": {
+    "sentences": [
+     "On his first day, Zaid did not talk to anyone.",
+     "A boy asked him to play ball.",
+     "Now Zaid plays with five friends every day."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Zaid goes from shy to friendly. Tap the start sentence and the end sentence.",
+    "wrong": "This sentence shows what made Zaid change. Find how he was at the start and how he is at the end."
+   },
+   "checks": [
+    {
+     "passage": "Hala did not like carrots. Grandma made carrot soup. Hala tried it. Now she asks for carrot soup.",
+     "stem": "How does Hala change?",
+     "options": [
+      "She starts to like carrots.",
+      "She stops eating soup.",
+      "She learns to cook.",
+      "She gets sick."
+     ],
+     "answer": 0,
+     "why": "At first Hala did not like carrots. At the end, she asks for carrot soup."
+    },
+    {
+     "passage": "Ali could not swim. He went to swim class every week. He tried hard. Now Ali can swim across the pool.",
+     "stem": "What helped Ali change?",
+     "options": [
+      "He got a new swimsuit.",
+      "He watched TV.",
+      "He stayed at home.",
+      "He went to class and tried hard."
+     ],
+     "answer": 3,
+     "why": "Going to class every week and trying hard helped Ali learn to swim."
+    },
+    {
+     "passage": "Rana always grabbed the best toys. One day, no one wanted to play with her. The next day, she shared her blocks.",
+     "stem": "How is Rana different at the end?",
+     "options": [
+      "She grabs more toys.",
+      "She shares with others.",
+      "She plays alone.",
+      "She buys new blocks."
+     ],
+     "answer": 1,
+     "why": "At first Rana grabbed toys. At the end, she shares her blocks."
+    }
+   ],
+   "again": {
+    "title": "Was, now",
+    "text": "Say two short sentences:\n\n**At first, the character was** ...\n**Now, the character is** ...\n\nThe change is the difference.",
+    "example": "At first, Sami was messy. Now, Sami keeps his room clean. Change: messy to tidy."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Challenges shape characters",
+     "text": "In most stories, a character faces a **challenge**: a problem, a fear or a hard choice.\n\nThe challenge affects what the character **thinks** and **does**."
+    },
+    {
+     "title": "Thoughts and actions",
+     "text": "Notice how the challenge changes the character's:\n\n1. **Thoughts:** what they worry about or decide\n2. **Actions:** what they do differently\n3. **Feelings:** how they feel at the end"
+    },
+    {
+     "title": "Cause and change",
+     "text": "Link the **challenge** to the **change**.\n\nBecause Nada failed her first test, she **started** a study plan. The challenge **caused** the change."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **challenge** the character faces.\n2. Find what the character **thinks or does** because of it.\n3. Choose the answer that links the two.\n\nWrong answers often describe something that happened **before** the challenge."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Faisal loved playing games late into the night.",
+      "role": "detail"
+     },
+     {
+      "t": "One morning, he was so tired that he fell asleep in class and missed the instructions for an important project.",
+      "role": "detail"
+     },
+     {
+      "t": "His group had to wait for him to catch up.",
+      "role": "detail"
+     },
+     {
+      "t": "That evening, Faisal turned off his game at nine and set his alarm.",
+      "role": "key"
+     }
+    ],
+    "explain": "Challenge: he falls asleep and lets his group down.\n\nChange in action: he **turns off his game at nine**. The challenge made him rethink his habits."
+   },
+   "together": {
+    "passage": "Lina was proud to be chosen to play the oud at the school concert. But at the first practice, her fingers slipped, and she played three wrong notes in front of everyone. Some students giggled, and her face turned red. That night she thought about giving up. Instead, the next day she asked her music teacher to help her practise every afternoon until the concert.",
+    "stem": "How does the challenge change Lina's actions?",
+    "options": [
+     "She stops playing the oud for good.",
+     "She starts practising with her teacher every day.",
+     "She asks another girl to play for her.",
+     "She decides the concert is not important."
+    ],
+    "answer": 1,
+    "hint": "Look at what Lina does after she makes mistakes at the practice.",
+    "good": "Yes! After her mistakes, Lina decides to practise every afternoon with her teacher."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina was proud to be chosen to play the oud at the school concert.",
+     "But at the first practice, her fingers slipped, and she played three wrong notes in front of everyone.",
+     "Some students giggled, and her face turned red.",
+     "That night she thought about giving up.",
+     "Instead, the next day she asked her music teacher to help her practise every afternoon until the concert."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: she starts practising with her teacher every day. Tap the sentence that shows this change.",
+    "wrong": "This sentence shows the challenge or how Lina felt. Find what she DOES because of the challenge."
+   },
+   "checks": [
+    {
+     "passage": "Majed always said he did not need help with anything. When he tried to build a bookshelf alone, it fell over twice. Finally, he called his older brother. As they worked together, Majed said, \"Two pairs of hands really are better than one.\"",
+     "stem": "How does the challenge change Majed's thinking?",
+     "options": [
+      "He thinks bookshelves are useless.",
+      "He decides never to build again.",
+      "He learns that asking for help can be good.",
+      "He thinks his brother is not helpful."
+     ],
+     "answer": 2,
+     "why": "After the shelf fell twice, he called his brother and said two pairs of hands are better."
+    },
+    {
+     "passage": "When the family's car broke down far from home, Asma was frightened. She watched her father calmly call for help and share water with everyone. On the next trip, Asma packed a bag with water, snacks and a torch, just in case.",
+     "stem": "What does Asma do because of the challenge?",
+     "options": [
+      "She prepares a bag for the next trip.",
+      "She refuses to travel again.",
+      "She learns how to fix cars.",
+      "She asks to sit in the front seat."
+     ],
+     "answer": 0,
+     "why": "After the breakdown, Asma packs water, snacks and a torch for the next trip."
+    },
+    {
+     "passage": "Turki laughed at the new boy's accent. Then Turki's family moved to another country. At his new school, nobody understood his English, and some children laughed at him. When a new girl joined his class, Turki was the first to welcome her.",
+     "stem": "How does Turki change?",
+     "options": [
+      "He stops going to school.",
+      "He starts to laugh at more students.",
+      "He forgets how to speak English.",
+      "He becomes kinder to new students."
+     ],
+     "answer": 3,
+     "why": "Being laughed at himself changed Turki. At the end he is the first to welcome a new girl."
+    }
+   ],
+   "again": {
+    "title": "Problem, then choice",
+    "text": "1. What **problem** does the character face?\n2. What **choice** do they make because of it?\n\nThe choice shows how the problem changed them.",
+    "example": "Problem: Mona's plant died because she forgot to water it.\n\nChoice: She made a watering chart and stuck it on the fridge.\n\nChange: she became more **responsible**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "How authors develop characters",
+     "text": "Authors develop characters through what they **say**, **do**, **think** and how **others react** to them.\n\nOver the story, these details can show a character **growing** or **changing**."
+    },
+    {
+     "title": "Inner change",
+     "text": "Sometimes the change is **inside**: a new belief, a new feeling, a new way of seeing others.\n\nThe author may not say \"she changed.\" You must **infer** it by comparing the beginning and the end."
+    },
+    {
+     "title": "Turning points",
+     "text": "Look for a **turning point**: an event that makes the character see things differently.\n\nAsk: What did they believe **before** it? What do they believe **after**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a change:\n\n1. Find a detail that shows the character **before**.\n2. Find the **turning point**.\n3. Find a detail that shows the character **after**.\n\nThe best answer is supported by both the beginning and the end."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda thought her grandfather's stories about the old days were boring and always left the room when he began one.",
+      "role": "key"
+     },
+     {
+      "t": "For a school project, she had to interview an older person about the past.",
+      "role": "detail"
+     },
+     {
+      "t": "As her grandfather described pearl diving in the Gulf, she filled six pages with notes.",
+      "role": "detail"
+     },
+     {
+      "t": "Now, every Friday, she sits beside him and asks, \"Tell me another one.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "Before: Huda finds the stories **boring**. Turning point: the **interview**.\n\nAfter: she **asks for more stories**. She has come to value her grandfather's memories."
+   },
+   "together": {
+    "passage": "Bader cared about one thing on the football pitch: scoring as many goals as possible. When his coach asked him to help train the younger team for a month, he groaned. At first he only showed off his tricks, but the little ones kept missing the ball. Slowly, he began breaking each skill into small steps and cheering every small success. On the last day, when a shy eight-year-old scored her first goal, Bader shouted louder than he ever had for his own.",
+    "stem": "How does Bader change over the course of the story?",
+    "options": [
+     "He becomes more interested in scoring goals.",
+     "He learns that he is the best player on the team.",
+     "He decides that coaching is too difficult for him.",
+     "He changes from caring only about himself to caring about the younger players."
+    ],
+    "answer": 3,
+    "hint": "Compare what Bader cares about at the beginning with what makes him proud at the end.",
+    "good": "Yes! At first he cared only about his goals. By the end he is proud of the young players' progress."
+   },
+   "evidence": {
+    "sentences": [
+     "Bader cared about one thing on the football pitch: scoring as many goals as possible.",
+     "When his coach asked him to help train the younger team for a month, he groaned.",
+     "At first he only showed off his tricks, but the little ones kept missing the ball.",
+     "Slowly, he began breaking each skill into small steps and cheering every small success.",
+     "On the last day, when a shy eight-year-old scored her first goal, Bader shouted louder than he ever had for his own."
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Bader changes from caring only about himself to caring about others. Tap the sentence that shows him before and the one that shows him after.",
+    "wrong": "This sentence shows a step in the middle of the story. Find how Bader is at the very beginning and at the very end."
+   },
+   "checks": [
+    {
+     "passage": "Rania believed that winning the spelling contest would make her happy. She studied alone and refused to help her friend Yasmin. When Rania won, she looked around for someone to celebrate with, but Yasmin had already gone home. The next week, Rania offered to quiz Yasmin before her history test.",
+     "stem": "What does Rania's offer at the end show?",
+     "options": [
+      "She wants to win another contest.",
+      "She now values friendship more than winning alone.",
+      "She is worried about her history test.",
+      "She thinks Yasmin is a better speller."
+     ],
+     "answer": 1,
+     "why": "Winning alone left her with no one to celebrate. Offering to help Yasmin shows she now values friendship."
+    },
+    {
+     "passage": "Ahmed was afraid of the dark and slept with a light on. During a camping trip, his group's torch broke. His little cousin began to cry, and Ahmed found himself telling her the names of the stars to calm her. By the end of the night, he was pointing out stars and had forgotten to be afraid.",
+     "stem": "Which event is the turning point for Ahmed?",
+     "options": [
+      "Ahmed sleeps with a light on.",
+      "Ahmed goes camping with his group.",
+      "His cousin cries in the dark, and he comforts her.",
+      "Ahmed forgets to bring a blanket."
+     ],
+     "answer": 2,
+     "why": "Comforting his cousin in the dark is what makes Ahmed forget his own fear."
+    },
+    {
+     "passage": "At the start of the year, Salem thought reading was a waste of time. His teacher gave him a book about a boy who sailed alone across the sea. Salem read it in two days. By the end of the year, he had a library card and a list of twenty books he wanted to read.",
+     "stem": "Which detail best shows how Salem has changed?",
+     "options": [
+      "He had a library card and a list of twenty books.",
+      "He thought reading was a waste of time.",
+      "His teacher gave him a book.",
+      "The book was about a boy who sailed."
+     ],
+     "answer": 0,
+     "why": "The library card and long book list show that Salem now loves reading, unlike at the start."
+    }
+   ],
+   "again": {
+    "title": "Before, because, after",
+    "text": "Fill in this frame:\n\n**Before**, the character ...\n**Because** of ...\n**After**, the character ...",
+    "example": "Before, Nawal thought her little brother was annoying. Because of the day he got lost at the market, she realised how much she cared about him. After, she held his hand everywhere they went."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex characters",
+     "text": "Strong stories have **complex** characters. They have mixed feelings, strengths and weaknesses.\n\nTheir change may be **gradual**, built through several events, not one."
+    },
+    {
+     "title": "Showing, not telling",
+     "text": "Authors rarely announce a change. They **show** it through:\n\n1. A repeated action that is done **differently** at the end\n2. A changed **attitude** toward another character\n3. A **decision** the character would not have made earlier"
+    },
+    {
+     "title": "Why the change matters",
+     "text": "A character's change often connects to the story's **theme**.\n\nAsk: What does this change teach about people or life?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse character development:\n\n1. Describe the character's **traits** at the start, with evidence.\n2. Track the **events** that challenge those traits.\n3. Find the details at the end that show a **new** attitude.\n\nThe best answer explains **how** and **why** the character changes."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mr. Saeed had run the bakery the same way for thirty years and refused every suggestion from his daughter.",
+      "role": "key"
+     },
+     {
+      "t": "When customers began going to a new café down the street, he said they would come back.",
+      "role": "detail"
+     },
+     {
+      "t": "They did not.",
+      "role": "detail"
+     },
+     {
+      "t": "One evening, he quietly asked his daughter to show him how to take online orders.",
+      "role": "key"
+     }
+    ],
+    "explain": "At first Mr. Saeed is **stubborn**. Losing customers challenges this.\n\nThe quiet request at the end shows he is now **willing to learn**. The change is gradual and shown through a decision, not announced."
+   },
+   "together": {
+    "passage": "Noura had always thought of her mother's life as ordinary: cooking, cleaning and working long hours at the hospital. When her mother fell ill for two weeks, Noura had to run the house alone while studying for her exams. By the third night, she had burned the rice, forgotten her brother's school form and fallen asleep over her books. She began to wonder how her mother had done all of this every day without a word of complaint. When her mother came home, Noura made her tea, sat beside her and said, \"I never knew how strong you are.\"",
+    "stem": "Which statement best describes how Noura develops over the story?",
+    "options": [
+     "She learns to value her mother's quiet strength, which she once took for granted.",
+     "She decides to become a doctor like her mother.",
+     "She becomes more confident about studying at university.",
+     "She begins to feel angry that her mother works so hard."
+    ],
+    "answer": 0,
+    "hint": "Compare how Noura sees her mother at the beginning with what she does in the final sentences.",
+    "good": "Yes! At first Noura thought her mother's life was ordinary. After seeing her mother's hard work, she sees her strength."
+   },
+   "evidence": {
+    "sentences": [
+     "Noura had always thought of her mother's life as ordinary: cooking, cleaning and working long hours at the hospital.",
+     "When her mother fell ill for two weeks, Noura had to run the house alone while studying for her exams.",
+     "By the third night, she had burned the rice, forgotten her brother's school form and fallen asleep over her books.",
+     "She began to wonder how her mother had done all of this every day without a word of complaint.",
+     "When her mother came home, Noura made her tea, sat beside her and said, \"I never knew how strong you are.\""
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Noura learns to value her mother's strength. Tap 2 sentences that show her view before and after.",
+    "wrong": "This sentence shows the challenge Noura faces. Find sentences that show how she sees her mother, before or after."
+   },
+   "checks": [
+    {
+     "passage": "Talal treated the new boy, Karim, as a rival from the first day, especially when Karim joined the chess club and began winning. Talal practised harder than ever. In the regional final, the two boys sat side by side, each playing against students from other schools. When Talal lost his match, Karim, who had already won his, stayed to analyse every move with him. Talal walked home that day thinking less about who was better and more about how much he had learned.",
+     "stem": "What does the final sentence suggest about Talal's development?",
+     "options": [
+      "He is planning to beat Karim next year.",
+      "He has decided to give up chess.",
+      "He still sees Karim only as a rival.",
+      "He now values learning more than competing."
+     ],
+     "answer": 3,
+     "why": "He thinks less about who is better and more about what he learned. His attitude has shifted from rivalry to learning."
+    },
+    {
+     "passage": "Hamad was the loudest voice in every group project, and he rarely listened. During a robotics competition, the team's machine failed, and Hamad's quick plan made it worse. A quiet teammate, Ziyad, suggested a small change. With little time left, Hamad nodded and let him try. The robot worked. At the next meeting, Hamad asked Ziyad to speak first.",
+     "stem": "Which detail shows that Hamad's change is lasting, not just a single moment?",
+     "options": [
+      "The team's machine failed.",
+      "At the next meeting, he asked Ziyad to speak first.",
+      "His quick plan made it worse.",
+      "With little time left, he nodded."
+     ],
+     "answer": 1,
+     "why": "Asking Ziyad to speak first at a later meeting shows the change continues after the competition."
+    },
+    {
+     "passage": "The old fisherman, Abu Rashid, never let anyone touch his nets, not even his grandson Fahad. Every morning he mended them alone, refusing all offers of help. When his eyesight began to fail, he struggled for hours with a single knot. One morning, Fahad found the nets laid out on the step, with a second needle placed carefully beside the first.",
+     "stem": "What does the second needle suggest about Abu Rashid?",
+     "options": [
+      "He has bought new needles for his nets.",
+      "He wants Fahad to sell the nets for him.",
+      "He is silently inviting Fahad to help him.",
+      "He has decided to stop fishing for good."
+     ],
+     "answer": 2,
+     "why": "He never let anyone help, but now leaves a second needle out. This shows, without words, that he is ready to accept Fahad's help."
+    }
+   ],
+   "again": {
+    "title": "Map the journey",
+    "text": "Draw three boxes in your mind:\n\n**Start trait** → **What tested it** → **New trait**\n\nUse a detail from the text for each box.",
+    "example": "Start trait: proud (\"Rayan said he never needed practice\").\nWhat tested it: he forgot his lines on stage.\nNew trait: humble (\"he asked his teacher for extra rehearsals\")."
+   }
+  }
+ }
+}

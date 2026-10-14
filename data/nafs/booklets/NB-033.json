@@ -1,0 +1,568 @@
+{
+  "code": "NB-033",
+  "title": "Tiny Builders, Giant Reefs",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 431,
+  "passage": "From a boat, a coral reef can look like a colourful garden of rocks and plants. Yet a coral reef is neither a rock nor a plant; it is a gigantic structure constructed by animals, most of them smaller than a grain of rice. These tiny builders are called coral polyps, and over thousands of years they have created some of the largest living structures on Earth.\n\nA single polyp has a soft, tube-shaped body with a mouth at the top, surrounded by a ring of tentacles. It is a close relative of the jellyfish, and, like a jellyfish, it uses stinging cells on its tentacles to capture tiny drifting creatures called plankton, usually at night. To protect its delicate body, the polyp takes minerals from seawater and uses them to build a hard cup of limestone beneath itself. When the polyp divides to make copies of itself, the new polyps build their own cups on top of and beside the old ones. In this way, thousands of polyps form a connected colony, and countless colonies together slowly form a reef.\n\nPolyps could not build such enormous reefs alone, however. Inside their bodies live millions of microscopic algae, which are simple organisms that behave like plants. Like other plants, the algae use sunlight to make food, and they share most of this food with the polyp. In return, the polyp provides the algae with a safe home and the materials they need. This partnership also gives many corals their brilliant colours. Because the algae need sunlight, most reef-building corals can only grow in clear, shallow, warm water where light can easily reach them.\n\nReef building is an extremely slow process, because many corals grow only a few millimetres each year, so a large reef may be thousands of years old. Nevertheless, the patience of these builders has produced astonishing results. The Great Barrier Reef, off the coast of Australia, stretches for more than 2,300 kilometres and can be seen from space. Closer to home, reefs line much of the Saudi coast of the Red Sea.\n\nAlthough reefs cover less than one percent of the ocean floor, they provide food and shelter for roughly a quarter of all known ocean species. Fish hide among the branches, sea turtles feed on reef plants, and countless smaller animals lay their eggs in the cracks. Reefs also act as natural walls, breaking the force of storm waves before they reach the shore. A reef, therefore, is far more than a pretty view: it is a crowded underwater city, built one tiny cup at a time.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “delicate” as it is used in paragraph 2?",
+      "options": [
+        "colourful",
+        "fragile",
+        "poisonous",
+        "enormous"
+      ],
+      "answer": "B",
+      "why": "The polyp builds a hard cup to protect its soft body, so “delicate” means fragile, easily damaged."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “microscopic” as it is used in paragraph 3?",
+      "options": [
+        "invisible",
+        "simple",
+        "gigantic",
+        "tiny"
+      ],
+      "answer": "C",
+      "why": "“Microscopic” means so small it can only be seen with a microscope; “gigantic” (used in paragraph 1) means extremely large. “Tiny” and “invisible” are close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 2: “It is a close relative of the jellyfish, and, like a jellyfish, it uses stinging cells on its tentacles to capture tiny drifting creatures called plankton.” What does “capture” mean here?",
+      "options": [
+        "to catch and hold",
+        "to draw a picture of",
+        "to swim away from",
+        "to hide from"
+      ],
+      "answer": "A",
+      "why": "The polyp uses stinging cells to get its food, so “capture” means to catch and hold."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an ADJECTIVE?",
+      "options": [
+        "astonishing",
+        "patience",
+        "stretches",
+        "process"
+      ],
+      "answer": "A",
+      "why": "“Astonishing” describes the noun “results”; “patience” and “process” are nouns and “stretches” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the passage is IRREGULAR?",
+      "options": [
+        "branches",
+        "colonies",
+        "turtles",
+        "algae"
+      ],
+      "answer": "D",
+      "why": "“Algae” is the irregular plural of “alga”. “Branches” adds -es, “colonies” follows the regular y → -ies rule and “turtles” adds -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “constructed” in paragraph 1?",
+      "options": [
+        "contest",
+        "construction",
+        "contrast",
+        "consist"
+      ],
+      "answer": "B",
+      "why": "“Construction” is the noun formed from the verb “construct”; the other words only share the beginning “con-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “partnership” in a meaningful sentence of your own.",
+      "model": "Our class garden is a partnership between the students, who water the plants, and the school gardener, who teaches us how to prune them.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “partnership” with its meaning (an arrangement in which two or more people or living things work together and help each other)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Partnership” means working together so that each side benefits."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “colony”?",
+      "options": [
+        "colonys",
+        "colonyes",
+        "colonies",
+        "colony's"
+      ],
+      "answer": "C",
+      "why": "A consonant + y changes to -ies: colony → colonies. “Colony's” shows possession."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence is EXCLAMATORY?",
+      "options": [
+        "Do corals feed at night?",
+        "Please do not touch the coral.",
+        "Corals grow a few millimetres each year.",
+        "What an astonishing city the reef is!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a question, a polite command and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "A Garden of Rocks and Plants",
+        "Jellyfish: Stingers of the Sea",
+        "Tiny Builders, Giant Reefs",
+        "A Trip to Australia"
+      ],
+      "answer": "C",
+      "why": "The passage explains how tiny polyps build enormous reefs. Option A is the mistaken idea the writer corrects in paragraph 1."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the passage?",
+      "options": [
+        "to explain how coral reefs are built and why they matter",
+        "to persuade readers to visit the Great Barrier Reef",
+        "to tell the story of a fish living on a reef",
+        "to warn readers about the danger of jellyfish"
+      ],
+      "answer": "A",
+      "why": "It describes how polyps and algae build reefs and ends by explaining the reefs' importance."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Algae are simple organisms that behave like plants.",
+        "Corals can live only in warm, salty water.",
+        "Many corals are brightly and beautifully coloured.",
+        "Polyps and algae help each other to build reefs."
+      ],
+      "answer": "D",
+      "why": "The paragraph explains the partnership between polyps and algae; the other options are details within it."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why does a polyp build a hard cup of limestone?",
+      "options": [
+        "to store its food",
+        "to protect its delicate body",
+        "to attract plankton",
+        "to make the water warmer"
+      ],
+      "answer": "B",
+      "why": "“To protect its delicate body, the polyp … build[s] a hard cup of limestone beneath itself.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a narrative story",
+        "a friendly letter",
+        "a play",
+        "an informational text"
+      ],
+      "answer": "D",
+      "why": "It explains facts about coral reefs in organised paragraphs, without characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to the passage, why can most reef-building corals grow only in clear, shallow water?",
+      "options": [
+        "Their algae need sunlight to make food.",
+        "Polyps cannot swim in deep water.",
+        "Plankton live only in shallow water.",
+        "Storm waves are weaker in shallow water."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: “Because the algae need sunlight, most reef-building corals can only grow in clear, shallow, warm water.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these steps in building a reef happens LAST?",
+      "options": [
+        "A polyp builds a cup of limestone.",
+        "The polyp divides to make copies of itself.",
+        "New polyps build cups beside the old ones.",
+        "Countless colonies together form a reef."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 describes a single cup, then copies, then a colony, and finally many colonies forming a reef."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why a large reef may be thousands of years old?",
+      "options": [
+        "Polyps usually feed on plankton at night.",
+        "Many corals grow only a few millimetres each year.",
+        "Algae give many corals their colours.",
+        "Reefs line much of the Saudi coast."
+      ],
+      "answer": "B",
+      "why": "Because each year adds only a few millimetres, a large reef needs thousands of years to grow."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who, or what, are the “builders” the writer refers to in paragraph 4?",
+      "options": [
+        "Australian scientists",
+        "sea turtles",
+        "storm waves",
+        "coral polyps"
+      ],
+      "answer": "D",
+      "why": "Throughout the passage the polyps are called “tiny builders”; paragraph 4 praises their patience."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the passage, what causes many corals to have brilliant colours?",
+      "options": [
+        "the hard limestone cups that they build",
+        "the algae living inside them",
+        "the plankton they capture at night",
+        "the sunlight reflecting off the white sand"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: “This partnership also gives many corals their brilliant colours.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why do the algae share their food with the polyp?",
+      "options": [
+        "because the polyp forces them to give it away",
+        "because they cannot use any of the food themselves",
+        "because the polyp gives them a home and materials",
+        "because they are the polyp's own young"
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 says “In return, the polyp provides the algae with a safe home and the materials they need.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How does a reef protect the shore?",
+      "options": [
+        "It breaks the force of storm waves before they reach the shore.",
+        "It stops fish from swimming near the beach.",
+        "It makes the sea water warmer near the coast.",
+        "It keeps sea turtles away from the sand."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: reefs act as “natural walls, breaking the force of storm waves”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a coral polyp SIMILAR to a jellyfish?",
+      "options": [
+        "Both build limestone cups.",
+        "Both grow only in the Red Sea.",
+        "Both use stinging cells to catch food.",
+        "Both make food from sunlight."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: “like a jellyfish, it uses stinging cells on its tentacles to capture tiny drifting creatures”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a reef DIFFERENT from what it looks like from a boat?",
+      "options": [
+        "It looks like animals, but it is really made of rock.",
+        "It looks like rocks and plants but is built by animals.",
+        "It looks small, but it is really a single giant animal.",
+        "It looks colourful, but it is really dull and grey."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1: it looks like “a colourful garden of rocks and plants”, yet it is built by animals."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the EFFECT of reefs providing food and shelter?",
+      "options": [
+        "Reefs support about a quarter of known ocean species.",
+        "Reefs slowly spread to cover most of the ocean floor.",
+        "Reefs stop growing after a few hundred years.",
+        "Reefs become large enough to be seen from space."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: reefs provide food and shelter “for roughly a quarter of all known ocean species”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer calls a reef “a crowded underwater city”. What does this comparison suggest?",
+      "options": [
+        "People live in houses under the sea.",
+        "A reef is home to a great many living things, close together.",
+        "Reefs have roads, buildings and traffic lights.",
+        "Reefs are noisy, dirty and dangerous places."
+      ],
+      "answer": "B",
+      "why": "Like a crowded city full of people, a reef is packed with many kinds of animals living side by side."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the passage shows the writer's admiration for the polyps?",
+      "options": [
+        "“a hard cup of limestone”",
+        "“tiny drifting creatures called plankton”",
+        "“less than one percent of the ocean floor”",
+        "“the patience of these builders has produced astonishing results”"
+      ],
+      "answer": "D",
+      "why": "Calling the polyps patient builders with “astonishing results” shows admiration; the other phrases simply give facts."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the passage with the phrase “built one tiny cup at a time”?",
+      "options": [
+        "to remind readers that a huge reef grows from small efforts",
+        "to explain to readers how to build a cup from limestone",
+        "to show that reefs grow very quickly once they start",
+        "to introduce a new topic about cups for the next passage"
+      ],
+      "answer": "A",
+      "why": "The phrase links back to the polyps' limestone cups and sums up the main idea: many tiny steps create something enormous."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "According to the passage, which is the MOST important reason to protect coral reefs?",
+      "options": [
+        "They look like beautiful, colourful gardens.",
+        "They feed and shelter a huge variety of ocean life.",
+        "Some of them are large enough to be seen from space.",
+        "They are made of hard and useful limestone."
+      ],
+      "answer": "B",
+      "why": "The final paragraph stresses that reefs support about a quarter of known ocean species and protect coasts."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "to correct a mistake and show how amazing reefs are",
+        "to complain about tourists visiting reefs in Australia",
+        "to describe an exciting diving holiday with friends",
+        "to teach readers how to catch and cook seafood"
+      ],
+      "answer": "A",
+      "why": "The writer begins by correcting the idea that reefs are rocks and plants, then explains the wonders of reef building."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the passage as a whole?",
+      "options": [
+        "fear",
+        "sadness",
+        "wonder",
+        "anger"
+      ],
+      "answer": "C",
+      "why": "Words like “gigantic”, “brilliant”, “astonishing” and “crowded underwater city” express wonder at the reefs."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "how long the Great Barrier Reef is",
+        "what polyps eat",
+        "exactly how the polyp takes minerals from seawater",
+        "where reefs are found in Saudi Arabia"
+      ],
+      "answer": "C",
+      "why": "The writer says only that the polyp “takes minerals from seawater” without explaining how; the other facts are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A coral reef grows one kilometre taller in a year.",
+        "A coral polyp walks across the sand to a new reef.",
+        "A diver sees coral polyps catching plankton at night.",
+        "A reef grows in the dark at the bottom of a deep ocean trench."
+      ],
+      "answer": "C",
+      "why": "Polyps feed on plankton, usually at night, so a diver could see this; the other events contradict the passage."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the passage?",
+      "options": [
+        "The Night the Reef Woke Up",
+        "Cities Under the Sea",
+        "How to Grow a Garden",
+        "Australia's Biggest Island"
+      ],
+      "answer": "B",
+      "why": "The passage ends by describing a reef as “a crowded underwater city” built by tiny animals."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Coral reefs grow very slowly, so damage to them takes a long time to repair. Suggest a different ending for the passage: write two or three sentences proposing ways people could protect coral reefs.",
+      "model": "Divers and swimmers should never touch or stand on coral, because a single kick can break years of growth. Countries can also create marine parks where boats are not allowed to drop anchor on the reefs, and schools can teach students why reefs matter.",
+      "rubric": [
+        "2 = a clear, realistic way to protect reefs that is linked to the information in the passage and explained",
+        "1 = a suggestion is given but it is vague, unexplained or only loosely linked to reefs",
+        "0 = no answer, an unrealistic idea, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic way to protect slow-growing reefs is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Based on the passage, which of these would MOST harm a reef?",
+      "options": [
+        "clear, warm, shallow water",
+        "fish hiding among the branches",
+        "mud that makes the water cloudy and blocks sunlight",
+        "sea turtles feeding on reef plants"
+      ],
+      "answer": "C",
+      "why": "The algae need sunlight, so cloudy water would starve the corals; the other conditions are part of a healthy reef."
+    }
+  ]
+}

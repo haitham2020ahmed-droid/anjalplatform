@@ -14,7 +14,7 @@ export default async function ClueCoachPage() {
   const tip = c.focus ? CLUE_LABELS[c.focus.type] : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/student/words", label: "My words" }} icon="🔎" title="Context Clue Coach" subtitle="When you meet a new word, the words around it often tell you what it means. Practise the kind of clue you miss most." />
+      <PageHeader back={{ href: "/student/words?tab=saved", label: "My Words" }} icon="🔎" title="Context Clue Coach" subtitle="When you meet a new word, the words around it often tell you what it means. Practise the kind of clue you miss most." />
       {!c.stats.length ? (
         <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No context clue questions are ready for your grade yet. Ask your teacher.</p>
       ) : (

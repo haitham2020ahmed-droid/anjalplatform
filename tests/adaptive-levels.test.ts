@@ -77,7 +77,10 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
         seen.push(String(q.stem).split(" ")[0]);
         v = (await submitQuizAnswer(repo, st, { assignmentId: aid, questionId: it.questionId, response: it.options!.find((o) => o.correct)!.label }, new Date((clock += 30_000)))).view;
       }
-      assert.deepEqual(seen, [...Array(4).fill("ON"), ...Array(4).fill("ABOVE")], "no data → On Level; 4 at each level, then done");
+      // r67 (owner): no "level confirmed" early stop — the teacher's count (20) is answered, or every question when the
+      // set has fewer (18 here); the level path itself is unchanged: On Level first, then Above
+      assert.deepEqual(seen.slice(0, 8), [...Array(4).fill("ON"), ...Array(4).fill("ABOVE")], "no data → On Level; 4 at each level");
+      assert.equal(seen.length, 18, "the whole set (fewer questions than the teacher's 20)");
       const rep = await assignmentReport(repo, st, aid);
       assert.match(rep.masteryLevel, /^Finished: you moved up 1 step on the way\.$/);
       assert.equal((await assignedSkills(repo, st)).items.find((i) => i.assignmentId === aid)!.status, "COMPLETED");

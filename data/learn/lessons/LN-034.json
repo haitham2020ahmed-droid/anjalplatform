@@ -1,0 +1,479 @@
+{
+ "code": "LN-034",
+ "title": "Writing a poem",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [],
+ "families": [
+  "writing-poetry"
+ ],
+ "skillNames": [
+  "Poetry Writing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A poem has lines",
+     "text": "A **poem** is written in short **lines**.\n\nEach line starts on a new row. Poems are fun to read **out loud**."
+    },
+    {
+     "title": "Rhyme",
+     "text": "Words **rhyme** when they end with the same sound.\n\n**cat** and **hat**\n**sun** and **fun**\n**tree** and **sea**"
+    },
+    {
+     "title": "Make a picture",
+     "text": "Good poems help you **see**, **hear** and **feel** things.\n\nNot: The rain fell.\nBetter: **The rain went tap, tap, tap.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the poem out loud.\n2. Listen to the **last word** of each line.\n3. Which lines end with the **same sound**?\n\nThose lines prove the rhyme."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I see a bee",
+      "role": "key"
+     },
+     {
+      "t": "up in a tree.",
+      "role": "key"
+     },
+     {
+      "t": "It flies away",
+      "role": "detail"
+     },
+     {
+      "t": "to find a place to play.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**bee** and **tree** rhyme.\n\n**away** and **play** rhyme too."
+   },
+   "together": {
+    "passage": "The sun is up,\nit's bright and hot.\nI fill my cup\nfrom the water pot.",
+    "stem": "Which word rhymes with up?",
+    "options": [
+     "hot",
+     "sun",
+     "cup",
+     "pot"
+    ],
+    "answer": 2,
+    "hint": "Say up, then say each word. Which one ends with the same sound?",
+    "good": "Yes! up and cup end with the same sound."
+   },
+   "evidence": {
+    "sentences": [
+     "The sun is up,",
+     "it's bright and hot.",
+     "I fill my cup",
+     "from the water pot."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: cup. Tap the 2 lines that end with up and cup.",
+    "wrong": "This line ends with hot or pot. Find the lines that end with up and cup."
+   },
+   "checks": [
+    {
+     "passage": "My cat is fat.\nShe sits on a ___.",
+     "stem": "Which word rhymes and finishes the poem?",
+     "options": [
+      "chair",
+      "mat",
+      "bed",
+      "rug"
+     ],
+     "answer": 1,
+     "why": "fat and mat rhyme."
+    },
+    {
+     "passage": "I like to run\nand play in the ___.",
+     "stem": "Which word rhymes and finishes the poem?",
+     "options": [
+      "sun",
+      "park",
+      "shade",
+      "rain"
+     ],
+     "answer": 0,
+     "why": "run and sun rhyme."
+    },
+    {
+     "passage": "A poem about rain.",
+     "stem": "Which line helps you HEAR the rain?",
+     "options": [
+      "It is rain today.",
+      "Rain is wet and grey.",
+      "It was a long day.",
+      "Drip, drop, drip on the roof."
+     ],
+     "answer": 3,
+     "why": "Drip, drop helps you hear the sound of rain."
+    }
+   ],
+   "again": {
+    "title": "Rhyme family",
+    "text": "Rhyming words are like a **family**. They share the same ending.\n\n1. Pick a word: **cat**.\n2. Change the first sound: **b**at, **h**at, **m**at.\n3. Use them at the ends of your lines!",
+    "example": "I have a **hat**.\n\nIt fits my **cat**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Images with senses",
+     "text": "Poets create **images**: pictures in the reader's mind.\n\nUse your **five senses**: what do you see, hear, smell, taste and touch?\n\n**the smell of warm bread** **the crunch of dry leaves**"
+    },
+    {
+     "title": "Similes",
+     "text": "A **simile** compares two things using **like** or **as**.\n\n**The moon is like a silver coin.**\n**The sand was as hot as an oven.**\n\nSimiles help readers picture something in a new way."
+    },
+    {
+     "title": "Lines and stanzas",
+     "text": "Poets choose where to **break lines** to make the reader pause.\n\nA group of lines is a **stanza**, like a paragraph in a story. Each stanza often has its own small idea."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find a poetic tool, look closely at the words.\n\n1. For a **simile**, look for **like** or **as**.\n2. For an **image**, look for sense words: colors, sounds, smells.\n3. Point to the exact line that uses the tool."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The market wakes at dawn,",
+      "role": "detail"
+     },
+     {
+      "t": "spices piled like small orange hills,",
+      "role": "key"
+     },
+     {
+      "t": "the sweet smell of cardamom",
+      "role": "detail"
+     },
+     {
+      "t": "floating through the air.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Line 2 is a **simile**: spices piled **like** small hills.\n\nLines 3 and 4 create a **smell** image."
+   },
+   "together": {
+    "passage": "After the rain, the desert smiles.\nSmall green shoots push through the sand.\nThe air smells fresh and clean,\nand puddles shine like mirrors in the sun.\nA lizard blinks and slowly moves its head.",
+    "stem": "Which line uses a simile?",
+    "options": [
+     "Small green shoots push through the sand.",
+     "and puddles shine like mirrors in the sun.",
+     "A lizard blinks and slowly moves its head.",
+     "The air smells fresh and clean,"
+    ],
+    "answer": 1,
+    "hint": "Look for the word like or as.",
+    "good": "Yes! Puddles are compared to mirrors using like."
+   },
+   "evidence": {
+    "sentences": [
+     "After the rain, the desert smiles.",
+     "Small green shoots push through the sand.",
+     "The air smells fresh and clean,",
+     "and puddles shine like mirrors in the sun.",
+     "A lizard blinks and slowly moves its head."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: and puddles shine like mirrors in the sun. Tap the line with the simile.",
+    "wrong": "This line has no like or as. Find the line that compares two things using like."
+   },
+   "checks": [
+    {
+     "passage": "A poet wants to describe a busy beach.",
+     "stem": "Which line has the strongest sound image?",
+     "options": [
+      "The beach was very nice and fun.",
+      "Waves crash and children shout with joy.",
+      "It was a good beach day for us.",
+      "We went to the beach after school."
+     ],
+     "answer": 1,
+     "why": "Crash and shout help the reader HEAR the beach."
+    },
+    {
+     "passage": "The night sky is ___.",
+     "stem": "Which ending makes a simile?",
+     "options": [
+      "dark and big",
+      "very dark",
+      "as dark as ink",
+      "blue"
+     ],
+     "answer": 2,
+     "why": "It uses as… as to compare the sky to ink."
+    },
+    {
+     "passage": "A poem has three stanzas. The first is about morning, the second about noon, the third about night.",
+     "stem": "Why might the poet use three stanzas?",
+     "options": [
+      "Each stanza shows a different time of day.",
+      "Poems must always have three stanzas.",
+      "To make the poem rhyme.",
+      "To make it shorter."
+     ],
+     "answer": 0,
+     "why": "Stanzas group lines with one idea each, like paragraphs."
+    }
+   ],
+   "again": {
+    "title": "Senses checklist",
+    "text": "Before you write a poem, make a quick list.\n\nI **see**… I **hear**… I **smell**… I **feel**…\n\nThen turn your best list items into lines.",
+    "example": "Topic: **a rainy day**\n\nSee: grey clouds. Hear: thunder rolling. Smell: wet earth.\n\nLine: **Thunder rolls over the smell of wet earth.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More figurative language",
+     "text": "**Metaphor**: says one thing **is** another. **The classroom was a beehive.**\n\n**Personification**: gives human actions to things. **The wind whispered through the palms.**"
+    },
+    {
+     "title": "Rhythm and repetition",
+     "text": "**Rhythm** is the beat of a poem. Short lines feel quick; long lines feel slow.\n\n**Repetition** of a word or line makes an idea stand out and gives the poem a musical feel."
+    },
+    {
+     "title": "Forms: haiku and free verse",
+     "text": "A **haiku** has three lines with **5, 7 and 5 syllables**, often about nature.\n\n**Free verse** has no fixed rhyme or rhythm. The poet chooses line breaks for effect."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To identify a poetic choice:\n\n1. Find the lines that use the tool (is, like, a human action, a repeated word).\n2. Ask what **effect** it has: a mood, a picture, a sound.\n3. Point to those lines as your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Palm leaves sway slowly,",
+      "role": "detail"
+     },
+     {
+      "t": "the hot wind hums a soft tune,",
+      "role": "key"
+     },
+     {
+      "t": "dates ripen in gold.",
+      "role": "detail"
+     }
+    ],
+    "explain": "This is a **haiku**: 5, 7 and 5 syllables.\n\nLine 2 uses **personification**: the wind **hums**, like a person."
+   },
+   "together": {
+    "passage": "The old house waits at the end of the road.\nIts windows watch the empty street.\nThe door sighs when the wind pushes it,\nand the stairs groan under every step.\nDust dances slowly in the hallway light.\nThe garden gate creaks a tired hello.\nNo one has lived here for years,\nbut the house still remembers.",
+    "stem": "What does the poet mainly use to make the house seem alive?",
+    "options": [
+     "Rhyme",
+     "Personification",
+     "Simile",
+     "A haiku form"
+    ],
+    "answer": 1,
+    "hint": "What human actions does the house do?",
+    "good": "Yes! The house waits, watches, sighs, groans and remembers, all human actions."
+   },
+   "evidence": {
+    "sentences": [
+     "The old house waits at the end of the road.",
+     "Its windows watch the empty street.",
+     "The door sighs when the wind pushes it,",
+     "and the stairs groan under every step.",
+     "Dust dances slowly in the hallway light.",
+     "The garden gate creaks a tired hello.",
+     "No one has lived here for years,",
+     "but the house still remembers."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: personification. Tap 2 lines where the house or its parts do human actions.",
+    "wrong": "This line gives a fact, not a human action. Find a line where the house acts like a person."
+   },
+   "checks": [
+    {
+     "passage": "Palm leaves sway slowly,\nthe wind hums a soft tune,\ndates ripen in gold.",
+     "stem": "A haiku has 5, 7, 5 syllables. Which line needs one more syllable?",
+     "options": [
+      "Line 1",
+      "Line 3",
+      "None of them",
+      "Line 2"
+     ],
+     "answer": 3,
+     "why": "the-wind-hums-a-soft-tune has 6 syllables, so it needs one more."
+    },
+    {
+     "passage": "My brother is a rocket in the morning.",
+     "stem": "What kind of figurative language is this?",
+     "options": [
+      "Simile",
+      "Personification",
+      "Metaphor",
+      "Rhyme"
+     ],
+     "answer": 2,
+     "why": "It says he IS a rocket, without like or as."
+    },
+    {
+     "passage": "We waited.\nWe waited.\nWe waited for the rain.",
+     "stem": "What is the main effect of repeating We waited?",
+     "options": [
+      "It shows how long and slow the waiting felt.",
+      "It makes every line of the poem rhyme.",
+      "It shows that the rain came very quickly.",
+      "It tells the reader which season it is."
+     ],
+     "answer": 0,
+     "why": "Repeating the words makes the reader feel the long wait."
+    }
+   ],
+   "again": {
+    "title": "Is it, like it, or acts like a person?",
+    "text": "Ask three questions about a line:\n\n1. Does it say something **IS** something else? **Metaphor**.\n2. Does it use **like** or **as**? **Simile**.\n3. Does a thing **act like a person**? **Personification**.",
+    "example": "**The sun is a lamp.** Metaphor.\n\n**The sun is like a lamp.** Simile.\n\n**The sun wakes the city.** Personification."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Theme through images",
+     "text": "Poets rarely state their message directly. They build a **theme** (a big idea about life) through **images**, **contrasts** and **word choice**.\n\nAsk: what do the images have in common? What feeling do they leave?"
+    },
+    {
+     "title": "Structure creates meaning",
+     "text": "**Line breaks** can create surprise or emphasis. A sentence that runs over a line break (**enjambment**) can pull the reader forward.\n\nA **shift** (a turn in tone or time, often signalled by **but**, **now** or **yet**) often reveals the theme."
+    },
+    {
+     "title": "Revise like a poet",
+     "text": "1. Cut weak words: **very**, **really**, **nice**.\n2. Replace general words with **specific** ones: **bird** → **falcon**.\n3. Choose **strong verbs**: **went** → **drifted**, **raced**.\n4. Read aloud and break lines where you want a pause."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To support a theme or effect:\n\n1. Find the **images** and **shifts** in the poem.\n2. Notice how the first part and the last part differ.\n3. Point to the lines where the change happens.\n\nA theme must be supported by more than one line."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Grandfather's hands are maps of old roads,",
+      "role": "key"
+     },
+     {
+      "t": "cracked by sun, by rope, by years at sea.",
+      "role": "detail"
+     },
+     {
+      "t": "Yet when he holds my baby sister,",
+      "role": "key"
+     },
+     {
+      "t": "they are soft as morning.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first lines show hard, worn hands. **Yet** signals a **shift** to gentleness.\n\nTheme: strength and tenderness can live in the same person."
+   },
+   "together": {
+    "passage": "In the city, the towers rise like glass mountains,\nand cars stream past like rivers without end.\nHorns argue at every crossing.\nScreens glow on every corner,\nand no one looks up.\nBut on my grandmother's rooftop,\nwe lie on a rug and count the stars,\nwhile she names each one softly,\nand the noise below\nbecomes a distant sea.",
+    "stem": "Which statement best expresses the poem's theme?",
+    "options": [
+     "Cities are the most beautiful places on Earth.",
+     "Even in a busy, noisy world, people can find calm and wonder in quiet moments together.",
+     "Cars and screens are dangerous.",
+     "Rooftops are the best place to build a house."
+    ],
+    "answer": 1,
+    "hint": "Compare the city lines before But with the rooftop lines after it.",
+    "good": "Yes! The shift at But moves from noise and distraction to calm and wonder shared with grandmother."
+   },
+   "evidence": {
+    "sentences": [
+     "In the city, the towers rise like glass mountains,",
+     "and cars stream past like rivers without end.",
+     "Horns argue at every crossing.",
+     "Screens glow on every corner,",
+     "and no one looks up.",
+     "But on my grandmother's rooftop,",
+     "we lie on a rug and count the stars,",
+     "while she names each one softly,",
+     "and the noise below",
+     "becomes a distant sea."
+    ],
+    "proof": [
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    "need": 2,
+    "stem": "Tap 2 lines that best show the contrast that creates the theme: what people miss, and the calm moment found.",
+    "wrong": "This line only describes the busy city. Find where no one looks up, the shift at But, or the calm rooftop moment."
+   },
+   "checks": [
+    {
+     "passage": "Draft line: The bird went very fast over the really nice sea.",
+     "stem": "Which revision is strongest?",
+     "options": [
+      "The bird went fast over the sea.",
+      "The bird very quickly went over the very nice sea.",
+      "The falcon raced over the glittering sea.",
+      "A bird was there over some sea."
+     ],
+     "answer": 2,
+     "why": "Falcon is specific, raced is a strong verb, and glittering creates an image. Weak words are gone."
+    },
+    {
+     "passage": "I opened the box and found\nnothing.\nOnly dust, and the smell of my old room.",
+     "stem": "What is the effect of placing nothing alone on its own line?",
+     "options": [
+      "It makes the last two lines rhyme.",
+      "It hides the word so readers skip it.",
+      "It shows that the box was full of things.",
+      "It creates a pause that stresses the surprise."
+     ],
+     "answer": 3,
+     "why": "The line break isolates the word, so the reader pauses and feels the emptiness."
+    },
+    {
+     "passage": "Once the river sang through our village.\nNow its bed is cracked and silent,\nand children ask what water sounded like.",
+     "stem": "Which theme does the shift from Once to Now suggest?",
+     "options": [
+      "Rivers are always loud and full of life.",
+      "Children enjoy asking adults many questions.",
+      "Villages should always be built near rivers.",
+      "Loss of nature changes life for future generations."
+     ],
+     "answer": 3,
+     "why": "The poem moves from a singing river to a dry one, and children no longer know its sound."
+    }
+   ],
+   "again": {
+    "title": "Before and after the turn",
+    "text": "Many poems have a **turn**.\n\n1. Find the turning word: **but**, **yet**, **now**, **then**.\n2. Describe the poem **before** the turn in one word.\n3. Describe it **after** the turn in one word.\n4. The theme lives in the change.",
+    "example": "Before: **The classroom was loud and messy.**\n\nTurn: **Then the teacher began to read.**\n\nAfter: **Thirty faces leaned in, silent.**\n\nChange: noise → focus. Theme: **a good story can capture everyone's attention.**"
+   }
+  }
+ }
+}

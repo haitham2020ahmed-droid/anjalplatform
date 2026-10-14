@@ -1,0 +1,453 @@
+{
+ "code": "LN-081",
+ "title": "Commonly misspelled words",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0040",
+  "L-0042",
+  "L-0113",
+  "L-0114",
+  "L-0118",
+  "L-0229",
+  "L-0235",
+  "L-0308",
+  "L-0311"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Tricky words",
+     "text": "Some words do not look the way they sound.\n\nWe must **learn them by heart**.\n\n**said**, **friend**, **because**, **people**"
+    },
+    {
+     "title": "Find the hard part",
+     "text": "Most of a tricky word is easy. Find the **hard part**.\n\nfr**ie**nd: i, then e\ns**ai**d: a and i, not e\nbec**au**se: a and u, not o"
+    },
+    {
+     "title": "Look, say, cover, write, check",
+     "text": "1. **Look** at the word.\n2. **Say** it.\n3. **Cover** it.\n4. **Write** it.\n5. **Check** it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Look at each word. Does it look right?\n3. Check the tricky words you know: said, friend, because.\n\nThe sentence with the wrong word is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda is my best frend.",
+      "role": "key"
+     },
+     {
+      "t": "We sit together at school.",
+      "role": "other"
+     }
+    ],
+    "explain": "**frend** is wrong. The right spelling is **friend**, with **ie** in the middle."
+   },
+   "together": {
+    "passage": "I have a new pet bird. It sings becaus it is happy. I give it seeds every day.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "seeds",
+     "happy",
+     "becaus",
+     "every"
+    ],
+    "answer": 2,
+    "hint": "Look for a tricky word you have learned. Is every letter there?",
+    "good": "Yes! The right spelling is because. It ends with s and e."
+   },
+   "evidence": {
+    "sentences": [
+     "I have a new pet bird.",
+     "It sings becaus it is happy.",
+     "I give it seeds every day."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the word that is spelled wrong.",
+    "wrong": "All the words in this sentence are spelled right. Look again."
+   },
+   "checks": [
+    {
+     "passage": "Mom sed it is time for bed.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "Mom",
+      "sed",
+      "time",
+      "bed"
+     ],
+     "answer": 1,
+     "why": "The right spelling is said, with a and i."
+    },
+    {
+     "passage": "The peeple at the market were kind.",
+     "stem": "How do you spell the wrong word?",
+     "options": [
+      "pepple",
+      "peopel",
+      "people",
+      "pepole"
+     ],
+     "answer": 2,
+     "why": "People has an o after the e: p-e-o-p-l-e."
+    },
+    {
+     "passage": "Ali and Saad are frends. They play ball after school.",
+     "stem": "Which word needs to be fixed?",
+     "options": [
+      "frends",
+      "They",
+      "play",
+      "school"
+     ],
+     "answer": 0,
+     "why": "It should be friends, with ie in the middle."
+    }
+   ],
+   "again": {
+    "title": "Spot the hard part",
+    "text": "Most of a tricky word is easy. Only **one part** is hard.\n\nCircle that part. Say it in a funny way to help you remember.",
+    "example": "said → say it 'sa-id'\n\nfriend → 'fri-end': a friend to the **end**!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Calendar words",
+     "text": "Days and months always start with a **capital letter**. Some are also hard to spell.\n\n**Wednesday**: say 'Wed-nes-day' to hear the hidden d.\n**February**: don't forget the first r: Feb-**ru**-ar-y."
+    },
+    {
+     "title": "The months",
+     "text": "January, February, March, April, May, June, July, August, September, October, November, December\n\nFour end the same way: Septem**ber**, Octo**ber**, Novem**ber**, Decem**ber**."
+    },
+    {
+     "title": "Days of the week",
+     "text": "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday\n\nAll end in **-day**. Watch for: T**ue**sday (ue), Th**ur**sday (ur), S**atur**day (atur)."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each calendar word in the text.\n2. Say it in parts: Wed-nes-day, Feb-ru-ar-y.\n3. Check that every part is there and spelled right.\n4. Check the capital letter.\n\nThe sentence with the mistake proves your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school trip is on Thursday.",
+      "role": "other"
+     },
+     {
+      "t": "We will visit the science center in Febuary.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone is excited.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Febuary** is missing a letter. Say it in parts: Feb-**ru**-ar-y.\n\nThe right spelling is **February**."
+   },
+   "together": {
+    "passage": "The new school year started in August. Our class has art on Tuesdays and science on Thursdays. Every Wensday, we visit the library. On the last Friday of each month, we have a reading party.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "Wensday",
+     "August",
+     "Tuesdays",
+     "Thursdays"
+    ],
+    "answer": 0,
+    "hint": "Say each day in parts. Which one is missing a letter?",
+    "good": "Yes! Say Wed-nes-day. The right spelling is Wednesday, with a d after the W-e."
+   },
+   "evidence": {
+    "sentences": [
+     "The new school year started in August.",
+     "Our class has art on Tuesdays and science on Thursdays.",
+     "Every Wensday, we visit the library.",
+     "On the last Friday of each month, we have a reading party."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled calendar word.",
+    "wrong": "The calendar words in this sentence are spelled correctly. Check the others."
+   },
+   "checks": [
+    {
+     "passage": "My cousin's birthday is in Septembr.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "Septembar",
+      "Setpember",
+      "September",
+      "Sebtember"
+     ],
+     "answer": 2,
+     "why": "September ends in -ber, like October, November and December."
+    },
+    {
+     "passage": "We go to the park every satturday.",
+     "stem": "Which is the correct way to write the day?",
+     "options": [
+      "saturday",
+      "Saturday",
+      "Satterday",
+      "Saturdey"
+     ],
+     "answer": 1,
+     "why": "Days need a capital letter, and Saturday has one t: Sat-ur-day."
+    },
+    {
+     "passage": "In Janury, the weather in Riyadh is cool. Many families go camping in the desert.",
+     "stem": "Which word is misspelled?",
+     "options": [
+      "weather",
+      "Janury",
+      "families",
+      "desert"
+     ],
+     "answer": 1,
+     "why": "Say it in parts: Jan-u-ar-y. The right spelling is January."
+    }
+   ],
+   "again": {
+    "title": "Clap the parts",
+    "text": "Clap once for each part of the word. Write one part for each clap.\n\nThis helps you hear letters you might skip.",
+    "example": "Feb · ru · ar · y → 4 claps → **February**\n\nWed · nes · day → 3 claps → **Wednesday**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Words we often get wrong",
+     "text": "Some everyday words are misspelled again and again: **tomorrow, until, different, beautiful, separate, probably**.\n\nThey are hard because we **say** them quickly and skip sounds."
+    },
+    {
+     "title": "Memory tricks",
+     "text": "Use a trick for each hard part:\n\nsep**a**rate: there is **a rat** in separate.\ntomorrow: one **m**, two **r**s.\nuntil: only **one l**.\nbel**ie**ve: never be**lie**ve a **lie**."
+    },
+    {
+     "title": "Spelling in sentences",
+     "text": "In a sentence, a misspelled word can hide.\n\n1. Read slowly, one word at a time.\n2. Stop at long or tricky words.\n3. Say each one in parts and check it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the passage slowly. Do not skim.\n2. Put a finger under each long or tricky word.\n3. Check it with a memory trick, or sound it out in parts.\n\nThe sentence that holds the wrong word is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lama wanted to give her mother a surprise.",
+      "role": "other"
+     },
+     {
+      "t": "She worked on a beautiful card untill late at night.",
+      "role": "key"
+     },
+     {
+      "t": "In the morning, her mother smiled.",
+      "role": "other"
+     }
+    ],
+    "explain": "**untill** has one l too many. The right spelling is **until**.\n\n**surprise** and **beautiful** are spelled correctly."
+   },
+   "together": {
+    "passage": "Our class is planning a bake sale for tomorow. Each student will bring a different kind of food. Some will make date cookies, and others will bring fruit cups. We will separate the money into two boxes. Then we will probably give it to the school library.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "different",
+     "separate",
+     "probably",
+     "tomorow"
+    ],
+    "answer": 3,
+    "hint": "Check the memory tricks: one m and two r's in which word?",
+    "good": "Yes! Tomorrow has one m and two r's: to-mor-row."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is planning a bake sale for tomorow.",
+     "Each student will bring a different kind of food.",
+     "Some will make date cookies, and others will bring fruit cups.",
+     "We will separate the money into two boxes.",
+     "Then we will probably give it to the school library."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "Every word in this sentence is spelled correctly. Check the other tricky words."
+   },
+   "checks": [
+    {
+     "passage": "I beleive that reading every day makes you a better writer.",
+     "stem": "Which word is misspelled?",
+     "options": [
+      "beleive",
+      "reading",
+      "every",
+      "writer"
+     ],
+     "answer": 0,
+     "why": "Never believe a lie: believe has ie, not ei."
+    },
+    {
+     "passage": "The two cats slept in seperate rooms.",
+     "stem": "What is the correct spelling of the misspelled word?",
+     "options": [
+      "seprate",
+      "separate",
+      "seperete",
+      "separete"
+     ],
+     "answer": 1,
+     "why": "There is a rat in separate: s-e-p-A-R-A-T-e."
+    },
+    {
+     "passage": "The garden looked beautiful in the spring. Diffrent flowers grew in every corner.",
+     "stem": "Which sentence has a spelling mistake?",
+     "options": [
+      "Both sentences",
+      "Neither sentence",
+      "Diffrent flowers grew in every corner.",
+      "The garden looked beautiful in the spring."
+     ],
+     "answer": 2,
+     "why": "Different has three parts: dif-fer-ent. Beautiful is spelled correctly."
+    }
+   ],
+   "again": {
+    "title": "Make your own trick",
+    "text": "If a word keeps tricking you, make up a **short saying** about its hard part.\n\nThe sillier the saying, the easier it is to remember.",
+    "example": "necessary → one **c**ollar, two **s**leeves\n\n(one c, two s's) → **necessary**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Doubled or not?",
+     "text": "Many hard words are about **double letters**.\n\nacco**mm**odate: cc and mm\nemba**rr**a**ss**: rr and ss\nreco**mm**end: one c, mm\no**cc**asionally: cc, one s"
+    },
+    {
+     "title": "Hidden letters",
+     "text": "Some words hide letters we do not say clearly.\n\ndefin**i**tely: think de-FINITE-ly\nenviro**n**ment: environ + ment\ngover**n**ment: govern + ment\n\nFind the **smaller word** inside to remember."
+    },
+    {
+     "title": "Sound-alike words",
+     "text": "A spell-checker will not catch a real word used in the wrong place.\n\n**its** (belonging to it) / **it's** (it is)\n**their** (belonging to them) / **there** (a place) / **they're** (they are)\n\nRead the sentence to decide which spelling fits."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence for meaning first.\n2. Check long words for double letters and hidden letters.\n3. Check sound-alike words: does the spelling match the meaning here?\n\nPoint to the sentence where letters are missing, or where the spelling does not match the meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The hotel could accommodate two hundred guests.",
+      "role": "other"
+     },
+     {
+      "t": "Its rooms looked out over the Red Sea.",
+      "role": "key"
+     },
+     {
+      "t": "The staff were friendly and helpful.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Its** means 'belonging to it' (the hotel's rooms), so it has no apostrophe.\n\n**accommodate** has double c and double m. Both words are correct."
+   },
+   "together": {
+    "passage": "Last year, our school started a recycling program. At first, few students took part, and the bins stayed half empty. Then the student council made posters explaining how recycling helps the enviroment. They also visited each class to answer questions. Within a few months, the bins were full every week. The principal said she would definitely recommend the program to other schools.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "council",
+     "enviroment",
+     "definitely",
+     "recommend"
+    ],
+    "answer": 1,
+    "hint": "Look for a word with a smaller word hidden inside. Is the whole smaller word there?",
+    "good": "Yes! Environment is environ + ment. The n from environ must stay."
+   },
+   "evidence": {
+    "sentences": [
+     "Last year, our school started a recycling program.",
+     "At first, few students took part, and the bins stayed half empty.",
+     "Then the student council made posters explaining how recycling helps the enviroment.",
+     "They also visited each class to answer questions.",
+     "Within a few months, the bins were full every week.",
+     "The principal said she would definitely recommend the program to other schools."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The long words here are spelled correctly. Check for a missing letter elsewhere."
+   },
+   "checks": [
+    {
+     "passage": "I was so embarassed when I called my teacher by the wrong name.",
+     "stem": "Which is the correct spelling?",
+     "options": [
+      "embarrassed",
+      "embarased",
+      "embarrased",
+      "embarassed"
+     ],
+     "answer": 0,
+     "why": "Embarrassed has a double r AND a double s."
+    },
+    {
+     "passage": "The team practiced every afternoon. Their coach said there hard work would pay off in the final match.",
+     "stem": "Which word is used incorrectly?",
+     "options": [
+      "Their",
+      "there",
+      "hard",
+      "final"
+     ],
+     "answer": 1,
+     "why": "The hard work belongs to the team, so it should be their, not there."
+    },
+    {
+     "passage": "We occasionally visit the museum. The guide recomended a new exhibit about ancient trade routes.",
+     "stem": "Which word is misspelled?",
+     "options": [
+      "occasionally",
+      "museum",
+      "recomended",
+      "ancient"
+     ],
+     "answer": 2,
+     "why": "Recommended has one c and a double m: re-com-mend-ed."
+    }
+   ],
+   "again": {
+    "title": "Break it into pieces",
+    "text": "Long words are easier in pieces.\n\n1. Find a smaller word inside (govern → government).\n2. Mark the double letters.\n3. Write the pieces, then join them.",
+    "example": "environment → environ + ment\n\nKeep the **n** from environ → **environment**, not 'enviroment'."
+   }
+  }
+ }
+}

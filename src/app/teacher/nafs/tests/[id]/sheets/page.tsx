@@ -11,6 +11,7 @@ import { blankSheetCode, classSheetCodes } from "@/lib/omr/sheet-ids";
 import { AnswerSheet } from "@/components/omr/answer-sheet";
 import { OMR_INSTRUCTION } from "@/lib/omr/labels";
 import { getT } from "@/i18n/server";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Bubble sheets" };
 const CSS = `.ns-sheet{margin:0 auto 24px;width:fit-content;box-shadow:0 0 0 1px #e2e8f0}
@@ -29,7 +30,7 @@ export default async function NafsSheetsPage({ params, searchParams }: { params:
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   const test = await getNafsTest(repo, actor, id).catch(() => null);
-  if (!test) redirect("/teacher/nafs?tab=sheets");
+  if (!test) redirect("/teacher/nafs?tab=marking#sheets");
   const classes = await nafsClasses(repo, actor);
   const klass = classes.find((c) => c.id === sp.class) ?? classes[0];
   const n = test.questionIds.length;
@@ -49,7 +50,7 @@ export default async function NafsSheetsPage({ params, searchParams }: { params:
           <Link href={`/teacher/nafs/tests/${id}/grade?class=${klass?.id ?? ""}`} className="inline-flex min-h-11 items-center rounded-xl bg-teal-700 px-4 font-semibold text-white">📷 {t("Grade bubble sheets")}</Link>
         </div>
         <form method="get" className="flex flex-wrap items-end gap-2 rounded-2xl bg-surface p-4 ring-1 ring-line">
-          <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Class")}<select name="class" defaultValue={klass?.id} className="min-h-10 rounded-lg bg-surface px-2 ring-1 ring-line">{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
+          <div className="grid min-w-48 gap-1 text-xs font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" required label={t("Class")} defaultValue={klass?.id} options={classes.map((c) => ({ value: c.id, label: c.name }))} /></div>
           <label className="flex items-center gap-2 text-sm text-ink"><input type="checkbox" name="blank" value="1" defaultChecked={blank} /> {t("Blank sheets")}</label>
           <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("How many blank sheets")}<input type="number" name="copies" min={1} max={60} defaultValue={copies} className="min-h-10 w-20 rounded-lg bg-surface px-2 ring-1 ring-line" /></label>
           <button className="min-h-10 rounded-lg bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>

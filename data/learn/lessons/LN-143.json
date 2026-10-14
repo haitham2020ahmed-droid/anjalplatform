@@ -1,0 +1,453 @@
+{
+ "code": "LN-143",
+ "title": "Rereading to understand",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Reading Strategies",
+ "standards": [],
+ "families": [
+  "reread"
+ ],
+ "skillNames": [
+  "Reread to Clarify"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "When you get lost",
+     "text": "Sometimes you read and think: **Huh? I don't get it.**\n\nThat is okay! Good readers **stop** and **read it again**."
+    },
+    {
+     "title": "Reread to fix it",
+     "text": "When you **reread**, you go back and read the part again, slowly.\n\nOften, the answer was there. You just missed it the first time."
+    },
+    {
+     "title": "How to reread",
+     "text": "1. **Stop** when you are confused.\n2. **Go back** one or two sentences.\n3. **Read slowly** and look for the answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you reread, the answer is **in the text**.\n\n1. Find the part that confused you.\n2. Look at the sentences **before** it.\n3. Find the sentence that clears it up."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "It was raining hard when Ali walked home.",
+      "role": "key"
+     },
+     {
+      "t": "He had no umbrella.",
+      "role": "detail"
+     },
+     {
+      "t": "When he got home, he was very wet.",
+      "role": "main"
+     }
+    ],
+    "explain": "A reader asks: **Why is Ali wet?** Rereading sentence 1 clears it up: **it was raining**."
+   },
+   "together": {
+    "passage": "Mona got a puppy. She named him Ward. Ward likes to chew shoes. Mom was not happy when Ward chewed her sandal.",
+    "stem": "A reader asks: Who is Ward? Which sentence should the reader reread?",
+    "options": [
+     "Ward likes to chew shoes.",
+     "She named him Ward.",
+     "Mona got a puppy.",
+     "Mom was not happy."
+    ],
+    "answer": 1,
+    "hint": "Go back. Which sentence first tells the name Ward?",
+    "good": "Yes! Rereading 'She named him Ward' shows that Ward is the puppy."
+   },
+   "evidence": {
+    "sentences": [
+     "Mona got a puppy.",
+     "She named him Ward.",
+     "Ward likes to chew shoes.",
+     "Mom was not happy when Ward chewed her sandal."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: reread 'She named him Ward.' Tap 2 sentences that show who Ward is.",
+    "wrong": "This sentence tells what Ward does, not who he is. Go back to the start."
+   },
+   "checks": [
+    {
+     "passage": "The class went on a trip. They saw a falcon. It sat on the man's arm.",
+     "stem": "A reader asks: What sat on the man's arm? What should the reader reread?",
+     "options": [
+      "The class went on a trip.",
+      "They saw a falcon.",
+      "It sat on the man's arm.",
+      "The title"
+     ],
+     "answer": 1,
+     "why": "Rereading 'They saw a falcon' shows that 'it' means the falcon."
+    },
+    {
+     "passage": "Sami put the cake in the oven. He forgot about it. Soon the kitchen smelled of smoke.",
+     "stem": "Why did the kitchen smell of smoke? Reread to find out.",
+     "options": [
+      "Sami forgot the cake in the oven.",
+      "Sami made tea.",
+      "The window was open.",
+      "Sami cleaned the kitchen."
+     ],
+     "answer": 0,
+     "why": "Rereading shows Sami forgot the cake, so it burned."
+    },
+    {
+     "passage": "Reem looked for her book. She looked under the bed. She looked on the shelf. At last, she found it in her bag.",
+     "stem": "Where did Reem find her book? Reread the last sentence.",
+     "options": [
+      "Under the bed",
+      "On the shelf",
+      "On the desk",
+      "In her bag"
+     ],
+     "answer": 3,
+     "why": "The last sentence says she found it in her bag."
+    }
+   ],
+   "again": {
+    "title": "Stop, back, slow",
+    "text": "Remember three words:\n\n**Stop.** **Back.** **Slow.**\n\nStop when you are lost. Go back. Read slowly.",
+    "example": "'He picked it up.' Who is he? What is it?\n\nGo back: 'Omar saw a coin on the floor.' Now you know: **Omar** picked up the **coin**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Rereading helps you understand",
+     "text": "Even strong readers miss things. When a sentence does not make sense, **reread** the part before it.\n\nRereading can fix confusion about **who**, **what happened**, or **what a word means**."
+    },
+    {
+     "title": "What to look for",
+     "text": "1. **Pronouns:** who is *he*, *she*, *it*, *they*?\n2. **Order:** what happened first?\n3. **New words:** is the meaning explained nearby?\n4. **Missed details:** a small fact that explains a big one."
+    },
+    {
+     "title": "Reread with a question",
+     "text": "Do not just read again. Reread **with a question** in mind: *What am I trying to find out?*"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove that rereading fixed your confusion by **pointing to the sentence** that answers your question.\n\n1. Say your question.\n2. Go back to the sentences before the confusing part.\n3. Find the one that answers it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For hundreds of years, sailors in the Gulf travelled in wooden sailing boats called dhows.",
+      "role": "key"
+     },
+     {
+      "t": "The dhow carried dates, cloth and spices.",
+      "role": "detail"
+     },
+     {
+      "t": "Some dhows still sail today.",
+      "role": "detail"
+     }
+    ],
+    "explain": "A reader is confused: **What is a 'dhow'?** Rereading sentence 1 shows it is **a wooden sailing boat**."
+   },
+   "together": {
+    "passage": "Layla planted three seeds in a pot and put it on the windowsill. She watered them every morning. After a week, two of them had sprouted, but the third had not. She moved it to a sunnier spot and kept watering it. Three days later, it finally pushed up a tiny green shoot.",
+    "stem": "A reader is confused by 'it finally pushed up a tiny green shoot.' What does 'it' refer to? Reread to find out.",
+    "options": [
+     "The pot",
+     "The windowsill",
+     "The first seed",
+     "The third seed"
+    ],
+    "answer": 3,
+    "hint": "Go back two sentences. Which seed had not sprouted?",
+    "good": "Yes! Rereading shows that the third seed had not sprouted, so 'it' is the third seed."
+   },
+   "evidence": {
+    "sentences": [
+     "Layla planted three seeds in a pot and put it on the windowsill.",
+     "She watered them every morning.",
+     "After a week, two of them had sprouted, but the third had not.",
+     "She moved it to a sunnier spot and kept watering it.",
+     "Three days later, it finally pushed up a tiny green shoot."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the third seed. Tap 2 sentences that help you understand what 'it' means.",
+    "wrong": "This sentence does not help explain which thing 'it' is. Look at the sentences just before the shoot appears."
+   },
+   "checks": [
+    {
+     "passage": "The old fort had thick walls made of mud and straw. Inside, it stayed cool even in summer. Soldiers once lived there, guarding the town's wells.",
+     "stem": "A reader wonders why the fort stayed cool. Which part should they reread?",
+     "options": [
+      "Soldiers once lived there.",
+      "The thick walls made of mud and straw",
+      "The town's wells",
+      "Even in summer"
+     ],
+     "answer": 1,
+     "why": "The thick mud-and-straw walls explain why the inside stayed cool."
+    },
+    {
+     "passage": "Nasser and his cousin Saud went fishing. Nasser caught nothing all morning. Saud caught three fish. On the way home, he carried the bucket proudly.",
+     "stem": "Who carried the bucket proudly? Reread to decide.",
+     "options": [
+      "Saud, because he caught the fish",
+      "Nasser, because he is older",
+      "Both boys",
+      "Nobody"
+     ],
+     "answer": 0,
+     "why": "Rereading shows Saud caught the fish, so he would be proud."
+    },
+    {
+     "passage": "The museum guide said the vase was very fragile. 'Please do not touch it,' she said. 'Even a small knock could break it.'",
+     "stem": "A reader does not know the word 'fragile'. What should they reread?",
+     "options": [
+      "The word museum",
+      "The word guide",
+      "'Even a small knock could break it.'",
+      "The word vase"
+     ],
+     "answer": 2,
+     "why": "That sentence shows 'fragile' means easy to break."
+    }
+   ],
+   "again": {
+    "title": "Ask, look back, answer",
+    "text": "1. **Ask** a clear question.\n2. **Look back** at the text before the confusing part.\n3. **Answer** your question using what you find.",
+    "example": "Confusing: 'They cheered when it finally arrived.' Ask: what arrived? Look back: 'The family waited for the bus for an hour.' Answer: **the bus.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Monitor your understanding",
+     "text": "Good readers **check** themselves as they read. When something does not fit, they notice.\n\nSigns you need to reread: you cannot retell what you read, an event seems to come from nowhere, or a fact seems to contradict another."
+    },
+    {
+     "title": "Strategic rereading",
+     "text": "Do not reread everything. Reread **strategically**:\n\n1. The sentence **just before** the confusion.\n2. The **first sentence** of the paragraph.\n3. Any **definition**, number or name you skimmed."
+    },
+    {
+     "title": "Fixing a wrong idea",
+     "text": "Sometimes you think you understood, but you were wrong. Rereading can **correct** a misunderstanding, not just fill a gap."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show that rereading resolves the confusion.\n\n1. Name what seemed confusing or contradictory.\n2. Find the earlier sentence that explains it.\n3. Choose the answer that uses that sentence. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bonsai is the art of growing trees in small pots and trimming them to keep them tiny.",
+      "role": "key"
+     },
+     {
+      "t": "My uncle's juniper bonsai is more than forty years old.",
+      "role": "detail"
+     },
+     {
+      "t": "Yet it is shorter than my school bag.",
+      "role": "main"
+     }
+    ],
+    "explain": "A reader is puzzled: **how can the tree be both old and short?** Rereading sentence 1 resolves it: it is a **bonsai**, kept small on purpose."
+   },
+   "together": {
+    "passage": "The scientists left a sensor buried in the sand dunes for a full year. It recorded the temperature every hour. When they dug it up, they found something surprising. On summer afternoons the surface of the sand had reached over 70°C, yet just 50 centimetres below, the temperature had barely changed between day and night. This helps explain why many desert animals spend the hottest hours in burrows.",
+    "stem": "A reader is confused about why burrows help desert animals. Which part should they reread?",
+    "options": [
+     "The scientists left a sensor buried for a year.",
+     "It recorded the temperature every hour.",
+     "Under the sand, the temperature barely changed.",
+     "When they dug it up, they found something surprising."
+    ],
+    "answer": 2,
+    "hint": "Burrows are under the sand. Which sentence tells what the temperature is like under the sand?",
+    "good": "Yes! Rereading shows that underground, the temperature stays steady while the surface gets very hot."
+   },
+   "evidence": {
+    "sentences": [
+     "The scientists left a sensor buried in the sand dunes for a full year.",
+     "It recorded the temperature every hour.",
+     "When they dug it up, they found something surprising.",
+     "On summer afternoons the surface of the sand had reached over 70°C, yet just 50 centimetres below, the temperature had barely changed between day and night.",
+     "This helps explain why many desert animals spend the hottest hours in burrows."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: the part about temperatures below the surface. Tap the sentence that explains why burrows help.",
+    "wrong": "This sentence gives background about the experiment. Find the sentence that compares the surface and underground."
+   },
+   "checks": [
+    {
+     "passage": "Huda's family had always walked to the market. That summer, her father's leg was in a cast after a fall. So for the first time, they drove.",
+     "stem": "A reader wonders why the family drove. What should they reread?",
+     "options": [
+      "Huda's family had always walked to the market.",
+      "So for the first time, they drove.",
+      "That summer, the weather was hot.",
+      "Her father's leg was in a cast after a fall."
+     ],
+     "answer": 3,
+     "why": "The cast explains why walking was not possible that summer."
+    },
+    {
+     "passage": "Many people think bats are blind. In fact, most bats can see. But at night, they also use echolocation: they make high sounds and listen to the echoes to find insects.",
+     "stem": "A reader first thought the text said bats are blind. What does rereading show?",
+     "options": [
+      "The text says bats are blind.",
+      "It says most bats can actually see.",
+      "The text says bats only hunt in the day.",
+      "The text does not mention seeing."
+     ],
+     "answer": 1,
+     "why": "Rereading corrects the mistake: 'many people think' is the wrong belief the text rejects."
+    },
+    {
+     "passage": "The bridge was finished in 2015. It was designed by a team of engineers who had studied how wind moves across the valley. Because of their work, the bridge does not sway even in strong storms.",
+     "stem": "A reader wonders why the bridge does not sway. Which sentence answers this?",
+     "options": [
+      "The bridge was finished in 2015.",
+      "Engineers studied the valley's wind.",
+      "Strong storms happen often.",
+      "The valley is very deep."
+     ],
+     "answer": 1,
+     "why": "The engineers' study of the wind explains why the bridge stays steady."
+    }
+   ],
+   "again": {
+    "title": "Find the hinge",
+    "text": "Confusing parts often depend on a **hinge**: one earlier sentence that everything turns on.\n\nWhen confused, hunt for the hinge.",
+    "example": "'The match was cancelled, and the players were delighted.' Strange! Hinge (earlier): 'The players had asked for an extra week to recover from injuries.' **Now it makes sense.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Rereading complex texts",
+     "text": "In difficult texts, a single reading is rarely enough. Long sentences, technical ideas and shifts in argument can hide the meaning.\n\nExpert readers **reread on purpose**: to untangle a sentence, check a claim, or notice a turn they missed."
+    },
+    {
+     "title": "Rereading strategies",
+     "text": "1. **Break up long sentences** into their main parts.\n2. **Track the argument:** words like *however*, *not*, *rather* can reverse meaning.\n3. **Reread definitions** before applying them.\n4. **Reread the ending** to check how it reframes the beginning."
+    },
+    {
+     "title": "Correcting a first reading",
+     "text": "A first impression can be wrong. If a later sentence seems to contradict what you thought, **go back**: the error is often in your first reading."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove what rereading reveals.\n\n1. Identify the word or sentence that caused the misreading.\n2. Point to the part that corrects it (a negation, a definition, a turn).\n3. Choose the answer that matches the text exactly, not your first impression."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The proposal to ban phones from all classrooms is not, as some claim, the simplest solution.",
+      "role": "key"
+     },
+     {
+      "t": "Rather, it removes a tool that, used well, can support learning.",
+      "role": "key"
+     },
+     {
+      "t": "Teaching students when and how to use phones would better prepare them for life.",
+      "role": "main"
+     }
+    ],
+    "explain": "A quick reader might think the author **supports** the plan. Rereading reveals the word **not** and the turn **rather**: the author **opposes** banning and prefers teaching."
+   },
+   "together": {
+    "passage": "Contrary to what the title of the report suggests, the city's water supply is not running out. The report, titled 'A City Without Water?', was designed to grab attention. Its actual findings are more careful: demand is rising by about three percent a year, and if nothing changes, supply could fall short of demand within two decades. However, the authors stress that fixing leaks, which waste nearly a quarter of the water in old pipes, could delay that point by many years. The report is therefore less a warning of disaster than a call for repairs.",
+    "stem": "A reader who only skimmed the title believed the city was about to run out of water. What does a careful rereading show?",
+    "options": [
+     "The city will run out of water this year.",
+     "The report says water demand is falling.",
+     "Supply may fall short in about twenty years, but fixing leaks could delay this.",
+     "The report was written to sell newspapers."
+    ],
+    "answer": 2,
+    "hint": "Reread the first sentence and the sentences with 'if nothing changes' and 'However'. What do they say exactly?",
+    "good": "Yes! The report predicts a possible shortfall in two decades that leak repairs could delay, not an immediate crisis."
+   },
+   "evidence": {
+    "sentences": [
+     "Contrary to what the title of the report suggests, the city's water supply is not running out.",
+     "The report, titled 'A City Without Water?', was designed to grab attention.",
+     "Its actual findings are more careful: demand is rising by about three percent a year, and if nothing changes, supply could fall short of demand within two decades.",
+     "However, the authors stress that fixing leaks, which waste nearly a quarter of the water in old pipes, could delay that point by many years.",
+     "The report is therefore less a warning of disaster than a call for repairs."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: supply may fall short in twenty years, but fixing leaks could delay this. Tap 2 sentences that show this careful meaning.",
+    "wrong": "This sentence explains the dramatic title. Find the sentences that give the report's real findings."
+   },
+   "checks": [
+    {
+     "passage": "Although the experiment did not produce the result the team had hoped for, it was hardly a failure: by ruling out one explanation, it narrowed the search for the true cause.",
+     "stem": "A reader first concluded the experiment failed. What does rereading the full sentence show?",
+     "options": [
+      "It was useful because it ruled out one explanation.",
+      "The experiment gave the hoped-for result.",
+      "The team gave up the search.",
+      "The experiment was not finished."
+     ],
+     "answer": 0,
+     "why": "'Hardly a failure' and 'narrowed the search' show the author sees value in it."
+    },
+    {
+     "passage": "The museum's newest exhibit, which some visitors have called 'just a room of empty chairs', is in fact a memorial: each chair represents a fisherman lost at sea during the great storm of 1925.",
+     "stem": "Why might a reader need to reread this sentence?",
+     "options": [
+      "To find the price of a museum ticket",
+      "To learn who built the museum",
+      "To count the chairs",
+      "To notice how 'in fact' reveals the real meaning"
+     ],
+     "answer": 3,
+     "why": "Rereading shows the sentence moves from a careless description to the exhibit's true purpose."
+    },
+    {
+     "passage": "Not every student who joined the programme improved; those who did, however, tended to be the ones who attended at least three sessions a week.",
+     "stem": "Which reading of this sentence is accurate?",
+     "options": [
+      "Every student in the programme improved.",
+      "Attending more sessions made improvement less likely.",
+      "Most who improved attended three or more sessions a week.",
+      "No students improved."
+     ],
+     "answer": 2,
+     "why": "Rereading the 'not every' and 'however' parts shows only some improved, mostly the frequent attenders."
+    }
+   ],
+   "again": {
+    "title": "Slow down at the signposts",
+    "text": "When rereading hard texts, slow down at **signposts**:\n\n**not, never, hardly** (they flip meaning)\n**however, yet, rather** (they turn the argument)\n**if, unless** (they add conditions)",
+    "example": "'The plan will work **only if** the funding arrives on time.'\n\nA fast reader sees: 'The plan will work.' A careful rereader sees the condition: **it may not work.**"
+   }
+  }
+ }
+}

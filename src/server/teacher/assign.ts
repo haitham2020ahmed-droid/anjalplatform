@@ -89,6 +89,8 @@ export interface AssignSkillInput {
   program?: string | null;
   /** the teacher's own questions ("I'll pick the questions"); empty / undefined = the platform chooses */
   questionIds?: string[] | null;
+  /** r67: the number of questions each student answers (5–50); empty = the 30–50 rule (at least 30, Done when mastered, at most 50) */
+  questionCount?: number | null;
 }
 
 /** Who the work is from: the teacher themself; for a school admin, the class's teacher (the admin sends on their behalf). */
@@ -124,6 +126,8 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   const target = input.targetMastery ?? DEFAULT_TARGET_MASTERY;
   if (target < 40 || target > 100) throw new ValidationError("Target mastery must be between 40 and 100.");
   const picked = await pickedQuestionIds(repo, klass.schoolId, input.questionIds);
+  const count = input.questionCount === null || input.questionCount === undefined || String(input.questionCount) === "" ? null : Math.round(Number(input.questionCount));
+  if (count !== null && !(count >= 5 && count <= 50)) throw new ValidationError("The number of questions must be between 5 and 50 (or leave it empty).");
   // never a skill with no questions (the student would open an empty practice)
   if (!picked && (await skillQuestionCount(repo, s(klass.schoolId), s(skill.id))) === 0) throw new ValidationError(NO_QUESTIONS_YET);
 
@@ -134,6 +138,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
       classId: klass.id, createdById: teacher.id, title: s(skill.name).slice(0, 191), target: "SKILL", skillId: skill.id, skillIds: [s(skill.id)],
       startAt, dueAt, note, targetMastery: target, createdAt: now,
       ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}), ...(picked ? { questionIds: picked } : {}),
+      ...(count !== null && !picked ? { questionCount: count } : {}),
     });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";

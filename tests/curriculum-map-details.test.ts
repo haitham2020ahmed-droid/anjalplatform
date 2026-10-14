@@ -41,10 +41,11 @@ describe("Curriculum Map lesson details (the school's own summary)", () => {
     assert.deepEqual(details["4"]["A World of Change"].vocabulary.slice(0, 3), ["alter", "collapse", "crisis"]);
   });
 
-  test("Grade 6: name, genre and skills only", () => {
+  test("Grade 6: name, genre, skills and the booklets' vocabulary (no Text Idea)", () => {
     for (const l of Object.values(details["6"])) {
       assert.equal(l.textIdea, null);
-      assert.deepEqual(l.vocabulary, []);
+      // the school booklets have no vocabulary box for this one selection
+      if (l.name !== "Who Is the Real Hero?") assert.ok(l.vocabulary.length >= 4, `6 ${l.name}: vocabulary`);
       assert.ok(l.readingSkills.length >= 1, l.name);
     }
   });

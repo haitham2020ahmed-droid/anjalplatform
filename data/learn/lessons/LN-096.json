@@ -1,0 +1,429 @@
+{
+ "code": "LN-096",
+ "title": "Semicolons and colons",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "commas"
+ ],
+ "skillNames": [
+  "Semicolons and Colons"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two marks with dots",
+     "text": "A **colon** looks like this: **:**\n\nA **semicolon** looks like this: **;**\n\nThey look alike, but they do different jobs."
+    },
+    {
+     "title": "The colon starts a list",
+     "text": "Use a **colon** after a full sentence to **start a list**.\n\nI need three things**:** a pen, a book and a ruler.\n\nA colon also goes in the time: 7**:**30."
+    },
+    {
+     "title": "The semicolon joins",
+     "text": "A **semicolon** joins two short sentences that **go together**.\n\nIt was raining**;** we stayed inside."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find where a colon goes:\n\n1. Look for words like **three things** or **two pets**.\n2. Is a list coming next?\n3. The colon goes **right before** the list. Point to that sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our garden has three trees: a lemon, a fig and a palm.",
+      "role": "key"
+     },
+     {
+      "t": "We water them every morning.",
+      "role": "other"
+     }
+    ],
+    "explain": "The words **three trees** tell us a list is coming. The colon goes right before the list."
+   },
+   "together": {
+    "passage": "We are going to the beach. Mom packed three things a hat, a towel and some water. We will leave at nine.",
+    "stem": "Where does a colon (:) belong?",
+    "options": [
+     "after \"going\"",
+     "after \"beach\"",
+     "after \"things\"",
+     "after \"nine\""
+    ],
+    "answer": 2,
+    "hint": "Look for the list. The colon goes right before it.",
+    "good": "Yes! Mom packed three things**:** a hat, a towel and some water."
+   },
+   "evidence": {
+    "sentences": [
+     "We are going to the beach.",
+     "Mom packed three things a hat, a towel and some water.",
+     "We will leave at nine."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: after things. Tap the sentence with the list.",
+    "wrong": "There is no list in this sentence. Find the sentence that names three things."
+   },
+   "checks": [
+    {
+     "passage": "Our class has two pets: a fish and a bird.",
+     "stem": "Why is there a colon in this sentence?",
+     "options": [
+      "to start a list",
+      "to end a question",
+      "to show a pause in speech",
+      "to join two names"
+     ],
+     "answer": 0,
+     "why": "The colon comes right before the list: **a fish and a bird**."
+    },
+    {
+     "passage": "School starts at 7:30. Do not be late!",
+     "stem": "What does the colon in 7:30 do?",
+     "options": [
+      "starts a list",
+      "joins two sentences",
+      "ends the sentence",
+      "separates the hour and minutes"
+     ],
+     "answer": 3,
+     "why": "In a time, the colon separates the **hour** (7) from the **minutes** (30)."
+    },
+    {
+     "passage": "It was raining; we stayed inside.",
+     "stem": "What does the semicolon (;) do here?",
+     "options": [
+      "starts a list",
+      "joins two sentences that go together",
+      "shows a question",
+      "shows the time"
+     ],
+     "answer": 1,
+     "why": "**It was raining** and **we stayed inside** are two short sentences. The semicolon joins them."
+    }
+   ],
+   "again": {
+    "title": "Look at the dots",
+    "text": "**Colon** ( : ) = two dots, one on top of the other. It says: **here comes a list**.\n\n**Semicolon** ( ; ) = a dot on top of a comma. It says: **these two sentences go together**.",
+    "example": "I like two colours**:** blue and green.\nThe bell rang**;** we went home."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Semicolon or comma?",
+     "text": "Two full sentences **cannot** be joined with only a comma.\n\n✗ The week was hard, the seeds did not grow.\n✓ The week was hard**;** the seeds did not grow.\n\nUse a semicolon when the ideas are **closely related**."
+    },
+    {
+     "title": "Colon before a list",
+     "text": "The words **before** a colon must be a **full sentence**.\n\n✓ I bought three things**:** seeds, soil and pots.\n✗ I bought**:** seeds, soil and pots.\n\nDo not put a colon after **are**, **is** or **include**."
+    },
+    {
+     "title": "Quick test",
+     "text": "Cover the part after the mark.\n\nIs the first part a **full sentence**? Then a colon or semicolon can follow.\n\nIs the second part also a full sentence? A semicolon can join them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To check colons and semicolons:\n\n1. Find each comma that joins two parts.\n2. Ask: can **both** parts stand alone as sentences? If yes, a comma is not enough.\n3. Point to the sentence that needs the change."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dana finished her homework early; she had time to help her brother.",
+      "role": "key"
+     },
+     {
+      "t": "He was working on a puzzle.",
+      "role": "other"
+     }
+    ],
+    "explain": "Both parts are full sentences, and the ideas are linked. The semicolon joins them correctly. A comma would be wrong here."
+   },
+   "together": {
+    "passage": "Hamad wanted to grow tomatoes on the roof. He bought three things: seeds, soil and pots. The first week was hard, the seeds did not sprout. Then he moved the pots into the sun; the next morning he saw tiny green leaves.",
+    "stem": "Which change corrects the text?",
+    "options": [
+     "Put a semicolon after \"roof\".",
+     "Remove the colon after \"things\".",
+     "Change the semicolon after \"sun\" to a colon.",
+     "Change the comma after \"hard\" to a semicolon."
+    ],
+    "answer": 3,
+    "hint": "Find a comma that joins two full sentences. Can both parts stand alone?",
+    "good": "Yes! **The first week was hard** and **the seeds did not sprout** are both full sentences, so they need a semicolon."
+   },
+   "evidence": {
+    "sentences": [
+     "Hamad wanted to grow tomatoes on the roof.",
+     "He bought three things: seeds, soil and pots.",
+     "The first week was hard, the seeds did not sprout.",
+     "Then he moved the pots into the sun; the next morning he saw tiny green leaves."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the comma after hard should be a semicolon. Tap the sentence with the mistake.",
+    "wrong": "This sentence is punctuated correctly. Find the one where a comma joins two full sentences."
+   },
+   "checks": [
+    {
+     "passage": "My favourite fruits are: dates, figs and grapes.",
+     "stem": "What is wrong with this sentence?",
+     "options": [
+      "A comma is missing after \"figs\".",
+      "There should be no colon after \"are\".",
+      "\"fruits\" needs a capital F.",
+      "A semicolon should go after \"dates\"."
+     ],
+     "answer": 1,
+     "why": "\"My favourite fruits are\" is not a full sentence, so no colon should follow it."
+    },
+    {
+     "passage": "Rania loves to read; her sister prefers to draw.",
+     "stem": "Why is a semicolon used here?",
+     "options": [
+      "It joins two related sentences.",
+      "It starts a list of hobbies.",
+      "It shows Rania's exact words.",
+      "It shows the time of day."
+     ],
+     "answer": 0,
+     "why": "Both parts are full sentences about the sisters' hobbies, so a semicolon joins them."
+    },
+    {
+     "passage": "The bus was late. We missed the start of the show.",
+     "stem": "Which joins the two sentences correctly?",
+     "options": [
+      "The bus was late, we missed the start of the show.",
+      "The bus was late: and we missed the start.",
+      "The bus was late; we missed the start of the show.",
+      "The bus; was late we missed the start of the show."
+     ],
+     "answer": 2,
+     "why": "Two full, related sentences can be joined with a semicolon, not a comma."
+    }
+   ],
+   "again": {
+    "title": "The stand-alone test",
+    "text": "Before you use a colon or semicolon, read the part **before** it alone.\n\nDoes it sound complete? Good. If it sounds cut off, remove the mark.",
+    "example": "\"We need:\" ✗ (sounds cut off)\n\"We need three things:\" ✓ (complete)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Semicolons with linking words",
+     "text": "Words like **however**, **therefore** and **for example** can link two full sentences.\n\nPut a **semicolon before** the linking word and a **comma after** it:\n\nThe road was closed**;** however**,** we found another way."
+    },
+    {
+     "title": "Colons that explain",
+     "text": "A colon can also introduce an **explanation** or an **example**.\n\nFaisal had one goal**:** he wanted to learn to swim.\n\nThe part after the colon tells you **more** about the part before it."
+    },
+    {
+     "title": "Semicolons in long lists",
+     "text": "If the items in a list **already have commas**, separate the items with **semicolons** so the reader is not confused.\n\nWe visited Jeddah, Saudi Arabia**;** Muscat, Oman**;** and Doha, Qatar."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the punctuation error:\n\n1. Look for linking words like **however** or **therefore** in the middle of a sentence.\n2. Check the mark **before** it. If both sides are full sentences, it must be a semicolon.\n3. Point to the sentence that breaks the rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The test was difficult; therefore, we studied for a whole week.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone passed.",
+      "role": "other"
+     }
+    ],
+    "explain": "**therefore** links two full sentences. It has a semicolon **before** it and a comma **after** it."
+   },
+   "together": {
+    "passage": "The old town of AlUla has many places to explore. Visitors can see tombs cut into rock, green palm groves and ancient carvings. The days can be very hot however, the nights in winter are cool. That is why many travellers pack two kinds of clothes: light shirts for the afternoon and warm jackets for the evening.",
+    "stem": "Which change corrects the text?",
+    "options": [
+     "Add a semicolon before \"however\".",
+     "Remove the colon after \"clothes\".",
+     "Add a colon after \"see\".",
+     "Add a semicolon after \"palm groves\"."
+    ],
+    "answer": 0,
+    "hint": "Find the linking word in the middle of a sentence. What mark should come before it?",
+    "good": "Yes! \"The days can be very hot**;** however**,** the nights in winter are cool.\""
+   },
+   "evidence": {
+    "sentences": [
+     "The old town of AlUla has many places to explore.",
+     "Visitors can see tombs cut into rock, green palm groves and ancient carvings.",
+     "The days can be very hot however, the nights in winter are cool.",
+     "That is why many travellers pack two kinds of clothes: light shirts for the afternoon and warm jackets for the evening."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: add a semicolon before however. Tap the sentence that needs it.",
+    "wrong": "This sentence is punctuated correctly. Find the one with a linking word joining two full sentences."
+   },
+   "checks": [
+    {
+     "passage": "Faisal had one goal for the summer: he wanted to learn to swim.",
+     "stem": "What does the colon do here?",
+     "options": [
+      "It starts a list of goals.",
+      "It joins two separate lists.",
+      "It explains what the goal was.",
+      "It shows the time of day."
+     ],
+     "answer": 2,
+     "why": "The part after the colon tells us **what** Faisal's one goal was."
+    },
+    {
+     "passage": "The team visited Jeddah, Saudi Arabia; Muscat, Oman; and Doha, Qatar.",
+     "stem": "Why are semicolons used in this list?",
+     "options": [
+      "Because the cities are near the sea.",
+      "Because each item has a comma in it.",
+      "Because the sentence is a question.",
+      "Because the list starts with a colon."
+     ],
+     "answer": 1,
+     "why": "Each item has a comma between the city and the country, so semicolons separate the items clearly."
+    },
+    {
+     "passage": "The road was closed; therefore, we took the long way home.",
+     "stem": "Which sentence is punctuated in the same correct way?",
+     "options": [
+      "It was late, therefore we went home.",
+      "It was late therefore; we went home.",
+      "It was late: therefore we, went home.",
+      "It was late; therefore, we went home."
+     ],
+     "answer": 3,
+     "why": "Semicolon **before** therefore, comma **after** it, with a full sentence on each side."
+    }
+   ],
+   "again": {
+    "title": "Semicolon = strong comma",
+    "text": "Think of a semicolon as a **strong comma**.\n\nUse it where a comma is **not strong enough**: between two full sentences, or between list items that already have commas.",
+    "example": "We were tired**;** however**,** we kept walking.\n\nGuests came from Abha, Saudi Arabia**;** Sohar, Oman**;** and Manama, Bahrain."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Choosing the mark",
+     "text": "Between two full sentences, a writer can choose:\n\n**Period**: two separate ideas.\n**Semicolon**: two **balanced** ideas of equal weight, often similar or contrasting.\n**Colon**: the second part **explains** or **reveals** the first."
+    },
+    {
+     "title": "The colon as a drumroll",
+     "text": "A colon makes the reader **wait** for what comes next. Writers use it to build up to an important idea.\n\nThe team finally learned what made them strong**:** trust."
+    },
+    {
+     "title": "Common mistakes",
+     "text": "1. A colon after an **incomplete** sentence: ✗ We checked**:** the oil and the water.\n2. A semicolon joining a sentence to a **fragment**: ✗ We waited**;** for an hour.\n\nBoth marks need a **full sentence** before them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain a writer's choice:\n\n1. Read both parts of the sentence.\n2. Ask: does the second part **explain** the first (colon), or does it sit **beside** it as an equal (semicolon)?\n3. Point to the sentence and name the relationship."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The plan had one weakness: nobody had checked the weather.",
+      "role": "key"
+     },
+     {
+      "t": "Some students wanted to hike; others wanted to stay by the pool.",
+      "role": "key"
+     }
+    ],
+    "explain": "In sentence 1, the colon leads to the explanation of the weakness. In sentence 2, the semicolon balances two equal, contrasting choices."
+   },
+   "together": {
+    "passage": "For years, the oasis farmers faced the same problem: their springs were slowly drying up. Some families dug deeper wells; others left for the cities. Then a young engineer suggested a different solution. Instead of pumping more water, the farmers should waste less of it. Today, many fields use drip lines that carry water straight to the roots of the palms; the springs, though smaller, still flow.",
+    "stem": "In the second sentence, why does the writer use a semicolon rather than a colon?",
+    "options": [
+     "The second part explains the first part.",
+     "The two parts show balanced, different choices.",
+     "The second part is a list of items.",
+     "The second part is someone's exact words."
+    ],
+    "answer": 1,
+    "hint": "Does the second part explain the first, or does it sit beside it as an equal?",
+    "good": "Yes! Digging wells and leaving for the cities are two **equal** responses to the problem, so a semicolon balances them."
+   },
+   "evidence": {
+    "sentences": [
+     "For years, the oasis farmers faced the same problem: their springs were slowly drying up.",
+     "Some families dug deeper wells; others left for the cities.",
+     "Then a young engineer suggested a different solution.",
+     "Instead of pumping more water, the farmers should waste less of it.",
+     "Today, many fields use drip lines that carry water straight to the roots of the palms; the springs, though smaller, still flow."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: the semicolon balances two choices. Tap the sentence where this happens.",
+    "wrong": "This sentence does not show two balanced choices. Find the one about what different families did."
+   },
+   "checks": [
+    {
+     "passage": "After months of practice, the team finally understood what made them strong: trust.",
+     "stem": "What is the effect of the colon?",
+     "options": [
+      "It starts a long list.",
+      "It joins two equal sentences.",
+      "It shows a quotation.",
+      "It builds up to one key word."
+     ],
+     "answer": 3,
+     "why": "The colon makes the reader pause, then lands on one important word: **trust**."
+    },
+    {
+     "passage": "The museum was crowded ___ every school in the city had planned a visit that day.",
+     "stem": "Which mark fits best, and why?",
+     "options": [
+      "a comma, because the second part is a list",
+      "a semicolon, because the parts are opposites",
+      "a colon, because the second part explains the first",
+      "a question mark, because it asks why"
+     ],
+     "answer": 2,
+     "why": "The second part explains **why** the museum was crowded, so a colon fits."
+    },
+    {
+     "passage": "Before the long drive, we checked: the tyres, the oil and the water.",
+     "stem": "What is the problem with this sentence?",
+     "options": [
+      "The colon follows an incomplete sentence.",
+      "A semicolon should follow \"tyres\".",
+      "The list needs a question mark.",
+      "\"drive\" needs a capital letter."
+     ],
+     "answer": 0,
+     "why": "\"We checked\" does not sound complete on its own, so no colon should follow it."
+    }
+   ],
+   "again": {
+    "title": "Arrow or equals?",
+    "text": "Think of the colon as an **arrow** ( → ): the first part points to the second.\n\nThink of the semicolon as an **equals sign** ( = ): both parts stand side by side with the same weight.",
+    "example": "He had one fear**:** the dark. → the second part reveals the fear.\n\nShe liked mornings**;** he liked nights. = two equal ideas."
+   }
+  }
+ }
+}

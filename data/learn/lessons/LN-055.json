@@ -1,0 +1,460 @@
+{
+ "code": "LN-055",
+ "title": "Adverbs",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "adverbs"
+ ],
+ "skillNames": [
+  "Adverbs That Tell How, When, Where",
+  "Adverbs and Relative Adverbs",
+  "Adjective or Adverb? (good/well)"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Adverbs tell about actions",
+     "text": "An **adverb** tells more about an action.\n\nThe turtle walked **slowly**.\n\n**Slowly** tells **how** it walked."
+    },
+    {
+     "title": "How, when, where",
+     "text": "**How?** quickly, softly, hard\n**When?** today, now, later\n**Where?** here, outside, upstairs"
+    },
+    {
+     "title": "Find it",
+     "text": "1. Find the action word.\n2. Ask: **How? When? Where?**\n3. The word that answers is the adverb."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the question. Does it ask how, when or where?\n2. Find the action in the text.\n3. Point to the word that answers the question.\n\nThat word is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The baby slept quietly.",
+      "role": "key"
+     },
+     {
+      "t": "We will eat lunch later.",
+      "role": "key"
+     },
+     {
+      "t": "I like soup.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Quietly** tells **how** the baby slept.\n\n**Later** tells **when** we will eat.\n\n\"I like soup.\" has no adverb."
+   },
+   "together": {
+    "passage": "Sami played football. He ran fast. He kicked the ball hard. Then he went home.",
+    "stem": "Which word tells HOW Sami ran?",
+    "options": [
+     "Sami",
+     "fast",
+     "football",
+     "home"
+    ],
+    "answer": 1,
+    "hint": "Find the word ran. Which word right after it tells how?",
+    "good": "Yes! Fast tells how Sami ran."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami played football.",
+     "He ran fast.",
+     "He kicked the ball hard.",
+     "Then he went home."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: fast. Tap 2 sentences that tell HOW Sami did something.",
+    "wrong": "This sentence does not tell how Sami did an action. Look for words like fast or hard."
+   },
+   "checks": [
+    {
+     "passage": "The bird sang sweetly.",
+     "stem": "Which word tells how the bird sang?",
+     "options": [
+      "bird",
+      "sang",
+      "sweetly",
+      "the"
+     ],
+     "answer": 2,
+     "why": "Sweetly tells how the bird sang."
+    },
+    {
+     "passage": "We will go to the zoo tomorrow.",
+     "stem": "Which word tells when?",
+     "options": [
+      "zoo",
+      "go",
+      "we",
+      "tomorrow"
+     ],
+     "answer": 3,
+     "why": "Tomorrow tells when we will go."
+    },
+    {
+     "passage": "The children played outside.",
+     "stem": "Which word tells where?",
+     "options": [
+      "outside",
+      "played",
+      "children",
+      "the"
+     ],
+     "answer": 0,
+     "why": "Outside tells where the children played."
+    }
+   ],
+   "again": {
+    "title": "Ask the action",
+    "text": "Point to the action word. Ask it three questions:\n\n**How?** **When?** **Where?**\n\nThe answer word is the adverb.",
+    "example": "Mom smiled happily.\n\nAction: **smiled**. How? **Happily.** So **happily** is the adverb."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Many adverbs end in -ly",
+     "text": "quick → quick**ly**\ncareful → careful**ly**\nloud → loud**ly**\n\nShe spoke **softly**. He wrote **neatly**."
+    },
+    {
+     "title": "Good or well?",
+     "text": "**Good** is an adjective. It tells about a noun: a **good** cook.\n\n**Well** is an adverb. It tells about an action: She cooks **well**."
+    },
+    {
+     "title": "Quick check",
+     "text": "After an action verb (sing, play, write, read) → **well**.\n\nBefore a noun, or after is, was, looks, tastes → **good**: The soup tastes **good**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word that the describing word goes with.\n2. Is it a **noun** or an **action**?\n3. Noun → adjective (good). Action → adverb (well).\n\nPoint to that word in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hessa is a good swimmer.",
+      "role": "key"
+     },
+     {
+      "t": "She swims well in the sea.",
+      "role": "key"
+     },
+     {
+      "t": "Her sister is five.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Good** goes with the noun **swimmer**, so it is an adjective.\n\n**Well** goes with the action **swims**, so it is an adverb."
+   },
+   "together": {
+    "passage": "Yousef wanted to win the school reading contest. Every evening, he practiced carefully with his little sister. He read slowly and clearly so she could follow. On the day of the contest, Yousef read very ___. The judges said he was a good reader, and he won second place.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "good",
+     "well",
+     "gooder",
+     "goodly"
+    ],
+    "answer": 1,
+    "hint": "The blank tells about an action: read. Which word describes an action?",
+    "good": "Yes! Well is an adverb. It tells how Yousef read."
+   },
+   "evidence": {
+    "sentences": [
+     "Yousef wanted to win the school reading contest.",
+     "Every evening, he practiced carefully with his little sister.",
+     "He read slowly and clearly so she could follow.",
+     "On the day of the contest, Yousef read very ___.",
+     "The judges said he was a good reader, and he won second place."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was well, an adverb that tells how Yousef read. Tap 2 other sentences that use an adverb to tell how Yousef did something.",
+    "wrong": "This sentence has no adverb about how Yousef did something. Good reader uses good with a noun."
+   },
+   "checks": [
+    {
+     "passage": "Our team played ___ in the final match.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "well",
+      "good",
+      "nice",
+      "happy"
+     ],
+     "answer": 0,
+     "why": "Played is an action, so we need the adverb well."
+    },
+    {
+     "passage": "The turtle moved slow across the hot sand.",
+     "stem": "Which change makes the sentence correct?",
+     "options": [
+      "turtle → turtles",
+      "across → over",
+      "hot → hotly",
+      "slow → slowly"
+     ],
+     "answer": 3,
+     "why": "Slowly tells how the turtle moved. An action needs an adverb."
+    },
+    {
+     "passage": "This date cake tastes ___.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "well",
+      "goodly",
+      "good",
+      "weller"
+     ],
+     "answer": 2,
+     "why": "Tastes is not an action here. It links the cake to a describing word, so we use good."
+    }
+   ],
+   "again": {
+    "title": "Noun or action?",
+    "text": "Look at what the word describes.\n\n**A thing** → good.\n**An action** → well.",
+    "example": "Ali is a ___ painter. He paints ___.\n\nPainter is a thing → **good** painter. Paints is an action → paints **well**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Relative adverbs",
+     "text": "**Where**, **when** and **why** can add information about a noun.\n\nThis is the park **where** we play.\n\nThe words after **where** tell **which** park."
+    },
+    {
+     "title": "Which one to use",
+     "text": "After a **place** → where: the town **where** I was born.\n\nAfter a **time** → when: the day **when** it rained.\n\nAfter **reason** → why: the reason **why** he left."
+    },
+    {
+     "title": "How often? How much?",
+     "text": "**always, often, sometimes, never** tell how often.\n\n**very, too, almost, quite** tell how much.\n\nThey can describe verbs, adjectives or other adverbs: **very** quickly, **too** hot."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the noun just before the blank.\n2. Is it a **place**, a **time** or a **reason**?\n3. Point to that noun. It proves which word fits."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Makkah is the city where the Prophet Muhammad was born.",
+      "role": "key"
+     },
+     {
+      "t": "Ramadan is the month when Muslims fast.",
+      "role": "key"
+     },
+     {
+      "t": "Many families gather for iftar.",
+      "role": "other"
+     }
+    ],
+    "explain": "**City** is a place, so we use **where**.\n\n**Month** is a time, so we use **when**."
+   },
+   "together": {
+    "passage": "My grandfather often tells me about the village ___ he grew up. It sat high in the mountains of Asir, where the air is cool even in summer. He remembers the year when heavy rains turned the whole valley green. His family's stone house had very thick walls. That is the reason why the rooms stayed cool on hot days. Today he lives in Abha, but he visits the village every spring.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "when",
+     "why",
+     "where",
+     "who"
+    ],
+    "answer": 2,
+    "hint": "Look at the noun before the blank. Is the village a place, a time or a reason?",
+    "good": "Yes! A village is a place, so where fits: the village where he grew up."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandfather often tells me about the village ___ he grew up.",
+     "It sat high in the mountains of Asir, where the air is cool even in summer.",
+     "He remembers the year when heavy rains turned the whole valley green.",
+     "His family's stone house had very thick walls.",
+     "That is the reason why the rooms stayed cool on hot days.",
+     "Today he lives in Abha, but he visits the village every spring."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 other sentences that add information to a noun with where, when or why.",
+    "wrong": "This sentence does not use where, when or why after a noun. Look again."
+   },
+   "checks": [
+    {
+     "passage": "Do you remember the day ___ we moved to Dammam?",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "where",
+      "when",
+      "why",
+      "which"
+     ],
+     "answer": 1,
+     "why": "Day is a time, so we use when."
+    },
+    {
+     "passage": "Nobody knows the reason ___ the lights went out.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "when",
+      "where",
+      "why",
+      "who"
+     ],
+     "answer": 2,
+     "why": "After the word reason, we use why."
+    },
+    {
+     "passage": "Faris sometimes walks to school with his cousins.",
+     "stem": "Which word tells how often?",
+     "options": [
+      "sometimes",
+      "walks",
+      "school",
+      "cousins"
+     ],
+     "answer": 0,
+     "why": "Sometimes tells how often Faris walks to school."
+    }
+   ],
+   "again": {
+    "title": "Place, time, reason",
+    "text": "Put your finger on the noun before the blank.\n\nPlace → **where**\nTime → **when**\nReason → **why**",
+    "example": "That is the shop ___ I bought my bag.\n\nShop is a **place**. So: the shop **where** I bought my bag."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Adjective or adverb?",
+     "text": "Adjectives describe nouns. Adverbs describe verbs, adjectives and other adverbs.\n\n✗ He drives **careful**.\n✓ He drives **carefully**.\n\n✗ The test was **real** hard.\n✓ The test was **really** hard."
+    },
+    {
+     "title": "Linking verbs take adjectives",
+     "text": "After **be, seem, feel, look, smell, taste, sound**, use an adjective. It describes the subject.\n\nThe bread smells **good**. She looks **calm**.\n\nBut: She looked **calmly** at the crowd. Here looked is an action."
+    },
+    {
+     "title": "Good and well, again",
+     "text": "**Well** can also be an adjective that means **healthy**: After a week in bed, I finally feel **well**.\n\n**I feel good** means I am happy or comfortable."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word being described and point to it.\n2. Is it a **noun**, an **action verb** or a **linking verb**?\n3. Noun or linking verb → adjective. Action verb → adverb.\n\nYour proof is the partner word in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The storm sounded terrible.",
+      "role": "key"
+     },
+     {
+      "t": "The wind howled terribly all night.",
+      "role": "key"
+     },
+     {
+      "t": "By morning, the sky was clear.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Sounded** is a linking verb here: the storm was terrible. So we use the adjective **terrible**.\n\n**Howled** is an action, so we use the adverb **terribly**."
+   },
+   "together": {
+    "passage": "Before the final race, Coach Salem gathered the runners. \"You have trained hard all season,\" he said. \"Your legs look strong, and your times are good. Today, start slowly, save your energy and finish fast.\" Lina felt nervous, but she nodded calmly. When the whistle blew, she ran ___ for the first lap. Later, she sped up and passed three runners. Afterwards, her coach said, \"You ran that race perfectly.\"",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "steady",
+     "steadily",
+     "steadiness",
+     "more steady"
+    ],
+    "answer": 1,
+    "hint": "The blank describes the action ran. Does an action need an adjective or an adverb?",
+    "good": "Yes! Ran is an action verb, so it needs the adverb steadily."
+   },
+   "evidence": {
+    "sentences": [
+     "Before the final race, Coach Salem gathered the runners.",
+     "\"You have trained hard all season,\" he said.",
+     "\"Your legs look strong, and your times are good.",
+     "Today, start slowly, save your energy and finish fast.\"",
+     "Lina felt nervous, but she nodded calmly.",
+     "When the whistle blew, she ran ___ for the first lap.",
+     "Later, she sped up and passed three runners.",
+     "Afterwards, her coach said, \"You ran that race perfectly.\""
+    ],
+    "proof": [
+     3,
+     4,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was steadily: an action needs an adverb. Tap 2 other sentences where an -ly adverb tells how someone did an action.",
+    "wrong": "This sentence has no -ly adverb describing an action. Look strong and felt nervous are linking verbs with adjectives."
+   },
+   "checks": [
+    {
+     "passage": "The soup smells ___.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "deliciously",
+      "deliciousness",
+      "more deliciously",
+      "delicious"
+     ],
+     "answer": 3,
+     "why": "Smells is a linking verb here: it describes the soup. So we need the adjective delicious."
+    },
+    {
+     "passage": "The new student speaks English very good.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "The new student speaks English very well.",
+      "The new student speaks English real good.",
+      "The new student speaks English very goodly.",
+      "The new student speak English very good."
+     ],
+     "answer": 0,
+     "why": "Speaks is an action verb, so it needs the adverb well."
+    },
+    {
+     "passage": "The museum trip was ___ interesting.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "real",
+      "reality",
+      "really",
+      "realer"
+     ],
+     "answer": 2,
+     "why": "The blank describes the adjective interesting, so we need the adverb really."
+    }
+   ],
+   "again": {
+    "title": "Point to the partner",
+    "text": "Every describing word has a partner.\n\nPartner is a **noun**, or a linking verb like is, looks, feels → **adjective**.\n\nPartner is an **action** → **adverb**.",
+    "example": "The cake looks (perfect / perfectly). She decorated it (perfect / perfectly).\n\n**Looks** links to the cake → **perfect**. **Decorated** is an action → **perfectly**."
+   }
+  }
+ }
+}

@@ -1,0 +1,440 @@
+{
+ "code": "LN-047",
+ "title": "Pronouns and antecedents",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "pronouns"
+ ],
+ "skillNames": [
+  "Pronoun-Antecedent Agreement",
+  "Pronouns and Antecedents"
+ ],
+ "statements": [
+  "L-0207"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Pronouns",
+     "text": "A **pronoun** takes the place of a noun.\n\n**he, she, it, they, him, her, them**\n\n“Ali is tall. **He** plays basketball.”"
+    },
+    {
+     "title": "The antecedent",
+     "text": "The noun a pronoun stands for is called its **antecedent**.\n\n“The dog wagged **its** tail.” → **its** stands for **the dog**."
+    },
+    {
+     "title": "Make them match",
+     "text": "One boy → **he / him / his**\nOne girl → **she / her**\nOne thing or animal → **it / its**\nMore than one → **they / them / their**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the pronoun.\n2. Look **back** in the text for the noun it stands for.\n3. Check: one or more? Boy, girl or thing? The pronoun must match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My sisters made a cake.",
+      "role": "key"
+     },
+     {
+      "t": "They put strawberries on top.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**They** stands for **my sisters**. Sisters = more than one, so **they** is right."
+   },
+   "together": {
+    "passage": "Grandma loves her garden. ___ waters the plants every morning. The tomatoes are red and big. Grandma picks them for lunch.",
+    "stem": "Which pronoun fits the blank?",
+    "options": [
+     "He",
+     "They",
+     "She",
+     "It"
+    ],
+    "answer": 2,
+    "hint": "Who waters the plants? Look back at the first sentence. Is it a man, a woman, a thing, or many people?",
+    "good": "Yes! **She** stands for **Grandma**: one woman."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandma loves her garden.",
+     "___ waters the plants every morning.",
+     "The tomatoes are red and big.",
+     "Grandma picks them for lunch."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that names who the pronoun stands for.",
+    "wrong": "This sentence does not name the person who waters the plants. Look back to the start."
+   },
+   "checks": [
+    {
+     "passage": "The birds sang. ___ were in the tree.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "It",
+      "They",
+      "He",
+      "She"
+     ],
+     "answer": 1,
+     "why": "**Birds** means more than one, so we use **they**."
+    },
+    {
+     "passage": "Omar lost his pen. Mona found ___ under the desk.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "him",
+      "them",
+      "it",
+      "her"
+     ],
+     "answer": 2,
+     "why": "Mona found **the pen**: one thing → **it**."
+    },
+    {
+     "passage": "My brother and I went to the park. ___ played football.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "We",
+      "They",
+      "He",
+      "Us"
+     ],
+     "answer": 0,
+     "why": "“My brother and I” includes me, so the pronoun is **we**."
+    }
+   ],
+   "again": {
+    "title": "Point back",
+    "text": "Every pronoun **points back** to a noun.\n\nPut your finger on the pronoun. Move it back until you find the noun. Do they match?",
+    "example": "“The cats were hungry, so I fed ___.” Point back → **the cats** (more than one) → **them**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Agreement",
+     "text": "A pronoun must **agree** with its antecedent:\n\n1. **Number**: one, or more than one\n2. **Gender**: male, female, or a thing\n\n“The girls packed **their** bags.” Girls = more than one → their."
+    },
+    {
+     "title": "Owning pronouns match too",
+     "text": "**his, her, its, their** must match as well.\n\n“The tree lost **its** leaves.” (one tree)\n“The trees lost **their** leaves.” (many trees)"
+    },
+    {
+     "title": "Look back carefully",
+     "text": "The antecedent may be a sentence or two back.\n\nKeep track of **who or what** the text is talking about, and whether it is one or many."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the pronoun.\n2. Find the noun it stands for, earlier in the text.\n3. Check number and gender.\n\nPoint to the sentence that names the antecedent. It proves which pronoun is right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The students finished the project.",
+      "role": "key"
+     },
+     {
+      "t": "Their teacher hung it on the wall.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Their** stands for **the students**: more than one. **It** stands for **the project**: one thing.\n\nBoth pronouns agree."
+   },
+   "together": {
+    "passage": "The camel is well suited to the desert. Its wide feet help it walk on soft sand. Thick eyelashes protect ___ eyes from blowing dust. Camels can also close their noses during sandstorms.",
+    "stem": "Which pronoun fits the blank?",
+    "options": [
+     "their",
+     "its",
+     "his",
+     "them"
+    ],
+    "answer": 1,
+    "hint": "Whose eyes are they? Is the text talking about one camel or many at that point?",
+    "good": "Yes! The text is about **the camel**: one animal. So it is **its** eyes."
+   },
+   "evidence": {
+    "sentences": [
+     "The camel is well suited to the desert.",
+     "Its wide feet help it walk on soft sand.",
+     "Thick eyelashes protect ___ eyes from blowing dust.",
+     "Camels can also close their noses during sandstorms."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 1,
+    "stem": "Tap a sentence that shows the eyes belong to one camel.",
+    "wrong": "This sentence is about more than one camel, or does not name the owner. Find a sentence about one camel."
+   },
+   "checks": [
+    {
+     "passage": "Huda and Reem brought ___ own lunches.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "her",
+      "their",
+      "its",
+      "his"
+     ],
+     "answer": 1,
+     "why": "Huda **and** Reem = two people → **their**."
+    },
+    {
+     "passage": "The bicycle had a flat tire, so Dad fixed ___.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "them",
+      "her",
+      "it",
+      "they"
+     ],
+     "answer": 2,
+     "why": "Dad fixed **the bicycle**: one thing → **it**."
+    },
+    {
+     "passage": "The boys cleaned the classroom. The teacher thanked ___ for their hard work.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "him",
+      "it",
+      "her",
+      "them"
+     ],
+     "answer": 3,
+     "why": "The teacher thanked **the boys**: more than one → **them**."
+    }
+   ],
+   "again": {
+    "title": "Count and check",
+    "text": "1. Is the antecedent **one** or **more than one**?\n2. Is it a **boy, a girl or a thing**?\n\nPick the pronoun that fits both answers.",
+    "example": "“The kitten chased ___ tail.” One? Yes. An animal? Yes → **its** tail."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Two antecedents with “and”",
+     "text": "Two nouns joined by **and** need a plural pronoun.\n\n“Sami **and** Fahad finished **their** model.”"
+    },
+    {
+     "title": "Two antecedents with “or” / “nor”",
+     "text": "With **or** or **nor**, match the **nearer** noun.\n\n“Either the teacher or the **students** will share **their** ideas.”\n\n“Neither the boys nor **Ali** forgot **his** book.”"
+    },
+    {
+     "title": "Skip the words in between",
+     "text": "“One **of the cars** lost **its** wheel.” The antecedent is **one**, not cars.\n\n“The **basket** of oranges tipped on **its** side.” The basket tipped, not the oranges."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the pronoun.\n2. Find the true antecedent: cross out phrases like “of the cars”.\n3. Check: are nouns joined by **and**, or by **or / nor**?\n\nPoint to the words that prove what the antecedent is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "One of the palm trees lost its leaves in the storm.",
+      "role": "key"
+     },
+     {
+      "t": "The others stayed green.",
+      "role": "other"
+     }
+    ],
+    "explain": "Cross out “of the palm trees”. The antecedent is **one** (palm tree), so **its** is correct, not “their”."
+   },
+   "together": {
+    "passage": "Every year, the city holds a race for young cyclists. This year, one of the boys from our school reached the final, and ___ bike was the oldest in the race. The other riders had new, light bikes. Before the race, Majid and his coach checked the old bike carefully. They tightened the brakes and pumped up the tires. Majid finished fourth, and the crowd cheered for him.",
+    "stem": "Which pronoun fits the blank?",
+    "options": [
+     "their",
+     "his",
+     "its",
+     "them"
+    ],
+    "answer": 1,
+    "hint": "Cross out “of the boys from our school”. How many riders own the old bike?",
+    "good": "Yes! The antecedent is **one** of the boys: one boy, so **his** bike."
+   },
+   "evidence": {
+    "sentences": [
+     "Every year, the city holds a race for young cyclists.",
+     "This year, one of the boys from our school reached the final, and ___ bike was the oldest in the race.",
+     "The other riders had new, light bikes.",
+     "Before the race, Majid and his coach checked the old bike carefully.",
+     "They tightened the brakes and pumped up the tires.",
+     "Majid finished fourth, and the crowd cheered for him."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the oldest bike belonged to one boy.",
+    "wrong": "This sentence does not show who owned the old bike. Find the sentences about one boy and the old bike."
+   },
+   "checks": [
+    {
+     "passage": "Neither the players nor Coach Faisal forgot ___ water bottle.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "their",
+      "its",
+      "his",
+      "them"
+     ],
+     "answer": 2,
+     "why": "With **nor**, match the nearer noun: **Coach Faisal**, one man → **his**."
+    },
+    {
+     "passage": "The box of old photographs had lost ___ lid.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "its",
+      "their",
+      "it's",
+      "his"
+     ],
+     "answer": 0,
+     "why": "Cross out “of old photographs”. The **box** lost the lid: one thing → **its**."
+    },
+    {
+     "passage": "Mona and Laila practiced ___ speeches together.",
+     "stem": "Which pronoun fits the blank?",
+     "options": [
+      "her",
+      "their",
+      "its",
+      "hers"
+     ],
+     "answer": 1,
+     "why": "Mona **and** Laila = two people → **their**."
+    }
+   ],
+   "again": {
+    "title": "Cross out and count",
+    "text": "1. Cross out phrases like “of the…”.\n2. Count what is left: one or more?\n3. With **and** → more than one. With **or / nor** → look at the nearer noun.",
+    "example": "“The bag of apples fell off ___ hook.” Cross out “of apples” → **the bag** = one thing → **its** hook."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Clear reference",
+     "text": "A pronoun must point to **one clear** antecedent.\n\n“Faisal told Ahmed that **he** had won.” Who won? Unclear!\n\nFix: “Faisal told Ahmed, ‘You have won.’” or name the person again."
+    },
+    {
+     "title": "Vague “they” and “it”",
+     "text": "“**They** say the new road will open soon.” Who are they?\n\n“The city council says the new road will open soon.” Now it is clear.\n\nA pronoun needs a real noun to point to."
+    },
+    {
+     "title": "Agreement across a passage",
+     "text": "In long passages, the antecedent may be several sentences back, with other nouns in between.\n\nAsk: which noun is the sentence really talking about? Is it one or many?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the pronoun.\n2. List every noun before it that it could point to.\n3. If two nouns fit, the reference is unclear.\n4. Point to the words that name the true antecedent, and check number and gender."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old map was found inside a wooden chest.",
+      "role": "detail"
+     },
+     {
+      "t": "Historians said it was more than two hundred years old.",
+      "role": "key"
+     }
+    ],
+    "explain": "**It** could mean the map **or** the chest. The reader cannot be sure.\n\nClear version: “Historians said **the map** was more than two hundred years old.”"
+   },
+   "together": {
+    "passage": "Two students, Reem and Noura, entered the national science fair with a project on water filters. Reem designed the filter, while Noura tested water samples from three different wells. Each of the samples was stored in ___ own glass jar. After weeks of testing, the girls found that their filter removed most of the sand and dirt. When the judges visited their table, Reem explained the design, and Noura showed the results. The project won second prize and was later displayed at the city library.",
+    "stem": "Which pronoun correctly completes the third sentence?",
+    "options": [
+     "their",
+     "its",
+     "her",
+     "his"
+    ],
+    "answer": 1,
+    "hint": "Cross out “of the samples”. What is the true antecedent: one, or many?",
+    "good": "Yes! The antecedent is **each**, which means one sample at a time. So: **its** own glass jar."
+   },
+   "evidence": {
+    "sentences": [
+     "Two students, Reem and Noura, entered the national science fair with a project on water filters.",
+     "Reem designed the filter, while Noura tested water samples from three different wells.",
+     "Each of the samples was stored in ___ own glass jar.",
+     "After weeks of testing, the girls found that their filter removed most of the sand and dirt.",
+     "When the judges visited their table, Reem explained the design, and Noura showed the results.",
+     "The project won second prize and was later displayed at the city library."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that holds the antecedent of the missing pronoun.",
+    "wrong": "The missing pronoun does not point to anything in this sentence. Find the sentence with the blank and its antecedent “each”."
+   },
+   "checks": [
+    {
+     "passage": "When Khalid met his cousin Sami at the airport, he was very tired.",
+     "stem": "Why is this sentence unclear?",
+     "options": [
+      "“He” could mean Khalid or Sami.",
+      "“His” should be “their”.",
+      "It needs the word “they”.",
+      "“Airport” is not a noun."
+     ],
+     "answer": 0,
+     "why": "Two men are named before “he”. The reader cannot tell which one was tired."
+    },
+    {
+     "passage": "The scientists tested the new medicine on mice, and they responded well.",
+     "stem": "Which revision makes the reference clear?",
+     "options": [
+      "The scientists tested the new medicine on mice, and it responded well.",
+      "The scientists tested it on mice, and they responded well.",
+      "They tested the new medicine on mice, and they responded well.",
+      "The scientists tested the new medicine on mice, and the mice responded well."
+     ],
+     "answer": 3,
+     "why": "“They” could mean the scientists or the mice. Naming **the mice** removes the doubt."
+    },
+    {
+     "passage": "Each of the bridges in the old town has ___ own name and history.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "their",
+      "it's",
+      "its",
+      "his"
+     ],
+     "answer": 2,
+     "why": "The antecedent is **each** (one bridge at a time), not “bridges”. One thing → **its**."
+    }
+   ],
+   "again": {
+    "title": "Could it be someone else?",
+    "text": "After every pronoun, ask: **Could it point to someone or something else?**\n\nIf yes, replace the pronoun with the noun, or rewrite the sentence.",
+    "example": "“Mona gave Laila her book.” Whose book? Could be either!\n\nClear: “Mona gave Laila **Mona's** book.” or “Mona lent her own book to Laila.”"
+   }
+  }
+ }
+}

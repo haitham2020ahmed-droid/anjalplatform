@@ -1,0 +1,439 @@
+{
+ "code": "LN-142",
+ "title": "Firsthand and secondhand accounts",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [],
+ "families": [
+  "author-perspective"
+ ],
+ "skillNames": [
+  "Firsthand and Secondhand Accounts"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who is telling?",
+     "text": "A **firsthand** account is told by someone who **was there**.\n\nA **secondhand** account is told by someone who **was not there**. They heard or read about it."
+    },
+    {
+     "title": "Clue words",
+     "text": "**Firsthand:** *I*, *we*, *me*, *my*. *I saw the rain start.*\n\n**Secondhand:** *he*, *she*, *they*, *people say*. *She saw the rain start.*"
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Find the words *I* or *we*.\n2. Ask: **Was the writer there?**\n3. Yes → firsthand. No → secondhand."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove it with the **clue words**.\n\n1. Look for *I*, *we*, *my*. They show the writer was there.\n2. Look for *he*, *she*, *they* or *people say*. They show someone else is telling.\n\nPoint to the words that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I went to the camel race with my uncle.",
+      "role": "key"
+     },
+     {
+      "t": "The camels ran very fast.",
+      "role": "detail"
+     },
+     {
+      "t": "I cheered as loud as I could.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writer says **I** and **my**. The writer was there. This is a **firsthand** account."
+   },
+   "together": {
+    "passage": "Yesterday I saw a rainbow. It was after the rain. I counted all the colors. My little sister clapped her hands.",
+    "stem": "What kind of account is this?",
+    "options": [
+     "Secondhand, because the writer read about it",
+     "Firsthand, because the writer saw it",
+     "Secondhand, because it is about a sister",
+     "A story about a rainbow in a book"
+    ],
+    "answer": 1,
+    "hint": "Look for I and my. Was the writer there?",
+    "good": "Yes! The words I saw and I counted show the writer was there."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday I saw a rainbow.",
+     "It was after the rain.",
+     "I counted all the colors.",
+     "My little sister clapped her hands."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: firsthand. Tap 2 sentences that show the writer was there.",
+    "wrong": "This sentence does not show that the writer was there. Find the sentences with I."
+   },
+   "checks": [
+    {
+     "passage": "My grandpa told me about a big storm. He said the wind was very strong. People stayed inside all day.",
+     "stem": "Is the writer telling a firsthand account of the storm?",
+     "options": [
+      "Yes, the writer was in the storm.",
+      "Yes, the writer saw the wind.",
+      "No, the writer heard about it from Grandpa.",
+      "No, the storm was not real."
+     ],
+     "answer": 2,
+     "why": "The writer says Grandpa told me. The writer was not there."
+    },
+    {
+     "passage": "We planted a tree at school today. I dug the hole. My friend poured the water.",
+     "stem": "Which words show it is firsthand?",
+     "options": [
+      "We and I",
+      "Tree and school",
+      "Hole and water",
+      "Friend and today"
+     ],
+     "answer": 0,
+     "why": "We and I show the writer was there."
+    },
+    {
+     "passage": "Long ago, people in this town fished for a living. They sailed in wooden boats. They sold fish in the market.",
+     "stem": "What kind of account is this?",
+     "options": [
+      "Firsthand, because it says I",
+      "Firsthand, because the writer fished",
+      "A diary of the writer",
+      "Secondhand, because the writer was not there"
+     ],
+     "answer": 3,
+     "why": "It uses they and tells about long ago. The writer was not there."
+    }
+   ],
+   "again": {
+    "title": "Were you there?",
+    "text": "Imagine asking the writer: **Were you there?**\n\nIf the text answers **yes** (I saw, I heard, we went), it is firsthand. If not, it is secondhand.",
+    "example": "'I tasted the new bread. It was soft.' → Were you there? **Yes. Firsthand.**\n'People say the new bread is soft.' → **No. Secondhand.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Two kinds of accounts",
+     "text": "A **firsthand account** is written by someone who took part or saw the event: a diary, a letter, an interview.\n\nA **secondhand account** is written by someone who learned about it later: a news report, a textbook, an encyclopedia."
+    },
+    {
+     "title": "What each one gives",
+     "text": "**Firsthand:** feelings, senses, personal details. *My hands shook.*\n\n**Secondhand:** facts, dates, numbers, background. *Over 500 people attended.*"
+    },
+    {
+     "title": "Comparing them",
+     "text": "When you read two accounts of the same event, ask:\n\n1. What does **each** focus on?\n2. What does one include that the other leaves out?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your answer with **clue words and kinds of details**.\n\n1. *I*, *we*, feelings and senses → firsthand.\n2. *He*, *she*, *they*, dates and numbers from research → secondhand.\n3. Point to the sentences that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Account A: I walked onto the stage, and my heart was pounding.",
+      "role": "key"
+     },
+     {
+      "t": "Account B: Students from 12 schools took part in the regional spelling contest on Monday.",
+      "role": "key"
+     }
+    ],
+    "explain": "Account A uses **I** and tells feelings (**my heart was pounding**). Account B uses **the students** and gives facts (**12 schools**). A is firsthand; B is secondhand."
+   },
+   "together": {
+    "passage": "Account A: When the plane landed in Jeddah, I looked out of the window and saw the sea shining in the sun. I could smell the warm, salty air as soon as the doors opened. Account B: Flights between the two cities take about two hours. The airport in Jeddah is one of the busiest in the country, serving millions of travellers each year.",
+    "stem": "How are the two accounts different?",
+    "options": [
+     "Both are firsthand accounts.",
+     "A is secondhand, and B is firsthand.",
+     "A gives the writer's own senses; B gives general facts.",
+     "Both give the writer's feelings."
+    ],
+    "answer": 2,
+    "hint": "Look at Account A's words: I looked, I could smell. Look at Account B: numbers and facts. Which one was there?",
+    "good": "Yes! A shows what the writer saw and smelled. B gives facts anyone could look up."
+   },
+   "evidence": {
+    "sentences": [
+     "Account A: When the plane landed in Jeddah, I looked out of the window and saw the sea shining in the sun.",
+     "I could smell the warm, salty air as soon as the doors opened.",
+     "Account B: Flights between the two cities take about two hours.",
+     "The airport in Jeddah is one of the busiest in the country, serving millions of travellers each year."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: A gives the writer's senses; B gives general facts. Tap 2 sentences that show the writer of A was there.",
+    "wrong": "This sentence is from Account B. It gives a general fact. Find the sentences where the writer uses I and the senses."
+   },
+   "checks": [
+    {
+     "passage": "Account A: Our team won the football match 3–1. I scored the second goal, and my legs felt like jelly afterwards! Account B: The home team won 3–1 on Saturday in front of 800 fans.",
+     "stem": "What does Account B include that Account A does not?",
+     "options": [
+      "The writer's feelings",
+      "The number of fans",
+      "Who scored the second goal",
+      "How the writer's legs felt"
+     ],
+     "answer": 1,
+     "why": "Only Account B tells that 800 fans watched. That is a secondhand fact."
+    },
+    {
+     "passage": "Account A: The museum opened in 1999 and holds more than 5,000 objects. Account B: I spent the whole afternoon at the museum. The old swords amazed me.",
+     "stem": "Which account is firsthand?",
+     "options": [
+      "Account A",
+      "Neither",
+      "Both",
+      "Account B"
+     ],
+     "answer": 3,
+     "why": "Account B uses I and me and tells a personal experience."
+    },
+    {
+     "passage": "Account A: Heavy rain flooded several streets in the city, and schools closed for a day. Account B: I watched the water rise up our street until it reached the door.",
+     "stem": "What can you learn from Account A that you cannot learn from B?",
+     "options": [
+      "That schools closed for a day",
+      "How the writer felt",
+      "What the writer saw at the door",
+      "That the writer has a street"
+     ],
+     "answer": 0,
+     "why": "Account A gives the wider fact that schools closed. Account B shows only one person's view."
+    }
+   ],
+   "again": {
+    "title": "Diary or newspaper?",
+    "text": "Ask: does it sound like a **diary** or a **newspaper**?\n\n**Diary** → I, feelings, small details → firsthand.\n**Newspaper** → facts, numbers, many people → secondhand.",
+    "example": "'I could hardly sleep the night before the trip.' → **Diary. Firsthand.**\n'About 200 students went on the trip.' → **Newspaper. Secondhand.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Comparing accounts of one event",
+     "text": "When two people describe the **same event**, their accounts can differ a lot.\n\nA firsthand writer shows **what it was like**. A secondhand writer often explains **what happened overall** and **why it mattered**."
+    },
+    {
+     "title": "Strengths and limits",
+     "text": "**Firsthand:** vivid and personal, but sees only one part of the event.\n\n**Secondhand:** wider view, often more facts, but no direct experience.\n\nEach can include things the other misses."
+    },
+    {
+     "title": "Questions to ask",
+     "text": "1. What does each account **focus** on?\n2. What **information** is only in one?\n3. How does each writer's **position** shape what they tell?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Compare by pointing to **specific details** in each account.\n\n1. Find a detail that appears only in the firsthand account (a feeling, a sound, a small moment).\n2. Find a detail only in the secondhand account (a number, a cause, a result).\n3. Choose the answer that explains this difference."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Firsthand: The glasses on our shelf began to rattle, and my brother grabbed my hand.",
+      "role": "key"
+     },
+     {
+      "t": "Secondhand: A small earthquake of magnitude 4.1 was recorded near the coast; officials reported no injuries.",
+      "role": "key"
+     }
+    ],
+    "explain": "The firsthand account gives the **experience** (the shaking, the noise). The secondhand account gives the **facts and cause** (magnitude, cause, no injuries)."
+   },
+   "together": {
+    "passage": "Firsthand account: I stood on the corniche with my family when the first fireworks burst over the water. The boom was so loud I felt it in my chest, and the whole crowd went silent for a second before cheering. My little cousin hid her face in my sleeve. Secondhand account: The National Day fireworks show lasted twenty minutes and was watched by an estimated 50,000 people along the waterfront. Organisers said it was the largest display in the city's history.",
+    "stem": "What does the firsthand account offer that the secondhand account does not?",
+    "options": [
+     "The number of people watching",
+     "How long the show lasted",
+     "What it felt like to be in the crowd",
+     "What the organisers said"
+    ],
+    "answer": 2,
+    "hint": "Find details only in the firsthand account: the boom in the chest, the silence, the cousin. What do they give the reader?",
+    "good": "Yes! Feeling the boom, the crowd's silence and the cousin hiding show what being there was like."
+   },
+   "evidence": {
+    "sentences": [
+     "Firsthand account: I stood on the corniche with my family when the first fireworks burst over the water.",
+     "The boom was so loud I felt it in my chest, and the whole crowd went silent for a second before cheering.",
+     "My little cousin hid her face in my sleeve.",
+     "Secondhand account: The National Day fireworks show lasted twenty minutes and was watched by an estimated 50,000 people along the waterfront.",
+     "Organisers said it was the largest display in the city's history."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: what it felt like to be in the crowd. Tap 2 sentences that show this.",
+    "wrong": "This sentence is from the secondhand account or sets the scene. Find the details of the writer's own experience."
+   },
+   "checks": [
+    {
+     "passage": "Firsthand: I helped carry sandbags all night. My arms ached, but nobody stopped. Secondhand: Volunteers filled more than 3,000 sandbags, protecting about forty homes from the rising river.",
+     "stem": "How does the secondhand account add to the firsthand one?",
+     "options": [
+      "It shows how tired the writer was.",
+      "It describes one person's arms aching.",
+      "It tells what the volunteers ate.",
+      "It shows the size and result of the effort."
+     ],
+     "answer": 3,
+     "why": "The secondhand account gives the total number of sandbags and how many homes were protected."
+    },
+    {
+     "passage": "Firsthand: When the new school opened, I was nervous; the corridors seemed endless. Secondhand: The new school, built for 1,200 students, opened in September with 40 classrooms and two science labs.",
+     "stem": "Why might the two accounts describe the school's size so differently?",
+     "options": [
+      "One writer experienced it personally; the other reports measured facts.",
+      "One of the writers is not telling the truth.",
+      "The school changed size between the accounts.",
+      "Both writers are describing different schools."
+     ],
+     "answer": 0,
+     "why": "'Corridors seemed endless' is a personal feeling; '40 classrooms' is a reported fact. Each writer's position shapes the description."
+    },
+    {
+     "passage": "Firsthand: Our boat rocked as the dolphins leapt beside us. I counted at least ten. Secondhand: Researchers say groups of dolphins are often seen in these waters in spring, when fish are plentiful.",
+     "stem": "What information is ONLY in the secondhand account?",
+     "options": [
+      "That the boat rocked",
+      "Why dolphins are often seen there in spring",
+      "That the writer counted ten dolphins",
+      "That dolphins leapt beside the boat"
+     ],
+     "answer": 1,
+     "why": "Only the secondhand account explains the season and reason: plentiful fish in spring."
+    }
+   ],
+   "again": {
+    "title": "Zoom in, zoom out",
+    "text": "A firsthand account is like a camera **zoomed in**: close, detailed, one spot.\n\nA secondhand account is **zoomed out**: the whole scene, with facts and numbers.",
+    "example": "Zoomed in: 'I saw a man fall off his bike and get up laughing.'\nZoomed out: 'The city bike race had 300 riders and only two minor falls.'"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Perspective and reliability",
+     "text": "Firsthand accounts are valuable because the writer **witnessed** the event, but they are shaped by **where** the writer stood, **what** they could see, and **how** they felt.\n\nSecondhand accounts can combine many sources, but they depend on the quality of those sources."
+    },
+    {
+     "title": "Analysing differences",
+     "text": "When accounts disagree, ask:\n\n1. Could each writer **see** what they describe?\n2. Does a writer have a **reason** to present events a certain way?\n3. Which details can be **checked** against other evidence?"
+    },
+    {
+     "title": "Using both",
+     "text": "Historians and journalists use **both** kinds. Firsthand accounts give texture and emotion; secondhand accounts give context, causes and the big picture. Together they give a fuller understanding."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your analysis with details that show each writer's **position**.\n\n1. Find what the firsthand writer could and could not know.\n2. Find what sources the secondhand writer relies on.\n3. Choose the answer that explains the difference using both accounts."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Firsthand (a worker's letter, 1932): We dug from dawn to dusk in our section, and I never saw the other crews.",
+      "role": "key"
+     },
+     {
+      "t": "Secondhand (a historian, 2010): Company records show that eight crews worked at once, finishing the tunnel four months early.",
+      "role": "key"
+     }
+    ],
+    "explain": "The worker's firsthand view is **limited to one tunnel**; he did not know the total. The historian's secondhand view uses **records** to give the whole picture."
+   },
+   "together": {
+    "passage": "Firsthand account (from the diary of a ship's cook, 1871): The storm struck before supper. I was below deck and saw nothing, but I heard the mast crack like thunder and the captain shouting. We bailed water for hours; I thought we were lost. Secondhand account (from a modern history of the voyage): Using the ship's log and letters from three crew members, historians conclude that the captain's quick decision to turn toward the wind saved the ship. The voyage was delayed by eleven days, but no lives were lost.",
+    "stem": "Why does the secondhand account explain the captain's decision when the cook's diary does not?",
+    "options": [
+     "The cook did not care about the captain.",
+     "The historians used several sources, while the cook was below deck and could not see.",
+     "The cook wrote the diary many years later.",
+     "The captain told only the historians."
+    ],
+    "answer": 1,
+    "hint": "Where was the cook during the storm? What sources did the historians use?",
+    "good": "Yes! The cook 'saw nothing' from below deck, while the historians combined the log and several letters."
+   },
+   "evidence": {
+    "sentences": [
+     "Firsthand account (from the diary of a ship's cook, 1871): The storm struck before supper.",
+     "I was below deck and saw nothing, but I heard the mast crack like thunder and the captain shouting.",
+     "We bailed water for hours; I thought we were lost.",
+     "Secondhand account (from a modern history of the voyage): Using the ship's log and letters from three crew members, historians conclude that the captain's quick decision to turn toward the wind saved the ship.",
+     "The voyage was delayed by eleven days, but no lives were lost."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the historians used several sources; the cook could not see. Tap 2 sentences that prove this.",
+    "wrong": "This sentence describes the storm or its result. Find where the cook's position and the historians' sources are shown."
+   },
+   "checks": [
+    {
+     "passage": "Firsthand (a fan at the final): The referee clearly favoured the visitors; every close call went against us! Secondhand (a sports report): Video review showed that four of the five disputed calls were correct.",
+     "stem": "What best explains the difference between the accounts?",
+     "options": [
+      "The fan watched a different match.",
+      "The report was written by the referee.",
+      "The fan's loyalty shaped his view; the report checked the calls with video.",
+      "Video review always favours the visitors."
+     ],
+     "answer": 2,
+     "why": "The fan's strong feelings for his team colour his account, while the report used video evidence."
+    },
+    {
+     "passage": "Firsthand (a traveller's letter, 1890s): The city is small, with perhaps a few thousand people, and its markets are lively. Secondhand (a modern encyclopedia): Population estimates for the city in the 1890s range from 8,000 to 15,000.",
+     "stem": "How should a reader treat the traveller's population figure?",
+     "options": [
+      "As more exact than the encyclopedia's",
+      "As the official census number",
+      "As proof that the encyclopedia is wrong",
+      "As a rough guess, not an exact number"
+     ],
+     "answer": 3,
+     "why": "The traveller says 'perhaps', which shows a personal estimate; it gives a feeling of the city but is not precise."
+    },
+    {
+     "passage": "Firsthand (an engineer on the project): We worked through two summers in heat above 45°C, and many of us doubted the bridge would ever be finished. Secondhand (a government report): The bridge was completed on schedule at a cost of 1.2 billion riyals.",
+     "stem": "What does reading both accounts together reveal?",
+     "options": [
+      "A project can be on time yet very hard for its builders.",
+      "The bridge was never finished.",
+      "The engineer's doubts made the project finish late.",
+      "The report proves the work was easy."
+     ],
+     "answer": 0,
+     "why": "The report shows the official success; the engineer shows the human difficulty. Together they give a fuller picture."
+    }
+   ],
+   "again": {
+    "title": "Where were you standing?",
+    "text": "For each account, ask: **Where was this writer standing?**\n\n• Close up, but in one spot? (firsthand)\n• Far away, but with many sources? (secondhand)\n\nTheir position explains what they know and what they miss.",
+    "example": "A player on the field: 'I didn't see the goal; I was behind the defender.' A reporter with the replay: 'The goal came from a header in the 70th minute.'\n\nThe player was close but **blocked**; the reporter was far but had **the replay**."
+   }
+  }
+ }
+}

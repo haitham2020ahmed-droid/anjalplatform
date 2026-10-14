@@ -115,8 +115,9 @@ export async function setStudentLevel(repo: Repo, actor: Actor, studentId: strin
 }
 
 /** Allows one placement retake (once per term; see placement.ts). */
-export async function allowPlacementRetake(repo: Repo, actor: Actor, studentId: string, reason = "", now = new Date()): Promise<void> {
+export async function allowPlacementRetake(repo: Repo, actor: Actor, studentId: string, reason = "", now = new Date()): Promise<{ restarted: boolean }> {
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can allow a placement retake.");
-  await teacherResetPlacement(repo, actor, studentId, reason.trim().slice(0, 200), now);
-  await audit(repo, { actorId: actor.userId, action: "readrise.placement.retake", entityType: "RRStudent", entityId: studentId, at: now });
+  const r = await teacherResetPlacement(repo, actor, studentId, reason.trim().slice(0, 200), now);
+  await audit(repo, { actorId: actor.userId, action: r.restarted ? "readrise.placement.restart" : "readrise.placement.retake", entityType: "RRStudent", entityId: studentId, at: now });
+  return { restarted: Boolean(r.restarted) };
 }

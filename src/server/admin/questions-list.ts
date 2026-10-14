@@ -48,8 +48,12 @@ export interface BankListFilter {
   ai?: boolean;
   mapArea?: string;
   grade?: number;
-  /** 🏦 the Question Bank (default: skill + level, no grade) or the Curriculum Map's own questions (grade → unit → lesson) */
-  source?: "BANK" | "MAP" | "ALL";
+  /**
+   * 🏦 the Question Bank (default: skill + level, no grade) or the Curriculum Map's own questions (grade → unit → lesson);
+   * ✏️ COPIES: teachers' private edited copies (src/server/questions/private-copies.ts) — every copy for the admin, a
+   * teacher's own copies for a teacher. They are in no other list.
+   */
+  source?: "BANK" | "MAP" | "ALL" | "COPIES";
 }
 
 export interface BankListRow {
@@ -57,6 +61,8 @@ export interface BankListRow {
   /** a Curriculum Map question (shown with its grade); bank questions show their RIT band instead */
   onMap: boolean; ritBand: string;
   status: QuestionStatus; origin: string; updatedAt: string; hasPassage: boolean; hasImage: boolean; mine: boolean;
+  /** open flags (students' "not clear" reports, teachers' problem reports, staff flags) */
+  flags?: number;
 }
 
 const typeCache = new WeakMap<object, { v: string; p: Promise<Map<string, string>> }>();
@@ -109,7 +115,10 @@ async function whereOf(repo: Repo, actor: Actor, f: BankListFilter, withStatus =
   }
   // 🏦 bank or Curriculum Map (a map place or a question id already narrows it)
   const source = f.source ?? (f.mapCode ? "MAP" : "BANK");
-  if (source !== "ALL" && !f.mapCode && !w.id) {
+  // ✏️ private copies: only under COPIES (named explicitly, so a search by id never shows another teacher's copy)
+  const admin = actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN";
+  w.privateToId = source === "COPIES" ? (admin ? { not: null } : actor.userId) : null;
+  if (source !== "ALL" && source !== "COPIES" && !f.mapCode && !w.id) {
     const onMap = [...(await mapLinkedQuestionIds(repo))];
     if (source === "MAP") { if (!onMap.length) return null; w.id = { in: onMap.slice(0, MATCH_MAX) }; }
     else if (onMap.length) w.id = { notIn: onMap };
@@ -143,7 +152,10 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
   const pages = Math.max(1, Math.ceil(total / per));
   const page = Math.min(pages, Math.max(1, Math.floor(f.page ?? 1)));
   const found = total ? await repo.findMany("Question", where, { select: COLUMNS, orderBy: ORDER[f.sort ?? "new"] ?? ORDER.new, take: per, skip: (page - 1) * per }) : [];
-  const [idx, types, onMap] = await Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo), mapLinkedQuestionIds(repo)]);
+  const [idx, types, onMap, flagRows] = await Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo), mapLinkedQuestionIds(repo),
+    found.length ? repo.findMany("QuestionFlag", { questionId: { in: found.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["questionId"] }) : Promise.resolve([] as Row[])]);
+  const flagsOf = new Map<string, number>();
+  for (const f of flagRows) flagsOf.set(s(f.questionId), (flagsOf.get(s(f.questionId)) ?? 0) + 1);
   const iso = (v: unknown) => (v instanceof Date ? v : new Date(s(v))).toISOString();
   const rows = found.map((q): BankListRow => {
     const sk = idx.skillOf.get(s(q.skillId));
@@ -152,7 +164,7 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
       id: s(q.id), stem: s(q.stem).replace(/\s+/g, " ").slice(0, 200), skill: sk?.name ?? "", skillId: s(q.skillId), grade: sk?.grade ?? 0,
       type: types.get(s(q.typeId)) ?? "", level, levelLabel: LEVEL_LABELS[level] ?? "", status: s(q.status) as QuestionStatus, origin: s(q.origin),
       updatedAt: iso(q.updatedAt), hasPassage: Boolean(q.passageId), hasImage: Boolean(q.imageId), mine: q.createdById === actor.userId,
-      onMap: onMap.has(s(q.id)), ritBand: ritBand(ritOf(level || 4, sk?.grade ?? 0)),
+      onMap: onMap.has(s(q.id)), ritBand: ritBand(ritOf(level || 4, sk?.grade ?? 0)), flags: flagsOf.get(s(q.id)) ?? 0,
     };
   });
   return { rows, total, page, pages, per };
@@ -182,18 +194,20 @@ export async function bankStatusCounts(repo: Repo, actor: Actor, f: BankListFilt
 /**
  * The two banners at the top: questions not under a real skill (on a hidden “Unclassified” skill) and drafts.
  */
-export async function bankBanners(repo: Repo, actor: Actor): Promise<{ unclassified: number; drafts: number }> {
+export async function bankBanners(repo: Repo, actor: Actor): Promise<{ unclassified: number; drafts: number; waiting: number }> {
   assertCan(actor, "questions:read");
   const schoolId = schoolOf(actor);
   return cached(repo, `banners:${schoolId}`, async () => {
     const idx = await schoolSkillIndex(repo, schoolId);
-    const hidden = [...idx.skillOf.values()].filter((k) => k.code.endsWith(UNCLASSIFIED)).map((k) => k.id);
-    const [unclassified, drafts] = await Promise.all([
-      hidden.length ? repo.count("Question", { skillId: { in: hidden }, deletedAt: null, status: { in: ["DRAFT", "UNDER_REVIEW", "PUBLISHED"] } }) : Promise.resolve(0),
+    // the ONE count of questions not under a skill (the Classify page and Data Cleanup show the same number)
+    const { unclassifiedCount } = await import("./stuck-questions");
+    const [unclassified, drafts, waiting] = await Promise.all([
+      unclassifiedCount(repo, schoolId),
       repo.count("Question", { skillId: { in: [...idx.ids] }, deletedAt: null, status: "DRAFT" }),
+      repo.count("Question", { skillId: { in: [...idx.ids] }, deletedAt: null, status: "UNDER_REVIEW" }),
     ]);
-    return { unclassified, drafts };
-  }) as Promise<{ unclassified: number; drafts: number }>;
+    return { unclassified, drafts, waiting };
+  }) as Promise<{ unclassified: number; drafts: number; waiting: number }>;
 }
 
 export interface FamilyOption {
@@ -318,4 +332,44 @@ export async function flagQuestionsForReview(repo: Repo, actor: Actor, ids: stri
     if (again.length) await tx.updateMany("QuestionFlag", { questionId: { in: again.map((q) => q.id) }, studentId: actor.userId }, { status: "OPEN", note: body, createdAt: now, resolvedAt: null, resolvedById: null });
   });
   return { flagged: rows.length };
+}
+
+/** 🏳️ Unflag: every open flag of these questions is cleared (marked "not a problem", who and when kept). Admins / reviewers. */
+export async function unflagQuestions(repo: Repo, actor: Actor, ids: string[], now = new Date()): Promise<{ cleared: number }> {
+  assertCan(actor, "questions:publish");
+  const rows = await ownQuestions(repo, actor, ids, []);
+  if (!rows.length) return { cleared: 0 };
+  const open = await repo.findMany("QuestionFlag", { questionId: { in: rows.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["id", "questionId"] });
+  if (!open.length) return { cleared: 0 };
+  await repo.transaction(async (tx) => {
+    await tx.updateMany("QuestionFlag", { id: { in: open.map((f) => f.id) } }, { status: "DISMISSED", resolvedById: actor.userId, resolvedAt: now });
+    const qids = [...new Set(open.map((f) => s(f.questionId)))];
+    await tx.createMany("AuditLog", qids.map((id) => ({ actorId: actor.userId, action: "question.unflag", entityType: "Question", entityId: id, after: { cleared: open.filter((f) => s(f.questionId) === id).length }, createdAt: now })));
+  });
+  return { cleared: new Set(open.map((f) => s(f.questionId))).size };
+}
+
+export interface FlagDetail { id: string; by: string; role: string; reason: string; note: string | null; at: string; status: string }
+
+/** 🚩 Who flagged a question and why (newest first): students, teachers and staff. */
+export async function flagsOfQuestion(repo: Repo, actor: Actor, questionId: string): Promise<FlagDetail[]> {
+  assertCan(actor, "questions:read");
+  const rows = await repo.findMany("QuestionFlag", { questionId }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: 50 });
+  if (!rows.length) return [];
+  // a student's flag keeps the Student id; a teacher's / staff flag keeps the User id
+  const ids = [...new Set(rows.map((r) => s(r.studentId)))];
+  const [students, users0] = await Promise.all([
+    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
+    repo.findMany("User", { id: { in: ids } }, { select: ["id", "displayName", "role"] }),
+  ]);
+  const studentUser = new Map(students.map((x) => [s(x.id), s(x.userId)]));
+  const users1 = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName", "role"] }) : [];
+  const user = new Map([...users0, ...users1].map((u) => [s(u.id), u]));
+  const { FLAG_REASONS } = await import("../teacher/classroom");
+  const iso = (v: unknown) => (v instanceof Date ? v : new Date(s(v))).toISOString();
+  return rows.map((r) => {
+    const u = user.get(studentUser.get(s(r.studentId)) ?? s(r.studentId));
+    const reason = s(r.reason);
+    return { id: s(r.id), by: s(u?.displayName) || "—", role: s(u?.role) || (studentUser.has(s(r.studentId)) ? "STUDENT" : ""), reason: (FLAG_REASONS as Record<string, string>)[reason] ?? reason, note: r.note ? s(r.note) : null, at: iso(r.createdAt), status: s(r.status) };
+  });
 }

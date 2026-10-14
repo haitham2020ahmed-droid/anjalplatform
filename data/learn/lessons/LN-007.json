@@ -1,0 +1,462 @@
+{
+ "code": "LN-007",
+ "title": "Time-order transitions",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.2.c",
+  "W.5.3.a",
+  "W.5.3.c"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0012",
+  "L-0013",
+  "L-0066",
+  "L-0067",
+  "L-0149",
+  "L-0159",
+  "L-0160",
+  "L-0265",
+  "L-0266",
+  "L-0321"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Order words",
+     "text": "Some words tell **when** things happen.\n\n**first**, **next**, **then**, **after that**, **finally**"
+    },
+    {
+     "title": "Why we use them",
+     "text": "Order words help the reader know **what comes first** and **what comes last**.\n\nWithout them, a story can be mixed up."
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Read all the steps.\n2. Ask: **Is this the start, the middle or the end?**\n3. Start = **First**. Middle = **Next** or **Then**. End = **Finally**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the sentences **around** the blank.\n\n1. Is there a step before it?\n2. Is there a step after it?\n3. Pick the word that fits that place.\n\nPoint to the sentences that show the order."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, I put on my socks.",
+      "role": "detail"
+     },
+     {
+      "t": "Next, I put on my shoes.",
+      "role": "detail"
+     },
+     {
+      "t": "Finally, I tied the laces.",
+      "role": "key"
+     }
+    ],
+    "explain": "**First**, **Next** and **Finally** show the order. Tying laces is the last step, so it starts with **Finally**."
+   },
+   "together": {
+    "passage": "Sara made a sandwich. ___, she got two slices of bread. Next, she put cheese on the bread. Finally, she ate it.",
+    "stem": "Which word fits best in the blank?",
+    "options": [
+     "First",
+     "Finally",
+     "Last",
+     "But"
+    ],
+    "answer": 0,
+    "hint": "That word is for the end. Getting the bread happens at the start.",
+    "good": "Yes! Getting the bread is the first step. **Next** and **Finally** come after it."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara made a sandwich.",
+     "First, she got two slices of bread.",
+     "Next, she put cheese on the bread.",
+     "Finally, she ate it."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: First. Tap 2 sentences that show what comes after getting the bread.",
+    "wrong": "This sentence does not show a later step. Find the steps that come after."
+   },
+   "checks": [
+    {
+     "passage": "I woke up. ___, I brushed my teeth. Then I ate breakfast.",
+     "stem": "Which word fits best?",
+     "options": [
+      "Finally",
+      "Before",
+      "But",
+      "Next"
+     ],
+     "answer": 3,
+     "why": "Brushing teeth comes after waking up and before breakfast. **Next** fits the middle."
+    },
+    {
+     "passage": "We planted a seed. We watered it every day. ___, a little plant came up!",
+     "stem": "Which word fits best?",
+     "options": [
+      "First",
+      "At last",
+      "Before that",
+      "Also"
+     ],
+     "answer": 1,
+     "why": "The plant came up at the end, after many days. **At last** fits."
+    },
+    {
+     "passage": "Last, we got on the bus. Then we rode to the zoo. Finally, we saw the lions.",
+     "stem": "The first word is wrong. Which word should replace Last?",
+     "options": [
+      "Finally",
+      "At the end",
+      "After that",
+      "First"
+     ],
+     "answer": 3,
+     "why": "Getting on the bus is the first thing that happened. **First** makes the order clear."
+    }
+   ],
+   "again": {
+    "title": "Hand steps",
+    "text": "Hold up your fingers.\n\n1 finger = **First**\n2 fingers = **Next**\n3 fingers = **Then**\nLast finger = **Finally**",
+    "example": "Wash a cup.\n**First**, add soap. **Next**, scrub it. **Then**, rinse it. **Finally**, dry it."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Time words and phrases",
+     "text": "Writers show when things happen with words and phrases like **later**, **that evening**, **the next day**, **meanwhile** and **after school**."
+    },
+    {
+     "title": "Time shifts",
+     "text": "A **time shift** is a jump in time: from morning to night, or from one day to the next.\n\nA time phrase tells the reader that time has passed, so they are not confused."
+    },
+    {
+     "title": "Meanwhile",
+     "text": "**Meanwhile** means **at the same time**, in another place.\n\nDad cooked in the kitchen. **Meanwhile**, Mom set the table."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the time phrase by finding **clues about time** in the text.\n\n1. Find when the first part happens (morning? Monday?).\n2. Find when the next part happens.\n3. Choose the phrase that shows that jump."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On Saturday morning, we packed the car.",
+      "role": "detail"
+     },
+     {
+      "t": "We drove for five hours across the desert.",
+      "role": "detail"
+     },
+     {
+      "t": "By sunset, we reached the camp.",
+      "role": "key"
+     }
+    ],
+    "explain": "**By sunset** shows the time shift from morning to evening. It helps the reader feel the long trip."
+   },
+   "together": {
+    "passage": "Mariam spent Friday morning helping her grandmother cook. They chopped onions and stirred a big pot of kabsa. ___, the whole family arrived. Everyone sat down together for dinner as the sun set.",
+    "stem": "Which phrase best shows the time shift?",
+    "options": [
+     "Before breakfast",
+     "That evening",
+     "For example",
+     "However"
+    ],
+    "answer": 1,
+    "hint": "Look at the time clues. The cooking was in the morning. When does the family eat?",
+    "good": "Yes! The text moves from the morning to dinner at sunset. **That evening** shows the jump."
+   },
+   "evidence": {
+    "sentences": [
+     "Mariam spent Friday morning helping her grandmother cook.",
+     "They chopped onions and stirred a big pot of kabsa.",
+     "That evening, the whole family arrived.",
+     "Everyone sat down together for dinner as the sun set."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: That evening. Tap the 2 sentences with clues that show time has passed.",
+    "wrong": "This sentence has no time clue. Find the sentence that shows the morning and the one that shows the evening."
+   },
+   "checks": [
+    {
+     "passage": "Dad cooked the rice in the kitchen. ___, Mom set the table in the dining room.",
+     "stem": "Which word shows these happened at the same time?",
+     "options": [
+      "Last year",
+      "Finally",
+      "Meanwhile",
+      "Because"
+     ],
+     "answer": 2,
+     "why": "**Meanwhile** means at the same time. Dad cooked while Mom set the table."
+    },
+    {
+     "passage": "___, the streets were full of water and children were jumping in puddles.",
+     "stem": "Which clause best begins the sentence?",
+     "options": [
+      "After the storm ended",
+      "Before the clouds came",
+      "While the sun was shining",
+      "Because the bus was late"
+     ],
+     "answer": 0,
+     "why": "Water in the streets comes after a storm. **After the storm ended** shows the time."
+    },
+    {
+     "passage": "Khalid went to bed early on Wednesday night. ___, he woke up at six and ran to catch the school bus.",
+     "stem": "Which phrase best shows the time shift?",
+     "options": [
+      "The next morning",
+      "The night before",
+      "Meanwhile",
+      "Two years earlier"
+     ],
+     "answer": 0,
+     "why": "The story moves from night to the next day. **The next morning** shows it."
+    }
+   ],
+   "again": {
+    "title": "Clock check",
+    "text": "Draw a small clock next to each part of the story.\n\nIf the clock jumps, add a time phrase so the reader jumps too.",
+    "example": "🕗 We left home. 🕛 We ate lunch at Grandma's.\nThe clock jumped from 8 to 12, so add: **By noon, we were eating lunch at Grandma's.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Steps in directions",
+     "text": "Directions must be in the **right order**, or the reader will get it wrong.\n\nTransitions like **first**, **after that**, **once**, **while** and **finally** show each step's place."
+    },
+    {
+     "title": "Clauses that show time",
+     "text": "A **clause** can show time and order:\n\n**While the water heats,** wash the leaves.\n**Once the paint is dry,** add the second coat.\n**As soon as the bell rings,** line up."
+    },
+    {
+     "title": "Sentences that shift time",
+     "text": "A whole sentence can move a story through time:\n\n**Three weeks passed.**\n**By the end of the summer, everything had changed.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a transition is right, check what must happen **before** and **after** it.\n\n1. Find the step that comes just before.\n2. Find the step that comes just after.\n3. The transition must fit between them. Point to both steps."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "To fix a flat bicycle tyre, first remove the wheel.",
+      "role": "detail"
+     },
+     {
+      "t": "Once the wheel is off, take out the inner tube.",
+      "role": "key"
+     },
+     {
+      "t": "Then find the hole and cover it with a patch.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Once the wheel is off** tells the reader that this step can only start after the first one is done."
+   },
+   "together": {
+    "passage": "Making fresh mint tea is simple. First, boil water in a kettle. ___, place a handful of washed mint leaves and a little sugar in a teapot. Pour the hot water over the leaves and wait about five minutes. Finally, pour the tea into small glasses and serve.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "After you serve the tea",
+     "Finally",
+     "While the water is heating",
+     "In conclusion"
+    ],
+    "answer": 2,
+    "hint": "That transition puts this step in the wrong place. The leaves must be in the pot before the hot water goes in.",
+    "good": "Yes! You can put the leaves in the pot while the water heats. Then the pot is ready for the hot water."
+   },
+   "evidence": {
+    "sentences": [
+     "Making fresh mint tea is simple.",
+     "First, boil water in a kettle.",
+     "While the water is heating, place a handful of washed mint leaves and a little sugar in a teapot.",
+     "Pour the hot water over the leaves and wait about five minutes.",
+     "Finally, pour the tea into small glasses and serve."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: While the water is heating. Tap the 2 steps that come just before and just after it.",
+    "wrong": "This sentence does not help place the step. Find the step before it and the step after it."
+   },
+   "checks": [
+    {
+     "passage": "To wash your hands well, wet them with clean water. ___ rub soap over your palms, the backs of your hands and between your fingers for twenty seconds. Rinse and dry them with a clean towel.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "Finally,",
+      "Then",
+      "Before you start,",
+      "At the end,"
+     ],
+     "answer": 1,
+     "why": "Rubbing with soap comes after wetting and before rinsing. **Then** fits the middle step."
+    },
+    {
+     "passage": "Grandfather showed me a photo of our village from when he was a boy. In the photo, there were only a few mud houses and a single well. ___ Today, the village has paved roads, a school and a hospital.",
+     "stem": "Which sentence best shows the time shift?",
+     "options": [
+      "The well in the photo was very deep.",
+      "Grandfather keeps many photos.",
+      "First, find an old photo.",
+      "Sixty years have passed since then."
+     ],
+     "answer": 3,
+     "why": "The text jumps from long ago to today. This sentence tells the reader that a lot of time has passed."
+    },
+    {
+     "passage": "The museum visit went well. Finally, we bought tickets at the door. Then we saw the dinosaur bones. At the end, we ate lunch in the garden.",
+     "stem": "Which word should replace Finally to make the order clear?",
+     "options": [
+      "Later",
+      "First",
+      "At last",
+      "Meanwhile"
+     ],
+     "answer": 1,
+     "why": "Buying tickets happened at the start, so **First** makes the order clear."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "Pretend to do the steps with your hands.\n\nIf you cannot do a step yet because something else must happen first, the transition is in the wrong place.",
+    "example": "Pour the tea. Boil the water.\nTry it: you cannot pour tea before the water boils! Fix it: **First, boil the water. Then pour the tea.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Precise time transitions",
+     "text": "Strong writers choose the exact transition:\n\n**previously / earlier**: before this\n**subsequently / afterward**: after this\n**simultaneously / meanwhile**: at the same time\n**eventually**: after a long time\n**by the time**: one thing had finished when another happened"
+    },
+    {
+     "title": "Flashbacks",
+     "text": "A **flashback** moves the story back to an earlier time, then returns.\n\nWriters signal it with phrases like **Years earlier,** and verbs like **had been**. They signal the return with **Now** or **Today**."
+    },
+    {
+     "title": "Revising for clear time",
+     "text": "1. Mark every time jump in the draft.\n2. Check that each jump has a clear signal.\n3. Make sure the transition matches the real direction of time: forward, back or at the same time."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a time transition, find the **verb tenses and time words** around it.\n\n1. Look for **had** + verb: it often shows an earlier time.\n2. Look for **now**, **today** or **later**: they show a return or a move forward.\n3. The transition must match the direction of time you find."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When Ahmed was a small boy, he planted an olive tree in the courtyard.",
+      "role": "detail"
+     },
+     {
+      "t": "For years, it grew slowly and gave no fruit.",
+      "role": "detail"
+     },
+     {
+      "t": "Eventually, it filled the courtyard with shade and olives.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Eventually** tells the reader that a **long time** passed before the tree gave shade and fruit. **Next** or **then** would make it sound quick."
+   },
+   "together": {
+    "passage": "The crowd fell silent as Reem stepped onto the stage to receive the national science award. Her hands trembled as she held the glass trophy. ___, she had been a shy eleven-year-old who built her first circuit from a broken radio in her grandfather's workshop. He had shown her how to strip the wires and connect the tiny bulb, and when it finally glowed, she had shouted so loudly that the neighbours came to see. Now, standing under the bright lights, she searched the audience until she found him in the third row, smiling.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "Seven years later",
+     "At the same moment",
+     "Afterward",
+     "Seven years earlier"
+    ],
+    "answer": 3,
+    "hint": "Look at the verbs: had been, had shown. Do they point forward in time or back?",
+    "good": "Yes! The story jumps back to Reem's childhood. **Had been** and **had shown** show the earlier time, and **Now** brings us back."
+   },
+   "evidence": {
+    "sentences": [
+     "The crowd fell silent as Reem stepped onto the stage to receive the national science award.",
+     "Her hands trembled as she held the glass trophy.",
+     "Seven years earlier, she had been a shy eleven-year-old who built her first circuit from a broken radio in her grandfather's workshop.",
+     "He had shown her how to strip the wires and connect the tiny bulb, and when it finally glowed, she had shouted so loudly that the neighbours came to see.",
+     "Now, standing under the bright lights, she searched the audience until she found him in the third row, smiling."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Seven years earlier. Tap 2 sentences that show the story is in the past and then returns to the present.",
+    "wrong": "This sentence does not show the move back or the return. Find the sentence with had shown and the one that begins with Now."
+   },
+   "checks": [
+    {
+     "passage": "___ the firefighters arrived, the neighbours had already carried the elderly man safely outside.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "By the time",
+      "As soon as",
+      "After",
+      "Until"
+     ],
+     "answer": 0,
+     "why": "**Had already** shows the rescue was finished before the firefighters came. **By the time** fits that meaning."
+    },
+    {
+     "passage": "Desalination plants turn seawater into drinking water. Seawater is first pumped in and filtered to remove sand. ___, it is pushed at high pressure through membranes that hold back the salt.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "Previously",
+      "Meanwhile",
+      "Next",
+      "In contrast"
+     ],
+     "answer": 2,
+     "why": "Pushing the water through membranes comes after filtering. **Next** shows the following step."
+    },
+    {
+     "passage": "The storm knocked out the power just as the family sat down to dinner. They ate by candlelight and told stories until late. ___ When they woke, sunlight was pouring through the windows and the lights were back on.",
+     "stem": "Which sentence best shows the time shift?",
+     "options": [
+      "The storm had started at noon.",
+      "Candles are made of wax.",
+      "The dark night slowly passed.",
+      "Meanwhile, the soup was hot."
+     ],
+     "answer": 2,
+     "why": "The story moves from late night to morning. This sentence carries the reader through the night."
+    }
+   ],
+   "again": {
+    "title": "Arrow test",
+    "text": "Draw an arrow for each time jump.\n\n→ forward: later, afterward, eventually\n← back: earlier, previously, years before\n↕ same time: meanwhile, simultaneously\n\nThe transition must point the same way as the arrow.",
+    "example": "Nasser opened the old letter. ___, his father had written it from a ship.\nThe letter was written before, so the arrow points **←**. Use **Long ago**."
+   }
+  }
+ }
+}

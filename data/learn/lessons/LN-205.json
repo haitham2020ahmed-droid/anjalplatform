@@ -1,0 +1,463 @@
+{
+ "code": "LN-205",
+ "title": "Personification",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.5.5.a",
+  "L.6.5.a",
+  "L.7.5.a",
+  "RL.3.4",
+  "RL.4.4"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0132",
+  "R-0229",
+  "R-0580",
+  "R-0792"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is personification?",
+     "text": "**Personification** is when a writer makes a **thing** or an **animal** act like a **person**.\n\n\"The wind **sang** in the trees.\"\n\nWind cannot sing. Only people can!"
+    },
+    {
+     "title": "Why do writers use it?",
+     "text": "It helps us **picture** the thing.\n\n\"The wind sang\" helps us **hear** a soft, musical sound."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Find the thing (wind, sun, door...).\n2. Find what it does.\n3. Ask: can a **person** do this? Can the **thing** really do it?\n4. Ask: what does it really mean?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at the **action word** next to the thing.\n\n1. Find the thing that acts like a person.\n2. Find the sentence that shows what is really happening.\n3. Use it to find the real meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old door groaned when I opened it.",
+      "role": "main"
+     },
+     {
+      "t": "It was stiff and made a long, low sound.",
+      "role": "key"
+     }
+    ],
+    "explain": "Only people can **groan**. A door cannot really groan.\n\nThe next sentence shows the real meaning: the door made a **long, low sound**."
+   },
+   "together": {
+    "passage": "It was a cold morning. The sun peeked over the hill. At first, only a little light came out. Then the sky slowly got bright.",
+    "stem": "What does \"the sun peeked over the hill\" mean?",
+    "options": [
+     "The sun was hiding.",
+     "The sun went down.",
+     "The sun began to come up.",
+     "The sun was very hot."
+    ],
+    "answer": 2,
+    "hint": "People peek when they look out a little. What did the sun do? Read the next sentences.",
+    "good": "Yes! Only a little light came out at first, then the sky got bright. The sun was coming up."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a cold morning.",
+     "The sun peeked over the hill.",
+     "At first, only a little light came out.",
+     "Then the sky slowly got bright."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: the sun began to come up. Tap a sentence that proves it.",
+    "wrong": "This sentence does not show what the sun did. Find a sentence about the light."
+   },
+   "checks": [
+    {
+     "passage": "The leaves danced in the wind. They spun and jumped all over the yard.",
+     "stem": "Which words show personification?",
+     "options": [
+      "The leaves danced",
+      "In the wind",
+      "All over",
+      "The yard"
+     ],
+     "answer": 0,
+     "why": "Only people can dance. The writer gives the leaves a human action."
+    },
+    {
+     "passage": "My alarm clock yelled at me at six o'clock. I jumped out of bed.",
+     "stem": "What does \"my alarm clock yelled at me\" mean?",
+     "options": [
+      "The clock was angry.",
+      "The clock rang loudly.",
+      "The clock broke.",
+      "The clock was quiet."
+     ],
+     "answer": 1,
+     "why": "A clock cannot yell, but it can ring very loudly. That made me jump out of bed."
+    },
+    {
+     "passage": "The tired flowers bowed their heads in the heat. They needed water.",
+     "stem": "What does \"the flowers bowed their heads\" mean?",
+     "options": [
+      "The flowers were saying hello.",
+      "The flowers grew tall.",
+      "The flowers were new.",
+      "The flowers drooped down."
+     ],
+     "answer": 3,
+     "why": "In the heat with no water, the flowers drooped. Bowing heads is a human action."
+    }
+   ],
+   "again": {
+    "title": "Thing + person action",
+    "text": "Look for a **thing** doing a **person action**. Then ask what the thing really did.",
+    "example": "\"The car **coughed** and stopped.\"\n\nThing: car. Person action: coughed. Real meaning: the engine made a rough noise and stopped."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Human qualities",
+     "text": "Personification gives **human qualities** to things, animals or nature: actions, feelings or a voice.\n\n\"The **angry** sea\" gives the sea a human **feeling**.\n\"The moon **watched** over the town\" gives the moon a human **action**."
+    },
+    {
+     "title": "What is the writer saying?",
+     "text": "Each example has a **real meaning**.\n\n**angry sea** → rough, dangerous waves\n**the moon watched over the town** → the moon shone over the town all night, like a guard."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the non-human thing.\n2. Find the human action or feeling.\n3. Think about what the thing really does.\n4. Choose the meaning that fits the passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Writers usually give a **clue** about the real meaning.\n\n1. Find the personification.\n2. Look for the sentence that describes what really happened.\n3. Use it to check your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The angry sea threw the little boat from side to side.",
+      "role": "main"
+     },
+     {
+      "t": "Huge waves crashed over the deck.",
+      "role": "key"
+     },
+     {
+      "t": "The fishermen held on tightly to the ropes.",
+      "role": "key"
+     }
+    ],
+    "explain": "A sea cannot feel angry. **Huge crashing waves** and fishermen **holding on tightly** show the sea was **rough and dangerous**."
+   },
+   "together": {
+    "passage": "Our old car is a member of the family. On winter mornings, it complains loudly before it agrees to start. Dad pats the dashboard and says, \"Come on, old friend.\" After a few tries, the engine finally rumbles to life. We have had it for fifteen years.",
+    "stem": "What does \"it complains loudly before it agrees to start\" mean?",
+    "options": [
+     "The car has a radio that talks.",
+     "The car makes noise and is hard to start.",
+     "Dad is angry at the car.",
+     "The car starts easily every time."
+    ],
+    "answer": 1,
+    "hint": "A car cannot complain or agree. What really happens on cold mornings? Read the sentence about the engine.",
+    "good": "Yes! The engine needs a few tries before it rumbles to life, so the car is noisy and hard to start."
+   },
+   "evidence": {
+    "sentences": [
+     "Our old car is a member of the family.",
+     "On winter mornings, it complains loudly before it agrees to start.",
+     "Dad pats the dashboard and says, \"Come on, old friend.\"",
+     "After a few tries, the engine finally rumbles to life.",
+     "We have had it for fifteen years."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the car makes noise and is hard to start. Tap 2 sentences that prove it.",
+    "wrong": "This sentence tells how the family feels about the car or how old it is. Find the sentences about starting it."
+   },
+   "checks": [
+    {
+     "passage": "The thunder grumbled all afternoon. Its low, rolling sound never stopped, but the rain did not come.",
+     "stem": "What does \"the thunder grumbled\" mean?",
+     "options": [
+      "It made a loud, sharp crack.",
+      "It was in a bad mood.",
+      "It stopped suddenly.",
+      "It made a low, rumbling sound."
+     ],
+     "answer": 3,
+     "why": "People grumble in a low voice. The next sentence says its sound was low and rolling."
+    },
+    {
+     "passage": "The camera loves my sister. In every photo, she looks bright and happy.",
+     "stem": "What does \"the camera loves my sister\" mean?",
+     "options": [
+      "She always looks good in photos.",
+      "She owns many cameras.",
+      "The camera is her friend.",
+      "She never smiles in photos."
+     ],
+     "answer": 0,
+     "why": "A camera cannot love. It means she looks bright and happy in every photo."
+    },
+    {
+     "passage": "The tall palm trees waved to us as we drove into the oasis. Their long leaves swayed in the breeze.",
+     "stem": "What were the palm trees really doing?",
+     "options": [
+      "Saying hello",
+      "Falling down",
+      "Moving in the wind",
+      "Growing taller"
+     ],
+     "answer": 2,
+     "why": "Trees cannot wave hello. The next sentence shows their leaves swayed in the breeze."
+    }
+   ],
+   "again": {
+    "title": "What would a camera see?",
+    "text": "Imagine a camera filming the scene. It cannot film feelings, only what really happens. Describe that.",
+    "example": "\"The hungry fire ate the dry wood.\"\n\nCamera sees: **flames quickly burning up the wood**. That is the real meaning."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Personification creates feeling",
+     "text": "Writers choose the **human quality** carefully. It shapes how we feel about the thing.\n\n\"The wind **whispered**\" feels gentle.\n\"The wind **howled**\" feels wild and frightening.\n\nSame wind. Different feeling."
+    },
+    {
+     "title": "Look at the whole passage",
+     "text": "Personification often supports the **mood** of the passage, or shows how a **character** sees the world.\n\nA lonely character may notice the house \"**sighing**\". A happy one may hear the birds \"**cheering**\"."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the personification.\n2. Say its real meaning.\n3. Ask: what **feeling** does the human quality add?\n4. Connect it to the mood or the character."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show **meaning** and **effect**.\n\n1. Point to the sentence with the personification.\n2. Point to the sentences that show the mood or the character's feelings.\n3. Your answer should explain both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On the first day of school, the huge building stared down at Zaid.",
+      "role": "main"
+     },
+     {
+      "t": "Its rows of windows seemed to watch his every step.",
+      "role": "key"
+     },
+     {
+      "t": "Zaid held his mother's hand a little tighter.",
+      "role": "key"
+     }
+    ],
+    "explain": "Buildings cannot **stare** or **watch**. The human actions make the building seem **frightening**.\n\nHolding his mother's hand tighter shows Zaid feels **nervous**. The personification shows the school through his eyes."
+   },
+   "together": {
+    "passage": "After the long summer, the empty classroom waited patiently for its students. Clean desks stood in neat rows, and fresh chalk lay ready by the board. The windows had been washed and seemed to smile in the morning sun. At eight o'clock, the door burst open, and a crowd of children rushed in, laughing. The quiet room was suddenly full of life.",
+    "stem": "What feeling does the personification in the first three sentences create?",
+    "options": [
+     "The classroom seems scary and dark.",
+     "The classroom seems ready and welcoming.",
+     "The classroom seems old and broken.",
+     "The classroom seems angry at the children."
+    ],
+    "answer": 1,
+    "hint": "Look at the human actions: waited patiently, seemed to smile. Are these friendly or unfriendly?",
+    "good": "Yes! Waiting patiently and smiling make the classroom seem ready and welcoming."
+   },
+   "evidence": {
+    "sentences": [
+     "After the long summer, the empty classroom waited patiently for its students.",
+     "Clean desks stood in neat rows, and fresh chalk lay ready by the board.",
+     "The windows had been washed and seemed to smile in the morning sun.",
+     "At eight o'clock, the door burst open, and a crowd of children rushed in, laughing.",
+     "The quiet room was suddenly full of life."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the classroom seems ready and welcoming. Tap the 2 sentences with personification that create this feeling.",
+    "wrong": "This sentence has no personification. Find the sentences where the classroom or its windows act like a person."
+   },
+   "checks": [
+    {
+     "passage": "The storm attacked the coast all night. It hurled rain against the windows and tore branches from the trees. By morning, the street was covered in leaves and broken glass.",
+     "stem": "What is the effect of the word attacked?",
+     "options": [
+      "It makes the storm seem gentle and kind.",
+      "It shows that the storm was short.",
+      "It makes the storm seem violent, like an enemy.",
+      "It shows the storm was far away."
+     ],
+     "answer": 2,
+     "why": "Attacked, hurled and tore are violent human actions. They show the storm was fierce and dangerous."
+    },
+    {
+     "passage": "Since Grandpa moved away, his old garden has been sulking. The roses hang their heads, and the lemon tree has not bothered to grow a single fruit.",
+     "stem": "What does the personification suggest?",
+     "options": [
+      "The garden looks neglected and sad without Grandpa.",
+      "The garden is growing better than before.",
+      "Grandpa planted new roses.",
+      "The lemon tree is too young to grow fruit."
+     ],
+     "answer": 0,
+     "why": "Sulking, hanging heads and not bothering show a sad, neglected garden, as if it misses Grandpa."
+    },
+    {
+     "passage": "Huda's alarm clock shrieked at five o'clock. She groaned, pulled the blanket over her head, and wished it would leave her alone.",
+     "stem": "What does the word shrieked add to the scene?",
+     "options": [
+      "It shows the clock was broken.",
+      "It shows Huda loves her alarm clock.",
+      "It shows the clock was quiet and calm.",
+      "It makes the sound seem harsh and unwelcome."
+     ],
+     "answer": 3,
+     "why": "Shrieked suggests a sharp, unpleasant noise. Huda groaning and hiding shows it was unwelcome."
+    }
+   ],
+   "again": {
+    "title": "Swap the human word",
+    "text": "Change the human word to a plain one. What feeling disappears? That is the effect.",
+    "example": "\"The fog **crept** into the harbour.\"\nPlain: \"The fog **moved** into the harbour.\"\n\nWhat disappears? The sense of something **quiet and secret**, maybe a little **threatening**. That is the effect of **crept**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Personification and theme",
+     "text": "In longer texts, personification can carry a **bigger idea**.\n\nIf the desert is described as **patient** and **wise**, the author may be suggesting that nature is older and stronger than people."
+    },
+    {
+     "title": "Patterns of personification",
+     "text": "Notice when an author personifies the **same thing** more than once. The pattern may change as the story moves.\n\nA river that \"**sang**\" at the start but \"**wept**\" at the end shows a change in the place, or in the people who live there."
+    },
+    {
+     "title": "Analyse it",
+     "text": "1. Find each example and its real meaning.\n2. Note the **attitude** it gives the thing (friendly, threatening, wise, tired).\n3. Ask how it connects to the mood, a character, or the theme.\n4. Choose the answer that explains the **whole pattern**, not one line."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use **every** example of personification as evidence.\n\n1. Collect the human qualities given to the same thing.\n2. Notice what they share or how they change.\n3. Choose the interpretation that all of them support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For centuries, the mountain had watched the village below.",
+      "role": "key"
+     },
+     {
+      "t": "It had sheltered the villagers from storms and guarded the narrow pass from strangers.",
+      "role": "key"
+     },
+     {
+      "t": "Now, as bulldozers cut into its side, it stood silent, unable to defend itself.",
+      "role": "key"
+     },
+     {
+      "t": "The road would open next year.",
+      "role": "other"
+     }
+    ],
+    "explain": "The mountain is first a **watcher** and **guardian**, then **silent** and **unable to defend itself**.\n\nThe pattern shows the mountain as a loyal protector that is now **helpless**. The author is **sad** about what is being lost."
+   },
+   "together": {
+    "passage": "The old well at the edge of the village had served the people for three hundred years. In the author's memory, it was a generous host: it greeted every traveller with cool water and listened patiently to the women's stories as they filled their jars. Then pipes brought water directly into each house. Year by year, fewer people visited the well. Today it sits alone behind a fence, forgotten, its stone lips dry and cracked, waiting for visitors who no longer come. The author ends by asking whether progress must always leave something behind.",
+    "stem": "What does the personification of the well suggest about the author's view?",
+    "options": [
+     "The author is glad the old well is no longer used.",
+     "The author feels the well was part of community life, and its loss is sad.",
+     "The author believes the well's water was unsafe to drink.",
+     "The author thinks travellers should stop visiting the village."
+    ],
+    "answer": 1,
+    "hint": "Compare the well 'then' (a generous host who listened) and 'now' (alone, forgotten, waiting). What feeling does that change create?",
+    "good": "Yes! The well was once a welcoming host at the centre of village life; now it is lonely and forgotten. The author feels its loss."
+   },
+   "evidence": {
+    "sentences": [
+     "The old well at the edge of the village had served the people for three hundred years.",
+     "In the author's memory, it was a generous host: it greeted every traveller with cool water and listened patiently to the women's stories as they filled their jars.",
+     "Then pipes brought water directly into each house.",
+     "Year by year, fewer people visited the well.",
+     "Today it sits alone behind a fence, forgotten, its stone lips dry and cracked, waiting for visitors who no longer come.",
+     "The author ends by asking whether progress must always leave something behind."
+    ],
+    "proof": [
+     1,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the well was part of community life, and its loss is sad. Tap 2 sentences that support this view.",
+    "wrong": "This sentence gives a plain fact about the well's history or the pipes. Find the sentences that show the well as a person or the author's feelings."
+   },
+   "checks": [
+    {
+     "passage": "All summer, the sun ruled the valley like a cruel king. It punished the fields, drank the rivers dry and sent the animals hiding in the shade. When the first autumn rains finally arrived, the farmers felt as if they had been set free.",
+     "stem": "What does the personification of the sun suggest?",
+     "options": [
+      "The summer heat was harsh and controlled everyone's lives.",
+      "The farmers enjoyed the long, sunny summer.",
+      "The sun helped the crops to grow well.",
+      "The rivers were full all year."
+     ],
+     "answer": 0,
+     "why": "Ruled like a cruel king, punished and drank the rivers dry show the heat was harsh and controlling."
+    },
+    {
+     "passage": "At first, the city seemed to welcome Nasser: its bright signs winked at him and its wide streets invited him to explore. But after months without friends, the same streets turned their backs, and the signs only flashed coldly as he walked home alone.",
+     "stem": "What does the change in personification show?",
+     "options": [
+      "The city's buildings were changed.",
+      "The signs were broken.",
+      "Nasser moved to a different city.",
+      "Nasser's excitement turned to loneliness."
+     ],
+     "answer": 3,
+     "why": "The city itself did not change; Nasser's feelings did. Welcoming streets become cold ones as he becomes lonely."
+    },
+    {
+     "passage": "The ancient forest did not hurry. It let the seasons pass slowly, remembered every storm in the rings of its trunks, and quietly outlived the kings who had tried to cut it down.",
+     "stem": "What idea does the personification suggest?",
+     "options": [
+      "Forests grow very quickly.",
+      "Kings protected the forest.",
+      "Nature is patient and outlasts human power.",
+      "Storms always destroy forests."
+     ],
+     "answer": 2,
+     "why": "Not hurrying, remembering and outliving kings show nature as patient and longer-lasting than human power."
+    }
+   ],
+   "again": {
+    "title": "Write it as a character",
+    "text": "Treat the personified thing as a **character**. What kind of person is it? Kind, cruel, lonely, wise? Then ask why the author made it that kind of character.",
+    "example": "\"The tired bridge groaned under every truck, its old bones aching.\"\n\nCharacter: an **old, worn-out person**. Why? The author wants us to see the bridge is **old and needs repair**."
+   }
+  }
+ }
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-031",
+  "title": "Rivers in the Sea: How Ocean Currents Travel",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 438,
+  "passage": "In January 1992, a violent storm struck a cargo ship crossing the North Pacific Ocean, and several containers tumbled overboard. One of them held nearly 29,000 plastic bath toys, including yellow ducks, green frogs and blue turtles. Over the following years, these toys began washing up on beaches in Alaska, Hawaii and other distant places. An ocean scientist named Curtis Ebbesmeyer did not ignore them. Instead, he collected reports of where and when they appeared. The floating toys became an unexpected scientific experiment, because their routes revealed the invisible paths of ocean currents.\n\nAn ocean current is a continuous stream of water moving through the sea in a particular direction, almost like a river flowing within the ocean. Currents near the surface are driven mainly by the wind. As steady winds blow across the water day after day, they push the top layer forward. Gradually, the moving water forms enormous circular patterns that span entire oceans. The spinning of the Earth bends these currents, so that in the northern half of the world they tend to turn clockwise.\n\nDeep below the surface, however, a different force is at work. Near the North and South Poles, seawater becomes extremely cold, and when sea ice forms, much of the salt is left behind in the water around it. Cold, salty water is heavier, or denser, than warm water, so it sinks toward the ocean floor and slowly spreads across the globe. Elsewhere, warmer water rises to take its place. Scientists compare this worldwide system to a giant conveyor belt, and they estimate that a single drop of water may need about a thousand years to complete the whole journey.\n\nCurrents matter to people far from the sea, since they carry heat around the planet. The Gulf Stream, for example, transports warm water from the Gulf of Mexico across the Atlantic Ocean toward Europe. Partly because of this current, winters in countries such as Ireland are much milder than winters in places at a similar distance from the North Pole in Canada. Currents also carry nutrients from the deep ocean up to the surface. There, they feed the tiny plants and animals at the base of the ocean food chain, which explains why some of the richest fishing grounds lie where cold, deep water rises.\n\nUnfortunately, the same currents that carry heat and food also carry pollution. Plastic dropped into the sea does not simply disappear; instead, it can travel thousands of kilometres. The story of the bath toys reminds us that the world's oceans are connected, so what we throw away in one place can arrive on someone else's shore.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “continuous” as it is used in paragraph 2?",
+      "options": [
+        "shallow",
+        "sudden",
+        "narrow",
+        "unbroken"
+      ],
+      "answer": "D",
+      "why": "A current is a stream of water that keeps moving without stopping, so “continuous” means unbroken."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “milder” as it is used in paragraph 4?",
+      "options": [
+        "gentler",
+        "shorter",
+        "harsher",
+        "wetter"
+      ],
+      "answer": "C",
+      "why": "Milder winters are less cold; the opposite is “harsher”, meaning colder and more severe. “Gentler” means nearly the same as “milder”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “Cold, salty water is heavier, or denser, than warm water, so it sinks toward the ocean floor.” What does “denser” mean?",
+      "options": [
+        "moving faster",
+        "warmer and lighter",
+        "more colourful",
+        "heavier for its size"
+      ],
+      "answer": "D",
+      "why": "The writer explains the word with “heavier, or denser”: denser water is heavier for the same amount, so it sinks."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 1 is a NOUN?",
+      "options": [
+        "violent",
+        "tumbled",
+        "containers",
+        "distant"
+      ],
+      "answer": "C",
+      "why": "“Containers” names things; “violent” and “distant” are adjectives and “tumbled” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the passage is IRREGULAR?",
+      "options": [
+        "beaches",
+        "people",
+        "countries",
+        "winters"
+      ],
+      "answer": "B",
+      "why": "“People” is the irregular plural of “person”. “Beaches” adds -es and “countries” follows the regular y → -ies rule; “winters” adds -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “scientist” in paragraph 1?",
+      "options": [
+        "scissors",
+        "scientific",
+        "scenery",
+        "signal"
+      ],
+      "answer": "B",
+      "why": "“Scientific” comes from “science”, like “scientist”; the other words only begin with similar sounds."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “unexpected” in a meaningful sentence of your own.",
+      "model": "The unexpected visit from my uncle, who lives in Abha, made the whole family rush to prepare dinner.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “unexpected” with its meaning (not expected; surprising)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Unexpected” means something that surprises us because we did not think it would happen."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “journey”?",
+      "options": [
+        "journies",
+        "journeyes",
+        "journeys",
+        "journey's"
+      ],
+      "answer": "C",
+      "why": "A vowel before the final y means we simply add -s: journey → journeys. “Journey's” shows possession."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence is EXCLAMATORY?",
+      "options": [
+        "Did the toys really reach Alaska?",
+        "Collect the plastic from the beach.",
+        "The toys floated for many years.",
+        "What an amazing journey those ducks made!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "The Hidden Rivers of the Ocean",
+        "How to Build a Cargo Ship",
+        "Bath Time for Ducks",
+        "The Coldest Place on Earth"
+      ],
+      "answer": "A",
+      "why": "The passage describes ocean currents, which it compares to “a river flowing within the ocean”; the toys are only an example."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the overall purpose of the passage?",
+      "options": [
+        "to tell an adventure story about a ship in a storm",
+        "to explain what ocean currents are and why they matter",
+        "to sell plastic bath toys",
+        "to describe the life of Curtis Ebbesmeyer"
+      ],
+      "answer": "B",
+      "why": "After the opening example, the passage explains how currents form and how they affect climate, fishing and pollution."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Sea ice is found only near the North Pole and nowhere else.",
+        "Warm water always stays at the bottom of the deep sea.",
+        "Cold, salty water sinks and drives a slow worldwide flow of deep water.",
+        "A drop of water travels around the world in a year."
+      ],
+      "answer": "C",
+      "why": "The paragraph explains how cold, dense water sinks and spreads, creating the worldwide “conveyor belt”."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what mainly drives the currents near the surface?",
+      "options": [
+        "melting ice",
+        "underwater volcanoes",
+        "the Moon",
+        "the wind"
+      ],
+      "answer": "D",
+      "why": "“Currents near the surface are driven mainly by the wind.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "an adventure story",
+        "an informational text",
+        "a friendly letter",
+        "a dialogue"
+      ],
+      "answer": "B",
+      "why": "It uses a true event to introduce facts and explanations about ocean currents."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why is seawater near the poles especially salty?",
+      "options": [
+        "Rivers carry large amounts of salt into it.",
+        "The wind blows salt from the nearby land into it.",
+        "When sea ice forms, much of the salt is left behind in the water.",
+        "Warm water rises from below and brings salt with it."
+      ],
+      "answer": "C",
+      "why": "“When sea ice forms, much of the salt is left behind in the water around it.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which event happened FIRST?",
+      "options": [
+        "Toys washed up on beaches in Alaska.",
+        "Ebbesmeyer collected reports of the toys.",
+        "Containers fell from a cargo ship in a storm.",
+        "The toys revealed the paths of currents."
+      ],
+      "answer": "C",
+      "why": "The storm in January 1992 knocked the containers overboard before anything else could happen."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is Curtis Ebbesmeyer in the passage?",
+      "options": [
+        "the captain of the cargo ship in the storm",
+        "a scientist who studied where the toys landed",
+        "a toy maker who designed the ducks",
+        "a fisherman who found toys in Alaska"
+      ],
+      "answer": "B",
+      "why": "Paragraph 1 calls him “an ocean scientist” who “collected reports of where and when they appeared”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why some fishing grounds are so rich?",
+      "options": [
+        "The Gulf Stream travels from Mexico toward Europe.",
+        "Currents in the northern half of the world turn clockwise.",
+        "The toys travelled thousands of kilometres for years.",
+        "Rising currents bring nutrients that feed tiny plants and animals."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 explains that nutrients carried up from the deep feed the base of the food chain where cold water rises."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the passage, what causes cold, salty water to sink toward the ocean floor?",
+      "options": [
+        "It is denser than warm water.",
+        "It is pushed down by the wind.",
+        "It is pulled by the spinning of the Earth.",
+        "It freezes into heavy blocks of ice."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: cold, salty water is “heavier, or denser, than warm water, so it sinks”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did the floating toys become useful to scientists?",
+      "options": [
+        "They proved that plastic sinks quickly in seawater.",
+        "They showed how violent storms damage cargo ships.",
+        "Their arrival places helped reveal the paths of ocean currents.",
+        "They were used to measure the temperature of the sea."
+      ],
+      "answer": "C",
+      "why": "By recording where and when the toys appeared, scientists could trace the routes of the currents."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, how does the Gulf Stream affect Ireland?",
+      "options": [
+        "It brings heavy snow every winter.",
+        "It makes the sea around Ireland freeze.",
+        "It carries plastic away from Ireland's beaches.",
+        "It helps to make Ireland's winters milder."
+      ],
+      "answer": "D",
+      "why": "The Gulf Stream carries warm water toward Europe, and partly because of it Irish winters are milder."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How are surface currents DIFFERENT from deep currents?",
+      "options": [
+        "Surface currents are driven by wind; deep currents by cold, salty water sinking.",
+        "Surface currents are slower; deep currents are faster.",
+        "Surface currents carry no heat; deep currents carry heat.",
+        "Surface currents exist only near the poles; deep currents exist everywhere."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 says wind drives surface currents; paragraph 3 says “a different force”, the sinking of cold, salty water, drives deep currents."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the EFFECT of nutrients being carried up from the deep ocean?",
+      "options": [
+        "The water near the surface becomes warmer.",
+        "Tiny plants and animals are fed, creating rich fishing grounds.",
+        "The sea ice near the poles melts faster.",
+        "Plastic sinks to the bottom of the ocean."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: the nutrients “feed the tiny plants and animals at the base of the ocean food chain”, which makes fishing grounds rich."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do heat, nutrients and plastic have in common in this passage?",
+      "options": [
+        "All three are made by people in factories.",
+        "All three are found only near the poles.",
+        "All three sink slowly to the ocean floor.",
+        "All three can be carried long distances by currents."
+      ],
+      "answer": "D",
+      "why": "Paragraphs 4 and 5 show currents carrying heat, nutrients and pollution around the planet."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Scientists compare the worldwide system of deep currents to “a giant conveyor belt”. What does this comparison suggest?",
+      "options": [
+        "The currents are built by machines.",
+        "Water moves along a long, connected route in a slow, steady way.",
+        "The currents carry goods for shops.",
+        "The water moves extremely fast."
+      ],
+      "answer": "B",
+      "why": "A conveyor belt moves things steadily along a continuous loop; the deep currents move water slowly around the globe."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin the passage with the story of the bath toys?",
+      "options": [
+        "to catch the reader's interest with a surprising true event",
+        "to show that toys are dangerous",
+        "to prove that storms happen every January",
+        "to advertise plastic toys"
+      ],
+      "answer": "A",
+      "why": "A surprising real story makes readers curious before the scientific explanation begins, and the writer returns to it at the end."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage expresses the writer's warning most clearly?",
+      "options": [
+        "“Currents near the surface are driven mainly by the wind.”",
+        "“Elsewhere, warmer water rises to take its place.”",
+        "“Plastic dropped into the sea does not simply disappear”",
+        "“One of them held nearly 29,000 plastic bath toys”"
+      ],
+      "answer": "C",
+      "why": "This sentence begins the warning in the last paragraph that pollution travels and does not vanish; the others simply give facts."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "According to the passage, which is the MOST useful thing ordinary people can do about ocean pollution?",
+      "options": [
+        "build bigger and stronger cargo ships",
+        "study the Gulf Stream in a laboratory",
+        "avoid throwing plastic where it can reach the sea",
+        "move away from the coast to live inland"
+      ],
+      "answer": "C",
+      "why": "The writer warns that what we throw away can travel to someone else's shore, so not letting plastic reach the sea helps most."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "to show that our actions can affect people far away",
+        "to complain about a careless shipping company",
+        "to describe a family holiday in Hawaii",
+        "to explain how plastic toys are made"
+      ],
+      "answer": "A",
+      "why": "The final paragraph states the message that “the world's oceans are connected”, so what we throw away can reach others."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling does the writer show in the final paragraph?",
+      "options": [
+        "amusement",
+        "concern",
+        "anger",
+        "boredom"
+      ],
+      "answer": "B",
+      "why": "Words such as “Unfortunately” and the warning about pollution show that the writer is concerned."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "how many toys fell into the sea",
+        "which force drives surface currents",
+        "how the Earth's spinning bends currents",
+        "where the Gulf Stream begins"
+      ],
+      "answer": "C",
+      "why": "The writer says only that the spinning of the Earth “bends these currents”, without explaining how; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A plastic bottle dropped in the sea near Japan washes up years later in America.",
+        "A rubber duck swims against a strong current back to its owner.",
+        "The Gulf Stream makes Ireland hotter than the Arabian desert.",
+        "A drop of water travels around the whole world in a single day."
+      ],
+      "answer": "A",
+      "why": "Currents carry floating plastic thousands of kilometres over years, as the toys showed; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the passage?",
+      "options": [
+        "The Biggest Storm in History",
+        "Fishing in the Gulf of Mexico",
+        "Why Sea Ice Is Salty",
+        "Lost Toys and Travelling Water"
+      ],
+      "answer": "D",
+      "why": "The passage uses the lost toys to explain how currents carry water, heat, food and pollution around the world."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The passage ends with a warning about plastic carried by currents. Suggest a different ending: write two or three sentences that offer a solution to this problem.",
+      "model": "Schools could run competitions to see which class uses the least single-use plastic in a month. At the same time, shipping companies could fasten containers more securely, and beach clean-up teams could collect plastic before the tide carries it back into the sea.",
+      "rubric": [
+        "2 = a clear, realistic solution to plastic pollution that is linked to ocean currents or the passage and briefly explained",
+        "1 = a solution is given but it is vague, unexplained or only loosely linked to the problem",
+        "0 = no answer, an unrealistic idea, or the original ending is copied"
+      ],
+      "why": "Any sensible, realistic way to reduce plastic reaching the ocean is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How could scientists learn MORE about the paths of ocean currents today?",
+      "options": [
+        "by releasing floats that report their position by satellite",
+        "by stopping all ships from crossing the oceans for a year",
+        "by counting how many bath toys are sold in shops",
+        "by measuring the temperature of the air in deserts"
+      ],
+      "answer": "A",
+      "why": "Like the toys but more exact, trackable floats show where the water carries them."
+    }
+  ]
+}

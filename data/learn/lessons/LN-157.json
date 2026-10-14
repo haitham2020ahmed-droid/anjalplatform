@@ -1,0 +1,483 @@
+{
+ "code": "LN-157",
+ "title": "How characters move the plot",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.3",
+  "RL.3.3",
+  "RL.4.3",
+  "RL.6.3",
+  "RL.6.5",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "character",
+  "plot-events"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0086",
+  "R-0160",
+  "R-0278",
+  "R-0446",
+  "R-0618",
+  "R-0635",
+  "R-0829",
+  "R-0992"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Characters make things happen",
+     "text": "What a character **does** can make something happen in the story.\n\nIf Ali drops a glass, it **breaks**. His action causes the next event."
+    },
+    {
+     "title": "What they are like",
+     "text": "What a character is **like** matters too.\n\nA **careless** boy may lose his bag. A **kind** girl may help a friend."
+    },
+    {
+     "title": "Ask why it happened",
+     "text": "1. Find what happened.\n2. Ask: **Which character** made it happen?\n3. Ask: **What did they do?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the story**.\n\n1. Find the event in the question.\n2. Look at the sentence **before** it.\n3. What did the character do? That is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sami did not close the door.",
+      "role": "key"
+     },
+     {
+      "t": "The cat ran outside.",
+      "role": "detail"
+     },
+     {
+      "t": "Sami had to look for the cat all day.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sami's action (not closing the door) **caused** the cat to run out. Then he had to look for it.\n\nThe character made the story happen."
+   },
+   "together": {
+    "passage": "Lina was very kind. She saw a new girl sitting alone. Lina sat next to her and said hello. The new girl smiled. Soon they were best friends.",
+    "stem": "Why did Lina and the new girl become friends?",
+    "options": [
+     "The new girl was sitting alone.",
+     "Lina was kind and said hello to her.",
+     "The new girl had a new bag.",
+     "They lived in the same house."
+    ],
+    "answer": 1,
+    "hint": "What did Lina DO? What happened after that?",
+    "good": "Yes! Lina was kind and said hello. That is how the friendship started."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina was very kind.",
+     "She saw a new girl sitting alone.",
+     "Lina sat next to her and said hello.",
+     "The new girl smiled.",
+     "Soon they were best friends."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Lina was kind and said hello. Tap 2 sentences that show what Lina is like and what she did.",
+    "wrong": "This sentence tells what happened after. Find what Lina is like and what she did."
+   },
+   "checks": [
+    {
+     "passage": "Omar was in a hurry. He ran down the stairs. He fell and hurt his knee.",
+     "stem": "Why did Omar hurt his knee?",
+     "options": [
+      "He was hungry for his lunch.",
+      "He was sleepy and tired.",
+      "He ran down the stairs in a hurry.",
+      "He walked down very slowly."
+     ],
+     "answer": 2,
+     "why": "He was in a hurry and ran, so he fell."
+    },
+    {
+     "passage": "Noor loves plants. Every day, she waters the flowers. Now the garden is full of colour.",
+     "stem": "Why is the garden full of colour?",
+     "options": [
+      "Noor waters the flowers every day.",
+      "It rained a lot.",
+      "Noor does not like plants.",
+      "Dad bought new flowers."
+     ],
+     "answer": 0,
+     "why": "Noor loves plants and waters them every day, so the garden is full of colour."
+    },
+    {
+     "passage": "Badr did not listen to his teacher. He did not hear the homework. The next day, he had no homework to give.",
+     "stem": "Why did Badr have no homework?",
+     "options": [
+      "He lost his bag.",
+      "He was sick at home.",
+      "The teacher forgot to give it.",
+      "He did not listen to his teacher."
+     ],
+     "answer": 3,
+     "why": "Badr did not listen, so he did not hear what the homework was."
+    }
+   ],
+   "again": {
+    "title": "Because of...",
+    "text": "Finish this sentence:\n\n**Because the character ___, this happened: ___.**",
+    "example": "**Because** Hala shared her lunch, **her hungry friend could eat.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Characters drive the plot",
+     "text": "The **plot** is what happens in a story. Many events happen **because of** a character.\n\nA character's **traits** (what they are like), **feelings** and **actions** can all cause events."
+    },
+    {
+     "title": "Traits cause actions",
+     "text": "A **curious** character explores. A **stubborn** one refuses to give up or to listen. A **brave** one faces danger.\n\nThese traits lead to choices, and choices lead to events."
+    },
+    {
+     "title": "Trace the chain",
+     "text": "1. Name the character's trait or feeling.\n2. Find the action it leads to.\n3. Find the event the action causes.\n\nTrait → action → event."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove how a character moves the plot:\n\n1. Find the character's **action**.\n2. Find the sentence that shows the trait or feeling **behind** it.\n3. Find the event that **follows** from it.\n\nYour answer should connect the character to what happens."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Faisal was very curious.",
+      "role": "detail"
+     },
+     {
+      "t": "When he saw a small door behind the bookshelf, he opened it.",
+      "role": "key"
+     },
+     {
+      "t": "Inside, he found his grandfather's old letters, which told the story of how the family came to the city.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Trait: **curious**. Action: **he opens the hidden door**. Event: **he finds the letters**.\n\nWithout his curiosity, the discovery would never happen."
+   },
+   "together": {
+    "passage": "Hamad was a stubborn boy. When his father said the sea was too rough for swimming, Hamad went in anyway. A big wave knocked him over, and he swallowed a mouthful of salty water. A lifeguard pulled him out. After that, Hamad always listened to the warning flags on the beach.",
+    "stem": "How does Hamad's stubbornness affect the plot?",
+    "options": [
+     "It makes him stay on the sand and read a book.",
+     "It helps him become the best swimmer on the beach.",
+     "It leads him to swim in rough water, so he needs to be rescued.",
+     "It makes the lifeguard angry with his father."
+    ],
+    "answer": 2,
+    "hint": "What does Hamad do because he is stubborn? What happens next?",
+    "good": "Yes! Being stubborn, he swims when he was told not to, a wave knocks him over, and the lifeguard has to pull him out."
+   },
+   "evidence": {
+    "sentences": [
+     "Hamad was a stubborn boy.",
+     "When his father said the sea was too rough for swimming, Hamad went in anyway.",
+     "A big wave knocked him over, and he swallowed a mouthful of salty water.",
+     "A lifeguard pulled him out.",
+     "After that, Hamad always listened to the warning flags on the beach."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: his stubbornness leads him into rough water, so he must be rescued. Tap 2 sentences that show the trait, the action or what it causes.",
+    "wrong": "This sentence shows what Hamad learned after. Find his trait, his choice and what happened because of it."
+   },
+   "checks": [
+    {
+     "passage": "Afraid of the dark, Reem left her light on every night. One night the bulb burned out. She went to find her father, and together they discovered that the power was off in the whole street.",
+     "stem": "How does Reem's fear move the plot?",
+     "options": [
+      "It makes her hide under the blanket and sleep.",
+      "It leads her to find her father and discover the power cut.",
+      "It makes her angry at her father for the dark.",
+      "It causes the bulb in her room to burn out."
+     ],
+     "answer": 1,
+     "why": "Her fear of the dark sends her to her father, and together they discover the power cut."
+    },
+    {
+     "passage": "Yazan was always early. On the morning of the trip, he arrived at school before the bus driver, so he was the one who found the note saying the trip had moved to a different gate.",
+     "stem": "Why does Yazan find the note?",
+     "options": [
+      "Because he is always early",
+      "Because he is the bus driver",
+      "Because he is late",
+      "Because his teacher gives it to him"
+     ],
+     "answer": 0,
+     "why": "His habit of being early puts him there before anyone else, so he finds the note."
+    },
+    {
+     "passage": "Dalia felt jealous when her sister got a new bike. She refused to speak to her all week. Then her sister fell off the bike, and Dalia was the first to run and help her.",
+     "stem": "Which feeling causes Dalia to stop speaking to her sister?",
+     "options": [
+      "Fear",
+      "Pride",
+      "Kindness",
+      "Jealousy"
+     ],
+     "answer": 3,
+     "why": "Dalia was jealous about the bike, so she refused to speak to her sister."
+    }
+   ],
+   "again": {
+    "title": "What if?",
+    "text": "Ask: **What if the character were different?**\n\nIf the story would change, the character's trait or action is **driving the plot**.",
+    "example": "What if Hamad were **not** stubborn? He would listen to his father, stay out of the sea, and there would be **no rescue**. So his stubbornness drives the plot."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Characters and plot",
+     "text": "In good stories, events do not just happen **to** characters. Characters **cause** events through what they think, feel, choose and do.\n\nUnderstanding a character helps you understand **why** the plot unfolds as it does."
+    },
+    {
+     "title": "Feelings and choices",
+     "text": "A character's feelings often lead to **key choices**: pride may stop someone asking for help; guilt may lead someone to confess; loyalty may lead someone to take a risk.\n\nThese choices create **turning points**."
+    },
+    {
+     "title": "How to explain it",
+     "text": "1. Name the trait or feeling.\n2. Show the choice or action it causes.\n3. Explain how that action **changes the direction** of the plot.\n\nUse \"because\", \"so\" and \"as a result\"."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove how a character shapes the plot:\n\n1. Find the sentence that reveals the character's trait or feeling.\n2. Find the action it leads to.\n3. Find the later event that depends on that action.\n\nThe right answer connects all three. Wrong answers often blame luck or another character."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rashid was too proud to admit that he did not understand the map.",
+      "role": "detail"
+     },
+     {
+      "t": "Instead of asking the guide, he led his friends down the wrong valley.",
+      "role": "key"
+     },
+     {
+      "t": "By sunset, they were lost, and the guide had to search for them with a torch.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Trait: **pride**. Choice: **he leads without asking**. Result: **they get lost**, and the guide must search for them.\n\nRashid's pride creates the story's main problem."
+   },
+   "together": {
+    "passage": "Ghaliya had always been careful with money. While her friends spent their pocket money on snacks, she saved hers in a tin box. When the school announced a trip to the space museum in another city, many families could not afford the ticket. Ghaliya counted her savings and found she had enough for herself and for her friend Asma, whose father had recently lost his job. She quietly gave Asma's ticket money to the teacher. On the trip, the two girls sat together, pointing at the planets and promising to become astronomers.",
+    "stem": "How does Ghaliya's careful saving affect the plot?",
+    "options": [
+     "It means she cannot afford the trip at all.",
+     "It makes her friends angry with her for not sharing snacks.",
+     "It allows her to pay for Asma, so both girls go on the trip.",
+     "It makes the school cancel the trip to the museum."
+    ],
+    "answer": 2,
+    "hint": "Follow the chain: what trait does Ghaliya have, what does it allow her to do, and what happens as a result?",
+    "good": "Yes! Because she saved carefully, she had enough money for two tickets, and Asma could go on the trip with her."
+   },
+   "evidence": {
+    "sentences": [
+     "Ghaliya had always been careful with money.",
+     "While her friends spent their pocket money on snacks, she saved hers in a tin box.",
+     "When the school announced a trip to the space museum in another city, many families could not afford the ticket.",
+     "Ghaliya counted her savings and found she had enough for herself and for her friend Asma, whose father had recently lost his job.",
+     "She quietly gave Asma's ticket money to the teacher.",
+     "On the trip, the two girls sat together, pointing at the planets and promising to become astronomers."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: her saving lets her pay for Asma, so both go on the trip. Tap 2 sentences that show her trait and what it makes possible.",
+    "wrong": "This sentence gives background or describes the trip itself. Find Ghaliya's saving habit and what she does with her savings."
+   },
+   "checks": [
+    {
+     "passage": "Khalid was so excited about the football final that he could not sleep. In the morning, he overslept, rushed out without breakfast, and arrived just as the match began. In the second half, he felt weak and was replaced.",
+     "stem": "How do Khalid's feelings affect the plot?",
+     "options": [
+      "His excitement keeps him awake, leading to a chain of problems.",
+      "His calm mood helps him sleep well and play his best.",
+      "His anger at the referee makes him leave the match.",
+      "His sadness about the team makes him miss the final."
+     ],
+     "answer": 0,
+     "why": "Excitement stops him sleeping; he oversleeps, skips breakfast, and feels weak in the match."
+    },
+    {
+     "passage": "Sumaya was honest to a fault. When the shopkeeper gave her too much change, she walked back across the market to return it. The shopkeeper was so impressed that he offered her a summer job.",
+     "stem": "What causes the shopkeeper to offer Sumaya a job?",
+     "options": [
+      "She asks him for a job.",
+      "Her mother knows the shopkeeper.",
+      "She gives him too much money.",
+      "Her honesty in returning the extra change."
+     ],
+     "answer": 3,
+     "why": "Her honest action of returning the change impresses him, which leads to the job offer."
+    },
+    {
+     "passage": "Too shy to say he did not understand the instructions, Ammar built his science project the wrong way. On presentation day, his model did not match the task. Afterwards, he decided to always ask questions, no matter how nervous he felt.",
+     "stem": "How does Ammar's shyness shape the plot?",
+     "options": [
+      "It helps him win first prize at the school science fair.",
+      "It stops him asking, so his project goes wrong and he learns a lesson.",
+      "It makes his teacher explain the whole task again to the class.",
+      "It has no effect on anything that happens in the story."
+     ],
+     "answer": 1,
+     "why": "Because he was too shy to ask, he built it wrongly. This leads to his decision to always ask."
+    }
+   ],
+   "again": {
+    "title": "Trait, choice, result",
+    "text": "Make three boxes:\n\n1. **Trait / feeling**\n2. **Choice / action**\n3. **Result in the plot**\n\nFill them in. If the boxes connect, you have explained how the character moves the plot.",
+    "example": "Trait: **impatient**. Choice: **takes the cake out of the oven early**. Result: **the cake sinks, and the family laughs and makes pancakes instead.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Character as the engine of plot",
+     "text": "In complex stories, the plot often grows directly from **who the characters are**. Their strengths create opportunities; their flaws create conflict.\n\nAnalysing this means showing **how** a trait leads, step by step, to key events."
+    },
+    {
+     "title": "Changing characters",
+     "text": "Characters can **change** during a story. A change in a character often causes a **change in the plot**: a reconciliation, a new plan, a different ending.\n\nNotice when a character's attitude shifts and what happens next."
+    },
+    {
+     "title": "Interactions",
+     "text": "Characters also shape the plot through how they **react to each other**. One character's flaw may be balanced by another's strength.\n\nAsk: whose choice was the turning point, and what trait explains it?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse how a character drives the plot:\n\n1. Identify the trait, feeling or change.\n2. Find the decision it causes.\n3. Trace the consequences to a **key event** (conflict, turning point or resolution).\n\nThe best answer explains a chain of cause and effect, not just a description of the character."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ibrahim, the team captain, believed he alone knew how to win, and he ignored his teammates' ideas.",
+      "role": "detail"
+     },
+     {
+      "t": "When the team lost three matches in a row, two players quit.",
+      "role": "detail"
+     },
+     {
+      "t": "Only after watching a recording of the matches did Ibrahim see how often he had refused to pass the ball.",
+      "role": "key"
+     },
+     {
+      "t": "At the next practice, he asked each player for one idea, and the team won its final game using a play the youngest player had suggested.",
+      "role": "key"
+     }
+    ],
+    "explain": "Ibrahim's **arrogance** causes the losses and the players quitting (conflict). His **change** of attitude after the recording leads him to listen, which produces the **resolution**: the win.\n\nThe plot rises and falls with his character."
+   },
+   "together": {
+    "passage": "Everyone in the village knew Umm Saleh as the woman who never threw anything away. Her courtyard was crowded with old ropes, broken lanterns, empty tins and planks of wood. Her neighbours teased her, and her own son begged her to clear the mess. Then, one winter, heavy rain flooded the lower road, and the bridge to the clinic washed away. While others waited for help from the town, Umm Saleh directed the young men to carry her planks and ropes to the stream. By evening, they had built a narrow footbridge, and the doctor was able to cross to an injured farmer on the other side. The next spring, the village council asked Umm Saleh to keep a store of materials for emergencies, and nobody laughed at her courtyard again.",
+    "stem": "How does Umm Saleh's habit of keeping everything shape the plot?",
+    "options": [
+     "It causes the flood, because her courtyard blocks the water.",
+     "It makes her son leave the village to live in town.",
+     "It has no real effect, because help arrives from the town.",
+     "It first makes her a joke, then lets the village build a bridge in an emergency."
+    ],
+    "answer": 3,
+    "hint": "Follow her habit through the story: how do people react at first, and what does the habit make possible during the flood?",
+    "good": "Yes! Her habit makes her the subject of teasing, but her stored ropes and planks let the village build a footbridge, which changes how everyone sees her."
+   },
+   "evidence": {
+    "sentences": [
+     "Everyone in the village knew Umm Saleh as the woman who never threw anything away.",
+     "Her courtyard was crowded with old ropes, broken lanterns, empty tins and planks of wood.",
+     "Her neighbours teased her, and her own son begged her to clear the mess.",
+     "Then, one winter, heavy rain flooded the lower road, and the bridge to the clinic washed away.",
+     "While others waited for help from the town, Umm Saleh directed the young men to carry her planks and ropes to the stream.",
+     "By evening, they had built a narrow footbridge, and the doctor was able to cross to an injured farmer on the other side.",
+     "The next spring, the village council asked Umm Saleh to keep a store of materials for emergencies, and nobody laughed at her courtyard again."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: her habit first makes her a joke, then lets the village build a bridge. Tap 2 sentences that show the habit's effects on the plot.",
+    "wrong": "This sentence introduces Umm Saleh or describes the flood. Find how people react to her habit, or what the habit makes possible."
+   },
+   "checks": [
+    {
+     "passage": "Talal had a quick temper. During the debate, when his opponent mocked his argument, Talal shouted back and was disqualified. Watching from the audience, he realised that his anger had cost his team the final. The following year, he practised staying calm under pressure, and when another opponent tried to provoke him, he simply smiled and answered with facts.",
+     "stem": "How does the change in Talal's character affect the plot?",
+     "options": [
+      "It causes him to be disqualified again in the next debate.",
+      "It allows him to stay calm and answer well when provoked the next year.",
+      "It makes him quit the debate team forever and join another club.",
+      "It makes his opponent apologise to him."
+     ],
+     "answer": 1,
+     "why": "His change from angry to calm lets him handle provocation the next year, reversing what happened before."
+    },
+    {
+     "passage": "The twins could not have been more different. Lama made plans; Lujain made friends. When their family's small bakery began losing customers, Lama designed a new menu and schedule, while Lujain went door to door inviting neighbours to a free tasting. By the end of the month, the bakery was full every morning.",
+     "stem": "How do the twins' different traits move the plot?",
+     "options": [
+      "Their traits combine: Lama's planning and Lujain's friendliness together save the bakery.",
+      "Only Lama's planning matters; Lujain's visits change nothing at the end.",
+      "Their differences cause arguments, so the bakery has to close.",
+      "Lujain's friendliness causes them to lose customers."
+     ],
+     "answer": 0,
+     "why": "Each twin's strength solves part of the problem; together they bring the customers back."
+    },
+    {
+     "passage": "Old Fahad refused to sell his date farm to the developers, even when they doubled their offer. His family thought him foolish. Years later, the land around the farm had become a city of concrete, and Fahad's palms were the last green space for miles. The city bought the farm and opened it as a public park, with Fahad's name on the gate.",
+     "stem": "What role does Fahad's stubbornness play in the plot?",
+     "options": [
+      "It causes his family to sell the farm without him.",
+      "It leads directly to the city's concrete buildings.",
+      "It has no effect, because the developers buy the farm anyway.",
+      "It preserves the farm, which later becomes a public park."
+     ],
+     "answer": 3,
+     "why": "His refusal keeps the farm green until the city turns it into a park. His stubbornness shapes the ending."
+    }
+   ],
+   "again": {
+    "title": "Remove the trait",
+    "text": "Imagine the character **without** their key trait.\n\n1. Would the problem still happen?\n2. Would the turning point still happen?\n3. Would the ending be the same?\n\nIf not, the trait is driving the plot.",
+    "example": "Without Umm Saleh's habit of keeping things, there are **no planks or ropes**, no footbridge, and the doctor cannot cross. The trait drives the **resolution**."
+   }
+  }
+ }
+}

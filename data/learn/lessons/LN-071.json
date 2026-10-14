@@ -1,0 +1,455 @@
+{
+ "code": "LN-071",
+ "title": "Progressive verb tenses",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "verb-tenses"
+ ],
+ "skillNames": [
+  "Progressive Verb Tenses",
+  "Verb Tenses (Simple, Progressive, Perfect)"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Happening now",
+     "text": "Some actions are **going on right now**.\n\nLook! The baby **is sleeping**.\nWe **are reading** in class.\n\nWe use **am**, **is** or **are** + a verb with **-ing**."
+    },
+    {
+     "title": "Am, is, are",
+     "text": "I → **am**: I **am** writing.\nhe, she, it, one person → **is**: Sara **is** writing.\nwe, you, they, many → **are**: They **are** writing."
+    },
+    {
+     "title": "Clue words",
+     "text": "These words tell you the action is happening now:\n\n**now**, **right now**, **Look!**, **Listen!**, **at the moment**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look for clue words like **now** or **Look!**\n2. Find other sentences in the text with **is**, **am** or **are** + **-ing**.\n3. Your answer should follow the same pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Listen!",
+      "role": "other"
+     },
+     {
+      "t": "The birds are singing.",
+      "role": "key"
+     },
+     {
+      "t": "My little brother is laughing.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Listen!** tells us it is happening now.\n\n**are singing**: many birds. **is laughing**: one brother. Both use **-ing**."
+   },
+   "together": {
+    "passage": "It is Saturday morning at our house. Right now, Dad is cooking eggs. Mom is reading a book. My sister ___ with her dolls.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "play",
+     "are playing",
+     "is playing",
+     "played"
+    ],
+    "answer": 2,
+    "hint": "Look at the other sentences about the family. What pattern do they use?",
+    "good": "Yes! **My sister** is one person, and the action is happening now: **is playing**."
+   },
+   "evidence": {
+    "sentences": [
+     "It is Saturday morning at our house.",
+     "Right now, Dad is cooking eggs.",
+     "Mom is reading a book.",
+     "My sister ___ with her dolls."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: is playing. Tap 2 sentences that use the same pattern.",
+    "wrong": "This sentence does not have an -ing action. Find sentences with is + -ing."
+   },
+   "checks": [
+    {
+     "passage": "Look! The cats ___ milk.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "is drinking",
+      "are drinking",
+      "am drinking",
+      "drinking"
+     ],
+     "answer": 1,
+     "why": "**The cats** are more than one, so we use **are** + -ing."
+    },
+    {
+     "passage": "Shh! I ___ my homework right now.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "am doing",
+      "is doing",
+      "are doing",
+      "doing"
+     ],
+     "answer": 0,
+     "why": "With **I**, we use **am**: I **am doing**."
+    },
+    {
+     "passage": "Fahad is washing the car. His friends is helping him.",
+     "stem": "Which words are wrong?",
+     "options": [
+      "is washing",
+      "the car",
+      "his friends",
+      "is helping"
+     ],
+     "answer": 3,
+     "why": "**His friends** are many, so it should be **are helping**."
+    }
+   ],
+   "again": {
+    "title": "Picture a video",
+    "text": "If you could film the action **right now**, use **-ing**.\n\nStep 1: Who? Step 2: am, is or are? Step 3: verb + -ing.",
+    "example": "Ali / eat / an apple → Ali **is eating** an apple.\n\nWe / walk / to the shop → We **are walking** to the shop."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Going on in the past",
+     "text": "The **past progressive** tells about an action that **was going on** at a time in the past.\n\nAt eight o'clock last night, I **was reading**.\n\nUse **was** or **were** + verb + **-ing**."
+    },
+    {
+     "title": "Was or were?",
+     "text": "I, he, she, it, one person → **was**\nwe, you, they, many → **were**\n\nThe girls **were** singing.\nMy uncle **was** driving."
+    },
+    {
+     "title": "Interrupted actions",
+     "text": "The past progressive often shows a long action that **something else interrupted**.\n\nI **was walking** home **when** it **started** to rain.\n\nThe long action: -ing. The short action: simple past."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find time clues: **yesterday**, **last night**, **when**, **while**.\n2. Decide: is the action in the past and still going on at that moment?\n3. Find other sentences in the text that use **was/were + -ing**. They show the pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Last night, the power went out.",
+      "role": "key"
+     },
+     {
+      "t": "I was brushing my teeth.",
+      "role": "main"
+     },
+     {
+      "t": "My parents were watching the news.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Last night** tells us it is the past. When the power went out, I **was brushing** and my parents **were watching**. These actions were going on at that moment."
+   },
+   "together": {
+    "passage": "Yesterday afternoon, the sky over our town turned dark. When the rain started, my brothers ___ football in the yard. At the same moment, Mom was hanging clothes on the line. Everyone ran inside. The storm ended an hour later.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "are playing",
+     "was playing",
+     "will be playing",
+     "were playing"
+    ],
+    "answer": 3,
+    "hint": "Is this past or present? Is it one brother or many?",
+    "good": "Yes! It was **yesterday** and there are many **brothers**, so: **were playing**."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday afternoon, the sky over our town turned dark.",
+     "When the rain started, my brothers ___ football in the yard.",
+     "At the same moment, Mom was hanging clothes on the line.",
+     "Everyone ran inside.",
+     "The storm ended an hour later."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: were playing. Tap 2 sentences: the one with the time clue word, and the one with the same was/were + -ing pattern.",
+    "wrong": "This sentence has a short, finished action. Find the time clue word and the other action that was going on."
+   },
+   "checks": [
+    {
+     "passage": "While we ___ dinner, the phone rang.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "were eating",
+      "are eating",
+      "was eating",
+      "eat"
+     ],
+     "answer": 0,
+     "why": "**While** shows a long action in the past. With **we**, use **were**."
+    },
+    {
+     "passage": "At nine o'clock yesterday, Noura ___ her grandmother.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "is visiting",
+      "were visiting",
+      "was visiting",
+      "visits"
+     ],
+     "answer": 2,
+     "why": "**Yesterday** shows the past, and Noura is one person, so: **was visiting**."
+    },
+    {
+     "passage": "I was riding my bike when I see a fox.",
+     "stem": "Which word should be changed?",
+     "options": [
+      "was",
+      "riding",
+      "when",
+      "see"
+     ],
+     "answer": 3,
+     "why": "The short action interrupts in the past, so it must be past too: **saw**."
+    }
+   ],
+   "again": {
+    "title": "Long line, short line",
+    "text": "Draw a **long line** for the action that was going on, and a **short line** for the action that cut in.\n\nLong line: was/were + -ing\nShort line: simple past",
+    "example": "____________ (I was reading)\n        |  (the doorbell rang)\n\n**I was reading when the doorbell rang.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Three progressive tenses",
+     "text": "Progressive tenses show actions **in progress**.\n\nPresent: I **am working** now.\nPast: I **was working** at six.\nFuture: I **will be working** at six tomorrow."
+    },
+    {
+     "title": "The future progressive",
+     "text": "Use **will be + -ing** for an action that will be **going on** at a certain time in the future.\n\nThis time next week, we **will be swimming** at the beach.\n\nIt is the same for every subject: I, she, they **will be** …"
+    },
+    {
+     "title": "Read the time clues",
+     "text": "**now, at the moment** → am/is/are + -ing\n**yesterday, last night, when it happened** → was/were + -ing\n**tomorrow, next week, this time tomorrow** → will be + -ing"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every time clue in the passage.\n2. Decide whether the blank is past, present or future.\n3. Look for other progressive verbs in the passage. A writer usually keeps the same time frame."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Tomorrow is the school trip.",
+      "role": "key"
+     },
+     {
+      "t": "At ten o'clock, we will be walking through the old town.",
+      "role": "main"
+     },
+     {
+      "t": "At noon, we will be eating lunch by the fountain.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Tomorrow** shows the future. At ten and at noon the actions will be **in progress**, so the writer uses **will be + -ing**."
+   },
+   "together": {
+    "passage": "Our family is travelling to Cairo tomorrow. The plane leaves Jeddah at nine in the morning. At half past nine, we ___ over the Red Sea. After we land, my aunt will be waiting for us outside the airport. We will be staying with her for a whole week.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "were flying",
+     "have flown",
+     "will be flying",
+     "was flown"
+    ],
+    "answer": 2,
+    "hint": "Find the time clue at the start. Is the trip in the past or the future?",
+    "good": "Yes! The trip is **tomorrow**, and at half past nine the flight will be in progress: **will be flying**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our family is travelling to Cairo tomorrow.",
+     "The plane leaves Jeddah at nine in the morning.",
+     "At half past nine, we ___ over the Red Sea.",
+     "After we land, my aunt will be waiting for us outside the airport.",
+     "We will be staying with her for a whole week."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: will be flying. Tap 2 sentences that show the time is the future or use will be + -ing.",
+    "wrong": "This sentence gives a time, but not whether it is past or future in a way that proves the tense. Look for 'tomorrow' or 'will be'."
+   },
+   "checks": [
+    {
+     "passage": "Don't call Sami at four o'clock. He ___ his football match then.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "will be playing",
+      "was playing",
+      "is played",
+      "were playing"
+     ],
+     "answer": 0,
+     "why": "Four o'clock is still to come, and the match will be in progress then: **will be playing**."
+    },
+    {
+     "passage": "When the teacher walked in, the students ___ quietly.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "are working",
+      "were working",
+      "will be working",
+      "work"
+     ],
+     "answer": 1,
+     "why": "**walked** is past, so the action going on at that moment is **were working**."
+    },
+    {
+     "passage": "Right now, my grandmother ___ bread for the family.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "was baking",
+      "will be baking",
+      "bakes",
+      "is baking"
+     ],
+     "answer": 3,
+     "why": "**Right now** shows the present, so: **is baking**."
+    }
+   ],
+   "again": {
+    "title": "Find the time first",
+    "text": "Before choosing a verb, circle the **time words**.\n\nThen choose the helper:\nnow → am/is/are\npast → was/were\nfuture → will be",
+    "example": "Next Friday at noon, Laila ___ (sing) on stage.\n\nTime: **next Friday** → future → **will be singing**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Progressive, perfect, simple",
+     "text": "**Simple**: a whole action or a habit. She **reads** every day.\n**Progressive**: an action in progress. She **is reading** now.\n**Perfect**: an action finished before another time. She **had read** the book before the test."
+    },
+    {
+     "title": "Perfect progressive",
+     "text": "Use **have/has been + -ing** for an action that started in the past and is **still going on**.\nWe **have been waiting** for an hour.\n\nUse **had been + -ing** for an action that went on **until** a past moment.\nThey **had been waiting** for an hour when the bus came."
+    },
+    {
+     "title": "Keep the time frame",
+     "text": "Do not shift tenses without a reason.\n\nShift: I **was cleaning** my room when my friend **calls**.\nConsistent: I **was cleaning** my room when my friend **called**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the main time frame of the passage: past, present or future.\n2. Look for duration words: **for**, **since**, **by the time**.\n3. Find other verbs that use the same form.\n\nThe tense you choose must fit both the time frame and the duration."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The workers had been building the bridge for two years.",
+      "role": "key"
+     },
+     {
+      "t": "Then, in March, the river flooded.",
+      "role": "detail"
+     },
+     {
+      "t": "By the time the water fell, they had lost a month of work.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**had been building** + **for two years**: a long action going on up to a past moment, the flood.\n\nThe passage stays in the past from start to finish."
+   },
+   "together": {
+    "passage": "Last winter, a group of hikers got lost in the mountains near Abha. Fog had rolled in quickly, and they could no longer see the trail. By the time the rescue team arrived, the hikers ___ for six hours. They had been sheltering under a rock ledge and taking turns calling for help. The rescuers, who had been searching since early morning, guided everyone safely down. Today, the hikers carry a map and a charged phone on every trip.",
+    "stem": "Which words fill the blank?",
+    "options": [
+     "have been waiting",
+     "were waited",
+     "had been waiting",
+     "are waiting"
+    ],
+    "answer": 2,
+    "hint": "Look for 'by the time' and 'for six hours'. The waiting went on until a past moment.",
+    "good": "Yes! The waiting went on **for six hours** until the rescuers arrived in the past: **had been waiting**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last winter, a group of hikers got lost in the mountains near Abha.",
+     "Fog had rolled in quickly, and they could no longer see the trail.",
+     "By the time the rescue team arrived, the hikers ___ for six hours.",
+     "They had been sheltering under a rock ledge and taking turns calling for help.",
+     "The rescuers, who had been searching since early morning, guided everyone safely down.",
+     "Today, the hikers carry a map and a charged phone on every trip."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: had been waiting. Tap 2 OTHER sentences that use had been + -ing.",
+    "wrong": "This sentence does not use had been + -ing. Look for actions that went on until a past moment."
+   },
+   "checks": [
+    {
+     "passage": "Our science club ___ the same tree since September, and we will finish our report in May.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "had been observing",
+      "has been observing",
+      "was observing",
+      "observes"
+     ],
+     "answer": 1,
+     "why": "**since September** and the report is not finished yet, so the action is still going on: **has been observing**."
+    },
+    {
+     "passage": "Maryam was studying in the library when the fire alarm rings.",
+     "stem": "Which word should be changed to keep the tense consistent?",
+     "options": [
+      "rings",
+      "studying",
+      "was",
+      "library"
+     ],
+     "answer": 0,
+     "why": "The story is in the past, so the interrupting action must be past: **rang**."
+    },
+    {
+     "passage": "This time next year, my brother ___ engineering at university.",
+     "stem": "Which words fill the blank?",
+     "options": [
+      "has been studying",
+      "was studying",
+      "had studied",
+      "will be studying"
+     ],
+     "answer": 3,
+     "why": "**This time next year** is a future moment, and the studying will be in progress: **will be studying**."
+    }
+   ],
+   "again": {
+    "title": "Draw a timeline",
+    "text": "Draw a line with **past**, **now** and **future**.\n\nMark the moment the sentence talks about. Then ask: is the action **in progress** there? Did it **start earlier** and keep going?",
+    "example": "We had been playing for an hour when it got dark.\n\n**Playing** started earlier and kept going until a past moment (it got dark). So: **had been playing**."
+   }
+  }
+ }
+}

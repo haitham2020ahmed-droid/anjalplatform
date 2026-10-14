@@ -1,0 +1,446 @@
+{
+ "code": "LN-093",
+ "title": "Letter sounds and word patterns",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [
+  "Letter-Sound Patterns and Word Analysis"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Letters make sounds",
+     "text": "Each word is made of **sounds**. Letters show those sounds.\n\nSay a word slowly: **c-a-t**. Three sounds, three letters."
+    },
+    {
+     "title": "The silent e",
+     "text": "An **e** at the end is often silent. It makes the vowel **say its name**.\n\ncap → **cape**\nkit → **kite**\nhop → **hope**"
+    },
+    {
+     "title": "Two letters, one sound",
+     "text": "Some letter pairs make **one** sound.\n\n**sh** as in ship\n**ch** as in chair\n**th** as in three"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find a spelling mistake:\n\n1. Read each word slowly.\n2. Say the sounds you hear.\n3. Check: do the letters match the sounds?\n\nPoint to the sentence with the word that does not match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali has a red cap.",
+      "role": "other"
+     },
+     {
+      "t": "He likes to ride his bike.",
+      "role": "key"
+     },
+     {
+      "t": "He rides fast.",
+      "role": "other"
+     }
+    ],
+    "explain": "In **bike**, the silent **e** makes the **i** say its name. Without the e, it would be **bik**, which is not a word."
+   },
+   "together": {
+    "passage": "Mona has a new bik. It is red. She rides it to the park. Her dad walks with her.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "park",
+     "red",
+     "bik",
+     "walks"
+    ],
+    "answer": 2,
+    "hint": "Say each word. Which one has a vowel that says its name but no silent e?",
+    "good": "Yes! It should be **bike**. The silent e makes the i say its name."
+   },
+   "evidence": {
+    "sentences": [
+     "Mona has a new bik.",
+     "It is red.",
+     "She rides it to the park.",
+     "Her dad walks with her."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: bik should be bike. Tap the sentence with that word.",
+    "wrong": "All the words here are spelled right. Find the sentence with bik."
+   },
+   "checks": [
+    {
+     "passage": "Tom has a kite. He flies it on the hill. The wind is strong.",
+     "stem": "Which word has the long i sound, like in \"time\"?",
+     "options": [
+      "kite",
+      "hill",
+      "wind",
+      "is"
+     ],
+     "answer": 0,
+     "why": "**kite** has a silent e, so the i says its name, like in time."
+    },
+    {
+     "passage": "We went to the beach. I found a shell. It was white.",
+     "stem": "Which word starts with the same sound as \"ship\"?",
+     "options": [
+      "went",
+      "white",
+      "found",
+      "shell"
+     ],
+     "answer": 3,
+     "why": "**shell** starts with **sh**, the same sound as ship."
+    },
+    {
+     "passage": "It is my birthday. Dad cut the cak. We all ate some.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "birthday",
+      "cak",
+      "ate",
+      "some"
+     ],
+     "answer": 1,
+     "why": "It should be **cake**. The silent e makes the a say its name."
+    }
+   ],
+   "again": {
+    "title": "Say it, then spell it",
+    "text": "1. Say the word **slowly**.\n2. Tap one finger for each sound.\n3. Write a letter or letter pair for each sound.\n4. Long vowel at the end? Try a silent **e**.",
+    "example": "**hope**: h - o - p. The o says its name, so add a silent e: **hope**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "One sound, many spellings",
+     "text": "The same sound can be spelled in different ways.\n\nLong **a**: r**ai**n, d**ay**, c**a**k**e**\nLong **e**: tr**ee**, p**ea**ch\nLong **o**: b**oa**t, sn**ow**, h**o**m**e**"
+    },
+    {
+     "title": "Vowel teams",
+     "text": "Two vowels together often make one long sound.\n\n**ai** is usually in the **middle** of a word: rain, paint.\n**ay** is usually at the **end**: day, play."
+    },
+    {
+     "title": "After a short vowel",
+     "text": "After a short vowel, the /k/ sound at the end is often **ck**.\n\nro**ck**  ba**ck**  du**ck**\n\nAfter a long vowel team, it is often just **k**: b**oo**k, s**ee**k."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a spelling is wrong:\n\n1. Find the word that looks strange.\n2. Name the sound pattern it should follow (for example **ai** in the middle).\n3. Point to the sentence where the word appears."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sky was grey all day.",
+      "role": "other"
+     },
+     {
+      "t": "Then the rain began to fall.",
+      "role": "key"
+     },
+     {
+      "t": "We stayed inside.",
+      "role": "other"
+     }
+    ],
+    "explain": "**rain** has the long a sound in the **middle** of the word, so it uses **ai**. **day** and **stayed** use **ay**."
+   },
+   "together": {
+    "passage": "Last weekend it began to rane. Fahad stayed inside and read a book about boats. His sister made tea for the whole family. When the clouds went away, they walked down the road to see the puddles.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "boats",
+     "read",
+     "road",
+     "rane"
+    ],
+    "answer": 3,
+    "hint": "Look for a long a sound in the middle of a word. Which pattern should it use?",
+    "good": "Yes! It should be **rain**. A long a in the middle of a word is often spelled **ai**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last weekend it began to rane.",
+     "Fahad stayed inside and read a book about boats.",
+     "His sister made tea for the whole family.",
+     "When the clouds went away, they walked down the road to see the puddles."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: rane should be rain. Tap the sentence with that word.",
+    "wrong": "Every word in this sentence is spelled correctly. Find the sentence with rane."
+   },
+   "checks": [
+    {
+     "passage": "Aisha sat in the shade. She ate a peach. Then she wrote in her notebook.",
+     "stem": "Which word has the same vowel sound as \"green\"?",
+     "options": [
+      "sat",
+      "peach",
+      "wrote",
+      "then"
+     ],
+     "answer": 1,
+     "why": "**peach** has the long e sound, spelled **ea**. Green spells the same sound **ee**."
+    },
+    {
+     "passage": "The goat stood on a big rok. It ate the green leaves. Then it jumped down.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "goat",
+      "leaves",
+      "rok",
+      "jumped"
+     ],
+     "answer": 2,
+     "why": "It should be **rock**. After a short vowel, the /k/ sound at the end is spelled **ck**."
+    },
+    {
+     "passage": "Yusuf put on his coat. He took his bag and his phone. He was ready to go.",
+     "stem": "Which word spells the long o sound with \"oa\"?",
+     "options": [
+      "coat",
+      "took",
+      "phone",
+      "go"
+     ],
+     "answer": 0,
+     "why": "**coat** uses the vowel team **oa**. Phone and go also have long o, but spelled differently."
+    }
+   ],
+   "again": {
+    "title": "Where is the sound?",
+    "text": "For long a, ask **where** you hear it.\n\nIn the **middle**? Try **ai**: tr**ai**n.\nAt the **end**? Try **ay**: pl**ay**.",
+    "example": "\"We will p_ _ nt the wall today.\"\n\nThe long a is in the middle of **paint**, so it is **ai**. In **today** it is at the end, so it is **ay**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Silent letters",
+     "text": "Some letters are written but **not heard**.\n\n**kn**ot, **kn**ee (k is silent)\n**wr**ite, **wr**ong (w is silent)\nla**mb**, cli**mb** (b is silent)"
+    },
+    {
+     "title": "Letters that change sound",
+     "text": "**c** sounds like **s** before e, i or y: **c**ity, **c**entre.\n**g** often sounds like **j** before e, i or y: **g**iant, **g**ym.\n\n**ph** sounds like **f**: **ph**oto.\n**igh** says long i: n**igh**t, l**igh**t."
+    },
+    {
+     "title": "Word endings",
+     "text": "The ending **-tion** sounds like \"shun\".\n\nna**tion**  sta**tion**  celebra**tion**\n\nIf you hear \"shun\" at the end of a long word, **-tion** is the most common spelling."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the misspelled word:\n\n1. Check words with tricky patterns: silent letters, ph, igh, -tion.\n2. Ask: does this word follow its pattern?\n3. Point to the sentence with the word that breaks it.\n\nCareful: a word that **looks** odd may be correct, like **lamb** or **write**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The knight climbed the castle wall.",
+      "role": "key"
+     },
+     {
+      "t": "He wore a heavy helmet.",
+      "role": "other"
+     },
+     {
+      "t": "It shone in the sun.",
+      "role": "other"
+     }
+    ],
+    "explain": "**knight** has a silent **k** and the **igh** pattern. **climbed** has a silent **b**. They look strange, but they are correct."
+   },
+   "together": {
+    "passage": "Every nite, Huda writes in her diary. Last week she wrote about an old photograph of her grandmother as a young girl. In the picture, her grandmother is standing next to a tall palm tree. She is holding a small white lamb in her arms.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "writes",
+     "nite",
+     "photograph",
+     "lamb"
+    ],
+    "answer": 1,
+    "hint": "Some words look odd but are correct. Which one should use the igh pattern?",
+    "good": "Yes! It should be **night**. The long i sound here is spelled **igh**."
+   },
+   "evidence": {
+    "sentences": [
+     "Every nite, Huda writes in her diary.",
+     "Last week she wrote about an old photograph of her grandmother as a young girl.",
+     "In the picture, her grandmother is standing next to a tall palm tree.",
+     "She is holding a small white lamb in her arms."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: nite should be night. Tap the sentence with that word.",
+    "wrong": "The tricky words in this sentence are spelled correctly. Find the sentence with nite."
+   },
+   "checks": [
+    {
+     "passage": "On our class trip, we walked through the old city. We saw a cactus garden, a copper pot shop and a coin museum.",
+     "stem": "In which word does the letter c sound like s?",
+     "options": [
+      "cactus",
+      "copper",
+      "city",
+      "coin"
+     ],
+     "answer": 2,
+     "why": "In **city**, c comes before i, so it sounds like s. In the others, c comes before a or o and sounds like k."
+    },
+    {
+     "passage": "Salma tied a knot in the string. Then she pulled hard. The tent stood up.",
+     "stem": "Which word has a silent letter?",
+     "options": [
+      "knot",
+      "string",
+      "pulled",
+      "tent"
+     ],
+     "answer": 0,
+     "why": "In **knot**, the k is written but not heard."
+    },
+    {
+     "passage": "Our school had a big celebrasion for National Day. Students sang songs and waved green flags.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "school",
+      "Students",
+      "waved",
+      "celebrasion"
+     ],
+     "answer": 3,
+     "why": "It should be **celebration**. The \"shun\" sound at the end is spelled **-tion**."
+    }
+   ],
+   "again": {
+    "title": "Make a pattern list",
+    "text": "Keep a short list of tricky patterns:\n\n**kn, wr, mb** = silent letters\n**ph** = f\n**igh** = long i\n**-tion** = shun\n\nWhen a word looks wrong, check it against your list.",
+    "example": "\"The ligt was bright.\"\n\n**bright** uses igh, so **ligt** should be **light**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Same sound, different letters",
+     "text": "The **sh** sound has many spellings in longer words.\n\n**ti**: na**ti**on\n**ci**: spe**ci**al, musi**ci**an\n**ssi**: mi**ssi**on\n**ch**: ma**ch**ine"
+    },
+    {
+     "title": "Clues from the word",
+     "text": "The spelling often follows the **base word**.\n\nmusic → musi**ci**an (the c stays)\nexpress → expre**ssi**on (the ss stays)\ndecide → deci**si**on\n\nThink of the base word to choose the letters."
+    },
+    {
+     "title": "More patterns",
+     "text": "**ch** can say /k/ in words from Greek: **ch**emistry, **ch**orus.\n\nAfter a short vowel, /j/ is often **dge**: bri**dge**, e**dge**.\nAfter a long vowel or a consonant, it is **ge**: ca**ge**, hu**ge**, cha**nge**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse a word's spelling:\n\n1. Say the word and find the sound you are asked about.\n2. Look at the **exact letters** that spell that sound.\n3. Use the base word or the vowel before it to check the pattern.\n\nPoint to the sentence where the word appears."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The musician tuned her instrument.",
+      "role": "key"
+     },
+     {
+      "t": "The hall was full.",
+      "role": "other"
+     },
+     {
+      "t": "Everyone was silent.",
+      "role": "other"
+     }
+    ],
+    "explain": "In **musician**, the sh sound is spelled **ci** because the base word is **music**. The c from music stays in the new word."
+   },
+   "together": {
+    "passage": "The science club planned a special experiment for the open day. Each member had a different mission for the day. Latifa had to measure the temperature of the water, and Reem was in charge of the stopwatch. Their teacher reminded them that a good scientist checks every calculation twice. In the end, the experiment was a success, and visitors asked many questions.",
+    "stem": "In which word is the sh sound spelled with the letters \"ci\"?",
+    "options": [
+     "special",
+     "mission",
+     "calculation",
+     "measure"
+    ],
+    "answer": 0,
+    "hint": "Find the sh sound in each word, then look at the exact letters that spell it.",
+    "good": "Yes! In **special**, the sh sound is spelled **ci**. Mission uses ssi and calculation uses ti."
+   },
+   "evidence": {
+    "sentences": [
+     "The science club planned a special experiment for the open day.",
+     "Each member had a different mission for the day.",
+     "Latifa had to measure the temperature of the water, and Reem was in charge of the stopwatch.",
+     "Their teacher reminded them that a good scientist checks every calculation twice.",
+     "In the end, the experiment was a success, and visitors asked many questions."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: special. Tap the sentence with that word.",
+    "wrong": "This sentence does not have the word with ci. Look for special."
+   },
+   "checks": [
+    {
+     "passage": "My brother studies chemistry at university. Each morning he checks his notes on the bus. He says the chapter on gases is the hardest.",
+     "stem": "In which word does \"ch\" sound like k?",
+     "options": [
+      "checks",
+      "chapter",
+      "each",
+      "chemistry"
+     ],
+     "answer": 3,
+     "why": "In **chemistry**, ch sounds like k. In the other words, ch has its usual sound."
+    },
+    {
+     "passage": "We crossed the old brige at dawn. The edge of the river was covered in mist. A large cage of pigeons sat near the gate.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "edge",
+      "brige",
+      "cage",
+      "pigeons"
+     ],
+     "answer": 1,
+     "why": "It should be **bridge**. After a short vowel, the j sound is spelled **dge**, like in edge."
+    },
+    {
+     "passage": "Grandfather lives in an old house near the train station. He reads fiction in the evening and rarely watches television.",
+     "stem": "Which word ends with the same sound as \"vision\"?",
+     "options": [
+      "station",
+      "fiction",
+      "television",
+      "evening"
+     ],
+     "answer": 2,
+     "why": "**Vision** and **television** both end in a soft \"zhun\" sound spelled **-sion**. Station and fiction end in \"shun\"."
+    }
+   ],
+   "again": {
+    "title": "Start from the base word",
+    "text": "For a long word, find the **smaller word** inside it.\n\nThe smaller word often keeps its letters in the long word.",
+    "example": "electric → electri**ci**an (keeps the c)\nconfess → confe**ssi**on (keeps the ss)\n\nSo it is not \"electrishan\": the base word tells you to use **ci**."
+   }
+  }
+ }
+}

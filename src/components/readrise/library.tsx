@@ -13,7 +13,7 @@ function StatusPill({ c }: { c: ArticleCard }) {
   return <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-semibold text-sky-900">New</span>;
 }
 
-export function ArticleTile({ c }: { c: ArticleCard }) {
+export function ArticleTile({ c, showLevel = true }: { c: ArticleCard; showLevel?: boolean }) {
   const cta = c.status === "IN_PROGRESS" ? "Continue" : c.status === "DONE" ? (c.canStretch ? "Stretch it" : "Open") : "Read";
   return (
     <li>
@@ -26,7 +26,7 @@ export function ArticleTile({ c }: { c: ArticleCard }) {
         <span className="mt-2 block text-lg font-bold leading-snug text-brand-navy">{c.title}</span>
         {c.summary && <span className="mt-1 line-clamp-2 block text-sm text-slate-600">{c.summary}</span>}
         <span className="mt-auto flex items-center justify-between gap-2 pt-3 text-sm">
-          <span className="text-slate-500">About {c.minutes} min · level {c.versionLevel}</span>
+          <span className="text-slate-500">About {c.minutes} min{showLevel ? ` · level ${c.versionLevel}` : ""}</span>
           <span className="rounded-lg bg-brand-navy px-3 py-1 font-semibold text-white" aria-hidden="true">{cta} ▶</span>
         </span>
       </Link>
@@ -34,18 +34,19 @@ export function ArticleTile({ c }: { c: ArticleCard }) {
   );
 }
 
-function Shelf({ id, title, hint, cards }: { id: string; title: string; hint?: string; cards: ArticleCard[] }) {
+function Shelf({ id, title, hint, cards, showLevel }: { id: string; title: string; hint?: string; cards: ArticleCard[]; showLevel: boolean }) {
   if (!cards.length) return null;
   return (
     <section aria-labelledby={id} className="mt-6">
       <h2 id={id} className="text-xl font-bold text-brand-navy">{title}</h2>
       {hint && <p className="text-sm text-slate-600">{hint}</p>}
-      <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{cards.map((c) => <ArticleTile key={c.id} c={c} />)}</ul>
+      <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{cards.map((c) => <ArticleTile key={c.id} c={c} showLevel={showLevel} />)}</ul>
     </section>
   );
 }
 
-export function ReadRiseLibrary({ lib }: { lib: Library }) {
+/** showLevel = false before the placement (no level number is shown: readRisePlaced). */
+export function ReadRiseLibrary({ lib, showLevel = true }: { lib: Library; showLevel?: boolean }) {
   const filtered = Boolean(lib.query || lib.topic);
   const link = (topic: string) => {
     const p = new URLSearchParams();
@@ -71,9 +72,9 @@ export function ReadRiseLibrary({ lib }: { lib: Library }) {
           ))}
         </nav>
       )}
-      <Shelf id="rr-assigned" title="📌 From my teacher" cards={lib.assigned} />
-      {!filtered && <Shelf id="rr-rec" title="✨ Recommended for you" hint="New topics to explore, at your level." cards={lib.recommended} />}
-      <Shelf id="rr-all" title={filtered ? `Results (${lib.all.length})` : "📚 All articles"} cards={lib.all} />
+      <Shelf id="rr-assigned" title="📌 From my teacher" cards={lib.assigned} showLevel={showLevel} />
+      {!filtered && <Shelf id="rr-rec" title="✨ Recommended for you" hint="New topics to explore, at your level." cards={lib.recommended} showLevel={showLevel} />}
+      <Shelf id="rr-all" title={filtered ? `Results (${lib.all.length})` : "📚 All articles"} cards={lib.all} showLevel={showLevel} />
       {lib.all.length === 0 && (
         <p className="mt-6 rounded-2xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">
           {filtered ? <>No articles match. <Link href="/student/readrise#library" className="text-brand-teal underline">Show all articles</Link></> : "No articles yet. Check back soon!"}

@@ -1,0 +1,512 @@
+{
+ "code": "LN-150",
+ "title": "Central idea in stories",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.1.2",
+  "RL.2.2",
+  "RL.3.2",
+  "RL.4.2",
+  "RL.5.2",
+  "RL.6.2",
+  "RL.7.2",
+  "RL.8.2"
+ ],
+ "families": [
+  "central-idea"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0028",
+  "R-0082",
+  "R-0152",
+  "R-0275",
+  "R-0459",
+  "R-0473",
+  "R-0474",
+  "R-0626",
+  "R-0653",
+  "R-0665",
+  "R-0861",
+  "R-0862",
+  "R-1002"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is the story about?",
+     "text": "The **central idea** of a story is what the story is **mostly about**.\n\nIt is about the **whole** story, not one small part."
+    },
+    {
+     "title": "Not just one part",
+     "text": "A story about a birthday may tell about a cake, a gift and a game.\n\nBut it is **mostly about** the birthday party."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read the whole story.\n2. Ask: **Who** is it about?\n3. Ask: **What happens** to them in most of the story?\n4. Put it together."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the story**.\n\n1. Read the question.\n2. Look back at **all** the sentences.\n3. Find the sentences that are about your answer.\n\nIf only one sentence is about it, it is **not** the central idea."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ben got a new puppy.",
+      "role": "main"
+     },
+     {
+      "t": "He gave it a name.",
+      "role": "detail"
+     },
+     {
+      "t": "He fed it.",
+      "role": "detail"
+     },
+     {
+      "t": "He took it for a walk.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Every sentence is about Ben and his new puppy.\n\nThe story is **mostly about Ben taking care of his new puppy.**"
+   },
+   "together": {
+    "passage": "Zaid and his mom made bread. They mixed flour and water. They let the dough rise. They baked it in the oven. The bread was warm and good.",
+    "stem": "What is the story mostly about?",
+    "options": [
+     "Zaid and his mom make bread.",
+     "The oven is hot.",
+     "Zaid likes water.",
+     "Mom has flour."
+    ],
+    "answer": 0,
+    "hint": "That is one small part. What are ALL the sentences about?",
+    "good": "Yes! Mixing, rising and baking are all steps of making bread."
+   },
+   "evidence": {
+    "sentences": [
+     "Zaid and his mom made bread.",
+     "They mixed flour and water.",
+     "They let the dough rise.",
+     "They baked it in the oven.",
+     "The bread was warm and good."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Zaid and his mom make bread. Tap 2 sentences that show the steps.",
+    "wrong": "This sentence starts or ends the story. Find sentences that show HOW they make bread."
+   },
+   "checks": [
+    {
+     "passage": "Mona went to the beach. She swam in the sea. She found a shell. She made a sand castle.",
+     "stem": "What is the story mostly about?",
+     "options": [
+      "Mona finds a shell.",
+      "Mona's day at the beach.",
+      "The sea is blue.",
+      "Mona makes a cake."
+     ],
+     "answer": 1,
+     "why": "Swimming, a shell and a sand castle are all part of Mona's beach day."
+    },
+    {
+     "passage": "The cat saw a mouse. It ran after the mouse. The mouse ran into a hole. The cat sat and waited.",
+     "stem": "What is the story mostly about?",
+     "options": [
+      "The mouse is small.",
+      "The cat sits down.",
+      "The cat chases a mouse.",
+      "The hole is dark."
+     ],
+     "answer": 2,
+     "why": "Most sentences tell about the cat chasing the mouse."
+    },
+    {
+     "passage": "Grandma came to visit. She told stories. She hugged the children. She cooked rice for everyone.",
+     "stem": "What is the story mostly about?",
+     "options": [
+      "Grandma cooks rice.",
+      "The children are tall.",
+      "Rice is good.",
+      "Grandma's visit."
+     ],
+     "answer": 3,
+     "why": "Stories, hugs and cooking are all things Grandma did on her visit."
+    }
+   ],
+   "again": {
+    "title": "Most sentences",
+    "text": "Count the sentences.\n\nWhat are **most** of them about? That is the central idea.",
+    "example": "The bus was late. Kids waited. They got cold. At last the bus came.\n\nMost sentences: **waiting for a late bus.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Central idea in a story",
+     "text": "The **central idea** is what a story is mostly about.\n\nIt includes the main **character** and the main **thing that happens**."
+    },
+    {
+     "title": "Choosing a title",
+     "text": "A good **title** fits the **whole** story.\n\nA title that only fits one small part is **too narrow**. A title that could fit any story is **too general**."
+    },
+    {
+     "title": "Check your choice",
+     "text": "1. Who is the story mostly about?\n2. What happens to them?\n3. Does my answer or title fit the **beginning**, **middle** and **end**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the central idea with the story.\n\n1. Find the sentences that tell **what happens** to the main character.\n2. Check that your answer fits **most** of them.\n3. If an answer fits just one sentence, it is a detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Laila wanted to win the school drawing contest.",
+      "role": "main"
+     },
+     {
+      "t": "Every evening, she practised drawing the palm trees outside her window.",
+      "role": "detail"
+     },
+     {
+      "t": "She asked her art teacher for tips about colour.",
+      "role": "detail"
+     },
+     {
+      "t": "On contest day, her picture of the oasis won first prize.",
+      "role": "key"
+     }
+    ],
+    "explain": "The story is mostly about **Laila working hard to win a drawing contest**.\n\nA good title: **Laila's Winning Picture**. A title like \"Palm Trees\" is too narrow."
+   },
+   "together": {
+    "passage": "Every Friday, Hamza visited the old man who lived next door. At first, Hamza only carried his shopping bags. Soon, the old man began teaching him to play chess. Hamza lost every game for months, but he kept coming back. One Friday, Hamza finally won. The old man laughed, shook his hand and said, \"Now you are ready to teach someone else.\"",
+    "stem": "Which is the best title for this story?",
+    "options": [
+     "Carrying Shopping Bags",
+     "A Very Busy Friday",
+     "Lessons from Next Door",
+     "How to Win at Chess Quickly"
+    ],
+    "answer": 2,
+    "hint": "That title fits only one part, or does not fit the story. Which title covers the friendship AND the chess lessons?",
+    "good": "Yes! Hamza learns from his neighbour over many weeks. The title fits the whole story."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Friday, Hamza visited the old man who lived next door.",
+     "At first, Hamza only carried his shopping bags.",
+     "Soon, the old man began teaching him to play chess.",
+     "Hamza lost every game for months, but he kept coming back.",
+     "One Friday, Hamza finally won.",
+     "The old man laughed, shook his hand and said, \"Now you are ready to teach someone else.\""
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Lessons from Next Door. Tap 2 sentences that show Hamza learning from his neighbour.",
+    "wrong": "This sentence shows a small part of the story. Find sentences that show the visits and the lessons."
+   },
+   "checks": [
+    {
+     "passage": "Noura's little brother was afraid of the dark. Each night, he cried when the light went off. Noura made him a small lamp shaped like a moon. Now he falls asleep smiling.",
+     "stem": "What is the story mostly about?",
+     "options": [
+      "Noura helps her brother stop being afraid of the dark.",
+      "Noura knows how to make lamps shaped like the moon.",
+      "The little brother cries every single night.",
+      "The moon shines brightly in the sky at night."
+     ],
+     "answer": 0,
+     "why": "The problem, the lamp and the happy ending are all about Noura helping her brother."
+    },
+    {
+     "passage": "The class planted seeds in cups. Some forgot to water theirs, and the seeds dried up. Others watered them every day. By the end of the month, their plants were tall and green.",
+     "stem": "Which is the best title?",
+     "options": [
+      "Paper Cups",
+      "What Seeds Need to Grow",
+      "Forgetful Students Are Bad",
+      "A Long, Hot Month"
+     ],
+     "answer": 1,
+     "why": "The story shows that seeds that were watered grew and the others dried up. The title fits the whole story."
+    },
+    {
+     "passage": "Khaled lost his bike on the way home. He looked everywhere. He asked the shopkeeper and the bus driver. Finally, a boy he did not know rode up and said, \"I think this is yours.\"",
+     "stem": "What is the story mostly about?",
+     "options": [
+      "A shopkeeper who sells bikes.",
+      "A boy who rides a bus home every day.",
+      "Khaled finds a new friend at school.",
+      "Khaled searches for his lost bike and gets it back."
+     ],
+     "answer": 3,
+     "why": "Losing, searching and getting it back cover the whole story."
+    }
+   ],
+   "again": {
+    "title": "Story in one line",
+    "text": "Pretend you can only say **one sentence** to tell a friend what the story is about.\n\nThat sentence is the central idea. Turn it into a short title.",
+    "example": "A girl is scared to swim, takes lessons, and swims across the pool.\n\nOne line: **A girl beats her fear of swimming.** Title: **Brave in the Water.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Central idea and supporting details",
+     "text": "The **central idea** of a story is what the story is mostly about: the main character and the main problem or experience.\n\n**Supporting details** are the events and descriptions that show and build that idea."
+    },
+    {
+     "title": "Which details matter?",
+     "text": "Not every detail supports the central idea. Some just add colour.\n\nA **supporting detail** helps you understand the main experience. If you removed it, the central idea would be weaker."
+    },
+    {
+     "title": "How to check",
+     "text": "1. State the central idea in one sentence.\n2. Go through the events. Mark those that **show** your idea.\n3. If most events fit, your central idea is right. If not, rethink it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Supporting details are your **proof**.\n\n1. Read the question: is it about the central idea or a supporting detail?\n2. Find events that show the character's main experience.\n3. Choose the answer **most** events support.\n\nDetails that only describe the setting or a minor moment usually do not support the central idea."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At first, Saeed did not want to spend the summer at his uncle's farm.",
+      "role": "main"
+     },
+     {
+      "t": "He missed his friends and his games.",
+      "role": "detail"
+     },
+     {
+      "t": "But slowly he learned to milk the goats and to tell when the dates were ripe.",
+      "role": "key"
+     },
+     {
+      "t": "The farm had a blue gate.",
+      "role": "other"
+     },
+     {
+      "t": "By August, he was asking if he could come back next year.",
+      "role": "key"
+     }
+    ],
+    "explain": "Central idea: **Saeed comes to love the farm he did not want to visit.**\n\nLearning farm work and wanting to return **support** it. The blue gate does not."
+   },
+   "together": {
+    "passage": "The night before the science fair, Hind's volcano model collapsed. The plaster cracked, and the paint ran in muddy streaks. She wanted to give up and stay home. Her older sister, Asma, sat down beside her with tape and a new bag of plaster. Together they rebuilt the cone, talking and laughing until midnight. The new volcano was not as neat as the first, but it worked perfectly. When the judges asked how she had made it, Hind smiled and said, \"With help.\"",
+    "stem": "Which detail best supports the central idea that Hind succeeds because of her sister's help?",
+    "options": [
+     "The plaster cracked, and the paint ran in muddy streaks.",
+     "The new volcano was not as neat as the first one.",
+     "Together they rebuilt the cone, talking and laughing until midnight.",
+     "The judges asked Hind how she had made it."
+    ],
+    "answer": 2,
+    "hint": "Which detail shows the sister helping, not just the problem or the result?",
+    "good": "Yes! Rebuilding the cone together shows that Asma's help made Hind's success possible."
+   },
+   "evidence": {
+    "sentences": [
+     "The night before the science fair, Hind's volcano model collapsed.",
+     "The plaster cracked, and the paint ran in muddy streaks.",
+     "She wanted to give up and stay home.",
+     "Her older sister, Asma, sat down beside her with tape and a new bag of plaster.",
+     "Together they rebuilt the cone, talking and laughing until midnight.",
+     "The new volcano was not as neat as the first, but it worked perfectly.",
+     "When the judges asked how she had made it, Hind smiled and said, \"With help.\""
+    ],
+    "proof": [
+     3,
+     4,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: together they rebuilt the cone. Tap 2 sentences that show the sister's help made the difference.",
+    "wrong": "This sentence shows the problem or the model, not the help. Find sentences where Asma helps or where Hind credits her."
+   },
+   "checks": [
+    {
+     "passage": "Walid's grandfather could not see well anymore, so Walid read him the newspaper every morning. At first it felt like a chore. But his grandfather explained the history behind each story, and soon Walid knew more about the world than anyone in his class.",
+     "stem": "What is the central idea?",
+     "options": [
+      "Walid's grandfather cannot see well anymore.",
+      "Walid learns a lot by reading to his grandfather.",
+      "Newspapers have many stories about history.",
+      "Walid wants to be first in his class."
+     ],
+     "answer": 1,
+     "why": "Reading to his grandfather turns into a chance to learn. Most details support this."
+    },
+    {
+     "passage": "Mariam was nervous about her first day as the team's goalkeeper. Her hands shook during warm-up. The first shot went past her, and her face burned. But she watched the next player's feet, dived left, and caught the ball. By the final whistle, she had saved four goals.",
+     "stem": "Which detail does NOT support the central idea that Mariam overcomes her nerves?",
+     "options": [
+      "Her hands shook during warm-up.",
+      "She watched the player's feet and dived.",
+      "She saved four goals by the final whistle.",
+      "The team's shirts were green and white."
+     ],
+     "answer": 3,
+     "why": "The shirts' colour has nothing to do with Mariam's nerves or how she overcomes them."
+    },
+    {
+     "passage": "A small boat drifted for two days after its engine failed. The fisherman rationed his water, kept a lookout from dawn to dusk, and finally used a mirror to flash sunlight at a passing ship, which turned to rescue him.",
+     "stem": "Which is the best title for the story?",
+     "options": [
+      "Two Days of Waiting",
+      "Lost at Sea",
+      "The Broken Engine",
+      "Saved by Clever Thinking"
+     ],
+     "answer": 3,
+     "why": "Rationing water, watching and signalling with a mirror show his clever thinking led to his rescue."
+    }
+   ],
+   "again": {
+    "title": "Keep or drop",
+    "text": "For each detail ask: **Would the story's main idea change if this were gone?**\n\n**Yes** = a supporting detail. **No** = an extra detail.",
+    "example": "Central idea: A boy saves money for a gift for his mother.\nDetail: he skips buying snacks. **Keep** (shows saving).\nDetail: his shoes are black. **Drop.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "A central idea that grows",
+     "text": "In longer stories, the central idea is **developed** over time. Early events introduce it, middle events complicate it, and the ending completes it.\n\nTo analyse it, track how each part of the story adds to what we understand."
+    },
+    {
+     "title": "How writers develop it",
+     "text": "Writers build the central idea through:\n\n1. **Events** that test the character.\n2. **Changes** in what the character thinks or does.\n3. **Contrasts** between the beginning and the end.\n4. **Key moments** where the meaning becomes clear."
+    },
+    {
+     "title": "Analyse the development",
+     "text": "1. State the central idea.\n2. Find where it is **introduced**.\n3. Find where it is **tested or deepened**.\n4. Find where it is **resolved**.\n\nA strong answer explains the **path**, not just the destination."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When analysing how a central idea develops, use evidence from **different parts** of the story.\n\n1. Find a sentence from the beginning that introduces the idea.\n2. Find sentences that show it being tested or changed.\n3. Find the ending sentence that completes it.\n\nAn answer supported by only one part of the story is incomplete."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Jamal believed that winning was all that mattered.",
+      "role": "other"
+     },
+     {
+      "t": "He argued with teammates who made mistakes and celebrated alone when he scored.",
+      "role": "detail"
+     },
+     {
+      "t": "When he broke his wrist, he had to watch from the bench for a month.",
+      "role": "detail"
+     },
+     {
+      "t": "Watching his teammates encourage each other, he started to cheer for them too.",
+      "role": "key"
+     },
+     {
+      "t": "When he returned, he passed the ball more and won less often, but he had never enjoyed playing so much.",
+      "role": "key"
+     }
+    ],
+    "explain": "The central idea is that **being part of a team matters more than winning alone**.\n\nIt is **introduced** by Jamal's selfish attitude, **tested** by his injury, and **completed** when he plays differently and enjoys it more."
+   },
+   "together": {
+    "passage": "When Dalal's family moved from the coast to the mountains, she refused to unpack her box of seashells. Everything about the new town felt wrong: the cold mornings, the silent streets, the classmates who spoke with a different accent. She spent her free time looking at photographs of the sea. One weekend, her neighbour, an elderly woman who painted, invited her to walk up to the ridge. From there, Dalal saw clouds rolling below them like waves. The woman handed her a sketchbook. Over the next months, Dalal filled it with drawings of the mountains, adding a shell to the corner of each page. When spring came, she finally unpacked the box and set the shells along her windowsill, facing the hills.",
+    "stem": "How does the author develop the central idea of the story?",
+    "options": [
+     "By describing the cold weather in detail, to show that mountains are worse places to live than the coast.",
+     "By showing Dalal refuse her new home, then slowly connect it with her old one, until she accepts both.",
+     "By explaining how the elderly neighbour became a famous painter after many years of hard work.",
+     "By listing the differences between the coast and the mountains so readers can choose which is better."
+    ],
+    "answer": 1,
+    "hint": "Track Dalal from the beginning, through the middle, to the end. How does she change, and what links the two places?",
+    "good": "Yes! She refuses at first, finds a link (clouds like waves, shells on mountain drawings), and finally unpacks the shells facing the hills."
+   },
+   "evidence": {
+    "sentences": [
+     "When Dalal's family moved from the coast to the mountains, she refused to unpack her box of seashells.",
+     "Everything about the new town felt wrong: the cold mornings, the silent streets, the classmates who spoke with a different accent.",
+     "She spent her free time looking at photographs of the sea.",
+     "One weekend, her neighbour, an elderly woman who painted, invited her to walk up to the ridge.",
+     "From there, Dalal saw clouds rolling below them like waves.",
+     "The woman handed her a sketchbook.",
+     "Over the next months, Dalal filled it with drawings of the mountains, adding a shell to the corner of each page.",
+     "When spring came, she finally unpacked the box and set the shells along her windowsill, facing the hills."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4,
+     6,
+     7
+    ],
+    "need": 3,
+    "stem": "The answer was: Dalal refuses her new home, connects it with her old one, then accepts both. Tap 3 sentences that show the beginning, the change and the end.",
+    "wrong": "This sentence is about what the neighbour does, not about how Dalal feels. Find her refusal, her turning point and her acceptance."
+   },
+   "checks": [
+    {
+     "passage": "Hassan always took the shortest route to school, eyes on his phone. When his phone broke, he had to walk with his little sister, who stopped to look at everything. She showed him a bird's nest in a lamppost and an old door carved with stars. By the end of the week, Hassan was choosing the longer route.",
+     "stem": "How does the central idea develop?",
+     "options": [
+      "Hassan learns to fix his phone during the week.",
+      "Hassan's sister teaches him to take the shortest way.",
+      "Hassan moves from rushing to noticing the world around him.",
+      "Hassan is angry about his broken phone all week long."
+     ],
+     "answer": 2,
+     "why": "At first he rushes; his sister shows him details; at the end he chooses the longer route to enjoy them."
+    },
+    {
+     "passage": "The new teacher was strict, and Rawan disliked her at once. She returned essays covered in red notes. Rawan grumbled but rewrote each one. In June, Rawan's essay won the school prize, and she found herself writing a thank-you card.",
+     "stem": "What is the central idea, and how is it completed?",
+     "options": [
+      "Rawan comes to value the strict teacher's help, shown by her thank-you card.",
+      "Strict teachers are always unfair, which Rawan proves by winning.",
+      "Rawan never changes her opinion of the teacher, even after winning.",
+      "The essay prize is the most important thing in Rawan's life."
+     ],
+     "answer": 0,
+     "why": "Rawan's dislike changes as the feedback improves her writing. The thank-you card completes the idea."
+    },
+    {
+     "passage": "Old Saleh guarded his fig tree from the village children, chasing them off every summer. One year, too ill to climb, he watched the figs rot on the branches. The next summer, he left a basket by the gate with a sign: \"Take what you need.\" The children came, and so did their laughter.",
+     "stem": "Which moment is the turning point in developing the central idea?",
+     "options": [
+      "Saleh chases the children away every summer.",
+      "The children come to take figs from the basket.",
+      "The sign says, \"Take what you need.\"",
+      "Saleh watches the figs rot while he is ill."
+     ],
+     "answer": 3,
+     "why": "Seeing the figs go to waste changes Saleh's thinking. This leads to his decision to share."
+    }
+   ],
+   "again": {
+    "title": "Beginning, middle, end",
+    "text": "Write one line for each part of the story:\n\n1. **Beginning**: what does the character think or do?\n2. **Middle**: what challenges them?\n3. **End**: what has changed?\n\nRead the three lines together. The central idea is the change they show.",
+    "example": "Beginning: a girl thinks reading is boring. Middle: her grandmother reads her an adventure story. End: she borrows three books.\n\nCentral idea: **the right story can turn someone into a reader.**"
+   }
+  }
+ }
+}

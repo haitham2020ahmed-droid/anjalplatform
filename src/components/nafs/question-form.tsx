@@ -3,6 +3,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useT } from "@/i18n/client";
 import { saveQuestionAction } from "@/app/teacher/nafs/actions";
+import { Combo } from "@/components/ui/combo";
 
 export interface QuestionInitial { id: string; own: boolean; draft: boolean; nafsCode: string; process: string; standard: string; kind: "MCQ" | "WRITTEN"; stem: string; options: string[]; correct: number; explanation: string; model: string; rubric: string[]; passageTitle: string; passageText: string; textType: "LIT" | "INFO" | null; difficulty?: number }
 const INPUT = "min-h-11 w-full rounded-xl bg-surface px-3 py-2 text-ink ring-1 ring-line focus:outline-none focus:ring-2 focus:ring-teal-500";
@@ -47,19 +48,16 @@ export function NafsQuestionForm({ initial, skills, processes, standards, styles
   return (
     <form onSubmit={(e) => { e.preventDefault(); save(); }} className="grid max-w-3xl gap-4">
       <section className="grid gap-3 rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line sm:grid-cols-2">
-        <label className="grid gap-1 text-sm font-semibold text-ink-2 sm:col-span-2">{t("Ministry standard")}
-          <select value={standard} onChange={(e) => setStandard(e.target.value)} className={INPUT}>
-            <option value="">{t("Automatic (from the skill, when it is sure)")}</option>
-            {standards.map((x) => <option key={x.code} value={x.code}>{x.short} · {t(x.text)}</option>)}
-          </select>
-        </label>
-        <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("NAFS skill")}
-          <select value={code} onChange={(e) => setCode(e.target.value)} className={INPUT}>{skills.map((k) => <option key={k.code} value={k.code}>{t(k.name)}</option>)}</select>
-        </label>
+        <div className="grid gap-1 text-sm font-semibold text-ink-2 sm:col-span-2"><span>{t("Ministry standard")}</span>
+          <Combo label={t("Ministry standard")} value={standard} onChange={setStandard} options={[{ value: "", label: t("Automatic (from the skill, when it is sure)") }, ...standards.map((x) => ({ value: x.code, label: `${x.short} — ${t(x.text)}` }))]} />
+        </div>
+        <div className="grid gap-1 text-sm font-semibold text-ink-2"><span>{t("NAFS skill")}</span>
+          <Combo label={t("NAFS skill")} value={code} onChange={setCode} options={skills.map((k) => ({ value: k.code, label: t(k.name) }))} />
+        </div>
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Reading process")}
           <select value={process} onChange={(e) => setProcess(e.target.value)} className={INPUT}>
             <option value="">{t("The skill's usual process")} ({skills.find((k) => k.code === code)?.process})</option>
-            {processes.map((p) => <option key={p.code} value={p.code}>{p.code} · {t(p.name)}</option>)}
+            {processes.map((p) => <option key={p.code} value={p.code}>{p.code} — {t(p.name)}</option>)}
           </select>
         </label>
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Difficulty")}

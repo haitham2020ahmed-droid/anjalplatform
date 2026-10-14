@@ -32,6 +32,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ORGANIZERS, lessonForSkill, type LessonContent, type OrganizerKind, type OrganizerSpec } from "./content";
 import { itemHintStep } from "./hints";
 import { freshOrder, itemContentKeys, seenIndex, Sitting } from "../questions/fresh";
+import { isRapidGuess as isRapidAnswer } from "../practice/guessing";
 
 export type Phase = "MODEL" | "GUIDED" | "INDEPENDENT" | "CHECK" | "DONE";
 export type LessonSource = "STUDENT" | "TEACHER" | "TIER" | "ASSIGNMENT";
@@ -255,6 +256,8 @@ async function prepareAttempt(repo: Repo, a: Omit<AttemptInput, "sessionId">, se
     itemId: item.questionId, correct, credit: a.credit > 0 && a.credit < 1 ? a.credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs: a.responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: a.usedHint, at: now.toISOString(),
     repeat: isRecentRepeat(hist, item.questionId, now.toISOString()),
+    // 🎲 r67: the owner's rapid-guess rule (under 3 s): it counts for nothing (weight 0; ability and mastery kept)
+    rapid: isRapidAnswer(a.responseMs),
     ...(a.source && ATTEMPT_SOURCE_WEIGHT[a.source] !== undefined ? { sourceWeight: ATTEMPT_SOURCE_WEIGHT[a.source] } : {}),
   };
   const step = processAnswer({
@@ -276,18 +279,18 @@ async function writeAttempt(tx: Repo, p: Awaited<ReturnType<typeof prepareAttemp
     partialCredit: a.credit > 0 && a.credit < 1 ? a.credit : null, responseMs: a.responseMs, usedHint: a.usedHint, rapidGuess: step.rapidGuess,
     difficultyB: item.irt.b, createdAt: now, misconception: correct ? null : attemptMisconception(item, a.response), source: a.source ?? (a.reasonCode === "REVIEW" ? "REVIEW" : "LESSON"),
   });
-  await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 },
+  if (!step.rapidGuess) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 },
     { theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 });
   const masteryData = {
     score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
     maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
-  await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
+  if (!step.rapidGuess) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
   const decisionLog: Row = {
     ...step.log, sessionId, attemptId: attempt.id, nextQuestionId: null, nextTargetB: null, responseCorrect: correct, createdAt: now,
     masteryBefore: seenBefore, masteryAfter: mst.score,
-    reason: `${step.rapidGuess ? "Rapid response detected — counted as weak evidence. " : ""}${a.reason ?? "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."}`,
+    reason: `${step.rapidGuess ? "Rapid guess: counted for nothing. " : ""}${a.reason ?? "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."}`,
     reasonCode: a.reasonCode ?? "LESSON",
   };
   return { result: { correct, rapidGuess: step.rapidGuess, theta: step.ability.theta, masteryBefore: seenBefore, masteryAfter: mst.score, band: mst.band }, decisionLog };

@@ -6,6 +6,7 @@ import { card } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { SKILL_CATEGORIES, SKILL_DOMAINS, curriculumTree } from "@/server/curriculum-manage";
 import { createGradeAction, createSkillAction, createUnitAction, deleteGradeAction, skillStateAction, unitStateAction, updateGradeAction } from "./manage-actions";
+import { Combo } from "@/components/ui/combo";
 
 const input = "rounded-lg border border-slate-300 px-3 py-2";
 const badge = (active: boolean) => (active ? null : <span className="ms-2 rounded-full bg-slate-200 px-2 py-0.5 text-xs font-semibold text-slate-700">Inactive</span>);
@@ -106,7 +107,7 @@ export default async function CurriculumAdmin() {
               <input type="hidden" name="gradeId" value={g.id} />
               <input name="name" required maxLength={191} placeholder="Skill name" aria-label="Skill name" className={`${input} w-full`} />
               <div className="flex flex-wrap gap-2">
-                <select name="unitId" aria-label="Unit" className={input}><option value="">No unit yet</option>{g.units.map((u) => <option key={u.id} value={u.id}>Unit {u.number}: {u.title}</option>)}</select>
+                <Combo name="unitId" label="Unit" defaultValue="" options={[{ value: "", label: "No unit yet" }, ...g.units.map((u) => ({ value: u.id, label: `Unit ${u.number}: ${u.title}` }))]} className="min-w-56" />
                 <select name="domain" required aria-label="Domain" className={input}>{SKILL_DOMAINS.map((d) => <option key={d} value={d}>{label(d)}</option>)}</select>
                 <select name="category" required aria-label="Category" className={input}>{SKILL_CATEGORIES.map((c) => <option key={c} value={c}>{label(c)}</option>)}</select>
               </div>

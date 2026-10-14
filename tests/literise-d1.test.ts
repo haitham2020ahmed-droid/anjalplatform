@@ -142,8 +142,10 @@ describe("student home (D1)", () => {
     assert.doesNotMatch(words, /Lexile|Below|On level|Above|Tier/i);
     assert.doesNotMatch(text(renderToStaticMarkup(h(ReadRiseGauge, { t, lang: "en", level: 700, start: { level: 700, at: "2026-09-02T08:00:00.000Z" } }))), /Up /, "no growth line without growth");
     const none = text(renderToStaticMarkup(h(ReadRiseGauge, { t, lang: "en", level: null, start: null })));
-    assert.ok(none.includes("Read your first ReadRise article to see your level."));
-    for (const s of ["Your ReadRise level", "ReadRise level {n}", "Up {n} since {month}", "Up {n} since you started", "Read your first ReadRise article to see your level.", "{n} of {total} days practised", "Read today. Rise tomorrow."]) {
+    // no level before the placement test (owner's request): the card asks for the placement, never a number
+    assert.ok(none.includes("Take the placement test"));
+    assert.doesNotMatch(none, /\d/);
+    for (const s of ["Your ReadRise level", "ReadRise level {n}", "Up {n} since {month}", "Up {n} since you started", "Take the placement test", "It finds your ReadRise level and the articles that fit you.", "{n} of {total} days practised", "Read today. Rise tomorrow."]) {
       assert.ok((UI_STRINGS as readonly string[]).includes(s) && ar[s as keyof typeof ar], s);
     }
   });

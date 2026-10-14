@@ -5,6 +5,7 @@ import { BankTabs } from "../questions/bank-tabs";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { flagList } from "@/server/teacher/classroom";
 import { resolveFlagsAction } from "./actions";
+import { LineIcon } from "@/components/ui/line-icon";
 
 export const metadata = { title: "Flagged questions" };
 
@@ -18,11 +19,11 @@ export default async function FlagsPage({ searchParams }: { searchParams: Promis
   const chip = (on: boolean) => `rounded-full px-3 py-1 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/admin", label: "Home" }} icon="🚩" title="Flagged Questions" subtitle="Students pressed “This question is not clear”. Most reported first. Open the question, fix it, then mark it fixed." />
+      <PageHeader back={{ href: "/admin", label: "Home" }} icon="flag" title="Flagged Questions" subtitle="Students pressed “This question is not clear”. Most reported first. Open the question, fix it, then mark it fixed." />
       <BankTabs />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <div className="mb-4 flex gap-2">{([["OPEN", "To check"], ["FIXED", "Fixed"], ["DISMISSED", "Not a problem"]] as const).map(([k, l]) => <Link key={k} href={`/admin/question-flags?status=${k}`} className={chip(status === k)}>{l}</Link>)}</div>
-      {!rows.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Nothing here. ✅</p> : (
+      {!rows.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">Nothing here.</p> : (
         <ul className="space-y-3">{rows.map((r) => (
           <li key={r.questionId} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
             <div className="flex flex-wrap items-start justify-between gap-3">
@@ -33,7 +34,7 @@ export default async function FlagsPage({ searchParams }: { searchParams: Promis
                 {r.notes.length > 0 && <ul className="mt-1 list-disc ps-5 text-sm text-slate-600">{r.notes.map((n, i) => <li key={i}>“{n}”</li>)}</ul>}
               </div>
               <div className="flex flex-wrap gap-2">
-                <Link href={`/admin/questions/${r.questionId}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">✏️ Open</Link>
+                <Link href={`/admin/questions/${r.questionId}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="pen" className="me-1 inline-block h-4 w-4 align-[-3px]" />Open</Link>
                 {status === "OPEN" && <>
                   <form action={resolveFlagsAction}><input type="hidden" name="questionId" value={r.questionId} /><input type="hidden" name="status" value="FIXED" /><button className="rounded-lg bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white">✓ Fixed</button></form>
                   <form action={resolveFlagsAction}><input type="hidden" name="questionId" value={r.questionId} /><input type="hidden" name="status" value="DISMISSED" /><button className="rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 ring-1 ring-slate-300">Not a problem</button></form>

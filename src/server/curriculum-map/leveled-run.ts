@@ -6,6 +6,7 @@ import { lexileBands, levelForLexile } from "./lexile";
 import { evidenceLevels } from "./evidence-level";
 import { ladderRulesForStudent } from "./ladder-settings";
 import { cachedContentKeys, cachedSeenIndex, freshFilter, Sitting } from "../questions/fresh";
+import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS } from "../practice/completion";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -65,8 +66,8 @@ export interface AdaptiveState { nextId: string | null; total: number; done: boo
 const STRONG_STREAK = 10;
 /** Careful wrong answers in a row: the student gets help (the questions they missed wait in Second Chance). */
 const STRUGGLE_RUN = 5;
-/** Answers without reaching the goal: the teacher is told the student is stuck. */
-export const STUCK_AFTER = 60;
+/** Answers without reaching the goal: the teacher is told the student is stuck (r67: the 50-answer end of a set). */
+export const STUCK_AFTER = ASSIGNMENT_MAX_QUESTIONS;
 
 /** Next question of an adaptive set for this session (null = finished). */
 export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessionId: string, studentId: string): Promise<AdaptiveState> {
@@ -79,8 +80,14 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
   const total = target ? target : Math.min(Number(set.maxQuestions) || order.length, order.length);
   const rungs = LADDER.filter((r) => pool.some((q) => q.level === r) || r === "BELOW" || r === "ON" || r === "ABOVE");
   // ⚡ answers given too fast to have read the question (rapid guesses) never move the level, up or down —
-  // as on MAP itself; they still count toward the set's length, so a guessing student does not go on forever
+  // as on MAP itself. r67: they no longer count toward the set's length either (the guessing pause stops a guessing
+  // student instead); a Placement test (a test) keeps counting every answer
   const careful = attempts.filter((a) => !a.rapidGuess);
+  const placement = String(set.type) === "PLACEMENT";
+  const counted = placement ? attempts.length : careful.length;
+  // r67, the owner's rule for Curriculum Map practice: at least 30 counted answers before the goal can make it Done
+  // (all of the set when it has fewer), at most 50; no "level confirmed" early stop before the teacher's count
+  const minimum = placement ? 0 : Math.min(ASSIGNMENT_MIN_QUESTIONS, order.length);
   const moved = decideLevel(start, careful.map((a) => ({ level: levelOf.get(s(a.questionId)) ?? "ON", correct: Boolean(a.isCorrect) })), Number.MAX_SAFE_INTEGER, rungs, await ladderRulesForStudent(repo, studentId));
   // 🎯 a goal of correct answers (Curriculum Map places, plans): the goal, not the number of questions, ends the set
   let goal: GoalState | null = null;
@@ -91,13 +98,13 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
     let wrongRun = 0;
     for (let i = careful.length - 1; i >= 0 && !careful[i].isCorrect; i--) wrongRun++;
     const early = correct < target && (streak >= STRONG_STREAK || moved.reason === "MASTERED_ABOVE");
-    goal = { target, correct, reached: correct >= target || early, early, streak, struggling: wrongRun >= STRUGGLE_RUN, stuck: attempts.length >= STUCK_AFTER && correct < target };
+    goal = { target, correct, reached: (correct >= target || early) && counted >= minimum, early: early && counted >= minimum, streak, struggling: wrongRun >= STRUGGLE_RUN, stuck: counted >= STUCK_AFTER && correct < target };
   }
   const cap = Number(set.maxQuestions) || order.length;
   const decision = target
-    ? (attempts.length >= Math.max(cap, target) ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null })
-    : moved.reason === "MASTERED_ABOVE" ? moved
-    : attempts.length >= total ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null };
+    ? (counted >= (placement ? Math.max(cap, target) : Math.min(Math.max(cap, target), ASSIGNMENT_MAX_QUESTIONS)) ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null })
+    : moved.reason === "MASTERED_ABOVE" && placement ? moved
+    : counted >= total ? { ...moved, done: true, reason: "LIMIT" as const } : { ...moved, done: false, reason: null };
   if (decision.done) return { nextId: null, total, done: true, decision, start, goal, attempts: attempts.length };
   // 🛡️ never twice in one sitting: the questions answered in this session and their copies (same content)
   const keysOf = await cachedContentKeys(repo, `pool:${s(set.id)}:${order.length}`, order);
@@ -114,7 +121,10 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
   // the level first; the level has no question left: the nearest level that still has one
   const near: Record<Rung, Rung[]> = { SUPPORT: ["BELOW", "ON"], BELOW: ["ON", "SUPPORT", "ABOVE"], ON: ["BELOW", "ABOVE"], ABOVE: ["ON", "CHALLENGE", "BELOW"], CHALLENGE: ["ABOVE", "ON"] };
   const tryLevels = (avoid: Set<string>): string | null => {
-    for (const lv of [decision.level, ...near[decision.level]]) { const id = pickNext(pool, lv, avoid, lex); if (id) return id; }
+    // r67: practice never ends while the set still has a new question — any level, nearest first (a Placement test
+    // keeps its own nearby levels)
+    const levels = placement ? [decision.level, ...near[decision.level]] : [...new Set([decision.level, ...near[decision.level], ...LADDER])];
+    for (const lv of levels) { const id = pickNext(pool, lv, avoid, lex); if (id) return id; }
     return null;
   };
   // a missed question never comes back in the set: it waits in Second Chance (the set ends when nothing new is left)

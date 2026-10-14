@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
+import { Combo } from "@/components/ui/combo";
 
 type Lv = "ABOVE" | "ON" | "BELOW";
 interface RosterLevel { level: Lv; from: string; reason: string }
@@ -93,7 +94,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
             </div>
             {classes.length > 1 && (
               <label className="mt-3 flex flex-col font-semibold text-slate-700">Class
-                <select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); setAlso(new Set()); }} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal">{classes.map((c) => <option key={c.id} value={c.id}>{c.name} ({c.students.length})</option>)}</select>
+                <Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); setAlso(new Set()); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: `(${c.students.length})` }))} className="mt-1 font-normal" />
               </label>
             )}
             <fieldset className="mt-3">

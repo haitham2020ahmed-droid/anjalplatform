@@ -1,0 +1,535 @@
+{
+ "code": "LN-176",
+ "title": "Theme and central idea in poems",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.2",
+  "RL.4.2",
+  "RL.5.2",
+  "RL.6.2",
+  "RL.7.2",
+  "RL.8.2"
+ ],
+ "families": [
+  "theme",
+  "poetry-elements"
+ ],
+ "skillNames": [
+  "Poetry: Elements, Conflict and Theme"
+ ],
+ "statements": [
+  "R-0291",
+  "R-0441",
+  "R-0630",
+  "R-0658",
+  "R-0664",
+  "R-0847",
+  "R-0850",
+  "R-0856",
+  "R-0989",
+  "R-0991",
+  "R-1001",
+  "R-1075",
+  "R-1076"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A poem's message",
+     "text": "Many poems teach a **lesson** or share a **message** about life.\n\nThis message is called the **theme**."
+    },
+    {
+     "title": "Topic or theme?",
+     "text": "The **topic** is what the poem is about, in a word or two: **a seed**, **a brother**.\n\nThe **theme** is the **lesson**: **Keep trying and you will grow.**"
+    },
+    {
+     "title": "How to find the theme",
+     "text": "1. Read the whole poem.\n2. Ask: **What happens? What changes?**\n3. Ask: **What lesson does the speaker learn?**\n4. Look at the **last lines**. The lesson is often there."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the lines where something **changes**.\n2. Find the lines where the speaker **learns** something.\n3. Pick the theme those lines show.\n\nIf no line shows it, it is **not** the theme."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The ant is small, but every day",
+      "role": "detail"
+     },
+     {
+      "t": "She carries crumbs along the way.",
+      "role": "detail"
+     },
+     {
+      "t": "She never stops, she never quits,",
+      "role": "key"
+     },
+     {
+      "t": "Her home is built from tiny bits.",
+      "role": "key"
+     }
+    ],
+    "explain": "The topic is **an ant**. But what is the lesson?\n\nShe never stops, and her home is built from tiny bits. Theme: **Small, steady work adds up to something big.**"
+   },
+   "together": {
+    "passage": "My brother broke my favourite car,\nI shouted, 'Go away!'\nBut later he said, 'I am sorry,'\nAnd asked if we could play.\nI wiped my tears and took his hand,\nMy anger slipped away.\nA brother matters more than toys,\nI learned that on that day.",
+    "stem": "What is the theme (lesson) of the poem?",
+    "options": [
+     "Toy cars break very easily.",
+     "Brothers always break toys.",
+     "Forgiving family matters more than things.",
+     "Never play with your brother."
+    ],
+    "answer": 2,
+    "hint": "That is not the lesson. What does the speaker learn at the end?",
+    "good": "Yes! The speaker forgives the brother and learns that 'a brother matters more than toys'."
+   },
+   "evidence": {
+    "sentences": [
+     "My brother broke my favourite car,",
+     "I shouted, 'Go away!'",
+     "But later he said, 'I am sorry,'",
+     "And asked if we could play.",
+     "I wiped my tears and took his hand,",
+     "My anger slipped away.",
+     "A brother matters more than toys,",
+     "I learned that on that day."
+    ],
+    "proof": [
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: forgiving family matters more than things. Tap 2 lines that show the lesson.",
+    "wrong": "This line tells what happened at the start. Find the lines where the speaker forgives and learns the lesson."
+   },
+   "checks": [
+    {
+     "passage": "The seed was small and in the dark,\nIt waited in the ground.\nIt pushed and pushed, day after day,\nThen green leaves pushed up and out.",
+     "stem": "What is the theme of the poem?",
+     "options": [
+      "Seeds are green.",
+      "It is dark under the ground.",
+      "Plants grow fast.",
+      "If you keep trying, you can grow."
+     ],
+     "answer": 3,
+     "why": "The seed 'pushed and pushed, day after day' until its leaves came out. The lesson is to keep trying."
+    },
+    {
+     "passage": "I did not want to share my lunch,\nBut Sami had no bread.\nI gave him half, and he gave me\nA great big smile instead.\nMy lunch was smaller on that day,\nBut my heart was full and glad.",
+     "stem": "What is the theme of the poem?",
+     "options": [
+      "Bread is good to eat.",
+      "Sharing brings happiness.",
+      "Always eat your whole lunch.",
+      "Sami does not like bread."
+     ],
+     "answer": 1,
+     "why": "The lunch was smaller, but the speaker's heart was 'full and glad'. Sharing made the speaker happy."
+    },
+    {
+     "passage": "The horse ran fast across the sand,\nThe camel walked so slow.\nThe horse grew thirsty, tired and weak,\nThe camel did not stop or slow.\nAnd when the long, hot day was done,\nThe camel reached the town.",
+     "stem": "What is the theme of the poem?",
+     "options": [
+      "Slow and steady can win a long trip.",
+      "Horses are very beautiful.",
+      "The desert is hot and sandy.",
+      "Camels like to visit towns."
+     ],
+     "answer": 0,
+     "why": "The fast horse got tired, but the slow, steady camel reached the town. That is the lesson."
+    }
+   ],
+   "again": {
+    "title": "What would the poem tell you?",
+    "text": "Imagine the poem is a **wise friend**. It wants to give you **one piece of advice**.\n\nWhat would it say? Start with: **'You should...'** or **'It is good to...'**",
+    "example": "The seed pushed and pushed until it grew.\n\nThe poem's advice: **'You should keep trying, even when it is hard.'** That is the theme."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "What is a theme?",
+     "text": "The **theme** of a poem is its **message about life**: something true about people, friendship, family or the world.\n\nA theme is a **full sentence**, not one word. 'Friendship' is a topic. 'True friends stay in hard times' is a theme."
+    },
+    {
+     "title": "Where to look",
+     "text": "1. The **title**.\n2. A **change** in the speaker's feelings.\n3. **Repeated** words or lines.\n4. The **last lines**, where poets often show what the speaker has learned."
+    },
+    {
+     "title": "Comparisons carry the message",
+     "text": "Poets often **compare** things: friends like roots, kindness like a lamp.\n\nAsk: **What does this comparison teach about people?** That is often the theme."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the lines where the speaker **learns** or **changes**.\n2. Find a **comparison** or **repeated** idea.\n3. Choose the theme that **all** of these support.\n\nReject an answer that is only the topic, only one detail, or a lesson the poem never shows."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I wanted to be first in line,",
+      "role": "detail"
+     },
+     {
+      "t": "I pushed past Ali and Sara too.",
+      "role": "detail"
+     },
+     {
+      "t": "But first in line, I stood alone;",
+      "role": "key"
+     },
+     {
+      "t": "Behind me, friends laughed, two by two.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker gets what he wanted, but feels **alone** while his friends laugh together.\n\nTheme: **Winning is not worth much if you hurt your friends to get it.**"
+   },
+   "together": {
+    "passage": "Grandmother kept a lantern lit\nEach night beside the door,\nIn case a traveller lost his way\nAlong the dark seashore.\n'But no one comes,' I told her once.\nShe smiled and said, 'Not yet.\nA kindness ready and waiting\nIs one you won't regret.'\nNow by my own door, every night,\nA small lamp burns for strangers too.",
+    "stem": "What is the theme of the poem?",
+    "options": [
+     "Be ready to help others, even strangers.",
+     "Lanterns are useful on the seashore.",
+     "Grandmothers like to live by the sea.",
+     "Travellers should not walk at night."
+    ],
+    "answer": 0,
+    "hint": "That is a detail or is not what the poem teaches. Why does Grandmother keep the lantern lit? What does the speaker do now?",
+    "good": "Yes! Grandmother keeps a light ready for any traveller, and now the speaker does the same for strangers."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandmother kept a lantern lit",
+     "Each night beside the door,",
+     "In case a traveller lost his way",
+     "Along the dark seashore.",
+     "'But no one comes,' I told her once.",
+     "She smiled and said, 'Not yet.",
+     "A kindness ready and waiting",
+     "Is one you won't regret.'",
+     "Now by my own door, every night,",
+     "A small lamp burns for strangers too."
+    ],
+    "proof": [
+     2,
+     6,
+     7,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: be ready to help others, even strangers. Tap 2 lines that show this message.",
+    "wrong": "This line describes the lantern or the scene. Find lines about helping travellers, kindness, or strangers."
+   },
+   "checks": [
+    {
+     "passage": "The path was steep, my legs were sore,\nI wanted to turn back.\nMy father said, 'Just one more step,'\nAnd pointed up the track.\nAt last we reached the windy top,\nThe whole green valley wide.\nThe hardest climbs, I learned that day,\nBring the finest views as a prize.",
+     "stem": "Which is the theme, not just the topic?",
+     "options": [
+      "Climbing a mountain with Father",
+      "Hard work leads to great rewards.",
+      "Fathers enjoy long walks.",
+      "Valleys are green and windy."
+     ],
+     "answer": 1,
+     "why": "'Climbing a mountain' is the topic. The speaker learns that 'the hardest climbs ... bring the finest views'. Hard work brings rewards."
+    },
+    {
+     "passage": "Some friends are like the summer rain,\nThey come, and then they go.\nBut true friends are like a palm tree's roots,\nThey hold on deep below.\nWhen hot winds blow and the sand flies high,\nThe roots still hold the tree.",
+     "stem": "What is the theme of the poem?",
+     "options": [
+      "Summer rain does not last long.",
+      "Palm trees have very deep roots.",
+      "Sandstorms can be dangerous.",
+      "True friends stay with you in hard times."
+     ],
+     "answer": 3,
+     "why": "True friends are compared to roots that hold on even in a storm. The storm stands for hard times."
+    },
+    {
+     "passage": "At dinner, every head bent low,\nEach face lit by a screen.\nThen the power cut, the screens went dark,\nAnd faces could be seen.\nWe talked and laughed by candlelight\nUntil the clock struck ten.\nWhen the lights came back, nobody reached\nFor a phone again.",
+     "stem": "What is the theme of the poem?",
+     "options": [
+      "Power cuts can be dangerous.",
+      "Candles are better than lamps.",
+      "Putting screens away can bring a family closer.",
+      "Phones must be charged every night."
+     ],
+     "answer": 2,
+     "why": "Without screens, the family talked and laughed, and afterwards nobody wanted the phones. The poem shows screens can keep a family apart."
+    }
+   ],
+   "again": {
+    "title": "Topic + lesson",
+    "text": "Use this formula:\n\n1. Write the **topic** in one or two words.\n2. Ask: **What does the poem say about it?**\n3. Join them: **[Topic] + [what the poem teaches about it]**.",
+    "example": "Topic: **kindness**.\nWhat the poem says: it is worth being ready to help, even if no one comes yet.\n\nTheme: **Kindness is worth offering, even to strangers we may never meet.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Central idea and theme",
+     "text": "The **central idea** is what the poem is **mostly about**: 'A grandson visits an old well with his grandfather.'\n\nThe **theme** is the **message** that idea carries: 'Shared places keep family memories alive.'"
+    },
+    {
+     "title": "How a poem builds its theme",
+     "text": "Poems often develop a theme **stanza by stanza**:\n\n1. The first stanza **introduces** a situation.\n2. A middle stanza brings a **turn**: new information or a change of feeling.\n3. The last stanza shows the **meaning** of that change."
+    },
+    {
+     "title": "Look for the turn",
+     "text": "Words like **but**, **then**, **now** and **yet** often mark a turn.\n\nAsk: **What does the speaker understand after the turn that they did not before?** That often points to the theme."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Write a few words about **each stanza**.\n2. Find the **turn** and the **ending**.\n3. Choose the answer that matches the **movement** of the whole poem.\n\nAn answer based on one stanza only, or on a detail, is incomplete."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On the first day of school, I knew no one.",
+      "role": "detail"
+     },
+     {
+      "t": "The yard was loud, and I was small and still.",
+      "role": "detail"
+     },
+     {
+      "t": "Then a girl held out half her orange:",
+      "role": "key"
+     },
+     {
+      "t": "'Do you want some?' she asked, and that was all.",
+      "role": "key"
+     },
+     {
+      "t": "Now, each first day, I look for someone standing still.",
+      "role": "key"
+     }
+    ],
+    "explain": "Stanza movement: **alone** → **a small kindness** (the turn: 'Then') → the speaker **now helps others**.\n\nCentral idea: a lonely new student is welcomed. Theme: **One small kindness can be passed on.**"
+   },
+   "together": {
+    "passage": "The old well in the village square\nis dry and filled with stones.\nThe children run past it to school\nand never ask its story.\n\nBut Grandfather stops there each morning\nand rests his hand on its edge.\n'Here we met,' he tells me, 'every dawn,\nto share the water and the news.'\n\nNow I stop there too, on my way to school,\nand lay my hand where his has been.\nThe well holds no water anymore,\nbut it still holds us together.",
+    "stem": "How does the poem develop its theme?",
+    "options": [
+     "It describes how the well was built, stone by stone.",
+     "It moves from a forgotten well to memories that join generations.",
+     "It explains why the village's water ran out.",
+     "It shows the children learning to fetch water."
+    ],
+    "answer": 1,
+    "hint": "Look at the poem stanza by stanza: what does the well mean at the start, in the middle, and at the end?",
+    "good": "Yes! At first the well is ignored. Grandfather's memories give it meaning, and by the end it 'holds us together'."
+   },
+   "evidence": {
+    "sentences": [
+     "The old well in the village square",
+     "is dry and filled with stones.",
+     "The children run past it to school",
+     "and never ask its story.",
+     "But Grandfather stops there each morning",
+     "and rests his hand on its edge.",
+     "'Here we met,' he tells me, 'every dawn,",
+     "to share the water and the news.'",
+     "Now I stop there too, on my way to school,",
+     "and lay my hand where his has been.",
+     "The well holds no water anymore,",
+     "but it still holds us together."
+    ],
+    "proof": [
+     6,
+     7,
+     8,
+     9,
+     11
+    ],
+    "need": 2,
+    "stem": "The answer was: the well joins generations through memory. Tap 2 lines that show this.",
+    "wrong": "This line describes the well or the children. Find lines about Grandfather's memories or what the speaker does now."
+   },
+   "checks": [
+    {
+     "passage": "Before the sun, the souq awakes:\nthe baker lights his fire,\nthe fish come in on dripping carts,\nthe spice man fills his jars.\nBy the time the city opens its eyes,\nthe market has worked for hours.",
+     "stem": "Which best states the central idea of the poem?",
+     "options": [
+      "The market is hard at work before the city wakes.",
+      "Bakers light their fires every morning.",
+      "Fresh fish are brought in on carts.",
+      "Hard work is never rewarded in a city."
+     ],
+     "answer": 0,
+     "why": "The baker, the fish and the spices are all examples of the market working before the city wakes. The last choice is not in the poem."
+    },
+    {
+     "passage": "I hated the long drive to the farm,\nthe dust, the heat, the hours.\n\nThen my uncle placed a lamb in my arms,\nborn that very morning.\n\nNow I count the days until we go back.",
+     "stem": "How does the second stanza help develop the theme?",
+     "options": [
+      "It describes the dust and the heat in more detail.",
+      "It explains exactly how long the drive takes.",
+      "It shows a new experience that changes the speaker's feelings.",
+      "It describes the uncle's daily work on the farm."
+     ],
+     "answer": 2,
+     "why": "'Then' marks the turn. Holding the new lamb changes the speaker from hating the trip to counting the days until the next one."
+    },
+    {
+     "passage": "The sea takes our footprints,\nthe sea takes the castle of sand,\nthe sea takes the words we wrote\nwith sticks along the strand.\nBut the sea cannot take the laughter\nof that long afternoon;\nwe carry it home in our pockets\nlike shells beneath the moon.",
+     "stem": "What is the theme of the poem?",
+     "options": [
+      "The sea is dangerous for children.",
+      "Sandcastles are hard to build.",
+      "Writing on the beach is a waste of time.",
+      "Happy memories last even when things fade."
+     ],
+     "answer": 3,
+     "why": "The repeated 'the sea takes' shows things disappearing. The turn ('But') shows the laughter, the memory, stays with them."
+    }
+   ],
+   "again": {
+    "title": "One line per stanza",
+    "text": "Write **one short line** for each stanza. Read your lines from top to bottom like a tiny story.\n\nAsk: **What does this tiny story teach?** That is the theme.",
+    "example": "Stanza 1: Nobody cares about the old well.\nStanza 2: Grandfather remembers meeting friends there.\nStanza 3: The speaker now shares that place with him.\n\nTheme: **Places full of memories connect families across time.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Precise theme statements",
+     "text": "A strong theme statement is **specific** and **supported by the whole poem**.\n\nWeak: 'Never give up.' Stronger: 'Real skill grows slowly through failure and patient practice.' The second says **how** and **why**."
+    },
+    {
+     "title": "How poems develop meaning",
+     "text": "Poets build a theme through:\n\n1. **Structure**: the order of stanzas and where the turn falls.\n2. **Imagery**: pictures that carry ideas (a cup that leans, a map of spices).\n3. **Contrast**: then and now, wanting and having."
+    },
+    {
+     "title": "Testing a theme",
+     "text": "1. Does it fit the **beginning**, the **turn** and the **end**?\n2. Is it a message about **life**, not just a summary?\n3. Is it **too absolute**? Watch for 'always', 'never', 'better than'. Poems rarely support such extreme claims."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support a theme with lines from **different parts** of the poem.\n\n1. A line that shows the **starting** attitude.\n2. A line that shows **what causes** the change.\n3. A line that shows the **new understanding**.\n\nThe answer that explains **how** the poem moves from 1 to 3 is the strongest."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My mother's kitchen is a map:",
+      "role": "key"
+     },
+     {
+      "t": "cardamom from the coast,",
+      "role": "detail"
+     },
+     {
+      "t": "rice from far fields, saffron from a land",
+      "role": "detail"
+     },
+     {
+      "t": "she has never seen.",
+      "role": "detail"
+     },
+     {
+      "t": "Each pot holds a journey; each meal sets the world at our table.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **map** image turns ordinary spices into places. The last line states it: each meal 'sets the world at our table'.\n\nCentral idea: everyday meals bring the wider world into the home. A possible theme: **ordinary life is connected to people and places far away.**"
+   },
+   "together": {
+    "passage": "My teacher's wheel turned slow at first,\nand slow, she said, was right.\nI wanted bowls by afternoon\nand vases by the night.\n\nMy first five cups collapsed and slumped;\nmy sixth was cracked and thin.\nI pressed too hard, I rushed the clay,\nI would not let it spin.\n\nShe did not fix them. 'Watch,' she said,\nand wet her hands once more;\nthe clay rose slowly, like a breath,\nbeneath her patient fingers.\n\nToday a plain cup holds my tea.\nIt leans a little to one side.\nI made it on the thirtieth try,\nand drink from it with pride.",
+    "stem": "Which statement best explains how the poem develops its theme?",
+    "options": [
+     "It lists the tools a potter needs to show that pottery is a costly hobby.",
+     "It describes the teacher's studio to show that artists prefer to work alone.",
+     "It shows that the teacher grows impatient with the speaker's many mistakes.",
+     "Through failure and the teacher's example, the speaker learns that skill takes patience."
+    ],
+    "answer": 3,
+    "hint": "Test each choice against the beginning, the middle AND the end. Which one explains the change in the speaker?",
+    "good": "Yes! The speaker rushes and fails, watches the teacher's patient hands, and finally makes a cup with pride on the thirtieth try."
+   },
+   "evidence": {
+    "sentences": [
+     "My teacher's wheel turned slow at first,",
+     "and slow, she said, was right.",
+     "I wanted bowls by afternoon",
+     "and vases by the night.",
+     "My first five cups collapsed and slumped;",
+     "my sixth was cracked and thin.",
+     "I pressed too hard, I rushed the clay,",
+     "I would not let it spin.",
+     "She did not fix them. 'Watch,' she said,",
+     "and wet her hands once more;",
+     "the clay rose slowly, like a breath,",
+     "beneath her patient fingers.",
+     "Today a plain cup holds my tea.",
+     "It leans a little to one side.",
+     "I made it on the thirtieth try,",
+     "and drink from it with pride."
+    ],
+    "proof": [
+     1,
+     2,
+     6,
+     10,
+     11,
+     14
+    ],
+    "need": 3,
+    "stem": "The answer was: through failure and the teacher's example, the speaker learns patience. Tap 3 lines: one about rushing or patience, one showing the teacher's example, and one showing the result.",
+    "wrong": "This line adds a detail but does not show impatience, the teacher's patient example, or the hard-won result."
+   },
+   "checks": [
+    {
+     "passage": "The road my grandfather walked to school\nis now a highway, wide and loud.\nHe points at towers where palm trees stood\nand names each farm aloud.\nI see the city; he sees the fields;\nwe stand on the same bridge,\nand each of us is right.",
+     "stem": "Which theme is best supported by the whole poem?",
+     "options": [
+      "Modern cities are always better than the farms they replace.",
+      "Grandfathers usually dislike highways and tall towers.",
+      "Different generations can see the same place in different, true ways.",
+      "Highways should never be built on top of old farmland."
+     ],
+     "answer": 2,
+     "why": "The ending says 'I see the city; he sees the fields ... and each of us is right.' The other choices are too absolute and not supported."
+    },
+    {
+     "passage": "All year I begged for rain to come\nto wash the dusty town.\nIt came at last, and came, and came,\nuntil the streets would drown.\nNow I look up at the clear blue sky\nand do not beg so loud.",
+     "stem": "What theme does the poem's ending develop?",
+     "options": [
+      "Be careful what you wish for; too much can harm.",
+      "Rain never falls on towns in the desert.",
+      "Gardens need large amounts of water to grow.",
+      "A clear blue sky is boring to look at."
+     ],
+     "answer": 0,
+     "why": "The speaker begged for rain, then saw it flood the streets. Now the speaker 'does not beg so loud': wishes can bring more than we want."
+    },
+    {
+     "passage": "Each spring, my sister plants the pots\nalong our narrow stair:\nmint from my aunt, a rose from school,\na lemon seed from who knows where.\nBy summer, every step is green;\nneighbours stop to stare.\nNo one gave much,\nbut everyone gave something there.",
+     "stem": "What central idea do the images develop?",
+     "options": [
+      "The sister is the only person who likes plants.",
+      "Small gifts from many people create something beautiful.",
+      "Lemon trees grow best in narrow staircases.",
+      "Neighbours should not stare at other people's homes."
+     ],
+     "answer": 1,
+     "why": "The plants come from different people, and together they turn the stair green. The last lines state it: 'No one gave much, but everyone gave something.'"
+    }
+   ],
+   "again": {
+    "title": "Before, because, after",
+    "text": "Fill in three blanks:\n\n1. **Before**, the speaker thinks or feels...\n2. **Because** of ... (the turn),\n3. **After**, the speaker understands...\n\nThe 'after' line, written as a message for everyone, is the theme.",
+    "example": "Before: the speaker wants pots made fast.\nBecause: cups collapse; the teacher shows patient hands.\nAfter: the speaker is proud of one leaning cup.\n\nTheme: **Real skill is built slowly, through failure and patience.**"
+   }
+  }
+ }
+}

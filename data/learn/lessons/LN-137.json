@@ -1,0 +1,476 @@
+{
+ "code": "LN-137",
+ "title": "Description structure",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.4.5",
+  "RI.8.5"
+ ],
+ "families": [
+  "description"
+ ],
+ "skillNames": [
+  "Text Structure: Description"
+ ],
+ "statements": [
+  "R-0683",
+  "R-0890"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Texts that describe",
+     "text": "Some texts **describe** one thing.\n\nThey tell what it **looks like**, what it **has**, and what it **does**."
+    },
+    {
+     "title": "Like a picture in words",
+     "text": "A describing text is like a **picture made of words**.\n\nEach sentence adds one more thing you can see in your mind."
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Find the **one thing** the text is about.\n2. Ask: does each sentence tell **more about** that thing?\n3. If yes, the text **describes**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show that the text **describes**.\n\n1. Find the thing it is about.\n2. Point to sentences that tell its **size**, **color**, **parts** or **what it does**.\n\nThose sentences prove the text is a description."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The owl is a bird of the night.",
+      "role": "main"
+     },
+     {
+      "t": "It has big round eyes.",
+      "role": "key"
+     },
+     {
+      "t": "It can turn its head far around.",
+      "role": "key"
+     },
+     {
+      "t": "Its soft feathers make no sound when it flies.",
+      "role": "key"
+     }
+    ],
+    "explain": "Every sentence tells more about **the owl**: its eyes, its head, its feathers. The text **describes** the owl."
+   },
+   "together": {
+    "passage": "Our classroom is bright and cheerful. It has big windows. The walls are pale yellow. Our drawings hang by the door.",
+    "stem": "What does this text do?",
+    "options": [
+     "It tells a story about a trip.",
+     "It describes the classroom.",
+     "It tells how to make a drawing.",
+     "It asks a question."
+    ],
+    "answer": 1,
+    "hint": "What is every sentence about? Does each one tell more about it?",
+    "good": "Yes! The windows, the walls and the drawings all describe the classroom."
+   },
+   "evidence": {
+    "sentences": [
+     "Our classroom is bright and cheerful.",
+     "It has big windows.",
+     "The walls are pale yellow.",
+     "Our drawings hang by the door."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it describes the classroom. Tap 2 sentences that tell what the classroom has or looks like.",
+    "wrong": "This sentence names the classroom. Find sentences that tell its parts or colors."
+   },
+   "checks": [
+    {
+     "passage": "The lemon is a small fruit. It is yellow and oval. It tastes sour. Its skin smells fresh.",
+     "stem": "What is the text mostly doing?",
+     "options": [
+      "Telling how to grow lemons",
+      "Telling a story",
+      "Describing a lemon",
+      "Asking you to buy lemons"
+     ],
+     "answer": 2,
+     "why": "Each sentence tells more about the lemon: size, color, taste and smell."
+    },
+    {
+     "passage": "The tent is very big. It is white with blue stripes. It has two doors. Ten people can sleep inside.",
+     "stem": "Which sentence describes the tent's color?",
+     "options": [
+      "It is white with blue stripes.",
+      "It has two doors.",
+      "Ten people can sleep inside.",
+      "The tent is very big."
+     ],
+     "answer": 0,
+     "why": "White with blue stripes tells the color."
+    },
+    {
+     "passage": "Turtles have hard shells. They have short legs. They move slowly. Some live in the sea.",
+     "stem": "What does the text describe?",
+     "options": [
+      "Shells",
+      "The sea",
+      "Fast animals",
+      "Turtles"
+     ],
+     "answer": 3,
+     "why": "All the sentences tell about turtles: their shells, legs and how they move."
+    }
+   ],
+   "again": {
+    "title": "Five senses",
+    "text": "Describing words often use the **five senses**: see, hear, smell, taste, touch.\n\nIf a text is full of these, it is describing.",
+    "example": "'The bread is warm. It smells sweet. Its crust is crunchy.'\n\nTouch: **warm**. Smell: **sweet**. Touch and sound: **crunchy**. The text **describes** the bread."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Description structure",
+     "text": "In a **description** text, the author tells about a topic by giving its **features**: what it looks like, what it has, where it is, how it acts.\n\nThe text does not tell a story in order or argue a point."
+    },
+    {
+     "title": "Signal words",
+     "text": "Description texts often use words like **for example**, **such as**, **also**, **has**, **is made of**, **looks like**, **another feature**."
+    },
+    {
+     "title": "Compare with other structures",
+     "text": "**Sequence:** first, next, then (steps or events in order).\n\n**Problem and solution:** something wrong and how to fix it.\n\n**Description:** features and examples of one topic."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the structure by pointing to sentences that each give a **feature** of the topic.\n\n1. Name the topic.\n2. Find sentences that tell its size, parts, look, home or actions.\n3. Check: are there order words (first, then) or a problem? If not, it is likely description."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Arabian oryx is an antelope of the desert.",
+      "role": "main"
+     },
+     {
+      "t": "Its coat is almost pure white, which reflects the strong sunlight.",
+      "role": "key"
+     },
+     {
+      "t": "Both males and females have long, straight horns.",
+      "role": "key"
+     },
+     {
+      "t": "It lives in herds on gravel plains and sand dunes.",
+      "role": "key"
+     }
+    ],
+    "explain": "Each sentence gives one **feature** of the Arabian oryx: its color, its horns and where it lives. There are no time-order words and no problem to solve. The structure is **description**."
+   },
+   "together": {
+    "passage": "The Kingdom Centre in Riyadh is one of the city's best-known buildings. It is about 300 metres tall. Near the top, there is a huge opening shaped like an upside-down arch. A sky bridge crosses this opening, and visitors can look down at the city from it. At night, the building glows with coloured lights.",
+    "stem": "How is this text organised?",
+    "options": [
+     "It gives a problem and a solution.",
+     "It tells steps in order.",
+     "It compares two buildings.",
+     "It describes the features of one building."
+    ],
+    "answer": 3,
+    "hint": "Does the text tell steps, a problem, or a list of what the building is like?",
+    "good": "Yes! Height, the opening, the sky bridge and the lights are all features of the building."
+   },
+   "evidence": {
+    "sentences": [
+     "The Kingdom Centre in Riyadh is one of the city's best-known buildings.",
+     "It is about 300 metres tall.",
+     "Near the top, there is a huge opening shaped like an upside-down arch.",
+     "A sky bridge crosses this opening, and visitors can look down at the city from it.",
+     "At night, the building glows with coloured lights."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: it describes the features of one building. Tap 2 sentences that each give a feature.",
+    "wrong": "This sentence only names the building. Find sentences that tell what it is like."
+   },
+   "checks": [
+    {
+     "passage": "First, wash your hands. Next, cut the tomatoes. Then, mix them with the cucumbers. Finally, add lemon juice.",
+     "stem": "Why is this NOT a description text?",
+     "options": [
+      "It is about food.",
+      "It gives steps in order.",
+      "It has a problem and a solution.",
+      "It is too short."
+     ],
+     "answer": 1,
+     "why": "First, next, then and finally show steps in order. That is sequence, not description."
+    },
+    {
+     "passage": "The camel's hump stores fat, not water. Its thick eyelashes protect its eyes from sand. Its wide feet spread out on soft ground. It can also close its nostrils during sandstorms.",
+     "stem": "Which signal word in the text helps show it is a description?",
+     "options": [
+      "also",
+      "not",
+      "during",
+      "soft"
+     ],
+     "answer": 0,
+     "why": "'Also' adds another feature of the camel, which is typical of description."
+    },
+    {
+     "passage": "The coral reef is full of colour. Bright fish swim between branches of coral. Sea fans wave gently in the water. Tiny shrimp hide in the cracks of the rocks.",
+     "stem": "What is the main purpose of this description?",
+     "options": [
+      "To tell how coral is made",
+      "To warn people about sharks",
+      "To help readers picture the reef",
+      "To explain how to swim"
+     ],
+     "answer": 2,
+     "why": "The details of fish, sea fans and shrimp help the reader picture the reef."
+    }
+   ],
+   "again": {
+    "title": "Feature list test",
+    "text": "Try turning the text into a list of **features**.\n\nIf it turns easily into a list, the text is a description.",
+    "example": "'The hedgehog is small. It has sharp spines. It rolls into a ball when scared.'\n\nList: **small • sharp spines • rolls into a ball.** It became a list. It is a **description**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Organised description",
+     "text": "A good description is **organised**. Features are grouped so the reader can follow them.\n\nThe author might describe something **from top to bottom**, **outside to inside**, or **by category** (body, home, food)."
+    },
+    {
+     "title": "Why authors describe",
+     "text": "Authors use description when they want readers to **know what something is like**: an animal, a place, a tool, an event.\n\nThe goal is a clear, full picture, not an argument or a story."
+    },
+    {
+     "title": "Spotting it",
+     "text": "1. One topic stays the same throughout.\n2. Each sentence or paragraph adds a **feature** or an **example**.\n3. Little or no time order, cause, or problem."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show **how** the description is organised.\n\n1. Name the topic.\n2. Group the sentences: which ones describe the same part or category?\n3. Choose the answer that matches the order of the groups, and point to them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "From the street, the old Najdi house shows only thick mud walls and small windows.",
+      "role": "key"
+     },
+     {
+      "t": "Through the wooden door lies an open courtyard, cool and shaded.",
+      "role": "key"
+     },
+     {
+      "t": "Around the courtyard are rooms for sleeping, cooking and receiving guests.",
+      "role": "key"
+     },
+     {
+      "t": "The house was built to keep out the heat of the day.",
+      "role": "other"
+     }
+    ],
+    "explain": "The text describes the house **from the outside in**: first the walls, then the courtyard, then the rooms. The order of places is the organisation."
+   },
+   "together": {
+    "passage": "The date palm is one of the most useful trees in Arabia. Its tall, rough trunk can grow about twenty metres high. At the top, long feathery leaves called fronds spread out like a crown. Among the fronds hang heavy bunches of dates, which change from green to yellow or red, and then to brown as they ripen. At the foot of the tree, small shoots called offshoots grow from the base, and farmers use them to plant new palms.",
+    "stem": "How does the author organise the description of the date palm?",
+    "options": [
+     "By telling the history of date farming",
+     "By comparing it to other trees",
+     "By describing its parts from the trunk to the top and back to the base",
+     "By explaining how to cook dates"
+    ],
+    "answer": 2,
+    "hint": "Follow where each sentence takes your eyes: the trunk, the top, the fruit, then below the tree.",
+    "good": "Yes! The trunk, then the fronds at the top, then the dates, then the offshoots at the base."
+   },
+   "evidence": {
+    "sentences": [
+     "The date palm is one of the most useful trees in Arabia.",
+     "Its tall, rough trunk can grow about twenty metres high.",
+     "At the top, long feathery leaves called fronds spread out like a crown.",
+     "Among the fronds hang heavy bunches of dates, which change from green to yellow or red, and then to brown as they ripen.",
+     "At the foot of the tree, small shoots called offshoots grow from the base, and farmers use them to plant new palms."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: by describing its parts from trunk to top and back to the base. Tap 2 sentences that describe different parts.",
+    "wrong": "This sentence introduces the tree or adds a detail about ripening. Find sentences that move to a new part of the tree."
+   },
+   "checks": [
+    {
+     "passage": "The Arabian leopard has a pale gold coat with dark rosettes. It is smaller than leopards in Africa. It lives in rocky mountains and valleys. It hunts mostly at night, eating animals such as hyraxes and ibex.",
+     "stem": "How are the features in this description grouped?",
+     "options": [
+      "Looks, then home, then food",
+      "Problem, then solution",
+      "From the oldest event to the newest",
+      "Causes first, then their effects"
+     ],
+     "answer": 0,
+     "why": "The text moves from what it looks like, to where it lives, to how and what it hunts."
+    },
+    {
+     "passage": "The souq is a maze of narrow lanes. On one side, sellers pile spices into bright pyramids of red, yellow and brown. Across the lane, cloth merchants hang rolls of fabric from the ceiling. At the far end, the smell of fresh bread drifts from a small bakery.",
+     "stem": "Which words show that the description is organised by place?",
+     "options": [
+      "a maze, bright, fresh",
+      "spices, fabric, bread",
+      "red, yellow, brown",
+      "across the lane, at the far end"
+     ],
+     "answer": 3,
+     "why": "These phrases guide the reader from one spot to the next in the souq."
+    },
+    {
+     "passage": "A smartphone camera has several parts. The lens gathers light. A tiny sensor turns the light into electronic signals. A processor then builds these signals into a picture.",
+     "stem": "Why is this text an example of description structure?",
+     "options": [
+      "It gives an opinion about phones.",
+      "It tells a story about taking a photo.",
+      "It names each part and what it does.",
+      "It compares old and new phones."
+     ],
+     "answer": 2,
+     "why": "The text names the parts of one object and explains each, which is description."
+    }
+   ],
+   "again": {
+    "title": "Walk through it",
+    "text": "Imagine you are **walking** through the thing being described. Where do your eyes go first, next, last?\n\nThat path is how the description is organised.",
+    "example": "'At the entrance stands a fountain. Beyond it, a garden of roses. At the back, a small library.'\n\nYour path: **entrance → garden → back.** The description is organised **by place**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Analysing description",
+     "text": "Advanced readers ask **why** an author chose a description structure and **how** it serves the purpose.\n\nDescription can inform, but it can also build a mood, prepare for an argument, or make an unfamiliar subject feel real."
+    },
+    {
+     "title": "Choices inside a description",
+     "text": "1. **Selection:** which features are included and which are left out.\n2. **Order:** spatial, general-to-specific, or most-to-least important.\n3. **Precision:** exact numbers and technical words build authority.\n4. **Comparison:** likening something to a familiar object to make it clear."
+    },
+    {
+     "title": "Description inside other structures",
+     "text": "A description often sits inside a larger text: an argument may open with a vivid description to make readers care. Ask what job the description does **in the whole text**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Analyse the description by linking its **choices** to their **effect**.\n\n1. Identify the order and the kinds of details.\n2. Notice comparisons and precise terms.\n3. Ask what the reader understands or feels because of them, and quote the sentences that create it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The surface inside a pair of human lungs, if spread out flat, would cover roughly half a tennis court.",
+      "role": "key"
+     },
+     {
+      "t": "This surface is made of millions of tiny air sacs.",
+      "role": "detail"
+     },
+     {
+      "t": "Their walls are thinner than a sheet of paper, so oxygen can pass easily into the blood.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author uses **familiar comparisons** (a tennis court, a sheet of paper) so readers can picture something too small or too large to imagine. The description makes the strange feel concrete."
+   },
+   "together": {
+    "passage": "The International Space Station is roughly the size of a football field, yet much of it is not living space at all. Huge solar arrays stretch out on both sides like the wings of a giant dragonfly, turning sunlight into power. At its centre runs a chain of connected modules, each about four metres wide. Inside, there is no 'up' or 'down': handrails line every wall, and equipment is fastened to the ceiling as often as to the floor. Sleeping bags are strapped upright to the walls so that astronauts do not drift while they rest. Every detail of the station's design answers one challenge: living where nothing stays in place.",
+    "stem": "How does the author's description structure serve the purpose of the passage?",
+    "options": [
+     "It describes the station from outside to inside, building to the idea that its design solves the problem of weightlessness.",
+     "It tells the history of space travel in time order.",
+     "It argues that astronauts should not live in space.",
+     "It compares the station with other buildings on Earth."
+    ],
+    "answer": 0,
+    "hint": "The passage moves from the outside to the inside. What does the last sentence say all the details have in common?",
+    "good": "Yes! The outside-to-inside tour ends with an insight: every feature answers the problem of weightlessness."
+   },
+   "evidence": {
+    "sentences": [
+     "The International Space Station is roughly the size of a football field, yet much of it is not living space at all.",
+     "Huge solar arrays stretch out on both sides like the wings of a giant dragonfly, turning sunlight into power.",
+     "At its centre runs a chain of connected modules, each about four metres wide.",
+     "Inside, there is no 'up' or 'down': handrails line every wall, and equipment is fastened to the ceiling as often as to the floor.",
+     "Sleeping bags are strapped upright to the walls so that astronauts do not drift while they rest.",
+     "Every detail of the station's design answers one challenge: living where nothing stays in place."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the description builds to the idea that the design solves weightlessness. Tap 2 sentences that show this.",
+    "wrong": "This sentence describes the outside of the station. Find details about living inside and the sentence that explains them."
+   },
+   "checks": [
+    {
+     "passage": "The old lighthouse stands alone at the end of a rocky point. Its white paint has peeled to grey, and salt has eaten holes in the iron railing. The great lamp at the top, once visible thirty kilometres out to sea, has been dark for twenty years. Only seabirds use its windows now.",
+     "stem": "What is the main effect of the details the author selects?",
+     "options": [
+      "They explain how lighthouse lamps work.",
+      "They describe the lighthouse's best features to attract tourists.",
+      "They list the steps to repair the lighthouse.",
+      "They create a mood of abandonment and decline."
+     ],
+     "answer": 3,
+     "why": "Peeling paint, rust, a dark lamp and birds in the windows all build a sense of neglect."
+    },
+    {
+     "passage": "A honeybee hive is built from wax cells, each a precise six-sided shape. The cells in the centre hold eggs and young bees. Around them is a ring of cells packed with pollen, and in the outer cells, honey is stored. This arrangement keeps the young warm in the middle and the food close at hand.",
+     "stem": "Why does the author describe the hive from the centre outward?",
+     "options": [
+      "To tell the story of one bee's life",
+      "To show how the layout helps the bees",
+      "To compare bees with wasps",
+      "To argue that honey is healthy"
+     ],
+     "answer": 1,
+     "why": "Moving from centre to edge shows the logic of the design: young in the warm middle, food around them."
+    },
+    {
+     "passage": "Before arguing that the city should protect its wetland, the author spends a full paragraph describing it: herons standing still in the shallows, reeds bending in the wind, the sudden flash of a kingfisher. Only then does the author mention the plan to drain it for a car park.",
+     "stem": "What job does the description do in this argument?",
+     "options": [
+      "It explains how car parks are built.",
+      "It proves that herons are rare.",
+      "It makes readers care before the threat appears.",
+      "It gives a long list of facts about rainfall."
+     ],
+     "answer": 2,
+     "why": "The vivid description builds readers' attachment, so the threat to drain it feels more serious."
+    }
+   ],
+   "again": {
+    "title": "Ask: why this detail?",
+    "text": "For each detail in a description, ask: **why did the author choose this one?**\n\nThe answers usually point to the same purpose: to inform, to create a mood, or to prepare an argument.",
+    "example": "'The classroom had cracked windows, a broken fan and one shelf of torn books.'\n\nWhy these details? They all show **need**. The description is preparing the reader to support repairs."
+   }
+  }
+ }
+}

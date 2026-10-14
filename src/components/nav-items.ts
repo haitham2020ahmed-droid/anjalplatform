@@ -27,10 +27,10 @@ export function navItemsFor(role: string, opts: NavOpts = {}): NavItem[] {
 
 // ------------------------------------------------------------------ Student
 /**
- * Five entries (owner's spec): Home · My Work · My Tests · MAP · ReadMaster / ReadRise — plus NAFS for students in a
- * Grade 6 class only (the NAFS center, owner-approved plan). No RTI wording.
- * Clean line icons (no emoji) and each page once: the home page's tiles open the rest (Curriculum Map, Second
- * Chance, Fluency Coach, Writing).
+ * Home · My Work · My Tests · MAP · ReadMaster / ReadRise · Learn · My Words · Fluency (owner's spec) — plus NAFS for
+ * students in a Grade 6 class only (the NAFS center, owner-approved plan). No RTI wording.
+ * My Words = the one home of vocabulary (the Curriculum Map words + the words I saved; Learn links to it); Fluency =
+ * the Fluency Coach, out of the reading hub (its own entry). Clean line icons (no emoji) and each page once.
  */
 function studentMenu(opts: NavOpts): NavItem[] {
   return [
@@ -39,10 +39,22 @@ function studentMenu(opts: NavOpts): NavItem[] {
     { href: "/student/tests", label: "My Tests", icon: "📝", line: "tests" },
     { href: "/student/map", label: "MAP", icon: "🗺️", line: "map" },
     { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚", line: "reading" },
+    // 📘 Learn (owner-approved plan): short lessons for every skill (its Words moved to My Words)
+    STUDENT_LEARN_PAGE,
+    // 📒 My Words: the Curriculum Map words (Grades 4–6, with explanations) + "Words I saved"
+    STUDENT_WORDS_PAGE,
+    // 🎙️ Fluency: the Fluency Coach (its own entry, out of the reading hub)
+    STUDENT_FLUENCY_PAGE,
     // 🇸🇦 the NAFS icon: ONLY for students in a Grade 6 class (menu-flags.ts inGrade6Class)
     ...(opts.nafs ? [STUDENT_NAFS_PAGE] : []),
   ];
 }
+/** The student's Learn icon: lessons for every skill (src/app/student/learn); its "My Words" button opens My Words. */
+export const STUDENT_LEARN_PAGE: NavItem = { href: "/student/learn", label: "Learn", icon: "📘", line: "learn" };
+/** The student's My Words: the Curriculum Map words of Grades 4–6 + the words I saved (src/app/student/words). */
+export const STUDENT_WORDS_PAGE: NavItem = { href: "/student/words", label: "My Words", icon: "📒", line: "words" };
+/** The student's Fluency Coach (read aloud and get feedback): its own entry. */
+export const STUDENT_FLUENCY_PAGE: NavItem = { href: "/student/fluency-coach", label: "Fluency", icon: "🎙️", line: "mic" };
 /** The student's NAFS icon: My practice · My tests · My results (Grade 6 students only). */
 export const STUDENT_NAFS_PAGE: NavItem = { href: "/student/nafs", label: "NAFS", icon: "🇸🇦", line: "flag" };
 
@@ -60,9 +72,12 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher/students", label: "Students & Classes", icon: "👥", line: "users" },
   { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭", line: "compass" },
   { href: "/teacher/plans", label: "Plans", icon: "🗂️", line: "plans" },
+  // 📌 Assigned (owner r67): everything the teacher assigned, in one list, with Cancel / Undo
+  { href: "/teacher/assigned", label: "Assigned", icon: "📌", line: "inbox" },
   { href: "/teacher/assessments", label: "Assessments", icon: "📝", line: "check" },
   { href: "/teacher/writing", label: "Writing", icon: "🖊", line: "pen" },
   { href: "/teacher/reading", label: "Reading", icon: "📚", line: "book" },
+  { href: "/teacher/learn", label: "Learn", icon: "📘", line: "learn" },
   { href: "/teacher/map-center", label: "MAP", icon: "🗺️", line: "target" },
   { href: "/teacher/reports", label: "Reports", icon: "📊", line: "chart" },
   { href: "/teacher/week", label: "My Week", icon: "📅", line: "week", group: MORE },
@@ -125,14 +140,12 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
   STUDENT: [
     { href: "/student/readmaster", label: "ReadMaster", icon: "⭐", line: "star" },
     { href: "/student/readrise", label: "ReadRise", icon: "🚀", line: "rise" },
-    { href: "/student/fluency-coach", label: "Fluency Coach", icon: "🎙️", line: "mic" },
     { href: "/student/curriculum", label: "Curriculum Map", icon: "🧭", line: "curriculum" },
     { href: "/student/second-chance", label: "Second Chance", icon: "🌟", line: "retry" },
     { href: "/student/certificates", label: "My Certificates", icon: "📜", line: "award" },
     { href: "/student/badges", label: "Badges", icon: "🏅" },
     { href: "/student/reports", label: "My Reports", icon: "📊" },
     { href: "/student/lesson", label: "My Lessons", icon: "📘" },
-    { href: "/student/words", label: "My Words", icon: "📒", line: "words" },
     { href: "/student/respond", label: "Respond to Reading", icon: "✍️", line: "writing" },
     { href: "/student/writing", label: "Writing", icon: "🖊", line: "writing" },
     { href: "/student/decoding", label: "Word Sounds Check", icon: "🔤" },
@@ -149,7 +162,7 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
 export function searchablePagesFor(role: string, opts: NavOpts = {}): NavItem[] {
   const menu = navItemsFor(role, opts);
   const extra = role === "TEACHER" ? [...OFF_MENU.TEACHER, ...(opts.nafs ? [NAFS_PLAN_PAGE, NAFS_DASHBOARD_PAGE] : [])] : role === "STUDENT" ? OFF_MENU[role]
-    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), ...(opts.nafs === false ? [] : [NAFS_PAGE, NAFS_DASHBOARD_PAGE, NAFS_PLAN_PAGE])] : [];
+    : role === "SCHOOL_ADMIN" || role === "SUPER_ADMIN" ? [...adminOffMenu(), ...(opts.nafs === false ? [] : [NAFS_PAGE, NAFS_DASHBOARD_PAGE, NAFS_PLAN_PAGE]), ...ADMIN_LEARN_PAGES, ADMIN_ASSIGNED_PAGE] : [];
   const seen = new Set(menu.map((i) => i.href));
   return [...menu, ...extra.filter((i) => !seen.has(i.href))];
 }
@@ -166,6 +179,19 @@ function adminMenu(): NavItem[] {
     ...ADMIN_GROUPS.flatMap((g) => ADMIN_TOOLS.filter((x) => x.menu && x.group === g.key).map((x) => ({ href: x.href, label: x.label, icon: x.icon, group: g.title, line: ADMIN_LINE[x.href] }))),
   ];
 }
+
+/**
+ * 📘 Learn for the admin (found by name in the top bar; All Admin Tools is full): the lessons (preview, edit, assign,
+ * Hide), the teachers' proposals and problem reports, and the coverage view.
+ */
+/** 📌 Assigned for the admin (found by name; also a shortcut on the admin home): every teacher's assigned work. */
+export const ADMIN_ASSIGNED_PAGE: NavItem = { href: "/teacher/assigned", label: "Assigned", icon: "📌" };
+
+export const ADMIN_LEARN_PAGES: NavItem[] = [
+  { href: "/teacher/learn", label: "Learn", icon: "📘" },
+  { href: "/teacher/learn/review", label: "Proposals and reports", icon: "📥" },
+  { href: "/teacher/learn/coverage", label: "Learn coverage", icon: "🧭" },
+];
 
 /** The admin menu's calm line icons (Literise D1: no emoji in any menu), by page address. */
 export const ADMIN_LINE: Record<string, LineIconName> = {

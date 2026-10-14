@@ -1,0 +1,457 @@
+{
+ "code": "LN-037",
+ "title": "Writing an opinion essay",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [],
+ "families": [
+  "writing-argument"
+ ],
+ "skillNames": [
+  "Argumentative / Opinion Writing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an opinion?",
+     "text": "An **opinion** is what you **think** or **feel**.\n\n**I think cats are the best pets.**\n\nOther people may think something different."
+    },
+    {
+     "title": "Give a reason",
+     "text": "Tell **why** you think it. Use **because**.\n\n**I think cats are the best pets because they are quiet.**"
+    },
+    {
+     "title": "Opinion writing",
+     "text": "1. Say your **opinion**.\n2. Give **reasons**.\n3. Say your opinion **again** at the end."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the words **I think** or **I believe**. That is the opinion.\n2. Find the word **because**. A reason comes next.\n3. Point to those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I think summer is the best season.",
+      "role": "main"
+     },
+     {
+      "t": "I like it because we go to the beach.",
+      "role": "key"
+     },
+     {
+      "t": "Summer is the best!",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **opinion**: summer is the best season.\n\nThe **reason** comes after **because**: we go to the beach."
+   },
+   "together": {
+    "passage": "I think our class should have a fish tank. Fish are fun to watch. They help us learn about animals. A fish tank would make our class happy.",
+    "stem": "What is the writer's opinion?",
+    "options": [
+     "Fish are fun to watch.",
+     "Our class should have a fish tank.",
+     "Animals live in the sea.",
+     "Our class is happy."
+    ],
+    "answer": 1,
+    "hint": "Look for the words I think.",
+    "good": "Yes! I think shows the opinion: our class should have a fish tank."
+   },
+   "evidence": {
+    "sentences": [
+     "I think our class should have a fish tank.",
+     "Fish are fun to watch.",
+     "They help us learn about animals.",
+     "A fish tank would make our class happy."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The opinion is: our class should have a fish tank. Tap 2 sentences that give reasons for it.",
+    "wrong": "This sentence states the opinion or ends the writing. Find the reasons why."
+   },
+   "checks": [
+    {
+     "passage": "I think apples are the best fruit because they are sweet and crunchy.",
+     "stem": "What is the reason?",
+     "options": [
+      "I think",
+      "Apples are the best fruit.",
+      "They are sweet and crunchy.",
+      "Fruit"
+     ],
+     "answer": 2,
+     "why": "The reason comes after because."
+    },
+    {
+     "passage": "Some sentences are facts. One sentence is an opinion.",
+     "stem": "Choose the opinion.",
+     "options": [
+      "The sky is blue.",
+      "A week has seven days.",
+      "Football is the most fun sport.",
+      "Fish live in water."
+     ],
+     "answer": 2,
+     "why": "Most fun is what someone thinks. Others may disagree."
+    },
+    {
+     "passage": "I believe we should plant more trees. Trees give us shade. They make the air clean.",
+     "stem": "Which is the best ending?",
+     "options": [
+      "That is why we should plant more trees.",
+      "I have a new bike at home.",
+      "Trees are green and very tall.",
+      "It is the end of a long day."
+     ],
+     "answer": 0,
+     "why": "The ending says the opinion again."
+    }
+   ],
+   "again": {
+    "title": "I think… because…",
+    "text": "Use this sentence frame:\n\n**I think ___ because ___.**\n\nThe first blank is your **opinion**. The second blank is your **reason**.",
+    "example": "**I think** reading is fun **because** books take me to new places."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Parts of an opinion essay",
+     "text": "1. **Introduction**: state your opinion clearly.\n2. **Reasons**: two or three, each with **facts or examples**.\n3. **Conclusion**: restate your opinion in new words."
+    },
+    {
+     "title": "Support each reason",
+     "text": "A reason is stronger when you **support** it.\n\nReason: **Walking to school is healthy.**\nSupport: **It gives students exercise before the school day begins.**"
+    },
+    {
+     "title": "Linking words",
+     "text": "Connect your opinion and reasons with linking words:\n\n**because, since, for example, also, another reason, therefore, in conclusion**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find what supports a reason:\n\n1. Find the reason (often after **because** or **one reason**).\n2. Read the next sentences.\n3. The facts or examples that explain **that** reason are its support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In my opinion, every school should have a library.",
+      "role": "main"
+     },
+     {
+      "t": "One reason is that books help students learn new words.",
+      "role": "detail"
+     },
+     {
+      "t": "For example, my cousin learned many science words from library books.",
+      "role": "key"
+     },
+     {
+      "t": "Therefore, every school needs a library.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **opinion** comes first. The **reason** is supported by an **example**.\n\nThe **conclusion** restates the opinion using **therefore**."
+   },
+   "together": {
+    "passage": "In my opinion, students should learn to cook at school. One reason is that cooking teaches important life skills. For example, students learn to measure, follow steps and stay safe in the kitchen. Another reason is that cooking helps students eat healthier food. When they make their own meals, they can choose fresh vegetables instead of fast food. In conclusion, cooking lessons would help students now and in the future.",
+    "stem": "Which detail supports the reason that cooking teaches life skills?",
+    "options": [
+     "Students can choose fresh vegetables.",
+     "Students learn to measure, follow steps and stay safe in the kitchen.",
+     "Cooking lessons would help students in the future.",
+     "Students should learn to cook at school."
+    ],
+    "answer": 1,
+    "hint": "Find the reason about life skills. Which sentence comes right after it and explains it?",
+    "good": "Yes! Measuring, following steps and staying safe are examples of life skills."
+   },
+   "evidence": {
+    "sentences": [
+     "In my opinion, students should learn to cook at school.",
+     "One reason is that cooking teaches important life skills.",
+     "For example, students learn to measure, follow steps and stay safe in the kitchen.",
+     "Another reason is that cooking helps students eat healthier food.",
+     "When they make their own meals, they can choose fresh vegetables instead of fast food.",
+     "In conclusion, cooking lessons would help students now and in the future."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: the reason about life skills and the example that supports it.",
+    "wrong": "This sentence is the opinion, the other reason, or the conclusion. Find the life-skills reason and its example."
+   },
+   "checks": [
+    {
+     "passage": "I believe students should have a longer break. ___ they need time to eat and rest.",
+     "stem": "Which linking word best fits the blank?",
+     "options": [
+      "Because",
+      "However",
+      "Finally",
+      "For example"
+     ],
+     "answer": 0,
+     "why": "Because introduces the reason for the opinion."
+    },
+    {
+     "passage": "Opinion: Our town needs a new park.",
+     "stem": "Which is the strongest reason with support?",
+     "options": [
+      "Parks are nice, and I really like them a lot.",
+      "I like green things, so a park would be good.",
+      "Parks have grass and trees and also some benches.",
+      "Children have nowhere safe to play, as the only park is far away."
+     ],
+     "answer": 3,
+     "why": "It gives a clear reason and supports it with a fact."
+    },
+    {
+     "passage": "Opinion essay: Everyone should learn to swim. It keeps you safe near water. It is good exercise. ___",
+     "stem": "Which is the best conclusion?",
+     "options": [
+      "Swimming pools are often painted a bright blue inside.",
+      "For these reasons, learning to swim is important for all.",
+      "My cousin swims very fast in the sea every summer.",
+      "Some kinds of fish swim together in large groups."
+     ],
+     "answer": 1,
+     "why": "It restates the opinion and ties back to the reasons."
+    }
+   ],
+   "again": {
+    "title": "OREO",
+    "text": "Use **OREO** to plan:\n\n**O**pinion: what you think\n**R**eason: why\n**E**xample: proof of the reason\n**O**pinion again: in new words",
+    "example": "O: **Pets are good for children.**\n\nR: **They teach responsibility.**\n\nE: **Feeding a cat every day is a real job.**\n\nO: **That is why every child can benefit from a pet.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "A clear claim",
+     "text": "In an opinion essay, your opinion is called a **claim**. A good claim is **specific** and **arguable**.\n\nWeak: **Phones are things.**\nStrong: **Students should not use phones during lessons.**"
+    },
+    {
+     "title": "Strong and weak reasons",
+     "text": "Strong reasons are **relevant**, **logical** and **supported** by evidence: facts, statistics, examples or expert opinions.\n\nWeak reasons are off-topic, only personal feelings, or exaggerated (**everyone**, **always**, **never**)."
+    },
+    {
+     "title": "Order your reasons",
+     "text": "Many writers save their **strongest** reason for last, so it stays in the reader's mind.\n\nUse transitions to guide the reader: **First, In addition, Most importantly**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To judge a reason:\n\n1. Does it connect directly to the **claim**?\n2. Is it supported by **evidence** in the text?\n3. Or is it off-topic, exaggerated, or just a feeling?\n\nPoint to the claim and the reason to show whether they connect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: Our school should switch off unused lights.",
+      "role": "main"
+     },
+     {
+      "t": "Strong: The school's electricity bill dropped by ten percent in a month when one class tried this.",
+      "role": "key"
+     },
+     {
+      "t": "Weak: Everyone always wastes everything.",
+      "role": "other"
+     }
+    ],
+    "explain": "The strong reason gives a **specific fact** that connects to the claim.\n\nThe weak reason **exaggerates** (everyone, always) and gives no evidence."
+   },
+   "together": {
+    "passage": "Our school should start a weekly reading hour for all students. First, regular reading builds vocabulary; a teacher at our school found that students who read daily used more new words in their writing. In addition, a quiet hour each week would help students relax during busy exam weeks. Also, my best friend has a really cool backpack with books in it. Most importantly, reading hour would give students who have few books at home a chance to discover stories they love.",
+    "stem": "Which reason should the writer remove because it does not support the claim?",
+    "options": [
+     "Regular reading builds vocabulary.",
+     "A quiet hour would help students relax.",
+     "Reading hour would give students with few books a chance to discover stories.",
+     "My best friend has a really cool backpack with books in it."
+    ],
+    "answer": 3,
+    "hint": "Which sentence has nothing to do with why a reading hour is a good idea?",
+    "good": "Yes! A friend's backpack does not explain why the school needs a reading hour."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school should start a weekly reading hour for all students.",
+     "First, regular reading builds vocabulary; a teacher at our school found that students who read daily used more new words in their writing.",
+     "In addition, a quiet hour each week would help students relax during busy exam weeks.",
+     "Also, my best friend has a really cool backpack with books in it.",
+     "Most importantly, reading hour would give students who have few books at home a chance to discover stories they love."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that states the claim. Every reason must support it.",
+    "wrong": "This sentence is a reason. Find the claim the reasons should support."
+   },
+   "checks": [
+    {
+     "passage": "Topic: school uniforms.",
+     "stem": "Which is the strongest claim?",
+     "options": [
+      "School uniforms have existed in many countries for years.",
+      "Some schools around the world have uniforms and some do not.",
+      "Uniforms are clothes that students wear to school each day.",
+      "Schools should require uniforms to reduce pressure about clothes."
+     ],
+     "answer": 3,
+     "why": "It is specific, arguable and gives a reason."
+    },
+    {
+     "passage": "Claim: Students should drink more water during the school day.",
+     "stem": "Which reason uses the strongest evidence?",
+     "options": [
+      "Water is everywhere, so it must be good.",
+      "Doctors say even mild thirst can make it harder to focus.",
+      "Everybody always loves water more than anything.",
+      "I drink water at home every single day."
+     ],
+     "answer": 1,
+     "why": "It uses expert knowledge that connects directly to school performance."
+    },
+    {
+     "passage": "An essay gives three reasons for more school trips: they are fun, they give a break from class, and they let students see real examples of what they study.",
+     "stem": "Which reason should go last for the greatest effect?",
+     "options": [
+      "They are fun, and students enjoy them a lot.",
+      "They give students a break from sitting in class.",
+      "They let students see real examples of what they study.",
+      "The order of the reasons does not matter at all."
+     ],
+     "answer": 2,
+     "why": "It is the strongest, most academic reason, so it leaves the best final impression."
+    }
+   ],
+   "again": {
+    "title": "The so-what test",
+    "text": "Read each reason and ask: **So what? Does this help prove my claim?**\n\n1. If yes, keep it and add evidence.\n2. If no, cut it.",
+    "example": "Claim: **Our town needs bike lanes.**\n\nReason: **Bikes come in many colours.** So what? Not related. **Cut.**\n\nReason: **Bike lanes keep riders safe from cars.** So what? It supports the claim. **Keep.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Counterclaims",
+     "text": "A **counterclaim** is the opposing view. Strong writers **acknowledge** it and then **rebut** it: they explain why their own claim is still stronger.\n\n**Some argue that… However, …**\n\nThis shows fairness and makes the argument more convincing."
+    },
+    {
+     "title": "Credible reasoning",
+     "text": "Use **credible** evidence: data from reliable sources, expert views, real examples.\n\nAvoid faulty reasoning:\n1. **Overgeneralizing**: Everyone agrees…\n2. **Attacking people** instead of ideas\n3. **False choice**: Either we do this or everything fails."
+    },
+    {
+     "title": "A powerful conclusion",
+     "text": "Restate the claim in fresh words, summarize the strongest points, and end with a **call to action** or a thought about why the issue matters."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse an argument:\n\n1. Find the **claim**.\n2. Find any **counterclaim** (signals: some people say, critics argue, others believe).\n3. Find the **rebuttal** that follows (signals: however, yet, but).\n\nPoint to both the counterclaim and the rebuttal."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some people argue that homework should be banned because students need time to rest.",
+      "role": "key"
+     },
+     {
+      "t": "However, short, focused homework can strengthen skills without taking away much free time.",
+      "role": "key"
+     },
+     {
+      "t": "Teachers in many schools now limit homework to twenty minutes a night.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer **acknowledges** the counterclaim, then **rebuts** it with **However** and supports the rebuttal with an example.\n\nThis makes the writer seem fair and well informed."
+   },
+   "together": {
+    "passage": "Cities in hot regions should plant far more trees along their streets. Research from several universities shows that shaded streets can be significantly cooler than unshaded ones in summer. Cooler streets mean people are more likely to walk, which improves health and reduces traffic. Some people argue that trees need too much water in a desert climate. However, many native species, such as the sidr and the ghaf, are adapted to dry conditions and need little watering once established. City leaders should therefore launch a tree-planting plan this year, before another record-breaking summer arrives.",
+    "stem": "How does the writer respond to the opposing view about water?",
+    "options": [
+     "The writer ignores it completely.",
+     "The writer agrees that trees should not be planted.",
+     "The writer rebuts it by naming native trees that need little water.",
+     "The writer attacks the people who hold that view."
+    ],
+    "answer": 2,
+    "hint": "Find the sentence after Some people argue. What does it say?",
+    "good": "Yes! The writer acknowledges the concern, then rebuts it with native, drought-adapted trees."
+   },
+   "evidence": {
+    "sentences": [
+     "Cities in hot regions should plant far more trees along their streets.",
+     "Research from several universities shows that shaded streets can be significantly cooler than unshaded ones in summer.",
+     "Cooler streets mean people are more likely to walk, which improves health and reduces traffic.",
+     "Some people argue that trees need too much water in a desert climate.",
+     "However, many native species, such as the sidr and the ghaf, are adapted to dry conditions and need little watering once established.",
+     "City leaders should therefore launch a tree-planting plan this year, before another record-breaking summer arrives."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: the counterclaim and the rebuttal.",
+    "wrong": "This sentence is the claim, a supporting reason, or the call to action. Find the opposing view and the answer to it."
+   },
+   "checks": [
+    {
+     "passage": "Argument: \"Either our school bans all phones, or students will never learn anything again.\"",
+     "stem": "What is the weakness in this reasoning?",
+     "options": [
+      "It gives far too much evidence for one sentence.",
+      "It presents a false choice between two extreme options.",
+      "It uses a counterclaim and then a rebuttal.",
+      "It is too short to be an argument at all."
+     ],
+     "answer": 1,
+     "why": "There are many options between a total ban and students learning nothing."
+    },
+    {
+     "passage": "Claim: Schools should offer more physical education.",
+     "stem": "Which sentence best acknowledges and rebuts a counterclaim?",
+     "options": [
+      "Critics say PE takes time from academics; however, exercise is linked to better focus.",
+      "PE is the best subject at school, and absolutely everyone loves it.",
+      "People who dislike PE are just lazy and do not want to move.",
+      "Some people say PE is bad for school, and they are completely right."
+     ],
+     "answer": 0,
+     "why": "It names the opposing view, then answers it with evidence."
+    },
+    {
+     "passage": "Conclusion draft: So yeah, that's my opinion about recycling.",
+     "stem": "Which revision is the most effective conclusion?",
+     "options": [
+      "Recycling is a word that I wrote a lot about in this essay today.",
+      "That is all I want to say about this topic, so I will stop here.",
+      "I think recycling is fine, I guess, but really it is up to you all.",
+      "Recycling protects our land and sea, so let's start a drive in every class."
+     ],
+     "answer": 3,
+     "why": "It restates the claim, sums up the key points and ends with a clear call to action."
+    }
+   ],
+   "again": {
+    "title": "They say, I say",
+    "text": "Practise answering the other side:\n\n1. **They say**: write the opposing view fairly.\n2. **I say**: answer it with **however** plus a reason or evidence.\n3. Return to your claim.",
+    "example": "They say: **Uniforms limit students' self-expression.**\n\nI say: **However, students can still express themselves through their ideas, art and activities, while uniforms reduce pressure about clothes.**\n\nClaim: **Uniforms help schools focus on learning.**"
+   }
+  }
+ }
+}

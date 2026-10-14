@@ -13,10 +13,12 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertNafs } from "../teacher/nafs-access";
 import { seededShuffle } from "../practice/items";
-import { DIFFICULTIES, DIFFICULTY_NAME, GUIDE_BOOKLET_SIZE, isMoeCode, isNafsCode, MAX_NAFS_MINUTES, MAX_NAFS_QUESTIONS, MOE_BY_CODE, MOE_CODES, MOE_STANDARDS, PROCESS_TARGET, PROCESSES, SIMULATION_DEFAULT, SKILL_BY_CODE, textTypeOf, type Difficulty, type DifficultyMix, type NafsProcess, type SimulationSettings } from "./framework";
+import { ADAPTIVE_FALLBACK_MIX, DIFFICULTIES, DIFFICULTY_NAME, GUIDE_BOOKLET_SIZE, isAdaptiveChoice, isMoeCode, isNafsCode, MAX_NAFS_MINUTES, MAX_NAFS_QUESTIONS, MOE_BY_CODE, MOE_CODES, MOE_STANDARDS, PROCESS_TARGET, PROCESSES, SIMULATION_DEFAULT, SKILL_BY_CODE, textTypeOf, type Difficulty, type DifficultyMix, type NafsProcess, type SimulationSettings } from "./framework";
 import { loadNafsQuestions, matchesTarget, nafsIndex, usable, type NafsEntry, type NafsKind } from "./bank";
-import { saveNafsTest, type SaveTestInput } from "./tests";
+import { assignNafsOnline, getNafsTest, saveNafsTest, type SaveTestInput } from "./tests";
 import { createNafsPractice, type PracticeInput } from "./practice";
+import { readBooklets } from "./booklets";
+import { readPracticeSets } from "./practice-sets";
 import { BALANCED_MIX, cleanFullCounts, FULL_DEFAULT, FULL_MAX_QUESTIONS, FULL_MIN_QUESTIONS, fullDistribution, fullMinutes } from "./coverage";
 
 const s = (v: unknown) => String(v ?? "");
@@ -43,6 +45,8 @@ export function shareOut<K extends string>(total: number, pct: Record<K, number>
  */
 export function cleanDifficultyMix(v: unknown): DifficultyMix | null {
   if (v === null || v === undefined || v === "" || v === "ANY") return null;
+  // Adaptive: the list itself (the printed booklet, the first list online) is Mixed
+  if (isAdaptiveChoice(v)) return { ...ADAPTIVE_FALLBACK_MIX };
   if (v === 1 || v === 2 || v === 3 || v === "1" || v === "2" || v === "3") { const k = Number(v) as Difficulty; return { 1: 0, 2: 0, 3: 0, [k]: 100 } as DifficultyMix; }
   if (typeof v !== "object") return null;
   const o = v as Record<string, unknown>;
@@ -333,10 +337,12 @@ async function poolFor(repo: Repo, actor: Actor): Promise<NafsEntry[]> {
   return (await nafsIndex(repo, actor.schoolId)).filter(usable);
 }
 
-export async function buildNafsSimulation(repo: Repo, actor: Actor, input: { settings?: Partial<SimulationSettings> | null; classId?: string | null; seed?: string; difficulty?: unknown }): Promise<BuiltTest & { settings: SimulationSettings }> {
+export async function buildNafsSimulation(repo: Repo, actor: Actor, input: { settings?: Partial<SimulationSettings> | null; classId?: string | null; seed?: string; difficulty?: unknown; codes?: string[] | null }): Promise<BuiltTest & { settings: SimulationSettings }> {
   const pool = await poolFor(repo, actor);
   const st = cleanSimulation(input.settings);
-  const mcq = pool.filter((e) => e.kind === "MCQ"); // the NAFS simulation is multiple choice only, like the paper booklet
+  // "Choose standards / skills myself" + "Like the real booklet": only the chosen standards / skills (none = all)
+  const codes = [...new Set((input.codes ?? []).map(s).filter((c) => isNafsCode(c) || isMoeCode(c)))];
+  const mcq = pool.filter((e) => e.kind === "MCQ" && (!codes.length || codes.some((c) => matchesTarget(e, c)))); // the NAFS simulation is multiple choice only, like the paper booklet
   const [types, seen] = await Promise.all([passageTypes(repo, mcq), seenByClass(repo, actor.schoolId!, input.classId)]);
   return { ...buildSimulation(mcq, types, seen, st, s(input.seed) || "nafs", cleanDifficultyMix(input.difficulty)), settings: st };
 }
@@ -348,19 +354,40 @@ export async function buildNafsMinistry(repo: Repo, actor: Actor, input: { setti
   return { ...buildMinistry(pool, seen, st, s(input.seed) || "nafs", cleanDifficultyMix(input.difficulty)), settings: st };
 }
 
-/** The model booklets in the school's NAFS bank (code, title, kind, number of usable questions). */
-export async function bookletChoices(repo: Repo, actor: Actor): Promise<{ code: string; title: string; questions: number; written: number }[]> {
-  const pool = (await poolFor(repo, actor)).filter((e) => e.booklet);
-  const codes = [...new Set(pool.map((e) => e.booklet!))].sort();
-  if (!codes.length) return [];
-  const pids = [...new Set(pool.map((e) => e.passageId).filter(Boolean) as string[])];
-  const passages = pids.length ? await repo.findMany("ReadingPassage", { id: { in: pids } }, { select: ["id", "title"] }) : [];
-  return codes.map((code) => {
-    const mine = pool.filter((e) => e.booklet === code);
-    const title = s(passages.find((p) => p.id === mine.find((e) => e.passageId)?.passageId)?.title);
-    return { code, title, questions: mine.length, written: mine.filter((e) => e.kind === "WRITTEN").length };
+/** A model booklet (NB-…) or practice set (NP-…) for the pickers: title, kind of text, genre and its questions. */
+export interface SetChoice { code: string; title: string; kind: "LIT" | "INFO" | null; genre: string; questions: number; written: number }
+const setMeta = (): Map<string, { title: string; kind: "LIT" | "INFO" | null; genre: string }> => {
+  const m = new Map<string, { title: string; kind: "LIT" | "INFO" | null; genre: string }>();
+  for (const b of [...readBooklets().valid, ...readPracticeSets().valid]) m.set(b.code, { title: b.title, kind: b.kind === "LITERARY" ? "LIT" : "INFO", genre: b.genre });
+  return m;
+};
+/**
+ * The model booklets (or, `which`, the practice sets / both) in the school's NAFS bank — 100 booklets and 200 sets are
+ * fine: one pass over the cached index, the titles / kinds / genres from the files kept in memory (one passage read
+ * only for a code no file describes any more).
+ */
+export async function setChoices(repo: Repo, actor: Actor, which: "BOOKLET" | "PRACTICE" | "ALL" = "BOOKLET"): Promise<SetChoice[]> {
+  const pool = await poolFor(repo, actor);
+  const by = new Map<string, { n: number; written: number; passageId: string | null }>();
+  for (const e of pool) {
+    const code = which === "BOOKLET" ? e.booklet : which === "PRACTICE" ? e.practiceSet : e.booklet ?? e.practiceSet;
+    if (!code) continue;
+    const b = by.get(code) ?? { n: 0, written: 0, passageId: null };
+    b.n++; if (e.kind === "WRITTEN") b.written++; if (!b.passageId && e.passageId) b.passageId = e.passageId;
+    by.set(code, b);
+  }
+  if (!by.size) return [];
+  const meta = setMeta();
+  const missing = [...by.entries()].filter(([c, x]) => !meta.has(c) && x.passageId).map(([, x]) => x.passageId!);
+  const passages = missing.length ? await repo.findMany("ReadingPassage", { id: { in: missing } }, { select: ["id", "title", "genre"] }) : [];
+  return [...by.entries()].sort((x, y) => x[0].localeCompare(y[0], "en", { numeric: true })).map(([code, x]) => {
+    const m = meta.get(code);
+    const p = m ? null : passages.find((r) => s(r.id) === x.passageId);
+    return { code, title: m?.title ?? s(p?.title), kind: m?.kind ?? textTypeOf(p?.genre), genre: m?.genre ?? s(p?.genre), questions: x.n, written: x.written };
   });
 }
+/** The model booklets in the school's NAFS bank (code, title, kind, number of usable questions). */
+export async function bookletChoices(repo: Repo, actor: Actor): Promise<SetChoice[]> { return setChoices(repo, actor, "BOOKLET"); }
 
 export async function buildNafsAutomatic(repo: Repo, actor: Actor, input: AutoInput): Promise<BuiltTest> {
   const codes = [...new Set((input.codes ?? []).map(s).filter((c) => isNafsCode(c) || isMoeCode(c)))];
@@ -597,4 +624,52 @@ export async function createFullNafsPractice(repo: Repo, actor: Actor, input: Om
   const uncovered = MOE_STANDARDS.filter((x) => !list.some((e) => e.standard === x.code)).map((x) => x.code);
   if (uncovered.length && !input.confirmUncovered) throw uncoveredError(uncovered);
   return createNafsPractice(repo, actor, { ...input, targets: [...MOE_CODES], questionIds }, now);
+}
+
+// ------------------------------------------------------------------ the one builder: practice, adaptive tests
+
+/**
+ * The builder's "Practice" purpose (any start): the adaptive practice on the test's standards / skills — the chosen
+ * targets, else the Ministry standards (and NAFS skills) of the list — over exactly the list (multiple choice only), or
+ * every center question of those targets (`wholeBank`). The complete test (all 13 standards) keeps its coverage check.
+ */
+export async function builderPractice(repo: Repo, actor: Actor, input: Omit<PracticeInput, "targets"> & { targets?: string[] | null; full?: boolean; wholeBank?: boolean; confirmUncovered?: boolean }, now = new Date()): Promise<{ id: string; students: number }> {
+  if (input.full) return createFullNafsPractice(repo, actor, input, now);
+  const pool = await poolFor(repo, actor);
+  const byId = new Map(pool.map((e) => [e.id, e]));
+  const ids = [...new Set((input.questionIds ?? []).map(s))].filter((id) => byId.get(id)?.kind === "MCQ");
+  let targets = [...new Set((input.targets ?? []).map(s).filter((c) => isNafsCode(c) || isMoeCode(c)))];
+  if (!targets.length) targets = [...new Set(ids.map((id) => byId.get(id)!.standard ?? byId.get(id)!.nafsCode))];
+  if (!targets.length) throw new ValidationError("Choose at least one NAFS skill or Ministry standard.");
+  return createNafsPractice(repo, actor, { ...input, targets: targets.slice(0, 13), questionIds: input.wholeBank ? null : ids.filter((id) => targets.some((t) => matchesTarget(byId.get(id)!, t))) }, now);
+}
+
+/** The targets an adaptive test adapts over: its saved targets, else the standards (or skills) of its questions. */
+export async function adaptiveTargets(repo: Repo, actor: Actor, settings: unknown, questionIds: string[]): Promise<string[]> {
+  const st = settings && typeof settings === "object" ? (settings as { targets?: unknown; codes?: unknown }) : {};
+  const saved = [...(Array.isArray(st.targets) ? st.targets : []), ...(Array.isArray(st.codes) ? st.codes : [])].map(s).filter((c) => isNafsCode(c) || isMoeCode(c));
+  if (saved.length) return [...new Set(saved)].slice(0, 13);
+  const idx = new Map((await nafsIndex(repo, actor.schoolId ?? "")).map((e) => [e.id, e]));
+  return [...new Set(questionIds.map((id) => idx.get(id)).filter(Boolean).map((e) => e!.standard ?? e!.nafsCode))].slice(0, 13);
+}
+export const isAdaptiveTest = (settings: unknown): boolean => {
+  const st = settings && typeof settings === "object" ? (settings as { adaptive?: unknown; difficulty?: unknown }) : {};
+  return st.adaptive === true || isAdaptiveChoice(st.difficulty);
+};
+
+/**
+ * "Assign online" of a saved test. A fixed test goes as it is (assignNafsOnline). An ADAPTIVE test is delivered by the
+ * adaptive practice engine (start Medium, harder after a right answer, easier after a wrong one, inside the test's
+ * standards) with the test's number of questions and time — stored in the NAFS practice tables only; on paper the same
+ * test prints its Mixed list.
+ */
+export async function assignNafsTestOnline(repo: Repo, actor: Actor, input: { testId: string; classId: string; openAt?: Date | null; dueAt?: Date | null; timeLimitMin?: number | null; studentIds?: string[] | null }, now = new Date()): Promise<{ students: number; adaptive: boolean; practiceId?: string }> {
+  const test = await getNafsTest(repo, actor, s(input.testId));
+  if (!isAdaptiveTest(test.settings)) return { ...(await assignNafsOnline(repo, actor, input, now)), adaptive: false };
+  const targets = await adaptiveTargets(repo, actor, test.settings, test.questionIds);
+  const r = await createNafsPractice(repo, actor, {
+    title: test.title, targets, questionIds: null, classId: s(input.classId), studentIds: input.studentIds ?? null,
+    maxQuestions: Math.max(1, Math.min(60, test.questionIds.length)), timeLimitMin: input.timeLimitMin ?? test.timeLimitMin, dueAt: input.dueAt ?? null,
+  }, now);
+  return { students: r.students, adaptive: true, practiceId: r.id };
 }

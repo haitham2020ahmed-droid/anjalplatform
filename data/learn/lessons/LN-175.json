@@ -1,0 +1,496 @@
+{
+ "code": "LN-175",
+ "title": "How setting shapes a story",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.3",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "plot-setting"
+ ],
+ "skillNames": [
+  "Setting, Mood and Tone"
+ ],
+ "statements": [
+  "R-0293",
+  "R-0462",
+  "R-0463",
+  "R-0478",
+  "R-0636",
+  "R-0648",
+  "R-0667",
+  "R-0838",
+  "R-0857",
+  "R-0983",
+  "R-0996"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is the setting?",
+     "text": "The **setting** is **where** and **when** a story happens.\n\nIt can be a beach, a school or a farm. It can be morning, night or winter."
+    },
+    {
+     "title": "Setting makes things happen",
+     "text": "The setting can **cause** events in the story.\n\nA hot day can make a character thirsty. A dark night can make a character get lost."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Find words that tell **where** and **when**.\n2. Find words about the **weather** or the place.\n3. Ask: **What happens because of the setting?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the sentences that describe the **place**, **time** or **weather**.\n2. Find what the character **does**.\n3. Check: did the setting **make** it happen?\n\nThe setting sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rakan and his dad camped in the desert.",
+      "role": "detail"
+     },
+     {
+      "t": "At night, the air became very cold.",
+      "role": "key"
+     },
+     {
+      "t": "Rakan put on his thick jacket and sat close to the fire.",
+      "role": "main"
+     }
+    ],
+    "explain": "The setting is the **desert at night**. It was **very cold**.\n\nThe cold night made Rakan put on his jacket and sit by the fire. The setting caused what he did."
+   },
+   "together": {
+    "passage": "Faisal and his family went to the beach. The sun was very hot. The sand burned Faisal's feet. He ran to the cool water and jumped in.",
+    "stem": "What in the setting makes Faisal run into the water?",
+    "options": [
+     "The water was cold and dark.",
+     "The hot sand burned his feet.",
+     "His father told him to swim.",
+     "It started to rain."
+    ],
+    "answer": 1,
+    "hint": "Is that in the story? Look at what the sun and the sand did.",
+    "good": "Yes! The hot sun made the sand burn his feet, so he ran into the cool water."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal and his family went to the beach.",
+     "The sun was very hot.",
+     "The sand burned Faisal's feet.",
+     "He ran to the cool water and jumped in."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: the hot sand burned his feet. Tap the 2 sentences about the setting that made him run.",
+    "wrong": "This sentence does not tell about the heat. Find the sentences about the sun and the sand."
+   },
+   "checks": [
+    {
+     "passage": "The power went out at night. The house was very dark. Huda could not find her book. She lit a candle.",
+     "stem": "What in the setting made Huda light a candle?",
+     "options": [
+      "The house was dark.",
+      "Her book was at school.",
+      "It was very hot.",
+      "Huda was hungry."
+     ],
+     "answer": 0,
+     "why": "It was night and the power was out, so the house was dark. She needed light."
+    },
+    {
+     "passage": "Yousef lives in a town high in the mountains. In winter, snow covers the roads. One morning, the school bus could not come. Yousef stayed home and helped his father clear the snow.",
+     "stem": "Why could the bus not come?",
+     "options": [
+      "The driver was sick.",
+      "It was a holiday.",
+      "Snow covered the roads.",
+      "Yousef woke up late."
+     ],
+     "answer": 2,
+     "why": "The setting is a mountain town in winter. Snow covered the roads, so the bus could not come."
+    },
+    {
+     "passage": "Early in the morning, the farm was quiet. Mona walked to the hen house. She found six brown eggs.",
+     "stem": "What is the setting of this story?",
+     "options": [
+      "A school at night",
+      "A beach in the evening",
+      "A shop at noon",
+      "A farm early in the morning"
+     ],
+     "answer": 3,
+     "why": "'Early in the morning' tells when. 'The farm' tells where."
+    }
+   ],
+   "again": {
+    "title": "Where, when, what happened?",
+    "text": "Ask three questions:\n\n1. **Where** is it?\n2. **When** is it?\n3. **What happened because of** where and when?",
+    "example": "It was a windy day at the park. Ziad's hat flew away.\n\nWhere? **The park.** When? **A windy day.** What happened? **The wind blew his hat away.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "More than a place",
+     "text": "The **setting** is the **place**, the **time** and the **conditions** (weather, sounds, light) of a story.\n\nGood authors use the setting to make the story work."
+    },
+    {
+     "title": "Setting and plot",
+     "text": "The setting can create a **problem** in the plot.\n\nA flood, a fog at sea or a broken lift can cause the trouble a character must solve."
+    },
+    {
+     "title": "Setting and characters",
+     "text": "The setting changes how characters **feel** and **act**.\n\nA new school may make a character shy. A busy market may make a character excited."
+    },
+    {
+     "title": "Setting and mood",
+     "text": "The **mood** is the feeling a story gives **you**, the reader.\n\nDark, creaking places create a **scary** mood. Bright lights and laughter create a **happy** mood."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Underline the **describing words** about the place, time and weather.\n2. Ask: how do these make the **character** feel or act?\n3. Ask: how do they make **me** feel?\n\nThe describing sentences are your proof for mood. The character's actions are your proof for effects."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The hospital waiting room was white and silent.",
+      "role": "key"
+     },
+     {
+      "t": "A clock ticked loudly on the wall.",
+      "role": "key"
+     },
+     {
+      "t": "Nora sat on the edge of her chair, twisting her scarf in her hands.",
+      "role": "main"
+     },
+     {
+      "t": "Her grandfather was still with the doctor.",
+      "role": "other"
+     }
+    ],
+    "explain": "The **silent** room and the **loud ticking** clock create a **worried, tense** mood.\n\nThe setting also affects Nora: she sits on the edge of her chair and twists her scarf."
+   },
+   "together": {
+    "passage": "The old house at the end of the street had been empty for years. Its windows were cracked, and the garden was full of dry weeds. When Saleh's football bounced over the wall, his friends stepped back. 'You kicked it,' they said. Saleh climbed the wall slowly. The wind made the broken shutters bang, and something rustled in the weeds. His heart pounded. Then a small grey cat jumped out, and Saleh laughed so hard he almost fell off the wall.",
+    "stem": "What mood does the setting create before the cat jumps out?",
+    "options": [
+     "Calm and peaceful",
+     "Happy and excited",
+     "Tense and spooky",
+     "Bright and cheerful"
+    ],
+    "answer": 2,
+    "hint": "Look at how the house is described: cracked, banging, rustling. How does that make you feel?",
+    "good": "Yes! The empty house, cracked windows, banging shutters and rustling weeds make the story feel tense and spooky."
+   },
+   "evidence": {
+    "sentences": [
+     "The old house at the end of the street had been empty for years.",
+     "Its windows were cracked, and the garden was full of dry weeds.",
+     "When Saleh's football bounced over the wall, his friends stepped back.",
+     "'You kicked it,' they said.",
+     "Saleh climbed the wall slowly.",
+     "The wind made the broken shutters bang, and something rustled in the weeds.",
+     "His heart pounded.",
+     "Then a small grey cat jumped out, and Saleh laughed so hard he almost fell off the wall."
+    ],
+    "proof": [
+     0,
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: tense and spooky. Tap 2 sentences that describe the setting and build this mood.",
+    "wrong": "This sentence tells what the characters do or say. Find sentences that describe the house, the garden or the sounds."
+   },
+   "checks": [
+    {
+     "passage": "Hind's family moved from a busy city to a quiet farm. At first she missed the noise of cars and the shops near her old home. But after a month, she loved waking to the sound of birds and feeding the goats before school.",
+     "stem": "How does the new setting affect Hind?",
+     "options": [
+      "She grows bored of the farm animals.",
+      "She wants to move back to the city at once.",
+      "She stops going to school.",
+      "She misses the city at first but grows to love the farm."
+     ],
+     "answer": 3,
+     "why": "At first she misses the city, but after a month she loves the birds and the goats. The setting changes her feelings."
+    },
+    {
+     "passage": "The fishing boat was far from shore when the fog rolled in. Captain Jaber could not see the lighthouse or the other boats. He turned off the engine and listened for the sound of waves on the rocks.",
+     "stem": "How does the setting cause a problem in the plot?",
+     "options": [
+      "The fog makes it hard to find the way.",
+      "The boat runs out of fuel at sea.",
+      "The fish are too hard to catch.",
+      "The lighthouse is closed for the night."
+     ],
+     "answer": 0,
+     "why": "The fog hides the lighthouse and the other boats, so the captain cannot see where to go."
+    },
+    {
+     "passage": "Lanterns glowed along the street. The smell of fresh bread and sweets came from every house. Children in new clothes ran from door to door, calling 'Eid Mubarak!'",
+     "stem": "What mood does the setting create?",
+     "options": [
+      "Quiet and lonely",
+      "Joyful and festive",
+      "Tense and worried",
+      "Gloomy and dull"
+     ],
+     "answer": 1,
+     "why": "Glowing lanterns, sweet smells and children greeting each other for Eid create a joyful, festive mood."
+    }
+   ],
+   "again": {
+    "title": "Change the setting",
+    "text": "Imagine the **same story** in a **different** setting.\n\nWhat would change? The problem? The characters' feelings? The mood?\n\nWhatever changes shows what the setting was doing.",
+    "example": "Saleh climbs into a **sunny, tidy garden** full of flowers.\n\nNow the story is not spooky at all, and his heart would not pound. The **dark, empty house** created the tension."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Setting shapes characters",
+     "text": "The setting can **change** a character over time, or show what the character is **really like**.\n\nWatch how a character **responds** to the place: do they complain, adapt, explore or lead?"
+    },
+    {
+     "title": "Setting and conflict",
+     "text": "Sometimes the setting itself is the **conflict**: a storm, a desert, a rising tide. The character must struggle **against** it.\n\nThe setting can also open or close **choices** in the plot."
+    },
+    {
+     "title": "Setting and tone",
+     "text": "**Mood** is how the reader feels. **Tone** is the **author's attitude**.\n\nAn author who describes a city as 'rushing', 'blaring' and 'without a glance' may be showing a **critical** tone toward busy modern life."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find how the setting is described **at the start**.\n2. Find how the character **reacts** to it, and whether that reaction **changes**.\n3. Link a setting detail to a character action.\n\nThe strongest proof shows **both** the setting and its effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The tent shook as the wind howled across the dunes.",
+      "role": "detail"
+     },
+     {
+      "t": "Sand crept under the door flap and into every bag.",
+      "role": "detail"
+     },
+     {
+      "t": "Young Fahd, who usually complained about everything, quietly pinned the flap shut and helped his little sister into her sleeping bag.",
+      "role": "key"
+     },
+     {
+      "t": "'We'll be fine,' he told her, though his voice shook.",
+      "role": "key"
+     }
+    ],
+    "explain": "The harsh setting (howling wind, sand everywhere) puts the characters in danger.\n\nIt also **reveals** something new about Fahd: in a real crisis, he becomes **calm and protective**, even though he is scared."
+   },
+   "together": {
+    "passage": "The summer Laila spent at her aunt's house in the mountain village of Al-Soudah was nothing like her life in Riyadh. Fog drifted between the juniper trees each afternoon, and the air smelled of rain. At first, Laila stayed inside with her tablet, complaining that there was nothing to do and that her shoes were always muddy. But the internet was weak, and the fog made the village look as if it were floating in a cloud. One morning, she followed her cousins down a narrow path to a field of wild flowers. By the end of the summer, Laila was the one waking everyone early to go walking.",
+    "stem": "How does the setting change Laila?",
+    "options": [
+     "It makes her more afraid of nature.",
+     "It makes her miss her tablet more each day.",
+     "It makes her want to leave the village early.",
+     "It turns her from bored to eager to explore."
+    ],
+    "answer": 3,
+    "hint": "Compare Laila at the start of the summer with Laila at the end. What does she do differently?",
+    "good": "Yes! At first she complains and stays inside, but the foggy mountains draw her out until she is the one leading the walks."
+   },
+   "evidence": {
+    "sentences": [
+     "The summer Laila spent at her aunt's house in the mountain village of Al-Soudah was nothing like her life in Riyadh.",
+     "Fog drifted between the juniper trees each afternoon, and the air smelled of rain.",
+     "At first, Laila stayed inside with her tablet, complaining that there was nothing to do and that her shoes were always muddy.",
+     "But the internet was weak, and the fog made the village look as if it were floating in a cloud.",
+     "One morning, she followed her cousins down a narrow path to a field of wild flowers.",
+     "By the end of the summer, Laila was the one waking everyone early to go walking."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the setting turns her from bored to eager to explore. Tap 2 sentences that show Laila before and after the change.",
+    "wrong": "This sentence describes the place, but not how Laila changes. Find what Laila does at the start and at the end."
+   },
+   "checks": [
+    {
+     "passage": "The city never slept. Horns blared at midnight, lights flashed on every building, and people rushed past each other without a glance, each one staring at a small glowing screen.",
+     "stem": "What tone does the author's description of the setting show?",
+     "options": [
+      "Admiring and proud of the city",
+      "Calm and relaxed about city life",
+      "Critical of busy, disconnected city life",
+      "Joyful, as if celebrating a holiday"
+     ],
+     "answer": 2,
+     "why": "Words like 'blared', 'rushed' and 'without a glance' show the author disapproves of how busy and disconnected people are."
+    },
+    {
+     "passage": "When the sandstorm hit, the travellers' guide disappeared into the swirling dust. The others panicked and wanted to run. But Fatima remembered her grandfather's advice: in a storm, stay still and stay together. She gathered the group behind the cars and made them sit close until the wind dropped.",
+     "stem": "What does the setting reveal about Fatima?",
+     "options": [
+      "She is very afraid of the desert.",
+      "She stays calm and leads in danger.",
+      "She knows how to call the guide.",
+      "She has never travelled before."
+     ],
+     "answer": 1,
+     "why": "While the others panic in the storm, Fatima remembers good advice and keeps the group together. The setting reveals her calm leadership."
+    },
+    {
+     "passage": "The stone path to the small island could only be crossed at low tide. Marwan and his sister walked across to explore the rock pools. They were so busy watching the crabs that they did not notice the water rising around the path.",
+     "stem": "How is the setting most likely to affect what happens next?",
+     "options": [
+      "The rising tide may trap them on the island.",
+      "They will catch many crabs to take home.",
+      "Workers will build a bridge to the island.",
+      "Their parents will buy them a boat."
+     ],
+     "answer": 0,
+     "why": "The path can only be crossed at low tide, and the water is rising. The setting creates the danger of being cut off."
+    }
+   ],
+   "again": {
+    "title": "Before and after",
+    "text": "Draw two pictures of the character: **arriving** in the setting and **at the end**.\n\nUnder each, write one sentence from the text. Then ask: **what in the setting caused the difference?**",
+    "example": "Arriving: 'Laila stayed inside with her tablet, complaining.'\nAt the end: 'Laila was the one waking everyone early.'\n\nCause: the weak internet and the magical, foggy mountains drew her outside."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Time and place shape lives",
+     "text": "A setting includes the **historical period**, the **community** and its **way of life**.\n\nThese shape what characters **value**, what work they do and what **choices** they have."
+    },
+    {
+     "title": "Setting drives the plot",
+     "text": "The setting can **limit** a character's options or **force** a decision. A village with no high school, a time before roads, a family that depends on one kind of work: each creates conflict.\n\nAsk: **Could this plot happen in a different time or place?**"
+    },
+    {
+     "title": "Setting with meaning",
+     "text": "Sometimes a place carries **meaning** for a character: an orchard that holds family memories, a house that stands for the past.\n\nWhen characters see the same place differently, the setting creates **conflict** between them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong analysis links **three** things:\n\n1. A detail about the **time or place**.\n2. What that detail means for the **character's situation**.\n3. The **choice or event** that follows.\n\nReject answers that ignore the setting or that the text does not support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the narrow lanes of the old quarter, every family knew every other family's business.",
+      "role": "key"
+     },
+     {
+      "t": "When Zainab's father lost his job, the news reached the bakery before he reached home.",
+      "role": "detail"
+     },
+     {
+      "t": "By evening, neighbours had left rice, oil and bread at their door without a word.",
+      "role": "main"
+     },
+     {
+      "t": "Zainab, who had always hated how little privacy they had, cried as she carried the bags inside.",
+      "role": "key"
+     }
+    ],
+    "explain": "The close-knit setting has two sides: no privacy, but quick help.\n\nIt **drives the plot** (the neighbours help) and **changes Zainab**: she sees the value of the community she used to resent."
+   },
+   "together": {
+    "passage": "In the summer of that year, the pearling boats left the shore for four months at sea. Twelve-year-old Ahmad watched from the beach as his older brother climbed aboard, a nose clip tied around his neck. Every family in the town depended on the pearls the divers brought up; there was little other work for young men. Ahmad had begged to go too, but his mother needed him to fetch water from the town well and carry dates from the market. Through the long, hot weeks, he climbed the watchtower each evening to look for sails. When the boats finally returned, his brother was thin and silent, and his hands were scarred by the sharp oyster shells. That night, Ahmad put away the small diving weight he had been secretly practising with, and the next morning he asked the teacher at the mosque school to teach him to read and write.",
+    "stem": "How does the setting shape Ahmad's final decision?",
+    "options": [
+     "Seeing what pearl diving costs leads him to choose learning instead.",
+     "The hot weather makes him want to live in a cooler land.",
+     "His mother forces him to stop practising diving at night.",
+     "The watchtower makes him want to become a town guard."
+    ],
+    "answer": 0,
+    "hint": "Is that in the text? Think about what life in this pearling town offered young men, and what Ahmad sees when his brother returns.",
+    "good": "Yes! In a town where pearling was almost the only work, Ahmad sees its cost on his brother and chooses a different path: learning."
+   },
+   "evidence": {
+    "sentences": [
+     "In the summer of that year, the pearling boats left the shore for four months at sea.",
+     "Twelve-year-old Ahmad watched from the beach as his older brother climbed aboard, a nose clip tied around his neck.",
+     "Every family in the town depended on the pearls the divers brought up; there was little other work for young men.",
+     "Ahmad had begged to go too, but his mother needed him to fetch water from the town well and carry dates from the market.",
+     "Through the long, hot weeks, he climbed the watchtower each evening to look for sails.",
+     "When the boats finally returned, his brother was thin and silent, and his hands were scarred by the sharp oyster shells.",
+     "That night, Ahmad put away the small diving weight he had been secretly practising with, and the next morning he asked the teacher at the mosque school to teach him to read and write."
+    ],
+    "proof": [
+     2,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: seeing what pearl diving costs leads him to choose learning. Tap 2 sentences that show the setting's hard life or Ahmad's choice.",
+    "wrong": "This sentence sets the scene or shows Ahmad waiting. Find the town's dependence on pearls, the cost to his brother, or Ahmad's decision."
+   },
+   "checks": [
+    {
+     "passage": "The orchard behind the house had belonged to the family for four generations. When a company offered a large sum to buy it, everyone agreed except Grandmother, who walked between the lemon trees every evening, touching their trunks as if greeting old friends.",
+     "stem": "Why does the setting create conflict in this story?",
+     "options": [
+      "The lemon trees are sick and the family cannot save them.",
+      "The orchard means family history to Grandmother, but money to others.",
+      "The company wants to plant even more lemon trees there.",
+      "Grandmother is too tired to walk in the orchard."
+     ],
+     "answer": 1,
+     "why": "Grandmother treats the trees like old friends from four generations; the others see the sale price. The same place means different things to them."
+    },
+    {
+     "passage": "The village school had only one classroom, and the nearest secondary school was three hours away by road. When Asma finished grade six with the best marks in the region, her parents sat up late, talking in low voices.",
+     "stem": "What problem does the setting create for Asma's future?",
+     "options": [
+      "She does not like her village teachers.",
+      "She has no friends of her own age.",
+      "Her marks are not high enough.",
+      "Studying further means going far away."
+     ],
+     "answer": 3,
+     "why": "The nearest secondary school is three hours away, so continuing her education would mean leaving home. That is why her parents talk late into the night."
+    },
+    {
+     "passage": "Long ago, before paved roads crossed the desert, a trip from the coast to the capital took many days by camel. When word came that Hamad's father had fallen ill in the capital, Hamad joined the next caravan, knowing he might arrive too late.",
+     "stem": "How does the time period affect Hamad's situation?",
+     "options": [
+      "It lets him reach his father by plane in hours.",
+      "It means he can phone his father every day.",
+      "It makes the trip slow, so he may arrive too late.",
+      "It shows he does not care about his father."
+     ],
+     "answer": 2,
+     "why": "Without roads, the journey takes many days. The setting creates the tension: he may not reach his father in time."
+    }
+   ],
+   "again": {
+    "title": "Move the story",
+    "text": "Imagine moving the story to **today** or to **a big city**.\n\n1. Would the character face the same problem?\n2. Would they make the same choice?\n\nIf the answer is no, the setting is doing important work.",
+    "example": "If Asma lived in a city with a secondary school next door, there would be no hard decision.\n\nThe **remote village** creates her problem."
+   }
+  }
+ }
+}

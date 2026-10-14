@@ -62,11 +62,12 @@ describe("Update 25 · goals, the curriculum plan and the family", () => {
     assert.deepEqual([v.goal?.target, v.goal?.correct, v.goal?.reached], [5, 0, false]);
     // wrong, right, wrong, right … until 5 correct
     let i = 0;
-    while (!v.goal!.reached) { v = await answer(st, aid, v, i % 2 === 1, new Date((clock += 30_000))); i++; assert.ok(i < 40, "the goal is reachable"); }
-    assert.equal(v.goal!.correct, 5);
-    assert.ok(i >= 9, "about twice as many answers as the goal");
+    // r67 (owner): Curriculum Map practice needs at least 30 counted answers before the goal can make it Done — or
+    // every question of the set when it has fewer (18 here); the goal of correct answers still has to be met
+    while (!v.goal!.reached) { v = await answer(st, aid, v, i % 2 === 1, new Date((clock += 30_000))); i++; assert.ok(i < 40, "the goal is reachable"); if (!v.question && !v.goal!.reached) break; }
+    assert.ok(v.goal!.reached && v.goal!.correct >= 5, JSON.stringify(v.goal));
+    assert.equal(i, 18, "not before the whole (short) set was answered");
     assert.equal((await assignedSkills(repo, st)).items.find((x) => x.assignmentId === aid)!.status, "COMPLETED");
-    assert.ok(v.question, "the student may keep practising after the goal");
   });
 
   let planId = "";

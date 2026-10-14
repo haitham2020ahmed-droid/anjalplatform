@@ -1,0 +1,458 @@
+{
+ "code": "LN-084",
+ "title": "Plural nouns and their spelling",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "plural-nouns",
+  "spelling"
+ ],
+ "skillNames": [
+  "Irregular Plural Nouns",
+  "Singular and Plural Nouns",
+  "Singular, Plural and Irregular Plural Nouns",
+  "Spelling Plural Nouns (-s, -es, -ies)"
+ ],
+ "statements": [
+  "L-0115",
+  "L-0116",
+  "L-0224",
+  "L-0230",
+  "L-0231",
+  "L-0307",
+  "L-0309"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "One or more",
+     "text": "A **singular** noun names **one** thing: one cat.\n\nA **plural** noun names **more than one**: two cat**s**."
+    },
+    {
+     "title": "Just add -s",
+     "text": "Most nouns just add **-s**.\n\nbook → book**s**\npen → pen**s**\ntree → tree**s**"
+    },
+    {
+     "title": "Sometimes add -es",
+     "text": "If a word ends in **s, x, ch** or **sh**, add **-es**.\n\nbus → bus**es**\nbox → box**es**\ndish → dish**es**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the words that name **more than one**.\n2. Look at how each one ends.\n3. Check: does it need -s or -es?\n\nThe sentence with the wrong ending is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I have two boxs.",
+      "role": "key"
+     },
+     {
+      "t": "They are full of toys.",
+      "role": "other"
+     }
+    ],
+    "explain": "**box** ends in **x**, so we add **-es**: **boxes**."
+   },
+   "together": {
+    "passage": "We went to the market. Mom got three dishs. Dad got some cups. I got two pens.",
+    "stem": "What is the right way to write the plural in sentence 2?",
+    "options": [
+     "dishs",
+     "dishes",
+     "dishies",
+     "dish"
+    ],
+    "answer": 1,
+    "hint": "dish ends in sh. What do we add after s, x, ch or sh?",
+    "good": "Yes! dish ends in sh, so we add -es: dishes."
+   },
+   "evidence": {
+    "sentences": [
+     "We went to the market.",
+     "Mom got three dishs.",
+     "Dad got some cups.",
+     "I got two pens."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the plural that is spelled wrong.",
+    "wrong": "The plural in this sentence is right. Find the one with the wrong ending."
+   },
+   "checks": [
+    {
+     "passage": "I can see five ___ on the tree.",
+     "stem": "Which word fits?",
+     "options": [
+      "bird",
+      "birds",
+      "birdes",
+      "birdies"
+     ],
+     "answer": 1,
+     "why": "bird does not end in s, x, ch or sh, so we just add -s: birds."
+    },
+    {
+     "passage": "The kids rode two buss to the zoo.",
+     "stem": "How do you spell the plural of bus?",
+     "options": [
+      "buss",
+      "busies",
+      "bus",
+      "buses"
+     ],
+     "answer": 3,
+     "why": "bus ends in s, so we add -es: buses."
+    },
+    {
+     "passage": "Ali has three brushs for painting.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "Ali",
+      "three",
+      "brushs",
+      "painting"
+     ],
+     "answer": 2,
+     "why": "brush ends in sh, so the plural is brushes."
+    }
+   ],
+   "again": {
+    "title": "Listen for the extra part",
+    "text": "Say the plural out loud.\n\nbox → box-**es**: you hear an extra part. Write **-es**.\n\ncat → cats: no extra part. Write **-s**.",
+    "example": "fox → fox-es (2 parts) → **foxes**\n\ndog → dogs (1 part) → **dogs**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Add -es after s, x, ch, sh",
+     "text": "Words ending in **s, x, ch** or **sh** add **-es**.\n\nclass → class**es**\nfox → fox**es**\nbench → bench**es**\nwish → wish**es**\n\nYou can **hear** the extra part: bench-**es**."
+    },
+    {
+     "title": "Consonant + y",
+     "text": "If a word ends in a **consonant + y**, change the **y to i** and add **-es**.\n\ncity → cit**ies**\nbaby → bab**ies**\nlibrary → librar**ies**"
+    },
+    {
+     "title": "Check the ending",
+     "text": "1. Look at the last letters.\n2. s, x, ch, sh? → add -es\n3. consonant + y? → change y to i, add -es\n4. Most other words → just add -s"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each plural noun in the text.\n2. Think of the singular word and its ending.\n3. Use the rule for that ending.\n\nThe sentence where a plural breaks the rule is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our town has two libraries.",
+      "role": "key"
+     },
+     {
+      "t": "Both have long benches outside.",
+      "role": "key"
+     },
+     {
+      "t": "I visit them on weekends.",
+      "role": "other"
+     }
+    ],
+    "explain": "**library** ends in consonant + y, so it becomes **libraries**.\n\n**bench** ends in ch, so it becomes **benches**."
+   },
+   "together": {
+    "passage": "Saudi Arabia has many busy cities. In the mornings, people ride buses and drive cars to work. Children carry their lunchboxs to school. Shops open their doors, and workers carry boxes of fresh bread.",
+    "stem": "Which plural is spelled wrong?",
+    "options": [
+     "cities",
+     "buses",
+     "lunchboxs",
+     "boxes"
+    ],
+    "answer": 2,
+    "hint": "Check each word that ends in x. What must be added?",
+    "good": "Yes! lunchbox ends in x, so we add -es: lunchboxes, just like boxes."
+   },
+   "evidence": {
+    "sentences": [
+     "Saudi Arabia has many busy cities.",
+     "In the mornings, people ride buses and drive cars to work.",
+     "Children carry their lunchboxs to school.",
+     "Shops open their doors, and workers carry boxes of fresh bread."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled plural.",
+    "wrong": "The plurals in this sentence follow the rules. Look for one that breaks a rule."
+   },
+   "checks": [
+    {
+     "passage": "The farmer picked two ___ of dates.",
+     "stem": "Which plural fits?",
+     "options": [
+      "bunchs",
+      "bunches",
+      "bunchies",
+      "bunch"
+     ],
+     "answer": 1,
+     "why": "bunch ends in ch, so we add -es: bunches."
+    },
+    {
+     "passage": "We read stories every night.",
+     "stem": "Why is story spelled stories?",
+     "options": [
+      "It ends in s.",
+      "It is a compound word.",
+      "It ends in sh.",
+      "It ends in a consonant + y."
+     ],
+     "answer": 3,
+     "why": "story ends in r + y, a consonant + y, so y changes to i and we add -es."
+    },
+    {
+     "passage": "Our teacher gave us two new dictionarys.",
+     "stem": "What is the correct plural?",
+     "options": [
+      "dictionarys",
+      "dictionaryes",
+      "dictionaries",
+      "dictionary"
+     ],
+     "answer": 2,
+     "why": "dictionary ends in r + y, so y changes to i: dictionaries."
+    }
+   ],
+   "again": {
+    "title": "Check the last two letters",
+    "text": "Look at the **last two letters** of the word.\n\n**ch, sh, ss, x** → add -es\n**consonant + y** (ry, ty, by) → change y to i, add -es",
+    "example": "party → ends in t + y → **parties**\n\nglass → ends in ss → **glasses**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Regular plurals",
+     "text": "Most nouns are **regular**: they just add **-s**.\n\nteacher**s**, camel**s**, idea**s**, garden**s**\n\nNever use an apostrophe to make a plural.\nWrong: apple's. Right: **apples**."
+    },
+    {
+     "title": "Vowel + y: just add -s",
+     "text": "If a word ends in a **vowel + y** (ay, ey, oy), just add **-s**.\n\nday → day**s**\nkey → key**s**\nboy → boy**s**\n\nDo **not** change the y. Not: daies, keies."
+    },
+    {
+     "title": "Look before the y",
+     "text": "Look at the letter **before** the y.\n\nconsonant: cit**y** → cit**ies**\nvowel: vall**ey** → valley**s**\n\nOne letter decides the rule."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each plural in the text.\n2. Write its singular form.\n3. Check the ending: s/x/ch/sh? consonant + y? vowel + y? regular?\n4. Does the plural follow that rule?\n\nPoint to the sentence where the plural breaks the rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "During the holidays, we drove through two green valleys.",
+      "role": "key"
+     },
+     {
+      "t": "We stopped in small cities along the way.",
+      "role": "key"
+     },
+     {
+      "t": "My brothers took many pictures.",
+      "role": "other"
+     }
+    ],
+    "explain": "**holiday** and **valley** end in vowel + y, so they just add -s.\n\n**city** ends in consonant + y, so it becomes **cities**."
+   },
+   "together": {
+    "passage": "Every year, our school holds a sports day. Students from different classes compete in races and games. The younger boys hand out water to the runners. At the end of the day, the winners receive medals and small trophys. Families take pictures, and everyone goes home tired but happy.",
+    "stem": "Which plural is spelled wrong?",
+    "options": [
+     "trophys",
+     "classes",
+     "boys",
+     "Families"
+    ],
+    "answer": 0,
+    "hint": "Look at the words that end in y. What letter comes before the y?",
+    "good": "Yes! trophy ends in h + y, a consonant + y, so it becomes trophies."
+   },
+   "evidence": {
+    "sentences": [
+     "Every year, our school holds a sports day.",
+     "Students from different classes compete in races and games.",
+     "The younger boys hand out water to the runners.",
+     "At the end of the day, the winners receive medals and small trophys.",
+     "Families take pictures, and everyone goes home tired but happy."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled plural.",
+    "wrong": "The plurals here are correct. Boys ends in vowel + y, so it just adds -s."
+   },
+   "checks": [
+    {
+     "passage": "We spent three days in Abha. The weather was cool and pleasant.",
+     "stem": "Why is days spelled with just -s?",
+     "options": [
+      "Day ends in a consonant + y.",
+      "Day ends in a vowel + y.",
+      "Day ends in s.",
+      "Day is irregular."
+     ],
+     "answer": 1,
+     "why": "day ends in a + y. A vowel comes before the y, so we just add -s."
+    },
+    {
+     "passage": "The guard carries a ring of ___ for every door in the building.",
+     "stem": "Which plural is correct?",
+     "options": [
+      "keyes",
+      "kies",
+      "keies",
+      "keys"
+     ],
+     "answer": 3,
+     "why": "key ends in e + y, a vowel + y, so we just add -s: keys."
+    },
+    {
+     "passage": "The farmer sold baskets of berrys at the market.",
+     "stem": "What is the correct plural of berry?",
+     "options": [
+      "berryes",
+      "berrys",
+      "berries",
+      "berreys"
+     ],
+     "answer": 2,
+     "why": "berry ends in r + y, a consonant + y, so y changes to i: berries."
+    }
+   ],
+   "again": {
+    "title": "Look one letter back",
+    "text": "When a word ends in **y**, look **one letter back**.\n\nIs it **a, e, o** or **u**? Just add -s.\n\nIs it any other letter? Change y to i and add -es.",
+    "example": "toy → o is a vowel → **toys**\n\nfly → l is a consonant → **flies**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Irregular plurals",
+     "text": "Some nouns **change their spelling** instead of adding -s.\n\nchild → **children**, woman → **women**\nmouse → **mice**, tooth → **teeth**\nfoot → **feet**, goose → **geese**\n\nA few stay **the same**: sheep, deer, fish."
+    },
+    {
+     "title": "Words ending in f or fe",
+     "text": "Many change **f** to **v** and add -es or -s:\n\nleaf → lea**ves**, knife → kni**ves**, wolf → wol**ves**, half → hal**ves**\n\nBut some just add -s: roof → roof**s**, chief → chief**s**, cliff → cliff**s**."
+    },
+    {
+     "title": "Words ending in o",
+     "text": "Some add **-es**: tomato**es**, potato**es**, hero**es**, echo**es**.\n\nOthers add only **-s**: photo**s**, radio**s**, zoo**s**, kangaroo**s**.\n\nWhen you are not sure, check a dictionary."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each plural noun.\n2. Name its singular form.\n3. Ask: Is it regular, or in a special group (irregular, f/fe, o)?\n4. Check the spelling against the form you know.\n\nPoint to the sentence where the plural is spelled wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The shepherd led his sheep to the oasis.",
+      "role": "key"
+     },
+     {
+      "t": "Two wolves watched from the hills.",
+      "role": "key"
+     },
+     {
+      "t": "His dogs barked to warn them away.",
+      "role": "other"
+     }
+    ],
+    "explain": "**sheep** stays the same in the plural. **wolf** changes f to v: **wolves**.\n\nBoth special plurals are spelled correctly."
+   },
+   "together": {
+    "passage": "Our class visited a farm outside the city last week. First, the farmer showed us how to pick ripe tomatoes and potatoes. Then we fed a group of noisy gooses near the pond. Some of the younger children were a little afraid of them. Later, we sat under the date palms and ate sandwiches cut into halves. Before we left, the farmer gave each of us a bag of fresh mint leaves to take home.",
+    "stem": "Which plural is spelled wrong?",
+    "options": [
+     "potatoes",
+     "gooses",
+     "children",
+     "halves"
+    ],
+    "answer": 1,
+    "hint": "Some nouns change their spelling instead of adding -s. Which one should change?",
+    "good": "Yes! goose is irregular. The plural is geese, just as tooth becomes teeth."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class visited a farm outside the city last week.",
+     "First, the farmer showed us how to pick ripe tomatoes and potatoes.",
+     "Then we fed a group of noisy gooses near the pond.",
+     "Some of the younger children were a little afraid of them.",
+     "Later, we sat under the date palms and ate sandwiches cut into halves.",
+     "Before we left, the farmer gave each of us a bag of fresh mint leaves to take home."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled plural.",
+    "wrong": "The plurals in this sentence are correct. Look for an irregular noun that was given -s."
+   },
+   "checks": [
+    {
+     "passage": "The dentist said I have strong tooths.",
+     "stem": "What is the correct plural?",
+     "options": [
+      "tooth",
+      "toothes",
+      "teeths",
+      "teeth"
+     ],
+     "answer": 3,
+     "why": "tooth is irregular. Its plural is teeth."
+    },
+    {
+     "passage": "Mom cut the oranges into halfs and put them on a plate.",
+     "stem": "Which word is spelled wrong?",
+     "options": [
+      "oranges",
+      "halfs",
+      "plate",
+      "Mom"
+     ],
+     "answer": 1,
+     "why": "half changes f to v: halves."
+    },
+    {
+     "passage": "The photographer showed us dozens of photoes from her trip.",
+     "stem": "What is the correct plural of photo?",
+     "options": [
+      "photos",
+      "photoes",
+      "photies",
+      "photo"
+     ],
+     "answer": 0,
+     "why": "photo is one of the o-words that adds only -s: photos."
+    }
+   ],
+   "again": {
+    "title": "Learn the odd ones in pairs",
+    "text": "Irregular plurals do not follow one rule, so learn them in **pairs**.\n\nSay each pair out loud until it sounds right: one child, two children; one foot, two feet.",
+    "example": "goose → geese (like tooth → teeth)\n\nmouse → mice\n\nwoman → women"
+   }
+  }
+ }
+}

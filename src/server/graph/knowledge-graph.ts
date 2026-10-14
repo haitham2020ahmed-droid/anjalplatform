@@ -95,8 +95,7 @@ const RECENT_BATCH = 25;
  * crowds the others out of a shared window. Skills without a mastery row have no counted answers and need none.
  */
 export async function skillStates(repo: Repo, studentId: string, skillIds: string[]): Promise<Map<string, SkillState>> {
-  const out = new Map<string, SkillState>();
-  if (!skillIds.length) return out;
+  if (!skillIds.length) return new Map();
   const [mastery, abil] = await Promise.all([
     repo.findMany("StudentSkillMastery", { studentId, skillId: { in: skillIds } }, { select: ["skillId", "score", "attempts", "isMastered"] }),
     repo.findMany("StudentAbility", { studentId, scope: { in: skillIds.map((id) => `SKILL:${id}`) } }, { select: ["skillId", "theta"] }),
@@ -104,11 +103,46 @@ export async function skillStates(repo: Repo, studentId: string, skillIds: strin
   const practised = [...new Set(mastery.filter((r) => Number(r.attempts ?? 0) > 0).map((r) => s(r.skillId)))];
   const recent: Row[] = [];
   for (let i = 0; i < practised.length; i += RECENT_BATCH) {
-    const parts = await Promise.all(practised.slice(i, i + RECENT_BATCH).map((skillId) => repo.findMany("QuestionAttempt", { studentId, skillId }, {
-      select: ["skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: RECENT_PER_SKILL,
-    })));
+    const parts = await Promise.all(practised.slice(i, i + RECENT_BATCH).map((skillId) => recentAnswers(repo, studentId, skillId)));
     for (const p of parts) recent.push(...p);
   }
+  return statesOf(skillIds, mastery, abil, recent);
+}
+
+const recentAnswers = (repo: Repo, studentId: string, skillId: string) => repo.findMany("QuestionAttempt", { studentId, skillId }, {
+  select: ["skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: RECENT_PER_SKILL,
+});
+
+/**
+ * ⚡ skillStates of many students (a class): mastery and ability of all of them in 2 queries (was 2 per student, one
+ * student after another), then the recent answers of every practised (student, skill) pair, RECENT_BATCH at a time.
+ * Each student's states are exactly what skillStates gives.
+ */
+export async function skillStatesMany(repo: Repo, studentIds: string[], skillIds: string[]): Promise<Map<string, Map<string, SkillState>>> {
+  const out = new Map<string, Map<string, SkillState>>();
+  if (!studentIds.length) return out;
+  if (!skillIds.length) { for (const id of studentIds) out.set(id, new Map()); return out; }
+  const ids = [...new Set(studentIds)];
+  const [mastery, abil] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: skillIds } }, { select: ["studentId", "skillId", "score", "attempts", "isMastered"] }),
+    repo.findMany("StudentAbility", { studentId: { in: ids }, scope: { in: skillIds.map((id) => `SKILL:${id}`) } }, { select: ["studentId", "skillId", "theta"] }),
+  ]);
+  const group = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = s(r.studentId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
+  const mBy = group(mastery), aBy = group(abil);
+  const pairs: [string, string][] = [];
+  for (const id of ids) for (const k of new Set((mBy.get(id) ?? []).filter((r) => Number(r.attempts ?? 0) > 0).map((r) => s(r.skillId)))) pairs.push([id, k]);
+  const recent = new Map<string, Row[]>();
+  for (let i = 0; i < pairs.length; i += RECENT_BATCH) {
+    const part = pairs.slice(i, i + RECENT_BATCH);
+    const got = await Promise.all(part.map(([id, k]) => recentAnswers(repo, id, k)));
+    part.forEach(([id], j) => { const l = recent.get(id); if (l) l.push(...got[j]); else recent.set(id, [...got[j]]); });
+  }
+  for (const id of ids) out.set(id, statesOf(skillIds, mBy.get(id) ?? [], aBy.get(id) ?? [], recent.get(id) ?? []));
+  return out;
+}
+
+function statesOf(skillIds: string[], mastery: Row[], abil: Row[], recent: Row[]): Map<string, SkillState> {
+  const out = new Map<string, SkillState>();
   const m = new Map(mastery.map((r) => [s(r.skillId), r])), th = new Map(abil.map((r) => [s(r.skillId), Number(r.theta)]));
   const rec = new Map<string, Row[]>();
   for (const r of recent) { const l = rec.get(s(r.skillId)) ?? []; if (l.length < RECENT_PER_SKILL) l.push(r); rec.set(s(r.skillId), l); }
@@ -197,8 +231,9 @@ export async function classGaps(repo: Repo, studentIds: string[], curriculumId: 
   const ids = [...graph.nodes.keys()];
   const diagnoses = new Map<string, RootGap[]>();
   const by = new Map<string, { students: string[]; unblocks: Set<string>; sum: number }>();
+  const states = await skillStatesMany(repo, studentIds, ids);
   for (const sid of studentIds) {
-    const st = await skillStates(repo, sid, ids);
+    const st = states.get(sid) ?? new Map<string, SkillState>();
     const gaps = rootGaps(graph, st, true); // class groups: the strict rule
     diagnoses.set(sid, gaps);
     for (const gp of gaps.slice(0, 3)) {

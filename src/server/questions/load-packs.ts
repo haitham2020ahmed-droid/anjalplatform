@@ -12,6 +12,8 @@
  *            one booklet file per chunk; an invalid file is skipped and reported (src/server/nafs/booklets.ts)
  *   nafsPractice  NAFS practice sets (data/nafs/practice/NP-*.json) — passage + 10 questions with a difficulty into the
  *            NAFS center (Grade 6), one set per chunk; an invalid file is skipped and reported (src/server/nafs/practice-sets.ts)
+ *   learn    Learn lessons (data/learn/lessons/LN-*.json) — each valid lesson registered for the school (Learn lists,
+ *            Hide); an invalid file is skipped and reported (src/server/learn/load.ts)
  *
  * A pack whose file is missing is skipped. Every loader skips a question that is already there, so a chunk can be
  * run again (stop / resume, a second run) without adding anything twice.
@@ -29,12 +31,14 @@ import { remember } from "../cache/lru";
 import { readCacheFor } from "../db/read-cache-repo";
 import { bookletCount, bookletPackDir, bookletSignature, loadBookletsInto, readBooklets, type Booklet } from "../nafs/booklets";
 import { loadPracticeSetsInto, practiceCount, practicePackDir, practiceSignature, readPracticeSets } from "../nafs/practice-sets";
+import { learnPackDir, lessonSignature, readLessons } from "../learn/files";
+import { LEARN_PER_CHUNK, learnCount, loadLessonsInto } from "../learn/load";
 
 const s = (v: unknown) => String(v ?? "");
 
-export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "nafs" | "nafsPractice";
+export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "nafs" | "nafsPractice" | "learn";
 export interface PackDef {
-  key: PackKey; title: string; hint: string; file: string; kind: "skills" | "topup" | "map" | "nafs" | "nafsPractice";
+  key: PackKey; title: string; hint: string; file: string; kind: "skills" | "topup" | "map" | "nafs" | "nafsPractice" | "learn";
   /** add only to skills the school already has (never create one) */
   onlyExisting?: boolean;
   /** at most so many skill sets / map places in one chunk */
@@ -49,6 +53,7 @@ export const PACKS: readonly PackDef[] = [
   { key: "grammar", title: "Grammar extras", hint: "More grammar questions for the skills the school already has.", file: "grammar-extra-sets.json", kind: "skills", onlyExisting: true, perChunk: 3 },
   { key: "nafs", title: "NAFS model booklets", hint: "English NAFS model booklets (a text + its questions under the 13 Ministry standards) for the NAFS section's question bank.", file: "data/nafs/booklets", kind: "nafs", perChunk: 1 },
   { key: "nafsPractice", title: "NAFS practice sets", hint: "English NAFS practice sets (a short text + 10 questions with Easy / Medium / Hard) for the NAFS center's practice and tests.", file: "data/nafs/practice", kind: "nafsPractice", perChunk: 1 },
+  { key: "learn", title: "Learn lessons", hint: "Short lessons that explain each skill (slides, an example, practice together and 3 checks) for the Learn section.", file: "data/learn/lessons", kind: "learn", perChunk: 1 },
 ];
 export const packOf = (key: string): PackDef | undefined => PACKS.find((p) => p.key === key);
 
@@ -56,13 +61,14 @@ export const packOf = (key: string): PackDef | undefined => PACKS.find((p) => p.
 
 let packDir: string | null = null;
 /** Where the pack files are (default data/questions/sets). Tests point it at small files. */
-export function usePackDir(dir: string | null): void { packDir = dir; fileCache.clear(); bookletPackDir(dir); practicePackDir(dir); }
+export function usePackDir(dir: string | null): void { packDir = dir; fileCache.clear(); bookletPackDir(dir); practicePackDir(dir); learnPackDir(dir); }
 const dirOf = () => packDir ?? join(process.cwd(), "data", "questions", "sets");
 
 /** The file's signature (size + time): a changed file starts its pack again from the beginning. */
 export function packSignature(def: PackDef): string | null {
   if (def.kind === "nafs") return bookletSignature();
   if (def.kind === "nafsPractice") return practiceSignature();
+  if (def.kind === "learn") return lessonSignature() || null;
   const f = join(dirOf(), def.file);
   if (!existsSync(f)) return null;
   const st = statSync(f);
@@ -73,7 +79,7 @@ type Loaded = { sets: SkillSet[]; nodes?: undefined } | { nodes: MapSetNode[]; s
 const fileCache = new Map<string, { sig: string; p: Promise<Loaded> }>();
 /** The pack's content (read once per file version, kept for the next chunks), or null when the file is missing. */
 export async function loadPack(def: PackDef): Promise<Loaded | null> {
-  if (def.kind === "nafs" || def.kind === "nafsPractice") return null; // read by src/server/nafs/booklets.ts / practice-sets.ts
+  if (def.kind === "nafs" || def.kind === "nafsPractice" || def.kind === "learn") return null; // read by src/server/nafs/booklets.ts / practice-sets.ts / learn/files.ts
   const sig = packSignature(def);
   if (!sig) return null;
   const hit = fileCache.get(def.key);
@@ -112,6 +118,7 @@ export async function runPackChunk(repoIn: Repo, schoolId: string, def: PackDef,
   // once per chunk; writes drop what they change (db/read-cache-repo.ts)
   if (def.kind === "nafs") return runBookletChunk(repoIn, schoolId, from, opts, readBooklets(), loadBookletsInto, "NAFS model booklets");
   if (def.kind === "nafsPractice") return runBookletChunk(repoIn, schoolId, from, opts, readPracticeSets(), loadPracticeSetsInto, "NAFS practice sets");
+  if (def.kind === "learn") return runLearnChunk(repoIn, schoolId, from, opts);
   const repo = readCacheFor(repoIn);
   repo.clear();
   try { return await runChunk(repo, schoolId, def, from, opts); } finally { repo.clear(); }
@@ -131,6 +138,22 @@ async function runBookletChunk(repo: Repo, schoolId: string, from: number, opts:
     const b = r.valid.find((x) => x.file === file);
     if (b) { const w = await load(repo, schoolId, [b], null, opts.now ?? new Date()); out.added += w.added; out.skipped += w.skipped; }
   }
+  out.next++;
+  return out;
+}
+
+/** Learn lessons: LEARN_PER_CHUNK files per unit; an invalid file is reported and skipped. */
+async function runLearnChunk(repo: Repo, schoolId: string, from: number, opts: { now?: Date }): Promise<ChunkWork> {
+  const r = readLessons();
+  const total = Math.ceil(r.files.length / LEARN_PER_CHUNK);
+  const out: ChunkWork = { from, next: Math.max(0, Math.min(from, total)), total, added: 0, skipped: 0, created: 0, errors: [], notes: [] };
+  if (!total) { out.notes.push("The file of this pack is not on the server yet."); return out; }
+  const files = r.files.slice(out.next * LEARN_PER_CHUNK, (out.next + 1) * LEARN_PER_CHUNK);
+  for (const bad of r.invalid.filter((x) => files.includes(x.file))) out.errors.push(`${bad.file}: skipped — ${bad.problems.slice(0, 3).join("; ")}`);
+  const codes = [...r.valid.values()].filter((l) => files.includes(l.file)).map((l) => l.code);
+  const w = await loadLessonsInto(repo, schoolId, codes, opts.now ?? new Date());
+  out.added += w.added; out.skipped += w.skipped + w.updated;
+  if (w.updated) out.notes.push(`${w.updated} changed lesson(s) updated.`);
   out.next++;
   return out;
 }
@@ -202,6 +225,7 @@ export function countPack(repo: Repo, schoolId: string, def: PackDef): Promise<P
   const sig = packSignature(def);
   if (!sig) return Promise.resolve(null);
   const nafs = def.kind === "nafs" || def.kind === "nafsPractice";
+  if (def.kind === "learn") return learnCount(repo, schoolId).then((c) => ({ questions: c.lessons, inBank: c.inBank, left: Math.max(0, c.lessons - c.inBank), units: Math.ceil(c.files / LEARN_PER_CHUNK), applies: true }));
   let m = countCache.get(repo); if (!m) countCache.set(repo, (m = new Map()));
   const v = `${sig}|${nafs ? modelVersion("NafsBankItem", "Grade") : modelVersion("Question", "Skill", "CurriculumMapNode", "Curriculum", "Grade")}`;
   const k = `${schoolId}:${def.key}`, hit = m.get(k);

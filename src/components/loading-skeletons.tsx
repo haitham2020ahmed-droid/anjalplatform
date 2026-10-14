@@ -9,8 +9,8 @@ const Bar = ({ w, h = "h-3", tone = "bg-slate-200" }: { w: string; h?: string; t
 
 function Frame({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="min-h-screen">
-      <header className="border-b border-slate-200 bg-white">
+    <div className="skeleton-frame min-h-screen">
+      <header className="skeleton-top border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <LiteriseLogo size="sm" />
           <span className="h-8 w-8 rounded-full bg-slate-200" aria-hidden="true" />

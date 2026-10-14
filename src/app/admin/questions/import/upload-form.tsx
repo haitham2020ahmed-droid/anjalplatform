@@ -36,7 +36,7 @@ function upload(file: File, onProgress: (p: number) => void, target: "BANK" | "C
 }
 
 /** target: BANK (Question Bank only) or CURRICULUM (on the Curriculum Map, and in the bank). */
-export function ImportUpload({ target = "BANK", place, grammarGrade, accept }: { target?: "BANK" | "CURRICULUM"; place?: string; /** 🔤 the Grammar bank file, for this grade */ grammarGrade?: number; accept?: string } = {}) {
+export function ImportUpload({ target = "BANK", place, grammarGrade, accept }: { target?: "BANK" | "CURRICULUM"; place?: string; /** the Grammar bank file, for this grade */ grammarGrade?: number; accept?: string } = {}) {
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);

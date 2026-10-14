@@ -1,0 +1,568 @@
+{
+  "code": "NB-073",
+  "title": "In Charge Until Sunset",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 433,
+  "passage": "Faris had always complained that his parents treated him like a small child, so when Mama announced that he would be in charge of the house for an entire afternoon, he felt a rush of pride. Grandfather had an important appointment at the hospital, and since Baba was travelling for work, Mama needed to accompany him. \"The twins must finish their homework, eat the sandwiches in the refrigerator and stay inside,\" she explained, pinning a handwritten list to the kitchen door. \"I trust you completely, Faris, and I will call you every hour.\"\n\nFor the first thirty minutes, everything went smoothly. Salem and Sultan, who were seven years old, sat at the dining table copying spelling words while Faris supervised them with an expression he hoped looked serious and mature. However, his online football tournament was scheduled to begin at four o'clock, and as the time approached, his attention drifted increasingly towards the screen in the living room.\n\n\"Just one match,\" he murmured to himself, \"and the twins are perfectly fine.\" One match became two, and two became three, as Faris shouted excitedly at the screen, completely absorbed in the game. He did not notice that the house had become strangely quiet.\n\nWhen his phone rang and Mama asked cheerfully whether everyone was well, Faris glanced towards the dining table and felt his stomach drop. Sultan was colouring alone, but Salem's chair was empty. \"Everyone is fine,\" Faris replied automatically, though his voice sounded thin and unconvincing even to himself.\n\nHe searched every room frantically before discovering that the front gate was slightly open. His heart racing, he sprinted outside and found Salem two houses away, crouching beside the neighbour's garden wall and feeding bread to a thin grey cat. The relief was so overwhelming that Faris's knees almost gave way, and he hugged his little brother tightly before leading him home.\n\nFor the rest of the afternoon, the game console remained switched off. Faris helped the twins finish their homework, served their sandwiches with glasses of laban, and even swept the kitchen floor without being asked. When Mama finally returned at sunset, she found the house tidy and the twins happily reading together on the sofa.\n\n\"You see?\" she said, smiling warmly. \"I knew you were ready.\" Faris hesitated, because it would have been easy to accept her praise and say nothing. Instead, he told her everything about the tournament and the open gate. Mama listened carefully and then replied, \"Being responsible does not mean never making mistakes. It means facing them honestly and learning from them, and today you did both.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “accompany” as it is used in paragraph 1?",
+      "options": [
+        "look after",
+        "drive past",
+        "go with",
+        "wait for"
+      ],
+      "answer": "C",
+      "why": "Mama needed to go with Grandfather to his hospital appointment."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 4, Faris's voice sounded “unconvincing”. Which word is the OPPOSITE of “unconvincing”?",
+      "options": [
+        "doubtful",
+        "frightened",
+        "uncertain",
+        "believable"
+      ],
+      "answer": "D",
+      "why": "“Unconvincing” means hard to believe; its opposite is “believable”. “Doubtful” and “uncertain” are close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “absorbed” mean in the phrase “completely absorbed in the game” in paragraph 3?",
+      "options": [
+        "soaking up water like a sponge",
+        "giving all his attention to something",
+        "feeling bored and wanting to stop",
+        "losing the match against other players"
+      ],
+      "answer": "B",
+      "why": "Faris shouted at the screen and did not notice the quiet house, so his attention was fully on the game."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is an ADVERB?",
+      "options": [
+        "frantically",
+        "discovering",
+        "overwhelming",
+        "relief"
+      ],
+      "answer": "A",
+      "why": "“Frantically” tells how Faris searched; “discovering” is a verb form, “overwhelming” an adjective and “relief” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “responsible” in paragraph 7?",
+      "options": [
+        "responsibility",
+        "response",
+        "respectfulness",
+        "reasonable"
+      ],
+      "answer": "A",
+      "why": "“Responsibility” is the noun formed from the adjective “responsible”. “Response” looks similar but has a different meaning (an answer)."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is SINGULAR?",
+      "options": [
+        "twins",
+        "tournament",
+        "sandwiches",
+        "glasses"
+      ],
+      "answer": "B",
+      "why": "“Tournament” names one thing; “twins”, “sandwiches” and “glasses” are plural nouns."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “supervise” in a meaningful sentence of your own.",
+      "model": "During the school trip, two teachers will supervise the students to make sure that everyone stays safe.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “supervise” with its meaning (to watch over people or an activity to make sure everything is done properly and safely)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 2 Faris “supervised” the twins, meaning he watched over them."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 6 mentions “sandwiches”. Which word forms its plural in the SAME way as “sandwich”?",
+      "options": [
+        "cat",
+        "game",
+        "match",
+        "chair"
+      ],
+      "answer": "C",
+      "why": "Nouns ending in -ch add -es: sandwich → sandwiches, match → matches; the others just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “You see?” in paragraph 7?",
+      "options": [
+        "a command",
+        "a question",
+        "an exclamation",
+        "a statement"
+      ],
+      "answer": "B",
+      "why": "It ends with a question mark: Mama is asking Faris, in a friendly way, whether he sees she was right."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Afternoon Faris Grew Up",
+        "A Visit to Grandfather's Hospital",
+        "The Online Football Champion",
+        "The Thin Grey Cat Next Door"
+      ],
+      "answer": "A",
+      "why": "Faris makes a mistake, fixes it and admits it, showing real maturity."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to warn children never to play video games at home",
+        "to describe how to care for cats in the neighbourhood",
+        "to explain why grandfathers visit the hospital",
+        "to show what being truly responsible means"
+      ],
+      "answer": "D",
+      "why": "Mama's final words explain the lesson: responsibility means facing mistakes honestly and learning from them."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Faris wins three football matches in a row in his online tournament.",
+        "The twins finish their spelling homework quietly at the table.",
+        "Faris becomes so busy with his game that he stops watching the twins.",
+        "Mama telephones Faris to ask whether the twins are behaving well."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 shows one match becoming three, until Faris does not notice the house has gone quiet."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Mama leave Faris in charge of the house?",
+      "options": [
+        "She wanted to see whether Faris could cook dinner.",
+        "She had to travel to a meeting with Baba.",
+        "She had to go with Grandfather to the hospital.",
+        "She was visiting a neighbour two houses away."
+      ],
+      "answer": "C",
+      "why": "Paragraph 1: Grandfather had a hospital appointment, Baba was travelling, so Mama had to accompany Grandfather."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a set of instructions",
+        "a biography of a real boy and his family",
+        "an informational report",
+        "a realistic narrative story"
+      ],
+      "answer": "D",
+      "why": "It is an invented but believable story with characters, a problem and a solution."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Faris's stomach “drop” in paragraph 4?",
+      "options": [
+        "He saw that Salem's chair was empty.",
+        "He heard that Grandfather was very ill.",
+        "He realised he had lost his football match.",
+        "He found the front gate locked from outside."
+      ],
+      "answer": "A",
+      "why": "While talking to Mama, he “glanced towards the dining table” and saw Salem's chair was empty."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Faris told Mama about the open gate.",
+        "Faris found Salem feeding a cat.",
+        "Faris switched off the game console.",
+        "Mama pinned a list to the kitchen door."
+      ],
+      "answer": "A",
+      "why": "Faris told Mama everything when she returned at sunset, at the very end of the story."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who tells this story?",
+      "options": [
+        "Faris, using “I”",
+        "Mama, after she returns at sunset",
+        "Salem, one of the twins",
+        "a narrator outside the story"
+      ],
+      "answer": "D",
+      "why": "The story calls Faris “he” and describes all the characters from outside, so it has a third-person narrator."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which instruction was on Mama's list in paragraph 1?",
+      "options": [
+        "Faris must sweep the floor.",
+        "The twins must feed the cat.",
+        "Faris must lock the console.",
+        "The twins must stay inside."
+      ],
+      "answer": "D",
+      "why": "Mama said the twins must finish their homework, eat the sandwiches and “stay inside”; Faris swept the floor without being asked."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Faris to stop watching the twins carefully?",
+      "options": [
+        "his online football tournament",
+        "a long telephone call with Mama",
+        "a visit from the next-door neighbour",
+        "a problem with the twins' homework"
+      ],
+      "answer": "A",
+      "why": "His “online football tournament was scheduled to begin at four o'clock”, and his attention drifted to the screen."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Salem most likely leave the house?",
+      "options": [
+        "He was angry that Faris had shouted at him.",
+        "He wanted to look for Mama and Grandfather.",
+        "He wanted to feed a thin cat he had seen.",
+        "He had been sent to buy bread from a shop."
+      ],
+      "answer": "C",
+      "why": "Faris found him “feeding bread to a thin grey cat” beside the neighbour's wall."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Faris's feelings when he found Salem?",
+      "options": [
+        "growing anger",
+        "calm boredom",
+        "proud, joyful excitement",
+        "overwhelming relief"
+      ],
+      "answer": "D",
+      "why": "“The relief was so overwhelming that Faris's knees almost gave way.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Faris's behaviour in paragraph 6 different from his behaviour in paragraph 3?",
+      "options": [
+        "He plays more matches instead of helping the twins.",
+        "He focuses fully on the twins instead of the game.",
+        "He leaves the twins alone instead of supervising them.",
+        "He calls Mama instead of looking for Salem."
+      ],
+      "answer": "B",
+      "why": "In paragraph 3 the game absorbs him; in paragraph 6 the console stays off and he helps the twins and cleans."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Faris leaving his game on for three matches?",
+      "options": [
+        "He finished the tournament as the champion player.",
+        "He forgot to answer Mama's first telephone call.",
+        "He let the twins' sandwiches go bad in the heat.",
+        "He did not notice that Salem had left the house."
+      ],
+      "answer": "D",
+      "why": "“He did not notice that the house had become strangely quiet”, and Salem slipped out of the open gate."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Mama's words at the start and at the end of the story have in common?",
+      "options": [
+        "Both show that she trusts and believes in Faris.",
+        "Both warn Faris about playing video games.",
+        "Both ask Faris to look after Grandfather.",
+        "Both show that she is angry and disappointed with Faris."
+      ],
+      "answer": "A",
+      "why": "She says “I trust you completely” at the start and “I knew you were ready” and “today you did both” at the end."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the expression “felt his stomach drop” in paragraph 4 show?",
+      "options": [
+        "a pain caused by being very hungry",
+        "a fall onto the floor",
+        "a feeling of great joy",
+        "a sudden feeling of fear"
+      ],
+      "answer": "D",
+      "why": "It describes the shock Faris felt on seeing Salem's empty chair; it does not mean he really fell or was hungry."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “One match became two, and two became three” in paragraph 3 suggest?",
+      "options": [
+        "The tournament rules changed during the afternoon.",
+        "Faris kept playing longer than he had intended.",
+        "Faris was playing against three different twins.",
+        "The twins joined Faris in his football game."
+      ],
+      "answer": "B",
+      "why": "He planned “Just one match”, but the repeated pattern shows the game slowly took over the afternoon."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the story with Mama's words instead of Faris winning his tournament?",
+      "options": [
+        "to show that Mama does not like video games",
+        "to make the lesson about responsibility clear",
+        "to suggest that Faris will be punished later",
+        "to explain who won the online tournament in the end"
+      ],
+      "answer": "B",
+      "why": "Mama's final words state the story's main message about facing mistakes honestly."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the MOST important decision Faris made in the story?",
+      "options": [
+        "telling Mama the truth about the gate",
+        "answering “Everyone is fine” on the phone",
+        "sweeping the kitchen floor without being asked",
+        "playing only three matches instead of more"
+      ],
+      "answer": "A",
+      "why": "It would have been easy to accept Mama's praise, but he chose honesty, which Mama says shows real responsibility."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Older children should never be trusted alone.",
+        "Cats in the street should be fed with bread.",
+        "Responsibility means owning your mistakes.",
+        "Video games are always a waste of time."
+      ],
+      "answer": "C",
+      "why": "Mama says being responsible means facing mistakes honestly and learning from them."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in paragraphs 4 and 5?",
+      "options": [
+        "boredom followed by anger",
+        "panic followed by relief",
+        "pride followed by jealousy",
+        "calm followed by sadness"
+      ],
+      "answer": "B",
+      "why": "Faris's stomach drops and he searches frantically, then feels overwhelming relief when he finds Salem."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "how old the twins Salem and Sultan are",
+        "why the front gate was left open",
+        "when the football tournament began",
+        "what time Mama returned home"
+      ],
+      "answer": "B",
+      "why": "The story never explains who left the gate open; the twins' age, the start time and Mama's return at sunset are given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A young child slips out of an open gate to feed a cat.",
+        "A cat telephones Mama to report that Salem is outside.",
+        "A game console switches itself off to warn its player.",
+        "A boy plays football inside the screen with his friends."
+      ],
+      "answer": "A",
+      "why": "Small children can wander out of an open gate, especially to see an animal; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Lost Cat of Al-Salam Street",
+        "Grandfather's Long Journey",
+        "One Match Too Many",
+        "The Perfect Afternoon"
+      ],
+      "answer": "C",
+      "why": "Faris's extra matches cause the problem at the centre of the story."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences showing what might have happened if Faris had kept the secret from Mama.",
+      "model": "Faris said nothing, but that night he could not sleep because of his guilt. The next morning, when Salem proudly told Mama about the grey cat outside, Faris finally explained everything and promised to keep the gate locked in future.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and deals with what Faris did wrong",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that fits Faris and deals with his mistake is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could Faris have prevented the problem in the story?",
+      "options": [
+        "Leave the game console off while looking after the twins.",
+        "Check that the front gate was closed and locked.",
+        "A and B",
+        "Send the twins to their rooms for the whole afternoon."
+      ],
+      "answer": "C",
+      "why": "Both actions would have kept Salem safe; sending the twins away all afternoon is not good supervision."
+    }
+  ]
+}

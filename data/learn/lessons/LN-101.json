@@ -1,0 +1,484 @@
+{
+ "code": "LN-101",
+ "title": "Comparing ideas within a text",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.1.3",
+  "RI.2.3",
+  "RI.3.3",
+  "RI.4.3",
+  "RI.5.3",
+  "RI.6.3",
+  "RI.7.3",
+  "RI.8.3",
+  "RI.K.3"
+ ],
+ "families": [
+  "compare-contrast"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0010",
+  "R-0044",
+  "R-0105",
+  "R-0197",
+  "R-0342",
+  "R-0543",
+  "R-0732",
+  "R-0740",
+  "R-0902",
+  "R-0919",
+  "R-1027",
+  "R-1041",
+  "R-1091",
+  "R-1095",
+  "R-1112"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Same or different?",
+     "text": "To **compare** is to find how things are the **same**.\n\nTo **contrast** is to find how they are **different**."
+    },
+    {
+     "title": "Clue words",
+     "text": "**Same**: both, also, too, like\n\n**Different**: but, only, cannot, unlike"
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Find the two things.\n2. Read what the text says about **each** one.\n3. Ask: Is it true for **both**? Or for only **one**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find a sentence about the first thing.\n2. Find a sentence about the second thing.\n3. Put them side by side. Point to both sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Cats and dogs are both pets.",
+      "role": "key"
+     },
+     {
+      "t": "Cats like to climb.",
+      "role": "detail"
+     },
+     {
+      "t": "Dogs like to dig.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Both** tells us they are the **same**: they are pets. Climbing and digging show how they are **different**."
+   },
+   "together": {
+    "passage": "Frogs and fish both live in water. Fish stay in the water all their lives. Frogs can hop out onto land. Both of them lay eggs.",
+    "stem": "How are frogs and fish different?",
+    "options": [
+     "Both live in water.",
+     "Both lay eggs.",
+     "Fish have legs.",
+     "Only frogs go on land."
+    ],
+    "answer": 3,
+    "hint": "Look for something that is true for only ONE of them.",
+    "good": "Yes! Frogs can hop onto land. Fish stay in the water."
+   },
+   "evidence": {
+    "sentences": [
+     "Frogs and fish both live in water.",
+     "Fish stay in the water all their lives.",
+     "Frogs can hop out onto land.",
+     "Both of them lay eggs."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: only frogs go on land. Tap 2 sentences that show the difference.",
+    "wrong": "This sentence tells how they are the same. Find the sentences that show a difference."
+   },
+   "checks": [
+    {
+     "passage": "Dates and grapes are both fruits. Dates grow on tall palm trees. Grapes grow on vines.",
+     "stem": "How are dates and grapes the same?",
+     "options": [
+      "They are both fruits.",
+      "They both grow on palms.",
+      "They both grow on vines.",
+      "They are both red."
+     ],
+     "answer": 0,
+     "why": "The word **both** tells us: they are both fruits."
+    },
+    {
+     "passage": "A bus can carry many people. A car carries only a few people. Both have wheels.",
+     "stem": "What is one difference?",
+     "options": [
+      "Both have wheels.",
+      "Both are big.",
+      "A bus carries more people.",
+      "A car has no wheels."
+     ],
+     "answer": 2,
+     "why": "A bus carries **many** people. A car carries only **a few**."
+    },
+    {
+     "passage": "Ducks and hens are both birds. Ducks can swim. Hens cannot swim. Both lay eggs.",
+     "stem": "Which is true for ducks but NOT for hens?",
+     "options": [
+      "They lay eggs.",
+      "They can swim.",
+      "They are birds.",
+      "They have wings."
+     ],
+     "answer": 1,
+     "why": "Ducks can swim, but hens **cannot**."
+    }
+   ],
+   "again": {
+    "title": "Two hands",
+    "text": "Hold up **two hands**. One hand is the first thing. The other hand is the second thing.\n\nWhat is the same? Clap your hands together. What is different? Keep them apart.",
+    "example": "Sun and moon. Same: both are in the sky (clap!). Different: the sun is out in the day, the moon at night (apart)."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Compare and contrast",
+     "text": "Texts often tell about **two** things: two animals, two places, two ways of doing something.\n\nGood readers notice what is **alike** and what is **different**."
+    },
+    {
+     "title": "Signal words",
+     "text": "**Alike**: both, also, similarly, in the same way\n\n**Different**: but, however, while, unlike, on the other hand\n\nThese words point you to the comparison."
+    },
+    {
+     "title": "Check each side",
+     "text": "A comparison must be true for **each** thing.\n\nIf you say \"both\", check that the text says it about **both**. If you say \"only\", check that it is true for **just one**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a comparison:\n\n1. Find a sentence about the first thing.\n2. Find a sentence about the second thing on the **same** point (food, home, size...).\n3. Point to both. Together, they prove the comparison."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sea turtles and tortoises are both reptiles with shells.",
+      "role": "main"
+     },
+     {
+      "t": "Sea turtles have flat flippers for swimming.",
+      "role": "key"
+     },
+     {
+      "t": "Tortoises have thick legs for walking on land.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 2 and 3 talk about the **same** point: limbs. Flippers vs. thick legs is the difference."
+   },
+   "together": {
+    "passage": "Long ago, people in Najd and people on the Gulf coast built their houses in different ways. In Najd, far from the sea, houses had thick mud-brick walls that kept rooms cool in the hot, dry air. On the coast, many houses were built from coral stone cut from the sea. Coastal houses often had tall wind towers that caught the sea breeze and sent it down into the rooms. Both kinds of houses were built around shady courtyards.",
+    "stem": "How were coastal houses different from houses in Najd?",
+    "options": [
+     "They had shady courtyards.",
+     "They were made of coral stone.",
+     "They had thick mud walls.",
+     "They were far from the sea."
+    ],
+    "answer": 1,
+    "hint": "Is that true for both kinds of houses? Look for something true only for the coast.",
+    "good": "Yes! Najd houses used **mud brick**, but coastal houses used **coral stone**."
+   },
+   "evidence": {
+    "sentences": [
+     "Long ago, people in Najd and people on the Gulf coast built their houses in different ways.",
+     "In Najd, far from the sea, houses had thick mud-brick walls that kept rooms cool in the hot, dry air.",
+     "On the coast, many houses were built from coral stone cut from the sea.",
+     "Coastal houses often had tall wind towers that caught the sea breeze and sent it down into the rooms.",
+     "Both kinds of houses were built around shady courtyards."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: coastal houses used coral stone. Tap 2 sentences that show the difference in material.",
+    "wrong": "This sentence does not compare what the houses were made of. Find the sentence about Najd walls and the one about coral stone."
+   },
+   "checks": [
+    {
+     "passage": "The falcon and the owl are both hunting birds. The falcon hunts in daylight and catches prey by diving at great speed. The owl hunts at night and flies almost silently.",
+     "stem": "Which statement compares them correctly?",
+     "options": [
+      "Both hunt only at night.",
+      "The owl dives faster than the falcon.",
+      "Neither bird hunts other animals.",
+      "The falcon hunts by day; the owl by night."
+     ],
+     "answer": 3,
+     "why": "The text says the falcon hunts **in daylight** and the owl **at night**."
+    },
+    {
+     "passage": "Solar power and wind power both make electricity without burning fuel. Solar panels work only when the sun shines. Wind turbines can work day or night, as long as the wind blows.",
+     "stem": "What is one difference between them?",
+     "options": [
+      "Only wind can work at night.",
+      "Only solar power burns fuel.",
+      "Only wind makes electricity.",
+      "Both work only in sunlight."
+     ],
+     "answer": 0,
+     "why": "Solar panels need sunshine, but wind turbines can work **day or night**."
+    },
+    {
+     "passage": "Libraries and museums both keep important things safe. At a library, you can borrow books and take them home. In a museum, you can look at objects, but you cannot take them home.",
+     "stem": "How are libraries and museums alike?",
+     "options": [
+      "You can take things home from both.",
+      "Both lend books.",
+      "Both keep important things safe.",
+      "Neither lets visitors in."
+     ],
+     "answer": 2,
+     "why": "The first sentence says **both** keep important things safe."
+    }
+   ],
+   "again": {
+    "title": "Make a T-chart",
+    "text": "Draw a T. Write one thing on each side. List facts under each.\n\nThen look **across** the T: same point, different facts = a difference.",
+    "example": "Camel | Horse\nlives in desert | lives in many places\ncan go days without water | needs water every day\n\nDifference: camels can go **much longer** without water."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Comparing people",
+     "text": "True stories (memoirs, biographies) often compare **people**.\n\nThe writer may show how two people **act**, **think** or **solve problems** differently, and what they share."
+    },
+    {
+     "title": "Look for the point",
+     "text": "Writers compare for a **reason**. Often the comparison shows that:\n\n1. two people reach the **same goal** in different ways, or\n2. they **seem** alike but are really different.\n\nAsk: why did the writer put these two side by side?"
+    },
+    {
+     "title": "Both parts matter",
+     "text": "A strong comparison mentions the **difference** and the **similarity** when the text gives both.\n\nAn answer that names only one side, or gets one side wrong, is not the best answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a comparison of people:\n\n1. Find what the text says each person **does** or **believes**.\n2. Find any sentence that shows what they **share**.\n3. Choose the answer that fits **all** of this evidence, then point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My two brothers both love football.",
+      "role": "other"
+     },
+     {
+      "t": "Sami plays as a striker and scores most of the goals.",
+      "role": "detail"
+     },
+     {
+      "t": "Fahad plays as a defender and rarely scores, but he stops many goals.",
+      "role": "detail"
+     },
+     {
+      "t": "Our coach says the team needs both of them equally.",
+      "role": "key"
+     }
+    ],
+    "explain": "The brothers play **different** roles, but the coach shows they are **equally** important. That is the point of the comparison."
+   },
+   "together": {
+    "passage": "My grandfather and my father both ran our family's date farm, but they did it in very different ways. Grandfather woke before dawn and climbed every palm himself, trusting his hands and eyes to judge when the dates were ready. My father, who studied farming at university, uses a tablet to track the water each tree receives and calls experts when a disease appears. Yet when harvest season comes, both men walk the rows slowly, tasting a date from each tree before they decide to pick. This year, the farm had its biggest harvest ever.",
+    "stem": "Which statement best compares the grandfather and the father?",
+    "options": [
+     "They both use tablets to track the water.",
+     "The grandfather studied farming at university.",
+     "They use different methods but share the same care.",
+     "The father climbs every palm tree himself."
+    ],
+    "answer": 2,
+    "hint": "Check each choice against what the text says about EACH man. Which one fits all the evidence?",
+    "good": "Yes! Climbing vs. tablets shows different methods. Tasting every date shows the same care."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandfather and my father both ran our family's date farm, but they did it in very different ways.",
+     "Grandfather woke before dawn and climbed every palm himself, trusting his hands and eyes to judge when the dates were ready.",
+     "My father, who studied farming at university, uses a tablet to track the water each tree receives and calls experts when a disease appears.",
+     "Yet when harvest season comes, both men walk the rows slowly, tasting a date from each tree before they decide to pick.",
+     "This year, the farm had its biggest harvest ever."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: different methods, same care. Tap 2 sentences that prove it.",
+    "wrong": "This sentence is about the harvest size, not about how the two men compare."
+   },
+   "checks": [
+    {
+     "passage": "Two explorers crossed the Empty Quarter many years apart. The first travelled by camel with local guides, taking many weeks. The second drove a truck with satellite maps and finished in days. Both said the silence of the desert was what they remembered most.",
+     "stem": "What did the two explorers have in common?",
+     "options": [
+      "They both travelled with camels and local guides.",
+      "They both remembered the desert's silence most.",
+      "They both used satellite maps to find the way.",
+      "They both needed many weeks to cross the sand."
+     ],
+     "answer": 1,
+     "why": "The last sentence says **both** remembered the silence most. Their ways of travelling were different."
+    },
+    {
+     "passage": "Coach Salma speaks softly and explains each mistake to one player at a time. Coach Reem shouts encouragement from the sideline and gives quick tips to the whole team at once. Players say both coaches have made them better.",
+     "stem": "How do the two coaches differ?",
+     "options": [
+      "Only Coach Reem helps players improve.",
+      "Both coaches shout from the sideline.",
+      "Coach Salma gives tips to the whole team.",
+      "Salma coaches quietly; Reem coaches loudly."
+     ],
+     "answer": 3,
+     "why": "Salma speaks **softly** to one player; Reem **shouts** to the whole team."
+    },
+    {
+     "passage": "Some students study best in the morning, when their minds are fresh. Others prefer the evening, when the house is quiet. Teachers say the time of day matters less than studying regularly.",
+     "stem": "How does the teachers' view compare with the students' views?",
+     "options": [
+      "Teachers think regular study matters more.",
+      "Teachers agree morning is always best.",
+      "Teachers agree evening is always best.",
+      "Teachers think students should not study."
+     ],
+     "answer": 0,
+     "why": "Students argue about morning or evening, but teachers say **regular** study matters more than the time."
+    }
+   ],
+   "again": {
+    "title": "Same goal, different road",
+    "text": "Picture two people walking to the **same place** on **different roads**.\n\nAsk: What is the place they both reach? What road does each one take?",
+    "example": "Two sisters both want to save money. Huda puts coins in a jar. Rana writes every riyal in a notebook.\n\nSame goal: **saving**. Different roads: **jar** and **notebook**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Comparing ideas",
+     "text": "Complex texts often compare **ideas**, **claims** or **points of view**, not just objects.\n\nTwo experts may agree on the **facts** but disagree on what the facts **mean**, or on what should be done."
+    },
+    {
+     "title": "Agreement and disagreement",
+     "text": "Map the comparison carefully:\n\n1. What do they **agree** on?\n2. Where exactly do they **differ**: the facts, the cause, or the solution?\n3. Does the author favour one side, or present both fairly?"
+    },
+    {
+     "title": "Beware of half-true answers",
+     "text": "A tempting wrong answer often states a **real** difference but on the **wrong point**, or says they disagree about something they actually agree on.\n\nTest each choice against the exact words of the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an analysis of two ideas:\n\n1. Find the sentences that give **each** side's claim and evidence.\n2. Find any sentence that states common ground.\n3. Choose the statement that captures both the agreement and the difference, then point to the evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some city planners want more bus lanes; others want more parking.",
+      "role": "other"
+     },
+     {
+      "t": "Both groups agree that traffic in the city centre has become a serious problem.",
+      "role": "key"
+     },
+     {
+      "t": "They disagree about whether to make driving easier or to make buses a better choice.",
+      "role": "key"
+     }
+    ],
+    "explain": "The two groups **share** the problem but **differ** on the solution. A good comparison names both."
+   },
+   "together": {
+    "passage": "Two scientists studying the same desert spring reached different conclusions. Dr. Huda measured the water level every month for ten years and found that it had dropped steadily; she argues that nearby farms are pumping too much groundwater. Dr. Kareem studied the region's rainfall records and found that the last ten years were unusually dry; he argues that the spring will recover when normal rains return. Both agree that the spring is shrinking, and both rely on long-term data. They differ on the cause, and therefore on the solution: Dr. Huda calls for limits on pumping, while Dr. Kareem advises patience and further study.",
+    "stem": "Which statement best describes how the scientists' ideas relate?",
+    "options": [
+     "They agree the spring is shrinking but disagree why.",
+     "They disagree about whether the spring is shrinking.",
+     "They agree that the farms are the main cause.",
+     "They both call for strict limits on pumping."
+    ],
+    "answer": 0,
+    "hint": "Find what both scientists accept. Then find exactly where they part ways.",
+    "good": "Yes! Both see the spring shrinking, but Dr. Huda blames pumping and Dr. Kareem blames dry years."
+   },
+   "evidence": {
+    "sentences": [
+     "Two scientists studying the same desert spring reached different conclusions.",
+     "Dr. Huda measured the water level every month for ten years and found that it had dropped steadily; she argues that nearby farms are pumping too much groundwater.",
+     "Dr. Kareem studied the region's rainfall records and found that the last ten years were unusually dry; he argues that the spring will recover when normal rains return.",
+     "Both agree that the spring is shrinking, and both rely on long-term data.",
+     "They differ on the cause, and therefore on the solution: Dr. Huda calls for limits on pumping, while Dr. Kareem advises patience and further study."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: they agree it is shrinking but disagree on the cause. Tap 2 sentences that prove it.",
+    "wrong": "This sentence only says they disagree. Find sentences that show what they agree on or why they differ."
+   },
+   "checks": [
+    {
+     "passage": "In her memoir, a doctor describes two professors from medical school. Professor Amal rarely gave praise; she pointed out every error, and students feared her rounds. Professor Nadia praised each small success and let students learn from their own mistakes. Years later, the doctor writes that she learned precision from Amal and confidence from Nadia, and that she needed both.",
+     "stem": "What is the author's main point in comparing the professors?",
+     "options": [
+      "Professor Amal was a better teacher than Nadia.",
+      "Students learn best when they fear a teacher.",
+      "Different teaching styles gave her different strengths.",
+      "Professor Nadia never pointed out any mistakes."
+     ],
+     "answer": 2,
+     "why": "She says she learned **precision** from one and **confidence** from the other, and **needed both**."
+    },
+    {
+     "passage": "Supporters of a four-day school week say students would rest more and arrive with more energy. Critics agree that rest matters, but they worry that longer school days would leave younger students too tired to concentrate in the afternoon.",
+     "stem": "What do supporters and critics agree on?",
+     "options": [
+      "A four-day week is a bad idea.",
+      "Rest is important for students.",
+      "School days should be longer.",
+      "Young students focus best after lunch."
+     ],
+     "answer": 1,
+     "why": "Critics **agree that rest matters**. They disagree about whether a four-day week would provide it."
+    },
+    {
+     "passage": "Early maps of Arabia were drawn from travellers' reports, so the coastlines were often accurate while the interior was left blank or filled with guesses. Modern maps are made from satellite images, which show the interior in as much detail as the coast.",
+     "stem": "What key difference does the text describe?",
+     "options": [
+      "Early maps showed the interior better than the coast.",
+      "Modern maps leave the interior of Arabia blank.",
+      "Both kinds of maps rely on travellers' reports.",
+      "Modern maps show the interior as clearly as the coast."
+     ],
+     "answer": 3,
+     "why": "Early maps left the interior **blank**; satellite maps show it **as clearly as the coast**."
+    }
+   ],
+   "again": {
+    "title": "Fill in the frame",
+    "text": "Use this frame to test your understanding:\n\n**Both** ___ agree that ___.\n**However**, ___ thinks ___, **while** ___ thinks ___.\n\nIf you can fill it from the text, you understand the comparison.",
+    "example": "Both parents agree that screen time should be limited. However, Mum thinks one hour a day is enough, while Dad thinks it depends on what is being watched."
+   }
+  }
+ }
+}

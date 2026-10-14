@@ -1,0 +1,476 @@
+{
+ "code": "LN-182",
+ "title": "Foreshadowing",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [],
+ "families": [
+  "plot-foreshadowing"
+ ],
+ "skillNames": [
+  "Plot: Foreshadowing",
+  "Flashback and Foreshadowing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A hint about later",
+     "text": "Sometimes an author gives a small **hint** about what will happen **later** in the story.\n\nThis is called **foreshadowing**."
+    },
+    {
+     "title": "Like dark clouds",
+     "text": "When you see **dark clouds**, you think: **rain is coming**.\n\nForeshadowing works the same way. A clue now tells you what **might** happen next."
+    },
+    {
+     "title": "Look for these clues",
+     "text": "1. A **warning**: 'Be careful!'\n2. Something a character **forgets** or **does not do**.\n3. A **worry** or a strange feeling.\n4. The **weather** changing."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **clue** sentence: a warning, a worry, something forgotten.\n2. Ask: **What could happen because of this?**\n3. The clue sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar's shoelace was loose.",
+      "role": "key"
+     },
+     {
+      "t": "'Tie your shoe,' said his sister.",
+      "role": "key"
+     },
+     {
+      "t": "But Omar ran to the race without tying it.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The loose lace and the warning are **hints**.\n\nThey foreshadow that Omar **might trip** in the race."
+   },
+   "together": {
+    "passage": "Dad looked at the sky. 'Those clouds look very dark,' he said. Mona did not take her umbrella. She walked to the shop.",
+    "stem": "What does the story hint will happen?",
+    "options": [
+     "Mona will get wet in the rain.",
+     "Mona will buy a new bike.",
+     "Dad will go to sleep.",
+     "The sun will come out."
+    ],
+    "answer": 0,
+    "hint": "Look at the clues: what did Dad say about the clouds? What did Mona leave at home?",
+    "good": "Yes! Dark clouds and no umbrella are hints that Mona will get wet."
+   },
+   "evidence": {
+    "sentences": [
+     "Dad looked at the sky.",
+     "'Those clouds look very dark,' he said.",
+     "Mona did not take her umbrella.",
+     "She walked to the shop."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Mona will get wet in the rain. Tap the 2 sentences that give the hints.",
+    "wrong": "This sentence is not a hint about rain. Find the clue about the clouds and the clue about the umbrella."
+   },
+   "checks": [
+    {
+     "passage": "The old ladder was cracked. 'Don't climb it,' said Grandpa. But Sami wanted the ball on the roof.",
+     "stem": "What does the story hint might happen?",
+     "options": [
+      "Sami will find a new ball.",
+      "Grandpa will climb the roof.",
+      "The ball will roll away.",
+      "The ladder may break."
+     ],
+     "answer": 3,
+     "why": "The ladder is cracked, Grandpa warns Sami, and Sami still wants the ball. These hints foreshadow the ladder breaking."
+    },
+    {
+     "passage": "Laila put the cake on the low table. Her puppy sat nearby, licking his lips. Laila went to answer the phone.",
+     "stem": "What does the story hint will happen?",
+     "options": [
+      "Laila will make another cake.",
+      "The phone will break.",
+      "The puppy may eat the cake.",
+      "Laila will go to sleep."
+     ],
+     "answer": 2,
+     "why": "The cake is low, the puppy is licking his lips, and Laila leaves. These are hints about the puppy and the cake."
+    },
+    {
+     "passage": "Faris packed his school bag. He forgot to put in his homework. He ran to the bus.",
+     "stem": "Which sentence is a hint that a problem is coming?",
+     "options": [
+      "Faris packed his school bag.",
+      "He forgot to put in his homework.",
+      "He ran to the bus.",
+      "Faris went to school."
+     ],
+     "answer": 1,
+     "why": "Forgetting his homework is a hint. Faris may get into trouble at school."
+    }
+   ],
+   "again": {
+    "title": "Uh-oh moments",
+    "text": "While you read, listen for a little voice in your head that says **'Uh-oh!'**\n\nThat 'uh-oh' moment is usually **foreshadowing**. Ask: **What might go wrong?**",
+    "example": "Ali carried a full glass of juice. The floor was wet. **Uh-oh!**\n\nThe wet floor foreshadows that Ali **might slip and spill his juice**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "What is foreshadowing?",
+     "text": "**Foreshadowing** is when an author gives **clues** early in a story about what will happen **later**.\n\nThe clues make readers **curious** and help the story's events make sense."
+    },
+    {
+     "title": "Where clues hide",
+     "text": "1. **Dialogue**: a warning or a promise.\n2. **Setting**: a storm coming, a broken bridge.\n3. **Feelings**: a character feels uneasy.\n4. **Actions**: a character ignores advice."
+    },
+    {
+     "title": "Check it later",
+     "text": "Good readers notice a clue, make a guess, then **keep reading** to see if it comes true.\n\nWhen it does, look back: the hint was there all along!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **clue**: a warning, a feeling, a detail about the setting.\n2. Find any action that **ignores** the clue.\n3. Choose the outcome that these sentences **point to**.\n\nAn outcome with no clue in the text is just a guess."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Before the picnic, Rawan checked the weather app.",
+      "role": "detail"
+     },
+     {
+      "t": "It showed a sandstorm warning for the afternoon.",
+      "role": "key"
+     },
+     {
+      "t": "'We'll be back by lunch,' said her brother, packing the car.",
+      "role": "key"
+     },
+     {
+      "t": "They drove into the desert under a clear blue sky.",
+      "role": "other"
+     }
+    ],
+    "explain": "The **sandstorm warning** and the brother's confident promise are clues.\n\nThey foreshadow that the family may still be in the desert when the **sandstorm** arrives."
+   },
+   "together": {
+    "passage": "Before the class trip to the mangrove forest, Ms. Rana warned everyone to stay on the wooden path because the mud was deeper than it looked. Ziad was not listening; he was showing his friends his new white trainers. At the forest, a heron landed near the water. Ziad stepped off the path to take a photo. The ground felt soft under his feet.",
+    "stem": "What does the author hint will happen next?",
+    "options": [
+     "Ziad will win a prize for his photo.",
+     "Ms. Rana will take a photo of the heron.",
+     "Ziad's feet will sink into the mud.",
+     "The class will go home early."
+    ],
+    "answer": 2,
+    "hint": "Is there a clue for that? Look at Ms. Rana's warning and what Ziad does.",
+    "good": "Yes! The warning about deep mud, Ziad stepping off the path, and the soft ground all hint that he will sink."
+   },
+   "evidence": {
+    "sentences": [
+     "Before the class trip to the mangrove forest, Ms. Rana warned everyone to stay on the wooden path because the mud was deeper than it looked.",
+     "Ziad was not listening; he was showing his friends his new white trainers.",
+     "At the forest, a heron landed near the water.",
+     "Ziad stepped off the path to take a photo.",
+     "The ground felt soft under his feet."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Ziad's feet will sink into the mud. Tap 2 sentences that foreshadow it.",
+    "wrong": "This sentence gives a detail, but it is not the main clue about the mud. Find the warning, Ziad leaving the path, or the soft ground."
+   },
+   "checks": [
+    {
+     "passage": "The family packed the car for the long desert drive. 'We'll fill up with petrol at the next town,' Dad said. But when they reached the next town, the petrol station had a sign: CLOSED. They drove on.",
+     "stem": "What problem is being foreshadowed?",
+     "options": [
+      "They may get lost in a big city.",
+      "They may run out of petrol.",
+      "They may arrive much too early.",
+      "The car may be too full of bags."
+     ],
+     "answer": 1,
+     "why": "They planned to get petrol, but the station was closed and they drove on into the desert. The clues point to running out of petrol."
+    },
+    {
+     "passage": "As Noura walked onto the stage, she had a strange feeling that she had forgotten something. She looked down at her empty hands. The audience went quiet.",
+     "stem": "What does the author hint?",
+     "options": [
+      "Noura has forgotten something, like her notes.",
+      "Noura will win first prize in the contest.",
+      "Noura's hands are cold from the air.",
+      "The stage is too small for her to stand on."
+     ],
+     "answer": 0,
+     "why": "Her strange feeling and her empty hands are clues that she has forgotten something important for her performance."
+    },
+    {
+     "passage": "At the start of the story, Grandfather says, 'One day this old key will open something important.' On the last page, the key opens a box of family letters.",
+     "stem": "How does Grandfather's words at the start affect the reader?",
+     "options": [
+      "They make the reader forget about the key.",
+      "They tell the reader exactly what is in the box.",
+      "They make the ending very confusing.",
+      "They make the reader curious and watch for the key."
+     ],
+     "answer": 3,
+     "why": "Grandfather's words are foreshadowing. Readers wonder what the key will open, so they watch for it until the end."
+    }
+   ],
+   "again": {
+    "title": "Clue → guess → check",
+    "text": "1. **Clue**: write down anything that seems like a hint.\n2. **Guess**: what might it lead to?\n3. **Check**: keep reading. Were you right?\n\nThis is how readers follow foreshadowing.",
+    "example": "Clue: 'Stay on the path. The mud is deep.'\nGuess: someone will step off and get stuck.\nCheck: Ziad steps off, and the ground feels soft. ✓"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Quiet clues",
+     "text": "Foreshadowing is not always a loud warning. It can be a **small object**, a **strange mood** or a line of **dialogue** that seems unimportant.\n\nWhen an author **describes** something carefully, ask: **Will this matter later?**"
+    },
+    {
+     "title": "Why authors foreshadow",
+     "text": "1. **Suspense**: readers worry about what is coming.\n2. **Believability**: when the event happens, it feels possible, not random.\n3. **Satisfaction**: readers enjoy spotting the clue on a second reading."
+    },
+    {
+     "title": "Look back from the ending",
+     "text": "After a big event, go **back** through the story.\n\nFind the earlier details that **prepared** you for it. Those details are the foreshadowing."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a detail is foreshadowing:\n\n1. Find the **later event**.\n2. Find the **earlier detail** that connects to it.\n3. Explain the link: the earlier detail made the later event **expected** or **possible**.\n\nA detail that has nothing to do with the later event is not foreshadowing."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Early in the story, Captain Fahd always kept a spare rope coiled in the bottom of the boat.",
+      "role": "key"
+     },
+     {
+      "t": "The young crew laughed at him for carrying it.",
+      "role": "detail"
+     },
+     {
+      "t": "Weeks later, a storm hit, and a fisherman fell overboard.",
+      "role": "main"
+     },
+     {
+      "t": "Fahd threw him the rope and pulled him back aboard.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The spare rope seems unimportant at first. But it **foreshadows** the rescue.\n\nBecause we saw the rope earlier, the rescue feels **believable**, not lucky."
+   },
+   "together": {
+    "passage": "The first time Yara saw the old well behind her grandmother's farmhouse, its wooden cover was cracked down the middle. 'Never play near it,' her grandmother said, more sharply than Yara had ever heard her speak. All summer, Yara obeyed. She played in the orchard, fed the chickens and chased the goats. Then, on the last afternoon, her little cousin Badr ran past her, kicking a football toward the back of the house. Yara heard the ball bounce once, twice, and then a hollow wooden thud. Everything went silent.",
+    "stem": "Which earlier detail foreshadows the danger in the final scene?",
+    "options": [
+     "Yara fed the chickens and chased the goats.",
+     "Badr ran past her, kicking a football.",
+     "Yara played in the orchard all summer long.",
+     "The well's cover was cracked, and Grandmother warned her sharply."
+    ],
+    "answer": 3,
+    "hint": "That detail does not prepare us for danger. What did the author show us at the very start?",
+    "good": "Yes! The cracked cover and Grandmother's sharp warning prepare us for the hollow thud near the well at the end."
+   },
+   "evidence": {
+    "sentences": [
+     "The first time Yara saw the old well behind her grandmother's farmhouse, its wooden cover was cracked down the middle.",
+     "'Never play near it,' her grandmother said, more sharply than Yara had ever heard her speak.",
+     "All summer, Yara obeyed.",
+     "She played in the orchard, fed the chickens and chased the goats.",
+     "Then, on the last afternoon, her little cousin Badr ran past her, kicking a football toward the back of the house.",
+     "Yara heard the ball bounce once, twice, and then a hollow wooden thud.",
+     "Everything went silent."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: the cracked cover and Grandmother's sharp warning. Tap the 2 sentences that foreshadow the danger.",
+    "wrong": "This sentence is part of the summer or the final scene. Find the two earlier clues about the well."
+   },
+   "checks": [
+    {
+     "passage": "On the first page, the author mentions that Huda's grandmother always keeps a torch in the kitchen drawer 'just in case'. Near the end, the power goes out during a storm, and Huda finds her way to her frightened little brother using that torch.",
+     "stem": "How does the earlier detail affect the ending?",
+     "options": [
+      "It makes the ending feel believable, not lucky.",
+      "It shows that the grandmother is careless.",
+      "It hides the fact that there will be a storm.",
+      "It makes the ending a complete surprise."
+     ],
+     "answer": 0,
+     "why": "Because the torch was mentioned earlier, readers accept that Huda can find it in the dark. The foreshadowing makes the ending believable."
+    },
+    {
+     "passage": "On the morning of the match, the sky had turned an odd yellow, and the birds had gone strangely quiet. The coach looked up and said it was 'just a bit of haze'.",
+     "stem": "What does the description most likely foreshadow?",
+     "options": [
+      "A calm, sunny match",
+      "A coming sandstorm or bad weather",
+      "The coach winning an award",
+      "The birds singing at the match"
+     ],
+     "answer": 1,
+     "why": "The yellow sky and the silent birds are signs of a storm, and the coach brushing them off adds to the suspense."
+    },
+    {
+     "passage": "'Don't worry,' Rami told his mother as he left for the camping trip. 'I've checked everything. What could possibly go wrong?'",
+     "stem": "Why might readers see this line as foreshadowing?",
+     "options": [
+      "Rami is promising to come home early.",
+      "It tells readers exactly what will go wrong.",
+      "Very confident lines often hint at trouble.",
+      "It shows that his mother will go camping too."
+     ],
+     "answer": 2,
+     "why": "Authors often give characters overconfident lines just before trouble. 'What could possibly go wrong?' makes readers expect that something will."
+    }
+   ],
+   "again": {
+    "title": "Read it twice",
+    "text": "Foreshadowing is easiest to see on a **second** reading.\n\n1. Read to the end and find the big event.\n2. Go back to the beginning.\n3. Look for details that **point** to that event. They may look small the first time!",
+    "example": "Second reading of Yara's story: 'its wooden cover was cracked down the middle' and 'more sharply than Yara had ever heard her speak'.\n\nOn the first reading they were details. Now they are **clues**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Foreshadowing and structure",
+     "text": "Authors place clues carefully across a story. Early, small clues build **tension**; later, stronger clues raise it until the event happens.\n\nAnalysing foreshadowing means explaining **how** the clues are placed and **what effect** they have."
+    },
+    {
+     "title": "False clues",
+     "text": "Some clues are **red herrings**: false hints that lead readers in the wrong direction, especially in mysteries.\n\nThey make the real answer more **surprising**, but the true clues are usually there too."
+    },
+    {
+     "title": "Foreshadowing with meaning",
+     "text": "Foreshadowing can also link to **theme**. A saying early in the story may come true in a character's choices.\n\nIt can also be **ironic**: a character's confident words early on come back to them later."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find **each** clue and note **who** notices it.\n2. Note any **contrast** between what characters say and what the clues show.\n3. Explain how the clues **build** toward the event.\n\nThe best answer explains the **technique**, not just the event."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The first night at the desert camp, Lina heard a faint scratching outside the tent.",
+      "role": "key"
+     },
+     {
+      "t": "The second night, the scratching came closer, and something knocked over a cooking pot.",
+      "role": "key"
+     },
+     {
+      "t": "On the third night, her torch caught two glowing eyes beside the water tank.",
+      "role": "key"
+     },
+     {
+      "t": "In the morning, the guide laughed and pointed to small paw prints: a curious desert fox.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Each night the clue grows **stronger**: a sound, then a fallen pot, then glowing eyes. The author places the clues to **build tension** step by step.\n\nThe ending then turns the fear into relief: the 'danger' was only a curious fox."
+   },
+   "together": {
+    "passage": "The new robot at the science museum could answer any question, the guide boasted, and it never made mistakes. Twelve-year-old Salma watched it give a perfect talk about the planets. Behind its glass panel, a small red light blinked on and off, though no one else seemed to notice. 'It's been doing that since Tuesday,' one cleaner muttered to another as they passed. At noon, the hall filled with visiting schoolchildren, and the robot rolled to the centre of the room to greet them. Salma stepped closer. The red light was blinking faster now. The robot raised its arm and announced in a cheerful voice that the capital of Saudi Arabia was Jeddah. For a moment, no one spoke. Then the guide laughed nervously, and Salma raised her hand. 'Excuse me,' she said. 'It's Riyadh.'",
+    "stem": "How does the author use foreshadowing to prepare readers for the robot's mistake?",
+    "options": [
+     "By having the guide promise that the robot will make many mistakes",
+     "By contrasting the guide's boast with a blinking red light that few people notice",
+     "By telling readers in the first sentence that the robot is broken",
+     "By describing the uniforms of the visiting schoolchildren in detail"
+    ],
+    "answer": 1,
+    "hint": "Did the guide or the narrator say that? Look for the small detail that keeps returning, and who notices it.",
+    "good": "Yes! The guide says it never makes mistakes, but the blinking red light, the cleaner's comment and the faster blinking quietly warn us that something is wrong."
+   },
+   "evidence": {
+    "sentences": [
+     "The new robot at the science museum could answer any question, the guide boasted, and it never made mistakes.",
+     "Twelve-year-old Salma watched it give a perfect talk about the planets.",
+     "Behind its glass panel, a small red light blinked on and off, though no one else seemed to notice.",
+     "'It's been doing that since Tuesday,' one cleaner muttered to another as they passed.",
+     "At noon, the hall filled with visiting schoolchildren, and the robot rolled to the centre of the room to greet them.",
+     "Salma stepped closer.",
+     "The red light was blinking faster now.",
+     "The robot raised its arm and announced in a cheerful voice that the capital of Saudi Arabia was Jeddah.",
+     "For a moment, no one spoke.",
+     "Then the guide laughed nervously, and Salma raised her hand.",
+     "'Excuse me,' she said.",
+     "'It's Riyadh.'"
+    ],
+    "proof": [
+     2,
+     3,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the guide's boast is contrasted with a blinking red light few people notice. Tap 2 sentences that are clues to the mistake.",
+    "wrong": "This sentence is the boast, the setting or the mistake itself. Find the small clues that warn us before the mistake happens."
+   },
+   "checks": [
+    {
+     "passage": "In a mystery story, the narrator keeps mentioning the gardener's muddy boots near the house, so readers suspect him of taking the missing gold ring. In the final chapter, the ring is found in the parrot's cage; the parrot had carried it off from the windowsill.",
+     "stem": "What role do the gardener's muddy boots play in the story?",
+     "options": [
+      "They foreshadow that the gardener took the ring.",
+      "They show that the gardener is the narrator.",
+      "They are a false clue that misleads readers.",
+      "They foreshadow that the parrot will escape."
+     ],
+     "answer": 2,
+     "why": "The boots make readers suspect the gardener, but he is innocent. They are a red herring that makes the real answer more surprising."
+    },
+    {
+     "passage": "Near the start, a grandmother tells Hamza, 'A palm that bends in the wind does not break.' Later, when his team loses its best player before the final, the other boys want to give up. Hamza changes the team's plan instead, and they reach the final.",
+     "stem": "How does the grandmother's saying connect to the story's theme?",
+     "options": [
+      "It hints that a storm will knock down the palms.",
+      "It foreshadows that the team will lose.",
+      "It shows that Grandmother dislikes football.",
+      "It foreshadows the flexibility Hamza later shows."
+     ],
+     "answer": 3,
+     "why": "Hamza 'bends' by changing the plan instead of breaking under pressure. The early saying foreshadows his choice and states the theme."
+    },
+    {
+     "passage": "At the start of the story, Majed laughs, 'I'll never need to learn to cook. Someone will always cook for me.' Months later, he is alone in a student flat in a new city, staring at an empty fridge and a bag of uncooked rice.",
+     "stem": "What is the effect of this foreshadowing?",
+     "options": [
+      "It creates irony as his confident words come back to him.",
+      "It proves that Majed has become a good cook.",
+      "It shows that Majed's flat is full of food.",
+      "It hides the ending of the story from readers."
+     ],
+     "answer": 0,
+     "why": "Majed's early boast foreshadows the opposite situation. When it comes true in reverse, the effect is ironic and a little funny."
+    }
+   ],
+   "again": {
+    "title": "Map the clues",
+    "text": "Draw a line from the start of the story to the big event.\n\n1. Mark each clue on the line.\n2. Write **who** notices it.\n3. Notice whether the clues get **stronger** as the event comes closer.\n\nThat pattern is how the author builds tension.",
+    "example": "Robot story: the boast → a blinking red light (only Salma notices) → the cleaner's comment → faster blinking → the mistake.\n\nThe clues grow stronger and stronger until the mistake."
+   }
+  }
+ }
+}

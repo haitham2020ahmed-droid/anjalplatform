@@ -1,0 +1,568 @@
+{
+  "code": "NB-089",
+  "title": "Jesse Owens: The Real Gold",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 448,
+  "passage": "On a spring afternoon in 1935, a young athlete stood at the edge of a track in Ann Arbor, Michigan, wondering whether he could even compete. Only a few days earlier, he had injured his back so severely that he could barely bend down to tie his shoes. Within the next forty-five minutes, however, he set three world records and equalled a fourth. His name was Jesse Owens, and that astonishing afternoon was only the beginning of his fame.\n\nOwens was born in 1913 in Oakville, Alabama, the youngest of ten children in a poor farming family. As a child, he was frequently ill, and his family often struggled to find enough food for everyone. When he was nine, the family moved north to Cleveland, Ohio, hoping for better employment and educational opportunities. On his first day at his new school, he introduced himself as \"J.C.,\" but his teacher misunderstood his Southern accent and wrote down \"Jesse.\" The new name stayed with him for the rest of his life.\n\nAt junior high school, a coach named Charles Riley noticed the boy's remarkable speed. Because Owens worked at part-time jobs after school, Riley agreed to train him early in the morning before classes began. Riley encouraged him to run as though the ground were too hot to touch, lifting his feet quickly and lightly. Owens later went to Ohio State University, where he continued to work while he studied and trained. Although he was a champion, he was not allowed to live on campus with white students, because unfair laws and customs separated people by the colour of their skin.\n\nIn 1936, Owens travelled to the Olympic Games in Berlin, Germany. There, he won four gold medals, in the 100 metres, the 200 metres, the long jump and the 4 × 100 metres relay. During the long jump, his strongest rival was a German athlete named Luz Long. When Owens won, Long was the first to congratulate him, and the two men walked around the stadium together in front of a huge crowd. They remained friends and continued writing letters to each other for years.\n\nSadly, when Owens returned home, he was still treated unfairly in many places, despite his extraordinary Olympic victories. Nevertheless, he refused to become bitter or resentful. Instead, he spent much of his later life speaking to young people about determination, fairness and the educational value of sport.\n\nWhat an example of courage he set! Owens once said that friendships born on the field of athletic strife are the real gold of competition. His life reminds us that true champions are measured not only by their medals but also by the way they treat others.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “rival” as it is used in paragraph 4?",
+      "options": [
+        "teammate",
+        "coach",
+        "judge",
+        "competitor"
+      ],
+      "answer": "D",
+      "why": "Luz Long competed against Owens in the long jump, so he was his competitor."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “severely” as it is used in paragraph 1?",
+      "options": [
+        "seriously",
+        "suddenly",
+        "slightly",
+        "secretly"
+      ],
+      "answer": "C",
+      "why": "He injured his back “so severely” (badly) that he could barely bend; the opposite is “slightly”. “Seriously” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 1: “he set three world records and equalled a fourth”. What does “equalled” mean here?",
+      "options": [
+        "matched an existing record exactly",
+        "beat the old record by a long way",
+        "came very close but failed to reach it",
+        "watched another runner break the record"
+      ],
+      "answer": "A",
+      "why": "To equal a record is to reach exactly the same result, without beating it; the other three were broken (“set”)."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an ADVERB?",
+      "options": [
+        "remarkable",
+        "quickly",
+        "speed",
+        "trained"
+      ],
+      "answer": "B",
+      "why": "“Quickly” describes how he lifted his feet; “remarkable” is an adjective, “speed” a noun and “trained” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which pair shows a word from the passage with its correct plural?",
+      "options": [
+        "child – childs",
+        "family – familys",
+        "man – men",
+        "rival – rivales"
+      ],
+      "answer": "C",
+      "why": "“Men” is the correct irregular plural; the others should be children, families and rivals."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “competition”?",
+      "options": [
+        "complete",
+        "compute",
+        "compass",
+        "compete"
+      ],
+      "answer": "D",
+      "why": "Compete, competitor and competition share the same root; the others only begin with “comp-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “congratulate” in a meaningful sentence of your own.",
+      "model": "After the spelling contest, I went over to congratulate the winner, even though I had hoped to win myself.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “congratulate” with its meaning (to tell someone you are pleased about their success)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 4, Luz Long was the first to congratulate Owens on his victory."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the SINGULAR form of “victories” as it is used in paragraph 5?",
+      "options": [
+        "victorie",
+        "victor",
+        "victory",
+        "victorys"
+      ],
+      "answer": "C",
+      "why": "A plural ending in -ies comes from a singular ending in consonant + y: victories → victory. “Victor” is a different word meaning the winner."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a STATEMENT?",
+      "options": [
+        "Did Owens win four gold medals in Berlin?",
+        "Owens won four gold medals in Berlin.",
+        "What a race Owens ran in Berlin!",
+        "Watch how Owens lifts his feet."
+      ],
+      "answer": "B",
+      "why": "A statement simply gives information and ends with a full stop; the others are a question, an exclamation and a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "The History of the Olympic Games",
+        "How to Treat a Back Injury",
+        "Farm Life in Alabama",
+        "More Than Medals"
+      ],
+      "answer": "D",
+      "why": "The passage shows that Owens's greatness came from his character as well as his medals."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to show that Owens was great as an athlete and as a person",
+        "to teach readers the rules of the long jump",
+        "to compare American and German athletes",
+        "to describe the city of Berlin in 1936"
+      ],
+      "answer": "A",
+      "why": "It describes his sporting records and his friendship, courage and fairness."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Owens's teacher had a strong Southern accent.",
+        "Owens had a difficult childhood and received a new name.",
+        "Cleveland had the best schools in America.",
+        "Owens was the oldest of ten children."
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 covers his poor, sickly childhood, the move north and how he became “Jesse”. It was Owens, not the teacher, who had the accent."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Charles Riley train Owens early in the morning?",
+      "options": [
+        "Owens preferred to run in cool weather.",
+        "The track was used by others in the afternoon.",
+        "Owens worked at part-time jobs after school.",
+        "Riley taught other classes all evening."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: “Because Owens worked at part-time jobs after school, Riley agreed to train him early in the morning.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why was Owens not allowed to live on campus at Ohio State?",
+      "options": [
+        "Unfair laws and customs separated people by skin colour.",
+        "He had not yet won any important races.",
+        "He preferred to live with his coach.",
+        "The university had no rooms for athletes."
+      ],
+      "answer": "A",
+      "why": "The passage says he was not allowed to live with white students “because unfair laws and customs separated people by the colour of their skin.”"
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a biography of an athlete",
+        "a news report from 1936",
+        "an autobiography by Owens",
+        "a fable with animal characters"
+      ],
+      "answer": "A",
+      "why": "It tells the true story of Owens's life, written by someone else, from childhood to later life."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST in Owens's life?",
+      "options": [
+        "He trained with Charles Riley.",
+        "He set records in Ann Arbor.",
+        "He competed in Berlin.",
+        "He moved to Cleveland."
+      ],
+      "answer": "D",
+      "why": "The passage begins in 1935, but the move to Cleveland happened when he was nine, before all the other events."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who was the first person to congratulate Owens after he won the long jump?",
+      "options": [
+        "Charles Riley",
+        "Luz Long",
+        "his teacher",
+        "an Olympic judge"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “When Owens won, Long was the first to congratulate him.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In which city did Owens win his four Olympic gold medals?",
+      "options": [
+        "Ann Arbor",
+        "Cleveland",
+        "Oakville",
+        "Berlin"
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: “In 1936, Owens travelled to the Olympic Games in Berlin, Germany.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Owens wonder whether he could even compete in Ann Arbor?",
+      "options": [
+        "He had never run on a track before.",
+        "His coach had told him not to race.",
+        "He had arrived late for the competition.",
+        "He had injured his back a few days earlier."
+      ],
+      "answer": "D",
+      "why": "Paragraph 1: he had injured his back so severely that he could barely bend down."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Owens's family move to Cleveland?",
+      "options": [
+        "Owens had been offered a place on a team.",
+        "His teacher had invited them to the city.",
+        "They hoped for better jobs and education.",
+        "They wanted to live near Ohio State University."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: they moved “hoping for better employment and educational opportunities.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Owens's response to being treated unfairly after the Olympics?",
+      "options": [
+        "angry and resentful",
+        "forgiving and hopeful",
+        "silent and lonely",
+        "proud and boastful"
+      ],
+      "answer": "B",
+      "why": "He “refused to become bitter or resentful” and spent his life encouraging young people."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Luz Long's behaviour DIFFERENT from what people might expect from a defeated rival?",
+      "options": [
+        "He celebrated Owens's success instead of resenting it.",
+        "He refused to compete in the long jump.",
+        "He left the stadium before the event ended.",
+        "He complained to the judges about the result."
+      ],
+      "answer": "A",
+      "why": "Although he lost, Long was the first to congratulate Owens and walked around the stadium with him."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the teacher's mistake on Owens's first day at school?",
+      "options": [
+        "He was moved to a different school.",
+        "He was called “Jesse” for the rest of his life.",
+        "He decided to become an athlete.",
+        "He changed his Southern accent."
+      ],
+      "answer": "B",
+      "why": "The teacher wrote “Jesse” instead of “J.C.”, and “The new name stayed with him for the rest of his life.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Charles Riley and Luz Long have in common in the passage?",
+      "options": [
+        "Both were German athletes.",
+        "Both treated Owens with kindness and respect.",
+        "Both competed in the long jump.",
+        "Both taught at a school in Cleveland."
+      ],
+      "answer": "B",
+      "why": "Riley gave up his early mornings to train Owens, and Long congratulated him and became his friend."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Owens said that friendships formed in sport are “the real gold of competition”. What did he mean?",
+      "options": [
+        "Gold medals are given only to good friends.",
+        "Athletes should share their prize money.",
+        "Friends always win the most medals.",
+        "Friendships are more valuable than medals."
+      ],
+      "answer": "D",
+      "why": "Gold stands for something valuable: he meant that friendship is the true prize of sport."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with the afternoon in Ann Arbor instead of Owens's birth?",
+      "options": [
+        "to catch readers' interest with an exciting moment",
+        "because the Ann Arbor races happened before his birth",
+        "to show that Owens's childhood was not important",
+        "to explain the rules of track competitions"
+      ],
+      "answer": "A",
+      "why": "Opening with a dramatic moment makes readers want to learn how Owens became such an athlete."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage is EXCLAMATORY?",
+      "options": [
+        "Nevertheless, he refused to become bitter or resentful.",
+        "What an example of courage he set!",
+        "The new name stayed with him for the rest of his life.",
+        "In 1936, Owens travelled to the Olympic Games in Berlin, Germany."
+      ],
+      "answer": "B",
+      "why": "It expresses strong admiration and ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action in the passage shows the BEST sportsmanship?",
+      "options": [
+        "Luz Long congratulating Owens after losing to him",
+        "Owens training before school every morning",
+        "Owens working part-time jobs while studying",
+        "Owens setting three world records in one day"
+      ],
+      "answer": "A",
+      "why": "Sportsmanship means treating opponents fairly and generously; Long honoured the man who beat him."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best expresses the writer's point of view?",
+      "options": [
+        "Champions should be judged by their character as well as their medals.",
+        "Medals are the only true measure of a champion.",
+        "Athletes should not make friends with their rivals.",
+        "Sport is less important than any school subject."
+      ],
+      "answer": "A",
+      "why": "The final sentence says true champions are measured “not only by their medals but also by the way they treat others.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the MOST important lesson young athletes can learn from this passage?",
+      "options": [
+        "Train only when you feel completely healthy.",
+        "Always choose a coach from your own city.",
+        "Respect your opponents, whether you win or lose.",
+        "Change your name if it is hard to pronounce."
+      ],
+      "answer": "C",
+      "why": "The friendship between Owens and Long, and the closing lesson, both focus on respect for others."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "the year of the Berlin Olympics",
+        "how many gold medals Owens won",
+        "how Owens injured his back before the 1935 races",
+        "the name of Owens's junior high coach"
+      ],
+      "answer": "C",
+      "why": "The passage says he injured his back but never explains how; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A runner jumps across a whole stadium in a single leap.",
+        "A coach makes the track truly burn under a runner's feet.",
+        "A spelling mistake turns a boy into a champion overnight.",
+        "A runner sets several records in one afternoon despite an injury."
+      ],
+      "answer": "D",
+      "why": "Owens actually did this in 1935; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "Four Gold Medals and a Lasting Friendship",
+        "The German Who Won the Long Jump",
+        "A Teacher's Spelling Mistake",
+        "The Fastest Farmer in Alabama"
+      ],
+      "answer": "A",
+      "why": "It covers Owens's Olympic victories and his lasting friendship with Luz Long."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "When Owens returned home, he was still treated unfairly. Suggest a different ending in which he is welcomed fairly. Write two or three sentences.",
+      "model": "When Owens stepped off the ship, crowds of people of every colour cheered for him together. He was invited to live and train anywhere he chose, and his university asked him to coach young athletes on its own campus. Owens used his fame to make sure every student, whatever their background, was given the same chances he had fought for.",
+      "rubric": [
+        "2 = a clear, believable new ending in which Owens is treated fairly and that fits his character",
+        "1 = an ending is given but it is unclear or does not deal with how he was treated",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that shows fair treatment and fits the passage is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how can sports teams today encourage the kind of friendship Owens and Long shared?",
+      "options": [
+        "Congratulate opponents after every match.",
+        "Treat all players fairly, whatever their background.",
+        "A and B",
+        "Celebrate only when their own team wins."
+      ],
+      "answer": "C",
+      "why": "Long congratulated his opponent, and the passage shows that fair treatment of everyone matters."
+    }
+  ]
+}

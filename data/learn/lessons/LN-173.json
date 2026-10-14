@@ -1,0 +1,496 @@
+{
+ "code": "LN-173",
+ "title": "The speaker in a poem",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.3.6",
+  "RL.5.6",
+  "RL.6.6",
+  "RL.7.6",
+  "RL.8.6"
+ ],
+ "families": [
+  "poetry-elements",
+  "point-of-view"
+ ],
+ "skillNames": [
+  "Poetry: Speaker and Viewpoint"
+ ],
+ "statements": [
+  "R-0260",
+  "R-0433",
+  "R-0437",
+  "R-0606",
+  "R-0607",
+  "R-0625",
+  "R-0819",
+  "R-0823",
+  "R-0824"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who is talking?",
+     "text": "Every poem has a **speaker**. The speaker is the **voice** that talks in the poem.\n\nThe speaker often says **I**, **me** and **my**."
+    },
+    {
+     "title": "The speaker can be anyone",
+     "text": "The speaker can be a child, a grandmother or a teacher.\n\nIt can even be an **animal** or a **thing**, like a tree or the moon!"
+    },
+    {
+     "title": "How to find the speaker",
+     "text": "1. Find the words **I**, **me**, **my**.\n2. Read what the speaker **does**, **has** or **sees**.\n3. Ask: **Who could say this?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the lines that tell **what the speaker does or has**.\n\nThose lines are the clues. They show **who** is talking.\n\nIf no line fits your answer, it is **not** the speaker."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I am the old palm by the wall,",
+      "role": "key"
+     },
+     {
+      "t": "I give you shade when the sun is tall.",
+      "role": "detail"
+     },
+     {
+      "t": "Birds build their nests among my leaves,",
+      "role": "detail"
+     },
+     {
+      "t": "I stand and watch through every breeze.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first line says it: **I am the old palm**.\n\nThe other lines fit too: it gives shade and has leaves. The speaker is **a palm tree**."
+   },
+   "together": {
+    "passage": "I put my books into my bag,\nI tie my shoes, I comb my hair.\nI wave goodbye and run outside,\nMy teacher and my class are there.",
+    "stem": "Who is the speaker in this poem?",
+    "options": [
+     "A teacher",
+     "A shop owner",
+     "A mother",
+     "A student going to school"
+    ],
+    "answer": 3,
+    "hint": "Look at the clues. Who has books in a bag and a teacher and a class?",
+    "good": "Yes! The speaker packs books and meets 'my teacher and my class'. The speaker is a student."
+   },
+   "evidence": {
+    "sentences": [
+     "I put my books into my bag,",
+     "I tie my shoes, I comb my hair.",
+     "I wave goodbye and run outside,",
+     "My teacher and my class are there."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a student going to school. Tap the 2 lines that show it.",
+    "wrong": "Almost anyone does this. Find the lines that show the speaker is a student."
+   },
+   "checks": [
+    {
+     "passage": "I sleep all day upon the mat,\nI chase a ball, I drink my milk.\nWhen Sami comes home, I purr and purr,\nHe strokes my fur as soft as silk.",
+     "stem": "Who is the speaker?",
+     "options": [
+      "Sami",
+      "A cat",
+      "A ball",
+      "A bird"
+     ],
+     "answer": 1,
+     "why": "The speaker purrs and has soft fur. Sami is the boy who strokes it."
+    },
+    {
+     "passage": "Each night I rise above the sea,\nI light the way for boats to see.\nThe stars are my small friends up high,\nI sail across the dark night sky.",
+     "stem": "Who is the speaker?",
+     "options": [
+      "The moon",
+      "A boat",
+      "The sea",
+      "A star"
+     ],
+     "answer": 0,
+     "why": "The speaker rises at night, gives light and sails across the sky with the stars. That is the moon."
+    },
+    {
+     "passage": "My grandson visits every Friday,\nHe runs to me and kisses my hand.\nI tell him stories of long ago,\nOf camels crossing golden sand.",
+     "stem": "Who is the speaker?",
+     "options": [
+      "The grandson",
+      "A camel",
+      "A grandparent",
+      "A teacher"
+     ],
+     "answer": 2,
+     "why": "The speaker says 'my grandson', so the speaker is his grandmother or grandfather."
+    }
+   ],
+   "again": {
+    "title": "Point to the I",
+    "text": "Put your finger on the word **I** or **my**.\n\nNow ask: **Who is this I?** Read the words next to it for clues.",
+    "example": "I swim in the sea, I have eight long arms.\n\nWho is **I**? It swims and has eight arms. The speaker is **an octopus**!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "The speaker's attitude",
+     "text": "The **speaker** is the voice in a poem. The speaker's **attitude** is how the speaker **feels** about what they describe.\n\nThe speaker may be **happy**, **proud**, **annoyed**, **worried** or **thankful**."
+    },
+    {
+     "title": "Details show the attitude",
+     "text": "Poets rarely say 'I feel happy'. Instead they choose **words** and **details** that show it.\n\nWarm words like 'shine' and 'sweet' show a good feeling. Words like 'steal' and 'groan' show a bad one."
+    },
+    {
+     "title": "Find the attitude",
+     "text": "1. Who is speaking, and about **what**?\n2. Mark the strong **describing words** and actions.\n3. Ask: are they **positive** or **negative**?\n4. Name the feeling."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is the **lines** that show the feeling.\n\n1. Find words that show how the speaker sees the subject.\n2. Find what the speaker **does** or **wishes**.\n3. Choose the attitude those lines support.\n\nA line that only says where or when is **not** proof of a feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The rain came down on our dry town,",
+      "role": "detail"
+     },
+     {
+      "t": "And every street began to shine.",
+      "role": "key"
+     },
+     {
+      "t": "I opened my hands and caught the drops,",
+      "role": "key"
+     },
+     {
+      "t": "The sweetest gift, and it was mine.",
+      "role": "key"
+     }
+    ],
+    "explain": "'Shine', 'caught the drops' and 'the sweetest gift' are all warm, happy details.\n\nThe speaker's attitude toward the rain is **joy and thankfulness**."
+   },
+   "together": {
+    "passage": "The sandstorm comes again today,\nIt fills my eyes, it steals the sky.\nIt hides the swings where we would play,\nIt buries my bicycle nearby.\nI watch it from the window glass,\nAnd wait, and wait, for it to pass.",
+    "stem": "How does the speaker feel about the sandstorm?",
+    "options": [
+     "Excited to go out and play in it",
+     "Annoyed and impatient",
+     "Proud of how strong it is",
+     "Happy to stay inside all day"
+    ],
+    "answer": 1,
+    "hint": "Look at the action words: fills, steals, hides, buries. Are they happy words? What does the speaker keep doing at the end?",
+    "good": "Yes! The storm 'steals' and 'hides' things, and the speaker can only 'wait, and wait'. That shows annoyance and impatience."
+   },
+   "evidence": {
+    "sentences": [
+     "The sandstorm comes again today,",
+     "It fills my eyes, it steals the sky.",
+     "It hides the swings where we would play,",
+     "It buries my bicycle nearby.",
+     "I watch it from the window glass,",
+     "And wait, and wait, for it to pass."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: annoyed and impatient. Tap 2 lines that show this feeling.",
+    "wrong": "This line tells what happens or where the speaker is. Find lines with negative words or impatient waiting."
+   },
+   "checks": [
+    {
+     "passage": "Each morning I walk down to the shore,\nThe waves rush in to say hello.\nI could watch the blue water forever,\nUntil the evening sun sinks low.",
+     "stem": "Which line best shows the speaker never gets tired of the sea?",
+     "options": [
+      "Each morning I walk down to the shore,",
+      "The waves rush in to say hello.",
+      "I could watch the blue water forever,",
+      "Until the evening sun sinks low."
+     ],
+     "answer": 2,
+     "why": "'I could watch ... forever' tells us directly that the speaker never tires of the sea."
+    },
+    {
+     "passage": "My grandfather's hands are rough and brown,\nThey built our house, stone by stone.\nThey planted palms across our farm,\nI hope my hands grow like his own.",
+     "stem": "What is the speaker's attitude toward the grandfather?",
+     "options": [
+      "Sorry for him because his hands are rough",
+      "Bored by the work he does on the farm",
+      "Worried that he is too old to work",
+      "Full of admiration and respect"
+     ],
+     "answer": 3,
+     "why": "The speaker lists what the hands built and planted, then says 'I hope my hands grow like his own'. That shows admiration."
+    },
+    {
+     "passage": "My little brother follows me\nTo school, to the shop, to the tree.\nHe copies every word I say.\nI wish he'd let me be today!",
+     "stem": "Which line states the speaker's feeling most directly?",
+     "options": [
+      "I wish he'd let me be today!",
+      "To school, to the shop, to the tree.",
+      "My little brother follows me",
+      "He copies every word I say."
+     ],
+     "answer": 0,
+     "why": "The other lines describe what the brother does. 'I wish he'd let me be' tells us directly that the speaker is annoyed."
+    }
+   ],
+   "again": {
+    "title": "Thumbs up or down?",
+    "text": "Read each line and give it a **thumbs up** (good feeling) or **thumbs down** (bad feeling).\n\nCount them. Then pick a word for the feeling: happy, proud, annoyed, worried...",
+    "example": "My new shoes pinch my toes. 👎\nThey squeak on every stair. 👎\nI'll wear my old ones tomorrow. 👎\n\nMostly thumbs down: the speaker is **unhappy** with the new shoes."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Who the speaker is matters",
+     "text": "The speaker's **point of view** is how they see things, based on **who** they are and **where** they stand.\n\nA child, a grandfather and an old tree would describe the same street in very different ways."
+    },
+    {
+     "title": "The effect of point of view",
+     "text": "Poets choose a speaker on purpose. The speaker's point of view can:\n\n1. Let us see from an **unusual position** (high up, very old, very small).\n2. Make us **care** about someone or something.\n3. Show a **feeling** from the inside."
+    },
+    {
+     "title": "Attitude can change",
+     "text": "A speaker's attitude may **shift** during a poem: from bored to amazed, or from lonely to hopeful.\n\nLook for a turning word like **but**, **then** or **now**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find details that show **who** the speaker is.\n2. Find details that show **what** the speaker notices or remembers.\n3. Ask: what do these details make **me** see or feel?\n\nThe lines that only a speaker in that position could say are your best proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "You hurry past me every day,",
+      "role": "detail"
+     },
+     {
+      "t": "Your phones held up, your heads bent low.",
+      "role": "detail"
+     },
+     {
+      "t": "I've stood here for a hundred years;",
+      "role": "key"
+     },
+     {
+      "t": "I saw your grandfather, long ago, run here to play.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker is something old that never moves, perhaps an old tree or a well.\n\nBecause it has **stood here for a hundred years**, it can compare busy people today with children long ago. This point of view makes us **slow down and notice** the past."
+   },
+   "together": {
+    "passage": "They call me old, the market door;\nMy paint is gone, my hinges groan.\nBut I have opened for a hundred years\nTo traders' calls and children's songs,\nTo summer heat and rare cool rain,\nAnd every Eid, to laughing crowds.\nLock me if you wish. I still remember.",
+    "stem": "What is the effect of having the old door speak in the poem?",
+    "options": [
+     "It helps readers see the door as a witness to the market's history.",
+     "It shows readers that the door needs new paint very soon.",
+     "It explains to readers how wooden doors are made.",
+     "It shows that the traders never liked the old door."
+    ],
+    "answer": 0,
+    "hint": "What can the door tell us because it has been there so long? Look at what it remembers.",
+    "good": "Yes! Because the door has stood there for a hundred years, it can remember the traders, the songs and the Eid crowds."
+   },
+   "evidence": {
+    "sentences": [
+     "They call me old, the market door;",
+     "My paint is gone, my hinges groan.",
+     "But I have opened for a hundred years",
+     "To traders' calls and children's songs,",
+     "To summer heat and rare cool rain,",
+     "And every Eid, to laughing crowds.",
+     "Lock me if you wish. I still remember."
+    ],
+    "proof": [
+     2,
+     3,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the door is a witness to the market's history. Tap 2 lines that show what the door has seen or remembers.",
+    "wrong": "This line describes the door's looks or the weather. Find lines about the long life of the market that the door remembers."
+   },
+   "checks": [
+    {
+     "passage": "From my nest on the high branch I see it all:\nThe farmer's cart, the children small,\nThe road that winds down to the sea.\nAnd no one ever looks at me.",
+     "stem": "Who is the speaker, and what does this point of view let the poem do?",
+     "options": [
+      "A farmer; it describes his hard day of work",
+      "A child; it shows a game played on the road",
+      "The sea; it shows the waves from the shore",
+      "A bird; it shows the whole scene from above"
+     ],
+     "answer": 3,
+     "why": "'My nest on the high branch' shows the speaker is a bird. From up high it can see the cart, the children and the road all at once."
+    },
+    {
+     "passage": "Six hours of sand, the same grey road,\nMy brother asleep, my book all read.\nThen the sea! It flashed like a silver blade,\nAnd I forgot the miles ahead.",
+     "stem": "How does the speaker's attitude change?",
+     "options": [
+      "From excited to bored",
+      "From afraid to calm",
+      "From bored to amazed",
+      "From happy to sad"
+     ],
+     "answer": 2,
+     "why": "'The same grey road' and 'my book all read' show boredom. Then 'the sea!' and 'flashed like a silver blade' show amazement."
+    },
+    {
+     "passage": "The class laughs at a joke I do not know.\nThe teacher writes the date in neat white chalk.\nI hold my pencil tight and watch the board,\nAnd wait for the bell to ring for break.",
+     "stem": "Which detail best shows that the speaker feels like an outsider?",
+     "options": [
+      "The teacher writes the date in neat white chalk",
+      "The class laughs at a joke I do not know",
+      "I hold my pencil tight and watch the board",
+      "And wait for the bell to ring for break"
+     ],
+     "answer": 1,
+     "why": "Everyone else shares the joke, but the speaker does not. This shows the speaker is outside the group."
+    }
+   ],
+   "again": {
+    "title": "Swap the speaker",
+    "text": "To see the effect of a speaker, imagine a **different** one.\n\n1. Who is the speaker now?\n2. Who could speak instead?\n3. What would we **lose**? That is what the real speaker adds.",
+    "example": "If a young shopper described the market door, we would hear about today only.\n\nThe **door** can remember a hundred years. That long memory is the effect of the speaker."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Speaker is not the poet",
+     "text": "A poet often writes as a **persona**: a character who speaks in the poem. A poet who is an adult may speak as a child, a falcon or an old house.\n\nSo we say 'the **speaker** feels...', not 'the poet feels...'."
+    },
+    {
+     "title": "Attitude through details",
+     "text": "The speaker's **attitude** is revealed by what they choose to notice, the words they use about others, and what they **claim** about themselves.\n\nSometimes the speaker says one thing, but the details suggest something deeper."
+    },
+    {
+     "title": "Effects of point of view",
+     "text": "1. **Humour**: the speaker believes something the reader sees is not quite true.\n2. **Sympathy**: an inside view makes us feel what the speaker feels.\n3. **Questioning**: a limited view can make us look at ordinary life differently."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For attitude and point of view:\n\n1. Quote lines where the speaker **judges** or **claims** something.\n2. Quote lines that show what the speaker **does**.\n3. Explain what these reveal together.\n\nThe best answer fits **several** lines, including the ending, where poems often reveal the deepest attitude."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The humans wake when I decide;",
+      "role": "key"
+     },
+     {
+      "t": "I sleep upon their papers wide.",
+      "role": "detail"
+     },
+     {
+      "t": "They think this house belongs to them.",
+      "role": "key"
+     },
+     {
+      "t": "I let them stay. I'm kind like that.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker is a cat who believes it **owns** the house. Readers know the house really belongs to the family.\n\nThe gap between the cat's proud view and the truth creates **humour**."
+   },
+   "together": {
+    "passage": "I am the falcon on the falconer's arm;\nMy hood is off, the whole sky is mine.\nI chose this man; I let him carry me.\nI let him feed me, and I let him shine\nWhen people gather round to watch me fly.\nHe thinks he trained me. Let him think so.\nEach time I rise, I could keep going;\nEach time I turn, I choose to come home.",
+    "stem": "What is the speaker's attitude toward the falconer?",
+    "options": [
+     "Afraid of being punished by him",
+     "Angry and wanting to escape forever",
+     "Proud and independent, yet loyal by choice",
+     "Bored and uninterested in flying for him"
+    ],
+    "answer": 2,
+    "hint": "Look at what the falcon claims: who chose whom? And what does it choose at the end?",
+    "good": "Yes! The falcon claims it 'chose' the man and only 'lets' him think he trained it, yet it 'chooses to come home'. Proud, but loyal."
+   },
+   "evidence": {
+    "sentences": [
+     "I am the falcon on the falconer's arm;",
+     "My hood is off, the whole sky is mine.",
+     "I chose this man; I let him carry me.",
+     "I let him feed me, and I let him shine",
+     "When people gather round to watch me fly.",
+     "He thinks he trained me. Let him think so.",
+     "Each time I rise, I could keep going;",
+     "Each time I turn, I choose to come home."
+    ],
+    "proof": [
+     2,
+     5,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: proud and independent, yet loyal by choice. Tap 2 lines that show this attitude toward the falconer.",
+    "wrong": "This line describes the scene or the flight. Find lines where the falcon claims the choice is its own."
+   },
+   "checks": [
+    {
+     "passage": "I am the guard of Grandpa's farm;\nI watch the gate all day.\nWhen strangers come, I bravely bleat,\nThen quickly run away.",
+     "stem": "What effect does the speaker's point of view create?",
+     "options": [
+      "Humour, because the goat calls itself brave but runs away",
+      "Suspense about whether the farm will be robbed",
+      "Sadness, because the goat feels lonely on the farm",
+      "Fear, because the goat is dangerous to strangers"
+     ],
+     "answer": 0,
+     "why": "The goat proudly calls itself a brave guard, but its own last line shows it runs away. Readers see the gap, and that makes the poem funny."
+    },
+    {
+     "passage": "The new port shines with cranes and steel;\nThe ships are tall as towers.\nI find the place my father's boat\nOnce rocked for quiet hours:\nA concrete step. I sit. I stay.\nThe gulls, at least, still know the way.",
+     "stem": "Which detail best shows what the speaker has lost?",
+     "options": [
+      "The ships are tall as towers.",
+      "A quiet spot linked to the speaker's father is now concrete.",
+      "The new port shines with cranes and steel.",
+      "The gulls still know the way to the old place."
+     ],
+     "answer": 1,
+     "why": "The quiet spot linked to the speaker's father has become a concrete step. That detail shows the loss most clearly."
+    },
+    {
+     "passage": "They say the city has lights like stars\nThat never close their eyes.\nI have my stars. I have my goats.\nWhat more could the city buy?",
+     "stem": "How does the shepherd speaker's point of view shape the poem's message?",
+     "options": [
+      "It shows the shepherd badly wants to move to the city.",
+      "It proves that the poet has never visited a city.",
+      "It shows that the city is dangerous at night.",
+      "It lets the speaker question if the city is better."
+     ],
+     "answer": 3,
+     "why": "The shepherd compares city lights to his own real stars and asks what more the city could offer. The speaker is not the poet, so the poem proves nothing about the poet's life."
+    }
+   ],
+   "again": {
+    "title": "Claim and clue",
+    "text": "Make two lists:\n\n1. **Claims**: what the speaker says about themselves or others.\n2. **Clues**: what the speaker actually does or notices.\n\nIf they match, the attitude is simple. If they don't, the poem may be funny, sad or surprising.",
+    "example": "Claim: 'I don't care that my friend moved away.'\nClue: 'I still save her seat on the bus.'\n\nThey don't match. The speaker **does** care and misses the friend."
+   }
+  }
+ }
+}

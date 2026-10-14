@@ -1,0 +1,483 @@
+{
+ "code": "LN-114",
+ "title": "Author's purpose",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.6",
+  "RI.3.6",
+  "RI.5.6",
+  "RI.6.6",
+  "RI.7.6",
+  "RI.8.6"
+ ],
+ "families": [
+  "author-purpose"
+ ],
+ "skillNames": [
+  "Author's Purpose"
+ ],
+ "statements": [
+  "R-0099",
+  "R-0184",
+  "R-0310",
+  "R-0311",
+  "R-0479",
+  "R-0519",
+  "R-0705",
+  "R-0706",
+  "R-0707",
+  "R-0881",
+  "R-0882",
+  "R-0883",
+  "R-1016",
+  "R-1082"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Why did the author write it?",
+     "text": "Every author has a **reason** for writing. We call it the **author's purpose**."
+    },
+    {
+     "title": "Three big reasons",
+     "text": "To **inform**: to teach you facts.\nTo **persuade**: to make you think or do something.\nTo **entertain**: to tell a fun story."
+    },
+    {
+     "title": "How to tell",
+     "text": "1. Does it give **facts**? Inform.\n2. Does it say **you should**? Persuade.\n3. Is it a **fun story**? Entertain."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the words that show the purpose.\n\nFacts and numbers show **inform**.\n**Should**, **must** or **best** show **persuade**.\n\nPoint to them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Giraffes are the tallest animals.",
+      "role": "key"
+     },
+     {
+      "t": "They eat leaves from tall trees.",
+      "role": "key"
+     },
+     {
+      "t": "Their necks can be two meters long.",
+      "role": "detail"
+     }
+    ],
+    "explain": "These sentences give **facts** about giraffes. There is no story and no **you should**. The author wants to **inform** us."
+   },
+   "together": {
+    "passage": "You should eat fruit every day. Fruit is sweet and good for you. It helps you grow strong. Ask for fruit at lunch!",
+    "stem": "Why did the author write this?",
+    "options": [
+     "To tell a funny story",
+     "To get you to eat fruit",
+     "To tell how fruit grows",
+     "To describe a lunch box"
+    ],
+    "answer": 1,
+    "hint": "Look for the words You should. What does the author want you to do?",
+    "good": "Yes! You should and Ask for fruit show the author wants you to eat fruit."
+   },
+   "evidence": {
+    "sentences": [
+     "You should eat fruit every day.",
+     "Fruit is sweet and good for you.",
+     "It helps you grow strong.",
+     "Ask for fruit at lunch!"
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: to get you to eat fruit. Tap a sentence that tells you what to do.",
+    "wrong": "This sentence gives a reason. Find a sentence that tells you to do something."
+   },
+   "checks": [
+    {
+     "passage": "The sun is a star. It is very hot. It gives Earth light and heat.",
+     "stem": "Why did the author write this?",
+     "options": [
+      "To teach facts about the sun",
+      "To make you laugh",
+      "To get you to go outside",
+      "To tell a story"
+     ],
+     "answer": 0,
+     "why": "The text gives facts about the sun, so the author wants to inform."
+    },
+    {
+     "passage": "A little goat wanted to fly. He climbed a hill and flapped his ears. He did not fly, but he rolled all the way down, laughing!",
+     "stem": "Why did the author write this?",
+     "options": [
+      "To teach facts about goats",
+      "To get you to climb a hill",
+      "To tell a fun story",
+      "To show how to fly"
+     ],
+     "answer": 2,
+     "why": "A goat that tries to fly is a fun, made-up story to entertain."
+    },
+    {
+     "passage": "Our school needs a bigger playground. There is no space to run. Please help us ask for a new one!",
+     "stem": "Why did the author write this?",
+     "options": [
+      "To tell a story about a playground",
+      "To teach facts about schools",
+      "To describe a game children play",
+      "To get readers to help ask for a bigger playground"
+     ],
+     "answer": 3,
+     "why": "The author says the school needs a bigger playground and asks readers to help."
+    }
+   ],
+   "again": {
+    "title": "Ask the author",
+    "text": "Pretend you can ask the author: **Why did you write this?**\n\nWould they say: \"to teach you\", \"to change your mind\" or \"to make you smile\"?",
+    "example": "Text: Brush your teeth two times a day. It keeps them strong.\n\nThe author would say: **to get you to brush your teeth.** That is persuade."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "General and specific purpose",
+     "text": "The **general purpose** is the big reason: inform, persuade or entertain.\n\nThe **specific purpose** is the exact reason: **to explain how bees make honey** or **to describe life on a pearling boat**."
+    },
+    {
+     "title": "Informational texts",
+     "text": "Most informational texts aim **to inform**. Their specific purpose may be to **explain** how or why, to **describe** something, to **compare** two things, or to give **instructions**."
+    },
+    {
+     "title": "Find the specific purpose",
+     "text": "1. Find the topic.\n2. Ask: what does the author **do** with it? Explain, describe, compare, tell how?\n3. Put them together: **to explain how volcanoes form**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Check the **whole** text.\n\n1. What do most sentences do? Give steps? Give reasons? Describe?\n2. The specific purpose must cover the **whole** text, not one sentence.\n3. Point to sentences that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A rainbow appears when sunlight shines through raindrops.",
+      "role": "key"
+     },
+     {
+      "t": "Each drop bends the light and splits it into colors.",
+      "role": "key"
+     },
+     {
+      "t": "That is why rainbows often appear just after rain, when the sun comes out.",
+      "role": "key"
+     }
+    ],
+    "explain": "General purpose: **to inform**. Every sentence explains **how** or **why** rainbows form. Specific purpose: **to explain how rainbows form**."
+   },
+   "together": {
+    "passage": "Sea turtles lay their eggs on sandy beaches. A mother turtle crawls out of the sea at night and digs a hole with her back flippers. She lays about a hundred eggs, covers them with sand and returns to the water. About two months later, the baby turtles hatch and race toward the sea.",
+    "stem": "What is the author's specific purpose?",
+    "options": [
+     "To persuade people to visit beaches",
+     "To tell a funny story about a turtle",
+     "To compare turtles and fish",
+     "To explain how sea turtles lay eggs and hatch"
+    ],
+    "answer": 3,
+    "hint": "Does the author tell you to do something or tell a story? What do most of the sentences explain?",
+    "good": "Yes! The sentences explain, step by step, how turtles lay eggs and how babies hatch."
+   },
+   "evidence": {
+    "sentences": [
+     "Sea turtles lay their eggs on sandy beaches.",
+     "A mother turtle crawls out of the sea at night and digs a hole with her back flippers.",
+     "She lays about a hundred eggs, covers them with sand and returns to the water.",
+     "About two months later, the baby turtles hatch and race toward the sea."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: to explain how sea turtles lay eggs and hatch. Tap 2 sentences that show this.",
+    "wrong": "This sentence introduces the topic. Find sentences that explain the steps."
+   },
+   "checks": [
+    {
+     "passage": "The Arabian leopard is one of the rarest big cats in the world. It has pale gold fur with dark spots. It lives in rocky mountains and hunts at night. Only a small number survive in the wild today.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To persuade people to buy a cat",
+      "To describe the Arabian leopard",
+      "To tell a story about a hunt",
+      "To explain how mountains form"
+     ],
+     "answer": 1,
+     "why": "Every sentence describes the leopard: its fur, home, habits and numbers."
+    },
+    {
+     "passage": "Both wolves and pet dogs belong to the same family of animals. Wolves live in the wild in packs, but dogs live with people. Wolves hunt for their food, while dogs are fed by their owners.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To compare wolves and dogs",
+      "To warn people about wolves",
+      "To explain how to train a dog",
+      "To tell a story about a wolf"
+     ],
+     "answer": 0,
+     "why": "The text shows how wolves and dogs are alike and different. Its purpose is to compare."
+    },
+    {
+     "passage": "To fold a paper boat, first fold a sheet of paper in half. Then fold the top corners down to the middle. Next, fold the bottom edges up on both sides. Finally, open the middle and press it flat into a boat.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To describe the history of boats",
+      "To persuade you to buy paper",
+      "To tell how to fold a paper boat",
+      "To compare boats and ships"
+     ],
+     "answer": 2,
+     "why": "The text gives steps in order: first, then, next, finally. It tells how to fold a paper boat."
+    }
+   ],
+   "again": {
+    "title": "Verb + topic",
+    "text": "A specific purpose is a **verb + topic**.\n\nVerbs: **explain**, **describe**, **compare**, **tell how**, **persuade**.\n\nPick the verb that matches what most sentences do.",
+    "example": "Text: Steps for planting a seed.\n\nVerb: **tell how**. Topic: **plant a seed**. Purpose: **to tell how to plant a seed**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Purpose in true stories",
+     "text": "**Literary nonfiction**, like a memoir or biography, tells a true story. Its purpose may be to **share an experience**, to **show what a person was like**, or to **teach a lesson** learned from real life."
+    },
+    {
+     "title": "Purpose in persuasive texts",
+     "text": "A **persuasive** text has a specific goal: to make readers **believe** something or **do** something.\n\nThe specific purpose names that exact goal: **to convince the town to build a library**."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Decide the general purpose.\n2. Ask: what exact message or action does the author want?\n3. Look for strong clues: the opening, the ending, and repeated ideas.\n4. Choose the answer that fits the **whole** passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Authors often state their purpose in the **opening** or **closing** sentences.\n\n1. Read them closely.\n2. Check that the middle sentences support that purpose.\n3. Reject purposes that fit only one part."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I used to think my grandfather's stories were boring.",
+      "role": "detail"
+     },
+     {
+      "t": "Then one summer, he told me how he crossed the desert by camel as a boy.",
+      "role": "detail"
+     },
+     {
+      "t": "I began writing down every story he told.",
+      "role": "detail"
+     },
+     {
+      "t": "Now I know that the people around us carry history we can learn from, if we only listen.",
+      "role": "key"
+     }
+    ],
+    "explain": "This is a true story (memoir). The last sentence shows the lesson. Specific purpose: **to share how the writer learned to value the stories of older people**."
+   },
+   "together": {
+    "passage": "Every afternoon, students at our school throw away dozens of plastic water bottles. Most are used only once. If each student brought a refillable bottle, we could cut this waste almost completely. Refillable bottles are cheap, and there are already water fountains on every floor. I am asking the student council to start a Bring Your Bottle campaign next month, and I hope every class will join.",
+    "stem": "What is the author's specific purpose?",
+    "options": [
+     "To explain how plastic bottles are made",
+     "To describe the water fountains in the school",
+     "To convince students to use refillable bottles and join a campaign",
+     "To tell a story about the student council"
+    ],
+    "answer": 2,
+    "hint": "Look at the last sentence. What exactly does the author ask for?",
+    "good": "Yes! The author gives reasons and then asks for a Bring Your Bottle campaign."
+   },
+   "evidence": {
+    "sentences": [
+     "Every afternoon, students at our school throw away dozens of plastic water bottles.",
+     "Most are used only once.",
+     "If each student brought a refillable bottle, we could cut this waste almost completely.",
+     "Refillable bottles are cheap, and there are already water fountains on every floor.",
+     "I am asking the student council to start a Bring Your Bottle campaign next month, and I hope every class will join."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to convince students to use refillable bottles and join a campaign. Tap 2 sentences that show what the author wants.",
+    "wrong": "This sentence describes the problem or gives a fact. Find sentences that say what the author wants people to do."
+   },
+   "checks": [
+    {
+     "passage": "When I was nine, I was afraid of water. My father took me to the sea every Friday. At first I only sat on the sand. Week by week, I stepped further in. By the end of the summer, I was swimming beside him. I learned that fear gets smaller when you face it one small step at a time.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To teach readers how to swim",
+      "To persuade readers to visit the sea every Friday",
+      "To describe the beach on Fridays",
+      "To share how the writer overcame a fear step by step"
+     ],
+     "answer": 3,
+     "why": "The memoir tells a true experience and ends with the lesson: face fear one small step at a time."
+    },
+    {
+     "passage": "Our town should open a public library. Right now, the nearest one is an hour away. A library would give students a quiet place to study and give families free books. It could also host classes for adults. The town council should vote yes next week.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To describe the libraries in other towns",
+      "To convince the council to vote for a library",
+      "To explain how libraries lend books",
+      "To share a memory of reading"
+     ],
+     "answer": 1,
+     "why": "The author gives reasons and ends by asking the council to vote yes."
+    },
+    {
+     "passage": "One young scientist spent ten years studying mangrove forests on the Gulf coast. She waded through mud at dawn to count young trees and measure the water. Her careful records helped show which areas were shrinking. Her life's work reminds us that protecting nature often begins with patient observation.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To show how one person's patient work helps protect nature",
+      "To explain how to measure water",
+      "To persuade readers to become scientists when they grow up",
+      "To list the plants that live in mud"
+     ],
+     "answer": 0,
+     "why": "The passage describes one scientist's patient work and ends with the message that protecting nature begins with observation."
+    }
+   ],
+   "again": {
+    "title": "Listen to the ending",
+    "text": "In memoirs and persuasive texts, the **ending** often tells you the purpose.\n\nIt may give the **lesson** learned, or the **action** the author wants.",
+    "example": "Ending: \"So next time you see litter, pick it up.\"\n\nAction: **pick up litter**. Purpose: **to persuade readers to pick up litter**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Precise purposes",
+     "text": "Strong readers name purpose **precisely**. Not just \"to inform\" but **to correct a common misunderstanding about deserts**, or **to honor a teacher by showing her influence**.\n\nAuthors may also have **more than one** purpose."
+    },
+    {
+     "title": "Purpose of a part",
+     "text": "Every part of a text has a job. An anecdote may **hook** the reader. A statistic may show a problem is **serious**. A counterargument may show the author is **fair** before answering it.\n\nAsk: why did the author put **this** here?"
+    },
+    {
+     "title": "Analyze purpose",
+     "text": "1. Identify the main purpose of the whole text.\n2. Notice the author's choices: tone, examples, what is included or left out.\n3. For a part, ask how it serves the main purpose.\n4. Reject purposes that are too general or that only fit a detail."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a precise purpose with **the author's choices**.\n\n1. Point to the opening and the closing.\n2. Point to words that show tone (admiring, warning, correcting).\n3. Show how the middle supports the purpose you named."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many people picture deserts as empty, lifeless places.",
+      "role": "key"
+     },
+     {
+      "t": "Yet after a rare rain, seeds that waited for years can sprout and bloom within days.",
+      "role": "detail"
+     },
+     {
+      "t": "Beetles collect water from fog, and foxes hunt in the cool hours of the night.",
+      "role": "detail"
+     },
+     {
+      "t": "The desert is not empty; it is full of life that knows how to wait.",
+      "role": "key"
+     }
+    ],
+    "explain": "The opening states a **common belief**, and the ending **corrects** it. The middle gives proof. The precise purpose: **to correct the mistaken idea that deserts are lifeless**."
+   },
+   "together": {
+    "passage": "My grandmother never went to school. She could not read a newspaper, but she could read the sky, telling us when a dust storm was coming hours before the radio did. She knew which desert plants could soothe a cough and which could make you ill. She ran a household of nine children, kept accounts of every coin in her head and settled arguments between neighbors with a single proverb. When people today say someone is uneducated, I think of her. There are many kinds of knowledge, and some of the deepest are never written in books.",
+    "stem": "What is the author's specific purpose in this passage?",
+    "options": [
+     "To honor the grandmother and show that knowledge comes in many forms",
+     "To explain how to predict a dust storm",
+     "To argue that schools are not useful",
+     "To list the plants that grow in the desert"
+    ],
+    "answer": 0,
+    "hint": "Read the last two sentences. What point do the grandmother's skills prove?",
+    "good": "Yes! The author honors the grandmother and uses her skills to show there are many kinds of knowledge."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandmother never went to school.",
+     "She could not read a newspaper, but she could read the sky, telling us when a dust storm was coming hours before the radio did.",
+     "She knew which desert plants could soothe a cough and which could make you ill.",
+     "She ran a household of nine children, kept accounts of every coin in her head and settled arguments between neighbors with a single proverb.",
+     "When people today say someone is uneducated, I think of her.",
+     "There are many kinds of knowledge, and some of the deepest are never written in books."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: to honor her and show that knowledge comes in many forms. Tap 2 sentences that state this purpose.",
+    "wrong": "This sentence gives an example of her skills. Find the sentences where the author states the bigger point."
+   },
+   "checks": [
+    {
+     "passage": "Some argue that video calls make travel for meetings unnecessary. It is true that calls save time and money. However, studies of teams show that people who meet in person build trust faster and solve conflicts more easily. Companies should keep calls for routine updates, but still bring teams together for important decisions.",
+     "stem": "Why does the author include the sentence It is true that calls save time and money?",
+     "options": [
+      "To prove that traveling to meetings is always better",
+      "To change the topic to money",
+      "To show fairness by admitting a point before answering it",
+      "To explain how video calls work"
+     ],
+     "answer": 2,
+     "why": "The author admits a strength of the other side, then answers it with However. This makes the argument seem fair."
+    },
+    {
+     "passage": "The night the power failed across the city, the street outside our building turned dark and silent. Then a neighbor carried out a lamp, another brought tea, and children who had never spoken began to play together. By morning the lights were back, but something had changed. We still greet each other by name.",
+     "stem": "What is the author's specific purpose?",
+     "options": [
+      "To explain why power failures happen in large cities",
+      "To warn readers to buy lamps",
+      "To describe the neighbors' homes",
+      "To show how a shared difficulty brought neighbors closer"
+     ],
+     "answer": 3,
+     "why": "The story moves from silence to sharing, and ends showing the neighbors still greet each other: the hardship brought them together."
+    },
+    {
+     "passage": "In 1960, a small country produced almost no fresh water of its own. Today, it supplies most of its drinking water from desalination and recycles much of its wastewater for farms. This change did not happen by chance. It took decades of planning, investment and public campaigns to save water.",
+     "stem": "What is the purpose of the final two sentences?",
+     "options": [
+      "To give the exact cost of desalination",
+      "To explain that the change came from deliberate effort",
+      "To describe how wastewater is cleaned",
+      "To suggest the change was lucky"
+     ],
+     "answer": 1,
+     "why": "They tell readers the change came from planning, investment and campaigns, not by chance."
+    }
+   ],
+   "again": {
+    "title": "The author's job title",
+    "text": "Give the author a **job title** for this text.\n\nTeacher? Lawyer arguing a case? Storyteller? Someone giving thanks? Someone correcting a mistake?\n\nThe job title points to the precise purpose.",
+    "example": "Text: praises a grandmother's skills and says knowledge is not only in books.\n\nJob title: **someone giving honor and correcting a narrow idea**. Purpose: **to honor her and show many kinds of knowledge**."
+   }
+  }
+ }
+}

@@ -14,14 +14,17 @@ import type { AdaptiveConfig } from "../config/engine";
 import type { ResponseEvidence } from "../types/domain";
 import type { WeightedResponse } from "./irt";
 
-export function isRapidGuess(r: Pick<ResponseEvidence, "responseMs" | "estimatedSeconds">, cfg: AdaptiveConfig): boolean {
+export function isRapidGuess(r: Pick<ResponseEvidence, "responseMs" | "estimatedSeconds" | "rapid">, cfg: AdaptiveConfig): boolean {
+  // r67: the server decides with the owner's rule (3 s, a passage's reading time, the item's own time) when it knows
+  if (r.rapid !== undefined) return r.rapid;
   const threshold = Math.max(cfg.rapidGuessMinMs, cfg.rapidGuessFraction * r.estimatedSeconds * 1000);
   return r.responseMs < threshold;
 }
 
 export function evidenceWeight(r: ResponseEvidence, cfg: AdaptiveConfig): number {
   let w = 1;
-  if (isRapidGuess(r, cfg)) w *= cfg.rapidGuessWeight;
+  // r67: a rapid guess counts for nothing (weight 0, whatever an older school setting says)
+  if (isRapidGuess(r, cfg)) return 0;
   if (r.usedHint) w *= cfg.hintWeight;
   if (r.repeat) w *= cfg.repeatWeight ?? 0.5;
   if (r.sourceWeight !== undefined) w *= Math.max(0, Math.min(1, r.sourceWeight));

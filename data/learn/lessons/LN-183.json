@@ -1,0 +1,483 @@
+{
+ "code": "LN-183",
+ "title": "Making predictions",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Reading Strategies",
+ "standards": [],
+ "families": [
+  "make-predictions"
+ ],
+ "skillNames": [
+  "Make Predictions"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a prediction?",
+     "text": "A **prediction** is a **smart guess** about what will happen **next**.\n\nGood readers predict while they read."
+    },
+    {
+     "title": "Clues + what you know",
+     "text": "To predict, use:\n\n1. **Clues** in the story.\n2. What **you already know** about the world.\n\nPut them together to make your guess."
+    },
+    {
+     "title": "Check it!",
+     "text": "After you predict, **keep reading**.\n\nWere you right? If not, that's OK. Change your guess and read on."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good prediction has **clues**.\n\n1. Find the sentences that show what the character is **doing** or **getting ready** for.\n2. Ask: **What usually happens next?**\n3. Pick the guess that the clues support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bilal got a bowl and a spoon.",
+      "role": "key"
+     },
+     {
+      "t": "He poured milk and cereal into the bowl.",
+      "role": "key"
+     },
+     {
+      "t": "He sat down at the table.",
+      "role": "key"
+     },
+     {
+      "t": "Prediction: Bilal will eat his breakfast.",
+      "role": "main"
+     }
+    ],
+    "explain": "Clues: a bowl, a spoon, milk and cereal, sitting at the table.\n\nWhat we know: people eat cereal from a bowl. So we predict: **Bilal will eat breakfast.**"
+   },
+   "together": {
+    "passage": "It was Saturday morning. Hind put on her swimsuit. She packed a towel and her goggles. Her mother drove her to the pool.",
+    "stem": "What will Hind most likely do next?",
+    "options": [
+     "Go to sleep",
+     "Swim in the pool",
+     "Bake a cake",
+     "Read in the library"
+    ],
+    "answer": 1,
+    "hint": "Do the clues show that? Look at what Hind wears and packs, and where she goes.",
+    "good": "Yes! A swimsuit, goggles and a trip to the pool are clues that Hind will swim."
+   },
+   "evidence": {
+    "sentences": [
+     "It was Saturday morning.",
+     "Hind put on her swimsuit.",
+     "She packed a towel and her goggles.",
+     "Her mother drove her to the pool."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Hind will swim in the pool. Tap 2 sentences with clues.",
+    "wrong": "This sentence tells when, but it is not a clue about swimming. Find what Hind wears, packs or where she goes."
+   },
+   "checks": [
+    {
+     "passage": "Dark clouds filled the sky. The wind blew hard. Ali saw a flash of lightning.",
+     "stem": "What will most likely happen next?",
+     "options": [
+      "It will rain.",
+      "It will snow on the beach.",
+      "The sun will shine.",
+      "Ali will go swimming."
+     ],
+     "answer": 0,
+     "why": "Dark clouds, strong wind and lightning are clues that rain is coming."
+    },
+    {
+     "passage": "Reem's tooth was very loose. It wiggled when she ate her apple.",
+     "stem": "What will most likely happen soon?",
+     "options": [
+      "Reem will buy more apples.",
+      "Reem will grow taller.",
+      "Reem will cut her hair.",
+      "Reem's tooth will fall out."
+     ],
+     "answer": 3,
+     "why": "The tooth is very loose and wiggles. We know loose teeth fall out."
+    },
+    {
+     "passage": "The baby yawned and rubbed his eyes. Mum turned off the light and sang softly.",
+     "stem": "What will most likely happen next?",
+     "options": [
+      "The baby will play football.",
+      "Mum will go shopping.",
+      "The baby will fall asleep.",
+      "The baby will eat lunch."
+     ],
+     "answer": 2,
+     "why": "Yawning, rubbing eyes, a dark room and a soft song are clues that the baby will sleep."
+    }
+   ],
+   "again": {
+    "title": "If... then...",
+    "text": "Try this sentence:\n\n**If** [clue from the story], **then** [what will happen].\n\nIt helps you join the clue and your guess.",
+    "example": "**If** Sami is holding a ball and running to the park, **then** he will probably **play football**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Predicting from characters",
+     "text": "Characters often act the way they **usually** act.\n\nIf a character is careful, predict careful choices. If a character **wants** something badly, predict they will try to get it."
+    },
+    {
+     "title": "A good prediction",
+     "text": "1. It is based on **clues** from the text.\n2. It fits what you know about the **character**.\n3. It makes **sense** in real life.\n\nA guess with no clues is not a good prediction."
+    },
+    {
+     "title": "Change your prediction",
+     "text": "Sometimes the story gives **new information**. Then good readers **revise** (change) their prediction.\n\nChanging your mind is not a mistake. It shows you are reading carefully."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find what the character **wants** or **feels**.\n2. Find what the character **does** at the end of the passage.\n3. Choose the prediction these sentences **point to**.\n\nIf a prediction goes **against** the clues, reject it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yousef had been saving for a new football for months.",
+      "role": "key"
+     },
+     {
+      "t": "Today, his grandfather gave him money for doing well at school.",
+      "role": "key"
+     },
+     {
+      "t": "Yousef counted his savings and smiled.",
+      "role": "key"
+     },
+     {
+      "t": "Prediction: Yousef will buy the football soon.",
+      "role": "main"
+     }
+    ],
+    "explain": "Clues: he **wants** the football, he now has **more money**, and he **smiles** after counting.\n\nThe prediction fits what Yousef wants and what he has."
+   },
+   "together": {
+    "passage": "Rashid had wanted to join the school chess club all year, but he was too shy to ask. Every lunchtime, he stood by the door of the club room and watched the games. On Monday, the club leader, Fares, noticed him. 'We need one more player for the tournament,' Fares said. 'Do you play?' Rashid's cheeks went red, but he nodded and stepped inside.",
+    "stem": "What will Rashid most likely do next?",
+    "options": [
+     "Run away and never go back to the club.",
+     "Tell Fares that he hates chess.",
+     "Join the football team instead.",
+     "Play chess with the club, maybe in the tournament."
+    ],
+    "answer": 3,
+    "hint": "Does that fit what Rashid wants and what he does at the end? Read the first and last sentences again.",
+    "good": "Yes! Rashid has wanted to join all year, the club needs a player, and he nods and steps inside."
+   },
+   "evidence": {
+    "sentences": [
+     "Rashid had wanted to join the school chess club all year, but he was too shy to ask.",
+     "Every lunchtime, he stood by the door of the club room and watched the games.",
+     "On Monday, the club leader, Fares, noticed him.",
+     "'We need one more player for the tournament,' Fares said.",
+     "'Do you play?'",
+     "Rashid's cheeks went red, but he nodded and stepped inside."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Rashid will play chess with the club. Tap 2 sentences with clues for this prediction.",
+    "wrong": "This sentence does not show what Rashid wants or does. Find what he wants, what the club needs, or how he answers."
+   },
+   "checks": [
+    {
+     "passage": "Maha always reads the instructions twice before she starts any project. Today her teacher gave the class a new science kit with a thick booklet inside.",
+     "stem": "What will Maha most likely do?",
+     "options": [
+      "Throw the booklet away.",
+      "Start building without reading.",
+      "Read the instructions carefully first.",
+      "Ask to go home early."
+     ],
+     "answer": 2,
+     "why": "Maha 'always' reads instructions twice. Characters usually act the way they always do."
+    },
+    {
+     "passage": "Sultan saw his brother carrying a big wrapped box. At first, Sultan predicted it was a present for him. Then he saw the card on the box: 'Happy Birthday, Grandma!'",
+     "stem": "How should Sultan change his prediction?",
+     "options": [
+      "The box is for Sultan's birthday.",
+      "The box is a present for Grandma.",
+      "The box is empty inside.",
+      "The box is for Sultan's teacher."
+     ],
+     "answer": 1,
+     "why": "The card is new information. It shows the present is for Grandma, so Sultan should revise his prediction."
+    },
+    {
+     "passage": "Dana practised her poem every night for two weeks. She recited it to her mother, her father and even her cat. On the day of the contest, she walked onto the stage calmly.",
+     "stem": "What will most likely happen?",
+     "options": [
+      "Dana will say her poem well.",
+      "Dana will forget every word.",
+      "Dana will run off the stage.",
+      "Dana will sing a song instead."
+     ],
+     "answer": 0,
+     "why": "Two weeks of practice and walking on calmly are clues that Dana is ready and will do well."
+    }
+   ],
+   "again": {
+    "title": "What would they do?",
+    "text": "Pretend you know the character well, like a friend.\n\n1. What does your friend **want**?\n2. How does your friend **usually** act?\n3. So what will your friend do **now**?",
+    "example": "Rashid **wants** to play chess. He is shy but he **nods** when asked.\n\nSo now he will **join the game**, even if he is nervous."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Use many clues",
+     "text": "Strong predictions use **several** clues, not just one.\n\nLook at the **setting**, the **characters' actions**, what wise characters **say**, and any **changes** at the end of the passage."
+    },
+    {
+     "title": "Add what you know",
+     "text": "Your **background knowledge** helps. If you know that water expands when it freezes, or that fables teach lessons, you can predict more accurately.\n\nBut the prediction must still fit the **text**."
+    },
+    {
+     "title": "Reasonable, not wishful",
+     "text": "A **reasonable** prediction follows the evidence. A **wishful** one is what we **hope** will happen.\n\nAsk: **What does the evidence say is likely**, not what would be nice."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. List **every** clue that points in one direction.\n2. Add one fact you **know** that connects them.\n3. Choose the prediction that uses the **most** clues.\n\nIf a prediction uses only one detail, or none, it is weak."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Salem left his chocolate bar on the dashboard of the car.",
+      "role": "key"
+     },
+     {
+      "t": "It was a July afternoon in Riyadh, and the car was parked in the full sun.",
+      "role": "key"
+     },
+     {
+      "t": "Background knowledge: chocolate melts in strong heat.",
+      "role": "detail"
+     },
+     {
+      "t": "Prediction: the chocolate will be melted when Salem comes back.",
+      "role": "main"
+     }
+    ],
+    "explain": "The text gives two clues: the chocolate's **place** and the **hot setting**. Background knowledge links them: chocolate melts in heat.\n\nClues + knowledge = a strong prediction."
+   },
+   "together": {
+    "passage": "The village had not seen rain in two years. The wells were low, and the farmers watched the sky every morning. One evening, old Umm Saleh noticed the ants carrying their eggs up from their nests to higher ground, and the goats would not settle in their pen. 'Bring the hay inside,' she told her grandsons. 'And move the cart away from the wadi.' The boys laughed; the sky was still clear and full of stars. But they did as she asked. As they closed the barn door, a cool wind began to blow from the mountains.",
+    "stem": "What is the most reasonable prediction?",
+    "options": [
+     "Heavy rain will come, and the wadi may flood.",
+     "The drought will last for another year.",
+     "The boys will sleep outside under the stars.",
+     "The goats will run away to the mountains."
+    ],
+    "answer": 0,
+    "hint": "Look at all the clues together: the ants, the goats, Umm Saleh's orders and the wind at the end. What do they point to?",
+    "good": "Yes! The animals act strangely, Umm Saleh protects the hay and moves the cart from the wadi, and a cool wind arrives. A storm, and maybe a flood, is coming."
+   },
+   "evidence": {
+    "sentences": [
+     "The village had not seen rain in two years.",
+     "The wells were low, and the farmers watched the sky every morning.",
+     "One evening, old Umm Saleh noticed the ants carrying their eggs up from their nests to higher ground, and the goats would not settle in their pen.",
+     "'Bring the hay inside,' she told her grandsons.",
+     "'And move the cart away from the wadi.'",
+     "The boys laughed; the sky was still clear and full of stars.",
+     "But they did as she asked.",
+     "As they closed the barn door, a cool wind began to blow from the mountains."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: heavy rain will come, and the wadi may flood. Tap 2 sentences with clues for this prediction.",
+    "wrong": "This sentence gives background or seems to point the other way. Find clues about the animals, Umm Saleh's orders or the wind."
+   },
+   "checks": [
+    {
+     "passage": "A fable begins: 'A proud peacock laughed at the plain little sparrow. \"Your feathers are so dull,\" he said. \"No one will ever notice you.\"'",
+     "stem": "Using what you know about fables, what is the most reasonable prediction?",
+     "options": [
+      "The peacock will become the sparrow's teacher.",
+      "The peacock will learn a lesson about pride.",
+      "The sparrow will grow bright feathers by magic.",
+      "The story will end without teaching any lesson."
+     ],
+     "answer": 1,
+     "why": "Fables usually teach a lesson, and proud characters are often taught to be humble. The text shows the peacock's pride."
+    },
+    {
+     "passage": "Before bed, Fahad filled a glass bottle with water right to the top, screwed the cap on tight and put it in the freezer. He wanted ice-cold water for his hike in the morning.",
+     "stem": "What will most likely happen?",
+     "options": [
+      "The bottle will be empty in the morning.",
+      "The water will stay warm all night.",
+      "The water will freeze and may crack the bottle.",
+      "The bottle will float in the freezer."
+     ],
+     "answer": 2,
+     "why": "Background knowledge: water expands when it freezes. A full, tightly closed glass bottle has no room, so it may crack."
+    },
+    {
+     "passage": "Haya spent the whole evening watching videos and forgot to study for her maths test. In the morning, she hoped the questions would be easy.",
+     "stem": "Which prediction is best supported by the evidence?",
+     "options": [
+      "Haya will easily get full marks.",
+      "The teacher will cancel the test.",
+      "Haya will suddenly know every answer.",
+      "Haya will probably find the test hard."
+     ],
+     "answer": 3,
+     "why": "She did not study. Hoping the test is easy is a wish, not evidence. The reasonable prediction is that the test will be hard for her."
+    }
+   ],
+   "again": {
+    "title": "Clue count",
+    "text": "For each possible prediction, count how many clues support it.\n\n1. Write each prediction.\n2. Under it, list the clues.\n3. The prediction with the **most** clues is the most reasonable.",
+    "example": "'A storm is coming': ants moving eggs, restless goats, hay inside, cart moved, cool wind. (**5**)\n'The drought continues': the sky is clear. (**1**)\n\nThe storm prediction wins."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Predicting choices",
+     "text": "The hardest predictions are about what a character will **decide**.\n\nWeigh what the character **wants** against what they **value**. Look at their past actions: they often show what matters most to them."
+    },
+    {
+     "title": "Clues in structure",
+     "text": "Titles, chapter headings and how a passage **ends** are also clues.\n\nA story called 'The Last Match' that mentions a hidden injury is preparing you for something."
+    },
+    {
+     "title": "Revise as you read",
+     "text": "Strong readers hold predictions **loosely**.\n\nWhen new evidence appears, they ask: does this **confirm** my prediction or force me to **revise** it? A prediction that ignores new evidence becomes weak."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find evidence for **each** possible outcome.\n2. Look especially at **past actions** and the **final moment** of the passage.\n3. Choose the prediction that explains the most evidence, including the details that seem to point **against** it.\n\nOne strong desire is not enough if many details show stronger values."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Noor had trained all year to win the 400-metre race.",
+      "role": "detail"
+     },
+     {
+      "t": "Earlier in the story, she stopped in the middle of a practice run to help a younger girl who had twisted her ankle.",
+      "role": "key"
+     },
+     {
+      "t": "In the final, the runner beside Noor stumbled and fell hard on the track.",
+      "role": "key"
+     },
+     {
+      "t": "Prediction: Noor may stop to help, even if it costs her the win.",
+      "role": "main"
+     }
+    ],
+    "explain": "Noor **wants** to win, but her **past action** shows she values helping others more.\n\nThe fall at the end creates the same choice again. The strongest prediction follows her **values**, not just her wish."
+   },
+   "together": {
+    "passage": "For three years, Tariq had saved every riyal he earned helping at his uncle's shop. The money was for one thing: a professional camera, the kind real photographers used. He had already chosen the model and checked the price twice. On Thursday, he finally had enough. That same evening, their elderly neighbour, Abu Fahd, knocked on the door. His car had broken down, and without it he could not drive his wife to her weekly hospital appointments. The repair would cost almost exactly what Tariq had saved. Tariq said nothing during dinner. Later, his mother found him sitting on the roof, holding the envelope of money and looking at the light in Abu Fahd's window. Earlier that year, Tariq had been the first to volunteer when the mosque collected food for families in need, and he had once walked an hour to return a wallet he found in the street.",
+    "stem": "Which prediction is best supported by the evidence?",
+    "options": [
+     "Tariq will buy the camera tomorrow and forget all about Abu Fahd.",
+     "Tariq will ask Abu Fahd to pay him back with extra money.",
+     "Tariq will probably use his savings to help Abu Fahd, even if he must wait.",
+     "Tariq will tell his mother he only wants a cheaper camera now."
+    ],
+    "answer": 2,
+    "hint": "Weigh what Tariq wants against what he has done before. Where is he looking at the end?",
+    "good": "Yes! He wants the camera, but his silence, his long look at Abu Fahd's window and his past kindness all suggest he will choose to help."
+   },
+   "evidence": {
+    "sentences": [
+     "For three years, Tariq had saved every riyal he earned helping at his uncle's shop.",
+     "The money was for one thing: a professional camera, the kind real photographers used.",
+     "He had already chosen the model and checked the price twice.",
+     "On Thursday, he finally had enough.",
+     "That same evening, their elderly neighbour, Abu Fahd, knocked on the door.",
+     "His car had broken down, and without it he could not drive his wife to her weekly hospital appointments.",
+     "The repair would cost almost exactly what Tariq had saved.",
+     "Tariq said nothing during dinner.",
+     "Later, his mother found him sitting on the roof, holding the envelope of money and looking at the light in Abu Fahd's window.",
+     "Earlier that year, Tariq had been the first to volunteer when the mosque collected food for families in need, and he had once walked an hour to return a wallet he found in the street."
+    ],
+    "proof": [
+     7,
+     8,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: Tariq will probably use his savings to help Abu Fahd. Tap 2 sentences that support this prediction.",
+    "wrong": "This sentence shows how much Tariq wants the camera or explains the problem. Find his reaction and his past actions."
+   },
+   "checks": [
+    {
+     "passage": "In chapter 1, Lulwa refuses to speak to her new stepsister, Reem, and readers predict that they will never be friends. In chapter 3, Lulwa secretly fixes Reem's broken bicycle at night and leaves it by her door without a note.",
+     "stem": "How should a careful reader revise the prediction?",
+     "options": [
+      "Keep it, because Lulwa clearly hates Reem.",
+      "Predict that Reem will break the bicycle again.",
+      "Predict that Lulwa will move to another city.",
+      "Revise it, because Lulwa may be starting to care."
+     ],
+     "answer": 3,
+     "why": "Fixing the bicycle in secret is new evidence of kindness. A careful reader revises the prediction instead of ignoring it."
+    },
+    {
+     "passage": "The story is called 'The Last Match'. In the first scene, the coach tells the team that the club will close after this season. Khalil's knee aches after every training session, but he hides it from everyone.",
+     "stem": "Which prediction uses the most evidence?",
+     "options": [
+      "It will be Khalil's last match, and his knee may cause trouble.",
+      "The club will win enough money to build a new stadium.",
+      "Khalil will become the team's new coach next season.",
+      "The team will go on to play a hundred more matches."
+     ],
+     "answer": 0,
+     "why": "It uses the title, the club closing and the hidden knee injury. The other choices go against the evidence or have none."
+    },
+    {
+     "passage": "The chapter titles of a novel are: 1. A Map in the Attic. 2. The Missing Page. 3. Across the Empty Quarter. 4. ?",
+     "stem": "What is the most reasonable prediction for chapter 4?",
+     "options": [
+      "A chapter about a school football match",
+      "The characters find where the map leads",
+      "A chapter about cooking dinner at home",
+      "A chapter about buying a new attic"
+     ],
+     "answer": 1,
+     "why": "The titles follow a journey: finding a map, a missing piece, a desert crossing. The next step is likely reaching what the map leads to."
+    }
+   ],
+   "again": {
+    "title": "Wants versus values",
+    "text": "Make two lists for the character:\n\n1. **Wants**: what they would like.\n2. **Values**: what their past actions show they care about most.\n\nWhen wants and values pull in different directions, characters often follow their **values**, especially when the story shows them thinking hard.",
+    "example": "Tariq **wants** the camera.\nTariq **values** helping others (food drive, returned wallet).\n\nAt the end he stares at Abu Fahd's window. His values are winning."
+   }
+  }
+ }
+}

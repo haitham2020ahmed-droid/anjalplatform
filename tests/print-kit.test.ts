@@ -169,6 +169,8 @@ describe("👪 weekly family summary", () => {
       assert.ok((UI_STRINGS as readonly string[]).includes(k), k);
       assert.ok(ar[k as keyof typeof ar], k);
     }
-    assert.match(read("src/app/teacher/family-reports/weekly/page.tsx"), /weeklySummaries\(repo, actor/);
+    // r67 (nothing twice): the weekly summary page merged into "Family reports this week" (the old address redirects)
+    assert.match(read("src/app/teacher/family-reports/weekly/page.tsx"), /redirect\(`\/teacher\/family-reports\/this-week/);
+    assert.match(read("src/app/teacher/family-reports/this-week/page.tsx"), /familyWeeks\(repo, actor/);
   });
 });

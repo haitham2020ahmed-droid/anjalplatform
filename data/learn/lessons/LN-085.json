@@ -1,0 +1,446 @@
+{
+ "code": "LN-085",
+ "title": "Spelling words with Greek and Latin roots",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling",
+  "greek-latin-roots"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0111",
+  "L-0112",
+  "L-0228",
+  "L-0306"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Word parts",
+     "text": "Many long English words are built from **old word parts** called **roots**.\n\nIf you can spell the root, you can spell part of the word."
+    },
+    {
+     "title": "ph says f",
+     "text": "Some roots come from **Greek**. In these roots, the f sound is often spelled **ph**.\n\n**ph**one, **ph**oto, gra**ph**"
+    },
+    {
+     "title": "Same root, same spelling",
+     "text": "A root is spelled **the same way** in every word.\n\n**tele**phone, **tele**scope, **tele**vision\n\n**photo**, **photo**graph"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at each long word.\n2. Find a root you know (tele, phone, photo, graph).\n3. Is the root spelled the way you learned it?\n\nThe sentence with the wrong root spelling is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My uncle took a fotograph of the sea.",
+      "role": "key"
+     },
+     {
+      "t": "The water was very blue.",
+      "role": "other"
+     }
+    ],
+    "explain": "**fotograph** is wrong. The root **photo** uses **ph**.\n\nThe right spelling is **photograph**."
+   },
+   "together": {
+    "passage": "Grandpa has an old telefone. It is black and big. He also has a new phone. He uses it to call us.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "telefone",
+     "phone",
+     "black",
+     "call"
+    ],
+    "answer": 0,
+    "hint": "Find the long word with a root you know. Is the f sound spelled ph?",
+    "good": "Yes! tele + phone = telephone. The root phone uses ph."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandpa has an old telefone.",
+     "It is black and big.",
+     "He also has a new phone.",
+     "He uses it to call us."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the word that is spelled wrong.",
+    "wrong": "Every word here is spelled right. Find the root that is spelled the wrong way."
+   },
+   "checks": [
+    {
+     "passage": "Look at the photo of my class.",
+     "stem": "Which letters make the f sound in photo?",
+     "options": [
+      "p",
+      "ff",
+      "f",
+      "ph"
+     ],
+     "answer": 3,
+     "why": "In the Greek root photo, the f sound is spelled ph."
+    },
+    {
+     "passage": "I drew a graf of the rain this week.",
+     "stem": "What is the right spelling?",
+     "options": [
+      "graf",
+      "graph",
+      "graff",
+      "grafe"
+     ],
+     "answer": 1,
+     "why": "graph is a Greek root. Its f sound is spelled ph."
+    },
+    {
+     "passage": "We looked at the moon with a telescope.",
+     "stem": "Which root means 'far'?",
+     "options": [
+      "tele",
+      "scope",
+      "moon",
+      "with"
+     ],
+     "answer": 0,
+     "why": "tele means far. A telescope helps us look at things that are far away."
+    }
+   ],
+   "again": {
+    "title": "Chunk it",
+    "text": "Split a long word into **chunks**.\n\nSpell one chunk at a time. Then put them together.",
+    "example": "telephone → tele + phone\n\n**tele** + **phone** = **telephone**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Greek roots",
+     "text": "**graph** (write), **phon** (sound), **photo** (light), **tele** (far), **scope** (look at), **bio** (life), **auto** (self)\n\nIn Greek roots, the f sound is often **ph**: gra**ph**, **ph**one."
+    },
+    {
+     "title": "Latin roots",
+     "text": "**port** (carry), **dict** (say), **aud** (hear), **vis** (see)\n\ntrans**port**, **dict**ionary, **aud**io, **vis**ion"
+    },
+    {
+     "title": "Roots keep their spelling",
+     "text": "When a root is inside a longer word, its letters **do not change**.\n\n**auto**graph, **bio**graphy, micro**scope**\nim**port**, pre**dict**, **aud**ience\n\nSpell the root first, then add the other parts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the long words in the text.\n2. Look for a root you know inside each one.\n3. Check: is the root spelled exactly as it should be?\n\nThe sentence with a misspelled root is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The famous writer signed her autograph for us.",
+      "role": "key"
+     },
+     {
+      "t": "Then she read from her new book.",
+      "role": "other"
+     }
+    ],
+    "explain": "**autograph** = **auto** (self) + **graph** (write): your name, written by yourself.\n\nBoth roots are spelled the usual way, with **ph** in graph."
+   },
+   "together": {
+    "passage": "Our class visited the science museum last week. First, we looked at tiny cells under a microscope. Then we listened to an audio guide about the planets. Our teacher bought a bigraphy of a famous scientist for the class library. We all wanted to go back again.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "science",
+     "microscope",
+     "audio",
+     "bigraphy"
+    ],
+    "answer": 3,
+    "hint": "Look for the roots bio and graph. Are all their letters there?",
+    "good": "Yes! A life story is bio (life) + graph (write) + y: biography."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class visited the science museum last week.",
+     "First, we looked at tiny cells under a microscope.",
+     "Then we listened to an audio guide about the planets.",
+     "Our teacher bought a bigraphy of a famous scientist for the class library.",
+     "We all wanted to go back again."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The roots in this sentence are spelled correctly. Look for a root with a missing letter."
+   },
+   "checks": [
+    {
+     "passage": "Trucks transport food from the farms to the city.",
+     "stem": "Which word has the root port, meaning 'carry'?",
+     "options": [
+      "Trucks",
+      "transport",
+      "farms",
+      "city"
+     ],
+     "answer": 1,
+     "why": "transport = trans (across) + port (carry): to carry across."
+    },
+    {
+     "passage": "I looked up the word in my dictionery.",
+     "stem": "Which is the correct spelling?",
+     "options": [
+      "dictionery",
+      "dicshunary",
+      "dictionary",
+      "dictonary"
+     ],
+     "answer": 2,
+     "why": "dictionary begins with the Latin root dict (say) and ends in -ary."
+    },
+    {
+     "passage": "Speak into the mikrophone so everyone can hear you.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "microphone",
+      "mikrophone",
+      "microfone",
+      "mycrophone"
+     ],
+     "answer": 0,
+     "why": "micro (small) + phone (sound). Both are Greek roots: c in micro, ph in phone."
+    }
+   ],
+   "again": {
+    "title": "Root first",
+    "text": "When you spell a long word, write the **root first**, the part you already know.\n\nThen add the letters before and after it.",
+    "example": "biography → find **graph** → bio + **graph** + y → **biography**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More Latin roots",
+     "text": "**struct** (build), **rupt** (break), **spect** (look), **ject** (throw), **tract** (pull), **scrib / script** (write)\n\ncon**struct**ion, inter**rupt**, in**spect**, pro**ject**, **tract**or, de**scrib**e"
+    },
+    {
+     "title": "Prefix + root",
+     "text": "Many words are a **prefix + root**. Keep **all** the letters of both.\n\ninter + rupt = inte**rr**upt (two r's)\nin + spect = inspect\nsub + tract = subtract"
+    },
+    {
+     "title": "Same root, many words",
+     "text": "Once you can spell a root, you can spell its whole family.\n\n**spect**: inspect, spectator, respect\n**rupt**: erupt, interrupt, disrupt\n**struct**: structure, construct, instruct"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the long word that looks wrong.\n2. Split it into prefix, root and ending.\n3. Check each part, especially the root.\n4. Compare it with another word in the same family.\n\nPoint to the sentence where a part is misspelled."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Workers began the construction of a new bridge.",
+      "role": "other"
+     },
+     {
+      "t": "An engineer came to inspect the steel beams.",
+      "role": "key"
+     },
+     {
+      "t": "She checked that the structure was safe.",
+      "role": "other"
+     }
+    ],
+    "explain": "**inspect** = in + **spect** (look). **construction** and **structure** share the root **struct** (build).\n\nAll the roots are spelled correctly."
+   },
+   "together": {
+    "passage": "A volcano is an opening in the earth's surface. When pressure builds up deep underground, the volcano can erupt. Hot lava, ash and gas are thrown into the air. Scientists watch active volcanoes closely and use special tools to predict an erupshun. Their warnings help keep nearby towns safe.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "erupshun",
+     "erupt",
+     "predict",
+     "Scientists"
+    ],
+    "answer": 0,
+    "hint": "Find a word in the same family as erupt. Is the root rupt spelled the same way?",
+    "good": "Yes! erupt + ion = eruption. The root rupt keeps its spelling, and the ending is -tion."
+   },
+   "evidence": {
+    "sentences": [
+     "A volcano is an opening in the earth's surface.",
+     "When pressure builds up deep underground, the volcano can erupt.",
+     "Hot lava, ash and gas are thrown into the air.",
+     "Scientists watch active volcanoes closely and use special tools to predict an erupshun.",
+     "Their warnings help keep nearby towns safe."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The roots in this sentence are spelled correctly. Look for a word in the rupt family."
+   },
+   "checks": [
+    {
+     "passage": "Please do not interupt the speaker.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "interupt",
+      "interrupt",
+      "intterupt",
+      "enterrupt"
+     ],
+     "answer": 1,
+     "why": "inter + rupt keeps all the letters, so there are two r's: interrupt."
+    },
+    {
+     "passage": "The farmer drove his tractor across the field.",
+     "stem": "What does the root tract mean?",
+     "options": [
+      "build",
+      "look",
+      "write",
+      "pull"
+     ],
+     "answer": 3,
+     "why": "tract means pull. A tractor pulls heavy farm machines."
+    },
+    {
+     "passage": "Can you discribe the animal you saw?",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "discribe",
+      "describe",
+      "descrybe",
+      "deskribe"
+     ],
+     "answer": 1,
+     "why": "describe = de + scrib (write) + e. The prefix is de, not dis."
+    }
+   ],
+   "again": {
+    "title": "Find the family",
+    "text": "When you are unsure how to spell a word, think of **another word with the same root**.\n\nThe root is spelled the same in both.",
+    "example": "Not sure about 'spectator'? Think of **inspect**.\n\nBoth have **spect** (look) → **spectator**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Greek spellings",
+     "text": "Greek roots often use unusual letters:\n\n**ch** for k: **chron**ological (time), te**ch**nology\n**y** for short i: s**y**mbol, rh**y**thm\n**ph** for f: **phon**ics, **photo**synthesis\n\nThese letters stay the same in every word of the family."
+    },
+    {
+     "title": "Roots that change form",
+     "text": "Some Latin roots have **two forms**:\n\n**mit / miss** (send): admit → admission\n**scrib / script** (write): describe → description\n**duc / duct** (lead): produce → production\n\nThe ending tells you which form to use."
+    },
+    {
+     "title": "Prefixes that double letters",
+     "text": "When a prefix meets a root, its last letter can change to match the root:\n\nad + tract → **at**tract\ncom + mit → co**mm**it\nin + mobile → **im**mobile\n\nThat is why these words have double letters."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the long word that may be misspelled.\n2. Split it into prefix, root and suffix.\n3. Ask: Does the root keep its Greek letters (ph, ch, y)? Does the root change form before this suffix? Did the prefix double a letter?\n4. Compare with a family word you know.\n\nPoint to the sentence that holds the error."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum displays ancient coins in chronological order.",
+      "role": "key"
+     },
+     {
+      "t": "Each label gives a short description of the coin.",
+      "role": "key"
+     },
+     {
+      "t": "Visitors can see how money changed over time.",
+      "role": "other"
+     }
+    ],
+    "explain": "**chronological** keeps the Greek **ch** from **chron** (time).\n\n**description** uses the **script** form of the root before **-ion** (describe → description)."
+   },
+   "together": {
+    "passage": "Biology is the study of living things, from tiny cells to giant whales. Many students first meet biology through simple experiments, such as watching a seed sprout. Later, they learn about photosynthesis, the process plants use to make food from sunlight. Some go on to study the human body, while others explore simbiotic relationships, such as birds that eat ticks off a buffalo's back. In each case, careful observation is the key to discovery.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "Biology",
+     "photosynthesis",
+     "simbiotic",
+     "observation"
+    ],
+    "answer": 2,
+    "hint": "Look for a Greek root that should use y for the short i sound, as in symbol.",
+    "good": "Yes! symbiotic begins with the Greek sym (together), spelled with y, as in symbol and sympathy."
+   },
+   "evidence": {
+    "sentences": [
+     "Biology is the study of living things, from tiny cells to giant whales.",
+     "Many students first meet biology through simple experiments, such as watching a seed sprout.",
+     "Later, they learn about photosynthesis, the process plants use to make food from sunlight.",
+     "Some go on to study the human body, while others explore simbiotic relationships, such as birds that eat ticks off a buffalo's back.",
+     "In each case, careful observation is the key to discovery."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The Greek and Latin roots in this sentence are spelled correctly. Keep looking."
+   },
+   "checks": [
+    {
+     "passage": "Our school has strict rules about admittion to the science lab.",
+     "stem": "Which is the correct spelling?",
+     "options": [
+      "admition",
+      "admission",
+      "admittion",
+      "admisson"
+     ],
+     "answer": 1,
+     "why": "The root mit changes to miss before -ion: admit → admission."
+    },
+    {
+     "passage": "Good poetry has a steady rithm that readers can feel.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "rythm",
+      "rithm",
+      "rhythm",
+      "rhithm"
+     ],
+     "answer": 2,
+     "why": "rhythm comes from Greek. It has rh at the start and y for the short i sound."
+    },
+    {
+     "passage": "Bright colors atract bees to flowers.",
+     "stem": "Why does the correct spelling have a double t?",
+     "options": [
+      "The prefix ad changes to at before tract.",
+      "The word is a compound word.",
+      "Two t's show the word is a verb.",
+      "The t is doubled before every suffix."
+     ],
+     "answer": 0,
+     "why": "ad + tract became attract. The d of the prefix changed to t to match the root."
+    }
+   ],
+   "again": {
+    "title": "Ask the family",
+    "text": "When a long word is hard:\n\n1. Find the **root**.\n2. Think of a shorter word in the **same family**.\n3. Borrow the spelling from the shorter word, then check the ending.",
+    "example": "symbiotic → family words: **symbol**, **sympathy**\n\nThe Greek **sym** (together) is spelled with **y** → **symbiotic**"
+   }
+  }
+ }
+}

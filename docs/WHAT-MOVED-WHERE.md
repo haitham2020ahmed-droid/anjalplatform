@@ -29,6 +29,31 @@ Checked by `tests/menus.test.ts`.
 
 ## Teacher
 
+### r67: the Reports hub in four groups (nothing twice)
+
+**Reports** (`/teacher/reports`) has four groups and the teacher's week in two lines on top
+("This week: 12 new stars · 3 students need review · weakest class skill: Inference"):
+
+| Group | Cards |
+| --- | --- |
+| **My class** | Class progress (`/teacher/reports/class`: this month against last month, never against other classes; each student against classmates, staff only) · Skills grid (`/teacher/reports/skills-grid`, from the skill-status work) · Mistakes and root causes (`/teacher/reports/errors`) · Students dashboard · Curriculum results · Grammar results · Practice and time |
+| **Students** | Student file (`/teacher/students/[id]`): language profile (7 strands), mistakes and the real gap, compared with the class, MAP, ReadRise level chart, follow-up (alerts, comments, private notes) |
+| **Programs** | MAP profile · Group study plan · MAP study plans · MAP Growth Report · Grade and school overview · NAFS reports (Grade 6 teachers) · ReadRise growth · Learn results · Writing results · Reading Fluency · ReadMaster · Live Challenge · Games Report |
+| **Follow-up** | Early warning · Alerts (with the MAP and practice flags) · Interventions · Family Reports (monthly + weekly) · MAP family report |
+
+| Merged (old address) | Now |
+| --- | --- |
+| Student Progress `/teacher/progress/[id]` | redirects to the **Student file** `/teacher/students/[id]` (comments and private notes moved there; the MAP plan is in Plans; level history in Level Story) |
+| Student file `/admin/student-file/[id]` | redirects to `/teacher/students/[id]` (a grade coordinator reading another teacher's student still gets the read-only summary) |
+| See it as the student does `/admin/student-file/[id]/view` | redirects to **Preview as student** `/teacher/student-view?student=` |
+| Needs help `/teacher/reports/needs-help` | redirects to **Mistakes and root causes** `/teacher/reports/errors` (repeated mistakes kept there) |
+| Who Needs Help `/teacher/intervention` | redirects to **Alerts → MAP and practice flags** `/teacher/alerts?view=flags` |
+| Weekly family summary `/teacher/family-reports/weekly` | redirects to **Family reports this week** `/teacher/family-reports/this-week` |
+| Progress report for parents (card) | the **Family Reports** card (the page `/teacher/progress/[id]/report` still opens from the student file) |
+
+Monthly family report: written by the platform at month end (first 7 days of the next month) as a draft per student,
+EN + AR; the teacher reads it and adds a note, the school admin approves, then the family sees it (`/family-report/[id]`).
+
 ### Update 15: every page in ONE place
 
 The teacher menu: **Home · Students & Classes · Curriculum Map · Plans · Assessments · Writing · Reading · MAP · Reports**,

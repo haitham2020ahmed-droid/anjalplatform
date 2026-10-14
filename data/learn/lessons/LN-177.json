@@ -1,0 +1,487 @@
+{
+ "code": "LN-177",
+ "title": "Irony",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.4.6",
+  "RL.6.6",
+  "RL.8.6"
+ ],
+ "families": [],
+ "skillNames": [
+  "Irony: Dramatic, Situational and Verbal"
+ ],
+ "statements": [
+  "R-0430",
+  "R-0821",
+  "R-0979"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "You know a secret!",
+     "text": "Sometimes **you**, the reader, know something that a **character does not know**.\n\nThis is called **dramatic irony**."
+    },
+    {
+     "title": "How it feels",
+     "text": "Dramatic irony can make you want to shout: **'Look out!'** or **'It's right there!'**\n\nIt can make a story **funny** or **exciting**."
+    },
+    {
+     "title": "How to spot it",
+     "text": "1. Find what **you** know from the story.\n2. Find what the **character** says or thinks.\n3. Ask: **Does the character know what I know?** If not, that is dramatic irony."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find **two** things in the text:\n\n1. The sentence that tells **you** the secret.\n2. The sentence that shows the character **does not know** it.\n\nTogether, they prove the dramatic irony."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser looked everywhere for his glasses.",
+      "role": "detail"
+     },
+     {
+      "t": "He looked under the bed and in his bag.",
+      "role": "detail"
+     },
+     {
+      "t": "But his glasses were on top of his head!",
+      "role": "key"
+     },
+     {
+      "t": "'Where can they be?' he said.",
+      "role": "key"
+     }
+    ],
+    "explain": "**We** know the glasses are on his head. **Nasser** does not know.\n\nThat is dramatic irony, and it makes the story funny."
+   },
+   "together": {
+    "passage": "Mum hid a big cake in the kitchen for Rami's birthday. She told everyone to keep it a secret. Rami came home and said, 'Nobody remembered my birthday.' He sat down sadly at the table.",
+    "stem": "What do we know that Rami does not know?",
+    "options": [
+     "Rami's birthday is next week.",
+     "Mum forgot about Rami's birthday.",
+     "Rami does not like cake.",
+     "Mum has a surprise cake for him."
+    ],
+    "answer": 3,
+    "hint": "Is that in the story? Read the first two sentences again. What is the secret?",
+    "good": "Yes! We know about the secret cake. Rami thinks nobody remembered."
+   },
+   "evidence": {
+    "sentences": [
+     "Mum hid a big cake in the kitchen for Rami's birthday.",
+     "She told everyone to keep it a secret.",
+     "Rami came home and said, 'Nobody remembered my birthday.'",
+     "He sat down sadly at the table."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: Mum has a surprise cake for him. Tap the 2 sentences that tell us the secret.",
+    "wrong": "This sentence shows what Rami thinks. Find the sentences that tell US the secret."
+   },
+   "checks": [
+    {
+     "passage": "Sara put her toy rabbit on the shelf. While she was at school, her baby brother took it and put it in the toy box. Sara came home and looked at the empty shelf. 'Who took my rabbit?' she cried.",
+     "stem": "What does the reader know that Sara does not?",
+     "options": [
+      "The rabbit is in the toy box.",
+      "Sara has two toy rabbits.",
+      "The rabbit is at school.",
+      "Her brother is at school."
+     ],
+     "answer": 0,
+     "why": "The story tells us her brother put the rabbit in the toy box. Sara does not know that."
+    },
+    {
+     "passage": "The children planned a surprise party for their teacher. They hid behind the desks. Ms. Huda walked in and said, 'Why is the class so empty today?'",
+     "stem": "Why is this funny?",
+     "options": [
+      "Ms. Huda forgot that it was a school day.",
+      "The desks are too small.",
+      "We know the children are hiding, but she does not.",
+      "The children went home early to make a cake."
+     ],
+     "answer": 2,
+     "why": "We know the children are behind the desks. Ms. Huda thinks the class is empty. That is dramatic irony."
+    },
+    {
+     "passage": "A fox hid behind a bush. The little bird did not see it. The bird hopped closer and closer to the bush, singing happily.",
+     "stem": "Why do we feel worried for the bird?",
+     "options": [
+      "The bird has a sore throat.",
+      "We know the fox is there, but the bird does not.",
+      "The bush is full of sharp thorns.",
+      "The bird is singing a song to the fox."
+     ],
+     "answer": 1,
+     "why": "We know the fox is hiding. The bird does not, so it hops closer. That makes us worried."
+    }
+   ],
+   "again": {
+    "title": "Who knows what?",
+    "text": "Make two lists:\n\n1. **I know...**\n2. **The character knows...**\n\nIf your list has something the character's list does **not**, you found dramatic irony!",
+    "example": "Story: The ball is behind the door. Ali looks in the garden for it.\n\nI know: **the ball is behind the door.**\nAli knows: **he lost his ball.**\n\nI know more, so it is dramatic irony."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "What is irony?",
+     "text": "**Irony** is a gap between what **seems** true or **expected** and what **really** is.\n\nAuthors use irony to make stories funny, surprising or exciting."
+    },
+    {
+     "title": "Dramatic irony",
+     "text": "In **dramatic irony**, the **reader knows something a character does not**.\n\nThe character says or does things that seem silly, sad or dangerous **because** they do not know what we know."
+    },
+    {
+     "title": "Situational irony",
+     "text": "In **situational irony**, the **opposite** of what we expect happens.\n\nA fire station burns down. A road-safety teacher walks into a lamppost. We expected one thing, and the reverse happened."
+    },
+    {
+     "title": "Which one is it?",
+     "text": "Ask:\n\n1. Does the **reader** know a secret the character does not? → **dramatic** irony.\n2. Does an event turn out the **opposite** of what everyone expected? → **situational** irony."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For **dramatic irony**, find:\n1. the sentence that gives **you** the information, and\n2. the sentence that shows the character **does not know** it.\n\nFor **situational irony**, find what was **expected** and what **actually** happened."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sign on the new shop said 'Always Open'.",
+      "role": "key"
+     },
+     {
+      "t": "Hind walked there in the heat to buy some milk.",
+      "role": "detail"
+     },
+     {
+      "t": "When she arrived, the door was locked.",
+      "role": "key"
+     },
+     {
+      "t": "A note read: 'Closed for the day.'",
+      "role": "detail"
+     }
+    ],
+    "explain": "We **expect** a shop called 'Always Open' to be open. The **opposite** happens: it is locked.\n\nThis is **situational irony**."
+   },
+   "together": {
+    "passage": "For weeks, Fahad had been secretly saving his pocket money to buy his sister Huda a new set of paints for her birthday. He hid the box under his bed. Huda noticed that Fahad had stopped buying sweets after school. 'He must be saving for that silly video game,' she told her friend, rolling her eyes. That evening, when Fahad asked whether she liked blue or green better, Huda just shrugged and said, 'Why do you care?'",
+    "stem": "What creates dramatic irony in this story?",
+    "options": [
+     "Huda knows Fahad's secret but pretends she does not.",
+     "Readers know Fahad is buying Huda a gift, but she thinks it is for a game.",
+     "Fahad does not know that Huda's birthday is coming.",
+     "Huda and Fahad both want the same video game."
+    ],
+    "answer": 1,
+    "hint": "Who knows about the paints: Huda, or the reader? What does Huda think the money is for?",
+    "good": "Yes! We know about the paints, but Huda thinks Fahad is saving for a game. Her eye-rolling seems unfair because of what we know."
+   },
+   "evidence": {
+    "sentences": [
+     "For weeks, Fahad had been secretly saving his pocket money to buy his sister Huda a new set of paints for her birthday.",
+     "He hid the box under his bed.",
+     "Huda noticed that Fahad had stopped buying sweets after school.",
+     "'He must be saving for that silly video game,' she told her friend, rolling her eyes.",
+     "That evening, when Fahad asked whether she liked blue or green better, Huda just shrugged and said, 'Why do you care?'"
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: readers know about the gift, but Huda thinks it is for a game. Tap 2 sentences: one that tells us the secret and one that shows Huda does not know it.",
+    "wrong": "This sentence does not show the gap. Find what the reader knows about the gift, and what Huda wrongly thinks."
+   },
+   "checks": [
+    {
+     "passage": "The school invited a speaker to give a talk about the importance of being on time. The whole school waited in the hall. The speaker arrived forty minutes late.",
+     "stem": "What kind of irony is this?",
+     "options": [
+      "Dramatic irony, because the reader knows a secret",
+      "No irony, because this is what we expected",
+      "A flashback to an earlier talk at the school",
+      "Situational irony, because the opposite of the expected happens"
+     ],
+     "answer": 3,
+     "why": "We expect a speaker about being on time to be on time. The opposite happens."
+    },
+    {
+     "passage": "Grandfather wheeled the shiny red bicycle into the garage and covered it with a sheet. 'Not a word to Faris until Friday,' he told the family. That afternoon, Faris kicked a stone along the street. 'I'll never have a bike like Sami's,' he said.",
+     "stem": "What effect does the dramatic irony have?",
+     "options": [
+      "Readers smile because they know Faris will soon be happy.",
+      "Readers feel afraid that Faris will get hurt.",
+      "Readers are confused about who Faris is.",
+      "Readers feel angry with the grandfather."
+     ],
+     "answer": 0,
+     "why": "We know about the hidden bicycle, so Faris's sad words make us smile. We know a happy surprise is coming."
+    },
+    {
+     "passage": "Mr. Salem was known as the most careful man in town. He taught road-safety classes every week. One morning, he was so busy reading a road-safety leaflet as he walked that he walked straight into a lamppost.",
+     "stem": "Why is this an example of situational irony?",
+     "options": [
+      "Mr. Salem does not know how to drive.",
+      "The reader knows something Mr. Salem does not.",
+      "A safety teacher is hurt because of a safety leaflet.",
+      "Lampposts are dangerous for people who walk."
+     ],
+     "answer": 2,
+     "why": "We expect a safety teacher to be careful. Instead, a safety leaflet causes his accident. That is the opposite of what we expect."
+    }
+   ],
+   "again": {
+    "title": "Secret or surprise?",
+    "text": "**Dramatic irony = a secret.** You know it; the character doesn't.\n\n**Situational irony = a surprise twist.** Things turn out the opposite of what anyone expected.",
+    "example": "Secret: we know the cake is in the cupboard, but Ali thinks nobody bought one. → **dramatic**\n\nSurprise: the swimming coach falls into the pool in his suit. → **situational**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Three kinds of irony",
+     "text": "1. **Dramatic**: the reader knows more than a character.\n2. **Situational**: events turn out the opposite of what is expected.\n3. **Verbal**: a character **says the opposite** of what they mean."
+    },
+    {
+     "title": "Verbal irony",
+     "text": "In a sandstorm, someone says, '**Lovely weather today!**'\n\nThey do not mean it. The speaker expects listeners to understand the **real** meaning. It is not a lie; it is a way to show annoyance, humour or a secret."
+    },
+    {
+     "title": "How authors create dramatic irony",
+     "text": "Authors give the reader extra information by:\n\n1. Showing a **scene the character is not in**.\n2. Having a **narrator** tell us a secret.\n3. Letting us hear **another character's** thoughts or plans.\n\nThen they show the character acting **without** that information."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain **how** dramatic irony is created:\n\n1. Find **where** the reader learns the information (which scene, which character).\n2. Find evidence that the main character was **not there** or **did not hear**.\n3. Find what the character **says or does** without knowing.\n\nAll three show how the gap was built."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Behind the fence, a large guard dog lay asleep in the shade.",
+      "role": "key"
+     },
+     {
+      "t": "On the other side, Tariq looked at the quiet yard.",
+      "role": "detail"
+     },
+     {
+      "t": "'Nobody lives here,' he told his friends. 'I'll just climb over and get our ball.'",
+      "role": "key"
+     },
+     {
+      "t": "He began to whistle as he climbed.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The narrator shows us the **dog** first. Then Tariq, on the **other side** of the fence, says nobody lives there.\n\nBy showing us the yard before Tariq sees it, the author creates **dramatic irony** and **suspense**."
+   },
+   "together": {
+    "passage": "In the kitchen, Mona's grandmother whispered the plan to the aunts: the whole family would come to Mona's graduation as a surprise, even her uncle from Abha. Upstairs, Mona was texting her friend. 'Nobody in my family cares about the ceremony,' she wrote. 'They'll probably forget the date.' The next morning, she saw her aunts ironing their best abayas and asked where they were going. 'Oh, just a boring visit,' said Aunt Reem, winking at Grandmother. Mona sighed and walked to school alone, practising her speech for what she imagined would be an empty row of seats.",
+    "stem": "How does the author create dramatic irony?",
+    "options": [
+     "By having Mona tell her friend about the family's plan",
+     "By using a flashback to Mona's childhood",
+     "By showing readers the plan in a scene Mona is not in",
+     "By having Aunt Reem say exactly what she means"
+    ],
+    "answer": 2,
+    "hint": "Where are we when we learn the plan, and where is Mona at that moment?",
+    "good": "Yes! We hear the plan in the kitchen while Mona is upstairs. So we know the truth when she says nobody cares."
+   },
+   "evidence": {
+    "sentences": [
+     "In the kitchen, Mona's grandmother whispered the plan to the aunts: the whole family would come to Mona's graduation as a surprise, even her uncle from Abha.",
+     "Upstairs, Mona was texting her friend.",
+     "'Nobody in my family cares about the ceremony,' she wrote.",
+     "'They'll probably forget the date.'",
+     "The next morning, she saw her aunts ironing their best abayas and asked where they were going.",
+     "'Oh, just a boring visit,' said Aunt Reem, winking at Grandmother.",
+     "Mona sighed and walked to school alone, practising her speech for what she imagined would be an empty row of seats."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: readers see the plan in a scene Mona is not in. Tap the 2 sentences that show where the plan is shared and where Mona is.",
+    "wrong": "This sentence shows Mona's mistaken belief or a later moment. Find where readers learn the plan and where Mona is at that time."
+   },
+   "checks": [
+    {
+     "passage": "After walking for two hours in the heat, the hikers finally reached their car, only to find a flat tyre. 'Wonderful,' said Omar, dropping his bag. 'This is exactly what I wanted.'",
+     "stem": "What does Omar really mean?",
+     "options": [
+      "He is pleased about the flat tyre.",
+      "He is annoyed; it is the opposite of what he wanted.",
+      "He wanted to keep walking in the heat.",
+      "He enjoys changing tyres after a long, hot walk."
+     ],
+     "answer": 1,
+     "why": "This is verbal irony. After a long, hot walk, nobody wants a flat tyre. Omar says 'wonderful' but means the opposite."
+    },
+    {
+     "passage": "All week, Rawan reminded her classmates not to leave their science projects on the school bus. On Monday morning, she stepped off the bus, waved to her friends, and realised her own project was still on the seat.",
+     "stem": "Which type of irony is this?",
+     "options": [
+      "Verbal irony",
+      "Dramatic irony",
+      "No irony at all",
+      "Situational irony"
+     ],
+     "answer": 3,
+     "why": "We expect the person who warned everyone to be careful. Instead, she makes the very mistake she warned about. That is situational irony."
+    },
+    {
+     "passage": "Nobody had told Jaber that his cousins had already eaten all the dates in the tin. Smiling, he carried the tin to the majlis to serve the guests. 'Please, take as many as you like,' he said proudly, lifting the lid.",
+     "stem": "How does the author create dramatic irony here?",
+     "options": [
+      "The narrator tells readers the tin is empty first.",
+      "Jaber says the opposite of what he means.",
+      "The guests have already eaten too many dates.",
+      "Jaber's cousins tell him the tin is empty before he goes."
+     ],
+     "answer": 0,
+     "why": "The first sentence tells readers the dates are gone. Jaber does not know, so his proud offer makes readers wince."
+    }
+   ],
+   "again": {
+    "title": "Mean it or not?",
+    "text": "For each line a character says, ask: **Does the character mean it?**\n\n1. Means it, but we know it is wrong → **dramatic irony**.\n2. Does not mean it, on purpose → **verbal irony**.\n3. Events flip what was expected → **situational irony**.",
+    "example": "Aunt Reem says, 'Just a boring visit.' She does **not** mean it; she knows it is a graduation. → **verbal irony**.\n\nMona says, 'Nobody cares.' She **means** it, but we know she is wrong. → **dramatic irony**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Building the gap",
+     "text": "Dramatic irony depends on a **gap in knowledge** between the reader and a character.\n\nAuthors build it with **point of view**: a narrator who knows more, a shift to a scene the character misses, or, in plays, an **aside** spoken to the audience."
+    },
+    {
+     "title": "Effects of dramatic irony",
+     "text": "1. **Suspense**: we wait for the character to find out.\n2. **Humour**: the character's confident words sound funny.\n3. **Sympathy** or **sadness**: we watch a character make a mistake we cannot stop.\n4. **Theme**: the gap can highlight ideas about pride, kindness or judging others."
+    },
+    {
+     "title": "Analysing irony",
+     "text": "Ask three questions:\n\n1. **What** does the reader know that the character does not?\n2. **How** did the author give us that knowledge?\n3. **What effect** does the gap have on how we read the character's words?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A full analysis points to:\n\n1. The moment the **reader** gains the information.\n2. A line showing the character **lacks** it.\n3. The character's **words or actions** that take on a different meaning because of the gap.\n\nThe effect comes from comparing 1 and 3."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "PRINCE: (aside, to the audience) I have dressed as a servant to learn what my people truly think of me.",
+      "role": "key"
+     },
+     {
+      "t": "BAKER: (handing him a loaf) The prince? He never leaves his palace.",
+      "role": "key"
+     },
+     {
+      "t": "BAKER: If he ever came here, I'd tell him what this town needs!",
+      "role": "key"
+     },
+     {
+      "t": "PRINCE: (smiling) Tell me, then. I'll pass it on.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **aside** gives the audience information the baker never hears. The baker's confident words, 'He never leaves his palace', become **funny** because the prince is standing right in front of him.\n\nThe irony also builds **interest**: what will the prince do with the baker's advice?"
+   },
+   "together": {
+    "passage": "From the bus window, Yasir watched an old man struggling with a heavy bag at the stop. Yasir was already late for his job interview at the engineering company, the most important meeting of his life. He hesitated, then jumped off, carried the bag three streets to the man's building, and ran the rest of the way in the heat. He arrived sweating, fifteen minutes late, and sat down in the waiting room. Across the hall, the receptionist answered her phone. 'Yes, Mr. Al-Ghamdi, the candidate is here,' she said. She laughed. 'A young man carried your bag from the bus stop? How kind. I'll tell him you'll be down in a minute.' Yasir did not hear the call; he was staring at his dusty shoes, already preparing an apology. 'They've surely given the job to someone else,' he whispered.",
+    "stem": "How does the author create dramatic irony, and what is its effect?",
+    "options": [
+     "Readers overhear that the old man is the boss, so Yasir's worry becomes hopeful tension.",
+     "Yasir tells the receptionist about the old man, so readers lose interest in the ending.",
+     "The narrator hides the old man's identity from readers, which leaves them confused.",
+     "Yasir says the opposite of what he means, which makes the waiting-room scene funny."
+    ],
+    "answer": 0,
+    "hint": "Who hears the phone call: Yasir, or the reader? How does that change the way we read his last words?",
+    "good": "Yes! Through the phone call, we learn the old man is Mr. Al-Ghamdi. Yasir does not hear it, so his gloomy words make us hopeful and eager for the meeting."
+   },
+   "evidence": {
+    "sentences": [
+     "From the bus window, Yasir watched an old man struggling with a heavy bag at the stop.",
+     "Yasir was already late for his job interview at the engineering company, the most important meeting of his life.",
+     "He hesitated, then jumped off, carried the bag three streets to the man's building, and ran the rest of the way in the heat.",
+     "He arrived sweating, fifteen minutes late, and sat down in the waiting room.",
+     "Across the hall, the receptionist answered her phone.",
+     "'Yes, Mr. Al-Ghamdi, the candidate is here,' she said.",
+     "She laughed.",
+     "'A young man carried your bag from the bus stop? How kind. I'll tell him you'll be down in a minute.'",
+     "Yasir did not hear the call; he was staring at his dusty shoes, already preparing an apology.",
+     "'They've surely given the job to someone else,' he whispered."
+    ],
+    "proof": [
+     7,
+     8,
+     9
+    ],
+    "need": 2,
+    "stem": "The answer was: readers overhear that the old man is the boss, while Yasir worries. Tap 2 sentences: what readers learn and what shows Yasir does not know it.",
+    "wrong": "This sentence sets up the story. Find the phone call that tells us the truth, and the lines that show Yasir has not heard it."
+   },
+   "checks": [
+    {
+     "passage": "In the play, the audience watches the villagers hide Saad's lost goat in the barn as a joke. In the next scene, Saad searches the hills all day, calling the goat's name, and returns at sunset, exhausted, to find the villagers laughing.",
+     "stem": "Why is this dramatic irony and not situational irony?",
+     "options": [
+      "The ending surprises everyone, including the audience.",
+      "Saad says the opposite of what he means.",
+      "The goat runs away into the hills.",
+      "The audience knows where the goat is, but Saad does not."
+     ],
+     "answer": 3,
+     "why": "Dramatic irony comes from a gap in knowledge. The audience saw the goat hidden; Saad did not. Nothing surprises the audience here."
+    },
+    {
+     "passage": "For forty years, Aunt Laila kept a beautiful embroidered scarf wrapped in paper, saving it 'for a truly special day'. When her granddaughter's wedding finally came, she proudly unwrapped it. Moths had eaten holes all through it.",
+     "stem": "What theme does the irony develop?",
+     "options": [
+      "Scarves must be stored in strong boxes.",
+      "Waiting for the perfect moment can mean missing joys.",
+      "Weddings are the most important days of all.",
+      "Grandmothers should give gifts more often."
+     ],
+     "answer": 1,
+     "why": "She saved the scarf for a special day, but by then it was ruined. The situational irony suggests we should enjoy good things instead of waiting forever."
+    },
+    {
+     "passage": "Majid told everyone at the table that his new phone was 'completely waterproof'. Behind his back, his little brother was quietly filling a glass to test it. Majid leaned back and laughed. 'Nothing can ruin this phone,' he said.",
+     "stem": "What is the main effect of the dramatic irony?",
+     "options": [
+      "It confuses readers about who owns the phone.",
+      "It shows that Majid's phone really is waterproof.",
+      "It creates funny suspense about what will happen next.",
+      "It shows that Majid's brother is angry with him."
+     ],
+     "answer": 2,
+     "why": "We see the brother preparing the test, but Majid does not. His confident words, 'Nothing can ruin this phone', create funny suspense."
+    }
+   ],
+   "again": {
+    "title": "The audience's seat",
+    "text": "Imagine you are watching a play from the **audience**.\n\n1. What have **you** seen that the character has not?\n2. Listen to the character's next line. Does it sound **different** to you than it does to them?\n3. Name how it makes you feel: amused, nervous, sorry for them? That is the **effect**.",
+    "example": "You saw the brother fill the glass. Majid says, 'Nothing can ruin this phone.'\n\nTo Majid it is a boast. To you it sounds like a **warning**. The effect: **funny suspense**."
+   }
+  }
+ }
+}

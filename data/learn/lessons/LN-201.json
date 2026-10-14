@@ -1,0 +1,479 @@
+{
+ "code": "LN-201",
+ "title": "Metaphors",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.5.a",
+  "L.4.5.a",
+  "L.5.5.a",
+  "L.6.5.a",
+  "RI.7.4",
+  "RL.3.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0066",
+  "R-0131",
+  "R-0228",
+  "R-0374",
+  "R-0575",
+  "R-0588",
+  "R-0773",
+  "R-0774",
+  "R-0940",
+  "R-1060"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a metaphor?",
+     "text": "A **metaphor** says one thing **is** another thing.\n\n\"My brother is a **rocket**.\"\n\nHe is not really a rocket. He is **very fast**."
+    },
+    {
+     "title": "How are they alike?",
+     "text": "A metaphor shows how two things are **alike**.\n\nA rocket is fast. My brother is fast. That is how they are alike."
+    },
+    {
+     "title": "How to find the meaning",
+     "text": "1. Find the two things.\n2. Ask: how are they **alike**?\n3. Read the other sentences for a clue."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences **help** you.\n\n1. Find the metaphor.\n2. Read the sentences near it.\n3. Find the one that shows how the two things are alike."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The classroom was a zoo.",
+      "role": "main"
+     },
+     {
+      "t": "Kids yelled and jumped.",
+      "role": "key"
+     },
+     {
+      "t": "Some ran around the desks.",
+      "role": "key"
+     }
+    ],
+    "explain": "A zoo is full of animals that make noise and move a lot.\n\nThe kids yelled, jumped and ran. The class was **noisy and wild**, like a zoo."
+   },
+   "together": {
+    "passage": "It was a hot day. The sun was an oven. We felt very hot outside. We went in to drink cold water.",
+    "stem": "What does \"the sun was an oven\" mean?",
+    "options": [
+     "The sun was round.",
+     "The sun cooked food.",
+     "The sun was very hot.",
+     "The sun went down."
+    ],
+    "answer": 2,
+    "hint": "What is an oven like inside? Read the sentence after the metaphor.",
+    "good": "Yes! An oven is very hot, and the sun made them feel very hot."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a hot day.",
+     "The sun was an oven.",
+     "We felt very hot outside.",
+     "We went in to drink cold water."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the sun was very hot. Tap a sentence that proves it.",
+    "wrong": "This sentence does not tell how hot it was. Find a sentence about the heat."
+   },
+   "checks": [
+    {
+     "passage": "Grandpa's beard is snow. It is white and soft.",
+     "stem": "What does the metaphor tell us about the beard?",
+     "options": [
+      "It is cold.",
+      "It is white.",
+      "It is wet.",
+      "It is short."
+     ],
+     "answer": 1,
+     "why": "Snow is white. The next sentence says the beard is white."
+    },
+    {
+     "passage": "Maha is a star at school. She helps everyone. Her teachers are proud of her.",
+     "stem": "What does \"Maha is a star\" mean?",
+     "options": [
+      "She is very good and stands out.",
+      "She lives in the sky.",
+      "She is far away.",
+      "She shines at night."
+     ],
+     "answer": 0,
+     "why": "Stars stand out in the sky. Maha stands out because she helps everyone."
+    },
+    {
+     "passage": "The baby's hands were ice. Mom put warm socks on them.",
+     "stem": "What does \"the baby's hands were ice\" mean?",
+     "options": [
+      "They were clean.",
+      "They were small.",
+      "They were wet.",
+      "They were very cold."
+     ],
+     "answer": 3,
+     "why": "Ice is very cold. Mom gave warm socks to warm them up."
+    }
+   ],
+   "again": {
+    "title": "Find the one thing",
+    "text": "Ask: **What is the one big thing** I know about the second word? That thing is the meaning.",
+    "example": "\"The baby is a **sleepy bear** in winter.\"\n\nWhat do bears do in winter? They **sleep a lot**. So the baby sleeps a lot."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Metaphors compare",
+     "text": "A **metaphor** compares two different things **without** using *like* or *as*.\n\nSimile: Her voice was **like** music.\nMetaphor: Her voice **was** music."
+    },
+    {
+     "title": "The shared quality",
+     "text": "The writer wants you to see one **quality** the two things share.\n\n\"The lake was a **mirror**.\" A mirror is smooth and shows reflections. The lake was **so still that it reflected the sky**."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find what is being described.\n2. Find what it is compared to.\n3. List what you know about the second thing.\n4. Choose the quality that fits the context."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Writers often **explain** a metaphor in the next sentence or two.\n\n1. Find the metaphor.\n2. Look for details that describe the same thing.\n3. Choose the meaning those details support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the morning, the lake was a mirror.",
+      "role": "main"
+     },
+     {
+      "t": "The water did not move at all.",
+      "role": "key"
+     },
+     {
+      "t": "We could see every cloud and every palm tree in it.",
+      "role": "key"
+     }
+    ],
+    "explain": "A mirror is flat and shows a picture of what is in front of it.\n\nThe still water and the reflected clouds show the lake was **perfectly calm and reflecting the sky**."
+   },
+   "together": {
+    "passage": "Every afternoon, our street turns into a river of cars. Parents drive slowly toward the school gates. The cars move one after another in a long, winding line. Nobody can cross until the flow finally stops. By four o'clock, the street is quiet again.",
+    "stem": "What does the writer mean by \"a river of cars\"?",
+    "options": [
+     "The street is flooded with water.",
+     "Cars are washed in the river.",
+     "The street is near a river.",
+     "A long line of cars moves along the street."
+    ],
+    "answer": 3,
+    "hint": "How does a river move? Now look at how the cars move.",
+    "good": "Yes! Like a river, the cars move in one long line that keeps flowing."
+   },
+   "evidence": {
+    "sentences": [
+     "Every afternoon, our street turns into a river of cars.",
+     "Parents drive slowly toward the school gates.",
+     "The cars move one after another in a long, winding line.",
+     "Nobody can cross until the flow finally stops.",
+     "By four o'clock, the street is quiet again."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a long line of cars moves along the street. Tap 2 sentences that show it.",
+    "wrong": "This sentence says the metaphor or tells what happens later. Find sentences that show how the cars move."
+   },
+   "checks": [
+    {
+     "passage": "For the new students, Ms. Hind was a lighthouse. Whenever they felt lost in the big school, they looked for her, and she showed them the way.",
+     "stem": "What does the metaphor say about Ms. Hind?",
+     "options": [
+      "She is very tall.",
+      "She guides people who feel lost.",
+      "She works near the sea.",
+      "She turns on the lights."
+     ],
+     "answer": 1,
+     "why": "A lighthouse guides ships. Ms. Hind guided students who felt lost."
+    },
+    {
+     "passage": "After the long trip, my bed was a cloud. I sank into the soft pillows and fell asleep in seconds.",
+     "stem": "What does \"my bed was a cloud\" mean?",
+     "options": [
+      "The bed was very soft.",
+      "The bed was white.",
+      "The bed was high up.",
+      "The bed was wet."
+     ],
+     "answer": 0,
+     "why": "Sinking into soft pillows shows the writer means the bed felt very soft."
+    },
+    {
+     "passage": "Our garden is a library of smells. Mint grows by the door, jasmine climbs the wall, and the lemon tree fills the air.",
+     "stem": "What does \"a library of smells\" mean?",
+     "options": [
+      "The garden has many books.",
+      "The garden is very quiet.",
+      "The garden has many different smells.",
+      "The garden is a place to study."
+     ],
+     "answer": 2,
+     "why": "A library holds many different books. The garden holds many different smells: mint, jasmine and lemon."
+    }
+   ],
+   "again": {
+    "title": "Turn it into a simile",
+    "text": "Add **like** to the metaphor. Then ask: **like it in what way?**",
+    "example": "\"The desert at noon was a furnace.\"\n\nAdd like: the desert was **like** a furnace. In what way? A furnace is **extremely hot**. So the desert was extremely hot."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Metaphors carry feeling",
+     "text": "A metaphor can show a **feeling** as well as a picture.\n\n\"The exam was a **mountain**\" tells you the exam felt **huge and hard to get through**."
+    },
+    {
+     "title": "Extended metaphors",
+     "text": "An **extended metaphor** keeps the comparison going for **several sentences**.\n\nIf life is a **journey**, the writer may talk about **roads**, **paths**, **steps** and **crossroads**. Each word adds to the same comparison."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the main comparison.\n2. Collect all the words that belong to it.\n3. Ask what each one means in real life.\n4. Ask what big idea the whole comparison shows."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For an extended metaphor, the proof is spread across the text.\n\n1. Find the first sentence that sets up the comparison.\n2. Find the later sentences that **continue** it.\n3. Your answer should explain all of them, not just one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Learning to read in English was a long climb for Amal.",
+      "role": "main"
+     },
+     {
+      "t": "At first, the letters were steep rocks she slipped on again and again.",
+      "role": "key"
+     },
+     {
+      "t": "Each new word was a step higher.",
+      "role": "key"
+     },
+     {
+      "t": "Her teacher was always at her side.",
+      "role": "other"
+     }
+    ],
+    "explain": "The comparison: learning = a **climb**. Steep rocks = **hard letters**. Steps higher = **progress**.\n\nThe extended metaphor shows learning was **slow, hard work, but she kept rising**."
+   },
+   "together": {
+    "passage": "For Majed, the first week at his new school was a stormy sea. Each morning, waves of unfamiliar faces crashed around him in the hallways. In class, he felt as if he were rowing hard just to keep his head above the water. Then, on Thursday, a boy named Sultan invited him to sit at his table at lunch. For the first time, Majed felt solid ground under his feet.",
+    "stem": "What does the extended metaphor show about Majed's first week?",
+    "options": [
+     "He went swimming every day after school.",
+     "He felt overwhelmed and struggled to cope.",
+     "He enjoyed exploring the sea near school.",
+     "He made many new friends at once."
+    ],
+    "answer": 1,
+    "hint": "Think about being in a stormy sea: waves crashing, rowing hard. How would that feel?",
+    "good": "Yes! Crashing waves and rowing just to stay afloat show Majed felt overwhelmed."
+   },
+   "evidence": {
+    "sentences": [
+     "For Majed, the first week at his new school was a stormy sea.",
+     "Each morning, waves of unfamiliar faces crashed around him in the hallways.",
+     "In class, he felt as if he were rowing hard just to keep his head above the water.",
+     "Then, on Thursday, a boy named Sultan invited him to sit at his table at lunch.",
+     "For the first time, Majed felt solid ground under his feet."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: he felt overwhelmed and struggled to cope. Tap 2 sentences that continue the sea comparison and show his struggle.",
+    "wrong": "This sentence starts the comparison or shows things getting better. Find sentences that show HOW hard the week felt."
+   },
+   "checks": [
+    {
+     "passage": "The old souq was the beating heart of the town. Every road led to it, and every morning it pumped people, goods and news out to every street and neighbourhood.",
+     "stem": "What does the metaphor suggest about the souq?",
+     "options": [
+      "It was the centre that kept the town alive.",
+      "It was a hospital for sick people.",
+      "It was very noisy at night.",
+      "It was the oldest building in town."
+     ],
+     "answer": 0,
+     "why": "A heart is the centre that pumps blood to the body. The souq was the centre that sent people, goods and news across the town."
+    },
+    {
+     "passage": "Grandmother's stories were a bridge. On one side stood the old village with its mud houses and wells. On the other stood our busy city life. Through her stories, we crossed to a world we had never seen.",
+     "stem": "What do the grandmother's stories do?",
+     "options": [
+      "They teach how to build bridges.",
+      "They make the children want to move to the village.",
+      "They connect the children to the past.",
+      "They describe the modern city."
+     ],
+     "answer": 2,
+     "why": "A bridge connects two sides. Her stories connect the children's city life to the old village of the past."
+    },
+    {
+     "passage": "Anger is a fire, my father says. If you feed it with harsh words, it grows until it burns everything near you. But if you leave it without fuel, it slowly dies out.",
+     "stem": "What is the father's message?",
+     "options": [
+      "Fires are dangerous in the home.",
+      "Angry people should shout to feel better.",
+      "Harsh words help to calm anger.",
+      "Anger grows if you add to it but fades if you don't."
+     ],
+     "answer": 3,
+     "why": "Fire grows with fuel and dies without it. Harsh words feed anger; without them, it fades."
+    }
+   ],
+   "again": {
+    "title": "Make a matching table",
+    "text": "Write the **pretend** thing on the left and the **real** thing on the right.",
+    "example": "\"The team was a machine. Every player was a gear.\"\n\nmachine → the team\ngears → the players\nMachines work smoothly when each part does its job → **the team worked together perfectly**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Metaphors in nonfiction",
+     "text": "Writers of articles and speeches use metaphors to make **ideas** clear or persuasive.\n\n\"The heart is a **pump**.\" \"Forests are the **lungs** of the planet.\" Each helps the reader understand how something **works**."
+    },
+    {
+     "title": "Connotation and purpose",
+     "text": "Metaphors also carry **feeling**. Calling a city a **jungle** suggests danger and confusion; calling it a **beehive** suggests busy teamwork.\n\nAsk: Why did the author pick **this** comparison and not another?"
+    },
+    {
+     "title": "Analyse a metaphor",
+     "text": "1. Identify the two things compared.\n2. List the qualities that carry over.\n3. Decide the **attitude** the metaphor creates.\n4. Explain how it supports the author's point."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove both the **meaning** and the **purpose**.\n\n1. Point to the details that explain the comparison.\n2. Point to the sentence that shows the author's main point.\n3. The best answer links the metaphor to that point."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Forests are often called the lungs of the Earth.",
+      "role": "main"
+     },
+     {
+      "t": "Like lungs, trees take in air and release a gas that living things need: they absorb carbon dioxide and give off oxygen.",
+      "role": "key"
+     },
+     {
+      "t": "Cutting them down, scientists warn, weakens the planet's ability to breathe.",
+      "role": "key"
+     }
+    ],
+    "explain": "Lungs keep a body alive by exchanging gases. The metaphor shows forests do a **vital** job for the planet.\n\nIt also makes cutting forests sound **dangerous**, as if hurting the Earth's ability to breathe."
+   },
+   "together": {
+    "passage": "In the age of smartphones, attention has become the most valuable crop on the planet. Apps and websites are the farmers, and they compete to harvest every minute of our day. Bright alerts and endless videos are their tools, designed to keep us scrolling. The harvest is sold to advertisers, who pay for the chance to show us their products. Yet unlike wheat or dates, our attention cannot grow back once it has been spent. Learning to protect it may be one of the most important skills of our time.",
+    "stem": "What does the author suggest by comparing attention to a crop?",
+    "options": [
+     "Farmers spend too much time on their phones.",
+     "Apps help us grow our own food more easily.",
+     "Our time is a valuable resource that companies collect and profit from.",
+     "Advertisers want people to work on farms."
+    ],
+    "answer": 2,
+    "hint": "A crop is grown, harvested and sold. Who harvests our attention, and who buys it?",
+    "good": "Yes! Apps 'harvest' our attention and sell it to advertisers, so our time is a valuable resource they profit from."
+   },
+   "evidence": {
+    "sentences": [
+     "In the age of smartphones, attention has become the most valuable crop on the planet.",
+     "Apps and websites are the farmers, and they compete to harvest every minute of our day.",
+     "Bright alerts and endless videos are their tools, designed to keep us scrolling.",
+     "The harvest is sold to advertisers, who pay for the chance to show us their products.",
+     "Yet unlike wheat or dates, our attention cannot grow back once it has been spent.",
+     "Learning to protect it may be one of the most important skills of our time."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: companies collect our attention and profit from it. Tap 2 sentences that show who collects it and who pays for it.",
+    "wrong": "This sentence names the comparison or gives the author's advice. Find sentences that show attention being collected and sold."
+   },
+   "checks": [
+    {
+     "passage": "Some historians describe the old Silk Road as the internet of the ancient world. Along its routes travelled not only silk and spices, but also inventions, languages and new ideas, passed from one community to the next.",
+     "stem": "What does the metaphor suggest about the Silk Road?",
+     "options": [
+      "It was a network that spread ideas and information.",
+      "It used early computers for trade.",
+      "It was a fast way to travel.",
+      "It was invented recently."
+     ],
+     "answer": 0,
+     "why": "The internet connects people and spreads information. The Silk Road spread inventions, languages and ideas between communities."
+    },
+    {
+     "passage": "The speaker told the graduating class: \"Your education is not a finish line; it is a key. Today does not mark the end of your learning, but the opening of doors you could not walk through before.\"",
+     "stem": "What point does the speaker make with the metaphor of a key?",
+     "options": [
+      "Graduates should lock their doors carefully.",
+      "Education ends on graduation day.",
+      "Education gives access to new opportunities.",
+      "Racing is better than studying."
+     ],
+     "answer": 2,
+     "why": "A key opens doors. The speaker means education opens opportunities, and is not an ending."
+    },
+    {
+     "passage": "Inside each cell is a tiny power station called the mitochondrion. It takes in sugar and oxygen and turns them into the energy the cell needs to move, grow and repair itself.",
+     "stem": "Why does the author call the mitochondrion a power station?",
+     "options": [
+      "It is very large compared to the cell.",
+      "It sends electricity to houses.",
+      "It is made of metal parts.",
+      "It produces the energy the cell uses."
+     ],
+     "answer": 3,
+     "why": "A power station produces energy for a city. The mitochondrion produces energy for the cell."
+    }
+   ],
+   "again": {
+    "title": "Ask: what does the author want me to feel?",
+    "text": "After you find the meaning, ask how the comparison makes you **feel** about the topic. That feeling is the author's purpose.",
+    "example": "\"Plastic is a slow poison in our seas.\"\n\nMeaning: plastic harms sea life over time.\nFeeling: **alarm**. Poison sounds deadly. The author wants readers to **take the problem seriously**."
+   }
+  }
+ }
+}

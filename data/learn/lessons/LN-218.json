@@ -1,0 +1,484 @@
+{
+ "code": "LN-218",
+ "title": "Mood",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "imagery"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0587",
+  "R-0594",
+  "R-0781",
+  "R-0797",
+  "R-0942",
+  "R-0944"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is mood?",
+     "text": "**Mood** is how a story makes **you, the reader,** feel.\n\nA story can feel **happy**, **scary**, **calm** or **sad**."
+    },
+    {
+     "title": "Words make the mood",
+     "text": "“The sun was bright. Birds sang.” → **happy**\n\n“It was dark. The door creaked.” → **scary**"
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read the story.\n2. Find the feeling words and the picture words.\n3. Ask: **How do I feel?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Some words **make** you feel the mood.\n\n1. Read the story.\n2. Find the sentences with those words.\n3. Tap them. They are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The night was dark.",
+      "role": "key"
+     },
+     {
+      "t": "The wind howled.",
+      "role": "key"
+     },
+     {
+      "t": "Something tapped on the window.",
+      "role": "key"
+     },
+     {
+      "t": "Sami pulled the blanket over his head.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Dark**, **howled** and **tapped** make us feel **scared**.\n\nSami hides under his blanket too. The mood is **scary**."
+   },
+   "together": {
+    "passage": "It was Friday afternoon. The sun was warm. Children laughed in the park. Ice cream dripped down their hands.",
+    "stem": "What is the mood of this text?",
+    "options": [
+     "scary",
+     "sad",
+     "happy",
+     "angry"
+    ],
+    "answer": 2,
+    "hint": "Is anything scary or sad in the text? Look at the sun and the children.",
+    "good": "Yes! Warm sun, laughing children and ice cream make us feel happy."
+   },
+   "evidence": {
+    "sentences": [
+     "It was Friday afternoon.",
+     "The sun was warm.",
+     "Children laughed in the park.",
+     "Ice cream dripped down their hands."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: happy. Tap 2 sentences that make you feel happy.",
+    "wrong": "This sentence only tells the day and time. Find words that make you FEEL happy."
+   },
+   "checks": [
+    {
+     "passage": "The old house was empty. Cold wind blew through broken windows. A door slammed upstairs.",
+     "stem": "What is the mood?",
+     "options": [
+      "happy",
+      "scary",
+      "funny",
+      "calm"
+     ],
+     "answer": 1,
+     "why": "An empty house, cold wind and a slamming door make us feel scared."
+    },
+    {
+     "passage": "Hala sat by the sea. Small waves rolled in softly. The sky turned pink. Everything was still.",
+     "stem": "What is the mood?",
+     "options": [
+      "calm",
+      "scary",
+      "angry",
+      "busy"
+     ],
+     "answer": 0,
+     "why": "Soft waves, a pink sky and stillness make us feel calm."
+    },
+    {
+     "passage": "Faisal's cat was lost. He looked everywhere. He sat on the step and cried.",
+     "stem": "What is the mood?",
+     "options": [
+      "happy",
+      "exciting",
+      "funny",
+      "sad"
+     ],
+     "answer": 3,
+     "why": "A lost cat and crying make us feel sad."
+    }
+   ],
+   "again": {
+    "title": "Use your face",
+    "text": "Read the story. Then **make a face** that matches it.\n\n😊 smile = happy\n😨 wide eyes = scary\n😢 frown = sad\n😌 relaxed = calm\n\nYour face shows the mood!",
+    "example": "“Thunder boomed. The lights went out. Something moved in the dark.”\n\nYour face: 😨. The mood is **scary**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Mood is the reader's feeling",
+     "text": "**Mood** is the feeling a passage creates in **the reader**. It is not always the same as how a character feels.\n\nCommon moods: **peaceful**, **tense**, **cheerful**, **gloomy**, **mysterious**, **hopeful**."
+    },
+    {
+     "title": "How writers build mood",
+     "text": "Writers build mood with:\n\n1. **Setting**: weather, light, place\n2. **Word choice**: soft or harsh words, bright or dark words\n3. **Events**: what happens, and how fast"
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Read the whole passage.\n2. Notice words about setting, sounds and colours.\n3. Ask: what feeling do these words give me?\n4. Choose a precise mood word."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the mood with **two or more** sentences whose words create that feeling.\n\nOne word is not enough. Most of the passage should point to the same mood."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fog hung low over the harbour.",
+      "role": "key"
+     },
+     {
+      "t": "The boats were grey shapes in the mist, and no gulls called.",
+      "role": "key"
+     },
+     {
+      "t": "Somewhere out on the water, a bell rang slowly.",
+      "role": "key"
+     },
+     {
+      "t": "Mazen held his father's hand a little tighter.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Fog, grey shapes, silence and a slow bell create a **mysterious, uneasy** mood.\n\nMazen holding on tightly shows the feeling too."
+   },
+   "together": {
+    "passage": "The morning of the school trip was bright and clear. Buses lined up outside the gate, their engines humming. Students chattered and waved their packed lunches in the air. Even the teachers were smiling as they counted heads. When the first bus pulled away, a loud cheer rose from every window.",
+    "stem": "What is the mood of this passage?",
+    "options": [
+     "gloomy",
+     "tense",
+     "excited",
+     "lonely"
+    ],
+    "answer": 2,
+    "hint": "Is anyone worried or sad in the passage? Look at the weather and at what the people do.",
+    "good": "Yes! A bright morning, chattering students, smiling teachers and a loud cheer create an excited mood."
+   },
+   "evidence": {
+    "sentences": [
+     "The morning of the school trip was bright and clear.",
+     "Buses lined up outside the gate, their engines humming.",
+     "Students chattered and waved their packed lunches in the air.",
+     "Even the teachers were smiling as they counted heads.",
+     "When the first bus pulled away, a loud cheer rose from every window."
+    ],
+    "proof": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: excited. Tap 2 sentences whose words create that mood.",
+    "wrong": "This sentence only describes the buses waiting. Find words that show the excited FEELING."
+   },
+   "checks": [
+    {
+     "passage": "Thick black clouds rolled over the hills. The wind snapped at the tents, and the camels groaned. Abdullah zipped up his jacket and watched the sky darken.",
+     "stem": "What is the mood?",
+     "options": [
+      "peaceful",
+      "tense",
+      "cheerful",
+      "silly"
+     ],
+     "answer": 1,
+     "why": "Black clouds, a snapping wind and groaning camels make the reader feel something bad is coming."
+    },
+    {
+     "passage": "The library was warm and quiet. Afternoon light fell across the long tables, and the only sound was the soft turning of pages.",
+     "stem": "What is the mood?",
+     "options": [
+      "peaceful",
+      "frightening",
+      "angry",
+      "busy"
+     ],
+     "answer": 0,
+     "why": "Warm, quiet, soft light and soft sounds create a peaceful mood."
+    },
+    {
+     "passage": "Rain dripped from the bare trees. The empty playground was grey and silent. A single swing creaked in the wind.",
+     "stem": "Which word in the passage helps create a gloomy mood?",
+     "options": [
+      "playground",
+      "swing",
+      "bare",
+      "trees"
+     ],
+     "answer": 2,
+     "why": "Bare trees have lost their leaves. Like grey, silent and empty, the word feels sad and gloomy."
+    }
+   ],
+   "again": {
+    "title": "Colour the passage",
+    "text": "Imagine colouring the passage.\n\nBright words → yellow (cheerful)\nDark words → grey (gloomy)\nSharp, fast words → red (tense)\nSoft, slow words → blue (calm)\n\nThe colour you use most is the mood.",
+    "example": "“Sunlight danced on the water, and children splashed and laughed.”\n\nMost words → yellow. Mood: **cheerful**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Mood words, precisely",
+     "text": "Choose precise mood words.\n\nNot just “sad” but **gloomy**, **lonely** or **mournful**.\nNot just “scary” but **tense**, **eerie** or **threatening**."
+    },
+    {
+     "title": "Tools of mood",
+     "text": "1. **Imagery**: what you see, hear, smell and feel\n2. **Word choice**: “crept” feels different from “strolled”\n3. **Sentence length**: short sentences build **tension**; long, flowing ones feel **calm**"
+    },
+    {
+     "title": "Mood can change",
+     "text": "A passage may **shift** mood.\n\nLook for a turning point: a sudden sound, a change in light, a new event. Describe the mood **before** and **after** it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **specific words and images** that create the mood.\n\nIf the mood shifts, find evidence from the part of the passage the question asks about: before or after the turning point."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The house was silent.",
+      "role": "key"
+     },
+     {
+      "t": "Too silent.",
+      "role": "key"
+     },
+     {
+      "t": "Layla stopped in the hallway.",
+      "role": "detail"
+     },
+     {
+      "t": "A thin line of light glowed under her brother's door, and something inside clicked, once, then again.",
+      "role": "key"
+     }
+    ],
+    "explain": "Short sentences (“Too silent.”) slow us down. The silence, the thin light and the clicking sound create an **eerie, suspenseful** mood."
+   },
+   "together": {
+    "passage": "All afternoon the souq had been loud and cheerful. Sellers called out prices, children ran between the stalls, and the smell of grilled corn drifted through the lanes. Then the power failed. The lights went out at once. The fans stopped turning. For a long moment, nobody spoke, and the only sound was a baby crying somewhere in the dark. Hessa felt for her mother's sleeve and held it tightly.",
+    "stem": "How does the mood change in the passage?",
+    "options": [
+     "from tense to cheerful",
+     "from cheerful to tense",
+     "from calm to angry",
+     "from sad to happy"
+    ],
+    "answer": 1,
+    "hint": "Read the order carefully. What is the market like at the START, and what is it like at the END?",
+    "good": "Yes! A loud, happy market turns into darkness, silence and a crying baby. Cheerful becomes tense."
+   },
+   "evidence": {
+    "sentences": [
+     "All afternoon the souq had been loud and cheerful.",
+     "Sellers called out prices, children ran between the stalls, and the smell of grilled corn drifted through the lanes.",
+     "Then the power failed.",
+     "The lights went out at once.",
+     "The fans stopped turning.",
+     "For a long moment, nobody spoke, and the only sound was a baby crying somewhere in the dark.",
+     "Hessa felt for her mother's sleeve and held it tightly."
+    ],
+    "proof": [
+     3,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: from cheerful to tense. Tap 2 sentences that create the TENSE mood after the change.",
+    "wrong": "This sentence shows the cheerful mood BEFORE the change, or simply names the event. Find words that create the tense feeling AFTER it."
+   },
+   "checks": [
+    {
+     "passage": "Wind hissed through the cracks in the old fort. Shadows stretched across the stone floor. Somewhere above, a loose shutter banged, again and again.",
+     "stem": "Which mood do the words “hissed”, “shadows” and “banged” create?",
+     "options": [
+      "joyful",
+      "peaceful",
+      "proud",
+      "eerie"
+     ],
+     "answer": 3,
+     "why": "Hissing wind, long shadows and a banging shutter in an empty fort create a strange, eerie feeling."
+    },
+    {
+     "passage": "The car raced, screeching, around the corner.",
+     "stem": "Which version creates a CALMER mood?",
+     "options": [
+      "The car crashed around the corner.",
+      "The car zoomed, roaring, around the corner.",
+      "The car shot around the corner.",
+      "The car rolled slowly around the corner."
+     ],
+     "answer": 3,
+     "why": "“Rolled slowly” uses soft, slow words. The other verbs are fast and harsh."
+    },
+    {
+     "passage": "After the long illness, Grandmother sat in the garden for the first time in months. The jasmine was in bloom, a soft breeze moved the leaves, and she closed her eyes and smiled.",
+     "stem": "What is the mood?",
+     "options": [
+      "hopeful and peaceful",
+      "tense and fearful",
+      "angry and bitter",
+      "mysterious and dark"
+     ],
+     "answer": 0,
+     "why": "Blooming jasmine, a soft breeze and her smile after a long illness create a hopeful, peaceful mood."
+    }
+   ],
+   "again": {
+    "title": "Five senses check",
+    "text": "List what the passage lets you **see, hear, smell, touch and taste**.\n\nThen ask: are these details pleasant or unpleasant? Soft or harsh? Your list will point to the mood.",
+    "example": "See: dark clouds. Hear: thunder. Touch: cold rain.\n\nAll harsh and unpleasant → mood: **gloomy and threatening**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Mood and tone",
+     "text": "**Mood** is what the **reader** feels. **Tone** is the **writer's** attitude.\n\nA writer can describe a frightening storm in a calm, factual tone, yet the mood for the reader may still be tense."
+    },
+    {
+     "title": "Layers of mood",
+     "text": "Mood is built from many choices working together: setting, imagery, word connotations, sound, pacing, and even what the writer leaves **unsaid**.\n\nStrong analysis names the mood **and** explains which choices create it."
+    },
+    {
+     "title": "Analyse in three steps",
+     "text": "1. Name a precise mood (for example **foreboding**, **nostalgic**, **serene**).\n2. Point to two or three choices that create it.\n3. Explain **how** each choice affects the reader."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your evidence must show **how** the mood is made.\n\nChoose sentences with strong images, sounds or pacing, not sentences that only tell what happened. Be careful: a calm surface can hide a tense mood."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The village was exactly as Rashid remembered it: the same clay walls, the same palm grove, the same well with its rope worn smooth by many hands.",
+      "role": "key"
+     },
+     {
+      "t": "Only the voices were missing.",
+      "role": "key"
+     },
+     {
+      "t": "He stood in the square where he had once played, and the afternoon wind moved the dust in slow circles around his feet.",
+      "role": "key"
+     }
+    ],
+    "explain": "Repeating “the same” brings back memories. “Only the voices were missing” adds loss. The slow wind and dust create stillness.\n\nThe mood is **nostalgic and sad**."
+   },
+   "together": {
+    "passage": "The research ship had been anchored in the bay for three days, waiting for the weather to clear. On the fourth morning, the sea lay flat and glassy, and the sky was a pale, perfect blue. Captain Huda ordered the team to lower the small boats. Yet the old sailor, Jaber, did not move. He stared at a thin grey line on the horizon and at the gulls, which had all flown inland. The air was strangely warm and still. No one spoke as the first boat slid into the water.",
+    "stem": "Which phrase best describes the mood the writer creates by the end of the passage?",
+    "options": [
+     "cheerful and relaxed",
+     "foreboding and uneasy",
+     "angry and bitter",
+     "silly and playful"
+    ],
+    "answer": 1,
+    "hint": "The sea looks calm, but read on. What do Jaber, the gulls and the air suggest?",
+    "good": "Yes! Jaber's stare, the gulls flying inland, the strangely still air and the silence all hint that something is wrong."
+   },
+   "evidence": {
+    "sentences": [
+     "The research ship had been anchored in the bay for three days, waiting for the weather to clear.",
+     "On the fourth morning, the sea lay flat and glassy, and the sky was a pale, perfect blue.",
+     "Captain Huda ordered the team to lower the small boats.",
+     "Yet the old sailor, Jaber, did not move.",
+     "He stared at a thin grey line on the horizon and at the gulls, which had all flown inland.",
+     "The air was strangely warm and still.",
+     "No one spoke as the first boat slid into the water."
+    ],
+    "proof": [
+     3,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: foreboding and uneasy. Tap 2 sentences that create this mood.",
+    "wrong": "This sentence looks calm on the surface or only tells what happened. Find details that HINT something is wrong."
+   },
+   "checks": [
+    {
+     "passage": "Every morning, the narrator's grandmother watered the roses on the balcony. Now the watering can sits dry by the door, and the roses lean toward the empty chair.",
+     "stem": "How does the writer create a mournful mood?",
+     "options": [
+      "by describing a busy, noisy street",
+      "by listing the colours of the roses",
+      "by explaining how to grow roses",
+      "by showing objects that reveal someone is gone"
+     ],
+     "answer": 3,
+     "why": "The dry watering can and the empty chair show, without saying it, that the grandmother is gone."
+    },
+    {
+     "passage": "Footsteps. Closer. A hand on the door handle. Silence.",
+     "stem": "What effect do the short, broken sentences have on the mood?",
+     "options": [
+      "They build suspense and tension.",
+      "They make the mood calm and slow.",
+      "They make the passage funny.",
+      "They show the narrator is bored."
+     ],
+     "answer": 0,
+     "why": "Short fragments make the reader pause after each detail, which builds suspense."
+    },
+    {
+     "passage": "The festival lights glittered across the square, drums echoed from every corner, and families laughed over plates of sweets. Mansour walked through it all with his hands in his pockets, thinking of his brother, who had always brought him here.",
+     "stem": "How does the setting affect the mood?",
+     "options": [
+      "It makes the mood purely joyful.",
+      "It makes the mood frightening.",
+      "The happy scene makes his sadness stand out.",
+      "It shows that Mansour enjoys festivals."
+     ],
+     "answer": 2,
+     "why": "The bright, joyful festival contrasts with Mansour missing his brother, so his loneliness feels even stronger."
+    }
+   ],
+   "again": {
+    "title": "Mood map",
+    "text": "1. Mark the **beginning**, **middle** and **end** of the passage.\n2. Write one feeling word for each part.\n3. Note which words caused each feeling.\n\nIf the feelings change, describe the **shift**. If they grow stronger, describe the **build-up**.",
+    "example": "Beginning: a calm sea (peaceful). Middle: birds fly away (uneasy). End: silence (tense).\n\nThe mood **builds** from peaceful to **foreboding**."
+   }
+  }
+ }
+}

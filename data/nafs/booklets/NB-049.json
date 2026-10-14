@@ -1,0 +1,568 @@
+{
+  "code": "NB-049",
+  "title": "The Riyadh Metro: Trains Without Drivers",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 459,
+  "passage": "Riyadh has grown at an astonishing speed. In the middle of the last century it was a modest town of mud-brick houses, but today it is home to millions of people. As the city spread across the desert, its wide roads became crowded with cars, and journeys across town could take more than an hour. To solve this problem, planners decided to build one of the most ambitious transport projects in the world: the Riyadh Metro.\n\nThe metro opened in stages between December 2024 and January 2025. It has six lines, each identified by its own colour, such as blue, red and orange, and together they stretch for about 176 kilometres and serve 85 stations. In 2025, Guinness World Records recognised it as the longest fully automated, driverless metro network on the planet.\n\nBut how can a train run safely without a driver? Each train is guided by computers that constantly communicate with a central control centre. Sensors report the exact position and speed of every train, so the system can keep a safe distance between them and stop each one precisely at the platform. Glass doors along the platform edge open only when a train has arrived, which protects passengers from falling onto the track. Human operators still watch the whole network on large screens, ready to step in if something unusual happens.\n\nBuilding the network was an enormous engineering challenge. In some parts of the city, the lines run high above the streets on long concrete bridges. In others, giant tunnel-boring machines dug their way beneath busy roads and buildings, lining the tunnels with concrete as they moved forward. Engineers also had to consider Riyadh's climate, because summer temperatures can rise above 45°C and sandstorms can blow fine dust into machinery. For this reason, the stations are air-conditioned, and solar cells on many of them provide about a fifth of the power they need for cooling and lighting.\n\nThe metro brings several benefits. Fewer cars on the roads means less traffic and cleaner air, while passengers can read, rest or talk with their families instead of concentrating on the road. Moreover, people who cannot drive, such as young students, can travel across the city independently and affordably.\n\nOf course, a metro is useful only if people choose to ride it. Some residents are still used to driving everywhere, especially because stations may be some distance from their homes. Buses that connect neighbourhoods to the nearest station are therefore an essential part of the plan.\n\nHow quickly a city can change! A journey that once meant an hour of stop-and-go traffic can now be a calm ride above the rooftops or deep beneath the streets, and the trains that make it possible do not need a single driver.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “modest” as it is used in paragraph 1?",
+      "options": [
+        "proud and boastful",
+        "small and simple",
+        "crowded and noisy",
+        "rich and famous"
+      ],
+      "answer": "B",
+      "why": "Riyadh was once “a modest town of mud-brick houses”, in contrast with today's huge city, so “modest” means small and simple here."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “crowded” as it is used in paragraph 1?",
+      "options": [
+        "busy",
+        "wide",
+        "noisy",
+        "empty"
+      ],
+      "answer": "D",
+      "why": "“Crowded” means full of people or things; “empty” is its opposite. “Busy” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 6: “Some residents are still used to driving everywhere.” What does “residents” mean?",
+      "options": [
+        "people who live in a place",
+        "people who visit for a short time",
+        "people who build railways",
+        "people who drive buses"
+      ],
+      "answer": "A",
+      "why": "Residents are the people who live in Riyadh; visitors stay only a short time."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "central",
+        "unusual",
+        "constantly",
+        "exact"
+      ],
+      "answer": "C",
+      "why": "“Constantly” tells how the computers communicate. “Central”, “unusual” and “exact” are adjectives."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The text mentions “millions of people”. Which of these words has an IRREGULAR plural form?",
+      "options": [
+        "train",
+        "station",
+        "person",
+        "road"
+      ],
+      "answer": "C",
+      "why": "Person → people is irregular (the text says “millions of people”); train, station and road add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “automated”?",
+      "options": [
+        "automatic",
+        "autumn",
+        "author",
+        "authority"
+      ],
+      "answer": "A",
+      "why": "“Automatic” shares the root “auto-” meaning self-acting, like “automated”; the others only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “affordably” in a meaningful sentence of your own.",
+      "model": "Our family travelled affordably to Makkah by taking the train instead of flying.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “affordably” with its meaning (at a price people can pay without difficulty)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Affordably” means in a way that does not cost too much."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “bus”, a word that appears in paragraph 6?",
+      "options": [
+        "bus",
+        "busies",
+        "buss",
+        "buses"
+      ],
+      "answer": "D",
+      "why": "Nouns ending in -s usually add -es: bus → buses (the text uses “Buses”)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a question?",
+      "options": [
+        "But how can a train run safely without a driver?",
+        "How quickly a city can change!",
+        "The metro brings several benefits.",
+        "Of course, a metro is useful only if people choose to ride it."
+      ],
+      "answer": "A",
+      "why": "It asks for information and ends with a question mark. “How quickly a city can change!” starts with “How” but is an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Riyadh's Old Mud-Brick Houses",
+        "Guinness World Records",
+        "A Smarter Way Across the Capital",
+        "How to Drive in a Sandstorm"
+      ],
+      "answer": "C",
+      "why": "The text explains how the driverless metro offers a new way to travel across Riyadh; the other titles cover one detail or are not discussed."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to inform readers how the Riyadh Metro works and why it matters",
+        "to persuade readers to sell their family cars and walk",
+        "to tell the long history of Riyadh's mud-brick houses",
+        "to explain how a person can train to drive trains"
+      ],
+      "answer": "A",
+      "why": "The text explains the metro's reasons, design, technology, benefits and challenges."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 4?",
+      "options": [
+        "Concrete bridges carry some of the lines.",
+        "Riyadh's summers are very hot.",
+        "Building the metro required solving many engineering problems.",
+        "Solar cells provide some power for stations."
+      ],
+      "answer": "C",
+      "why": "The paragraph begins “Building the network was an enormous engineering challenge” and gives examples; the others are supporting details."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, why did planners decide to build the metro?",
+      "options": [
+        "Roads had become crowded and journeys were slow.",
+        "The old trains had become dangerous.",
+        "Visitors asked for a faster airport train.",
+        "Cars were banned in the city centre."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: roads “became crowded with cars, and journeys across town could take more than an hour. To solve this problem…”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a personal letter",
+        "an adventure story",
+        "a poem",
+        "an expository text"
+      ],
+      "answer": "D",
+      "why": "It explains a real topic using facts and examples, with no characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why do glass doors along the platform edge open only when a train has arrived?",
+      "options": [
+        "to keep sand out of the tunnels",
+        "to protect passengers from falling onto the track",
+        "to keep the trains cool",
+        "to count the passengers"
+      ],
+      "answer": "B",
+      "why": "The doors open only when a train arrives, “which protects passengers from falling onto the track.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST?",
+      "options": [
+        "Guinness World Records recognised the metro.",
+        "The last line opened in January 2025.",
+        "Riyadh's roads became crowded with cars.",
+        "The metro began opening in December 2024."
+      ],
+      "answer": "C",
+      "why": "The crowded roads were the reason for building the metro, so they came before the openings and the 2025 record."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who watches the metro network while the trains run without drivers?",
+      "options": [
+        "the passengers",
+        "human operators at a control centre",
+        "Guinness World Records",
+        "bus drivers"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: “Human operators still watch the whole network on large screens, ready to step in.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which detail must engineers consider because of Riyadh's climate?",
+      "options": [
+        "Extreme summer heat and blowing sand.",
+        "Heavy snow that blocks the tracks in winter.",
+        "Floods that fill the tunnels every week.",
+        "Strong earthquakes that shake the bridges."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 mentions summer temperatures above 45°C and sandstorms that blow fine dust."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what allows the system to keep a safe distance between trains?",
+      "options": [
+        "Drivers who look out of the window",
+        "Glass doors on the platforms",
+        "Passengers who report delays",
+        "Sensors that report each train's position and speed"
+      ],
+      "answer": "D",
+      "why": "“Sensors report the exact position and speed of every train, so the system can keep a safe distance between them.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does the writer say that buses are “an essential part of the plan”?",
+      "options": [
+        "Buses are faster than trains on every route.",
+        "The trains cannot run unless buses pull them.",
+        "Buses are the only transport allowed downtown.",
+        "Buses bring people from distant homes to the metro."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 explains that stations may be some distance from people's homes, so connecting buses make the metro useful to them."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
+      "options": [
+        "wanting to know the colours of every line",
+        "wanting to know how trains can run without drivers",
+        "wanting to know who built mud-brick houses",
+        "wanting to know the date of the next record"
+      ],
+      "answer": "B",
+      "why": "Paragraph 2 ends with the driverless record, and paragraph 3 begins by asking how this is possible, which builds curiosity."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a journey by metro DIFFERENT from a journey by car, according to paragraph 5?",
+      "options": [
+        "Metro passengers must watch the road very carefully.",
+        "Car journeys are always cheaper than train journeys.",
+        "Cars produce cleaner air than trains do.",
+        "Metro riders can relax instead of watching the road."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 says metro passengers “can read, rest or talk… instead of concentrating on the road.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the concrete bridges and the tunnels have in common?",
+      "options": [
+        "Both were built in the middle of the last century.",
+        "Both are used only by the city's buses.",
+        "Both keep trains away from busy streets.",
+        "Both are cooled by solar cells on their roofs."
+      ],
+      "answer": "C",
+      "why": "The lines run “high above the streets” on bridges or “beneath busy roads” in tunnels, so both keep trains away from road traffic."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what is one effect of having fewer cars on the roads?",
+      "options": [
+        "Cleaner air",
+        "Hotter summers",
+        "Longer journeys",
+        "More sandstorms"
+      ],
+      "answer": "A",
+      "why": "“Fewer cars on the roads means less traffic and cleaner air.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the tunnel-boring machines “dug their way beneath busy roads”?",
+      "options": [
+        "The machines got lost somewhere under the city.",
+        "The machines dug up the roads and closed them for years.",
+        "Workers dug every tunnel by hand with spades.",
+        "The machines tunnelled under roads while traffic went on."
+      ],
+      "answer": "D",
+      "why": "“Dug their way beneath” shows the machines tunnelled under the roads, so the streets above could stay in use."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare “an hour of stop-and-go traffic” with “a calm ride above the rooftops”?",
+      "options": [
+        "to show that trains are slower than cars",
+        "to complain about the noise of trains",
+        "to help readers feel the difference the metro makes",
+        "to describe the history of Riyadh's roads"
+      ],
+      "answer": "C",
+      "why": "Placing the stressful old journey beside the peaceful new one makes the benefit vivid and memorable."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "The metro brings several benefits.",
+        "But how can a train run safely without a driver?",
+        "Riyadh has grown at an astonishing speed.",
+        "How quickly a city can change!"
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark. “astonishing” shows feeling, but that sentence is a statement."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which benefit of the metro would matter MOST to a Grade 6 student in Riyadh?",
+      "options": [
+        "travelling across the city independently and cheaply",
+        "seeing the metro's Guinness World Records certificate",
+        "watching the giant tunnel-boring machines at work",
+        "learning the exact length of every metro line"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5 says people who cannot drive, such as young students, can travel “independently and affordably”."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to complain about Riyadh's traffic",
+        "a plan to sell tickets for the metro",
+        "a wish to explain a major change in how a city moves",
+        "a belief that cars should be banned"
+      ],
+      "answer": "C",
+      "why": "The writer explains the metro's technology, benefits and challenges and ends by celebrating how much the city has changed."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which point of view does the writer hold about the Riyadh Metro?",
+      "options": [
+        "It is useless, because everyone prefers to drive.",
+        "It is impressive, but people must choose to ride it.",
+        "It is too dangerous to run without any drivers.",
+        "It is useful only for visitors and tourists."
+      ],
+      "answer": "B",
+      "why": "The writer praises the metro's achievements but warns that “a metro is useful only if people choose to ride it.”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how many stations the metro has",
+        "how passengers pay for their journeys",
+        "why platforms have glass doors",
+        "when the metro opened"
+      ],
+      "answer": "B",
+      "why": "The text never explains tickets or payment; the other facts are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A metro train flies over the rooftops without any track.",
+        "A student rides the metro to visit her grandmother across the city.",
+        "A tunnel-boring machine drives itself to Makkah.",
+        "The glass doors open while the train is still far away."
+      ],
+      "answer": "B",
+      "why": "The text says students can travel independently on the metro; the other events contradict how the system is described."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Lost Passenger",
+        "Riyadh Moves Smarter",
+        "Sandstorm in the Tunnel",
+        "The Last Car in Riyadh"
+      ],
+      "answer": "B",
+      "why": "The text is about how the metro helps the city move more efficiently."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences suggesting a way to encourage more families to ride the metro, and explain why it would work.",
+      "model": "The city could give every school student a free metro card for the first month of the school year. Once families see how calm and quick the journey is, many of them will keep using it. Fewer cars would then mean even cleaner air for everyone.",
+      "rubric": [
+        "2 = a clear new ending with a sensible idea to increase ridership and a reason linked to the text",
+        "1 = an idea is given but the reason is missing or unclear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible idea with a reason linked to the text's points (distance, habits, benefits) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Some residents live far from a metro station. Which solution fits the ideas in the text?",
+      "options": [
+        "Link their neighbourhoods to stations by bus.",
+        "Close the stations that are farthest from homes.",
+        "Ask them to continue driving everywhere they go.",
+        "Build more and wider roads for cars instead."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 says buses that connect neighbourhoods to the nearest station are “an essential part of the plan.”"
+    }
+  ]
+}

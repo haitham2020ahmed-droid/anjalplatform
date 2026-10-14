@@ -10,13 +10,22 @@ import { cache } from "react";
 import { db } from "@/lib/db";
 import { env } from "@/lib/env";
 import { PrismaRepo } from "@/server/db/prisma-repo";
+import { newReadScope, RequestReadRepo, type ReadScope } from "@/server/db/request-reads";
 import { resolveActor } from "./actor";
 import { DEFAULT_AUTH, type AuthConfig } from "./config";
 import { sessionCookieName } from "./http";
 import { assertCan, type Actor, type Permission, type Role } from "./rbac";
 import { validateSession } from "./sessions";
 
-export const repo = new PrismaRepo(db);
+/**
+ * ⚡ The reads of one page render, shared: React's request cache gives one scope per page render (and none in Server
+ * Actions / route handlers, where `cache` does not memoise: two calls give two scopes → read straight through).
+ */
+const pageReads = cache(newReadScope);
+function readScope(): ReadScope | null {
+  try { const a = pageReads(); return a === pageReads() ? a : null; } catch { return null; }
+}
+export const repo = new RequestReadRepo(new PrismaRepo(db), readScope);
 // NODE_ENV is set by Next.js itself; reading it needs no validation (see src/lib/env.ts)
 export const isProd = process.env.NODE_ENV === "production";
 

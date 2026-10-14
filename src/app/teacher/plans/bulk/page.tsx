@@ -12,6 +12,7 @@ import { loadPlan, type LoadedPlan } from "@/server/plans/editor";
 import { fromSearchParams } from "@/server/plans/plan-form";
 import { searchSkillsAnyGrade } from "@/server/plans/wizard";
 import { bulkEditAction } from "../editor-actions";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Change several plans" };
 
@@ -53,12 +54,12 @@ export default async function BulkPlansPage({ searchParams }: { searchParams: Pr
             <Section title="A skill in these plans" icon="🎯">
               <div className="grid gap-4 md:grid-cols-2">
                 <form action={bulkEditAction} className="flex flex-wrap items-end gap-2">{hidden}<input type="hidden" name="op" value="count" />
-                  <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-semibold text-slate-700">{t("Skill")}<select name="skillId" className={BOX}>{[...skills].map(([id, name]) => <option key={id} value={id}>{name}</option>)}</select></label>
+                  <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-semibold text-slate-700">{t("Skill")}<Combo name="skillId" required label={t("Skill")} options={[...skills].map(([id, name]) => ({ value: id, label: name }))} /></label>
                   <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Number of questions")}<input type="number" name="count" min={1} max={50} defaultValue={10} className={`${BOX} w-24`} /></label>
                   <button className={BTN_SOFT}>{t("Set for all")}</button>
                 </form>
                 <form action={bulkEditAction} className="flex flex-wrap items-end gap-2">{hidden}<input type="hidden" name="op" value="removeSkill" />
-                  <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-semibold text-slate-700">{t("Skill")}<select name="skillId" className={BOX}>{[...skills].map(([id, name]) => <option key={id} value={id}>{name}</option>)}</select></label>
+                  <label className="flex min-w-0 flex-1 flex-col gap-1 text-sm font-semibold text-slate-700">{t("Skill")}<Combo name="skillId" required label={t("Skill")} options={[...skills].map(([id, name]) => ({ value: id, label: name }))} /></label>
                   <button className={`${BTN_SOFT} text-red-700`}>{t("Remove from all")}</button>
                 </form>
               </div>

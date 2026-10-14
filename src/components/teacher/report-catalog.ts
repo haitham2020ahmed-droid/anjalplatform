@@ -1,25 +1,28 @@
 /**
- * 📊 The Reports catalogue: every report a teacher can open, in five groups (Class · Student · Skills · MAP · Family),
- * with the page that shows it for a class and / or one student, whether it takes a date range, its Excel / CSV
- * downloads and whether it can be sent to the family. Pure data + pure helpers (no server code):
- *  - the Reports page (/teacher/reports) draws the cards and opens a report straight away (openReportUrl);
+ * 📊 The Reports hub (owner r67: "organise everything, especially REPORTS — nothing exists twice"): every report in
+ * FOUR groups — My class (overview, skills, growth) · Students (the one student file) · Programs (MAP, NAFS,
+ * ReadRise, Learn, Writing, Fluency) · Follow-up (early warning, alerts, interventions, family reports) — with the
+ * page that shows it for a class and / or one student, whether it takes a date range, its Excel / CSV downloads and
+ * whether it can be sent to the family. Pure data + pure helpers (no server code):
+ *  - the Reports page (/teacher/reports) draws the cards (hubCards) and opens a report straight away (openReportUrl);
  *  - the report bar on top of every report page (src/components/teacher/report-bar.tsx) finds the report from the
  *    address (matchReport) and offers the class switcher, the student picker, the date range, Download and Send.
- * Pages that belong to another area (a test's results → Assessments, ReadRise / Fluency → Reading, the student
- * profile → Students & Classes) are not repeated here: every page lives in ONE place.
+ *  - HUB_LINKS: a programme's own page (ReadRise, Fluency, NAFS, Learn, Alerts, Interventions) is linked, never copied.
+ * Merged in r67 (old addresses redirect): Student Progress + the older Student file → the student file
+ * (/teacher/students/[id]); Needs help → Mistakes and root causes; the Progress report for parents → Family Reports;
+ * Who Needs Help → Alerts; the Weekly family summary → Family reports this week.
  */
 import type { LineIconName } from "../ui/line-icon";
 
 export type ReportScope = "class" | "student";
 export type ReportPeriod = "week" | "month" | "term";
-export type ReportCategory = "Class" | "Student" | "Skills" | "MAP" | "Family";
+export type ReportCategory = "My class" | "Students" | "Programs" | "Follow-up";
 
 export const REPORT_CATEGORIES: { key: ReportCategory; line: LineIconName; hint: string }[] = [
-  { key: "Class", line: "school", hint: "The whole class at a glance." },
-  { key: "Student", line: "student", hint: "One student in depth." },
-  { key: "Skills", line: "puzzle", hint: "Skill by skill: what is mastered and what to reteach." },
-  { key: "MAP", line: "target", hint: "MAP Growth: profiles, groups, study plans and growth." },
-  { key: "Family", line: "family", hint: "Reports for parents." },
+  { key: "My class", line: "school", hint: "Your class: progress, skills and growth." },
+  { key: "Students", line: "student", hint: "One student in depth." },
+  { key: "Programs", line: "target", hint: "MAP, NAFS, ReadRise, Learn, Writing and Fluency." },
+  { key: "Follow-up", line: "alert", hint: "Who needs help now, what was done, and the reports for families." },
 ];
 
 export const REPORT_PERIODS: { key: ReportPeriod; label: string; days: number; range: string }[] = [
@@ -76,90 +79,114 @@ const either = (...ms: ReturnType<typeof on>[]) => (path: string, q: URLSearchPa
 const byStudentParam = (k: string) => (q: URLSearchParams): ReportScope => (q.get(k) ? "student" : "class");
 
 export const REPORTS: ReportDef[] = [
-  // ---- Class
-  { key: "class-dashboard", category: "Class", line: "grid", title: "Students dashboard", hint: "Progress, accuracy and status of every student.",
+  // ---- My class: overview, skills, growth
+  { key: "class-progress", category: "My class", line: "growth", title: "Class progress", hint: "This month against last month: new stars, skills improved, effort. Never against other classes.",
+    classUrl: (p) => `/teacher/reports/class?${qs({ classId: p.classId })}`,
+    match: on(/^\/teacher\/reports\/class$/, "class") },
+  { key: "class-dashboard", category: "My class", line: "grid", title: "Students dashboard", hint: "Progress, accuracy and status of every student.",
     classUrl: (p) => `/teacher/progress?${qs({ classId: p.classId })}`,
     files: (p) => [{ label: "Excel · Reading", href: `/api/progress-export?${qs({ classId: p.classId, subject: "READING" })}` }, { label: "Excel · Language", href: `/api/progress-export?${qs({ classId: p.classId, subject: "LANGUAGE" })}` }],
     match: on(/^\/teacher\/progress$/, "class") },
-  { key: "practice", category: "Class", line: "clock", title: "Practice and time", hint: "Questions and minutes by day, by skill and per student.", period: true,
-    classUrl: (p) => `/teacher/practice-analytics?${qs({ classId: p.classId, range: per(p.period).range })}`,
-    studentUrl: (p) => `/teacher/practice-analytics?${qs({ classId: p.classId, range: per(p.period).range, student: p.studentId })}`,
-    match: on(/^\/teacher\/practice-analytics$/, byStudentParam("student")) },
-  { key: "writing", category: "Class", line: "pen", title: "Writing results", hint: "Rubric scores (%) of graded writing, by student and task.",
-    classUrl: (p) => `/teacher/writing/report?${qs({ classId: p.classId })}`,
-    studentUrl: (p) => `/teacher/writing/report?${qs({ classId: p.classId, studentId: p.studentId })}`,
-    match: on(/^\/teacher\/writing\/report$/, byStudentParam("studentId")) },
-  { key: "readmaster", category: "Class", line: "book", title: "ReadMaster", hint: "By student, by text and by skill.", period: true,
-    classUrl: (p) => `/teacher/reports/readmaster?${qs({ classId: p.classId, days: per(p.period).days })}`,
-    studentUrl: (p) => `/teacher/reports/readmaster/${id(p.studentId)}?${qs({ days: per(p.period).days })}`,
-    files: (p) => (p.scope === "class" ? apiFiles("readmaster", { classId: p.classId, days: per(p.period).days }) : []),
-    match: either(on(/^\/teacher\/reports\/readmaster\/(?<studentId>[^/]+)$/, "student"), on(/^\/teacher\/reports\/readmaster$/, "class")) },
-  { key: "live-games", category: "Class", line: "game", title: "Live Challenge results", hint: "Participation and accuracy by skill in live games.", period: true,
-    classUrl: (p) => `/teacher/reports/games?${qs({ classId: p.classId, days: per(p.period).days })}`,
-    files: (p) => apiFiles("games", { classId: p.classId, days: per(p.period).days }),
-    match: on(/^\/teacher\/reports\/games$/, "class") },
-  { key: "games-usage", category: "Class", line: "star", title: "Games Report", hint: "The most played and best rated games.", period: true,
-    classUrl: (p) => `/teacher/reports/games-usage?${qs({ classId: p.classId, days: per(p.period).days })}`,
-    match: on(/^\/teacher\/reports\/games-usage$/, "class") },
-  { key: "early-warning", category: "Class", line: "alert", title: "🚨 Early warning", hint: "Drops, rises and up-down swings of every student, and who needs action now.",
-    classUrl: (p) => `/teacher/reports/early-warning?${qs({ classId: p.classId })}`,
-    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }],
-    match: on(/^\/teacher\/reports\/early-warning$/, "class") },
-  // ---- Student
-  { key: "student-progress", category: "Student", line: "growth", title: "Student Progress", hint: "One student's work, accuracy, skills and MAP over time.",
-    studentUrl: (p) => `/teacher/progress/${id(p.studentId)}`,
-    match: on(/^\/teacher\/progress\/(?<studentId>[^/]+)$/, "student") },
-  { key: "student-file", category: "Student", line: "file", title: "Student file", hint: "Everything about one student on one printable page.",
-    studentUrl: (p) => `/admin/student-file/${id(p.studentId)}`,
-    match: on(/^\/admin\/student-file\/(?<studentId>[^/]+)$/, "student") },
-  // ---- Skills
-  { key: "curriculum-results", category: "Skills", line: "compass", title: "Curriculum results", hint: "How the class did on each unit and skill.",
+  { key: "errors", category: "My class", line: "puzzle", title: "Mistakes and root causes", hint: "Mistakes in plain words, the real gap underneath, and what to re-teach.",
+    classUrl: (p) => `/teacher/reports/errors?${qs({ classId: p.classId })}`,
+    match: on(/^\/teacher\/reports\/errors$/, "class") },
+  { key: "curriculum-results", category: "My class", line: "compass", title: "Curriculum results", hint: "How the class did on each unit and skill.",
     classUrl: (p) => `/teacher/curriculum-results?${qs({ classId: p.classId })}`,
     match: on(/^\/teacher\/curriculum-results$/, "class") },
-  { key: "grammar", category: "Skills", line: "layers", title: "Grammar results", hint: "Grammar skills: mastery, common errors, what to reteach.", period: true,
+  { key: "grammar", category: "My class", line: "layers", title: "Grammar results", hint: "Grammar skills: mastery, common errors, what to reteach.", period: true,
     classUrl: (p) => `/teacher/reports/grammar?${qs({ classId: p.classId, days: per(p.period).days })}`,
     studentUrl: (p) => `/teacher/reports/grammar/${id(p.studentId)}?${qs({ days: per(p.period).days })}`,
     files: (p) => (p.scope === "class" ? apiFiles("grammar", { classId: p.classId, days: per(p.period).days }) : []),
     match: either(on(/^\/teacher\/reports\/grammar\/(?<studentId>[^/]+)$/, "student"), on(/^\/teacher\/reports\/grammar$/, "class")) },
-  { key: "needs-help", category: "Skills", line: "alert", title: "Needs help", hint: "Skills where a student answered the same question wrong twice.",
-    classUrl: (p) => `/teacher/reports/needs-help?${qs({ classId: p.classId })}`,
-    match: on(/^\/teacher\/reports\/needs-help$/, "class") },
-  // ---- MAP
-  { key: "map-profile", category: "MAP", line: "target", title: "MAP profile", hint: "RIT, percentile bands and the areas to work on.",
+  { key: "practice", category: "My class", line: "clock", title: "Practice and time", hint: "Questions and minutes by day, by skill and per student.", period: true,
+    classUrl: (p) => `/teacher/practice-analytics?${qs({ classId: p.classId, range: per(p.period).range })}`,
+    studentUrl: (p) => `/teacher/practice-analytics?${qs({ classId: p.classId, range: per(p.period).range, student: p.studentId })}`,
+    match: on(/^\/teacher\/practice-analytics$/, byStudentParam("student")) },
+  // ---- Students: the ONE student file (Student Progress and the older student file redirect to it)
+  { key: "student-file", category: "Students", line: "file", title: "Student file", hint: "One student: language profile, mistakes, MAP, ReadRise level, follow-up.",
+    studentUrl: (p) => `/teacher/students/${id(p.studentId)}`,
+    match: on(/^\/teacher\/students\/(?<studentId>[^/]+)$/, "student") },
+  // ---- Programs: MAP, NAFS, ReadRise, Learn, Writing, Fluency (+ ReadMaster and Live Challenge)
+  { key: "map-profile", category: "Programs", line: "target", title: "MAP profile", hint: "RIT, percentile bands and the areas to work on.",
     classUrl: (p) => `/map-report/class/${id(p.classId)}/profile?subject=READING`,
     studentUrl: (p) => `/map-report/profile/${id(p.studentId)}`,
     match: either(on(/^\/map-report\/class\/(?<classId>[^/]+)\/profile$/, "class"), on(/^\/map-report\/profile\/(?<studentId>[^/]+)$/, "student")) },
-  { key: "map-groups", category: "MAP", line: "users", title: "Group study plan", hint: "Students of the same RIT band together for each sub-area, with the skills.",
+  { key: "map-groups", category: "Programs", line: "users", title: "Group study plan", hint: "Students of the same RIT band together for each sub-area, with the skills.",
     classUrl: (p) => `/map-report/class/${id(p.classId)}/groups?subject=READING`,
     files: (p) => [{ label: "3-level group plan (Word)", href: `/api/personal-plan-doc?${qs({ classId: p.classId, subject: "reading" })}` }],
     match: on(/^\/map-report\/class\/(?<classId>[^/]+)\/groups$/, "class") },
-  { key: "map-study-plans", category: "MAP", line: "plans", title: "MAP study plans", hint: "Each student's personal study plan from the MAP scores.",
+  { key: "map-study-plans", category: "Programs", line: "plans", title: "MAP study plans", hint: "Each student's personal study plan from the MAP scores.",
     classUrl: (p) => `/map-report/class/${id(p.classId)}/study-plans?subject=READING`,
     studentUrl: (p) => `/map-report/study-plan/${id(p.studentId)}?subject=READING`,
     match: either(on(/^\/map-report\/class\/(?<classId>[^/]+)\/study-plans$/, "class"), on(/^\/map-report\/study-plan\/(?<studentId>[^/]+)$/, "student")) },
-  { key: "map-growth", category: "MAP", line: "growth", title: "MAP Growth Report", hint: "Every student's RIT and who reached the expected growth.",
+  { key: "map-growth", category: "Programs", line: "growth", title: "MAP Growth Report", hint: "Every student's RIT and who reached the expected growth.",
     classUrl: (p) => `/teacher/map-center?${qs({ tab: "reports", classId: p.classId })}`,
     match: on(/^\/teacher\/map-center$/, "class", (q) => q.get("tab") === "reports" && q.get("view") !== "overview") },
-  { key: "map-overview", category: "MAP", line: "chart", title: "Grade and school overview", hint: "Every grade and class side by side: mean RIT vs national, bands, growth.",
+  { key: "map-overview", category: "Programs", line: "chart", title: "Grade and school overview", hint: "Every grade and class side by side: mean RIT vs national, bands, growth.",
     classUrl: (p) => `/teacher/map-center?${qs({ tab: "reports", view: "overview", classId: p.classId })}`,
     match: on(/^\/teacher\/map-center$/, "class", (q) => q.get("tab") === "reports" && q.get("view") === "overview") },
-  // ---- Family
-  { key: "family-progress", category: "Family", line: "send", title: "Progress report for parents", hint: "A short report for the family. The school admin approves it before parents see it.", send: true,
-    studentUrl: (p) => `/teacher/progress/${id(p.studentId)}/report`,
-    match: on(/^\/teacher\/progress\/(?<studentId>[^/]+)\/report$/, "student") },
-  { key: "map-family", category: "Family", line: "family", title: "MAP family report", hint: "Achievement and growth for parents.",
+  { key: "writing", category: "Programs", line: "pen", title: "Writing results", hint: "Rubric scores (%) of graded writing, by student and task.",
+    classUrl: (p) => `/teacher/writing/report?${qs({ classId: p.classId })}`,
+    studentUrl: (p) => `/teacher/writing/report?${qs({ classId: p.classId, studentId: p.studentId })}`,
+    match: on(/^\/teacher\/writing\/report$/, byStudentParam("studentId")) },
+  { key: "readmaster", category: "Programs", line: "book", title: "ReadMaster", hint: "By student, by text and by skill.", period: true,
+    classUrl: (p) => `/teacher/reports/readmaster?${qs({ classId: p.classId, days: per(p.period).days })}`,
+    studentUrl: (p) => `/teacher/reports/readmaster/${id(p.studentId)}?${qs({ days: per(p.period).days })}`,
+    files: (p) => (p.scope === "class" ? apiFiles("readmaster", { classId: p.classId, days: per(p.period).days }) : []),
+    match: either(on(/^\/teacher\/reports\/readmaster\/(?<studentId>[^/]+)$/, "student"), on(/^\/teacher\/reports\/readmaster$/, "class")) },
+  { key: "live-games", category: "Programs", line: "game", title: "Live Challenge results", hint: "Participation and accuracy by skill in live games.", period: true,
+    classUrl: (p) => `/teacher/reports/games?${qs({ classId: p.classId, days: per(p.period).days })}`,
+    files: (p) => apiFiles("games", { classId: p.classId, days: per(p.period).days }),
+    match: on(/^\/teacher\/reports\/games$/, "class") },
+  { key: "games-usage", category: "Programs", line: "star", title: "Games Report", hint: "The most played and best rated games.", period: true,
+    classUrl: (p) => `/teacher/reports/games-usage?${qs({ classId: p.classId, days: per(p.period).days })}`,
+    match: on(/^\/teacher\/reports\/games-usage$/, "class") },
+  // ---- Follow-up: early warning, alerts, interventions, family reports
+  { key: "early-warning", category: "Follow-up", line: "alert", title: "🚨 Early warning", hint: "Drops, rises and up-down swings of every student, and who needs action now.",
+    classUrl: (p) => `/teacher/reports/early-warning?${qs({ classId: p.classId })}`,
+    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }],
+    match: on(/^\/teacher\/reports\/early-warning$/, "class") },
+  { key: "family-reports", category: "Follow-up", line: "mail", title: "Family Reports", hint: "Monthly and weekly reports for parents: you add a note, the school admin approves.", send: true,
+    classUrl: (p) => `/teacher/family-reports?${qs({ classId: p.classId })}`,
+    match: on(/^\/teacher\/family-reports$/, "class") },
+  { key: "map-family", category: "Follow-up", line: "family", title: "MAP family report", hint: "Achievement and growth for parents.",
     classUrl: (p) => `/map-report/class/${id(p.classId)}/family`,
     studentUrl: (p) => `/map-report/family/${id(p.studentId)}`,
     match: either(on(/^\/map-report\/class\/(?<classId>[^/]+)\/family$/, "class"), on(/^\/map-report\/family\/(?<studentId>[^/]+)$/, "student")) },
-  { key: "family-reports", category: "Family", line: "mail", title: "Family Reports", hint: "Every report shared with families and what waits for approval.",
-    classUrl: (p) => `/teacher/family-reports?${qs({ classId: p.classId })}`,
-    match: on(/^\/teacher\/family-reports$/, "class") },
 ];
 
-/** Old report keys (the wizard's) → the page that has them now. */
+/**
+ * The hub's links to pages that are their programme's own home (they keep their own class chips, so no report bar):
+ * listed in the hub so every report is found in one place, never copied. `pending`: arrives with another branch.
+ */
+export interface HubLink { key: string; category: ReportCategory; line: LineIconName; title: string; hint: string; href: (classId: string) => string; nafs?: boolean; pending?: boolean }
+export const HUB_LINKS: HubLink[] = [
+  // ⭐ the Skills grid (the skill-status stars, every student × skill) — its page arrives from the skill-status branch
+  { key: "skills-grid", category: "My class", line: "star", title: "Skills grid", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
+  { key: "nafs-reports", category: "Programs", line: "flag", title: "NAFS reports", hint: "NAFS tests and practice: results by student and skill.", href: () => "/teacher/nafs?tab=reports", nafs: true },
+  { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise growth", hint: "ReadRise levels over time and who is not reading.", href: (c) => `/teacher/readrise?${qs({ class: c, tab: "growth" })}` },
+  { key: "learn-results", category: "Programs", line: "learn", title: "Learn results", hint: "Each lesson: who finished, scores, who needs it again.", href: () => "/teacher/learn" },
+  { key: "fluency", category: "Programs", line: "mic", title: "Reading Fluency", hint: "Words correct per minute and progress of every student.", href: (c) => `/teacher/fluency${c ? `?${qs({ classId: c })}` : ""}` },
+  { key: "alerts", category: "Follow-up", line: "bell", title: "Alerts", hint: "Who needs attention now (practice, MAP flags, reviews due) and what was done.", href: (c) => `/teacher/alerts${c ? `?${qs({ classId: c })}` : ""}` },
+  { key: "interventions", category: "Follow-up", line: "users", title: "Interventions", hint: "Small groups on one skill, with before and after.", href: (c) => `/teacher/intervention/groups${c ? `?${qs({ class: c })}` : ""}` },
+];
+
+/** One card of the hub (a report or a link), in the group's order. */
+export interface HubCard { key: string; category: ReportCategory; line: LineIconName; title: string; hint: string; report?: ReportDef; link?: HubLink }
+export function hubCards(o: { nafs: boolean }): HubCard[] {
+  const order: Record<string, number> = { "class-progress": 0, "skills-grid": 1, errors: 2, "class-dashboard": 3 };
+  const all: HubCard[] = [
+    ...REPORTS.map((r) => ({ key: r.key, category: r.category, line: r.line, title: r.title, hint: r.hint, report: r })),
+    ...HUB_LINKS.filter((l) => !l.nafs || o.nafs).map((l) => ({ key: l.key, category: l.category, line: l.line, title: l.title, hint: l.hint, link: l })),
+  ];
+  return REPORT_CATEGORIES.flatMap((c) => all.filter((x) => x.category === c.key).sort((a, b) => (order[a.key] ?? 50) - (order[b.key] ?? 50)));
+}
+
+/** Old report keys (the wizard's, and the cards merged in r67) → the page that has them now. */
 export const MOVED_REPORTS: Record<string, string> = {
   "student-page": "/teacher/students", assessments: "/teacher/assessments", diagnostic: "/teacher/diagnostic",
   readrise: "/teacher/readrise", fluency: "/teacher/fluency",
+  "student-progress": "/teacher/students", "needs-help": "/teacher/reports/errors", "family-progress": "/teacher/family-reports",
 };
 
 /** The people a report can be about, in the order offered. */

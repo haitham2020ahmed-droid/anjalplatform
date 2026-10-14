@@ -1,0 +1,485 @@
+{
+ "code": "LN-004",
+ "title": "Removing ideas that do not belong",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.5"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0018",
+  "L-0079",
+  "L-0181",
+  "L-0182",
+  "L-0285"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Stay on topic",
+     "text": "Every text is about **one topic**.\n\nAll the sentences should tell about that topic."
+    },
+    {
+     "title": "Find the odd one",
+     "text": "Sometimes one sentence is about **something else**.\n\nIt does **not belong**. Take it out."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read all the sentences.\n2. Ask: **What are most of them about?**\n3. Find the sentence that is about something else."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove which sentence does not belong.\n\n1. Find the sentences about the **same topic**.\n2. The sentence that is **not** like them is the odd one.\n\nPoint to the sentences that match. They show what the topic is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fish live in water.",
+      "role": "main"
+     },
+     {
+      "t": "They use fins to swim.",
+      "role": "detail"
+     },
+     {
+      "t": "I have a green bag.",
+      "role": "other"
+     },
+     {
+      "t": "They breathe with gills.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Three sentences are about **fish**. **I have a green bag** is not about fish. It does not belong."
+   },
+   "together": {
+    "passage": "Camels live in the desert. They can walk on hot sand. My uncle has a red car. They can go days without water.",
+    "stem": "Which sentence does not belong?",
+    "options": [
+     "They can walk on hot sand.",
+     "My uncle has a red car.",
+     "Camels live in the desert.",
+     "They can go days without water."
+    ],
+    "answer": 1,
+    "hint": "That sentence is about camels. Find the one that is NOT about camels.",
+    "good": "Yes! The text is about camels. The red car is not about camels."
+   },
+   "evidence": {
+    "sentences": [
+     "Camels live in the desert.",
+     "They can walk on hot sand.",
+     "My uncle has a red car.",
+     "They can go days without water."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: My uncle has a red car. Tap 2 sentences that ARE about camels.",
+    "wrong": "This is the sentence that does not belong. Find sentences about camels."
+   },
+   "checks": [
+    {
+     "passage": "Apples are good for you. They have vitamins. I like to swim. They help you stay healthy.",
+     "stem": "Which sentence does not belong?",
+     "options": [
+      "They have vitamins.",
+      "Apples are good for you.",
+      "I like to swim.",
+      "They help you stay healthy."
+     ],
+     "answer": 2,
+     "why": "The text is about apples. Swimming is not about apples."
+    },
+    {
+     "passage": "Our school has a big library. It has many books. Dogs like to run. Kids read there every day.",
+     "stem": "Which sentence does not belong?",
+     "options": [
+      "Dogs like to run.",
+      "It has many books.",
+      "Kids read there every day.",
+      "Our school has a big library."
+     ],
+     "answer": 0,
+     "why": "The text is about the library. Dogs are not about the library."
+    },
+    {
+     "passage": "The moon shines at night. It looks round and bright. My shoes are new. Some nights it looks thin.",
+     "stem": "Which sentence does not belong?",
+     "options": [
+      "My shoes are new.",
+      "It looks round and bright.",
+      "The moon shines at night.",
+      "Some nights it looks thin."
+     ],
+     "answer": 0,
+     "why": "The text is about the moon. New shoes are not about the moon."
+    }
+   ],
+   "again": {
+    "title": "The topic test",
+    "text": "Say the topic in one word, like **camels**.\n\nNow read each sentence and ask: **Is this about camels?**\n\nYes = keep it. No = take it out.",
+    "example": "Topic: **rain**.\nRain falls from clouds. ✔\nRain helps plants grow. ✔\nMy friend is ten. ✘ Take it out."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "One topic, one focus",
+     "text": "In a report, every sentence should help explain the **topic**.\n\nA sentence about something else can confuse the reader."
+    },
+    {
+     "title": "Sneaky sentences",
+     "text": "Some sentences that do not belong look **close** to the topic.\n\nA report about sea turtles should not tell about **your trip** to an aquarium, even though it is about sea animals."
+    },
+    {
+     "title": "Check your draft",
+     "text": "1. Find the **topic sentence**.\n2. Read every other sentence.\n3. Ask: **Does this explain the topic?**\n4. If not, remove it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence does not belong, show what the paragraph **is** about.\n\n1. Find the topic sentence.\n2. Find details that explain it.\n3. The sentence that does not explain the topic is the one to remove."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Honey bees live together in large groups called colonies.",
+      "role": "main"
+     },
+     {
+      "t": "Each colony has one queen who lays the eggs.",
+      "role": "detail"
+     },
+     {
+      "t": "I ate honey on my bread this morning.",
+      "role": "other"
+     },
+     {
+      "t": "Worker bees collect food and protect the hive.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The topic is **how bees live in colonies**. The queen and the workers explain it. Eating honey for breakfast does not, so it should be removed."
+   },
+   "together": {
+    "passage": "Sea turtles spend almost their whole lives in the ocean. Female turtles come onto beaches to lay their eggs in the sand. My cousin once visited an aquarium in Jeddah. After about two months, the baby turtles hatch and crawl toward the sea. Many of them are eaten by birds and crabs on the way.",
+    "stem": "Which sentence does not belong in this report?",
+    "options": [
+     "Female turtles come onto beaches to lay their eggs in the sand.",
+     "Sea turtles spend almost their whole lives in the ocean.",
+     "My cousin once visited an aquarium in Jeddah.",
+     "Many of them are eaten by birds and crabs on the way."
+    ],
+    "answer": 2,
+    "hint": "That sentence tells about sea turtles' lives. Find the one about something else.",
+    "good": "Yes! Every other sentence tells about sea turtles' lives. A cousin's visit to an aquarium does not."
+   },
+   "evidence": {
+    "sentences": [
+     "Sea turtles spend almost their whole lives in the ocean.",
+     "Female turtles come onto beaches to lay their eggs in the sand.",
+     "My cousin once visited an aquarium in Jeddah.",
+     "After about two months, the baby turtles hatch and crawl toward the sea.",
+     "Many of them are eaten by birds and crabs on the way."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: My cousin once visited an aquarium. Tap 2 sentences that DO explain the topic of sea turtles' lives.",
+    "wrong": "This is the sentence that does not belong. Find sentences that tell about sea turtles' lives."
+   },
+   "checks": [
+    {
+     "passage": "Recycling helps the planet. When we recycle paper, fewer trees are cut down. Plastic was invented more than one hundred years ago. Recycling also means less rubbish goes into landfills.",
+     "stem": "Which sentence does not belong?",
+     "options": [
+      "When we recycle paper, fewer trees are cut down.",
+      "Plastic was invented more than one hundred years ago.",
+      "Recycling helps the planet.",
+      "Recycling also means less rubbish goes into landfills."
+     ],
+     "answer": 1,
+     "why": "The paragraph explains how recycling helps. When plastic was invented does not explain that."
+    },
+    {
+     "passage": "Sleep is important for growing children. During sleep, the body repairs itself. My favourite pillow is blue with white stars. Sleep also helps the brain remember what we learned.",
+     "stem": "Which sentence does not belong?",
+     "options": [
+      "During sleep, the body repairs itself.",
+      "Sleep also helps the brain remember what we learned.",
+      "Sleep is important for growing children.",
+      "My favourite pillow is blue with white stars."
+     ],
+     "answer": 3,
+     "why": "The topic is why sleep is important. The colour of a pillow does not explain that."
+    },
+    {
+     "passage": "Falcons are skilled hunters. They have sharp eyes that can spot prey from far away. Some people keep parrots because parrots can copy words. Their curved beaks and strong claws help them catch food.",
+     "stem": "Which sentence does not belong?",
+     "options": [
+      "They have sharp eyes that can spot prey from far away.",
+      "Some people keep parrots because parrots can copy words.",
+      "Falcons are skilled hunters.",
+      "Their curved beaks and strong claws help them catch food."
+     ],
+     "answer": 1,
+     "why": "The paragraph is about how falcons hunt. Parrots are a different bird and topic."
+    }
+   ],
+   "again": {
+    "title": "Point to the topic sentence",
+    "text": "Put your finger on the **topic sentence**.\n\nNow read each other sentence and ask: **Does this help my finger's sentence?**\n\nIf not, it does not belong.",
+    "example": "Topic sentence: Dates are a healthy snack.\nThey give quick energy. ✔\nThey have fibre. ✔\nMy aunt lives in Al-Ahsa. ✘"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Reports and stories",
+     "text": "Both **reports** and **stories** need every sentence to belong.\n\nIn a report, sentences explain the topic.\nIn a story, sentences move the **events** forward or show the characters."
+    },
+    {
+     "title": "What does not belong in a story",
+     "text": "A story sentence does not belong when it:\n\n- gives a fact that has nothing to do with the events\n- jumps to another person or place for no reason\n- interrupts the action"
+    },
+    {
+     "title": "Read like an editor",
+     "text": "1. Say what the draft is about in one sentence.\n2. Read each sentence and ask: **Does this help my reader follow the topic or the story?**\n3. Cut anything that pulls the reader away."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your choice by showing what the draft **is** about.\n\n1. Find two sentences that clearly belong.\n2. Name what they share: the same topic, or the same event.\n3. The sentence that does not share it should be removed."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mariam was nervous on her first day volunteering at the hospital.",
+      "role": "detail"
+     },
+     {
+      "t": "Hospitals in big cities often have hundreds of beds.",
+      "role": "other"
+     },
+     {
+      "t": "A nurse smiled and showed her where to help.",
+      "role": "detail"
+     },
+     {
+      "t": "By lunchtime, Mariam had stopped feeling nervous.",
+      "role": "key"
+     }
+    ],
+    "explain": "The story follows Mariam's **first day** and her nerves. The fact about hospital beds interrupts the story and does not belong."
+   },
+   "together": {
+    "passage": "Nasser and his father set out before dawn to watch the sunrise from the top of a sand dune. The sand was still cold under their feet as they climbed. Halfway up, Nasser slipped and slid back down, laughing. Nasser's school football team won three trophies last year. At the top, they sat side by side as the sky turned orange. Neither of them said a word until the sun was fully up.",
+    "stem": "Which sentence does not belong in this story?",
+    "options": [
+     "Halfway up, Nasser slipped and slid back down, laughing.",
+     "The sand was still cold under their feet as they climbed.",
+     "Neither of them said a word until the sun was fully up.",
+     "Nasser's school football team won three trophies last year."
+    ],
+    "answer": 3,
+    "hint": "That sentence is part of the climb or the sunrise. Find the one that pulls the reader away from the trip.",
+    "good": "Yes! The story is about climbing a dune to watch the sunrise. The football trophies interrupt it."
+   },
+   "evidence": {
+    "sentences": [
+     "Nasser and his father set out before dawn to watch the sunrise from the top of a sand dune.",
+     "The sand was still cold under their feet as they climbed.",
+     "Halfway up, Nasser slipped and slid back down, laughing.",
+     "Nasser's school football team won three trophies last year.",
+     "At the top, they sat side by side as the sky turned orange.",
+     "Neither of them said a word until the sun was fully up."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the football trophies sentence. Tap 2 sentences that show what the story IS about.",
+    "wrong": "This is the sentence that does not belong. Find sentences about the trip up the dune."
+   },
+   "checks": [
+    {
+     "passage": "Jamal could not find his little sister in the crowded market. He called her name again and again. Markets in old cities are often hundreds of years old. At last he spotted her yellow scarf beside the spice stall.",
+     "stem": "Which sentence does not belong in this story?",
+     "options": [
+      "Markets in old cities are often hundreds of years old.",
+      "He called her name again and again.",
+      "At last he spotted her yellow scarf beside the spice stall.",
+      "Jamal could not find his little sister in the crowded market."
+     ],
+     "answer": 0,
+     "why": "The story is about Jamal searching for his sister. A fact about the age of markets interrupts the search."
+    },
+    {
+     "passage": "Bees collect nectar from flowers. Back at the hive, they pass the nectar to other bees, who store it in wax cells. Some people are afraid of bees because they sting. The bees fan their wings to dry the nectar until it becomes thick honey.",
+     "stem": "This report explains how bees make honey. Which sentence should be removed?",
+     "options": [
+      "Back at the hive, they pass the nectar to other bees, who store it in wax cells.",
+      "The bees fan their wings to dry the nectar until it becomes thick honey.",
+      "Some people are afraid of bees because they sting.",
+      "Bees collect nectar from flowers."
+     ],
+     "answer": 2,
+     "why": "The report explains the steps of making honey. People's fear of stings is not one of the steps."
+    },
+    {
+     "passage": "Walking to school is good for students. It gives them exercise before class begins. Some schools in other countries start at seven o'clock. Students who walk often arrive feeling awake and ready to learn.",
+     "stem": "Which sentence should be removed?",
+     "options": [
+      "It gives them exercise before class begins.",
+      "Students who walk often arrive feeling awake and ready to learn.",
+      "Some schools in other countries start at seven o'clock.",
+      "Walking to school is good for students."
+     ],
+     "answer": 2,
+     "why": "The paragraph gives reasons walking is good. School start times in other countries are not a reason."
+    }
+   ],
+   "again": {
+    "title": "The highlighter trick",
+    "text": "Imagine you have a yellow highlighter.\n\nHighlight every sentence about the main topic or the main event. The sentence left **without colour** is the one to cut.",
+    "example": "Story: Sara bakes bread with her mother.\nHighlighted: kneading the dough, waiting for it to rise, the smell from the oven.\nNot highlighted: **Bread is sold in every supermarket.** Cut it."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Focus, not just topic",
+     "text": "At a higher level, a sentence can be about the **right topic** but the **wrong focus**.\n\nA paragraph about **why reefs are in danger** should not describe **how beautiful** reefs are, even though both are about reefs."
+    },
+    {
+     "title": "Other content that does not belong",
+     "text": "- A detail that only **repeats** an earlier sentence\n- A fact about a **related** but different subject\n- A personal comment in a formal report\n- A detail that breaks the **order** of the explanation"
+    },
+    {
+     "title": "Test each sentence",
+     "text": "1. Write the paragraph's **controlling idea** in a few words.\n2. For each sentence, ask: does it **develop** that idea or just mention the same subject?\n3. Remove sentences that only mention the subject."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence does not belong, name the paragraph's **controlling idea** and show which sentences develop it.\n\n1. Find the topic sentence.\n2. Find at least two sentences that develop it.\n3. The sentence that shares the subject but not the controlling idea is the one to cut."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many schools now teach students to write computer code.",
+      "role": "main"
+     },
+     {
+      "t": "Coding helps students solve problems step by step.",
+      "role": "detail"
+     },
+     {
+      "t": "The first computers were so large that they filled whole rooms.",
+      "role": "other"
+     },
+     {
+      "t": "It also prepares students for many future jobs.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The focus is **why schools teach coding**. The first computers are about the same subject, computers, but they do not explain that focus. That sentence should be removed."
+   },
+   "together": {
+    "passage": "Coral reefs around the world are in serious danger. When ocean water becomes too warm, corals lose the tiny algae that live inside them and give them food and colour. Without these algae, the corals turn white and may starve, a process called bleaching. Pollution from land also harms reefs, because chemicals and waste wash into the sea. Divers from many countries travel to the Red Sea to see its bright fish and clear water. In some places, fishing nets dragged across the sea floor break the reef apart. Scientists warn that without action, many reefs could disappear.",
+    "stem": "Which sentence should be removed because it does not support the paragraph's focus?",
+    "options": [
+     "Divers from many countries travel to the Red Sea to see its bright fish and clear water.",
+     "Pollution from land also harms reefs, because chemicals and waste wash into the sea.",
+     "In some places, fishing nets dragged across the sea floor break the reef apart.",
+     "Scientists warn that without action, many reefs could disappear."
+    ],
+    "answer": 0,
+    "hint": "That sentence explains a danger to reefs. Which sentence is about reefs but NOT about danger?",
+    "good": "Yes! The paragraph's focus is the dangers reefs face. The divers' visits are about reefs, but not about danger."
+   },
+   "evidence": {
+    "sentences": [
+     "Coral reefs around the world are in serious danger.",
+     "When ocean water becomes too warm, corals lose the tiny algae that live inside them and give them food and colour.",
+     "Without these algae, the corals turn white and may starve, a process called bleaching.",
+     "Pollution from land also harms reefs, because chemicals and waste wash into the sea.",
+     "Divers from many countries travel to the Red Sea to see its bright fish and clear water.",
+     "In some places, fishing nets dragged across the sea floor break the reef apart.",
+     "Scientists warn that without action, many reefs could disappear."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: the sentence about divers. Tap 2 sentences that show the paragraph's real focus: the dangers to reefs.",
+    "wrong": "This is the sentence that does not support the focus. Find sentences that explain a danger to reefs."
+   },
+   "checks": [
+    {
+     "passage": "By 1972, the Arabian oryx had disappeared from the wild because of hunting. A few oryx living in zoos were used to start breeding programmes. Oryx have long, straight horns and white coats that reflect the sun. Beginning in the 1980s, herds were returned to protected areas in Oman and Saudi Arabia. Today, more than a thousand live in the wild again.",
+     "stem": "The paragraph explains how the Arabian oryx was saved. Which sentence should be removed?",
+     "options": [
+      "A few oryx living in zoos were used to start breeding programmes.",
+      "By 1972, the Arabian oryx had disappeared from the wild because of hunting.",
+      "Beginning in the 1980s, herds were returned to protected areas in Oman and Saudi Arabia.",
+      "Oryx have long, straight horns and white coats that reflect the sun."
+     ],
+     "answer": 3,
+     "why": "The focus is how the oryx was saved. Its horns and coat describe the animal but do not explain the rescue."
+    },
+    {
+     "passage": "Learning to cook teaches students skills they will use all their lives. Following a recipe means reading carefully and measuring exactly. Some famous chefs have written dozens of cookbooks. Cooking also teaches students to plan ahead and manage their time.",
+     "stem": "Which sentence should be removed from this essay?",
+     "options": [
+      "Following a recipe means reading carefully and measuring exactly.",
+      "Some famous chefs have written dozens of cookbooks.",
+      "Cooking also teaches students to plan ahead and manage their time.",
+      "Learning to cook teaches students skills they will use all their lives."
+     ],
+     "answer": 1,
+     "why": "The essay explains what skills students gain from cooking. Famous chefs' books are about cooking but not about students' skills."
+    },
+    {
+     "passage": "Solar panels turn sunlight into electricity. Because Saudi Arabia receives strong sunshine most of the year, it is a good place to use them. Panels change the light of the sun into electric power. Using solar energy also reduces air pollution from burning fuel.",
+     "stem": "Which sentence should be removed because it only repeats an earlier idea?",
+     "options": [
+      "Solar panels turn sunlight into electricity.",
+      "Using solar energy also reduces air pollution from burning fuel.",
+      "Because Saudi Arabia receives strong sunshine most of the year, it is a good place to use them.",
+      "Panels change the light of the sun into electric power."
+     ],
+     "answer": 3,
+     "why": "It repeats the first sentence in other words. The first sentence must stay because it introduces the topic."
+    }
+   ],
+   "again": {
+    "title": "Mention or develop?",
+    "text": "Ask of each sentence: does it just **mention** the subject, or does it **develop** the main point?\n\nMention = same subject, no help to the point. Cut it.\nDevelop = gives a reason, example or fact for the point. Keep it.",
+    "example": "Point: Camels are built for desert life.\nWide feet keep them from sinking in sand. **Develops** ✔\nCamel races are popular in the Gulf. **Only mentions camels** ✘"
+   }
+  }
+ }
+}

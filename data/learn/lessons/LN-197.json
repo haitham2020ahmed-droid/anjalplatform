@@ -1,0 +1,461 @@
+{
+ "code": "LN-197",
+ "title": "Pictures and definitions",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.e",
+  "L.3.4.d"
+ ],
+ "families": [
+  "reference-materials"
+ ],
+ "skillNames": [
+  "Matching a Picture to a Definition"
+ ],
+ "statements": [
+  "R-0062"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a definition?",
+     "text": "A **definition** tells what a word **means**.\n\n**A cup** is a small bowl with a handle. We drink from it."
+    },
+    {
+     "title": "Words make a picture",
+     "text": "Read a definition. Then **see it** in your mind.\n\nSmall bowl + handle + drink = a **cup**."
+    },
+    {
+     "title": "How to match",
+     "text": "1. Read the definition.\n2. Find the **key words**: what it is, what it looks like, what it does.\n3. Pick the picture that shows **all** the key words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the definition**.\n\n1. Find the sentence that tells what the word **means**.\n2. Find the words that tell what it **is** and what it **looks like**.\n3. Pick the picture that shows **all** of them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A ladder has two long sides and many steps.",
+      "role": "key"
+     },
+     {
+      "t": "You climb it to reach high places.",
+      "role": "key"
+     },
+     {
+      "t": "My dad keeps one in the garage.",
+      "role": "other"
+     }
+    ],
+    "explain": "Key words: **two long sides**, **steps**, **climb**, **high**.\n\nThe right picture shows a ladder against a wall, not a chair or a box. The last sentence does not tell what a ladder is."
+   },
+   "together": {
+    "passage": "Sami has a new pet. It is a parrot. A parrot is a bird with bright feathers and a curved beak. Sami feeds it seeds every morning.",
+    "stem": "Which picture shows a parrot?",
+    "options": [
+     "A small grey cat with soft fur and a long tail",
+     "A green and red bird with a curved beak",
+     "A gold fish swimming in a round glass bowl",
+     "A white bird with a long neck and long legs"
+    ],
+    "answer": 1,
+    "hint": "Look at the sentence that tells what a parrot IS. Which picture has bright feathers AND a curved beak?",
+    "good": "Yes! The text says a parrot is a bird with bright feathers and a curved beak."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami has a new pet.",
+     "It is a parrot.",
+     "A parrot is a bird with bright feathers and a curved beak.",
+     "Sami feeds it seeds every morning."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: a bird with bright feathers and a curved beak. Tap the sentence that tells what a parrot looks like.",
+    "wrong": "This sentence does not tell what a parrot looks like. Find the sentence that says what a parrot IS."
+   },
+   "checks": [
+    {
+     "passage": "A broom is a long stick with stiff hairs at the end. We use it to sweep the floor.",
+     "stem": "Which picture shows a broom?",
+     "options": [
+      "A girl holding a cup of milk",
+      "A long stick with a brush at the bottom",
+      "A bucket full of water",
+      "A round rug on the floor"
+     ],
+     "answer": 1,
+     "why": "A broom is a long stick with stiff hairs at the end. Only that picture shows both."
+    },
+    {
+     "passage": "A tent is a home made of cloth. People put it up with poles. They sleep in it on camping trips.",
+     "stem": "Which picture shows a tent?",
+     "options": [
+      "A tall stone house with many windows",
+      "A soft bed with a blue blanket on it",
+      "A car parked by the side of the road",
+      "A cloth shelter held up by poles"
+     ],
+     "answer": 3,
+     "why": "A tent is made of cloth and held up with poles. The stone house is a home, but it is not cloth."
+    },
+    {
+     "passage": "A kettle is a pot with a spout and a handle. We boil water in it.",
+     "stem": "Which picture shows a kettle?",
+     "options": [
+      "A pot with a spout and a handle",
+      "A flat plate with rice on it",
+      "A tall glass of orange juice",
+      "A big spoon next to a bowl"
+     ],
+     "answer": 0,
+     "why": "The definition gives three key words: pot, spout and handle. Only one picture has all three."
+    }
+   ],
+   "again": {
+    "title": "Draw it in your head",
+    "text": "1. Read the definition slowly.\n2. Draw each key word in your mind, one by one.\n3. Now look for the picture that matches your drawing.",
+    "example": "A **bench** is a long seat for two or more people.\n\nDraw: long + seat + room for two people. The picture of a long seat in a park matches. A single chair does **not**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Definitions tell more",
+     "text": "A definition can tell what something **is**, what it **looks like**, and what it **does** or what it is **for**.\n\nA good picture match shows **every** part."
+    },
+    {
+     "title": "Actions have definitions too",
+     "text": "Verbs can be defined.\n\n**to kneel**: to go down so that one or both knees touch the ground.\n\nThe matching picture shows a person **on their knees**, not standing or sitting on a chair."
+    },
+    {
+     "title": "Watch for look-alikes",
+     "text": "Wrong pictures often match **one** key word but not the rest.\n\n1. List every key word.\n2. Check each picture against the whole list.\n3. Cross out any picture that misses even one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Go back to the **sentence that defines** the word. It often uses **is**, **means**, or **is called**.\n\n1. Find that sentence.\n2. Underline the key words in it.\n3. Choose the picture that shows them all. You should be able to point to each key word in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At the market, Huda's mother bought a sieve.",
+      "role": "other"
+     },
+     {
+      "t": "A sieve is a bowl with many tiny holes in the bottom.",
+      "role": "key"
+     },
+     {
+      "t": "Cooks use it to separate flour from small lumps, or to drain water from rice.",
+      "role": "key"
+     }
+    ],
+    "explain": "Key words: **bowl**, **tiny holes**, **separate** or **drain**.\n\nThe right picture shows a bowl full of small holes with flour falling through. A plain bowl has no holes, so it does not match."
+   },
+   "together": {
+    "passage": "On Friday, Faisal's family went to the beach. His little sister wanted to wade in the sea. To wade means to walk through shallow water that covers your feet and legs. Faisal held her hand so she would not go too deep. Later, they built a sandcastle together.",
+    "stem": "Which picture shows a girl who is wading?",
+    "options": [
+     "A girl swimming far out in deep water",
+     "A girl building a castle in dry sand",
+     "A girl sitting on a towel under an umbrella",
+     "A girl walking in water up to her knees"
+    ],
+    "answer": 3,
+    "hint": "Find the sentence that tells what 'wade' means. Is the girl walking or swimming? Is the water deep or shallow?",
+    "good": "Yes! Wading means walking through shallow water, and the water covers her legs."
+   },
+   "evidence": {
+    "sentences": [
+     "On Friday, Faisal's family went to the beach.",
+     "His little sister wanted to wade in the sea.",
+     "To wade means to walk through shallow water that covers your feet and legs.",
+     "Faisal held her hand so she would not go too deep.",
+     "Later, they built a sandcastle together."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: a girl walking in water up to her knees. Tap the sentence that proves it.",
+    "wrong": "This sentence is part of the story, but it does not explain what 'wade' means."
+   },
+   "checks": [
+    {
+     "passage": "Grandma keeps her spices in a jar. A jar is a glass container with a wide opening and a lid that screws on.",
+     "stem": "Which picture shows a jar?",
+     "options": [
+      "A paper bag folded over at the top",
+      "A glass pot with a wide top and a lid",
+      "A tall glass bottle with a thin neck",
+      "A metal tray with two handles"
+     ],
+     "answer": 1,
+     "why": "The bottle is glass too, but it has a thin neck. A jar has a wide opening and a lid that screws on."
+    },
+    {
+     "passage": "The football coach told the players to stretch before the game. To stretch is to reach your arms or legs out as far as they can go, slowly, to warm up your muscles.",
+     "stem": "Which picture shows a player stretching?",
+     "options": [
+      "A player reaching slowly toward his toes",
+      "A player kicking the ball into the goal",
+      "A player drinking from a water bottle",
+      "A player running fast across the field"
+     ],
+     "answer": 0,
+     "why": "Stretching means slowly reaching your arms or legs out as far as they go. Kicking and running are fast actions."
+    },
+    {
+     "passage": "Our class visited a lighthouse. A lighthouse is a tall tower near the sea with a bright light at the top. The light warns ships about rocks at night.",
+     "stem": "Which picture shows a lighthouse?",
+     "options": [
+      "A tall office building in the middle of a city",
+      "A small fishing boat with a lamp on it",
+      "A street lamp shining in a park at night",
+      "A tall tower by the sea with a light on top"
+     ],
+     "answer": 3,
+     "why": "Three key words: tall tower, near the sea, bright light at the top. Only one picture has all three."
+    }
+   ],
+   "again": {
+    "title": "Make a checklist",
+    "text": "Turn the definition into a short checklist. Then tick it for each picture.",
+    "example": "**A wheelbarrow** is a small cart with **one wheel** at the front and **two handles** at the back.\n\nChecklist: cart ✔ one wheel ✔ two handles ✔. A cart with four wheels fails the checklist."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Glossaries and dictionaries",
+     "text": "Many science and history texts have a **glossary**: a short dictionary at the end of the book.\n\nEach entry gives the word and its **meaning**. Some books also give a **picture** next to it."
+    },
+    {
+     "title": "Find the exact details",
+     "text": "Similar things can look alike. The definition tells you the **differences**.\n\nA **dhow** is a wooden sailing boat with one or two **triangular** sails. A ship with square sails is **not** a dhow."
+    },
+    {
+     "title": "Match with care",
+     "text": "1. Read the whole definition, including words like **only**, **usually**, **without**.\n2. Note shape, size, material, and use.\n3. Choose the picture that fits **every** detail, not just the first one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is the **definition sentence** plus any sentence that adds a detail about the same word.\n\n1. Find where the text defines the word.\n2. Look nearby for extra details (shape, material, what it is used for).\n3. Check that the picture you chose shows each detail you found."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bedouin families often lived in black tents.",
+      "role": "other"
+     },
+     {
+      "t": "These tents were woven from goat hair.",
+      "role": "key"
+     },
+     {
+      "t": "The cloth was long and low, held up by rows of wooden poles.",
+      "role": "key"
+     },
+     {
+      "t": "In the rain, the hair threads swelled and kept water out.",
+      "role": "other"
+     }
+    ],
+    "explain": "Details that show what the tent **looks like**: **black**, **goat hair**, **long and low**, **rows of poles**.\n\nThe matching picture shows a long, low, dark tent. A tall, round white tent does not match. The rain sentence explains how it works, not what it looks like."
+   },
+   "together": {
+    "passage": "Before modern ports were built, much of the Gulf's trade travelled by dhow. A dhow is a wooden sailing boat with one or two large triangular sails. Its long, curved hull rises at the front, which helps it cut through the waves. Builders shaped every plank by hand, often without plans on paper. Today, some dhows still carry goods, but many now have engines too.",
+    "stem": "Which picture shows a dhow?",
+    "options": [
+     "A large metal ship stacked with containers",
+     "A wooden boat with a curved hull and triangular sails",
+     "A small rowing boat with two oars",
+     "A wooden ship with three rows of square sails"
+    ],
+    "answer": 1,
+    "hint": "Check every detail: material, shape of the sails, and shape of the hull. Which picture has all three?",
+    "good": "Yes! A dhow is wooden, has triangular sails, and has a long curved hull."
+   },
+   "evidence": {
+    "sentences": [
+     "Before modern ports were built, much of the Gulf's trade travelled by dhow.",
+     "A dhow is a wooden sailing boat with one or two large triangular sails.",
+     "Its long, curved hull rises at the front, which helps it cut through the waves.",
+     "Builders shaped every plank by hand, often without plans on paper.",
+     "Today, some dhows still carry goods, but many now have engines too."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a wooden boat with a curved hull and triangular sails. Tap 2 sentences that describe what a dhow looks like.",
+    "wrong": "This sentence is about history or how dhows are built or used. Find the sentences that describe the boat itself."
+   },
+   "checks": [
+    {
+     "passage": "Glossary: compass (noun) a tool with a needle that always points north. Travellers use it to find their direction.",
+     "stem": "Which picture shows a compass?",
+     "options": [
+      "A round tool with a needle pointing to N",
+      "A round clock with two hands and numbers",
+      "A paper map of a whole country",
+      "A ruler with lines for centimetres"
+     ],
+     "answer": 0,
+     "why": "The clock also has a round face, but only a compass has a needle that points north."
+    },
+    {
+     "passage": "The farmer stored his grain in a silo. A silo is a tall, round tower, usually made of metal or concrete, used to keep grain dry.",
+     "stem": "Which picture shows a silo?",
+     "options": [
+      "A low wooden barn with a red door",
+      "A tall round metal tower beside a field",
+      "A pile of sacks in a truck",
+      "A square brick house with a flat roof"
+     ],
+     "answer": 1,
+     "why": "Tall, round, and made of metal or concrete are the key details. A barn stores things too, but it is not a round tower."
+    },
+    {
+     "passage": "In science class, we looked at a cactus. A cactus is a plant with a thick stem that stores water. Instead of leaves, it has sharp spines.",
+     "stem": "Which picture shows a cactus?",
+     "options": [
+      "A tree with wide, flat green leaves",
+      "A flower with soft pink petals",
+      "A thick green stem covered in spines",
+      "A tall palm tree heavy with dates"
+     ],
+     "answer": 2,
+     "why": "A cactus has a thick stem and spines instead of leaves. The other plants all have leaves or petals."
+    }
+   ],
+   "again": {
+    "title": "Spot the difference",
+    "text": "When two pictures look alike, look for the **one detail** in the definition that only one of them has.",
+    "example": "**A falcon** is a bird of prey with **long pointed wings** and a **hooked beak**.\n\nA pigeon and a falcon are both birds. But only the falcon has a hooked beak. That one detail decides the answer."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Definitions of ideas and places",
+     "text": "Some words name things you cannot hold, like a **landform** or a **process**.\n\nThe picture might be a **map**, a **diagram** or a **scene**. You must decide which one shows the meaning."
+    },
+    {
+     "title": "Read every part",
+     "text": "Precise definitions are built from parts.\n\n**peninsula**: a piece of land **almost** surrounded by water, joined to a larger land area on **one side**.\n\nAn island is surrounded on all sides, so it fails the word **almost**."
+    },
+    {
+     "title": "Reject near-misses",
+     "text": "1. Split the definition into parts.\n2. For each picture, ask: does it show **every** part?\n3. A choice that matches most parts is still wrong.\n\nLittle words like **almost**, **only**, **without** and **over time** often decide the answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your choice with the **exact words** of the definition.\n\n1. Quote the part of the text that defines the word.\n2. Match each part to something you would see in the picture.\n3. If a picture shows something the definition rules out, reject it, even if it looks close."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Erosion is the slow wearing away of rock or soil by wind, water or ice.",
+      "role": "key"
+     },
+     {
+      "t": "Over thousands of years, it can carve deep valleys.",
+      "role": "key"
+     },
+     {
+      "t": "Many tourists visit such valleys every year.",
+      "role": "other"
+     }
+    ],
+    "explain": "Key parts: **slow**, **wearing away**, **wind, water or ice**, **carves valleys**.\n\nThe matching picture shows a river that has cut a deep valley through layers of rock. A picture of workers breaking rocks with tools is not erosion, because people, not nature, are doing it."
+   },
+   "together": {
+    "passage": "Deserts are not empty everywhere. Here and there, an oasis appears. An oasis is a fertile area in a desert where water comes to the surface from underground. Because of this water, date palms and other crops can grow there, even when no rain falls for months. Al-Ahsa, in eastern Saudi Arabia, is one of the largest oases in the world. For centuries, travellers have planned their journeys around such places.",
+    "stem": "Which picture best shows an oasis?",
+    "options": [
+     "A wide sea of sand dunes with no plants at all",
+     "A pool of rainwater in a city street after a storm",
+     "A green patch of palm trees around a spring in the desert",
+     "A tall mountain covered with snow and pine trees"
+    ],
+    "answer": 2,
+    "hint": "An oasis has three parts: it is in a desert, it has water from underground, and it is green with plants. Which picture shows all three?",
+    "good": "Yes! The picture shows a desert, underground water reaching the surface, and green, growing plants."
+   },
+   "evidence": {
+    "sentences": [
+     "Deserts are not empty everywhere.",
+     "Here and there, an oasis appears.",
+     "An oasis is a fertile area in a desert where water comes to the surface from underground.",
+     "Because of this water, date palms and other crops can grow there, even when no rain falls for months.",
+     "Al-Ahsa, in eastern Saudi Arabia, is one of the largest oases in the world.",
+     "For centuries, travellers have planned their journeys around such places."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: a green patch of palm trees around a spring in the desert. Tap 2 sentences that prove what an oasis looks like.",
+    "wrong": "This sentence gives background or an example, but it does not describe what an oasis is."
+   },
+   "checks": [
+    {
+     "passage": "Map key: archipelago (noun) a group of islands lying close together in a sea or ocean.",
+     "stem": "Which picture shows an archipelago?",
+     "options": [
+      "A single large island far from any land",
+      "A cluster of small islands near one another in the sea",
+      "A long river running through a valley",
+      "A piece of land joined to the mainland on one side"
+     ],
+     "answer": 1,
+     "why": "An archipelago is a GROUP of islands lying close together. A single island fails the word 'group'."
+    },
+    {
+     "passage": "A silhouette is the dark shape of someone or something seen against a brighter background, so that no details inside the shape can be seen.",
+     "stem": "Which picture shows a silhouette?",
+     "options": [
+      "A colourful photo of a camel's face",
+      "A pencil drawing of a tree with every leaf",
+      "A black outline of a camel against an orange sunset",
+      "A white camel standing in bright sunlight"
+     ],
+     "answer": 2,
+     "why": "A silhouette is a dark shape against a brighter background with no inside details. The sunset picture shows exactly that."
+    },
+    {
+     "passage": "Condensation is the change of water from a gas into tiny drops of liquid when warm, moist air touches a cold surface.",
+     "stem": "Which picture shows condensation?",
+     "options": [
+      "Water drops forming on a cold glass",
+      "A puddle slowly drying up in the sun",
+      "Ice cubes melting in a bowl",
+      "Rain falling hard against a window"
+     ],
+     "answer": 0,
+     "why": "The drops form when moist air touches the cold glass and the gas becomes liquid. A drying puddle shows the opposite: liquid becoming gas."
+    }
+   ],
+   "again": {
+    "title": "Say what it is NOT",
+    "text": "Sometimes it is easier to rule pictures out.\n\n1. Read one part of the definition.\n2. Cross out every picture that breaks it.\n3. Repeat with the next part until one picture is left.",
+    "example": "**plateau**: a large area of **high**, **flat** land.\n\nA valley is low: cross it out. A mountain peak is high but not flat: cross it out. A wide, high, flat area of land is left. That is a plateau."
+   }
+  }
+ }
+}

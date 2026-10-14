@@ -1,0 +1,453 @@
+{
+ "code": "LN-065",
+ "title": "Negatives and double negatives",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "negatives"
+ ],
+ "skillNames": [
+  "Negatives",
+  "Negatives and Double Negatives",
+  "Avoiding Double Negatives"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Saying no",
+     "text": "Negative words say **no**.\n\n**not**, **no**, **never**\n\nI am **not** sleepy. I have **no** pen."
+    },
+    {
+     "title": "Short forms",
+     "text": "do not → **don't**\ncannot → **can't**\nis not → **isn't**\n\nThe **'** shows where letters are missing."
+    },
+    {
+     "title": "One is enough",
+     "text": "Use **one** no-word for one idea.\n\n✓ I don't have a pen.\n✗ I don't have no pen."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the no-words in the sentence: not, n't, no, never.\n2. Count them.\n3. More than one for the same idea? That is a mistake."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I don't like rain.",
+      "role": "key"
+     },
+     {
+      "t": "I never play outside when it rains.",
+      "role": "key"
+     },
+     {
+      "t": "I like the sun.",
+      "role": "other"
+     }
+    ],
+    "explain": "**don't** and **never** are no-words. Each sentence has only **one**.\n\n\"I like the sun\" has no no-word."
+   },
+   "together": {
+    "passage": "Sami looked for his ball. He did not find it. He said, \"I can't see it anywhere.\" Then he saw it under the bed.",
+    "stem": "Which word in the text is the short form of cannot?",
+    "options": [
+     "did",
+     "can't",
+     "not",
+     "saw"
+    ],
+    "answer": 1,
+    "hint": "Look for a word with an ' in it.",
+    "good": "Yes! Can't is the short form of cannot. The ' shows where letters are missing."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami looked for his ball.",
+     "He did not find it.",
+     "He said, \"I can't see it anywhere.\"",
+     "Then he saw it under the bed."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that have a no-word.",
+    "wrong": "This sentence has no no-word. Look for not or n't."
+   },
+   "checks": [
+    {
+     "passage": "I ___ like spiders.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "no",
+      "don't",
+      "not",
+      "never no"
+     ],
+     "answer": 1,
+     "why": "We say I don't like spiders. It has one no-word."
+    },
+    {
+     "passage": "Omar doesn't have no lunch.",
+     "stem": "What is wrong?",
+     "options": [
+      "It needs a question mark.",
+      "Lunch should be lunches.",
+      "It has two no-words.",
+      "Nothing is wrong."
+     ],
+     "answer": 2,
+     "why": "Doesn't and no are both no-words. Use one: Omar doesn't have any lunch, or Omar has no lunch."
+    },
+    {
+     "passage": "Huda never eats fish.",
+     "stem": "Which is the no-word?",
+     "options": [
+      "Huda",
+      "eats",
+      "fish",
+      "never"
+     ],
+     "answer": 3,
+     "why": "Never is a no-word. It means not at any time."
+    }
+   ],
+   "again": {
+    "title": "Count to one",
+    "text": "Find the no-words. Count them.\n\n**One** → good!\n**Two** → take one out.",
+    "example": "I don't want no juice.\n\nNo-words: **don't**, **no**. That is two! → I don't want **any** juice."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Double negatives",
+     "text": "Two no-words for one idea make a **double negative**.\n\n✗ I don't want nothing.\n\nIn correct English, use only **one**."
+    },
+    {
+     "title": "Two ways to fix it",
+     "text": "1. Keep **not**, change the other word: I don't want **anything**.\n2. Drop **not**, keep the no-word: I want **nothing**."
+    },
+    {
+     "title": "Partners",
+     "text": "nothing ↔ anything\nnobody ↔ anybody\nnowhere ↔ anywhere\nnever ↔ ever\nno ↔ any"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to every no-word: not, n't, no, never, nothing, nobody, nowhere.\n2. Two of them for one idea? That sentence has the mistake.\n3. Point to it, then fix it with an **any** word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We didn't see anybody at the park.",
+      "role": "key"
+     },
+     {
+      "t": "There was nobody on the swings.",
+      "role": "key"
+     },
+     {
+      "t": "It was very early.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1: **didn't** + **anybody**. One no-word.\n\nSentence 2: **nobody** alone. One no-word.\n\nBoth say the same thing correctly."
+   },
+   "together": {
+    "passage": "My brother Khalid is a picky eater. At dinner, he said, \"I don't want no vegetables.\" Mom smiled and put a small plate of carrots in front of him. Khalid tried one. \"These aren't bad at all,\" he said. Soon there was nothing left on his plate.",
+    "stem": "Which sentence has a double negative?",
+    "options": [
+     "My brother Khalid is a picky eater.",
+     "At dinner, he said, \"I don't want no vegetables.\"",
+     "\"These aren't bad at all,\" he said.",
+     "Soon there was nothing left on his plate."
+    ],
+    "answer": 1,
+    "hint": "Count the no-words in each sentence. Which one has two for the same idea?",
+    "good": "Yes! Don't and no are two no-words. It should be: I don't want any vegetables."
+   },
+   "evidence": {
+    "sentences": [
+     "My brother Khalid is a picky eater.",
+     "At dinner, he said, \"I don't want no vegetables.\"",
+     "Mom smiled and put a small plate of carrots in front of him.",
+     "Khalid tried one.",
+     "\"These aren't bad at all,\" he said.",
+     "Soon there was nothing left on his plate."
+    ],
+    "proof": [
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use one no-word correctly.",
+    "wrong": "This sentence has no no-word at all, or it has two. Find sentences with exactly one."
+   },
+   "checks": [
+    {
+     "passage": "I can't find my shoes nowhere.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "I can't find no shoes nowhere.",
+      "I can find my shoes nowhere not.",
+      "I can't not find my shoes.",
+      "I can't find my shoes anywhere."
+     ],
+     "answer": 3,
+     "why": "Can't is the one no-word, so nowhere changes to its partner anywhere."
+    },
+    {
+     "passage": "Nobody ___ seen my cat today.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "hasn't",
+      "has",
+      "didn't",
+      "never"
+     ],
+     "answer": 1,
+     "why": "Nobody is already a no-word, so we use has, not hasn't."
+    },
+    {
+     "passage": "We didn't buy ___ at the market.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "nothing",
+      "none",
+      "anything",
+      "no"
+     ],
+     "answer": 2,
+     "why": "Didn't is the no-word, so we use the partner anything."
+    }
+   ],
+   "again": {
+    "title": "Swap for any",
+    "text": "Already have **not** or **n't**? Swap the other no-word for its **any** partner.\n\nnothing → anything\nnobody → anybody\nnowhere → anywhere",
+    "example": "She didn't tell nobody.\n\nKeep **didn't**. Swap **nobody** → **anybody**.\n\n**She didn't tell anybody.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More negative words",
+     "text": "**nobody / no one**, **nothing**, **nowhere**, **none**, **neither**, **never**\n\nEach one already means **no**. Do not add another negative."
+    },
+    {
+     "title": "The hidden not",
+     "text": "The **n't** in don't, can't, won't, isn't is a negative too.\n\n✗ She isn't never late.\n✓ She is never late.\n✓ She isn't ever late."
+    },
+    {
+     "title": "Neither ... nor",
+     "text": "**Neither ... nor** means not this one and not that one.\n\n**Neither** Ali **nor** Sami was absent.\n\n✗ Neither Ali nor Sami wasn't absent."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the part of the sentence that says no.\n2. Count every negative in it, including **n't**.\n3. Point to the extra one. That is the proof of the mistake."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Neither my sister nor I have ever been to Jeddah.",
+      "role": "key"
+     },
+     {
+      "t": "We hope to go there someday.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Neither ... nor** is the only negative. It is paired with **ever**, not never.\n\nOne negative idea, one negative."
+   },
+   "together": {
+    "passage": "Dear Grandma, thank you for the beautiful scarf. Nobody in my class has ever had one like it! The weather here isn't never cold, but I wear it on windy evenings. My brother says he doesn't want a scarf, but I think he wishes he had one. Neither of us has forgotten your visit last spring.",
+    "stem": "Which sentence needs to be fixed?",
+    "options": [
+     "Nobody in my class has ever had one like it!",
+     "The weather here isn't never cold, but I wear it on windy evenings.",
+     "My brother says he doesn't want a scarf.",
+     "Neither of us has forgotten your visit last spring."
+    ],
+    "answer": 1,
+    "hint": "Count the negatives in each idea. Remember that n't counts!",
+    "good": "Yes! Isn't and never are two negatives. It should be: The weather here is never cold."
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Grandma, thank you for the beautiful scarf.",
+     "Nobody in my class has ever had one like it!",
+     "The weather here isn't never cold, but I wear it on windy evenings.",
+     "My brother says he doesn't want a scarf, but I think he wishes he had one.",
+     "Neither of us has forgotten your visit last spring."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use only one negative correctly.",
+    "wrong": "This sentence has no negative, or it has two for one idea."
+   },
+   "checks": [
+    {
+     "passage": "There isn't none left.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "There is none left not.",
+      "There isn't any left.",
+      "There isn't no left.",
+      "There ain't none left."
+     ],
+     "answer": 1,
+     "why": "Isn't is the one negative, so none changes to any."
+    },
+    {
+     "passage": "Neither the bus nor the train ___ on time today.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "wasn't",
+      "weren't",
+      "didn't",
+      "was"
+     ],
+     "answer": 3,
+     "why": "Neither ... nor is already negative, so we use was, not wasn't."
+    },
+    {
+     "passage": "I have never seen nothing like it!",
+     "stem": "Which revision is correct?",
+     "options": [
+      "I have never seen anything like it!",
+      "I haven't never seen anything like it!",
+      "I have never not seen nothing like it!",
+      "I have ever seen nothing like it!"
+     ],
+     "answer": 0,
+     "why": "Never is the one negative, so nothing changes to anything."
+    }
+   ],
+   "again": {
+    "title": "Circle the negatives",
+    "text": "Circle every **no**, **not**, **n't**, **never** and **no-** word.\n\nTwo circles in one idea? Remove one, or swap it for an **any** / **ever** word.",
+    "example": "Nobody never helps me.\n\nCircles: **Nobody**, **never**. → **Nobody ever helps me.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Hidden negative words",
+     "text": "**hardly**, **barely** and **scarcely** already mean almost **not**.\n\n✗ I can't hardly hear you.\n✓ I can hardly hear you.\n\n**without** works the same way: ✗ He left without saying nothing. ✓ He left without saying **anything**."
+    },
+    {
+     "title": "Two negatives on purpose",
+     "text": "Sometimes writers put **not** before a word with a negative **prefix**: not **un**usual, not **im**possible.\n\nThe two cancel out and make a softer **positive**.\n\nIt is not unusual = it is fairly common."
+    },
+    {
+     "title": "Formal writing",
+     "text": "In everyday speech, some people use double negatives.\n\nIn school and formal writing, use **one negative per idea**, unless you mean a softened positive like not unkind."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to every negative in the clause: not, n't, no-words, hardly, barely, scarcely, without.\n2. Two in one idea → revise it.\n3. A not + un- or im- pair → work out the positive meaning it makes."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The trail was steep, and we could barely see the path in the fog.",
+      "role": "key"
+     },
+     {
+      "t": "Still, it was not impossible to reach the top.",
+      "role": "key"
+     },
+     {
+      "t": "We arrived just before noon.",
+      "role": "other"
+     }
+    ],
+    "explain": "**could barely see**: barely is the only negative, so it is correct.\n\n**not impossible**: two negatives on purpose. It means it **was possible**, though hard."
+   },
+   "together": {
+    "passage": "The winter storm in the northern region lasted three days. Roads were closed, and some villages had barely any electricity. Hardly anyone left their homes. On the second night, a group of volunteers drove through the snow without stopping for nothing, delivering blankets and food to older neighbors. For people in the area, snow in winter is not unusual, but a storm this strong is rare. By the fourth day, the roads had reopened, and nobody had been seriously hurt.",
+    "stem": "Which phrase should be revised for formal writing?",
+    "options": [
+     "barely any electricity",
+     "Hardly anyone left",
+     "without stopping for nothing",
+     "not unusual"
+    ],
+    "answer": 2,
+    "hint": "Without is a hidden negative. Is there another negative in the same idea?",
+    "good": "Yes! Without and nothing are two negatives for one idea. It should be: without stopping for anything."
+   },
+   "evidence": {
+    "sentences": [
+     "The winter storm in the northern region lasted three days.",
+     "Roads were closed, and some villages had barely any electricity.",
+     "Hardly anyone left their homes.",
+     "On the second night, a group of volunteers drove through the snow without stopping for nothing, delivering blankets and food to older neighbors.",
+     "For people in the area, snow in winter is not unusual, but a storm this strong is rare.",
+     "By the fourth day, the roads had reopened, and nobody had been seriously hurt."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use a hidden negative (barely or hardly) correctly.",
+    "wrong": "This sentence does not use barely or hardly correctly. Look for a hidden negative paired with an any word."
+   },
+   "checks": [
+    {
+     "passage": "The room was so dark that I couldn't barely see.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "The room was so dark that I couldn't hardly see.",
+      "The room was so dark that I could not see barely nothing.",
+      "The room was so dark that I could barely see.",
+      "The room was so dark that I couldn't barely not see."
+     ],
+     "answer": 2,
+     "why": "Barely is already a negative, so n't must go: I could barely see."
+    },
+    {
+     "passage": "Finishing the project in one day is not impossible.",
+     "stem": "What does not impossible mean here?",
+     "options": [
+      "It is completely impossible.",
+      "It can be done, though it may be hard.",
+      "It must be finished today.",
+      "Nobody can do it."
+     ],
+     "answer": 1,
+     "why": "Not and im- cancel out, making a softer positive: it is possible, but not easy."
+    },
+    {
+     "passage": "He left the meeting without saying ___ to anyone.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "nothing",
+      "no word",
+      "none",
+      "anything"
+     ],
+     "answer": 3,
+     "why": "Without is a hidden negative, so we use the partner anything."
+    }
+   ],
+   "again": {
+    "title": "Spot the hidden ones",
+    "text": "Some negatives hide: **hardly**, **barely**, **scarcely**, **without**.\n\nTreat them like **not**. Pair them with **any**, **ever** or **anyone**, never with another no-word.",
+    "example": "We hardly saw nobody.\n\n**hardly** is a negative already → **We hardly saw anybody.**"
+   }
+  }
+ }
+}

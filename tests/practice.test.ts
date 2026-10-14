@@ -213,22 +213,24 @@ describe("answering", () => {
     assert.ok(view.answered >= items.length && view.answered <= 20, `answered ${view.answered} of ${items.length}`);
   });
 
-  test("three wrong answers in a row route the student to a weak prerequisite", async () => {
-    const st = (await repo.findUnique("Student", { id: omar.studentId! }))!;
+  // r67 (owner): a prerequisite route no longer ENDS the practice (it was one of the early stops behind "the skill
+  // ended after 4 questions"): the weak prerequisite is still found and logged for the teacher, the student goes on
+  test("three wrong answers in a row: the weak prerequisite is logged, the practice goes on", async () => {
     const sid = await skillId("G4.theme");
     const pre = await repo.findMany("SkillPrerequisite", { skillId: sid });
     assert.ok(pre.length > 0, "theme has prerequisites in the seeded graph");
     let view = await startPractice(repo, omar, sid, later(0), rng);
-    const items = await loadSkillItems(repo, sid);
+    const items = await loadSkillItems(repo, sid, { wholePool: true });
     let fb;
     for (let k = 0; k < 6 && view.question; k++) {
       const item = items.find((i) => i.questionId === view.question!.questionId)!;
       ({ feedback: fb, view } = await submitAnswer(repo, omar, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, false) }, later(30)));
-      if (fb.next.endReason === "PREREQ_ROUTE") break;
+      assert.notEqual(fb.next.endReason, "PREREQ_ROUTE", "a route never ends the practice");
+      assert.equal(fb.next.routeToSkillId, null);
     }
-    assert.equal(fb!.next.endReason, "PREREQ_ROUTE");
-    assert.ok(fb!.next.routeToSkillName);
-    void st;
+    await afterResponseSettled();
+    assert.ok((await repo.count("AdaptiveDecisionLog", { sessionId: view.sessionId, reasonCode: "PREREQ_ROUTE" })) > 0, "the route is logged for the teacher");
+    assert.equal(view.ended && view.endReason !== "SKILL_FINISHED", false, "the practice is still open (or the pool ran out)");
   });
 
   test("mastery shown to the student is continuous and never rises after a wrong answer", async () => {

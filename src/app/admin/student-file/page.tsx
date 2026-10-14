@@ -11,7 +11,7 @@ export default async function FindStudentPage({ searchParams }: { searchParams: 
   await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const sp = await searchParams;
   const id = String(sp.id ?? "").replace(/[^A-Za-z0-9_-]/g, "");
-  if (id) redirect(`/admin/student-file/${id}`);
+  if (id) redirect(`/teacher/students/${id}`);
   const q = String(sp.q ?? "").trim().slice(0, 80);
   redirect(q ? `/teacher/students?${new URLSearchParams({ q })}` : "/teacher/students");
 }

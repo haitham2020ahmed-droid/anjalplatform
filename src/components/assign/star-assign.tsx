@@ -1,0 +1,62 @@
+"use client";
+import { useState, useTransition } from "react";
+import { useT } from "@/i18n/client";
+import { starAssignAction, starCancelAction, starMasteredAction } from "@/app/teacher/star-actions";
+import { ExcludeMasteredPrompt } from "./exclude-mastered";
+
+/**
+ * ☆ Quick assign (owner r67): a small star beside a skill (or a Learn lesson). ☆ → one press assigns it to the class
+ * with the due date shown (default: the end of that school week, editable under 📅); ★ → pressing again cancels it
+ * (soft cancel). Drop-in anywhere a skill list makes sense: <StarAssign kind="SKILL" refId={skillId} classId={…}
+ * assignedId={open assignment id or null} defaultDue="yyyy-mm-dd" />.
+ * ⭐ When some students already mastered the skill, the teacher is asked first: "5 students already mastered this
+ * skill — exclude them?" (Yes / No).
+ */
+export function StarAssign({ kind = "SKILL", refId, classId, assignedId, defaultDue, track, label, onChange }: {
+  kind?: "SKILL" | "LESSON"; refId: string; classId: string; assignedId: string | null; defaultDue: string;
+  /** where the work shows for students (MAP, CURRICULUM, NAFS…) */ track?: string; /** the item's name (for screen readers) */ label?: string;
+  onChange?: (id: string | null) => void;
+}) {
+  const t = useT();
+  const [id, setId] = useState<string | null>(assignedId);
+  const [due, setDue] = useState(defaultDue);
+  const [showDue, setShowDue] = useState(false);
+  const [msg, setMsg] = useState<string | null>(null);
+  const [ask, setAsk] = useState<number | null>(null);
+  const [busy, start] = useTransition();
+  const assign = (excludeMastered: boolean) => start(async () => {
+    setAsk(null);
+    const r = await starAssignAction({ kind, ref: refId, classId, dueAt: due || null, track: track ?? null, excludeMastered });
+    if (r.ok) { setId(r.id); onChange?.(r.id); } else setMsg(r.message);
+  });
+  const press = () => start(async () => {
+    setMsg(null);
+    if (id) {
+      const r = await starCancelAction({ kind, id });
+      if (r.ok) { setId(null); onChange?.(null); } else setMsg(r.message ?? t("Could not cancel."));
+      return;
+    }
+    if (kind === "SKILL") {
+      const m = await starMasteredAction({ classId, skillId: refId });
+      if (m.count > 0) { setAsk(m.count); return; }
+    }
+    const r = await starAssignAction({ kind, ref: refId, classId, dueAt: due || null, track: track ?? null });
+    if (r.ok) { setId(r.id); onChange?.(r.id); } else setMsg(r.message);
+  });
+  const name = label ? ` · ${label}` : "";
+  return (
+    <span data-testid="star-assign" className="inline-flex flex-wrap items-center gap-1">
+      <button type="button" onClick={press} disabled={busy || !classId || ask !== null} aria-pressed={Boolean(id)}
+        title={id ? t("Assigned: press to cancel") : t("Assign to the class (due {date})", { date: due })}
+        aria-label={`${id ? t("Assigned: press to cancel") : t("Assign to the class")}${name}`}
+        className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-xl leading-none transition active:scale-95 disabled:opacity-50 ${id ? "bg-amber-100 text-amber-600 ring-1 ring-amber-300" : "text-slate-400 hover:bg-amber-50 hover:text-amber-500"}`}>
+        <span aria-hidden="true">{busy ? "…" : id ? "★" : "☆"}</span>
+      </button>
+      {!id && ask === null && (showDue
+        ? <input type="date" value={due} onChange={(e) => setDue(e.target.value)} aria-label={t("Due date")} className="h-8 rounded-lg border border-slate-300 px-1 text-xs" />
+        : <button type="button" onClick={() => setShowDue(true)} title={t("Due {date}", { date: due })} aria-label={t("Change the due date")} className="text-xs text-slate-400 hover:text-brand-navy">📅</button>)}
+      {ask !== null && <ExcludeMasteredPrompt count={ask} t={t} busy={busy} onYes={() => assign(true)} onNo={() => assign(false)} />}
+      {msg && <span role="alert" className="text-xs text-red-700">{msg}</span>}
+    </span>
+  );
+}

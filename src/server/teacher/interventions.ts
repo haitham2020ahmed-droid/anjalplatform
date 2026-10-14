@@ -87,7 +87,7 @@ export async function scanInterventions(repo: Repo, studentIds: string[], now = 
   const since = new Date(now.getTime() - 30 * DAY);
   const [attempts, mastery, logs, open, students] = await Promise.all([
     // only the columns the rules use (the response and text columns are the bulk of these tables)
-    repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "questionId", "sessionId", "isCorrect", "responseMs", "rapidGuess", "createdAt"] }),
+    repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "questionId", "sessionId", "isCorrect", "responseMs", "rapidGuess", "createdAt", "unreliable"] }).then((rows) => rows.filter((a) => a.rapidGuess || !a.unreliable)), // r67: careful answers of an Unreliable session never drive an intervention (its guesses still show the guessing)
     repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }, { select: ["studentId", "skillId", "score"] }),
     repo.findMany("AdaptiveDecisionLog", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "masteryAfter", "reasonCode", "createdAt"] }),
     repo.findMany("InterventionAlert", { studentId: { in: studentIds }, resolvedAt: null }, { select: ["studentId", "skillId"] }),

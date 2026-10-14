@@ -1,0 +1,467 @@
+{
+ "code": "LN-094",
+ "title": "Letters, titles and abbreviations",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "titles-abbreviations"
+ ],
+ "skillNames": [
+  "Titles, Abbreviations and Letter Format",
+  "Punctuation in Letters"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Parts of a letter",
+     "text": "A friendly letter has parts:\n\n1. **Greeting**: Dear Sara,\n2. **Body**: your message\n3. **Closing**: Your friend,\n4. **Signature**: your name"
+    },
+    {
+     "title": "Commas in a letter",
+     "text": "Put a **comma** after the greeting.\n\nDear Grandma**,**\n\nPut a **comma** after the closing.\n\nLove**,**"
+    },
+    {
+     "title": "Titles of people",
+     "text": "Some short words go before a name. They start with a **capital letter** and end with a **period**.\n\n**Mr.** Ali   **Mrs.** Huda   **Dr.** Salem"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the part of the letter the question asks about.\n2. Look at **where** it is: the top, the middle or the end.\n3. Point to that line."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Uncle Saad,",
+      "role": "key"
+     },
+     {
+      "t": "Thank you for the football.",
+      "role": "other"
+     },
+     {
+      "t": "Your nephew,",
+      "role": "other"
+     },
+     {
+      "t": "Badr",
+      "role": "other"
+     }
+    ],
+    "explain": "**Dear Uncle Saad,** is the greeting. It says who the letter is **to**, and it ends with a comma."
+   },
+   "together": {
+    "passage": "Dear Grandpa, Thank you for the book about stars. I read it every night. Love, Omar",
+    "stem": "Which part tells who wrote the letter?",
+    "options": [
+     "Dear Grandpa,",
+     "Thank you for the book about stars.",
+     "I read it every night.",
+     "Omar"
+    ],
+    "answer": 3,
+    "hint": "The writer signs the letter at the very end. Look at the last line.",
+    "good": "Yes! **Omar** is the signature. It comes after the closing."
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Grandpa,",
+     "Thank you for the book about stars.",
+     "I read it every night.",
+     "Love,",
+     "Omar"
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: Omar wrote it. Tap the line that shows who wrote the letter.",
+    "wrong": "This line does not tell who wrote the letter. Look at the very end."
+   },
+   "checks": [
+    {
+     "passage": "Our teacher is mr. Hassan. He teaches us science.",
+     "stem": "How should the teacher's name be written?",
+     "options": [
+      "mr. Hassan",
+      "Mr. Hassan",
+      "mr hassan",
+      "MR. hassan"
+     ],
+     "answer": 1,
+     "why": "A title before a name starts with a capital letter: **Mr. Hassan**."
+    },
+    {
+     "passage": "Dear Laila, I miss you. Please visit soon. Your friend, Reem",
+     "stem": "Which part is the closing?",
+     "options": [
+      "Your friend,",
+      "Dear Laila,",
+      "Please visit soon.",
+      "I miss you."
+     ],
+     "answer": 0,
+     "why": "The closing comes at the end, just before the name. **Your friend,** is the closing."
+    },
+    {
+     "passage": "Dear Ahmad\nI had fun at your house. See you at school!\nYour friend,\nKhalid",
+     "stem": "What mark should come after \"Dear Ahmad\"?",
+     "options": [
+      "a period",
+      "a question mark",
+      "a comma",
+      "no mark"
+     ],
+     "answer": 2,
+     "why": "In a friendly letter, the greeting ends with a **comma**: Dear Ahmad,"
+    }
+   ],
+   "again": {
+    "title": "Top, middle, end",
+    "text": "Think of a letter like a sandwich.\n\n**Top**: Dear ...,\n**Middle**: what you want to say\n**End**: Love, or Your friend, and then your name.",
+    "example": "Dear Mama, ← top\nI made you a card. ← middle\nLove, Rania ← end"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "What is an abbreviation?",
+     "text": "An **abbreviation** is a short way to write a word.\n\nMost start with a **capital letter** if the word does, and end with a **period**.\n\nStreet → **St.**\nMonday → **Mon.**\nJanuary → **Jan.**"
+    },
+    {
+     "title": "Titles before names",
+     "text": "**Mr.** = a man\n**Mrs.** = a married woman\n**Ms.** = a woman\n**Dr.** = Doctor\n\nThey always start with a **capital** letter."
+    },
+    {
+     "title": "The date in a letter",
+     "text": "Write the date at the top of a letter.\n\nPut a **comma** between the day and the year:\n\nMay 4**,** 2026"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove what an abbreviation means:\n\n1. Find the short word in the text.\n2. Read the lines around it for **clues**.\n3. Point to the line with the abbreviation and the line with the clue."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our new address is 12 Palm St.",
+      "role": "key"
+     },
+     {
+      "t": "It is near the park.",
+      "role": "other"
+     },
+     {
+      "t": "Please come and visit!",
+      "role": "other"
+     }
+    ],
+    "explain": "**St.** is the short form of **Street**. It begins with a capital letter and ends with a period."
+   },
+   "together": {
+    "passage": "May 4, 2026 Dear Dr. Salem, Thank you for visiting our class on Monday. Your talk about healthy teeth was very interesting. Many of us now brush our teeth twice a day. Sincerely, Class 5B",
+    "stem": "What does \"Dr.\" stand for in this letter?",
+    "options": [
+     "Driver",
+     "Drawer",
+     "Doctor",
+     "Director"
+    ],
+    "answer": 2,
+    "hint": "Read the letter. What did the visitor talk about? What job fits that?",
+    "good": "Yes! **Dr.** is short for **Doctor**. The talk about healthy teeth fits a doctor's job."
+   },
+   "evidence": {
+    "sentences": [
+     "May 4, 2026",
+     "Dear Dr. Salem,",
+     "Thank you for visiting our class on Monday.",
+     "Your talk about healthy teeth was very interesting.",
+     "Many of us now brush our teeth twice a day.",
+     "Sincerely,",
+     "Class 5B"
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Doctor. Tap 2 lines: the one with the abbreviation and the one that shows the visitor's job.",
+    "wrong": "This line does not help. Find the line with Dr. and the line about what the visitor talked about."
+   },
+   "checks": [
+    {
+     "passage": "Our family moved last week. Our new house is on Garden Street.",
+     "stem": "How do you write \"Street\" as an abbreviation?",
+     "options": [
+      "St.",
+      "st",
+      "ST",
+      "Str"
+     ],
+     "answer": 0,
+     "why": "The short form of Street is **St.**: a capital S, a small t and a period."
+    },
+    {
+     "passage": "Today is Thursday, March 5, 2026. Our class will plant trees.",
+     "stem": "Which is the correct abbreviation for this month?",
+     "options": [
+      "mar.",
+      "MR",
+      "Mch.",
+      "Mar."
+     ],
+     "answer": 3,
+     "why": "Month abbreviations start with a capital letter and end with a period: **Mar.**"
+    },
+    {
+     "passage": "The letter was addressed to Doctor Faisal Al-Qahtani.",
+     "stem": "Which is the correct short form?",
+     "options": [
+      "dr. Faisal Al-Qahtani",
+      "Dr. Faisal Al-Qahtani",
+      "DR. faisal Al-Qahtani",
+      "Dr. faisal al-qahtani"
+     ],
+     "answer": 1,
+     "why": "The title starts with a capital: **Dr.** The name keeps its capital letters too."
+    }
+   ],
+   "again": {
+    "title": "Short word, same start",
+    "text": "An abbreviation keeps the **first letters** of the word.\n\nIf the long word starts with a capital, the short one does too. Then add a period.",
+    "example": "**Mon**day → **Mon.**\n**Sep**tember → **Sep.**\n**Doct**o**r** → **Dr.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "A formal letter",
+     "text": "A **formal letter** is written to someone you do not know well, like a manager or a principal.\n\nIt has a heading, a greeting, a body, a closing and a signature, just like a friendly letter, but the words are more polite and serious."
+    },
+    {
+     "title": "Greeting and closing",
+     "text": "In a formal letter, the greeting is often followed by a **colon**:\n\nDear Ms. Al-Harbi**:**\n\nThe closing has a **comma**, and only its **first word** has a capital letter:\n\nSincerely,   Yours truly,   Best regards,"
+    },
+    {
+     "title": "Units and short forms",
+     "text": "Some abbreviations use **no period** and **no capital**:\n\nkm (kilometres)   cm   kg\n\nSome use capitals with no periods, like **KSA**.\n\nAlways follow the usual form, not your own."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find a mistake in a letter:\n\n1. Check each part: greeting, body, closing, signature.\n2. Check the punctuation and capitals in each part.\n3. Point to the line that breaks a rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Dear Mr. Nasser:",
+      "role": "other"
+     },
+     {
+      "t": "Thank you for your quick reply.",
+      "role": "other"
+     },
+     {
+      "t": "Best Regards,",
+      "role": "key"
+     },
+     {
+      "t": "Lama Fahad",
+      "role": "other"
+     }
+    ],
+    "explain": "In a closing, only the **first** word has a capital letter. **Best Regards,** should be **Best regards,**."
+   },
+   "together": {
+    "passage": "Dear Ms. Al-Harbi: I am writing to ask whether our class may visit the city aquarium on Tuesday, April 14. We are studying ocean animals in science this term. There will be twenty-four students and three teachers. Please let us know if this date is possible. Yours Truly, Omar Saleh",
+    "stem": "Which change corrects the letter?",
+    "options": [
+     "Change the colon after the greeting to a period.",
+     "Change \"Yours Truly,\" to \"Yours truly,\".",
+     "Change \"Ms.\" to \"ms.\".",
+     "Change \"April 14\" to \"april 14\"."
+    ],
+    "answer": 1,
+    "hint": "Check the capital letters in each part. Which part should have only one capital?",
+    "good": "Yes! Only the first word of a closing is capitalised: **Yours truly,**"
+   },
+   "evidence": {
+    "sentences": [
+     "Dear Ms. Al-Harbi:",
+     "I am writing to ask whether our class may visit the city aquarium on Tuesday, April 14.",
+     "We are studying ocean animals in science this term.",
+     "There will be twenty-four students and three teachers.",
+     "Please let us know if this date is possible.",
+     "Yours Truly,",
+     "Omar Saleh"
+    ],
+    "proof": [
+     5
+    ],
+    "need": 1,
+    "stem": "The answer was: the closing needs a small t. Tap the line with the mistake.",
+    "wrong": "This line is written correctly. Find the line where a word has a capital it should not have."
+   },
+   "checks": [
+    {
+     "passage": "Thank you for your help with our school project. [closing] Huda Ahmed",
+     "stem": "Which closing should go in the letter?",
+     "options": [
+      "Sincerely yours.",
+      "sincerely,",
+      "Sincerely Yours,",
+      "Sincerely,"
+     ],
+     "answer": 3,
+     "why": "A closing starts with a capital letter, has no other capitals and ends with a comma: **Sincerely,**"
+    },
+    {
+     "passage": "The new park is 3 kilometres from our school. Its walking track is 800 metres long.",
+     "stem": "How is \"kilometres\" abbreviated?",
+     "options": [
+      "Km.",
+      "KM.",
+      "km",
+      "kms."
+     ],
+     "answer": 2,
+     "why": "Units of measurement use small letters and no period: **km**."
+    },
+    {
+     "passage": "Prof. Lina Saeed teaches chemistry at the university. Her students say her classes are hard but fair.",
+     "stem": "What does \"Prof.\" stand for?",
+     "options": [
+      "Professor",
+      "Profile",
+      "Program",
+      "Proof"
+     ],
+     "answer": 0,
+     "why": "**Prof.** is a title before a name. It is short for **Professor**, a university teacher."
+    }
+   ],
+   "again": {
+    "title": "Check one capital",
+    "text": "For a closing, remember: **one capital, one comma**.\n\nOnly the first word gets a capital letter. The closing ends with a comma.",
+    "example": "Yours sincerely,  ✓\nYours Sincerely,  ✗\nyours sincerely,  ✗"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Formal means full",
+     "text": "In the **body** of a formal letter, write most words **in full**.\n\nWrite **Wednesday, February 4**, not Wed., Feb. 4.\n\nTitles before names, like **Dr.** and **Ms.**, and time marks like **p.m.** are still fine."
+    },
+    {
+     "title": "Commas in dates and places",
+     "text": "Use commas to separate the parts of a date and a place:\n\nJune 10**,** 2026\nAbha**,** Saudi Arabia\n\nIn a sentence, add a comma **after** the last part too:\n\nWe met in Abha**,** Saudi Arabia**,** last year."
+    },
+    {
+     "title": "Latin short forms",
+     "text": "**e.g.** = for example\n**i.e.** = that is (it explains exactly)\n**etc.** = and so on\n\nDo not mix them up: e.g. gives **some** examples; i.e. gives the **exact** meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To revise a letter:\n\n1. Read each line and ask: is it correct **and** formal?\n2. Check abbreviations, capitals and commas against the rules.\n3. Only change what breaks a rule. Point to that line."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The workshop starts at 9:00 a.m.",
+      "role": "other"
+     },
+     {
+      "t": "Please bring a laptop, a notebook, etc.",
+      "role": "other"
+     },
+     {
+      "t": "We will finish on Thurs., Oct. 8.",
+      "role": "key"
+     }
+    ],
+    "explain": "Times like **9:00 a.m.** are fine in a formal letter, and so is **etc.** But the day and month in the body should be written in full: **Thursday, October 8**."
+   },
+   "together": {
+    "passage": "Al-Noor School, Riyadh, Saudi Arabia January 20, 2026 Dear Dr. Mansour: Our school would be honoured to welcome you as a guest speaker at our science evening. The event will take place on Wed., Feb. 4, from 6:00 p.m. to 8:00 p.m. in the school hall. Students will present projects on clean energy, e.g., solar panels and wind turbines. We would be grateful if you could reply by January 27. Sincerely, Maha Al-Otaibi, Science Coordinator",
+    "stem": "Which change would make the letter correct and formal?",
+    "options": [
+     "Write \"Wed., Feb. 4\" in full.",
+     "Remove the comma after \"Riyadh\".",
+     "Change \"Sincerely,\" to \"sincerely,\".",
+     "Write \"Dr.\" in full in the greeting."
+    ],
+    "answer": 0,
+    "hint": "Some short forms are fine in a formal letter. Which one should be written out in the body?",
+    "good": "Yes! In the body of a formal letter, write the day and month in full: **Wednesday, February 4**."
+   },
+   "evidence": {
+    "sentences": [
+     "Al-Noor School, Riyadh, Saudi Arabia",
+     "January 20, 2026",
+     "Dear Dr. Mansour:",
+     "Our school would be honoured to welcome you as a guest speaker at our science evening.",
+     "The event will take place on Wed., Feb. 4, from 6:00 p.m. to 8:00 p.m. in the school hall.",
+     "Students will present projects on clean energy, e.g., solar panels and wind turbines.",
+     "We would be grateful if you could reply by January 27.",
+     "Sincerely,",
+     "Maha Al-Otaibi, Science Coordinator"
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: write the day and month in full. Tap the line that needs this change.",
+    "wrong": "This line already follows the rules. Find the line with a shortened day and month."
+   },
+   "checks": [
+    {
+     "passage": "Our school has three sports teams, i.e., football, basketball and volleyball.",
+     "stem": "What does \"i.e.\" mean in this sentence?",
+     "options": [
+      "for example",
+      "and so on",
+      "that is",
+      "against"
+     ],
+     "answer": 2,
+     "why": "**i.e.** means \"that is\". It tells you exactly which three teams the school has."
+    },
+    {
+     "passage": "The letter was sent from Abha Saudi Arabia on June 10 2026.",
+     "stem": "Where are commas needed?",
+     "options": [
+      "after \"letter\" and \"sent\"",
+      "after \"Abha\", \"Arabia\" and \"10\"",
+      "after \"from\" and \"on\"",
+      "after \"June\" only"
+     ],
+     "answer": 1,
+     "why": "Commas separate the city from the country and the day from the year, with one after the country too: **from Abha, Saudi Arabia, on June 10, 2026.**"
+    },
+    {
+     "passage": "My aunt is a dr. at the city hospital. She works long hours.",
+     "stem": "What is wrong in the first sentence?",
+     "options": [
+      "\"aunt\" needs a capital letter.",
+      "\"hospital\" should be abbreviated.",
+      "\"city\" needs a capital letter.",
+      "\"dr.\" should be written as \"doctor\"."
+     ],
+     "answer": 3,
+     "why": "Dr. is used only as a title **before a name**. On its own, write the word in full: **doctor**."
+    }
+   ],
+   "again": {
+    "title": "Ask: is it before a name?",
+    "text": "Many abbreviations are allowed in only one place.\n\n**Dr.**, **Mr.**, **Ms.**: only right before a name.\n**Days and months**: write them in full in a formal letter's body.",
+    "example": "Dear **Dr.** Mansour ✓\nShe is a **dr.** ✗ → She is a **doctor**.\nOn **Wed.** ✗ → On **Wednesday**."
+   }
+  }
+ }
+}

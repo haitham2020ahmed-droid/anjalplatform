@@ -1,0 +1,465 @@
+{
+ "code": "LN-134",
+ "title": "Persuasive techniques",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.6.6",
+  "RI.7.6"
+ ],
+ "families": [
+  "author-purpose"
+ ],
+ "skillNames": [
+  "Persuasive Techniques"
+ ],
+ "statements": [
+  "R-0518",
+  "R-0704",
+  "R-0713"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is persuading?",
+     "text": "To **persuade** means to try to make someone **think or do** something.\n\nAds, signs and speeches often try to persuade you."
+    },
+    {
+     "title": "Tricks to persuade",
+     "text": "**Strong feeling words:** *best*, *amazing*, *don't miss*.\n\n**Everyone is doing it:** *All your friends have one!*\n\n**Asking you a question:** *Don't you want to be happy?*"
+    },
+    {
+     "title": "Spot the trick",
+     "text": "1. Read the text.\n2. Ask: **What does it want me to do?**\n3. Ask: **How** is it trying to make me do it?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The trick is **in the words**.\n\n1. Find what the text wants you to do.\n2. Find the words that push you to do it.\n3. Ask: is it a feeling word, an 'everyone' word, or a question?\n\nPoint to those words to prove your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Come to the school book fair!",
+      "role": "main"
+     },
+     {
+      "t": "Everyone in town will be there.",
+      "role": "key"
+     },
+     {
+      "t": "All your friends are coming.",
+      "role": "key"
+     },
+     {
+      "t": "It starts at nine.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The sign wants you to come to the fair. The words **Everyone** and **all your friends** use the 'everyone is doing it' trick."
+   },
+   "together": {
+    "passage": "Try the new mango juice! It is the most delicious drink in the world. It tastes like sunshine. You will love every sip.",
+    "stem": "How does this ad try to make you buy the juice?",
+    "options": [
+     "It says everyone buys it.",
+     "It tells the price.",
+     "It tells where mangoes grow.",
+     "It uses strong feeling words."
+    ],
+    "answer": 3,
+    "hint": "Look at words like most delicious and love. What kind of words are they?",
+    "good": "Yes! Most delicious, sunshine and love are strong feeling words."
+   },
+   "evidence": {
+    "sentences": [
+     "Try the new mango juice!",
+     "It is the most delicious drink in the world.",
+     "It tastes like sunshine.",
+     "You will love every sip."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it uses strong feeling words. Tap 2 sentences with strong feeling words.",
+    "wrong": "This sentence tells you what to do, but it has no strong feeling word. Look again."
+   },
+   "checks": [
+    {
+     "passage": "Join the running club! Everyone in Grade 4 has joined. Don't be the only one left out!",
+     "stem": "Which trick does this sign use?",
+     "options": [
+      "A funny joke",
+      "Everyone is doing it",
+      "A price list",
+      "A true story"
+     ],
+     "answer": 1,
+     "why": "Everyone has joined and don't be left out push you to do what others do."
+    },
+    {
+     "passage": "Don't you want strong teeth? Don't you want a bright smile? Brush twice a day!",
+     "stem": "How does this poster try to persuade you?",
+     "options": [
+      "It asks you questions.",
+      "It gives a long list of facts.",
+      "It tells a story.",
+      "It shows a map."
+     ],
+     "answer": 0,
+     "why": "The poster asks questions so you will think, 'Yes, I do!'"
+    },
+    {
+     "passage": "Visit the new zoo! It is the biggest and most exciting zoo you will ever see. You will have the best day ever!",
+     "stem": "Which words try to persuade you?",
+     "options": [
+      "Visit",
+      "new zoo",
+      "most exciting, best day ever",
+      "you will see"
+     ],
+     "answer": 2,
+     "why": "Most exciting and best day ever are strong feeling words that make the zoo sound great."
+    }
+   ],
+   "again": {
+    "title": "What do they want?",
+    "text": "Every persuading text **wants something**.\n\n1. Say what it wants: *It wants me to…*\n2. Find the words that make you **want it too**.",
+    "example": "'Eat more fruit! You will feel great and full of energy!'\n\nIt wants me to **eat fruit**. The words **feel great** and **full of energy** make me want to."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Speakers persuade",
+     "text": "A speech is often given to **persuade** listeners: to vote, to help, to change a habit.\n\nSpeakers use special **techniques** to make their ideas stick."
+    },
+    {
+     "title": "Three speech techniques",
+     "text": "1. **Repetition:** saying a key phrase again and again so listeners remember it.\n2. **Rhetorical question:** a question with an obvious answer, asked to make listeners agree.\n3. **Appeal to feelings:** stories or words that make listeners feel proud, sad or worried."
+    },
+    {
+     "title": "Ask two questions",
+     "text": "1. **What** does the speaker want the audience to do?\n2. **Which technique** does the speaker use to get there?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Name the technique by pointing to the words that use it.\n\n1. A phrase said more than once → **repetition**.\n2. A question nobody needs to answer → **rhetorical question**.\n3. Words or a story that stir a feeling → **appeal to feelings**.\n\nThe repeated words, the question, or the feeling words are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our classrooms get very hot in the afternoon.",
+      "role": "detail"
+     },
+     {
+      "t": "Who wants to study in a hot classroom?",
+      "role": "key"
+     },
+     {
+      "t": "Please support the plan to plant trees around our school.",
+      "role": "main"
+     }
+    ],
+    "explain": "The speaker asks a question nobody needs to answer: **Who wants to study in a hot classroom?** That makes listeners agree. It is a **rhetorical question**."
+   },
+   "together": {
+    "passage": "Fellow students, our school garden needs you. Together we can grow vegetables for the school kitchen. Together we can make the yard green and shady. Together we can learn how plants grow, right outside our classroom. Sign up for the garden team today!",
+    "stem": "Which technique does the speaker mainly use?",
+    "options": [
+     "Telling a sad story",
+     "Giving numbers and facts",
+     "Repeating a key phrase",
+     "Asking a question"
+    ],
+    "answer": 2,
+    "hint": "Look at how three sentences begin. What do you notice?",
+    "good": "Yes! The speaker repeats 'Together we can' three times so listeners remember the message."
+   },
+   "evidence": {
+    "sentences": [
+     "Fellow students, our school garden needs you.",
+     "Together we can grow vegetables for the school kitchen.",
+     "Together we can make the yard green and shady.",
+     "Together we can learn how plants grow, right outside our classroom.",
+     "Sign up for the garden team today!"
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: repeating a key phrase. Tap 2 sentences that show the repetition.",
+    "wrong": "This sentence does not contain the repeated phrase. Find the sentences that begin the same way."
+   },
+   "checks": [
+    {
+     "passage": "Last winter, a family in our neighbourhood lost everything in a fire. Their children had no warm clothes and no books for school. Imagine how cold and afraid they felt. Please bring one item to our donation box this week.",
+     "stem": "Which technique does the speaker use?",
+     "options": [
+      "Rhetorical question",
+      "Appeal to feelings",
+      "Repetition",
+      "Numbers and facts"
+     ],
+     "answer": 1,
+     "why": "The story of the children and 'imagine how cold and afraid they felt' are meant to make listeners feel sympathy."
+    },
+    {
+     "passage": "Is it fair that the youngest students never get to use the football field? Is it fair that they always wait? Of course not. Let's share the field by giving each grade a day.",
+     "stem": "How does the speaker try to persuade the listeners?",
+     "options": [
+      "By telling a funny story",
+      "By listing the rules of football",
+      "By describing the weather",
+      "By asking questions with an obvious answer"
+     ],
+     "answer": 3,
+     "why": "The questions 'Is it fair…?' expect the answer 'no', so listeners agree with the speaker."
+    },
+    {
+     "passage": "Every day, our cafeteria throws away about forty full plates of food. That is more than two hundred plates a week. Let's serve smaller portions and offer second helpings instead.",
+     "stem": "What does the speaker mainly use to persuade?",
+     "options": [
+      "Numbers and facts",
+      "Repeating one phrase",
+      "A sad story about a family",
+      "A joke"
+     ],
+     "answer": 0,
+     "why": "The speaker uses numbers (forty plates a day, two hundred a week) to show the problem is real."
+    }
+   ],
+   "again": {
+    "title": "Listen for the pattern",
+    "text": "Read the speech out loud.\n\n**Hear the same words again?** Repetition.\n**Hear a question nobody answers?** Rhetorical question.\n**Feel sad, proud or worried?** Appeal to feelings.",
+    "example": "'We can do better. We can do more. We can do it now.'\n\nYou hear **We can** again and again. The technique is **repetition**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Persuasion in advertising",
+     "text": "Ads are written to make you **buy, join or believe** something. Most use a few common **techniques**.\n\nKnowing them helps you decide for yourself."
+    },
+    {
+     "title": "Common ad techniques",
+     "text": "1. **Bandwagon:** everyone is doing it, so you should too.\n2. **Testimonial:** a famous or trusted person says they use it.\n3. **Glittering words:** big, vague words like *ultimate*, *perfect*, *amazing*, with no real facts.\n4. **Snob appeal:** buying it makes you special or better than others."
+    },
+    {
+     "title": "What is missing?",
+     "text": "After you spot the technique, ask: **What facts are missing?**\n\nAn ad full of exciting words may tell you nothing about price, quality or safety."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the technique with the **exact words** the ad uses.\n\n1. 'Millions', 'everyone', 'join the crowd' → bandwagon.\n2. A named expert, champion or star → testimonial.\n3. Vague, shining words with no facts → glittering words.\n4. 'Only for the few', 'the choice of top people' → snob appeal."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "These swimming goggles never fog up.",
+      "role": "detail"
+     },
+     {
+      "t": "\"I wear them in every race,\" says a national champion swimmer.",
+      "role": "key"
+     },
+     {
+      "t": "Get yours today at any sports shop.",
+      "role": "other"
+     }
+    ],
+    "explain": "The ad uses a trusted person, **a champion swimmer**, to make readers believe the goggles are good. That is a **testimonial**."
+   },
+   "together": {
+    "passage": "Are you still using an ordinary backpack? Over a million students across the country have already switched to the new CloudPack. Walk into any school and you'll see one on almost every back. Its padded straps are soft on your shoulders. Don't get left behind: join the CloudPack crowd today!",
+    "stem": "Which technique does this ad mainly use?",
+    "options": [
+     "Testimonial",
+     "Snob appeal",
+     "Bandwagon",
+     "Glittering words"
+    ],
+    "answer": 2,
+    "hint": "Look at 'over a million students', 'almost every back' and 'join the crowd'. What do they suggest you should do?",
+    "good": "Yes! The ad keeps telling you that everyone already has one, so you should join them."
+   },
+   "evidence": {
+    "sentences": [
+     "Are you still using an ordinary backpack?",
+     "Over a million students across the country have already switched to the new CloudPack.",
+     "Walk into any school and you'll see one on almost every back.",
+     "Its padded straps are soft on your shoulders.",
+     "Don't get left behind: join the CloudPack crowd today!"
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: bandwagon. Tap 2 sentences that tell you everyone else is doing it.",
+    "wrong": "This sentence asks a question or gives a detail about the bag. Find the sentences about how many people have it."
+   },
+   "checks": [
+    {
+     "passage": "The Golden Crown watch is not for everyone. It is made for leaders who expect only the finest. Wear it, and people will know you are a person of success.",
+     "stem": "Which technique does this ad use?",
+     "options": [
+      "Snob appeal",
+      "Bandwagon",
+      "Numbers and facts",
+      "Rhetorical question"
+     ],
+     "answer": 0,
+     "why": "'Not for everyone' and 'leaders who expect only the finest' suggest the watch makes you better than others."
+    },
+    {
+     "passage": "A famous football coach smiles from the poster: \"My players drink this sports drink before every match. It's the secret to our wins.\"",
+     "stem": "Which technique does the poster use?",
+     "options": [
+      "Bandwagon",
+      "Glittering words",
+      "Snob appeal",
+      "Testimonial"
+     ],
+     "answer": 3,
+     "why": "A well-known coach recommends the drink, hoping readers will trust his opinion."
+    },
+    {
+     "passage": "SunGlow cream: the ultimate, revolutionary, perfect choice for amazing skin. Feel incredible every single day!",
+     "stem": "What is the main weakness of this ad?",
+     "options": [
+      "It gives too many facts about the cream.",
+      "It uses exciting words but gives no real facts.",
+      "It only quotes a doctor.",
+      "It says too few people use it."
+     ],
+     "answer": 1,
+     "why": "Ultimate, revolutionary, perfect and amazing are glittering words. The ad never says what the cream contains or does."
+    }
+   ],
+   "again": {
+    "title": "Ask: why should I believe this?",
+    "text": "For every ad, ask: **Why should I believe this?**\n\n**Because everyone does it?** Bandwagon.\n**Because a star said so?** Testimonial.\n**Because it sounds amazing?** Glittering words.\n**Because I'll be special?** Snob appeal.",
+    "example": "'Champions choose StarShoes.'\n\nWhy should I believe it? **Because champions use them.** That is a **testimonial**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Propaganda and persuasion",
+     "text": "**Propaganda** is persuasion that tries to control what people think, often by hiding facts or stirring strong emotions. It appears in speeches, posters, articles and online posts.\n\nRecognising its techniques lets you judge an argument on its **evidence**, not its tricks."
+    },
+    {
+     "title": "Specific techniques",
+     "text": "1. **Loaded language:** words with strong emotional connotation (*reckless*, *heroic*).\n2. **Name-calling:** attacking people instead of their ideas.\n3. **Either-or (false choice):** pretending only two options exist.\n4. **Appeal to fear:** warning of disaster unless you agree.\n5. **Card stacking:** showing only the facts that help one side."
+    },
+    {
+     "title": "Analyse the effect",
+     "text": "Do not stop at naming the technique. Ask **what it does**: Which feeling does it create? What does it stop the reader from noticing? Is the reasoning fair?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Identify the technique by matching its **pattern** to the text.\n\n1. Two choices only, as if no other exists → either-or.\n2. Insults aimed at people → name-calling.\n3. Warnings of disaster with little evidence → appeal to fear.\n4. Only one side's facts → card stacking.\n\nQuote the words that fit the pattern, and explain their effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The council must decide on the new stadium this month.",
+      "role": "other"
+     },
+     {
+      "t": "Either we build it now, or we watch our town fade into nothing.",
+      "role": "key"
+     },
+     {
+      "t": "There is no other way forward.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writer pretends there are only **two** choices: build the stadium or let the town die. That is an **either-or** technique, and it hides other options."
+   },
+   "together": {
+    "passage": "Some members of the council want to delay the new library. These are the same people who have never cared about our children's future. They talk about 'budgets' and 'careful planning' while our young people sit at home with nothing to read. Do we really want leaders who are so short-sighted? Vote for the library plan on Thursday and show that our town still believes in learning.",
+    "stem": "Which technique does the writer use most clearly against the opponents?",
+    "options": [
+     "Testimonial",
+     "Name-calling and attacks on character",
+     "Statistics and expert data",
+     "Bandwagon"
+    ],
+    "answer": 1,
+    "hint": "Look at what the writer says about the people who want a delay. Is it about their reasons, or about them?",
+    "good": "Yes! The writer attacks the opponents as people who 'never cared' and are 'short-sighted' instead of answering their budget concerns."
+   },
+   "evidence": {
+    "sentences": [
+     "Some members of the council want to delay the new library.",
+     "These are the same people who have never cared about our children's future.",
+     "They talk about 'budgets' and 'careful planning' while our young people sit at home with nothing to read.",
+     "Do we really want leaders who are so short-sighted?",
+     "Vote for the library plan on Thursday and show that our town still believes in learning."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: name-calling and attacks on character. Tap 2 sentences that attack the opponents personally.",
+    "wrong": "This sentence states the situation or asks readers to vote. Find where the writer attacks the opponents themselves."
+   },
+   "checks": [
+    {
+     "passage": "Without the new security cameras, our streets will be filled with crime. No family will be safe. Your children could be next. Support the camera plan before it is too late.",
+     "stem": "Which technique does this message rely on?",
+     "options": [
+      "Appeal to fear",
+      "Testimonial",
+      "Snob appeal",
+      "Humour"
+     ],
+     "answer": 0,
+     "why": "Phrases like 'no family will be safe' and 'your children could be next' create fear instead of giving evidence."
+    },
+    {
+     "passage": "The brochure for the new housing project lists its swimming pools, parks and modern kitchens. It does not mention that the project is forty kilometres from the nearest school or that it has no bus service.",
+     "stem": "Which technique does the brochure use?",
+     "options": [
+      "Bandwagon",
+      "Either-or",
+      "Name-calling",
+      "Card stacking"
+     ],
+     "answer": 3,
+     "why": "The brochure shows only the attractive facts and leaves out the ones that would make buyers hesitate."
+    },
+    {
+     "passage": "Our heroic volunteers worked through the night, while the lazy, careless managers went home early. The hard-working team deserves every bit of praise.",
+     "stem": "What is the main effect of the loaded words in this passage?",
+     "options": [
+      "They give the reader exact facts about the night.",
+      "They describe both groups in a fair and balanced way.",
+      "They make readers admire one group and dislike the other.",
+      "They show the managers were not at fault."
+     ],
+     "answer": 2,
+     "why": "'Heroic' and 'hard-working' versus 'lazy' and 'careless' push readers to judge the groups before knowing the facts."
+    }
+   ],
+   "again": {
+    "title": "Strip away the trick",
+    "text": "Rewrite the sentence **without the trick**. What is left?\n\nIf almost nothing is left, the argument was mostly technique and little evidence.",
+    "example": "'Only a fool would oppose the new road.'\n\nWithout the name-calling: 'Some people oppose the new road.' The sentence gives **no reason** to support the road. The trick was doing all the work."
+   }
+  }
+ }
+}

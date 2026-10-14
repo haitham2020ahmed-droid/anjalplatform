@@ -1,0 +1,451 @@
+{
+ "code": "LN-095",
+ "title": "Quotation marks and dialogue",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "quotations-dialogue"
+ ],
+ "skillNames": [
+  "Punctuating Dialogue",
+  "Quotation Marks and Dialogue",
+  "Quotation Marks for Direct Speech"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Talking in a story",
+     "text": "When a person in a story talks, we show their **exact words**.\n\nWe put **quotation marks** around them: \" \""
+    },
+    {
+     "title": "Open and close",
+     "text": "One mark goes **before** the first word they say. One mark goes **after** the last word.\n\n**\"**I am hungry,**\"** said Sami."
+    },
+    {
+     "title": "Who said it?",
+     "text": "Words like **said**, **asked** and **shouted** tell **who** is talking.\n\nThese words go **outside** the quotation marks.\n\n\"Let's go,\" **said Dad**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the spoken words:\n\n1. Look for **said**, **asked** or **shouted**.\n2. Find the words the person says.\n3. Those words go inside the quotation marks. Point to that sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hind found a shell.",
+      "role": "other"
+     },
+     {
+      "t": "\"Look at this!\" said Hind.",
+      "role": "key"
+     },
+     {
+      "t": "Her brother came to see.",
+      "role": "other"
+     }
+    ],
+    "explain": "Hind's exact words are **Look at this!** They go inside the quotation marks. **said Hind** stays outside."
+   },
+   "together": {
+    "passage": "Sami ran into the kitchen. I am hungry, said Sami. Mom gave him a date. He smiled.",
+    "stem": "Which words need quotation marks around them?",
+    "options": [
+     "Sami ran into the kitchen",
+     "I am hungry",
+     "Mom gave him a date",
+     "He smiled"
+    ],
+    "answer": 1,
+    "hint": "Look for the word said. What words did Sami say?",
+    "good": "Yes! **I am hungry** are Sami's exact words: \"I am hungry,\" said Sami."
+   },
+   "evidence": {
+    "sentences": [
+     "Sami ran into the kitchen.",
+     "I am hungry, said Sami.",
+     "Mom gave him a date.",
+     "He smiled."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: I am hungry. Tap the sentence where Sami talks.",
+    "wrong": "No one talks in this sentence. Find the sentence with the word said."
+   },
+   "checks": [
+    {
+     "passage": "Nora looked at the sky. It is going to rain, she said.",
+     "stem": "Where do the quotation marks go?",
+     "options": [
+      "around Nora looked",
+      "around she said",
+      "around the sky",
+      "around It is going to rain"
+     ],
+     "answer": 3,
+     "why": "Nora's exact words are **It is going to rain**. Quotation marks go around them."
+    },
+    {
+     "passage": "\"Let's play,\" said Majid. His sister ran to get the ball.",
+     "stem": "Who is talking?",
+     "options": [
+      "Majid",
+      "his sister",
+      "the ball",
+      "Mom"
+     ],
+     "answer": 0,
+     "why": "The words **said Majid** tell us that Majid is talking."
+    },
+    {
+     "passage": "\"I like dates\" said Lama.",
+     "stem": "What is missing?",
+     "options": [
+      "a question mark after dates",
+      "a capital letter on said",
+      "a comma after dates",
+      "a period after I"
+     ],
+     "answer": 2,
+     "why": "A comma goes at the end of the spoken words, inside the marks: \"I like dates**,**\" said Lama."
+    }
+   ],
+   "again": {
+    "title": "Talking hands",
+    "text": "Imagine the quotation marks are two **hands** holding the words someone says.\n\nOnly the spoken words go between the hands.",
+    "example": "\"Come here,\" said Mom.\n\nThe hands hold **Come here,**. The words **said Mom** are outside."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Rules for dialogue",
+     "text": "1. Put quotation marks around the **exact words**.\n2. Start the spoken words with a **capital letter**.\n3. Put the comma, question mark or exclamation mark **inside** the closing marks."
+    },
+    {
+     "title": "Speaker at the end",
+     "text": "\"We won**,**\" said Ali.\n\"Did we win**?**\" asked Ali.\n\"We won**!**\" shouted Ali.\n\nThe mark goes **inside**, before the closing quotation mark."
+    },
+    {
+     "title": "Speaker at the start",
+     "text": "If the speaker comes first, put a **comma** before the quotation:\n\nAli said**,** \"We won.\"\n\nThe period goes **inside** the closing marks."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To check dialogue:\n\n1. Find each set of quotation marks.\n2. Check: capital letter at the start? Comma or end mark **inside**?\n3. Point to the sentence where a rule is broken."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"Is it time for lunch?\" asked Tariq.",
+      "role": "key"
+     },
+     {
+      "t": "His friend looked at the clock.",
+      "role": "other"
+     },
+     {
+      "t": "\"Not yet,\" she said.",
+      "role": "key"
+     }
+    ],
+    "explain": "The question mark and the comma are both **inside** the closing quotation marks. That is correct."
+   },
+   "together": {
+    "passage": "Ms. Reem held up a jar of seeds. \"What do plants need to grow?\" she asked. \"They need water\", said Ali. \"And sunlight!\" added Dana. Ms. Reem smiled and wrote both answers on the board.",
+    "stem": "Which change corrects the text?",
+    "options": [
+     "Move the comma inside: \"They need water,\" said Ali.",
+     "Remove the question mark after \"grow\".",
+     "Change \"she asked\" to \"She asked\".",
+     "Remove the exclamation mark after \"sunlight\"."
+    ],
+    "answer": 0,
+    "hint": "Check where each comma, question mark and exclamation mark is. Are they all inside the closing marks?",
+    "good": "Yes! The comma must go **inside** the closing quotation mark."
+   },
+   "evidence": {
+    "sentences": [
+     "Ms. Reem held up a jar of seeds.",
+     "\"What do plants need to grow?\" she asked.",
+     "\"They need water\", said Ali.",
+     "\"And sunlight!\" added Dana.",
+     "Ms. Reem smiled and wrote both answers on the board."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the comma must move inside. Tap the sentence with the mistake.",
+    "wrong": "This sentence is punctuated correctly. Find the one where a comma is outside the quotation marks."
+   },
+   "checks": [
+    {
+     "passage": "Grandma said, \"the bread is ready.\" We all ran to the table.",
+     "stem": "What should be fixed?",
+     "options": [
+      "\"Grandma\" needs a small g.",
+      "Remove the comma after \"said\".",
+      "\"the\" needs a capital T.",
+      "Put a question mark after \"ready\"."
+     ],
+     "answer": 2,
+     "why": "Spoken words start with a capital letter: \"**The** bread is ready.\""
+    },
+    {
+     "passage": "\"Where is my pencil\"? asked Faris. Nobody knew.",
+     "stem": "Which is written correctly?",
+     "options": [
+      "\"Where is my pencil\"? asked Faris.",
+      "\"Where is my pencil.\" asked Faris.",
+      "\"Where is my pencil,\" asked Faris?",
+      "\"Where is my pencil?\" asked Faris."
+     ],
+     "answer": 3,
+     "why": "The question mark belongs to the spoken words, so it goes **inside** the quotation marks."
+    },
+    {
+     "passage": "Coach Adel shouted \"Run to the line!\" The team ran fast.",
+     "stem": "What is missing?",
+     "options": [
+      "a period after \"shouted\"",
+      "a comma after \"shouted\"",
+      "quotation marks around \"Coach Adel\"",
+      "a question mark after \"line\""
+     ],
+     "answer": 1,
+     "why": "When the speaker comes first, a comma goes before the quotation: Coach Adel shouted**,** \"Run to the line!\""
+    }
+   ],
+   "again": {
+    "title": "Mark goes in",
+    "text": "Remember: **the mark stays with the words**.\n\nThe comma, question mark or exclamation mark belongs to what the person says, so it goes **inside** the quotation marks.",
+    "example": "\"Help me**!**\" ✓\n\"Help me\"**!** ✗"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Split quotations",
+     "text": "Sometimes the speaker tag comes in the **middle** of one sentence.\n\n\"If we leave now,\" said Dad, \"**w**e will beat the traffic.\"\n\nThe second part continues the same sentence, so it starts with a **small** letter."
+    },
+    {
+     "title": "New speaker, new paragraph",
+     "text": "Each time a **different** person speaks, start a **new paragraph**.\n\nThis helps the reader follow who is talking, even when the writer does not repeat \"said\"."
+    },
+    {
+     "title": "Exact words or reported?",
+     "text": "**Direct speech** gives the exact words. It needs quotation marks:\n\nHe said, \"Flowers last longer.\"\n\n**Reported speech** tells what someone said in the writer's words. **No** quotation marks:\n\nHe said **that** flowers last longer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To decide if quotation marks are needed:\n\n1. Ask: are these the speaker's **exact** words?\n2. Look for clues like **that** after said, or a change from **I** to **he** or **she**.\n3. Point to the sentence that shows direct or reported speech."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"I will carry the bags,\" said Salem.",
+      "role": "other"
+     },
+     {
+      "t": "His sister said that she would hold the door.",
+      "role": "key"
+     },
+     {
+      "t": "They were inside in a minute.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 2 reports what the sister said, using **that** and **she**. It is not her exact words, so it has **no** quotation marks."
+   },
+   "together": {
+    "passage": "Hessa and her brother were planning a surprise for their mother. \"We could bake a cake,\" Hessa said, \"or we could plant flowers in the garden.\" Her brother thought about it for a moment. He said that flowers would last much longer than a cake. \"Then flowers it is,\" Hessa agreed, and they went to find the seeds.",
+    "stem": "Why are there no quotation marks around what the brother said?",
+    "options": [
+     "The writer forgot them.",
+     "He was whispering.",
+     "His words are a question.",
+     "The writer reports his idea, not his exact words."
+    ],
+    "answer": 3,
+    "hint": "Look at the word that comes after \"He said\". Are these his exact words?",
+    "good": "Yes! \"He said that ...\" is reported speech. Reported speech does not use quotation marks."
+   },
+   "evidence": {
+    "sentences": [
+     "Hessa and her brother were planning a surprise for their mother.",
+     "\"We could bake a cake,\" Hessa said, \"or we could plant flowers in the garden.\"",
+     "Her brother thought about it for a moment.",
+     "He said that flowers would last much longer than a cake.",
+     "\"Then flowers it is,\" Hessa agreed, and they went to find the seeds."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: it is reported speech. Tap the sentence that reports the brother's words.",
+    "wrong": "This sentence is not about the brother's words. Find the sentence with \"He said that\"."
+   },
+   "checks": [
+    {
+     "passage": "\"If we leave now,\" said Dad, \"We will get there before the rain.\"",
+     "stem": "What is wrong?",
+     "options": [
+      "The comma after \"now\" should be outside.",
+      "\"We\" should be \"we\".",
+      "\"Dad\" needs quotation marks.",
+      "There should be no comma after \"Dad\"."
+     ],
+     "answer": 1,
+     "why": "The second part continues the same sentence, so it starts with a small letter: \"**we** will get there\"."
+    },
+    {
+     "passage": "\"Are you ready?\" asked Malak.\n\"Almost,\" said Joud. \"I just need my shoes.\"",
+     "stem": "Why do Joud's words start on a new line?",
+     "options": [
+      "A new person is speaking.",
+      "Joud is shouting.",
+      "Joud is asking a question.",
+      "The first line was too long."
+     ],
+     "answer": 0,
+     "why": "Each new speaker gets a new paragraph, so the reader can follow the talk."
+    },
+    {
+     "passage": "The guide told us that the fort was over two hundred years old.",
+     "stem": "Which sentence gives the guide's exact words?",
+     "options": [
+      "The guide told us the fort was very old.",
+      "The guide said that the fort was old.",
+      "The guide said, \"This fort is over two hundred years old.\"",
+      "The guide said the fort was over two hundred years old."
+     ],
+     "answer": 2,
+     "why": "Only this sentence uses quotation marks around the guide's **exact** words. The others report what he said."
+    }
+   ],
+   "again": {
+    "title": "Could you record it?",
+    "text": "Imagine a voice recorder.\n\nIf you could **play back** those exact words, use quotation marks.\nIf the writer is just **telling about** what was said, do not.",
+    "example": "Mona said, \"I'm tired.\" ← you could play this back.\nMona said that she was tired. ← the writer is telling about it."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "A quote inside a quote",
+     "text": "If a speaker quotes **someone else**, use **single** quotation marks inside the double ones.\n\n\"My teacher always says, **'Read every day,'**\" Amal explained."
+    },
+    {
+     "title": "Showing how people speak",
+     "text": "Punctuation inside dialogue can show **how** words are spoken.\n\nA **dash** shows a sudden stop or interruption: \"Wait — what was that?\"\n\nAn **ellipsis** shows a voice trailing off: \"I thought...\""
+    },
+    {
+     "title": "Titles of short works",
+     "text": "Quotation marks also go around titles of **short** works: poems, short stories, articles and songs.\n\nWe read the poem **\"The Old Well\"** in class.\n\nLonger works, like books, are usually in italics or underlined."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain a choice of quotation marks:\n\n1. Ask **whose** words are inside each pair of marks.\n2. Look at the punctuation inside: dash, ellipsis, end mark.\n3. Name the job: exact speech, a quote inside a quote, a title, or a way of speaking. Point to the sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ibrahim held up the old map.",
+      "role": "other"
+     },
+     {
+      "t": "\"My grandfather wrote on it, 'The well is three days east,'\" he said.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone leaned in closer.",
+      "role": "other"
+     }
+    ],
+    "explain": "Ibrahim's words are inside the **double** marks. His grandfather's note, which Ibrahim is quoting, is inside the **single** marks."
+   },
+   "together": {
+    "passage": "Our teacher read us a line from her grandfather's old notebook. \"He always wrote, 'A day without learning is a day lost,'\" she said. Then she asked us to write our own rule for life. Salem wrote that patience is worth more than speed. Afnan wrote, \"Ask one good question every day.\" The teacher pinned both rules on the wall beside her grandfather's words.",
+    "stem": "Why does the writer use single quotation marks (' ') in the second sentence?",
+    "options": [
+     "to show the teacher is unsure",
+     "to show the title of a book",
+     "to show a quotation inside another quotation",
+     "to show that words were left out"
+    ],
+    "answer": 2,
+    "hint": "Whose words are inside the double marks? Whose words are inside the single marks?",
+    "good": "Yes! The teacher is speaking, and she quotes her grandfather. His words go in single marks inside hers."
+   },
+   "evidence": {
+    "sentences": [
+     "Our teacher read us a line from her grandfather's old notebook.",
+     "\"He always wrote, 'A day without learning is a day lost,'\" she said.",
+     "Then she asked us to write our own rule for life.",
+     "Salem wrote that patience is worth more than speed.",
+     "Afnan wrote, \"Ask one good question every day.\"",
+     "The teacher pinned both rules on the wall beside her grandfather's words."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: a quotation inside a quotation. Tap the sentence that has one.",
+    "wrong": "This sentence has no quote inside another quote. Find the sentence with single marks."
+   },
+   "checks": [
+    {
+     "passage": "The lights went out. \"Wait — did you hear that?\" whispered Yara.",
+     "stem": "What does the dash in Yara's words show?",
+     "options": [
+      "She stops suddenly in the middle of speaking.",
+      "She is reading from a book.",
+      "She is joining two words into one.",
+      "She has finished speaking."
+     ],
+     "answer": 0,
+     "why": "The dash breaks her sentence: she stops one thought to ask about a sound."
+    },
+    {
+     "passage": "\"The match is over,\" said Rashid. \"we lost by one goal.\"",
+     "stem": "What should be fixed?",
+     "options": [
+      "Put a comma after \"Rashid\" instead of a period.",
+      "Remove the quotation marks around the second part.",
+      "Change \"said\" to \"Said\".",
+      "Begin \"we\" with a capital W."
+     ],
+     "answer": 3,
+     "why": "After \"said Rashid.\" a **new sentence** starts, so \"We\" needs a capital. A comma there would join two full sentences wrongly."
+    },
+    {
+     "passage": "In class we read a poem called Rain on the Roof, written by a student from Taif.",
+     "stem": "How should the title of the poem be written?",
+     "options": [
+      "RAIN ON THE ROOF",
+      "\"Rain on the Roof\"",
+      "(Rain on the Roof)",
+      "rain on the roof"
+     ],
+     "answer": 1,
+     "why": "Titles of short works, like poems, go inside quotation marks."
+    }
+   ],
+   "again": {
+    "title": "Count the voices",
+    "text": "Ask: **how many voices** are in this sentence?\n\n**One** voice speaking → double marks \" \".\n**A voice quoting another voice** → single marks ' ' inside the double ones.",
+    "example": "\"Dad said, 'Be home by six,'\" Noor reminded me.\n\nVoice 1: Noor (double marks). Voice 2: Dad (single marks)."
+   }
+  }
+ }
+}

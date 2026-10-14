@@ -1,0 +1,432 @@
+{
+ "code": "LN-097",
+ "title": "Syllables in longer words",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [
+  "Syllables and Multisyllabic Words"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a syllable?",
+     "text": "A **syllable** is a beat in a word.\n\nClap as you say it:\n\n**cat** = 1 clap\n**sun-set** = 2 claps\n**ba-na-na** = 3 claps"
+    },
+    {
+     "title": "One vowel sound each",
+     "text": "Every syllable has **one vowel sound**.\n\n**bas-ket**: a in bas, e in ket.\n\nCount the vowel sounds, and you count the syllables."
+    },
+    {
+     "title": "Word inside a word",
+     "text": "Some long words are made of **two small words**.\n\n**rain + bow = rainbow**\n**sun + set = sunset**\n\nSplit them between the two small words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the word in the text.\n2. Say it slowly and **clap** each beat.\n3. Point to the sentence that has the word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sun was hot.",
+      "role": "other"
+     },
+     {
+      "t": "We sat on a blanket.",
+      "role": "key"
+     },
+     {
+      "t": "It was red.",
+      "role": "other"
+     }
+    ],
+    "explain": "Clap **blan-ket**: 2 beats. The other words in these sentences have only 1 beat each."
+   },
+   "together": {
+    "passage": "We went to the park at sunset. My cat sat on the grass. It was a good day.",
+    "stem": "Which word has two syllables?",
+    "options": [
+     "sunset",
+     "park",
+     "cat",
+     "grass"
+    ],
+    "answer": 0,
+    "hint": "Clap each word. Which one gets two claps?",
+    "good": "Yes! **sun-set** has two claps. It is two small words: sun and set."
+   },
+   "evidence": {
+    "sentences": [
+     "We went to the park at sunset.",
+     "My cat sat on the grass.",
+     "It was a good day."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: sunset. Tap the sentence with that word.",
+    "wrong": "The words here have only one clap each. Find the sentence with sunset."
+   },
+   "checks": [
+    {
+     "passage": "Ali has a basket. It is full of eggs.",
+     "stem": "How many syllables are in \"basket\"?",
+     "options": [
+      "one",
+      "three",
+      "two",
+      "four"
+     ],
+     "answer": 2,
+     "why": "**bas-ket**: two claps, two syllables."
+    },
+    {
+     "passage": "After the rain, we saw a rainbow.",
+     "stem": "How do you split \"rainbow\" into syllables?",
+     "options": [
+      "ra-inbow",
+      "rain-bow",
+      "rainb-ow",
+      "r-ainbow"
+     ],
+     "answer": 1,
+     "why": "**rainbow** is two small words, **rain** and **bow**, so it splits between them."
+    },
+    {
+     "passage": "My sister likes pizza on Friday. She always asks for extra cheese.",
+     "stem": "Which word has ONE syllable?",
+     "options": [
+      "sister",
+      "pizza",
+      "Friday",
+      "cheese"
+     ],
+     "answer": 3,
+     "why": "**cheese** is one clap. sis-ter, piz-za and Fri-day each have two."
+    }
+   ],
+   "again": {
+    "title": "Hand under your chin",
+    "text": "Put your hand under your chin and say the word.\n\nEach time your chin **drops**, that is one syllable.",
+    "example": "**ap-ple**: your chin drops 2 times. 2 syllables."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Two consonants in the middle",
+     "text": "When a word has **two consonants** between two vowels, split **between** them.\n\nra**b-b**it  na**p-k**in  ba**s-k**et\n\nEach part is easy to read."
+    },
+    {
+     "title": "One consonant in the middle",
+     "text": "If there is **one** consonant between two vowels, try splitting **before** it first.\n\n**ti-ger**  **pa-per**\n\nThe first vowel says its name. If that does not sound right, split **after** it: **cam-el**, **lem-on**."
+    },
+    {
+     "title": "Word parts are syllables",
+     "text": "Endings like **-ful**, **-less** and **-ing**, and beginnings like **re-** and **un-**, are often their own syllable.\n\n**help-ful**  **re-do**  **un-tie**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove how a word splits:\n\n1. Find the word in the text.\n2. Mark the vowels. Look at the consonants **between** them.\n3. Use the rule, then say each part. Does it sound like the word?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A small kitten slept by the door.",
+      "role": "key"
+     },
+     {
+      "t": "It was warm and soft.",
+      "role": "other"
+     }
+    ],
+    "explain": "**kitten** has two consonants (t, t) between the vowels. Split between them: **kit-ten**."
+   },
+   "together": {
+    "passage": "Last spring, Majed found a rabbit under a bush in the garden. He gave it a carrot and some water on a paper napkin. The rabbit stayed until sunset, then hopped away.",
+    "stem": "How should \"napkin\" be split into syllables?",
+    "options": [
+     "na-pkin",
+     "nap-kin",
+     "napk-in",
+     "n-apkin"
+    ],
+    "answer": 1,
+    "hint": "Find the two consonants between the vowels. Split between them.",
+    "good": "Yes! **p** and **k** sit between the vowels, so we split between them: **nap-kin**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last spring, Majed found a rabbit under a bush in the garden.",
+     "He gave it a carrot and some water on a paper napkin.",
+     "The rabbit stayed until sunset, then hopped away."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: nap-kin. Tap the sentence that has the word napkin.",
+    "wrong": "This sentence does not have napkin. Find the sentence where Majed gives the rabbit food."
+   },
+   "checks": [
+    {
+     "passage": "A tiger rested in the shade of a tree.",
+     "stem": "How is \"tiger\" split into syllables?",
+     "options": [
+      "tig-er",
+      "tige-r",
+      "t-iger",
+      "ti-ger"
+     ],
+     "answer": 3,
+     "why": "The i says its name, so we split **before** the g: **ti-ger**."
+    },
+    {
+     "passage": "The camel walked slowly across the sand.",
+     "stem": "How is \"camel\" split into syllables?",
+     "options": [
+      "cam-el",
+      "ca-mel",
+      "came-l",
+      "c-amel"
+     ],
+     "answer": 0,
+     "why": "The a is short, as in cat, so we split **after** the m: **cam-el**."
+    },
+    {
+     "passage": "Huda is very helpful at home. She sets the table every day.",
+     "stem": "How many syllables are in \"helpful\"?",
+     "options": [
+      "one",
+      "three",
+      "two",
+      "four"
+     ],
+     "answer": 2,
+     "why": "**help-ful**: the ending -ful is its own syllable. Two syllables."
+    }
+   ],
+   "again": {
+    "title": "Mark the vowels first",
+    "text": "1. Put a dot under each **vowel sound**.\n2. Look at what is **between** the dots.\n3. Two consonants? Split between them. One consonant? Try before it.",
+    "example": "m**u**ff**i**n → two dots, two consonants (f, f) between → **muf-fin**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Longer words, more syllables",
+     "text": "Long words can have **three or more** syllables.\n\n**to-mor-row**\n**com-pu-ter**\n**grand-moth-er**\n\nRead them one part at a time."
+    },
+    {
+     "title": "Words that end in -le",
+     "text": "When a word ends in a **consonant + le**, those three letters make the **last syllable**.\n\nta-**ble**  pur-**ple**  bot-**tle**  lit-**tle**"
+    },
+    {
+     "title": "Spell by syllables",
+     "text": "Long words are easier to spell if you **say every syllable**.\n\nre - mem - ber → **remember**\n\nIf you skip a syllable when you say it, you may skip letters when you write it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a syllable count:\n\n1. Find the word in the text.\n2. Say it slowly and split it into parts.\n3. Count the parts. Check that each part has one vowel sound.\n4. Point to the sentence with the word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The puzzle had a hundred pieces.",
+      "role": "key"
+     },
+     {
+      "t": "We finished it in one hour.",
+      "role": "other"
+     }
+    ],
+    "explain": "**puz-zle** ends in a consonant + le, so **zle** is the last syllable. **hun-dred** splits between n and d."
+   },
+   "together": {
+    "passage": "During the school holiday, Ahmed stayed with his grandparents in the mountains near Abha. Every morning they walked down a narrow path to a little waterfall. His grandmother told him the names of the plants they passed. His grandfather pointed out baboons resting on the rocks.",
+    "stem": "Which word from the text has three syllables?",
+    "options": [
+     "mountains",
+     "little",
+     "grandmother",
+     "narrow"
+    ],
+    "answer": 2,
+    "hint": "Say each word slowly and count the parts.",
+    "good": "Yes! **grand-moth-er** has three syllables. The others have two."
+   },
+   "evidence": {
+    "sentences": [
+     "During the school holiday, Ahmed stayed with his grandparents in the mountains near Abha.",
+     "Every morning they walked down a narrow path to a little waterfall.",
+     "His grandmother told him the names of the plants they passed.",
+     "His grandfather pointed out baboons resting on the rocks."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: grandmother. Tap the sentence with that word.",
+    "wrong": "This sentence does not have grandmother. Find the one about the plants."
+   },
+   "checks": [
+    {
+     "passage": "Please put the bottle on the table.",
+     "stem": "How should \"table\" be split into syllables?",
+     "options": [
+      "ta-ble",
+      "tab-le",
+      "t-able",
+      "tabl-e"
+     ],
+     "answer": 0,
+     "why": "A consonant + le at the end makes the last syllable: **ta-ble**."
+    },
+    {
+     "passage": "Please remeber to bring your lunch tomorrow.",
+     "stem": "Which word is misspelled? Say each word in syllables.",
+     "options": [
+      "Please",
+      "bring",
+      "tomorrow",
+      "remeber"
+     ],
+     "answer": 3,
+     "why": "Say it in syllables: **re-mem-ber**. The middle syllable needs its **m**: remember."
+    },
+    {
+     "passage": "Our class got a new computer this week.",
+     "stem": "How many syllables are in \"computer\"?",
+     "options": [
+      "two",
+      "three",
+      "four",
+      "five"
+     ],
+     "answer": 1,
+     "why": "**com-pu-ter**: three syllables."
+    }
+   ],
+   "again": {
+    "title": "Chunk it",
+    "text": "Do not try to read a long word all at once.\n\n1. Cover the word with your finger.\n2. Uncover **one chunk** at a time and read it.\n3. Put the chunks together.",
+    "example": "**fan - tas - tic** → fantastic\n**in - vent - ed** → invented"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Stressed syllables",
+     "text": "In a long word, one syllable is said **louder and longer**. This is the **stressed** syllable.\n\n**TA**-ble   com-**PU**-ter   **AN**-i-mal\n\nSome words change meaning when the stress moves: a **PRES**-ent (a gift) / to pre-**SENT** (to show)."
+    },
+    {
+     "title": "The quiet syllable",
+     "text": "Unstressed syllables often have a weak \"uh\" sound. You cannot always hear which vowel spells it.\n\nsep-**a**-rate   el-**e**-phant   choc-**o**-late\n\nThese are the syllables people misspell most."
+    },
+    {
+     "title": "Use word parts",
+     "text": "Many long words are built from **parts**: a prefix, a base and a suffix.\n\n**un** - **be** - **liev** - **a** - **ble**\n\nSplitting by word parts helps you read, count and spell the syllables."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse a long word:\n\n1. Find the word in the text and split it into syllables.\n2. Find the **stressed** syllable and the quiet ones.\n3. Check the spelling of the quiet syllables carefully, or think of a related word where they are clearer.\n4. Point to the sentence with the word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our teacher gave a definite answer.",
+      "role": "key"
+     },
+     {
+      "t": "We all understood.",
+      "role": "other"
+     }
+    ],
+    "explain": "**def-i-nite** has a quiet middle syllable. Thinking of the related word **finite** reminds you that it is spelled with an **i**."
+   },
+   "together": {
+    "passage": "Our science teacher gave us a challenge: design a machine that could separate sand from small stones. My partner and I built a shaking tray with a fine metal screen. At first, the sand and stones stayed mixed together. After we tilted the tray at a sharper angle, the result was perfect. The teacher said our design was the most original in the class.",
+    "stem": "Say \"separate\" in syllables: sep - ? - rate. Which letter spells the quiet middle syllable?",
+    "options": [
+     "e",
+     "i",
+     "u",
+     "a"
+    ],
+    "answer": 3,
+    "hint": "Say it in a robot voice, giving every syllable a strong beat: SEP - ? - RATE.",
+    "good": "Yes! **sep-a-rate**. Remember: there is **a rat** in separate."
+   },
+   "evidence": {
+    "sentences": [
+     "Our science teacher gave us a challenge: design a machine that could separate sand from small stones.",
+     "My partner and I built a shaking tray with a fine metal screen.",
+     "At first, the sand and stones stayed mixed together.",
+     "After we tilted the tray at a sharper angle, the result was perfect.",
+     "The teacher said our design was the most original in the class."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: a. Tap the sentence that has the word separate.",
+    "wrong": "This sentence does not have separate. Find the sentence about the challenge."
+   },
+   "checks": [
+    {
+     "passage": "Mona will present her project to the class on Sunday.",
+     "stem": "Which syllable is stressed in \"present\" here?",
+     "options": [
+      "the first: PRES-ent",
+      "the second: pre-SENT",
+      "both the same",
+      "neither one"
+     ],
+     "answer": 1,
+     "why": "Here present is an action (to show), so the stress is on the **second** syllable: pre-**SENT**."
+    },
+    {
+     "passage": "The library was quiet. Students were checking their calculations.",
+     "stem": "How many syllables are in \"calculation\"?",
+     "options": [
+      "two",
+      "three",
+      "four",
+      "five"
+     ],
+     "answer": 2,
+     "why": "**cal-cu-la-tion**: four syllables."
+    },
+    {
+     "passage": "The story of the lost camel finding its way home was unbelievable.",
+     "stem": "Which shows \"unbelievable\" divided correctly?",
+     "options": [
+      "un-be-liev-a-ble",
+      "unb-el-iev-able",
+      "un-bel-ie-vable",
+      "u-nbe-lie-va-ble"
+     ],
+     "answer": 0,
+     "why": "Split by word parts: **un** + **be-liev(e)** + **a-ble**. Five syllables."
+    }
+   ],
+   "again": {
+    "title": "Say it in a robot voice",
+    "text": "Say the long word like a **robot**, giving every syllable the same strong beat.\n\nThe robot voice makes the quiet syllables **loud**, so you can hear every vowel you need to write.",
+    "example": "Normal: SEP-r't\nRobot: SEP - A - RATE → **separate**"
+   }
+  }
+ }
+}

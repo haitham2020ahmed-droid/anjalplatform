@@ -1,0 +1,462 @@
+{
+ "code": "LN-167",
+ "title": "Comparing settings",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.9",
+  "RL.5.3",
+  "RL.7.3"
+ ],
+ "families": [
+  "plot-setting",
+  "compare-texts"
+ ],
+ "skillNames": [
+  "Comparing Settings and Details Across Texts"
+ ],
+ "statements": [
+  "R-0170",
+  "R-0302",
+  "R-0477",
+  "R-0655",
+  "R-0846",
+  "R-0988",
+  "R-1073"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is the setting?",
+     "text": "The **setting** is **where** and **when** a story happens.\n\nA farm at night. A school in the morning. A beach in summer."
+    },
+    {
+     "title": "Compare two settings",
+     "text": "Two stories can have different settings.\n\n**Alike:** How are the places the same?\n**Different:** How are they not the same?"
+    },
+    {
+     "title": "What to look for",
+     "text": "1. **Where** is it?\n2. **When** is it?\n3. Is it **hot or cold**, **busy or quiet**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the words that tell **where** and **when**.\n\nLook for place words like **park, home, sea**. Look for time words like **night, morning, summer**.\n\nTap those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Story 1: Ali plays in the snow on a cold day.",
+      "role": "key"
+     },
+     {
+      "t": "Story 2: Sara plays on the hot sand at the beach.",
+      "role": "key"
+     }
+    ],
+    "explain": "Different: Story 1 is **cold** with **snow**. Story 2 is **hot** with **sand**.\n\nAlike: in both, a child is **playing outside**."
+   },
+   "together": {
+    "passage": "Story 1: Fahd lives in a big city. Cars honk, and people hurry on the streets. Story 2: Noor lives on a small farm. It is quiet, and she hears only the birds.",
+    "stem": "How are the two settings different?",
+    "options": [
+     "Both are in a city.",
+     "The first is busy and loud; the second is quiet.",
+     "The first is quiet; the second is busy.",
+     "Both are at night."
+    ],
+    "answer": 1,
+    "hint": "Look at the words that tell about each place. Which one has lots of cars and people?",
+    "good": "Yes! The city has cars and people. The farm is quiet with only birds singing."
+   },
+   "evidence": {
+    "sentences": [
+     "Story 1: Fahd lives in a big city.",
+     "Cars honk, and people hurry on the streets.",
+     "Story 2: Noor lives on a small farm.",
+     "It is quiet, and she hears only the birds."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the city is busy and loud, and the farm is quiet. Tap 2 sentences that show what each place is like.",
+    "wrong": "This sentence names the place. Find the sentences that tell what each place is LIKE."
+   },
+   "checks": [
+    {
+     "passage": "Story 1: It is morning in the park. The sun is up. Story 2: It is night in the park. The moon is up.",
+     "stem": "How are the two settings alike?",
+     "options": [
+      "Both are at night.",
+      "Both are in the morning.",
+      "Both have a moon.",
+      "Both are in the park."
+     ],
+     "answer": 3,
+     "why": "Both stories take place in the park."
+    },
+    {
+     "passage": "Story 1: Huda is in a hot desert. Story 2: Mona is on a cold mountain with snow.",
+     "stem": "How are the settings different?",
+     "options": [
+      "One is hot, and one is cold.",
+      "Both are hot.",
+      "Both have snow.",
+      "Both are in a house."
+     ],
+     "answer": 0,
+     "why": "The desert is hot. The mountain is cold with snow."
+    },
+    {
+     "passage": "Story 1: Omar swims in the sea in summer. Story 2: Bilal swims in a pool in summer.",
+     "stem": "How are the settings alike?",
+     "options": [
+      "Both are in the sea.",
+      "Both are in winter.",
+      "Both are in summer.",
+      "Both are in a pool."
+     ],
+     "answer": 2,
+     "why": "Omar and Bilal both swim in summer, but one is in the sea and one is in a pool."
+    }
+   ],
+   "again": {
+    "title": "Where and when",
+    "text": "For each story, say two things:\n\n**Where?** ____\n**When?** ____\n\nThen look: same or different?",
+    "example": "Story 1: Where? **School**. When? **Morning**.\nStory 2: Where? **School**. When? **Afternoon**.\n\nSame place, different time."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Setting is more than a place",
+     "text": "The setting includes **where**, **when**, the **weather** and the **mood** (how it feels: calm, scary, cheerful).\n\nAuthors use details of sight, sound and smell to build it."
+    },
+    {
+     "title": "Settings within one story",
+     "text": "A story can move between **two settings**: home and school, the village and the city, day and night.\n\nComparing them shows how the character's world **changes**."
+    },
+    {
+     "title": "Compare and contrast",
+     "text": "1. List details for **setting 1**.\n2. List details for **setting 2**.\n3. Find what is **alike** and what is **different**.\n\nClue words: **but, however, unlike, both, also**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove how settings compare:\n\n1. Find **describing words** for each place: sounds, weather, light, people.\n2. Put a detail from setting 1 next to a detail from setting 2.\n3. Choose the answer those details **support**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the village, Lina woke to the sound of roosters and the smell of fresh bread.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone in the street knew her name.",
+      "role": "key"
+     },
+     {
+      "t": "In the city, she woke to traffic and the beeping of trucks.",
+      "role": "key"
+     },
+     {
+      "t": "She walked past hundreds of people who did not look at her.",
+      "role": "key"
+     }
+    ],
+    "explain": "Village: **roosters**, **bread**, everyone knows her: **friendly and calm**.\n\nCity: **traffic**, **strangers**: **noisy and lonely**.\n\nContrasting the settings shows how Lina's life changed."
+   },
+   "together": {
+    "passage": "On Thursday, Grandma took Reem to the old souq. Sellers shouted prices, and the air smelled of cinnamon and incense. On Saturday, her mother took her to the new mall. Inside, the air was cool, and soft music played over the shiny floors. Reem liked both, but she remembered the souq's smells for days.",
+    "stem": "How is the souq different from the mall in the story?",
+    "options": [
+     "The souq is cool and quiet, while the mall is noisy.",
+     "Both places are new and shiny.",
+     "The souq is loud and full of smells, while the mall is cool and calm.",
+     "The mall sells spices, but the souq does not."
+    ],
+    "answer": 2,
+    "hint": "Find the describing words for each place. Which one has shouting and spice smells?",
+    "good": "Yes! The souq has shouting sellers and spice smells. The mall has cool air and soft music."
+   },
+   "evidence": {
+    "sentences": [
+     "On Thursday, Grandma took Reem to the old souq.",
+     "Sellers shouted prices, and the air smelled of cinnamon and incense.",
+     "On Saturday, her mother took her to the new mall.",
+     "Inside, the air was cool, and soft music played over the shiny floors.",
+     "Reem liked both, but she remembered the souq's smells for days."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the souq is loud and full of smells, while the mall is cool and calm. Tap 2 sentences that describe the two places.",
+    "wrong": "This sentence tells who went where or what Reem thought. Find the sentences that describe what each place is like."
+   },
+   "checks": [
+    {
+     "passage": "At first, the classroom was dark and silent; dust covered the desks. After the students painted the walls yellow and hung their drawings, the room felt bright and full of life.",
+     "stem": "How does the setting change?",
+     "options": [
+      "It changes from dark and empty to bright and lively.",
+      "It changes from bright to dark.",
+      "It stays the same.",
+      "It changes from a classroom to a park."
+     ],
+     "answer": 0,
+     "why": "At first it was dark and dusty. After the painting and drawings, it was bright and full of life."
+    },
+    {
+     "passage": "Story 1: Faisal's family camps in the desert. At night, the air turns cold, and the stars fill the sky. Story 2: Tala's family camps by a lake in the mountains. At night, it is cold, and the stars shine on the water.",
+     "stem": "How are the two settings alike?",
+     "options": [
+      "Both are by a lake.",
+      "Both are cold at night with bright stars.",
+      "Both are in the desert.",
+      "Both are hot at night."
+     ],
+     "answer": 1,
+     "why": "In both stories, the night is cold and the stars are bright."
+    },
+    {
+     "passage": "In the morning, the beach was quiet; only a fisherman walked along the wet sand. By the afternoon, families spread blankets, children built sandcastles and a man sold cold juice.",
+     "stem": "How is the afternoon setting different from the morning?",
+     "options": [
+      "It is colder and darker.",
+      "It has no people at all.",
+      "It is quieter.",
+      "It is busier, with many people."
+     ],
+     "answer": 3,
+     "why": "The morning has only one fisherman. The afternoon has families, children and a juice seller."
+    }
+   ],
+   "again": {
+    "title": "Use your senses",
+    "text": "For each setting, ask:\n\n**What can I see? Hear? Feel?**\n\nThen compare your answers.",
+    "example": "Kitchen: I see steam, I hear sizzling, I feel warm.\nGarden at night: I see stars, I hear crickets, I feel cool.\n\nDifferent: **warm and busy** vs. **cool and calm**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Settings create mood",
+     "text": "Authors choose setting details to create a **mood**: peaceful, tense, lonely, joyful.\n\nWhen you compare settings, compare their **moods** too, not just their places."
+    },
+    {
+     "title": "Settings affect characters",
+     "text": "A setting can **affect** what characters do and feel. A storm can trap them. A crowded city can make them feel lost.\n\nAsk: How does each setting change the character?"
+    },
+    {
+     "title": "Comparing across texts",
+     "text": "When two stories have similar settings, look for **how the authors use them differently**.\n\nThe same desert can feel like a home in one story and a danger in another."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find details that describe each setting.\n2. Find how the character **feels** or **acts** in each one.\n3. Choose the answer that compares **both** the settings and their effects.\n\nCheck that the answer matches details from **both** settings."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text A: For the Bedouin girl, the desert at dawn was home: she knew every dune, every track, every sound of the wind.",
+      "role": "key"
+     },
+     {
+      "t": "Text B: For the lost traveller, the same dunes looked endless and identical, and the silence filled him with fear.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both texts are set in the **desert**, but the authors use it differently.\n\nFor the girl it is **familiar and safe**. For the traveller it is **confusing and frightening**. The setting's effect depends on the character."
+   },
+   "together": {
+    "passage": "The hospital corridor smelled of cleaning liquid, and machines beeped behind every door. Yousef could not sit still while he waited for news about his grandfather. His aunt led him out to the small garden behind the building. There, a fountain bubbled under a lemon tree, and birds hopped between the benches. Yousef breathed slowly for the first time all morning, and he even smiled when a sparrow landed near his feet.",
+    "stem": "How do the two settings affect Yousef differently?",
+    "options": [
+     "Both places make him nervous and lonely.",
+     "The hospital makes him calm, but the garden makes him worried.",
+     "Both places are noisy and crowded.",
+     "The hospital makes him anxious, but the garden makes him feel peaceful."
+    ],
+    "answer": 3,
+    "hint": "Find words that show how Yousef feels in each place.",
+    "good": "Yes! In the hospital corridor he cannot sit still. In the garden he breathes slowly and smiles."
+   },
+   "evidence": {
+    "sentences": [
+     "The hospital corridor smelled of cleaning liquid, and machines beeped behind every door.",
+     "Yousef could not sit still while he waited for news about his grandfather.",
+     "His aunt led him out to the small garden behind the building.",
+     "There, a fountain bubbled under a lemon tree, and birds hopped between the benches.",
+     "Yousef breathed slowly for the first time all morning, and he even smiled when a sparrow landed near his feet."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the hospital makes Yousef anxious, but the garden makes him peaceful. Tap 2 sentences that show how he feels in each place.",
+    "wrong": "This sentence describes a place or what happens, but not how Yousef feels. Find sentences that show his feelings."
+   },
+   "checks": [
+    {
+     "passage": "Text A: The harbour at sunrise was busy and cheerful: fishermen called to each other, and gulls circled the boats. Text B: The same harbour at midnight was silent, except for the slap of water against empty boats and the creak of a rope.",
+     "stem": "How is the mood different in the two texts?",
+     "options": [
+      "Both are cheerful and noisy.",
+      "Both are silent and lonely.",
+      "Text A is cheerful; Text B is lonely and still.",
+      "Text A is frightening; Text B is joyful."
+     ],
+     "answer": 2,
+     "why": "Text A has calling fishermen and circling gulls. Text B has silence and empty boats."
+    },
+    {
+     "passage": "In the village, Amal walked to school along a dusty path, greeting neighbours at every door. After her family moved to the capital, she rode a crowded bus where no one spoke. She missed the slow mornings when every face was familiar.",
+     "stem": "How does the change of setting affect Amal?",
+     "options": [
+      "She feels lonely and misses the village.",
+      "She is happier in the city.",
+      "She does not notice any difference.",
+      "She is afraid of the dusty path."
+     ],
+     "answer": 0,
+     "why": "On the crowded bus no one speaks, and she misses the mornings when every face was familiar."
+    },
+    {
+     "passage": "Story 1: A storm traps a family in their mountain cabin, and they spend the night telling stories by the fire. Story 2: A sandstorm traps a group of travellers in an old fort, and they share their food and sing until morning.",
+     "stem": "How are the two settings used in a similar way?",
+     "options": [
+      "Both settings are hot and dry.",
+      "In both, a storm traps people and brings them closer.",
+      "Both stories take place in a city.",
+      "In both, the characters escape right away."
+     ],
+     "answer": 1,
+     "why": "In both stories, a storm traps people, and they share stories, food and songs together."
+    }
+   ],
+   "again": {
+    "title": "Setting + feeling",
+    "text": "For each setting, write a short phrase:\n\n**Place** + **how it feels** + **how the character reacts**.\n\nThen compare the phrases.",
+    "example": "Setting 1: empty school at night, spooky, Rami walks fast.\nSetting 2: school at noon, noisy and bright, Rami laughs with friends.\n\nSame place, **different mood**, different reactions."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Setting as meaning",
+     "text": "In more complex stories, the setting can carry **meaning**. A closed room may suggest feeling trapped. An open sea may suggest freedom.\n\nContrasting settings can show a character's **inner journey**."
+    },
+    {
+     "title": "Time as setting",
+     "text": "Setting also includes **time period**. A story set fifty years ago may show different ways of living, working and travelling.\n\nComparing past and present settings can reveal what has **changed** and what has **stayed the same**."
+    },
+    {
+     "title": "Analysing contrasts",
+     "text": "1. Identify specific details in each setting.\n2. Name the **mood** or **idea** each one suggests.\n3. Explain **why** the author contrasts them: what does it reveal about characters or theme?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse contrasting settings:\n\n1. Quote one key detail from **each** setting.\n2. Explain what each detail **suggests**.\n3. Link the contrast to a character or idea.\n\nReject answers that describe only one setting or that miss the deeper purpose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fifty years ago, the narrator's grandmother drew water from the village well, and women gathered there each evening to share news.",
+      "role": "key"
+     },
+     {
+      "t": "Today, water flows from a tap in every kitchen, and the well is covered with a metal lid.",
+      "role": "key"
+     },
+     {
+      "t": "The narrator notices that her grandmother still walks past the well every evening and pauses there for a moment.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Past: the well was a **meeting place**. Present: it is **closed** and unused.\n\nThe contrast suggests that convenience has replaced a community gathering place, and the grandmother's pause shows what was lost."
+   },
+   "together": {
+    "passage": "From Sunday to Thursday, Hassan sat in a grey office with no windows, where the only sound was the hum of the air conditioner. He watched the clock and counted the hours. On Friday mornings, he drove to the coast and sailed his small boat out past the reef. There, the sky stretched in every direction, the wind filled the sail, and he laughed out loud for no reason. His sister said he was a different person on the water, and he could not disagree.",
+    "stem": "What does the contrast between the two settings mainly suggest?",
+    "options": [
+     "Hassan feels free at sea in a way he never feels in the office.",
+     "Hassan prefers working in an office to sailing.",
+     "The office and the sea are both stressful places for Hassan.",
+     "Hassan is afraid of the sea because of the waves."
+    ],
+    "answer": 0,
+    "hint": "Compare the words used for the office with the words used for the sea. Which place feels closed? Which feels open?",
+    "good": "Yes! The office is small, grey and closed, and he feels trapped. At sea, everything is open, and he feels free."
+   },
+   "evidence": {
+    "sentences": [
+     "From Sunday to Thursday, Hassan sat in a grey office with no windows, where the only sound was the hum of the air conditioner.",
+     "He watched the clock and counted the hours.",
+     "On Friday mornings, he drove to the coast and sailed his small boat out past the reef.",
+     "There, the sky stretched in every direction, the wind filled the sail, and he laughed out loud for no reason.",
+     "His sister said he was a different person on the water, and he could not disagree."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Hassan feels free at sea but not in the office. Tap 2 sentences that show the contrast.",
+    "wrong": "This sentence tells when he travels or what someone else says. Find details that show what each setting is like for Hassan."
+   },
+   "checks": [
+    {
+     "passage": "Text A describes a fishing village in 1960: wooden boats, nets dried on the sand, and families who all knew one another. Text B describes the same coast today: tall hotels, speedboats, and visitors from many countries. In both texts, an old fisherman sits on the same rock every evening, watching the sun set over the water.",
+     "stem": "What does the detail of the old fisherman in both texts suggest?",
+     "options": [
+      "The coast has not changed at all since 1960.",
+      "Some connections to the past remain even as the setting changes.",
+      "The fisherman has moved to a new village.",
+      "Tourists have taken the fisherman's rock."
+     ],
+     "answer": 1,
+     "why": "Everything around him changes, but the fisherman still sits on the same rock, showing a link to the past remains."
+    },
+    {
+     "passage": "Inside the palace, the young prince lived among golden halls, silent servants and locked gates. Outside, in the market, children ran barefoot, sellers argued and laughed, and music played on every corner. When he finally slipped out through a side door, the prince stood frozen for a long time, then began to laugh along with the crowd.",
+     "stem": "Why does the author contrast the palace and the market?",
+     "options": [
+      "To show that the market is dangerous",
+      "To show that the prince is afraid of people",
+      "To describe how palaces are built",
+      "To show that the prince finds life and joy outside his closed world"
+     ],
+     "answer": 3,
+     "why": "The palace is silent and locked; the market is full of life. The prince's laughter shows he finds joy outside his closed world."
+    },
+    {
+     "passage": "Story 1 is set in a crowded refugee camp where a girl studies by torchlight, determined to become a doctor. Story 2 is set in a comfortable home where a boy has every book he needs but cannot find a reason to study. By the end, the boy reads a newspaper article about the girl and begins to work harder.",
+     "stem": "How does comparing the two settings develop the story's meaning?",
+     "options": [
+      "It shows that the camp is better than the home.",
+      "It explains how torches work.",
+      "It shows that determination can matter more than comfort.",
+      "It proves that books are not important."
+     ],
+     "answer": 2,
+     "why": "The girl succeeds with little; the boy has everything but no drive. The contrast shows determination matters more than comfort."
+    }
+   ],
+   "again": {
+    "title": "What does the place stand for?",
+    "text": "Ask of each setting: **If this place were a feeling, what would it be?**\n\nThen ask: **Why did the author put these two feelings side by side?**",
+    "example": "A dark, locked storeroom = **fear** or **being trapped**.\nA rooftop under the open sky = **freedom** or **hope**.\n\nIf a character moves from the storeroom to the rooftop, the author may be showing them **escaping their fears**."
+   }
+  }
+ }
+}

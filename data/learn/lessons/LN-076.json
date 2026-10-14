@@ -1,0 +1,470 @@
+{
+ "code": "LN-076",
+ "title": "Commas after introductory words",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [
+  "L.5.2.b",
+  "L.5.2.c"
+ ],
+ "families": [
+  "commas"
+ ],
+ "skillNames": [
+  "Commas with Introductory Phrases",
+  "Punctuation and Commas"
+ ],
+ "statements": [
+  "L-0001",
+  "L-0007",
+  "L-0032",
+  "L-0033",
+  "L-0103",
+  "L-0104",
+  "L-0215",
+  "L-0216",
+  "L-0300"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A word at the start",
+     "text": "Some sentences start with one **opening word**.\n\n**First**, wash your hands.\n**Yes**, I can help.\n**Suddenly**, the lights went out."
+    },
+    {
+     "title": "Add a comma",
+     "text": "Put a **comma** right after the opening word.\n\nThe comma tells the reader to take a tiny **pause**.\n\n**Finally,** we went home."
+    },
+    {
+     "title": "Common opening words",
+     "text": "**Yes**, **No**, **Well**\n**First**, **Next**, **Then**, **Finally**\n**Sadly**, **Luckily**, **Suddenly**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the first word of the sentence.\n2. Is it an opening word like First or Yes?\n3. Find other sentences in the text that start the same way. See where their commas go."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We made a sandwich.",
+      "role": "other"
+     },
+     {
+      "t": "First, we cut the bread.",
+      "role": "key"
+     },
+     {
+      "t": "Next, we added cheese.",
+      "role": "key"
+     },
+     {
+      "t": "Finally, we ate it!",
+      "role": "key"
+     }
+    ],
+    "explain": "**First**, **Next** and **Finally** are opening words. Each one has a comma right after it."
+   },
+   "together": {
+    "passage": "Yesterday was my birthday. First, Mom made a big cake. Next, my cousins came over. We played games in the yard.",
+    "stem": "Which is the best last sentence for the story?",
+    "options": [
+     "Finally we, ate the cake.",
+     "Finally, we ate the cake.",
+     "Finally we ate, the cake.",
+     "Finally we ate the, cake."
+    ],
+    "answer": 1,
+    "hint": "Look at the other sentences that start with an opening word. Where do their commas go?",
+    "good": "Yes! The comma goes right after the opening word **Finally**."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday was my birthday.",
+     "First, Mom made a big cake.",
+     "Next, my cousins came over.",
+     "We played games in the yard."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Finally, we ate the cake. Tap 2 sentences that also have a comma after an opening word.",
+    "wrong": "This sentence does not start with an opening word. Find sentences with First or Next."
+   },
+   "checks": [
+    {
+     "passage": "___ I can come to your house.",
+     "stem": "Which word and comma fill the blank?",
+     "options": [
+      "Yes,",
+      "Yes",
+      ",Yes",
+      "Yes."
+     ],
+     "answer": 0,
+     "why": "**Yes** is an opening word, so a comma comes right after it."
+    },
+    {
+     "passage": "Suddenly the cat jumped on the table.",
+     "stem": "Where should the comma go?",
+     "options": [
+      "after cat",
+      "after jumped",
+      "after the",
+      "after Suddenly"
+     ],
+     "answer": 3,
+     "why": "**Suddenly** is an opening word. The comma goes right after it."
+    },
+    {
+     "passage": "No, thank you. Well I am not hungry.",
+     "stem": "Which word needs a comma after it?",
+     "options": [
+      "No",
+      "thank",
+      "Well",
+      "not"
+     ],
+     "answer": 2,
+     "why": "**Well** is an opening word, so it needs a comma: **Well,** I am not hungry."
+    }
+   ],
+   "again": {
+    "title": "Clap and pause",
+    "text": "Read the sentence out loud. Clap once after the opening word. That clap is your **comma**.",
+    "example": "Luckily (clap) it stopped raining.\n\n**Luckily,** it stopped raining."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Opening words",
+     "text": "Put a comma after an opening word:\n\n**Yes,** I finished.\n**However,** the shop was closed.\n\nAlso use a comma when you **talk to someone by name**:\n**Huda,** please pass the bread."
+    },
+    {
+     "title": "Opening phrases",
+     "text": "A **phrase** is a small group of words. When a phrase opens the sentence, put a comma after it.\n\n**After lunch,** we went outside.\n**In the morning,** the market is busy."
+    },
+    {
+     "title": "Find the main part",
+     "text": "The comma separates the **opening** from the **main part** of the sentence.\n\n**At the end of the day,** | **we went home.**\n\nThe main part has the subject and the verb."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find where the opening word or phrase ends.\n2. Find where the main part (subject + verb) starts.\n3. The comma goes between them.\n\nOther sentences in the passage that follow this pattern are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "During the holiday, we visited our grandparents.",
+      "role": "key"
+     },
+     {
+      "t": "Yes, they live in Madinah.",
+      "role": "key"
+     },
+     {
+      "t": "Grandma cooked rice every day.",
+      "role": "other"
+     }
+    ],
+    "explain": "**During the holiday** is an opening phrase. **Yes** is an opening word. Each is followed by a comma, then the main part.\n\nThe last sentence has no opening part, so it needs no comma."
+   },
+   "together": {
+    "passage": "Our class went to the aquarium in Jeddah. In the first room, we saw hundreds of colourful fish. Yes, there was even a shark! Later, a guide showed us how sea turtles are cared for.",
+    "stem": "Which sentence should come next?",
+    "options": [
+     "At the end, of the visit we bought postcards.",
+     "At the end of the visit we, bought postcards.",
+     "At, the end of the visit we bought postcards.",
+     "At the end of the visit, we bought postcards."
+    ],
+    "answer": 3,
+    "hint": "Find where the opening phrase ends and the main part (we bought) begins.",
+    "good": "Yes! **At the end of the visit** is the opening phrase, so the comma goes before **we bought**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class went to the aquarium in Jeddah.",
+     "In the first room, we saw hundreds of colourful fish.",
+     "Yes, there was even a shark!",
+     "Later, a guide showed us how sea turtles are cared for."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: At the end of the visit, we bought postcards. Tap 2 sentences that also use a comma after an opening word or phrase.",
+    "wrong": "This sentence does not start with an opening word or phrase. Look for one that does."
+   },
+   "checks": [
+    {
+     "passage": "After the football match we ate dinner.",
+     "stem": "Where should the comma go?",
+     "options": [
+      "after After",
+      "after match",
+      "after we",
+      "after ate"
+     ],
+     "answer": 1,
+     "why": "**After the football match** is the opening phrase, so the comma goes after **match**."
+    },
+    {
+     "passage": "Salma can you help me carry this box?",
+     "stem": "Where should the comma go?",
+     "options": [
+      "after Salma",
+      "after can",
+      "after help",
+      "after carry"
+     ],
+     "answer": 0,
+     "why": "We are talking to Salma by name, so put a comma after **Salma**."
+    },
+    {
+     "passage": "Which sentence uses a comma correctly?",
+     "stem": "Choose the correct sentence.",
+     "options": [
+      "On Friday we, visited the beach.",
+      "On, Friday we visited the beach.",
+      "On Friday, we visited the beach.",
+      "On Friday we visited, the beach."
+     ],
+     "answer": 2,
+     "why": "**On Friday** is the opening phrase. The comma goes right after it."
+    }
+   ],
+   "again": {
+    "title": "Find the who",
+    "text": "Find the **who** in the sentence (the subject). Put the comma just **before** it.",
+    "example": "In the evening we read stories.\n\nWho? **we**. Put the comma before it:\n**In the evening, we read stories.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Opening clauses",
+     "text": "A **clause** has its own subject and verb. Some clauses cannot stand alone. They start with words like **when, if, because, after, before, while, although**.\n\n**When the bell rang**, the students lined up."
+    },
+    {
+     "title": "Comma after, not before",
+     "text": "When the clause comes **first**, put a comma after it.\n**If you finish early,** you may read.\n\nWhen the clause comes **last**, you usually need **no** comma.\nYou may read **if you finish early**."
+    },
+    {
+     "title": "Words, phrases, clauses",
+     "text": "Word: **However,** the shop was closed.\nPhrase: **Near the old well,** we found a coin.\nClause: **Because it was late,** we walked quickly.\n\nAll three opening parts take a comma."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Does the sentence **begin** with when, if, because, after, although?\n2. Find where that clause ends and the main clause begins.\n3. Put the comma there.\n\nCompare with other sentences in the passage. Notice which ones open with a clause, and which ones put it at the end."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Although it was very hot, the children kept playing.",
+      "role": "key"
+     },
+     {
+      "t": "They drank water whenever they felt tired.",
+      "role": "detail"
+     },
+     {
+      "t": "Before the sun set, everyone went home.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 1 and 3 **open** with a clause, so they need a comma.\n\nIn sentence 2 the clause **whenever they felt tired** comes at the **end**, so no comma is needed."
+   },
+   "together": {
+    "passage": "When the power went out last night, our street became very dark. Because the fridge stopped working, Mom moved the milk into a cool box. My little brother was scared until Dad lit a lamp. If the power had stayed off longer we would have gone to Grandma's house. Luckily, it came back after two hours.",
+    "stem": "Which sentence is missing a comma?",
+    "options": [
+     "When the power went out last night, our street became very dark.",
+     "My little brother was scared until Dad lit a lamp.",
+     "If the power had stayed off longer we would have gone to Grandma's house.",
+     "Luckily, it came back after two hours."
+    ],
+    "answer": 2,
+    "hint": "Which sentence opens with a clause (if, when, because) but has no comma after it?",
+    "good": "Yes! **If the power had stayed off longer** is an opening clause, so it needs a comma before **we**."
+   },
+   "evidence": {
+    "sentences": [
+     "When the power went out last night, our street became very dark.",
+     "Because the fridge stopped working, Mom moved the milk into a cool box.",
+     "My little brother was scared until Dad lit a lamp.",
+     "If the power had stayed off longer we would have gone to Grandma's house.",
+     "Luckily, it came back after two hours."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was the sentence beginning 'If the power had stayed off longer'. Tap 2 sentences that show the correct pattern: an opening clause, then a comma.",
+    "wrong": "This sentence does not show the pattern. Its clause comes at the end, it opens with just one word, or its comma is missing."
+   },
+   "checks": [
+    {
+     "passage": "Before you leave the classroom please push in your chair.",
+     "stem": "Where should the comma go?",
+     "options": [
+      "after leave",
+      "after classroom",
+      "after please",
+      "after push"
+     ],
+     "answer": 1,
+     "why": "**Before you leave the classroom** is the opening clause, so the comma goes after **classroom**."
+    },
+    {
+     "passage": "Which sentence is punctuated correctly?",
+     "stem": "Choose the correct sentence.",
+     "options": [
+      "We stayed inside, because it was raining.",
+      "Because it was raining we, stayed inside.",
+      "Because, it was raining we stayed inside.",
+      "Because it was raining, we stayed inside."
+     ],
+     "answer": 3,
+     "why": "The clause **Because it was raining** opens the sentence, so a comma follows it. When the clause comes last, no comma is needed."
+    },
+    {
+     "passage": "While Grandma told stories, we sat on the carpet and listened.",
+     "stem": "Why does this sentence have a comma?",
+     "options": [
+      "It separates an opening clause from the main clause.",
+      "It comes before the word and.",
+      "It separates two nouns.",
+      "It shows someone is speaking."
+     ],
+     "answer": 0,
+     "why": "**While Grandma told stories** is an opening clause. The comma separates it from the main clause **we sat**."
+    }
+   ],
+   "again": {
+    "title": "Opening clause = waiting",
+    "text": "An opening clause makes the reader **wait** for the main idea. The comma marks the end of the waiting.",
+    "example": "If it rains tomorrow ... (what?) → we will stay home.\n\n**If it rains tomorrow, we will stay home.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Opening verbal phrases",
+     "text": "Phrases built on **-ing** or **-ed** verb forms often open a sentence. Put a comma after them.\n\n**Hoping to win,** the team trained daily.\n**Tired after the long trip,** we went straight to bed."
+    },
+    {
+     "title": "Long and stacked phrases",
+     "text": "Several prepositional phrases in a row also take a comma.\n\n**On the first day of the holiday,** we drove to Abha.\n\nAfter a very **short** phrase, the comma is sometimes optional: **In 2020** we moved. But a comma is never wrong there."
+    },
+    {
+     "title": "Comma to stop misreading",
+     "text": "Sometimes a comma prevents confusion.\n\nConfusing: While we were eating the cat jumped on the table.\nClear: While we were eating, the cat jumped on the table."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the opening element: word, phrase or clause.\n2. Find the subject of the main clause.\n3. The comma belongs right before that subject.\n\nOther sentences in the passage that place the comma the same way support your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Climbing the steep path, the hikers breathed hard.",
+      "role": "key"
+     },
+     {
+      "t": "At the top of the hill near the old tower, they rested.",
+      "role": "key"
+     },
+     {
+      "t": "The view was worth the effort.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Climbing the steep path** is a verbal phrase. **At the top of the hill near the old tower** is a stack of phrases. Each is followed by a comma, then the subject.\n\nThe last sentence opens with its subject, so no comma is needed."
+   },
+   "together": {
+    "passage": "Hoping to see the sunrise, the hikers left their camp before dawn. The trail up the mountain was steep and rocky. Near the top of the ridge above the valley, they stopped to catch their breath. Tired but determined the youngest hiker kept climbing without a word. The group reached the summit just as the sun rose over the peaks.",
+    "stem": "In the sentence beginning 'Tired but determined', where should a comma be added?",
+    "options": [
+     "after Tired",
+     "after hiker",
+     "after determined",
+     "No comma is needed."
+    ],
+    "answer": 2,
+    "hint": "Find the subject of the main clause. The opening phrase ends just before it.",
+    "good": "Yes! **Tired but determined** is the opening phrase, and **the youngest hiker** is the subject. The comma goes after **determined**."
+   },
+   "evidence": {
+    "sentences": [
+     "Hoping to see the sunrise, the hikers left their camp before dawn.",
+     "The trail up the mountain was steep and rocky.",
+     "Near the top of the ridge above the valley, they stopped to catch their breath.",
+     "Tired but determined the youngest hiker kept climbing without a word.",
+     "The group reached the summit just as the sun rose over the peaks."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: after determined. Tap 2 sentences that correctly use a comma after an opening phrase.",
+    "wrong": "This sentence does not show the pattern: it starts with its subject, or its comma is missing. Find an opening phrase followed by a comma."
+   },
+   "checks": [
+    {
+     "passage": "Excited by the news the students cheered loudly.",
+     "stem": "Where should the comma go?",
+     "options": [
+      "after Excited",
+      "after news",
+      "after students",
+      "after cheered"
+     ],
+     "answer": 1,
+     "why": "**Excited by the news** is an opening verbal phrase, so the comma goes after **news**, before the subject."
+    },
+    {
+     "passage": "After eating the children went out to play.",
+     "stem": "Why does this sentence need a comma after 'eating'?",
+     "options": [
+      "Because 'eating' is a noun.",
+      "Because the sentence is a question.",
+      "Because 'children' is plural.",
+      "Without it, a reader might think someone ate the children."
+     ],
+     "answer": 3,
+     "why": "The comma prevents misreading: **After eating, the children went out to play.**"
+    },
+    {
+     "passage": "Which sentence is punctuated correctly?",
+     "stem": "Choose the correct sentence.",
+     "options": [
+      "Running to catch the bus, Majed dropped his book.",
+      "Running to catch, the bus Majed dropped his book.",
+      "Running, to catch the bus Majed dropped his book.",
+      "Running to catch the bus Majed, dropped his book."
+     ],
+     "answer": 0,
+     "why": "**Running to catch the bus** is the opening phrase. The comma goes before the subject **Majed**."
+    }
+   ],
+   "again": {
+    "title": "Comma before the subject",
+    "text": "In almost every case, the comma after an opening part sits **right before the subject** of the main clause.",
+    "example": "Covered in dust the old book sat on the shelf.\n\nSubject: **the old book**. Comma before it:\n**Covered in dust, the old book sat on the shelf.**"
+   }
+  }
+ }
+}

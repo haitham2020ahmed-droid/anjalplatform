@@ -1,0 +1,568 @@
+{
+  "code": "NB-047",
+  "title": "The Safety Brake That Let Cities Grow Upward",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 445,
+  "passage": "Imagine climbing the stairs to the top of a skyscraper every morning. Before the nineteenth century, very few buildings were taller than five or six storeys, and the reason was not only a lack of strong materials. People simply refused to climb dozens of flights of stairs, so upper floors were inconvenient and difficult to rent. The invention that changed this situation was not a new kind of steel or concrete, but a small device that most passengers never notice: the elevator safety brake.\n\nMachines for lifting heavy goods had existed for centuries, often pulled by people, animals or water power. However, they were rarely trusted with passengers, because a single broken rope could send the platform crashing to the ground. In 1852, an American mechanic named Elisha Otis found an ingenious solution. He fitted the platform with a spring connected to the top of the rope. As long as the rope was tight, the spring stayed pulled in. If the rope snapped, the spring was released at once, pushing strong metal catches into teeth along the guide rails on both sides, so the platform locked firmly in place instead of falling.\n\nOtis knew that a clever invention is useless if nobody believes in it. Therefore, in 1854, at a large exhibition in New York, he stood on an open platform high above an astonished crowd and ordered an assistant to cut the only rope with an axe. The platform dropped a few centimetres and then stopped. \"All safe, gentlemen, all safe!\" Otis announced. Three years later, the first passenger elevator using his design was installed in a New York store.\n\nOnce people trusted elevators, architects could finally build upward. Together with steel frames, elevators made the modern skyscraper possible. Over time, the top floors, once the least desirable, gradually became the most valuable because of their spectacular views.\n\nToday, elevator engineering is remarkably advanced. The Burj Khalifa in Dubai is 828 metres tall and relies on dozens of elevators. Some of them carry passengers faster than a car moves through city traffic. Computers group passengers who are travelling to nearby floors, which reduces waiting times, and many modern elevators even capture energy as they move downward. In Jeddah, engineers are building a tower intended to become the first building in the world to rise more than one kilometre, and moving thousands of people through it efficiently is one of their greatest challenges.\n\nThe next time you step into an elevator without a second thought, remember the mechanic who calmly watched his own rope being cut. Sometimes the most important invention is the one that makes people feel safe enough to use all the others.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “inconvenient” as it is used in paragraph 1?",
+      "options": [
+        "troublesome",
+        "beautiful",
+        "expensive",
+        "dangerous"
+      ],
+      "answer": "A",
+      "why": "Upper floors meant climbing many stairs, so they were troublesome to reach, which is what “inconvenient” means."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “tight” as it is used in paragraph 2?",
+      "options": [
+        "strong",
+        "loose",
+        "short",
+        "thin"
+      ],
+      "answer": "B",
+      "why": "A “tight” rope is pulled firmly; the opposite is “loose”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 4: “the top floors, once the least desirable, gradually became the most valuable.” What does “desirable” mean?",
+      "options": [
+        "easy to build",
+        "far from the ground",
+        "wanted by many people",
+        "cheap to rent"
+      ],
+      "answer": "C",
+      "why": "The top floors changed from the least wanted to the most valuable, so “desirable” means wanted by many people."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is an adverb?",
+      "options": [
+        "important",
+        "mechanic",
+        "calmly",
+        "safe"
+      ],
+      "answer": "C",
+      "why": "“Calmly” describes how Otis watched the rope being cut. “Important” and “safe” are adjectives; “mechanic” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a PLURAL noun?",
+      "options": [
+        "rope",
+        "catches",
+        "platform",
+        "spring"
+      ],
+      "answer": "B",
+      "why": "“Catches” (the metal parts) means more than one catch; the others are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “invention”?",
+      "options": [
+        "invent",
+        "invite",
+        "invisible",
+        "involve"
+      ],
+      "answer": "A",
+      "why": "“Invent” is the verb from which “invention” is formed; the others only begin with the same letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “spectacular” in a meaningful sentence of your own.",
+      "model": "From the top of the mountain in Abha, we had a spectacular view of the green valleys below.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “spectacular” with its meaning (very impressive or beautiful to see)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Spectacular” means very impressive or beautiful to look at."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “gentleman”, a word used in its plural form in paragraph 3?",
+      "options": [
+        "gentlemans",
+        "gentlemen",
+        "gentlemens",
+        "gentlemanes"
+      ],
+      "answer": "B",
+      "why": "Words ending in -man form an irregular plural with -men: gentleman → gentlemen (Otis says “All safe, gentlemen”)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Imagine climbing the stairs to the top of a skyscraper every morning.”?",
+      "options": [
+        "a question",
+        "a command",
+        "an exclamation",
+        "a statement of fact"
+      ],
+      "answer": "B",
+      "why": "It tells the reader to do something (imagine), so it is a command."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "The Life of a New York Store",
+        "Climbing Stairs Is Good Exercise",
+        "How Trust Lifted Buildings Higher",
+        "The Tallest Tower in Jeddah"
+      ],
+      "answer": "C",
+      "why": "The text explains how a device that made people trust elevators allowed buildings to grow taller; the other titles focus on details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to live on the very top floors",
+        "to explain how a safety device made tall buildings possible",
+        "to tell the full life story of Elisha Otis",
+        "to compare the cities of Dubai and Jeddah"
+      ],
+      "answer": "B",
+      "why": "The text moves from the problem of stairs to Otis's brake and on to modern skyscrapers."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "Lifting machines had existed for many centuries.",
+        "Ropes were often made of weak material.",
+        "Otis designed a brake to stop a falling platform.",
+        "Animals once pulled heavy goods upward."
+      ],
+      "answer": "C",
+      "why": "The paragraph explains the danger of broken ropes and how Otis's spring and catches solved it."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 1, why were very few early buildings taller than five or six storeys?",
+      "options": [
+        "People refused to climb many flights of stairs.",
+        "Cities had laws against tall buildings.",
+        "There was no glass for high windows.",
+        "Builders were afraid of strong winds."
+      ],
+      "answer": "A",
+      "why": "“People simply refused to climb dozens of flights of stairs, so upper floors were inconvenient and difficult to rent.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a short story",
+        "a poem",
+        "an expository text",
+        "a diary entry"
+      ],
+      "answer": "C",
+      "why": "It explains a real invention and its effects using facts, dates and examples."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why were early lifting machines rarely trusted with passengers?",
+      "options": [
+        "They were too slow for busy people.",
+        "They needed animals to pull them.",
+        "They could only reach the second floor.",
+        "A broken rope could make the platform crash."
+      ],
+      "answer": "D",
+      "why": "“A single broken rope could send the platform crashing to the ground.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Put these events in the order in which they happened.",
+      "options": [
+        "store elevator → exhibition → brake design",
+        "exhibition → brake design → store elevator",
+        "brake design → store elevator → exhibition",
+        "brake design → exhibition → store elevator"
+      ],
+      "answer": "D",
+      "why": "Otis designed the brake in 1852, demonstrated it in 1854, and the first passenger elevator was installed three years later."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who says “All safe, gentlemen, all safe!” in the text?",
+      "options": [
+        "the assistant with the axe",
+        "Elisha Otis",
+        "a person in the crowd",
+        "the owner of the store"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 says that Otis announced these words after the platform stopped."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what happened to the spring if the rope snapped?",
+      "options": [
+        "It pulled the platform back to the top.",
+        "It cut the rope into pieces.",
+        "It rang a bell to warn the passengers.",
+        "It pushed metal catches into the rails."
+      ],
+      "answer": "D",
+      "why": "“If the rope snapped, the spring was released at once, pushing strong metal catches into teeth along the guide rails.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Otis order his assistant to cut the rope in front of a crowd?",
+      "options": [
+        "He wanted people to believe his brake worked.",
+        "The rope was old and needed replacing.",
+        "He wanted to test a new axe.",
+        "The crowd asked him to stop the show."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: “Otis knew that a clever invention is useless if nobody believes in it.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe Otis during the demonstration?",
+      "options": [
+        "nervous and unsure",
+        "careless and lucky",
+        "confident and calm",
+        "angry and impatient"
+      ],
+      "answer": "C",
+      "why": "He stood high above the crowd, ordered the only rope cut and “calmly watched”, showing confidence in his design."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "wanting to know how a small device changed buildings",
+        "wanting to know how many stairs are in a house",
+        "wanting to know the price of steel",
+        "wanting to know who rented the upper floors"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 says a small device that passengers never notice changed everything, which raises curiosity."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did the top floors of buildings change after elevators became trusted?",
+      "options": [
+        "They became harder to rent.",
+        "They were turned into storage rooms.",
+        "They were removed from most buildings.",
+        "They went from least wanted to most valuable."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: the top floors, “once the least desirable, gradually became the most valuable because of their spectacular views.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what TWO things together made the modern skyscraper possible?",
+      "options": [
+        "stairs and ropes",
+        "animals and water power",
+        "computers and cars",
+        "elevators and steel frames"
+      ],
+      "answer": "D",
+      "why": "“Together with steel frames, elevators made the modern skyscraper possible.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the effect of computers grouping passengers going to nearby floors?",
+      "options": [
+        "Waiting times become shorter.",
+        "Elevators move more slowly.",
+        "Buildings use more stairs.",
+        "Passengers must walk the last floor."
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: grouping passengers “reduces waiting times”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the brake let “architects… finally build upward”?",
+      "options": [
+        "Buildings could now be designed much taller.",
+        "Architects started working on rooftops.",
+        "Architects stopped using stairs.",
+        "Buildings were built upside down."
+      ],
+      "answer": "A",
+      "why": "“Build upward” means build taller buildings, which became practical once people trusted elevators."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer include Otis's words “All safe, gentlemen, all safe!”?",
+      "options": [
+        "to show that Otis was rude to the watching crowd",
+        "to make the dramatic moment feel real",
+        "to explain exactly how the spring worked",
+        "to prove that the rope was very strong"
+      ],
+      "answer": "B",
+      "why": "Quoting his exact words brings the exciting demonstration to life for the reader."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "The platform dropped a few centimetres and then stopped.",
+        "Imagine climbing the stairs to the top of a skyscraper every morning.",
+        "Today, elevator engineering is remarkably advanced.",
+        "“All safe, gentlemen, all safe!” Otis announced."
+      ],
+      "answer": "D",
+      "why": "Otis's words express strong feeling and end with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which idea from the text would be MOST useful for a young inventor?",
+      "options": [
+        "Keep your invention secret from everyone.",
+        "Show people clearly that your invention works.",
+        "Build only very tall buildings.",
+        "Never test an invention in public."
+      ],
+      "answer": "B",
+      "why": "Otis's success came from proving his brake in front of a crowd, because an invention is useless if nobody believes in it."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to show how an unnoticed device changed cities",
+        "a plan to sell tickets for elevator rides",
+        "a belief that all stairs are dangerous",
+        "a wish to criticise very tall buildings"
+      ],
+      "answer": "A",
+      "why": "The writer reminds readers to remember Otis “the next time you step into an elevator without a second thought.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "worry",
+        "appreciation",
+        "boredom",
+        "anger"
+      ],
+      "answer": "B",
+      "why": "The writer asks readers to remember and value the mechanic whose invention makes others safe to use."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "when Otis first demonstrated his brake",
+        "how tall the Burj Khalifa in Dubai is",
+        "why the top floors became so valuable",
+        "how elevators capture energy going down"
+      ],
+      "answer": "D",
+      "why": "The writer mentions energy capture but never explains it; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An elevator's brake stops it safely after a cable problem.",
+        "An elevator carries passengers to the Moon.",
+        "A platform keeps falling even though its catches have locked into the rails.",
+        "A spring cuts a steel rope by itself."
+      ],
+      "answer": "A",
+      "why": "The text explains that safety brakes lock the platform in place if a rope fails."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Rope That Fell",
+        "Stairs Forever",
+        "Safety First, Then Higher",
+        "A Store in New York"
+      ],
+      "answer": "C",
+      "why": "The text shows that safety came first, and only then could buildings grow taller."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences describing a new elevator feature you would invent for the tower in Jeddah and why it would help.",
+      "model": "For the tower in Jeddah, I would invent an elevator that shows passengers a live screen of the city as they rise, so that the long journey feels shorter and less frightening. It would also stop automatically at a safe floor during any power cut. These features would help thousands of people feel safe and comfortable every day.",
+      "rubric": [
+        "2 = a clear new ending with a sensible elevator feature and a reason linked to the text's ideas (safety, speed, energy, comfort)",
+        "1 = a feature is given but the reason is missing or unclear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible feature with a clear reason is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Engineers in Jeddah must move thousands of people through a very tall tower. Which solution fits the ideas in the text?",
+      "options": [
+        "Use computers to group passengers going to nearby floors.",
+        "Install very fast elevators.",
+        "A and B",
+        "Ask everyone to use the stairs."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 describes both fast elevators and computer grouping that reduces waiting; stairs would be impossible in such a tall building."
+    }
+  ]
+}

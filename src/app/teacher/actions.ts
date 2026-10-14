@@ -7,6 +7,8 @@ import { repo, requireActor } from "@/server/auth/next";
 import { createAssignment } from "@/server/teacher/assignments";
 import { assignQuestions, assignSkillToClasses, trackOf } from "@/server/teacher/assign";
 import { resolveAlert } from "@/server/teacher/interventions";
+import { masteredInClasses } from "@/server/skills/status-extras";
+import { assertClassAccess } from "@/server/teacher/assignments";
 import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
 
@@ -65,10 +67,20 @@ export async function assignSkillAction(_: { error?: string; message?: string; a
       revalidatePath("/teacher/assignments");
       return { message: "Saved as a draft. Nothing was sent. Send it from Weekly Assignments → Drafts.", draft: true };
     }
+    // ⭐ "N students already mastered this skill — exclude them?" → Yes: only the others get it
+    let studentIds = mode === "class" ? [] : picked;
+    if (f.get("excludeMastered") === "1" && actor.schoolId) {
+      const m = await masteredInClasses(repo, actor.schoolId, classIds, String(f.get("skillId") ?? ""), studentIds);
+      if (m.mastered.length) {
+        studentIds = m.reach.filter((id) => !m.mastered.includes(id));
+        if (!studentIds.length) return { error: "Every student already mastered this skill." };
+      }
+    }
     const r = await assignSkillToClasses(repo, actor, { track: trackOf(f.get("track")),
-      classIds, skillId: String(f.get("skillId") ?? ""), studentIds: mode === "class" ? [] : picked,
+      classIds, skillId: String(f.get("skillId") ?? ""), studentIds,
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
       program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")),
+      questionCount: f.get("questionCount") ? Number(f.get("questionCount")) : null,
     });
     revalidatePath("/teacher/assignments");   // not the skills page: rebuilding it after every click made assigning slow
     return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}${r.classes > 1 ? ` in ${r.classes} classes` : ""}. They have been notified.`, assignmentIds: r.assignmentIds };
@@ -129,4 +141,13 @@ export async function deleteDraftAction(f: FormData): Promise<void> {
   await deleteAssignDraft(repo, actor, String(f.get("draftId") ?? "")).catch(() => undefined);
   revalidatePath("/teacher/assignments");
   redirect(`/teacher/assignments?msg=${encodeURIComponent("Draft deleted.")}`);
+}
+
+/** ⭐ The Assign window's prompt: how many of the students it would reach already mastered the skill. */
+export async function masteredCountAction(input: { classIds: string[]; skillId: string; studentIds?: string[] }): Promise<{ count: number }> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  const classIds = [...new Set((input?.classIds ?? []).map(String).filter(Boolean))].slice(0, 20);
+  try { for (const id of classIds) await assertClassAccess(repo, actor, id); } catch { return { count: 0 }; }
+  const m = await masteredInClasses(repo, actor.schoolId!, classIds, String(input?.skillId ?? ""), (input?.studentIds ?? []).map(String));
+  return { count: m.mastered.length };
 }

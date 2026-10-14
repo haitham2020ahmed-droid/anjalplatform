@@ -5,6 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classInterventions } from "@/server/insights/interventions";
 import { startInterventionAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Intervention groups" };
 
@@ -38,7 +39,7 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
           <h2 className="text-lg font-bold text-brand-navy">Start a group · {String(klass.name)}</h2>
           <input type="hidden" name="classId" value={String(klass.id)} />
           <div className="grid gap-3 sm:grid-cols-3">
-            <label className="text-sm">Skill<select name="skillId" required className="mt-1 block w-full rounded-lg border-slate-300">{skills.map((k) => <option key={String(k.id)} value={String(k.id)}>{String(k.name)}</option>)}</select></label>
+            <label className="text-sm">Skill<Combo name="skillId" required label="Skill" options={skills.map((k) => ({ value: String(k.id), label: String(k.name) }))} className="mt-1" /></label>
             <label className="text-sm">Days<input type="number" name="days" min={3} max={42} defaultValue={14} className="mt-1 block w-full rounded-lg border-slate-300" /></label>
             <label className="text-sm">Name (optional)<input name="title" maxLength={120} className="mt-1 block w-full rounded-lg border-slate-300" placeholder="Theme small group" /></label>
           </div>

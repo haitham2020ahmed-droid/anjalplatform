@@ -1,0 +1,454 @@
+{
+ "code": "LN-001",
+ "title": "Contrast transitions",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.c",
+  "W.5.2.c",
+  "W.5.3.a"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0011",
+  "L-0062",
+  "L-0138",
+  "L-0158",
+  "L-0260"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Ideas that are different",
+     "text": "Sometimes two ideas are **different**.\n\nThe sun is hot. The moon is cool."
+    },
+    {
+     "title": "Words that show a change",
+     "text": "Some words tell the reader: **a different idea is coming**.\n\n**but**, **however**, **instead**"
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Read the two sentences.\n2. Ask: **Are they different?**\n3. If yes, use **but** or **however**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **two ideas** next to the blank.\n\n1. Read the sentence before the blank.\n2. Read the sentence after it.\n3. Do they say **different** things? Then a contrast word fits.\n\nPoint to both sentences. They are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Fahad's bike is very old.",
+      "role": "detail"
+     },
+     {
+      "t": "However, it still goes fast.",
+      "role": "key"
+     }
+    ],
+    "explain": "Old bikes are often slow. But this bike is fast. The two ideas are different, so **However** fits."
+   },
+   "together": {
+    "passage": "Our class wanted to play football outside. ___, it started to rain. We played a quiz game in the classroom.",
+    "stem": "Which word best shows that the second idea is different from the first?",
+    "options": [
+     "So",
+     "However",
+     "Next",
+     "Also"
+    ],
+    "answer": 1,
+    "hint": "That word does not show a change. The class wanted to go out. Then something different happened.",
+    "good": "Yes! The class wanted to play outside, but rain came. **However** shows the change."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class wanted to play football outside.",
+     "However, it started to rain.",
+     "We played a quiz game in the classroom."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: However. Tap the 2 sentences that show the two different ideas.",
+    "wrong": "This sentence tells what the class did after. Find the two ideas that do not match."
+   },
+   "checks": [
+    {
+     "passage": "The box was big. ___, it was very light.",
+     "stem": "Which word shows that the ideas are different?",
+     "options": [
+      "Because",
+      "First",
+      "And",
+      "However"
+     ],
+     "answer": 3,
+     "why": "Big boxes are often heavy. This one is light. The ideas are different, so **However** fits."
+    },
+    {
+     "passage": "Sara is the youngest in her family, ___ she is the tallest.",
+     "stem": "Which word fits best?",
+     "options": [
+      "but",
+      "so",
+      "then",
+      "because"
+     ],
+     "answer": 0,
+     "why": "Youngest children are often small. Sara is tall. **but** joins the two different ideas."
+    },
+    {
+     "passage": "Dad did not drive to work today. ___, he walked.",
+     "stem": "Which word shows that Dad did something different?",
+     "options": [
+      "Also",
+      "First",
+      "Instead",
+      "Because"
+     ],
+     "answer": 2,
+     "why": "Dad did not drive. He walked **instead** of driving."
+    }
+   ],
+   "again": {
+    "title": "Up or down?",
+    "text": "Give each idea a **thumbs up** or a **thumbs down**.\n\nIf one is up and one is down, the ideas are **different**. Use **but** or **however**.",
+    "example": "The test was hard. **However**, Lina got every answer right.\n\nHard test: down. Every answer right: up. They are different, so **however** fits."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Showing a contrast",
+     "text": "A **contrast** shows how two ideas are **different**.\n\nA **transition** word warns the reader that the next idea will not match the one before."
+    },
+    {
+     "title": "Contrast words and phrases",
+     "text": "**however**, **but**, **yet**, **instead**, **although**, **on the other hand**, **even so**\n\nTip: **However** and **On the other hand** often start a sentence. Put a comma after them."
+    },
+    {
+     "title": "Not every transition fits",
+     "text": "**also** and **in addition** add a similar idea.\n**so** and **as a result** show a result.\n**first** and **next** show order.\n\nUse a contrast word only when the ideas go **against** each other."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentences **before and after** the blank.\n2. Ask: does the second idea **agree** with the first or **go against** it?\n3. If it goes against it, choose a contrast word.\n\nYour proof is the pair of sentences that do not match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many people think deserts are always hot.",
+      "role": "other"
+     },
+     {
+      "t": "On the other hand, desert nights can be very cold.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence says **hot**. The second says **cold**. **On the other hand** tells the reader the ideas are opposite."
+   },
+   "together": {
+    "passage": "Smartphones help students in many ways. They can look up facts quickly and send messages to their teachers. ___, phones can also pull students away from their work. A game or a video is always just one tap away.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "As a result",
+     "In addition",
+     "On the other hand",
+     "For example"
+    ],
+    "answer": 2,
+    "hint": "Does the third sentence add another help? Look again: it tells a problem, not a help.",
+    "good": "Yes! First the text tells how phones help. Then it tells how they cause a problem. **On the other hand** shows the switch."
+   },
+   "evidence": {
+    "sentences": [
+     "Smartphones help students in many ways.",
+     "They can look up facts quickly and send messages to their teachers.",
+     "On the other hand, phones can also pull students away from their work.",
+     "A game or a video is always just one tap away."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: On the other hand. Tap the 2 sentences that show the two opposite sides.",
+    "wrong": "This sentence only adds a detail. Find the sentence that says phones help and the one that says phones cause a problem."
+   },
+   "checks": [
+    {
+     "passage": "Bees can sting. ___, they are very important because they help plants make fruit.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "Even so",
+      "Next",
+      "Because",
+      "For example"
+     ],
+     "answer": 0,
+     "why": "Stinging is a bad point. Helping plants is a good point. **Even so** shows the contrast."
+    },
+    {
+     "passage": "Khalid practised his speech every night. ___, he felt nervous when he stood in front of the class.",
+     "stem": "Which word best fits the blank?",
+     "options": [
+      "Therefore",
+      "Also",
+      "First",
+      "Still"
+     ],
+     "answer": 3,
+     "why": "Practice should make him calm, but he felt nervous. **Still** shows the surprise."
+    },
+    {
+     "passage": "___ the museum was crowded, we saw every room.",
+     "stem": "Which word best fits the blank?",
+     "options": [
+      "Because",
+      "Although",
+      "So",
+      "Then"
+     ],
+     "answer": 1,
+     "why": "A crowd could stop you from seeing everything, but we saw every room. **Although** shows the contrast."
+    }
+   ],
+   "again": {
+    "title": "Same or opposite?",
+    "text": "Read the two ideas aloud.\n\nIf they feel the **same**, use **also** or **and**.\nIf they feel **opposite**, use **however**, **but** or **yet**.",
+    "example": "The car is old. ___, it runs well.\n\nOld sounds like a problem. Runs well sounds good. They feel opposite, so use **However**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Contrast inside a sentence",
+     "text": "Words like **although**, **even though** and **while** start a **clause** that shows contrast.\n\n**Although the road was long**, the trip felt short."
+    },
+    {
+     "title": "A whole sentence can turn",
+     "text": "Sometimes a writer uses a **full sentence** to show a turn:\n\n**But that was only half the story.**\n**Not everyone agreed.**\n\nThe reader knows the next ideas will go the other way."
+    },
+    {
+     "title": "Choose with care",
+     "text": "1. Find the idea **before** the gap.\n2. Find the idea **after** the gap.\n3. Pick the transition that shows they **differ** and fits the topic.\n\nA contrast sentence about the wrong thing is still wrong."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A contrast always has **two sides**.\n\n1. Find the sentence that shows what people **expected** or what was true first.\n2. Find the sentence that shows the **opposite**.\n3. Choose the transition that joins them.\n\nYou should be able to point to one sentence on each side."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old market had narrow lanes and no air conditioning.",
+      "role": "detail"
+     },
+     {
+      "t": "Many people thought shoppers would stop coming.",
+      "role": "detail"
+     },
+     {
+      "t": "That is not what happened.",
+      "role": "key"
+     },
+     {
+      "t": "Families still visit every evening to buy spices and sweets.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The first two sentences make you expect the market to fail. **That is not what happened** turns the idea around. The last sentence proves the turn."
+   },
+   "together": {
+    "passage": "When our town built a new sports centre, everyone expected the old playground to sit empty. The sports centre had a swimming pool, a climbing wall and bright lights for evening games. ___ Every afternoon, younger children still run to the playground, where they climb the old trees and play tag on the sand. Their parents sit on the benches and talk while they watch.",
+    "stem": "Which sentence best fills the gap?",
+    "options": [
+     "The sports centre also has a small café.",
+     "As a result, the playground was closed.",
+     "First, the town painted the new building.",
+     "However, the playground did not lose its visitors."
+    ],
+    "answer": 3,
+    "hint": "That sentence does not show a turn. People expected the playground to be empty. What really happened?",
+    "good": "Yes! People expected an empty playground, but children still go there. The sentence turns from the expectation to what really happened."
+   },
+   "evidence": {
+    "sentences": [
+     "When our town built a new sports centre, everyone expected the old playground to sit empty.",
+     "The sports centre had a swimming pool, a climbing wall and bright lights for evening games.",
+     "However, the playground did not lose its visitors.",
+     "Every afternoon, younger children still run to the playground, where they climb the old trees and play tag on the sand.",
+     "Their parents sit on the benches and talk while they watch."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: However, the playground did not lose its visitors. Tap 2 sentences: what people expected, and what really happened.",
+    "wrong": "This sentence does not show one of the two sides. Find what people expected and what the children really do."
+   },
+   "checks": [
+    {
+     "passage": "___ she had hurt her ankle a week earlier, Reem finished the race in second place.",
+     "stem": "Which word best shows the contrast between the two ideas?",
+     "options": [
+      "Because",
+      "Even though",
+      "Since",
+      "After"
+     ],
+     "answer": 1,
+     "why": "A hurt ankle should slow her down, but she came second. **Even though** shows the contrast."
+    },
+    {
+     "passage": "Many people think that bats are blind. ___ Most bats can see, and many also use sound to find their way in the dark.",
+     "stem": "Which sentence best fills the gap?",
+     "options": [
+      "Bats sleep upside down.",
+      "Bats are a kind of mammal.",
+      "This idea is not correct.",
+      "This is why bats fly at night."
+     ],
+     "answer": 2,
+     "why": "The first sentence gives a belief. The next one shows it is wrong. **This idea is not correct** makes the turn."
+    },
+    {
+     "passage": "A big city has hospitals and good schools close by. ___, a small village offers clean air and quiet streets.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "In contrast",
+      "For this reason",
+      "In addition",
+      "Finally"
+     ],
+     "answer": 0,
+     "why": "The text compares two different places. **In contrast** shows that the village is different from the city."
+    }
+   ],
+   "again": {
+    "title": "Expected and real",
+    "text": "Think of a contrast as **what you expected** and **what really happened**.\n\nPut a contrast word or sentence in the middle, like a bridge.",
+    "example": "Expected: The puzzle looked easy.\nBridge: **It was not.**\nReal: It took us three hours to finish it."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Contrast with purpose",
+     "text": "Strong writers choose contrast transitions that fit **exactly** how two ideas differ.\n\n**nevertheless / even so**: something is true in spite of a problem.\n**in contrast / whereas**: two things are compared.\n**instead / rather**: one thing replaces another."
+    },
+    {
+     "title": "Concession",
+     "text": "Sometimes a writer **admits** a point first, then shows the stronger point.\n\n**While it is true that** fast food saves time, home cooking is usually healthier.\n\nThe clause gives the other side; the main clause gives the writer's view."
+    },
+    {
+     "title": "Test the transition",
+     "text": "1. Name the relationship: opposite, compared, replaced or admitted?\n2. Try the transition in the gap and read the whole passage.\n3. Check that it does not change the writer's meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The best transition must match the **exact** relationship between two sentences.\n\n1. Find the sentence before and after the gap.\n2. Decide how they differ: does one **replace**, **compare** or **go against** the other?\n3. Point to the words that prove that relationship."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For years, the town recycled almost nothing.",
+      "role": "detail"
+     },
+     {
+      "t": "Rather than sending everything to the landfill, families now sort paper, plastic and glass at home.",
+      "role": "key"
+     },
+     {
+      "t": "The change began with one school project.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Rather than** shows that one habit **replaced** another: sorting at home instead of throwing everything away. **However** would only show a difference, not a replacement."
+   },
+   "together": {
+    "passage": "Engineers once believed that the best way to cool a building in a hot climate was to run powerful air conditioners all day. These machines work, but they use huge amounts of electricity. ___, some architects are looking back at older ideas. Traditional houses in parts of the Gulf had tall wind towers that caught the breeze and sent it down into the rooms. Thick walls and shaded courtyards also kept the heat out. Modern designers are now mixing these methods with new materials.",
+    "stem": "Which transition best fills the gap?",
+    "options": [
+     "Instead of relying only on machines",
+     "Because air conditioners are cheap",
+     "In the same way",
+     "As soon as the towers were built"
+    ],
+    "answer": 0,
+    "hint": "Does that choice match the passage? The writer moves from machines to a different, older way of cooling.",
+    "good": "Yes! Architects are turning to older ideas in place of using only machines. **Instead of relying only on machines** shows that change."
+   },
+   "evidence": {
+    "sentences": [
+     "Engineers once believed that the best way to cool a building in a hot climate was to run powerful air conditioners all day.",
+     "These machines work, but they use huge amounts of electricity.",
+     "Instead of relying only on machines, some architects are looking back at older ideas.",
+     "Traditional houses in parts of the Gulf had tall wind towers that caught the breeze and sent it down into the rooms.",
+     "Thick walls and shaded courtyards also kept the heat out.",
+     "Modern designers are now mixing these methods with new materials."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Instead of relying only on machines. Tap 2 sentences: one about the old belief and one about the different way of cooling.",
+    "wrong": "This sentence does not show either side of the change. Find the machine idea and an example of the older cooling ideas."
+   },
+   "checks": [
+    {
+     "passage": "Some students prefer to study in total silence. ___ others concentrate better with quiet background noise, such as rain or a fan.",
+     "stem": "Which transition best shows that the two groups are being compared?",
+     "options": [
+      "Therefore",
+      "Furthermore",
+      "Whereas",
+      "Similarly"
+     ],
+     "answer": 2,
+     "why": "The passage compares two groups that study differently. **Whereas** sets the two habits side by side as a contrast."
+    },
+    {
+     "passage": "The first test flight of the glider ended with a broken wing. ___, the students repaired it and tried again the next morning.",
+     "stem": "Which transition best fits the meaning?",
+     "options": [
+      "Consequently",
+      "Nevertheless",
+      "Likewise",
+      "In other words"
+     ],
+     "answer": 1,
+     "why": "The students kept going in spite of the failure. **Nevertheless** shows something happened despite a problem."
+    },
+    {
+     "passage": "___ some people say that handwriting is no longer needed, studies suggest that writing notes by hand can help students remember ideas.",
+     "stem": "Which choice best begins the sentence?",
+     "options": [
+      "Since it is true that",
+      "Just as",
+      "As a result of the fact that",
+      "While it is true that"
+     ],
+     "answer": 3,
+     "why": "The writer admits one view, then gives a stronger point. **While it is true that** admits the other side."
+    }
+   ],
+   "again": {
+    "title": "Name the relationship",
+    "text": "Before you pick a transition, finish this sentence: **The second idea ___ the first.**\n\ngoes against → however, nevertheless\nis compared with → in contrast, whereas\nreplaces → instead, rather than",
+    "example": "Many people drive to the market. Our family, ___, walks.\n\nThe second idea **is compared with** the first, so use **in contrast**."
+   }
+  }
+ }
+}

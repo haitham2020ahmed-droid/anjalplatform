@@ -1,0 +1,443 @@
+{
+ "code": "LN-040",
+ "title": "Clauses and complex sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "clauses-complex"
+ ],
+ "skillNames": [
+  "Clauses and Complex Sentences",
+  "Complex Sentences",
+  "Independent and Dependent Clauses",
+  "Phrases and Clauses"
+ ],
+ "statements": [
+  "L-0029",
+  "L-0097",
+  "L-0210"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Phrase or sentence?",
+     "text": "A **phrase** is a small group of words. It is **not** a full sentence.\n\n“in the morning” · “at the park” · “after lunch”"
+    },
+    {
+     "title": "What a sentence needs",
+     "text": "A sentence needs **who or what** and **what they do**.\n\n**We played football.** Who? We. What did we do? Played.\n\nThis can stand alone. It is called an **independent clause**."
+    },
+    {
+     "title": "Put them together",
+     "text": "1. Start with the phrase: **After lunch**\n2. Add a comma.\n3. Add a full sentence: **we played football.**\n\n**After lunch, we played football.** Now it is complete!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at each sentence in the text.\n\n1. Ask: **Who or what** is it about?\n2. Ask: **What do they do?**\n\nIf you cannot answer both, the words are only a phrase. Point to them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At the zoo.",
+      "role": "other"
+     },
+     {
+      "t": "At the zoo, we saw a tall giraffe.",
+      "role": "key"
+     }
+    ],
+    "explain": "“At the zoo” is only a phrase. It does not say who or what happened.\n\nAdd **we saw a tall giraffe** and you get a complete sentence."
+   },
+   "together": {
+    "passage": "Ali went to the market with his dad. They bought fresh bread. In the big basket. Ali carried it home.",
+    "stem": "Which is the best way to fix “In the big basket.”?",
+    "options": [
+     "In the big basket with bread.",
+     "Big basket in the.",
+     "In the big basket, Dad put the bread.",
+     "In the big basket and."
+    ],
+    "answer": 2,
+    "hint": "That still has no who and no action. Which choice adds a who and a verb?",
+    "good": "Yes! “Dad put the bread” tells who and what he did, so now it is complete."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali went to the market with his dad.",
+     "They bought fresh bread.",
+     "In the big basket.",
+     "Ali carried it home."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the part of the text that was not a complete sentence.",
+    "wrong": "This one is complete. It tells who and what they did. Find the words with no who and no action."
+   },
+   "checks": [
+    {
+     "passage": "We went to the park. After dinner. We came home late.",
+     "stem": "Which makes “After dinner.” a complete sentence?",
+     "options": [
+      "After dinner, we ate fruit.",
+      "After dinner and fruit.",
+      "After the big dinner.",
+      "Dinner after."
+     ],
+     "answer": 0,
+     "why": "“We ate fruit” tells who and what they did, so the phrase becomes a sentence."
+    },
+    {
+     "passage": "Huda has a cat. On the sofa. The cat sleeps all day.",
+     "stem": "Which group of words is only a phrase?",
+     "options": [
+      "Huda has a cat.",
+      "The cat sleeps all day.",
+      "On the sofa.",
+      "All of them are sentences."
+     ],
+     "answer": 2,
+     "why": "“On the sofa” tells where, but not who or what happens."
+    },
+    {
+     "passage": "Every day, Omar reads a book.",
+     "stem": "Which part could stand alone as a sentence?",
+     "options": [
+      "Every day",
+      "Omar reads a book",
+      "Every day, Omar",
+      "day, Omar reads"
+     ],
+     "answer": 1,
+     "why": "“Omar reads a book” has who (Omar) and what he does (reads). It can stand alone."
+    }
+   ],
+   "again": {
+    "title": "Who and what?",
+    "text": "A sentence is like a team. It needs two players:\n\n1. **Who** (Mona, the dog, we)\n2. **Does what** (runs, eats, sings)\n\nA phrase is missing one or both.",
+    "example": "“Under the tree” → Who? None. Does what? None. It is a phrase.\n\n“Under the tree, the dog sleeps.” → Who? **The dog**. Does what? **Sleeps**. Complete!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Two kinds of clauses",
+     "text": "A **clause** has a subject and a verb.\n\nAn **independent clause** can stand alone: “The bell rang.”\n\nA **dependent clause** cannot stand alone: “when the bell rang”. It leaves you waiting."
+    },
+    {
+     "title": "Clue words",
+     "text": "Dependent clauses often begin with **because, when, if, after, before, while, although, since**.\n\n“Because it rained…” What happened? We need more!"
+    },
+    {
+     "title": "Complex sentences",
+     "text": "A **complex sentence** = a dependent clause + an independent clause.\n\n**When the bell rang, the students lined up.**\n\nIf the dependent clause comes first, put a comma after it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To check a sentence:\n\n1. Find any clue word (because, when, if…).\n2. Cover the clause that starts with it.\n3. Is a full sentence left? If **no**, the sentence is not complete.\n\nPoint to the sentence that leaves you waiting."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Because the road was closed.",
+      "role": "other"
+     },
+     {
+      "t": "Because the road was closed, the bus took a longer way.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first one starts with **because** and stops. We wait to hear what happened.\n\nThe second adds **the bus took a longer way**. That part can stand alone, so the sentence is complete."
+   },
+   "together": {
+    "passage": "Our class planted a tree on Tuesday. Before we dug the hole, our teacher showed us how to hold the shovel. We took turns digging. When the hole was deep enough. Then we placed the young tree inside and watered it.",
+    "stem": "Which change makes the incomplete sentence complete?",
+    "options": [
+     "When the hole was deep enough, we stopped digging.",
+     "When the hole that we dug was deep enough.",
+     "When the hole, was deep enough.",
+     "When deep enough the hole."
+    ],
+    "answer": 0,
+    "hint": "Cover the clause that starts with “when”. Is a full sentence left? Choose the answer that adds one.",
+    "good": "Yes! “We stopped digging” can stand alone, so the sentence is now complete."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planted a tree on Tuesday.",
+     "Before we dug the hole, our teacher showed us how to hold the shovel.",
+     "We took turns digging.",
+     "When the hole was deep enough.",
+     "Then we placed the young tree inside and watered it."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence in the text that was not complete.",
+    "wrong": "This sentence can stand alone. Look for the one that starts with a clue word and stops too soon."
+   },
+   "checks": [
+    {
+     "passage": "Sami wrote four sentences about his trip to Abha.",
+     "stem": "Which sentence is complete?",
+     "options": [
+      "Because the air was cool.",
+      "If we can visit the mountains again next year.",
+      "After we reached the mountains.",
+      "Although the road was long, the trip was fun."
+     ],
+     "answer": 3,
+     "why": "“The trip was fun” can stand alone, so the whole sentence is complete. The others are only dependent clauses."
+    },
+    {
+     "passage": "Mona fed the cat. Since it was hungry. Then it went to sleep.",
+     "stem": "Which one is NOT a complete sentence?",
+     "options": [
+      "Mona fed the cat.",
+      "Then it went to sleep.",
+      "All three are complete.",
+      "Since it was hungry."
+     ],
+     "answer": 3,
+     "why": "“Since” makes the clause depend on another one. Alone, it does not finish the thought."
+    },
+    {
+     "passage": "While Dad cooked dinner, I set the table.",
+     "stem": "Which part is the independent clause?",
+     "options": [
+      "While Dad cooked dinner",
+      "While Dad",
+      "I set the table",
+      "cooked dinner, I set"
+     ],
+     "answer": 2,
+     "why": "“I set the table” can stand alone. “While Dad cooked dinner” starts with a clue word, so it depends on the rest."
+    }
+   ],
+   "again": {
+    "title": "The waiting test",
+    "text": "Read the words out loud. Do you want to ask **“…and then what?”**\n\nIf yes, the sentence is not complete. Add a part that can stand alone.",
+    "example": "“If it rains tomorrow.” → …and then what?\n\n“If it rains tomorrow, we will play inside.” → Done! It is complete."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Clauses can move",
+     "text": "A dependent clause can come **first** or **last**.\n\n“Because the wind was strong, the boat stayed in the harbor.”\n“The boat stayed in the harbor because the wind was strong.”\n\nWhen “because” comes in the middle, no comma is needed."
+    },
+    {
+     "title": "Clauses with who, which, that",
+     "text": "**Who, which** and **that** also start dependent clauses.\n\n“The girl who won the race” names someone, but says nothing about her.\n\n“The girl who won the race **smiled**.” Now it is complete."
+    },
+    {
+     "title": "Long is not the same as complete",
+     "text": "A long group of words can still be a fragment.\n\n“After the team that won the cup returned to the city on Friday evening.”\n\nIt is long, but **every** clause depends on another. Nothing stands alone."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the clue words (because, when, who, which, that…).\n2. Mark each dependent clause.\n3. Look at what is left. Is there a subject **and** its own verb?\n\nIf nothing is left, the sentence is incomplete. Point to the words that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The volunteers who cleaned the beach on Saturday.",
+      "role": "other"
+     },
+     {
+      "t": "The volunteers who cleaned the beach on Saturday collected forty bags of rubbish.",
+      "role": "key"
+     }
+    ],
+    "explain": "In the first, “who cleaned the beach” describes the volunteers, but we never learn what the volunteers **did**.\n\nThe second adds the verb **collected**. “The volunteers collected forty bags” stands alone."
+   },
+   "together": {
+    "passage": "Every spring, huge flocks of storks fly over the Middle East. The birds, which spend the winter in Africa, travel north to build their nests. Because they are large and heavy, storks ride on warm rising air instead of flapping their wings all the time. People who watch from hilltops can see long lines of birds circling upward. Although the journey is long and tiring for the young birds.",
+    "stem": "Which change makes the last sentence complete?",
+    "options": [
+     "Although the journey is long, and tiring for the young birds.",
+     "The journey, although it is long and tiring for the young birds.",
+     "Although the journey, which is long, tires the young birds.",
+     "Although the journey is long and tiring, the young birds keep flying."
+    ],
+    "answer": 3,
+    "hint": "Cross out the dependent clauses in that choice. Is a subject with its own verb left?",
+    "good": "Yes! “The young birds keep flying” can stand alone, so the sentence is complete."
+   },
+   "evidence": {
+    "sentences": [
+     "Every spring, huge flocks of storks fly over the Middle East.",
+     "The birds, which spend the winter in Africa, travel north to build their nests.",
+     "Because they are large and heavy, storks ride on warm rising air instead of flapping their wings all the time.",
+     "People who watch from hilltops can see long lines of birds circling upward.",
+     "Although the journey is long and tiring for the young birds."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "Tap the sentence in the paragraph that was not complete.",
+    "wrong": "This sentence has a clause that can stand alone. Find the one where every part depends on something else."
+   },
+   "checks": [
+    {
+     "passage": "The museum, which opened last year in the old fort, displays coins, maps and pottery.",
+     "stem": "Is this sentence complete?",
+     "options": [
+      "No, because it starts with a noun.",
+      "Yes, because “The museum displays…” can stand alone.",
+      "No, because “which” always makes a fragment.",
+      "Yes, because it has two commas."
+     ],
+     "answer": 1,
+     "why": "Take out “which opened last year in the old fort” and you still have “The museum displays coins, maps and pottery.”"
+    },
+    {
+     "passage": "A student wrote these notes for the school newsletter.",
+     "stem": "Which is a complete sentence?",
+     "options": [
+      "The boy who found the lost wallet near the mosque.",
+      "When the boy found the lost wallet near the mosque.",
+      "The boy who found the wallet returned it to its owner.",
+      "Because the boy found the lost wallet near the mosque."
+     ],
+     "answer": 2,
+     "why": "“The boy returned it to its owner” stands alone. The other choices never give “the boy” a verb of his own, or start with a clue word."
+    },
+    {
+     "passage": "Since the library will be closed on Thursday for cleaning.",
+     "stem": "What does this group of words need to be complete?",
+     "options": [
+      "A clause that can stand alone",
+      "A question mark at the end",
+      "A capital letter on “library”",
+      "“Because” instead of “since”"
+     ],
+     "answer": 0,
+     "why": "“Since…” is a dependent clause. Add a clause like “we will return our books on Wednesday” to finish the thought."
+    }
+   ],
+   "again": {
+    "title": "Cover the helpers",
+    "text": "Put brackets around every dependent clause (the parts that start with because, when, who, which…). Read what is left.\n\nIf what is left is a full sentence, the whole thing is complete.",
+    "example": "“The man [who sells dates in the market].” → Left: “The man.” Not complete.\n\n“The man [who sells dates] owns a farm.” → Left: “The man owns a farm.” Complete!"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Clauses that connect ideas",
+     "text": "Dependent clauses show **how ideas connect**:\n\ncause (because, since) · time (when, after, until) · contrast (although, even though) · condition (if, unless)\n\nThe independent clause carries the main point. The dependent clause adds the link."
+    },
+    {
+     "title": "Fragments in disguise",
+     "text": "Watch for long fragments:\n\n1. A noun with a clause but no main verb: “The engineers who designed the new bridge.”\n2. A clue-word clause alone: “Even though the results surprised everyone.”\n3. An -ing verb alone: “The city growing quickly after oil was found.”"
+    },
+    {
+     "title": "The right link word",
+     "text": "The clue word must match the meaning.\n\n“**Although** the test was hard, most students passed.” shows contrast. It makes sense.\n\n“**Because** the test was hard, most students passed.” does not: a hard test is not a reason to pass."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **main subject** of the sentence.\n2. Find **its** verb, not a verb inside a who / which / that clause.\n3. If the main subject has no verb of its own, the sentence is a fragment.\n\nPoint to the sentence where the main subject is left without a verb."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The scientists who studied the ancient rock art near Ha'il, which shows camels and hunters.",
+      "role": "other"
+     },
+     {
+      "t": "The scientists who studied the ancient rock art near Ha'il, which shows camels and hunters, believe some carvings are thousands of years old.",
+      "role": "key"
+     }
+    ],
+    "explain": "In the first, “who studied…” and “which shows…” are both dependent clauses. The main subject, “scientists”, never gets a verb.\n\nThe second adds **believe**, the verb for “scientists”. Now the sentence is complete."
+   },
+   "together": {
+    "passage": "For generations, the small coastal town depended on fishing. Most families owned a boat, and the morning catch was sold at the harbor market. Then, over a few years, the fish began to disappear. Some fishermen blamed the weather, while others blamed bad luck. The scientists who studied the bay, which had grown warmer near a new factory. They found that warm water flowing from the factory was driving the fish away. After the factory began cooling its water, the fish slowly returned.",
+    "stem": "Which revision correctly fixes the incomplete sentence?",
+    "options": [
+     "The scientists who studied the bay, which had grown warmer near a new factory, and the cause.",
+     "The scientists who studied the bay noticed that it had grown warmer near a new factory.",
+     "Because the scientists studied the bay, which had grown warmer near a new factory.",
+     "The scientists studying the bay, which had grown warmer near a new factory."
+    ],
+    "answer": 1,
+    "hint": "Find the main subject, “the scientists”. In that choice, does it have a verb of its own?",
+    "good": "Yes! “Noticed” is the verb for “the scientists”, so the sentence can now stand alone."
+   },
+   "evidence": {
+    "sentences": [
+     "For generations, the small coastal town depended on fishing.",
+     "Most families owned a boat, and the morning catch was sold at the harbor market.",
+     "Then, over a few years, the fish began to disappear.",
+     "Some fishermen blamed the weather, while others blamed bad luck.",
+     "The scientists who studied the bay, which had grown warmer near a new factory.",
+     "They found that warm water flowing from the factory was driving the fish away.",
+     "After the factory began cooling its water, the fish slowly returned."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "Tap the sentence in the passage that was a fragment.",
+    "wrong": "This sentence has a main subject with its own verb. Find the one where the subject never gets a verb."
+   },
+   "checks": [
+    {
+     "passage": "Although the desert seems lifeless at noon, many animals become active after sunset.",
+     "stem": "What job does the clause beginning with “Although” do?",
+     "options": [
+      "It gives the reason animals are active.",
+      "It shows a contrast with the main idea.",
+      "It tells when the animals sleep.",
+      "It is the independent clause."
+     ],
+     "answer": 1,
+     "why": "“Although” signals contrast: the desert seems empty, yet it comes alive at night."
+    },
+    {
+     "passage": "The volunteers, many of whom had never planted a tree before, ______ more than five hundred young trees along the valley.",
+     "stem": "Which word completes the sentence?",
+     "options": [
+      "who planted",
+      "planting",
+      "planted",
+      "which planted"
+     ],
+     "answer": 2,
+     "why": "The main subject “volunteers” needs its own verb. “Planted” gives it one; the other choices leave a fragment."
+    },
+    {
+     "passage": "Unless the rain arrives soon. The farmers will have to bring water by truck.",
+     "stem": "What is the best way to fix these words?",
+     "options": [
+      "Unless the rain arrives soon, the farmers will have to bring water by truck.",
+      "Unless the rain arrives soon; the farmers will have to bring water by truck.",
+      "The rain arrives soon unless. The farmers will bring water by truck.",
+      "Unless the rain arrives soon and the farmers bring water by truck."
+     ],
+     "answer": 0,
+     "why": "Join the “unless” clause to the independent clause with a comma. A semicolon cannot follow a dependent clause."
+    }
+   ],
+   "again": {
+    "title": "Find the boss verb",
+    "text": "Every complete sentence has a **boss**: the main subject with its own verb.\n\nIgnore the helpers (clauses with who, which, because, although…). Is a subject and verb still left? That is the boss.",
+    "example": "“The road that leads to the old fort, which was rebuilt last year.” → Remove helpers: “The road.” No boss verb. Fragment.\n\n“The road that leads to the old fort **is** steep.” → “The road is steep.” Complete."
+   }
+  }
+ }
+}

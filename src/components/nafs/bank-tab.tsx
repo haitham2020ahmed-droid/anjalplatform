@@ -3,8 +3,10 @@ import type { TFn } from "@/i18n";
 import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { nafsBankPage, nafsQuestionView, type BankSource } from "@/server/nafs/bank";
-import { CONTENT_SKILLS, DIFFICULTIES, DIFFICULTY_NAME, MOE_BY_CODE, MOE_STANDARDS, NAFS_DOMAINS, NAFS_SKILLS, PROCESS_NAME, PROCESSES, SKILL_BY_CODE } from "@/server/nafs/framework";
+import { codeName, CONTENT_SKILLS, DIFFICULTIES, DIFFICULTY_NAME, MOE_STANDARDS, NAFS_DOMAINS, NAFS_SKILLS, PROCESSES, SKILL_BY_CODE } from "@/server/nafs/framework";
 import { paragraphsOf } from "@/server/nafs/student";
+import { setChoices } from "@/server/nafs/build";
+import { Combo } from "@/components/ui/combo";
 import { hideQuestionAction, retagAction, reviewDraftAction } from "@/app/teacher/nafs/actions";
 
 const SOURCES: { key: BankSource; label: string }[] = [{ key: "ALL", label: "All" }, { key: "PLATFORM", label: "Platform" }, { key: "OWN", label: "The school's" }, { key: "DRAFT", label: "AI drafts to review" }, { key: "HIDDEN", label: "Hidden" }];
@@ -17,8 +19,13 @@ const SEL = "min-h-10 rounded-lg bg-surface px-2 text-sm ring-1 ring-line";
  */
 export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<string, string | undefined> }) {
   const src = (SOURCES.find((x) => x.key === sp.src)?.key ?? "ALL") as BankSource;
-  const page = await nafsBankPage(repo, actor, { domain: sp.domain || null, code: sp.code || null, source: src, passage: sp.passage === "WITH" || sp.passage === "WITHOUT" ? sp.passage : null, q: sp.q || null, page: Number(sp.page) || 1, standard: sp.std || null, kind: sp.kind === "MCQ" || sp.kind === "WRITTEN" ? sp.kind : null, difficulty: sp.dif || null });
-  const keep = (extra: Record<string, string | number>) => `/teacher/nafs?${new URLSearchParams({ tab: "bank", ...Object.fromEntries(Object.entries({ domain: sp.domain, code: sp.code, src: sp.src, passage: sp.passage, q: sp.q, page: sp.page, std: sp.std, kind: sp.kind, dif: sp.dif }).filter(([, v]) => v)) as Record<string, string>, ...Object.fromEntries(Object.entries(extra).map(([k, v]) => [k, String(v)])) })}`;
+  const [page, sets] = await Promise.all([
+    nafsBankPage(repo, actor, { domain: sp.domain || null, code: sp.code || null, source: src, passage: sp.passage === "WITH" || sp.passage === "WITHOUT" ? sp.passage : null, q: sp.q || null, page: Number(sp.page) || 1, standard: sp.std || null, kind: sp.kind === "MCQ" || sp.kind === "WRITTEN" ? sp.kind : null, difficulty: sp.dif || null, set: sp.set || null }),
+    setChoices(repo, actor, "ALL"),
+  ]);
+  const keep = (extra: Record<string, string | number>) => `/teacher/nafs?${new URLSearchParams({ tab: "bank", ...Object.fromEntries(Object.entries({ domain: sp.domain, code: sp.code, src: sp.src, passage: sp.passage, q: sp.q, page: sp.page, std: sp.std, kind: sp.kind, dif: sp.dif, set: sp.set }).filter(([, v]) => v)) as Record<string, string>, ...Object.fromEntries(Object.entries(extra).map(([k, v]) => [k, String(v)])) })}`;
+  const stdOptions = MOE_STANDARDS.map((x) => ({ value: x.code, label: codeName(x.code, t) }));
+  const skillOptions = (list: typeof NAFS_SKILLS) => list.map((k) => ({ value: k.code, label: codeName(k.code, t), group: t(NAFS_DOMAINS.find((d) => d.code === k.domain)?.name ?? "") }));
   const here = keep({});
   const view = sp.view ? await nafsQuestionView(repo, actor, sp.view).catch(() => null) : null;
   return (
@@ -26,8 +33,9 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
       <form method="get" action="/teacher/nafs" className="flex flex-wrap items-end gap-2 rounded-2xl bg-surface p-4 shadow-card ring-1 ring-line">
         <input type="hidden" name="tab" value="bank" />
         <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Domain")}<select name="domain" defaultValue={sp.domain ?? ""} className={SEL}><option value="">{t("All")}</option>{NAFS_DOMAINS.filter((d) => d.code !== "PIRLS").map((d) => <option key={d.code} value={d.code}>{t(d.name)}</option>)}</select></label>
-        <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Skill")}<select name="code" defaultValue={sp.code ?? ""} className={SEL}><option value="">{t("All")}</option>{NAFS_SKILLS.map((k) => <option key={k.code} value={k.code}>{t(k.name)}</option>)}</select></label>
-        <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Ministry standard")}<select name="std" defaultValue={sp.std ?? ""} className={SEL}><option value="">{t("All")}</option>{MOE_STANDARDS.map((x) => <option key={x.code} value={x.code}>{x.short} · {t(x.text).slice(0, 60)}</option>)}<option value="NONE">{t("Not set yet")}</option></select></label>
+        <div className="grid min-w-52 gap-1 text-xs font-semibold text-ink-2"><span>{t("Skill")}</span><Combo name="code" label={t("Skill")} defaultValue={sp.code ?? ""} options={[{ value: "", label: t("All") }, ...skillOptions(NAFS_SKILLS)]} /></div>
+        <div className="grid min-w-64 gap-1 text-xs font-semibold text-ink-2"><span>{t("Ministry standard")}</span><Combo name="std" label={t("Ministry standard")} defaultValue={sp.std ?? ""} options={[{ value: "", label: t("All") }, ...stdOptions, { value: "NONE", label: t("Not set yet") }]} /></div>
+        <div className="grid min-w-64 gap-1 text-xs font-semibold text-ink-2"><span>{t("Model booklet or practice set")}</span><Combo name="set" label={t("Model booklet or practice set")} defaultValue={sp.set ?? ""} options={[{ value: "", label: t("Every source") }, ...sets.map((b) => ({ value: b.code, label: `${b.code} · ${b.title}`, hint: t("{n} questions", { n: b.questions }), group: t(b.code.startsWith("NP-") ? "NAFS practice sets" : "NAFS model booklets"), keywords: `${b.genre} ${b.kind === "LIT" ? "literary story" : b.kind === "INFO" ? "informational article" : ""}` }))]} /></div>
         <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Difficulty")}<select name="dif" defaultValue={sp.dif ?? ""} className={SEL}><option value="">{t("All")}</option>{DIFFICULTIES.map((k) => <option key={k} value={k}>{t(DIFFICULTY_NAME[k])}</option>)}</select></label>
         <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Type")}<select name="kind" defaultValue={sp.kind ?? ""} className={SEL}><option value="">{t("All")}</option><option value="MCQ">{t("Multiple choice A–D")}</option><option value="WRITTEN">{t("Short written answer")}</option></select></label>
         <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Source")}<select name="src" defaultValue={src} className={SEL}>{SOURCES.map((x) => <option key={x.key} value={x.key}>{t(x.label)}</option>)}</select></label>
@@ -46,7 +54,7 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
       {view && (
         <section className="rounded-2xl bg-surface p-5 shadow-card ring-2 ring-teal-300" aria-label={t("Question")}>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="text-sm font-semibold text-teal-ink">{view.entry.standard ? `${MOE_BY_CODE.get(view.entry.standard)!.short} · ` : ""}{t(DIFFICULTY_NAME[view.entry.difficulty])} · {t(SKILL_BY_CODE.get(view.entry.nafsCode)?.name ?? "")} · {view.entry.process} {t(PROCESS_NAME[view.entry.process])} · {t(view.entry.booklet ? "NAFS model booklet" : view.entry.own ? "The school's" : "Platform")}{view.entry.booklet ? ` ${view.entry.booklet} #${view.entry.bookletN}` : ""}</p>
+            <p className="text-sm font-semibold text-teal-ink">{view.entry.standard ? `${codeName(view.entry.standard, t)} · ` : ""}{t(DIFFICULTY_NAME[view.entry.difficulty])} · {t(SKILL_BY_CODE.get(view.entry.nafsCode)?.name ?? "")} · {codeName(view.entry.process, t)} · {t(view.entry.booklet ? "NAFS model booklet" : view.entry.own ? "The school's" : "Platform")}{view.entry.booklet ? ` ${view.entry.booklet} #${view.entry.bookletN}` : ""}</p>
             <Link href={here} className="text-sm font-semibold text-muted">✕ {t("Close")}</Link>
           </div>
           {view.q.passage && (
@@ -70,9 +78,9 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
           {view.q.explanation && <p className="mt-2 text-sm text-ink-2" lang="en" dir="ltr">💡 {view.q.explanation}</p>}
           <form action={retagAction} className="mt-3 flex flex-wrap items-end gap-2 border-t border-line pt-3">
             <input type="hidden" name="id" value={view.q.id} /><input type="hidden" name="back" value={keep({ view: view.q.id })} />
-            <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Ministry standard")}<select name="standard" defaultValue={view.entry.standard ?? ""} className={SEL}><option value="">{t("Not set yet")}</option>{MOE_STANDARDS.map((x) => <option key={x.code} value={x.code}>{x.short} · {t(x.text).slice(0, 60)}</option>)}</select></label>
-            <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("NAFS skill")}<select name="code" defaultValue={view.entry.nafsCode} className={SEL}>{CONTENT_SKILLS.map((k) => <option key={k.code} value={k.code}>{t(k.name)}</option>)}</select></label>
-            <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Reading process")}<select name="process" defaultValue={view.entry.process} className={SEL}>{PROCESSES.map((p) => <option key={p} value={p}>{p} · {t(PROCESS_NAME[p])}</option>)}</select></label>
+            <div className="grid min-w-64 flex-1 gap-1 text-xs font-semibold text-ink-2"><span>{t("Ministry standard")}</span><Combo name="standard" label={t("Ministry standard")} defaultValue={view.entry.standard ?? ""} options={[{ value: "", label: t("Not set yet") }, ...stdOptions]} /></div>
+            <div className="grid min-w-52 gap-1 text-xs font-semibold text-ink-2"><span>{t("NAFS skill")}</span><Combo name="code" required label={t("NAFS skill")} defaultValue={view.entry.nafsCode} options={skillOptions(CONTENT_SKILLS)} /></div>
+            <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Reading process")}<select name="process" defaultValue={view.entry.process} className={SEL}>{PROCESSES.map((p) => <option key={p} value={p}>{codeName(p, t)}</option>)}</select></label>
             <button className="min-h-10 rounded-lg bg-surface px-3 text-sm font-semibold text-ink ring-1 ring-line">{t("Save the tags")}</button>
           </form>
         </section>
@@ -87,11 +95,11 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
                 <div className="min-w-0 flex-1">
                   <p className="text-ink" lang="en" dir="ltr">{r.stem}</p>
                   <p className="mt-0.5 flex flex-wrap gap-1.5 text-xs">
-                    <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${r.standard ? "bg-indigo-50 text-indigo-900 ring-indigo-200" : "bg-amber-50 text-amber-900 ring-amber-200"}`} dir="ltr">{r.standard ? MOE_BY_CODE.get(r.standard)!.short : t("No standard")}</span>
+                    <span className={`max-w-full truncate rounded-full px-2 py-0.5 font-semibold ring-1 ${r.standard ? "bg-indigo-50 text-indigo-900 ring-indigo-200" : "bg-amber-50 text-amber-900 ring-amber-200"}`} title={r.standard ? codeName(r.standard, t) : undefined}>{r.standard ? codeName(r.standard, t) : t("No standard")}</span>
                     <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${r.difficulty === 1 ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : r.difficulty === 3 ? "bg-rose-50 text-rose-900 ring-rose-200" : "bg-sky-50 text-sky-900 ring-sky-200"}`}>{t(DIFFICULTY_NAME[r.difficulty])}</span>
                     <span className="rounded-full bg-teal-50 px-2 py-0.5 font-semibold text-teal-900 ring-1 ring-teal-200">{t(r.skill)}</span>
                     {r.kind === "WRITTEN" && <span className="rounded-full bg-surface-2 px-2 py-0.5 text-ink-2 ring-1 ring-line">✍ {t("Short written answer")}</span>}
-                    <span className="rounded-full bg-surface-2 px-2 py-0.5 text-ink-2 ring-1 ring-line">{r.process}</span>
+                    <span className="rounded-full bg-surface-2 px-2 py-0.5 text-ink-2 ring-1 ring-line" title={codeName(r.process, t)}>{codeName(r.process, t)}</span>
                     <span className="rounded-full bg-surface-2 px-2 py-0.5 text-ink-2 ring-1 ring-line">{r.booklet ? `${t("NAFS model booklet")} ${r.booklet}` : r.practiceSet ? `${t("NAFS practice set")} ${r.practiceSet}` : t(r.draft ? "AI draft" : r.copy ? "School copy" : r.own ? "The school's" : "Platform")}</span>
                     {r.hasPassage && <span className="rounded-full bg-surface-2 px-2 py-0.5 text-ink-2 ring-1 ring-line">📄 {r.passageTitle ?? t("Passage")}</span>}
                   </p>

@@ -5,9 +5,11 @@ import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { nafsClasses } from "@/server/nafs/tests";
 import { dashboardDownload, groupOf, nafsDashboard, NAFS_GROUPS, studentHref, type AttemptRow, type Dashboard, type GroupKey, type Kind, type SkillRow } from "@/server/nafs/dashboard";
-import { DIFFICULTIES, DIFFICULTY_NAME, MOE_BY_CODE } from "@/server/nafs/framework";
+import { DIFFICULTIES, DIFFICULTY_NAME, MOE_BY_CODE, codeName } from "@/server/nafs/framework";
 import { PrintButton } from "@/components/plans/print-button";
 import { LineChart, Sparkline } from "./charts";
+import { CodeHead } from "./code-name";
+import { Combo } from "@/components/ui/combo";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
 const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -18,7 +20,7 @@ const TEXT_CLS: Record<GroupKey, string> = { EXCEEDING: "text-emerald-700", MEET
 export const Pc = ({ v }: { v: number | null | undefined }) => { const g = groupOf(v ?? null); return <span className={`tabular-nums font-semibold ${g ? TEXT_CLS[g] : "text-muted"}`}>{v === null || v === undefined ? "—" : `${v}%`}</span>; };
 export const Delta = ({ v }: { v: number | null | undefined }) => v === null || v === undefined ? <span className="text-muted">—</span> : <span className={`tabular-nums font-semibold ${v > 0 ? "text-emerald-700" : v < 0 ? "text-rose-700" : "text-ink-2"}`}>{v > 0 ? `+${v}` : v < 0 ? `−${Math.abs(v)}` : "0"}</span>;
 export const kindName = (k: Kind) => (k === "TEST" ? "Test" : "Practice");
-const short = (code: string) => MOE_BY_CODE.get(code)?.short ?? code;
+const short = (code: string, t: TFn) => codeName(code, t);
 const day = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short" });
 export function groupRange(i: number): string { const g = NAFS_GROUPS[i]; return i === 0 ? `≥ ${g.min}%` : g.key === "SUPPORT" ? `< ${NAFS_GROUPS[i - 1].min}%` : `${g.min}–${NAFS_GROUPS[i - 1].min - 1}%`; }
 
@@ -50,7 +52,7 @@ export async function DashboardTab({ actor, t, sp }: { actor: Actor; t: TFn; sp:
     <div className="grid gap-4">
       <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3 print:hidden`}>
         <input type="hidden" name="tab" value="dashboard" />
-        <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Class")}<select name="class" defaultValue={classId ?? ""} className={SEL}><option value="">{allLabel}</option>{all.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
+        <div className="grid min-w-52 gap-1 text-sm font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" label={t("Class")} defaultValue={classId ?? ""} options={[{ value: "", label: allLabel }, ...all.map((c) => ({ value: c.id, label: c.name }))]} /></div>
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("From")}<input type="date" name="from" defaultValue={r.from ?? ""} className={SEL} /></label>
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("To")}<input type="date" name="to" defaultValue={r.to ?? ""} className={SEL} /></label>
         <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
@@ -130,7 +132,7 @@ function Skills({ d, t }: { d: Dashboard; t: TFn }) {
             {d.missed.map((m) => (
               <li key={m.id} className="rounded-xl bg-surface-2 p-3 text-sm ring-1 ring-line">
                 <p className="text-ink">{m.stem || "—"}</p>
-                <p className="mt-1 text-xs text-ink-2">{m.standard && <b className="me-1 font-mono" dir="ltr">{short(m.standard)}</b>}{t("Correct")}: <Pc v={m.pct} /> · {t("{n} answers", { n: m.answered })}{m.topWrong !== null ? ` · ${t("Most chosen wrong option: {o} ({n})", { o: LETTERS[m.topWrong], n: m.topWrongCount })}` : ""} · {m.kinds.map((k) => t(k === "TEST" ? "Tests" : "Practice")).join(" + ")}</p>
+                <p className="mt-1 text-xs text-ink-2">{m.standard && <b className="me-1">{short(m.standard, t)} ·</b>}{t("Correct")}: <Pc v={m.pct} /> · {t("{n} answers", { n: m.answered })}{m.topWrong !== null ? ` · ${t("Most chosen wrong option: {o} ({n})", { o: LETTERS[m.topWrong], n: m.topWrongCount })}` : ""} · {m.kinds.map((k) => t(k === "TEST" ? "Tests" : "Practice")).join(" + ")}</p>
               </li>
             ))}
           </ol>
@@ -141,7 +143,7 @@ function Skills({ d, t }: { d: Dashboard; t: TFn }) {
         <p className="text-sm text-muted">{t("Each cell: percent correct in tests and practice (the number of items). The colour follows the groups; the number is always written.")}</p>
         <div className="mt-2 overflow-x-auto">
           <table className="w-full min-w-[40rem] border-separate border-spacing-0 text-sm">
-            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Overall")}</th>{d.heat.codes.map((c) => <th key={c} className="px-0.5 font-mono" dir="ltr" title={t(MOE_BY_CODE.get(c)?.text ?? c)}>{short(c)}</th>)}</tr></thead>
+            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Overall")}</th>{d.heat.codes.map((c) => <th key={c} className="px-0.5 align-bottom"><CodeHead code={c} t={t} /></th>)}</tr></thead>
             <tbody>
               {d.heat.students.map((st) => (
                 <tr key={st.id}>
@@ -169,7 +171,7 @@ export function AttemptsView({ attempts, codes, t, title }: { attempts: AttemptR
       ]} />
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[48rem] text-sm">
-          <thead><tr className="text-xs text-muted"><th className="py-2 text-start">#</th><th className="text-start">{t("Date")}</th><th className="text-start">{t("Attempt")}</th><th>{t("Score")}</th><th>{t("Change from previous")}</th><th>{t("Change from first")}</th>{codes.map((c) => <th key={c} className="font-mono" dir="ltr">{short(c)}</th>)}</tr></thead>
+          <thead><tr className="text-xs text-muted"><th className="py-2 text-start">#</th><th className="text-start">{t("Date")}</th><th className="text-start">{t("Attempt")}</th><th>{t("Score")}</th><th>{t("Change from previous")}</th><th>{t("Change from first")}</th>{codes.map((c) => <th key={c} className="px-0.5 align-bottom"><CodeHead code={c} t={t} /></th>)}</tr></thead>
           <tbody className="divide-y divide-line">
             {attempts.map((a, i) => (
               <tr key={`${a.kind}:${a.id}`}>
@@ -240,7 +242,7 @@ function Compare({ d, t }: { d: Dashboard; t: TFn }) {
   );
 }
 
-const Chips = ({ codes, t }: { codes: string[]; t: TFn }) => codes.length ? <span className="inline-flex flex-wrap gap-1">{codes.map((c) => <span key={c} title={t(MOE_BY_CODE.get(c)?.text ?? c)} className="rounded-full bg-surface px-2 py-0.5 font-mono text-[11px] ring-1 ring-line" dir="ltr">{short(c)}</span>)}</span> : <span className="text-muted">—</span>;
+const Chips = ({ codes, t }: { codes: string[]; t: TFn }) => codes.length ? <span className="inline-flex flex-wrap gap-1">{codes.map((c) => <span key={c} title={short(c, t)} className="max-w-[16rem] truncate rounded-full bg-surface px-2 py-0.5 text-[11px] ring-1 ring-line">{short(c, t)}</span>)}</span> : <span className="text-muted">—</span>;
 function Actions({ practice, test, t }: { practice: string; test: string; t: TFn }) {
   return (
     <span className="flex flex-wrap gap-1.5 print:hidden">
@@ -314,7 +316,7 @@ function School({ d, t }: { d: Dashboard; t: TFn }) {
         <p className="text-sm text-muted">{t("Each cell: tests % / practice %.")}</p>
         <div className="mt-2 overflow-x-auto">
           <table className="w-full min-w-[44rem] text-sm">
-            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Class")}</th><th>{t("Students")}</th><th>{t("Tested")}</th><th>{t("Tests %")}</th><th>{t("Practice %")}</th>{codes.map((c) => <th key={c} className="font-mono" dir="ltr">{short(c)}</th>)}</tr></thead>
+            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Class")}</th><th>{t("Students")}</th><th>{t("Tested")}</th><th>{t("Tests %")}</th><th>{t("Practice %")}</th>{codes.map((c) => <th key={c} className="px-0.5 align-bottom"><CodeHead code={c} t={t} /></th>)}</tr></thead>
             <tbody className="divide-y divide-line">
               {d.school.classes.map((c) => {
                 const best = (code: string) => Math.max(...d.school.classes.map((x) => x.standards[code]?.test ?? -1));

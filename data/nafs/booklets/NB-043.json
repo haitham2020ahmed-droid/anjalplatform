@@ -1,0 +1,568 @@
+{
+  "code": "NB-043",
+  "title": "A Letter from Al-Balad",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 435,
+  "passage": "Jeddah, 14 March\n\nDear Maha,\n\nI hope you and everyone in Abha are well. I could not wait any longer to write to you, because last weekend I visited a place that completely transformed my opinion, and you are the first person I want to tell about it.\n\nYou remember how I complained when Baba announced that we would spend Saturday in Al-Balad, the historic district of Jeddah. I expected nothing more than dusty buildings and an exhausting walk in the heat. Within ten minutes, however, I had forgotten every complaint, because Al-Balad felt like an enormous history book whose pages I could actually walk through.\n\nThe first thing I noticed was the remarkable architecture of the district. Many of the houses are four or five storeys tall, which astonished me, since they were constructed long before cement and steel arrived. Our guide, an enthusiastic young woman named Noura, explained that builders cut blocks of coral stone from the reefs of the Red Sea and joined them with lime and clay. Because coral is full of tiny holes, the walls were relatively light, and they also helped to keep the rooms comfortably cool.\n\nThe most beautiful features, though, were the rawasheen, which are large wooden balconies covered with delicate lattice screens, some of them painted green or blue. Noura told us that they allowed the sea breeze to circulate through the house while protecting the privacy of the family inside. Standing beneath them, I felt as if the buildings were wearing lace.\n\nWe also visited Nasseef House, one of the most famous residences in the district, where King Abdulaziz stayed in 1925 after he entered Jeddah. Instead of an ordinary staircase, the house has a wide, gently sloping one, which, according to Noura, was designed so that camels could carry heavy loads to the upper floors. Can you imagine a camel climbing to the top of a house? I laughed so loudly that Baba had to remind me we were in a museum!\n\nNoura explained that Al-Balad was added to the UNESCO World Heritage List in 2014, and that specialists are now restoring the old houses, one careful step at a time. As I watched a carpenter repairing a damaged lattice by hand, I understood that preserving history requires both patience and expertise.\n\nWhen you visit us in the summer, I promise to be your guide, and I will try to be as patient as Noura was with my endless questions. Please bring your camera, because my photographs do not do the place justice.\n\nWith love and warm greetings to Aunt Salma,\n\nYour cousin, Lina",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “astonished” in the sentence “Many of the houses are four or five storeys tall, which astonished me”?",
+      "options": [
+        "bored",
+        "frightened",
+        "amazed",
+        "annoyed"
+      ],
+      "answer": "C",
+      "why": "Lina did not expect such tall houses from long ago, so she was amazed."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “damaged” in the phrase “repairing a damaged lattice by hand”?",
+      "options": [
+        "broken",
+        "unharmed",
+        "painted",
+        "ancient"
+      ],
+      "answer": "B",
+      "why": "Something damaged is harmed or broken; its opposite is “unharmed”. “Broken” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this part of the letter: “Noura told us that they allowed the sea breeze to circulate through the house.” What does “circulate” mean?",
+      "options": [
+        "move freely around",
+        "stop completely",
+        "become warmer",
+        "make a loud noise"
+      ],
+      "answer": "A",
+      "why": "The breeze flows through the lattice and moves around the house, so “circulate” means to move freely around."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the letter is an ADJECTIVE?",
+      "options": [
+        "breeze",
+        "repairing",
+        "explained",
+        "delicate"
+      ],
+      "answer": "D",
+      "why": "“Delicate” describes the lattice screens; “breeze” is a noun, and “repairing” and “explained” are verb forms."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Lina writes about “the reefs of the Red Sea”. Which word forms its plural in the SAME way as “reef”?",
+      "options": [
+        "leaf",
+        "knife",
+        "shelf",
+        "roof"
+      ],
+      "answer": "D",
+      "why": "“Reef” and “roof” simply add -s; leaf, knife and shelf change -f to -ves."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “enthusiastic”?",
+      "options": [
+        "enthusiasm",
+        "enter",
+        "entire",
+        "anthem"
+      ],
+      "answer": "A",
+      "why": "“Enthusiasm” is the noun form of “enthusiastic”; the others only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “preserving” in a meaningful sentence of your own.",
+      "model": "Our class is preserving our grandparents' stories by recording them and saving them in the school library.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “preserving” with its meaning (keeping something safe so that it lasts)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Preserving” means keeping something safe from harm or loss so it lasts."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Lina writes about “storeys” (floors of a building). What is the singular form of “storeys”?",
+      "options": [
+        "story",
+        "storie",
+        "storey",
+        "storeyes"
+      ],
+      "answer": "C",
+      "why": "In British spelling, one floor is a “storey” and several are “storeys”: a vowel + y just adds -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Can you imagine a camel climbing to the top of a house?”",
+      "options": [
+        "a question",
+        "a command",
+        "a statement",
+        "an exclamation"
+      ],
+      "answer": "A",
+      "why": "It asks something and ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "How to Ride a Camel Upstairs",
+        "The Day Old Jeddah Surprised Me",
+        "Summer Weather in Abha",
+        "My Cousin's New Camera"
+      ],
+      "answer": "B",
+      "why": "Lina expected to be bored, but Al-Balad surprised and delighted her."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is Lina's main purpose in writing this letter?",
+      "options": [
+        "to complain about a long, boring trip",
+        "to ask Maha to lend her a new camera",
+        "to share an exciting visit and invite Maha",
+        "to explain how to become a tour guide"
+      ],
+      "answer": "C",
+      "why": "She tells Maha about her visit to Al-Balad and promises to be her guide when she comes."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of the paragraph that begins “You remember how I complained”?",
+      "options": [
+        "Lina's low expectations changed once she arrived.",
+        "Baba enjoys long walks in the summer heat.",
+        "Al-Balad is full of dusty, empty buildings.",
+        "Lina left her history book at home."
+      ],
+      "answer": "A",
+      "why": "She expected “dusty buildings” and a boring walk, but “within ten minutes” forgot every complaint."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why were the coral-stone walls fairly light?",
+      "options": [
+        "They were built very thin.",
+        "They were painted green or blue.",
+        "They were joined with steel.",
+        "Coral is full of tiny holes."
+      ],
+      "answer": "D",
+      "why": "“Because coral is full of tiny holes, the walls were relatively light.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news report",
+        "a personal letter",
+        "a poem",
+        "a set of instructions"
+      ],
+      "answer": "B",
+      "why": "It has a place and date, a greeting (“Dear Maha”), a closing and a signature."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why, according to Noura, was the staircase in Nasseef House wide and gently sloping?",
+      "options": [
+        "so that children could slide down it safely",
+        "so that the house stayed cool in summer",
+        "so that King Abdulaziz could ride up it",
+        "so that camels could carry loads upstairs"
+      ],
+      "answer": "D",
+      "why": "Noura said it “was designed so that camels could carry heavy loads to the upper floors.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened FIRST during Lina's visit, according to the order of her letter?",
+      "options": [
+        "She watched a carpenter repairing a lattice.",
+        "She laughed about the camel staircase.",
+        "She noticed how tall the houses were.",
+        "She visited Nasseef House."
+      ],
+      "answer": "C",
+      "why": "The letter describes the tall houses first (“The first thing I noticed”), then the rawasheen, Nasseef House and the carpenter."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Who is the writer of this letter?",
+      "options": [
+        "Maha",
+        "Noura",
+        "Aunt Salma",
+        "Lina"
+      ],
+      "answer": "D",
+      "why": "The letter is signed “Your cousin, Lina”; Maha is the person receiving it."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In which year was Al-Balad added to the UNESCO World Heritage List?",
+      "options": [
+        "1925",
+        "2014",
+        "2010",
+        "2024"
+      ],
+      "answer": "B",
+      "why": "Noura explained that Al-Balad was added to the list in 2014; 1925 is when King Abdulaziz stayed at Nasseef House."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Baba have to remind Lina that they were in a museum?",
+      "options": [
+        "She was taking too many photographs.",
+        "She touched the delicate lattice screens.",
+        "She ran up the sloping staircase.",
+        "She laughed very loudly."
+      ],
+      "answer": "D",
+      "why": "“I laughed so loudly that Baba had to remind me we were in a museum!”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Lina feel about the trip BEFORE she arrived in Al-Balad?",
+      "options": [
+        "excited",
+        "unwilling",
+        "frightened",
+        "proud"
+      ],
+      "answer": "B",
+      "why": "She complained and expected “nothing more than dusty buildings and an exhausting walk in the heat.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does Lina ask Maha to bring her camera?",
+      "options": [
+        "Lina's own camera is broken.",
+        "Maha is a professional photographer.",
+        "Lina's photos do not show its full beauty.",
+        "Visitors must bring cameras to museums."
+      ],
+      "answer": "C",
+      "why": "She says “my photographs do not do the place justice”, meaning they fail to show its full beauty."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Lina's opinion of Al-Balad change during the visit?",
+      "options": [
+        "from interested to bored and tired",
+        "from frightened and nervous to calm",
+        "It did not change at all during the day.",
+        "from unwilling to delighted"
+      ],
+      "answer": "D",
+      "why": "She expected a boring trip but soon felt Al-Balad was like a history book she could walk through."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the coral-stone walls and the rawasheen have in common?",
+      "options": [
+        "Both help to keep the houses comfortable in the heat.",
+        "Both are painted green or blue for beauty.",
+        "Both were added to the houses in 2014.",
+        "Both were brought to Jeddah from Abha."
+      ],
+      "answer": "A",
+      "why": "The coral walls kept rooms cool, and the rawasheen let the sea breeze circulate through the house."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of watching the carpenter at work on Lina?",
+      "options": [
+        "She wanted to become a carpenter immediately.",
+        "She decided the old houses should be replaced.",
+        "She realised that preserving history takes patience.",
+        "She became tired and wanted to go home early."
+      ],
+      "answer": "C",
+      "why": "“As I watched a carpenter … I understood that preserving history requires both patience and expertise.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Lina mean when she says “I felt as if the buildings were wearing lace”?",
+      "options": [
+        "The buildings were covered in real cloth.",
+        "The fine wooden lattice looked delicate, like lace.",
+        "The buildings were decorated for a wedding.",
+        "The old lattice was falling apart."
+      ],
+      "answer": "B",
+      "why": "She compares the delicate wooden screens to lace fabric; it is figurative, not literal."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is EXCLAMATORY?",
+      "options": [
+        "I laughed so loudly that Baba had to remind me we were in a museum!",
+        "Can you imagine a camel climbing to the top of a house?",
+        "Please bring your camera, because my photographs do not do the place justice.",
+        "We also visited Nasseef House, one of the most famous residences in the district."
+      ],
+      "answer": "A",
+      "why": "It ends with an exclamation mark and shows strong feeling."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Lina compare Al-Balad to “an enormous history book whose pages I could actually walk through”?",
+      "options": [
+        "to show that the district was full of history to explore",
+        "to complain that she had to read a long, heavy book",
+        "to explain that the old houses were built of paper",
+        "to show that the walk took as long as reading a book"
+      ],
+      "answer": "A",
+      "why": "The comparison shows that walking through Al-Balad felt like exploring history page by page."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from Lina's visit is the MOST useful for other students?",
+      "options": [
+        "Never visit places you think will be boring.",
+        "Do not judge a place before you see it.",
+        "Museums are only for adults.",
+        "Always take your own camera."
+      ],
+      "answer": "B",
+      "why": "Lina judged Al-Balad before seeing it and was completely wrong, which is a lesson anyone can use."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated Lina to write this letter?",
+      "options": [
+        "She needed Maha's help with her homework.",
+        "She wanted to complain about Baba's plans.",
+        "She had to write it for a school competition.",
+        "She was eager to share her surprising visit."
+      ],
+      "answer": "D",
+      "why": "She says the place “completely transformed my opinion” and Maha is “the first person I want to tell”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the letter as a whole?",
+      "options": [
+        "disappointment",
+        "enthusiasm",
+        "loneliness",
+        "worry"
+      ],
+      "answer": "B",
+      "why": "Lina writes with excitement about the houses, rawasheen and Nasseef House, and looks forward to guiding Maha."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "what the rawasheen are",
+        "who guided Lina's family",
+        "how long the restoration of the houses will take",
+        "when King Abdulaziz stayed at Nasseef House"
+      ],
+      "answer": "C",
+      "why": "The letter says the houses are being restored “one careful step at a time” but gives no time frame."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A carpenter repairs an old wooden lattice by hand.",
+        "A house in Al-Balad walks down to the sea.",
+        "A camel flies to the roof of Nasseef House.",
+        "The coral walls grow back into a reef."
+      ],
+      "answer": "A",
+      "why": "Craftsmen really do repair lattices by hand; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes what happens in the letter?",
+      "options": [
+        "From Complaints to Wonder in Old Jeddah",
+        "A Rainy Weekend with Cousins in Abha",
+        "The Camera That Was Lost in Jeddah",
+        "Building a New Tower Beside the Sea"
+      ],
+      "answer": "A",
+      "why": "Lina begins by complaining about the trip and ends full of wonder at Al-Balad."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for Lina's letter. Write two or three sentences that could close the letter in a new way.",
+      "model": "Next weekend, I am going back to Al-Balad with my class to help paint a restored lattice, so I will send you a photograph of my work. Perhaps one day we can both become volunteers and help to preserve the old houses together.",
+      "rubric": [
+        "2 = a clear new ending that fits the letter's events and a friendly letter style",
+        "1 = an ending is given but it is unclear or does not fit the letter well",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible new ending that suits a friendly letter and the events described is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the letter, how can visitors help to protect historic districts like Al-Balad?",
+      "options": [
+        "Respect the buildings and avoid damaging them.",
+        "Support the specialists who restore the houses.",
+        "A and B",
+        "Take pieces of coral stone as souvenirs."
+      ],
+      "answer": "C",
+      "why": "Respecting the buildings and supporting the restoration both help; taking stone damages the district."
+    }
+  ]
+}

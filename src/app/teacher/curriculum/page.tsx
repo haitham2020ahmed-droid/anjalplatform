@@ -7,6 +7,8 @@ import { AssignHostAll } from "../assign-host-all";
 import { CcssNote } from "@/components/ccss-note";
 import { SkillQuestionPicker } from "@/components/skill-picker";
 import { canSeeNafs } from "@/server/teacher/nafs-access";
+import { StarAssign } from "@/components/assign/star-assign";
+import { endOfSchoolWeek, starredSkills } from "@/server/assign/star";
 
 /**
  * Teacher's organized view for one class, in two areas taught in class:
@@ -26,6 +28,10 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
   const nafs = sp.area === "nafs" && nafsOk;
   const map = !nafs;
   const canAssign = actor.role === "TEACHER";
+  // ☆ quick assign (owner r67): which skills of this list are already assigned to the class (one read)
+  const listed = view ? (map ? view.mapAreas : view.nafsAreas ?? []).flatMap((a) => a.skills.map((k) => k.id)) : [];
+  const stars = canAssign && view ? await starredSkills(repo, view.classId, listed) : new Map<string, string>();
+  const due = endOfSchoolWeek(new Date());
   const href = (o: { classId?: string; area?: string; grade?: number }) => {
     const p = new URLSearchParams();
     const c = o.classId ?? view?.classId; if (c) p.set("classId", c);
@@ -40,6 +46,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
         <p className="text-xs text-slate-500">{k.standards.join(", ") || "No standard"}{k.lessons.length ? ` · Lessons ${k.lessons.join(", ")}` : ""}{k.openAssignments ? ` · assigned (${k.openAssignments} open)` : ""}</p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
+        {canAssign && k.questions > 0 && <StarAssign kind="SKILL" refId={k.id} classId={view!.classId} assignedId={stars.get(k.id) ?? null} defaultDue={due} track={map ? "MAP" : "NAFS"} label={k.name} />}
         {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign practice at each student’s level or a ready set">🔎 Questions from the bank</Link>}
         {canAssign && (k.questions > 0 ? <AssignDialog skill={k} /> : <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm text-slate-600">This skill has no questions yet.</span>)}
       </div>

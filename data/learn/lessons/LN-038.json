@@ -1,0 +1,465 @@
+{
+ "code": "LN-038",
+ "title": "Perfect verb tenses",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1.b"
+ ],
+ "families": [
+  "verb-tenses"
+ ],
+ "skillNames": [
+  "Irregular Verbs with Has, Have, Had",
+  "Verb Tenses (Simple, Progressive, Perfect)"
+ ],
+ "statements": [
+  "L-0002",
+  "L-0003",
+  "L-0004",
+  "L-0023",
+  "L-0024",
+  "L-0025",
+  "L-0026",
+  "L-0087",
+  "L-0088",
+  "L-0089",
+  "L-0090",
+  "L-0091",
+  "L-0192",
+  "L-0193",
+  "L-0194",
+  "L-0195",
+  "L-0289",
+  "L-0290"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "has and have",
+     "text": "We use **has** or **have** + a special verb form to talk about things that happened **before now**.\n\n**I have eaten** my lunch.\n**She has seen** a camel."
+    },
+    {
+     "title": "has or have?",
+     "text": "**has**: he, she, it, one person or thing\n\n**have**: I, you, we, they, two or more\n\n**Ali has gone.** **The boys have gone.**"
+    },
+    {
+     "title": "Tricky verbs",
+     "text": "Some verbs change a lot:\n\n**see** → have **seen**\n**eat** → have **eaten**\n**go** → have **gone**\n**write** → have **written**\n**take** → have **taken**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find **who** did it. One person? Use **has**. More than one? Use **have**.\n2. Look for clue words like **already**, **many times**, **just**, **ever**.\n3. Use the special form: **seen**, not **saw**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My brothers love the beach.",
+      "role": "key"
+     },
+     {
+      "t": "They have swum in the sea many times.",
+      "role": "main"
+     }
+    ],
+    "explain": "**They** means my brothers: more than one, so we use **have**.\n\n**swim** changes to **swum**."
+   },
+   "together": {
+    "passage": "Ali and his sister love animals. They ___ a camel many times. Today they want to see a lion.",
+    "stem": "Which words fit best in the blank?",
+    "options": [
+     "has saw",
+     "has seen",
+     "have seen",
+     "have saw"
+    ],
+    "answer": 2,
+    "hint": "They means two people. Is it has or have? And is it saw or seen?",
+    "good": "Yes! Two people need have, and see becomes seen."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali and his sister love animals.",
+     "They ___ a camel many times.",
+     "Today they want to see a lion."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: the one that shows there are two people, and the one with the clue many times.",
+    "wrong": "This sentence is about today. Find who they are and the clue many times."
+   },
+   "checks": [
+    {
+     "passage": "Sara is not hungry. She ___ her dinner.",
+     "stem": "Which words fit best?",
+     "options": [
+      "have eaten",
+      "has ate",
+      "has eaten",
+      "has eat"
+     ],
+     "answer": 2,
+     "why": "She takes has, and eat becomes eaten."
+    },
+    {
+     "passage": "We ___ to the park three times this week.",
+     "stem": "Which words fit best?",
+     "options": [
+      "have gone",
+      "has gone",
+      "have went",
+      "has went"
+     ],
+     "answer": 0,
+     "why": "We takes have, and go becomes gone."
+    },
+    {
+     "passage": "My dad ___ a letter to my teacher.",
+     "stem": "Which words fit best?",
+     "options": [
+      "have written",
+      "has wrote",
+      "have wrote",
+      "has written"
+     ],
+     "answer": 3,
+     "why": "My dad is one person, so has. Write becomes written."
+    }
+   ],
+   "again": {
+    "title": "Two parts",
+    "text": "This verb has **two parts**:\n\n1. **has** or **have**\n2. the special form: **seen**, **eaten**, **gone**\n\nNever use **saw**, **ate** or **went** after has or have.",
+    "example": "**I have seen** the sea. (not have saw)\n\n**He has eaten** dates. (not has ate)"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "had + verb",
+     "text": "Use **had** + a past participle (the past perfect) for an action that happened **before another past action**.\n\n**When I arrived, the film had started.**\n\nFirst the film started. Then I arrived."
+    },
+    {
+     "title": "Same form for everyone",
+     "text": "**had** is the same for every subject:\n\n**I had**, **she had**, **they had**, **we had**\n\nThe participle is the same one you use with has/have: **had gone**, **had eaten**, **had written**."
+    },
+    {
+     "title": "Clue words",
+     "text": "Look for clues that show **two past times**:\n\n**before, after, already, by the time, when**\n\n**By the time we got home, it had begun to rain.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the **two past events**.\n2. Decide which happened **first**.\n3. The earlier event gets **had** + participle.\n\nPoint to the sentences that show the order."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mona opened the oven at six o'clock.",
+      "role": "detail"
+     },
+     {
+      "t": "The bread had already risen.",
+      "role": "key"
+     },
+     {
+      "t": "She was very pleased.",
+      "role": "other"
+     }
+    ],
+    "explain": "The bread rose **first**. Mona opened the oven **later**.\n\nThe earlier action gets **had risen**."
+   },
+   "together": {
+    "passage": "Yesterday, Omar woke up late. He ran all the way to the bus stop. When he got there, the bus ___. He had to walk to school in the heat.",
+    "stem": "Which verb fits best in the blank?",
+    "options": [
+     "has left",
+     "had left",
+     "will have left",
+     "had leaved"
+    ],
+    "answer": 1,
+    "hint": "The bus left first, before Omar got there. Both happened yesterday.",
+    "good": "Yes! The bus left before Omar arrived, so we use had left."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday, Omar woke up late.",
+     "He ran all the way to the bus stop.",
+     "When he got there, the bus ___.",
+     "He had to walk to school in the heat."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show this happened in the past and the bus was already gone.",
+    "wrong": "This sentence does not show the time or that the bus was gone. Find the time word and what Omar had to do."
+   },
+   "checks": [
+    {
+     "passage": "By the time we reached the beach, the sun ___.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "had set",
+      "has set",
+      "had setted",
+      "will have set"
+     ],
+     "answer": 0,
+     "why": "The sun set before we reached the beach. Set does not change: had set."
+    },
+    {
+     "passage": "Lina could not get into the house. She ___ her key at school.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "has forgotten",
+      "had forgot",
+      "had forgotten",
+      "forgetted"
+     ],
+     "answer": 2,
+     "why": "She forgot the key before she tried to get in, so had forgotten."
+    },
+    {
+     "passage": "After the guests ___ their coffee, they thanked the host.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "have drunk",
+      "had drank",
+      "had drink",
+      "had drunk"
+     ],
+     "answer": 3,
+     "why": "Drinking came first. Drink becomes drunk: had drunk."
+    }
+   ],
+   "again": {
+    "title": "Time line",
+    "text": "Draw a line. Put two dots for two past events.\n\n1. The **left** dot happened first. It gets **had**.\n2. The **right** dot happened later. It uses the simple past.",
+    "example": "• **The rain had stopped** ——— • **we went outside.**\n\nRain stopped first → **had stopped**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "will have + verb",
+     "text": "The **future perfect** shows that an action **will be finished before** a time in the future.\n\n**By Friday, I will have finished my project.**\n\nThe project will be done before Friday arrives."
+    },
+    {
+     "title": "Clues for the future perfect",
+     "text": "Look for a future deadline:\n\n**by tomorrow, by next week, by the time…, by 2030, before…**\n\n**By the time the guests arrive, we will have cooked dinner.**"
+    },
+    {
+     "title": "Three perfect tenses",
+     "text": "**has/have** + participle: before **now**\n**had** + participle: before a **past** time\n**will have** + participle: before a **future** time"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the right perfect tense, find the **time clue**.\n\n1. Is the deadline in the past, now, or the future?\n2. Future deadline (by Friday, by next year) → **will have**.\n3. Point to the sentences that give the time clue."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The new school opens in September.",
+      "role": "key"
+     },
+     {
+      "t": "By then, workers will have built twenty classrooms.",
+      "role": "main"
+     }
+    ],
+    "explain": "September is in the **future**. The classrooms will be finished **before** then.\n\nSo we use **will have built**."
+   },
+   "together": {
+    "passage": "Huda joined a reading challenge this month. She reads twenty pages every evening. The book club meets next Friday to talk about the book. By then, Huda ___ the whole story. Her friend Reem started late and is still on chapter two. Reem hopes to catch up over the weekend.",
+    "stem": "Which verb fits best in the blank?",
+    "options": [
+     "will have finished",
+     "has finished",
+     "had finished",
+     "will finished"
+    ],
+    "answer": 0,
+    "hint": "Is next Friday in the past or the future? The reading will be done before then.",
+    "good": "Yes! Next Friday is in the future, and she will be done before it, so will have finished."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda joined a reading challenge this month.",
+     "She reads twenty pages every evening.",
+     "The book club meets next Friday to talk about the book.",
+     "By then, Huda ___ the whole story.",
+     "Her friend Reem started late and is still on chapter two.",
+     "Reem hopes to catch up over the weekend."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the future deadline.",
+    "wrong": "This sentence does not give the future deadline. Find next Friday and By then."
+   },
+   "checks": [
+    {
+     "passage": "By next summer, my brother ___ to drive.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "had learned",
+      "will have learned",
+      "has learned",
+      "will learned"
+     ],
+     "answer": 1,
+     "why": "By next summer is a future deadline, so will have learned."
+    },
+    {
+     "passage": "I can't play now. I ___ my homework yet.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "will have not finished",
+      "had not finish",
+      "haven't finished",
+      "not finished"
+     ],
+     "answer": 2,
+     "why": "The action is not done before now, so we use have not (haven't) finished."
+    },
+    {
+     "passage": "By the time the plane lands in Jeddah, we ___ for six hours.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "have flew",
+      "had flied",
+      "will have flew",
+      "will have flown"
+     ],
+     "answer": 3,
+     "why": "The landing is in the future, and fly becomes flown: will have flown."
+    }
+   ],
+   "again": {
+    "title": "Look for by",
+    "text": "The word **by** + a time is a big clue.\n\n1. **By** + a past time → **had** + participle\n2. **By** + a future time → **will have** + participle",
+    "example": "**By last night**, I **had finished** the book.\n\n**By tomorrow night**, I **will have finished** the book."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Choosing the perfect tense",
+     "text": "All perfect tenses connect **two times**: an action and a reference point.\n\n**Present perfect**: reference point is **now** (since, for, already, yet, ever)\n**Past perfect**: reference point is a **past** moment\n**Future perfect**: reference point is a **future** moment"
+    },
+    {
+     "title": "since and for",
+     "text": "The present perfect often shows something that **started in the past and continues now**:\n\n**She has lived in Riyadh since 2019.**\n**They have studied English for five years.**\n\n**since** + a starting point; **for** + a length of time."
+    },
+    {
+     "title": "Keep tenses logical",
+     "text": "In a passage, check that each perfect tense matches its time clue.\n\nWrong: **By next month, the team had finished the bridge.**\nRight: **By next month, the team will have finished the bridge.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "For each blank:\n\n1. Find the **reference point** in the passage: now, a past moment, or a future moment.\n2. Match it: **has/have**, **had**, or **will have**.\n3. Use the correct participle (**begun**, **written**, **chosen**).\n\nThe sentences with the time clues are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum has displayed this old map since 1990.",
+      "role": "key"
+     },
+     {
+      "t": "Before it arrived, it had travelled across three countries.",
+      "role": "key"
+     },
+     {
+      "t": "By next year, more than a million visitors will have seen it.",
+      "role": "key"
+     }
+    ],
+    "explain": "**since 1990** → continues now → **has displayed**.\n\n**Before it arrived** → earlier past → **had travelled**.\n\n**By next year** → future → **will have seen**."
+   },
+   "together": {
+    "passage": "Our class is creating a history project about our town. We (1) ___ on it since September, and each group has chosen a different topic. Before we started, most of us (2) ___ never ___ the old fort near the market, even though it is only a short walk from school. By the end of the year, we (3) ___ a model of the whole old town for the school exhibition.",
+    "stem": "Which set of verbs correctly completes blanks (1), (2) and (3)?",
+    "options": [
+     "(1) had worked (2) have … visited (3) will have built",
+     "(1) have worked (2) had … visited (3) will have built",
+     "(1) will have worked (2) had … visited (3) have built",
+     "(1) have worked (2) will have … visited (3) had built"
+    ],
+    "answer": 1,
+    "hint": "Find the time clue for each blank: since September, Before we started, By the end of the year.",
+    "good": "Yes! since → have worked, before a past moment → had visited, by a future time → will have built."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is creating a history project about our town.",
+     "We (1) ___ on it since September, and each group has chosen a different topic.",
+     "Before we started, most of us (2) ___ never ___ the old fort near the market, even though it is only a short walk from school.",
+     "By the end of the year, we (3) ___ a model of the whole old town for the school exhibition."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that contain a time clue for a blank.",
+    "wrong": "This sentence introduces the project and has no blank. Find the sentences with since, Before or By the end of the year."
+   },
+   "checks": [
+    {
+     "passage": "My grandmother ___ in the same house for fifty years, and she still loves it.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "will have lived",
+      "had lived",
+      "has lived",
+      "lived"
+     ],
+     "answer": 2,
+     "why": "For fifty years and still loves it show the action continues now: has lived."
+    },
+    {
+     "passage": "By the time the firefighters arrived, the neighbours ___ the small fire with sand.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "had put out",
+      "have put out",
+      "will have put out",
+      "had putted out"
+     ],
+     "answer": 0,
+     "why": "Putting out the fire happened before the past moment when firefighters arrived."
+    },
+    {
+     "passage": "Draft: By 2030, the city had planted ten million trees.",
+     "stem": "How should the verb be corrected?",
+     "options": [
+      "has planted",
+      "plants",
+      "is planting",
+      "will have planted"
+     ],
+     "answer": 3,
+     "why": "2030 is a future deadline, so the future perfect is needed."
+    }
+   ],
+   "again": {
+    "title": "Find the anchor",
+    "text": "Every perfect tense is tied to an **anchor** time.\n\n1. Find the anchor: **now**, a **past** moment, or a **future** moment.\n2. Anchor = now → **has/have**\n3. Anchor = past → **had**\n4. Anchor = future → **will have**",
+    "example": "Anchor: **when the match started** (past) → The rain **had stopped**.\n\nAnchor: **by the time you read this** (future) → I **will have left**.\n\nAnchor: **now** → I **have finished**."
+   }
+  }
+ }
+}

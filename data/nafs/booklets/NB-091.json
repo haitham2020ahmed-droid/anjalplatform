@@ -1,0 +1,568 @@
+{
+  "code": "NB-091",
+  "title": "Alexander Fleming and the Mould on the Dish",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 409,
+  "passage": "In September 1928, a Scottish scientist returned to his London laboratory after a summer holiday. On his bench sat a pile of glass dishes in which he had been growing bacteria before he left. As he sorted through them, he noticed something strange: a patch of blue-green mould had grown on one dish, and around it the bacteria had disappeared. Many people would have simply washed the dish. Alexander Fleming, however, looked more closely, and that careful glance eventually helped to save millions of lives.\n\nFleming was born in 1881 on a farm in Ayrshire, Scotland, where he spent his childhood exploring the hills and streams. At the age of thirteen, he moved to London, and later he worked for four years as a clerk in a shipping office. When an uncle left him some money, he used it to study medicine at St Mary's Hospital Medical School. Later, he became a researcher there.\n\nDuring the First World War, Fleming served as a doctor in military hospitals in France. There, he watched with frustration as many soldiers died from infected wounds rather than from the injuries themselves. He also discovered that the chemicals used to clean deep wounds often harmed the body's own defences more than they harmed the bacteria. After the war, he became determined to find a safer way to fight infection.\n\nWhen Fleming examined the mysterious mould in 1928, he realised that it was producing a substance that killed many kinds of harmful bacteria. He named the substance penicillin, after the Penicillium mould, and published his results in 1929. Unfortunately, he could not produce enough pure penicillin to treat patients, and for about ten years his discovery attracted little attention.\n\nAround 1939, two scientists at the University of Oxford, Howard Florey and Ernst Chain, read Fleming's report and decided to investigate further. With their team, they found a way to purify penicillin and test it on patients. How astonishing the results were! By the end of the Second World War, factories were producing penicillin in huge quantities. In 1945, Fleming, Florey and Chain shared the Nobel Prize in Physiology or Medicine.\n\nFleming never claimed all the credit for himself. In his Nobel lecture, he also warned that if people used penicillin carelessly, bacteria could become resistant to it, a problem doctors still face today. His story shows that great discoveries often depend on noticing the unexpected. They become truly useful only when many people work together.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “frustration” as it is used in paragraph 3?",
+      "options": [
+        "annoyance",
+        "amusement",
+        "relief",
+        "curiosity"
+      ],
+      "answer": "A",
+      "why": "Fleming felt annoyed and upset that he could not stop soldiers dying from infections."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “pure” as it is used in paragraph 4?",
+      "options": [
+        "clean",
+        "contaminated",
+        "fresh",
+        "strong"
+      ],
+      "answer": "B",
+      "why": "Pure penicillin has nothing else mixed in; the opposite is “contaminated” (mixed with unwanted substances)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 6: “bacteria could become resistant to it”. What does “resistant” mean here?",
+      "options": [
+        "easier to kill with a small amount of medicine",
+        "too small to be seen even with a microscope",
+        "helpful to the human body instead of harmful",
+        "able to survive the medicine without being harmed"
+      ],
+      "answer": "D",
+      "why": "Fleming warned that careless use could let bacteria survive penicillin, a problem doctors still face."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 1 is a NOUN?",
+      "options": [
+        "strange",
+        "noticed",
+        "closely",
+        "mould"
+      ],
+      "answer": "D",
+      "why": "“Mould” names a thing; “strange” is an adjective, “noticed” a verb and “closely” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In the passage, “bacteria” is an irregular PLURAL noun. What is its singular form?",
+      "options": [
+        "bacterium",
+        "bacterias",
+        "bacteriae",
+        "bacter"
+      ],
+      "answer": "A",
+      "why": "One bacterium, many bacteria: like some other science words, it has an irregular plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “infection”?",
+      "options": [
+        "inspect",
+        "infect",
+        "inflate",
+        "insect"
+      ],
+      "answer": "B",
+      "why": "Infect, infected and infection share the same root; the others only begin with “in-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “investigate” in a meaningful sentence of your own.",
+      "model": "When our tomato plants began to wilt, my sister and I decided to investigate by checking the soil and the leaves every morning.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “investigate” with its meaning (to examine something carefully to find out the facts)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 5, Florey and Chain “decided to investigate further” after reading Fleming's report."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the correct plural of “dish”?",
+      "options": [
+        "dishs",
+        "dishes",
+        "dishies",
+        "dishen"
+      ],
+      "answer": "B",
+      "why": "Nouns ending in -sh add -es: dish → dishes."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What type of sentence is “How astonishing the results were!” in paragraph 5?",
+      "options": [
+        "an exclamation",
+        "a question",
+        "a command",
+        "a statement"
+      ],
+      "answer": "A",
+      "why": "It begins with “How” but asks nothing; it shows strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "Life on a Farm in Ayrshire",
+        "How to Become a Shipping Clerk",
+        "The Mould That Changed Medicine",
+        "The Hospitals of the First World War"
+      ],
+      "answer": "C",
+      "why": "The passage centres on the mould that produced penicillin and its effect on medicine."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to warn readers never to touch mould",
+        "to describe what soldiers ate in wartime",
+        "to explain how penicillin was discovered and developed",
+        "to compare London and Oxford as cities"
+      ],
+      "answer": "C",
+      "why": "It follows penicillin from Fleming's dish to mass production and the Nobel Prize."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Fleming enjoyed working in hospitals in France more than in London.",
+        "Most soldiers in the First World War had no injuries at all.",
+        "War experiences made Fleming determined to find a safer way to fight infection.",
+        "Chemicals were the best way to clean deep wounds in wartime."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 describes what he saw in military hospitals and ends: “he became determined to find a safer way to fight infection.”"
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did many soldiers die?",
+      "options": [
+        "from infected wounds, not from the injuries themselves",
+        "from the cold weather in France",
+        "because there were no doctors in France",
+        "because they refused to be treated"
+      ],
+      "answer": "A",
+      "why": "“Many soldiers died from infected wounds rather than from the injuries themselves.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Fleming's discovery attract little attention for about ten years?",
+      "options": [
+        "He kept his results secret until 1939.",
+        "He could not produce enough pure penicillin to treat patients.",
+        "Other scientists did not believe in bacteria.",
+        "The mould died soon after he found it."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “he could not produce enough pure penicillin to treat patients, and for about ten years his discovery attracted little attention.”"
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How did penicillin get its name?",
+      "options": [
+        "It was named after the Penicillium mould.",
+        "It was named after a hospital in London.",
+        "It was named by Florey and Chain at Oxford.",
+        "It was named after Fleming's uncle."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: “He named the substance penicillin, after the Penicillium mould.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Florey and Chain read Fleming's report.",
+        "Fleming served as a doctor in France.",
+        "Fleming noticed the mould on a dish.",
+        "Fleming, Florey and Chain shared the Nobel Prize."
+      ],
+      "answer": "D",
+      "why": "The war service came first, then the mould (1928), the Oxford work (around 1939) and finally the Nobel Prize (1945)."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail explains how Fleming was able to pay for medical school?",
+      "options": [
+        "He worked as a doctor in France.",
+        "He won a prize for his research.",
+        "An uncle left him some money.",
+        "He sold his family's farm in Scotland."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: “When an uncle left him some money, he used it to study medicine.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Fleming notice around the patch of mould in 1928?",
+      "options": [
+        "The bacteria had grown faster.",
+        "The bacteria had disappeared.",
+        "The dish had cracked in two.",
+        "The mould had turned bright red."
+      ],
+      "answer": "B",
+      "why": "Paragraph 1: “around it the bacteria had disappeared.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What led Florey and Chain to investigate penicillin?",
+      "options": [
+        "Fleming asked them to visit his laboratory.",
+        "They found the same mould on their own dishes.",
+        "The government ordered them to make medicine.",
+        "They read Fleming's report."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5: they “read Fleming's report and decided to investigate further.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which pair of words best describes Fleming's feelings during the First World War?",
+      "options": [
+        "frustrated but determined",
+        "calm and satisfied",
+        "bored and careless",
+        "frightened and hopeless"
+      ],
+      "answer": "A",
+      "why": "He watched “with frustration” and, after the war, “became determined to find a safer way to fight infection.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "wanting to know how a mould could save millions of lives",
+        "wanting to know where Fleming spent his holiday",
+        "wanting to learn how to wash glass dishes",
+        "wanting to find out the colour of Fleming's bench"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1 ends by saying the glance “helped to save millions of lives”, which makes readers curious about how."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was the situation in 1945 DIFFERENT from the situation in 1929?",
+      "options": [
+        "Penicillin was now made in huge quantities.",
+        "Fleming had not yet named penicillin.",
+        "Nobody had tested penicillin on patients.",
+        "The mould had not yet been discovered."
+      ],
+      "answer": "A",
+      "why": "In 1929 Fleming could not make enough; by the end of the war, factories produced it “in huge quantities”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what was the effect of the chemicals used to clean deep wounds?",
+      "options": [
+        "They healed the wounds within a single day.",
+        "They turned the wounds a blue-green colour.",
+        "They often harmed the body's defences more than the bacteria.",
+        "They helped Fleming discover penicillin."
+      ],
+      "answer": "C",
+      "why": "Fleming “discovered that the chemicals … often harmed the body's own defences more than they harmed the bacteria.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the wartime chemicals in paragraph 3 and the careless use of penicillin in paragraph 6 have in common?",
+      "options": [
+        "Both were invented by Fleming himself.",
+        "Both were first used at Oxford.",
+        "Both can make the fight against bacteria harder.",
+        "Both can only be used on soldiers."
+      ],
+      "answer": "C",
+      "why": "The chemicals harmed the body's defences, and careless use of penicillin can make bacteria resistant."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer emphasise with the words “that careful glance eventually helped to save millions of lives”?",
+      "options": [
+        "Fleming had very good eyesight for his age.",
+        "Fleming looked at the dish for many hours.",
+        "Millions of people visited Fleming's laboratory.",
+        "A small moment of attention led to enormous results."
+      ],
+      "answer": "D",
+      "why": "The contrast between a single glance and millions of lives shows how much a small observation can matter."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with Fleming returning from a holiday?",
+      "options": [
+        "to show that Fleming liked holidays more than work",
+        "to explain how to grow bacteria on glass dishes",
+        "to draw readers into the exact moment of discovery",
+        "to describe Fleming's childhood in Scotland"
+      ],
+      "answer": "C",
+      "why": "Opening with the discovery scene creates interest before the writer goes back to his early life."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage expresses an OPINION rather than a fact?",
+      "options": [
+        "Fleming was born in 1881 on a farm in Ayrshire, Scotland.",
+        "His story shows that great discoveries often depend on noticing the unexpected.",
+        "He named the substance penicillin, after the Penicillium mould.",
+        "In 1945, Fleming, Florey and Chain shared the Nobel Prize in Physiology or Medicine."
+      ],
+      "answer": "B",
+      "why": "It is the writer's interpretation of Fleming's story; the others are facts that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which statement best reflects the writer's view about who deserves credit for penicillin?",
+      "options": [
+        "Only Fleming deserves any credit.",
+        "Fleming and the Oxford team all deserve credit.",
+        "Only Florey and Chain deserve credit.",
+        "The factories deserve all the credit."
+      ],
+      "answer": "B",
+      "why": "The writer says Fleming “never claimed all the credit” and that discoveries become useful “when many people work together.”"
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which idea from Fleming is MOST important for people to remember today?",
+      "options": [
+        "his decision to work as a shipping clerk",
+        "his habit of growing bacteria in glass dishes",
+        "his choice to take a summer holiday",
+        "his warning against using penicillin carelessly"
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 says resistance is “a problem doctors still face today”, so his warning still matters."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling toward Fleming is most present in the passage?",
+      "options": [
+        "suspicion",
+        "boredom",
+        "anger",
+        "admiration"
+      ],
+      "answer": "D",
+      "why": "The writer praises his careful observation, his determination and his modesty."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "the year Fleming noticed the mould",
+        "the country where Fleming served in the war",
+        "how Florey and Chain managed to purify penicillin",
+        "the name of the mould that made penicillin"
+      ],
+      "answer": "C",
+      "why": "The passage says they “found a way to purify penicillin” but does not explain how; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mould grows into a tree overnight in a laboratory.",
+        "A glass dish cures a soldier simply by being touched.",
+        "Bacteria write a report about a new medicine.",
+        "A mould stops bacteria from growing near it on a dish."
+      ],
+      "answer": "D",
+      "why": "This is exactly what Fleming observed; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The Scientist Who Hated Holidays",
+        "From a Forgotten Dish to a Life-Saving Medicine",
+        "Soldiers of the Second World War",
+        "A Clerk in a Shipping Office"
+      ],
+      "answer": "B",
+      "why": "It sums up the journey from the dish Fleming noticed to the medicine produced in factories."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending: imagine that Florey and Chain had never read Fleming's report. Write two or three sentences about what might have happened.",
+      "model": "Fleming's report might have stayed forgotten on a library shelf for many more years. Without penicillin, many soldiers in the Second World War could have died from infected wounds. Perhaps another young scientist would have found the report later and finally turned the mould into a medicine.",
+      "rubric": [
+        "2 = a clear, believable new ending that follows logically from the report not being read and fits the passage",
+        "1 = an ending is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that follows from the Oxford team never reading the report is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on Fleming's warning, what is the best way for people today to help stop bacteria from becoming resistant?",
+      "options": [
+        "Take antibiotics only as a doctor prescribes them.",
+        "Take antibiotics for every small cold or headache.",
+        "Share leftover antibiotics with friends and family.",
+        "Stop the medicine halfway once you feel better."
+      ],
+      "answer": "A",
+      "why": "Fleming warned against careless use; following a doctor's instructions is the careful way to use antibiotics."
+    }
+  ]
+}

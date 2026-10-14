@@ -1,0 +1,458 @@
+{
+ "code": "LN-059",
+ "title": "Comparing with -er/-est and more/most",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "comparatives"
+ ],
+ "skillNames": [
+  "Adjectives That Compare (-er, -est)",
+  "Choosing -er/-est or More/Most",
+  "Comparing with More and Most",
+  "Comparing with Adverbs",
+  "Comparing with Adjectives and Adverbs",
+  "Spelling Comparative Adjectives"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Compare two: -er",
+     "text": "Add **-er** to compare **two** things.\n\nThe cat is small. The mouse is **smaller**."
+    },
+    {
+     "title": "Compare three or more: -est",
+     "text": "Add **-est** to compare **three or more** things.\n\nThe ant is the **smallest** of all."
+    },
+    {
+     "title": "Clue words",
+     "text": "**than** → -er: tall**er than** me\n\n**the** ... **of all** → -est: **the** tall**est of all**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the blank.\n2. Count: how many things are compared?\n3. Find the clue words: **than** or **of all**.\n\nPoint to them in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The tree is tall.",
+      "role": "other"
+     },
+     {
+      "t": "The tower is taller than the tree.",
+      "role": "key"
+     },
+     {
+      "t": "The mountain is the tallest of all.",
+      "role": "key"
+     }
+    ],
+    "explain": "The tower and the tree: **two** things → **taller**.\n\nThe mountain and all the others → **the tallest**."
+   },
+   "together": {
+    "passage": "Faisal, Majed and Ali ran a race. Faisal was fast. Majed was faster than Faisal. Ali was the ___ of all three.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "fast",
+     "faster",
+     "fastest",
+     "more fast"
+    ],
+    "answer": 2,
+    "hint": "How many boys are compared? Look for the words of all three.",
+    "good": "Yes! Ali is compared with all three boys, so he was the fastest."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal, Majed and Ali ran a race.",
+     "Faisal was fast.",
+     "Majed was faster than Faisal.",
+     "Ali was the ___ of all three."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: fastest. Tap 2 sentences that show three boys are compared.",
+    "wrong": "This sentence talks about only one or two boys. Find where all three are named or counted."
+   },
+   "checks": [
+    {
+     "passage": "A car is fast. A plane is ___ than a car.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "faster",
+      "fast",
+      "fastest",
+      "fastly"
+     ],
+     "answer": 0,
+     "why": "Two things are compared, and the sentence has than, so we use faster."
+    },
+    {
+     "passage": "There are five fish in the tank. The blue one is the ___.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "small",
+      "smaller",
+      "more small",
+      "smallest"
+     ],
+     "answer": 3,
+     "why": "The blue fish is compared with all five fish, so it is the smallest."
+    },
+    {
+     "passage": "My bag is light, but your bag is even ___.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "lightest",
+      "lighter",
+      "light",
+      "more lightest"
+     ],
+     "answer": 1,
+     "why": "Two bags are compared, so we use lighter."
+    }
+   ],
+   "again": {
+    "title": "Two or many?",
+    "text": "**Two** things → add **-er**.\n\n**Three or more** → add **-est**.",
+    "example": "A pencil is long. A ruler is **longer**. A broom is the **longest**.\n\nPencil and ruler: two → -er. All three → -est."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Double the last letter",
+     "text": "Short vowel + one consonant at the end? **Double** it.\n\nbig → bi**gg**er → bi**gg**est\nhot → ho**tt**er → ho**tt**est\nthin → thi**nn**er"
+    },
+    {
+     "title": "Ends in e",
+     "text": "Just add **-r** or **-st**.\n\nlarge → large**r** → large**st**\nnice → nice**r** → nice**st**"
+    },
+    {
+     "title": "Ends in consonant + y",
+     "text": "Change **y** to **i**, then add -er or -est.\n\nhappy → happ**ier** → happ**iest**\nbusy → bus**ier** → bus**iest**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the comparing word in the text.\n2. Find its base word (hot, nice, sunny).\n3. Look at how the base word ends.\n4. Point to the word and name the rule it follows, or breaks."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our garden is big.",
+      "role": "other"
+     },
+     {
+      "t": "Hessa's garden is bigger.",
+      "role": "key"
+     },
+     {
+      "t": "The park has the biggest garden in town.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Big** ends in a short vowel + one consonant, so we double the **g**: bi**gg**er, bi**gg**est."
+   },
+   "together": {
+    "passage": "Yesterday was hot, but today was even hoter. My little brother said it was the sunniest day of the year. We stayed inside, where it was cooler. In the evening, the wind grew stronger, and the air felt nicer.",
+    "stem": "Which word in the text is spelled wrong?",
+    "options": [
+     "hoter",
+     "sunniest",
+     "cooler",
+     "nicer"
+    ],
+    "answer": 0,
+    "hint": "Check each base word. Which one ends in a short vowel + one consonant and needs a double letter?",
+    "good": "Yes! Hot ends in a short vowel + t, so we double the t: hotter."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday was hot, but today was even hoter.",
+     "My little brother said it was the sunniest day of the year.",
+     "We stayed inside, where it was cooler.",
+     "In the evening, the wind grew stronger, and the air felt nicer."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was hoter (it should be hotter). Tap 2 sentences with a comparing word that correctly uses a spelling rule (y to i, or drop the e).",
+    "wrong": "This sentence has a comparing word that just adds -er, or one that is spelled wrong. Look for sunniest or nicer."
+   },
+   "checks": [
+    {
+     "passage": "My cat is fat, but your cat is ___.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "fater",
+      "fatest",
+      "fatter",
+      "more fat"
+     ],
+     "answer": 2,
+     "why": "Fat ends in a short vowel + t, so we double the t: fatter."
+    },
+    {
+     "passage": "This puzzle is ___ than the last one.",
+     "stem": "Which word fits the blank and is spelled correctly?",
+     "options": [
+      "easyer",
+      "easier",
+      "easiest",
+      "more easy"
+     ],
+     "answer": 1,
+     "why": "Easy ends in consonant + y, so we change y to i: easier. Than tells us two things are compared."
+    },
+    {
+     "passage": "This is the ___ road in our city.",
+     "stem": "Which word fits the blank and is spelled correctly?",
+     "options": [
+      "wideest",
+      "widdest",
+      "most wide",
+      "widest"
+     ],
+     "answer": 3,
+     "why": "Wide ends in e, so we just add -st: widest."
+    }
+   ],
+   "again": {
+    "title": "Look at the last letters",
+    "text": "**-e** at the end → just add r or st.\n**consonant + y** → y becomes i.\n**short vowel + one consonant** → double it.\n\nEverything else → just add -er or -est.",
+    "example": "sad → sa**dd**er (double)\nsafe → safe**r** (add r)\nfunny → funn**ier** (y to i)\nsoft → soft**er** (just add)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Long words: more and most",
+     "text": "Most words with **three or more syllables** use **more** and **most**.\n\nbeautiful → **more** beautiful → **most** beautiful\nimportant → **more** important → **most** important"
+    },
+    {
+     "title": "Two syllables?",
+     "text": "Words ending in **-y** take -er or -est: easy → easier.\n\nMany others use more or most: careful → **more careful**, famous → **most famous**.\n\nNever use both: ✗ more easier"
+    },
+    {
+     "title": "Adverbs compare too",
+     "text": "Short adverbs take -er or -est: fast → **faster**, hard → **harder**.\n\nAdverbs ending in **-ly** take more or most: quickly → **more quickly**, carefully → **most carefully**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the word being compared. Count its syllables and look at its ending.\n2. Point to the clue: **than** (two) or **the ... of all** (three or more).\n3. Then point to the facts in the text that show who did more or less."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The first drawing was colorful.",
+      "role": "other"
+     },
+     {
+      "t": "The second drawing was more colorful than the first.",
+      "role": "key"
+     },
+     {
+      "t": "The third was the most colorful of all.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Colorful** has three syllables, so we use **more** and **most**, not -er and -est.\n\n**Than** → more. **Of all** → most."
+   },
+   "together": {
+    "passage": "Three classes entered the school recycling contest. Class 5A collected paper every day, but they sorted it slowly. Class 5B worked ___ than 5A, finishing each bag in half the time. Class 5C was the most organized of all. They made a chart, gave everyone a job and checked the bins twice a week. In the end, 5C collected the most material and won the prize.",
+    "stem": "Which words fit the blank?",
+    "options": [
+     "more quickly",
+     "quicklier",
+     "most quickly",
+     "more quicker"
+    ],
+    "answer": 0,
+    "hint": "Quickly ends in -ly, and than tells you two classes are compared.",
+    "good": "Yes! Quickly is an -ly adverb, and two classes are compared, so we use more quickly."
+   },
+   "evidence": {
+    "sentences": [
+     "Three classes entered the school recycling contest.",
+     "Class 5A collected paper every day, but they sorted it slowly.",
+     "Class 5B worked ___ than 5A, finishing each bag in half the time.",
+     "Class 5C was the most organized of all.",
+     "They made a chart, gave everyone a job and checked the bins twice a week.",
+     "In the end, 5C collected the most material and won the prize."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: more quickly. Tap 2 sentences that show how fast 5A and 5B worked.",
+    "wrong": "This sentence is about Class 5C or the whole contest. Find the facts about 5A and 5B."
+   },
+   "checks": [
+    {
+     "passage": "This book is ___ than the one I read last week.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "interestinger",
+      "most interesting",
+      "more interestinger",
+      "more interesting"
+     ],
+     "answer": 3,
+     "why": "Interesting is a long word, and two books are compared, so we use more interesting."
+    },
+    {
+     "passage": "Of all the students, Lama speaks the ___.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "more clearly",
+      "clearliest",
+      "most clearly",
+      "clearlier"
+     ],
+     "answer": 2,
+     "why": "Clearly ends in -ly, and Lama is compared with all the students, so we use most clearly."
+    },
+    {
+     "passage": "Muna checks her work twice. She is ___ than her sister.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "carefuller",
+      "more careful",
+      "most careful",
+      "more carefuller"
+     ],
+     "answer": 1,
+     "why": "Careful uses more, and two sisters are compared, so we use more careful."
+    }
+   ],
+   "again": {
+    "title": "Clap the word",
+    "text": "Clap the syllables.\n\n**One clap** → -er, -est (tall, fast)\n**Two claps ending in y** → -ier, -iest (happy)\n**Three or more claps**, or **-ly** → more, most",
+    "example": "dangerous: dan-ger-ous, three claps → **more dangerous**\nslowly: an -ly adverb → **more slowly**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "One way only",
+     "text": "Use -er/-est **or** more/most, never both.\n\n✗ more faster ✗ most tallest\n✓ faster ✓ tallest"
+    },
+    {
+     "title": "Make it logical",
+     "text": "✗ Mount Everest is higher than any mountain.\nEverest is a mountain, so it would be higher than itself!\n\n✓ Mount Everest is higher than **any other** mountain.\n\nCompare like with like: ✗ My bag is heavier than Ali. ✓ My bag is heavier than **Ali's**."
+    },
+    {
+     "title": "Less and least",
+     "text": "To compare downwards, use **less** and **least**.\n\nThe new road is **less** crowded.\nThis is the **least** expensive choice."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a comparison is wrong:\n\n1. Point to the **two things** being compared.\n2. Point to the comparing form.\n3. Ask: Is it a double form? Does it compare like with like? Could the thing be compared with itself?\n\nQuote the words that break the rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Of all the planets in our solar system, Jupiter is the largest.",
+      "role": "key"
+     },
+     {
+      "t": "It is larger than all the other planets put together.",
+      "role": "key"
+     },
+     {
+      "t": "Mercury is the smallest.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Jupiter is compared with **all** the planets → **the largest**.\n\nSentence 2 says **all the other planets**. Without **other**, Jupiter would be compared with itself."
+   },
+   "together": {
+    "passage": "For our math project, we compared three towers in our city. The North Tower is the oldest, but it is also the shortest. The Glass Tower is newer and much taller than the North Tower. The Sky Tower, finished last year, is taller than any building in the city. Its elevators move more quickly than those in the other two towers. Our group agreed that the Sky Tower is the most impressive, though the North Tower is the most beautiful.",
+    "stem": "Which sentence needs to be revised to make its comparison logical?",
+    "options": [
+     "The North Tower is the oldest, but it is also the shortest.",
+     "The Glass Tower is newer and much taller than the North Tower.",
+     "The Sky Tower is taller than any building in the city.",
+     "Its elevators move more quickly than those in the other two towers."
+    ],
+    "answer": 2,
+    "hint": "Ask of each sentence: could the thing be compared with itself?",
+    "good": "Yes! The Sky Tower is itself a building in the city, so it should be taller than any OTHER building in the city."
+   },
+   "evidence": {
+    "sentences": [
+     "For our math project, we compared three towers in our city.",
+     "The North Tower is the oldest, but it is also the shortest.",
+     "The Glass Tower is newer and much taller than the North Tower.",
+     "The Sky Tower, finished last year, is taller than any building in the city.",
+     "Its elevators move more quickly than those in the other two towers.",
+     "Our group agreed that the Sky Tower is the most impressive, though the North Tower is the most beautiful."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was the Sky Tower sentence. Tap 2 sentences that prove the Sky Tower is itself a building in the city.",
+    "wrong": "This sentence does not show that the Sky Tower is one of the buildings in the city."
+   },
+   "checks": [
+    {
+     "passage": "This year's test was more harder than last year's.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "This year's test was most hard than last year's.",
+      "This year's test was harder than last year's.",
+      "This year's test was hardest than last year's.",
+      "This year's test was more hardest than last year's."
+     ],
+     "answer": 1,
+     "why": "Harder already compares, so more must go."
+    },
+    {
+     "passage": "Riyadh is larger than any city in Saudi Arabia.",
+     "stem": "Which revision makes the comparison logical?",
+     "options": [
+      "Riyadh is larger than any other city in Saudi Arabia.",
+      "Riyadh is more larger than any city in Saudi Arabia.",
+      "Riyadh is the larger city than Saudi Arabia.",
+      "Riyadh is largest than any city in Saudi Arabia."
+     ],
+     "answer": 0,
+     "why": "Riyadh is a city in Saudi Arabia, so it must be compared with any OTHER city."
+    },
+    {
+     "passage": "The new road is ___ crowded than the old one, so the trip takes less time.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "least",
+      "fewer",
+      "lesser",
+      "less"
+     ],
+     "answer": 3,
+     "why": "Two roads are compared downwards with than, so we use less."
+    }
+   ],
+   "again": {
+    "title": "Three questions",
+    "text": "1. **Double form?** (more taller) Remove one.\n2. **Like with like?** (my bag vs. Ali) Fix it: Ali's.\n3. **Compared with itself?** Add **other** or **else**.",
+    "example": "Huda reads more than anyone in her class.\n\nHuda is in her class! → Huda reads more than **anyone else** in her class."
+   }
+  }
+ }
+}

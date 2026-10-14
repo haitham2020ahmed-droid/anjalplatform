@@ -1,0 +1,470 @@
+{
+ "code": "LN-103",
+ "title": "Maps and timelines",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.5",
+  "RI.3.7",
+  "RI.4.7",
+  "RI.5.7"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [
+  "Maps, Timelines and Graphic Organizers"
+ ],
+ "statements": [
+  "R-0038",
+  "R-0102",
+  "R-0333"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Maps show where",
+     "text": "A **map** is a drawing of a place from above.\n\nIt shows **where** things are: next to, across from, near, far.\n\nIn these lessons, each map is written out in words."
+    },
+    {
+     "title": "Timelines show when",
+     "text": "A **timeline** is a line with events in **order**.\n\nThe first event is at the start. The last event is at the end."
+    },
+    {
+     "title": "The key",
+     "text": "Many maps have a **key**. The key tells what each **symbol** means.\n\nblue line = river\ngreen circle = park"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the place or event the question asks about.\n2. Read the line that tells where or when it is.\n3. Point to that line."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Map of our school.",
+      "role": "other"
+     },
+     {
+      "t": "The library is next to the gym.",
+      "role": "key"
+     },
+     {
+      "t": "The office is near the front door.",
+      "role": "other"
+     }
+    ],
+    "explain": "Where is the library? The map says: **next to the gym**."
+   },
+   "together": {
+    "passage": "This is a map of our street. The school is next to the park. The mosque is across from the school. The shop is at the end of the street.",
+    "stem": "What is across from the school?",
+    "options": [
+     "the park",
+     "the mosque",
+     "the shop",
+     "the house"
+    ],
+    "answer": 1,
+    "hint": "Find the words across from. What is there?",
+    "good": "Yes! The map says the **mosque** is across from the school."
+   },
+   "evidence": {
+    "sentences": [
+     "This is a map of our street.",
+     "The school is next to the park.",
+     "The mosque is across from the school.",
+     "The shop is at the end of the street."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the mosque. Tap the line of the map that proves it.",
+    "wrong": "This line does not say what is across from the school. Find the one that does."
+   },
+   "checks": [
+    {
+     "passage": "Timeline of Ali's morning: 7:00 wake up. 7:30 eat breakfast. 8:00 go to school.",
+     "stem": "What does Ali do at 7:30?",
+     "options": [
+      "eat breakfast",
+      "wake up",
+      "go to school",
+      "go to bed"
+     ],
+     "answer": 0,
+     "why": "The timeline shows **eat breakfast** at 7:30."
+    },
+    {
+     "passage": "Map key: a blue line = a river. A green circle = a park. A red square = a hospital.",
+     "stem": "What does a green circle show?",
+     "options": [
+      "a river",
+      "a hospital",
+      "a park",
+      "a school"
+     ],
+     "answer": 2,
+     "why": "The key says a green circle means **a park**."
+    },
+    {
+     "passage": "Timeline of Sara's year: January: joined the art club. March: lost a tooth. June: learned to swim.",
+     "stem": "What happened first?",
+     "options": [
+      "learned to swim",
+      "lost a tooth",
+      "went on a trip",
+      "joined the art club"
+     ],
+     "answer": 3,
+     "why": "January comes first on the timeline: Sara **joined the art club**."
+    }
+   ],
+   "again": {
+    "title": "Where and when",
+    "text": "Ask one question:\n\n**Where** is it? → look at the **map**.\n**When** was it? → look at the **timeline**.",
+    "example": "Where is the park? Map: next to the school.\nWhen did Omar start school? Timeline: September."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Reading a timeline",
+     "text": "A timeline puts events in order from **earliest** to **latest**.\n\nEach event has a **date** or time next to it."
+    },
+    {
+     "title": "How long between?",
+     "text": "To find **how long** between two events, **subtract** the earlier date from the later one.\n\n2014 − 2010 = **4 years**"
+    },
+    {
+     "title": "Before, after, between",
+     "text": "Use the dates to answer:\n\n**Before**: an earlier date.\n**After**: a later date.\n**Between**: a date in the middle of two others.\n\nGaps in a timeline can show times when nothing is recorded."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the events the question names.\n2. Read their dates.\n3. Compare or subtract.\n4. Point to the lines with those dates."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Timeline of a well.",
+      "role": "other"
+     },
+     {
+      "t": "1990: The well is dug.",
+      "role": "key"
+     },
+     {
+      "t": "2000: A pump is added.",
+      "role": "key"
+     },
+     {
+      "t": "2010: The well is repaired.",
+      "role": "other"
+     }
+    ],
+    "explain": "How long after the well was dug was the pump added? 2000 − 1990 = **10 years**."
+   },
+   "together": {
+    "passage": "A timeline shows the life of a palm tree on a family farm. 2010: The young palm is planted. 2014: The palm gives its first small harvest. 2018: The palm grows taller than the house. 2024: The palm gives 100 kg of dates.",
+    "stem": "How many years after planting did the palm give its first harvest?",
+    "options": [
+     "10 years",
+     "8 years",
+     "14 years",
+     "4 years"
+    ],
+    "answer": 3,
+    "hint": "Find the year it was planted and the year of the first harvest. Subtract.",
+    "good": "Yes! 2014 − 2010 = **4 years**."
+   },
+   "evidence": {
+    "sentences": [
+     "A timeline shows the life of a palm tree on a family farm.",
+     "2010: The young palm is planted.",
+     "2014: The palm gives its first small harvest.",
+     "2018: The palm grows taller than the house.",
+     "2024: The palm gives 100 kg of dates."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: 4 years. Tap the 2 lines with the dates you used.",
+    "wrong": "This date is not part of the answer. Find the planting date and the first harvest date."
+   },
+   "checks": [
+    {
+     "passage": "Timeline: our school's history. 1995: The school opens with 100 students. 2005: A science lab is built. 2015: The school has 600 students. 2020: A new library opens.",
+     "stem": "What happened between the science lab and the library?",
+     "options": [
+      "The school opened.",
+      "A science lab was built.",
+      "The school reached 600 students.",
+      "A pool was built."
+     ],
+     "answer": 2,
+     "why": "The lab was 2005 and the library 2020. In **2015**, between them, the school reached 600 students."
+    },
+    {
+     "passage": "Trip timeline: Day 1: fly to Abha. Day 2: visit a mountain village. Day 3: hike in the mountains. Day 5: fly home.",
+     "stem": "Which day has no plan on the timeline?",
+     "options": [
+      "Day 1",
+      "Day 4",
+      "Day 3",
+      "Day 5"
+     ],
+     "answer": 1,
+     "why": "The timeline jumps from Day 3 to Day 5. **Day 4** has nothing planned."
+    },
+    {
+     "passage": "Timeline of a town: 1900: People use oil lamps. 1950: Electricity reaches the town. 1960: The first shop with a fridge opens.",
+     "stem": "Why could the shop with a fridge open only after 1950?",
+     "options": [
+      "Electricity had reached the town.",
+      "People liked oil lamps.",
+      "The town was very new.",
+      "Fridges were cheap in 1900."
+     ],
+     "answer": 0,
+     "why": "A fridge needs electricity, which came in **1950**."
+    }
+   ],
+   "again": {
+    "title": "Walk the line",
+    "text": "Imagine walking along the timeline from left to right.\n\nEach step is one event. Count how far you walk between two events.",
+    "example": "2016 → 2019 → 2023\n\nFrom 2016 to 2023 you walk 2023 − 2016 = **7 years**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Directions on a map",
+     "text": "A **compass rose** shows directions:\n\n**N**orth (usually up)\n**S**outh (down)\n**E**ast (right)\n**W**est (left)"
+    },
+    {
+     "title": "The scale",
+     "text": "A **scale** tells how far real distances are.\n\n**1 cm = 2 km** means every centimetre on the map is 2 kilometres in real life.\n\n3 cm on the map = 3 × 2 = **6 km**."
+    },
+    {
+     "title": "Symbols and the key",
+     "text": "The **key** (or legend) explains every symbol: lines for roads or trails, shapes for buildings, colours for water or forest.\n\nAlways check the key before you decide what something is."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a map answer:\n\n1. Find the tools you need: compass rose, scale or key.\n2. Find the places named in the question.\n3. Use direction or distance to work it out.\n4. Point to every line you used."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Map: The scale is 1 cm = 5 km.",
+      "role": "key"
+     },
+     {
+      "t": "The farm is 2 cm east of the village.",
+      "role": "key"
+     },
+     {
+      "t": "A river runs along the north edge.",
+      "role": "other"
+     }
+    ],
+    "explain": "How far is the farm from the village? 2 cm × 5 km = **10 km**. You need **both** the scale and the distance on the map."
+   },
+   "together": {
+    "passage": "A map of a nature reserve has a compass rose and a scale. The scale shows that 1 cm on the map equals 2 km in real life. The visitor centre is at the south entrance. The lake is 3 cm north of the visitor centre. The camping area is 1 cm east of the lake. In the key, a dotted line means a walking trail, and one trail joins the visitor centre to the lake.",
+    "stem": "How far is it from the visitor centre to the lake in real life?",
+    "options": [
+     "6 km",
+     "3 km",
+     "2 km",
+     "5 km"
+    ],
+    "answer": 0,
+    "hint": "How many centimetres apart are they on the map? What does each centimetre mean?",
+    "good": "Yes! 3 cm × 2 km = **6 km**."
+   },
+   "evidence": {
+    "sentences": [
+     "A map of a nature reserve has a compass rose and a scale.",
+     "The scale shows that 1 cm on the map equals 2 km in real life.",
+     "The visitor centre is at the south entrance.",
+     "The lake is 3 cm north of the visitor centre.",
+     "The camping area is 1 cm east of the lake.",
+     "In the key, a dotted line means a walking trail, and one trail joins the visitor centre to the lake."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: 6 km. Tap the 2 lines you need to work it out.",
+    "wrong": "This line does not help you find the distance. Find the scale and the distance on the map."
+   },
+   "checks": [
+    {
+     "passage": "On the map, the mosque is at the top, the market is at the bottom, the school is on the left and the park is on the right. The compass rose shows north at the top.",
+     "stem": "Which place is to the west?",
+     "options": [
+      "the mosque",
+      "the market",
+      "the park",
+      "the school"
+     ],
+     "answer": 3,
+     "why": "With north at the top, west is on the **left**, where the school is."
+    },
+    {
+     "passage": "Map key: ▲ = mountain, ~ = river, ■ = town, ✈ = airport. Between two towns, the map shows ▲▲▲.",
+     "stem": "What lies between the two towns?",
+     "options": [
+      "a river",
+      "mountains",
+      "an airport",
+      "another town"
+     ],
+     "answer": 1,
+     "why": "The key says ▲ means **mountain**."
+    },
+    {
+     "passage": "A map of Saudi Arabia shows the Red Sea along the west coast and the Arabian Gulf along the east coast. Jeddah is marked on the west coast, and Dammam on the east coast.",
+     "stem": "Which body of water is Dammam beside?",
+     "options": [
+      "the Red Sea",
+      "the Mediterranean Sea",
+      "the Arabian Gulf",
+      "the Indian Ocean"
+     ],
+     "answer": 2,
+     "why": "Dammam is on the **east** coast, beside the Arabian Gulf."
+    }
+   ],
+   "again": {
+    "title": "Never Eat Soggy Waffles",
+    "text": "Go clockwise around the compass from the top: **N**ever **E**at **S**oggy **W**affles = **N**orth, **E**ast, **S**outh, **W**est.\n\nFor distance: **map cm × scale = real distance**.",
+    "example": "Scale: 1 cm = 10 km. Two towns are 4 cm apart.\n4 × 10 = **40 km**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Maps and timelines together",
+     "text": "Some texts give a **map** and a **timeline** about the same topic.\n\nThe map shows **where**; the timeline shows **when**. Together they can show **how something spread or changed** over time and space."
+    },
+    {
+     "title": "Make inferences",
+     "text": "You may need to **infer**: put clues together to reach an idea the text does not state.\n\nExample: if stations opened year by year from one end of a line, the **last** station to open is at the **other** end."
+    },
+    {
+     "title": "Distance, speed and time",
+     "text": "Maps can help with real problems.\n\n1. Measure the distance and use the scale.\n2. If you know the speed, divide: **time = distance ÷ speed**.\n\n400 km ÷ 100 km per hour = 4 hours."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove an inference:\n\n1. Find the map facts (places, directions, distances).\n2. Find the timeline facts (dates, order).\n3. Connect them, and point to the lines from **both** that support your conclusion."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Map: Three wells lie along a valley, from north to south: Well A, Well B, Well C.",
+      "role": "key"
+     },
+     {
+      "t": "Timeline: Well A dried up in 2015, Well B in 2019, Well C in 2023.",
+      "role": "key"
+     },
+     {
+      "t": "The valley is famous for its date farms.",
+      "role": "other"
+     }
+    ],
+    "explain": "Put them together: the wells dried up **from north to south**, one after another. Neither line says this alone."
+   },
+   "together": {
+    "passage": "A map and a timeline show how a new metro line was built in a city. The map shows five stations in a line from west to east: Airport, University, Old Town, Central Market and Sea Port. The timeline shows that building began at the Airport end in 2019. In 2021, the line reached University and Old Town. Central Market station opened in 2023. In 2025, the final station opened, and the whole line began to run. A newspaper in 2022 reported that families near the sea still needed two buses to reach the airport.",
+    "stem": "Which conclusion do the map and timeline best support together?",
+    "options": [
+     "Building began at the Sea Port end and moved west.",
+     "Central Market opened two years before Old Town.",
+     "The line was built from west to east, so Sea Port came last.",
+     "The whole line was already running by the year 2021."
+    ],
+    "answer": 2,
+    "hint": "Where did building start on the map? Which way did it move? Which station is left at the end?",
+    "good": "Yes! Building began at the west end and moved east, so the last station, opened in 2025, was **Sea Port**."
+   },
+   "evidence": {
+    "sentences": [
+     "A map and a timeline show how a new metro line was built in a city.",
+     "The map shows five stations in a line from west to east: Airport, University, Old Town, Central Market and Sea Port.",
+     "The timeline shows that building began at the Airport end in 2019.",
+     "In 2021, the line reached University and Old Town.",
+     "Central Market station opened in 2023.",
+     "In 2025, the final station opened, and the whole line began to run.",
+     "A newspaper in 2022 reported that families near the sea still needed two buses to reach the airport."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the line was built west to east, so Sea Port came last. Tap 2 lines that prove it.",
+    "wrong": "This line does not show where or when stations were built. Use the map and the timeline lines."
+   },
+   "checks": [
+    {
+     "passage": "On a map, Riyadh and Dammam are 8 cm apart, and the scale is 1 cm = 50 km. A family drives at about 100 km per hour.",
+     "stem": "About how long will the drive take?",
+     "options": [
+      "2 hours",
+      "4 hours",
+      "8 hours",
+      "1 hour"
+     ],
+     "answer": 1,
+     "why": "8 × 50 = 400 km. 400 ÷ 100 = **4 hours**."
+    },
+    {
+     "passage": "Timeline of a scientist's life: 1980: born. 2002: graduates from university. 2005–2010: studies sea turtles in the Red Sea. 2008: writes her first book. 2012: starts a turtle protection project.",
+     "stem": "What was she doing when she wrote her first book?",
+     "options": [
+      "She was still a school student.",
+      "She was starting the protection project.",
+      "She had only just graduated.",
+      "She was studying sea turtles."
+     ],
+     "answer": 3,
+     "why": "2008 falls inside 2005–2010, when she was **studying sea turtles**."
+    },
+    {
+     "passage": "A map of an island shows a town on the north coast, thick forest in the centre and a lighthouse on a rocky point in the south. The key shows that the only road runs along the coast.",
+     "stem": "Why would a driver going from the town to the lighthouse follow the coast?",
+     "options": [
+      "The only road runs along the coast.",
+      "The lighthouse is in the forest.",
+      "The town is in the south.",
+      "A road crosses the forest."
+     ],
+     "answer": 0,
+     "why": "The key shows the **only road** runs along the coast, so a driver must use it."
+    }
+   ],
+   "again": {
+    "title": "Where + when = story",
+    "text": "Write the map facts and the timeline facts side by side.\n\nRead across: **where** did it happen first, and **where** last? That tells the story of the change.",
+    "example": "Map: Shop A (north), Shop B (centre), Shop C (south).\nTimeline: A opened 2018, B 2020, C 2022.\n\nStory: the shops spread **from north to south**."
+   }
+  }
+ }
+}

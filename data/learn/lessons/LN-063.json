@@ -1,0 +1,457 @@
+{
+ "code": "LN-063",
+ "title": "Irregular past-tense verbs",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "irregular-verbs"
+ ],
+ "skillNames": [
+  "Irregular Verbs",
+  "Irregular Verbs: Past Tense"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Past time",
+     "text": "Most action words add **-ed** for the past: play → play**ed**.\n\nSome words **change** instead. They are **irregular**."
+    },
+    {
+     "title": "Learn these",
+     "text": "go → **went**\nsee → **saw**\neat → **ate**\nrun → **ran**\ncome → **came**\nhave → **had**"
+    },
+    {
+     "title": "Never add -ed to these",
+     "text": "✗ goed ✗ eated ✗ seed\n\n✓ went ✓ ate ✓ saw"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look for time words: **yesterday**, **last night**, **last week**.\n2. They show the past.\n3. Point to them. Then choose the past form."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yesterday, I went to the zoo.",
+      "role": "key"
+     },
+     {
+      "t": "I saw a big lion.",
+      "role": "key"
+     },
+     {
+      "t": "Lions are strong.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Yesterday** tells us it is the past. **Go** changes to **went**. **See** changes to **saw**.\n\n\"Lions are strong\" is true now, so it is not in the past."
+   },
+   "together": {
+    "passage": "Last Friday, Ali ___ to the beach. The beach is near his house. He ran on the sand. He ate a sandwich.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "go",
+     "goed",
+     "went",
+     "going"
+    ],
+    "answer": 2,
+    "hint": "Last Friday is in the past. Go does not add -ed. What does it change to?",
+    "good": "Yes! Last Friday is the past, and go changes to went."
+   },
+   "evidence": {
+    "sentences": [
+     "Last Friday, Ali ___ to the beach.",
+     "The beach is near his house.",
+     "He ran on the sand.",
+     "He ate a sandwich."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: went. Tap 2 other sentences with a past word that does not end in -ed.",
+    "wrong": "This sentence tells about now (is), or it is the sentence with the blank. Find ran and ate."
+   },
+   "checks": [
+    {
+     "passage": "Yesterday we ___ a falcon in the sky.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "see",
+      "saw",
+      "seed",
+      "seeing"
+     ],
+     "answer": 1,
+     "why": "Yesterday is the past. See changes to saw."
+    },
+    {
+     "passage": "Last night, Mom ___ home late.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "come",
+      "comed",
+      "came",
+      "coming"
+     ],
+     "answer": 2,
+     "why": "Last night is the past. Come changes to came."
+    },
+    {
+     "passage": "Huda eated all her dates.",
+     "stem": "Which word is wrong?",
+     "options": [
+      "eated",
+      "Huda",
+      "all",
+      "dates"
+     ],
+     "answer": 0,
+     "why": "Eat does not add -ed. The past is ate: Huda ate all her dates."
+    }
+   ],
+   "again": {
+    "title": "Say it out loud",
+    "text": "Say: **Today I ... Yesterday I ...**\n\nYour ear often knows the right word!",
+    "example": "Today I **run**. Yesterday I **ran**.\nToday I **have** a ball. Yesterday I **had** a ball."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Vowel changes",
+     "text": "Some verbs change a vowel:\n\nwrite → wr**o**te\nswim → sw**a**m\nsing → s**a**ng\ntake → t**oo**k\nfind → f**ou**nd"
+    },
+    {
+     "title": "-ought and -aught",
+     "text": "buy → b**ought**\nthink → th**ought**\nbring → br**ought**\ncatch → c**aught**\nteach → t**aught**"
+    },
+    {
+     "title": "A little change, or none",
+     "text": "sleep → slep**t**\nkeep → kep**t**\nleave → lef**t**\n\nSome do not change at all:\nput → put, cut → cut, hit → hit"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the time clue: last week, in 2010, yesterday.\n2. Find the verb that must be in the past.\n3. Point to both. Then pick the irregular past form."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Last week, my class wrote letters to the hospital.",
+      "role": "key"
+     },
+     {
+      "t": "We brought them on Thursday.",
+      "role": "key"
+     },
+     {
+      "t": "The nurses were happy.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Write** → **wrote**. **Bring** → **brought**.\n\nNeither verb adds -ed. They are irregular."
+   },
+   "together": {
+    "passage": "Last summer, my family took a trip to Abha. We left Riyadh early in the morning. On the way, my father bought fresh honey from a farm. In Abha, my brother and I swam in the hotel pool. One evening, it rained, and the air turned cool. I ___ many photos of the green mountains.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "taked",
+     "took",
+     "take",
+     "tooken"
+    ],
+    "answer": 1,
+    "hint": "Last summer is the past. Take does not add -ed. Look at the first sentence for help!",
+    "good": "Yes! Take changes to took, just like in the first sentence."
+   },
+   "evidence": {
+    "sentences": [
+     "Last summer, my family took a trip to Abha.",
+     "We left Riyadh early in the morning.",
+     "On the way, my father bought fresh honey from a farm.",
+     "In Abha, my brother and I swam in the hotel pool.",
+     "One evening, it rained, and the air turned cool.",
+     "I ___ many photos of the green mountains."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: took. Tap 2 other sentences with an irregular past verb.",
+    "wrong": "The verbs in this sentence end in -ed (rained, turned), or it is the sentence with the blank."
+   },
+   "checks": [
+    {
+     "passage": "Our teacher ___ us a new song yesterday.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "teached",
+      "teach",
+      "tought",
+      "taught"
+     ],
+     "answer": 3,
+     "why": "Teach changes to taught in the past."
+    },
+    {
+     "passage": "Last night, I thinked about my test.",
+     "stem": "Which is the correct past form of think?",
+     "options": [
+      "thinked",
+      "thought",
+      "thank",
+      "thunk"
+     ],
+     "answer": 1,
+     "why": "Think changes to thought: Last night, I thought about my test."
+    },
+    {
+     "passage": "Yesterday Sami cut the paper, and he ___ it in his bag.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "putted",
+      "puts",
+      "put",
+      "putting"
+     ],
+     "answer": 2,
+     "why": "Put does not change in the past: he put it in his bag."
+    }
+   ],
+   "again": {
+    "title": "Sound groups",
+    "text": "Learn irregular verbs in **groups** that sound alike.\n\nsing → sang, ring → rang, drink → drank\nbuy → bought, bring → brought, think → thought\nkeep → kept, sleep → slept, sweep → swept",
+    "example": "If you know **sing → sang**, you can guess **ring → rang**!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Two past forms",
+     "text": "Irregular verbs have a **past** form and a **past participle**.\n\ngo → went → (have) **gone**\nsee → saw → (have) **seen**\neat → ate → (have) **eaten**\nwrite → wrote → (have) **written**"
+    },
+    {
+     "title": "When to use which",
+     "text": "Alone → past: I **saw** it.\nAfter **have, has, had** → participle: I **have seen** it.\nAfter **was, were** → participle: It **was seen**.\n\n✗ I have saw ✗ She had went"
+    },
+    {
+     "title": "More to learn",
+     "text": "begin → began → begun\ndrink → drank → drunk\nbreak → broke → broken\nchoose → chose → chosen\nfly → flew → flown"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the word right before the verb.\n2. A helper (have, has, had, was, were) → use the **participle**.\n3. No helper → use the simple **past**.\n\nThe helper is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "By the time we arrived, the race had begun.",
+      "role": "key"
+     },
+     {
+      "t": "The runners ran past us.",
+      "role": "key"
+     },
+     {
+      "t": "We cheered.",
+      "role": "other"
+     }
+    ],
+    "explain": "**had begun**: had is a helper, so we use the participle **begun**.\n\n**ran**: no helper, so we use the simple past."
+   },
+   "together": {
+    "passage": "Mariam has always loved birds. Last year, she began a notebook of every bird she saw near her home in Qassim. So far, she has written about more than forty kinds. Her uncle has given her a pair of binoculars. In winter, more birds came to the fields to find food. She has ___ the binoculars on every trip since.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "took",
+     "taken",
+     "taked",
+     "take"
+    ],
+    "answer": 1,
+    "hint": "Look at the word before the blank. Has is a helper. Which form goes after a helper?",
+    "good": "Yes! After has, we use the past participle: has taken."
+   },
+   "evidence": {
+    "sentences": [
+     "Mariam has always loved birds.",
+     "Last year, she began a notebook of every bird she saw near her home in Qassim.",
+     "So far, she has written about more than forty kinds.",
+     "Her uncle has given her a pair of binoculars.",
+     "In winter, more birds came to the fields to find food.",
+     "She has ___ the binoculars on every trip since."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: has taken. Tap 2 other sentences that use has + an irregular past participle.",
+    "wrong": "This sentence has no has + irregular participle. It uses a simple past like began or came, or a regular verb like loved."
+   },
+   "checks": [
+    {
+     "passage": "Somebody has ___ my pencil!",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "taken",
+      "took",
+      "take",
+      "taked"
+     ],
+     "answer": 0,
+     "why": "After has, we use the participle taken."
+    },
+    {
+     "passage": "By noon, we had ___ all the water.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "drank",
+      "drinked",
+      "drunk",
+      "drink"
+     ],
+     "answer": 2,
+     "why": "After had, we use the participle drunk."
+    },
+    {
+     "passage": "The window was broke during the storm.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "The window was breaked during the storm.",
+      "The window broken during the storm.",
+      "The window was broked during the storm.",
+      "The window was broken during the storm."
+     ],
+     "answer": 3,
+     "why": "After was, we use the participle broken."
+    }
+   ],
+   "again": {
+    "title": "Helper means participle",
+    "text": "See **have, has, had, was** or **were** before the verb? Use the **third** form.\n\nNo helper? Use the **second** form.",
+    "example": "go → went → gone\n\nI **went** home. (no helper)\nI **have gone** home. (helper)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Confusing pairs",
+     "text": "**lie** (rest) → **lay** → **lain**: Yesterday I **lay** down.\n**lay** (put down) → **laid** → **laid**: She **laid** the book on the desk.\n\n**rise** (go up) → **rose** → **risen**\n**raise** (lift something) → **raised** → **raised**"
+    },
+    {
+     "title": "Does it take an object?",
+     "text": "**lay, raise, set** need an object: She **laid** the plates. He **raised** his hand.\n\n**lie, rise, sit** do not: The sun **rose**. The cat **lay** in the sun."
+    },
+    {
+     "title": "Common slips",
+     "text": "✗ I seen it. → ✓ I **saw** it. / I **have seen** it.\n✗ He done it. → ✓ He **did** it. / He **has done** it.\n✗ She brung it. → ✓ She **brought** it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Point to the time clue and any helper.\n2. For lie/lay or rise/raise, point to the **object** (the thing being put or lifted), or show that there is none.\n3. No object + past → **lay** (from lie), **rose**. Object → **laid**, **raised**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After lunch, Grandpa lay down for a short rest.",
+      "role": "key"
+     },
+     {
+      "t": "Before that, he had laid his glasses on the table.",
+      "role": "key"
+     },
+     {
+      "t": "He likes to rest every afternoon.",
+      "role": "other"
+     }
+    ],
+    "explain": "**lay down**: Grandpa rested. No object → past of **lie**.\n\n**had laid his glasses**: he put something down. Object → **laid**."
+   },
+   "together": {
+    "passage": "During the hot afternoon, the whole village rested. Old Abu Salem ___ down on a mat in the shade of a date palm. His grandson had laid a jug of cold water beside him. Nearby, the goats lay quietly under a wall. When the sun had sunk lower, a cool breeze rose from the valley. Abu Salem raised his head, smiled and called the boy to bring the coffee pot.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "laid",
+     "lay",
+     "lied",
+     "layed"
+    ],
+    "answer": 1,
+    "hint": "Did Abu Salem put something down, or did he rest? Is there an object after the blank?",
+    "good": "Yes! He rested, with no object, so we use lay, the past of lie."
+   },
+   "evidence": {
+    "sentences": [
+     "During the hot afternoon, the whole village rested.",
+     "Old Abu Salem ___ down on a mat in the shade of a date palm.",
+     "His grandson had laid a jug of cold water beside him.",
+     "Nearby, the goats lay quietly under a wall.",
+     "When the sun had sunk lower, a cool breeze rose from the valley.",
+     "Abu Salem raised his head, smiled and called the boy to bring the coffee pot."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: lay (the past of lie, no object). Tap the other sentence that uses lay in the same way.",
+    "wrong": "This sentence does not use lay to mean rested. Laid has an object, and rose and raised are different verbs."
+   },
+   "checks": [
+    {
+     "passage": "The price of bread has ___ this year.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "raised",
+      "rose",
+      "risen",
+      "rised"
+     ],
+     "answer": 2,
+     "why": "The price went up by itself (no object), and has is a helper, so we use risen."
+    },
+    {
+     "passage": "Please ___ the box on the table.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "lie",
+      "lain",
+      "laying",
+      "lay"
+     ],
+     "answer": 3,
+     "why": "You put the box down. It has an object, so we use lay."
+    },
+    {
+     "passage": "I seen the new museum last week, and I done a report about it.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "I saw the new museum last week, and I did a report about it.",
+      "I seen the new museum last week, and I did a report about it.",
+      "I have saw the new museum last week, and I done a report.",
+      "I see the new museum last week, and I have did a report."
+     ],
+     "answer": 0,
+     "why": "With no helper, we use the simple past: saw and did."
+    }
+   ],
+   "again": {
+    "title": "The object test",
+    "text": "Ask: **lay what? raise what?**\n\nIf there is an answer (the plates, his hand), use **lay/laid** or **raise/raised**.\n\nIf not, use **lie/lay** or **rise/rose**.",
+    "example": "Yesterday the baby ___ in her bed for an hour. (lay / laid)\n\nLaid what? Nothing! No object → **lay**."
+   }
+  }
+ }
+}

@@ -3,6 +3,7 @@
  * so it behaves like Prisma Client: cuid-style ids, @updatedAt, JSON/boolean/date
  * conversion, upsert on unique keys. Verification only — never used in production.
  */
+import { sharedBankWhere } from "../../src/server/questions/private-copies";
 import { matchUniqueKey, UNIQUE_KEYS } from "../../src/server/db/unique-keys";
 import { randomBytes } from "node:crypto";
 import { DatabaseSync } from "node:sqlite";
@@ -151,7 +152,7 @@ export class SqliteRepo implements Repo {
 
   async findMany(model: string, where?: Where, opts: FindOptions = {}): Promise<Row[]> {
     const m = this.model(model);
-    const w = this.whereSql(m, where);
+    const w = this.whereSql(m, sharedBankWhere(model, where));
     const known = new Set(columns(m, this.schema).map((c) => c.name));
     for (const f of [...(opts.select ?? []), ...(opts.orderBy ?? []).map((o) => o.field)]) if (!known.has(f)) throw new Error(`Unknown field ${model}.${f}`);
     const cols = opts.select?.length ? opts.select.map((c) => `"${c}"`).join(", ") : "*";
@@ -164,14 +165,14 @@ export class SqliteRepo implements Repo {
 
   async count(model: string, where?: Where): Promise<number> {
     const m = this.model(model);
-    const w = this.whereSql(m, where);
+    const w = this.whereSql(m, sharedBankWhere(model, where));
     return Number((this.db.prepare(`SELECT COUNT(*) AS n FROM "${model}"${w.sql}`).get(...(w.params as never[])) as { n: number }).n);
   }
 
   async groupCount(model: string, by: string, where?: Where): Promise<Map<string, number>> {
     const m = this.model(model);
     if (!columns(m, this.schema).some((c) => c.name === by)) throw new Error(`Unknown field ${model}.${by}`);
-    const w = this.whereSql(m, where);
+    const w = this.whereSql(m, sharedBankWhere(model, where));
     const rows = this.db.prepare(`SELECT "${by}" AS k, COUNT(*) AS n FROM "${model}"${w.sql} GROUP BY "${by}"`).all(...(w.params as never[])) as { k: unknown; n: number }[];
     return new Map(rows.map((r) => [String(r.k ?? ""), Number(r.n)]));
   }

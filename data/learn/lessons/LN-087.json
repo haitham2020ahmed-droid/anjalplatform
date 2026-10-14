@@ -1,0 +1,451 @@
+{
+ "code": "LN-087",
+ "title": "Regular and irregular spelling patterns",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [
+  "Spelling Patterns"
+ ],
+ "statements": [
+  "L-0223",
+  "L-0232",
+  "L-0233",
+  "L-0310"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Spelling patterns",
+     "text": "Many words follow **patterns**. If you know the pattern, you can spell many words.\n\nb**ack**, s**ack**, tr**ack**"
+    },
+    {
+     "title": "ck after a short vowel",
+     "text": "After a **short vowel**, the k sound at the end is often **ck**.\n\nd**uck**, cl**ock**, st**ick**\n\nAfter a consonant, use **k**: mil**k**, des**k**."
+    },
+    {
+     "title": "Double l, s, f",
+     "text": "After a short vowel in a short word, we often **double** l, s or f at the end.\n\nbe**ll**, mi**ss**, cli**ff**\n\nhi**ll**, gla**ss**, pu**ff**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Look at the end of each short word.\n3. Ask: Does it follow the pattern? Short vowel + ck? Short vowel + ll, ss or ff?\n\nThe sentence with the word that breaks the pattern is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I rang the bel.",
+      "role": "key"
+     },
+     {
+      "t": "Then I sat down.",
+      "role": "other"
+     }
+    ],
+    "explain": "**bel** breaks the pattern. A short word with a short vowel doubles the l: **bell**."
+   },
+   "together": {
+    "passage": "My cat is black. She sat on a rok. She saw a duck. She ran up the hill.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "black",
+     "rok",
+     "duck",
+     "hill"
+    ],
+    "answer": 1,
+    "hint": "Look at words that end with the k sound. Is there a short vowel before it?",
+    "good": "Yes! rock has a short o, so the k sound is spelled ck."
+   },
+   "evidence": {
+    "sentences": [
+     "My cat is black.",
+     "She sat on a rok.",
+     "She saw a duck.",
+     "She ran up the hill."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the word that breaks the pattern.",
+    "wrong": "The words in this sentence follow the pattern. Look again."
+   },
+   "checks": [
+    {
+     "passage": "Sami fell in the mud. He got a big mes on his shirt.",
+     "stem": "What is the right spelling?",
+     "options": [
+      "mes",
+      "mesh",
+      "messe",
+      "mess"
+     ],
+     "answer": 3,
+     "why": "mess is a short word with a short e, so the s is doubled."
+    },
+    {
+     "passage": "The ship has a big deck.",
+     "stem": "Why does deck end in ck?",
+     "options": [
+      "It has a long vowel.",
+      "It ends in e.",
+      "Short vowel before the k sound.",
+      "It is a long word."
+     ],
+     "answer": 2,
+     "why": "deck has a short e before the k sound, so it ends in ck."
+    },
+    {
+     "passage": "We went up a tall clif.",
+     "stem": "Which is right?",
+     "options": [
+      "cliff",
+      "clif",
+      "klif",
+      "cliph"
+     ],
+     "answer": 0,
+     "why": "cliff has a short i, so the f is doubled."
+    }
+   ],
+   "again": {
+    "title": "Short and quick",
+    "text": "Say the word. Is the vowel **short and quick**, like in **cat**, **bed**, **sit**, **hot** or **cup**?\n\nThen the ending is often **ck**, **ll**, **ss** or **ff**.",
+    "example": "d-u-? (a bird that swims) → short u → **duck**\n\nb-e-? (it rings) → short e → **bell**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Silent e",
+     "text": "A **silent e** at the end makes the vowel say its **name**.\n\nhop → hop**e**\ncut → cut**e**\nbit → bit**e**"
+    },
+    {
+     "title": "Adding -ing or -ed to silent e words",
+     "text": "**Drop** the silent e before adding -ing or -ed.\n\nhope → hop**ing**\nmake → mak**ing**\nsmile → smil**ed**"
+    },
+    {
+     "title": "Doubling the last letter",
+     "text": "If a short word ends in **one short vowel + one consonant**, **double** the consonant before -ing or -ed.\n\nhop → ho**pp**ing\nstop → sto**pp**ed\nrun → ru**nn**ing"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find words with -ing or -ed.\n2. Think of the base word: hop or hope?\n3. Silent e? Drop it. Short vowel + one consonant? Double it.\n\nPoint to the sentence where the rule is broken."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The rabbit was hopping across the grass.",
+      "role": "key"
+     },
+     {
+      "t": "A girl was hoping to catch it.",
+      "role": "key"
+     },
+     {
+      "t": "It ran into a bush.",
+      "role": "other"
+     }
+    ],
+    "explain": "**hopping** comes from **hop** (short o), so the p is doubled.\n\n**hoping** comes from **hope**, so the e is dropped. Two different words!"
+   },
+   "together": {
+    "passage": "Yesterday, my little brother and I were making a model car. He was cuting the paper wheels. I was gluing them onto a box. When we finished, we smiled at our work.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "making",
+     "cuting",
+     "gluing",
+     "smiled"
+    ],
+    "answer": 1,
+    "hint": "Find the base word of each -ing word. Which one has a short vowel and one consonant at the end?",
+    "good": "Yes! cut has a short u and ends in one t, so we double it: cutting."
+   },
+   "evidence": {
+    "sentences": [
+     "Yesterday, my little brother and I were making a model car.",
+     "He was cuting the paper wheels.",
+     "I was gluing them onto a box.",
+     "When we finished, we smiled at our work."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where the spelling rule is broken.",
+    "wrong": "The -ing and -ed words here follow the rules. Look for a base word that needed doubling."
+   },
+   "checks": [
+    {
+     "passage": "The bus stoped at the corner.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "stopped",
+      "stoped",
+      "stopt",
+      "stopeed"
+     ],
+     "answer": 0,
+     "why": "stop has a short o and one p at the end, so the p doubles: stopped."
+    },
+    {
+     "passage": "Noura is writing a letter to her grandmother.",
+     "stem": "Why is there only one t in writing?",
+     "options": [
+      "Write has a short vowel.",
+      "Writing is a compound word.",
+      "Write has a silent e, which is dropped.",
+      "The t is always single."
+     ],
+     "answer": 2,
+     "why": "write ends in a silent e. We drop the e and add -ing, with no doubling: writing."
+    },
+    {
+     "passage": "We were runing in the park.",
+     "stem": "Which is correct?",
+     "options": [
+      "runing",
+      "running",
+      "runeing",
+      "runnig"
+     ],
+     "answer": 1,
+     "why": "run has a short u and ends in one n, so the n doubles: running."
+    }
+   ],
+   "again": {
+    "title": "Look at the end",
+    "text": "Look at the base word's end.\n\n**Short vowel + one consonant** (hop, sit, run) → double it: hopping.\n\n**Silent e** (hope, bite, make) → drop it: hoping.",
+    "example": "swim + ing → short i + m → **swimming**\n\nride + ing → silent e → **riding**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Double consonants in the middle",
+     "text": "In many two-syllable words, a **short vowel** is followed by a **double consonant**.\n\nra**bb**it, ha**pp**en, di**nn**er, su**mm**er, li**tt**le\n\nSplit the word: rab·bit, hap·pen. Each syllable gets one of the letters."
+    },
+    {
+     "title": "Single or double?",
+     "text": "If the first vowel is **long**, there is usually only **one** consonant.\n\nti**g**er (ti·ger), pa**p**er (pa·per)\n\nShort vowel → often double: di**nn**er.\nLong vowel → single: di**n**er."
+    },
+    {
+     "title": "More regular patterns",
+     "text": "After a short vowel: **-dge** and **-tch** (bri**dge**, ba**dge**, ca**tch**, ki**tch**en)\n\nAfter a long vowel or a consonant: **-ge** and **-ch** (pa**ge**, hu**ge**, bea**ch**, lun**ch**)\n\n**-ight** spells long i: n**ight**, br**ight**, fl**ight**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word that looks wrong.\n2. Split it into syllables and listen to the first vowel.\n3. Short vowel → often a double consonant or -dge/-tch. Long vowel → usually single.\n\nThe sentence with the word that breaks the pattern is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After dinner, we walked across the old stone bridge.",
+      "role": "key"
+     },
+     {
+      "t": "The bright moon was shining over the river.",
+      "role": "key"
+     },
+     {
+      "t": "Everything was quiet.",
+      "role": "other"
+     }
+    ],
+    "explain": "**dinner**: short i, so double n. **bridge**: short i, so **-dge**. **bright**: long i spelled **-ight**.\n\nAll of them follow regular patterns."
+   },
+   "together": {
+    "passage": "Every summer, my family visits a small farm near Taif. My cousins and I feed the rabbits and collect eggs from the chickens. In the afternoon, we help in the kichen. My aunt bakes fresh bread, and we spread butter and honey on it. At night, we sit outside and look at the bright stars.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "summer",
+     "rabbits",
+     "kichen",
+     "butter"
+    ],
+    "answer": 2,
+    "hint": "Look for a short vowel followed by the ch sound. Which pattern should it use?",
+    "good": "Yes! kitchen has a short i before the ch sound, so it is spelled with -tch."
+   },
+   "evidence": {
+    "sentences": [
+     "Every summer, my family visits a small farm near Taif.",
+     "My cousins and I feed the rabbits and collect eggs from the chickens.",
+     "In the afternoon, we help in the kichen.",
+     "My aunt bakes fresh bread, and we spread butter and honey on it.",
+     "At night, we sit outside and look at the bright stars."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The words in this sentence follow the regular patterns. Keep looking."
+   },
+   "checks": [
+    {
+     "passage": "Something strange hapened on the way to school.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "happened",
+      "hapened",
+      "happend",
+      "hapenned"
+     ],
+     "answer": 0,
+     "why": "hap·pen has a short a, so the p is doubled: happened."
+    },
+    {
+     "passage": "The tiger rested under a tree.",
+     "stem": "Why does tiger have only one g?",
+     "options": [
+      "The i in ti·ger is short.",
+      "The i in ti·ger is long.",
+      "Tiger is a compound word.",
+      "The g is silent."
+     ],
+     "answer": 1,
+     "why": "The i says its name (long i), so only one consonant follows it."
+    },
+    {
+     "passage": "The goalkeeper made an amazing cach.",
+     "stem": "Which is the correct spelling?",
+     "options": [
+      "cach",
+      "cahtch",
+      "cetch",
+      "catch"
+     ],
+     "answer": 3,
+     "why": "catch has a short a before the ch sound, so it uses -tch."
+    }
+   ],
+   "again": {
+    "title": "Listen to the first vowel",
+    "text": "Say the first part of the word.\n\nShort, quick vowel (like in **hat**) → expect a **double** consonant or **-tch / -dge**.\n\nLong vowel that says its name (like in **hate**) → expect a **single** consonant.",
+    "example": "ha_y (glad) → short a → **happy**\n\npa_er (you write on it) → long a → **paper**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Doubling in longer words",
+     "text": "In words of two or more syllables, double the final consonant only if the **last syllable is stressed**.\n\nbe**GIN** → begi**nn**ing\npre**FER** → prefe**rr**ed\n\nIf the stress comes earlier, do not double:\n**VIS**it → visi**t**ing, **O**pen → ope**n**ed"
+    },
+    {
+     "title": "Words that break the rules",
+     "text": "Some common words do not follow regular patterns. Learn them by sight:\n\n**said, once, busy, women, ocean, enough, island, answer**\n\nTheir letters do not match the way they sound."
+    },
+    {
+     "title": "Silent letters and odd groups",
+     "text": "**kn**: knee, knife\n**wr**: write, wrong\n**ough** sounds different in though, through, enough and thought\n**s** in island, **w** in answer\n\nMany of these come from older forms of English."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word that looks wrong.\n2. Decide: is it a regular-pattern word or a rule-breaker?\n3. Regular → check the pattern (stress and doubling, silent e).\n4. Rule-breaker → compare it with the spelling you learned by sight.\n\nPoint to the sentence that holds the error."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The race was beginning, and the runners were ready.",
+      "role": "key"
+     },
+     {
+      "t": "Coach Faisal was visiting from another school.",
+      "role": "key"
+     },
+     {
+      "t": "He said the race would be close.",
+      "role": "other"
+     }
+    ],
+    "explain": "**beginning**: the stress is on the last syllable (be·GIN), so the n doubles.\n\n**visiting**: the stress is on the first syllable (VIS·it), so the t does not double."
+   },
+   "together": {
+    "passage": "Last spring, our class went on a trip to an island in the Red Sea. We traveled by boat, and the ocean was calm and clear. Our guide, a marine scientist, answered many of our questions. She explained that the coral reefs were in danger and that people must protect them. Some students said they had never seen so many colorful fish. By the time we left, everyone agreed they prefered this trip to any other.",
+    "stem": "Which word is spelled wrong?",
+    "options": [
+     "island",
+     "ocean",
+     "answered",
+     "prefered"
+    ],
+    "answer": 3,
+    "hint": "Find a word with -ed. Where is the stress in its base word?",
+    "good": "Yes! pre·FER is stressed on the last syllable, so the r doubles: preferred."
+   },
+   "evidence": {
+    "sentences": [
+     "Last spring, our class went on a trip to an island in the Red Sea.",
+     "We traveled by boat, and the ocean was calm and clear.",
+     "Our guide, a marine scientist, answered many of our questions.",
+     "She explained that the coral reefs were in danger and that people must protect them.",
+     "Some students said they had never seen so many colorful fish.",
+     "By the time we left, everyone agreed they prefered this trip to any other."
+    ],
+    "proof": [
+     5
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the misspelled word.",
+    "wrong": "The words here are spelled correctly, including the rule-breakers island, ocean and answered."
+   },
+   "checks": [
+    {
+     "passage": "We admited that we had made a mistake.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "admited",
+      "admitted",
+      "addmitted",
+      "admmited"
+     ],
+     "answer": 1,
+     "why": "ad·MIT is stressed on the last syllable, so the t doubles: admitted."
+    },
+    {
+     "passage": "I have enuf money to buy the book.",
+     "stem": "Which is correct?",
+     "options": [
+      "enuff",
+      "enouf",
+      "enough",
+      "enugh"
+     ],
+     "answer": 2,
+     "why": "enough is a rule-breaker. Its f sound is spelled gh, so it must be learned by sight."
+    },
+    {
+     "passage": "Fahad opened the window to let in the cool air.",
+     "stem": "Why is there only one n in opened?",
+     "options": [
+      "The stress is on the first syllable: O·pen.",
+      "The stress is on the last syllable: o·PEN.",
+      "Open has a silent e.",
+      "Opened is a rule-breaker word."
+     ],
+     "answer": 0,
+     "why": "The stress falls on O, not on the last syllable, so the n is not doubled."
+    }
+   ],
+   "again": {
+    "title": "Tap out the stress",
+    "text": "Say the word and **tap the table** on the loudest syllable.\n\nLoudest at the **end** (be·GIN) → double before -ing or -ed.\n\nLoudest at the **start** (VIS·it) → do not double.",
+    "example": "for·GET + ing → loud at the end → **forgetting**\n\nLIS·ten + ing → loud at the start → **listening**"
+   }
+  }
+ }
+}

@@ -1,0 +1,568 @@
+{
+  "code": "NB-054",
+  "title": "Keeping Cool: The Science of Sweat",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 472,
+  "passage": "On a July afternoon in Riyadh, the air outside can be hotter than 45°C, yet the temperature deep inside a healthy person's body stays close to 37°C. Keeping this inner temperature steady is one of the body's most important tasks, because the chemical reactions that keep us alive work properly only within a narrow range. Our main tool for this delicate balancing act is something many people find embarrassing: sweat.\n\nThe process is controlled by the hypothalamus, a small region at the base of the brain that acts like a thermostat. When it detects that the blood is becoming too warm, it sends signals to between two and four million tiny sweat glands scattered across the skin. These glands release a salty liquid onto the surface of the body. At the same time, blood vessels near the skin widen, so that more warm blood flows close to the surface, which is why a person's face often looks red after hard exercise.\n\nSweat itself does not cool us down; evaporation does. When the liquid on the skin turns into water vapour, it takes heat energy away from the body. This explains a puzzling difference between two Saudi cities. In the dry air of Riyadh, sweat evaporates almost as soon as it appears, so people may not even notice how much water they are losing. In humid Jeddah, by contrast, the air already holds so much moisture that sweat drips off the skin instead of evaporating, and the body cools far less efficiently.\n\nBecause sweat is mostly water, the body must replace what it loses. During intense exercise in hot weather, an athlete can lose more than a litre of sweat every hour, along with salts that the muscles and nerves need. Scientists have found that losing just two percent of body weight in water can reduce strength, speed and concentration. Thirst, unfortunately, is a late warning signal, so it is wiser to drink water regularly before, during and after activity than to wait until you feel thirsty. A simple way to check is the colour of urine: pale yellow usually means the body has enough water, whereas dark yellow suggests that it needs more.\n\nWhen the cooling system cannot keep up, illness can follow. Heat exhaustion causes heavy sweating, headache, dizziness and sickness, and the person should rest in a cool place and sip water. Heat stroke is far more serious. The body temperature rises above 40°C, the person may become confused, and sweating may even stop. This is a medical emergency, so an ambulance must be called immediately.\n\nSweat may seem unpleasant, but it is a remarkable invention of nature. Without it, a single football match on a summer evening could be dangerous. With it, and with plenty of water, we can stay active even in the heat of the Arabian summer.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “detects” as it is used in paragraph 2?",
+      "options": [
+        "notices",
+        "ignores",
+        "produces",
+        "controls"
+      ],
+      "answer": "A",
+      "why": "The hypothalamus “detects” that the blood is too warm, which means it notices or senses it."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “humid” as it is used in paragraph 3?",
+      "options": [
+        "damp",
+        "sticky",
+        "dry",
+        "warm"
+      ],
+      "answer": "C",
+      "why": "Humid air is full of moisture, so its opposite is dry. Paragraph 3 contrasts “humid Jeddah” with “the dry air of Riyadh”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 3: “the body cools far less efficiently.” What does “efficiently” mean?",
+      "options": [
+        "very slowly and on purpose",
+        "in a painful or harmful way",
+        "with a great deal of noise",
+        "well, without wasting effort"
+      ],
+      "answer": "D",
+      "why": "In humid air the sweat drips away instead of evaporating, so the body's effort to cool itself does not work well."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an adjective?",
+      "options": [
+        "region",
+        "salty",
+        "signals",
+        "widen"
+      ],
+      "answer": "B",
+      "why": "“Salty” describes the liquid, so it is an adjective; “region” is a noun, “widen” a verb and “signals” a noun here."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 does NOT belong with the others because it is not a sign of illness?",
+      "options": [
+        "headache",
+        "dizziness",
+        "ambulance",
+        "sickness"
+      ],
+      "answer": "C",
+      "why": "Headache, dizziness and sickness are symptoms of heat exhaustion; an ambulance is a vehicle that brings help."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “evaporates” and is a NOUN?",
+      "options": [
+        "evaporated",
+        "evaporation",
+        "evenly",
+        "operation"
+      ],
+      "answer": "B",
+      "why": "“Evaporation” is the noun form. “Evaporated” is in the same family but is a verb, and “evenly” and “operation” only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “concentration” in a meaningful sentence of your own.",
+      "model": "My concentration was so strong during the maths test that I did not hear the bell ring.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “concentration” with its meaning (the ability to keep your attention on one thing)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Concentration” means giving all your attention to what you are doing."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “cities” in paragraph 3 is the plural of “city”. Which word forms its plural in the SAME way?",
+      "options": [
+        "valley",
+        "key",
+        "day",
+        "country"
+      ],
+      "answer": "D",
+      "why": "A consonant + y changes to -ies: city → cities, country → countries. Valley, key and day have a vowel before the y, so they just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence gives the advice in paragraph 4 as a COMMAND?",
+      "options": [
+        "Athletes should drink water before they feel thirsty.",
+        "Drink water regularly before you feel thirsty.",
+        "Do athletes drink water before they feel thirsty?",
+        "How important it is to drink before feeling thirsty!"
+      ],
+      "answer": "B",
+      "why": "A command tells someone directly to do something and usually begins with a verb (“Drink …”). The others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Riyadh: The Hottest City in Arabia",
+        "How to Win a Football Match",
+        "Sweat: The Body's Cooling System",
+        "Why Sweating Is Embarrassing"
+      ],
+      "answer": "C",
+      "why": "The whole text explains how sweat keeps the body's temperature steady. The text does not say Riyadh is the hottest city, and it argues that sweat is useful, not embarrassing."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to compare the summer weather in Riyadh and Jeddah",
+        "to explain how sweat cools us and why lost water matters",
+        "to persuade athletes to stop training outdoors in summer",
+        "to describe the work of ambulance crews in the heat"
+      ],
+      "answer": "B",
+      "why": "Most paragraphs explain how sweating works; paragraphs 4 and 5 explain why water must be replaced and what happens when cooling fails."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Sweat cools us only when it evaporates, which humid air slows down.",
+        "People in Riyadh sweat much less than people in Jeddah do.",
+        "Sweat cools the body the moment it touches the skin's surface.",
+        "Water vapour is heavier than air, especially in dry cities."
+      ],
+      "answer": "A",
+      "why": "The paragraph opens with “Sweat itself does not cool us down; evaporation does,” and then uses the two cities to show this."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why does a person's face often look red after hard exercise?",
+      "options": [
+        "The sweat on the skin is coloured red by the salt in it.",
+        "The hypothalamus becomes too warm and turns the face red.",
+        "Vessels near the skin widen and carry more warm blood there.",
+        "The skin has been burned by the strong afternoon sun."
+      ],
+      "answer": "C",
+      "why": "Blood vessels near the skin widen “so that more warm blood flows close to the surface, which is why a person's face often looks red”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "an expository text that explains a scientific process",
+        "a narrative about one athlete's summer",
+        "a letter written to a doctor",
+        "an advertisement for a sports drink"
+      ],
+      "answer": "A",
+      "why": "It explains how the body controls its temperature, using facts and examples; it has no plot, letter form or product to sell."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why is it wiser to drink water before you feel thirsty?",
+      "options": [
+        "Water tastes better when you are not thirsty.",
+        "Drinking too much water causes heat stroke.",
+        "Urine becomes pale yellow when you are thirsty.",
+        "Thirst is a late warning signal."
+      ],
+      "answer": "D",
+      "why": "The writer says “Thirst, unfortunately, is a late warning signal,” so waiting for it means the body is already short of water."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these does the writer explain BEFORE describing the difference between Riyadh and Jeddah?",
+      "options": [
+        "how to check the colour of urine",
+        "the signs of heat stroke",
+        "how much sweat an athlete can lose",
+        "how blood vessels near the skin widen"
+      ],
+      "answer": "D",
+      "why": "The blood vessels are explained in paragraph 2; the two cities are in paragraph 3, and the other topics come after them."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 2, the writer compares the hypothalamus to a thermostat. What does this comparison suggest about its job?",
+      "options": [
+        "It produces most of the heat inside the body.",
+        "It senses temperature and switches on cooling.",
+        "It stores extra water for very hot days.",
+        "It cools the blood directly with cold air."
+      ],
+      "answer": "B",
+      "why": "A thermostat senses temperature and turns heating or cooling on; the hypothalamus detects warm blood and signals the sweat glands."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to decide whether a person has heat STROKE rather than heat exhaustion?",
+      "options": [
+        "whether the person has a headache and feels sick",
+        "whether the person is sweating heavily",
+        "whether the person is confused or has stopped sweating",
+        "whether the person has just finished exercising"
+      ],
+      "answer": "C",
+      "why": "Headache and heavy sweating are signs of heat exhaustion; confusion, a temperature above 40°C and stopped sweating point to heat stroke."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the text, what actually removes heat from the body when we sweat?",
+      "options": [
+        "the salt inside the sweat",
+        "the hypothalamus cooling the blood",
+        "the sweat dripping onto the ground",
+        "the sweat turning into water vapour"
+      ],
+      "answer": "D",
+      "why": "“Sweat itself does not cool us down; evaporation does … it takes heat energy away from the body.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with the temperature of a July afternoon in Riyadh?",
+      "options": [
+        "to warn readers never to go outside during July",
+        "to prove that Riyadh is always hotter than Jeddah",
+        "to show the gap between outside heat and body temperature",
+        "to describe a summer holiday that the writer enjoyed"
+      ],
+      "answer": "C",
+      "why": "Comparing 45°C outside with 37°C inside makes readers wonder how the body stays so steady, which the text then explains."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why might people in Riyadh lose a lot of water without realising it?",
+      "options": [
+        "Their sweat evaporates almost as soon as it appears.",
+        "They have fewer sweat glands than other people.",
+        "The air in Riyadh is full of moisture.",
+        "Their blood vessels do not widen in dry air."
+      ],
+      "answer": "A",
+      "why": "In dry air sweat disappears quickly, “so people may not even notice how much water they are losing.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is heat stroke different from heat exhaustion?",
+      "options": [
+        "Heat stroke causes heavy sweating, while heat exhaustion stops sweating.",
+        "Heat exhaustion is an emergency, while heat stroke needs only rest.",
+        "Heat stroke happens only in humid cities such as Jeddah.",
+        "Heat stroke raises body temperature above 40°C and is an emergency."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5: heat exhaustion needs rest and water, but in heat stroke the temperature rises above 40°C and it is a medical emergency. Choice A reverses the facts."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what is the effect of losing just two percent of body weight in water?",
+      "options": [
+        "The body stops sweating completely.",
+        "Strength, speed and concentration can be reduced.",
+        "The urine becomes pale yellow.",
+        "The body temperature falls below 37°C."
+      ],
+      "answer": "B",
+      "why": "Scientists found that this loss “can reduce strength, speed and concentration.” Pale yellow urine is a sign of enough water, not too little."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the sweat glands and the widening blood vessels described in paragraph 2 have in common?",
+      "options": [
+        "Both are controlled by the kidneys.",
+        "Both release salty liquid onto the skin.",
+        "Both help the body get rid of extra heat.",
+        "Both stop working during heat stroke."
+      ],
+      "answer": "C",
+      "why": "Both respond to the hypothalamus's signals: glands release sweat and vessels bring warm blood near the surface, so heat can leave the body."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, how does the writer make the idea of evaporation easier to understand?",
+      "options": [
+        "by comparing two Saudi cities with very different air",
+        "by listing every part of a sweat gland in order",
+        "by telling the life story of a famous scientist",
+        "by repeating the word “sweat” in every sentence"
+      ],
+      "answer": "A",
+      "why": "Readers can picture Riyadh's dry air and Jeddah's humid air, which shows clearly why evaporation matters."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "The writer calls sweat “a remarkable invention of nature.” What does this phrase suggest?",
+      "options": [
+        "Scientists invented sweat in a laboratory.",
+        "Sweat is a clever natural system that keeps us safe.",
+        "Sweat is a problem that nature has not yet solved.",
+        "Sweat is a medicine made from plants."
+      ],
+      "answer": "B",
+      "why": "The writer praises sweat as a clever system that nature developed, not something people designed."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the text expresses the writer's OPINION rather than a fact?",
+      "options": [
+        "Heat stroke is far more serious.",
+        "The body temperature rises above 40°C …",
+        "Sweat may seem unpleasant, but it is a remarkable invention of nature.",
+        "These glands release a salty liquid onto the surface of the body."
+      ],
+      "answer": "C",
+      "why": "Calling sweat “remarkable” is a personal judgement; the other sentences give information that can be checked."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action is MOST helpful before a football match on a hot evening?",
+      "options": [
+        "waiting until half-time to drink anything",
+        "wearing several warm layers to sweat more",
+        "eating salty snacks instead of drinking water",
+        "drinking water regularly before and during the game"
+      ],
+      "answer": "D",
+      "why": "The text advises drinking water “before, during and after activity” instead of waiting for thirst."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "to advertise a new kind of sports drink for athletes",
+        "to complain about the summer weather in Saudi cities",
+        "to help readers understand sweat and stay safe in the heat",
+        "to persuade readers to avoid all sport in summer"
+      ],
+      "answer": "C",
+      "why": "The writer explains how sweat works and gives advice about water and heat illness, ending with how we can stay active safely."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement would the writer MOST likely agree with?",
+      "options": [
+        "Sweating is useful, not something to be ashamed of.",
+        "People should try to stop themselves from sweating.",
+        "Only athletes need to think about drinking water.",
+        "Heat stroke is less dangerous than heat exhaustion."
+      ],
+      "answer": "A",
+      "why": "The writer says many people find sweat embarrassing but calls it “a remarkable invention of nature”."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "the normal temperature inside a healthy body",
+        "how much a young player should drink in a match",
+        "the colour of urine when the body has enough water",
+        "the body temperature reached during heat stroke"
+      ],
+      "answer": "B",
+      "why": "The text says an athlete can lose more than a litre an hour but never says how much a young player should drink; the other facts are given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A girl's body temperature drops to 20°C while she sits in the sun.",
+        "A boy grows four million new sweat glands in one afternoon.",
+        "A runner in Jeddah stays hot because his sweat drips off.",
+        "A footballer's sweat turns into ice on a summer evening."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 explains that in humid Jeddah sweat drips off the skin and the body cools less efficiently."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "Keeping Cool the Natural Way",
+        "The Hottest Day in Jeddah",
+        "Why We Should Stop Sweating",
+        "A Thermostat for Every Home"
+      ],
+      "answer": "A",
+      "why": "The text is about how the body cools itself naturally through sweat and why it needs water to do so."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with advice for a school sports day in hot weather, and explain why the advice works.",
+      "model": "Before your next sports day, fill a large bottle of water and take a few sips at every break, even if you do not feel thirsty. Rest in the shade between races, and tell a teacher at once if you feel dizzy or sick. These simple steps give your sweat the water it needs to keep you cool.",
+      "rubric": [
+        "2 = a clear new ending with sensible heat-safety advice and a reason that links to the text (water, evaporation, warning signs)",
+        "1 = an ending is given but the advice is vague, unrelated or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible heat-safety advice that fits the text and is explained is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "After running on a hot afternoon, a student has a headache and feels dizzy, but he is thinking clearly and still sweating. Based on the text, what should his friends do first?",
+      "options": [
+        "Tell him to keep running so that his body can adapt.",
+        "Wrap him in a warm blanket so that he stops sweating.",
+        "Ask him to wait until he feels thirsty before drinking.",
+        "Help him rest in a cool place and sip water."
+      ],
+      "answer": "D",
+      "why": "These are signs of heat exhaustion, and the text says the person “should rest in a cool place and sip water.”"
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+{
+ "code": "LN-013",
+ "title": "Cause-and-effect transitions",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.1.c",
+  "W.5.2.c"
+ ],
+ "families": [],
+ "skillNames": [],
+ "statements": [
+  "L-0061",
+  "L-0139",
+  "L-0254"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Cause and effect",
+     "text": "A **cause** is **why** something happens.\nAn **effect** is **what** happens.\n\nIt rained (cause). The ground got wet (effect)."
+    },
+    {
+     "title": "Words that link them",
+     "text": "**because** comes before the **cause**.\n**so** comes before the **effect**.\n\nThe ground got wet **because** it rained.\nIt rained, **so** the ground got wet."
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Find **why** it happened.\n2. Find **what** happened.\n3. Use **because** or **so** to link them."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **why** and the **what** in the text.\n\n1. Find the sentence that tells why.\n2. Find the sentence that tells what happened.\n3. Point to both. A cause word links them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda was tired.",
+      "role": "detail"
+     },
+     {
+      "t": "So she went to bed early.",
+      "role": "key"
+     }
+    ],
+    "explain": "Being tired is **why**. Going to bed early is **what happened**. **So** links them."
+   },
+   "together": {
+    "passage": "It was very hot outside. ___ we stayed inside. We played a board game with Grandpa.",
+    "stem": "Which word shows that the heat is the reason?",
+    "options": [
+     "But",
+     "So",
+     "Or",
+     "Also"
+    ],
+    "answer": 1,
+    "hint": "That word does not show a reason. Why did they stay inside?",
+    "good": "Yes! The heat is why they stayed inside. **So** shows the effect."
+   },
+   "evidence": {
+    "sentences": [
+     "It was very hot outside.",
+     "So we stayed inside.",
+     "We played a board game with Grandpa."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: So. Tap the 2 sentences that show the cause and the effect.",
+    "wrong": "This sentence tells what they did inside. Find why they stayed in and what happened."
+   },
+   "checks": [
+    {
+     "passage": "I was hungry, ___ I ate an apple.",
+     "stem": "Which word fits best?",
+     "options": [
+      "but",
+      "or",
+      "if",
+      "so"
+     ],
+     "answer": 3,
+     "why": "Being hungry is the reason. Eating an apple is what happened. **so** links them."
+    },
+    {
+     "passage": "We took umbrellas ___ it was raining.",
+     "stem": "Which word fits best?",
+     "options": [
+      "but",
+      "because",
+      "so",
+      "or"
+     ],
+     "answer": 1,
+     "why": "Rain is the reason. **because** comes before the reason."
+    },
+    {
+     "passage": "The ice cream sat in the hot sun. ___ it melted.",
+     "stem": "Which word fits best?",
+     "options": [
+      "But",
+      "Or",
+      "So",
+      "Until"
+     ],
+     "answer": 2,
+     "why": "The hot sun made it melt. **So** shows what happened."
+    }
+   ],
+   "again": {
+    "title": "Why and what",
+    "text": "Ask **Why?** Then ask **What happened?**\n\nPut **because** before the why.\nPut **so** before the what.",
+    "example": "Why? The baby was sleepy.\nWhat happened? She took a nap.\n**The baby was sleepy, so she took a nap.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Clauses that show cause",
+     "text": "A **clause** can show the cause:\n\n**Because the road was closed**, we took another way.\n**Since it was late**, we went home."
+    },
+    {
+     "title": "Sentences that show effect",
+     "text": "A whole sentence can show the effect:\n\n**Because of this, the classes were moved.**\n**That is why the park was empty.**\n**As a result, the match was cancelled.**"
+    },
+    {
+     "title": "Do not mix them up",
+     "text": "**However** shows a contrast, not a cause.\n**First** and **next** show order, not a cause.\n\nUse a cause-and-effect transition only when one thing makes another happen."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a cause-and-effect link by finding **both parts** in the text.\n\n1. Find the event that made something happen.\n2. Find what happened because of it.\n3. Point to both sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The bus broke down on the highway.",
+      "role": "detail"
+     },
+     {
+      "t": "As a result, the class arrived at the museum an hour late.",
+      "role": "key"
+     }
+    ],
+    "explain": "The broken bus is the cause. Arriving late is the effect. **As a result** shows the link."
+   },
+   "together": {
+    "passage": "The school's old air conditioner broke on the hottest day of the year. ___ The principal let students have their lessons in the cool library. The repair team came the next morning.",
+    "stem": "Which sentence best fills the gap?",
+    "options": [
+     "Because of this, the classrooms became too hot to work in.",
+     "The library has many books about science.",
+     "On the other hand, the weather was cool and pleasant.",
+     "First, the students lined up at the door."
+    ],
+    "answer": 0,
+    "hint": "Does that sentence link the broken air conditioner to the move to the library?",
+    "good": "Yes! The broken air conditioner caused the hot classrooms, and that is why lessons moved to the library."
+   },
+   "evidence": {
+    "sentences": [
+     "The school's old air conditioner broke on the hottest day of the year.",
+     "Because of this, the classrooms became too hot to work in.",
+     "The principal let students have their lessons in the cool library.",
+     "The repair team came the next morning."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Because of this, the classrooms became too hot to work in. Tap the 2 sentences that show what caused the problem and what was done about it.",
+    "wrong": "This sentence holds the answer or tells what happened later. Find the cause and the result."
+   },
+   "checks": [
+    {
+     "passage": "___, the football match was moved to the next day.",
+     "stem": "Which clause best shows WHY the match was moved?",
+     "options": [
+      "Because heavy rain flooded the field",
+      "Although the sun was shining",
+      "Before the players arrived",
+      "While the fans were cheering"
+     ],
+     "answer": 0,
+     "why": "A flooded field is a reason to move a match. **Because** shows the cause."
+    },
+    {
+     "passage": "Many visitors left their rubbish on the beach. ___ Volunteers spent a whole day cleaning it up.",
+     "stem": "Which sentence best fills the gap?",
+     "options": [
+      "The beach is very popular in winter.",
+      "However, the beach stayed clean.",
+      "As a result, the sand was covered with plastic.",
+      "Next year, there will be a race."
+     ],
+     "answer": 2,
+     "why": "Leaving rubbish caused the plastic on the sand, which is why volunteers cleaned it."
+    },
+    {
+     "passage": "___ she had practised every day, Rana played the piece perfectly.",
+     "stem": "Which word best fits the blank?",
+     "options": [
+      "Although",
+      "Since",
+      "Unless",
+      "Until"
+     ],
+     "answer": 1,
+     "why": "Practice is the reason she played well. **Since** means because here."
+    }
+   ],
+   "again": {
+    "title": "Arrow test",
+    "text": "Draw an arrow from the cause to the effect.\n\nrain → wet ground\n\nIf you can draw the arrow, use a cause-and-effect transition. If not, choose another kind.",
+    "example": "The shop closed early → we bought bread somewhere else.\nArrow works! **Because the shop closed early, we bought bread somewhere else.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Cause-and-effect phrases",
+     "text": "**Before an effect:** as a result, therefore, consequently, for this reason, so\n**Before a cause:** because of, due to, since, as\n**Before a goal:** so that, in order to"
+    },
+    {
+     "title": "Check the direction",
+     "text": "Ask: does the word come before the **cause** or the **effect**?\n\n**Because of** the wind, the ferry was cancelled. (cause)\nThe wind was strong. **Therefore**, the ferry was cancelled. (effect)"
+    },
+    {
+     "title": "Purpose with so that",
+     "text": "**so that** shows the goal of an action.\n\nAhmed set his alarm early **so that** he would not miss the bus."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a transition fits, identify which sentence is the **cause** and which is the **effect**.\n\n1. Find the facts that explain why something happens.\n2. Find the sentence after the blank. Is it a result?\n3. Choose a transition that points from cause to effect."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Due to the sandstorm, the airport closed for six hours.",
+      "role": "key"
+     },
+     {
+      "t": "Many travellers waited in the terminal.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Due to** comes before the **cause**: the sandstorm. The airport closing is the effect."
+   },
+   "together": {
+    "passage": "Many farmers in dry regions have switched to drip irrigation. This method sends water straight to the roots of each plant through thin tubes. Very little water is lost to the sun or the wind. ___, farms that use drip irrigation can grow the same crops with much less water. This helps protect precious underground water supplies.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "For example",
+     "In contrast",
+     "Meanwhile",
+     "As a result"
+    ],
+    "answer": 3,
+    "hint": "Does the sentence after the blank give an example, a contrast or a result? Look at what came before it.",
+    "good": "Yes! Sending water to the roots and losing very little water cause farms to need less water. **As a result** shows the effect."
+   },
+   "evidence": {
+    "sentences": [
+     "Many farmers in dry regions have switched to drip irrigation.",
+     "This method sends water straight to the roots of each plant through thin tubes.",
+     "Very little water is lost to the sun or the wind.",
+     "As a result, farms that use drip irrigation can grow the same crops with much less water.",
+     "This helps protect precious underground water supplies."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: As a result. Tap the 2 sentences that give the causes of the result.",
+    "wrong": "This sentence introduces the topic or tells a result. Find the sentences that explain WHY farms need less water."
+   },
+   "checks": [
+    {
+     "passage": "___ the strong winds, the ferry trip was cancelled.",
+     "stem": "Which phrase best shows the cause?",
+     "options": [
+      "Despite",
+      "Because of",
+      "Instead of",
+      "Before"
+     ],
+     "answer": 1,
+     "why": "Strong winds are the reason the trip was cancelled. **Because of** comes before a cause."
+    },
+    {
+     "passage": "Our team practised every afternoon for a month. ___, we won the final.",
+     "stem": "Which transition best fits the blank?",
+     "options": [
+      "Nevertheless",
+      "For instance",
+      "Similarly",
+      "Consequently"
+     ],
+     "answer": 3,
+     "why": "Winning was the result of practice. **Consequently** shows an effect."
+    },
+    {
+     "passage": "Ahmed set his alarm early ___ he would not miss the bus.",
+     "stem": "Which phrase best fits the blank?",
+     "options": [
+      "so that",
+      "because",
+      "although",
+      "as a result"
+     ],
+     "answer": 0,
+     "why": "Not missing the bus is Ahmed's **goal**. **so that** shows the purpose of an action."
+    }
+   ],
+   "again": {
+    "title": "Point the finger",
+    "text": "Point to the **cause** with one hand and the **effect** with the other.\n\nIf the transition comes right before the effect, use **as a result** or **therefore**. If it comes right before the cause, use **because of** or **due to**.",
+    "example": "___ the heat, the match started at night.\nThe blank comes right before **the heat**, which is the cause. So use **Because of**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Precise cause-and-effect transitions",
+     "text": "**consequently / thus / hence**: formal ways to introduce a result\n**owing to / due to**: formal ways to introduce a cause\n**this led to / which caused**: link a cause to a later effect\n**accordingly**: action taken because of something"
+    },
+    {
+     "title": "Cause or just sequence?",
+     "text": "**Then**, **later** and **afterwards** only show that one event came **after** another.\n\nIf the first event **made** the second happen, a cause-and-effect transition is more precise and tells the reader more."
+    },
+    {
+     "title": "Chains of causes",
+     "text": "In longer texts, effects can become new causes:\n\ndust on panels → less sunlight → less electricity → need for cleaning\n\nEach link needs a transition that shows the direction of the chain."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a cause-and-effect transition, show the **link** it joins.\n\n1. Find the sentence that states the cause.\n2. Find the sentence that states the effect.\n3. Check that the transition points from one to the other, not just from earlier to later."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Heavy rain fell on the mountains for two days.",
+      "role": "detail"
+     },
+     {
+      "t": "This led to sudden floods in the valleys below.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Then** would only say the floods came afterwards. **This led to** tells the reader that the rain **caused** the floods."
+   },
+   "together": {
+    "passage": "Solar power plants in the Arabian Peninsula enjoy some of the strongest sunshine on Earth. Yet they face an unexpected enemy: dust. When fine dust settles on solar panels, it blocks part of the sunlight from reaching the cells. ___, a dusty panel can produce noticeably less electricity than a clean one. Washing thousands of panels by hand would use large amounts of water, which is scarce in the desert. For this reason, many plants now use robots that brush the dust away without water as they travel along each row of panels.",
+    "stem": "Which transition best fits the blank?",
+    "options": [
+     "Nevertheless",
+     "Similarly",
+     "Consequently",
+     "Meanwhile"
+    ],
+    "answer": 2,
+    "hint": "Does the sentence after the blank go against the one before it, compare it, or result from it?",
+    "good": "Yes! Blocked sunlight causes less electricity. **Consequently** introduces that result."
+   },
+   "evidence": {
+    "sentences": [
+     "Solar power plants in the Arabian Peninsula enjoy some of the strongest sunshine on Earth.",
+     "Yet they face an unexpected enemy: dust.",
+     "When fine dust settles on solar panels, it blocks part of the sunlight from reaching the cells.",
+     "Consequently, a dusty panel can produce noticeably less electricity than a clean one.",
+     "Washing thousands of panels by hand would use large amounts of water, which is scarce in the desert.",
+     "For this reason, many plants now use robots that brush the dust away without water as they travel along each row of panels."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Consequently. Tap the 2 sentences that show the cause and the effect it links.",
+    "wrong": "This sentence is part of a different link in the chain. Find the cause (dust blocking sunlight) and the effect (less electricity)."
+   },
+   "checks": [
+    {
+     "passage": "___ a shortage of rain over several winters, the water level in the dam fell to its lowest point in decades.",
+     "stem": "Which phrase best fits the blank?",
+     "options": [
+      "In spite of",
+      "Instead of",
+      "Owing to",
+      "Apart from"
+     ],
+     "answer": 2,
+     "why": "The lack of rain caused the low water. **Owing to** introduces a cause."
+    },
+    {
+     "passage": "The city added special bus lanes on its busiest roads. ___ more people began taking the bus, and traffic jams became shorter.",
+     "stem": "Which clause best fits the blank?",
+     "options": [
+      "Once buses could skip the traffic,",
+      "Although buses were still slow,",
+      "Before the lanes were added,",
+      "Even though nobody used them,"
+     ],
+     "answer": 0,
+     "why": "Skipping traffic is what made the bus popular. The clause shows the cause of the change."
+    },
+    {
+     "passage": "The factory installed new filters on its chimneys. ___, the air in the nearby town became noticeably cleaner.",
+     "stem": "Which transition shows that the first event caused the second, not just that it came first?",
+     "options": [
+      "Later",
+      "Afterwards",
+      "Next",
+      "As a result"
+     ],
+     "answer": 3,
+     "why": "**Later**, **afterwards** and **next** only show order. **As a result** shows that the filters caused the cleaner air."
+    }
+   ],
+   "again": {
+    "title": "Because-test",
+    "text": "Rewrite the two sentences as one using **because**.\n\nIf it makes sense, the link is cause and effect, and a word like **consequently** or **as a result** fits. If it sounds wrong, choose a different kind of transition.",
+    "example": "Dust blocks sunlight. ___, panels make less electricity.\n\"Panels make less electricity **because** dust blocks sunlight.\" ✔ Use **Consequently**."
+   }
+  }
+ }
+}

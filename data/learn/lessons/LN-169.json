@@ -1,0 +1,486 @@
+{
+ "code": "LN-169",
+ "title": "Narrator's point of view",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.3.6",
+  "RL.4.6",
+  "RL.5.6",
+  "RL.6.6",
+  "RL.7.6",
+  "RL.8.6"
+ ],
+ "families": [
+  "point-of-view"
+ ],
+ "skillNames": [
+  "Point of View and Perspective"
+ ],
+ "statements": [
+  "R-0148",
+  "R-0259",
+  "R-0265",
+  "R-0427",
+  "R-0428",
+  "R-0434",
+  "R-0435",
+  "R-0615",
+  "R-0616",
+  "R-0617",
+  "R-0619",
+  "R-0813",
+  "R-0814",
+  "R-0818",
+  "R-0825",
+  "R-0970",
+  "R-0975",
+  "R-0976",
+  "R-1069"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "The narrator has a view",
+     "text": "The **narrator** tells the story.\n\nThe narrator has a **view**: what they think and feel about things in the story."
+    },
+    {
+     "title": "Like or not like?",
+     "text": "Some narrators **like** something. They use words like **love, fun, best**.\n\nSome narrators **do not like** something. They use words like **hate, boring, worst**."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Find what the narrator talks about.\n2. Look for **feeling words**.\n3. Ask: **Does the narrator like it or not?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the narrator's **feeling words**.\n\nTap the sentences that show what the narrator **thinks** or **feels**.\n\nThose sentences prove the narrator's view."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I go to the zoo with my class.",
+      "role": "other"
+     },
+     {
+      "t": "The lions are the best part.",
+      "role": "key"
+     },
+     {
+      "t": "I love to watch them sleep in the sun.",
+      "role": "key"
+     }
+    ],
+    "explain": "The narrator says the lions are **the best part** and **I love** to watch them.\n\nThe narrator **likes** the lions."
+   },
+   "together": {
+    "passage": "Rainy days are the best days. I jump in the puddles. Mom says to come inside. Splashing is so much fun!",
+    "stem": "What does the narrator think about rainy days?",
+    "options": [
+     "The narrator loves them.",
+     "The narrator hates them.",
+     "The narrator is scared of them.",
+     "The narrator does not see them."
+    ],
+    "answer": 0,
+    "hint": "Look for feeling words. Does the narrator say rain is fun?",
+    "good": "Yes! The narrator says rainy days are the best and fun. The narrator loves them."
+   },
+   "evidence": {
+    "sentences": [
+     "Rainy days are the best days.",
+     "I jump in the puddles.",
+     "Mom says to come inside.",
+     "Splashing is so much fun!"
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the narrator loves rainy days. Tap 2 sentences that show the narrator's feelings.",
+    "wrong": "This sentence tells what someone does. Find the sentences with feeling words like best or fun."
+   },
+   "checks": [
+    {
+     "passage": "I have to clean my room. It takes so long. Cleaning is the most boring job in the world.",
+     "stem": "What does the narrator think about cleaning?",
+     "options": [
+      "It is fun.",
+      "It is fast.",
+      "It is easy.",
+      "It is boring."
+     ],
+     "answer": 3,
+     "why": "The narrator says cleaning is the most boring job in the world."
+    },
+    {
+     "passage": "My grandma makes the best rice. It is soft and warm. I always ask for more.",
+     "stem": "Which sentence shows that the narrator loves Grandma's rice?",
+     "options": [
+      "It is soft.",
+      "My grandma makes the best rice.",
+      "Grandma cooks.",
+      "It is warm."
+     ],
+     "answer": 1,
+     "why": "The narrator says it is the best rice. The word best shows the narrator's view."
+    },
+    {
+     "passage": "Our new teacher is very kind. She smiles every day. She helps me when I am stuck.",
+     "stem": "How does the narrator feel about the new teacher?",
+     "options": [
+      "Scared of her",
+      "Angry with her",
+      "Likes her",
+      "Does not know her"
+     ],
+     "answer": 2,
+     "why": "The narrator says the teacher is kind, smiles and helps. The narrator likes her."
+    }
+   ],
+   "again": {
+    "title": "Happy words, unhappy words",
+    "text": "Circle the **happy words**: love, best, fun, great.\n\nCircle the **unhappy words**: hate, boring, bad, worst.\n\nWhich kind does the narrator use more?",
+    "example": "\"I think football is great. It is the best game ever.\"\n\nHappy words: **great**, **best**. The narrator likes football."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "The narrator's attitude",
+     "text": "A narrator's **attitude** is how they feel about the events or characters: proud, worried, amused, annoyed.\n\nThe attitude shows in the narrator's **word choice**."
+    },
+    {
+     "title": "Viewpoint shapes the story",
+     "text": "The narrator's view **affects** what we read.\n\nA narrator who loves the beach will describe its warm sand and blue water. A narrator who hates it will describe the burning sun and sand in their shoes."
+    },
+    {
+     "title": "Find the clues",
+     "text": "1. What does the narrator **describe**?\n2. Which words are **positive** or **negative**?\n3. What do those words show about the narrator's attitude?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the narrator's attitude:\n\n1. Find **describing words** the narrator chooses.\n2. Find what the narrator **thinks** or **wishes**.\n3. Choose the attitude **most** of these words show.\n\nTap the sentences with the strongest clue words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My little brother Faisal is a whirlwind.",
+      "role": "key"
+     },
+     {
+      "t": "He knocks over my towers, colours on my homework and eats my snacks.",
+      "role": "detail"
+     },
+     {
+      "t": "Still, when he falls asleep on my shoulder, I would not trade him for anything.",
+      "role": "key"
+     }
+    ],
+    "explain": "At first, the narrator sounds **annoyed**: a whirlwind who wrecks things.\n\nBut the last sentence shows deep **love**. The narrator's attitude: annoyed but loving."
+   },
+   "together": {
+    "passage": "For years, the empty lot at the end of our street was full of rubbish and dust. This spring, the city turned it into a park. It is truly wonderful: green grass, shady trees and a path where my grandfather walks every evening. Now the street is full of laughter instead of silence. In my opinion, it is the perfect gift for our neighbourhood.",
+    "stem": "What is the narrator's attitude toward the new park?",
+    "options": [
+     "Bored, because the park has nothing new",
+     "Worried, because the park is not safe",
+     "Angry, because the old field is gone",
+     "Delighted, because the park has changed the neighbourhood"
+    ],
+    "answer": 3,
+    "hint": "Look at the describing words the narrator uses for the park and the people in it.",
+    "good": "Yes! Words like wonderful, laughter and perfect show the narrator is delighted."
+   },
+   "evidence": {
+    "sentences": [
+     "For years, the empty lot at the end of our street was full of rubbish and dust.",
+     "This spring, the city turned it into a park.",
+     "It is truly wonderful: green grass, shady trees and a path where my grandfather walks every evening.",
+     "Now the street is full of laughter instead of silence.",
+     "In my opinion, it is the perfect gift for our neighbourhood."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the narrator is delighted. Tap 2 sentences that show the narrator's attitude.",
+    "wrong": "This sentence gives facts about what the lot was or when it changed. Find the narrator's describing and opinion words."
+   },
+   "checks": [
+    {
+     "passage": "We had to wait three hours at the airport. The seats were hard, the coffee was cold, and the screen kept saying \"delayed\". I will never fly on a holiday weekend again.",
+     "stem": "What is the narrator's attitude?",
+     "options": [
+      "Excited",
+      "Calm",
+      "Frustrated",
+      "Proud"
+     ],
+     "answer": 2,
+     "why": "Hard seats, cold coffee and \"I will never fly ... again\" all show frustration."
+    },
+    {
+     "passage": "My sister Jana won the science prize. I watched her walk onto the stage, and I clapped until my hands hurt. She worked on that project every night for months, and she deserved every bit of it.",
+     "stem": "Which detail best shows the narrator's pride in Jana?",
+     "options": [
+      "I clapped until my hands hurt.",
+      "My sister Jana won a prize.",
+      "She walked onto the stage.",
+      "The project was about science."
+     ],
+     "answer": 0,
+     "why": "Clapping until it hurts shows strong pride. The other details are facts that anyone could report."
+    },
+    {
+     "passage": "Text A: I think the old souq is magical, with its narrow lanes and spice smells. Text B: I think the old souq is a maze, with lanes so narrow you can barely move.",
+     "stem": "How do the narrators' points of view affect the descriptions?",
+     "options": [
+      "Both narrators describe the souq the same way.",
+      "Each narrator's attitude makes the same lanes seem good or bad.",
+      "Neither narrator has an opinion.",
+      "Text B describes a different market."
+     ],
+     "answer": 1,
+     "why": "Both see narrow lanes, but Text A calls the souq magical and Text B calls it a maze."
+    }
+   ],
+   "again": {
+    "title": "Thumbs and words",
+    "text": "Read the narrator's words. For each describing word, give it a **thumb up** (positive) or **thumb down** (negative).\n\nMore thumbs up = positive attitude. More thumbs down = negative attitude.",
+    "example": "\"Our trip was exhausting, crowded and much too long.\"\n\nexhausting: down. crowded: down. too long: down.\n\nAttitude: **unhappy** about the trip."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "How authors build a viewpoint",
+     "text": "Authors use **techniques** to show a narrator's point of view:\n\n1. **Word choice:** positive or negative words\n2. **Selection:** what the narrator chooses to describe or leave out\n3. **Inner thoughts:** what the narrator thinks or wonders"
+    },
+    {
+     "title": "Effect on the reader",
+     "text": "Because we see the story through the narrator's eyes, we often **share** their feelings.\n\nIf the narrator distrusts a character, we may distrust them too, even before we know the facts."
+    },
+    {
+     "title": "Narrator vs. author",
+     "text": "The narrator's view is not always the **author's** view.\n\nAn author may create a narrator with a strong opinion to make readers **think** about it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To identify a technique:\n\n1. Find words or details that show the narrator's view.\n2. Ask: **how** does the author show it? Word choice? Inner thoughts? What the narrator notices?\n3. Explain the **effect** on what the reader thinks or feels."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The new boy strolled into class ten minutes late, as if the whole school belonged to him.",
+      "role": "key"
+     },
+     {
+      "t": "He dropped his bag with a thud and didn't even glance at the teacher.",
+      "role": "key"
+     },
+     {
+      "t": "I decided right then that we would never be friends.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The author uses **word choice** (\"strolled\", \"as if the whole school belonged to him\") to show the narrator's **negative** view.\n\nEffect: the reader also starts to dislike the boy, though we do not yet know why he was late."
+   },
+   "together": {
+    "passage": "My grandmother's house is small and old, with a blue door that sticks in summer. But stepping inside feels like wrapping myself in a warm blanket. The air always smells of cardamom and freshly baked bread. Her soft voice drifts from the kitchen, telling stories I have heard a hundred times and still love. There is no place on earth that feels more like home.",
+    "stem": "Which technique does the author mainly use to show the narrator's point of view about her grandmother's house?",
+    "options": [
+     "Facts and numbers about the house",
+     "Dialogue between the grandmother and a neighbour",
+     "Warm, sensory word choices that show the narrator's love",
+     "Describing the house from the grandmother's point of view"
+    ],
+    "answer": 2,
+    "hint": "Look at the describing words. Are they facts, or words that show the narrator's feelings?",
+    "good": "Yes! Words like warm, comforting and soft, and memories of cardamom and stories, show the narrator's love."
+   },
+   "evidence": {
+    "sentences": [
+     "My grandmother's house is small and old, with a blue door that sticks in summer.",
+     "But stepping inside feels like wrapping myself in a warm blanket.",
+     "The air always smells of cardamom and freshly baked bread.",
+     "Her soft voice drifts from the kitchen, telling stories I have heard a hundred times and still love.",
+     "There is no place on earth that feels more like home."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: warm, sensory word choices that show love. Tap 2 sentences with these words.",
+    "wrong": "This sentence gives plain facts about the house. Find sentences where the narrator's warm feelings come through."
+   },
+   "checks": [
+    {
+     "passage": "I watched Coach Badr pace the sideline. He didn't shout like other coaches. He knelt beside each player during breaks and spoke quietly. I wondered why I had ever thought he was too soft. Our team had not lost a match all season.",
+     "stem": "How does the narrator's attitude toward the coach change?",
+     "options": [
+      "From admiration to anger",
+      "From doubt to respect",
+      "From fear to boredom",
+      "It does not change."
+     ],
+     "answer": 1,
+     "why": "The narrator once thought he was too soft, but now sees his quiet method works. Doubt has become respect."
+    },
+    {
+     "passage": "Everyone said the old fisherman was strange and unfriendly. I believed them, so I never spoke to him. It was only when he pulled my brother out of the sea that I learned his name.",
+     "stem": "What is the effect of telling this story from the narrator's point of view?",
+     "options": [
+      "The reader learns the fisherman's thoughts from the start.",
+      "The reader knows the fisherman was kind all along.",
+      "The narrator explains the fisherman's whole life.",
+      "The reader shares the narrator's wrong idea until the rescue."
+     ],
+     "answer": 3,
+     "why": "We only know what the narrator believes, so we also think the fisherman is unfriendly until he saves the brother."
+    },
+    {
+     "passage": "Our class trip to the museum was, I admit, better than I expected. I had planned to be bored. Instead, I spent an hour at the ancient coins and forgot to complain even once.",
+     "stem": "Which technique shows the narrator's changing view?",
+     "options": [
+      "Comparing what the narrator expected with what happened",
+      "Describing the museum's history",
+      "Telling the story from the teacher's point of view",
+      "Using dialogue between two students"
+     ],
+     "answer": 0,
+     "why": "The narrator says they planned to be bored, then describes forgetting to complain. The contrast shows a changing view."
+    }
+   ],
+   "again": {
+    "title": "Swap the narrator",
+    "text": "To see the narrator's effect, imagine **another** narrator telling the same events.\n\nWhat would change? The difference shows what the first narrator's view adds.",
+    "example": "Narrator 1 (a cat-lover): \"The kitten curled up on my lap, purring softly.\"\nNarrator 2 (who is allergic): \"The kitten climbed onto my lap, and my eyes began to itch.\"\n\nSame event, **different views**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Can we trust the narrator?",
+     "text": "Some narrators are **unreliable**: their view is limited, biased or mistaken.\n\nThey may misunderstand other characters, leave out facts, or describe themselves too kindly."
+    },
+    {
+     "title": "Irony and the gap",
+     "text": "When the reader understands **more** than the narrator, there is a gap. This gap creates **irony**.\n\nAuthors use it to make readers question the narrator and think more deeply."
+    },
+    {
+     "title": "Techniques to notice",
+     "text": "1. **Contradictions** between what the narrator says and what happens\n2. **Other characters' reactions** that do not match the narrator's view\n3. **Emotional language** that shows bias\n4. **Missing information** the narrator does not mention"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse a narrator's viewpoint:\n\n1. Note the narrator's claims and attitude.\n2. Find evidence **inside the text** that supports or **contradicts** those claims.\n3. Explain the effect: what does the reader understand that the narrator does not?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I am, without question, the best player on our team.",
+      "role": "key"
+     },
+     {
+      "t": "That is why I took every shot in yesterday's match, even when Omar was standing alone in front of the goal.",
+      "role": "detail"
+     },
+     {
+      "t": "We lost four goals to nil, but that was clearly the goalkeeper's fault.",
+      "role": "key"
+     },
+     {
+      "t": "Strangely, nobody passed to me in the second half.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The narrator claims to be the best, but the details show he **ignored a free teammate** and **blames others**.\n\nThe reader sees what he does not: his teammates stopped passing because he was selfish. He is an **unreliable narrator**."
+   },
+   "together": {
+    "passage": "Everyone knows I am the natural leader of our group, so naturally I made all the decisions for our history project. I chose the topic, the colours and the title, and I told the others exactly what to write. When Rana suggested adding a map, I explained kindly why it was a poor idea. For some reason, Rana and Dana exchanged a look and went quiet for the rest of the afternoon. The next day, they asked the teacher if they could join another group.",
+    "stem": "How does the author show that the narrator's view of herself may not be accurate?",
+    "options": [
+     "She admits openly that she was wrong about everything.",
+     "Her classmates' reactions do not match her description of herself.",
+     "She gives exact facts and numbers about her project.",
+     "The story is told by a narrator outside the story."
+    ],
+    "answer": 1,
+    "hint": "Compare what the narrator says about herself with how the other girls act.",
+    "good": "Yes! She says she is a great leader, but her friends exchange looks and quietly leave. Their reactions suggest a different picture."
+   },
+   "evidence": {
+    "sentences": [
+     "Everyone knows I am the natural leader of our group, so naturally I made all the decisions for our history project.",
+     "I chose the topic, the colours and the title, and I told the others exactly what to write.",
+     "When Rana suggested adding a map, I explained kindly why it was a poor idea.",
+     "For some reason, Rana and Dana exchanged a look and went quiet for the rest of the afternoon.",
+     "The next day, they asked the teacher if they could join another group."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the classmates' reactions do not match her view. Tap the 2 sentences that show their reactions.",
+    "wrong": "This sentence shows the narrator's own claims or actions. Find how the OTHER girls react."
+   },
+   "checks": [
+    {
+     "passage": "My uncle says I am too young to understand business, but I know a great deal. Yesterday I sold my bicycle to a boy at school for half of what it cost. He was very grateful, and he said he had never met such a generous trader. I expect my uncle will be impressed.",
+     "stem": "What does the reader understand that the narrator does not?",
+     "options": [
+      "The narrator made a poor deal, and the uncle may be right.",
+      "The narrator is an expert trader.",
+      "The uncle will be very impressed.",
+      "The boy paid too much for the bicycle."
+     ],
+     "answer": 0,
+     "why": "Selling for half price is a bad deal, and the boy's \"generous\" comment confirms it. The narrator misses this."
+    },
+    {
+     "passage": "The narrator describes her new neighbour only as \"the noisy woman next door\" who \"bangs things all day\". Later, the narrator mentions in passing that the neighbour has been building a wheelchair ramp for her elderly father.",
+     "stem": "What is the effect of the narrator's word choice?",
+     "options": [
+      "It makes the neighbour seem kind and gentle.",
+      "It shows the narrator understands the neighbour well.",
+      "It makes the reader judge the neighbour unfairly at first.",
+      "It explains how to build a ramp."
+     ],
+     "answer": 2,
+     "why": "Calling her \"the noisy woman\" leads us to dislike her, until we learn the noise comes from a kind act."
+    },
+    {
+     "passage": "Two friends tell the story of the same football match. Khalid writes: \"The referee was clearly against us from the first minute.\" Ziyad writes: \"We made too many mistakes, and the other team deserved to win.\"",
+     "stem": "How does comparing the two narrators help the reader?",
+     "options": [
+      "It proves that the referee was unfair.",
+      "It shows that both narrators agree completely.",
+      "It shows that Khalid is the more reliable narrator.",
+      "It shows that Khalid's view may be biased."
+     ],
+     "answer": 3,
+     "why": "Ziyad, from the same team, blames their mistakes. This suggests Khalid's view may be biased."
+    }
+   ],
+   "again": {
+    "title": "Claim vs. clue",
+    "text": "Make two lists:\n\n**What the narrator claims** | **What the clues show**\n\nIf the lists do not match, the narrator may be unreliable.",
+    "example": "Claim: \"Everyone loves my singing.\"\nClue: \"My brother puts on his headphones whenever I start.\"\n\nThe lists do not match. The narrator may not be telling the whole truth."
+   }
+  }
+ }
+}

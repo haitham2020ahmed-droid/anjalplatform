@@ -1,0 +1,477 @@
+{
+ "code": "LN-200",
+ "title": "Idioms",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.5.a",
+  "L.4.5.b",
+  "L.5.5.b",
+  "L.6.5.a",
+  "L.7.5.a",
+  "RL.3.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "idioms-adages"
+ ],
+ "skillNames": [
+  "Idioms, Adages and Proverbs"
+ ],
+ "statements": [
+  "R-0067",
+  "R-0130",
+  "R-0136",
+  "R-0237",
+  "R-0238",
+  "R-0386",
+  "R-0387",
+  "R-0564",
+  "R-0764",
+  "R-0932"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an idiom?",
+     "text": "An **idiom** is a group of words with a **special meaning**.\n\nThe meaning is **not** what the words say one by one."
+    },
+    {
+     "title": "An example",
+     "text": "\"The test was **a piece of cake**.\"\n\nThere is no cake! It means the test was **very easy**."
+    },
+    {
+     "title": "How to find the meaning",
+     "text": "1. Read the idiom.\n2. Ask: does it make sense word by word? If not, it is an idiom.\n3. Read the other sentences. They tell you what it means."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences **show** the meaning.\n\n1. Find the idiom.\n2. Read the sentences before and after it.\n3. Find the sentence that tells what really happened."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The math test was a piece of cake.",
+      "role": "main"
+     },
+     {
+      "t": "Nora finished it in five minutes.",
+      "role": "key"
+     },
+     {
+      "t": "She got every answer right.",
+      "role": "key"
+     }
+    ],
+    "explain": "There is no cake in a test! So it is an idiom.\n\nThe next two sentences show what it means: Nora finished fast and got every answer right. The test was **very easy**."
+   },
+   "together": {
+    "passage": "Ali and his dad cleaned the car together. Ali washed and Dad dried. \"Many hands make light work,\" said Dad. They finished very fast.",
+    "stem": "What does \"many hands make light work\" mean?",
+    "options": [
+     "Hands are not very heavy.",
+     "A job is easier with help.",
+     "Cars are light to lift.",
+     "Do your work in the sun."
+    ],
+    "answer": 1,
+    "hint": "Who did the work? Two people helped. What happened to the job?",
+    "good": "Yes! Ali and Dad both helped, so the job was easy and fast."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali and his dad cleaned the car together.",
+     "Ali washed and Dad dried.",
+     "\"Many hands make light work,\" said Dad.",
+     "They finished very fast."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: a job is easier when people help. Tap a sentence that proves it.",
+    "wrong": "This sentence names the job or the saying, but it does not show what happened when they helped."
+   },
+   "checks": [
+    {
+     "passage": "Mama said, \"Hop in the car!\" Huda did not hop. She just got in and sat down.",
+     "stem": "What does \"hop in\" mean?",
+     "options": [
+      "Jump like a rabbit",
+      "Get in",
+      "Run away",
+      "Sit on top"
+     ],
+     "answer": 1,
+     "why": "Huda did not jump. She just got in. \"Hop in\" means get in."
+    },
+    {
+     "passage": "The work was hard. Fahad was ready to give up. His teacher said, \"Hang in there! You are almost done.\"",
+     "stem": "What does \"hang in there\" mean?",
+     "options": [
+      "Hold on to a rope",
+      "Go home now",
+      "Keep trying",
+      "Hang your coat"
+     ],
+     "answer": 2,
+     "why": "Fahad wanted to give up, and the teacher said he was almost done. \"Hang in there\" means keep trying."
+    },
+    {
+     "passage": "Dana's new shoes cost an arm and a leg. Mom paid a lot of money for them.",
+     "stem": "What does \"cost an arm and a leg\" mean?",
+     "options": [
+      "Cost a lot of money",
+      "Hurt your arm",
+      "Cost very little",
+      "Fit your legs"
+     ],
+     "answer": 0,
+     "why": "The next sentence says Mom paid a lot of money. That is the meaning."
+    }
+   ],
+   "again": {
+    "title": "Is it silly?",
+    "text": "Picture the words **exactly** as they are. If the picture is silly, it is an idiom! Then look for the real meaning in the text.",
+    "example": "\"I'm **all ears**,\" said Dad.\n\nA man made of ears? Silly! So it is an idiom. Dad then put down his phone to listen. **All ears** means **listening carefully**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Idioms in stories",
+     "text": "Writers use idioms to make stories sound **natural**, the way people really talk.\n\n\"I'm feeling **under the weather**\" means **I feel a little sick**."
+    },
+    {
+     "title": "Real meaning vs. word meaning",
+     "text": "The **word meaning** is what each word says.\nThe **real meaning** is what the speaker wants to say.\n\n**Break the ice**: nobody breaks real ice. It means to **help people start talking** when they feel shy."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Spot the phrase that does not make sense word by word.\n2. Look for clues: what happens before and after?\n3. Choose the meaning that fits the clues.\n4. Read the sentence again with your meaning in place."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof is what the **characters do or feel** around the idiom.\n\n1. Find the idiom.\n2. Find the sentences that show the situation.\n3. Your meaning must match those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "On the first day of camp, nobody spoke.",
+      "role": "key"
+     },
+     {
+      "t": "To break the ice, the leader asked everyone to share their favourite food.",
+      "role": "main"
+     },
+     {
+      "t": "Soon the whole group was laughing and chatting.",
+      "role": "key"
+     }
+    ],
+    "explain": "Before: **nobody spoke**. After: everyone was **chatting**.\n\nSo **break the ice** means **help people start talking** when they feel shy."
+   },
+   "together": {
+    "passage": "Saad had been looking forward to the school trip for weeks. But on the morning of the trip, he woke up with a sore throat and a headache. \"I'm feeling a bit under the weather,\" he told his mother. She felt his forehead and said he should stay home and rest. Saad was sad, but he knew she was right.",
+    "stem": "What does Saad mean when he says he is \"under the weather\"?",
+    "options": [
+     "He is standing in the rain.",
+     "He is afraid of storms.",
+     "He is excited about the trip.",
+     "He is feeling sick."
+    ],
+    "answer": 3,
+    "hint": "What happened to Saad that morning? What did his mother say he should do?",
+    "good": "Yes! A sore throat, a headache and staying home to rest all show he feels sick."
+   },
+   "evidence": {
+    "sentences": [
+     "Saad had been looking forward to the school trip for weeks.",
+     "But on the morning of the trip, he woke up with a sore throat and a headache.",
+     "\"I'm feeling a bit under the weather,\" he told his mother.",
+     "She felt his forehead and said he should stay home and rest.",
+     "Saad was sad, but he knew she was right."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: he is feeling sick. Tap 2 sentences that prove it.",
+    "wrong": "This sentence tells how Saad felt about the trip or says the idiom itself. Find sentences that show he is ill."
+   },
+   "checks": [
+    {
+     "passage": "Faris had studied hard, so on the day of the spelling bee he was cool as a cucumber. He spelled each word slowly and calmly, without a single mistake.",
+     "stem": "What does \"cool as a cucumber\" mean?",
+     "options": [
+      "Very calm",
+      "Very cold",
+      "Very hungry",
+      "Very green"
+     ],
+     "answer": 0,
+     "why": "He spelled the words slowly and calmly. The idiom means very calm, even under pressure."
+    },
+    {
+     "passage": "When Grandma saw the drawing Lulu made for her, her face lit up. She smiled from ear to ear and hung it on her wall right away.",
+     "stem": "What does \"her face lit up\" mean?",
+     "options": [
+      "She turned on a lamp.",
+      "She looked suddenly very happy.",
+      "Her face became red from the sun.",
+      "She was confused."
+     ],
+     "answer": 1,
+     "why": "Smiling from ear to ear and hanging the drawing show that Grandma looked suddenly very happy."
+    },
+    {
+     "passage": "\"Let's call it a day,\" said Coach Hassan after two hours of practice. The players packed up their balls and walked home.",
+     "stem": "What does \"call it a day\" mean?",
+     "options": [
+      "Give the day a name",
+      "Phone a friend",
+      "Stop working for now",
+      "Start a new game"
+     ],
+     "answer": 2,
+     "why": "After the coach spoke, the players packed up and went home. Practice was over for the day."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "Imagine what the characters are **doing**. The action tells you the meaning.",
+    "example": "\"You're **pulling my leg**!\" laughed Maha when her brother said he had seen a camel on the roof.\n\nShe laughs; she does not believe him. **Pulling my leg** means **joking** or **teasing**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why writers use idioms",
+     "text": "Idioms add **colour** and **personality**. They show how a character talks and feels.\n\n\"I was **on cloud nine**\" tells you a character was **extremely happy**, in a lively way."
+    },
+    {
+     "title": "When the clues are spread out",
+     "text": "In longer texts, the clue may be **a few sentences away**.\n\nRead the whole paragraph. Notice the character's **actions**, **feelings** and the **result**."
+    },
+    {
+     "title": "Check the whole situation",
+     "text": "1. Find the idiom.\n2. Write a guess.\n3. Test it against **every** clue: before, after and the character's reaction.\n4. Change your guess if one clue does not fit."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look for **two kinds of evidence**:\n\n1. The **situation** before the idiom (what caused it).\n2. The **result** after it (what happened next).\n\nThe right meaning explains both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lama hit the books every evening for two weeks.",
+      "role": "main"
+     },
+     {
+      "t": "She read every chapter of her science textbook and wrote pages of notes.",
+      "role": "key"
+     },
+     {
+      "t": "When the results came out, she had the highest mark in her class.",
+      "role": "key"
+     }
+    ],
+    "explain": "Nobody hits a book! Reading every chapter and writing notes shows **hit the books** means **study hard**.\n\nThe top mark is the result of that studying."
+   },
+   "together": {
+    "passage": "Khalid had never cooked a full meal before, but he told his family he would make dinner for twelve guests. He chose three difficult dishes, each with a long recipe. By six o'clock, the rice was burning, the bread had not risen, and the guests were arriving. \"I think I bit off more than I could chew,\" he admitted with a red face. His aunt laughed, rolled up her sleeves, and helped him finish.",
+    "stem": "What does Khalid mean when he says he \"bit off more than he could chew\"?",
+    "options": [
+     "He ate too much food before dinner.",
+     "He tried to do more than he was able to.",
+     "He forgot to buy the food for dinner.",
+     "He did not like the taste of the dishes."
+    ],
+    "answer": 1,
+    "hint": "What did Khalid promise to do? How did it go? Think about the size of the job compared to his skills.",
+    "good": "Yes! He had never cooked a meal but promised three hard dishes for twelve guests, and things went wrong."
+   },
+   "evidence": {
+    "sentences": [
+     "Khalid had never cooked a full meal before, but he told his family he would make dinner for twelve guests.",
+     "He chose three difficult dishes, each with a long recipe.",
+     "By six o'clock, the rice was burning, the bread had not risen, and the guests were arriving.",
+     "\"I think I bit off more than I could chew,\" he admitted with a red face.",
+     "His aunt laughed, rolled up her sleeves, and helped him finish."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: he tried to do more than he was able to. Tap 2 sentences that prove it.",
+    "wrong": "This sentence is the idiom itself, or what happened after. Find sentences that show the job was too big for him."
+   },
+   "checks": [
+    {
+     "passage": "Rawan had waited three years for a chance to visit the space centre. When the letter arrived saying she had won a place on the trip, she was on cloud nine. She ran through the house waving the letter.",
+     "stem": "What does \"on cloud nine\" mean?",
+     "options": [
+      "Flying in a plane",
+      "Extremely happy",
+      "Worried and confused",
+      "Dreaming at night"
+     ],
+     "answer": 1,
+     "why": "She had waited years, won a place and ran around waving the letter: she was extremely happy."
+    },
+    {
+     "passage": "My uncle lives in another country, so we see him once in a blue moon. The last time he visited was four years ago.",
+     "stem": "What does \"once in a blue moon\" mean?",
+     "options": [
+      "At night",
+      "Every month",
+      "Very rarely",
+      "On holidays"
+     ],
+     "answer": 2,
+     "why": "Four years between visits shows the idiom means very rarely."
+    },
+    {
+     "passage": "Everyone in the class wanted the trip to be to the museum, except Bilal. He wanted the zoo, but he did not want to rock the boat, so he kept quiet and agreed with the others.",
+     "stem": "What does \"rock the boat\" mean?",
+     "options": [
+      "Cause trouble by disagreeing",
+      "Go sailing",
+      "Make a loud noise",
+      "Change his seat"
+     ],
+     "answer": 0,
+     "why": "Bilal kept quiet and agreed so there would be no conflict. Rocking the boat means upsetting a calm situation."
+    }
+   ],
+   "again": {
+    "title": "Before + after = meaning",
+    "text": "Fill in two boxes:\n\n**Before**: what was happening?\n**After**: what happened next?\n\nThe idiom joins the two.",
+    "example": "Before: Huda's brother kept telling her the ending of the film.\nIdiom: \"Stop! You're **spilling the beans**!\"\nAfter: he covered his mouth and said sorry.\n\nMeaning: **telling a secret** too early."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Idioms, adages and proverbs",
+     "text": "An **idiom** is a phrase with a special meaning: **turn over a new leaf** (start behaving better).\n\nAn **adage** or **proverb** is a short, well-known saying that gives advice: **Actions speak louder than words.**"
+    },
+    {
+     "title": "Meaning in context",
+     "text": "The same idiom can carry **tone**. In one story, **the tip of the iceberg** can sound worried: a small sign of a much **bigger** problem.\n\nAsk not only *what* it means, but **why the writer used it here**."
+    },
+    {
+     "title": "Analyse it",
+     "text": "1. Identify the saying and its usual meaning.\n2. Find the part of the passage it describes.\n3. Explain what it adds: a warning, humour, a lesson, a feeling.\n4. Choose the answer that fits the **specific** situation, not just the general meaning."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong proof connects the idiom to **specific details**.\n\n1. Find the details the idiom sums up.\n2. Check that they match its meaning exactly.\n3. Reject answers that fit the words literally or that ignore what happens later in the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When the inspectors found a small crack in the bridge, the engineer frowned.",
+      "role": "detail"
+     },
+     {
+      "t": "\"This may be just the tip of the iceberg,\" she warned.",
+      "role": "main"
+     },
+     {
+      "t": "Further tests showed that rust had weakened the steel along the entire structure.",
+      "role": "key"
+     }
+    ],
+    "explain": "A small crack was the **visible** part. The tests revealed a **much larger** hidden problem.\n\n**The tip of the iceberg** means a small sign of a bigger problem. The engineer's words are a **warning**."
+   },
+   "together": {
+    "passage": "When the team lost its star player to an injury two days before the final, the mood in the changing room was gloomy. Nobody believed that Mansour, the quiet substitute, could fill the gap. Yet in the final he ran harder than anyone, made two brilliant passes, and scored the winning goal. Afterwards, the coach admitted that the injury had been a blessing in disguise. \"We discovered a player we had ignored for a whole season,\" he said. Mansour has started every match since.",
+    "stem": "Why does the coach call the injury \"a blessing in disguise\"?",
+    "options": [
+     "The injured player recovered faster than the doctors expected.",
+     "The team wore new kits for the final match.",
+     "Something that seemed bad led to a good result.",
+     "The coach was secretly glad the star was hurt."
+    ],
+    "answer": 2,
+    "hint": "Was the injury good or bad at first? What good thing came from it later?",
+    "good": "Yes! The injury seemed bad, but it led the team to discover Mansour, who won the final."
+   },
+   "evidence": {
+    "sentences": [
+     "When the team lost its star player to an injury two days before the final, the mood in the changing room was gloomy.",
+     "Nobody believed that Mansour, the quiet substitute, could fill the gap.",
+     "Yet in the final he ran harder than anyone, made two brilliant passes, and scored the winning goal.",
+     "Afterwards, the coach admitted that the injury had been a blessing in disguise.",
+     "\"We discovered a player we had ignored for a whole season,\" he said.",
+     "Mansour has started every match since."
+    ],
+    "proof": [
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: something that seemed bad led to a good result. Tap 2 sentences that show the good result.",
+    "wrong": "This sentence shows the bad news or the doubt, or it states the idiom. Find sentences that show the GOOD that came from it."
+   },
+   "checks": [
+    {
+     "passage": "For months, Yasir left his homework until the last minute and often forgot it altogether. After a long talk with his father, he decided to turn over a new leaf. He bought a planner, wrote down every task, and finished his work before dinner each day.",
+     "stem": "What does \"turn over a new leaf\" mean in this passage?",
+     "options": [
+      "Begin reading a new book",
+      "Start gardening as a hobby",
+      "Ask his father for help each day",
+      "Change his habits and behave better"
+     ],
+     "answer": 3,
+     "why": "His old habits were bad; after the talk he planned his tasks and finished on time. He changed his behaviour for the better."
+    },
+    {
+     "passage": "Nouf wanted to finish her whole science project in one evening. After three hours, she was tired and upset that it was only half done. Her mother said gently, \"Rome wasn't built in a day.\" The next afternoon, Nouf calmly finished the rest.",
+     "stem": "What is Nouf's mother telling her?",
+     "options": [
+      "Big tasks take time, so be patient.",
+      "She should read about the history of Rome.",
+      "She should keep working all night.",
+      "She should give up on the project."
+     ],
+     "answer": 0,
+     "why": "A great city took a long time to build. The mother means big jobs need time, and Nouf calmly finishes the next day."
+    },
+    {
+     "passage": "The new library had a beautiful website full of promises, but when students arrived, half the computers did not work and the shelves were nearly empty. \"Actions speak louder than words,\" the principal wrote in her letter to the city council.",
+     "stem": "Why does the principal use the proverb in her letter?",
+     "options": [
+      "To thank the council for its new website",
+      "To show that deeds matter more than promises",
+      "To ask the students to speak more quietly",
+      "To explain how to use the library computers"
+     ],
+     "answer": 1,
+     "why": "The website promised a lot, but the library did not deliver. She means real actions count more than promises."
+    }
+   ],
+   "again": {
+    "title": "Say it plainly",
+    "text": "Rewrite the sentence **without** the idiom, using plain words. If your sentence still fits the whole passage, your meaning is right.",
+    "example": "\"After the long exam week, the twins were **burning the midnight oil** every night.\"\n\nPlain: the twins were **studying until very late at night**. It fits: an exam week means lots of late study."
+   }
+  }
+ }
+}

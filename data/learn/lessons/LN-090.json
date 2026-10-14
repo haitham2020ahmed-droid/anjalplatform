@@ -1,0 +1,442 @@
+{
+ "code": "LN-090",
+ "title": "Commas in compound and complex sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "commas"
+ ],
+ "skillNames": [
+  "Comma Before a Coordinating Conjunction",
+  "Commas in Complex Sentences",
+  "Commas in Compound Subjects and Predicates"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two sentences, one comma",
+     "text": "Two short sentences can be **joined** with **and**, **but** or **so**.\n\nI was hungry. I ate a date.\n→ I was hungry**, so** I ate a date."
+    },
+    {
+     "title": "Comma before the joining word",
+     "text": "Put the **comma before** and, but or so, not after it.\n\nIt was hot**, but** we played outside.\n\nNot: It was hot but, we played outside."
+    },
+    {
+     "title": "Check it",
+     "text": "1. Find **and**, **but** or **so**.\n2. Is there a full sentence **before** it and a full sentence **after** it?\n3. If yes, put a comma **before** the joining word."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the joining word: and, but or so.\n2. Cover it. Is each side a full sentence?\n3. If yes, there must be a comma before the joining word.\n\nThe sentence with a missing or misplaced comma is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The sun was out, so we went to the park.",
+      "role": "key"
+     },
+     {
+      "t": "We played until dark.",
+      "role": "other"
+     }
+    ],
+    "explain": "**The sun was out** is a full sentence. **we went to the park** is a full sentence.\n\nThey are joined by **so**, so a comma goes **before so**."
+   },
+   "together": {
+    "passage": "Nora has a little brother. He is three years old. She likes to read to him but he likes to run around. They have fun together.",
+    "stem": "How should the third sentence be written?",
+    "options": [
+     "She likes to read to him, but he likes to run around.",
+     "She likes to read to him but, he likes to run around.",
+     "She likes, to read to him but he likes to run around.",
+     "She likes to read to him but he likes, to run around."
+    ],
+    "answer": 0,
+    "hint": "Find the joining word. The comma goes right before it, not after it.",
+    "good": "Yes! Two full sentences are joined by but, so a comma goes before but."
+   },
+   "evidence": {
+    "sentences": [
+     "Nora has a little brother.",
+     "He is three years old.",
+     "She likes to read to him but he likes to run around.",
+     "They have fun together."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that needs a comma.",
+    "wrong": "This sentence is not two sentences joined together. Find the one with but."
+   },
+   "checks": [
+    {
+     "passage": "It was raining, so we stayed inside.",
+     "stem": "Why is there a comma before so?",
+     "options": [
+      "It is a list.",
+      "So joins two full sentences.",
+      "Someone is being spoken to.",
+      "It ends the sentence."
+     ],
+     "answer": 1,
+     "why": "It was raining and we stayed inside are both full sentences, joined by so."
+    },
+    {
+     "passage": "I wanted to play ball but my friend was sick.",
+     "stem": "Where does the comma go?",
+     "options": [
+      "after wanted",
+      "after but",
+      "after friend",
+      "after ball"
+     ],
+     "answer": 3,
+     "why": "The comma goes before but, so it comes right after ball."
+    },
+    {
+     "passage": "Dad cooked rice, and Mom made salad.",
+     "stem": "Which word joins the two sentences?",
+     "options": [
+      "cooked",
+      "rice",
+      "and",
+      "made"
+     ],
+     "answer": 2,
+     "why": "And joins Dad cooked rice and Mom made salad. The comma comes before it."
+    }
+   ],
+   "again": {
+    "title": "Two full sentences?",
+    "text": "Cover the joining word with your finger.\n\nCan each side stand alone as a sentence? Then put a comma before the joining word.",
+    "example": "We were tired [so] we went to bed.\n\nWe were tired. ✓ We went to bed. ✓\n→ **We were tired, so we went to bed.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Joining words",
+     "text": "Seven short words can join two sentences: **for, and, nor, but, or, yet, so**.\n\nRemember them as **FANBOYS**.\n\nWhen one joins **two complete sentences**, put a comma before it."
+    },
+    {
+     "title": "Two subjects: no comma",
+     "text": "If **and** joins two **subjects** that share one verb, do **not** use a comma.\n\n**Ali and Sami** played football.\n\nNot: Ali, and Sami played football."
+    },
+    {
+     "title": "Two verbs: no comma",
+     "text": "If **and** joins two **actions** with the same subject, do **not** use a comma.\n\nHuda **read a book and wrote a story**.\n\nThe second part (wrote a story) has no subject of its own, so it is not a full sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the joining word.\n2. Look **after** it. Is there a **subject + verb** (a full sentence)?\n3. Yes → comma before the joining word. No → no comma.\n\nPoint to the sentence where the comma breaks this rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Salma watered the plants, and her brother swept the yard.",
+      "role": "key"
+     },
+     {
+      "t": "Salma watered the plants and swept the yard.",
+      "role": "key"
+     }
+    ],
+    "explain": "In sentence 1, **her brother swept the yard** is a full sentence, so a comma comes before **and**.\n\nIn sentence 2, **swept the yard** has no subject, so there is **no** comma."
+   },
+   "together": {
+    "passage": "On Friday, my family went camping in the desert. My father and my uncle set up the tent. My cousins collected sticks, and built a small fire. After dinner, we looked at the stars, and Grandpa told us old stories. It was the best night of the holiday.",
+    "stem": "Which change corrects the passage?",
+    "options": [
+     "Add a comma after \"father.\"",
+     "Remove the comma after \"sticks.\"",
+     "Remove the comma after \"stars.\"",
+     "Add a comma after \"tent.\""
+    ],
+    "answer": 1,
+    "hint": "Look after each and. Is there a new subject, or just another action?",
+    "good": "Yes! built a small fire has no subject of its own, so no comma is needed before and."
+   },
+   "evidence": {
+    "sentences": [
+     "On Friday, my family went camping in the desert.",
+     "My father and my uncle set up the tent.",
+     "My cousins collected sticks, and built a small fire.",
+     "After dinner, we looked at the stars, and Grandpa told us old stories.",
+     "It was the best night of the holiday."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the comma that should be removed.",
+    "wrong": "The commas in this sentence are correct. After stars, Grandpa told us old stories is a full sentence."
+   },
+   "checks": [
+    {
+     "passage": "Faisal and Majed walked to school together.",
+     "stem": "Why is there no comma before and?",
+     "options": [
+      "It joins two full sentences.",
+      "It joins two subjects.",
+      "The sentence is a question.",
+      "And never takes a comma."
+     ],
+     "answer": 1,
+     "why": "And joins two subjects, Faisal and Majed, who share one verb, walked."
+    },
+    {
+     "passage": "The bell rang but nobody moved.",
+     "stem": "Which is correct?",
+     "options": [
+      "The bell rang but, nobody moved.",
+      "The bell, rang but nobody moved.",
+      "The bell rang, but nobody moved.",
+      "The bell rang but nobody, moved."
+     ],
+     "answer": 2,
+     "why": "The bell rang and nobody moved are full sentences, so a comma goes before but."
+    },
+    {
+     "passage": "You can walk to the museum or you can take the bus.",
+     "stem": "Where should the comma go?",
+     "options": [
+      "after walk",
+      "before or",
+      "after or",
+      "after take"
+     ],
+     "answer": 1,
+     "why": "You can take the bus is a full sentence, so a comma goes before or."
+    }
+   ],
+   "again": {
+    "title": "Look for a new subject",
+    "text": "After the joining word, look for a **new subject**: I, he, she, we, they, a name...\n\n**New subject + verb** → comma before the joining word.\n**Just a verb** → no comma.",
+    "example": "Omar ran [and] he won. → new subject **he** → **Omar ran, and he won.**\n\nOmar ran [and] won. → no new subject → **Omar ran and won.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Dependent clauses",
+     "text": "A **dependent clause** has a subject and a verb, but it **cannot stand alone**. It starts with a word like **when, because, if, after, before, although, while, until**.\n\n**When the rain stopped** ... (what happened?)"
+    },
+    {
+     "title": "Clause first? Use a comma",
+     "text": "When a dependent clause comes **first**, put a comma after it.\n\n**When the rain stopped,** we went outside.\n**Because the road was closed,** the bus was late."
+    },
+    {
+     "title": "Clause last? Usually no comma",
+     "text": "When the dependent clause comes **after** the main clause, you usually do **not** need a comma.\n\nWe went outside **when the rain stopped**.\nThe bus was late **because the road was closed**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word that starts a dependent clause (when, because, if, after...).\n2. Is the clause at the **beginning** of the sentence? Find where it ends and check for a comma.\n3. Is it at the **end**? Usually no comma.\n\nPoint to the sentence where the comma rule is broken."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Before the guests arrived, Mama arranged dates on a tray.",
+      "role": "key"
+     },
+     {
+      "t": "She made fresh coffee while we cleaned the room.",
+      "role": "key"
+     },
+     {
+      "t": "The house smelled wonderful.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, **Before the guests arrived** comes first, so a comma follows it.\n\nIn sentence 2, **while we cleaned the room** comes last, so no comma is needed."
+   },
+   "together": {
+    "passage": "Every year, our class visits the science center. When we arrived this year the guide gave each of us a map. We explored the space hall first because everyone wanted to see the planets. After we finished, we watched a short film about the moon. Although the day was long, nobody felt tired.",
+    "stem": "Which change corrects the passage?",
+    "options": [
+     "Add a comma after \"first.\"",
+     "Remove the comma after \"finished.\"",
+     "Remove the comma after \"long.\"",
+     "Add a comma after \"this year.\""
+    ],
+    "answer": 3,
+    "hint": "Find a sentence that begins with when, after or although. Where does that first part end?",
+    "good": "Yes! When we arrived this year is a dependent clause at the start, so a comma must follow it."
+   },
+   "evidence": {
+    "sentences": [
+     "Every year, our class visits the science center.",
+     "When we arrived this year the guide gave each of us a map.",
+     "We explored the space hall first because everyone wanted to see the planets.",
+     "After we finished, we watched a short film about the moon.",
+     "Although the day was long, nobody felt tired."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the missing comma.",
+    "wrong": "This sentence is correct. Look for a dependent clause at the start with no comma after it."
+   },
+   "checks": [
+    {
+     "passage": "If you finish early you can help me.",
+     "stem": "Where does the comma belong?",
+     "options": [
+      "after If",
+      "after early",
+      "after can",
+      "No comma is needed."
+     ],
+     "answer": 1,
+     "why": "If you finish early is a dependent clause at the start, so the comma comes after early."
+    },
+    {
+     "passage": "We stayed inside, because it was too hot.",
+     "stem": "What should be done?",
+     "options": [
+      "Remove the comma.",
+      "Add a comma after We.",
+      "Move the comma after because.",
+      "Nothing; it is correct."
+     ],
+     "answer": 0,
+     "why": "The because clause comes after the main clause, so no comma is needed."
+    },
+    {
+     "passage": "Although Badr was nervous he gave a great speech.",
+     "stem": "Which is correct?",
+     "options": [
+      "Although, Badr was nervous he gave a great speech.",
+      "Although Badr, was nervous he gave a great speech.",
+      "Although Badr was nervous, he gave a great speech.",
+      "Although Badr was nervous he gave, a great speech."
+     ],
+     "answer": 2,
+     "why": "The dependent clause Although Badr was nervous comes first, so a comma follows it."
+    }
+   ],
+   "again": {
+    "title": "Read it with a pause",
+    "text": "If the sentence starts with **when, if, because, after, before** or **although**, read it out loud.\n\nYou will hear a pause where the first part ends. Put the comma there.",
+    "example": "After we ate lunch (pause) we went home.\n\n→ **After we ate lunch, we went home.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Comma splices",
+     "text": "A comma **alone** cannot join two complete sentences. That mistake is a **comma splice**.\n\nWrong: The test was hard, we did well.\n\nFix it with a joining word (The test was hard**, but** we did well), a period, or a semicolon."
+    },
+    {
+     "title": "However is not a joining word",
+     "text": "Words like **however**, **therefore** and **then** cannot join sentences with just a comma.\n\nWrong: It rained, however we kept playing.\nRight: It rained**;** however, we kept playing.\nRight: It rained, **but** we kept playing."
+    },
+    {
+     "title": "Test each part",
+     "text": "Before you place a comma, test each part:\n\n1. Two full sentences + a FANBOYS word → comma before the joining word.\n2. One subject, two verbs → no comma.\n3. Dependent clause first → comma after it.\n4. Two full sentences + only a comma → comma splice. Fix it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Split the sentence at every comma and joining word.\n2. Label each part: full sentence, dependent clause, or verb phrase with no subject.\n3. Apply the rule for that combination.\n\nPoint to the sentence where the parts and the punctuation do not match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum opened at nine, but the line had formed an hour earlier.",
+      "role": "key"
+     },
+     {
+      "t": "Visitors waited patiently and talked quietly.",
+      "role": "key"
+     },
+     {
+      "t": "When the doors opened, everyone hurried inside.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1: two full sentences + **but** → comma.\nSentence 2: one subject, two verbs → no comma.\nSentence 3: dependent clause first → comma after it."
+   },
+   "together": {
+    "passage": "Coral reefs are some of the busiest places in the ocean. Thousands of species live among the corals and depend on them for food and shelter. When the water becomes too warm, corals can lose the tiny algae that live inside them. Without the algae, the corals turn white, this change is called bleaching. Scientists are working to protect reefs, and many divers volunteer to help them.",
+    "stem": "Which revision fixes the error in the passage?",
+    "options": [
+     "Without the algae, the corals turn white; this change is called bleaching.",
+     "Without the algae the corals turn white, this change is called bleaching.",
+     "Without the algae, the corals, turn white this change is called bleaching.",
+     "Without the algae, the corals turn white, and, this change is called bleaching."
+    ],
+    "answer": 0,
+    "hint": "Find two complete sentences joined by only a comma. What can correctly join them?",
+    "good": "Yes! The corals turn white and this change is called bleaching are both full sentences. A semicolon joins them correctly."
+   },
+   "evidence": {
+    "sentences": [
+     "Coral reefs are some of the busiest places in the ocean.",
+     "Thousands of species live among the corals and depend on them for food and shelter.",
+     "When the water becomes too warm, corals can lose the tiny algae that live inside them.",
+     "Without the algae, the corals turn white, this change is called bleaching.",
+     "Scientists are working to protect reefs, and many divers volunteer to help them."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the comma splice.",
+    "wrong": "The commas in this sentence are correct. Look for two full sentences joined by only a comma."
+   },
+   "checks": [
+    {
+     "passage": "The library was quiet, everyone was studying for exams.",
+     "stem": "What kind of error is this?",
+     "options": [
+      "no error",
+      "a missing comma in a list",
+      "a comma splice",
+      "a missing tag-question comma"
+     ],
+     "answer": 2,
+     "why": "The library was quiet and everyone was studying for exams are full sentences joined by only a comma."
+    },
+    {
+     "passage": "Our team practiced every day, however we lost the final match.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "Our team practiced every day, however, we lost the final match.",
+      "Our team practiced every day however we lost, the final match.",
+      "Our team, practiced every day however we lost the final match.",
+      "Our team practiced every day; however, we lost the final match."
+     ],
+     "answer": 3,
+     "why": "However cannot join sentences with a comma. Use a semicolon before it and a comma after it."
+    },
+    {
+     "passage": "The engineer checked the bridge, and wrote a report for the city.",
+     "stem": "What is wrong?",
+     "options": [
+      "A semicolon should replace the comma.",
+      "Remove the comma; the second part has no subject.",
+      "A comma is needed after 'report.'",
+      "Nothing is wrong."
+     ],
+     "answer": 1,
+     "why": "Wrote a report has no subject of its own. One subject with two verbs needs no comma."
+    }
+   ],
+   "again": {
+    "title": "Label the parts",
+    "text": "Write a label over each part:\n\n**S** = full sentence\n**D** = dependent clause\n**V** = verb with no subject\n\nS + S with FANBOYS → comma. S + V → no comma. D first → comma. S, S with no joining word → fix it.",
+    "example": "The storm ended, the roads were wet.\n\nS, S with no joining word → comma splice\n→ **The storm ended, but the roads were wet.**"
+   }
+  }
+ }
+}

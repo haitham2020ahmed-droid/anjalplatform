@@ -5,6 +5,7 @@ import { useT } from "@/i18n/client";
 import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import type { GroupPage, ReviewGroup } from "@/server/questions/link-review-bulk";
 import { acceptConfidentAction, acceptGroupAction, aiProgressAction, confidentCountAction, groupRowsAction, improveGuessesAction, leaveRowAction, moveRowAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const Bar = ({ pct }: { pct: number }) => (
@@ -228,10 +229,7 @@ function Group({ g }: { g: ReviewGroup }) {
                       </label>
                       {!on && (
                         <div className="mt-2 flex flex-wrap items-center gap-2 ps-8">
-                          <select value={choice[r.id] ?? ""} onChange={(e) => setChoice((c) => ({ ...c, [r.id]: e.target.value }))} aria-label={t("Move to…")} className="min-h-11 max-w-xs rounded-lg border border-slate-300 px-2">
-                            <option value="">{t("Move to…")}</option>
-                            {(data.skillsByGrade[r.grade ?? 0] ?? []).map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}
-                          </select>
+                          <Combo label={t("Move to…")} value={choice[r.id] ?? ""} onChange={(v) => setChoice((c) => ({ ...c, [r.id]: v }))} placeholder={t("Move to…")} options={(data.skillsByGrade[r.grade ?? 0] ?? []).map((k) => ({ value: k.id, label: k.name }))} className="w-72" />
                           <button type="button" onClick={() => move(r.id)} disabled={busy} className="min-h-11 rounded-lg bg-brand-navy px-4 font-semibold text-white disabled:opacity-60">{t("Save")}</button>
                           <button type="button" onClick={() => leave(r.id)} disabled={busy} className="min-h-11 rounded-lg bg-white px-4 font-semibold text-slate-700 ring-1 ring-slate-300 disabled:opacity-60">{t("Leave as it is")}</button>
                         </div>

@@ -1,0 +1,509 @@
+{
+ "code": "LN-112",
+ "title": "Details that support an idea",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.1.8",
+  "RI.2.8",
+  "RI.3.6",
+  "RI.3.8",
+  "RI.4.3",
+  "RI.4.8",
+  "RI.5.3",
+  "RI.5.8",
+  "RI.6.3",
+  "RI.6.8",
+  "RI.7.8",
+  "RI.8.3"
+ ],
+ "families": [
+  "text-evidence"
+ ],
+ "skillNames": [
+  "Cite Text Evidence"
+ ],
+ "statements": [
+  "R-0101",
+  "R-0178",
+  "R-0187",
+  "R-0313",
+  "R-0360",
+  "R-0361",
+  "R-0481",
+  "R-0488",
+  "R-0507",
+  "R-0544",
+  "R-0550",
+  "R-0669",
+  "R-0686",
+  "R-0694",
+  "R-0741",
+  "R-0751",
+  "R-0872",
+  "R-0873",
+  "R-0908",
+  "R-0914",
+  "R-1036",
+  "R-1037"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "An idea needs proof",
+     "text": "Sometimes a question gives you an **idea**.\n\nExample: **Sami is a good helper.**\n\nYou must find the **detail** in the text that shows it is true."
+    },
+    {
+     "title": "Details show it",
+     "text": "A **detail** that supports an idea **shows** it.\n\nSami is a good helper. **He carries bags for his grandma.** That detail shows he helps!"
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read the idea in the question.\n2. Read each sentence in the text.\n3. Ask: **Does this show the idea?**\n4. Pick the one that does."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Put the idea and the detail together.\n\nIdea: Sami is a good helper.\nDetail: He carries bags.\n\nDoes the detail **show** the idea? Yes! Then it is proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our cat is very playful.",
+      "role": "main"
+     },
+     {
+      "t": "She chases a ball all day.",
+      "role": "key"
+     },
+     {
+      "t": "Her name is Lulu.",
+      "role": "other"
+     },
+     {
+      "t": "She jumps at bits of string.",
+      "role": "key"
+     }
+    ],
+    "explain": "The idea: **Our cat is very playful.**\n\nChasing a ball and jumping at string **show** she is playful. Her name does not show it."
+   },
+   "together": {
+    "passage": "The desert is very hot in summer. The sand burns your feet. People stay inside at noon. The sky is blue.",
+    "stem": "Which detail shows the desert is very hot?",
+    "options": [
+     "The sky is blue.",
+     "The desert is big.",
+     "People like the desert.",
+     "The sand burns your feet."
+    ],
+    "answer": 3,
+    "hint": "Does that show heat? Find a sentence that shows how hot it is.",
+    "good": "Yes! Sand that burns your feet shows it is very hot."
+   },
+   "evidence": {
+    "sentences": [
+     "The desert is very hot in summer.",
+     "The sand burns your feet.",
+     "People stay inside at noon.",
+     "The sky is blue."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The idea was: the desert is very hot. Tap 2 sentences that show it.",
+    "wrong": "This sentence is the idea itself, or it does not show heat. Find details that show how hot it is."
+   },
+   "checks": [
+    {
+     "passage": "Lina is kind. She shares her lunch with friends. She has a red bag.",
+     "stem": "Which detail shows Lina is kind?",
+     "options": [
+      "She has a red bag.",
+      "She shares her lunch with friends.",
+      "She is in Grade 2.",
+      "She likes to run and play in the park."
+     ],
+     "answer": 1,
+     "why": "Sharing her lunch shows that Lina is kind."
+    },
+    {
+     "passage": "Our classroom is clean. The floor shines. The desks have no mess. The door is brown.",
+     "stem": "Which detail shows the classroom is clean?",
+     "options": [
+      "The floor shines.",
+      "The door is brown.",
+      "The room is big.",
+      "The class has a clock."
+     ],
+     "answer": 0,
+     "why": "A shining floor shows the classroom is clean."
+    },
+    {
+     "passage": "Owls can see well at night. They hunt mice in the dark. They have big eyes. Owls have feathers.",
+     "stem": "Which detail shows owls can see at night?",
+     "options": [
+      "Owls have feathers.",
+      "Owls sleep in trees.",
+      "They hunt mice in the dark.",
+      "Owls are birds."
+     ],
+     "answer": 2,
+     "why": "Hunting in the dark shows owls can see well at night."
+    }
+   ],
+   "again": {
+    "title": "Show me!",
+    "text": "Pretend a friend says: **Show me!**\n\nWhich sentence would you point to? That is the detail that supports the idea.",
+    "example": "Idea: The baby is happy.\nText: The baby laughs. The baby has socks.\n\nShow me! Point to: **The baby laughs.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Statements and evidence",
+     "text": "A question may give you a **statement** about the text and ask which detail **supports** it.\n\nThe supporting detail is **evidence**: it shows the statement is true."
+    },
+    {
+     "title": "Same topic is not enough",
+     "text": "A wrong answer may be about the **same topic** but not prove the statement.\n\nStatement: Camels are good at saving water.\nSame topic, not evidence: **Camels have humps.**\nEvidence: **Camels rarely sweat.**"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the statement carefully. Find its key words.\n2. Look for sentences about those key words.\n3. Ask: does this detail **prove** the statement?\n4. Choose the one that proves it best."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Test each detail with **so**.\n\n**Detail, so statement.**\n\nIf it makes sense, the detail supports the statement. If not, it does not."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The library is the busiest room in our school.",
+      "role": "main"
+     },
+     {
+      "t": "Every break, students line up to borrow books.",
+      "role": "key"
+     },
+     {
+      "t": "After school, almost every seat is taken.",
+      "role": "key"
+     },
+     {
+      "t": "The library has blue carpet.",
+      "role": "other"
+     }
+    ],
+    "explain": "Statement: **The library is the busiest room.**\n\nStudents line up, **so** it is busy. Every seat is taken, **so** it is busy. The blue carpet does not make it busy."
+   },
+   "together": {
+    "passage": "Hedgehogs have many ways to stay safe. When they are scared, they roll into a tight ball. Their backs are covered with thousands of sharp spines. Hedgehogs eat insects, worms and snails. They usually come out at night, when fewer animals are hunting.",
+    "stem": "Which detail supports the statement that hedgehogs can protect themselves?",
+    "options": [
+     "Hedgehogs eat insects, worms and snails.",
+     "They roll into a tight ball when scared.",
+     "Hedgehogs have many ways to stay safe.",
+     "Hedgehogs are small animals."
+    ],
+    "answer": 1,
+    "hint": "Is that about staying safe? Or is it the statement itself? Find a detail that SHOWS how they stay safe.",
+    "good": "Yes! Rolling into a ball is one way hedgehogs protect themselves."
+   },
+   "evidence": {
+    "sentences": [
+     "Hedgehogs have many ways to stay safe.",
+     "When they are scared, they roll into a tight ball.",
+     "Their backs are covered with thousands of sharp spines.",
+     "Hedgehogs eat insects, worms and snails.",
+     "They usually come out at night, when fewer animals are hunting."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The statement was: hedgehogs can protect themselves. Tap 2 sentences that show how.",
+    "wrong": "This sentence is the statement itself, or it is about food. Find details that show HOW hedgehogs stay safe."
+   },
+   "checks": [
+    {
+     "passage": "Riyadh is a fast-growing city. New roads and buildings appear every year. The city's population has grown to millions of people. Riyadh is the capital of Saudi Arabia.",
+     "stem": "Which detail supports the statement that Riyadh is growing fast?",
+     "options": [
+      "Riyadh is the capital of Saudi Arabia.",
+      "Riyadh is in the middle of the country.",
+      "New roads and buildings appear every year.",
+      "Riyadh has hot summers."
+     ],
+     "answer": 2,
+     "why": "New roads and buildings every year show the city is growing."
+    },
+    {
+     "passage": "Exercise helps the brain as well as the body. After a short walk, many students find it easier to focus. Exercise sends more blood and oxygen to the brain. Many people exercise in the morning.",
+     "stem": "Which detail supports the idea that exercise helps the brain?",
+     "options": [
+      "Many people exercise in the morning.",
+      "Walking is a kind of exercise.",
+      "Exercise is good for muscles.",
+      "Exercise sends more blood to the brain."
+     ],
+     "answer": 3,
+     "why": "More blood and oxygen to the brain shows exercise helps the brain."
+    },
+    {
+     "passage": "The old market is a good place to learn about history. Some of its shops have been open for more than a hundred years. Older shopkeepers tell stories about how trade used to work. The market sells spices and cloth.",
+     "stem": "Which detail best supports the statement that the market helps people learn about history?",
+     "options": [
+      "Older shopkeepers tell stories about how trade used to work.",
+      "The market sells spices, cloth and many other goods.",
+      "The market is busy on weekends.",
+      "Shops are open in the evening."
+     ],
+     "answer": 0,
+     "why": "Stories about how trade used to work teach visitors about history."
+    }
+   ],
+   "again": {
+    "title": "The so test",
+    "text": "Put the detail first, then **so**, then the statement.\n\nIf it sounds right, the detail supports the statement.",
+    "example": "Statement: The team worked hard.\n\nThey practiced every day, **so** the team worked hard. Yes!\nThey wore green shirts, **so** the team worked hard. No!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Supporting ideas and concepts",
+     "text": "Texts often explain an **idea** (a point the author makes) or a **concept** (a big science or social idea, like **adaptation** or **trade**).\n\nThe author gives details that show the idea or concept in action."
+    },
+    {
+     "title": "Best support",
+     "text": "Several details may relate to the idea. The **best** support:\n\n1. is about the **exact** idea, not just the topic;\n2. gives a fact, example or event that **shows** it;\n3. is stated in the text, not just something you know."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Restate the idea in your own words.\n2. List the details that are about it.\n3. For each, ask: does this **prove** the idea or only **mention** the topic?\n4. Choose the strongest."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Strong evidence matches **every part** of the idea.\n\nIf the idea is \"Ali grew more confident\", the evidence must show **change** and **confidence**, not just that Ali did something."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Adaptation means a living thing has features that help it survive where it lives.",
+      "role": "main"
+     },
+     {
+      "t": "The fennec fox has huge ears that release body heat in the desert.",
+      "role": "key"
+     },
+     {
+      "t": "Its thick fur keeps it warm on cold desert nights.",
+      "role": "key"
+     },
+     {
+      "t": "Fennec foxes are the smallest kind of fox.",
+      "role": "other"
+     }
+    ],
+    "explain": "The concept is **adaptation**: features that help survival. Big ears that release heat and thick fur for cold nights **show** adaptation. Being small is a fact, but the text does not say it helps survival."
+   },
+   "together": {
+    "passage": "When Noor joined the school debate team, she was so nervous that her voice shook. In her first debate, she forgot half of her points. Instead of quitting, she asked her coach for help. She practiced her speeches in front of a mirror every evening and recorded herself to hear where she rushed. By the spring, she spoke slowly and clearly, and she even answered surprise questions from the judges without notes. Her team reached the final round.",
+    "stem": "Which detail best supports the idea that Noor grew more confident?",
+    "options": [
+     "She answered surprise questions from the judges without notes.",
+     "She joined the school debate team.",
+     "Her team reached the final round.",
+     "She asked her coach for help."
+    ],
+    "answer": 0,
+    "hint": "The idea is about CHANGE and CONFIDENCE. Which detail shows her acting confident later on?",
+    "good": "Yes! Answering surprise questions without notes shows how confident she had become."
+   },
+   "evidence": {
+    "sentences": [
+     "When Noor joined the school debate team, she was so nervous that her voice shook.",
+     "In her first debate, she forgot half of her points.",
+     "Instead of quitting, she asked her coach for help.",
+     "She practiced her speeches in front of a mirror every evening and recorded herself to hear where she rushed.",
+     "By the spring, she spoke slowly and clearly, and she even answered surprise questions from the judges without notes.",
+     "Her team reached the final round."
+    ],
+    "proof": [
+     0,
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The idea was: Noor grew more confident. Tap 2 sentences that show how she changed: how she was at first, and how she was later.",
+    "wrong": "This sentence shows what she did to improve, or the team's result. Find how nervous she was at first and how confident she was later."
+   },
+   "checks": [
+    {
+     "passage": "Trade has connected the Arabian Peninsula to the world for thousands of years. Frankincense from southern Arabia was carried by camel to markets in Egypt and Rome. Later, ships from Gulf ports sailed to India and East Africa with dates and pearls. Today, container ships carry goods through the Red Sea every day.",
+     "stem": "Which detail best supports the idea that trade connected Arabia to distant places?",
+     "options": [
+      "Dates grow well in the Gulf region.",
+      "Container ships are very large.",
+      "Camels can carry heavy loads across the desert for days.",
+      "Ships from Gulf ports sailed to India and East Africa."
+     ],
+     "answer": 3,
+     "why": "Sailing to India and East Africa shows trade linking Arabia with distant places."
+    },
+    {
+     "passage": "Plants can respond to light. If you place a plant near a window, its stems slowly bend toward the glass. Sunflowers that are still growing turn their heads to follow the sun across the sky. Plants also need water and soil.",
+     "stem": "Which detail supports the concept that plants respond to light?",
+     "options": [
+      "Plants also need water and soil.",
+      "Sunflowers are tall and yellow.",
+      "Stems bend toward a window.",
+      "Plants grow from seeds."
+     ],
+     "answer": 2,
+     "why": "Bending toward the window shows the plant responding to light."
+    },
+    {
+     "passage": "Some people think recycling makes no difference. But recycling aluminum cans uses far less energy than making new aluminum from raw materials. Recycled paper means fewer trees need to be cut. Many recycling bins are blue.",
+     "stem": "Which detail best supports the statement that recycling makes a difference?",
+     "options": [
+      "Some people think recycling makes no difference.",
+      "Recycling aluminum uses far less energy.",
+      "Many recycling bins are blue.",
+      "Cans are made of metal."
+     ],
+     "answer": 1,
+     "why": "Using far less energy is a measurable benefit that shows recycling makes a difference."
+    }
+   ],
+   "again": {
+    "title": "Prove every word",
+    "text": "Break the idea into parts and find proof for **each** part.\n\nIdea: **Noor** + **grew** + **more confident**.\n\nThe best detail shows **all** the parts.",
+    "example": "Idea: The village became cleaner after the clean-up.\n\nParts: **became** (a change) + **cleaner**.\nDetail: Before, rubbish lined the roads; after, the roads were clear. That shows **both**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Evidence for complex ideas",
+     "text": "In advanced texts, ideas are more complex: **partly**, **despite**, **over time**, **more than**. Evidence must fit the idea **exactly**, including those limits.\n\nA detail that fits half of the idea is weaker than one that fits all of it."
+    },
+    {
+     "title": "Choosing the strongest evidence",
+     "text": "When several details relate to the idea, rank them:\n\n**Strongest**: directly shows the idea, with a fact or event.\n**Weaker**: related but needs extra reasoning.\n**Not evidence**: same topic, but proves something else."
+    },
+    {
+     "title": "Method",
+     "text": "1. Paraphrase the idea precisely, keeping its limits.\n2. Find every detail linked to it.\n3. Test each: if this were the only evidence, would a reader accept the idea?\n4. Choose the detail that needs the fewest extra steps."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Explain **how** the detail proves the idea in one sentence: \"This shows ___ because ___.\"\n\nIf your explanation needs facts that are not in the text, the detail is not the best evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The author suggests that the city's new metro changed daily life more than anyone expected.",
+      "role": "main"
+     },
+     {
+      "t": "Within a year, many families sold their second car.",
+      "role": "key"
+     },
+     {
+      "t": "Shops near stations reported more customers, and new cafes opened beside the platforms.",
+      "role": "key"
+     },
+     {
+      "t": "The trains are painted in bright colors.",
+      "role": "other"
+     }
+    ],
+    "explain": "The idea has a limit: **more than expected**. Families selling cars and new shops opening show **big** changes to daily life. The train colors are about the metro but prove nothing about daily life."
+   },
+   "together": {
+    "passage": "In the 1800s, many doctors believed that diseases were spread by bad air from rotting waste. During an outbreak of cholera in London in 1854, the doctor John Snow doubted this idea. He marked each death on a map of the neighborhood and noticed that most victims lived near one public water pump on Broad Street. Workers at a nearby brewery, who drank their own supply of water, rarely became ill. Snow persuaded local officials to remove the pump's handle, and new cases in the area fell. His careful work helped show that cholera spread through dirty water, not through the air.",
+    "stem": "Which detail best supports the idea that Snow's evidence pointed to the water, not the air?",
+    "options": [
+     "Many doctors believed diseases were spread by bad air.",
+     "The outbreak happened in London in 1854.",
+     "Brewery workers who drank their own water rarely became ill.",
+     "Snow was a doctor who lived in London."
+    ],
+    "answer": 2,
+    "hint": "Breathing the same air but drinking different water: which detail separates air from water?",
+    "good": "Yes! The brewery workers breathed the same air but drank different water and stayed healthy, which points to the water."
+   },
+   "evidence": {
+    "sentences": [
+     "In the 1800s, many doctors believed that diseases were spread by bad air from rotting waste.",
+     "During an outbreak of cholera in London in 1854, the doctor John Snow doubted this idea.",
+     "He marked each death on a map of the neighborhood and noticed that most victims lived near one public water pump on Broad Street.",
+     "Workers at a nearby brewery, who drank their own supply of water, rarely became ill.",
+     "Snow persuaded local officials to remove the pump's handle, and new cases in the area fell.",
+     "His careful work helped show that cholera spread through dirty water, not through the air."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The idea was: Snow's evidence pointed to the water, not the air. Tap 2 sentences that give that evidence.",
+    "wrong": "This sentence gives the background belief or the conclusion. Find the observations that point to the water."
+   },
+   "checks": [
+    {
+     "passage": "The memoir describes the writer's first year as a teacher in a mountain village. At first, the students rarely spoke in class. She began each lesson by asking them to share a story from home. Within weeks, even the quietest boy told a long tale about his grandfather's goats. By the end of the year, students were asking to stay late to finish their discussions.",
+     "stem": "Which detail best supports the idea that the students became more willing to talk?",
+     "options": [
+      "Students asked to stay late to finish their discussions.",
+      "The writer taught in a mountain village.",
+      "The quietest boy's grandfather kept goats.",
+      "She began each lesson with a question."
+     ],
+     "answer": 0,
+     "why": "Asking to stay late to keep discussing shows a clear change from rarely speaking to wanting to talk."
+    },
+    {
+     "passage": "Some scientists argue that coral reefs can partly recover from damage if conditions improve. After a severe heat event on one reef, more than half of the coral turned white. When water temperatures returned to normal over the next years, surveys found new coral growing on the damaged areas. However, the reef had not returned to its earlier size.",
+     "stem": "Which detail best supports the idea that the reef partly recovered?",
+     "options": [
+      "More than half of the coral turned white.",
+      "New coral grew, but the reef did not return to its earlier size.",
+      "Water temperatures returned to normal over the next years.",
+      "Scientists study coral reefs."
+     ],
+     "answer": 1,
+     "why": "Partly recovered needs two parts: some new growth, and not a full return. This choice shows both."
+    },
+    {
+     "passage": "The historian argues that the invention of the printing press in Europe made knowledge spread faster. Before printing, books were copied by hand, which could take months. After printing presses appeared, thousands of copies could be made in the time it once took to make a few. Books also became cheaper. Some early printed books were decorated by hand.",
+     "stem": "Which detail best supports the historian's argument?",
+     "options": [
+      "Some early printed books were decorated by hand.",
+      "Before printing, books were copied by hand.",
+      "The printing press was invented in Europe.",
+      "Presses made thousands of copies very quickly."
+     ],
+     "answer": 3,
+     "why": "Making thousands of copies so quickly directly shows that knowledge could spread faster."
+    }
+   ],
+   "again": {
+    "title": "Would a judge accept it?",
+    "text": "Imagine you show **only one** detail to a judge.\n\nWould the judge agree with the idea from that detail alone? If yes, it is strong evidence. If the judge says \"so what?\", it is weak.",
+    "example": "Idea: Snow found that water spread the disease.\n\nDetail: brewery workers drank other water and stayed well. Judge: **convincing!**\nDetail: the outbreak was in 1854. Judge: **so what?**"
+   }
+  }
+ }
+}

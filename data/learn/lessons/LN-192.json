@@ -1,0 +1,479 @@
+{
+ "code": "LN-192",
+ "title": "Subject-area words",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.6",
+  "L.6.6",
+  "L.7.6",
+  "L.8.6",
+  "RI.2.4",
+  "RI.3.4",
+  "RI.4.4",
+  "RI.5.4",
+  "RI.6.4",
+  "RI.7.4",
+  "RI.8.4",
+  "RI.K.4"
+ ],
+ "families": [
+  "academic-vocabulary"
+ ],
+ "skillNames": [
+  "Academic and Domain-Specific Vocabulary"
+ ],
+ "statements": [
+  "R-0012",
+  "R-0057",
+  "R-0119",
+  "R-0231",
+  "R-0378",
+  "R-0412",
+  "R-0558",
+  "R-0565",
+  "R-0759",
+  "R-0806",
+  "R-0930",
+  "R-1052"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words for school subjects",
+     "text": "Science and social studies have their **own words**.\n\nScience: **habitat, melt, pollen**\nSocial studies: **map, town, market**"
+    },
+    {
+     "title": "The text helps you",
+     "text": "When a book uses a new subject word, it often **tells you** what it means.\n\nLook at the sentences **next to** the new word."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Find the new word.\n2. Read the sentence before and after.\n3. Find the words that tell what it is."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The meaning is often **right there**.\n\n1. Find the new word.\n2. Find the sentence that tells what it is or what it has.\n3. That sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ice cubes melt in the sun.",
+      "role": "main"
+     },
+     {
+      "t": "They turn into water.",
+      "role": "key"
+     },
+     {
+      "t": "Soon there is a puddle.",
+      "role": "detail"
+     }
+    ],
+    "explain": "What does **melt** mean? The next sentence tells us: they **turn into water**."
+   },
+   "together": {
+    "passage": "A frog lives in a pond. The pond is its habitat. The pond has water to swim in. It has bugs to eat and plants to hide in.",
+    "stem": "What is a habitat?",
+    "options": [
+     "A kind of frog.",
+     "A bug that frogs eat.",
+     "A plant in the water.",
+     "The home where an animal lives."
+    ],
+    "answer": 3,
+    "hint": "Read the sentences after the word. What does the pond give the frog?",
+    "good": "Yes! The pond is where the frog lives and finds what it needs."
+   },
+   "evidence": {
+    "sentences": [
+     "A frog lives in a pond.",
+     "The pond is its habitat.",
+     "The pond has water to swim in.",
+     "It has bugs to eat and plants to hide in."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the home where an animal lives. Tap 2 sentences that show the pond is the frog's home.",
+    "wrong": "This sentence only names the word. Find sentences that show what the frog does in the pond."
+   },
+   "checks": [
+    {
+     "passage": "Bees go from flower to flower. They carry pollen on their legs. Pollen is a yellow powder in flowers.",
+     "stem": "What is pollen?",
+     "options": [
+      "A kind of bee.",
+      "A yellow powder in flowers.",
+      "A leg of a bee.",
+      "A red flower."
+     ],
+     "answer": 1,
+     "why": "The text says: pollen is **a yellow powder in flowers**."
+    },
+    {
+     "passage": "Our class made a map of our town. The map shows the streets, the park and the school.",
+     "stem": "What is a map?",
+     "options": [
+      "A drawing that shows where places are.",
+      "A street in the town.",
+      "A book of stories.",
+      "A park near the school."
+     ],
+     "answer": 0,
+     "why": "The map **shows the streets, the park and the school**."
+    },
+    {
+     "passage": "Mom put butter in a hot pan. The butter began to melt. Soon it was all runny.",
+     "stem": "What does melt mean?",
+     "options": [
+      "Get very cold.",
+      "Get bigger.",
+      "Turn hard.",
+      "Turn soft and runny from heat."
+     ],
+     "answer": 3,
+     "why": "In the hot pan, the butter became **all runny**."
+    }
+   ],
+   "again": {
+    "title": "Find the \"is\" sentence",
+    "text": "Many subject words have an **is** sentence near them.\n\n\"A ___ **is** ...\"\n\nFind it and read it.",
+    "example": "\"A **seed** is the small part of a plant that grows into a new plant.\"\n\nThe **is** sentence tells you what a seed is."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Subject-area words",
+     "text": "Every subject has **special words**. In science: *evaporation, erosion, predator*. In social studies: *natural resource, community, trade*.\n\nThese words have exact meanings in that subject."
+    },
+    {
+     "title": "Clues writers give",
+     "text": "Look for these clues:\n\n**is called / is known as:** \"This process is called evaporation.\"\n**means / or:** \"a predator, or hunter,\"\n**examples:** \"natural resources, such as water and trees\""
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the subject word.\n2. Look for a clue: *is called, means, such as, or*.\n3. Read the sentences that **explain** what it is or what it does.\n4. Put the meaning in your own words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Science and social studies texts usually **explain** their special words.\n\n1. Find the sentences that describe the process or thing.\n2. Check that the meaning you chose matches them.\n3. Reject answers that use a word from the text but describe something else."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The falcon is a predator.",
+      "role": "main"
+     },
+     {
+      "t": "It hunts mice, lizards and smaller birds.",
+      "role": "key"
+     },
+     {
+      "t": "Then it eats them.",
+      "role": "key"
+     }
+    ],
+    "explain": "What is a **predator**? The next sentences explain: it **hunts** other animals and **eats** them."
+   },
+   "together": {
+    "passage": "On a hot afternoon, the puddles in our street slowly disappear. The sun heats the water, and the water changes into an invisible gas called water vapour. The vapour rises into the air. This process is called evaporation. In the summer heat, evaporation happens very quickly, which is why wet clothes on the roof dry in less than an hour.",
+    "stem": "What is evaporation?",
+    "options": [
+     "When rain falls from clouds.",
+     "When heat changes liquid water into a gas.",
+     "When water freezes into ice.",
+     "When clothes are washed."
+    ],
+    "answer": 1,
+    "hint": "Find the sentences right before \"This process is called evaporation.\" What process do they describe?",
+    "good": "Yes! The sun heats the water and it changes into a gas that rises. That is evaporation."
+   },
+   "evidence": {
+    "sentences": [
+     "On a hot afternoon, the puddles in our street slowly disappear.",
+     "The sun heats the water, and the water changes into an invisible gas called water vapour.",
+     "The vapour rises into the air.",
+     "This process is called evaporation.",
+     "In the summer heat, evaporation happens very quickly, which is why wet clothes on the roof dry in less than an hour."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: when heat changes liquid water into a gas. Tap 2 sentences that describe the process.",
+    "wrong": "This sentence names the process or gives an example. Find the sentences that explain what happens to the water."
+   },
+   "checks": [
+    {
+     "passage": "Over many years, wind and water slowly wear away rock and soil. This is called erosion. Erosion can carve deep valleys.",
+     "stem": "What is erosion?",
+     "options": [
+      "Rain falling on a mountain.",
+      "A deep valley.",
+      "The slow wearing away of rock and soil.",
+      "Wind that blows very hard."
+     ],
+     "answer": 2,
+     "why": "The text says wind and water **slowly wear away rock and soil**. This is called erosion."
+    },
+    {
+     "passage": "Water, trees and oil are natural resources. They come from nature, and people use them to live and work.",
+     "stem": "What is a natural resource?",
+     "options": [
+      "Something from nature that people use.",
+      "A building made by people.",
+      "A kind of tree.",
+      "A job in a factory."
+     ],
+     "answer": 0,
+     "why": "Natural resources **come from nature** and **people use them**."
+    },
+    {
+     "passage": "A food chain shows who eats whom. Grass is eaten by a goat, and a goat may be eaten by a wolf.",
+     "stem": "What does a food chain show?",
+     "options": [
+      "How to cook food.",
+      "Where animals sleep.",
+      "How tall plants grow.",
+      "Which living things eat which."
+     ],
+     "answer": 3,
+     "why": "The text says a food chain **shows who eats whom**, with grass, a goat and a wolf."
+    }
+   ],
+   "again": {
+    "title": "Clue words",
+    "text": "Hunt for these little clue words near a subject word:\n\n**is called** · **means** · **or** · **such as** · **this is**\n\nThe answer is next to them.",
+    "example": "\"Animals that eat only plants, **such as** camels and goats, are called herbivores.\"\n\nClue: **such as**. A herbivore is an animal that eats only plants."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Words with exact meanings",
+     "text": "In science and social studies, a word like **climate** is not the same as **weather**, and **export** is not the same as **sell**.\n\nSubject words have **exact** meanings. The context helps you find them."
+    },
+    {
+     "title": "When there is no definition",
+     "text": "Sometimes the writer does not define the word. Then use:\n\n**Examples:** what things are given as examples?\n**Cause and effect:** what happens because of it?\n**Contrast:** what is it compared with?"
+    },
+    {
+     "title": "Build the meaning",
+     "text": "1. Find the subject word.\n2. Collect clues from two or more sentences.\n3. Write a short meaning.\n4. Test it: put your meaning in place of the word. Does the passage still make sense?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When the meaning is not stated, you **add up clues**.\n\n1. Find sentences that give examples, causes or contrasts.\n2. Make sure your meaning fits all of them.\n3. Reject answers that fit only one clue, or that are the everyday meaning instead of the subject meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Riyadh's climate is hot and dry.",
+      "role": "main"
+     },
+     {
+      "t": "Summers there often pass 40°C, and rain falls on only a few days each year.",
+      "role": "key"
+     },
+     {
+      "t": "Abha, high in the mountains, has a cooler and wetter climate.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writer never says \"climate means...\", but the clues show it is the **usual weather of a place over a long time**: hot summers, few rainy days, cooler mountains."
+   },
+   "together": {
+    "passage": "Saudi Arabia produces far more oil than its people need. Every day, huge tankers carry millions of barrels from ports on the Gulf and the Red Sea to countries in Asia, Europe and beyond. Oil is the country's most important export. At the same time, the country brings in cars, machines and many foods from abroad. These goods are imports, and some are paid for with money earned from oil.",
+    "stem": "What does export mean in this passage?",
+    "options": [
+     "A product sent to other countries to be sold.",
+     "A product bought from other countries.",
+     "A ship that carries oil.",
+     "A port on the Red Sea."
+    ],
+    "answer": 0,
+    "hint": "Find the sentences that tell where the oil goes. Then compare export with import.",
+    "good": "Yes! The oil is carried to other countries and sold there. That is an export."
+   },
+   "evidence": {
+    "sentences": [
+     "Saudi Arabia produces far more oil than its people need.",
+     "Every day, huge tankers carry millions of barrels from ports on the Gulf and the Red Sea to countries in Asia, Europe and beyond.",
+     "Oil is the country's most important export.",
+     "At the same time, the country brings in cars, machines and many foods from abroad.",
+     "These goods are imports, and some are paid for with money earned from oil."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: a product sent to other countries to be sold. Tap 2 sentences that show oil going to other countries.",
+    "wrong": "This sentence is about goods coming IN, or it just names the word. Find the sentences that show the oil going OUT."
+   },
+   "checks": [
+    {
+     "passage": "Because rain is rare, farmers in Al-Qassim pump water from deep wells and spray it over their wheat fields with long, turning sprinklers. Without irrigation, the crops would dry up.",
+     "stem": "What does irrigation mean?",
+     "options": [
+      "Collecting rainwater on roofs.",
+      "Bringing water to crops by pipes or sprinklers.",
+      "Cutting wheat at harvest time.",
+      "Digging new wells for drinking water."
+     ],
+     "answer": 1,
+     "why": "Farmers **pump water** and **spray it over their fields**. Without it, crops dry up."
+    },
+    {
+     "passage": "The city's population has grown quickly. Twenty years ago, about one million people lived there. Today, nearly two million do, and new neighbourhoods are being built every year.",
+     "stem": "What does population mean?",
+     "options": [
+      "The size of a city's land.",
+      "The number of new buildings.",
+      "The number of people living in a place.",
+      "The age of a city."
+     ],
+     "answer": 2,
+     "why": "The text counts **people who lived there**: one million, then two million."
+    },
+    {
+     "passage": "Many desert plants are drought-tolerant. They can live for months with little or no water, storing what they need in thick stems or deep roots.",
+     "stem": "What does drought-tolerant mean?",
+     "options": [
+      "Needing water every day.",
+      "Growing only near rivers.",
+      "Dying quickly in the heat.",
+      "Able to survive a long time without water."
+     ],
+     "answer": 3,
+     "why": "They **live for months with little or no water**."
+    }
+   ],
+   "again": {
+    "title": "Try it in the sentence",
+    "text": "Make your best guess, then **put it in place of the word**.\n\nIf the sentence still makes sense, keep it. If not, look for more clues.",
+    "example": "\"Oil is the country's most important **export**.\"\n\nTry: \"Oil is the country's most important **product sold to other countries**.\" ✔ It makes sense."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Technical vocabulary",
+     "text": "Upper-grade texts use **technical** words: *tectonic plate, rift, sediment, adaptation, diversify*.\n\nYou may meet them before you have studied them, so you must use the text to work them out."
+    },
+    {
+     "title": "How experts explain",
+     "text": "Writers of science and social studies often build meaning across several sentences:\n\n1. **Name** the term.\n2. **Describe** the process.\n3. Give a **real example**.\n4. Show the **effect** or evidence."
+    },
+    {
+     "title": "Your strategy",
+     "text": "1. Read the whole paragraph before deciding.\n2. Note every sentence that adds to the term's meaning.\n3. Combine them into one precise definition.\n4. Check that it fits the real example in the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A precise meaning is supported by the **description and the example**.\n\n1. Find the sentence that describes how the thing forms or works.\n2. Find the real-world example.\n3. Choose the definition that both support, not one that is too general or describes a different term in the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Arabian oryx has many adaptations for desert life.",
+      "role": "main"
+     },
+     {
+      "t": "Its white coat reflects sunlight and keeps it cooler.",
+      "role": "key"
+     },
+     {
+      "t": "It can go for weeks without drinking, getting moisture from the plants it eats.",
+      "role": "key"
+     }
+    ],
+    "explain": "The examples show what an **adaptation** is: a body feature or behaviour that helps a living thing **survive** in its environment."
+   },
+   "together": {
+    "passage": "Earth's outer layer is broken into giant pieces called tectonic plates, which move a few centimetres each year. Where two plates pull apart, the crust stretches and cracks, forming a long, deep valley called a rift. The Red Sea lies in such a rift: millions of years ago, the Arabian Plate began to separate from the African Plate, and seawater flowed into the gap. Because the plates are still moving apart, scientists say the Red Sea is growing wider by about a centimetre each year. Earthquakes and underwater volcanoes along its centre are signs of this slow but powerful activity.",
+    "stem": "In this passage, what is a rift?",
+    "options": [
+     "A giant piece of Earth's outer layer.",
+     "A volcano under the sea.",
+     "A long valley formed where plates pull apart and the crust cracks.",
+     "A sea that is getting smaller every year."
+    ],
+    "answer": 2,
+    "hint": "Careful: one choice defines a different term from the passage. Which sentence describes how a rift forms?",
+    "good": "Yes! Where plates pull apart, the crust cracks into a long, deep valley. The Red Sea fills one."
+   },
+   "evidence": {
+    "sentences": [
+     "Earth's outer layer is broken into giant pieces called tectonic plates, which move a few centimetres each year.",
+     "Where two plates pull apart, the crust stretches and cracks, forming a long, deep valley called a rift.",
+     "The Red Sea lies in such a rift: millions of years ago, the Arabian Plate began to separate from the African Plate, and seawater flowed into the gap.",
+     "Because the plates are still moving apart, scientists say the Red Sea is growing wider by about a centimetre each year.",
+     "Earthquakes and underwater volcanoes along its centre are signs of this slow but powerful activity."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a long valley formed where plates pull apart. Tap 2 sentences that describe a rift or give a real example of one.",
+    "wrong": "This sentence explains plates in general or gives later evidence. Find the sentences that describe how a rift forms and where one is."
+   },
+   "checks": [
+    {
+     "passage": "Rivers carry tiny pieces of sand, mud and rock. Where the water slows down at the river's mouth, this sediment sinks to the bottom and builds up, sometimes forming new land.",
+     "stem": "What is sediment?",
+     "options": [
+      "Fast-moving water in a river.",
+      "Small bits of rock, sand and mud carried and dropped by water.",
+      "New land at the edge of a sea.",
+      "The mouth of a river."
+     ],
+     "answer": 1,
+     "why": "The text says rivers carry **sand, mud and rock**, and **this sediment** sinks and builds up."
+    },
+    {
+     "passage": "For decades, Saudi Arabia's economy depended mostly on oil. Now the country is working to diversify it by growing tourism, technology and manufacturing, so that its income does not rely on one product.",
+     "stem": "What does diversify mean here?",
+     "options": [
+      "Add many different kinds of business.",
+      "Sell more oil than before.",
+      "Close old factories.",
+      "Depend on a single product."
+     ],
+     "answer": 0,
+     "why": "Growing **tourism, technology and manufacturing** so income does **not rely on one product** means adding variety."
+    },
+    {
+     "passage": "Fossils are the preserved remains or traces of living things from long ago. Fossils of whales have been found in rock layers far inland, showing that the area was once covered by sea.",
+     "stem": "Based on the passage, what can fossils show scientists?",
+     "options": [
+      "The exact age of every animal alive today.",
+      "Where whales live now.",
+      "How to find oil under the ground.",
+      "What a place was like long ago."
+     ],
+     "answer": 3,
+     "why": "Whale fossils far inland show **the area was once covered by sea**: fossils tell about the past."
+    }
+   ],
+   "again": {
+    "title": "Name, describe, example",
+    "text": "Make a three-line note:\n\n**Name:** the term.\n**Describe:** how the text says it works.\n**Example:** the real case in the text.\n\nYour definition is the describe line, checked against the example.",
+    "example": "Name: **erosion**. Describe: **wind and water wear away rock over time**. Example: **a valley carved by a river**. Definition: the slow wearing away of land by wind or water."
+   }
+  }
+ }
+}

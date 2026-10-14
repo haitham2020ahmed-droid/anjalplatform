@@ -1,0 +1,453 @@
+{
+ "code": "LN-069",
+ "title": "Possessive pronouns",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "pronouns"
+ ],
+ "skillNames": [
+  "Possessive Nouns vs. Possessive Pronouns",
+  "Possessive Pronouns Before Nouns",
+  "Stand-Alone Possessive Pronouns"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that show who has it",
+     "text": "**my**, **your**, **his**, **her**, **its**, **our**, **their**\n\nThese words go **before** a noun. They tell who has it.\n\n**my** pen, **her** bag, **our** class"
+    },
+    {
+     "title": "Match the owner",
+     "text": "Think about **who** owns the thing.\n\nAli → **his** book\nSara → **her** book\nAli and Sara → **their** books"
+    },
+    {
+     "title": "No apostrophe",
+     "text": "These words never need **'**.\n\nRight: **his** car\nWrong: hi's car"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the thing.\n2. Look back: **who** has it?\n3. Pick the word that matches that person.\n\nThe sentence that names the owner is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yasir has a new bike.",
+      "role": "key"
+     },
+     {
+      "t": "His bike is blue.",
+      "role": "main"
+     },
+     {
+      "t": "He rides it every day.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 tells us the bike belongs to **Yasir**. Yasir is a boy, so we say **his** bike."
+   },
+   "together": {
+    "passage": "Sara and her brother went to the park. Sara brought a ball. Her brother brought a kite. Later, Sara lost ___ ball under a bench.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "his",
+     "their",
+     "her",
+     "my"
+    ],
+    "answer": 2,
+    "hint": "Who brought the ball? Look back at the text.",
+    "good": "Yes! Sara brought the ball, so it is **her** ball."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara and her brother went to the park.",
+     "Sara brought a ball.",
+     "Her brother brought a kite.",
+     "Later, Sara lost ___ ball under a bench."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: her. Tap the sentence that shows who owns the ball.",
+    "wrong": "This sentence does not tell us who brought the ball. Look again."
+   },
+   "checks": [
+    {
+     "passage": "Saad and I have a dog. ___ dog is brown.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "Our",
+      "Their",
+      "His",
+      "Your"
+     ],
+     "answer": 0,
+     "why": "Tom and **I** have the dog. When you are one of the owners, say **our**."
+    },
+    {
+     "passage": "The bird is in the tree. ___ wings are yellow.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "It's",
+      "Their",
+      "Its",
+      "His"
+     ],
+     "answer": 2,
+     "why": "The wings belong to the bird. For an animal or thing, use **its**, with no apostrophe."
+    },
+    {
+     "passage": "The girls have new shoes. ___ shoes are white.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "Her",
+      "His",
+      "Our",
+      "Their"
+     ],
+     "answer": 3,
+     "why": "**The girls** are more than one, so we say **their** shoes."
+    }
+   ],
+   "again": {
+    "title": "Point to the owner",
+    "text": "Ask: **Who has it?** Then point to that person.\n\nA boy → his\nA girl → her\nMany people → their",
+    "example": "Mona has a cat. ___ cat is white.\n\nWho has the cat? **Mona**, a girl. So: **Her** cat is white."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Two kinds",
+     "text": "Some possessive pronouns come **before** a noun:\nmy, your, his, her, our, their\n\nOthers **stand alone**, with no noun after them:\n**mine**, **yours**, **his**, **hers**, **ours**, **theirs**"
+    },
+    {
+     "title": "Standing alone",
+     "text": "Use the stand-alone form when the noun is **already clear**.\n\nThis is **my** pencil. → This pencil is **mine**.\nIs that **your** coat? → Is that coat **yours**?"
+    },
+    {
+     "title": "Watch out",
+     "text": "There is no **mines**, **hers'** or **your's**.\n\nRight: The idea was **hers**.\nWrong: The idea was her's."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find who owns the thing.\n2. Find who is **speaking** or who the sentence is about.\n3. Is there a noun after the blank? If not, use the stand-alone form.\n\nThe sentences that tell you the owner and the speaker are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser and Huda each made a sandcastle.",
+      "role": "other"
+     },
+     {
+      "t": "Huda built the taller one.",
+      "role": "key"
+     },
+     {
+      "t": "Nasser pointed and said, \"The taller castle is hers.\"",
+      "role": "main"
+     }
+    ],
+    "explain": "Sentence 2 tells us Huda built the taller castle. Nasser is talking **about** Huda, so he says **hers**. No noun comes after it, so the stand-alone form fits."
+   },
+   "together": {
+    "passage": "Reem and Ali found two umbrellas by the front door. The green umbrella belongs to Reem. The black one belongs to Ali. Reem picked up the green one and said, \"This one is ___.\" Ali smiled and took the other.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "my",
+     "hers",
+     "mine's",
+     "mine"
+    ],
+    "answer": 3,
+    "hint": "Who owns the green umbrella? Who is speaking? Is there a noun after the blank?",
+    "good": "Yes! Reem owns it and Reem is speaking, so she says **mine**."
+   },
+   "evidence": {
+    "sentences": [
+     "Reem and Ali found two umbrellas by the front door.",
+     "The green umbrella belongs to Reem.",
+     "The black one belongs to Ali.",
+     "Reem picked up the green one and said, \"This one is ___.\"",
+     "Ali smiled and took the other."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: mine. Tap 2 sentences: one that shows the owner and one that shows who is speaking.",
+    "wrong": "This sentence is about the other umbrella or about Ali. Find who owns the green one and who speaks."
+   },
+   "checks": [
+    {
+     "passage": "Fahad held up a pencil case and asked, \"Is this ___?\" Salma nodded and took it.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "your",
+      "yours",
+      "your's",
+      "yours'"
+     ],
+     "answer": 1,
+     "why": "No noun comes after the blank, so we use the stand-alone form **yours**."
+    },
+    {
+     "passage": "We planted the tree in the corner of the garden. Now the shade is ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "ours",
+      "our",
+      "our's",
+      "us"
+     ],
+     "answer": 0,
+     "why": "**We** planted it and no noun follows, so the stand-alone form is **ours**."
+    },
+    {
+     "passage": "Those seats belong to my cousins. The seats by the window are theirs's.",
+     "stem": "How should the error be fixed?",
+     "options": [
+      "their",
+      "theres",
+      "theirs",
+      "their's"
+     ],
+     "answer": 2,
+     "why": "The stand-alone form is **theirs**, with no apostrophe."
+    }
+   ],
+   "again": {
+    "title": "Is there a noun next?",
+    "text": "Look at the word **after** the blank.\n\nA noun? Use my, your, her, our, their.\nNo noun? Use mine, yours, hers, ours, theirs.",
+    "example": "This is ___ book. → noun next → **my** book.\n\nThis book is ___. → no noun → **mine**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Nouns and pronouns",
+     "text": "A **possessive noun** uses an apostrophe: **Huda's** idea.\n\nA **possessive pronoun** never does: **her** idea, the idea is **hers**.\n\nThe pronoun already shows ownership by itself."
+    },
+    {
+     "title": "Look-alike words",
+     "text": "Some possessive pronouns sound like short forms:\n\n**its** (belongs to it) / **it's** (it is)\n**your** (belongs to you) / **you're** (you are)\n**their** (belongs to them) / **they're** (they are)\n**whose** (belongs to whom) / **who's** (who is)"
+    },
+    {
+     "title": "The 'it is' test",
+     "text": "Read the word as two words.\n\nThe cat licked **it is** paw? ✘ So write **its**.\n**It is** raining? ✔ So write **it's**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the blank as two words (it is, they are, you are).\n2. If that makes sense, use the short form. If not, use the possessive.\n3. Find other sentences in the passage with possessive pronouns. Notice they have **no** apostrophe."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The school has a garden.",
+      "role": "other"
+     },
+     {
+      "t": "Its paths are lined with mint.",
+      "role": "key"
+     },
+     {
+      "t": "It's my favourite place to read.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Its paths**: the paths belong to the garden. 'It is paths' makes no sense, so no apostrophe.\n\n**It's my favourite place**: 'It is my favourite place' makes sense, so the short form is right."
+   },
+   "together": {
+    "passage": "The class keeps a fish tank in the corner. The tank has a small light on ___ lid. The fish is ours, so we take turns feeding it. It's Ali's turn on Mondays. Each group writes its notes in a shared notebook. The teacher reads the notebook every Friday.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "it's",
+     "its'",
+     "its",
+     "it is"
+    ],
+    "answer": 2,
+    "hint": "Try reading the blank as 'it is'. Does 'on it is lid' make sense?",
+    "good": "Yes! The lid belongs to the tank, so we use the possessive **its**, with no apostrophe."
+   },
+   "evidence": {
+    "sentences": [
+     "The class keeps a fish tank in the corner.",
+     "The tank has a small light on ___ lid.",
+     "The fish is ours, so we take turns feeding it.",
+     "It's Ali's turn on Mondays.",
+     "Each group writes its notes in a shared notebook.",
+     "The teacher reads the notebook every Friday."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: its. Tap 2 OTHER sentences that use a possessive pronoun with no apostrophe.",
+    "wrong": "This sentence has no possessive pronoun, or it uses an apostrophe. Look for a pronoun like its or ours that shows ownership."
+   },
+   "checks": [
+    {
+     "passage": "Lina's science project won a prize. The judges said ___ design was the most creative.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "hers",
+      "her",
+      "Lina",
+      "her's"
+     ],
+     "answer": 1,
+     "why": "A noun (**design**) comes next, and the design belongs to Lina, so we use **her**."
+    },
+    {
+     "passage": "Students in the choir must bring ___ own music folders.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "there",
+      "they're",
+      "their",
+      "theirs"
+     ],
+     "answer": 2,
+     "why": "The folders belong to the students. 'They are own folders' makes no sense, so use **their**."
+    },
+    {
+     "passage": "A jacket was left on the bus. The driver asked, \"___ jacket is this?\"",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "Whose",
+      "Who's",
+      "Who is",
+      "Whom"
+     ],
+     "answer": 0,
+     "why": "The driver is asking who owns the jacket. 'Who is jacket' makes no sense, so use **Whose**."
+    }
+   ],
+   "again": {
+    "title": "Pronouns travel light",
+    "text": "Possessive **pronouns** never carry an apostrophe. Only possessive **nouns** do.",
+    "example": "Sami's ball → **his** ball\nthe students' room → **their** room\nthe tree's leaves → **its** leaves\n\nThe apostrophe disappears every time."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Groups as one",
+     "text": "A **collective noun** names a group: team, class, council, family, committee.\n\nWhen the group acts **as one unit**, use **its**:\nThe committee announced **its** decision.\n\nWhen the members act **separately**, talk about the members: The **members** shared **their** views."
+    },
+    {
+     "title": "Either … or",
+     "text": "With **either/or** and **neither/nor**, match the pronoun to the **nearer** noun.\n\nNeither the coach nor the **players** forgot **their** bottles.\nEither Faisal or **Omar** will bring **his** camera."
+    },
+    {
+     "title": "A friend of mine",
+     "text": "English often uses a double possessive:\n\na friend of **mine**\nan idea of **theirs**\n\nThe stand-alone form follows **of**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the noun the pronoun refers to.\n2. Read the text for clues: does the group act **as one** or as **separate** people?\n3. Choose the pronoun that matches the evidence.\n\nThe sentence that shows how the group acts is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The class worked together on one large mural.",
+      "role": "key"
+     },
+     {
+      "t": "When it was finished, the class signed its name in the corner.",
+      "role": "main"
+     },
+     {
+      "t": "Then the students took photos with their phones.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The class acts **as one unit**: one mural, one name. So: **its** name.\n\nThe students act **separately**, each with a phone. So: **their** phones."
+   },
+   "together": {
+    "passage": "Every year, our school's student council chooses a charity to support. This year, the council met in the library, and it voted as a single group. After a long discussion, the council announced ___ decision: the money would help a local animal shelter. Several members then explained their own reasons on the school radio. One girl said that hers was simple: she loves cats.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "their",
+     "it's",
+     "his",
+     "its"
+    ],
+    "answer": 3,
+    "hint": "Does the council act as one group or as separate members here? Find the clue in the text.",
+    "good": "Yes! The council voted as a **single group** and made **one** decision, so we use **its**."
+   },
+   "evidence": {
+    "sentences": [
+     "Every year, our school's student council chooses a charity to support.",
+     "This year, the council met in the library, and it voted as a single group.",
+     "After a long discussion, the council announced ___ decision: the money would help a local animal shelter.",
+     "Several members then explained their own reasons on the school radio.",
+     "One girl said that hers was simple: she loves cats."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: its. Tap the sentence that proves the council acts as one unit.",
+    "wrong": "This sentence is about the members as separate people, or it gives background. Find the clue about acting as one group."
+   },
+   "checks": [
+    {
+     "passage": "Neither my brother nor my sisters remembered ___ keys.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "his",
+      "their",
+      "her",
+      "its"
+     ],
+     "answer": 1,
+     "why": "With **neither/nor**, match the nearer noun. **Sisters** is plural, so use **their**."
+    },
+    {
+     "passage": "Badr introduced me to Saleh and said, \"Saleh is an old friend of ___.\"",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "mine",
+      "me",
+      "my",
+      "I"
+     ],
+     "answer": 0,
+     "why": "After **of**, English uses the stand-alone form: a friend of **mine**."
+    },
+    {
+     "passage": "The panel of judges listened to every speech. Then the panel announced ___ choice as one.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "it's",
+      "their",
+      "its",
+      "theirs"
+     ],
+     "answer": 2,
+     "why": "The panel acts **as one** and makes a single choice, so we use **its**."
+    }
+   ],
+   "again": {
+    "title": "One voice or many voices?",
+    "text": "Picture the group.\n\nAre they speaking with **one voice**? → **its**\nAre they acting as **many people**? → talk about the members and use **their**.",
+    "example": "The team raised **its** trophy. (one team, one trophy)\n\nThe players raised **their** arms. (many players, many arms)"
+   }
+  }
+ }
+}

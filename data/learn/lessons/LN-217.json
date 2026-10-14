@@ -1,0 +1,456 @@
+{
+ "code": "LN-217",
+ "title": "Hyperbole",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.5.5.a",
+  "RL.7.4"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0579",
+  "R-0957"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Big, big words",
+     "text": "**Hyperbole** is when a writer makes something sound **much bigger** than it really is.\n\n“My bag weighs a hundred kilos!” It does not. It is just **very heavy**."
+    },
+    {
+     "title": "Why do people say it?",
+     "text": "People use hyperbole to show a **strong feeling** or to be **funny**."
+    },
+    {
+     "title": "How to read it",
+     "text": "1. Find words that are too big to be true.\n2. Ask: what is the real meaning?\n3. Usually it means **very** or **a lot**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences show what is **really** true.\n\n1. Find the too-big words.\n2. Read the other sentences.\n3. Tap the ones that show the real facts."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I have a mountain of homework!",
+      "role": "main"
+     },
+     {
+      "t": "I have maths, science and two pages of writing.",
+      "role": "key"
+     }
+    ],
+    "explain": "There is no real mountain. It means **a lot** of homework.\n\nSentence 2 shows how much."
+   },
+   "together": {
+    "passage": "Omar came home after football. “I am so hungry I could eat a whole camel!” he said. He had played for three hours. He ate two plates of rice.",
+    "stem": "What does Omar really mean?",
+    "options": [
+     "He wants to eat a camel.",
+     "He is very hungry.",
+     "He is not hungry.",
+     "He has a pet camel."
+    ],
+    "answer": 1,
+    "hint": "Nobody can eat a whole camel! Look at what Omar did and what he ate.",
+    "good": "Yes! He played for three hours and ate two plates. He is very hungry."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar came home after football.",
+     "“I am so hungry I could eat a whole camel!” he said.",
+     "He had played for three hours.",
+     "He ate two plates of rice."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: he is very hungry. Tap 2 sentences that show the real facts.",
+    "wrong": "This sentence holds the too-big words or just tells where Omar was. Find the sentences with the REAL facts."
+   },
+   "checks": [
+    {
+     "passage": "The line at the shop was a mile long. We waited and waited.",
+     "stem": "What does “a mile long” mean?",
+     "options": [
+      "The line was exactly one mile.",
+      "The shop was far away.",
+      "There was no line.",
+      "The line was very long."
+     ],
+     "answer": 3,
+     "why": "A line of people is not really a mile long. We waited and waited, so it was very long."
+    },
+    {
+     "passage": "My little sister cried a river when her balloon flew away.",
+     "stem": "What does “cried a river” mean?",
+     "options": [
+      "She cried a lot.",
+      "She swam in a river.",
+      "She was happy.",
+      "She lost her shoes."
+     ],
+     "answer": 0,
+     "why": "Tears cannot make a river. It means she cried a lot."
+    },
+    {
+     "passage": "It is so hot today that you could fry an egg on the road!",
+     "stem": "What does this mean?",
+     "options": [
+      "People cook on the road.",
+      "The road is broken.",
+      "It is very, very hot.",
+      "It is cold."
+     ],
+     "answer": 2,
+     "why": "Nobody really cooks on the road. It means it is very, very hot."
+    }
+   ],
+   "again": {
+    "title": "Shrink it",
+    "text": "Make the big words **small** again.\n\n1. Find the too-big words.\n2. Change them to **very** or **a lot**.\n3. Now you have the real meaning.",
+    "example": "“I have a million things to do.” → I have **a lot** of things to do."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Hyperbole",
+     "text": "**Hyperbole** is an exaggeration so big that no one could believe it.\n\nThe writer does not want you to believe it. The writer wants you to **feel** how big, small, fast or strong something is."
+    },
+    {
+     "title": "Hyperbole or fact?",
+     "text": "“The tower is 300 metres tall.” → a **fact**\n“The tower touched the moon.” → **hyperbole**: it means **very tall**\n\nIf it is impossible, it is probably hyperbole."
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Find the exaggeration.\n2. Ask what is really true.\n3. Ask what feeling it shows: excitement, tiredness, surprise, annoyance?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look for the **real facts** in the other sentences.\n\nThey show what the hyperbole is exaggerating. Tap them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Majid's new shoes were so bright you could see them from space.",
+      "role": "main"
+     },
+     {
+      "t": "Everyone in the class turned to look when he walked in.",
+      "role": "key"
+     },
+     {
+      "t": "They were bright orange with silver stripes.",
+      "role": "key"
+     }
+    ],
+    "explain": "Nobody can see shoes from space! It means the shoes were **extremely bright and easy to notice**.\n\nThe class turning around and the bright colours prove it."
+   },
+   "together": {
+    "passage": "The drive to Abha took forever. We left Riyadh before sunrise and did not arrive until after dark. My little brother asked “Are we there yet?” about a thousand times. By the end, my legs were so stiff that I walked like a robot. But when I saw the green mountains, I forgot all about the long road.",
+    "stem": "What does “The drive to Abha took forever” mean?",
+    "options": [
+     "The family never arrived in Abha.",
+     "The road to Abha is closed.",
+     "The drive was quick and easy.",
+     "The drive felt very long."
+    ],
+    "answer": 3,
+    "hint": "The family DID arrive. What do the other sentences say about how long the drive was?",
+    "good": "Yes! From before sunrise until after dark, the drive felt very long."
+   },
+   "evidence": {
+    "sentences": [
+     "The drive to Abha took forever.",
+     "We left Riyadh before sunrise and did not arrive until after dark.",
+     "My little brother asked “Are we there yet?” about a thousand times.",
+     "By the end, my legs were so stiff that I walked like a robot.",
+     "But when I saw the green mountains, I forgot all about the long road."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the drive felt very long. Tap 2 sentences that show it.",
+    "wrong": "This sentence holds the hyperbole itself. Find details that show the drive was LONG."
+   },
+   "checks": [
+    {
+     "passage": "When Nada saw her exam result, her smile was a kilometre wide. She ran to tell her mother.",
+     "stem": "What does the hyperbole tell us?",
+     "options": [
+      "She was very happy.",
+      "Her mouth was hurt.",
+      "She failed the exam.",
+      "She was far away."
+     ],
+     "answer": 0,
+     "why": "A smile cannot be a kilometre wide. A huge smile and running to tell her mother show great happiness."
+    },
+    {
+     "passage": "Our teacher gave us so much homework that I will be doing it until I am a hundred years old.",
+     "stem": "What feeling does this hyperbole show?",
+     "options": [
+      "happiness about the homework",
+      "annoyance at the large amount of homework",
+      "surprise that the homework was easy",
+      "sadness about getting older"
+     ],
+     "answer": 1,
+     "why": "The speaker exaggerates how long the homework will take because they are annoyed by how much there is."
+    },
+    {
+     "passage": "My grandmother's house is so quiet that you can hear a feather land.",
+     "stem": "What does the hyperbole mean?",
+     "options": [
+      "Feathers are loud.",
+      "Grandmother keeps birds.",
+      "The house is very quiet.",
+      "The house is noisy."
+     ],
+     "answer": 2,
+     "why": "Nobody can hear a feather land. It means the house is very quiet."
+    }
+   ],
+   "again": {
+    "title": "Is it possible?",
+    "text": "Ask: **Could this really happen?**\n\nIf **no**, it is hyperbole.\nThen ask: **What is the true, smaller fact?**",
+    "example": "“This bag weighs a ton.” Could a school bag weigh a ton? No. True fact: **the bag is very heavy**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why writers exaggerate",
+     "text": "Hyperbole can:\n\n1. **emphasise** a point\n2. show a character's **strong feelings**\n3. add **humour**\n\nThe exaggeration tells you what matters to the speaker."
+    },
+    {
+     "title": "Spot it among facts",
+     "text": "Texts mix facts and hyperbole.\n\n“The match lasted ninety minutes” is a fact.\n“The match lasted a lifetime” tells how the **speaker felt** about it."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find the statement that cannot be literally true.\n2. State the real meaning.\n3. Ask what it reveals about the speaker's feelings or the writer's purpose.\n4. Check the context to confirm."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your reading with the sentences that show the speaker's **situation** and **actions**.\n\nThe feeling behind the hyperbole should match what the character does."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sultan had practised his speech every day for a month.",
+      "role": "other"
+     },
+     {
+      "t": "When he finished it in front of the school, the applause was so loud that it shook every window in the city.",
+      "role": "main"
+     },
+     {
+      "t": "He grinned all the way home.",
+      "role": "key"
+     }
+    ],
+    "explain": "The windows of the whole city did not shake. The hyperbole **emphasises** how loud and enthusiastic the applause was.\n\nSultan's grin shows how **proud** he felt."
+   },
+   "together": {
+    "passage": "Ghada had been waiting for her cousin's visit since the winter. On the day of the arrival, she cleaned her room three times and checked the window every few minutes. “Their plane has been in the air for a hundred years,” she complained to her mother. Her mother laughed and reminded her that the flight from Cairo was only about two hours long. When the doorbell finally rang, Ghada nearly flew down the stairs.",
+    "stem": "What does Ghada's hyperbole “in the air for a hundred years” mainly show?",
+    "options": [
+     "The flight was cancelled.",
+     "Ghada is impatient and excited to see her cousin.",
+     "The plane was very old.",
+     "Ghada does not like flying."
+    ],
+    "answer": 1,
+    "hint": "The flight was short and it did arrive. How does Ghada ACT while she waits?",
+    "good": "Yes! Cleaning her room three times, checking the window and rushing down the stairs all show she is impatient and excited."
+   },
+   "evidence": {
+    "sentences": [
+     "Ghada had been waiting for her cousin's visit since the winter.",
+     "On the day of the arrival, she cleaned her room three times and checked the window every few minutes.",
+     "“Their plane has been in the air for a hundred years,” she complained to her mother.",
+     "Her mother laughed and reminded her that the flight from Cairo was only about two hours long.",
+     "When the doorbell finally rang, Ghada nearly flew down the stairs."
+    ],
+    "proof": [
+     0,
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Ghada is impatient and excited. Tap 2 sentences that show how she acts.",
+    "wrong": "This sentence is the hyperbole itself, or it shows that the flight was really short. Find what Ghada DOES."
+   },
+   "checks": [
+    {
+     "passage": "“If I eat one more date, I will explode,” said Uncle Faisal, pushing his plate away after the big Eid lunch.",
+     "stem": "What does Uncle Faisal mean?",
+     "options": [
+      "He is allergic to dates.",
+      "He wants more dates.",
+      "The dates are bad.",
+      "He is very full."
+     ],
+     "answer": 3,
+     "why": "He pushes his plate away after a big lunch. He will not really explode; he is very full."
+    },
+    {
+     "passage": "An advertisement promised that the new running shoes would make you faster than lightning.",
+     "stem": "Why does the advertisement use hyperbole?",
+     "options": [
+      "to make the shoes sound amazing",
+      "to give the exact speed of the shoes",
+      "to warn people about storms",
+      "to explain how shoes are made"
+     ],
+     "answer": 0,
+     "why": "No shoe makes you faster than lightning. The exaggeration makes the shoes sound amazing so people want to buy them."
+    },
+    {
+     "passage": "Day 3. We climbed to the top of the hill at sunrise. The view was beautiful. I took a billion photos. Then we walked back down for breakfast.",
+     "stem": "Which sentence from the travel diary uses hyperbole?",
+     "options": [
+      "We climbed to the top of the hill at sunrise.",
+      "The view was beautiful.",
+      "I took a billion photos.",
+      "Then we walked back down for breakfast."
+     ],
+     "answer": 2,
+     "why": "Nobody can take a billion photos in one morning. It means the writer took a lot of photos."
+    }
+   ],
+   "again": {
+    "title": "Fact plus feeling",
+    "text": "Split the hyperbole into two parts.\n\n1. **Fact:** what really happened?\n2. **Feeling:** how did the speaker feel about it?\n\nThe hyperbole is the feeling made **huge**.",
+    "example": "“I've been waiting in this queue since last year!”\n\nFact: a long wait. Feeling: **frustration**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Hyperbole and tone",
+     "text": "Hyperbole shapes **tone**. In a funny story it creates **humour**. In a speech it creates **urgency**. In a complaint it shows **frustration**.\n\nThe same exaggeration can be playful or serious, depending on context."
+    },
+    {
+     "title": "Hyperbole and other figures",
+     "text": "Hyperbole is about **size or amount**: too big, too many, too fast.\n\nOne phrase can use two figures at once: “a river of tears” is a metaphor **and** an exaggeration."
+    },
+    {
+     "title": "Analyse the purpose",
+     "text": "1. Identify the exaggeration and its literal meaning.\n2. Decide the tone it creates.\n3. Explain how it supports the writer's purpose: to entertain, persuade or reveal character.\n4. Consider its risk: does it make the speaker seem more or less trustworthy?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Connect the hyperbole to the writer's **purpose**.\n\nUse evidence about the audience, the situation, and how other people **react**. Reactions often show whether an exaggeration is playful or serious."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our city is drowning in plastic bottles.",
+      "role": "main"
+     },
+     {
+      "t": "Most of these bottles are used once and thrown away within minutes.",
+      "role": "key"
+     },
+     {
+      "t": "If we want clean streets and beaches, we must start using refillable bottles today.",
+      "role": "key"
+     }
+    ],
+    "explain": "The city is not literally drowning. The hyperbole creates **urgency** and alarm.\n\nThe fact and the call to action that follow show the purpose: to **persuade** readers to change their habits."
+   },
+   "together": {
+    "passage": "My uncle Hamdan is famous in our family for his stories. According to him, the summer he was ten was so hot that the camels asked for umbrellas and the sand melted into glass. He claims he once walked to school through a sandstorm so thick that he arrived with half the desert in his pockets. My cousins and I roll our eyes, but we always beg for another story. Last week my little sister asked him whether any of it was true. He smiled and said, “Every word, except for the parts I made bigger.”",
+    "stem": "What is the main effect of the hyperboles in Uncle Hamdan's stories?",
+    "options": [
+     "They give exact facts about the weather in the past.",
+     "They make his stories fun and show his playful nature.",
+     "They warn the children about the danger of sandstorms.",
+     "They prove that camels need umbrellas."
+    ],
+    "answer": 1,
+    "hint": "Does anyone in the passage treat the stories as facts or warnings? Look at how the children react and what Uncle Hamdan admits.",
+    "good": "Yes! The children beg for more, and he admits he “made the parts bigger”. The exaggerations are for fun."
+   },
+   "evidence": {
+    "sentences": [
+     "My uncle Hamdan is famous in our family for his stories.",
+     "According to him, the summer he was ten was so hot that the camels asked for umbrellas and the sand melted into glass.",
+     "He claims he once walked to school through a sandstorm so thick that he arrived with half the desert in his pockets.",
+     "My cousins and I roll our eyes, but we always beg for another story.",
+     "Last week my little sister asked him whether any of it was true.",
+     "He smiled and said, “Every word, except for the parts I made bigger.”"
+    ],
+    "proof": [
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: they make his stories fun and show his playful nature. Tap the 2 sentences that prove it.",
+    "wrong": "This sentence is one of the exaggerations, or it just sets the scene. Find how the children REACT and what Uncle Hamdan ADMITS."
+   },
+   "checks": [
+    {
+     "passage": "In her speech, the student leader said: “If we do not fix the school's water fountains, we will all turn to dust before the end of the term!”",
+     "stem": "What is the purpose of this hyperbole?",
+     "options": [
+      "to make the problem feel urgent",
+      "to give a scientific warning about thirst",
+      "to describe the dusty playground",
+      "to joke about the school's age"
+     ],
+     "answer": 0,
+     "why": "Nobody will turn to dust, but the exaggeration makes the broken fountains feel like an urgent problem that needs action."
+    },
+    {
+     "passage": "The critic wrote: “This play is two hours long, but it felt like two weeks. I aged ten years waiting for something to happen.”",
+     "stem": "What does the hyperbole reveal about the critic's opinion?",
+     "options": [
+      "The play was too short.",
+      "The critic enjoyed every minute.",
+      "The play was about getting old.",
+      "The critic found the play slow and boring."
+     ],
+     "answer": 3,
+     "why": "Two hours that “felt like two weeks” and “waiting for something to happen” show the critic found it slow and dull."
+    },
+    {
+     "passage": "After the hike, Saud sat down slowly. “My legs feel heavy,” he said. “I could sleep for a hundred years.” Then he drank a whole bottle of water.",
+     "stem": "Which sentence uses hyperbole to show tiredness?",
+     "options": [
+      "After the hike, Saud sat down slowly.",
+      "My legs feel heavy.",
+      "I could sleep for a hundred years.",
+      "Then he drank a whole bottle of water."
+     ],
+     "answer": 2,
+     "why": "Nobody can sleep for a hundred years. The other sentences could all be literally true."
+    }
+   ],
+   "again": {
+    "title": "Who, why, how",
+    "text": "1. **Who** is exaggerating, and to **whom**?\n2. **Why**: to amuse, to persuade, or to show a feeling?\n3. **How** does it change the tone of the passage?",
+    "example": "A coach shouts, “We've practised this a thousand times!”\n\nWho: the coach, to the players. Why: to push them to stay focused. Tone: **urgent and determined**."
+   }
+  }
+ }
+}

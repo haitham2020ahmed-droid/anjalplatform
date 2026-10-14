@@ -1,0 +1,472 @@
+{
+ "code": "LN-122",
+ "title": "Compare-and-contrast structure",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.4.5",
+  "RI.6.5",
+  "RI.7.5"
+ ],
+ "families": [
+  "compare-contrast"
+ ],
+ "skillNames": [
+  "Text Structure: Compare and Contrast"
+ ],
+ "statements": [
+  "R-0324",
+  "R-0497",
+  "R-0514",
+  "R-0680"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Same and different",
+     "text": "Some texts tell how two things are the **same** and how they are **different**.\n\nThis is called **compare and contrast**."
+    },
+    {
+     "title": "Clue words",
+     "text": "**Same** words: both, also, too, like, alike.\n\n**Different** words: but, unlike, however, while, instead."
+    },
+    {
+     "title": "How to spot it",
+     "text": "1. Does the text talk about **two** things?\n2. Look for **clue words**.\n3. If it tells how they are alike and different, it is **compare and contrast**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the **clue words** that prove it.\n\n1. Look for **both** or **also** (same).\n2. Look for **but** or **unlike** (different).\n\nTap the sentences that have these words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Cats and dogs are pets.",
+      "role": "other"
+     },
+     {
+      "t": "Both like to play.",
+      "role": "key"
+     },
+     {
+      "t": "But cats like to be alone, and dogs like to be with people.",
+      "role": "key"
+     }
+    ],
+    "explain": "The text is about **two** animals. **Both** shows how they are alike. **But** shows how they are different.\n\nSo the text **compares and contrasts** cats and dogs."
+   },
+   "together": {
+    "passage": "Mom put fruit in a bowl. Lemons and oranges are both fruits. They both grow on trees. But lemons are sour, and oranges are sweet. Lemons are yellow, while oranges are orange.",
+    "stem": "How is this text organized?",
+    "options": [
+     "It tells steps in order.",
+     "It tells how two fruits are alike and different.",
+     "It tells a problem and a solution.",
+     "It tells a story about a boy."
+    ],
+    "answer": 1,
+    "hint": "Look for the words both, but and while.",
+    "good": "Yes! Both shows how they are the same. But and while show how they are different."
+   },
+   "evidence": {
+    "sentences": [
+     "Mom put fruit in a bowl.",
+     "Lemons and oranges are both fruits.",
+     "They both grow on trees.",
+     "But lemons are sour, and oranges are sweet.",
+     "Lemons are yellow, while oranges are orange."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: it tells how two fruits are alike and different. Tap 1 sentence that shows they are the same and 1 that shows they are different.",
+    "wrong": "This sentence does not tell how lemons and oranges are the same or different. Find a sentence with both, but or while."
+   },
+   "checks": [
+    {
+     "passage": "A bike and a car can both take you to school. A bike has two wheels. A car has four wheels. A bike needs no fuel, but a car does.",
+     "stem": "How is this text organized?",
+     "options": [
+      "It tells how two things are alike and different.",
+      "It tells how to fix a bike that is broken.",
+      "It tells the steps to drive a car in order.",
+      "It tells only about cars and their wheels."
+     ],
+     "answer": 0,
+     "why": "Both shows something the same. But shows a difference. The text compares a bike and a car."
+    },
+    {
+     "passage": "Ali likes football. Sara likes football too. Ali plays in the park. Unlike Ali, Sara plays at school.",
+     "stem": "Which clue word shows a DIFFERENCE?",
+     "options": [
+      "too",
+      "likes",
+      "unlike",
+      "plays"
+     ],
+     "answer": 2,
+     "why": "Unlike shows that Ali and Sara are different in where they play."
+    },
+    {
+     "passage": "Day and night are different. In the day, the sun shines. At night, we see the moon and stars. Both are part of one whole day.",
+     "stem": "What does this text do?",
+     "options": [
+      "It tells how to see stars.",
+      "It tells why the sun is hot.",
+      "It tells a story about the moon.",
+      "It compares day and night."
+     ],
+     "answer": 3,
+     "why": "The text tells how day and night are different and how they are alike."
+    }
+   ],
+   "again": {
+    "title": "Two circles",
+    "text": "Imagine **two circles** that overlap.\n\nWhat is only in one circle is **different**. What is in the middle part is the **same**. A compare-and-contrast text fills both circles.",
+    "example": "Fish and frogs.\nOnly fish: always live in water.\nOnly frogs: can live on land too.\nMiddle: both can swim."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Text structure",
+     "text": "Authors organize information in different ways: time order, cause and effect, problem and solution, and **compare and contrast**.\n\nKnowing the structure helps you understand and remember the text."
+    },
+    {
+     "title": "Compare and contrast",
+     "text": "In this structure, the author shows how two or more things are **alike** (compare) and **different** (contrast).\n\nThe text often names both things near the start, then moves between them."
+    },
+    {
+     "title": "Signal words",
+     "text": "**Alike**: both, similarly, also, in the same way, as well as.\n\n**Different**: however, on the other hand, unlike, whereas, in contrast, but.\n\nSeveral of these words together are a strong sign of compare and contrast."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the structure with **signal words** and **pairs of ideas**.\n\n1. Find the two things being discussed.\n2. Find sentences with likeness or difference words.\n3. Choose the structure those sentences show, not just the topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rain forests and deserts are very different places.",
+      "role": "main"
+     },
+     {
+      "t": "A rain forest gets rain almost every day, whereas a desert may go months without rain.",
+      "role": "key"
+     },
+     {
+      "t": "However, both are home to plants and animals that have adapted to their surroundings.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Whereas** shows a difference. **However, both** shows a likeness.\n\nThe author organizes the text by **comparing and contrasting** two places."
+   },
+   "together": {
+    "passage": "Long ago, people wrote letters to share news. Today, many people send text messages instead. Both letters and text messages let people stay in touch with family and friends. However, a letter can take days or weeks to arrive, whereas a text message arrives in seconds. Letters are often long and carefully written. In contrast, text messages are usually short and quick.",
+    "stem": "Which best describes how the author organizes this passage?",
+    "options": [
+     "The author lists the steps for writing a letter.",
+     "The author explains the causes of a problem.",
+     "The author shows how letters and text messages are alike and different.",
+     "The author tells the events of one day in order."
+    ],
+    "answer": 2,
+    "hint": "Look for the words both, however, whereas and in contrast.",
+    "good": "Yes! Both shows a likeness; however, whereas and in contrast show differences. That is compare and contrast."
+   },
+   "evidence": {
+    "sentences": [
+     "Long ago, people wrote letters to share news.",
+     "Today, many people send text messages instead.",
+     "Both letters and text messages let people stay in touch with family and friends.",
+     "However, a letter can take days or weeks to arrive, whereas a text message arrives in seconds.",
+     "Letters are often long and carefully written.",
+     "In contrast, text messages are usually short and quick."
+    ],
+    "proof": [
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the author shows how letters and text messages are alike and different. Tap 2 sentences with signal words that prove it.",
+    "wrong": "This sentence talks about only one of the two things. Find sentences with signal words like both, whereas or in contrast."
+   },
+   "checks": [
+    {
+     "passage": "Alligators and crocodiles are both large reptiles with strong jaws. However, an alligator has a wide, U-shaped snout, while a crocodile's snout is narrow and pointed. Crocodiles can live in salt water, whereas alligators usually live in fresh water.",
+     "stem": "Which signal words show the passage is compare and contrast?",
+     "options": [
+      "both, however, whereas",
+      "large, strong, narrow",
+      "first, next, finally",
+      "because, so, as a result"
+     ],
+     "answer": 0,
+     "why": "Both shows a likeness; however and whereas show differences."
+    },
+    {
+     "passage": "First, mix the flour and water. Next, knead the dough for ten minutes. Then, let it rest for one hour. Finally, bake it in a hot oven.",
+     "stem": "Is this passage organized by compare and contrast?",
+     "options": [
+      "Yes, because it compares flour and water.",
+      "Yes, because it uses the word next.",
+      "No, because it tells the steps to make bread in order.",
+      "No, because it gives a problem and a solution."
+     ],
+     "answer": 2,
+     "why": "First, next, then and finally show time order, not likenesses and differences."
+    },
+    {
+     "passage": "Riyadh and Jeddah are two of Saudi Arabia's largest cities. Riyadh is the capital and sits in the center of the country. Jeddah, on the other hand, lies on the coast of the Red Sea. Similarly to Riyadh, Jeddah is a busy center of business.",
+     "stem": "How is this passage organized?",
+     "options": [
+      "Cause and effect",
+      "Time order",
+      "Problem and solution",
+      "Compare and contrast"
+     ],
+     "answer": 3,
+     "why": "On the other hand shows a difference, and similarly shows a likeness. The author compares and contrasts two cities."
+    }
+   ],
+   "again": {
+    "title": "Does it go back and forth?",
+    "text": "A compare-and-contrast text **goes back and forth** between two things.\n\nIf you keep seeing the names of **both** things and words like however or both, it is compare and contrast.",
+    "example": "Trains run on tracks. Buses, however, drive on roads. Both carry many passengers.\n\nThe text goes back and forth between **trains** and **buses**: compare and contrast."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why compare?",
+     "text": "Authors choose compare and contrast for a **reason**. Placing two things side by side can:\n\n1. Explain something **new** by linking it to something **familiar**.\n2. Show which choice is **better** for a purpose.\n3. Show how something has **changed** over time."
+    },
+    {
+     "title": "Two ways to organize",
+     "text": "**Block**: all about thing A, then all about thing B.\n\n**Point by point**: one feature for A and B, then the next feature for A and B.\n\nBoth are compare and contrast; notice which the author uses."
+    },
+    {
+     "title": "Analyze the structure",
+     "text": "1. What two things are compared?\n2. On which **features** (size, cost, speed...)?\n3. What **conclusion** does the comparison lead to?\n\nThe conclusion tells you **why** the author used this structure."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyze the structure, find **where the comparison leads**.\n\n1. Tap the sentences that line up the two things.\n2. Find the sentence that states what the comparison shows.\n3. Pick the answer that explains the author's **purpose** for comparing, not just the topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A traditional dhow is built from wood and moved by the wind in its large sails.",
+      "role": "detail"
+     },
+     {
+      "t": "A modern cargo ship, by contrast, is made of steel and runs on powerful engines.",
+      "role": "detail"
+     },
+     {
+      "t": "A dhow carries a small load, while a cargo ship can carry thousands of containers.",
+      "role": "detail"
+     },
+     {
+      "t": "Comparing the two shows how much sea trade has grown since the days of sail.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author compares wood and steel, wind and engines, small and huge loads.\n\nThe last sentence explains **why**: to show how much sea trade has **grown and changed**."
+   },
+   "together": {
+    "passage": "Electric cars and petrol cars can both carry a family across a city. A petrol car is filled at a station in a few minutes, while an electric car may need an hour or more to charge. On the other hand, electric cars produce no exhaust from their tailpipes, whereas petrol cars release gases that pollute the air. Electric cars also have fewer moving parts, so they often need less repair. For drivers who mostly make short trips in a city, these differences may make an electric car the better choice.",
+    "stem": "Why does the author compare and contrast the two kinds of cars?",
+    "options": [
+     "To explain how petrol is made",
+     "To show that petrol cars are always faster",
+     "To describe the history of the car",
+     "To help readers decide which car suits city driving"
+    ],
+    "answer": 3,
+    "hint": "Read the last sentence. What does the comparison lead to?",
+    "good": "Yes! The comparison of charging, pollution and repairs leads to a conclusion about which car suits city drivers."
+   },
+   "evidence": {
+    "sentences": [
+     "Electric cars and petrol cars can both carry a family across a city.",
+     "A petrol car is filled at a station in a few minutes, while an electric car may need an hour or more to charge.",
+     "On the other hand, electric cars produce no exhaust from their tailpipes, whereas petrol cars release gases that pollute the air.",
+     "Electric cars also have fewer moving parts, so they often need less repair.",
+     "For drivers who mostly make short trips in a city, these differences may make an electric car the better choice."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: to help readers decide which car suits city driving. Tap the sentence that shows where the comparison leads.",
+    "wrong": "This sentence gives one point of comparison. Find the sentence that says what all the differences add up to."
+   },
+   "checks": [
+    {
+     "passage": "In the past, students looked up facts in printed encyclopedias. These books were checked by experts but could become out of date. Today, students search online. Online information is updated quickly, but not all of it is checked. The best researchers use both carefully.",
+     "stem": "What is the main purpose of the comparison?",
+     "options": [
+      "To show that printed encyclopedias are useless today",
+      "To show the strengths and weaknesses of each source",
+      "To list the steps for searching online",
+      "To tell the history of printing"
+     ],
+     "answer": 1,
+     "why": "The text gives a strength and weakness for each source and ends by advising readers to use both carefully."
+    },
+    {
+     "passage": "The heart of a hummingbird can beat more than 1,000 times a minute. An adult human's heart beats about 60 to 100 times a minute. The tiny bird burns energy so fast that it must eat almost all day.",
+     "stem": "Why does the author compare the hummingbird's heart rate with a human's?",
+     "options": [
+      "To help readers understand how fast the bird's heart really is",
+      "To prove that people should eat all day like birds",
+      "To show that humans are smaller than most birds",
+      "To explain how human and bird hearts are built"
+     ],
+     "answer": 0,
+     "why": "Comparing with something familiar (our own heart) makes the bird's very fast heart rate easier to understand."
+    },
+    {
+     "passage": "Both owls and hawks are birds of prey. Owls hunt mostly at night, whereas hawks hunt in daylight. Owls fly almost silently, while hawks rely on speed. Each is suited to its own hunting time.",
+     "stem": "How does the author organize the comparison?",
+     "options": [
+      "All about owls first, then all about hawks",
+      "In time order, from early morning to late night",
+      "Feature by feature, comparing both birds at each step",
+      "As a problem followed by a solution"
+     ],
+     "answer": 2,
+     "why": "Each sentence compares the two birds on one feature (hunting time, then flight). That is point-by-point organization."
+    }
+   ],
+   "again": {
+    "title": "Ask: so what?",
+    "text": "After you see two things compared, ask **So what?**\n\nWhat does the author want you to understand **because** of the comparison? That is the reason for the structure.",
+    "example": "Glass bottles can be reused many times. Plastic bottles are often used once and thrown away.\n\nSo what? The author wants you to see that **glass may create less waste**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Structure serves the argument",
+     "text": "In more advanced texts, compare and contrast does more than list likenesses and differences. It **builds an idea**: it can challenge a common belief, reveal a surprising similarity or support a recommendation.\n\nAsk how the structure helps the author's **central idea**."
+    },
+    {
+     "title": "Watch the balance",
+     "text": "Notice what the author emphasizes.\n\n1. Does one side get **more space** or stronger words?\n2. Does the comparison end with a **turn**: Yet, Ultimately, What they share?\n3. Is the comparison **fair**, or does it leave out key features?"
+    },
+    {
+     "title": "Analyze the effect",
+     "text": "1. Identify the items and the features compared.\n2. Note the **turning point** or conclusion.\n3. Explain how the comparison **shapes** the reader's understanding: what would be lost if one side were removed?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your analysis with the sentences that **line up the contrast** and the sentence where the author **draws the lesson**.\n\nA choice that only names the topic, or only one side, does not explain the effect of the structure."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "At first glance, a desert and the Antarctic seem like opposites: one is scorching, the other frozen.",
+      "role": "detail"
+     },
+     {
+      "t": "Yet both receive very little rain or snow each year, and both are hard places for plants to grow.",
+      "role": "detail"
+     },
+     {
+      "t": "By setting these two extremes side by side, the author shows that a desert is defined by dryness, not by heat.",
+      "role": "key"
+     }
+    ],
+    "explain": "The surprising **likeness** (both are dry) corrects a common belief (deserts must be hot).\n\nThe compare-and-contrast structure is used to **challenge an assumption**."
+   },
+   "together": {
+    "passage": "Two neighbouring towns faced the same problem: their only river was running low each summer. The first town built a large dam upstream to store water. For a few years, the plan seemed to work, but the reservoir slowly filled with mud, and farms downstream received less water than before. The second town took a different path. It repaired old leaking pipes, taught farmers to use drip irrigation and planted trees along the riverbanks to keep the soil in place. Its progress was slower, yet ten years later its river was flowing more steadily than ever. The contrast suggests that the most impressive solution is not always the most lasting one.",
+    "stem": "How does the compare-and-contrast structure develop the author's central idea?",
+    "options": [
+     "It shows that both towns made the same mistakes and suffered in the same way.",
+     "It explains, step by step, how the first town built its large dam upstream.",
+     "By contrasting a quick, impressive fix with a slow, steady one, it shows the slow approach lasted longer.",
+     "It argues that rivers always recover on their own if people leave them alone."
+    ],
+    "answer": 2,
+    "hint": "What did each town do, and how did each turn out? Then read the final sentence.",
+    "good": "Yes! The two towns' different results lead to the lesson in the last sentence: the most impressive solution is not always the most lasting one."
+   },
+   "evidence": {
+    "sentences": [
+     "Two neighbouring towns faced the same problem: their only river was running low each summer.",
+     "The first town built a large dam upstream to store water.",
+     "For a few years, the plan seemed to work, but the reservoir slowly filled with mud, and farms downstream received less water than before.",
+     "The second town took a different path.",
+     "It repaired old leaking pipes, taught farmers to use drip irrigation and planted trees along the riverbanks to keep the soil in place.",
+     "Its progress was slower, yet ten years later its river was flowing more steadily than ever.",
+     "The contrast suggests that the most impressive solution is not always the most lasting one."
+    ],
+    "proof": [
+     2,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: contrasting a quick fix with a slow, steady one shows the slow approach lasted longer. Tap 2 sentences that show the different results or the lesson.",
+    "wrong": "This sentence sets up the problem or describes an action. Find the sentences about how things turned out, or the lesson the author draws."
+   },
+   "checks": [
+    {
+     "passage": "Many people picture scientists working alone in a lab, and artists working alone in a studio. Yet both scientists and artists spend long hours testing ideas that fail. Both must notice small details others miss. And both, in the end, share their work with the public to be judged. Seen this way, science and art are less different than they appear.",
+     "stem": "What is the effect of the comparison in this passage?",
+     "options": [
+      "It shows that scientists are more useful than artists.",
+      "It describes how labs and studios are built and used.",
+      "It shows that artists, unlike scientists, never fail.",
+      "It challenges the idea that science and art are completely different."
+     ],
+     "answer": 3,
+     "why": "The author lists surprising likenesses and ends by saying the two are less different than they appear."
+    },
+    {
+     "passage": "Shop A sells a phone case for 20 riyals that cracks within a month. Shop B sells one for 45 riyals that lasts for years. A buyer who looks only at the price tag will choose Shop A. A buyer who thinks about the whole year may choose differently.",
+     "stem": "Why does the author contrast the two phone cases?",
+     "options": [
+      "To show that the cheapest choice can cost more over time",
+      "To prove that Shop B is always cheaper",
+      "To explain how phone cases are made",
+      "To show that both cases are the same quality"
+     ],
+     "answer": 0,
+     "why": "Contrasting price and how long each lasts leads readers to see that the cheaper case may cost more in the end."
+    },
+    {
+     "passage": "Ancient Egyptian builders moved huge stones using ramps, ropes and teams of workers. Modern builders use cranes powered by engines. The tools have changed completely. What has not changed is the need for careful planning, accurate measuring and teamwork.",
+     "stem": "How does the final sentence change the comparison?",
+     "options": [
+      "It adds another difference in tools.",
+      "It turns from differences to an important likeness.",
+      "It explains why cranes are better than ramps.",
+      "It describes a new problem for builders."
+     ],
+     "answer": 1,
+     "why": "The passage first lists differences in tools, then turns to what has stayed the same: planning, measuring and teamwork."
+    }
+   ],
+   "again": {
+    "title": "Find the turn",
+    "text": "Many compare-and-contrast texts have a **turn**: a word like yet, still, ultimately or the contrast suggests.\n\nThe sentence after the turn usually tells you **what the comparison is for**.",
+    "example": "City life is fast and noisy; village life is slow and quiet. **Yet** in both places, neighbours who help each other make life better.\n\nAfter the turn: the comparison shows that **community matters everywhere**."
+   }
+  }
+ }
+}

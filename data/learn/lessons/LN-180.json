@@ -1,0 +1,483 @@
+{
+ "code": "LN-180",
+ "title": "Culture and point of view",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [],
+ "families": [
+  "point-of-view"
+ ],
+ "skillNames": [
+  "Cultural Perspective and Point of View"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "How do you see it?",
+     "text": "**Point of view** means how a character **sees** and **feels** about things.\n\nTwo characters can look at the **same thing** and feel very differently."
+    },
+    {
+     "title": "Where you come from matters",
+     "text": "A character's **culture** is their home, family, language, food and traditions.\n\nCulture changes what a character thinks is **normal**, **strange** or **special**."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Find **where** the character comes from.\n2. Find what the character **says** or **does**.\n3. Ask: **Does their home or family explain this?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find **two** sentences:\n\n1. One that tells about the character's **home or background**.\n2. One that shows how the character **sees** or **feels** about something.\n\nPut them together to explain the point of view."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda grew up by the sea.",
+      "role": "key"
+     },
+     {
+      "t": "Her cousin Maha grew up in the desert.",
+      "role": "key"
+     },
+     {
+      "t": "At the beach, Huda ran straight into the waves.",
+      "role": "detail"
+     },
+     {
+      "t": "Maha stood still. 'The water is so big!' she whispered.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The sea is **normal** for Huda, so she runs in.\n\nThe sea is **new** for Maha, so she feels amazed and a little afraid. Their homes shape how they see the sea."
+   },
+   "together": {
+    "passage": "Lucas came from a cool, rainy town in Scotland to visit his friend Fahad in Riyadh. In July, he stepped outside. 'It's like an oven!' he cried. Fahad smiled. 'This is just a normal summer day.'",
+    "stem": "Why do Lucas and Fahad feel differently about the heat?",
+    "options": [
+     "Fahad is feeling sick today.",
+     "Lucas loves very hot weather.",
+     "Lucas comes from a cool place, but Fahad lives in Riyadh.",
+     "It is winter in Riyadh."
+    ],
+    "answer": 2,
+    "hint": "Look at where each boy comes from. What is 'normal' for each of them?",
+    "good": "Yes! Lucas is used to cool, rainy weather, so the heat shocks him. For Fahad, it is a normal summer day."
+   },
+   "evidence": {
+    "sentences": [
+     "Lucas came from a cool, rainy town in Scotland to visit his friend Fahad in Riyadh.",
+     "In July, he stepped outside.",
+     "'It's like an oven!' he cried.",
+     "Fahad smiled.",
+     "'This is just a normal summer day.'"
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Lucas comes from a cool place, but Fahad lives in Riyadh. Tap the 2 sentences that show where each boy is from or what is normal for him.",
+    "wrong": "This sentence shows a reaction, not the background. Find where Lucas comes from and what Fahad thinks is normal."
+   },
+   "checks": [
+    {
+     "passage": "Yuki is from Japan. At home, her family takes off their shoes before going inside. When she visited Sara's house in Jeddah, she took off her shoes at the door too.",
+     "stem": "Why did Yuki take off her shoes?",
+     "options": [
+      "Her shoes were wet.",
+      "It is what her family does at home.",
+      "Sara asked her to.",
+      "She wanted to run."
+     ],
+     "answer": 1,
+     "why": "In Yuki's home, people take off their shoes before going in. Her culture shapes what she does."
+    },
+    {
+     "passage": "Ahmed's grandmother always says, 'A guest must be offered coffee and dates.' When the new neighbour knocked on the door, Ahmed ran to make coffee.",
+     "stem": "Why did Ahmed make coffee?",
+     "options": [
+      "He was very thirsty.",
+      "The neighbour asked for tea.",
+      "It was breakfast time.",
+      "His family welcomes guests with coffee."
+     ],
+     "answer": 3,
+     "why": "His grandmother teaches that guests must be offered coffee. Ahmed follows his family's custom."
+    },
+    {
+     "passage": "Leo had never seen a camel before. 'It's a strange horse with a hill on its back!' he laughed. Rakan, who grew up near camel farms, said, 'That's a hump. It stores fat.'",
+     "stem": "Why does Leo think the camel looks strange?",
+     "options": [
+      "He has never seen camels where he comes from.",
+      "Camels are very rare in the desert.",
+      "Rakan told him a funny joke.",
+      "The camel is sick and tired."
+     ],
+     "answer": 0,
+     "why": "Camels are new to Leo, so he compares one to a horse. Rakan grew up near camels, so he knows what a hump is."
+    }
+   ],
+   "again": {
+    "title": "New or normal?",
+    "text": "Ask: **Is this new or normal for the character?**\n\nIf it is **normal**, the character acts calm.\nIf it is **new**, the character may be surprised, excited or confused.\n\nThe character's home decides which!",
+    "example": "Sand is **normal** for Salma from Riyadh. Snow is **new**.\n\nSo when Salma sees snow in a mountain town, she shouts, 'It's like white sugar!'"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Culture shapes a point of view",
+     "text": "A character's **culture** includes their family's **traditions**, **food**, **language**, **beliefs**, **holidays** and the **place** they come from.\n\nThese shape what the character expects, values and feels."
+    },
+    {
+     "title": "Reactions have reasons",
+     "text": "When a character is surprised, confused or delighted, ask **why**.\n\nOften the reason is that something is **different** from what they know at home, or **important** in their culture."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the detail about the character's **background**.\n2. Find the character's **reaction** or opinion.\n3. Connect them: '**Because** in her culture..., she...'"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your proof needs **two parts**:\n\n1. A sentence that shows the character's **background** or custom.\n2. A sentence that shows their **reaction**.\n\nAn answer that ignores the character's background, or that the text does not support, is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sami's family has always eaten dinner late, around nine o'clock.",
+      "role": "key"
+     },
+     {
+      "t": "On his trip to visit a friend in Germany, his host family served dinner at six.",
+      "role": "detail"
+     },
+     {
+      "t": "'Is this lunch or dinner?' Sami asked, confused.",
+      "role": "key"
+     },
+     {
+      "t": "By nine, he was hungry again.",
+      "role": "detail"
+     }
+    ],
+    "explain": "At home, dinner is at nine. So a six o'clock dinner seems **strange** to Sami.\n\nHis family's habit shapes how he sees the new routine."
+   },
+   "together": {
+    "passage": "Emma moved from England to Dammam with her family. On her first day at the new school, her classmate Nora invited her home for lunch. At Nora's house, everyone sat on a carpet around a large tray of rice and lamb. Emma looked around for a chair and a fork. Nora's mother smiled and showed her how to eat with her right hand. 'In our home, we share from one plate,' Nora explained. 'It means we are family.' Emma laughed and tried, spilling some rice, and Nora's little brother clapped.",
+    "stem": "Why does Emma look for a chair and a fork?",
+    "options": [
+     "At home in England, she usually eats at a table with a fork.",
+     "She does not like the taste of rice and lamb.",
+     "She hurt her right hand at school that day.",
+     "Nora's family asked her to bring her own fork."
+    ],
+    "answer": 0,
+    "hint": "Is that in the text? Think about where Emma comes from and how she is used to eating.",
+    "good": "Yes! Emma is used to eating at a table with a fork, so the carpet and shared tray are new to her."
+   },
+   "evidence": {
+    "sentences": [
+     "Emma moved from England to Dammam with her family.",
+     "On her first day at the new school, her classmate Nora invited her home for lunch.",
+     "At Nora's house, everyone sat on a carpet around a large tray of rice and lamb.",
+     "Emma looked around for a chair and a fork.",
+     "Nora's mother smiled and showed her how to eat with her right hand.",
+     "'In our home, we share from one plate,' Nora explained.",
+     "'It means we are family.'",
+     "Emma laughed and tried, spilling some rice, and Nora's little brother clapped."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: at home she usually eats at a table with a fork. Tap 2 sentences that show her background and her reaction to the new custom.",
+    "wrong": "This sentence shows the invitation or Nora's family's view. Find where Emma comes from and how she reacts."
+   },
+   "checks": [
+    {
+     "passage": "During Ramadan, Khalid did not eat or drink from dawn until sunset. His friend Tom, visiting from Australia, asked, 'Aren't you hungry all day?' Khalid smiled. 'A little. But fasting helps me remember people who have no food, and iftar with my family is the best part of the day.'",
+     "stem": "What shapes Khalid's point of view about fasting?",
+     "options": [
+      "He is not allowed to eat at school.",
+      "He does not enjoy eating food.",
+      "His faith and family give fasting meaning.",
+      "Tom told him that he should fast."
+     ],
+     "answer": 2,
+     "why": "Khalid explains that fasting reminds him of people with no food and that iftar with his family is special. His faith and traditions shape his view."
+    },
+    {
+     "passage": "When Ali's team lost, his grandfather said, 'The one who falls and gets up is stronger than the one who never fell.' Ali's friend Mark, who grew up in Canada, nodded. 'Where I'm from, we say: If at first you don't succeed, try, try again.'",
+     "stem": "What do the two sayings show?",
+     "options": [
+      "Ali and Mark disagree about the match.",
+      "Different cultures can share one idea in different words.",
+      "Ali's grandfather does not like sports.",
+      "Mark does not understand what Ali's grandfather means."
+     ],
+     "answer": 1,
+     "why": "Both sayings mean 'keep trying after you fail'. Each culture expresses the same idea in its own words."
+    },
+    {
+     "passage": "Rain had not fallen in Hessa's town for months. When dark clouds finally came, she ran outside with her family to stand in the first drops, laughing. Her cousin Amira, who lives in London, stayed inside. 'It's only rain,' she said, puzzled.",
+     "stem": "Why does Hessa celebrate the rain while Amira does not?",
+     "options": [
+      "Amira is afraid of storms.",
+      "Hessa has never seen clouds.",
+      "Hessa's family has no water at home to drink.",
+      "Rain is rare where Hessa lives, but common in London."
+     ],
+     "answer": 3,
+     "why": "In Hessa's dry town, rain is rare and precious. In London it rains often, so Amira sees nothing special."
+    }
+   ],
+   "again": {
+    "title": "Finish the sentence",
+    "text": "Fill in the blanks:\n\n**Because [character] comes from / grew up with ______, she or he sees ______ as ______.**\n\nIf you can fill all three blanks from the text, you have explained the point of view.",
+    "example": "Because **Emma** grew up with **chairs and forks**, she sees **eating on a carpet from one tray** as **new and surprising**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "A cultural lens",
+     "text": "Every narrator sees the world through a **lens** made from their culture and experience.\n\nThat lens decides what they **notice**, what they **compare** things to, and what seems **strange** or **familiar**."
+    },
+    {
+     "title": "Look at comparisons",
+     "text": "When a narrator says 'At home, we...' or describes something new using pictures from their own life, the text is showing their **cultural point of view**.\n\nA fisherman's son may describe a wheat field as 'gold waves'."
+    },
+    {
+     "title": "Two characters, two views",
+     "text": "When characters from different backgrounds or generations meet, their **points of view** may clash or lead to **misunderstandings**.\n\nAsk: what does **each** character expect, and **why**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find sentences where the narrator **compares** the new place with **home**.\n2. Find words that show **feelings** about the difference.\n3. Find any **change**: does the narrator understand something new by the end?\n\nThe comparisons are your strongest proof of a cultural point of view."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "'The wheat field moved like the sea,' said Faisal, a fisherman's son from Jeddah, on his first visit to a farm abroad.",
+      "role": "key"
+     },
+     {
+      "t": "'Gold waves rolled to the edge of the sky.'",
+      "role": "key"
+     },
+     {
+      "t": "'I half expected to see a boat.'",
+      "role": "key"
+     },
+     {
+      "t": "The farmer laughed and handed him a stalk of wheat.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Faisal grew up by the sea, so he describes the wheat field with **sea images**: waves, the edge of the sky, a boat.\n\nHis background shapes **how** he sees and describes a new place."
+   },
+   "together": {
+    "passage": "When I arrived in Tokyo for the student exchange, the first thing I noticed was the silence. On the train, hundreds of people stood close together, yet no one spoke on the phone. At home in Riyadh, a crowded train would hum with greetings and laughter. My host father bowed when he met me, and I almost reached out to hug him, as I do with my uncles. That evening, my host mother served dinner in small separate bowls, one for each person. I thought of our big shared trays at home and felt, for a moment, very far away. Then my host brother quietly passed me his last piece of fish, and I understood that kindness can be quiet too.",
+    "stem": "How does the narrator's background shape what is noticed in Tokyo?",
+    "options": [
+     "The narrator notices only things that are the same as in Riyadh.",
+     "The narrator pays attention to the food and nothing else.",
+     "The narrator dislikes everything about Tokyo and wants to leave.",
+     "The narrator notices differences from home: silence, bowing, separate bowls."
+    ],
+    "answer": 3,
+    "hint": "Look for the places where the narrator mentions home. What is being compared?",
+    "good": "Yes! The narrator compares each new thing with Riyadh: the quiet train, the bow instead of a hug, separate bowls instead of shared trays."
+   },
+   "evidence": {
+    "sentences": [
+     "When I arrived in Tokyo for the student exchange, the first thing I noticed was the silence.",
+     "On the train, hundreds of people stood close together, yet no one spoke on the phone.",
+     "At home in Riyadh, a crowded train would hum with greetings and laughter.",
+     "My host father bowed when he met me, and I almost reached out to hug him, as I do with my uncles.",
+     "That evening, my host mother served dinner in small separate bowls, one for each person.",
+     "I thought of our big shared trays at home and felt, for a moment, very far away.",
+     "Then my host brother quietly passed me his last piece of fish, and I understood that kindness can be quiet too."
+    ],
+    "proof": [
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the narrator notices differences from home. Tap 2 sentences where the narrator compares Tokyo with home.",
+    "wrong": "This sentence describes Tokyo, but does not compare it with home. Find the sentences that mention Riyadh, uncles or shared trays."
+   },
+   "checks": [
+    {
+     "passage": "Grandfather Saleh remembered when the family lived in tents and moved with their camels to find grazing land. To him, the new city apartment felt like a box. His granddaughter Reema, born in the city, loved the apartment's cool air and the park across the street. 'It's perfect,' she said.",
+     "stem": "Why do Grandfather and Reema see the apartment differently?",
+     "options": [
+      "Their life experiences give 'home' different meanings.",
+      "Grandfather has never been inside the apartment.",
+      "Reema does not like going to parks.",
+      "The apartment is too far from the city."
+     ],
+     "answer": 0,
+     "why": "Grandfather grew up moving freely in the desert, so walls feel like a box. Reema grew up in the city, so the apartment feels perfect."
+    },
+    {
+     "passage": "At the end of the meal, Daniel's host kept refilling his small coffee cup. Daniel drank cup after cup, too polite to refuse. Finally, his friend Majed whispered, 'Shake the cup gently from side to side when you've had enough. That's how we say no, thank you.'",
+     "stem": "What caused Daniel's problem?",
+     "options": [
+      "The coffee was much too hot to drink.",
+      "Majed wanted to play a joke on him.",
+      "He did not know the custom for saying 'enough'.",
+      "His host did not like him very much."
+     ],
+     "answer": 2,
+     "why": "Daniel did not know that shaking the cup means 'enough'. The host kept pouring to be generous. The misunderstanding came from different customs."
+    },
+    {
+     "passage": "Nadia, whose family grows dates in Al-Ahsa, visited an apple orchard in the mountains of Lebanon. 'Each tree is so short!' she wrote to her mother. 'You can pick the fruit without a ladder, and nobody has to climb!'",
+     "stem": "What does Nadia's reaction show about her point of view?",
+     "options": [
+      "She thinks apples taste better than dates.",
+      "She compares them with the tall date palms she knows.",
+      "She has visited many apple orchards before.",
+      "She wants to move to Lebanon to grow apples."
+     ],
+     "answer": 1,
+     "why": "In Al-Ahsa, date palms are tall and must be climbed. So Nadia notices how short apple trees are. Her home shapes what surprises her."
+    }
+   ],
+   "again": {
+    "title": "Find the 'at home'",
+    "text": "Search the text for words like **at home**, **in my family**, **where I'm from**, **as we do**.\n\nEach one is a window into the narrator's culture. Next to it, you will usually find what the narrator finds **different** in the new place.",
+    "example": "'**At home in Riyadh**, a crowded train would hum with greetings.'\n\nSo the narrator notices the **silence** in Tokyo because it is so different from home."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Assumptions and judgments",
+     "text": "A narrator's culture can lead to **assumptions**: beliefs they don't question.\n\nWhen the narrator judges another culture by their own rules, readers may see that the judgment is **mistaken**, even when the narrator does not, at least at first."
+    },
+    {
+     "title": "Growth in point of view",
+     "text": "Many stories show a narrator's point of view **changing**. A misunderstanding leads to new understanding.\n\nTrack three moments: the **assumption**, the **discovery**, and the **new view**."
+    },
+    {
+     "title": "Avoiding stereotypes",
+     "text": "Culture **shapes** people, but it does not decide everything. People from the same family or country can see things very differently.\n\nStrong analysis says '**this character**, shaped by...', not '**all** people from...'."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Quote where the narrator explains a custom from **home**.\n2. Quote the narrator's **judgment** of the new situation.\n3. Quote the moment the narrator **learns** something new.\n\nShow how 1 led to 2, and how 3 changed it. That is a full analysis of a cultural point of view."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Maryam grew up in a house where ten cousins called to each other across every room.",
+      "role": "key"
+     },
+     {
+      "t": "At her friend Clara's flat, the only sound was a ticking clock.",
+      "role": "detail"
+     },
+     {
+      "t": "'Is everyone angry with each other?' Maryam whispered.",
+      "role": "key"
+     },
+     {
+      "t": "Clara looked puzzled. 'No. This is just a normal evening.'",
+      "role": "key"
+     }
+    ],
+    "explain": "Maryam reads the silence through her own lens: in her home, quiet would mean trouble. For Clara, quiet means calm.\n\nThe narrator's culture creates an **assumption**, and the reader can see it is mistaken."
+   },
+   "together": {
+    "passage": "My neighbour, Mrs. Clarke, invited me for tea at five. In my village, an invitation for five means 'sometime in the late afternoon', so I arrived at twenty to six, carrying a large tray of kabsa. My mother always said that a guest should never arrive with empty hands. Mrs. Clarke opened the door and glanced at her watch. On her table were two cups, a small teapot and a plate of six biscuits. I remember thinking, sadly, that she must not have much to share. We talked politely, and at exactly half past six she stood up and thanked me for coming. Only later, when my friend James explained that here, arriving on time is a sign of respect, and that six biscuits for two people was a generous welcome, did I understand. The next week, I knocked at five o'clock exactly. She opened the door, smiling, and on her table was a small pot of rice, made to share.",
+    "stem": "How does the narrator's cultural background shape his first view of Mrs. Clarke?",
+    "options": [
+     "He admires her for being so punctual and careful with her time.",
+     "Judging by his own customs of time and generosity, he wrongly sees her as ungenerous.",
+     "He believes she dislikes kabsa and is angry with him for bringing it.",
+     "He thinks she is rude because she did not greet him in his own language."
+    ],
+    "answer": 1,
+    "hint": "Find what the narrator's village and mother taught him. How does he judge her table? Was he right?",
+    "good": "Yes! His village's relaxed view of time and his mother's rule about generous gifts lead him to misjudge her. Later he learns her customs show respect and welcome too."
+   },
+   "evidence": {
+    "sentences": [
+     "My neighbour, Mrs. Clarke, invited me for tea at five.",
+     "In my village, an invitation for five means 'sometime in the late afternoon', so I arrived at twenty to six, carrying a large tray of kabsa.",
+     "My mother always said that a guest should never arrive with empty hands.",
+     "Mrs. Clarke opened the door and glanced at her watch.",
+     "On her table were two cups, a small teapot and a plate of six biscuits.",
+     "I remember thinking, sadly, that she must not have much to share.",
+     "We talked politely, and at exactly half past six she stood up and thanked me for coming.",
+     "Only later, when my friend James explained that here, arriving on time is a sign of respect, and that six biscuits for two people was a generous welcome, did I understand.",
+     "The next week, I knocked at five o'clock exactly.",
+     "She opened the door, smiling, and on her table was a small pot of rice, made to share."
+    ],
+    "proof": [
+     1,
+     2,
+     5,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: judging by his own customs, he wrongly sees her as ungenerous. Tap 2 sentences that show his customs, his judgment, or how he learns he was wrong.",
+    "wrong": "This sentence describes what happens, not the narrator's customs or judgment. Find what his village and mother taught him, what he thought, or what he learned."
+   },
+   "checks": [
+    {
+     "passage": "Hana's family, who came from Sudan, bakes special biscuits from her grandmother's recipe every Eid. Her friend Lulwa's family in Riyadh serves maamoul and Arabic coffee. When the girls swap plates on Eid morning, they laugh. 'Different sweets,' says Lulwa, 'same Eid.'",
+     "stem": "What theme does the author develop by showing both families' points of view?",
+     "options": [
+      "One family's way of celebrating is better than the other's.",
+      "Eid is only celebrated in one country in the world.",
+      "Friends should keep their family customs to themselves.",
+      "People can share a celebration through different traditions."
+     ],
+     "answer": 3,
+     "why": "The families have different sweets, but both celebrate the same Eid, and the girls enjoy sharing. 'Different sweets, same Eid' states the idea."
+    },
+    {
+     "passage": "'The tourists walked around in short sleeves in January,' said Bader, wrapping his scarf tighter. 'They must not feel the cold at all.' The tourists, who came from Norway, wrote home that Riyadh's winter evenings felt like a pleasant spring.",
+     "stem": "What does this passage show about point of view?",
+     "options": [
+      "What feels cold depends on what each person is used to.",
+      "People from Norway cannot feel the cold at all.",
+      "Bader has misread the weather report for January.",
+      "Scarves are only worn by people in Riyadh."
+     ],
+     "answer": 0,
+     "why": "Bader judges the evening by his own experience; the Norwegians judge it by theirs. Bader's guess, 'they must not feel the cold', is an assumption."
+    },
+    {
+     "passage": "Rana and her brother Turki grew up in the same Bedouin family. Rana loves winter camping in the desert and listens closely to her grandfather's old poems. Turki prefers football in the city and spends his evenings building robots.",
+     "stem": "What does this passage suggest about culture and point of view?",
+     "options": [
+      "All people from Bedouin families love camping.",
+      "Turki has completely forgotten his family.",
+      "Culture shapes people, but individuals can still differ.",
+      "Robots are an old part of Bedouin tradition."
+     ],
+     "answer": 2,
+     "why": "Rana and Turki share the same family culture but have different interests. The first choice is a stereotype the passage disproves."
+    }
+   ],
+   "again": {
+    "title": "Assumption, discovery, new view",
+    "text": "Track the narrator in three steps:\n\n1. **Assumption**: what does the narrator believe because of home?\n2. **Discovery**: what event or person shows another view?\n3. **New view**: what does the narrator understand now?\n\nThe three steps show how culture shapes, and can widen, a point of view.",
+    "example": "Assumption: six biscuits means she has little to share.\nDiscovery: James explains the local customs.\nNew view: punctuality and a small table can also mean respect and welcome."
+   }
+  }
+ }
+}

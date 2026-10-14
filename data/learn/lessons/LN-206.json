@@ -1,0 +1,465 @@
+{
+ "code": "LN-206",
+ "title": "Suffixes",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.4.b",
+  "L.8.4.b"
+ ],
+ "families": [
+  "suffixes"
+ ],
+ "skillNames": [
+  "Suffixes",
+  "Suffixes and Prefixes: -less, -ful, -er, -or, -ist, re-"
+ ],
+ "statements": [
+  "R-0135",
+  "R-0233",
+  "R-0384",
+  "R-0562",
+  "R-0600",
+  "R-0763"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a suffix?",
+     "text": "A **suffix** is a word part at the **end** of a word.\n\nIt changes what the word means.\n\nhelp + **ful** = help**ful**"
+    },
+    {
+     "title": "-ful and -less",
+     "text": "**-ful** means **full of**.\n**-less** means **without**.\n\n**careful** = full of care\n**careless** = without care"
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Cover the suffix.\n2. Read the word that is left.\n3. Add **full of** or **without**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences **show** the meaning.\n\n1. Find the word with -ful or -less.\n2. Read the sentences near it.\n3. Find the one that shows what it means."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The puppy was fearless.",
+      "role": "main"
+     },
+     {
+      "t": "It ran up to the big dog.",
+      "role": "key"
+     },
+     {
+      "t": "It was not scared at all.",
+      "role": "key"
+     }
+    ],
+    "explain": "fear + **less** = **without fear**.\n\nThe puppy ran up to the big dog and was not scared. It was **fearless**."
+   },
+   "together": {
+    "passage": "Lina is very helpful. She sets the table. She feeds the cat. She helps her little brother read.",
+    "stem": "What does helpful mean?",
+    "options": [
+     "Without help",
+     "Full of help",
+     "Needs help",
+     "Helps a little"
+    ],
+    "answer": 1,
+    "hint": "-ful means full of. What does Lina do?",
+    "good": "Yes! -ful means full of. Lina helps a lot."
+   },
+   "evidence": {
+    "sentences": [
+     "Lina is very helpful.",
+     "She sets the table.",
+     "She feeds the cat.",
+     "She helps her little brother read."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: full of help. Tap 2 sentences that show Lina helps.",
+    "wrong": "This sentence uses the word helpful, but it does not show what Lina does."
+   },
+   "checks": [
+    {
+     "passage": "The glass cup broke. Now it is useless. We cannot drink from it.",
+     "stem": "What does useless mean?",
+     "options": [
+      "Full of use",
+      "Very big",
+      "Without use",
+      "Used again"
+     ],
+     "answer": 2,
+     "why": "-less means without. A broken cup has no use."
+    },
+    {
+     "passage": "Ali was careless. He left his bike in the rain, and it got rusty.",
+     "stem": "What does careless mean?",
+     "options": [
+      "Without care",
+      "Full of care",
+      "Very fast",
+      "Very happy"
+     ],
+     "answer": 0,
+     "why": "-less means without. Ali did not take care of his bike."
+    },
+    {
+     "passage": "The garden is colourful. It has red, yellow and purple flowers.",
+     "stem": "What does colourful mean?",
+     "options": [
+      "Without colour",
+      "One colour",
+      "Dark",
+      "Full of colour"
+     ],
+     "answer": 3,
+     "why": "-ful means full of. The garden has many colours."
+    }
+   ],
+   "again": {
+    "title": "Full or empty?",
+    "text": "Think of a cup.\n\n**-ful**: the cup is **full**.\n**-less**: the cup is **empty**.",
+    "example": "**hope**ful → full of hope 🙂\n**hope**less → without hope 🙁"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Opposite pairs",
+     "text": "Many words can take **-ful** or **-less**. The two words are often **opposites**.\n\n**painful** (full of pain) ↔ **painless** (without pain)\n**useful** ↔ **useless**\n**harmful** ↔ **harmless**"
+    },
+    {
+     "title": "The suffix -er",
+     "text": "**-er** at the end of a verb can mean **a person or thing that does** the action.\n\n**teach** + **er** = **teacher**: a person who teaches\n**paint** + **er** = **painter**: a person who paints"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the base word.\n2. Find the suffix and say its meaning.\n3. Join them.\n4. Check the meaning in the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use **clues in the text**.\n\n1. Find the word with the suffix.\n2. Find what the text says about the person or thing.\n3. Check that your meaning matches those clues."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The doctor said the shot would be painless.",
+      "role": "main"
+     },
+     {
+      "t": "Saad felt only a tiny pinch.",
+      "role": "key"
+     },
+     {
+      "t": "He did not even cry.",
+      "role": "key"
+     }
+    ],
+    "explain": "pain + **less** = **without pain**.\n\nSaad felt only a tiny pinch and did not cry. The shot was **painless**."
+   },
+   "together": {
+    "passage": "We found a small snake in the garden. My little sister screamed, but Dad stayed calm. He looked at it closely and said, \"Don't worry. This kind is harmless.\" It cannot bite hard, and it has no poison. Dad gently moved it to the field behind our house.",
+    "stem": "What does harmless mean in this passage?",
+    "options": [
+     "Full of poison",
+     "Not able to cause harm",
+     "Very large",
+     "Afraid of people"
+    ],
+    "answer": 1,
+    "hint": "harm + -less. What does Dad say about the snake's bite and poison?",
+    "good": "Yes! -less means without. The snake cannot bite hard and has no poison, so it cannot cause harm."
+   },
+   "evidence": {
+    "sentences": [
+     "We found a small snake in the garden.",
+     "My little sister screamed, but Dad stayed calm.",
+     "He looked at it closely and said, \"Don't worry. This kind is harmless.\"",
+     "It cannot bite hard, and it has no poison.",
+     "Dad gently moved it to the field behind our house."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: not able to cause harm. Tap a sentence that proves it.",
+    "wrong": "This sentence tells what happened or how people reacted. Find the sentence that explains why the snake is not dangerous."
+   },
+   "checks": [
+    {
+     "passage": "Our neighbour is a builder. Last year he built the new mosque near our school.",
+     "stem": "What does builder mean?",
+     "options": [
+      "A place to build",
+      "A thing that is built",
+      "A person who builds",
+      "Building again"
+     ],
+     "answer": 2,
+     "why": "-er means a person who does something. He builds things like the mosque."
+    },
+    {
+     "passage": "Don't eat too much candy. Too much sugar is harmful to your teeth.",
+     "stem": "What does harmful mean?",
+     "options": [
+      "Causing harm",
+      "Without harm",
+      "Good for you",
+      "Very sweet"
+     ],
+     "answer": 0,
+     "why": "-ful means full of. Too much sugar causes harm to your teeth."
+    },
+    {
+     "passage": "The old map was useless. The roads on it had all changed, and we got lost twice.",
+     "stem": "What does useless mean?",
+     "options": [
+      "Very useful",
+      "Brand new",
+      "Very large",
+      "Of no use"
+     ],
+     "answer": 3,
+     "why": "-less means without. The map did not help, and they got lost."
+    }
+   ],
+   "again": {
+    "title": "Make a pair",
+    "text": "If you see a **-less** word, think of its **-ful** twin, and the other way round. Twins are usually opposites.",
+    "example": "**thank**ful: full of thanks, grateful.\n**thank**less: without thanks. A **thankless job** is one nobody thanks you for."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Suffixes for people",
+     "text": "Three suffixes can make a noun for a **person who does something**:\n\n**-er**: farm**er**, play**er**\n**-or**: act**or**, invent**or**\n**-ist**: art**ist**, scient**ist**"
+    },
+    {
+     "title": "-ist",
+     "text": "**-ist** often names a person who **works with** or **is skilled in** something.\n\n**cycl**ist: a person who rides a bicycle\n**dent**ist: a person who cares for teeth (from Latin *dens*, tooth)\n**journal**ist: a person who writes the news"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Find the base word.\n2. Decide which suffix it has.\n3. Say: a person who (does / works with) the base.\n4. Check the clues in the passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the clues that show **what the person does**.\n\n1. Find the word.\n2. Find the sentences that describe the person's job or actions.\n3. Your meaning must match what the person actually does."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The inventor showed us her newest machine.",
+      "role": "main"
+     },
+     {
+      "t": "For three years, she had designed and built it in her small workshop.",
+      "role": "key"
+     },
+     {
+      "t": "Nobody had ever made anything like it before.",
+      "role": "key"
+     }
+    ],
+    "explain": "invent + **-or** = **a person who invents**.\n\nShe **designed and built** something **new**. That is what an inventor does."
+   },
+   "together": {
+    "passage": "Every Saturday morning, the cyclists of our town gather near the corniche. They check their tyres, fill their water bottles, and put on their helmets. Then they ride forty kilometres along the coast, their bicycles shining in the sun. My uncle is the oldest rider in the group. He says the fresh sea air keeps him young.",
+    "stem": "What does cyclists mean?",
+    "options": [
+     "People who repair cars",
+     "People who ride bicycles",
+     "People who swim in the sea",
+     "People who sell water"
+    ],
+    "answer": 1,
+    "hint": "cycle + -ist. Look at what the group does every Saturday.",
+    "good": "Yes! -ist means a person who does something. They ride bicycles along the coast."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Saturday morning, the cyclists of our town gather near the corniche.",
+     "They check their tyres, fill their water bottles, and put on their helmets.",
+     "Then they ride forty kilometres along the coast, their bicycles shining in the sun.",
+     "My uncle is the oldest rider in the group.",
+     "He says the fresh sea air keeps him young."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: people who ride bicycles. Tap 2 sentences that prove it.",
+    "wrong": "This sentence names the group or tells what the uncle says. Find the sentences that show what the cyclists DO."
+   },
+   "checks": [
+    {
+     "passage": "The conductor raised her hands, and the whole orchestra began to play together. She guided the musicians through every part of the piece.",
+     "stem": "What is a conductor in this passage?",
+     "options": [
+      "A person who leads musicians",
+      "A person who drives a city bus",
+      "A person who sings on stage alone",
+      "A person who sells concert tickets"
+     ],
+     "answer": 0,
+     "why": "conduct + -or. The passage shows she guides the orchestra as it plays."
+    },
+    {
+     "passage": "Bashayer wants to be a journalist. She already writes news stories for the school website and interviews teachers about school events.",
+     "stem": "What does a journalist do?",
+     "options": [
+      "Draws pictures",
+      "Teaches maths",
+      "Writes news reports",
+      "Fixes computers"
+     ],
+     "answer": 2,
+     "why": "journal + -ist: a person who works with news. She writes news stories and interviews people."
+    },
+    {
+     "passage": "The pharmacist read the doctor's note carefully. Then she counted out the pills and explained how many to take each day.",
+     "stem": "What is a pharmacist?",
+     "options": [
+      "A person who grows plants for food",
+      "A person who builds farm buildings",
+      "A person who teaches new doctors",
+      "A person who prepares medicines"
+     ],
+     "answer": 3,
+     "why": "-ist names a person with a skill. She counts pills and explains how to take them: she works with medicine."
+    }
+   ],
+   "again": {
+    "title": "Ask: who does it?",
+    "text": "Put the base word in this question: **Who [base]s?** The answer is the person.",
+    "example": "**sail**or → Who **sails**? A **sailor**.\n**art**ist → Who makes **art**? An **artist**.\n**garden**er → Who **gardens**? A **gardener**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Tricky -less words",
+     "text": "Some **-less** words do not simply mean \"without\".\n\n**priceless** does **not** mean \"worth nothing\". It means **so valuable that no price is high enough**.\n\n**restless** means **unable to stay still or calm**, not just \"without rest\"."
+    },
+    {
+     "title": "-ful and -less in context",
+     "text": "Always check the context.\n\n\"a **thoughtful** gift\" = a gift that shows care for the person\n\"a **thoughtless** remark\" = a careless comment that may hurt someone\n\nThe suffix gives a starting point; the passage gives the exact meaning."
+    },
+    {
+     "title": "-er, -or, -ist: shades of meaning",
+     "text": "**-er** and **-or** often name a person who **does** an action (a **visitor** visits).\n\n**-ist** often names a person who **specialises** in a field or believes in an idea: a **biologist**, a **novelist**, an **optimist**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the meaning with **context**, not just the suffix.\n\n1. Build a literal meaning from base + suffix.\n2. Find the sentences that show the word in use.\n3. If the context points to a stronger or different meaning, follow the context."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum's oldest manuscript is priceless.",
+      "role": "main"
+     },
+     {
+      "t": "It is the only copy in the world, and it has survived for over a thousand years.",
+      "role": "key"
+     },
+     {
+      "t": "It is kept behind thick glass, and no visitor is allowed to touch it.",
+      "role": "key"
+     }
+    ],
+    "explain": "Literally, price + less = without a price. But the clues (**only copy**, **thousand years**, **thick glass**) show it is **extremely valuable**.\n\n**Priceless** means worth more than any price."
+   },
+   "together": {
+    "passage": "The night before the final, Yousef was restless. He turned over in bed again and again, then got up to check his kit bag for the third time. He walked to the window, came back, and lay down, only to sit up a moment later. His older brother, an optimist, kept telling him the team would surely win. Finally, near midnight, Yousef fell into a light sleep.",
+    "stem": "What does restless mean in this passage?",
+    "options": [
+     "Feeling calm and relaxed",
+     "Tired after a long day of rest",
+     "Unable to stay still or relax",
+     "Without any time to rest"
+    ],
+    "answer": 2,
+    "hint": "Rest + -less is the starting point. Now look at what Yousef does all night.",
+    "good": "Yes! Turning over, checking his bag, walking and sitting up show he could not stay still or relax."
+   },
+   "evidence": {
+    "sentences": [
+     "The night before the final, Yousef was restless.",
+     "He turned over in bed again and again, then got up to check his kit bag for the third time.",
+     "He walked to the window, came back, and lay down, only to sit up a moment later.",
+     "His older brother, an optimist, kept telling him the team would surely win.",
+     "Finally, near midnight, Yousef fell into a light sleep."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: unable to stay still or relax. Tap 2 sentences that prove it.",
+    "wrong": "This sentence names the feeling, describes the brother, or tells how the night ended. Find the sentences that show what Yousef DOES."
+   },
+   "checks": [
+    {
+     "passage": "Noura's brother made a thoughtless joke about her drawing in front of her friends. Her face turned red, and she left the room without a word.",
+     "stem": "What does thoughtless mean here?",
+     "options": [
+      "Not thinking of others' feelings",
+      "Very clever and funny",
+      "Thinking very carefully first",
+      "Quiet, shy and nervous"
+     ],
+     "answer": 0,
+     "why": "The joke hurt Noura and made her leave. Thoughtless means not considering others' feelings."
+    },
+    {
+     "passage": "Even when the team was losing by three goals, Coach Majid remained an optimist. \"We can still turn this around,\" he said, smiling at his players.",
+     "stem": "What is an optimist?",
+     "options": [
+      "A person who coaches a football team",
+      "A person who expects good things",
+      "A person who often gets very angry",
+      "A person who gives up very easily"
+     ],
+     "answer": 1,
+     "why": "-ist can name a person who holds an idea. Even when losing, he expects things to improve."
+    },
+    {
+     "passage": "The tour guide warned the visitors that the cliff path was not for the careless. One wrong step on the loose stones could send a hiker tumbling down the slope.",
+     "stem": "What does careless mean in this passage?",
+     "options": [
+      "Full of worry and fear",
+      "Very strong and fit",
+      "Brave and daring",
+      "Not watching for danger"
+     ],
+     "answer": 3,
+     "why": "One wrong step could cause a fall, so the path is not for people who do not watch carefully."
+    }
+   ],
+   "again": {
+    "title": "Suffix first, context last",
+    "text": "1. Say the **literal** meaning from the suffix.\n2. Read the clues.\n3. If the clues disagree, **trust the clues**.",
+    "example": "\"The children's laughter was **endless** that afternoon.\"\nLiteral: without an end.\nClues: they laughed all afternoon.\nReal meaning: **going on for a very long time**, not truly forever."
+   }
+  }
+ }
+}

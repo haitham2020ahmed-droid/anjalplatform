@@ -1,0 +1,568 @@
+{
+  "code": "NB-065",
+  "title": "Waiting for Rain: A Desert Food Web",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 450,
+  "passage": "For most of the year, a desert wadi appears completely lifeless. The dry riverbed is a stretch of cracked mud, pale stones and scattered bushes, and the merciless afternoon heat seems to silence every living creature. Yet beneath this quiet surface, an entire community is waiting. When rain finally arrives, the wadi transforms with astonishing speed, revealing that the desert is not empty at all but full of patient survivors.\n\nThe first to respond are the plants. The seeds of many desert annuals can lie in the soil for years, protected by tough coats that prevent them from sprouting too early. Some contain chemicals that must be washed away by heavy rain before the seed can begin to grow. This clever adaptation guarantees that they germinate only when there is sufficient moisture to complete their brief lives. Within days of a storm, green shoots appear, and within a few weeks the plants have flowered and produced a fresh supply of seeds that will rest until the next rain.\n\nOther plants survive in different ways. The acacia sends its roots deep underground to reach water that lies far beneath the surface. Meanwhile, succulent plants store water in their thick, fleshy leaves and stems, functioning much like living water bottles.\n\nThese plants are the producers of the wadi's ecosystem, because they use energy from sunlight to manufacture their own food. Every other living thing depends on them, directly or indirectly. Insects such as beetles and moth caterpillars feed on the fresh leaves and flowers. Lizards, birds and scorpions then hunt the insects, and they in turn may become prey for larger predators such as foxes or owls. Scientists call these linked feeding relationships a food web, since most animals eat, and are eaten by, more than one kind of creature.\n\nWater brings other unexpected surprises, too. In some deserts, shallow rain pools suddenly fill with tiny shrimp-like animals. Their eggs had been lying in the dry mud, sometimes for many years, and they hatch as soon as the pool forms. The shrimp grow rapidly and deposit new eggs before the water evaporates.\n\nFinally, when plants and animals die, decomposers such as fungi, bacteria and beetles break down their remains. This essential process returns nutrients to the soil, where they will feed the next generation of plants. In this way, nothing in the wadi is wasted.\n\nBecause each member of the food web depends on others, damage to one part can harm the whole system. Careless driving crushes vegetation and burrows, while litter and overgrazing damage the fragile soil. By respecting the wadi even in its dry seasons, visitors help to make sure that it can come alive again after the next rain.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “sufficient” in paragraph 2 (“when there is sufficient moisture”)?",
+      "options": [
+        "enough",
+        "little",
+        "fresh",
+        "sudden"
+      ],
+      "answer": "A",
+      "why": "The seeds wait until there is enough water to complete their lives, so “sufficient” means enough."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “brief” in paragraph 2 (“to complete their brief lives”)?",
+      "options": [
+        "short",
+        "quiet",
+        "lengthy",
+        "busy"
+      ],
+      "answer": "C",
+      "why": "“Brief” means short; its opposite is “lengthy”. “Short” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 1, the afternoon heat is described as “merciless”. What does “merciless” mean here?",
+      "options": [
+        "pleasant and gentle",
+        "harsh and showing no kindness",
+        "sudden and short",
+        "cool and refreshing"
+      ],
+      "answer": "B",
+      "why": "Heat that “seems to silence every living creature” is cruel and harsh, as if it shows no mercy."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a VERB?",
+      "options": [
+        "producers",
+        "predators",
+        "directly",
+        "manufacture"
+      ],
+      "answer": "D",
+      "why": "“Manufacture” is an action (to make); “producers” and “predators” are nouns and “directly” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the text is a PLURAL noun?",
+      "options": [
+        "ecosystem",
+        "process",
+        "bacteria",
+        "community"
+      ],
+      "answer": "C",
+      "why": "“Bacteria” is the irregular plural of “bacterium”; the other words are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “evaporates” in paragraph 5?",
+      "options": [
+        "evaluation",
+        "evidence",
+        "eventually",
+        "evaporation"
+      ],
+      "answer": "D",
+      "why": "“Evaporation” comes from “evaporate”; the other words only begin with “ev-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “fragile” in a meaningful sentence of your own.",
+      "model": "Please carry the glass vase carefully, because it is very fragile and could break easily.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “fragile” with its meaning (easily broken or damaged)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Fragile” means easily broken or damaged."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “fungus”, as in “decomposers such as fungi” in paragraph 6?",
+      "options": [
+        "funguss",
+        "fungi",
+        "fungies",
+        "fungus's"
+      ],
+      "answer": "B",
+      "why": "“Fungi” is the plural of “fungus” used in the text."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a COMMAND?",
+      "options": [
+        "The first to respond are the plants.",
+        "How quickly the desert comes alive!",
+        "Does the wadi ever stay dry for years?",
+        "Do not drive through the wadi after rain."
+      ],
+      "answer": "D",
+      "why": "It tells someone what not to do; the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Patient Survivors of the Desert",
+        "How to Build a Dam in a Wadi",
+        "The Fox and the Owl",
+        "Why Deserts Are Always Empty"
+      ],
+      "answer": "A",
+      "why": "The text shows how desert plants and animals wait and then respond quickly to rain."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to warn readers never to visit a wadi",
+        "to tell a story about a family trip after rain",
+        "to explain how a wadi ecosystem survives dry periods and responds to rain",
+        "to persuade readers to plant succulents at home"
+      ],
+      "answer": "C",
+      "why": "The text explains plant and animal survival strategies, the food web and the need to protect it."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Beetles and moth caterpillars feed on fresh leaves and flowers.",
+        "All life in the wadi depends on plants and is linked in a food web.",
+        "Foxes and owls are the largest and most dangerous desert predators.",
+        "Scientists study how lizards and scorpions hunt insects."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 explains that all life depends on the producers and that feeding relationships form a web."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why do some desert seeds wait for heavy rain before they begin to grow?",
+      "options": [
+        "Their chemicals must be washed away first.",
+        "They need several weeks of cold weather.",
+        "Animals must eat and carry them first.",
+        "Their tough coats break only in the heat."
+      ],
+      "answer": "A",
+      "why": "“Some contain chemicals that must be washed away by heavy rain before the seed can begin to grow.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a poem",
+        "a letter",
+        "a personal narrative",
+        "an informational text"
+      ],
+      "answer": "D",
+      "why": "It explains facts about a real desert ecosystem."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why does the writer call plants the “producers” of the ecosystem?",
+      "options": [
+        "They produce rain for the animals.",
+        "They use energy from sunlight to make their own food.",
+        "They produce the soil in the wadi.",
+        "They are the largest living things in the wadi."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: “they use energy from sunlight to manufacture their own food.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what happens AFTER the desert plants flower?",
+      "options": [
+        "The seeds lie in the soil for years before the first rain.",
+        "Green shoots appear within days.",
+        "They produce a fresh supply of seeds that rest until the next rain.",
+        "Their chemicals are washed away."
+      ],
+      "answer": "C",
+      "why": "“Within a few weeks the plants have flowered and produced a fresh supply of seeds that will rest until the next rain.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which food chain matches the information in paragraph 4?",
+      "options": [
+        "fox → lizard → beetle → plant",
+        "lizard → plant → beetle → fox",
+        "beetle → plant → fox → lizard",
+        "plant → beetle → lizard → fox"
+      ],
+      "answer": "D",
+      "why": "Energy passes from the plant to the insect that eats it, to the lizard that hunts the insect, to the fox that may eat the lizard."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which living things act as decomposers in the wadi?",
+      "options": [
+        "foxes and owls",
+        "fungi, bacteria and beetles",
+        "acacia and succulents",
+        "lizards and scorpions"
+      ],
+      "answer": "B",
+      "why": "Paragraph 6 names fungi, bacteria and beetles as decomposers."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What causes the shrimp eggs to hatch?",
+      "options": [
+        "a pool forming after rain",
+        "the heat of the afternoon sun",
+        "birds stepping on the mud",
+        "the eggs reaching a certain age"
+      ],
+      "answer": "A",
+      "why": "Paragraph 5: the eggs “hatch as soon as the pool forms.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the final paragraph, why can damage to one part of the food web harm the whole system?",
+      "options": [
+        "Because each member of the food web depends on others.",
+        "Because rain only falls once in many years.",
+        "Because visitors bring too much water.",
+        "Because decomposers stop working in summer."
+      ],
+      "answer": "A",
+      "why": "“Because each member of the food web depends on others, damage to one part can harm the whole system.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why must the shrimp grow so rapidly?",
+      "options": [
+        "They must lay new eggs before the pool dries up.",
+        "Larger shrimp are safer from hungry birds.",
+        "They need to travel along the wadi to the sea.",
+        "Their eggs can only hatch in cold winter water."
+      ],
+      "answer": "A",
+      "why": "The pool is temporary, so the shrimp must deposit their eggs “before the water evaporates”."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the acacia's way of surviving DIFFERENT from a succulent's?",
+      "options": [
+        "The acacia reaches deep water with its roots; a succulent stores water in its leaves and stems.",
+        "The acacia stores water in its thick leaves; a succulent sends its roots deep underground.",
+        "The acacia waits as a seed for years; a succulent grows only in the weeks after heavy rain.",
+        "The acacia needs no water at all; a succulent must drink from rain pools every day."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 contrasts the acacia's deep roots with the succulents' water-storing leaves and stems."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the desert annuals' seeds and the shrimp's eggs have in common?",
+      "options": [
+        "Both are eaten by owls and foxes after rain.",
+        "Both need decomposers to break them open.",
+        "Both float on the surface of shallow rain pools.",
+        "Both can wait in dry ground for years until water arrives."
+      ],
+      "answer": "D",
+      "why": "Seeds “can lie in the soil for years” and eggs lie “in the dry mud, sometimes for many years”."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the effect of decomposers breaking down dead plants and animals?",
+      "options": [
+        "The wadi stays dry all year.",
+        "Nutrients return to the soil to feed new plants.",
+        "Predators have less food.",
+        "The soil becomes more fragile."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6: the process “returns nutrients to the soil, where they will feed the next generation of plants.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by comparing succulent plants to “living water bottles”?",
+      "options": [
+        "They are shaped exactly like plastic bottles.",
+        "They float on rain pools like empty bottles.",
+        "Travellers can drink water from them easily.",
+        "They store water inside themselves for later use."
+      ],
+      "answer": "D",
+      "why": "Like a bottle, a succulent holds water and keeps it for dry times."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is exclamatory?",
+      "options": [
+        "The first to respond are the plants.",
+        "Other plants survive in different ways.",
+        "What a surprise the desert holds after rain!",
+        "Water brings other unexpected surprises, too."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling, begins with “What a …” and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin the text by saying the wadi “appears completely lifeless”?",
+      "options": [
+        "to prove that nothing lives in the desert",
+        "to set up a surprising contrast with the life that appears after rain",
+        "to persuade readers not to visit deserts",
+        "to describe the weather forecast"
+      ],
+      "answer": "B",
+      "why": "The word “appears” hints that this first impression is wrong, which the rest of the text shows."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which behaviour is MOST helpful for visitors to a wadi?",
+      "options": [
+        "driving off the roads to see more flowers",
+        "picking as many plants as possible",
+        "staying on tracks and taking all litter home",
+        "bringing goats to graze on the new plants"
+      ],
+      "answer": "C",
+      "why": "The text warns that careless driving, litter and overgrazing harm the wadi."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement best expresses the writer's viewpoint?",
+      "options": [
+        "Deserts are empty places with little value.",
+        "Rain is harmful to desert animals.",
+        "Only scientists should be allowed into wadis.",
+        "Even a dry wadi is a living community that deserves respect."
+      ],
+      "answer": "D",
+      "why": "The writer shows hidden life in the wadi and asks visitors to respect it “even in its dry seasons”."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text?",
+      "options": [
+        "wonder",
+        "boredom",
+        "anger",
+        "fear"
+      ],
+      "answer": "A",
+      "why": "The writer describes the wadi's “astonishing” transformation and clever adaptations with wonder."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "what producers do",
+        "what decomposers do",
+        "exactly which deserts the tiny shrimp-like animals live in",
+        "why careless driving harms the wadi"
+      ],
+      "answer": "C",
+      "why": "The writer only says “in some deserts” and does not name them; the other ideas are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A fox eats a lizard that has eaten beetles.",
+        "An acacia tree walks to a rain pool to drink.",
+        "Shrimp eggs hatch in dry mud with no water.",
+        "A succulent plant hunts insects at night."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 describes foxes eating lizards that hunt insects; the others are impossible or contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the ideas in the text?",
+      "options": [
+        "The Day the Wadi Dried Up",
+        "When Rain Wakes the Wadi",
+        "The Lonely Acacia",
+        "A Fox Goes Hunting"
+      ],
+      "answer": "B",
+      "why": "The text describes how the wadi comes alive after rain."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Many visitors drive through wadis after rain and leave litter behind. Suggest a solution to this problem and explain in two or three sentences how it would protect the food web.",
+      "model": "The local council could mark clear tracks with stones and put up signs and rubbish bins at the edge of the wadi. If cars stay on the tracks, plants and animal burrows will not be crushed, and if visitors take their litter home or use the bins, the soil and the animals that live in it will stay healthy, so the whole food web can recover after rain.",
+      "rubric": [
+        "2 = a clear, sensible solution linked to the problem, explaining how it protects plants, animals or soil",
+        "1 = a solution is given but it is vague, or the link to the food web is missing",
+        "0 = no answer, an unrelated idea, or text copied without a solution"
+      ],
+      "why": "Any reasonable, explained solution (marked tracks, signs, bins, fines, education campaigns) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, how can people help a wadi come alive again after rain?",
+      "options": [
+        "by avoiding careless driving",
+        "by not leaving litter",
+        "A and B",
+        "by removing dead plants so the soil looks clean"
+      ],
+      "answer": "C",
+      "why": "The text warns against careless driving and litter; dead plants are needed by decomposers to return nutrients."
+    }
+  ]
+}

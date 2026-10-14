@@ -3,27 +3,47 @@ import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { studentHome } from "@/server/student/student-home";
 import { myWorkView } from "@/server/student/program-work";
-import { MyWorkList } from "@/components/student/my-work-list";
+import { MyWorkGroups, WorkRing } from "@/components/student/my-work-groups";
+import { StudentStarsPanel } from "@/components/skills/student-stars-panel";
+import { markMasteredWork, studentStarsSummary } from "@/server/skills/student-stars";
+import { skillKeysFor, studentSchool } from "@/server/skills/status";
+import { keepStarsFresh } from "@/server/skills/status-review";
+import { runAfterResponse } from "@/server/lib/after-response";
+import { safeIfBehind } from "@/server/db/schema-errors";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "My Work" };
 
-/** 📋 My Work: every piece of work the teacher assigned (📌, with its due date), open first; finished work folded. */
+/**
+ * 📋 My Work: every piece of work the teacher assigned, organised (owner r67): Due this week · Later · Done (folded),
+ * small type headers, compact cards, at most 6 per group with "Show all", and a small fixed-size ring for the
+ * progress (never a long bar). ⭐ Each skill shows its star (the ONE status), a plan never asks again for a mastered
+ * skill, and the review checks (3 weeks after a star, the monthly mixed review) arrive here by themselves.
+ */
 export default async function MyWorkPage() {
   const actor = await requireActor({ roles: ["STUDENT"] });
   const me = (await getActor())!.user;
-  const [{ t }, h] = await Promise.all([getT(), studentHome(repo, actor)]);
-  const { open, done, progress } = myWorkView(h.work, h.last);
+  const sid = actor.studentId!;
+  const [{ t }, h, stars] = await Promise.all([getT(), studentHome(repo, actor), safeIfBehind("work.stars", () => studentStarsSummary(repo, sid), null)]);
+  // the review checks: settled / given after the response (the page never waits for them)
+  runAfterResponse("work.stars.fresh", () => keepStarsFresh(repo, sid));
+  let rows = h.work;
+  if (stars && stars.byKey.size) {
+    rows = await markMasteredWork(repo, sid, rows, stars.byKey);
+    const ids = [...new Set(rows.map((r) => r.skillId).filter((x): x is string => Boolean(x)))];
+    const keys = ids.length ? await skillKeysFor(repo, await studentSchool(repo, sid), ids) : new Map<string, string>();
+    rows = rows.map((r) => { const v = r.skillId ? stars.byKey.get(keys.get(r.skillId) ?? "") : undefined; return v ? { ...r, star: { status: v.status } } : r; });
+  }
+  const { progress } = myWorkView(rows, h.last);
+  const label = t("{done} of {total} done", { done: progress.done, total: progress.total });
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/student", label: "Home" }} icon="📋" title="My Work"
-        subtitle={progress.total ? t("{done} of {total} done", { done: progress.done, total: progress.total }) : t("Your teacher will add work here soon.")} />
-      {progress.total > 0 && (
-        <div className="bar-track mb-4 h-2.5 overflow-hidden rounded-full" role="progressbar" aria-valuemin={0} aria-valuemax={progress.total} aria-valuenow={progress.done} aria-label={t("{done} of {total} done", { done: progress.done, total: progress.total })}>
-          <div className="bar-fill h-full rounded-full" style={{ width: `${progress.pct}%` }} />
-        </div>
-      )}
-      <section id="my-work" aria-label={t("My Work")}><MyWorkList open={open} done={done} t={t} first={20} /></section>
+        subtitle={progress.total ? label : t("Your teacher will add work here soon.")}>
+        {progress.total > 0 && <WorkRing done={progress.done} total={progress.total} label={label} />}
+      </PageHeader>
+      {stars && <StudentStarsPanel s={stars} t={t} back="/student/work" />}
+      <section id="my-work" aria-label={t("My Work")}><MyWorkGroups rows={rows} t={t} /></section>
     </AppShell>
   );
 }

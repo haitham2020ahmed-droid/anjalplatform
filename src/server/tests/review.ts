@@ -13,7 +13,9 @@
  * Full access afterwards: the builder's selected list views, replaces (same skill and level: generate.ts
  * replaceQuestion), removes, reorders and gives points; ✏️ Edit makes a TEACHER COPY (editQuestionCopy): the shared
  * original is never changed or deleted, the copy (a new published question on the same skill, tags.teacherCopyOf)
- * takes its place in the test.
+ * takes its place in the test. The copy is PRIVATE to its teacher (Question.privateToId — src/server/questions/
+ * private-copies.ts): never in the shared bank, other teachers' builders or pools, or bank totals; its teacher finds it
+ * again in the bank search under "My edited copies" (bankSearch `mine`).
  *
  * Bounded reads: at most MAX_SELECTIONS selections, CANDIDATES per selection, one page (BANK_PAGE) of bank results,
  * chunked `in` queries.
@@ -154,16 +156,20 @@ export async function suggestReview(repo: Repo, actor: Actor, input: { selection
 
 // ------------------------------------------------------------------ the question bank: search and filter
 
-export interface BankFilter { skillId?: string | null; type?: string | null; level?: string | null; passage?: "WITH" | "WITHOUT" | "" | null; q?: string | null; page?: number }
+export interface BankFilter { skillId?: string | null; type?: string | null; level?: string | null; passage?: "WITH" | "WITHOUT" | "" | null; q?: string | null; page?: number; /** ✏️ only this teacher's own edited copies */ mine?: boolean }
 export interface BankResults { rows: MapSourceQuestion[]; total: number; page: number; pages: number }
 
-/** One page (20) of the school's published, auto-marked questions matching the filters. A skill or 3+ letters is needed. */
+/**
+ * One page (20) of the school's published, auto-marked questions matching the filters. A skill or 3+ letters is needed
+ * (the shared bank); with `mine`, the teacher's own private edited copies (no skill or words needed).
+ */
 export async function bankSearch(repo: Repo, actor: Actor, f: BankFilter = {}): Promise<BankResults> {
   staff(actor);
   const idx = await schoolSkillIndex(repo, actor.schoolId!);
   const q = s(f.q).replace(/\s+/g, " ").trim().slice(0, 80);
   const skillId = s(f.skillId);
-  if (!skillId && q.length < 3) throw new ValidationError("Choose a skill or type at least 3 letters to search the bank.");
+  const mine = f.mine === true;
+  if (!mine && !skillId && q.length < 3) throw new ValidationError("Choose a skill or type at least 3 letters to search the bank.");
   let skillIds: string[];
   if (skillId) {
     if (!idx.ids.has(skillId)) throw new ForbiddenError("Skill not found.");
@@ -179,6 +185,8 @@ export async function bankSearch(repo: Repo, actor: Actor, f: BankFilter = {}): 
     ...(LEVEL_RANGE[lv] ? { difficultyLevel: { in: LEVEL_RANGE[lv] } } : {}),
     ...(f.passage === "WITH" ? { passageId: { not: null } } : f.passage === "WITHOUT" ? { passageId: null } : {}),
     ...(q ? { stem: { contains: q } } : {}),
+    // ✏️ the shared bank is read with privateToId: null by the repo; "My edited copies" names the owner
+    ...(mine ? { privateToId: actor.userId } : {}),
   };
   const total = await repo.count("Question", where);
   const pages = Math.max(1, Math.ceil(total / BANK_PAGE));
@@ -213,8 +221,9 @@ const json = <T,>(v: unknown, def: T): T => { if (v === null || v === undefined)
 
 /**
  * ✏️ The teacher's change to a question of the test: a NEW published question (a copy on the same skill, level,
- * passage and type, tags.teacherCopyOf = the original) with the teacher's text, options and answer. The original is
- * never edited or deleted (it stays in the shared bank for everyone). Returns the copy's row for the builder.
+ * passage and type, tags.teacherCopyOf = the shared original) with the teacher's text, options and answer, PRIVATE to
+ * this teacher (privateToId). The original is never edited or deleted (it stays in the shared bank for everyone).
+ * Returns the copy's row for the builder.
  */
 export async function editQuestionCopy(repo: Repo, actor: Actor, input: CopyEdit, now = new Date()): Promise<MapSourceQuestion> {
   staff(actor);
@@ -224,6 +233,8 @@ export async function editQuestionCopy(repo: Repo, actor: Actor, input: CopyEdit
   if (!q || q.deletedAt || q.status !== "PUBLISHED") throw new ValidationError("That question was not found.");
   const idx = await schoolSkillIndex(repo, actor.schoolId!);
   if (!idx.ids.has(s(q.skillId))) throw new ForbiddenError("That question was not found.");
+  // another teacher's private copy is not this teacher's to copy (they never see it in the first place)
+  if (q.privateToId !== null && q.privateToId !== undefined && s(q.privateToId) !== actor.userId && actor.role === "TEACHER") throw new ForbiddenError("That question was not found.");
   const type = s((await repo.findUnique("QuestionType", { id: q.typeId }))?.code);
   const stem = s(input?.stem).replace(/\r\n/g, "\n").trim().slice(0, 4000);
   if (!stem) throw new ValidationError("The question text cannot be empty.");
@@ -257,7 +268,8 @@ export async function editQuestionCopy(repo: Repo, actor: Actor, input: CopyEdit
     externalRef: `TCOPY-${id.slice(-8)}-${now.getTime().toString(36)}`, skillId: q.skillId, subskillId: q.subskillId ?? null, lessonId: q.lessonId ?? null, passageId: q.passageId ?? null,
     imageId: q.imageId ?? null, standardId: q.standardId ?? null, typeId: q.typeId, stem, content: json<unknown>(q.content, {}), hint: q.hint ?? null,
     difficultyLevel: q.difficultyLevel, irtA: q.irtA ?? 1, irtB: q.irtB ?? 0, irtC: q.irtC ?? 0, estimatedSeconds: q.estimatedSeconds ?? 45,
-    tags: { ...tags, teacherCopyOf: id }, status: "PUBLISHED", origin: "TEACHER_AUTHORED", createdById: actor.userId, publishedAt: now, createdAt: now, updatedAt: now,
+    tags: { ...tags, teacherCopyOf: s(tags.teacherCopyOf) || id }, status: "PUBLISHED", origin: "TEACHER_AUTHORED", createdById: actor.userId, publishedAt: now, createdAt: now, updatedAt: now,
+    privateToId: actor.userId, // ✏️ private to this teacher (src/server/questions/private-copies.ts)
   });
   const cid = s(copy.id);
   if (newOpts.length) await repo.createMany("QuestionOption", newOpts.map((o) => ({ questionId: cid, ...o })));

@@ -1,0 +1,498 @@
+{
+ "code": "LN-121",
+ "title": "Summarizing nonfiction",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.3.2",
+  "RI.4.2",
+  "RI.5.2",
+  "RI.6.2",
+  "RI.7.2",
+  "RI.8.2"
+ ],
+ "families": [
+  "summarize"
+ ],
+ "skillNames": [
+  "Summarize"
+ ],
+ "statements": [
+  "R-0209",
+  "R-0349",
+  "R-0526",
+  "R-0541",
+  "R-0729",
+  "R-0730",
+  "R-0900",
+  "R-0901",
+  "R-1025",
+  "R-1026",
+  "R-1086"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a summary?",
+     "text": "A **summary** tells the **most important** parts of a text.\n\nIt is **short**. It uses **your own words**."
+    },
+    {
+     "title": "Keep and drop",
+     "text": "**Keep** the big idea and the key facts.\n\n**Drop** small details, like colours, names of friends or extra examples."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read the text.\n2. Ask: **What is it mostly about?**\n3. Add **one or two** key facts.\n4. Say it in one or two sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good summary matches the **important sentences** in the text.\n\n1. Find the sentence with the big idea.\n2. Find the key facts.\n\nIf a summary talks about a small detail only, it is **not** the best one."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Bees are busy insects.",
+      "role": "main"
+     },
+     {
+      "t": "They fly from flower to flower.",
+      "role": "detail"
+     },
+     {
+      "t": "They make honey in their hive.",
+      "role": "detail"
+     },
+     {
+      "t": "Some bees have yellow stripes.",
+      "role": "other"
+     }
+    ],
+    "explain": "A good summary: **Bees are busy insects that visit flowers and make honey.**\n\nThe yellow stripes are a small detail. We drop them."
+   },
+   "together": {
+    "passage": "Our class planted a tree. First, we dug a hole. Then we put the small tree in. We gave it water. My friend Huda wore a green hat. Now the tree is growing.",
+    "stem": "Which is the best summary?",
+    "options": [
+     "Huda wore a green hat when the class went outside.",
+     "We dug a big hole in the ground and put a hat in.",
+     "The class planted a tree and watered it, and it is growing.",
+     "Trees need lots of water to grow tall and green."
+    ],
+    "answer": 2,
+    "hint": "That is only one small part. Which answer tells the whole story in short?",
+    "good": "Yes! It tells the big idea and the key steps, and it leaves out the hat."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planted a tree.",
+     "First, we dug a hole.",
+     "Then we put the small tree in.",
+     "We gave it water.",
+     "My friend Huda wore a green hat.",
+     "Now the tree is growing."
+    ],
+    "proof": [
+     0,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: the class planted a tree, watered it, and it is growing. Tap 2 sentences that belong in the summary.",
+    "wrong": "This is a small detail. A summary can leave it out."
+   },
+   "checks": [
+    {
+     "passage": "Snow fell all night. In the morning, the town was white. The schools were closed. Kids made snowmen in the park.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Kids made snowmen in the park.",
+      "Snow closed schools, and kids played in it.",
+      "The park was full of white snowmen.",
+      "Snow is cold, and it is white too."
+     ],
+     "answer": 1,
+     "why": "It tells the big event (snow), the main result (schools closed) and what kids did."
+    },
+    {
+     "passage": "Ants live in big groups. Some ants find food. Some ants care for babies. One ant is the queen. She lays eggs.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Ants live in groups, and each ant has a job.",
+      "The queen is the ant that lays eggs.",
+      "Some ants go out to find food.",
+      "Ants are very small, and they are fun."
+     ],
+     "answer": 0,
+     "why": "Finding food, caring for babies and laying eggs are all jobs. The summary covers them all."
+    },
+    {
+     "passage": "Grandma makes bread. She mixes flour and water. She lets the dough rest. Then she bakes it. The kitchen smells good.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "The kitchen smells good when Grandma bakes.",
+      "Grandma mixes flour and water in a bowl.",
+      "Bread is soft, and it is good to eat.",
+      "Grandma mixes, rests and bakes dough to make bread."
+     ],
+     "answer": 3,
+     "why": "This tells the main steps. The smell is a small detail."
+    }
+   ],
+   "again": {
+    "title": "Tell a friend fast",
+    "text": "Imagine your friend has only **ten seconds**.\n\nWhat would you tell them about the text? That short telling is a summary.",
+    "example": "Text: The cat climbed a tree. It could not get down. A man used a ladder. He got the cat down safely.\n\nTen-second summary: **A cat got stuck in a tree, and a man saved it with a ladder.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Summarizing nonfiction",
+     "text": "A **summary** of a nonfiction text gives the **main idea** and the **key details** in a few sentences.\n\nIt is shorter than the text and uses your own words."
+    },
+    {
+     "title": "What to leave out",
+     "text": "A summary does **not** include:\n\n1. Small examples and extra facts.\n2. Your **opinion** (I think this is cool).\n3. Details that are interesting but **not important** to the main idea."
+    },
+    {
+     "title": "Summary steps",
+     "text": "1. Find the **main idea**.\n2. Pick the **two or three** most important supporting points.\n3. Join them in **one to three sentences**.\n4. Check: is my opinion in it? Remove it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Check a summary against the text.\n\n1. Does it include the **main idea**?\n2. Does each point come from an **important** sentence?\n3. Does it leave out small details and opinions?\n\nThe best summary passes all three checks."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Empty Quarter is one of the largest sand deserts in the world.",
+      "role": "main"
+     },
+     {
+      "t": "It covers a huge part of the southern Arabian Peninsula.",
+      "role": "detail"
+     },
+     {
+      "t": "Some of its sand dunes are more than 200 metres high.",
+      "role": "detail"
+     },
+     {
+      "t": "Very few people live there because there is little water.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Summary: **The Empty Quarter is a huge sand desert in southern Arabia with very tall dunes and little water, so few people live there.**\n\nIt keeps the main idea and the key facts in one sentence."
+   },
+   "together": {
+    "passage": "Octopuses are some of the smartest animals in the sea. Scientists have watched them open jars to reach food inside. Some octopuses carry coconut shells and use them as shelters. An octopus has eight arms, and each arm has many suckers. In laboratories, octopuses have even learned to find their way through simple mazes.",
+    "stem": "Which is the best summary of the passage?",
+    "options": [
+     "An octopus has eight arms covered with suckers.",
+     "Octopuses are clever animals that open jars, use shells as shelters and solve mazes.",
+     "Octopuses are the coolest animals I have ever read about, so everyone should love them.",
+     "Octopuses live inside coconut shells and eat jars of food in laboratories."
+    ],
+    "answer": 1,
+    "hint": "A summary needs the main idea and the most important details. Does this choice cover the whole passage?",
+    "good": "Yes! It gives the main idea (octopuses are smart) and the key examples that prove it."
+   },
+   "evidence": {
+    "sentences": [
+     "Octopuses are some of the smartest animals in the sea.",
+     "Scientists have watched them open jars to reach food inside.",
+     "Some octopuses carry coconut shells and use them as shelters.",
+     "An octopus has eight arms, and each arm has many suckers.",
+     "In laboratories, octopuses have even learned to find their way through simple mazes."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: octopuses are clever animals that open jars, use shells and solve mazes. Tap 2 sentences that belong in this summary.",
+    "wrong": "This sentence gives a body fact that does not show how smart octopuses are. A summary can leave it out."
+   },
+   "checks": [
+    {
+     "passage": "Recycling paper saves trees. It also uses less water and energy than making new paper. Many schools now have blue bins for paper. Students can help by putting used paper in these bins.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Many schools now have blue bins where students put their used paper.",
+      "Recycling paper is the most fun job at school, and I love doing it.",
+      "Paper is made from trees, so we should never use any paper at all.",
+      "Recycling paper saves resources, and students can help by using recycling bins."
+     ],
+     "answer": 3,
+     "why": "It gives the main idea (recycling saves resources) and what students can do. It has no opinion."
+    },
+    {
+     "passage": "The Kaaba is at the center of the Grand Mosque in Makkah. Muslims around the world face toward it when they pray. During Hajj, pilgrims walk around it seven times.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "The Kaaba, in Makkah, is the place Muslims face in prayer and walk around during Hajj.",
+      "Pilgrims walk around the Kaaba seven times during Hajj.",
+      "The Grand Mosque in Makkah is very large and has many visitors from all over the world.",
+      "The Kaaba is in Madinah, and Muslims visit it only during Hajj."
+     ],
+     "answer": 0,
+     "why": "This covers where the Kaaba is and why it is important, in one sentence."
+    },
+    {
+     "passage": "Before the invention of the printing press, books were copied by hand. This took months for a single book. After printing presses spread in the 1400s, books could be made much faster, and more people could own them.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Before the 1400s, books were copied by hand, which took months.",
+      "The printing press made books faster to produce and easier for people to own.",
+      "Printing presses were heavy machines invented in the 1900s.",
+      "Copying books by hand is a slow and boring job that nobody liked."
+     ],
+     "answer": 1,
+     "why": "It tells the big change and its result. The other choices are a detail, an unsupported fact or an opinion."
+    }
+   ],
+   "again": {
+    "title": "Who, what, why",
+    "text": "Answer three quick questions about the text:\n\n1. **Who or what** is it about?\n2. **What** is the most important thing about it?\n3. **Why or how**?\n\nJoin your answers. That is your summary.",
+    "example": "Text about solar panels.\nWho/what: **solar panels**. What: **turn sunlight into electricity**. Why: **to give clean energy**.\n\nSummary: **Solar panels turn sunlight into clean electricity.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Summarizing true stories",
+     "text": "**Literary nonfiction** tells a **true story**: a biography, a memoir or the account of a real event.\n\nTo summarize it, tell **who** it is about, the **key events** in order, and **why** they matter."
+    },
+    {
+     "title": "Events, not every moment",
+     "text": "A true story has many small moments. A summary keeps only the **turning points**: the events that changed what happened next.\n\nDrop descriptions, quotes and minor people unless they are essential."
+    },
+    {
+     "title": "Build the summary",
+     "text": "1. **Who** is the story about?\n2. What **problem or goal** did they have?\n3. What were the **key events**?\n4. How did it **end**, and why does it matter?\n\nJoin these in two or three sentences, in time order."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A summary of a true story should match the text's **turning points**.\n\n1. Find the sentence that sets up the person and the goal.\n2. Find the key events and the outcome.\n3. Reject summaries that focus on one scene, add opinions, or get the order wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "As a young student in Punjab, Abdus Salam loved mathematics, and he earned the highest marks in his exams.",
+      "role": "main"
+     },
+     {
+      "t": "He won a scholarship to study at Cambridge University in England.",
+      "role": "detail"
+     },
+     {
+      "t": "People in his home town were very proud of him.",
+      "role": "other"
+     },
+     {
+      "t": "In 1979, he shared the Nobel Prize in Physics for his work on the forces of nature.",
+      "role": "key"
+     }
+    ],
+    "explain": "Summary: **Abdus Salam, a gifted maths student from Punjab, studied at Cambridge and went on to share the 1979 Nobel Prize in Physics.**\n\nThe town's pride is a nice detail, but it is not a turning point."
+   },
+   "together": {
+    "passage": "In 1953, Edmund Hillary from New Zealand and Tenzing Norgay from Nepal set out to climb Mount Everest. Many teams before them had failed. The two men climbed through deep snow and thin air, carrying heavy oxygen tanks. Tenzing had climbed on Everest several times before and knew the mountain well. On 29 May, they finally reached the top, becoming the first people known to stand on the highest point on Earth. They stayed only about fifteen minutes before starting down.",
+    "stem": "Which is the best summary of the passage?",
+    "options": [
+     "Hillary and Tenzing carried heavy oxygen tanks through deep snow and thin air on their way up the mountain.",
+     "Climbing mountains is the most exciting sport in the world, and everyone should try to climb Everest.",
+     "After many failed attempts by others, Hillary and Tenzing became the first known climbers to reach the top of Everest in 1953.",
+     "Many teams tried to climb Everest in 1953, and Hillary reached the top alone after Tenzing turned back."
+    ],
+    "answer": 2,
+    "hint": "A summary tells who, the goal, and the outcome. Which choice covers the whole story, not one moment?",
+    "good": "Yes! It names the climbers, the challenge and the result, and leaves out minor details."
+   },
+   "evidence": {
+    "sentences": [
+     "In 1953, Edmund Hillary from New Zealand and Tenzing Norgay from Nepal set out to climb Mount Everest.",
+     "Many teams before them had failed.",
+     "The two men climbed through deep snow and thin air, carrying heavy oxygen tanks.",
+     "Tenzing had climbed on Everest several times before and knew the mountain well.",
+     "On 29 May, they finally reached the top, becoming the first people known to stand on the highest point on Earth.",
+     "They stayed only about fifteen minutes before starting down."
+    ],
+    "proof": [
+     0,
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: after others failed, Hillary and Tenzing became the first known climbers to reach the top of Everest. Tap 2 sentences that give these key points.",
+    "wrong": "This sentence describes a moment or a detail of the climb. Find the sentences with the goal, the past failures or the result."
+   },
+   "checks": [
+    {
+     "passage": "Fatima al-Fihri was born in Kairouan, in what is now Tunisia. Her family later moved to the city of Fez in Morocco. When she inherited money from her father, she used it to build a mosque, which grew into a center of learning. Today, the University of al-Qarawiyyin, founded in 859, is often called the oldest existing university in the world.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Fatima al-Fihri was born in Kairouan, and later her whole family moved to the city of Fez in Morocco.",
+      "Fatima al-Fihri used her inheritance to found al-Qarawiyyin in Fez, often called the oldest existing university.",
+      "Fatima al-Fihri's father built a famous mosque in Kairouan, which later became a university.",
+      "Fatima al-Fihri was the most generous woman in history, and everyone should follow her example."
+     ],
+     "answer": 1,
+     "why": "This choice covers who she was, what she did and why it matters. The others are a detail, untrue or an opinion."
+    },
+    {
+     "passage": "When a fire broke out in their apartment building, twelve-year-old Omar remembered the safety drill from school. He woke his little sister, kept low under the smoke and led her down the stairs instead of the elevator. Firefighters later praised him for staying calm.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "A boy used what he learned in a school drill to lead his sister safely out of a fire.",
+      "Firefighters came to the apartment building and praised a boy for staying calm.",
+      "Omar took his sister down in the elevator because the stairs were full of smoke.",
+      "Every child should practise fire drills at home every week, like Omar."
+     ],
+     "answer": 0,
+     "why": "It gives who, the problem and how he solved it. The other choices are details."
+    },
+    {
+     "passage": "In 1969, the Apollo 11 spacecraft carried three astronauts toward the Moon. Neil Armstrong and Buzz Aldrin landed in a small craft while Michael Collins stayed in orbit. Armstrong became the first person to walk on the Moon. All three returned safely to Earth.",
+     "stem": "Which is the best summary?",
+     "options": [
+      "Michael Collins stayed in orbit while two other astronauts went down to the Moon.",
+      "Space travel is dangerous and expensive, so we should spend the money on Earth.",
+      "In 1969, Collins became the first person on the Moon, and Armstrong stayed in orbit.",
+      "In 1969, Apollo 11 put the first people on the Moon and brought all three home."
+     ],
+     "answer": 3,
+     "why": "It covers the mission, the main achievement and the outcome."
+    }
+   ],
+   "again": {
+    "title": "Somebody, Wanted, But, So, Then",
+    "text": "Use five words to summarize a true story:\n\n**Somebody** (who), **Wanted** (goal), **But** (problem), **So** (what they did), **Then** (result).",
+    "example": "Somebody: Ibn Sina. Wanted: to heal the sick. But: medical knowledge was scattered. So: he wrote a huge book of medicine. Then: doctors used it for centuries.\n\nSummary: **Ibn Sina gathered medical knowledge into one great book that doctors used for centuries.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "An objective summary",
+     "text": "A strong summary is **objective**: it reports what the text says, not what you think about it.\n\nIt traces how the **central idea develops** across the text, from the opening to the conclusion."
+    },
+    {
+     "title": "Compress, don't copy",
+     "text": "Good summaries **compress**. Several examples become one general phrase: dates, figs and grapes become **fruit crops**.\n\nThey also **paraphrase**: they use new words instead of copying sentences."
+    },
+    {
+     "title": "Check your summary",
+     "text": "1. Does it state the **central idea**?\n2. Does it show **how** the text develops it (key events, causes, results)?\n3. Is it free of **opinions** and **minor details**?\n4. Is it **accurate**: nothing added, nothing distorted?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Test each summary choice against the **whole** text.\n\n1. Find the sentences that carry the central idea and its development.\n2. Reject choices that are **too narrow** (one part), **inaccurate** (add or twist facts), or **subjective** (include opinions).\n3. The best choice is accurate, complete and neutral."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the 1800s, travelling from Europe to Asia by sea meant sailing all the way around Africa.",
+      "role": "detail"
+     },
+     {
+      "t": "Engineers began digging a canal across Egypt in 1859, linking the Mediterranean Sea to the Red Sea.",
+      "role": "detail"
+     },
+     {
+      "t": "Thousands of workers laboured in harsh heat, and many lost their lives.",
+      "role": "other"
+     },
+     {
+      "t": "When the Suez Canal opened in 1869, it shortened the journey by thousands of kilometres and transformed world trade.",
+      "role": "key"
+     }
+    ],
+    "explain": "Objective summary: **The Suez Canal, dug across Egypt between 1859 and 1869, linked the Mediterranean and Red Seas, greatly shortening the sea route between Europe and Asia and transforming trade.**\n\nThe workers' hardship matters, but the summary follows the central idea: how the canal changed travel and trade."
+   },
+   "together": {
+    "passage": "Growing up in a poor village in Malawi, William Kamkwamba had to leave school at fourteen because his family could not pay the fees. A severe drought had destroyed the crops, and many families went hungry. Determined to keep learning, William borrowed science books from a small library. In one book, he saw a picture of a windmill and realised it could produce electricity. Using a broken bicycle, plastic pipes and scraps of metal, he built a windmill that powered lights in his family's home. Neighbours laughed at first, but they soon came to see the spinning blades. Later, his windmills helped pump water for crops, and William went on to finish his education.",
+    "stem": "Which is the best objective summary of the passage?",
+    "options": [
+     "William Kamkwamba was a brilliant boy who deserved much more help from his village and from his unfair school, which treated him badly.",
+     "After leaving school because of poverty, William Kamkwamba taught himself from library books and built windmills that brought power to his home and water to crops.",
+     "William built a windmill out of a broken bicycle, plastic pipes and scraps of metal, and his neighbours laughed at it at first.",
+     "A drought in Malawi destroyed crops, so William stopped reading and left his village to work in a city."
+    ],
+    "answer": 1,
+    "hint": "Which choice covers the beginning, the middle and the end, without opinions?",
+    "good": "Yes! It traces the whole story: the problem, how he learned, what he built and its results, all without opinions."
+   },
+   "evidence": {
+    "sentences": [
+     "Growing up in a poor village in Malawi, William Kamkwamba had to leave school at fourteen because his family could not pay the fees.",
+     "A severe drought had destroyed the crops, and many families went hungry.",
+     "Determined to keep learning, William borrowed science books from a small library.",
+     "In one book, he saw a picture of a windmill and realised it could produce electricity.",
+     "Using a broken bicycle, plastic pipes and scraps of metal, he built a windmill that powered lights in his family's home.",
+     "Neighbours laughed at first, but they soon came to see the spinning blades.",
+     "Later, his windmills helped pump water for crops, and William went on to finish his education."
+    ],
+    "proof": [
+     0,
+     2,
+     4,
+     6
+    ],
+    "need": 3,
+    "stem": "The answer was: after leaving school, William taught himself and built windmills that brought power and water. Tap 3 sentences that carry these key points.",
+    "wrong": "This sentence adds a detail or a reaction. Find the sentences with the problem, how he learned, what he built and the result."
+   },
+   "checks": [
+    {
+     "passage": "In the 1950s, polio paralysed thousands of children every year. Researcher Jonas Salk worked for years to develop a vaccine. In 1954, more than a million children took part in a huge test of the vaccine. When the results showed it was safe and effective, cases of polio began to fall sharply. Salk chose not to patent the vaccine, so it could be produced widely.",
+     "stem": "Which is the best objective summary?",
+     "options": [
+      "Salk was the greatest scientist of the twentieth century, and his vaccine was a miracle.",
+      "In 1954, more than a million children took part in a huge test of a new vaccine.",
+      "Salk sold his polio vaccine for a high price, so few children could receive it.",
+      "Jonas Salk's polio vaccine passed a huge test and then sharply reduced polio cases."
+     ],
+     "answer": 3,
+     "why": "It covers the problem, Salk's work, the test and the result. The others are an opinion, a single detail or untrue."
+    },
+    {
+     "passage": "When the city's old souq was scheduled for demolition, a group of shopkeepers and historians objected. They gathered photographs and stories showing the market's long history. After months of meetings, the city agreed to restore the souq instead. Today, it attracts both residents and visitors.",
+     "stem": "Which is the best objective summary?",
+     "options": [
+      "Shopkeepers and historians used the souq's history to convince the city to restore it.",
+      "The city made a terrible mistake by planning to demolish the old souq, and it should apologise.",
+      "Historians collected old photographs and stories that showed the market's long history.",
+      "The city demolished the old souq, and shopkeepers built a new market in its place."
+     ],
+     "answer": 0,
+     "why": "This covers the threat, the action and the outcome. The others are an opinion, a detail or untrue."
+    },
+    {
+     "passage": "Ali had always struggled with stage fright. When his teacher chose him to give a speech at the school ceremony, he nearly refused. Instead, he practised every evening in front of his family, who gave him honest advice. On the day, his voice shook at first, but he finished strongly, and the audience applauded.",
+     "stem": "Which is the best objective summary?",
+     "options": [
+      "Ali's family listened to him every evening and gave him honest advice.",
+      "Despite stage fright, Ali practised with his family's help and gave a successful speech.",
+      "Ali is the bravest student in the whole school, and he should give every speech.",
+      "Ali refused to give the speech because of stage fright, so his teacher chose another student."
+     ],
+     "answer": 1,
+     "why": "It covers the problem, what he did and the result, with no opinion."
+    }
+   ],
+   "again": {
+    "title": "Shrink it three times",
+    "text": "1. Write the summary in **five** sentences.\n2. Cut it to **three**: remove examples.\n3. Cut it to **one**: keep only the central idea and how it ends.\n\nThe last version is usually the best summary.",
+    "example": "Five: The bridge was old. Cracks appeared. Engineers inspected it. They closed it. A new bridge was built.\nOne: **After engineers found cracks in the old bridge, it was closed and replaced.**"
+   }
+  }
+ }
+}

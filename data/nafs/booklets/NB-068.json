@@ -1,0 +1,568 @@
+{
+  "code": "NB-068",
+  "title": "The Bean Contest",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 512,
+  "passage": "When Ms Huda announced that every Grade 6 student would grow a bean plant for the science fair, Majed immediately declared that his would be the tallest in the school.\n\n\"How can you possibly predict that already?\" asked his twin sister, Lulwa, who was carefully studying the instruction sheet at the kitchen table. \"We haven't even planted the seeds.\"\n\n\"Because I have a brilliant strategy,\" Majed replied confidently. \"Plants obviously need water, so I'll give mine twice as much as you give yours, and I'll keep it in the warm cupboard above the refrigerator, where nobody can accidentally knock it over.\"\n\nLulwa frowned thoughtfully and replied, \"Ms Huda explained that plants also need sunlight, so I'm going to put mine on the windowsill and water it only when the soil feels dry.\"\n\nFor the first few days, the two pots looked identical. Then, on the fifth morning, Majed burst into the kitchen, waving his pot triumphantly, because a pale stem had shot up almost twice as high as Lulwa's sturdy green seedling. \"Darkness and plenty of water are obviously the secret!\" he announced, as though he had already won the competition.\n\nLulwa examined his plant with genuine curiosity. Its stem was remarkably long but as thin as a thread, and its two tiny leaves were a sickly yellow instead of a healthy green. \"It's certainly tall,\" she admitted slowly, \"but it looks as if it is desperately stretching to find something.\"\n\nWithin another week, Majed's confidence had begun to evaporate. His bean plant leaned feebly against the side of the pot, and the soil smelled sour because it never had an opportunity to dry out. Lulwa's plant, by contrast, had developed four broad green leaves and stood straight and strong.\n\nThat evening, Majed sat miserably beside his drooping plant and muttered, \"I followed my strategy perfectly, so what could possibly have gone wrong?\"\n\nLulwa sat down next to him and opened her science notebook. \"I think your plant used up all the food stored inside its seed while it was stretching toward light that it could never reach,\" she explained gently. \"Without sunlight, it couldn't manufacture any more food, and the extra water may have damaged its roots.\"\n\nMajed was silent for a long moment. Then a slow smile spread across his face. \"So my experiment didn't really fail, because it actually taught us something important.\"\n\nLulwa nodded enthusiastically and suggested that they turn his accidental discovery into their official project, growing new beans in different conditions and comparing the results scientifically.\n\nThe following morning, the twins planted six fresh seeds: two in the dark cupboard, two on the windowsill with too much water, and two on the windowsill with just enough. They measured every plant daily and recorded the results in a neat table. Three weeks later, their poster, titled \"What Do Beans Really Need?\", won second prize at the science fair. Majed had not grown the tallest plant in the school, but he had discovered something far more valuable: a mistake, investigated carefully, can become the beginning of genuine understanding.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “identical” in paragraph 5 (“the two pots looked identical”)?",
+      "options": [
+        "different",
+        "the same",
+        "empty",
+        "broken"
+      ],
+      "answer": "B",
+      "why": "For the first few days nothing had changed, so the pots looked exactly the same."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “sturdy” in paragraph 5 (“Lulwa's sturdy green seedling”)?",
+      "options": [
+        "strong",
+        "healthy",
+        "weak",
+        "short"
+      ],
+      "answer": "C",
+      "why": "“Sturdy” means strong and solid; its opposite is “weak”, which describes Majed's thin plant."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 7, “Majed's confidence had begun to evaporate.” What does “evaporate” mean in this sentence?",
+      "options": [
+        "to turn into steam",
+        "to be written down",
+        "to grow stronger",
+        "to disappear gradually"
+      ],
+      "answer": "D",
+      "why": "Here “evaporate” is used figuratively: his confidence slowly disappeared, the way water disappears as it dries."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is an ADVERB?",
+      "options": [
+        "curiosity",
+        "remarkably",
+        "sickly",
+        "stretching"
+      ],
+      "answer": "B",
+      "why": "“Remarkably” describes how long the stem was (it modifies “long”); “sickly” ends in -ly but is an adjective describing “yellow”."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story is a SINGULAR noun?",
+      "options": [
+        "leaves",
+        "roots",
+        "seedling",
+        "results"
+      ],
+      "answer": "C",
+      "why": "“Seedling” names one young plant; the others name more than one."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “scientifically” in paragraph 11?",
+      "options": [
+        "scenery",
+        "scissors",
+        "scientist",
+        "secret"
+      ],
+      "answer": "C",
+      "why": "“Scientist”, “science”, “scientific” and “scientifically” share the same root."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “genuine” in a meaningful sentence of your own.",
+      "model": "My grandmother showed genuine joy when we visited her, and she hugged each of us for a long time.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “genuine” with its meaning (real, sincere, not pretended)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Genuine” means real or sincere, not fake or pretended."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word forms its plural in the SAME way as “leaf” (leaves), which appears in paragraph 7?",
+      "options": [
+        "chief",
+        "roof",
+        "half",
+        "cliff"
+      ],
+      "answer": "C",
+      "why": "Half → halves, like leaf → leaves; chief, roof and cliff simply add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Darkness and plenty of water are obviously the secret!” in paragraph 5?",
+      "options": [
+        "an exclamation",
+        "a question",
+        "a command",
+        "a polite request"
+      ],
+      "answer": "A",
+      "why": "Majed says it with strong feeling, and it ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Tallest Plant Wins",
+        "Lulwa's Secret Cupboard",
+        "A Useful Mistake",
+        "Ms Huda's Garden"
+      ],
+      "answer": "C",
+      "why": "Majed's failed plan becomes the start of a prize-winning project, so his mistake turns out to be useful."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how to win a science fair prize",
+        "to show how a mistake, studied carefully, can lead to real learning",
+        "to teach readers how to build a cupboard",
+        "to describe a family's kitchen"
+      ],
+      "answer": "B",
+      "why": "The last sentence states the lesson: “a mistake, investigated carefully, can become the beginning of genuine understanding.”"
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 9?",
+      "options": [
+        "Lulwa waters Majed's plant for him.",
+        "Lulwa shows Majed her neat notebook.",
+        "Lulwa says she will win the competition.",
+        "Lulwa explains why Majed's plant grew weak."
+      ],
+      "answer": "D",
+      "why": "She explains that the plant used up its stored food and could not make more without sunlight."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Majed keep his plant in the cupboard above the refrigerator?",
+      "options": [
+        "He thought it was warm and nobody could knock it over.",
+        "Ms Huda told every student to keep plants in the dark.",
+        "Lulwa had already taken the only sunny windowsill.",
+        "He wanted to keep his strategy secret from Lulwa."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: he chose “the warm cupboard above the refrigerator, where nobody can accidentally knock it over.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a dialogue story",
+        "a poem",
+        "an informational article",
+        "a letter"
+      ],
+      "answer": "A",
+      "why": "It tells an invented story with characters who speak to each other in dialogue."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did the soil in Majed's pot smell sour?",
+      "options": [
+        "It was too old.",
+        "Majed added sugar to it.",
+        "It was kept near the window.",
+        "It never had a chance to dry out."
+      ],
+      "answer": "D",
+      "why": "Paragraph 7: the soil smelled sour “because it never had an opportunity to dry out.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Majed's plant leaned against the side of the pot.",
+        "Majed burst into the kitchen waving his pot.",
+        "The twins planted six fresh seeds.",
+        "Lulwa opened her science notebook."
+      ],
+      "answer": "B",
+      "why": "That happened on the fifth morning; the leaning came a week later, and the notebook and the six seeds came after that."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who are the two main characters in the story?",
+      "options": [
+        "Ms Huda and Majed",
+        "Majed and his twin sister, Lulwa",
+        "Lulwa and Ms Huda",
+        "Majed and his father"
+      ],
+      "answer": "B",
+      "why": "The story follows the twins, Majed and Lulwa, and their bean plants."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why Lulwa's plant grew well?",
+      "options": [
+        "It was kept on the windowsill and watered only when dry.",
+        "It was kept in a warm place where it could not fall over.",
+        "It was given twice as much water as Majed's plant.",
+        "It was planted a few days later than Majed's seed."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 shows that her plant had sunlight and the right amount of water."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to Lulwa, what caused Majed's plant to become weak?",
+      "options": [
+        "It received too much sunlight through the cupboard door.",
+        "It used up its seed's food and could not make more without light.",
+        "It was planted too deep in the soil to reach the air.",
+        "The warm cupboard made its roots grow too quickly."
+      ],
+      "answer": "B",
+      "why": "Paragraph 9: it used up its stored food and “without sunlight, it couldn't manufacture any more food.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Majed announce his secret “as though he had already won the competition”?",
+      "options": [
+        "He knew a lot about plants.",
+        "Ms Huda had already given him the prize.",
+        "Lulwa had told him he would win.",
+        "He was too confident after one early result."
+      ],
+      "answer": "D",
+      "why": "He judged his plan only by the height of the stem on the fifth day."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Lulwa's character in the story?",
+      "options": [
+        "careless and proud",
+        "jealous and unkind",
+        "lazy and bored",
+        "careful and helpful"
+      ],
+      "answer": "D",
+      "why": "She reads the instructions carefully, examines Majed's plant with curiosity and explains kindly what went wrong."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Majed's plant DIFFERENT from Lulwa's after about two weeks?",
+      "options": [
+        "Majed's plant had four broad green leaves; Lulwa's was yellow.",
+        "Majed's plant had flowers; Lulwa's had none.",
+        "Majed's plant was drooping and weak; Lulwa's was green, straight and strong.",
+        "Both plants looked exactly the same."
+      ],
+      "answer": "C",
+      "why": "Paragraph 7 contrasts the plant that “leaned feebly” with the one that “stood straight and strong”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of Lulwa's explanation in paragraph 9 on Majed?",
+      "options": [
+        "He became angry and threw his plant away.",
+        "He realised his experiment had taught them something important.",
+        "He decided to stop doing science.",
+        "He asked Ms Huda for a new seed."
+      ],
+      "answer": "B",
+      "why": "Paragraph 10: a slow smile spread across his face and he said the experiment “actually taught us something important.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Majed's pale stem and his yellow leaves have in common?",
+      "options": [
+        "Both are signs that the plant was missing sunlight.",
+        "Both are signs of a healthy, fast-growing plant.",
+        "Both were caused by giving the plant too little water.",
+        "Both appeared on Lulwa's plant during the first week."
+      ],
+      "answer": "A",
+      "why": "Both show that the plant was growing in darkness, “stretching toward light that it could never reach”."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the stem was “as thin as a thread”?",
+      "options": [
+        "The stem was made of thread.",
+        "The stem could be used for sewing.",
+        "The stem was very long and strong.",
+        "The stem was extremely thin and weak."
+      ],
+      "answer": "D",
+      "why": "The simile compares the stem to a thread to show how thin and fragile it was."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "Majed was silent for a long moment.",
+        "\"We haven't even planted the seeds.\"",
+        "For the first few days, the two pots looked identical.",
+        "\"Darkness and plenty of water are obviously the secret!\""
+      ],
+      "answer": "D",
+      "why": "It expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer let the reader see Majed's tall plant on the fifth morning before showing the problem?",
+      "options": [
+        "to make readers think, like Majed, that his plan might be working",
+        "to prove that darkness helps plants grow",
+        "to show that Lulwa was wrong",
+        "to explain how to measure plants"
+      ],
+      "answer": "A",
+      "why": "The early success creates surprise when the plant weakens, so readers learn the lesson together with Majed."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what was the MOST helpful thing Lulwa did for her brother?",
+      "options": [
+        "She grew a taller plant than his.",
+        "She explained calmly why his plant failed and suggested a new project.",
+        "She told Ms Huda about his mistake.",
+        "She moved his plant to the windowsill without asking."
+      ],
+      "answer": "B",
+      "why": "Her kind explanation and suggestion turned his disappointment into a successful project."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Mistakes can become valuable lessons when we study them.",
+        "The tallest plant always deserves to win the prize.",
+        "Brothers and sisters should always work alone.",
+        "Confidence is more important than careful planning."
+      ],
+      "answer": "A",
+      "why": "The story ends: “a mistake, investigated carefully, can become the beginning of genuine understanding.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How do Majed's feelings change during the story?",
+      "options": [
+        "from worried, to calm, to sad",
+        "from sad, to angry, to bored",
+        "from hopeful, to confident, to angry",
+        "from confident, to disappointed, to hopeful"
+      ],
+      "answer": "D",
+      "why": "He is confident at first, miserable when his plant droops, and then smiles when he sees what they have learned."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "where Majed kept his plant",
+        "which twin won second prize",
+        "which plants in the final experiment grew best",
+        "what Lulwa's plant looked like after two weeks"
+      ],
+      "answer": "C",
+      "why": "The story says the twins recorded results but never tells us exactly which of the six plants did best."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A bean plant grown in the dark becomes tall, pale and weak.",
+        "A bean plant grows a hundred leaves overnight.",
+        "A bean plant talks to the twins about its needs.",
+        "A bean plant grows well with no water at all."
+      ],
+      "answer": "A",
+      "why": "Plants grown without light often stretch tall and pale while they use up the food in their seeds; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Taller, the Better",
+        "Lulwa's Lucky Seed",
+        "From Failure to Discovery",
+        "The Missing Poster"
+      ],
+      "answer": "C",
+      "why": "Majed's plant fails, but the twins turn the failure into a discovery that wins a prize."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that still show what Majed learns.",
+      "model": "Instead of entering the science fair, Majed carried his drooping plant to the windowsill and watered it only when the soil was dry. Slowly, its yellow leaves turned green and it began to stand straight again. Majed told his class that a plant needs light as much as water, and that being patient is part of being a scientist.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and shows a believable lesson for Majed",
+        "1 = an ending is given but it is unclear, does not fit the story well, or shows no lesson",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Majed and Lulwa and shows what Majed learns about plants or mistakes is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how could Majed have kept his first plant healthy?",
+      "options": [
+        "Give it sunlight on the windowsill.",
+        "Water it only when the soil feels dry.",
+        "A and B",
+        "Keep it in a darker cupboard."
+      ],
+      "answer": "C",
+      "why": "Lulwa's plant grew well with sunlight and careful watering; the dark cupboard and extra water harmed Majed's plant."
+    }
+  ]
+}

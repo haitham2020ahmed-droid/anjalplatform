@@ -1,0 +1,568 @@
+{
+  "code": "NB-072",
+  "title": "Room for One More",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 417,
+  "passage": "When Omar joined our class in the middle of the second term, I barely noticed him at first. My friends and I had shared the same table in the school cafeteria since Grade 4. Our conversations about football, video games and weekend trips flowed so naturally that we rarely paid attention to anyone else. Omar's family had just returned to Riyadh after eight years in Canada. Although he understood Arabic reasonably well, he spoke it hesitantly, searching for each word as if he were crossing a stream on slippery stones.\n\nFor almost two weeks, I watched him eat his sandwich alone at the end of a long, empty table, usually pretending to read a book. Part of me felt uncomfortable. Another part argued that it was not my responsibility, since he would surely make friends eventually. Besides, I worried that my friends might think it was strange if I invited a stranger to join our group.\n\nEverything changed during an English lesson, when our teacher asked us to work in pairs and assigned me to Omar. I admit that English is my weakest subject. I had been dreading the presentation we had to prepare about our favourite places in Saudi Arabia. To my surprise, Omar explained difficult grammar patiently and clearly, never once making me feel foolish. In return, I helped him with the Arabic expressions he needed for his social studies homework. Before long, we were laughing at each other's mistakes instead of being embarrassed by our own.\n\nThe next day, I took a deep breath and asked Omar to sit with us at lunch. My friend Badr raised his eyebrows, clearly puzzled. Within ten minutes, however, Omar was describing ice hockey games where the players skated across frozen lakes, and everyone was listening with fascination. Even Badr, who had seemed doubtful, asked dozens of questions about snow and freezing winters.\n\nLooking back, I feel slightly ashamed that I waited so long. I had assumed that welcoming Omar would mean giving something up, but in fact our table simply became richer and more interesting. Our English presentation received the highest mark in the class. Omar's Arabic has improved so much that he now corrects my spelling occasionally, which I find rather amusing.\n\nI have learned that a friendship can begin with something as small as one empty chair. Whenever I see a new student standing uncertainly in the cafeteria doorway, I remember Omar's lonely table, and I make sure there is always room for one more.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “hesitantly” as it is used in paragraph 1?",
+      "options": [
+        "uncertainly",
+        "loudly",
+        "rudely",
+        "confidently"
+      ],
+      "answer": "A",
+      "why": "Omar searched for each word, so he spoke slowly and without confidence, that is, uncertainly."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 4, Badr “had seemed doubtful”. Which word is the OPPOSITE of “doubtful”?",
+      "options": [
+        "puzzled",
+        "certain",
+        "nervous",
+        "suspicious"
+      ],
+      "answer": "B",
+      "why": "“Doubtful” means unsure; its opposite is “certain”. “Puzzled” and “suspicious” are close in meaning, not opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “dreading” mean in the sentence “I had been dreading the presentation” in paragraph 3?",
+      "options": [
+        "looking forward to an exciting event that is coming soon",
+        "feeling worried about something that will happen",
+        "practising a speech again and again",
+        "forgetting about a task completely"
+      ],
+      "answer": "B",
+      "why": "English is the narrator's weakest subject, so he was worried about the coming presentation."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is an ADJECTIVE?",
+      "options": [
+        "responsibility",
+        "eventually",
+        "invited",
+        "uncomfortable"
+      ],
+      "answer": "D",
+      "why": "“Uncomfortable” describes how part of the narrator felt; “responsibility” is a noun, “eventually” an adverb and “invited” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “fascination” in paragraph 4?",
+      "options": [
+        "fashionable",
+        "fastened",
+        "fascinating",
+        "facial"
+      ],
+      "answer": "C",
+      "why": "“Fascinating” and “fascination” both come from the verb “fascinate”."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a PLURAL noun?",
+      "options": [
+        "lakes",
+        "lunch",
+        "snow",
+        "fascination"
+      ],
+      "answer": "A",
+      "why": "“Lakes” means more than one lake; “lunch” is singular, and “snow” and “fascination” have no plural here."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “occasionally” in a meaningful sentence of your own.",
+      "model": "We usually eat dinner at home, but occasionally we visit my uncle's farm and eat under the palm trees.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “occasionally” with its meaning (sometimes, but not often)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Occasionally” means sometimes but not often, as when Omar corrects the narrator's spelling in paragraph 5."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Omar's “family” had returned from Canada. Which noun forms its plural in the SAME way as “family” (families)?",
+      "options": [
+        "story",
+        "day",
+        "journey",
+        "key"
+      ],
+      "answer": "A",
+      "why": "A consonant + y changes to -ies (story → stories); a vowel + y just adds -s (days, journeys, keys)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “I have learned that a friendship can begin with something as small as one empty chair.”?",
+      "options": [
+        "a statement",
+        "a question",
+        "a command",
+        "an exclamation"
+      ],
+      "answer": "A",
+      "why": "It tells the reader a fact or idea and ends with a full stop, so it is a statement."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Ice Hockey in Canada",
+        "One Empty Chair",
+        "My Weakest Subject",
+        "The Highest Mark"
+      ],
+      "answer": "B",
+      "why": "The narrator says a friendship can begin “with something as small as one empty chair”."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to describe the rules of ice hockey games in Canada",
+        "to share how the narrator learned to welcome a new student",
+        "to explain how to prepare a presentation in the English language",
+        "to complain about the food in the school cafeteria"
+      ],
+      "answer": "B",
+      "why": "The narrator tells how he finally invited Omar and what he learned about friendship."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Omar enjoyed reading books alone during every lunch break.",
+        "The narrator's friends invited Omar to sit with them on his very first day.",
+        "Omar asked the narrator for help with his social studies homework.",
+        "The narrator noticed Omar's loneliness but found reasons not to act."
+      ],
+      "answer": "D",
+      "why": "He watched Omar eat alone and felt uncomfortable, but told himself it was not his responsibility and feared his friends' reaction."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Omar speak Arabic hesitantly when he first arrived?",
+      "options": [
+        "His family had lived in Canada for eight years.",
+        "He had never studied Arabic at any school.",
+        "He was too shy to speak to his classmates.",
+        "He preferred to speak only during English lessons."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: Omar's family had just returned “after eight years in Canada”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a news article",
+        "a play script",
+        "an instruction leaflet",
+        "a personal narrative"
+      ],
+      "answer": "D",
+      "why": "The narrator tells a true-to-life experience from his own life using “I”, and reflects on what he learned."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, which reason did the narrator give himself for NOT inviting Omar?",
+      "options": [
+        "Omar would surely make friends eventually.",
+        "Omar did not like the food in the cafeteria.",
+        "The teacher had told students to sit in groups.",
+        "Omar always seemed busy with his homework."
+      ],
+      "answer": "A",
+      "why": "“Another part argued that it was not my responsibility, since he would surely make friends eventually.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The teacher paired the narrator with Omar.",
+        "Omar described ice hockey on frozen lakes.",
+        "The narrator watched Omar eat alone.",
+        "The presentation received the highest mark."
+      ],
+      "answer": "C",
+      "why": "The narrator watched Omar eat alone “for almost two weeks” before the English lesson changed everything."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of the text?",
+      "options": [
+        "Omar himself",
+        "Badr, the narrator's friend",
+        "a classmate of Omar's",
+        "the English teacher"
+      ],
+      "answer": "C",
+      "why": "The narrator says “I” and describes Omar and Badr as other people, so he is one of Omar's classmates."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Omar talk about on his first day at the narrator's lunch table?",
+      "options": [
+        "his favourite places in Saudi Arabia",
+        "ice hockey games on frozen lakes",
+        "the grammar rules of the English language",
+        "the football matches of his old school team"
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: Omar was “describing ice hockey games where the players skated across frozen lakes”."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did the narrator help Omar with Arabic expressions?",
+      "options": [
+        "to return Omar's help with English",
+        "because the teacher ordered him to",
+        "because Badr asked him to help",
+        "to win a prize for the presentation"
+      ],
+      "answer": "A",
+      "why": "Paragraph 3: Omar explained English grammar, and “In return, I helped him with the Arabic expressions”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What caused the friends at the lunch table to accept Omar so quickly?",
+      "options": [
+        "The teacher told them to be kind to him.",
+        "His stories about Canada fascinated them.",
+        "He promised to help them all with homework.",
+        "He brought food to share with everyone."
+      ],
+      "answer": "B",
+      "why": "Within ten minutes Omar was describing ice hockey and “everyone was listening with fascination”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How does the narrator feel now about waiting so long to invite Omar?",
+      "options": [
+        "proud and boastful",
+        "angry with Omar",
+        "completely unconcerned",
+        "slightly ashamed"
+      ],
+      "answer": "D",
+      "why": "Paragraph 5: “I feel slightly ashamed that I waited so long.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How does Badr's reaction change during paragraph 4?",
+      "options": [
+        "He starts friendly but soon becomes rude and bored with Omar.",
+        "He starts curious but becomes jealous of Omar.",
+        "He starts excited but becomes silent and sad.",
+        "He starts puzzled but becomes curious and interested."
+      ],
+      "answer": "D",
+      "why": "Badr first “raised his eyebrows, clearly puzzled”, but later “asked dozens of questions”."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what was the effect of welcoming Omar to the table?",
+      "options": [
+        "The narrator lost some of his old friends from Grade 4.",
+        "The table became richer and more interesting.",
+        "The group stopped talking about football.",
+        "Omar moved to sit at another table."
+      ],
+      "answer": "B",
+      "why": "“In fact our table simply became richer and more interesting.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Omar and the narrator have in common in paragraph 3?",
+      "options": [
+        "Each finds English his easiest subject.",
+        "Each feels foolish during the lesson.",
+        "Each wants to work with a different partner.",
+        "Each helps the other with a language."
+      ],
+      "answer": "D",
+      "why": "Omar helps with English grammar and the narrator helps with Arabic expressions."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "In paragraph 1, Omar spoke Arabic “as if he were crossing a stream on slippery stones”. What does this simile suggest?",
+      "options": [
+        "He spoke Arabic while walking carefully near a river.",
+        "He spoke very fast and without any pauses.",
+        "He spoke only about nature and the outdoors.",
+        "He spoke slowly and carefully, afraid of mistakes."
+      ],
+      "answer": "D",
+      "why": "Crossing slippery stones needs slow, careful steps, just as Omar searched carefully for each word."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “a friendship can begin with something as small as one empty chair”?",
+      "options": [
+        "Friends should always sit on matching chairs.",
+        "Cafeterias need more chairs to give to new students.",
+        "A small act of welcome can start a friendship.",
+        "Only small groups can become real friends."
+      ],
+      "answer": "C",
+      "why": "Offering Omar a seat was a small action, yet it began a real friendship."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the text with the words “room for one more”?",
+      "options": [
+        "to explain exactly how many chairs can fit around one table",
+        "to show that the table is now completely full",
+        "to show the lasting lesson the narrator still lives by",
+        "to suggest that Omar will soon leave the school"
+      ],
+      "answer": "C",
+      "why": "The narrator now makes room for every new student, so the ending shows the lesson has lasted."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the BEST thing to do when you see a new student sitting alone?",
+      "options": [
+        "wait for the student to make friends alone",
+        "invite the student to join your group",
+        "ask your friends whether the student is strange",
+        "watch the student quietly for a few weeks"
+      ],
+      "answer": "B",
+      "why": "The narrator learned that inviting Omar was the right choice; waiting only left Omar lonely."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer share this experience?",
+      "options": [
+        "to encourage readers to welcome newcomers",
+        "to show that Canada is better than Riyadh",
+        "to prove that English is a difficult subject",
+        "to complain about his friend Badr's behaviour"
+      ],
+      "answer": "A",
+      "why": "The text ends with the lesson of always making room for a new student."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the last two paragraphs?",
+      "options": [
+        "bitter regret that Omar ever arrived",
+        "nervous fear of giving the next English presentation",
+        "thoughtful gratitude for the friendship",
+        "angry jealousy of Omar's high marks"
+      ],
+      "answer": "C",
+      "why": "The narrator reflects warmly on how Omar enriched his table, despite a little shame at waiting."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "how many years Omar's family lived in Canada",
+        "what mark the boys' English presentation received in class",
+        "which places Omar and the narrator chose to present",
+        "which subject is the narrator's weakest"
+      ],
+      "answer": "C",
+      "why": "The presentation topic is mentioned, but the actual places are never named; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A boy crosses a stream made of Arabic words.",
+        "An empty chair invites a new student to sit down.",
+        "A cafeteria table grows longer by itself whenever new friends join it.",
+        "A boy who grew up abroad finds it hard to speak Arabic at first."
+      ],
+      "answer": "D",
+      "why": "Children who live abroad for years often lose some fluency in their first language."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the text?",
+      "options": [
+        "The Day I Pulled Out a Chair",
+        "Lost in the Snow",
+        "The Boy Who Hated English Lessons",
+        "Badr's Secret Plan"
+      ],
+      "answer": "A",
+      "why": "The turning point is the narrator inviting Omar to sit with his friends."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending. Write two or three sentences telling what might have happened if Badr had refused to let Omar join the table.",
+      "model": "When Badr complained, I told him that I would sit with Omar at his table instead. The next day, two other boys joined us, and Badr soon came over too, because he wanted to hear more about the frozen lakes.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and solves the problem of Omar being left out",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that deals with Badr's refusal and keeps Omar included is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could a school help new students like Omar feel welcome sooner?",
+      "options": [
+        "Pair each new student with a friendly classmate.",
+        "Plan class activities in which students work together.",
+        "A and B",
+        "Give new students a separate table to eat at."
+      ],
+      "answer": "C",
+      "why": "Pairing and group work helped Omar in the text; a separate table would make him lonelier."
+    }
+  ]
+}

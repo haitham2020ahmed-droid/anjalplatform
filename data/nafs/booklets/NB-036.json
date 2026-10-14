@@ -1,0 +1,568 @@
+{
+  "code": "NB-036",
+  "title": "The Mystery of the Salty Tank",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 471,
+  "passage": "On Sunday morning, Reem hurried into the science lab ahead of the rest of Class 6B, eager to check on the saltwater aquarium that the class had been caring for since the beginning of term. The moment she reached the tank, however, her excitement turned to alarm, because the two clownfish, which usually darted busily between the rocks, were hovering listlessly near the bottom, and the tiny shrimp had retreated into a shadowy corner.\n\n\"Jana, come and look at this,\" Reem called anxiously as her friend appeared in the doorway, \"because something is seriously wrong with the fish.\"\n\nJana peered into the tank and frowned. \"Perhaps they're simply lonely,\" she suggested, \"so if we bought a few more fish, the tank would feel livelier and they would have some company.\"\n\n\"I don't think loneliness makes fish ill,\" Reem replied thoughtfully, \"and before we change anything, we should investigate what has actually happened, since Ms. Hessa always says that a good scientist tests first and guesses later.\"\n\nJana sighed impatiently, but she agreed to fetch the testing kit from the cupboard. Together they measured the temperature, which was normal, and then lowered the hydrometer, a small instrument that measures how salty water is, into the tank. Reem stared at the reading in disbelief. \"The water is far saltier than it should be,\" she announced, \"although nobody has added any salt, so how could that possibly have happened?\"\n\nAt that moment, Jana's cheeks turned pink. \"Actually,\" she admitted quietly, \"on Thursday afternoon I noticed that the water level had dropped, so I topped it up with some of the salt water we had mixed for the next water change, because I honestly thought I was helping.\"\n\nJust then Ms. Hessa entered the room, and the girls explained everything. Instead of scolding Jana, the teacher nodded encouragingly. \"You have discovered something important,\" she said. \"When water evaporates from a tank, only the water disappears, while the salt remains behind; therefore, a tank that has lost water must be refilled with fresh water, otherwise it becomes saltier every single time.\"\n\nMs. Hessa showed them how to remove a little of the salty water and replace it gradually with fresh, treated water, so that the fish would not suffer a sudden shock. The girls repeated the test every hour, recording the results in a neat table, until the reading finally returned to normal.\n\nBy Tuesday, the clownfish were weaving through the rocks again as though nothing had happened. Jana gazed at the busy tank and smiled sheepishly. \"I'm relieved that we didn't buy more fish,\" she confessed, \"because we would only have added more animals to a problem that we didn't understand.\"\n\n\"And I'm grateful that you told the truth,\" Reem answered warmly, \"since without your honest explanation, we might never have discovered the real cause.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “listlessly” as it is used in paragraph 1?",
+      "options": [
+        "angrily",
+        "in a large group",
+        "very quickly",
+        "without energy"
+      ],
+      "answer": "D",
+      "why": "The fish usually dart busily, but now they are hovering near the bottom, so “listlessly” means without energy or interest."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “retreated” as it is used in paragraph 1?",
+      "options": [
+        "advanced",
+        "hid",
+        "withdrew",
+        "rested"
+      ],
+      "answer": "A",
+      "why": "The shrimp “retreated”, or moved back, into a corner; the opposite is “advanced”, moved forward. “Withdrew” and “hid” are close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 9: “Jana gazed at the busy tank and smiled sheepishly.” What does “sheepishly” suggest about how Jana felt?",
+      "options": [
+        "proud and boastful",
+        "slightly embarrassed",
+        "angry and upset",
+        "sleepy and bored"
+      ],
+      "answer": "B",
+      "why": "Jana's mistake caused the problem, so her smile is a little embarrassed; “sheepishly” describes this feeling."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 7 is a VERB?",
+      "options": [
+        "important",
+        "encouragingly",
+        "evaporates",
+        "therefore"
+      ],
+      "answer": "C",
+      "why": "“Evaporates” is an action (water evaporates); “important” is an adjective, “encouragingly” an adverb and “therefore” a linking adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the story keeps the SAME form in the singular and the plural?",
+      "options": [
+        "rocks",
+        "girls",
+        "results",
+        "shrimp"
+      ],
+      "answer": "D",
+      "why": "We say one shrimp and many shrimp (“the tiny shrimp had retreated”); the other words add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “investigate” in paragraph 4?",
+      "options": [
+        "invention",
+        "invitation",
+        "invisible",
+        "investigation"
+      ],
+      "answer": "D",
+      "why": "“Investigation” is the noun formed from the verb “investigate”; the other words only begin with “in-”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “admitted” in a meaningful sentence of your own.",
+      "model": "My brother admitted that he had eaten the last piece of cake, so he offered to buy another one for the family.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “admitted” with its meaning (said that something true, often a mistake, really happened)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Admitted” means agreed or confessed that something, often a mistake, is true."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the plural of “aquarium”?",
+      "options": [
+        "aquariumes",
+        "aquarias",
+        "aquarium",
+        "aquariums"
+      ],
+      "answer": "D",
+      "why": "In everyday English we simply add -s: aquariums. (The Latin plural “aquaria” is also used, but “aquarias” and “aquariumes” are wrong.)"
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these sentences is a COMMAND?",
+      "options": [
+        "“Jana, come and look at this”",
+        "“Perhaps they're simply lonely”",
+        "“You have discovered something important”",
+        "“The water is far saltier than it should be”"
+      ],
+      "answer": "A",
+      "why": "Reem tells Jana to come and look, so it is a command; the others are statements."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Lonely Clownfish",
+        "Test First, Guess Later",
+        "A New Fish for Class 6B",
+        "Ms. Hessa Gets Angry"
+      ],
+      "answer": "B",
+      "why": "The girls solve the problem by testing instead of guessing, which is the lesson at the heart of the story."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to teach readers how to choose and buy fish for an aquarium",
+        "to describe a family holiday by the Red Sea coast",
+        "to explain why clownfish like to live among rocks",
+        "to show that testing and honesty help solve problems"
+      ],
+      "answer": "D",
+      "why": "The girls test the water, Jana admits her mistake, and together they solve the problem."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 7?",
+      "options": [
+        "Ms. Hessa scolds Jana in front of the class for her mistake.",
+        "Ms. Hessa explains why the water became too salty.",
+        "Ms. Hessa decides to buy more fish for the lonely clownfish.",
+        "Ms. Hessa tests the temperature of the water herself."
+      ],
+      "answer": "B",
+      "why": "Paragraph 7 is Ms. Hessa's explanation of evaporation and why a tank must be refilled with fresh water."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Jana suggest buying more fish?",
+      "options": [
+        "She thought the fish were sick from the cold.",
+        "She wanted a bigger tank.",
+        "Ms. Hessa had asked her to.",
+        "She thought the fish were lonely and needed company."
+      ],
+      "answer": "D",
+      "why": "Paragraph 3: “Perhaps they're simply lonely … they would have some company.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a dialogue story",
+        "a science report",
+        "a letter",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It tells invented events with characters, and most of it is told through conversation between them."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Ms. Hessa tell the girls to add the fresh water slowly?",
+      "options": [
+        "so the tank would not overflow onto the floor",
+        "so the fish would not suffer a sudden shock",
+        "so the shrimp would have time to drink it",
+        "so the glass hydrometer would not break"
+      ],
+      "answer": "B",
+      "why": "Paragraph 8: replace it gradually “so that the fish would not suffer a sudden shock”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Reem found the fish hovering near the bottom.",
+        "Jana topped up the tank with salt water.",
+        "The girls measured the water with a hydrometer.",
+        "Ms. Hessa entered the laboratory."
+      ],
+      "answer": "B",
+      "why": "Jana topped up the tank on Thursday afternoon, before Reem found the sick fish on Sunday."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who explains the scientific reason for the problem?",
+      "options": [
+        "Reem",
+        "Jana",
+        "Ms. Hessa",
+        "the narrator"
+      ],
+      "answer": "C",
+      "why": "In paragraph 7, Ms. Hessa explains that only the water evaporates and the salt stays behind."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered to understand why the water became too salty?",
+      "options": [
+        "The temperature of the water was normal.",
+        "The clownfish usually dart between the rocks.",
+        "Jana added salt water after some water had evaporated.",
+        "The class had cared for the tank since the beginning of term."
+      ],
+      "answer": "C",
+      "why": "Water had evaporated, leaving its salt, and Jana then added more salt instead of fresh water."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the fish to become ill?",
+      "options": [
+        "The water became too salty.",
+        "The water was too cold.",
+        "There were too few fish in the tank.",
+        "The shrimp attacked them."
+      ],
+      "answer": "A",
+      "why": "The hydrometer showed that the water was “far saltier than it should be”; the temperature was normal."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Reem want to test the water before changing anything?",
+      "options": [
+        "She wanted to prove to everyone that Jana was wrong.",
+        "She was afraid of touching the sick fish.",
+        "She wanted to finish the work early and go home.",
+        "She believed in finding the real cause first."
+      ],
+      "answer": "D",
+      "why": "She quotes Ms. Hessa: “a good scientist tests first and guesses later”, showing she wants the real cause."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How would you describe Jana's feeling when she admitted what she had done?",
+      "options": [
+        "proud",
+        "embarrassed but honest",
+        "angry",
+        "careless and amused"
+      ],
+      "answer": "B",
+      "why": "Her cheeks turned pink and she spoke quietly, yet she told the truth."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Jana's first idea DIFFERENT from Reem's idea?",
+      "options": [
+        "Jana wanted to add fish at once; Reem wanted to test first.",
+        "Jana wanted to test first; Reem wanted to buy more fish.",
+        "Both girls wanted to call Ms. Hessa immediately for help.",
+        "Jana wanted to empty the tank; Reem wanted to add more salt."
+      ],
+      "answer": "A",
+      "why": "Jana suggested buying more fish straight away, while Reem said they should investigate first."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the EFFECT of replacing some salty water with fresh water?",
+      "options": [
+        "The fish became even weaker than before.",
+        "The tank overflowed onto the laboratory floor.",
+        "The reading returned to normal and the fish recovered.",
+        "The shrimp disappeared from the corner of the tank."
+      ],
+      "answer": "C",
+      "why": "The reading “finally returned to normal”, and by Tuesday the clownfish were weaving through the rocks again."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Reem and Ms. Hessa have in common in the story?",
+      "options": [
+        "Both make exactly the same mistake as Jana.",
+        "Both think the fish are lonely and need company.",
+        "Both respond calmly and look for the real cause.",
+        "Both want to buy new fish for the tank."
+      ],
+      "answer": "C",
+      "why": "Reem insists on testing, and Ms. Hessa explains rather than scolding; both stay calm and look for the cause."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which sentence from the story shows a character's strong feeling of surprise?",
+      "options": [
+        "“Reem stared at the reading in disbelief.”",
+        "“Together they measured the temperature, which was normal”",
+        "“The girls repeated the test every hour”",
+        "“Ms. Hessa entered the room”"
+      ],
+      "answer": "A",
+      "why": "“In disbelief” shows that Reem could hardly believe what she saw; the other sentences just report actions."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the expression “her excitement turned to alarm” in paragraph 1 mean?",
+      "options": [
+        "An alarm bell suddenly rang in the laboratory.",
+        "Reem's happy feeling quickly changed to worry.",
+        "Reem became even more excited than before.",
+        "Reem turned around in surprise to find Jana."
+      ],
+      "answer": "B",
+      "why": "It describes a sudden change of feeling: from eager excitement to worry when she saw the fish."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer tell much of the story through dialogue?",
+      "options": [
+        "so readers hear the characters' different ideas",
+        "so the story sounds more like a science textbook",
+        "so the story does not need any characters",
+        "so readers never find out what the problem was"
+      ],
+      "answer": "A",
+      "why": "The dialogue lets readers hear Jana's guess, Reem's reasoning and Ms. Hessa's explanation directly."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action in the story was MOST helpful in solving the problem?",
+      "options": [
+        "Jana's idea of buying more fish",
+        "testing the water with the hydrometer",
+        "Reem calling Jana anxiously",
+        "checking the temperature"
+      ],
+      "answer": "B",
+      "why": "The hydrometer test revealed that the water was too salty, which led to the real cause."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Fish are too difficult to keep at school.",
+        "Teachers should solve every problem for students.",
+        "It is better to guess quickly than to wait.",
+        "Honesty and careful testing help us solve problems."
+      ],
+      "answer": "D",
+      "why": "The problem is solved because the girls tested first and Jana told the truth, as the final lines show."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the END of the story?",
+      "options": [
+        "worry",
+        "relief and gratitude",
+        "anger",
+        "disappointment"
+      ],
+      "answer": "B",
+      "why": "Jana is “relieved” and Reem is “grateful”, and the fish have recovered."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "what a hydrometer measures",
+        "which day Jana topped up the tank",
+        "how the fresh water is treated",
+        "why the water became too salty"
+      ],
+      "answer": "C",
+      "why": "The story mentions “fresh, treated water” but does not explain how it is treated; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A clownfish tells Reem that the water is too salty.",
+        "The shrimp mix fresh salt water for the girls.",
+        "The hydrometer changes the water back to normal by itself.",
+        "Water evaporates from a tank and leaves the salt behind."
+      ],
+      "answer": "D",
+      "why": "When water evaporates, salt is left behind, as Ms. Hessa explains; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "The Mystery of the Salty Tank",
+        "The Shrimp Who Ran Away",
+        "A Trip to the Fish Market",
+        "The Broken Hydrometer"
+      ],
+      "answer": "A",
+      "why": "The story is about solving the puzzle of why the aquarium water became too salty."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences showing another way the girls could have solved the problem or prevented it from happening again.",
+      "model": "After the fish recovered, Reem and Jana drew a line on the outside of the tank to show the correct water level and made a sign that said “Top up with FRESH water only!” They also wrote a weekly checklist so that every group in Class 6B would test the water before adding anything.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and offers a sensible way to solve or prevent the problem",
+        "1 = an ending is given but it is vague, does not fit the story, or does not deal with the salty water",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible new ending that fits the characters and deals with the salty-water problem is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "How could Class 6B make sure this problem does not happen again?",
+      "options": [
+        "by keeping a clear rule to top up the tank with fresh water only",
+        "by testing the water regularly and recording the results",
+        "A and B",
+        "by adding a spoonful of salt every week"
+      ],
+      "answer": "C",
+      "why": "Both a clear rule and regular testing would prevent the water becoming too salty; adding salt would make it worse."
+    }
+  ]
+}

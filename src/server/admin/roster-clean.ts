@@ -8,6 +8,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { countGroups } from "../db/group-count";
 
 const s = (v: unknown) => String(v ?? "");
 export type RosterScope = { kind: "SCHOOL" } | { kind: "GRADE"; grade: number } | { kind: "CLASS"; classId: string } | { kind: "STUDENTS"; ids: string[] };
@@ -62,15 +63,14 @@ export async function scopeStudents(repo: Repo, actor: Actor, scope: RosterScope
 }
 
 /**
- * Answers per student, COUNTED by the database (index on studentId) instead of loading every
- * attempt row of the school; a few counts run at a time.
+ * Answers per student, COUNTED by the database (index on studentId) instead of loading every attempt row of the
+ * school: one GROUP BY per 1,000 students (was one count per student — 225 round trips for a small school).
  */
 async function answerCounts(repo: Repo, ids: string[]): Promise<Map<string, number>> {
-  const out = new Map<string, number>();
-  for (let i = 0; i < ids.length; i += 20) {
-    const part = ids.slice(i, i + 20);
-    const counts = await Promise.all(part.map((id) => repo.count("QuestionAttempt", { studentId: id })));
-    part.forEach((id, k) => out.set(id, counts[k]));
+  const out = new Map<string, number>(ids.map((id) => [id, 0]));
+  for (let i = 0; i < ids.length; i += 1000) {
+    const part = ids.slice(i, i + 1000);
+    for (const [id, n] of await countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: part } })) if (out.has(id)) out.set(id, n);
   }
   return out;
 }

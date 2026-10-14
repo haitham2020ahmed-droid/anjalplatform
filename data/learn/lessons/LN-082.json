@@ -1,0 +1,452 @@
+{
+ "code": "LN-082",
+ "title": "Spelling compound words",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling"
+ ],
+ "skillNames": [
+  "Compound Words"
+ ],
+ "statements": [
+  "L-0036",
+  "L-0108",
+  "L-0222",
+  "L-0305"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two words make one",
+     "text": "A **compound word** is made of **two small words** joined together.\n\nsun + flower = **sunflower**\nfoot + ball = **football**"
+    },
+    {
+     "title": "No space",
+     "text": "Most compound words are written as **one word**. There is **no space** in the middle.\n\nRight: **classroom**\nWrong: class room"
+    },
+    {
+     "title": "Check it",
+     "text": "1. Find the two small words.\n2. Spell each one right.\n3. Join them with no space."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Look for a word made of two small words.\n3. Is it joined? Is each part spelled right?\n\nThe sentence with the mistake is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We play foot ball after school.",
+      "role": "key"
+     },
+     {
+      "t": "Our team is fast.",
+      "role": "other"
+     }
+    ],
+    "explain": "**foot ball** should be one word.\n\nfoot + ball = **football**"
+   },
+   "together": {
+    "passage": "It was a hot day. We sat under a tree. I ate a cup of ice. My brother ate a cup cake.",
+    "stem": "What is the right way to write the compound word in the text?",
+    "options": [
+     "cup cake",
+     "cupcake",
+     "cupcak",
+     "cubcake"
+    ],
+    "answer": 1,
+    "hint": "Find the two small words. Spell each one right. Then join them with no space.",
+    "good": "Yes! cup + cake = cupcake, one word with no space."
+   },
+   "evidence": {
+    "sentences": [
+     "It was a hot day.",
+     "We sat under a tree.",
+     "I ate a cup of ice.",
+     "My brother ate a cup cake."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the compound word that is written wrong.",
+    "wrong": "This sentence has no compound word mistake. Find two small words that should be one."
+   },
+   "checks": [
+    {
+     "passage": "I read a book in my bed room.",
+     "stem": "Which is the right way to write it?",
+     "options": [
+      "bedroom",
+      "bed room",
+      "bedrom",
+      "bedrum"
+     ],
+     "answer": 0,
+     "why": "bed + room = bedroom, one word with no space."
+    },
+    {
+     "passage": "The rain stopped. We saw a rainbow in the sky.",
+     "stem": "Which two words make rainbow?",
+     "options": [
+      "ran + bow",
+      "rain + bow",
+      "rai + nbow",
+      "rain + boy"
+     ],
+     "answer": 1,
+     "why": "rain + bow = rainbow."
+    },
+    {
+     "passage": "Grandpa goes out on his boat at sun rise.",
+     "stem": "Which should be written as one word?",
+     "options": [
+      "sun rise",
+      "his boat",
+      "goes out",
+      "on his"
+     ],
+     "answer": 0,
+     "why": "sun + rise = sunrise, one word."
+    }
+   ],
+   "again": {
+    "title": "Add them up",
+    "text": "Think of a compound word like a sum.\n\n**word + word = one new word**\n\nWrite the two words close together, with no gap.",
+    "example": "home + work = **homework**\n\nbed + time = **bedtime**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Compound words",
+     "text": "A **compound word** joins two words to make a new word with its own meaning.\n\nbook + shelf = **bookshelf**\nsea + shell = **seashell**\nhead + ache = **headache**"
+    },
+    {
+     "title": "Keep every letter",
+     "text": "When you join the words, **keep all the letters** of both words, even if the same letter meets twice.\n\nroom + mate = roo**mm**ate\nnight + time = nigh**tt**ime\nbook + keeper = boo**kk**eeper"
+    },
+    {
+     "title": "Spell each part",
+     "text": "If one part is misspelled, the whole word is wrong.\n\nwhite + board = **whiteboard** (not whitbord)\nwater + fall = **waterfall** (not watterfall)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the compound word.\n2. Split it into its two words.\n3. Check: Is each word spelled right? Are all the letters kept? Is there no space?\n\nPoint to the sentence where a part is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Salma went to the bookstore with her father.",
+      "role": "other"
+     },
+     {
+      "t": "She bought a notebook for school.",
+      "role": "other"
+     },
+     {
+      "t": "At nightime, she wrote her first story.",
+      "role": "key"
+     }
+    ],
+    "explain": "**nightime** lost a letter. night + time keeps both t's: **nighttime**.\n\n**bookstore** and **notebook** are correct."
+   },
+   "together": {
+    "passage": "Every weekend, my family visits my grand parents. Their house is near the seashore. In the afternoon, we collect seashells and look for crabs. My grandmother makes tea while we play outside. At sunset, we watch the fishermen bring their boats in.",
+    "stem": "Which compound word is written incorrectly?",
+    "options": [
+     "seashore",
+     "seashells",
+     "sunset",
+     "grand parents"
+    ],
+    "answer": 3,
+    "hint": "Check each compound word. Is any of them split into two words?",
+    "good": "Yes! grand + parents = grandparents, one word with no space."
+   },
+   "evidence": {
+    "sentences": [
+     "Every weekend, my family visits my grand parents.",
+     "Their house is near the seashore.",
+     "In the afternoon, we collect seashells and look for crabs.",
+     "My grandmother makes tea while we play outside.",
+     "At sunset, we watch the fishermen bring their boats in."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the compound word mistake.",
+    "wrong": "The compound words in this sentence are written correctly. Look again."
+   },
+   "checks": [
+    {
+     "passage": "I left my homework on the kitchen table.",
+     "stem": "Which two words make up homework?",
+     "options": [
+      "hom + ework",
+      "home + work",
+      "hum + work",
+      "homew + ork"
+     ],
+     "answer": 1,
+     "why": "home + work = homework."
+    },
+    {
+     "passage": "We hiked to a tall water fall in the mountains.",
+     "stem": "Which word is written incorrectly?",
+     "options": [
+      "hiked",
+      "water fall",
+      "tall",
+      "mountains"
+     ],
+     "answer": 1,
+     "why": "water + fall = waterfall, written as one word."
+    },
+    {
+     "passage": "My roomate and I share a desk.",
+     "stem": "What is the correct spelling?",
+     "options": [
+      "roomate",
+      "rommate",
+      "roommate",
+      "room mate"
+     ],
+     "answer": 2,
+     "why": "room + mate keeps every letter, so there are two m's: roommate."
+    }
+   ],
+   "again": {
+    "title": "Split and check",
+    "text": "1. Draw a line between the two words.\n2. Check each word by itself.\n3. Put them back together, keeping every letter.",
+    "example": "headache → head | ache\n\nhead ✓ ache ✓ → **headache**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Three kinds of compounds",
+     "text": "Compounds come in three forms:\n\n**Closed** (one word): sunrise, keyboard\n**Open** (two words): post office, ice cream\n**Hyphenated** (joined by a hyphen): well-known, part-time"
+    },
+    {
+     "title": "How do you know?",
+     "text": "There is no single rule for every compound. Use what you know:\n\n1. Most common everyday compounds are **closed**: classroom, sometimes, without.\n2. Some compounds that come **before a noun** take a hyphen: a **well-known** writer.\n3. When unsure, check a **dictionary**."
+    },
+    {
+     "title": "Common mistakes",
+     "text": "Splitting closed words:\nsome times → **sometimes**\nany where → **anywhere**\nwith out → **without**\n\nJoining open ones:\nicecream → **ice cream**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each compound in the text.\n2. Decide: closed, open or hyphenated?\n3. Check that each part is spelled right and that the form matches the word you know.\n\nPoint to the sentence where the compound has the wrong form or a wrong part."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My uncle works at the post office in our town.",
+      "role": "other"
+     },
+     {
+      "t": "He is a well-known face in the neighborhood.",
+      "role": "other"
+     },
+     {
+      "t": "Some times he brings us stamps from other countries.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Some times** should be closed: **sometimes**.\n\n**post office** (open) and **well-known** (hyphenated) are correct."
+   },
+   "together": {
+    "passage": "Our school held a science fair last Thursday. Students set up their projects in the gym. One group built a model of a lighthouse that really lit up. Another showed how earth quakes shake buildings. Everyone voted for a favorite project, and the winners got a certificate.",
+    "stem": "Which compound is written in the wrong form?",
+    "options": [
+     "lighthouse",
+     "Everyone",
+     "science fair",
+     "earth quakes"
+    ],
+    "answer": 3,
+    "hint": "Most common everyday compounds are closed. Which one is split?",
+    "good": "Yes! Earthquake is a closed compound: earthquakes."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school held a science fair last Thursday.",
+     "Students set up their projects in the gym.",
+     "One group built a model of a lighthouse that really lit up.",
+     "Another showed how earth quakes shake buildings.",
+     "Everyone voted for a favorite project, and the winners got a certificate."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the compound written in the wrong form.",
+    "wrong": "The compounds in this sentence are correct. Science fair is open; lighthouse and everyone are closed."
+   },
+   "checks": [
+    {
+     "passage": "After the game, we bought ice cream from a small shop.",
+     "stem": "Which form is ice cream?",
+     "options": [
+      "closed",
+      "open",
+      "hyphenated",
+      "not a compound"
+     ],
+     "answer": 1,
+     "why": "Ice cream is an open compound: two words that work as one idea."
+    },
+    {
+     "passage": "The well known author visited our school library.",
+     "stem": "How should the compound before 'author' be written?",
+     "options": [
+      "wellknown",
+      "well known",
+      "well-known",
+      "welknown"
+     ],
+     "answer": 2,
+     "why": "Before a noun, well-known takes a hyphen: a well-known author."
+    },
+    {
+     "passage": "We could not find the remote any where in the living room.",
+     "stem": "Which should be written as one closed word?",
+     "options": [
+      "living room",
+      "any where",
+      "the remote",
+      "could not"
+     ],
+     "answer": 1,
+     "why": "Anywhere is closed. Living room is an open compound, so it stays two words."
+    }
+   ],
+   "again": {
+    "title": "Think of the meaning",
+    "text": "Ask: is this a **common everyday word** that means one idea?\n\nIf yes (sunrise, homework, without), it is almost always **closed**.\n\nIf you are not sure, a dictionary shows the right form.",
+    "example": "with + out = one idea, 'not having' → **without**\n\nice + cream = still two words → **ice cream**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "One word or two?",
+     "text": "Some pairs change meaning when you close the space.\n\n**everyday** (ordinary): everyday clothes\n**every day** (each day): I walk every day.\n\n**maybe** (perhaps) / **may be** (might be)"
+    },
+    {
+     "title": "More pairs",
+     "text": "**anyone** (any person) / **any one** (any single one of a group)\n\n**sometime** (at an unknown time) / **some time** (a period of time)\n\n**already** (before now) / **all ready** (completely ready)"
+    },
+    {
+     "title": "The swap test",
+     "text": "1. Can you put **perhaps** in its place? Use **maybe**.\n2. Can you put **each day**? Use **every day**.\n3. Can you put **completely ready**? Use **all ready**.\n\nIf the swap keeps the meaning, you have the right form."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the whole sentence for meaning.\n2. Find any word that could be closed or open.\n3. Try the swap test.\n4. Choose the form that matches the meaning.\n\nPoint to the sentence where the form and the meaning do not match."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The guests were all ready by seven o'clock.",
+      "role": "key"
+     },
+     {
+      "t": "They had already eaten a light snack.",
+      "role": "key"
+     },
+     {
+      "t": "Then they walked to the hall.",
+      "role": "other"
+     }
+    ],
+    "explain": "In sentence 1, **all ready** means completely ready. In sentence 2, **already** means before now.\n\nEach form matches its meaning."
+   },
+   "together": {
+    "passage": "Khalid practices calligraphy every day after school. At first, even simple letters were hard for him. His teacher told him, \"Progress may be slow, but practice works.\" Now Khalid can copy anyone of the designs in his practice book. Next month, he will show his best work at the school art exhibition. Maybe his grandparents will come to see it.",
+    "stem": "Which phrase uses the wrong form?",
+    "options": [
+     "every day after school",
+     "may be slow",
+     "anyone of the designs",
+     "Maybe his grandparents"
+    ],
+    "answer": 2,
+    "hint": "Try the swap test. Does 'any person' fit before 'of the designs'?",
+    "good": "Yes! It means any single one of the designs, so it should be two words: any one."
+   },
+   "evidence": {
+    "sentences": [
+     "Khalid practices calligraphy every day after school.",
+     "At first, even simple letters were hard for him.",
+     "His teacher told him, \"Progress may be slow, but practice works.\"",
+     "Now Khalid can copy anyone of the designs in his practice book.",
+     "Next month, he will show his best work at the school art exhibition.",
+     "Maybe his grandparents will come to see it."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where the form does not match the meaning.",
+    "wrong": "This form matches its meaning. Try the swap test on the other sentences."
+   },
+   "checks": [
+    {
+     "passage": "Please wear your everyday shoes for the trip; we will walk a lot.",
+     "stem": "Why is everyday one word here?",
+     "options": [
+      "It means 'each day.'",
+      "It means 'ordinary.'",
+      "It means 'every person.'",
+      "It is a spelling mistake."
+     ],
+     "answer": 1,
+     "why": "Everyday shoes are ordinary shoes. 'Each day' would need two words: every day."
+    },
+    {
+     "passage": "I would like to visit the new science museum some time next year.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "I would like to visit the new science museum sometime next year.",
+      "I would like to visit the new science museum some-time next year.",
+      "I would like to visit the new science museum sum time next year.",
+      "I would like to visit the new science museum sometimes next year."
+     ],
+     "answer": 0,
+     "why": "It means at an unknown time next year, so the closed form sometime is correct."
+    },
+    {
+     "passage": "By the time we arrived, the bus had all ready left.",
+     "stem": "What is the problem?",
+     "options": [
+      "There is no problem.",
+      "'arrived' is misspelled.",
+      "It should be 'all-ready.'",
+      "It should be 'already' (before now)."
+     ],
+     "answer": 3,
+     "why": "The bus left before now, so the closed word already is needed."
+    }
+   ],
+   "again": {
+    "title": "Use the swap test",
+    "text": "When a word could be one word or two, swap in a meaning.\n\n**perhaps** fits → maybe\n**might be** fits → may be\n**each day** fits → every day\n**ordinary** fits → everyday",
+    "example": "\"___ it will rain tomorrow.\"\n\nPerhaps it will rain tomorrow. ✓ → **Maybe** it will rain tomorrow."
+   }
+  }
+ }
+}

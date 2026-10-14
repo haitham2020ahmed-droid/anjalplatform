@@ -15,6 +15,7 @@ import { useT } from "@/i18n/client";
 import { EmptyState } from "@/components/ui-kit";
 import { SkillQuestionPicker, type PickerValue } from "@/components/skill-picker";
 import { SKILL_TABS, byName, filterSkills, questionBadge, type SkillTabFilter } from "@/lib/skill-picker";
+import { Combo } from "@/components/ui/combo";
 
 const TYPES: { id: TestType; label: string }[] = [
   { id: "NAFS", label: "NAFS" }, { id: "MAP", label: "MAP" }, { id: "DIAGNOSTIC", label: "Diagnostic" },
@@ -417,9 +418,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
           <div className="mt-3 grid gap-3">
             {classes.length > 1 && (
               <label className="font-semibold text-slate-700">{t("Class")}
-                <select value={classId} onChange={(e) => { setClassId(e.target.value); setChosen([]); }} className="mt-1 block min-h-11 rounded-xl px-3 font-normal ring-1 ring-slate-300">
-                  {classes.map((c) => <option key={c.id} value={c.id}>{c.name} ({t("Grade {n}", { n: c.grade })})</option>)}
-                </select>
+                <Combo label={t("Class")} value={classId} onChange={(v) => { setClassId(v); setChosen([]); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: t("Grade {n}", { n: c.grade }) }))} className="mt-1 font-normal" />
               </label>
             )}
             <div className="flex flex-wrap gap-2">

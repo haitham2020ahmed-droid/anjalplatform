@@ -1,0 +1,475 @@
+{
+ "code": "LN-154",
+ "title": "Story characters and details",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.1.3",
+  "RL.2.3",
+  "RL.3.3"
+ ],
+ "families": [
+  "character"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0079",
+  "R-0081",
+  "R-0164",
+  "R-0285"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Who is in the story?",
+     "text": "The **characters** are the people or animals in a story.\n\nA story can have one character or many."
+    },
+    {
+     "title": "Look for names",
+     "text": "Characters often have **names**: Sara, Ali, Grandpa.\n\nSome are called **the dog**, **the girl** or **the teacher**."
+    },
+    {
+     "title": "Details about characters",
+     "text": "The story tells you things about each character: what they **look like**, what they **do**, what they **like**.\n\nThese are **details**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the story**.\n\n1. Find the character's name in the story.\n2. Read the sentence with the name.\n3. That sentence tells you the detail."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rami has a little sister named Dana.",
+      "role": "key"
+     },
+     {
+      "t": "Dana has curly hair.",
+      "role": "detail"
+     },
+     {
+      "t": "She likes to sing.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The characters are **Rami** and **Dana**.\n\nDetails about Dana: **curly hair**, **likes to sing**."
+   },
+   "together": {
+    "passage": "Jamal has a pet parrot. The parrot is green and yellow. It can say \"hello.\" Jamal gives it seeds every morning.",
+    "stem": "What colour is the parrot?",
+    "options": [
+     "Red and blue",
+     "Black and white",
+     "Green and yellow",
+     "Pink and orange"
+    ],
+    "answer": 2,
+    "hint": "Find the sentence that tells what the parrot looks like.",
+    "good": "Yes! The story says the parrot is green and yellow."
+   },
+   "evidence": {
+    "sentences": [
+     "Jamal has a pet parrot.",
+     "The parrot is green and yellow.",
+     "It can say \"hello.\"",
+     "Jamal gives it seeds every morning."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: green and yellow. Tap the sentence that tells the parrot's colour.",
+    "wrong": "This sentence tells something else. Find the sentence about the parrot's colour."
+   },
+   "checks": [
+    {
+     "passage": "Grandma and Hind made cookies. Hind cracked the eggs. Grandma put the tray in the oven.",
+     "stem": "Who are the characters?",
+     "options": [
+      "Grandma and Hind",
+      "Hind and Mom",
+      "Grandma and a dog",
+      "Hind and her brother"
+     ],
+     "answer": 0,
+     "why": "The story is about Grandma and Hind."
+    },
+    {
+     "passage": "Sami is a tall boy. He has a blue bike. He rides it to the shop.",
+     "stem": "What does Sami have?",
+     "options": [
+      "A red car",
+      "A blue bike",
+      "A black cat",
+      "A green kite"
+     ],
+     "answer": 1,
+     "why": "The story says he has a blue bike."
+    },
+    {
+     "passage": "The old turtle walked slowly. It had a hard brown shell. It ate green leaves.",
+     "stem": "What does the turtle eat?",
+     "options": [
+      "Fish",
+      "Bread",
+      "Seeds",
+      "Green leaves"
+     ],
+     "answer": 3,
+     "why": "The last sentence says it ate green leaves."
+    }
+   ],
+   "again": {
+    "title": "Who and what",
+    "text": "Point to each **name** in the story. That is a character.\n\nThen read what the story says **next to** the name. That is a detail.",
+    "example": "Lulu the cat sleeps on the sofa.\n\nWho? **Lulu the cat.** Detail? **She sleeps on the sofa.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Characters",
+     "text": "**Characters** are the people, animals or creatures in a story.\n\nThe **main character** is the one the story is mostly about. Other characters help or get in the way."
+    },
+    {
+     "title": "Kinds of details",
+     "text": "Stories give details about characters:\n\n1. **Looks**: tall, wears glasses.\n2. **Actions**: what they do.\n3. **Words**: what they say.\n4. **Likes and habits**: what they enjoy or do often."
+    },
+    {
+     "title": "Finding details",
+     "text": "1. Read the question. Which character? What kind of detail?\n2. Scan the story for that character's name or **he/she**.\n3. Read carefully around it to find the detail."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your answer by finding the **exact sentence** that gives the detail.\n\n1. Look for the character's name, or **he**, **she**, **they**.\n2. Check that the sentence is about **that** character, not someone else.\n3. Pick the answer the sentence shows."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Abdulaziz is the oldest of four brothers.",
+      "role": "main"
+     },
+     {
+      "t": "He wakes up early to make breakfast for everyone.",
+      "role": "detail"
+     },
+     {
+      "t": "His youngest brother, Omar, is always the last to the table.",
+      "role": "other"
+     },
+     {
+      "t": "Abdulaziz never complains, even when he is tired.",
+      "role": "key"
+     }
+    ],
+    "explain": "Details about **Abdulaziz**: oldest, makes breakfast, never complains.\n\nThe sentence about Omar is a detail about **another** character."
+   },
+   "together": {
+    "passage": "Uncle Saleh owns a small bookshop near the market. He wears round glasses and always has a pencil behind his ear. Every afternoon, children come to the shop after school. Uncle Saleh lets them read in a corner full of cushions. His cat, Zaytoon, sleeps on the highest shelf.",
+    "stem": "What does Uncle Saleh let the children do?",
+    "options": [
+     "Take books home without paying for them",
+     "Read in a corner full of cushions",
+     "Play with his cat on the shelf",
+     "Help him sell books at the market"
+    ],
+    "answer": 1,
+    "hint": "Find the sentence that tells what Uncle Saleh does for the children.",
+    "good": "Yes! He lets the children read in a corner full of cushions."
+   },
+   "evidence": {
+    "sentences": [
+     "Uncle Saleh owns a small bookshop near the market.",
+     "He wears round glasses and always has a pencil behind his ear.",
+     "Every afternoon, children come to the shop after school.",
+     "Uncle Saleh lets them read in a corner full of cushions.",
+     "His cat, Zaytoon, sleeps on the highest shelf."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: he lets them read in a corner full of cushions. Tap 2 sentences about Uncle Saleh and the children.",
+    "wrong": "This sentence tells about Uncle Saleh's shop, how he looks, or his cat. Find the sentences about the children."
+   },
+   "checks": [
+    {
+     "passage": "Muna is the fastest runner in her class. She has two long braids that fly behind her when she runs. Her best friend, Asma, is better at maths.",
+     "stem": "Who is better at maths?",
+     "options": [
+      "Muna",
+      "Muna's teacher",
+      "Asma",
+      "Muna's brother"
+     ],
+     "answer": 2,
+     "why": "The last sentence says Asma is better at maths."
+    },
+    {
+     "passage": "The fisherman had a grey beard and strong hands. Every morning, he sailed out before the sun came up. He always sang the same old song as he pulled in his nets.",
+     "stem": "Which detail tells about the fisherman's habits?",
+     "options": [
+      "He had a grey beard.",
+      "He had strong hands.",
+      "He had a small boat.",
+      "He sang the same song every morning."
+     ],
+     "answer": 3,
+     "why": "Singing the same song every time he fished is a habit. The beard and hands are about his looks."
+    },
+    {
+     "passage": "Two puppies lived on the farm. Bobo was brown and loved to dig. Max was white and liked to sleep in the sun.",
+     "stem": "Which puppy liked to dig?",
+     "options": [
+      "Bobo",
+      "Max",
+      "Both puppies",
+      "Neither puppy"
+     ],
+     "answer": 0,
+     "why": "The story says Bobo was brown and loved to dig."
+    }
+   ],
+   "again": {
+    "title": "Name hunt",
+    "text": "Circle every name in the story with your finger.\n\nThen, for each name, ask: **What does the story tell me about this one?**",
+    "example": "Lama has a red bag. Her teacher, Ms Huda, wears a green scarf.\n\nLama: **red bag**. Ms Huda: **green scarf**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Main and minor characters",
+     "text": "The **main character** is at the centre of the story. **Minor characters** appear less often, but they still matter: they help, warn, or challenge the main character."
+    },
+    {
+     "title": "Details tell you more",
+     "text": "Details about a character can show:\n\n1. How they **look**.\n2. What they **do** and **say**.\n3. How **others** treat them.\n4. What kind of person they are."
+    },
+    {
+     "title": "Reading closely",
+     "text": "Details are often spread through a story. A character may be described at the start and do something important at the end.\n\nCollect details from **all parts** of the story, and keep track of **who** each one is about."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentence that proves the detail.\n\n1. Track **pronouns** (he, she, they) back to the right character.\n2. Check whether a detail is about the main character or someone else.\n3. Choose the answer that matches the text exactly, not what seems likely."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Haya was the only girl in her family who could ride a horse.",
+      "role": "main"
+     },
+     {
+      "t": "She spent every weekend at her uncle's stables, brushing the horses until their coats shone.",
+      "role": "detail"
+     },
+     {
+      "t": "Her uncle, a quiet man with a white beard, rarely said much.",
+      "role": "other"
+     },
+     {
+      "t": "But when Haya won the junior riding race, he smiled and said she rode like her grandmother.",
+      "role": "key"
+     }
+    ],
+    "explain": "Haya is the **main character**. Her uncle is a **minor character**.\n\nThe last sentence gives a detail about Haya through her uncle's words: she rides **like her grandmother**, which shows her skill."
+   },
+   "together": {
+    "passage": "Every morning, Mr Khalid opened the school library at seven. He had worked there for twenty years and knew where every book was without looking. Students called him \"the walking catalogue.\" When a new student, Rawan, arrived, she was too shy to ask for help. Mr Khalid noticed her standing by the shelves and quietly placed a book about astronomy in front of her. It was exactly the subject she loved. From then on, Rawan visited the library every break.",
+    "stem": "What detail shows how well Mr Khalid knows the library?",
+    "options": [
+     "He opens the library at seven every single morning.",
+     "He knows where every book is without looking.",
+     "He notices Rawan standing by the shelves.",
+     "He gives Rawan a book about astronomy."
+    ],
+    "answer": 1,
+    "hint": "Which sentence tells about his knowledge of the books, not just his actions?",
+    "good": "Yes! Knowing where every book is without looking shows how well he knows the library. His nickname supports it too."
+   },
+   "evidence": {
+    "sentences": [
+     "Every morning, Mr Khalid opened the school library at seven.",
+     "He had worked there for twenty years and knew where every book was without looking.",
+     "Students called him \"the walking catalogue.\"",
+     "When a new student, Rawan, arrived, she was too shy to ask for help.",
+     "Mr Khalid noticed her standing by the shelves and quietly placed a book about astronomy in front of her.",
+     "It was exactly the subject she loved.",
+     "From then on, Rawan visited the library every break."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: he knows where every book is without looking. Tap 2 sentences that show how well he knows the library.",
+    "wrong": "This sentence tells about something else Mr Khalid or Rawan does. Find the details about his knowledge of the library."
+   },
+   "checks": [
+    {
+     "passage": "Nasser and his twin brother, Nawaf, look exactly alike. But Nasser loves building things with wood, while Nawaf would rather play chess. Their grandmother can always tell them apart by the sawdust on Nasser's clothes.",
+     "stem": "How does their grandmother tell the twins apart?",
+     "options": [
+      "By the sawdust on Nasser's clothes",
+      "By the chess set Nawaf carries",
+      "By the colour of their shirts",
+      "By the way they speak to her"
+     ],
+     "answer": 0,
+     "why": "The last sentence says she sees the sawdust on Nasser's clothes."
+    },
+    {
+     "passage": "The captain stood at the front of the boat, shouting orders. His first mate, a young man named Idris, checked the ropes twice before every storm. The cook stayed below, making sure there was always hot tea.",
+     "stem": "Who checks the ropes before every storm?",
+     "options": [
+      "The captain",
+      "The cook",
+      "Idris",
+      "The young sailors"
+     ],
+     "answer": 2,
+     "why": "The second sentence says the first mate, Idris, checked the ropes."
+    },
+    {
+     "passage": "Sahar had moved to the city from a village in the mountains. She missed the fresh air and the sound of the goats. At her new school, she sat by the window so she could see the sky.",
+     "stem": "Why does Sahar sit by the window?",
+     "options": [
+      "She wants to watch the goats.",
+      "She cannot see the board well.",
+      "She likes the sun on her face.",
+      "She wants to see the sky."
+     ],
+     "answer": 3,
+     "why": "The story says she sat by the window so she could see the sky."
+    }
+   ],
+   "again": {
+    "title": "Character card",
+    "text": "Make a card for each character:\n\n**Name** | **Looks** | **Does** | **Says**\n\nFill it in with details from the story. Then use the card to answer questions.",
+    "example": "Name: **Grandpa Fahd**. Looks: **white beard**. Does: **fixes old radios**. Says: **\"Nothing is too broken to fix.\"**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Characters in longer stories",
+     "text": "Longer stories have more characters and more details. Details may be **scattered**, **indirect**, or given through **other characters' eyes**.\n\nCareful readers track each character and notice which details matter."
+    },
+    {
+     "title": "Direct and indirect details",
+     "text": "**Direct**: the narrator tells you. \"Majed was impatient.\"\n\n**Indirect**: you are shown. \"Majed tapped his foot and checked the time again.\"\n\nBoth are details about the character, but indirect details need closer reading."
+    },
+    {
+     "title": "Careful tracking",
+     "text": "1. Note each character the first time they appear.\n2. Follow pronouns and descriptions (\"the old man\", \"her cousin\") back to the right person.\n3. Watch for details that **change**: a character may look or act differently later."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a detail about a character:\n\n1. Find every place the character appears, including pronouns and descriptions.\n2. Check that the detail belongs to **that** character.\n3. Choose the answer the text states or clearly shows.\n\nBe careful with choices that mix up two characters or add something the text never says."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The two sisters could not have been more different.",
+      "role": "other"
+     },
+     {
+      "t": "Reem, the elder, kept her desk perfectly neat and planned each day in a small notebook.",
+      "role": "detail"
+     },
+     {
+      "t": "Lujain, two years younger, left a trail of pencils and half-read books wherever she went.",
+      "role": "detail"
+     },
+     {
+      "t": "Yet it was Lujain who remembered every family birthday, and Reem who relied on her to remind her.",
+      "role": "key"
+     }
+    ],
+    "explain": "Each sister has her own details. Reem: **neat**, **plans in a notebook**. Lujain: **messy**, but **remembers birthdays**.\n\nThe last sentence gives a surprising detail: the messy sister is the one who never forgets."
+   },
+   "together": {
+    "passage": "The new neighbours arrived on a dusty afternoon in August. The father, a tall engineer with a quiet voice, carried boxes in from the truck without stopping to rest. His wife directed the movers with quick gestures, pointing to each room before they had asked. Their son, Hamdan, stayed in the car with a book about volcanoes, glancing up only when the family's elderly cat escaped through the open gate. In a moment, he was out of the car, chasing it down the street in his socks. Twenty minutes later, he returned with the cat in his arms and a scrape on his knee, grinning. That evening, Hamdan's grandmother, who had travelled with them, told the neighbours that the boy cared for that cat more than for anything else in the world.",
+    "stem": "Which detail shows how much Hamdan cares about the cat?",
+    "options": [
+     "He stays in the car reading a book about volcanoes.",
+     "His father carries boxes without stopping to rest.",
+     "He chases the cat down the street in his socks.",
+     "His mother points to each room before the movers ask."
+    ],
+    "answer": 2,
+    "hint": "Find what Hamdan does when the cat escapes. Be careful: some choices are about other characters.",
+    "good": "Yes! He jumps out at once and runs after the cat in his socks. His grandmother also says he cares for it more than anything."
+   },
+   "evidence": {
+    "sentences": [
+     "The new neighbours arrived on a dusty afternoon in August.",
+     "The father, a tall engineer with a quiet voice, carried boxes in from the truck without stopping to rest.",
+     "His wife directed the movers with quick gestures, pointing to each room before they had asked.",
+     "Their son, Hamdan, stayed in the car with a book about volcanoes, glancing up only when the family's elderly cat escaped through the open gate.",
+     "In a moment, he was out of the car, chasing it down the street in his socks.",
+     "Twenty minutes later, he returned with the cat in his arms and a scrape on his knee, grinning.",
+     "That evening, Hamdan's grandmother, who had travelled with them, told the neighbours that the boy cared for that cat more than for anything else in the world."
+    ],
+    "proof": [
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: he chases the cat down the street in his socks. Tap 2 sentences that show how much he cares about the cat.",
+    "wrong": "This sentence gives details about another character, or about Hamdan before the cat escapes. Find what he does for the cat, and what his grandmother says."
+   },
+   "checks": [
+    {
+     "passage": "Professor Amina was known for two things: her strict deadlines and the sweets she kept in a jar on her desk. Students who handed in work late received no excuses. But anyone who came to her office worried or upset left with a sweet and a kind word.",
+     "stem": "Which detail shows the professor's kind side?",
+     "options": [
+      "She sets strict deadlines.",
+      "She gives late students no excuses.",
+      "She keeps a jar on her desk for decoration.",
+      "She gives worried students a sweet and a kind word."
+     ],
+     "answer": 3,
+     "why": "The last sentence shows her kindness toward worried or upset students."
+    },
+    {
+     "passage": "When the storm knocked out the power, Hameed, the youngest, lit candles and counted them carefully. His cousin Jawad complained about the heat. Their grandfather, who had lived through many storms, simply opened the windows and began to tell stories.",
+     "stem": "Who lights the candles?",
+     "options": [
+      "Hameed",
+      "Jawad",
+      "Their grandfather",
+      "Their uncle"
+     ],
+     "answer": 0,
+     "why": "The first sentence says Hameed lit the candles and counted them."
+    },
+    {
+     "passage": "At first, the newcomer seemed unfriendly: he spoke little and sat at the edge of every gathering. But the old men of the village noticed that he was the first to arrive whenever someone needed help with their roof or their well, and the last to leave.",
+     "stem": "What detail does the village notice about the newcomer?",
+     "options": [
+      "He talks a great deal at gatherings.",
+      "He is always first to help and last to leave.",
+      "He refuses to help with roofs and wells.",
+      "He leaves the village after a few days."
+     ],
+     "answer": 1,
+     "why": "The old men noticed he was first to arrive and last to leave whenever someone needed help."
+    }
+   ],
+   "again": {
+    "title": "Follow the pronouns",
+    "text": "When a passage has many characters, write the name above every **he**, **she**, **his**, **her**.\n\nThen you will always know whose detail you are reading.",
+    "example": "\"Ali gave his brother the ball. He kicked it over the fence.\"\n\nWho kicked it? The nearest sensible person: **his brother**. Read on to check: if the next sentence says \"Ali's brother apologised,\" you were right."
+   }
+  }
+ }
+}

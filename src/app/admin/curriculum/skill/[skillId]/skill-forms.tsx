@@ -1,6 +1,7 @@
 "use client";
 import { useActionState } from "react";
 import { addPrerequisiteAction, linkStandardAction, updateSkillAction } from "../../actions";
+import { Combo } from "@/components/ui/combo";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 const btn = "rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-60";
@@ -36,10 +37,7 @@ export function PrerequisiteForm({ skillId, pool }: { skillId: string; pool: { i
     <form action={a} className="flex flex-wrap items-end gap-2">
       <input type="hidden" name="skillId" value={skillId} />
       <label className="block text-sm font-medium">Students should learn first
-        <select name="prerequisiteId" className={input} required defaultValue="">
-          <option value="" disabled>Choose a skill</option>
-          {pool.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}
-        </select>
+        <Combo name="prerequisiteId" required label="Choose a skill" options={pool.map((k) => ({ value: k.id, label: k.name }))} placeholder="Choose a skill" className="min-w-64" />
       </label>
       <label className="block text-sm font-medium">Needed mastery<input name="minimumMastery" type="number" min={0} max={100} defaultValue={60} className={input} /></label>
       <button disabled={p} className={btn}>Add prerequisite</button> <Msg s={s} />

@@ -1,0 +1,452 @@
+{
+ "code": "LN-031",
+ "title": "Taking part in a discussion",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Speaking and Listening",
+ "standards": [],
+ "families": [],
+ "skillNames": [
+  "Collaborative Discussion Skills"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Talking in a group",
+     "text": "In a **discussion**, a group talks about one topic.\n\nEveryone shares ideas. Everyone listens."
+    },
+    {
+     "title": "Good rules",
+     "text": "1. **Take turns**. Wait until the other person stops.\n2. **Listen** and look at the speaker.\n3. Be **kind**, even when you think something different."
+    },
+    {
+     "title": "Ask a question",
+     "text": "If you do not understand, **ask**.\n\n**What do you mean?**\n**Can you tell me more?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read what each person says and does.\n2. Find the words that show a rule was **kept** or **broken**.\n3. Point to those words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nora: I think we should paint the wall blue.",
+      "role": "detail"
+     },
+     {
+      "t": "Dana waits until Nora stops talking.",
+      "role": "key"
+     },
+     {
+      "t": "Dana: I like blue too, but what about green?",
+      "role": "detail"
+     }
+    ],
+    "explain": "Dana **waits** for her turn. Then she shares her idea kindly.\n\nShe follows the rules."
+   },
+   "together": {
+    "passage": "The group talks about a class pet. Huda says, \"Let's get a fish.\" Omar shouts, \"No! A rabbit!\" before Huda stops talking. Laila listens and then asks, \"Why a fish, Huda?\"",
+    "stem": "Who did NOT take turns?",
+    "options": [
+     "Huda",
+     "Laila",
+     "The teacher",
+     "Omar"
+    ],
+    "answer": 3,
+    "hint": "Who talked before the other person stopped?",
+    "good": "Yes! Omar shouted before Huda finished. He did not take turns."
+   },
+   "evidence": {
+    "sentences": [
+     "The group talks about a class pet.",
+     "Huda says, \"Let's get a fish.\"",
+     "Omar shouts, \"No! A rabbit!\" before Huda stops talking.",
+     "Laila listens and then asks, \"Why a fish, Huda?\""
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: Omar. Tap the sentence that proves it.",
+    "wrong": "This sentence does not show anyone breaking the rule. Find what Omar did."
+   },
+   "checks": [
+    {
+     "passage": "Sami is talking. Badr looks at Sami and listens.",
+     "stem": "What is Badr doing well?",
+     "options": [
+      "Talking fast",
+      "Listening",
+      "Shouting",
+      "Leaving"
+     ],
+     "answer": 1,
+     "why": "Badr looks at the speaker and listens. That is a good rule."
+    },
+    {
+     "passage": "Reem does not understand Sara's idea.",
+     "stem": "What should Reem say?",
+     "options": [
+      "Can you tell me more?",
+      "That is silly.",
+      "Stop talking.",
+      "I don't care."
+     ],
+     "answer": 0,
+     "why": "Asking a kind question helps Reem understand."
+    },
+    {
+     "passage": "Yousef thinks the trip should be to the zoo. Fahad thinks the park is better.",
+     "stem": "What is a kind thing for Fahad to say?",
+     "options": [
+      "The zoo is a bad idea, Yousef.",
+      "You are wrong, and I am right.",
+      "The zoo is fun, but I like the park more.",
+      "I won't go anywhere with you."
+     ],
+     "answer": 2,
+     "why": "Fahad shares a different idea and is still kind."
+    }
+   ],
+   "again": {
+    "title": "Ears, eyes, turn",
+    "text": "Remember three things.\n\n1. **Ears**: listen.\n2. **Eyes**: look at the speaker.\n3. **Turn**: wait, then talk.",
+    "example": "Ali talks. You listen and look at him.\n\nAli stops. Now you say: **I agree, and I also think…**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Come prepared",
+     "text": "Before a discussion, **read** or think about the topic.\n\nBring one or two ideas, and a reason for each."
+    },
+    {
+     "title": "Build on ideas",
+     "text": "Don't just say your own idea. **Connect** to what others said.\n\n**I agree with Sara, and I'd add that…**\n**Building on Ali's idea…**\n**That makes me think of…**"
+    },
+    {
+     "title": "Ask good questions",
+     "text": "Questions keep a discussion going.\n\n**Why do you think that?**\n**Can you give an example?**\n**What do others think?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To show someone **built on** an idea, point to two lines:\n\n1. the line with the **first** idea\n2. the line that **connects** to it and adds something new\n\nLook for words like **agree**, **add**, **also** and the other person's name."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Faris: We could raise money by selling cupcakes.",
+      "role": "detail"
+     },
+     {
+      "t": "Mona: Building on Faris's idea, we could also sell lemonade at the same table.",
+      "role": "key"
+     },
+     {
+      "t": "Saleh: I like football.",
+      "role": "other"
+     }
+    ],
+    "explain": "Mona names Faris's idea and **adds** to it.\n\nSaleh's comment does not connect to the topic at all."
+   },
+   "together": {
+    "passage": "The class is discussing how to keep the playground clean. Dana: We should put more bins near the benches. Rakan: I agree with Dana, and we could also make a poster to remind students. Huda: Can you give an example of what the poster would say? Turki: My brother has a new bike.",
+    "stem": "Which student builds on another student's idea?",
+    "options": [
+     "Turki",
+     "Dana",
+     "Rakan",
+     "Huda"
+    ],
+    "answer": 2,
+    "hint": "Who names another student and adds something new?",
+    "good": "Yes! Rakan agrees with Dana and adds the poster idea."
+   },
+   "evidence": {
+    "sentences": [
+     "The class is discussing how to keep the playground clean.",
+     "Dana: We should put more bins near the benches.",
+     "Rakan: I agree with Dana, and we could also make a poster to remind students.",
+     "Huda: Can you give an example of what the poster would say?",
+     "Turki: My brother has a new bike."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: Rakan. Tap 2 lines: the first idea and the line that builds on it.",
+    "wrong": "This line does not show the idea being built on. Find Dana's idea and Rakan's addition."
+   },
+   "checks": [
+    {
+     "passage": "Group topic: the best way to learn new words. Lina: I write new words in a notebook.",
+     "stem": "Which reply best builds on Lina's idea?",
+     "options": [
+      "I'm hungry. Is it time for lunch yet?",
+      "Learning words is boring, so I never do it.",
+      "What time does school finish today, Lina?",
+      "Like Lina, I use a notebook, and I draw a picture next to each word."
+     ],
+     "answer": 3,
+     "why": "It connects to Lina's idea and adds something new."
+    },
+    {
+     "passage": "Nasser: I think we should visit the science museum. Mariam: ___",
+     "stem": "Which is the best question for Mariam to ask?",
+     "options": [
+      "Why do you think the science museum is the best choice?",
+      "Why are you always wrong about everything?",
+      "Can we please stop talking about trips now?",
+      "Who cares about museums? They are boring."
+     ],
+     "answer": 0,
+     "why": "It asks Nasser for his reasons in a polite way, which keeps the discussion going."
+    },
+    {
+     "passage": "Before the class discussion on healthy food, Sultan read an article and wrote down two ideas.",
+     "stem": "Why is this a good thing to do?",
+     "options": [
+      "So he can talk for the whole discussion",
+      "So he does not have to listen to others",
+      "So he is ready to share ideas with reasons",
+      "So he can finish the discussion early"
+     ],
+     "answer": 2,
+     "why": "Preparing helps you share ideas and reasons in the discussion."
+    }
+   ],
+   "again": {
+    "title": "Pass the ball",
+    "text": "A discussion is like passing a ball.\n\n1. **Catch** the idea: listen.\n2. **Add** something: agree, add or ask.\n3. **Pass** it on: let someone else speak.",
+    "example": "Ahmad: **Reading at night helps me relax.**\n\nYou: **I agree, Ahmad, and it also helps me sleep. What do you read, Noor?**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Stay on topic",
+     "text": "Every comment should connect to the **question** the group is discussing.\n\nIf the talk wanders, guide it back: **That's interesting, but let's get back to…**"
+    },
+    {
+     "title": "Disagree respectfully",
+     "text": "Disagreeing is fine. Do it with **respect** and **reasons**.\n\n**I see your point, but I think… because…**\n**I understand, although the article says…**\n\nCriticize ideas, never people."
+    },
+    {
+     "title": "Use evidence and paraphrase",
+     "text": "Support your ideas with **evidence** from a text or from experience.\n\nCheck you understood others by **paraphrasing**: **So you're saying that…?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To judge a comment, look at its **words**.\n\n1. Does it show respect (I see your point, I understand)?\n2. Does it give a **reason** or **evidence** (because, the article says)?\n3. Does it stay on the **question**?\n\nPoint to the line that does all three."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Question: Should homework be given on weekends?",
+      "role": "other"
+     },
+     {
+      "t": "Rashed: Weekend homework is pointless and only lazy teachers give it.",
+      "role": "detail"
+     },
+     {
+      "t": "Amal: I see why you feel that way, but the article we read says short weekend reading improves vocabulary.",
+      "role": "key"
+     }
+    ],
+    "explain": "Rashed attacks people (lazy teachers) and gives no evidence.\n\nAmal **disagrees respectfully** and supports her view with **evidence** from a text."
+   },
+   "together": {
+    "passage": "Question: Should our school have a longer break? Noura: I think it should, because many students don't have time to finish lunch. Bader: That's a silly idea, and you always say silly things. Jana: I see your point, Noura, but a longer break means the school day ends later. The survey we read showed most parents want the day to end on time. Faisal: Did anyone watch the match last night?",
+    "stem": "Which student disagrees respectfully and supports the point with evidence?",
+    "options": [
+     "Bader",
+     "Noura",
+     "Faisal",
+     "Jana"
+    ],
+    "answer": 3,
+    "hint": "Find the student who is polite AND points to something they read.",
+    "good": "Yes! Jana acknowledges Noura's point and uses the survey as evidence."
+   },
+   "evidence": {
+    "sentences": [
+     "Question: Should our school have a longer break?",
+     "Noura: I think it should, because many students don't have time to finish lunch.",
+     "Bader: That's a silly idea, and you always say silly things.",
+     "Jana: I see your point, Noura, but a longer break means the school day ends later.",
+     "The survey we read showed most parents want the day to end on time.",
+     "Faisal: Did anyone watch the match last night?"
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Jana. Tap 2 sentences that show she is respectful and uses evidence.",
+    "wrong": "This sentence belongs to another speaker. Find Jana's polite disagreement and her evidence."
+   },
+   "checks": [
+    {
+     "passage": "In the same discussion, Faisal asked, \"Did anyone watch the match last night?\"",
+     "stem": "What is the problem with Faisal's comment?",
+     "options": [
+      "It is too long.",
+      "It is off topic.",
+      "It uses too much evidence.",
+      "It repeats Noura's idea."
+     ],
+     "answer": 1,
+     "why": "The question is about the school break, not a sports match."
+    },
+    {
+     "passage": "Mazen: I think we should plant trees because they give shade and clean the air. Rawan: ___",
+     "stem": "Which reply best paraphrases Mazen to check understanding?",
+     "options": [
+      "Trees are boring to plant and water every day.",
+      "I'd like to plant flowers instead of trees.",
+      "So you're saying trees would make the school cooler and healthier?",
+      "Plants need water every single day in summer."
+     ],
+     "answer": 2,
+     "why": "Rawan restates Mazen's idea in her own words to check she understood."
+    },
+    {
+     "passage": "The group is supposed to discuss ways to save water at home, but they have started talking about holidays.",
+     "stem": "What could a student say to help?",
+     "options": [
+      "Holidays are great, so let's keep talking about them.",
+      "That's interesting, but let's get back to saving water.",
+      "I'm leaving the group now, sorry, this is boring.",
+      "Who has the best holiday plan for this year?"
+     ],
+     "answer": 1,
+     "why": "It politely brings the group back to the topic."
+    }
+   ],
+   "again": {
+    "title": "The RRR check",
+    "text": "Before you speak, check your comment:\n\n1. **Relevant**: Is it about the question?\n2. **Respectful**: Am I talking about ideas, not people?\n3. **Reasoned**: Did I say **because**?",
+    "example": "Not great: **Your idea is dumb.**\n\nRRR: **I don't agree, because the class already has too many trips this term.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Move the discussion forward",
+     "text": "Strong participants do more than share opinions. They **pose questions** that deepen the talk, **connect** several speakers' ideas, and help the group reach a **conclusion**.\n\n**How does Sara's point change what Ali suggested?**"
+    },
+    {
+     "title": "Open to new evidence",
+     "text": "When someone shares strong evidence, a good participant may **qualify** or **change** their view.\n\n**After hearing the data, I now think…**\n**I still agree in part, but…**\n\nChanging your mind for good reasons is a strength."
+    },
+    {
+     "title": "Summarize and decide",
+     "text": "Near the end, someone should **synthesize**: name the main points, show where people agree and differ, and suggest a next step.\n\n**So far, we agree that…; we still disagree about…; maybe we could…**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To explain how a comment helps a discussion, look at its **function**.\n\n1. Does it summarize several speakers? Find the names or ideas it gathers.\n2. Does it change or qualify a view? Find the words that show the shift.\n3. Does it propose a next step?\n\nPoint to the lines that show each move."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Saud: I was sure a new sports field was the best use of the money.",
+      "role": "other"
+     },
+     {
+      "t": "Lulwa: The survey shows that more than half of students want a quiet reading space.",
+      "role": "detail"
+     },
+     {
+      "t": "Saud: After hearing that, I think we could split the budget instead of choosing only one.",
+      "role": "key"
+     }
+    ],
+    "explain": "Saud **qualifies** his view after new evidence. He moves from one choice to a compromise.\n\nThis helps the group move toward a decision."
+   },
+   "together": {
+    "passage": "Question: How should our class spend the prize money? Ali: A trip to the science centre would teach us the most. Maha: But the trip only lasts one day, while new books for the class library would last for years. Ali: That's a fair point; I hadn't thought about how long each option lasts. Salem: Could we ask the science centre whether they offer a cheaper half-day visit? Huda: So far, we agree that we want something educational, and we differ on whether it should last. Maybe we could spend most of the money on books and use the rest for Salem's half-day visit.",
+    "stem": "How does Huda's comment help the discussion?",
+    "options": [
+     "It introduces a new topic for the group to argue about.",
+     "It sums up where the group agrees and differs, then proposes a compromise.",
+     "It rejects every idea and asks to start again.",
+     "It repeats Ali's first idea without change."
+    ],
+    "answer": 1,
+    "hint": "Look at what Huda does first, and what she suggests at the end.",
+    "good": "Yes! Huda synthesizes the group's views and suggests a next step that combines two ideas."
+   },
+   "evidence": {
+    "sentences": [
+     "Question: How should our class spend the prize money?",
+     "Ali: A trip to the science centre would teach us the most.",
+     "Maha: But the trip only lasts one day, while new books for the class library would last for years.",
+     "Ali: That's a fair point; I hadn't thought about how long each option lasts.",
+     "Salem: Could we ask the science centre whether they offer a cheaper half-day visit?",
+     "Huda: So far, we agree that we want something educational, and we differ on whether it should last.",
+     "Maybe we could spend most of the money on books and use the rest for Salem's half-day visit."
+    ],
+    "proof": [
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: Huda sums up and proposes a compromise. Tap 2 sentences that show it.",
+    "wrong": "This sentence belongs to another speaker. Find Huda's summary and her suggestion."
+   },
+   "checks": [
+    {
+     "passage": "In the discussion above, Ali said: \"That's a fair point; I hadn't thought about how long each option lasts.\"",
+     "stem": "What does Ali's comment show?",
+     "options": [
+      "He refuses to listen to Maha's argument.",
+      "He is changing the topic to something new.",
+      "He is asking Maha for more evidence.",
+      "He is open to new ideas and is rethinking his view."
+     ],
+     "answer": 3,
+     "why": "Ali accepts Maha's reasoning, which shows he is willing to reconsider."
+    },
+    {
+     "passage": "In a discussion about school uniforms, everyone has shared an opinion, but the talk is going in circles.",
+     "stem": "Which question would best deepen the discussion?",
+     "options": [
+      "Who agrees with me, and who is on my side?",
+      "Can we stop now and just vote without talking?",
+      "What evidence would help us decide which option is better?",
+      "Why are you all so wrong about this today?"
+     ],
+     "answer": 2,
+     "why": "It pushes the group to look for evidence instead of repeating opinions."
+    },
+    {
+     "passage": "Reem: I think online lessons are better. Sultan: I think classroom lessons are better. Reem: Online is better. Sultan: No, classroom is better.",
+     "stem": "What is the biggest weakness of this exchange?",
+     "options": [
+      "Neither student gives reasons or responds to the other's ideas.",
+      "They use far too many examples and facts.",
+      "They both agree with each other too quickly.",
+      "Their language is much too formal for a class."
+     ],
+     "answer": 0,
+     "why": "They only repeat opinions. Without reasons or responses, the discussion cannot move forward."
+    }
+   ],
+   "again": {
+    "title": "Be the bridge",
+    "text": "Think of yourself as a **bridge** between speakers.\n\n1. **Name** two ideas you heard.\n2. Show how they **connect** or **differ**.\n3. Suggest a **next step**.",
+    "example": "\"Noura wants a longer break, and Jana worries about ending later. Could we take five minutes from assembly instead, so the day still ends on time?\""
+   }
+  }
+ }
+}

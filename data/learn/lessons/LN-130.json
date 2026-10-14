@@ -1,0 +1,484 @@
+{
+ "code": "LN-130",
+ "title": "Making inferences in nonfiction",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.3.3",
+  "RI.3.8",
+  "RI.4.3",
+  "RI.4.8",
+  "RI.5.3",
+  "RI.5.8",
+  "RI.6.3",
+  "RI.7.3",
+  "RI.8.3"
+ ],
+ "families": [
+  "inference"
+ ],
+ "skillNames": [
+  "Make Inferences"
+ ],
+ "statements": [
+  "R-0362",
+  "R-0363",
+  "R-0492",
+  "R-0529",
+  "R-0545",
+  "R-0551",
+  "R-0687",
+  "R-0695",
+  "R-0721",
+  "R-0733",
+  "R-0744",
+  "R-0753",
+  "R-0909",
+  "R-0915",
+  "R-0918",
+  "R-0921",
+  "R-1038",
+  "R-1045",
+  "R-1092"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an inference?",
+     "text": "Sometimes a text does **not** say something directly.\n\nYou use **clues** in the text and **what you know** to figure it out. This is called making an **inference**."
+    },
+    {
+     "title": "Clues + what I know",
+     "text": "**Clue**: The ground is wet. People have umbrellas.\n**What I know**: Rain makes things wet.\n**Inference**: It rained."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read the text.\n2. Find the **clues**.\n3. Think about what you **already know**.\n4. Put them together to make a smart guess."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good inference has **clues** in the text.\n\n1. Tap the sentences with the clues.\n2. Check: do the clues **point to** your answer?\n\nIf no sentence gives a clue, it is just a guess."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Polar bears have thick fur.",
+      "role": "key"
+     },
+     {
+      "t": "They also have a layer of fat under their skin.",
+      "role": "key"
+     },
+     {
+      "t": "They are good swimmers.",
+      "role": "other"
+     }
+    ],
+    "explain": "The text does not say it, but thick fur and fat both keep an animal warm.\n\nInference: **Polar bears live in a very cold place.**"
+   },
+   "together": {
+    "passage": "Some birds have long, thin beaks. They push their beaks deep into flowers. They drink the sweet nectar inside. Other birds have short, strong beaks.",
+    "stem": "What can you infer about long, thin beaks?",
+    "options": [
+     "They help birds crack hard nuts.",
+     "They help birds reach food deep inside flowers.",
+     "They help birds build nests.",
+     "They help birds sing."
+    ],
+    "answer": 1,
+    "hint": "The text tells what the long beaks go into. What do they get from there?",
+    "good": "Yes! Long beaks go deep into flowers to drink nectar, so their shape helps them reach that food."
+   },
+   "evidence": {
+    "sentences": [
+     "Some birds have long, thin beaks.",
+     "They push their beaks deep into flowers.",
+     "They drink the sweet nectar inside.",
+     "Other birds have short, strong beaks."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: long beaks help birds reach food deep inside flowers. Tap 2 sentences with clues.",
+    "wrong": "This sentence does not show what the long beaks do. Find the clues about how the birds use them."
+   },
+   "checks": [
+    {
+     "passage": "Cactus plants have thick stems. The stems store water. Cactus plants have sharp spines instead of leaves.",
+     "stem": "What can you infer about where cactus plants grow?",
+     "options": [
+      "In very wet places",
+      "Under the sea",
+      "In dry places with little rain",
+      "In cold, snowy places"
+     ],
+     "answer": 2,
+     "why": "Storing water is useful where there is little rain. So cactus plants grow in dry places."
+    },
+    {
+     "passage": "Ahmad's teacher gave him a gold star. She said, \"Great job on your spelling test!\"",
+     "stem": "What can you infer about Ahmad's test?",
+     "options": [
+      "He did very well.",
+      "He did not take it.",
+      "He lost it.",
+      "He did not study."
+     ],
+     "answer": 0,
+     "why": "A gold star and Great job are clues that he did very well."
+    },
+    {
+     "passage": "Many people stood in a long line outside the new bakery. Some people waited for an hour.",
+     "stem": "What can you infer about the bakery?",
+     "options": [
+      "It is closed.",
+      "It sells only shoes.",
+      "No one likes it.",
+      "Many people want to try it."
+     ],
+     "answer": 3,
+     "why": "A long line and a long wait are clues that many people want to try the bakery."
+    }
+   ],
+   "again": {
+    "title": "Be a detective",
+    "text": "A detective finds **clues** and solves a mystery.\n\nYou do the same: find clues in the text, then ask **What do they tell me?**",
+    "example": "Clues: Sara has a towel, goggles and a swimsuit.\nWhat do they tell me? **Sara is going swimming.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Inferences in true stories",
+     "text": "In true stories, authors often **show** rather than **tell**.\n\nThey describe what people **do** and **say**, and you infer what they **feel**, **want** or **mean**."
+    },
+    {
+     "title": "Read between the lines",
+     "text": "Text: Omar checked the clock again. He tapped his foot and looked at the door.\n\nThe author never says Omar is impatient, but his actions **show** it.\n\nInference: **Omar is impatient or waiting for someone.**"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Ask a question the text does not answer directly.\n2. Find **two or more** clues.\n3. Add what you know about people and the world.\n4. Choose the answer the clues **best** support."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the clues that **lead** to your inference.\n\n1. Look for actions, words and details.\n2. Make sure each clue points the same way.\n3. Reject answers that the clues do not support, even if they sound possible."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When the results were posted, Lina pushed through the crowd.",
+      "role": "other"
+     },
+     {
+      "t": "She ran her finger down the list, stopped, and then covered her mouth with both hands.",
+      "role": "key"
+     },
+     {
+      "t": "A moment later she was jumping and hugging her best friend.",
+      "role": "key"
+     }
+    ],
+    "explain": "The text never says she passed. But stopping at her name, covering her mouth, jumping and hugging all show **joy**.\n\nInference: **Lina got a result she was very happy about.**"
+   },
+   "together": {
+    "passage": "The summer my family moved to Abha, I brought my thickest sweater in my suitcase. Everyone laughed. My brother said, \"It's summer!\" On our first evening, we sat outside in the mountain air. My brother kept rubbing his arms and finally asked if he could borrow my sweater.",
+    "stem": "What can you infer about evenings in Abha?",
+    "options": [
+     "They are hotter than the days.",
+     "They can be cool, even in summer.",
+     "They are always rainy.",
+     "They are too noisy for sitting outside."
+    ],
+    "answer": 1,
+    "hint": "What does the brother do on the first evening? Why would he want a sweater?",
+    "good": "Yes! Rubbing his arms and asking for the sweater show the evening was cool, even though it was summer."
+   },
+   "evidence": {
+    "sentences": [
+     "The summer my family moved to Abha, I brought my thickest sweater in my suitcase.",
+     "Everyone laughed.",
+     "My brother said, \"It's summer!\"",
+     "On our first evening, we sat outside in the mountain air.",
+     "My brother kept rubbing his arms and finally asked if he could borrow my sweater."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: Abha's evenings can be cool, even in summer. Tap 2 sentences with clues.",
+    "wrong": "This sentence happens before the evening. Find the clues from the first evening in Abha."
+   },
+   "checks": [
+    {
+     "passage": "When the old fisherman returned, his boat sat low in the water. He was smiling and calling to his sons to bring more baskets.",
+     "stem": "What can you infer about the fishing trip?",
+     "options": [
+      "He caught a lot of fish.",
+      "He caught nothing.",
+      "His boat was broken.",
+      "His sons were angry."
+     ],
+     "answer": 0,
+     "why": "A boat sitting low, a smile and a call for more baskets suggest a big catch."
+    },
+    {
+     "passage": "My grandfather keeps every letter my father ever wrote to him. He keeps them in a wooden box and reads them often, even though some are forty years old.",
+     "stem": "What can you infer about the grandfather?",
+     "options": [
+      "He forgets things easily.",
+      "He does not like reading.",
+      "He treasures his son's letters.",
+      "He wants to throw them away."
+     ],
+     "answer": 2,
+     "why": "Keeping the letters for forty years and reading them often show he treasures them."
+    },
+    {
+     "passage": "Maha looked at her maths test. She looked at the window, then back at the test. Her pencil did not move for ten minutes.",
+     "stem": "What can you infer about Maha?",
+     "options": [
+      "She finished very quickly.",
+      "She was sleeping.",
+      "She was drawing a picture.",
+      "She was stuck on the test."
+     ],
+     "answer": 3,
+     "why": "Looking away and a pencil not moving for ten minutes are clues that she was stuck."
+    }
+   ],
+   "again": {
+    "title": "Show, don't tell",
+    "text": "Authors **show** feelings with actions. Ask: **If I did that, how would I be feeling?**",
+    "example": "He slammed the door and threw his bag on the floor.\nIf I did that, I would feel... **angry**.\nInference: **He is angry.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Evidence for inferences",
+     "text": "An inference is only as strong as its **evidence**. In literary nonfiction, the best inferences rest on **several details** that point the same way.\n\nYour job is to pick the inference **and** the details that support it."
+    },
+    {
+     "title": "Strong vs. weak support",
+     "text": "**Strong**: the detail directly leads to the inference.\n**Weak**: the detail is true but does not lead there, or leads somewhere else.\n\nA detail about the weather does not prove a person is generous."
+    },
+    {
+     "title": "Check your inference",
+     "text": "1. State the inference.\n2. Find **two or three** details that support it.\n3. Ask: Could these details lead to a **different** inference? If so, look for stronger ones."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the details that **best** support the inference.\n\n1. Each detail should give a reason to believe the inference.\n2. Skip details that set the scene but do not support it.\n3. More than one supporting detail makes the inference stronger."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In 1931, a young scientist arrived in a new country with one suitcase and a box of notebooks.",
+      "role": "other"
+     },
+     {
+      "t": "He had left his job, his home and most of his savings behind.",
+      "role": "key"
+     },
+     {
+      "t": "Asked why he carried the notebooks, he said they held ten years of research he could not lose.",
+      "role": "key"
+     }
+    ],
+    "explain": "Inference: **His research mattered more to him than his belongings.**\n\nHe left almost everything, but kept the notebooks and said he could not lose them. Both details support it."
+   },
+   "together": {
+    "passage": "The first time Saeed entered the robotics competition, his team's robot stopped working in the first round. On the bus home, while the others talked, he sat by the window sketching new designs. That year, he spent weekends at the public library reading about motors. He even took apart an old fan to see how it worked. When the next competition came, his team's robot reached the final round.",
+    "stem": "Which inference about Saeed is best supported by the text?",
+    "options": [
+     "He was upset and decided to quit robotics.",
+     "He liked riding the bus more than building robots.",
+     "He learned from failure and worked hard to improve.",
+     "He thought the competition was unfair."
+    ],
+    "answer": 2,
+    "hint": "Look at what Saeed did after the robot stopped working. Did he quit or keep going?",
+    "good": "Yes! Sketching new designs, reading about motors and taking apart a fan show he learned from failure and worked to improve."
+   },
+   "evidence": {
+    "sentences": [
+     "The first time Saeed entered the robotics competition, his team's robot stopped working in the first round.",
+     "On the bus home, while the others talked, he sat by the window sketching new designs.",
+     "That year, he spent weekends at the public library reading about motors.",
+     "He even took apart an old fan to see how it worked.",
+     "When the next competition came, his team's robot reached the final round."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Saeed learned from failure and worked hard to improve. Tap 2 sentences that best support this inference.",
+    "wrong": "This sentence tells what happened in a competition, not what Saeed did to improve. Find his actions."
+   },
+   "checks": [
+    {
+     "passage": "Before the race, Huda checked her shoelaces three times. She bounced on her toes and kept glancing at the other runners. When her name was called, she took a deep breath.",
+     "stem": "Which detail BEST supports the inference that Huda was nervous?",
+     "options": [
+      "Her name was called.",
+      "She checked her shoelaces three times.",
+      "There were other runners.",
+      "It was a race."
+     ],
+     "answer": 1,
+     "why": "Checking her laces again and again is a nervous habit, so it supports the inference."
+    },
+    {
+     "passage": "Our neighbour, Abu Fahad, waters the trees along our street every evening, even though they are not in front of his house. When a storm broke a branch, he was the first one outside with a saw.",
+     "stem": "Which inference is best supported by the details?",
+     "options": [
+      "Abu Fahad cares about his neighbourhood.",
+      "Abu Fahad owns all the trees on the street.",
+      "Abu Fahad dislikes storms.",
+      "Abu Fahad works as a carpenter."
+     ],
+     "answer": 0,
+     "why": "Caring for trees that are not his and fixing storm damage first both show he cares about the neighbourhood."
+    },
+    {
+     "passage": "In her diary, the explorer wrote that she had eaten nothing but dry bread for four days. Yet each page ended with notes about the birds she had seen and drawings of their nests.",
+     "stem": "Which inference do the details best support?",
+     "options": [
+      "She did not like birds.",
+      "She had plenty of food.",
+      "She stopped writing in her diary.",
+      "Her interest in her work kept her going in hard times."
+     ],
+     "answer": 3,
+     "why": "Despite eating only dry bread, she kept recording birds, showing her work mattered more than her comfort."
+    }
+   ],
+   "again": {
+    "title": "Because... and because...",
+    "text": "Say your inference, then add **because** twice, with two details.\n\nIf you can find two becauses in the text, your inference is well supported.",
+    "example": "Inference: The baby was tired.\n**Because** she kept rubbing her eyes. **And because** she fell asleep in the car.\nTwo becauses: well supported!"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Inferences in informational text",
+     "text": "Informational texts give facts, data and explanations. Skilled readers go further: they infer **causes**, **consequences**, **relationships** and **what the author implies**.\n\nThe text gives pieces; you connect them."
+    },
+    {
+     "title": "Kinds of inferences",
+     "text": "1. **Cause**: why something likely happened.\n2. **Consequence**: what will likely happen next.\n3. **Relationship**: how two facts connect.\n4. **Implication**: what the author suggests without stating it."
+    },
+    {
+     "title": "Avoid overreaching",
+     "text": "A valid inference stays close to the evidence.\n\n**Overreaching** means claiming more than the text supports, such as turning some into all, or may into will.\n\nPick the answer that is **supported**, not the most dramatic."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Connect at least **two pieces of information** to support your inference.\n\n1. Tap the facts that, together, lead to your conclusion.\n2. Check that the inference does not go beyond them.\n3. Reject choices that contradict the text or overreach."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In the 1800s, the population of a European city doubled in twenty years.",
+      "role": "detail"
+     },
+     {
+      "t": "During the same period, the city did not build any new water pipes or sewers.",
+      "role": "detail"
+     },
+     {
+      "t": "Records show that outbreaks of disease became far more common in those decades.",
+      "role": "key"
+     }
+    ],
+    "explain": "The text never says the crowding caused disease. But more people plus no new water or sewer systems, followed by more outbreaks, supports the inference: **overcrowding without clean water helped disease spread.**"
+   },
+   "together": {
+    "passage": "Monarch butterflies in North America travel up to 4,000 kilometres each autumn to spend the winter in mountain forests in Mexico. They depend on milkweed, the only plant on which they lay their eggs and the only food their caterpillars eat. Over recent decades, large areas of milkweed have been cleared to make way for farms and roads. During the same period, the number of monarchs reaching Mexico has dropped sharply. Some communities now plant milkweed in gardens and along highways.",
+    "stem": "Which inference is best supported by the passage?",
+    "options": [
+     "Monarch butterflies no longer travel to Mexico.",
+     "The loss of milkweed has likely contributed to the drop in monarch numbers.",
+     "Farms and roads help monarchs find food.",
+     "Planting milkweed will certainly save every monarch."
+    ],
+    "answer": 1,
+    "hint": "Which facts are connected: what monarchs need, what has been cleared, and what has happened to their numbers?",
+    "good": "Yes! Monarchs need milkweed, milkweed has been cleared, and their numbers have dropped, so the loss of milkweed likely played a part."
+   },
+   "evidence": {
+    "sentences": [
+     "Monarch butterflies in North America travel up to 4,000 kilometres each autumn to spend the winter in mountain forests in Mexico.",
+     "They depend on milkweed, the only plant on which they lay their eggs and the only food their caterpillars eat.",
+     "Over recent decades, large areas of milkweed have been cleared to make way for farms and roads.",
+     "During the same period, the number of monarchs reaching Mexico has dropped sharply.",
+     "Some communities now plant milkweed in gardens and along highways."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the loss of milkweed has likely contributed to the drop in monarchs. Tap 2 sentences you connect to reach this inference.",
+    "wrong": "This sentence describes the journey, not the link between milkweed and monarch numbers. Find the facts you connect."
+   },
+   "checks": [
+    {
+     "passage": "A study found that students who walked or cycled to school arrived with higher concentration scores than those who came by car. The effect lasted for up to four hours into the school day.",
+     "stem": "Which inference is best supported?",
+     "options": [
+      "Morning exercise may help students focus in class.",
+      "Cars make students less intelligent.",
+      "All students must cycle to school.",
+      "Concentration only matters in the morning."
+     ],
+     "answer": 0,
+     "why": "Higher concentration after walking or cycling suggests exercise may help focus. The other choices overreach."
+    },
+    {
+     "passage": "After a city added bus lanes on its main road, bus trips became 15 minutes faster. The next year, the number of people riding the bus rose by a third.",
+     "stem": "What can be inferred from these facts?",
+     "options": [
+      "Bus lanes made the road wider.",
+      "Everyone in the city now rides the bus.",
+      "Faster trips likely attracted more riders.",
+      "Cars are no longer allowed in the city."
+     ],
+     "answer": 2,
+     "why": "Faster trips came first and ridership rose after, suggesting one encouraged the other. The other choices are not supported."
+    },
+    {
+     "passage": "Ancient coins from the Roman Empire have been found in southern India. Roman writers also described buying pepper and other spices from distant eastern lands.",
+     "stem": "What can be inferred from these two pieces of evidence?",
+     "options": [
+      "Roman soldiers lived in India.",
+      "India made coins for Rome.",
+      "Pepper grew in Rome.",
+      "Rome traded with India, likely paying coins for spices."
+     ],
+     "answer": 3,
+     "why": "Roman coins in India plus Roman writing about buying spices from the east suggest trade, with coins used as payment."
+    }
+   ],
+   "again": {
+    "title": "Fact + fact = maybe",
+    "text": "Join two facts with **and**, then add **so maybe**.\n\nIf the maybe stays close to the facts, it is a good inference.",
+    "example": "Fact: The lake had fewer fish this year. **And** a factory began releasing warm water into it.\n**So maybe** the warmer water harmed the fish. (Close to the facts: a good inference.)"
+   }
+  }
+ }
+}

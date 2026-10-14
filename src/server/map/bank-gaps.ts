@@ -5,38 +5,51 @@
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { gradeAreaSkills } from "./recommend";
+import { countGroups } from "../db/group-count";
 
 const s = (v: unknown) => String(v ?? "");
 export interface GapRow { grade: number; area: string; subject: string; questions: number; skills: number; studentsWeakest: number; perStudent: number | null; status: "GAP" | "LOW" | "OK" }
 
 export async function bankGaps(repo: Repo, actor: Actor): Promise<GapRow[]> {
   assertCan(actor, "questions:read");
-  const grades = (await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] })).map((g) => Number(g.level)).filter((g) => g > 0).sort();
-  const areas = await repo.findMany("MapGoalArea", {}, { select: ["id", "name", "subject"] });
-  const students = await repo.findMany("Student", { schoolId: actor.schoolId, deletedAt: null }, { select: ["id", "gradeId"] });
-  const gradeRows = await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] });
+  // ⚡ Update 57: independent reads side by side, only the columns used, the goal rows only, students grouped once
+  const [gradeRows, areas, students] = await Promise.all([
+    repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] }),
+    repo.findMany("MapGoalArea", {}, { select: ["id", "name", "subject"] }),
+    repo.findMany("Student", { schoolId: actor.schoolId, deletedAt: null }, { select: ["id", "gradeId"] }),
+  ]);
+  const grades = gradeRows.map((g) => Number(g.level)).filter((g) => g > 0).sort();
   const levelOf = new Map(gradeRows.map((g) => [s(g.id), Number(g.level)]));
-  const goals = students.length ? (await repo.findMany("MapResult", { studentId: { in: students.map((x) => x.id) } })).filter((r) => r.goalName && r.goalAreaId) : [];
+  const subjectOf = new Map(areas.map((a) => [s(a.id), s(a.subject)]));
+  const [goals, areaSkills] = await Promise.all([
+    students.length ? repo.findMany("MapResult", { studentId: { in: students.map((x) => x.id) }, goalAreaId: { not: null } }, { select: ["studentId", "goalName", "goalAreaId", "termName", "rit"] }).then((r) => r.filter((x) => x.goalName && x.goalAreaId)) : Promise.resolve([]),
+    Promise.all(grades.map((g) => gradeAreaSkills(repo, actor.schoolId!, g, true))),
+  ]);
+  const goalsOf = new Map<string, typeof goals>();
+  for (const g of goals) { const k = s(g.studentId); const l = goalsOf.get(k); if (l) l.push(g); else goalsOf.set(k, [g]); }
   // each student's weakest area per subject (latest term of that student)
   const weakest = new Map<string, number>(); // `${grade}|${areaId}` → students
   for (const st of students) {
-    const mine = goals.filter((g) => g.studentId === st.id);
+    const mine = goalsOf.get(s(st.id)) ?? [];
     if (!mine.length) continue;
     const latest = mine.reduce((x, g) => (s(g.termName) > x ? s(g.termName) : x), "");
     for (const subj of ["READING", "LANGUAGE_USAGE"]) {
-      const ofSubj = mine.filter((g) => s(g.termName) === latest && areas.find((a) => a.id === g.goalAreaId)?.subject === subj);
+      const ofSubj = mine.filter((g) => s(g.termName) === latest && subjectOf.get(s(g.goalAreaId)) === subj);
       if (!ofSubj.length) continue;
       const w = ofSubj.reduce((x, g) => (Number(g.rit) < Number(x.rit) ? g : x));
       const key = `${levelOf.get(s(st.gradeId))}|${s(w.goalAreaId)}`;
       weakest.set(key, (weakest.get(key) ?? 0) + 1);
     }
   }
+  // the published questions of every skill in ONE grouped count (before: one count per grade × area)
+  const allSkills = [...new Set(areaSkills.flatMap((as) => as.flatMap((x) => x.skills.map((k) => k.id))))];
+  const perSkill = allSkills.length ? await countGroups(repo, "Question", "skillId", { skillId: { in: allSkills }, status: "PUBLISHED", deletedAt: null }) : new Map<string, number>();
   const rows: GapRow[] = [];
-  for (const g of grades) {
-    const as = await gradeAreaSkills(repo, actor.schoolId!, g, true);
+  for (const [gi, g] of grades.entries()) {
+    const as = areaSkills[gi];
     for (const a of areas) {
       const sk = as.find((x) => x.areaId === s(a.id))?.skills ?? [];
-      const questions = sk.length ? await repo.count("Question", { skillId: { in: sk.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null }) : 0;
+      const questions = [...new Set(sk.map((k) => k.id))].reduce((t, id) => t + (perSkill.get(id) ?? 0), 0);
       const need = weakest.get(`${g}|${s(a.id)}`) ?? 0;
       const perStudent = need ? Math.round((questions / need) * 10) / 10 : null;
       rows.push({ grade: g, area: s(a.name), subject: s(a.subject) === "READING" ? "Reading" : "Language Usage", questions, skills: sk.length, studentsWeakest: need, perStudent, status: questions === 0 ? "GAP" : need && questions < need * 5 ? "LOW" : "OK" });

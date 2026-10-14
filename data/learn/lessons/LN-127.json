@@ -1,0 +1,495 @@
+{
+ "code": "LN-127",
+ "title": "Purpose of a section",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.3.8",
+  "RI.4.5",
+  "RI.4.8",
+  "RI.5.3",
+  "RI.5.8",
+  "RI.6.5",
+  "RI.7.5",
+  "RI.8.5"
+ ],
+ "families": [
+  "author-purpose"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0335",
+  "R-0493",
+  "R-0679",
+  "R-0688",
+  "R-0742",
+  "R-0868",
+  "R-0869",
+  "R-1007"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Texts have parts",
+     "text": "Many texts are made of **parts**, called **sections**. Each section often has a **heading**: a small title.\n\nEach section has a **job** in the text."
+    },
+    {
+     "title": "Section jobs",
+     "text": "A section might:\n\n1. **Tell what** something is.\n2. **Tell how** to do something.\n3. **Give a warning** to keep you safe.\n4. **Tell why** something matters."
+    },
+    {
+     "title": "Find the job",
+     "text": "1. Read the heading.\n2. Read the section.\n3. Ask: **Why is this part here? What does it do?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The **heading** and the **sentences** in the section show its job.\n\n1. Look at the heading.\n2. Tap the sentences that do the job.\n\nIf a sentence is in a **different** section, it does not show this section's job."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "What Is a Kite: A kite is a toy that flies in the wind.",
+      "role": "other"
+     },
+     {
+      "t": "How to Fly a Kite: Hold the string.",
+      "role": "key"
+     },
+     {
+      "t": "Run into the wind.",
+      "role": "key"
+     },
+     {
+      "t": "Let the string out slowly.",
+      "role": "key"
+     }
+    ],
+    "explain": "The section **How to Fly a Kite** gives **steps**. Its job is to tell you **how** to fly a kite."
+   },
+   "together": {
+    "passage": "Our Class Fish: Our class has a goldfish named Sunny. He is orange.\n\nHow to Feed Sunny: Give him a small pinch of food. Feed him only once a day. Too much food can make him sick.",
+    "stem": "What is the job of the section How to Feed Sunny?",
+    "options": [
+     "To tell what colour Sunny is.",
+     "To tell how to feed the fish.",
+     "To tell the fish's name.",
+     "To tell about our class."
+    ],
+    "answer": 1,
+    "hint": "Read the heading of the second section. What does it tell you to do?",
+    "good": "Yes! The section tells how much food to give and how often."
+   },
+   "evidence": {
+    "sentences": [
+     "Our Class Fish: Our class has a goldfish named Sunny.",
+     "He is orange.",
+     "How to Feed Sunny: Give him a small pinch of food.",
+     "Feed him only once a day.",
+     "Too much food can make him sick."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to tell how to feed the fish. Tap 2 sentences from that section that show it.",
+    "wrong": "This sentence is in the first section. Find sentences from How to Feed Sunny."
+   },
+   "checks": [
+    {
+     "passage": "Bike Safety: Always wear a helmet. Stop at every corner. Watch out for cars.",
+     "stem": "What is the job of this section?",
+     "options": [
+      "To tell how bikes are made.",
+      "To tell a story.",
+      "To tell how to be safe on a bike.",
+      "To sell bikes."
+     ],
+     "answer": 2,
+     "why": "Helmet, stopping and watching for cars are all ways to stay safe."
+    },
+    {
+     "passage": "Why We Need Sleep: Sleep helps your body grow. It helps your brain learn. It gives you energy.",
+     "stem": "What is the job of this section?",
+     "options": [
+      "To tell why sleep is important.",
+      "To tell what time to go to bed.",
+      "To tell about dreams.",
+      "To tell how to make a bed."
+     ],
+     "answer": 0,
+     "why": "The heading says Why, and each sentence gives a reason sleep matters."
+    },
+    {
+     "passage": "What Is a Desert: A desert is a very dry place. It gets very little rain.",
+     "stem": "What is the job of this section?",
+     "options": [
+      "To tell how to visit a desert.",
+      "To warn about snakes.",
+      "To tell a story about camels.",
+      "To tell what a desert is."
+     ],
+     "answer": 3,
+     "why": "The heading asks What Is, and the sentences explain what a desert is."
+    }
+   ],
+   "again": {
+    "title": "Ask the heading",
+    "text": "Turn the heading into a **question**.\n\nThe section **answers** that question. That is its job.",
+    "example": "Heading: How Bees Make Honey.\nQuestion: **How do bees make honey?**\nThe section's job: **to explain how bees make honey.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Sections have purposes",
+     "text": "Authors divide informational texts into **sections** so readers can find information easily.\n\nEach section has a **specific purpose**: a reason the author included it."
+    },
+    {
+     "title": "Common purposes",
+     "text": "1. To **introduce** the topic.\n2. To **explain** how something works.\n3. To give **examples** or **steps**.\n4. To describe a **problem** or a **solution**.\n5. To **warn** or give **advice**.\n6. To **sum up** the main points."
+    },
+    {
+     "title": "Find the purpose",
+     "text": "1. Read the heading, if there is one.\n2. Read the whole section.\n3. Ask: **What does this section add to the text that other sections do not?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a section's purpose with its **own sentences**.\n\n1. Find the section in the passage.\n2. Tap the sentences that show what it does: explain, warn, give steps...\n3. Do not use sentences from **other** sections as proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sandstorms: A sandstorm is a strong wind that carries sand and dust through the air.",
+      "role": "other"
+     },
+     {
+      "t": "They are common in desert regions in spring and summer.",
+      "role": "detail"
+     },
+     {
+      "t": "Staying Safe: Stay indoors and close all windows.",
+      "role": "key"
+     },
+     {
+      "t": "If you must go out, cover your nose and mouth with a cloth.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first section **explains** what a sandstorm is. The second section, **Staying Safe**, gives **advice** to protect yourself.\n\nThe purpose of Staying Safe is to tell readers **what to do** during a sandstorm."
+   },
+   "together": {
+    "passage": "The Arabian Horse: The Arabian horse is one of the oldest horse breeds in the world. It is known for its curved head and high tail.\n\nBuilt for the Desert: Arabian horses have large nostrils that help them breathe deeply. Their strong bones let them travel long distances. They can carry riders for hours in the heat.\n\nHorses Today: Today, Arabian horses take part in races and shows around the world.",
+    "stem": "What is the purpose of the section Built for the Desert?",
+    "options": [
+     "To describe Arabian horse races and shows today",
+     "To explain how the horse's body helps it survive in the desert",
+     "To introduce the topic of the Arabian horse",
+     "To tell the long history of the Arabian breed"
+    ],
+    "answer": 1,
+    "hint": "Read the sentences in that section. Are they about the past, today, or the horse's body?",
+    "good": "Yes! Large nostrils, strong bones and carrying riders in the heat all explain how the horse is suited to the desert."
+   },
+   "evidence": {
+    "sentences": [
+     "The Arabian Horse: The Arabian horse is one of the oldest horse breeds in the world.",
+     "It is known for its curved head and high tail.",
+     "Built for the Desert: Arabian horses have large nostrils that help them breathe deeply.",
+     "Their strong bones let them travel long distances.",
+     "They can carry riders for hours in the heat.",
+     "Horses Today: Today, Arabian horses take part in races and shows around the world."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to explain how the horse's body helps it survive in the desert. Tap 2 sentences from that section that show this.",
+    "wrong": "This sentence belongs to a different section. Find sentences from Built for the Desert."
+   },
+   "checks": [
+    {
+     "passage": "How Volcanoes Form: Deep under the ground, rock melts into magma. When pressure builds up, magma pushes up through cracks in the Earth's crust.\n\nHarrat Rahat: Saudi Arabia has volcanic fields called harrats. Harrat Rahat, near Madinah, last erupted in 1256.",
+     "stem": "What is the purpose of the second section?",
+     "options": [
+      "To give a real example of a volcanic area in Saudi Arabia",
+      "To warn people that they should leave Madinah",
+      "To explain how rock melts into magma underground",
+      "To explain what pressure is and how it builds"
+     ],
+     "answer": 0,
+     "why": "After explaining how volcanoes form, the author gives a real local example."
+    },
+    {
+     "passage": "The Problem: Many students forget their water bottles and feel tired by noon.\n\nOur Idea: We will put a water station in each hallway so students can fill cups during breaks.",
+     "stem": "What is the purpose of the section Our Idea?",
+     "options": [
+      "To describe the problem",
+      "To list students' names",
+      "To offer a solution to the problem",
+      "To explain why water is wet"
+     ],
+     "answer": 2,
+     "why": "The first section gives a problem; Our Idea gives a solution."
+    },
+    {
+     "passage": "Getting Started: You need flour, water, salt and yeast.\n\nStep by Step: Mix the ingredients. Knead the dough. Let it rise for an hour. Bake it.\n\nTips: Keep the dough in a warm place so it rises well.",
+     "stem": "What is the purpose of the section Tips?",
+     "options": [
+      "To list the ingredients",
+      "To give the main steps in order",
+      "To tell the history of bread",
+      "To give extra advice for better results"
+     ],
+     "answer": 3,
+     "why": "Tips adds advice, keeping the dough warm, to help the bread turn out well."
+    }
+   ],
+   "again": {
+    "title": "What would be missing?",
+    "text": "Imagine the section is **removed**.\n\nWhat would the reader **not know** anymore? That missing piece is the section's purpose.",
+    "example": "Remove the section Safety Rules from a text about swimming.\nWhat is missing? **How to stay safe in the water.**\nPurpose: **to give safety advice.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Sections in true stories",
+     "text": "**Literary nonfiction** (biographies, memoirs, true adventures) is also built from sections or paragraphs, each with a purpose.\n\nA section might give **background**, show a **turning point**, describe a **challenge**, or reflect on **what it meant**."
+    },
+    {
+     "title": "Purpose and the whole",
+     "text": "To find a section's purpose, think about the **whole** story.\n\nAsk: **How does this part help the author tell the story or make the point?** Does it set the scene? Build suspense? Show change? Explain a result?"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Summarize the section in a few words.\n2. Look at what comes **before** and **after** it.\n3. Name its job: background, challenge, turning point, result, reflection."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your answer with sentences **in that section** and, if needed, what it connects to.\n\n1. Tap the sentences that show the section's job.\n2. Check how they connect to the rest of the story.\n3. Reject answers that describe a different section."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Paragraph 1: Before 1903, many people believed that humans would never fly.",
+      "role": "other"
+     },
+     {
+      "t": "Paragraph 2: The Wright brothers ran a bicycle shop and spent years testing gliders.",
+      "role": "detail"
+     },
+     {
+      "t": "Paragraph 3: On 17 December 1903, their airplane stayed in the air for 12 seconds.",
+      "role": "key"
+     },
+     {
+      "t": "It was the first powered, controlled flight in history.",
+      "role": "key"
+     }
+    ],
+    "explain": "Paragraph 1 gives **background**. Paragraph 2 shows the **effort**. Paragraph 3 is the **turning point**: the first flight.\n\nThe purpose of paragraph 3 is to show **the moment their work succeeded**."
+   },
+   "together": {
+    "passage": "When Sultan was eight, his family moved from a small village to the city. He could not read well, and the other children laughed when he stumbled over words.\n\nEvery evening, his grandmother sat with him under the lamp. She traced letters with her finger and made up stories using the words he knew. Slowly, the letters began to make sense.\n\nYears later, Sultan became a teacher. On his first day, he noticed a quiet boy who hid his book. Sultan smiled and pulled up a chair beside him.",
+    "stem": "What is the purpose of the last section?",
+    "options": [
+     "To describe the village where Sultan grew up",
+     "To show how Sultan passes on the help he once received",
+     "To explain how the grandmother learned to read",
+     "To list the books Sultan read as a boy"
+    ],
+    "answer": 1,
+    "hint": "Look at what Sultan does in the last section. Who does it remind you of?",
+    "good": "Yes! Sitting beside a struggling boy shows Sultan doing for others what his grandmother did for him."
+   },
+   "evidence": {
+    "sentences": [
+     "When Sultan was eight, his family moved from a small village to the city.",
+     "He could not read well, and the other children laughed when he stumbled over words.",
+     "Every evening, his grandmother sat with him under the lamp.",
+     "She traced letters with her finger and made up stories using the words he knew.",
+     "Slowly, the letters began to make sense.",
+     "Years later, Sultan became a teacher.",
+     "On his first day, he noticed a quiet boy who hid his book.",
+     "Sultan smiled and pulled up a chair beside him."
+    ],
+    "proof": [
+     6,
+     7
+    ],
+    "need": 2,
+    "stem": "The answer was: to show how Sultan passes on the help he once received. Tap 2 sentences from the last section that show this.",
+    "wrong": "This sentence is from an earlier section. Find sentences in the last section about what Sultan does as a teacher."
+   },
+   "checks": [
+    {
+     "passage": "In 1912, the Titanic set out on its first voyage, called unsinkable by many.\n\nOn the night of 14 April, it struck an iceberg. Water poured in, and there were not enough lifeboats for everyone.\n\nAfter the disaster, new rules required enough lifeboats for every passenger.",
+     "stem": "What is the purpose of the final section?",
+     "options": [
+      "To describe the ship's first voyage",
+      "To show a lasting result of the disaster",
+      "To explain what happened when the ship hit the iceberg",
+      "To describe the size of the iceberg"
+     ],
+     "answer": 1,
+     "why": "The last section tells how the disaster led to new safety rules: a result."
+    },
+    {
+     "passage": "My grandfather was a pearl diver in his youth. He dived from a wooden boat with only a nose clip and a rope.\n\nHe once told me that the sea taught him patience: you could dive a hundred times and find nothing, then one oyster could change everything.",
+     "stem": "What is the purpose of the second section?",
+     "options": [
+      "To describe the wooden boat he dived from",
+      "To explain how pearls form inside oysters",
+      "To give the grandfather's age when he dived",
+      "To share the lesson the grandfather learned from his work"
+     ],
+     "answer": 3,
+     "why": "The second section reflects on what diving taught him: patience."
+    },
+    {
+     "passage": "Ibn al-Haytham lived over a thousand years ago. Many scholars of his time believed that the eye sent out rays to see objects.\n\nIbn al-Haytham tested this idea in careful experiments with light and dark rooms. He showed that we see because light travels from objects into the eye.",
+     "stem": "What is the purpose of the first section?",
+     "options": [
+      "To show the old belief that his work would challenge",
+      "To describe his experiments with light",
+      "To explain how the human eye works",
+      "To tell where Ibn al-Haytham was born"
+     ],
+     "answer": 0,
+     "why": "The first section sets up the old idea; the second shows how he tested and corrected it."
+    }
+   ],
+   "again": {
+    "title": "Beginning, middle, end jobs",
+    "text": "In a true story, sections often do these jobs:\n\n**Beginning**: background or problem.\n**Middle**: effort, challenge or turning point.\n**End**: result or lesson.\n\nFind where the section sits, then check its job.",
+    "example": "A story about a runner: section 1, she injures her leg (**problem**); section 2, she trains again slowly (**effort**); section 3, she finishes the race (**result**)."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Purpose within the structure",
+     "text": "In longer nonfiction, every section plays a **role in the author's larger purpose**.\n\nA section may **anticipate** a reader's question, **qualify** an earlier claim, **provide evidence**, **shift** the focus, or **create contrast** that sharpens the central idea."
+    },
+    {
+     "title": "Specific, not general",
+     "text": "Weak answer: The section gives information.\n\nStrong answer: The section **presents a counterexample** that shows the earlier plan had limits.\n\nName the **exact** job and how it serves the whole."
+    },
+    {
+     "title": "Analyze a section",
+     "text": "1. State the central idea of the whole text.\n2. Summarize the section.\n3. Ask: How would the text change **without** it?\n4. Name the specific role: evidence, contrast, background, turning point, reflection, counterargument."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove the role of a section by connecting **its sentences** to **the rest of the text**.\n\n1. Tap the sentences in the section that carry its role.\n2. Explain how they change, support or deepen the main point.\n3. Reject choices that are true of the section but too general."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Section 1: In the 1950s, a new pesticide was sprayed widely to kill insects on farms.",
+      "role": "other"
+     },
+     {
+      "t": "Section 2: Within years, scientists noticed that birds were laying eggs with thin, fragile shells.",
+      "role": "detail"
+     },
+     {
+      "t": "Section 3: Investigations traced the problem to the pesticide, which built up in the food chain.",
+      "role": "key"
+     },
+     {
+      "t": "Section 4: The chemical was later banned in many countries, and some bird populations recovered.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Section 2 shows the **effect**, and section 3 has a specific role: it **links cause and effect**, turning a mystery into evidence.\n\nWithout it, readers would see the birds' problem but not **why** the pesticide was banned."
+   },
+   "together": {
+    "passage": "For centuries, people in the city relied on a single well for drinking water. As the population grew, the well began to run dry each summer, and families waited hours in line.\n\nIn 1890, engineers proposed bringing water from mountain springs through an aqueduct. Many residents doubted it could work. The project took six years, and costs rose far above the original estimate.\n\nWhen the first water finally flowed into the city's fountains, crowds gathered to celebrate. Within a decade, the population had doubled, and new neighbourhoods spread along the aqueduct's path.\n\nYet the success brought new challenges. By the 1930s, the aqueduct could no longer meet demand, and the city again faced shortages, this time for far more people.",
+    "stem": "What is the specific role of the final section in the passage?",
+    "options": [
+     "It gives background on the city's early history and its single old well.",
+     "It describes how the aqueduct was built, step by step, over six years.",
+     "It celebrates the aqueduct as a complete and final solution to shortages.",
+     "It complicates the success story by showing the aqueduct's growth led to new shortages."
+    ],
+    "answer": 3,
+    "hint": "The section begins with Yet. What does it do to the happy ending before it?",
+    "good": "Yes! Yet signals a twist: the aqueduct's success helped the city grow so much that shortages returned."
+   },
+   "evidence": {
+    "sentences": [
+     "For centuries, people in the city relied on a single well for drinking water.",
+     "As the population grew, the well began to run dry each summer, and families waited hours in line.",
+     "In 1890, engineers proposed bringing water from mountain springs through an aqueduct.",
+     "Many residents doubted it could work.",
+     "The project took six years, and costs rose far above the original estimate.",
+     "When the first water finally flowed into the city's fountains, crowds gathered to celebrate.",
+     "Within a decade, the population had doubled, and new neighbourhoods spread along the aqueduct's path.",
+     "Yet the success brought new challenges.",
+     "By the 1930s, the aqueduct could no longer meet demand, and the city again faced shortages, this time for far more people."
+    ],
+    "proof": [
+     7,
+     8
+    ],
+    "need": 2,
+    "stem": "The answer was: it complicates the success story by showing new shortages. Tap the 2 sentences in the final section that prove it.",
+    "wrong": "This sentence is from an earlier section. Find the sentences in the final section, starting with Yet."
+   },
+   "checks": [
+    {
+     "passage": "A memoir about learning to swim describes the writer's fear of water in the first section. In the second, a patient coach teaches her to float. In the third section, the writer, now grown, volunteers to teach frightened children, remembering how it felt to be afraid.",
+     "stem": "What is the specific role of the third section?",
+     "options": [
+      "It shows how the writer's past shapes how she helps others.",
+      "It explains the basic rules of swimming safely.",
+      "It introduces the patient coach who taught her.",
+      "It describes the writer's first fear of water."
+     ],
+     "answer": 0,
+     "why": "The third section connects her past fear to her present kindness, deepening the meaning of the story."
+    },
+    {
+     "passage": "An article argues that cities should plant more trees. After two sections of benefits, a section begins: \"Critics point out that trees need water, which is scarce in dry cities. However, native desert trees need very little water once established.\"",
+     "stem": "What is the specific role of this section?",
+     "options": [
+      "To introduce the topic of trees",
+      "To give more benefits of trees",
+      "To answer an objection to the author's argument",
+      "To describe the history of the city"
+     ],
+     "answer": 2,
+     "why": "The section raises a concern from critics and responds to it, strengthening the argument."
+    },
+    {
+     "passage": "A biography of a scientist describes her major discovery in one section. The next section quotes three other scientists who explain how her discovery changed their own research.",
+     "stem": "What is the purpose of the section with the quotes?",
+     "options": [
+      "To introduce the scientist's early childhood",
+      "To show how far-reaching her discovery's impact was",
+      "To criticise the scientist's research methods",
+      "To describe how the discovery was first made"
+     ],
+     "answer": 1,
+     "why": "The quotes show that her discovery influenced others' work, revealing its wide impact."
+    }
+   ],
+   "again": {
+    "title": "The missing-piece test",
+    "text": "Remove the section and reread the text in your head.\n\n1. What **question** is now unanswered?\n2. What **feeling or idea** is now weaker?\n\nThat gap tells you the section's exact role.",
+    "example": "Remove the section where a climber turns back near the top.\nNow missing: **why reaching the summit later meant so much.**\nRole: **it creates a setback that makes the later success more powerful.**"
+   }
+  }
+ }
+}

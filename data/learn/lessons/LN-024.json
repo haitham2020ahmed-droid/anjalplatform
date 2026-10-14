@@ -1,0 +1,466 @@
+{
+ "code": "LN-024",
+ "title": "Story events and details",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [
+  "W.5.3.a",
+  "W.5.3.b"
+ ],
+ "families": [
+  "writing-narrative"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0155",
+  "L-0157",
+  "L-0178",
+  "L-0282"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What happens next?",
+     "text": "A story is a chain of **events**. Each event leads to the **next** one.\n\nThe next event must make sense with what came before."
+    },
+    {
+     "title": "Make it fit",
+     "text": "A girl plants a seed. She waters it every day.\n\n**Makes sense:** A small green plant grows.\n**Does not fit:** She flies to the moon."
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Read what has happened.\n2. Ask: **What would happen next?**\n3. Pick the event that fits the story."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The story gives you **clues** about what comes next.\n\n1. Read each sentence.\n2. Find the clue: a problem, a plan, a feeling.\n3. Pick the next event that follows from the clue."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali's kite got stuck in a tree.",
+      "role": "key"
+     },
+     {
+      "t": "He could not reach it.",
+      "role": "key"
+     },
+     {
+      "t": "He asked his tall brother to help.",
+      "role": "main"
+     }
+    ],
+    "explain": "The kite is stuck, and Ali cannot reach it. So the next event makes sense: **he asks his tall brother to help.**"
+   },
+   "together": {
+    "passage": "Mona was making a cake. She put it in the oven. Then she went to read a book. She forgot about the cake!",
+    "stem": "What should happen next in the story?",
+    "options": [
+     "Mona went swimming in the sea.",
+     "A bird sang a song.",
+     "The cake turned into a car.",
+     "Mona smelled smoke from the kitchen."
+    ],
+    "answer": 3,
+    "hint": "Does that event follow from the clues? What happens to a cake that is forgotten in the oven?",
+    "good": "Yes! She forgot the cake in the oven, so it would start to burn."
+   },
+   "evidence": {
+    "sentences": [
+     "Mona was making a cake.",
+     "She put it in the oven.",
+     "Then she went to read a book.",
+     "She forgot about the cake!"
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Mona smelled smoke. Tap 2 sentences that show why.",
+    "wrong": "This sentence starts the story. Find where the cake is and what Mona did next."
+   },
+   "checks": [
+    {
+     "passage": "Omar's ball rolled into the street. A car was coming.",
+     "stem": "What should happen next?",
+     "options": [
+      "Omar waited for the car to pass.",
+      "Omar ate lunch at home.",
+      "The sun went down.",
+      "Omar read a book."
+     ],
+     "answer": 0,
+     "why": "The car is coming, so the safe and sensible next step is to wait."
+    },
+    {
+     "passage": "It started to rain. Sara had no umbrella.",
+     "stem": "What should happen next?",
+     "options": [
+      "Sara went to sleep.",
+      "Sara found a cat.",
+      "Sara ran to stand under a roof.",
+      "Sara painted a picture."
+     ],
+     "answer": 2,
+     "why": "She has no umbrella in the rain, so she looks for shelter."
+    },
+    {
+     "passage": "The baby bird fell from its nest. Huda saw it on the grass.",
+     "stem": "What should happen next?",
+     "options": [
+      "Huda went to the shop to buy some milk.",
+      "Huda gently put the bird back in its nest.",
+      "The grass grew tall.",
+      "Huda played a game."
+     ],
+     "answer": 1,
+     "why": "Huda saw the fallen bird, so the next event is that she helps it."
+    }
+   ],
+   "again": {
+    "title": "Because… so…",
+    "text": "Use **because** and **so** to link events.\n\n\"The dog was hungry, **so** it barked at its bowl.\"",
+    "example": "\"Ali was thirsty, **so**…\" → **he drank a glass of water.**\n\nThe next event comes from the one before."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A logical next event",
+     "text": "Good stories move forward one step at a time. The **next event** should come from what the characters **want**, **feel** or **do**.\n\nSurprises are fine, but they must still make sense."
+    },
+    {
+     "title": "Details bring it to life",
+     "text": "Events are the **bones** of a story. **Details** are what make it feel real.\n\nAdd details about the **setting** (where and when) and the **characters** (what they look like, feel and do)."
+    },
+    {
+     "title": "Plain vs. detailed",
+     "text": "**Plain:** They went to the market.\n\n**Detailed:** They squeezed through the crowded market, past piles of oranges and the sharp smell of spices.\n\nThe detail helps the reader see the setting."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find the next event, look for what the story has **set up**.\n\n1. Find the problem or goal.\n2. Find what the character has just done.\n3. Choose the event that continues from those sentences.\n\nAn event that ignores the problem does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Jamal wanted to buy a gift for his mother's birthday.",
+      "role": "key"
+     },
+     {
+      "t": "He had saved twenty riyals in a jar.",
+      "role": "key"
+     },
+     {
+      "t": "On Saturday, he took the jar to the shop and chose a small vase.",
+      "role": "main"
+     }
+    ],
+    "explain": "The story sets up a **goal** (a gift for his mother) and a **plan** (the saved money). The next event follows naturally: he goes to buy the gift."
+   },
+   "together": {
+    "passage": "Every afternoon, Nada practised her bicycle in the yard. Her little brother Saad watched her ride in circles. One day, Saad asked if he could learn too. Nada smiled and brought out her old, small bike from the shed. The sun was still hot.",
+    "stem": "What should happen next in the story?",
+    "options": [
+     "Nada went to a shop to buy shoes.",
+     "Nada held the bike steady while Saad climbed on.",
+     "Saad fell asleep in his bed.",
+     "Nada drove a car to school."
+    ],
+    "answer": 1,
+    "hint": "Does that event follow from what Saad asked and what Nada brought out?",
+    "good": "Yes! Saad asked to learn, and Nada brought out a small bike, so next she helps him ride it."
+   },
+   "evidence": {
+    "sentences": [
+     "Every afternoon, Nada practised her bicycle in the yard.",
+     "Her little brother Saad watched her ride in circles.",
+     "One day, Saad asked if he could learn too.",
+     "Nada smiled and brought out her old, small bike from the shed.",
+     "The sun was still hot."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Nada held the bike while Saad climbed on. Tap 2 sentences that set up this event.",
+    "wrong": "This sentence tells about Nada's practice, Saad watching or the weather. Find the request and what Nada did about it."
+   },
+   "checks": [
+    {
+     "passage": "Story: The children were having a picnic in the park.",
+     "stem": "Which detail best develops the setting?",
+     "options": [
+      "The children were all good friends from the same class at school.",
+      "They had a picnic.",
+      "They liked food.",
+      "Tall palm trees shaded the grass, and a fountain bubbled nearby."
+     ],
+     "answer": 3,
+     "why": "It helps the reader picture where the picnic happens."
+    },
+    {
+     "passage": "Fahad lost his house key on the way home. His parents were at work until six.",
+     "stem": "What is the most logical next event?",
+     "options": [
+      "Fahad waited at his neighbour's house until his parents came home.",
+      "Fahad flew home on a plane and landed on the roof of his house.",
+      "Fahad found a key inside the house.",
+      "Fahad's parents were at home."
+     ],
+     "answer": 0,
+     "why": "He cannot get in, and his parents are away, so waiting with a neighbour makes sense."
+    },
+    {
+     "passage": "Story: Rania was nervous before her first swimming lesson.",
+     "stem": "Which detail best develops the character?",
+     "options": [
+      "The pool was blue.",
+      "The lesson was at four.",
+      "Her hands shook as she held the edge of the pool.",
+      "Swimming is a sport that many people enjoy in summer."
+     ],
+     "answer": 2,
+     "why": "Shaking hands show how Rania feels, which develops the character."
+    }
+   ],
+   "again": {
+    "title": "Movie in your head",
+    "text": "Play the story like a **movie** in your head.\n\nWhat would the camera show **next**? What would you **see** and **hear**?",
+    "example": "\"The cat saw a mouse.\"\n\nNext scene: **The cat crouched low, its tail twitching, then sprang!**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Details that develop",
+     "text": "Details do more than decorate. They **develop** literary elements:\n\n1. **Character:** traits, feelings, motives.\n2. **Setting:** place, time, mood.\n3. **Plot:** the problem and rising tension."
+    },
+    {
+     "title": "Show the trait",
+     "text": "Instead of saying a character is **kind**, **show** a kind action.\n\n**Tell:** Yusuf was generous.\n**Show:** Yusuf split his lunch in half and gave it to the new boy, who had forgotten his own."
+    },
+    {
+     "title": "Keep details consistent",
+     "text": "Every detail must **agree** with what the story already shows.\n\nIf a character is shy, a detail where she shouts at a crowd would confuse the reader, unless the story explains the change."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose a detail that develops a character, find the **trait** the story already shows.\n\n1. Look at the character's actions and words.\n2. Decide what trait they show (brave, careful, honest, impatient).\n3. Choose the detail that develops **that** trait.\n\nA detail that shows the opposite trait does **not** fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Laila checked her answers three times before she handed in the test.",
+      "role": "key"
+     },
+     {
+      "t": "She lined up her pencils neatly on the desk.",
+      "role": "key"
+     },
+     {
+      "t": "Laila was a careful student.",
+      "role": "main"
+     }
+    ],
+    "explain": "The first two sentences **show** Laila is careful (checking three times, neat pencils). The third sentence names the trait, but the details do the real work."
+   },
+   "together": {
+    "passage": "Bandar was always the first to finish his work, and he hated waiting. In the queue for the bus, he tapped his foot and checked his watch every few seconds. When the bus was five minutes late, he sighed loudly and complained to everyone nearby. At last, the bus arrived. The driver opened the doors.",
+    "stem": "The writer wants to add one more detail to develop Bandar's character. Which detail fits best?",
+    "options": [
+     "Bandar calmly read a book and did not mind the wait at all.",
+     "Bandar helped an old man carry his bags slowly onto the bus.",
+     "Bandar pushed to the front of the line so he could get on first.",
+     "Bandar sat quietly at the back and waited for everyone else."
+    ],
+    "answer": 2,
+    "hint": "What trait does Bandar show in the story? Does this detail match it, or show the opposite?",
+    "good": "Yes! Pushing to the front fits his impatience, shown by his foot tapping and complaining."
+   },
+   "evidence": {
+    "sentences": [
+     "Bandar was always the first to finish his work, and he hated waiting.",
+     "In the queue for the bus, he tapped his foot and checked his watch every few seconds.",
+     "When the bus was five minutes late, he sighed loudly and complained to everyone nearby.",
+     "At last, the bus arrived.",
+     "The driver opened the doors."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer showed Bandar is impatient. Tap 2 sentences that already show this.",
+    "wrong": "This sentence tells what happened with the bus, not what Bandar is like. Find the sentences that show his trait."
+   },
+   "checks": [
+    {
+     "passage": "Character trait to develop: honesty.",
+     "stem": "Which detail best develops this trait?",
+     "options": [
+      "Talal kept the money he found on the floor and told nobody about it.",
+      "Talal returned the extra change the shopkeeper had given him by mistake.",
+      "Talal ran fast in the race.",
+      "Talal laughed at a joke."
+     ],
+     "answer": 1,
+     "why": "Giving back money that is not his shows honesty."
+    },
+    {
+     "passage": "Setting: a quiet village at night.",
+     "stem": "Which detail best develops the setting?",
+     "options": [
+      "The village had a mosque.",
+      "It was night.",
+      "The village was quiet.",
+      "Only a single lamp glowed, and the only sound was a dog barking far away."
+     ],
+     "answer": 3,
+     "why": "The glowing lamp and distant bark help the reader feel the quiet night."
+    },
+    {
+     "passage": "Plot: two friends are lost in a large shopping centre, and the tension should rise.",
+     "stem": "Which detail best develops the plot?",
+     "options": [
+      "Their phone battery died just as they tried to call home.",
+      "They bought a drink.",
+      "The centre had shops.",
+      "They liked the clothes in the shop windows very much."
+     ],
+     "answer": 0,
+     "why": "A dead phone makes their problem harder and raises the tension."
+    }
+   ],
+   "again": {
+    "title": "Show, don't tell",
+    "text": "Write the trait on a sticky note: **brave**.\n\nNow hide the word and write an **action** that shows it.",
+    "example": "Brave: **Huda walked up to the barking dog, held out her hand slowly, and let it sniff her fingers.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Events with cause",
+     "text": "In a well-built narrative, each event grows from **causes** already in the story: a character's choice, a flaw, a promise, the setting itself.\n\nA next event that ignores these causes feels random. One that uses them feels **inevitable** and satisfying."
+    },
+    {
+     "title": "Details that do double duty",
+     "text": "The strongest details develop **more than one** element at once.\n\n\"Mariam's hands, cracked from years of weaving palm leaves, moved faster than her eyes could follow.\"\n\nThis detail shows **character** (skill, hard work), **setting** (a craft tradition) and **history** in one sentence."
+    },
+    {
+     "title": "Revising for development",
+     "text": "When a scene feels flat, ask:\n\n1. What does the reader need to **feel** here?\n2. Which element is underdeveloped: character, setting or conflict?\n3. Add a specific detail that develops it, and remove details that do not."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the logical next event, identify the **causes** the story has planted.\n\n1. Find the character's goal and any warning, promise or weakness mentioned.\n2. Find the sentences that build tension around it.\n3. Choose the event that grows from those causes and keeps the character consistent."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Karim had promised his coach that he would not play on his injured ankle.",
+      "role": "key"
+     },
+     {
+      "t": "In the final minutes, his team was losing by one goal.",
+      "role": "detail"
+     },
+     {
+      "t": "The coach looked down the bench, and Karim felt his ankle throb.",
+      "role": "detail"
+     },
+     {
+      "t": "Karim stayed seated and cheered louder than anyone.",
+      "role": "main"
+     }
+    ],
+    "explain": "The promise and the throbbing ankle are **causes** planted earlier. Staying seated and cheering is consistent with both, and it develops his **character**: loyal and true to his word, even under pressure."
+   },
+   "together": {
+    "passage": "Dalia had never liked heights, so when her class reached the bottom of the tall stone tower, she stopped. The others ran up the narrow stairs, laughing. Her friend Amal noticed and came back down. \"We'll go slowly,\" Amal said, \"and you can hold the rail the whole way.\" Dalia looked at the steep steps, then at Amal's patient face. Far above, a guide was calling the class to the top.",
+    "stem": "What is the most logical next event?",
+    "options": [
+     "Taking a deep breath, Dalia gripped the rail and began to climb, one step at a time, beside Amal.",
+     "Dalia raced up the stairs two at a time, laughing louder than everyone else.",
+     "Amal went home and left Dalia alone at the tower.",
+     "Dalia suddenly decided to become a mountain climber."
+    ],
+    "answer": 0,
+    "hint": "Which choice grows from what the story has set up: Dalia's fear and Amal's patient offer?",
+    "good": "Yes! It keeps Dalia's fear (slow, holding the rail) and follows from Amal's offer to climb together."
+   },
+   "evidence": {
+    "sentences": [
+     "Dalia had never liked heights, so when her class reached the bottom of the tall stone tower, she stopped.",
+     "The others ran up the narrow stairs, laughing.",
+     "Her friend Amal noticed and came back down.",
+     "\"We'll go slowly,\" Amal said, \"and you can hold the rail the whole way.\"",
+     "Dalia looked at the steep steps, then at Amal's patient face.",
+     "Far above, a guide was calling the class to the top."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer showed Dalia climbing slowly with Amal's help. Tap 2 sentences that set this up.",
+    "wrong": "This sentence shows the others or the guide. Find the sentences about Dalia's fear and Amal's offer."
+   },
+   "checks": [
+    {
+     "passage": "Earlier in the story: Salem forgot to charge his torch before the camping trip. Now the group is walking back to the tents after dark.",
+     "stem": "What is the most logical next event?",
+     "options": [
+      "Salem's torch shines brightly all the way back.",
+      "The sun suddenly rises at nine o'clock at night.",
+      "Salem's torch flickers and goes out halfway down the path.",
+      "Salem decides to go shopping."
+     ],
+     "answer": 2,
+     "why": "The uncharged torch was planted earlier, so its failure is the logical consequence."
+    },
+    {
+     "passage": "Scene: an old fisherman tells his grandson about the sea. The writer wants one detail that develops both character and setting.",
+     "stem": "Which detail does this best?",
+     "options": [
+      "The fisherman was old.",
+      "The fisherman's sun-darkened hands still smelled faintly of salt and rope.",
+      "The fisherman liked tea.",
+      "The grandson was eleven."
+     ],
+     "answer": 1,
+     "why": "It shows his long life at sea (character) and the seaside world (setting) at once."
+    },
+    {
+     "passage": "Draft: \"The storm came. The family was scared. Then it ended.\"",
+     "stem": "Which revision best develops the conflict?",
+     "options": [
+      "The storm came, and it was a storm.",
+      "The family was very, very scared.",
+      "The storm came and then it ended quickly.",
+      "As rain hammered the roof, water began to seep under the door, and Dad rushed to block it with towels."
+     ],
+     "answer": 3,
+     "why": "It shows the danger growing and the family acting, which develops the conflict."
+    }
+   ],
+   "again": {
+    "title": "Plant and pay off",
+    "text": "Look for anything the story **planted**: a promise, a fear, a weak spot, a warning.\n\nThe next event should **pay it off**: use what was planted.",
+    "example": "Planted: **\"The old bridge creaked under any weight.\"**\n\nPay off: **When the heavy cart rolled onto it, a plank snapped.**"
+   }
+  }
+ }
+}

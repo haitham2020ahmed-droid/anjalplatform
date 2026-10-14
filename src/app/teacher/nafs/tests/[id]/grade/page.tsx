@@ -9,6 +9,7 @@ import { canSeeNafs } from "@/server/teacher/nafs-access";
 import { answerGrid, getNafsTest, nafsClasses, testKey } from "@/server/nafs/tests";
 import { getT } from "@/i18n/server";
 import { NafsGradeSheets } from "@/components/nafs/grade-sheets";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Grade bubble sheets" };
 
@@ -26,7 +27,7 @@ export default async function NafsGradePage({ params, searchParams }: { params: 
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   const test = await getNafsTest(repo, actor, id).catch(() => null);
-  if (!test) redirect("/teacher/nafs?tab=sheets");
+  if (!test) redirect("/teacher/nafs?tab=marking#sheets");
   const classes = await nafsClasses(repo, actor);
   const klass = classes.find((c) => c.id === sp.class) ?? classes[0];
   const [grid, { key }] = await Promise.all([klass ? answerGrid(repo, actor, id, klass.id) : Promise.resolve({ students: [] }), testKey(repo, test)]);
@@ -38,7 +39,7 @@ export default async function NafsGradePage({ params, searchParams }: { params: 
       </PageHeader>
       <form method="get" className="mb-4 flex flex-wrap items-end gap-2 print:hidden">
         <input type="hidden" name="mode" value={sp.mode ?? ""} />
-        <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Class")}<select name="class" defaultValue={klass?.id} className="min-h-10 rounded-lg bg-surface px-2 ring-1 ring-line">{classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
+        <div className="grid min-w-48 gap-1 text-xs font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" required label={t("Class")} defaultValue={klass?.id} options={classes.map((c) => ({ value: c.id, label: c.name }))} /></div>
         <button className="min-h-10 rounded-lg bg-surface px-3 font-semibold text-ink ring-1 ring-line">{t("Show")}</button>
       </form>
       {written.length > 0 && <p className="mb-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200">✍ {t("Questions {list} are short written answers: leave their bubbles empty and score them in the Marking tab.", { list: written.join(", ") })} <Link href={`/teacher/nafs?tab=marking&test=${id}`} className="font-semibold underline">{t("Marking")}</Link></p>}

@@ -1,0 +1,458 @@
+{
+ "code": "LN-190",
+ "title": "Compound words",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.2.4.d"
+ ],
+ "families": [],
+ "skillNames": [
+  "Compound Words"
+ ],
+ "statements": [
+  "R-0021",
+  "R-0061",
+  "R-0126",
+  "R-0127",
+  "R-0223",
+  "R-0224",
+  "R-0371"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two words make one",
+     "text": "Some words are made of **two small words** put together.\n\n**sun** + **flower** = **sunflower**\n\nThis is called a **compound word**."
+    },
+    {
+     "title": "Use the small words",
+     "text": "The small words help you know the big word.\n\n**bed** + **room** = **bedroom**, a room with a bed.\n\n**rain** + **coat** = **raincoat**, a coat for the rain."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Find the two small words.\n2. Say what each one means.\n3. Put them together."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text helps you check.\n\n1. Find the compound word.\n2. Find a sentence that tells more about it.\n3. Does it match the two small words? Then you are right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Omar has a toothbrush.",
+      "role": "main"
+     },
+     {
+      "t": "He uses it to brush his teeth.",
+      "role": "key"
+     },
+     {
+      "t": "He brushes every night.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**tooth** + **brush** = a brush for your teeth.\n\nThe next sentence proves it: he **brushes his teeth** with it."
+   },
+   "together": {
+    "passage": "It is a hot, sunny day. Dad puts on his dark glasses. I put on my sunhat to keep the sun off my head. Then we go to the beach.",
+    "stem": "What is a sunhat?",
+    "options": [
+     "A very hot sun.",
+     "A hat that keeps the sun off.",
+     "A big, sunny beach.",
+     "A pair of dark glasses."
+    ],
+    "answer": 1,
+    "hint": "Find the two small words: sun and hat. Put them together.",
+    "good": "Yes! A sunhat is a hat that keeps the sun off your head."
+   },
+   "evidence": {
+    "sentences": [
+     "It is a hot, sunny day.",
+     "Dad puts on his dark glasses.",
+     "I put on my sunhat to keep the sun off my head.",
+     "Then we go to the beach."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a hat that keeps the sun off. Tap 2 sentences that show why you need a sunhat.",
+    "wrong": "This sentence is about Dad's glasses or the beach. Find the sentences about the hot sun and the hat."
+   },
+   "checks": [
+    {
+     "passage": "I have a goldfish. It is small and gold. It swims in a bowl.",
+     "stem": "What is a goldfish?",
+     "options": [
+      "A gold ring.",
+      "A gold-coloured fish.",
+      "A fish bowl.",
+      "A small bird."
+     ],
+     "answer": 1,
+     "why": "**gold** + **fish** = a fish that is gold in colour."
+    },
+    {
+     "passage": "Ali sleeps in his bedroom. His bed is next to the window.",
+     "stem": "Which two small words make bedroom?",
+     "options": [
+      "be + droom",
+      "bed + window",
+      "bed + room",
+      "bedr + oom"
+     ],
+     "answer": 2,
+     "why": "**bed** + **room** = bedroom, the room where his bed is."
+    },
+    {
+     "passage": "Mona made a snowman in the picture. It is made of white snow. It has a carrot for a nose.",
+     "stem": "What is a snowman?",
+     "options": [
+      "A man who likes snow.",
+      "A cold day.",
+      "A white carrot.",
+      "A shape of a man made of snow."
+     ],
+     "answer": 3,
+     "why": "**snow** + **man** = a man shape made of snow."
+    }
+   ],
+   "again": {
+    "title": "Clap the parts",
+    "text": "Say the word slowly and **clap** for each small word.\n\n**foot** (clap) **ball** (clap)\n\nNow say what each clap means.",
+    "example": "**foot** + **ball** = a ball you kick with your **foot**. That is a **football**!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Compound words",
+     "text": "A **compound word** is made when two words join to make **one new word**.\n\n**book** + **shop** = **bookshop**\n**door** + **bell** = **doorbell**"
+    },
+    {
+     "title": "Which word is the main one?",
+     "text": "Often the **second** word tells **what it is**, and the **first** word tells **what kind**.\n\nA **doorbell** is a kind of **bell** (the one by the door).\nA **notebook** is a kind of **book** (for notes)."
+    },
+    {
+     "title": "Define it",
+     "text": "1. Split the word into two words.\n2. Find what it **is** (usually the second word).\n3. Use the first word to say what kind.\n4. Check the meaning in the sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The sentences around a compound word often show what it is or what it does.\n\n1. Build a meaning from the two words.\n2. Look for sentences that show it being used.\n3. Pick the meaning that both the parts and the text support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda carried her schoolbag to class.",
+      "role": "main"
+     },
+     {
+      "t": "Inside were her books, pencils and lunch.",
+      "role": "key"
+     },
+     {
+      "t": "She put it under her desk.",
+      "role": "other"
+     }
+    ],
+    "explain": "**school** + **bag** = a bag for school.\n\nBooks, pencils and lunch inside prove it is the bag she takes to school."
+   },
+   "together": {
+    "passage": "Rakan's grandfather owns a small bookshop in the old part of the city. Every morning, he dusts the long shelves full of books. Customers come in to buy stories, maps and notebooks. When a new customer rings the doorbell, Rakan runs to the door to help.",
+    "stem": "What is a bookshop?",
+    "options": [
+     "A shelf that holds books.",
+     "A book about shopping.",
+     "A shop that sells books.",
+     "A man who writes books."
+    ],
+    "answer": 2,
+    "hint": "Which word tells what it IS? Shop. What kind of shop?",
+    "good": "Yes! book + shop = a shop that sells books."
+   },
+   "evidence": {
+    "sentences": [
+     "Rakan's grandfather owns a small bookshop in the old part of the city.",
+     "Every morning, he dusts the long shelves full of books.",
+     "Customers come in to buy stories, maps and notebooks.",
+     "When a new customer rings the doorbell, Rakan runs to the door to help."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a shop that sells books. Tap 2 sentences that show books in the shop or people buying them.",
+    "wrong": "This sentence names the shop or tells about the door. Find the sentences that show books and buying."
+   },
+   "checks": [
+    {
+     "passage": "The doorbell rang loudly. Mom went to see who was outside.",
+     "stem": "What is a doorbell?",
+     "options": [
+      "A bell by a door that visitors ring.",
+      "A door made of metal.",
+      "A bell in a school.",
+      "A sound in the night."
+     ],
+     "answer": 0,
+     "why": "**door** + **bell**: when it rang, Mom went to see who was **outside** the door."
+    },
+    {
+     "passage": "Every afternoon, Nora writes her ideas in her notebook. Then she reads them to her sister.",
+     "stem": "What is a notebook?",
+     "options": [
+      "A short note on a door.",
+      "A book of stories.",
+      "A shelf for books.",
+      "A book for writing notes."
+     ],
+     "answer": 3,
+     "why": "**note** + **book**: Nora **writes her ideas** in it."
+    },
+    {
+     "passage": "After the rain, a bright rainbow appeared over the hills.",
+     "stem": "Which word in the text is a compound word?",
+     "options": [
+      "bright",
+      "rainbow",
+      "appeared",
+      "hills"
+     ],
+     "answer": 1,
+     "why": "**rain** + **bow** = rainbow. The other words are not two words joined."
+    }
+   ],
+   "again": {
+    "title": "What is it? What kind?",
+    "text": "Ask two questions:\n\n1. **What is it?** (look at the second word)\n2. **What kind?** (look at the first word)",
+    "example": "**sandcastle**\n\nWhat is it? A **castle**. What kind? Made of **sand**. A sandcastle is a castle made of sand."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Words that join",
+     "text": "English often **joins** two words to name something new: *sandstorm, lighthouse, waterfall, seatbelt*.\n\nEach part still carries some meaning, so the parts are your clues."
+    },
+    {
+     "title": "How the parts connect",
+     "text": "The two parts can connect in different ways:\n\n**made of:** sandcastle (castle of sand)\n**used for:** toothbrush (brush for teeth)\n**does what:** waterfall (water that falls)\n**where:** seashell (shell from the sea)"
+    },
+    {
+     "title": "Check with context",
+     "text": "1. Split the word.\n2. Decide how the parts connect.\n3. Read the sentences around it.\n4. Adjust your meaning to fit what the text describes."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text often **describes** the thing the compound names.\n\n1. Build a meaning from the parts.\n2. Find sentences that describe what it looks like or does.\n3. Choose the meaning those sentences support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A sandstorm blew across the desert road.",
+      "role": "main"
+     },
+     {
+      "t": "The wind lifted so much sand that drivers could not see the cars in front.",
+      "role": "key"
+     },
+     {
+      "t": "Many drivers stopped by the side of the road.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**sand** + **storm**: a storm of sand.\n\nThe next sentence proves it: wind lifting sand until drivers cannot see."
+   },
+   "together": {
+    "passage": "A lighthouse stands on a rocky point near the harbour. At night, a powerful lamp at the top turns slowly, sending a beam of light far across the dark water. Sailors watch for the beam so they know where the dangerous rocks are and can steer away. During the day, the tall white tower is easy to see from the shore.",
+    "stem": "Using the two smaller words and the text, what is a lighthouse?",
+    "options": [
+     "A house where sailors live.",
+     "A tower whose light guides ships.",
+     "A small lamp in a home.",
+     "A boat that carries lamps."
+    ],
+    "answer": 1,
+    "hint": "It is not really a house for people. What does the text say its light does?",
+    "good": "Yes! light + house: a tower with a strong light that helps sailors stay away from rocks."
+   },
+   "evidence": {
+    "sentences": [
+     "A lighthouse stands on a rocky point near the harbour.",
+     "At night, a powerful lamp at the top turns slowly, sending a beam of light far across the dark water.",
+     "Sailors watch for the beam so they know where the dangerous rocks are and can steer away.",
+     "During the day, the tall white tower is easy to see from the shore."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: a tower whose light guides ships. Tap 2 sentences that show its light helping sailors.",
+    "wrong": "This sentence tells where it is or how it looks. Find the sentences about the light and the sailors."
+   },
+   "checks": [
+    {
+     "passage": "In the mountains, we hiked to a waterfall. Water poured over the edge of the cliff and crashed into a pool below.",
+     "stem": "What is a waterfall?",
+     "options": [
+      "A place where water drops down from a high place.",
+      "A deep pool in the mountains.",
+      "A cup of falling water.",
+      "A storm with heavy rain."
+     ],
+     "answer": 0,
+     "why": "**water** + **fall**: water **poured over the edge** and dropped into a pool."
+    },
+    {
+     "passage": "Before the car moved, Dad said, \"Everyone, put on your seatbelt.\" Salma pulled the strap across her body and clicked it in.",
+     "stem": "What is a seatbelt?",
+     "options": [
+      "A soft seat in a car.",
+      "A belt for trousers.",
+      "A button that starts the car.",
+      "A strap that holds you in your seat."
+     ],
+     "answer": 3,
+     "why": "**seat** + **belt**: Salma pulled a **strap** across her body to stay safe in her seat."
+    },
+    {
+     "passage": "The school playground was crowded at break time. Children ran, jumped and played games on the open space behind the classrooms.",
+     "stem": "What is a playground?",
+     "options": [
+      "A ground floor in a school.",
+      "A game you play with a ball.",
+      "An outdoor place where children play.",
+      "A room for teachers."
+     ],
+     "answer": 2,
+     "why": "**play** + **ground**: an open space where children **ran, jumped and played**."
+    }
+   ],
+   "again": {
+    "title": "Say it backwards",
+    "text": "Read the parts **backwards** with a little word in between.\n\n**fire**truck → a truck **for** fire\n**sea**shell → a shell **from** the sea\n**hand**bag → a bag **for** your hand",
+    "example": "**sunrise** → the rise **of** the sun. It is the time in the morning when the sun comes up."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Beyond the parts",
+     "text": "Some compound words mean **more** than their two parts added up.\n\n**landmark** is not just a mark on land. It is a **well-known feature** that helps people find their way.\n\nThe parts give a clue; the context gives the exact meaning."
+    },
+    {
+     "title": "Three kinds",
+     "text": "Compounds can be written as:\n\n**one word:** headline, breakthrough\n**with a hyphen:** well-known, part-time\n**two words:** post office, swimming pool\n\nAll of them work together as one meaning."
+    },
+    {
+     "title": "Work it out",
+     "text": "1. Split the compound.\n2. Ask how the parts connect, literally.\n3. Ask what the word means **here**, in this text.\n4. Choose the meaning that fits the context, not only the parts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "With harder compounds, the **context** is the main proof.\n\n1. Find the sentences that show how the thing is used or what it does.\n2. Check that your meaning fits **every** use in the passage.\n3. Reject choices that only add up the parts word by word."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After years of failed tests, the team finally made a breakthrough.",
+      "role": "main"
+     },
+     {
+      "t": "They found a cheap way to turn seawater into drinking water.",
+      "role": "key"
+     },
+     {
+      "t": "News of the discovery spread quickly.",
+      "role": "key"
+     }
+    ],
+    "explain": "**break** + **through**: literally, to break through a wall.\n\nHere, the context shows it means an **important discovery** after a long struggle."
+   },
+   "together": {
+    "passage": "Long before maps and road signs, desert travellers used landmarks to find their way. A strangely shaped rock, a lone acacia tree or a tall red hill could tell a guide exactly where he was. Guides learned these features by heart and taught them to their sons. Today, a city's landmarks might be a famous tower or an old fort, but their job is the same: they help people know where they are.",
+    "stem": "What does landmark mean in this passage?",
+    "options": [
+     "A line drawn on a map.",
+     "A piece of land that someone owns.",
+     "An easy-to-recognise feature that helps people know where they are.",
+     "A sign that shows how far it is to a town."
+    ],
+    "answer": 2,
+    "hint": "Do not just add land + mark. What do the examples in the passage have in common, and what job do they do?",
+    "good": "Yes! Rocks, trees, hills, towers and forts are all features people recognise to know where they are."
+   },
+   "evidence": {
+    "sentences": [
+     "Long before maps and road signs, desert travellers used landmarks to find their way.",
+     "A strangely shaped rock, a lone acacia tree or a tall red hill could tell a guide exactly where he was.",
+     "Guides learned these features by heart and taught them to their sons.",
+     "Today, a city's landmarks might be a famous tower or an old fort, but their job is the same: they help people know where they are."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: an easy-to-recognise feature that helps people know where they are. Tap 2 sentences that show what landmarks are or what they do.",
+    "wrong": "This sentence tells how guides learned the features. Find the sentences that give examples of landmarks or explain their job."
+   },
+   "checks": [
+    {
+     "passage": "The newspaper's headline, printed in huge letters across the top of the front page, announced the team's victory.",
+     "stem": "What is a headline?",
+     "options": [
+      "The title at the top of a news story.",
+      "A line drawn on a person's head.",
+      "The last page of a newspaper.",
+      "The name of the newspaper's owner."
+     ],
+     "answer": 0,
+     "why": "It is **printed in huge letters across the top** and tells the news. That is a headline."
+    },
+    {
+     "passage": "When the market grew too busy, the city built a new car park on the edge of town so that shoppers had somewhere to leave their cars.",
+     "stem": "Which compound word is written as two separate words?",
+     "options": [
+      "market",
+      "somewhere",
+      "shoppers",
+      "car park"
+     ],
+     "answer": 3,
+     "why": "**car park** is two words that work as one meaning: a place to park cars. (somewhere is a compound too, but it is written as one word.)"
+    },
+    {
+     "passage": "The farmer worked from sunrise until the stars came out, bringing in the date harvest before the heat of the season arrived.",
+     "stem": "Which word in the text is a compound word?",
+     "options": [
+      "farmer",
+      "sunrise",
+      "harvest",
+      "season"
+     ],
+     "answer": 1,
+     "why": "**sun** + **rise** = sunrise, the time when the sun comes up. The others are not two words joined."
+    }
+   ],
+   "again": {
+    "title": "Clue, then check",
+    "text": "Treat the parts as a **clue**, not the answer.\n\n1. Clue: what do the parts say literally?\n2. Check: what does the text show the word doing?\n3. Answer: the meaning that fits the check.",
+    "example": "\"The new library is a **landmark** in our city.\"\n\nClue: a mark on the land. Check: the library is famous and easy to find. Answer: **a well-known building or place**."
+   }
+  }
+ }
+}

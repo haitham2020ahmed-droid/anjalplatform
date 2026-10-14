@@ -58,6 +58,8 @@ export const JSON_REFS: readonly (readonly [string, string])[] = [
   ["Assignment", "questionIds"], ["LiveGame", "questionIds"], ["ExitTicket", "questionIds"], ["Worksheet", "questionIds"],
   ["ProgressCheck", "categories"], ["LessonRun", "log"], ["NafsTest", "questionIds"], ["NafsTest", "marks"],
   ["NafsPractice", "questionIds"], ["NafsPracticeRun", "state"], ["MapSimWindow", "itemIds"], ["MapSimWindow", "excludedIds"],
+  // a teacher's Review set of a Curriculum Map place (src/server/curriculum-map/review-control.ts)
+  ["TeacherReviewSet", "questionIds"], ["TeacherReviewSet", "hiddenIds"],
   // ✏️ a teacher's copy of a test question points at its original (tags.teacherCopyOf — src/server/tests/review.ts)
   ["Question", "tags"],
 ];

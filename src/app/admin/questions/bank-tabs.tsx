@@ -2,17 +2,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useT } from "@/i18n/client";
+import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
 
 /** The useful question pages, one tab row on each of them (admins). */
-export const BANK_TABS: readonly { href: string; label: string; icon: string }[] = [
-  { href: "/admin/questions", label: "Questions", icon: "📚" },
-  { href: "/admin/question-review", label: "Review", icon: "🏷️" },
-  { href: "/admin/question-flags", label: "Flags", icon: "🚩" },
-  { href: "/admin/item-quality", label: "Quality", icon: "🔬" },
-  { href: "/admin/bank-gaps", label: "Gaps", icon: "🕳" },
-  { href: "/admin/questions/duplicates", label: "Duplicates", icon: "👯" },
-  { href: "/admin/questions/import", label: "Import", icon: "📥" },
-  { href: "/admin/questions/load", label: "Load new questions", icon: "⬇️" },
+export const BANK_TABS: readonly { href: string; label: string; icon: LineIconName }[] = [
+  { href: "/admin/questions", label: "Questions", icon: "book" },
+  { href: "/admin/question-review", label: "Review", icon: "check" },
+  { href: "/admin/question-flags", label: "Flags", icon: "flag" },
+  { href: "/admin/item-quality", label: "Quality", icon: "search" },
+  { href: "/admin/bank-gaps", label: "Gaps", icon: "grid" },
+  { href: "/admin/questions/duplicates", label: "Duplicates", icon: "layers" },
+  { href: "/admin/questions/import", label: "Import", icon: "inbox" },
+  { href: "/admin/questions/load", label: "Load new questions", icon: "download" },
 ];
 
 export function BankTabs() {
@@ -27,7 +28,7 @@ export function BankTabs() {
         return (
           <Link key={x.href} href={x.href} prefetch={false} aria-current={on ? "page" : undefined}
             className={`inline-flex min-h-10 items-center gap-1.5 rounded-xl px-3 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "text-brand-navy hover:bg-slate-100"}`}>
-            <span aria-hidden="true">{x.icon}</span>{t(x.label)}
+            <LineIcon name={x.icon} className="h-4 w-4 shrink-0" />{t(x.label)}
           </Link>
         );
       })}

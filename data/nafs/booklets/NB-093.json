@@ -1,0 +1,568 @@
+{
+  "code": "NB-093",
+  "title": "Urban Heat Islands: Why Cities Stay Warm",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 449,
+  "passage": "On a summer evening, a family driving home from a desert camp may notice something strange. Although the sun has already set, the air grows warmer, not cooler, as they get close to the city. This puzzle has a name. Scientists call a city that stays hotter than the land around it an \"urban heat island,\" because on a temperature map it looks like a warm island in a cooler sea of farms, sand and open land.\n\nThe main cause lies in the materials from which cities are built. Asphalt roads, concrete pavements and dark rooftops absorb a large share of the sunlight that strikes them, storing its energy throughout the day. After sunset, these surfaces gradually release the stored heat back into the air, which explains why the difference between a city and its surroundings is usually greatest at night rather than at noon. Sand and soil, by contrast, lose their heat much more rapidly once the sun disappears.\n\nSeveral other factors make the problem worse. Tall buildings standing close together trap warm air between their walls and block the breezes that might otherwise carry it away. Thousands of cars, factories and air conditioners also pour waste heat into the streets. Furthermore, cities usually contain far fewer trees and plants than the countryside. This matters because plants cool their surroundings naturally: they draw water from the soil and release it through their leaves as vapour, a process that absorbs heat in much the same way that sweat cools a runner's skin.\n\nUnfortunately, the results are serious. Hotter neighbourhoods need more electricity for air conditioning, which raises costs for families and puts enormous pressure on power stations during heatwaves. Elderly people, young children and outdoor workers are especially vulnerable, since extreme heat can cause tiredness, dizziness and dangerous dehydration. Warm, still air can also hold pollution close to the ground.\n\nFortunately, city planners in many countries have found effective solutions. Planting trees along streets provides shade and moisture, while parks act like natural air conditioners for entire districts. Some buildings now have \"cool roofs,\" which are painted white or covered with reflective materials so that they bounce sunlight away instead of absorbing it. Others have green roofs, where grass and small plants grow on top of the building. Even pavements can be redesigned with lighter colours or materials that allow rainwater to soak through.\n\nHow remarkable it is that a few changes in colour and greenery can lower the temperature of an entire neighbourhood! Each of us can contribute as well, by caring for the trees near our homes and schools. A cooler city is not merely more comfortable; it is healthier, more economical and kinder to the planet.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “vulnerable” as it is used in paragraph 4?",
+      "options": [
+        "easily harmed",
+        "very careful",
+        "well protected",
+        "highly skilled"
+      ],
+      "answer": "A",
+      "why": "Elderly people and children are “vulnerable” because extreme heat can make them ill, so the word means easily harmed. “Well protected” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “rapidly” as it is used in paragraph 2?",
+      "options": [
+        "quickly",
+        "slowly",
+        "suddenly",
+        "completely"
+      ],
+      "answer": "B",
+      "why": "“Rapidly” means quickly, so its opposite is “slowly”; “quickly” is a synonym, not an opposite."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 6: “A cooler city is not merely more comfortable; it is healthier, more economical and kinder to the planet.” What does “economical” mean here?",
+      "options": [
+        "full of green spaces",
+        "pleasant to live in",
+        "costing less money to run",
+        "quick and easy to build"
+      ],
+      "answer": "C",
+      "why": "Paragraph 4 explains that hotter neighbourhoods raise electricity costs, so a cooler city is economical because it saves money."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an adverb?",
+      "options": [
+        "fewer",
+        "vapour",
+        "standing",
+        "naturally"
+      ],
+      "answer": "D",
+      "why": "“Naturally” tells how plants cool their surroundings, so it is an adverb; “vapour” is a noun, “fewer” an adjective and “standing” a verb form."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 4 is SINGULAR?",
+      "options": [
+        "neighbourhoods",
+        "families",
+        "electricity",
+        "heatwaves"
+      ],
+      "answer": "C",
+      "why": "“Electricity” names one uncountable thing; the other three nouns are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “reflective” in paragraph 5?",
+      "options": [
+        "refresh",
+        "effective",
+        "relief",
+        "reflection"
+      ],
+      "answer": "D",
+      "why": "“Reflection” and “reflective” both come from “reflect”; the other words only look or sound similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “contribute” in a meaningful sentence of your own.",
+      "model": "Every student can contribute to a cleaner school by putting rubbish in the correct bin.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “contribute” with its meaning (to give or do something to help achieve a goal)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Contribute” means to give help, effort or something useful towards a shared aim."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “leaves” in paragraph 3 is a plural noun. What is its singular form?",
+      "options": [
+        "leave",
+        "leafs",
+        "leaf",
+        "leafe"
+      ],
+      "answer": "C",
+      "why": "Nouns ending in -f often change to -ves in the plural: one leaf, many leaves. “Leave” is a different word (a verb)."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “How remarkable it is that a few changes in colour and greenery can lower the temperature of an entire neighbourhood!”?",
+      "options": [
+        "a question, because it begins with “How”",
+        "an exclamatory sentence",
+        "a command to the reader",
+        "a statement of fact"
+      ],
+      "answer": "B",
+      "why": "It expresses strong surprise and ends with an exclamation mark; it begins with “How” but asks nothing."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Why Cities Are Warmer Than the Land Around Them",
+        "How Power Stations Survive Summer Heatwaves",
+        "A Family Trip Home from a Desert Camp",
+        "The Invention and History of Air Conditioning"
+      ],
+      "answer": "A",
+      "why": "The text explains why cities stay hotter than the countryside and what can be done. The trip is only the opening example, and power stations are one detail."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade families to leave the city and live in the countryside",
+        "to explain why cities stay hot, why this matters and how it can be reduced",
+        "to tell the story of a family that went camping in the desert",
+        "to compare different kinds of air conditioners and their prices"
+      ],
+      "answer": "B",
+      "why": "The text moves from causes (paragraphs 2–3) to effects (paragraph 4) to solutions (paragraph 5)."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "Sand and soil stay hot all night long, unlike roads.",
+        "Cities are hottest at noon, when the sun is strongest.",
+        "Asphalt roads are more useful than roads made of sand.",
+        "Hard, dark city surfaces store the sun's heat and release it at night."
+      ],
+      "answer": "D",
+      "why": "Paragraph 2 explains that asphalt, concrete and dark roofs absorb sunlight by day and give the heat back after sunset."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why is the difference between a city and the land around it usually greatest at night?",
+      "options": [
+        "Cars and factories work harder after dark.",
+        "Breezes stop blowing as soon as the sun sets.",
+        "City surfaces give back stored heat while open land cools fast.",
+        "Air conditioners are switched off late in the evening."
+      ],
+      "answer": "C",
+      "why": "After sunset the surfaces “gradually release the stored heat,” while sand and soil “lose their heat much more rapidly.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "a personal narrative",
+        "an expository text",
+        "a friendly letter",
+        "a short story"
+      ],
+      "answer": "B",
+      "why": "It explains a topic with facts, causes and solutions; it has no narrator's personal story, characters or plot."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, why are “cool roofs” painted white or covered with reflective materials?",
+      "options": [
+        "so that they bounce sunlight away instead of absorbing it",
+        "so that grass and small plants can grow on them",
+        "so that rainwater can soak through them into the soil",
+        "so that they can be seen easily from the air"
+      ],
+      "answer": "A",
+      "why": "The writer says they are white or reflective “so that they bounce sunlight away instead of absorbing it.” Plants grow on green roofs, not cool roofs."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which idea does the writer discuss immediately AFTER explaining how plants cool their surroundings?",
+      "options": [
+        "how cool roofs reflect sunlight",
+        "why the city feels warmer at night",
+        "what a temperature map looks like",
+        "the harm that extra heat does to people and power supplies"
+      ],
+      "answer": "D",
+      "why": "Plants are explained at the end of paragraph 3; paragraph 4 then describes the effects on electricity, health and pollution."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which of these is NOT given in paragraph 3 as a factor that makes a city hotter?",
+      "options": [
+        "light-coloured pavements that reflect sunlight",
+        "tall buildings that block breezes",
+        "waste heat from air conditioners",
+        "a shortage of trees and plants"
+      ],
+      "answer": "A",
+      "why": "Light-coloured pavements appear in paragraph 5 as a solution, not as a cause. The other three are listed in paragraph 3."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "How does the writer organise the information in the text?",
+      "options": [
+        "as a story told in the order that events happened",
+        "as a comparison of two named cities, point by point",
+        "by explaining what the problem is, its causes, its effects and its solutions",
+        "as a list of questions from readers with short answers"
+      ],
+      "answer": "C",
+      "why": "Paragraph 1 defines the problem, 2–3 give causes, 4 gives effects and 5 gives solutions."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what causes plants to cool the air around them?",
+      "options": [
+        "Their leaves block the wind.",
+        "They release water vapour, a process that absorbs heat.",
+        "They grow only in cool countryside areas.",
+        "Their roots keep the soil from becoming dry."
+      ],
+      "answer": "B",
+      "why": "Plants “draw water from the soil and release it through their leaves as vapour, a process that absorbs heat.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
+      "options": [
+        "a list of numbers showing exact temperatures",
+        "the writer's personal memories of a camping trip",
+        "a warning that the city will soon become too hot to live in",
+        "a puzzling situation that the reader wants to have explained"
+      ],
+      "answer": "D",
+      "why": "The opening describes air growing warmer after sunset near a city, which makes the reader curious about the reason."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which words best describe the writer's attitude in paragraphs 5 and 6?",
+      "options": [
+        "hopeful and encouraging",
+        "doubtful and suspicious",
+        "angry and blaming",
+        "bored and uninterested"
+      ],
+      "answer": "A",
+      "why": "The writer says planners “have found effective solutions,” calls the changes “remarkable” and invites readers to contribute."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How do asphalt roads differ from sand and soil, according to paragraph 2?",
+      "options": [
+        "Asphalt reflects sunlight, but sand absorbs it.",
+        "Sand stores heat all night, but asphalt cools at once.",
+        "Asphalt holds heat and releases it slowly, but sand and soil lose heat quickly.",
+        "Asphalt is found only in the countryside, but sand is found in cities."
+      ],
+      "answer": "C",
+      "why": "Asphalt stores energy “throughout the day” and releases it “gradually,” whereas sand and soil lose heat “much more rapidly.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what is one effect of hotter neighbourhoods on power stations during heatwaves?",
+      "options": [
+        "They have to close until the weather cools.",
+        "They face enormous pressure because people use more electricity.",
+        "They produce less pollution than usual.",
+        "They are moved outside the city."
+      ],
+      "answer": "B",
+      "why": "Hotter neighbourhoods “need more electricity for air conditioning,” which “puts enormous pressure on power stations during heatwaves.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do a cool roof and a tree planted along a street have in common?",
+      "options": [
+        "Both release water vapour through their leaves.",
+        "Both must be painted white to work well.",
+        "Both absorb sunlight and store it until night.",
+        "Both help to keep a neighbourhood cooler."
+      ],
+      "answer": "D",
+      "why": "A cool roof reflects sunlight and a tree gives shade and moisture; they work differently but both lower the temperature."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “parks act like natural air conditioners for entire districts”?",
+      "options": [
+        "Parks cool the areas around them without using machines.",
+        "Parks contain large air-conditioning units hidden under the grass.",
+        "Parks are the only places in a city where people feel comfortable.",
+        "Parks use a lot of electricity to stay green."
+      ],
+      "answer": "A",
+      "why": "The comparison shows that parks cool their surroundings as an air conditioner would, but naturally."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare plants releasing vapour to the way “sweat cools a runner's skin”?",
+      "options": [
+        "to show that plants and runners need the same amount of water",
+        "to suggest that runners should train in parks",
+        "to explain a scientific process through something readers already know",
+        "to prove that sweating is harmful to the body"
+      ],
+      "answer": "C",
+      "why": "Most readers know how sweat cools them, so the comparison makes the process of plants cooling the air easy to understand."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer place the terms “urban heat island” and “cool roofs” in quotation marks?",
+      "options": [
+        "to show that someone is speaking them aloud",
+        "to mark them as special terms that are being introduced and explained",
+        "to show that the writer disagrees with these terms",
+        "to show that they are the titles of books"
+      ],
+      "answer": "B",
+      "why": "Each term is new to the reader and is explained in the same sentence, so the quotation marks highlight special vocabulary."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action by a school would be MOST useful in reducing heat, based on the text?",
+      "options": [
+        "painting the playground a darker colour",
+        "keeping the air conditioners running with the windows open",
+        "removing the trees so that breezes can reach the classrooms",
+        "planting shade trees around the playground"
+      ],
+      "answer": "D",
+      "why": "The text says trees provide shade and moisture; dark surfaces absorb more heat, and removing trees would make the problem worse."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this text?",
+      "options": [
+        "a wish to sell reflective paint to families",
+        "a wish to help readers understand why cities overheat and how this can be improved",
+        "a belief that people should stop building cities",
+        "a plan to describe a favourite camping place"
+      ],
+      "answer": "B",
+      "why": "The writer explains causes and harms and then encourages readers with practical solutions and a call to care for trees."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "fear that the problem can never be solved",
+        "sadness about the trees that cities have lost",
+        "optimism that small changes can make a big difference",
+        "anger at drivers and factory owners"
+      ],
+      "answer": "C",
+      "why": "The writer calls the effect of “a few changes” remarkable and says each of us can contribute, which shows optimism."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "why dark surfaces become hot during the day",
+        "how trees help to cool a street",
+        "what a green roof is",
+        "how many degrees warmer a city usually is than the countryside"
+      ],
+      "answer": "D",
+      "why": "The writer says a city is “hotter” but never gives a temperature difference; the other points are clearly explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A thermometer on a city street shows a higher temperature at midnight than one on a nearby farm.",
+        "A black roof stays cooler in the summer sun than a white roof beside it.",
+        "A single tree lowers the temperature of a whole city by twenty degrees.",
+        "Bare sand in the desert stays warmer at night than city asphalt."
+      ],
+      "answer": "A",
+      "why": "The text explains that cities release stored heat at night while open land cools quickly. The other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "The Hottest Day of the Year",
+        "Life on a Desert Farm",
+        "Cooling Down Our Hot Cities",
+        "How Thermometers Are Made"
+      ],
+      "answer": "C",
+      "why": "The text is about why cities stay hot and how to make them cooler."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with ONE more solution to the urban heat island problem and explain how it would help.",
+      "model": "Another solution is to build fountains and shaded walkways in busy squares. Water cools the air as it evaporates, much as plants do, and shade stops the ground from soaking up sunlight. If cities added these features, people could walk outside comfortably even in summer.",
+      "rubric": [
+        "2 = a clear new ending with a sensible solution and a reason that links to the text's ideas (shade, reflection, moisture, less waste heat)",
+        "1 = a solution is given but it is unclear, unrealistic or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible solution that is explained and fits the text's science is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A school's asphalt playground becomes very hot every afternoon. Which solution fits the advice in the text?",
+      "options": [
+        "Plant trees around the playground to give shade.",
+        "Replace part of the dark asphalt with a lighter-coloured surface.",
+        "A and B",
+        "Cover the playground with black rubber mats."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 recommends both trees for shade and lighter-coloured pavements; black mats would absorb even more heat."
+    }
+  ]
+}

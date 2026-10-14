@@ -1,0 +1,489 @@
+{
+ "code": "LN-152",
+ "title": "Character feelings and motivation",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.1.3",
+  "RL.2.3",
+  "RL.3.3",
+  "RL.4.3",
+  "RL.5.3",
+  "RL.6.3",
+  "RL.7.3",
+  "RL.8.3"
+ ],
+ "families": [
+  "character"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0031",
+  "R-0033",
+  "R-0078",
+  "R-0087",
+  "R-0161",
+  "R-0163",
+  "R-0273",
+  "R-0283",
+  "R-0450",
+  "R-0454",
+  "R-0639",
+  "R-0641",
+  "R-0842",
+  "R-0843",
+  "R-0985",
+  "R-0986",
+  "R-1079"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "How does the character feel?",
+     "text": "Stories do not always say **happy** or **sad**.\n\nYou can tell how a character feels from what they **do** and **say**."
+    },
+    {
+     "title": "Clues to feelings",
+     "text": "**Jumps and claps**: happy.\n**Cries**: sad.\n**Shakes**: scared.\n**Stamps feet**: angry."
+    },
+    {
+     "title": "Why do they do it?",
+     "text": "Characters do things for a **reason**.\n\nAsk: **Why** did she do that? The story gives a clue."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the story**.\n\n1. Find what the character **does** or **says**.\n2. Ask: what feeling does that show?\n3. That sentence is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nada got a letter.",
+      "role": "other"
+     },
+     {
+      "t": "She jumped up and down.",
+      "role": "key"
+     },
+     {
+      "t": "She ran to show her mom.",
+      "role": "key"
+     }
+    ],
+    "explain": "Nada jumps and runs to show her mom. These clues show she is **happy and excited**."
+   },
+   "together": {
+    "passage": "Adam lost his toy car. He looked under the bed. It was not there. His eyes filled with tears. He hugged his pillow.",
+    "stem": "How does Adam feel?",
+    "options": [
+     "Happy",
+     "Sad",
+     "Silly",
+     "Sleepy"
+    ],
+    "answer": 1,
+    "hint": "Look at what Adam does at the end. What do tears show?",
+    "good": "Yes! Tears and hugging his pillow show Adam is sad."
+   },
+   "evidence": {
+    "sentences": [
+     "Adam lost his toy car.",
+     "He looked under the bed.",
+     "It was not there.",
+     "His eyes filled with tears.",
+     "He hugged his pillow."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: sad. Tap 2 sentences that show how Adam feels.",
+    "wrong": "This sentence tells what happened. Find what Adam DOES that shows his feeling."
+   },
+   "checks": [
+    {
+     "passage": "The dog barked loudly. Sami hid behind his dad. His legs shook.",
+     "stem": "How does Sami feel?",
+     "options": [
+      "Proud",
+      "Scared",
+      "Hungry",
+      "Funny"
+     ],
+     "answer": 1,
+     "why": "Hiding and shaking legs show Sami is scared."
+    },
+    {
+     "passage": "Reem was hungry. She went to the kitchen. She made a sandwich.",
+     "stem": "Why did Reem make a sandwich?",
+     "options": [
+      "She was hungry.",
+      "She was cold.",
+      "She was sleepy.",
+      "She was sad."
+     ],
+     "answer": 0,
+     "why": "The story says Reem was hungry, so she made food."
+    },
+    {
+     "passage": "It was raining. Ali put on his coat. He took an umbrella too.",
+     "stem": "Why did Ali take an umbrella?",
+     "options": [
+      "It was hot.",
+      "He was late.",
+      "It was raining.",
+      "He was sad."
+     ],
+     "answer": 2,
+     "why": "It was raining, so he needed an umbrella."
+    }
+   ],
+   "again": {
+    "title": "Act it out",
+    "text": "Do what the character does.\n\nIf you **smile and clap**, how do you feel? If you **frown and cross your arms**, how do you feel?\n\nYour body tells you the feeling.",
+    "example": "Lina crossed her arms. She would not talk.\n\nCross your arms. How do you feel? **Upset or angry.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Reading feelings",
+     "text": "Writers **show** feelings instead of naming them.\n\nThey tell you what a character **does**, **says**, and how their **face** or **body** looks. You **infer** the feeling."
+    },
+    {
+     "title": "Motivation",
+     "text": "**Motivation** is the **reason** a character does something.\n\nA character may act because they **want** something, **fear** something, or **care** about someone."
+    },
+    {
+     "title": "Find feelings and reasons",
+     "text": "1. Find the character's actions and words.\n2. Ask: **How** must they feel to act this way?\n3. Ask: **Why** do they do it? What do they want?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove feelings and reasons with the text.\n\n1. Find sentences that show the character's **actions, words or face**.\n2. For motivation, find the sentence that shows what the character **wants** or **cares about**.\n3. Choose the answer those sentences support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Faris kept looking at the clock during the lesson.",
+      "role": "detail"
+     },
+     {
+      "t": "When the bell rang, he was the first one out the door.",
+      "role": "detail"
+     },
+     {
+      "t": "His father had promised to take him to see the new baby camels after school.",
+      "role": "key"
+     }
+    ],
+    "explain": "Faris looks at the clock and rushes out. **Feeling**: impatient, excited.\n\n**Motivation**: he wants to see the baby camels. The last sentence tells us why."
+   },
+   "together": {
+    "passage": "Mariam's little brother was sick in bed with a cold. He looked bored and sad. Mariam went to her room and came back with her favourite puzzle. She sat on the floor beside his bed and said, \"Let's do it together.\" Soon, her brother was laughing.",
+    "stem": "Why does Mariam bring her favourite puzzle?",
+    "options": [
+     "She wants to play with it alone.",
+     "She is bored and has nothing to do.",
+     "She wants to cheer up her brother.",
+     "She needs help finishing the puzzle."
+    ],
+    "answer": 2,
+    "hint": "What was wrong with her brother? What does Mariam say when she brings it?",
+    "good": "Yes! Her brother was bored and sad, and she offered to do the puzzle with him. She wanted to cheer him up."
+   },
+   "evidence": {
+    "sentences": [
+     "Mariam's little brother was sick in bed with a cold.",
+     "He looked bored and sad.",
+     "Mariam went to her room and came back with her favourite puzzle.",
+     "She sat on the floor beside his bed and said, \"Let's do it together.\"",
+     "Soon, her brother was laughing."
+    ],
+    "proof": [
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: she wants to cheer up her brother. Tap 2 sentences that prove it.",
+    "wrong": "This sentence tells what Mariam did, but not why. Find the sentences that show what her brother needed and what happened."
+   },
+   "checks": [
+    {
+     "passage": "Sultan stared at the test paper. His hands were sweaty, and he tapped his pencil again and again.",
+     "stem": "How does Sultan feel?",
+     "options": [
+      "Nervous",
+      "Bored",
+      "Sleepy",
+      "Angry"
+     ],
+     "answer": 0,
+     "why": "Staring, sweaty hands and tapping show he is nervous."
+    },
+    {
+     "passage": "Jana saved her pocket money for weeks. She did not buy sweets or toys. On her mother's birthday, she gave her a beautiful scarf.",
+     "stem": "Why did Jana save her money?",
+     "options": [
+      "She wanted to buy sweets.",
+      "She wanted to buy a toy.",
+      "She did not like money.",
+      "She wanted to buy her mother a gift."
+     ],
+     "answer": 3,
+     "why": "She saved for weeks and gave her mother a scarf on her birthday."
+    },
+    {
+     "passage": "When the coach called his name for the team, Bandar's mouth fell open. Then a huge smile spread across his face.",
+     "stem": "How does Bandar feel?",
+     "options": [
+      "Worried and upset",
+      "Surprised and happy",
+      "Tired and bored",
+      "Angry and jealous"
+     ],
+     "answer": 1,
+     "why": "His mouth falling open shows surprise. The huge smile shows happiness."
+    }
+   ],
+   "again": {
+    "title": "Because...",
+    "text": "Finish this sentence for the character:\n\n**He/She did this because...**\n\nFind the words in the story that finish it.",
+    "example": "Yousef wore his best clothes and combed his hair twice. Today he would meet his new teacher.\n\nHe dressed up **because he wanted to make a good first impression.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Inferring feelings",
+     "text": "Authors give **clues** to what characters feel and think: actions, words, thoughts, and how others react to them.\n\nYou combine the clues with what you know about people to **infer** the feeling."
+    },
+    {
+     "title": "Mixed feelings",
+     "text": "Characters can feel **two things at once**: proud but nervous, happy but a little sad.\n\nLook for words like **but**, **although**, **still**, which often signal a mix."
+    },
+    {
+     "title": "Motivation behind actions",
+     "text": "Characters act for reasons that are not always stated.\n\nAsk: What does the character **want**? What are they **afraid of**? What do they **value**? The answer explains their choices."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a feeling or a motivation:\n\n1. Find two or more clues: actions, words, thoughts.\n2. Make sure your answer explains **all** the clues, not just one.\n3. Reject answers that the text does not support, even if they seem possible."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "As the plane rose, Hessa pressed her face against the window.",
+      "role": "detail"
+     },
+     {
+      "t": "She waved at the shrinking city, although no one below could see her.",
+      "role": "key"
+     },
+     {
+      "t": "Then she opened the letter her grandmother had given her, smiled, and wiped her eyes.",
+      "role": "key"
+     },
+     {
+      "t": "The plane was full.",
+      "role": "other"
+     }
+    ],
+    "explain": "She waves at the city and wipes her eyes: **sad to leave**. She smiles at the letter: **loved and comforted**.\n\nHessa has **mixed feelings**: sadness about leaving and warmth from her grandmother's love."
+   },
+   "together": {
+    "passage": "Every afternoon, Ziyad practised the oud in his room with the door closed. When his cousins visited, he hid the instrument under his bed. One evening, his uncle heard him playing through the wall and knocked on the door. Ziyad froze, his face hot. \"Don't stop,\" his uncle said quietly. \"I played the same song when I was your age.\" Ziyad looked down at the strings for a long moment, then began again, a little louder this time.",
+    "stem": "Why does Ziyad hide his oud from his cousins?",
+    "options": [
+     "He is shy about his playing and does not want others to hear yet.",
+     "He is angry with his cousins and wants them to leave.",
+     "He has broken the oud and is afraid of being blamed.",
+     "He has stopped liking music and wants to forget it."
+    ],
+    "answer": 0,
+    "hint": "Look for every clue: the closed door, hiding the oud, freezing when his uncle hears him. What do they show?",
+    "good": "Yes! The closed door, the hiding and his hot face when heard all show he is shy about his playing."
+   },
+   "evidence": {
+    "sentences": [
+     "Every afternoon, Ziyad practised the oud in his room with the door closed.",
+     "When his cousins visited, he hid the instrument under his bed.",
+     "One evening, his uncle heard him playing through the wall and knocked on the door.",
+     "Ziyad froze, his face hot.",
+     "\"Don't stop,\" his uncle said quietly.",
+     "\"I played the same song when I was your age.\"",
+     "Ziyad looked down at the strings for a long moment, then began again, a little louder this time."
+    ],
+    "proof": [
+     0,
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: he is shy and does not want others to hear yet. Tap 2 sentences that show his shyness.",
+    "wrong": "This sentence shows what the uncle does or says, or what Ziyad does at the end. Find clues about why he hides his playing."
+   },
+   "checks": [
+    {
+     "passage": "Rayan finished first in the spelling contest. He shook hands with the other students and smiled. But as he walked off stage, he glanced at his best friend, who had gone out in the first round, and his smile faded.",
+     "stem": "How does Rayan feel at the end?",
+     "options": [
+      "Only proud of himself",
+      "Bored with the contest",
+      "Angry with his friend",
+      "Proud, but sorry for his friend"
+     ],
+     "answer": 3,
+     "why": "He smiles at winning, but his smile fades when he sees his friend. He feels pride mixed with sympathy."
+    },
+    {
+     "passage": "Kholoud volunteered to stay after school and clean the art room, even though no one asked her. The next day, she shyly asked the art teacher if she could join the advanced painting class.",
+     "stem": "What is the most likely reason Kholoud cleaned the art room?",
+     "options": [
+      "She was being punished.",
+      "She hoped to show the teacher how much she cared about art.",
+      "She did not want to go home.",
+      "She wanted to find a lost pencil."
+     ],
+     "answer": 1,
+     "why": "She volunteered without being asked, then asked to join the painting class. She wanted to show her interest."
+    },
+    {
+     "passage": "When his little sister broke his model plane, Majed opened his mouth to shout. Then he saw her face, full of fear, and he knelt down. \"It's okay,\" he said. \"We can fix it together.\"",
+     "stem": "Why does Majed change his reaction?",
+     "options": [
+      "He realises the plane is not broken.",
+      "He wants their mother to praise him.",
+      "He sees that his sister is scared and wants to comfort her.",
+      "He did not really like the plane anyway."
+     ],
+     "answer": 2,
+     "why": "Seeing her fear makes him kneel and comfort her. He cares about her more than the plane."
+    }
+   ],
+   "again": {
+    "title": "Clue chart",
+    "text": "Make two columns.\n\n**Clue** (what the character does or says) | **What it shows**\n\nWhen you have three rows, look for the feeling or reason they all share.",
+    "example": "Clue: she checks the door twice. → worried.\nClue: she cannot eat. → worried.\nClue: she keeps phoning her brother. → worried about him.\n\nFeeling: **worried about her brother.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex characters",
+     "text": "In strong stories, characters' feelings and motives are **layered**. A character may hide a feeling, feel two things at once, or not fully understand their own reasons.\n\nThe reader must interpret **subtle** clues."
+    },
+    {
+     "title": "Where to look",
+     "text": "1. **Actions that contradict words**: a character says \"I don't care\" but keeps watching.\n2. **Internal thoughts**: what they notice or remember.\n3. **Small gestures**: a pause, a glance, a clenched hand.\n4. **Change**: how their behaviour shifts over the story."
+    },
+    {
+     "title": "Explaining motivation",
+     "text": "A strong explanation connects the action to a **deeper need**: belonging, respect, fear of failure, loyalty, guilt.\n\nIt also uses evidence from **more than one** part of the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When you infer a hidden feeling or motive:\n\n1. Look for clues where the character's **words and actions do not match**.\n2. Find what the character **remembers** or **notices**: it often reveals what they care about.\n3. Choose the interpretation that explains the most clues. Reject answers that take the character's words at face value when the actions say otherwise."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "\"I don't need anyone's help,\" Saud said, pushing his chair back from the table.",
+      "role": "other"
+     },
+     {
+      "t": "After his brother left, he picked up the maths book his brother had marked with notes.",
+      "role": "detail"
+     },
+     {
+      "t": "He read every note twice, then quietly copied them into his own notebook.",
+      "role": "key"
+     }
+    ],
+    "explain": "Saud **says** he needs no help, but he **reads and copies** his brother's notes when no one is watching.\n\nHe does want help, but **pride** stops him from admitting it."
+   },
+   "together": {
+    "passage": "Nawal told everyone she was glad her best friend, Ghada, had been chosen to captain the debate team. \"She deserves it,\" Nawal said at lunch, smiling a little too widely. That afternoon, she volunteered to research every argument for the next debate, staying in the library long after the others had gone home. When Ghada thanked her, Nawal waved it away. Later, alone in the empty classroom, she took out the captain's badge she had made for herself the summer before, looked at it for a long time, and then dropped it into the bin. The next morning, she was the first to arrive at practice.",
+    "stem": "What best explains Nawal's feelings and actions?",
+    "options": [
+     "She is jealous and plans to make Ghada fail as captain.",
+     "She is disappointed not to be captain, but she chooses to let go and support her friend.",
+     "She never wanted to be captain and is pleased that Ghada was chosen.",
+     "She is tired of debating and wants to leave the team soon."
+    ],
+    "answer": 1,
+    "hint": "Compare what Nawal says with what she does when she is alone. What does the badge show? What does she do the next day?",
+    "good": "Yes! The forced smile and the badge show disappointment; throwing the badge away and arriving first show she decides to support Ghada."
+   },
+   "evidence": {
+    "sentences": [
+     "Nawal told everyone she was glad her best friend, Ghada, had been chosen to captain the debate team.",
+     "\"She deserves it,\" Nawal said at lunch, smiling a little too widely.",
+     "That afternoon, she volunteered to research every argument for the next debate, staying in the library long after the others had gone home.",
+     "When Ghada thanked her, Nawal waved it away.",
+     "Later, alone in the empty classroom, she took out the captain's badge she had made for herself the summer before, looked at it for a long time, and then dropped it into the bin.",
+     "The next morning, she was the first to arrive at practice."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: she is disappointed but chooses to let go and support her friend. Tap 2 sentences that reveal her hidden disappointment or her choice to move on.",
+    "wrong": "This sentence only shows how Nawal acts in front of others. Find the clues that show what she really feels, or her choice afterward."
+   },
+   "checks": [
+    {
+     "passage": "Mansour's grandfather had built the fishing boat himself. When the family decided to sell it, Mansour said nothing at dinner. That night, he went down to the harbour and sat in the boat until the sky turned pink, running his hand along the worn wooden seat.",
+     "stem": "What does Mansour's visit to the harbour suggest?",
+     "options": [
+      "He is quietly grieving the loss of the boat and his memories of his grandfather.",
+      "He wants to take the boat out fishing one last time.",
+      "He is checking that the boat is in good condition for the buyer.",
+      "He is happy that the family will finally sell the boat."
+     ],
+     "answer": 0,
+     "why": "His silence at dinner and his night in the boat, touching the seat, show quiet sadness about losing a link to his grandfather."
+    },
+    {
+     "passage": "Aseel always arrived first at the science club, helped set up equipment, and stayed to clean up. When a new girl joined and the teacher praised her experiment, Aseel began arriving late. Then one day, the teacher asked Aseel to show the new girl how to use the microscope. Aseel was early again the next week.",
+     "stem": "Why does Aseel start arriving late, then early again?",
+     "options": [
+      "She becomes bored with science, then interested again.",
+      "Her bus schedule changes twice during the term.",
+      "She feels replaced when the new girl is praised, then valued again when the teacher trusts her.",
+      "She dislikes the new girl and wants to avoid her completely."
+     ],
+     "answer": 2,
+     "why": "Her change follows the praise for the new girl, and she returns when the teacher shows trust in her. She needs to feel valued."
+    },
+    {
+     "passage": "\"It's only a game,\" Bader shrugged after missing the penalty. But on the bus home, he sat at the back with his hood up, and when his friend offered him a date, he shook his head without looking up.",
+     "stem": "How does Bader really feel?",
+     "options": [
+      "Calm, because he believes it is only a game",
+      "Hungry but too tired to eat",
+      "Excited about the next match",
+      "Upset and ashamed about missing the penalty"
+     ],
+     "answer": 3,
+     "why": "His words say he does not care, but hiding under his hood and refusing to look up show he is deeply upset."
+    }
+   ],
+   "again": {
+    "title": "Words versus actions",
+    "text": "When a character's words and actions disagree, **trust the actions**.\n\n1. Write what the character **says**.\n2. Write what the character **does**.\n3. Ask: what feeling explains the **actions**?",
+    "example": "Says: \"I'm not hungry.\" Does: keeps looking at the plate of kunafa.\n\nThe actions show **she does want some** but is being polite or shy."
+   }
+  }
+ }
+}

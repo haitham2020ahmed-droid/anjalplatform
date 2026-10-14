@@ -1,0 +1,568 @@
+{
+  "code": "NB-088",
+  "title": "Naguib Mahfouz: The Storyteller of Cairo",
+  "kind": "LITERARY",
+  "genre": "biography",
+  "words": 421,
+  "passage": "In the narrow, crowded lanes of old Cairo, where merchants called out to customers and the sound of footsteps echoed between ancient buildings, a quiet boy watched everything around him. He noticed how people argued and laughed, how families struggled and celebrated, and how the city itself seemed to have a personality of its own. That boy was Naguib Mahfouz, and decades later he would turn those memories into novels that readers around the world would treasure.\n\nMahfouz was born in 1911 in the Gamaliya district of Cairo, the youngest of seven children. He loved reading from an early age. Later, he studied philosophy at Cairo University and graduated in 1934. Afterwards, he did not devote himself only to literature. Instead, he took a job as a civil servant and worked in government offices for most of his adult life. Because he could not write all day, he wrote with remarkable discipline during his free hours, steadily completing one book after another.\n\nHis first novels were set in ancient Egypt, but he soon turned to the world he knew best: the ordinary people of modern Cairo. His most celebrated work, the Cairo Trilogy, was published in 1956 and 1957. Across three long novels, it follows one family through three generations, showing how their lives changed as Egypt itself changed. Readers recognised their own grandparents, parents and neighbours in his characters, and critics praised the way he combined personal stories with the history of a nation.\n\nOver his long career, Mahfouz wrote more than thirty novels and hundreds of short stories. Many of his works were made into films, so even people who rarely read books became familiar with his characters. Every week, he met friends and young writers in Cairo's cafés, where he listened patiently, offered advice and encouraged new authors to find their own voices.\n\nIn 1988, the Swedish Academy awarded him the Nobel Prize in Literature. He was the first writer in the Arabic language ever to receive this honour. Mahfouz preferred to stay at home, so his two daughters travelled to Stockholm to accept the prize on his behalf. His speech was read aloud to the audience. In it, he described himself as the son of two great civilisations, ancient Egyptian and Islamic.\n\nMahfouz died in 2006, yet his books are still translated, studied and enjoyed in dozens of languages. How much a quiet observer can achieve! His life demonstrates that great literature often begins with paying careful attention to ordinary people and the familiar streets around us.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “celebrated” as it is used in paragraph 3?",
+      "options": [
+        "famous",
+        "festive",
+        "longest",
+        "earliest"
+      ],
+      "answer": "A",
+      "why": "His “most celebrated work” is the one that is most famous and praised; “festive” fits a party, not a book."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “ordinary” as it is used in paragraph 3?",
+      "options": [
+        "unusual",
+        "common",
+        "modern",
+        "honest"
+      ],
+      "answer": "A",
+      "why": "“Ordinary” people are everyday, common people; the opposite is “unusual”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “discipline” mean in this phrase from paragraph 2: “he wrote with remarkable discipline during his free hours”?",
+      "options": [
+        "a punishment given by a strict teacher",
+        "steady self-control in keeping to a routine",
+        "a subject that is studied at university",
+        "great speed and nervous excitement"
+      ],
+      "answer": "B",
+      "why": "He kept writing regularly in his free time, “steadily completing one book after another”, which shows self-control and routine."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an ADJECTIVE?",
+      "options": [
+        "rarely",
+        "familiar",
+        "career",
+        "encouraged"
+      ],
+      "answer": "B",
+      "why": "In “became familiar with his characters”, “familiar” describes people; “rarely” is an adverb, “career” a noun and “encouraged” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the passage is IRREGULAR?",
+      "options": [
+        "novels",
+        "daughters",
+        "languages",
+        "children"
+      ],
+      "answer": "D",
+      "why": "One child, many children; the other words just add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “civilisations”?",
+      "options": [
+        "cylinder",
+        "circle",
+        "civilised",
+        "cinema"
+      ],
+      "answer": "C",
+      "why": "Civilisation and civilised share the root “civil”; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “encouraged” in a meaningful sentence of your own.",
+      "model": "Our coach encouraged the shy players to speak up, and soon the whole team was sharing ideas.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “encouraged” with its meaning (gave someone support, confidence or hope to do something)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "In paragraph 4, Mahfouz “encouraged new authors to find their own voices.”"
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 6 mentions Mahfouz's “life”. What is the correct plural of “life”?",
+      "options": [
+        "lifes",
+        "livies",
+        "lives",
+        "lifees"
+      ],
+      "answer": "C",
+      "why": "Many nouns ending in -fe change to -ves: life → lives, knife → knives."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What type of sentence is “How much a quiet observer can achieve!”?",
+      "options": [
+        "a question",
+        "an exclamation",
+        "a command",
+        "a statement"
+      ],
+      "answer": "B",
+      "why": "Although it begins with “How”, it does not ask anything; it expresses strong feeling and ends with an exclamation mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "A Civil Servant's Busy Office",
+        "The History of the Swedish Academy",
+        "Famous Films of Modern Egypt",
+        "Great Stories from Ordinary Streets"
+      ],
+      "answer": "D",
+      "why": "The passage is about a writer who told the stories of Cairo and its people."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to show how a writer turned everyday life into great literature",
+        "to summarise the full plot of the Cairo Trilogy",
+        "to describe the cafés of Cairo for tourists",
+        "to explain how the Nobel Prize is chosen"
+      ],
+      "answer": "A",
+      "why": "The passage traces how Mahfouz's observations of ordinary Cairo became world-famous novels."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Mahfouz preferred making films to writing books.",
+        "Mahfouz's work reached many people, and he supported younger writers.",
+        "Cairo's cafés were the only places where he could write.",
+        "Mahfouz wrote only short stories later in his life."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4 covers his many books, the films made from them and his help for young writers."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why did Mahfouz write during his free hours?",
+      "options": [
+        "His teachers at university told him to write at night.",
+        "He wanted to finish his philosophy degree first.",
+        "He worked as a civil servant, so he could not write all day.",
+        "He wrote best when the city was quiet and empty."
+      ],
+      "answer": "C",
+      "why": "“Because he could not write all day, he wrote with remarkable discipline during his free hours.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Mahfouz's daughters travel to Stockholm in 1988?",
+      "options": [
+        "to study literature at a Swedish university",
+        "to accept the Nobel Prize for their father",
+        "to read their own novels to an audience",
+        "to translate his books into Swedish"
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: they travelled “to accept the prize on his behalf” because he preferred to stay at home."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this passage?",
+      "options": [
+        "a chapter from the Cairo Trilogy",
+        "a review of a new film",
+        "a diary kept by a traveller",
+        "a biography of a writer"
+      ],
+      "answer": "D",
+      "why": "It gives true facts about Mahfouz's life and work, told by someone else."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "The Cairo Trilogy was published.",
+        "Mahfouz won the Nobel Prize.",
+        "Mahfouz studied philosophy at Cairo University.",
+        "His daughters travelled to Stockholm."
+      ],
+      "answer": "C",
+      "why": "He graduated in 1934; the Trilogy appeared in 1956–1957 and the Nobel Prize came in 1988."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail explains how people who rarely read books came to know Mahfouz's characters?",
+      "options": [
+        "He met young writers in Cairo's cafés.",
+        "His speech was read aloud in Stockholm.",
+        "He worked in government offices.",
+        "Many of his works were made into films."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: his works were made into films, “so even people who rarely read books became familiar with his characters.”"
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Where were Mahfouz's FIRST novels set?",
+      "options": [
+        "in modern Cairo",
+        "in Stockholm",
+        "in ancient Egypt",
+        "in his government office"
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: “His first novels were set in ancient Egypt, but he soon turned to … modern Cairo.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why did the Cairo Trilogy mean so much to readers?",
+      "options": [
+        "They recognised their own families and neighbours in it.",
+        "It was the shortest book he ever wrote.",
+        "It described life in ancient Egypt in detail.",
+        "It was written in several different languages."
+      ],
+      "answer": "A",
+      "why": "“Readers recognised their own grandparents, parents and neighbours in his characters.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Mahfouz most likely meet young writers every week?",
+      "options": [
+        "He wanted to help new authors develop their own voices.",
+        "He needed them to write his novels for him.",
+        "He was too busy to meet anyone else.",
+        "He wanted them to copy his style exactly."
+      ],
+      "answer": "A",
+      "why": "He “listened patiently, offered advice and encouraged new authors to find their own voices” — their own, not his."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which pair of words best describes the young Mahfouz in paragraph 1?",
+      "options": [
+        "observant and thoughtful",
+        "noisy and impatient",
+        "lonely and frightened",
+        "careless and bored"
+      ],
+      "answer": "A",
+      "why": "He “watched everything around him” and noticed how people and families behaved."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How were Mahfouz's later novels DIFFERENT from his first ones?",
+      "options": [
+        "They were written in Swedish instead of Arabic.",
+        "They described modern Cairo instead of ancient Egypt.",
+        "They were short stories instead of novels.",
+        "They described Stockholm instead of Cairo."
+      ],
+      "answer": "B",
+      "why": "Paragraph 3: he moved from ancient Egypt to “the ordinary people of modern Cairo.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of turning Mahfouz's works into films?",
+      "options": [
+        "He stopped writing novels altogether.",
+        "He moved to Stockholm to work on films.",
+        "His books were no longer translated.",
+        "More people became familiar with his characters."
+      ],
+      "answer": "D",
+      "why": "Films meant that “even people who rarely read books became familiar with his characters.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the boy in paragraph 1 and the man in the cafés in paragraph 4 have in common?",
+      "options": [
+        "Both live far away from the city of Cairo.",
+        "Both give long speeches to large audiences.",
+        "Both work in busy government offices.",
+        "Both pay close attention to the people around them."
+      ],
+      "answer": "D",
+      "why": "The boy “watched everything around him”; the man “listened patiently” to young writers."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “the city itself seemed to have a personality of its own” in paragraph 1 suggest?",
+      "options": [
+        "Cairo was a city where only one person lived.",
+        "The buildings of Cairo were shaped like people.",
+        "Cairo felt alive and special, almost like a person.",
+        "Mahfouz did not like the people of Cairo."
+      ],
+      "answer": "C",
+      "why": "The writer describes the city as if it were a person (personification) to show its lively, unique character."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with the sounds and sights of old Cairo?",
+      "options": [
+        "to explain how to find a lane in old Cairo",
+        "to show the world that shaped Mahfouz's writing",
+        "to suggest that Mahfouz disliked noisy streets",
+        "to describe the cafés where he met young writers"
+      ],
+      "answer": "B",
+      "why": "The opening places readers in the streets that Mahfouz later turned into novels."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these statements is an OPINION rather than a fact?",
+      "options": [
+        "Great literature often begins with careful attention to ordinary people.",
+        "Mahfouz was born in 1911 in the Gamaliya district of Cairo.",
+        "The Cairo Trilogy was published in 1956 and 1957.",
+        "He was the first Arabic-language writer to win this prize."
+      ],
+      "answer": "A",
+      "why": "This is the writer's belief, which people may disagree with; the others can be checked as facts."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which of Mahfouz's habits would be MOST useful for a young writer to copy?",
+      "options": [
+        "avoiding travel to other countries",
+        "working in a government office",
+        "writing steadily during free time",
+        "writing only about ancient Egypt"
+      ],
+      "answer": "C",
+      "why": "His “remarkable discipline” in writing steadily allowed him to complete one book after another."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through this passage?",
+      "options": [
+        "Great writing can come from closely observing everyday life.",
+        "Writers should always work in government offices.",
+        "Only people who travel widely can write good books.",
+        "Films are more important than novels."
+      ],
+      "answer": "A",
+      "why": "The last sentence says great literature “often begins with paying careful attention to ordinary people.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling toward Mahfouz is most present in the passage?",
+      "options": [
+        "pity",
+        "anger",
+        "fear",
+        "respect"
+      ],
+      "answer": "D",
+      "why": "The writer praises his discipline, his books and his kindness to young writers."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "the year Mahfouz won the Nobel Prize",
+        "the titles of the three novels in the Cairo Trilogy",
+        "the subject Mahfouz studied at university",
+        "the city his daughters travelled to"
+      ],
+      "answer": "B",
+      "why": "The passage never names the three novels; the other facts are clearly stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A writer works in an office and writes novels in his free time.",
+        "A city speaks aloud and tells a boy its stories.",
+        "A novel writes its own final chapter overnight.",
+        "A writer finishes thirty novels in a single week."
+      ],
+      "answer": "A",
+      "why": "This is exactly what Mahfouz did; the others are impossible or unrealistic."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the passage?",
+      "options": [
+        "The Civil Servant Who Disliked Books",
+        "A Holiday in Sweden",
+        "The Greatest King of Ancient Egypt",
+        "From the Lanes of Gamaliya to Stockholm"
+      ],
+      "answer": "D",
+      "why": "It follows Mahfouz from his birthplace in old Cairo to the Nobel Prize in Stockholm."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending: imagine that Mahfouz had travelled to Stockholm himself to accept the prize. Write two or three sentences about what might have happened.",
+      "model": "Mahfouz might have walked slowly onto the stage and read his speech in Arabic, while the audience listened to a translation. Afterwards, he could have met young Swedish writers in a café, just as he did in Cairo, and listened to their stories. When he returned home, he might have written a new novel about his journey.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits Mahfouz's character and the facts of the passage",
+        "1 = an ending is given but it is unclear or does not fit Mahfouz well",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Mahfouz's quiet, observant character is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how can young writers follow Mahfouz's example?",
+      "options": [
+        "Observe the people and places around them closely.",
+        "Write a little regularly, even when they are busy.",
+        "A and B",
+        "Wait until they are free all day before they start."
+      ],
+      "answer": "C",
+      "why": "Mahfouz observed ordinary life closely and wrote with discipline in his free hours despite his job."
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+ "code": "LN-104",
+ "title": "Why a graphic is there",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.5",
+  "RI.2.7",
+  "RI.3.7",
+  "RI.4.7",
+  "RI.6.7",
+  "RI.8.7"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0040",
+  "R-0193",
+  "R-0194",
+  "R-0305",
+  "R-0326",
+  "R-0500",
+  "R-0501"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Graphics help",
+     "text": "A **graphic** is a picture, map, chart or diagram in a text.\n\nThe writer puts it there for a **reason**. It helps you understand the words."
+    },
+    {
+     "title": "Ask: why is it here?",
+     "text": "A graphic can help you:\n\n1. **see** what something looks like\n2. **find** a place\n3. **know** how to do something\n4. **compare** numbers quickly"
+    },
+    {
+     "title": "Match it to the words",
+     "text": "Read the words. Then look at the graphic.\n\nAsk: **What does the graphic help me see?** That is its purpose."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove why a graphic is there:\n\n1. Read what the words say.\n2. Read what the graphic shows.\n3. Point to the sentence that shows how the graphic helps."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The words say: Fold the paper in half.",
+      "role": "other"
+     },
+     {
+      "t": "The picture shows two hands folding a paper in half.",
+      "role": "key"
+     }
+    ],
+    "explain": "The picture **shows how** to fold the paper. That is why it is there."
+   },
+   "together": {
+    "passage": "A page in a book is about camels. The words say: A camel has a hump on its back. Next to the words is a picture of a camel. An arrow in the picture points to the hump.",
+    "stem": "Why is the picture there?",
+    "options": [
+     "to show a different animal",
+     "to tell a story",
+     "to show where the hump is",
+     "to make the page longer"
+    ],
+    "answer": 2,
+    "hint": "Look at what the arrow points to.",
+    "good": "Yes! The arrow points to the hump, so the picture **shows where the hump is**."
+   },
+   "evidence": {
+    "sentences": [
+     "A page in a book is about camels.",
+     "The words say: A camel has a hump on its back.",
+     "Next to the words is a picture of a camel.",
+     "An arrow in the picture points to the hump."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: to show where the hump is. Tap a sentence that proves it.",
+    "wrong": "This sentence does not tell what the picture shows. Find the sentence about the picture or the arrow."
+   },
+   "checks": [
+    {
+     "passage": "A recipe has a photo for each step: cutting, mixing and baking.",
+     "stem": "Why are the photos there?",
+     "options": [
+      "to show the cook's family",
+      "to show how to do each step",
+      "to tell the price",
+      "to make it funny"
+     ],
+     "answer": 1,
+     "why": "A photo for each step **shows how** to do it."
+    },
+    {
+     "passage": "A page about the weather has a chart of the temperature each day.",
+     "stem": "Why is the chart there?",
+     "options": [
+      "to show the temperatures quickly",
+      "to show pictures of clouds",
+      "to tell a joke",
+      "to show a map of the city"
+     ],
+     "answer": 0,
+     "why": "A chart lets you **see the temperatures quickly**."
+    },
+    {
+     "passage": "A sign at the zoo has a map with a red dot and the words \"You are here\".",
+     "stem": "What is the map for?",
+     "options": [
+      "to show what animals eat",
+      "to tell the time",
+      "to sell tickets",
+      "to help you find your way"
+     ],
+     "answer": 3,
+     "why": "The red dot shows where you are, so the map **helps you find your way**."
+    }
+   ],
+   "again": {
+    "title": "Cover it up",
+    "text": "Cover the graphic with your hand. Read only the words.\n\nWhat is **harder** to understand now? That is what the graphic was there to help with.",
+    "example": "Words: \"Turn left at the big tree.\" Map covered: where is the tree? Uncover the map: now you can **see the way**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A specific purpose",
+     "text": "Every graphic has a **specific** job.\n\n**Diagram**: shows parts or how something works.\n**Chart or table**: gives numbers to compare.\n**Map**: shows where.\n**Photo**: shows what something really looks like.\n**Before-and-after photos**: show change."
+    },
+    {
+     "title": "Graphic + text",
+     "text": "A good graphic adds something the words **cannot** show as well.\n\nWords can say \"water moves down through the layers\". A diagram with arrows lets you **see** it happen."
+    },
+    {
+     "title": "Name it exactly",
+     "text": "\"To help the reader\" is too general.\n\nSay **how** it helps: to show the order of steps, to compare amounts, to show how a place changed."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a graphic's purpose:\n\n1. Find what the text explains.\n2. Find what the graphic shows: parts, steps, numbers, places, change.\n3. Point to the sentences that describe the graphic and what it shows."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The text says honeybees do a dance to tell other bees where flowers are.",
+      "role": "other"
+     },
+     {
+      "t": "A diagram shows the bee's path in a figure-eight, with arrows.",
+      "role": "key"
+     }
+    ],
+    "explain": "The words **tell** about the dance. The diagram **shows the exact path** of the dance. That is its specific purpose."
+   },
+   "together": {
+    "passage": "An article explains how a simple water filter works. The text says that dirty water passes through layers of gravel, sand and charcoal. A diagram shows the layers stacked inside a bottle. Arrows show the water moving down through each layer. At the bottom, cleaner water drips into a cup. The article ends with a reminder that filtered water should still be boiled before drinking.",
+    "stem": "What is the specific purpose of the diagram?",
+    "options": [
+     "to show the path water takes through the layers",
+     "to show how much a filter costs in shops",
+     "to prove that charcoal is always black",
+     "to show where people can buy a filter"
+    ],
+    "answer": 0,
+    "hint": "What do the arrows in the diagram show?",
+    "good": "Yes! The arrows show water moving **down through each layer**, so you can see the path it takes."
+   },
+   "evidence": {
+    "sentences": [
+     "An article explains how a simple water filter works.",
+     "The text says that dirty water passes through layers of gravel, sand and charcoal.",
+     "A diagram shows the layers stacked inside a bottle.",
+     "Arrows show the water moving down through each layer.",
+     "At the bottom, cleaner water drips into a cup.",
+     "The article ends with a reminder that filtered water should still be boiled before drinking."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: to show the path water takes. Tap 2 sentences that describe the diagram.",
+    "wrong": "This sentence is part of the text, not the diagram. Find the sentences that tell what the diagram shows."
+   },
+   "checks": [
+    {
+     "passage": "A text about a city's growth includes two photos: one of the city in 1970 with a few low buildings, and one of the same place today, full of tall towers.",
+     "stem": "What is the purpose of the two photos?",
+     "options": [
+      "to show the weather in 1970",
+      "to name the people in the city",
+      "to explain how towers are built",
+      "to show how much the city has changed"
+     ],
+     "answer": 3,
+     "why": "Before-and-after photos show **change**: low buildings then, tall towers now."
+    },
+    {
+     "passage": "A science text includes a table listing the temperature at which water boils at different heights above sea level.",
+     "stem": "Why did the author include the table?",
+     "options": [
+      "to tell a story about a climber",
+      "to show pictures of mountains",
+      "to give exact numbers to compare",
+      "to explain how to boil an egg"
+     ],
+     "answer": 2,
+     "why": "A table gives **exact numbers** in a way that is easy to compare."
+    },
+    {
+     "passage": "A safety leaflet shows a drawing of a child riding a bike while wearing a helmet, with a big green tick next to it.",
+     "stem": "What is the purpose of the drawing?",
+     "options": [
+      "to show how to fix a bike",
+      "to show the safe way to ride",
+      "to show a bike race",
+      "to sell helmets in shops"
+     ],
+     "answer": 1,
+     "why": "The green tick means \"do this\": it shows the **safe way to ride**."
+    }
+   ],
+   "again": {
+    "title": "Finish the sentence",
+    "text": "Say: **\"The graphic shows ___ so that the reader can ___.\"**\n\nIf you can fill both blanks, you have found the specific purpose.",
+    "example": "\"The map shows **the bus routes** so that the reader can **plan a trip**.\""
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Is the graphic effective?",
+     "text": "A graphic is **effective** if it helps the reader understand or do something **better** than the words alone.\n\nA graphic can be beautiful and still not be effective."
+    },
+    {
+     "title": "Four checks",
+     "text": "1. **Relevant**: does it match the text's topic and goal?\n2. **Clear**: are labels, keys and numbers easy to read?\n3. **Accurate**: does it match the facts in the text?\n4. **Useful**: does it add something the words do not?"
+    },
+    {
+     "title": "Improving a graphic",
+     "text": "If a graphic is weak, ask what is **missing**.\n\nA missing key, a missing step, or a photo where a diagram is needed are common problems."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a graphic is effective (or not):\n\n1. Name the text's **goal**.\n2. Find what each graphic shows.\n3. Decide which one helps the reader reach that goal, and point to the sentences that show it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A guide to planting tomatoes has a photo of a red tomato.",
+      "role": "other"
+     },
+     {
+      "t": "It does not show how deep to plant the seeds or how far apart.",
+      "role": "key"
+     }
+    ],
+    "explain": "The photo is pretty, but it does **not** help a reader plant tomatoes. A diagram showing depth and spacing would be more effective."
+   },
+   "together": {
+    "passage": "Two students made posters about saving electricity at home. Lama's poster has a large photo of a sunset and the title \"Save Energy!\", but no other information. Majed's poster has a simple chart showing that air conditioning uses the biggest share of electricity in many homes in hot countries. Under the chart, he lists three tips for using air conditioners less. The teacher asked which graphic better helps readers know what to do.",
+    "stem": "Which graphic is more effective, and why?",
+    "options": [
+     "Lama's: a sunset is a beautiful photo.",
+     "Lama's: its title is short and clear.",
+     "Majed's: it uses more colours.",
+     "Majed's: it shows where energy goes."
+    ],
+    "answer": 3,
+    "hint": "The goal is to help readers know what to do. Which poster gives them information they can use?",
+    "good": "Yes! Majed's chart shows **where** most electricity goes, and his tips show **how** to use less."
+   },
+   "evidence": {
+    "sentences": [
+     "Two students made posters about saving electricity at home.",
+     "Lama's poster has a large photo of a sunset and the title \"Save Energy!\", but no other information.",
+     "Majed's poster has a simple chart showing that air conditioning uses the biggest share of electricity in many homes in hot countries.",
+     "Under the chart, he lists three tips for using air conditioners less.",
+     "The teacher asked which graphic better helps readers know what to do."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Majed's, because it shows where energy goes. Tap 2 sentences that prove it.",
+    "wrong": "This sentence does not show what the graphics give the reader. Look at what each poster includes."
+   },
+   "checks": [
+    {
+     "passage": "A text explains the five steps of making bread. The only graphic is a photo of a finished loaf.",
+     "stem": "How could the graphic be improved?",
+     "options": [
+      "Show each of the five steps.",
+      "Make the loaf photo larger.",
+      "Add a photo of a bakery sign.",
+      "Remove the steps from the text."
+     ],
+     "answer": 0,
+     "why": "The text is about **steps**, so a graphic showing each step would help the reader follow them."
+    },
+    {
+     "passage": "A map in a travel guide has no key, and the symbols for hotels and hospitals look almost the same.",
+     "stem": "What is the main weakness of this map?",
+     "options": [
+      "It shows far too many small roads.",
+      "The symbols are hard to tell apart.",
+      "It is printed in bright colours.",
+      "It shows a real city."
+     ],
+     "answer": 1,
+     "why": "With no key and similar symbols, readers **cannot tell** hotels from hospitals."
+    },
+    {
+     "passage": "A report says that the number of visitors to a museum doubled from 2020 to 2024. A bar graph shows a 2020 bar reaching 10,000 and a 2024 bar reaching 20,000.",
+     "stem": "How well does the graph support the text?",
+     "options": [
+      "Poorly: it shows different years.",
+      "Poorly: the numbers do not match.",
+      "Well: the 2024 bar is twice as tall.",
+      "It does not relate to the text."
+     ],
+     "answer": 2,
+     "why": "10,000 to 20,000 is **double**, which matches the text exactly."
+    }
+   ],
+   "again": {
+    "title": "Goal first, graphic second",
+    "text": "Before you judge a graphic, write the text's **goal** in a few words.\n\nThen ask: does this graphic move the reader **closer** to that goal?",
+    "example": "Goal: learn to tie a knot.\nGraphic A: a photo of a finished knot. Graphic B: four numbered drawings of the steps.\n\n**B** is more effective."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Purpose and audience",
+     "text": "An effective graphic fits both the **purpose** of the text and its **audience**.\n\nA detailed chart may suit scientists; simple icons may suit a busy public. Ask: who is reading, and what do they need?"
+    },
+    {
+     "title": "Graphics can persuade",
+     "text": "Some graphics are chosen to make readers **feel** something or to **picture** a huge number.\n\nThat can be effective, but check that the graphic is **fair**: Is the sample large enough? Who made it? Does it match the facts?"
+    },
+    {
+     "title": "Choosing the medium",
+     "text": "Different formats suit different jobs:\n\n**Animation or flow diagram**: movement and process\n**Map**: spread across places\n**Line graph**: change over time\n**Checklist with icons**: quick actions"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To evaluate graphics:\n\n1. State the text's **goal** and **audience**.\n2. For each graphic, ask what it adds and whether it is fair and clear.\n3. Point to the sentences that show the goal and the graphic that fits it, or fails to."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A clinic's leaflet aims to help parents spot signs of dehydration in children.",
+      "role": "key"
+     },
+     {
+      "t": "It includes a detailed graph of blood test results from a hospital study.",
+      "role": "key"
+     },
+     {
+      "t": "It also includes a picture of the clinic's front door.",
+      "role": "other"
+     }
+    ],
+    "explain": "The audience is **parents** and the goal is to **spot signs**. A complex graph of test results does not suit them; a simple list of signs with icons would work better."
+   },
+   "together": {
+    "passage": "A city website about a heatwave includes three graphics. The first is a colour-coded map showing temperatures across the region, with a key from blue for cooler areas to dark red for areas above 48°C. The second is a large photo of a crowded beach on a sunny afternoon. The third is a short checklist with icons: drink water often, stay indoors at midday, and check on elderly neighbours. The site's stated goal is to help people stay safe during the heatwave. Many visitors share the page with their families.",
+    "stem": "Which graphic does the least to support the website's goal?",
+    "options": [
+     "the temperature map",
+     "the beach photo",
+     "the safety checklist",
+     "all three help equally"
+    ],
+    "answer": 1,
+    "hint": "What is the site's goal? Which graphic gives no information about staying safe?",
+    "good": "Yes! The beach photo gives no safety information, and may even suggest that crowded beaches at midday are fine."
+   },
+   "evidence": {
+    "sentences": [
+     "A city website about a heatwave includes three graphics.",
+     "The first is a colour-coded map showing temperatures across the region, with a key from blue for cooler areas to dark red for areas above 48°C.",
+     "The second is a large photo of a crowded beach on a sunny afternoon.",
+     "The third is a short checklist with icons: drink water often, stay indoors at midday, and check on elderly neighbours.",
+     "The site's stated goal is to help people stay safe during the heatwave.",
+     "Many visitors share the page with their families."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the beach photo. Tap 2 sentences that prove it: the goal and the photo.",
+    "wrong": "This sentence does not help you judge the graphic against the goal. Find the goal and the photo."
+   },
+   "checks": [
+    {
+     "passage": "An article about plastic in the ocean says that millions of tonnes enter the sea each year. An infographic beside it compares this to a garbage truck full of plastic being emptied into the sea every minute.",
+     "stem": "What is the main purpose of the comparison?",
+     "options": [
+      "to give the exact weight of the plastic",
+      "to show how garbage trucks work",
+      "to make a huge number easy to picture",
+      "to argue that trucks cause pollution"
+     ],
+     "answer": 2,
+     "why": "\"Millions of tonnes\" is hard to imagine. A truck every minute makes the amount **easy to picture**."
+    },
+    {
+     "passage": "A company report shows a pie chart of customer opinions in which \"Very happy\" fills almost the whole circle. In small print, it says that only 20 customers were asked, all chosen by the company.",
+     "stem": "Why should a reader be careful about this graphic?",
+     "options": [
+      "Pie charts cannot show opinions.",
+      "The circle is too colourful.",
+      "The print is far too small to read.",
+      "Only 20 people, chosen by the company."
+     ],
+     "answer": 3,
+     "why": "A tiny sample chosen by the company itself may not show what **most** customers think."
+    },
+    {
+     "passage": "A teacher wants to explain how the heart pumps blood, step by step, so that students can see the movement.",
+     "stem": "Which graphic would be most effective?",
+     "options": [
+      "an animated diagram with arrows",
+      "a photo of a doctor at work",
+      "a table of heart rates",
+      "a pie chart of blood types"
+     ],
+     "answer": 0,
+     "why": "The goal is to show **movement** step by step, which an animated diagram with arrows does best."
+    }
+   ],
+   "again": {
+    "title": "Would I miss it?",
+    "text": "Imagine the graphic is deleted. Ask: **Would the reader miss it?**\n\nIf the reader would lose important information or understanding, the graphic is effective. If not, it is decoration.",
+    "example": "A heatwave page without its safety checklist: readers lose clear actions. **Missed!**\nWithout its beach photo: nothing is lost. **Not missed.**"
+   }
+  }
+ }
+}

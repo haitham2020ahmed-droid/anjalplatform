@@ -1,0 +1,464 @@
+{
+ "code": "LN-030",
+ "title": "Planning and giving a presentation",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Speaking and Listening",
+ "standards": [],
+ "families": [],
+ "skillNames": [
+  "Planning and Giving a Presentation"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A talk has three parts",
+     "text": "1. **Start**: say hello and tell your topic.\n2. **Middle**: tell some facts.\n3. **End**: say thank you."
+    },
+    {
+     "title": "Speak well",
+     "text": "Stand up tall.\n\nSpeak **loud** and **clear**. Not too fast!\n\n**Look** at the people who listen."
+    },
+    {
+     "title": "Show a picture",
+     "text": "A **picture** helps people understand.\n\nTalking about your cat? Show a photo of your cat."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the talk.\n2. Find the sentence that tells the **topic**.\n3. Find the sentences that tell **about** the topic.\n\nThey prove what the talk is about."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Good morning, everyone.",
+      "role": "other"
+     },
+     {
+      "t": "Today I will talk about my garden.",
+      "role": "main"
+     },
+     {
+      "t": "We grow mint and tomatoes.",
+      "role": "detail"
+     },
+     {
+      "t": "Thank you for listening.",
+      "role": "other"
+     }
+    ],
+    "explain": "The talk **starts** with hello and the topic: **my garden**.\n\nThe middle tells a fact. The **end** says thank you."
+   },
+   "together": {
+    "passage": "Hello, I am Reem. Today I will talk about my cat. My cat is grey. She likes to sleep in the sun. Thank you for listening.",
+    "stem": "What is Reem's talk about?",
+    "options": [
+     "The sun",
+     "Her school",
+     "Her cat",
+     "Her friend"
+    ],
+    "answer": 2,
+    "hint": "Find the sentence that starts with Today I will talk about.",
+    "good": "Yes! Reem says her topic, then tells facts about her cat."
+   },
+   "evidence": {
+    "sentences": [
+     "Hello, I am Reem.",
+     "Today I will talk about my cat.",
+     "My cat is grey.",
+     "She likes to sleep in the sun.",
+     "Thank you for listening."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: her cat. Tap 2 sentences that prove it.",
+    "wrong": "This sentence says hello or thank you. Find the sentences about the cat."
+   },
+   "checks": [
+    {
+     "passage": "Ali is going to give a talk to his class about his trip to the sea.",
+     "stem": "What should Ali say first?",
+     "options": [
+      "Thank you all for listening to me today.",
+      "Hello, today I will talk about my trip to the sea.",
+      "The water was very blue and warm.",
+      "Goodbye, everyone, see you tomorrow."
+     ],
+     "answer": 1,
+     "why": "A talk starts with hello and the topic."
+    },
+    {
+     "passage": "Mona talks to the class. She speaks very fast and looks at the floor.",
+     "stem": "What should Mona do?",
+     "options": [
+      "Speak slowly and look at the class.",
+      "Speak faster.",
+      "Look at the floor more.",
+      "Stop talking."
+     ],
+     "answer": 0,
+     "why": "Speaking slowly and looking at people helps them listen."
+    },
+    {
+     "passage": "Saad will talk about camels. He wants a picture to help.",
+     "stem": "Which picture is best?",
+     "options": [
+      "A picture of a car",
+      "A picture of a fish",
+      "A picture of a pencil",
+      "A picture of a camel"
+     ],
+     "answer": 3,
+     "why": "The picture should show the topic: camels."
+    }
+   ],
+   "again": {
+    "title": "Hello, facts, thank you",
+    "text": "Use your hand to remember.\n\n1. **Thumb**: Hello! My topic is…\n2. **Three middle fingers**: three facts.\n3. **Little finger**: Thank you!",
+    "example": "Hello! My topic is **dates**.\n\nDates grow on palm trees. They are sweet. We eat them every day.\n\nThank you!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Plan before you speak",
+     "text": "A good talk has:\n\n1. An **introduction**: a hook and your topic\n2. Two or three **main points**, in order\n3. A **conclusion**: sum up and thank the audience"
+    },
+    {
+     "title": "Hook your listeners",
+     "text": "A **hook** makes people want to listen. Try:\n\n1. a surprising fact\n2. a question\n3. a short story\n\n**Did you know a camel can drink over 100 litres of water in a few minutes?**"
+    },
+    {
+     "title": "Visuals and voice",
+     "text": "Use a **visual** (a photo, map or chart) that matches each main point.\n\nWhen you speak: a **clear voice**, a steady **pace**, and **eye contact** with your audience."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the right visual or part, read the plan closely.\n\n1. Find the part the question asks about.\n2. Read what that part is **about**.\n3. Choose the answer that matches it.\n\nThe words of the plan are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Hook: Have you ever wondered why the sky is blue?",
+      "role": "key"
+     },
+     {
+      "t": "Topic: how sunlight makes colors in the sky",
+      "role": "main"
+     },
+     {
+      "t": "Point 1: Sunlight has many colors.",
+      "role": "detail"
+     },
+     {
+      "t": "Point 2: Air spreads blue light the most.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The plan starts with a **question hook** to get attention.\n\nThen it gives the topic and its main points in order."
+   },
+   "together": {
+    "passage": "Talk plan: Saudi coffee. Hook: In many Saudi homes, the first thing a guest receives is a small cup of coffee. Point 1: Coffee beans are lightly roasted and mixed with cardamom. Point 2: The host pours coffee into small cups with no handles and serves guests from the right. Point 3: A guest gently shakes the cup to say no more, thank you. Conclusion: Coffee is a sign of welcome and respect.",
+    "stem": "Which visual would best support Point 2?",
+    "options": [
+     "A map of coffee farms",
+     "A photo of a host pouring coffee into small cups for guests",
+     "A chart of coffee prices",
+     "A photo of cardamom pods"
+    ],
+    "answer": 1,
+    "hint": "Read Point 2 again. What is it about?",
+    "good": "Yes! Point 2 is about serving guests in small cups, so a photo of a host pouring fits best."
+   },
+   "evidence": {
+    "sentences": [
+     "Talk plan: Saudi coffee.",
+     "Hook: In many Saudi homes, the first thing a guest receives is a small cup of coffee.",
+     "Point 1: Coffee beans are lightly roasted and mixed with cardamom.",
+     "Point 2: The host pours coffee into small cups with no handles and serves guests from the right.",
+     "Point 3: A guest gently shakes the cup to say no more, thank you.",
+     "Conclusion: Coffee is a sign of welcome and respect."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: a photo of a host pouring coffee into small cups. Tap the part of the plan that proves it.",
+    "wrong": "This part is about something else. Find the point about how the coffee is served."
+   },
+   "checks": [
+    {
+     "passage": "Hind is planning a talk about recycling. She wants a strong hook.",
+     "stem": "Which hook is best?",
+     "options": [
+      "My talk today is about recycling at school.",
+      "Recycling is a long word with many letters.",
+      "Did you know one recycled can saves enough energy to run a TV for hours?",
+      "Thank you for listening to my talk on recycling."
+     ],
+     "answer": 2,
+     "why": "A surprising fact makes listeners curious. The others are plain or belong at the end."
+    },
+    {
+     "passage": "Talk plan: 1. Conclusion: Exercise keeps us healthy. 2. Point: Exercise makes the heart strong. 3. Introduction and hook. 4. Point: Exercise helps us sleep.",
+     "stem": "What is wrong with this plan?",
+     "options": [
+      "It has too many points.",
+      "The parts are in the wrong order.",
+      "It has no conclusion.",
+      "It has no topic."
+     ],
+     "answer": 1,
+     "why": "The introduction should come first and the conclusion last."
+    },
+    {
+     "passage": "Khalid practised his talk. His friend said, \"I could not hear you at the back, and you spoke very fast.\"",
+     "stem": "What should Khalid change?",
+     "options": [
+      "Use more slides",
+      "Add more facts",
+      "Speak louder and slow down",
+      "Shorten his conclusion"
+     ],
+     "answer": 2,
+     "why": "The friend said he was too quiet and too fast, so volume and pace need fixing."
+    }
+   ],
+   "again": {
+    "title": "A sandwich talk",
+    "text": "Think of your talk as a sandwich.\n\n1. **Top bread**: the hook and topic.\n2. **Filling**: your main points.\n3. **Bottom bread**: the conclusion.\n\nWithout the bread, the filling falls out!",
+    "example": "Top: **Have you ever seen a falcon dive?**\n\nFilling: Falcons are fast. They have sharp eyes. People in our region have trained them for a long time.\n\nBottom: **Falcons are amazing birds. Thank you!**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Know your audience",
+     "text": "Before planning, ask: **Who** is listening? **What** do they already know? **Why** am I speaking: to inform, to persuade or to entertain?\n\nA talk for Grade 2 students and a talk for parents on the same topic should sound different."
+    },
+    {
+     "title": "Guide your listeners",
+     "text": "Listeners cannot reread. Help them with **signposts**:\n\n**First, let's look at…**\n**My second point is…**\n**To sum up…**\n\nSignposts show where you are in the talk."
+    },
+    {
+     "title": "Better slides",
+     "text": "1. Use **few words**: key phrases, not paragraphs.\n2. Use **large** text and clear pictures.\n3. **Talk to the audience**, not to the screen.\n4. Practise so you only glance at your notes."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When a passage describes a presentation, find the **problems** or **strengths** it shows.\n\n1. Look for details about the speaker's voice, slides and audience.\n2. Match each detail to a presentation skill.\n3. Choose the advice that fixes the **biggest** problems the text shows."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nasser's talk on volcanoes was for a Grade 3 class.",
+      "role": "other"
+     },
+     {
+      "t": "He used words like magma chamber and pyroclastic flow without explaining them.",
+      "role": "key"
+     },
+     {
+      "t": "Several children looked confused and began to whisper.",
+      "role": "key"
+     }
+    ],
+    "explain": "Nasser did not think about his **audience**. Young children did not know his science words.\n\nHe should explain hard words or use simpler ones for this audience."
+   },
+   "together": {
+    "passage": "Faisal gave a presentation about the planets to his class. His first slide had nearly a hundred words in small print. He turned his back to the class and read every word from the screen. When he moved to the next slide, he said, \"Um, so, this one is also about planets.\" By the third slide, many students had stopped listening. Faisal's facts were correct, and he had clearly worked hard on his research.",
+    "stem": "Which advice would help Faisal most?",
+    "options": [
+     "Use fewer words on each slide, face the audience, and use signposts between points",
+     "Add more facts to his slides",
+     "Choose a different topic",
+     "Speak faster so the talk ends sooner"
+    ],
+    "answer": 0,
+    "hint": "Find the problems in the text: the slide, where he looks, and how he moves between slides.",
+    "good": "Yes! Shorter slides, facing the class and clear signposts would fix the problems the text shows."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal gave a presentation about the planets to his class.",
+     "His first slide had nearly a hundred words in small print.",
+     "He turned his back to the class and read every word from the screen.",
+     "When he moved to the next slide, he said, \"Um, so, this one is also about planets.\"",
+     "By the third slide, many students had stopped listening.",
+     "Faisal's facts were correct, and he had clearly worked hard on his research."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: fewer words, face the audience, use signposts. Tap 2 sentences that show the problems this advice fixes.",
+    "wrong": "This sentence gives the setting, the result, or a strength. Find the sentences that show what Faisal did wrong."
+   },
+   "checks": [
+    {
+     "passage": "Lama will give the same talk about healthy eating twice: once to Grade 1 children and once to parents.",
+     "stem": "How should her talk for the children be different?",
+     "options": [
+      "It should be longer, with many more statistics.",
+      "It should use exactly the same words as for the parents.",
+      "It should use simple words, short points and colorful pictures.",
+      "It should have no visuals or pictures at all."
+     ],
+     "answer": 2,
+     "why": "Young children need simple language and pictures to follow a talk."
+    },
+    {
+     "passage": "Speaker: \"Some plants store water in thick leaves. … Now, ___, let's look at how desert animals find water.\"",
+     "stem": "Which signpost best fits the blank?",
+     "options": [
+      "in conclusion",
+      "moving on to my second point",
+      "for example",
+      "thank you for listening"
+     ],
+     "answer": 1,
+     "why": "The speaker is starting a new main point, so a signpost that shows the move helps listeners."
+    },
+    {
+     "passage": "Jana's slide about rainforests shows one large photo of a rainforest and the words: Home to more than half of land animal and plant species.",
+     "stem": "Why is this a strong slide?",
+     "options": [
+      "It has many paragraphs.",
+      "It uses tiny text.",
+      "It has no picture.",
+      "It has one clear image and one key fact."
+     ],
+     "answer": 3,
+     "why": "A clear picture with a short key fact supports the talk without distracting listeners."
+    }
+   ],
+   "again": {
+    "title": "Be the listener",
+    "text": "Imagine you are sitting in the audience.\n\n1. Can you **hear** and **see** everything?\n2. Can you tell **where** the talk is going?\n3. Do the slides **help**, or do you have to read a lot?\n\nFix whatever would bother you as a listener.",
+    "example": "Listener's view: \"The slide is full of words and the speaker never looks at me.\"\n\nFix: **three key words** on the slide, and look at the audience while explaining."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Purpose drives every choice",
+     "text": "Every decision in a presentation (the hook, the evidence, the visuals, the ending) should serve your **purpose** for your **audience**.\n\nTo persuade a school board, you need credible evidence and a clear request. To inform younger students, you need clarity and examples."
+    },
+    {
+     "title": "Evidence and credibility",
+     "text": "Strong speakers **name their sources** (\"According to a 2023 study…\"), use precise numbers, and **anticipate questions** or objections.\n\nAddressing an objection before the audience raises it builds trust."
+    },
+    {
+     "title": "Endings that work",
+     "text": "A powerful conclusion does more than say \"That's all.\" It:\n\n1. restates the main idea in fresh words\n2. connects back to the hook\n3. leaves the audience with a **call to action** or a thought to remember"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To evaluate a speech, link each technique to its **effect** on the audience.\n\n1. Identify what the speaker does (a question, a statistic, an objection, a call to action).\n2. Ask why it is there: what does it make the audience think or do?\n3. Point to the exact sentences that show the technique."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some of you may think a school garden will take too much time from lessons.",
+      "role": "key"
+     },
+     {
+      "t": "In fact, teachers can use the garden for science and math lessons, so no class time is lost.",
+      "role": "key"
+     },
+     {
+      "t": "Our garden will also give students fresh vegetables for school events.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The speaker **anticipates an objection** (lost lesson time) and answers it immediately.\n\nThis builds credibility and makes the audience more likely to agree."
+   },
+   "together": {
+    "passage": "Imagine walking to school past a park where the trees cast deep, cool shade. Today, our walk passes a dusty field instead. According to our city's own climate report, shaded streets can be several degrees cooler than open ones in summer. Planting trees along the school route would protect students from the heat and encourage more families to walk instead of drive. Some people worry about the cost of watering. However, native trees such as the ghaf need very little water once they are established. So I ask the council today: let's plant fifty native trees before next summer, so the walk I described at the start becomes real.",
+    "stem": "Which statement best explains how the speaker's ending strengthens the speech?",
+    "options": [
+     "It introduces a brand-new topic to surprise the audience.",
+     "It thanks the audience and lists the speaker's name.",
+     "It repeats the statistic about temperature word for word.",
+     "It makes a specific request and links back to the opening image."
+    ],
+    "answer": 3,
+    "hint": "Compare the last sentence with the first. What does it ask the audience to do?",
+    "good": "Yes! It gives a clear call to action and connects to the walk imagined in the hook."
+   },
+   "evidence": {
+    "sentences": [
+     "Imagine walking to school past a park where the trees cast deep, cool shade.",
+     "Today, our walk passes a dusty field instead.",
+     "According to our city's own climate report, shaded streets can be several degrees cooler than open ones in summer.",
+     "Planting trees along the school route would protect students from the heat and encourage more families to walk instead of drive.",
+     "Some people worry about the cost of watering.",
+     "However, native trees such as the ghaf need very little water once they are established.",
+     "So I ask the council today: let's plant fifty native trees before next summer, so the walk I described at the start becomes real."
+    ],
+    "proof": [
+     0,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: a specific request linked back to the opening image. Tap the opening image and the call to action.",
+    "wrong": "This sentence gives evidence or answers an objection. Find the first image and the final request that connects to it."
+   },
+   "checks": [
+    {
+     "passage": "A student is presenting to the school principal to request a longer lunch break. She plans to include a survey of 200 students, quotes from two teachers, and a funny cartoon unrelated to lunch.",
+     "stem": "Which part of her plan should she remove or change?",
+     "options": [
+      "The funny cartoon unrelated to lunch",
+      "The survey of 200 students",
+      "The quotes from teachers",
+      "Her request for a longer break"
+     ],
+     "answer": 0,
+     "why": "Evidence that supports the purpose builds her case; an unrelated cartoon distracts from it."
+    },
+    {
+     "passage": "Speaker: \"Studies show that students who read for twenty minutes a day see a big rise in their vocabulary. Some of you might say you have no time to read. But twenty minutes is less time than most of us spend on our phones before dinner.\"",
+     "stem": "What technique does the speaker use in the last two sentences?",
+     "options": [
+      "Telling a personal story",
+      "Using a call to action",
+      "Answering a possible objection",
+      "Giving a definition"
+     ],
+     "answer": 2,
+     "why": "The speaker predicts the objection (no time) and answers it, which makes the argument stronger."
+    },
+    {
+     "passage": "A speaker is giving a talk to Grade 5 students about saving water. He plans to show a slide with a complex graph of national water use over fifty years.",
+     "stem": "Which change would best fit his audience?",
+     "options": [
+      "Add more lines and numbers to the same graph",
+      "Read every number on the graph aloud, slowly",
+      "Remove all visuals and just talk to them",
+      "Show a simple picture comparing water used by a short and a long shower"
+     ],
+     "answer": 3,
+     "why": "Young students understand a simple, familiar comparison better than a complex graph."
+    }
+   ],
+   "again": {
+    "title": "Plan backwards",
+    "text": "Start with the **end**, then work back.\n\n1. What do I want the audience to **think or do** at the end?\n2. What **evidence** will convince them?\n3. What **hook** will make them care at the start?\n\nNow every part points to the same goal.",
+    "example": "Goal: classmates bring reusable bottles.\n\nEvidence: how many plastic bottles the school throws away each week.\n\nHook: **\"Picture a mountain of bottles as tall as our school.\"**"
+   }
+  }
+ }
+}

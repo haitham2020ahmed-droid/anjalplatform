@@ -1,0 +1,457 @@
+{
+ "code": "LN-035",
+ "title": "Writing a story",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Plan, Organize; Create Cohesion, Use Transitions",
+ "standards": [],
+ "families": [
+  "writing-narrative"
+ ],
+ "skillNames": [
+  "Narrative Writing"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "A story has three parts",
+     "text": "1. **Beginning**: who is in the story and where.\n2. **Middle**: a **problem** happens.\n3. **End**: the problem is **fixed**."
+    },
+    {
+     "title": "The problem",
+     "text": "Every good story has a **problem**.\n\nA lost toy. A big storm. A friend who is sad.\n\nThe problem makes us want to keep reading."
+    },
+    {
+     "title": "The ending",
+     "text": "At the end, the problem is **solved**.\n\nThe lost toy is **found**. The storm **stops**. The friend **smiles** again."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the story.\n2. Find the sentence where something goes **wrong**. That is the problem.\n3. Find the sentence where it gets **fixed**. That is the end."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sara has a red kite.",
+      "role": "detail"
+     },
+     {
+      "t": "The wind takes it up into a tree.",
+      "role": "key"
+     },
+     {
+      "t": "Her dad gets a ladder and brings it down.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Beginning: Sara and her kite.\n\nProblem: the kite is **stuck in a tree**.\n\nEnd: Dad brings it down."
+   },
+   "together": {
+    "passage": "Ali has a small brown dog. One day, the dog runs out of the gate. Ali looks everywhere. At last, he finds the dog at his grandmother's house.",
+    "stem": "What is the problem in the story?",
+    "options": [
+     "Ali has a dog.",
+     "Ali has a grandmother.",
+     "The dog runs out of the gate.",
+     "The dog is brown."
+    ],
+    "answer": 2,
+    "hint": "What goes wrong?",
+    "good": "Yes! The dog runs away. That is the problem."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali has a small brown dog.",
+     "One day, the dog runs out of the gate.",
+     "Ali looks everywhere.",
+     "At last, he finds the dog at his grandmother's house."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: the dog runs out of the gate. Tap a sentence that shows the problem.",
+    "wrong": "This sentence is the beginning or the end. Find where something goes wrong."
+   },
+   "checks": [
+    {
+     "passage": "Nora is at the beach. She builds a big sand castle. A wave comes and knocks it down.",
+     "stem": "What is the problem?",
+     "options": [
+      "Nora is at the beach.",
+      "A wave knocks the castle down.",
+      "Nora builds a castle.",
+      "The sand is wet."
+     ],
+     "answer": 1,
+     "why": "Something goes wrong when the wave knocks the castle down."
+    },
+    {
+     "passage": "Omar cannot find his school bag. He looks under the bed.",
+     "stem": "Which is the best ending?",
+     "options": [
+      "He finds the bag in the car.",
+      "He has a pencil.",
+      "It is Monday.",
+      "He likes school."
+     ],
+     "answer": 0,
+     "why": "Finding the bag solves the problem."
+    },
+    {
+     "passage": "Huda is in the park. She sees a little bird on the ground.",
+     "stem": "Which part of the story is this?",
+     "options": [
+      "The ending",
+      "The problem",
+      "The title",
+      "The beginning"
+     ],
+     "answer": 3,
+     "why": "It tells who (Huda) and where (the park). That is the beginning."
+    }
+   ],
+   "again": {
+    "title": "Who, what's wrong, how fixed",
+    "text": "Answer three questions to plan a story.\n\n1. **Who** is in it, and **where**?\n2. **What goes wrong?**\n3. **How** is it fixed?",
+    "example": "1. **Fahad** at the **farm**.\n2. A goat eats his hat!\n3. He gives the goat grass, and it drops the hat."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Plan the story",
+     "text": "Before you write, plan:\n\n1. **Characters** and **setting** (who, where, when)\n2. The **problem**\n3. The **events**: what happens, in order\n4. The **solution** and ending"
+    },
+    {
+     "title": "Time words",
+     "text": "Time words help readers follow the events in **order**:\n\n**First, Next, Then, After that, Later, Finally, The next morning**"
+    },
+    {
+     "title": "Bring it to life",
+     "text": "Use **dialogue** (what characters say) and **details** (what they see, hear and feel).\n\nNot: Reem was happy.\nBetter: **\"I did it!\" Reem shouted, jumping up and down.**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A good ending **solves the problem** the story set up.\n\n1. Find the sentences that show the **problem**.\n2. Find what the characters **tried**.\n3. Choose the ending that connects to them.\n\nAn ending about something new does not fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, Majed mixed the flour and eggs for his mother's birthday cake.",
+      "role": "detail"
+     },
+     {
+      "t": "Then he forgot it in the oven, and it burned.",
+      "role": "key"
+     },
+     {
+      "t": "Finally, he made a plate of date cookies instead, and his mother loved them.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Time words (**First, Then, Finally**) show the order.\n\nThe ending solves the problem of the burned cake."
+   },
+   "together": {
+    "passage": "On the morning of the school trip, Faisal woke up late. His alarm clock had stopped in the night. He jumped out of bed, dressed quickly and ran downstairs. \"The bus leaves in ten minutes!\" his mother said. Faisal grabbed his bag and raced to the corner. ___",
+    "stem": "Which ending best solves the problem in the story?",
+    "options": [
+     "Faisal's favorite food is rice.",
+     "Faisal has two sisters.",
+     "It was a sunny day in the city.",
+     "The bus was just closing its doors, and the driver waited as Faisal climbed on, out of breath."
+    ],
+    "answer": 3,
+    "hint": "What is Faisal worried about? Which ending connects to it?",
+    "good": "Yes! The problem is being late for the bus, and this ending solves it."
+   },
+   "evidence": {
+    "sentences": [
+     "On the morning of the school trip, Faisal woke up late.",
+     "His alarm clock had stopped in the night.",
+     "He jumped out of bed, dressed quickly and ran downstairs.",
+     "\"The bus leaves in ten minutes!\" his mother said.",
+     "Faisal grabbed his bag and raced to the corner.",
+     "___"
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the problem the ending must solve.",
+    "wrong": "This sentence shows how he rushed, or why he was late. Find the sentences that show he might miss the bus."
+   },
+   "checks": [
+    {
+     "passage": "___, Sara planted a seed. Then she watered it every day. Finally, a small green plant came up.",
+     "stem": "Which time word best fits the blank?",
+     "options": [
+      "Finally",
+      "Last",
+      "After that",
+      "First"
+     ],
+     "answer": 3,
+     "why": "Planting is the first event, so First fits."
+    },
+    {
+     "passage": "Lina was nervous before the race.",
+     "stem": "Which sentence best uses dialogue to show this?",
+     "options": [
+      "Lina was very nervous before the race.",
+      "There was a race at school that day.",
+      "\"What if I fall?\" Lina whispered, her hands shaking.",
+      "Lina had new shoes for the race."
+     ],
+     "answer": 2,
+     "why": "Her words and shaking hands show she is nervous."
+    },
+    {
+     "passage": "Plan: Characters: Ahmad and his cousin. Setting: a farm. Problem: ___. Solution: they fix the fence together.",
+     "stem": "Which problem best fits this plan?",
+     "options": [
+      "The goats escape through a broken fence.",
+      "Ahmad likes to eat dates on the farm.",
+      "The farm is very big and very old.",
+      "It is Friday, and the weather is hot."
+     ],
+     "answer": 0,
+     "why": "The solution is fixing the fence, so the problem must involve a broken fence."
+    }
+   ],
+   "again": {
+    "title": "Story mountain",
+    "text": "Picture a mountain.\n\n1. **Bottom left**: meet the characters.\n2. **Climbing up**: the problem gets bigger.\n3. **Top**: the most exciting part.\n4. **Down the other side**: the problem is solved.",
+    "example": "Bottom: **Mona gets a new kite.**\n\nUp: **It gets stuck on the roof.**\n\nTop: **The wind blows harder and the string starts to tear!**\n\nDown: **Her brother climbs a ladder and saves it just in time.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Show, don't tell",
+     "text": "**Telling**: Rana was excited.\n\n**Showing**: Rana couldn't stop smiling. She checked the clock every two minutes.\n\nShowing lets readers **figure out** feelings from actions, words and details."
+    },
+    {
+     "title": "Narrative techniques",
+     "text": "1. **Dialogue** reveals personality.\n2. **Description** builds the setting.\n3. **Pacing**: slow down for important moments with more detail; speed up through less important parts.\n4. **Transitions** show time and place changes."
+    },
+    {
+     "title": "Point of view",
+     "text": "**First person**: the narrator is in the story (**I**, **we**).\n\n**Third person**: the narrator is outside the story (**he**, **she**, **they**).\n\nChoose one and keep it **consistent**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best narrative sentence:\n\n1. Read the sentences around the blank.\n2. Ask what the reader needs at this point: a feeling shown, a detail, a smooth move in time?\n3. Choose the option that **fits the story's facts** and uses the right technique.\n\nThe nearby sentences prove which option fits."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The hall was silent as the judge stepped to the microphone.",
+      "role": "detail"
+     },
+     {
+      "t": "Yousef gripped the edge of his chair so hard his knuckles turned white.",
+      "role": "key"
+     },
+     {
+      "t": "\"The winner of this year's science fair is…\"",
+      "role": "detail"
+     }
+    ],
+    "explain": "The writer never says Yousef is **nervous**. The white knuckles **show** it.\n\nThe pacing also slows down at this important moment."
+   },
+   "together": {
+    "passage": "For weeks, Rana had practised her Quran recitation for the school competition. Every evening after dinner, she recited the verses to her grandmother, who corrected her gently. On the morning of the competition, she woke before her alarm. ___ When her name was finally called, she took a deep breath and walked to the front.",
+    "stem": "Which sentence best SHOWS how Rana feels on the morning of the competition?",
+    "options": [
+     "Rana felt very nervous and excited.",
+     "Her hands trembled as she buttoned her uniform, and she whispered the first verse again and again.",
+     "It was Thursday morning.",
+     "Rana was nervous, and she was also excited and happy."
+    ],
+    "answer": 1,
+    "hint": "Which option lets the reader figure out her feelings from her actions?",
+    "good": "Yes! Trembling hands and repeating the verse show her nerves without naming them."
+   },
+   "evidence": {
+    "sentences": [
+     "For weeks, Rana had practised her Quran recitation for the school competition.",
+     "Every evening after dinner, she recited the verses to her grandmother, who corrected her gently.",
+     "On the morning of the competition, she woke before her alarm.",
+     "___",
+     "When her name was finally called, she took a deep breath and walked to the front."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that already SHOW (not tell) how Rana feels on the big day.",
+    "wrong": "This sentence is about the weeks before the competition. Find actions on the big day that show her feelings."
+   },
+   "checks": [
+    {
+     "passage": "I opened the door slowly. The room was dark. Then he heard a strange noise.",
+     "stem": "What is the problem in this story?",
+     "options": [
+      "The pacing is too slow.",
+      "There is no dialogue.",
+      "The point of view changes from I to he.",
+      "The setting is not described."
+     ],
+     "answer": 2,
+     "why": "The narrator is I, so the last sentence should say Then I heard."
+    },
+    {
+     "passage": "Story about a long car trip: the drive was five hours, and nothing happened until the car broke down near a village.",
+     "stem": "How should the writer handle the pacing?",
+     "options": [
+      "Move quickly through the drive and slow down at the breakdown",
+      "Describe every minute of the five-hour drive in detail",
+      "Skip the breakdown and end the story at the village",
+      "Write the whole story using only dialogue"
+     ],
+     "answer": 0,
+     "why": "Speed through unimportant parts; slow down for the key moment."
+    },
+    {
+     "passage": "Telling sentence: The old man was kind.",
+     "stem": "Which sentence best shows this instead?",
+     "options": [
+      "The old man was very, very, very kind to everyone.",
+      "The old man was kind and nice and good.",
+      "Everyone in the town said that he was kind.",
+      "The old man shared his lunch with the hungry boy."
+     ],
+     "answer": 3,
+     "why": "His actions show his kindness so the reader can figure it out."
+    }
+   ],
+   "again": {
+    "title": "Camera, not label",
+    "text": "Imagine a **camera** filming your character.\n\nThe camera cannot film the word **sad**. It can film **tears**, a **slow walk**, a **quiet voice**.\n\nWrite what the camera sees and hears.",
+    "example": "Label: **Hamad was angry.**\n\nCamera: **Hamad slammed his book shut and stared out of the window without a word.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Character growth",
+     "text": "In strong stories, the main character often **changes**: they learn something, grow braver, or see a situation differently.\n\nThe ending should feel **earned**: the events must prepare the reader for the change."
+    },
+    {
+     "title": "Building tension",
+     "text": "Tension keeps readers turning pages. Build it by:\n\n1. raising the **stakes** (what could be lost)\n2. adding **obstacles**\n3. using **short sentences** at key moments\n4. holding back the result"
+    },
+    {
+     "title": "Structure choices",
+     "text": "Writers can start in the **middle of the action**, use a **flashback** to reveal the past, or end with a **reflection** that shows what the character has learned.\n\nEach choice should serve the story's **theme**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best ending or revision:\n\n1. Trace the character: what are they like at the start? What happens to them?\n2. Find the moments that prepare a **change**.\n3. Choose the ending that **follows logically** from those moments and reveals the theme.\n\nAn ending that ignores earlier events is not earned."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Tariq always refused to ask for help; he said it made him look weak.",
+      "role": "key"
+     },
+     {
+      "t": "During the robotics project, his part failed again and again while the deadline came closer.",
+      "role": "detail"
+     },
+     {
+      "t": "At last, he turned to the quiet girl beside him and said, \"Can you show me how you did that?\"",
+      "role": "key"
+     }
+    ],
+    "explain": "The start shows Tariq's **flaw**. The failing project builds **pressure**. The ending shows him **change**.\n\nBecause the story prepared it, the change feels earned."
+   },
+   "together": {
+    "passage": "Dana had always been the fastest runner in her school, and she never let anyone forget it. At the regional race, she laughed when she saw Maha, a new girl in old shoes, at the starting line. Halfway through the race, Dana tripped on a loose stone and fell hard. Runners streamed past her. Then a hand reached down. Maha had stopped, giving up her place, to help Dana to her feet. They crossed the finish line together, near the very end of the pack. ___",
+    "stem": "Which ending best shows how Dana has changed?",
+    "options": [
+     "That evening, Dana told her family that the best part of the race was not winning, and the next morning she sat beside Maha at lunch.",
+     "Dana went home and decided to buy faster shoes for next year.",
+     "Dana won the next race easily and laughed at everyone again.",
+     "The race organizers moved the loose stone."
+    ],
+    "answer": 0,
+    "hint": "How did Dana treat Maha at the start? What would show she now thinks differently?",
+    "good": "Yes! Dana's new attitude and her friendship with Maha show she has learned from Maha's kindness."
+   },
+   "evidence": {
+    "sentences": [
+     "Dana had always been the fastest runner in her school, and she never let anyone forget it.",
+     "At the regional race, she laughed when she saw Maha, a new girl in old shoes, at the starting line.",
+     "Halfway through the race, Dana tripped on a loose stone and fell hard.",
+     "Runners streamed past her.",
+     "Then a hand reached down.",
+     "Maha had stopped, giving up her place, to help Dana to her feet.",
+     "They crossed the finish line together, near the very end of the pack.",
+     "___"
+    ],
+    "proof": [
+     0,
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that prepare for Dana's change: how she was at the start, or what made her see things differently.",
+    "wrong": "This sentence moves the action forward but does not show Dana's attitude or the act that changes it. Look at the start and at Maha's choice."
+   },
+   "checks": [
+    {
+     "passage": "Draft: The building shook. Everyone ran outside safely. Then the writer spends three paragraphs describing what everyone ate for lunch afterwards.",
+     "stem": "What is the main weakness in this pacing?",
+     "options": [
+      "The writer adds far too much tension to the story.",
+      "The writer uses too many short sentences in a row.",
+      "It lingers on a minor detail and rushes the key moment.",
+      "The writer tells the story in the first person."
+     ],
+     "answer": 2,
+     "why": "The exciting moment is rushed while an unimportant part is slowed down."
+    },
+    {
+     "passage": "A writer wants readers to understand why an old fisherman refuses to sell his boat. The story is set today.",
+     "stem": "Which structure would best reveal the reason?",
+     "options": [
+      "A flashback to the day he and his late father built the boat",
+      "A list of the prices of boats for sale in the harbour",
+      "A long description of the weather in the village today",
+      "A dialogue between two neighbours about lunch plans"
+     ],
+     "answer": 0,
+     "why": "A flashback reveals the past event that makes the boat precious to him."
+    },
+    {
+     "passage": "The lights went out. Silence. Then footsteps. Slow. Closer.",
+     "stem": "What is the main effect of the very short sentences?",
+     "options": [
+      "They explain the setting in detail.",
+      "They build tension and make the reader feel each moment.",
+      "They introduce a new character's name.",
+      "They slow the story down to give background."
+     ],
+     "answer": 1,
+     "why": "Short, broken sentences create suspense and a quick, nervous rhythm."
+    }
+   ],
+   "again": {
+    "title": "Start, push, change",
+    "text": "Plan a character in three steps:\n\n1. **Start**: what is the character like? (proud, shy, careless)\n2. **Push**: what event challenges that trait?\n3. **Change**: what do they do differently at the end?",
+    "example": "Start: **Badr never shares his books.**\n\nPush: **His little brother is sick in bed, bored and sad.**\n\nChange: **Badr brings his favourite book and reads it aloud to him.**"
+   }
+  }
+ }
+}

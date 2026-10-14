@@ -1,0 +1,461 @@
+{
+ "code": "LN-078",
+ "title": "Adding endings: doubling, dropping and changing y",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Spelling",
+ "standards": [
+  "L.5.2.e"
+ ],
+ "families": [
+  "spelling",
+  "suffixes"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0037",
+  "L-0039",
+  "L-0110",
+  "L-0227"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Adding -ing and -ly",
+     "text": "We add endings to words.\n\nplay → play**ing**\nquick → quick**ly**\n\nMost of the time, we just **add** the ending."
+    },
+    {
+     "title": "Drop the silent e",
+     "text": "If a word ends in a **silent e**, drop the e before **-ing**.\n\nmake → **making**\nride → **riding**\nwrite → **writing**"
+    },
+    {
+     "title": "Short words, one vowel",
+     "text": "If a short word ends in **one vowel + one consonant**, double the last letter before -ing.\n\nrun → ru**nn**ing\nsit → si**tt**ing\nswim → swi**mm**ing"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the base word. Does it end in **e**?\n2. Find other -ing words in the text.\n3. See how they changed. Use the same rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mona is baking a cake.",
+      "role": "key"
+     },
+     {
+      "t": "She is smiling.",
+      "role": "key"
+     },
+     {
+      "t": "Her brother is playing outside.",
+      "role": "detail"
+     }
+    ],
+    "explain": "bake → **baking** (drop e)\nsmile → **smiling** (drop e)\nplay → **playing** (just add -ing)"
+   },
+   "together": {
+    "passage": "It is Friday morning. Grandma is ___ bread in the kitchen. My sister is riding her bike in the yard. I am writing a card for Grandma.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "makeing",
+     "makking",
+     "making",
+     "makin"
+    ],
+    "answer": 2,
+    "hint": "**make** ends in a silent e. What do you do with the e before -ing?",
+    "good": "Yes! Drop the **e** and add **-ing**: **making**."
+   },
+   "evidence": {
+    "sentences": [
+     "It is Friday morning.",
+     "Grandma is ___ bread in the kitchen.",
+     "My sister is riding her bike in the yard.",
+     "I am writing a card for Grandma."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: making. Tap 2 sentences with other words that dropped the e before -ing.",
+    "wrong": "This sentence has no word that dropped an e. Look again."
+   },
+   "checks": [
+    {
+     "passage": "The dog ran ___ across the yard.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "quickley",
+      "quickly",
+      "quikly",
+      "quicklly"
+     ],
+     "answer": 1,
+     "why": "**quick** + **ly** = **quickly**. Just add the ending."
+    },
+    {
+     "passage": "The children are ___ in the pool.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "swimming",
+      "swiming",
+      "swimeing",
+      "swimmming"
+     ],
+     "answer": 0,
+     "why": "**swim** has one vowel and ends in one consonant, so double the **m**: **swimming**."
+    },
+    {
+     "passage": "Huda is ___ a picture of a camel.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "drawwing",
+      "drawin",
+      "drawwin",
+      "drawing"
+     ],
+     "answer": 3,
+     "why": "**draw** does not end in e, so just add **-ing**: **drawing**."
+    }
+   ],
+   "again": {
+    "title": "Look at the last letter",
+    "text": "Before you add -ing, look at the **last letter**.\n\n**e**? Drop it.\n**one vowel + one consonant** in a short word? Double it.\nAnything else? Just add -ing.",
+    "example": "hope → **hoping**\nhop → **hopping**\njump → **jumping**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Words ending in y",
+     "text": "When a word ends in **consonant + y**, change the **y** to **i** before most endings.\n\nhappy → happ**i**ly, happ**i**ness\ncarry → carr**i**ed\ncry → cr**i**es"
+    },
+    {
+     "title": "Keep y before -ing",
+     "text": "Do **not** change the y before **-ing**. That would make two i's.\n\ncarry → carr**y**ing\ncry → cr**y**ing\nstudy → stud**y**ing"
+    },
+    {
+     "title": "Vowel + y stays",
+     "text": "When a **vowel** comes before the y, keep the y.\n\nplay → pla**y**ed\nenjoy → enjo**y**ment\nstay → sta**y**s"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the letter **before** the y.\n2. Consonant → change y to i (but not before -ing). Vowel → keep the y.\n3. Find other words in the text that follow the same rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The puppy hurried to its bowl.",
+      "role": "key"
+     },
+     {
+      "t": "It was hungry, so it ate greedily.",
+      "role": "key"
+     },
+     {
+      "t": "Then it played with a ball.",
+      "role": "detail"
+     }
+    ],
+    "explain": "hurry → **hurried**, greedy → **greedily**: consonant + y, so y changes to i.\n\nplay → **played**: vowel + y, so the y stays."
+   },
+   "together": {
+    "passage": "Last week, my little cousin stayed with us. On the first night, she ___ because she missed her mother. My mom carried her around the house and sang softly. The next morning, she happily drew pictures with my old crayons. By the end of the week, she was the happiest girl in our house.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "cryed",
+     "cried",
+     "cryied",
+     "crieed"
+    ],
+    "answer": 1,
+    "hint": "**cry** ends in consonant + y. What happens to the y before -ed?",
+    "good": "Yes! Change **y** to **i** and add **-ed**: **cried**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week, my little cousin stayed with us.",
+     "On the first night, she ___ because she missed her mother.",
+     "My mom carried her around the house and sang softly.",
+     "The next morning, she happily drew pictures with my old crayons.",
+     "By the end of the week, she was the happiest girl in our house."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: cried. Tap 2 sentences with other words where y changed to i.",
+    "wrong": "Here the y stays (a vowel comes before it), or no word changes y. Look for words where y became i."
+   },
+   "checks": [
+    {
+     "passage": "My little brother is ___ his toys to his room.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "carriing",
+      "carryng",
+      "carrying",
+      "carring"
+     ],
+     "answer": 2,
+     "why": "Keep the **y** before -ing: **carrying**."
+    },
+    {
+     "passage": "We ___ our trip to the beach.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "enjoied",
+      "enjoyd",
+      "enjoiyed",
+      "enjoyed"
+     ],
+     "answer": 3,
+     "why": "**enjoy** has a vowel before the y, so keep the y: **enjoyed**."
+    },
+    {
+     "passage": "The old man walked ___ up the hill.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "slowly",
+      "slowley",
+      "slowily",
+      "slowlly"
+     ],
+     "answer": 0,
+     "why": "**slow** + **ly** = **slowly**. There is no y to change."
+    }
+   ],
+   "again": {
+    "title": "Ask about the neighbour",
+    "text": "Look at the letter right before the **y**.\n\nIs it a, e, i, o or u? → keep the y.\nIs it any other letter? → change y to i (except before -ing).",
+    "example": "pay → pa**y**ing, pa**y**ment (a before y)\nbusy → bus**i**ly, bus**i**ness (s before y)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The doubling rule",
+     "text": "In a **one-syllable** word that ends in **one vowel + one consonant**, double the last consonant before an ending that starts with a vowel (-ing, -ed, -er, -est).\n\nstop → sto**pp**ed\nplan → pla**nn**ing\nbig → bi**gg**est"
+    },
+    {
+     "title": "When not to double",
+     "text": "Do **not** double when:\n\n1. There are **two vowels** before the last letter: rain → rai**n**ing\n2. The word ends in **two consonants**: jump → jum**p**ed\n3. The ending starts with a **consonant**: sad → sa**d**ness, glad → gla**d**ly"
+    },
+    {
+     "title": "Never double w, x, y",
+     "text": "The letters **w**, **x** and **y** are never doubled.\n\nfix → fi**x**ed\nsnow → sno**w**ing\nplay → pla**y**er"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Count the vowels before the last letter.\n2. Count the consonants at the end.\n3. Check: does the ending start with a vowel?\n\nFind other words in the passage with doubled letters, and words without. See which rule each one follows."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The runner slipped on the wet track.",
+      "role": "key"
+     },
+     {
+      "t": "He jumped up quickly.",
+      "role": "detail"
+     },
+     {
+      "t": "Then he waited for the next race.",
+      "role": "detail"
+     }
+    ],
+    "explain": "slip → **slipped**: one vowel + one consonant, so double.\njump → **jumped**: two consonants at the end, no doubling.\nwait → **waited**: two vowels, no doubling."
+   },
+   "together": {
+    "passage": "On Saturday, my father and I planned a fishing trip. We got up early and packed our bags. On the way to the coast, the car ___ at a small shop so we could buy bait. At the beach, I was hopping from rock to rock while Dad was setting up the rods. By noon, we had caught three fish, and the sun was getting hotter.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "stoped",
+     "stoppd",
+     "stopped",
+     "stopt"
+    ],
+    "answer": 2,
+    "hint": "**stop** has one vowel and ends in one consonant. The ending **-ed** starts with a vowel.",
+    "good": "Yes! Double the **p** and add **-ed**: **stopped**."
+   },
+   "evidence": {
+    "sentences": [
+     "On Saturday, my father and I planned a fishing trip.",
+     "We got up early and packed our bags.",
+     "On the way to the coast, the car ___ at a small shop so we could buy bait.",
+     "At the beach, I was hopping from rock to rock while Dad was setting up the rods.",
+     "By noon, we had caught three fish, and the sun was getting hotter."
+    ],
+    "proof": [
+     0,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: stopped. Tap 2 sentences with other words that double the last consonant before an ending.",
+    "wrong": "No consonant is doubled here. The base words end in two consonants or have no ending added."
+   },
+   "checks": [
+    {
+     "passage": "Our team is ___ to win the match.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "planing",
+      "plannning",
+      "plannig",
+      "planning"
+     ],
+     "answer": 3,
+     "why": "**plan** has one vowel and one consonant at the end, so double the **n**: **planning**."
+    },
+    {
+     "passage": "It was ___ all afternoon, so we stayed inside.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "raining",
+      "rainning",
+      "rainig",
+      "rainging"
+     ],
+     "answer": 0,
+     "why": "**rain** has **two vowels** before the n, so do not double: **raining**."
+    },
+    {
+     "passage": "The ___ boy in our class is Faisal.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "talest",
+      "tallest",
+      "talllest",
+      "tallist"
+     ],
+     "answer": 1,
+     "why": "**tall** already ends in two consonants. Just add **-est**: **tallest**."
+    }
+   ],
+   "again": {
+    "title": "1-1-1 check",
+    "text": "Double the last letter only if the word has:\n\n**1** syllable\n**1** vowel before the last letter\n**1** consonant at the end\n\nand the ending starts with a vowel.",
+    "example": "hot → 1-1-1 → ho**tt**er ✔\nheat → two vowels → hea**t**er ✘ (no doubling)\nhelp → two consonants → hel**p**er ✘"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Longer words",
+     "text": "For words with **two or more syllables**, double the final consonant only if the **stress** is on the **last** syllable.\n\nbe**GIN** → begi**nn**ing\npre**FER** → prefe**rr**ed\nad**MIT** → admi**tt**ed"
+    },
+    {
+     "title": "Stress at the start",
+     "text": "If the stress is on an **earlier** syllable, do **not** double.\n\n**VIS**it → visi**t**ed\n**O**pen → ope**n**ing\n**HAP**pen → happe**n**ed\n\nSay the word aloud and listen for the strong beat."
+    },
+    {
+     "title": "Tricky -ly words",
+     "text": "Some words change before **-ly**:\n\ntrue → **truly** (drop e)\ngentle → **gently** (drop le, add ly)\nfull → **fully** (just add y)\nday → **daily** (y to i, even after a vowel)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Say the base word aloud. Where is the stress?\n2. Last syllable stressed + one vowel + one consonant → double.\n3. Compare with other words in the passage. Notice which ones doubled and which did not, and listen for the stress in each."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The game was about to begin.",
+      "role": "other"
+     },
+     {
+      "t": "At the beginning, our team was nervous.",
+      "role": "key"
+     },
+     {
+      "t": "Then we opened the scoring with a great goal.",
+      "role": "detail"
+     }
+    ],
+    "explain": "be**GIN**: stress on the last syllable → **beginning**.\n\n**O**pen: stress on the first syllable → **opened**, no doubling."
+   },
+   "together": {
+    "passage": "At the ___ of the school year, our class started a reading challenge. Each of us committed to reading twenty books. I preferred adventure stories, while my friend Huda chose books about history. Our teacher visited the library with us every week and listened to our reviews. By June, we had truly passed our goal, and the principal admitted she was impressed.",
+    "stem": "Which spelling is correct?",
+    "options": [
+     "begining",
+     "beggining",
+     "beginnning",
+     "beginning"
+    ],
+    "answer": 3,
+    "hint": "Say **begin** aloud. Which syllable is stressed?",
+    "good": "Yes! The stress is on **-GIN**, so double the **n**: **beginning**."
+   },
+   "evidence": {
+    "sentences": [
+     "At the ___ of the school year, our class started a reading challenge.",
+     "Each of us committed to reading twenty books.",
+     "I preferred adventure stories, while my friend Huda chose books about history.",
+     "Our teacher visited the library with us every week and listened to our reviews.",
+     "By June, we had truly passed our goal, and the principal admitted she was impressed."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: beginning. Tap 2 sentences with other two-syllable words that double the final consonant.",
+    "wrong": "The words here are stressed on the first syllable, so they do not double. Find words stressed at the end."
+   },
+   "checks": [
+    {
+     "passage": "Our neighbours ___ us to their new home for dinner.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "invited",
+      "invitted",
+      "inviteed",
+      "invitid"
+     ],
+     "answer": 0,
+     "why": "**invite** ends in a silent e. Drop it and add **-ed**: **invited**."
+    },
+    {
+     "passage": "What ___ to your bicycle?",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "happenned",
+      "happened",
+      "hapened",
+      "happend"
+     ],
+     "answer": 1,
+     "why": "**HAP**pen is stressed on the first syllable, so do not double: **happened**."
+    },
+    {
+     "passage": "The nurse held the baby ___.",
+     "stem": "Which spelling is correct?",
+     "options": [
+      "gentlely",
+      "gentley",
+      "gently",
+      "gentlly"
+     ],
+     "answer": 2,
+     "why": "For words ending in **-le**, drop the **le** and add **-ly**: **gently**."
+    }
+   ],
+   "again": {
+    "title": "Clap the beat",
+    "text": "Clap the syllables and say the word.\n\nStrong clap at the **end**? Double before -ing or -ed.\nStrong clap at the **start**? Just add the ending.",
+    "example": "for-**GET** → forge**tt**ing\n**LIS**-ten → liste**n**ing\nre-**GRET** → regre**tt**ed"
+   }
+  }
+ }
+}

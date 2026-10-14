@@ -1,0 +1,568 @@
+{
+  "code": "NB-053",
+  "title": "The Living Skeleton",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 490,
+  "passage": "Imagine a building that quietly repairs its own walls, stores emergency supplies and makes fresh materials for the rest of the city while everyone is asleep. Your skeleton does all of these jobs, although most people picture it as a hard, lifeless frame. In reality, bone is living tissue. It is threaded with blood vessels and nerves, and it is packed with busy cells that keep working from the day you are born until the end of your life.\n\nAn adult skeleton contains 206 bones. They range from the femur, the long and powerful thigh bone, to the stapes, a tiny bone deep inside the ear that is smaller than a grain of rice. Surprisingly, a newborn baby has nearly 300 bones, and many of them are still partly made of soft, flexible cartilage. As a child grows, several of these separate pieces slowly fuse together, which is why the soft spots on a baby's skull disappear within the first two years.\n\nThe skeleton serves several essential purposes at once. It supports the body and gives it shape. It protects delicate organs, since the skull shields the brain while the ribs surround the heart and lungs. Together with the muscles attached to it, it also makes movement possible. Less obviously, the soft red marrow inside certain bones produces millions of new blood cells every second, while the hard outer layer stores about 99 percent of the body's calcium and releases it into the blood whenever the heart, nerves or muscles need it.\n\nBecause bone is alive, it is constantly being rebuilt. Special cells dissolve tiny areas of old or damaged bone, and other cells then fill the gaps with fresh material. In this way, an adult's skeleton is almost completely renewed over roughly ten years. The same remarkable process explains how a fractured bone can heal. Within a few weeks, new tissue bridges the break, provided that the injured arm or leg is held still, usually in a plaster cast.\n\nBones reach their greatest strength, which scientists call peak bone mass, by about the age of thirty. The habits that people form during childhood and their teenage years largely determine how strong their bones will become. Calcium, which is found in milk, yoghurt, cheese, almonds and leafy green vegetables, provides the building material. Vitamin D, which the skin makes in sunlight, allows the body to absorb that calcium from food. Interestingly, many people in sunny countries, including Saudi Arabia, still lack vitamin D, because they spend most of the day indoors or in the shade.\n\nExercise is equally important, since bones respond to pressure by becoming denser. Activities in which the body works against gravity, such as running, jumping, climbing stairs and playing football, are especially effective. Swimming, though excellent for the heart, puts far less load on the skeleton. How amazing it is that a few minutes of skipping each day can make this living framework stronger for life!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “fuse” as it is used in paragraph 2?",
+      "options": [
+        "harden",
+        "separate",
+        "join",
+        "shrink"
+      ],
+      "answer": "C",
+      "why": "Separate pieces of bone “fuse together”, which means they join into one. “Harden” is tempting, but the sentence is about pieces becoming one."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “flexible” as it is used in paragraph 2?",
+      "options": [
+        "bendable",
+        "rigid",
+        "fragile",
+        "elastic"
+      ],
+      "answer": "B",
+      "why": "“Flexible” means able to bend easily, so its opposite is “rigid” (stiff). “Bendable” and “elastic” are close in meaning, and “fragile” means easily broken, not stiff."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 6: “bones respond to pressure by becoming denser.” What does “denser” mean?",
+      "options": [
+        "more tightly packed and solid",
+        "longer and thinner",
+        "softer and more flexible",
+        "lighter and more hollow"
+      ],
+      "answer": "A",
+      "why": "Bones that respond to pressure grow stronger, so “denser” means more tightly packed with material."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a verb?",
+      "options": [
+        "delicate",
+        "obviously",
+        "marrow",
+        "shields"
+      ],
+      "answer": "D",
+      "why": "“Shields” tells what the skull does to the brain, so it is a verb; “delicate” is an adjective, “obviously” an adverb and “marrow” a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Most nouns form their plural by adding -s. Which noun from the text forms its plural by CHANGING its ending?",
+      "options": [
+        "vessel",
+        "nerve",
+        "organ",
+        "life"
+      ],
+      "answer": "D",
+      "why": "One life, two lives: the f changes to -ves. Vessels, nerves and organs simply add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “effective” in paragraph 6 and is a NOUN?",
+      "options": [
+        "affection",
+        "effectiveness",
+        "effectively",
+        "affective"
+      ],
+      "answer": "B",
+      "why": "“Effectiveness” is the noun form of “effective”. “Effectively” is in the same family but is an adverb, and “affection” and “affective” come from a different word, “affect”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “delicate” in a meaningful sentence of your own.",
+      "model": "The nurse held the newborn kitten's delicate paws very gently so that she would not hurt them.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “delicate” with its meaning (easily damaged, needing gentle care)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Delicate” means fragile or easily damaged, so it needs careful handling."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “Activities” appears in paragraph 6. Which sentence uses a plural form correctly in the SAME way?",
+      "options": [
+        "My two little brothers love stories about bodys.",
+        "The doctor examined three babies in the clinic.",
+        "Both familys walked to the stadium together.",
+        "The twins visited two citys during the holiday."
+      ],
+      "answer": "B",
+      "why": "A consonant + y changes to -ies: activity → activities, baby → babies. “Bodys”, “familys” and “citys” are misspelt; they should be bodies, families and cities."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is a command?",
+      "options": [
+        "Because bone is alive, it is constantly being rebuilt.",
+        "The skeleton serves several essential purposes at once.",
+        "Imagine a building that quietly repairs its own walls …",
+        "How amazing it is that a few minutes of skipping each day can make this living framework stronger for life!"
+      ],
+      "answer": "C",
+      "why": "“Imagine …” tells the reader to do something, so it is a command (imperative), even though it is long. The last sentence is exclamatory."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "How Doctors Mend a Broken Leg",
+        "The Smallest Bone in the Human Ear",
+        "Why Swimming Is the Best Sport",
+        "Bones: A Living, Growing Framework"
+      ],
+      "answer": "D",
+      "why": "The whole text shows that bone is alive and explains how it grows, renews itself and can be strengthened. The other titles cover only one small detail or contradict the text."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to persuade readers to drink milk at every meal",
+        "to explain that bones are alive and how we can keep them strong",
+        "to describe how doctors treat fractures in hospital",
+        "to compare the skeletons of babies with the skeletons of adults"
+      ],
+      "answer": "B",
+      "why": "Paragraphs 1–4 explain that bone is living tissue, and paragraphs 5–6 explain how food, sunlight and exercise keep it strong. The other choices describe only single details."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 4?",
+      "options": [
+        "Bone is constantly rebuilt, and this also lets fractures heal.",
+        "A plaster cast is the only way that a fractured bone can be repaired.",
+        "Special cells remove calcium from bones so that the heart can use it.",
+        "Adults stop making new bone once they reach the age of thirty."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4 explains how bone is renewed and links this same process to the healing of a fracture."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, why do many people in Saudi Arabia lack vitamin D even though the country is sunny?",
+      "options": [
+        "They do not eat enough cheese or almonds.",
+        "Their skin cannot make vitamin D in very hot weather.",
+        "They spend most of the day indoors or in the shade.",
+        "They lose vitamin D when they play football."
+      ],
+      "answer": "C",
+      "why": "The writer says they lack vitamin D “because they spend most of the day indoors or in the shade.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which feature BEST shows that this is an informational text and not a story?",
+      "options": [
+        "It gives facts and figures, such as the number of bones.",
+        "It is told by a narrator who shares her own experiences.",
+        "It has characters who face a problem and solve it.",
+        "It is written in short, rhyming lines like a poem."
+      ],
+      "answer": "A",
+      "why": "Informational (expository) texts explain a topic with facts and numbers; this text has no characters, plot or rhyme."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, why is swimming less helpful for building bones than running?",
+      "options": [
+        "It is harmful to the heart.",
+        "It makes the bones too dense.",
+        "It does not use any muscles.",
+        "It puts far less load on the skeleton."
+      ],
+      "answer": "D",
+      "why": "Swimming is “excellent for the heart” but “puts far less load on the skeleton”, and bones grow denser in response to pressure."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which topic does the writer discuss immediately AFTER explaining the purposes of the skeleton?",
+      "options": [
+        "how bone is constantly rebuilt",
+        "how many bones a newborn baby has",
+        "when bones reach peak bone mass",
+        "which sports put load on the skeleton"
+      ],
+      "answer": "A",
+      "why": "The purposes are in paragraph 3; paragraph 4 then explains how bone is rebuilt."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 1, the writer compares the skeleton to a building. Which job of the skeleton matches “stores emergency supplies”?",
+      "options": [
+        "shielding the brain inside the skull",
+        "storing calcium until the body needs it",
+        "giving the body its shape and support",
+        "making movement possible with muscles"
+      ],
+      "answer": "B",
+      "why": "Paragraph 3 says bone stores the body's calcium and releases it “whenever the heart, nerves or muscles need it”, just like emergency supplies."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, what happens just AFTER special cells dissolve tiny areas of old bone?",
+      "options": [
+        "The bone is placed in a plaster cast.",
+        "The skeleton reaches peak bone mass.",
+        "Other cells fill the gaps with fresh material.",
+        "Calcium is sent to the nerves and muscles."
+      ],
+      "answer": "C",
+      "why": "“Special cells dissolve tiny areas … and other cells then fill the gaps with fresh material.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what causes the soft spots on a baby's skull to disappear?",
+      "options": [
+        "Special cells dissolve the soft cartilage completely.",
+        "The baby's muscles grow strong enough to cover them.",
+        "The skull is held still, as in a plaster cast.",
+        "Separate pieces of bone slowly fuse together."
+      ],
+      "answer": "D",
+      "why": "The writer says that as a child grows, separate pieces fuse together, “which is why the soft spots on a baby's skull disappear.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin with a building that repairs its own walls?",
+      "options": [
+        "to show that bones are as hard and lifeless as stone",
+        "to explain how builders repair a damaged city",
+        "to begin a story about a city at night",
+        "to help readers picture bone as busy and alive"
+      ],
+      "answer": "D",
+      "why": "The comparison prepares readers for the surprising idea that bone is living tissue that repairs itself, not “a hard, lifeless frame”."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, how are calcium and vitamin D related?",
+      "options": [
+        "Vitamin D allows the body to absorb calcium from food.",
+        "Calcium allows the skin to make vitamin D in sunlight.",
+        "Both are produced inside the red marrow.",
+        "Vitamin D can replace calcium when there is not enough."
+      ],
+      "answer": "A",
+      "why": "Calcium is the building material, and vitamin D “allows the body to absorb that calcium from food.” Choice B reverses the relationship."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a newborn baby's skeleton different from an adult's?",
+      "options": [
+        "It has fewer bones, and all of them are fully hard.",
+        "It has the same 206 bones, but they are smaller.",
+        "It has more bones, and many are still partly cartilage.",
+        "It has no marrow, so it cannot make blood cells."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2: a newborn has nearly 300 bones, many partly made of cartilage, while an adult has 206."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on paragraphs 5 and 6, what is the most likely effect of a twelve-year-old skipping outdoors every day and eating yoghurt and almonds?",
+      "options": [
+        "Her bones will stop renewing themselves.",
+        "She will build denser bones and a higher peak bone mass.",
+        "Her skeleton will lose some of its 206 bones.",
+        "She will need much less vitamin D than other children."
+      ],
+      "answer": "B",
+      "why": "Childhood habits “largely determine” bone strength; skipping puts load on bones, sunlight gives vitamin D and yoghurt and almonds give calcium."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do running and climbing stairs have in common, according to paragraph 6?",
+      "options": [
+        "Both put very little load on the skeleton.",
+        "Both are better for the heart than for the bones.",
+        "Both make the body work against gravity.",
+        "Both must be done in water to protect the bones."
+      ],
+      "answer": "C",
+      "why": "They are listed as activities “in which the body works against gravity”, which makes bones denser."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer say the stapes is “smaller than a grain of rice”?",
+      "options": [
+        "to help readers picture how tiny the bone is",
+        "to suggest that the stapes is made of rice",
+        "to prove that the stapes is the strongest bone",
+        "to explain why the stapes is easily broken"
+      ],
+      "answer": "A",
+      "why": "Comparing it with a familiar object helps readers imagine how tiny the bone is."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “threaded with blood vessels and nerves” in paragraph 1 suggest about bone?",
+      "options": [
+        "Doctors sew broken bones together with thin thread.",
+        "Bone is wrapped tightly in a thin thread on the outside.",
+        "Vessels and nerves run all through it, like threads in cloth.",
+        "Bone cannot bend because of its vessels and nerves."
+      ],
+      "answer": "C",
+      "why": "The image of threads woven through cloth shows that vessels and nerves pass all through living bone."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Imagine a building that quietly repairs its own walls …",
+        "Surprisingly, a newborn baby has nearly 300 bones …",
+        "Swimming, though excellent for the heart, puts far less load on the skeleton.",
+        "How amazing it is that a few minutes of skipping each day can make this living framework stronger for life!"
+      ],
+      "answer": "D",
+      "why": "It begins with “How amazing”, expresses strong feeling and ends with an exclamation mark. “Surprisingly” shows surprise, but the sentence is a statement."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which daily routine would do the MOST to build strong bones, according to the text?",
+      "options": [
+        "playing football outdoors and eating yoghurt and almonds",
+        "swimming indoors every evening and avoiding milk",
+        "resting in the shade all day to protect the bones",
+        "watching sport on television while drinking juice"
+      ],
+      "answer": "A",
+      "why": "It combines exercise against gravity, sunlight for vitamin D and foods rich in calcium, the three things the text recommends."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to encourage young people to build strong bones early",
+        "a warning that broken bones can never heal properly",
+        "a plan to advertise one particular brand of milk",
+        "a belief that swimming is a waste of time"
+      ],
+      "answer": "A",
+      "why": "The writer stresses that childhood habits largely determine bone strength and ends by encouraging daily skipping."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in the text as a whole?",
+      "options": [
+        "fear of serious injury",
+        "wonder at what the skeleton can do",
+        "anger at people who stay indoors",
+        "boredom with scientific facts"
+      ],
+      "answer": "B",
+      "why": "Words such as “Surprisingly”, “remarkable” and “How amazing” show the writer's wonder at the living skeleton."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how many bones an adult has",
+        "where the body gets vitamin D",
+        "how much calcium a child needs daily",
+        "why swimming puts little load on the bones"
+      ],
+      "answer": "C",
+      "why": "The text names foods that contain calcium but never says how much a young person needs; the other points are explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "An adult grows a completely new femur in a single night.",
+        "A girl's bones turn back into cartilage after she skips.",
+        "A baby is born with only twenty bones, which never fuse.",
+        "A boy's fractured arm heals after six weeks in a cast."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4 explains that new tissue bridges a break within a few weeks when the limb is held still."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "The Lifeless Frame Inside Us",
+        "Swimming for Stronger Bones",
+        "The Skeleton That Never Stops Working",
+        "A Baby's Soft Skull"
+      ],
+      "answer": "C",
+      "why": "The text shows that the skeleton is alive and always working: supporting, protecting, storing, rebuilding and growing stronger."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with a practical plan a student could follow to build strong bones, and explain why it works.",
+      "model": "Here is a simple plan to start today: skip or jump for ten minutes after school, walk outdoors in the late-afternoon sun, and have a glass of milk or a pot of yoghurt with dinner. Skipping puts pressure on the bones so that they grow denser, sunlight helps the skin make vitamin D, and dairy foods supply calcium. Follow it every day, and your skeleton will thank you for life.",
+      "rubric": [
+        "2 = a clear new ending with a sensible plan (exercise against gravity, calcium, vitamin D) and a reason that links to the text",
+        "1 = an ending is given but the plan is vague, unrelated or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible plan that uses the text's ideas (weight-bearing exercise, calcium, sunlight) and explains why it works is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "A student who stays indoors almost all day wants to get more vitamin D. Which solution fits the text?",
+      "options": [
+        "Spend some time outdoors in the sunlight each day.",
+        "Play sport outside instead of only indoors.",
+        "A and B",
+        "Swim indoors instead of walking."
+      ],
+      "answer": "C",
+      "why": "The skin makes vitamin D in sunlight, so both spending time outdoors and playing sport outside would help; swimming indoors gives no sunlight."
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+ "code": "LN-091",
+ "title": "End punctuation",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Punctuation",
+ "standards": [],
+ "families": [
+  "sentences"
+ ],
+ "skillNames": [
+  "End Punctuation and Capital Letters"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Start and stop",
+     "text": "Every sentence **starts** with a **capital letter**.\n\nEvery sentence **ends** with a mark: **.** or **?** or **!**"
+    },
+    {
+     "title": "Three end marks",
+     "text": "**.** A period ends a telling sentence: I like dates.\n\n**?** A question mark ends an asking sentence: Do you like dates?\n\n**!** An exclamation mark shows strong feeling: I love dates!"
+    },
+    {
+     "title": "Check it",
+     "text": "1. Does it start with a capital?\n2. Does it tell, ask or show strong feeling?\n3. Pick the end mark that fits."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Ask: Does it **tell**, **ask** or show **strong feeling**?\n3. Check that the end mark matches.\n\nThe sentence with the wrong end mark is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Where is my bag?",
+      "role": "key"
+     },
+     {
+      "t": "It is on the chair.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Where is my bag?** asks something, so it ends with **?**\n\n**It is on the chair.** tells something, so it ends with a **period**."
+   },
+   "together": {
+    "passage": "We went to the zoo. We saw a big lion. Do you like lions. I do!",
+    "stem": "Which end mark should the third sentence have?",
+    "options": [
+     ". (period)",
+     "? (question mark)",
+     "! (exclamation mark)",
+     ", (comma)"
+    ],
+    "answer": 1,
+    "hint": "Does the third sentence tell something, or ask something?",
+    "good": "Yes! Do you like lions? asks a question, so it needs a question mark."
+   },
+   "evidence": {
+    "sentences": [
+     "We went to the zoo.",
+     "We saw a big lion.",
+     "Do you like lions.",
+     "I do!"
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the wrong end mark.",
+    "wrong": "This sentence has the right end mark. Find the one that asks but does not end with ?"
+   },
+   "checks": [
+    {
+     "passage": "What is your name",
+     "stem": "Which mark goes at the end?",
+     "options": [
+      ".",
+      "!",
+      ",",
+      "?"
+     ],
+     "answer": 3,
+     "why": "The sentence asks something, so it ends with a question mark."
+    },
+    {
+     "passage": "the cat is asleep.",
+     "stem": "What needs to be fixed?",
+     "options": [
+      "The first word needs a capital.",
+      "It needs a question mark.",
+      "It needs a comma.",
+      "Nothing."
+     ],
+     "answer": 0,
+     "why": "Every sentence starts with a capital letter: The cat is asleep."
+    },
+    {
+     "passage": "Wow, that was a great goal",
+     "stem": "Which mark fits best?",
+     "options": [
+      ".",
+      "?",
+      "!",
+      ","
+     ],
+     "answer": 2,
+     "why": "Wow shows strong feeling, so an exclamation mark fits best."
+    }
+   ],
+   "again": {
+    "title": "Ask your voice",
+    "text": "Read the sentence out loud.\n\nDoes your voice go **up** at the end, like you want an answer? Use **?**\n\nAre you **excited** or surprised? Use **!**\n\nJust telling? Use **.**",
+    "example": "Can we go now → your voice goes up → **Can we go now?**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Four kinds of sentences",
+     "text": "**Statement**: tells. The bus is here.\n**Question**: asks. Is the bus here?\n**Exclamation**: strong feeling. The bus is finally here!\n**Command**: tells someone to do something. Get on the bus.\n\nCommands end with a period, or ! if they are strong."
+    },
+    {
+     "title": "Question words",
+     "text": "Many questions begin with **who, what, where, when, why, how**, or with **is, are, do, does, can, will**.\n\n**Can** you help me?\n**Where** is the library?\n\nIf the sentence asks something, end it with **?**"
+    },
+    {
+     "title": "New sentence, new capital",
+     "text": "After an end mark, the **next** sentence starts with a **capital letter**.\n\nWe ate lunch. **T**hen we went home.\n\nNot: We ate lunch. then we went home."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence and decide its kind: statement, question, exclamation or command.\n2. Check that the end mark matches that kind.\n3. Check that each sentence begins with a capital.\n\nPoint to the sentence where the mark or the capital is wrong."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Please close the window.",
+      "role": "key"
+     },
+     {
+      "t": "Why is it so cold today?",
+      "role": "key"
+     },
+     {
+      "t": "What a windy day it is!",
+      "role": "key"
+     }
+    ],
+    "explain": "**Please close the window.** is a command, so it ends with a period.\n\n**Why is it so cold today?** asks, so it needs **?**\n\n**What a windy day it is!** shows strong feeling, so it ends with **!**"
+   },
+   "together": {
+    "passage": "Our class planted a small tree in the schoolyard. Each of us took turns watering it every day. After a month, our teacher looked at the tree. How tall do you think it is now. We measured it and cheered because it had grown ten centimeters!",
+    "stem": "How should the fourth sentence end?",
+    "options": [
+     "with a period",
+     "with a question mark",
+     "with a comma",
+     "with no mark"
+    ],
+    "answer": 1,
+    "hint": "Look at the first word of the fourth sentence. Is the sentence telling or asking?",
+    "good": "Yes! It begins with How and asks something, so it needs a question mark."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class planted a small tree in the schoolyard.",
+     "Each of us took turns watering it every day.",
+     "After a month, our teacher looked at the tree.",
+     "How tall do you think it is now.",
+     "We measured it and cheered because it had grown ten centimeters!"
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that asks a question.",
+    "wrong": "This sentence tells something, so its end mark is fine. Find the one that asks."
+   },
+   "checks": [
+    {
+     "passage": "Wash your hands before lunch.",
+     "stem": "What kind of sentence is this?",
+     "options": [
+      "a question",
+      "a command",
+      "an exclamation",
+      "a list"
+     ],
+     "answer": 1,
+     "why": "It tells someone to do something, so it is a command. It ends with a period."
+    },
+    {
+     "passage": "We visited the old fort. it was built long ago.",
+     "stem": "What needs to be fixed?",
+     "options": [
+      "Add a question mark after fort.",
+      "Remove the period.",
+      "Capitalize the word it.",
+      "Capitalize old."
+     ],
+     "answer": 2,
+     "why": "A new sentence begins after the period, so it needs a capital: It."
+    },
+    {
+     "passage": "Does the museum open on Fridays.",
+     "stem": "Which is correct?",
+     "options": [
+      "Does the museum open on Fridays?",
+      "Does the museum open on Fridays!",
+      "does the museum open on Fridays?",
+      "Does the museum open on Fridays,"
+     ],
+     "answer": 0,
+     "why": "It begins with Does and asks something, so it ends with a question mark and starts with a capital."
+    }
+   ],
+   "again": {
+    "title": "Tell, ask, feel or do?",
+    "text": "Ask what the sentence is **doing**:\n\n**Telling** → .\n**Asking** → ?\n**Feeling strongly** → !\n**Telling someone to do something** → . (or ! if it is strong)",
+    "example": "Pass the salt, please → telling someone to do something → **Pass the salt, please.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Questions inside statements",
+     "text": "An **indirect question** reports what someone asked. It is a **statement**, so it ends with a **period**.\n\nDirect: Where is the library?\nIndirect: Sara asked where the library was**.**"
+    },
+    {
+     "title": "Run-on sentences",
+     "text": "A **run-on** happens when two sentences run together with no end mark.\n\nWrong: The storm passed the sky turned blue.\nRight: The storm passed**.** **T**he sky turned blue."
+    },
+    {
+     "title": "Use exclamation marks carefully",
+     "text": "Save **!** for real surprise or strong feeling.\n\nToo many: We went to the beach! It was sunny! We swam!\n\nBetter: We went to the beach. It was sunny. We swam all afternoon, and I even saw a dolphin!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find where each complete thought begins and ends.\n2. Check for an end mark and a capital at each boundary.\n3. For any sentence with a question word, ask: is it a **real question**, or does it **report** a question?\n\nPoint to the sentence where the end mark does not fit."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Khalid wondered why the shop was closed.",
+      "role": "key"
+     },
+     {
+      "t": "Why is the shop closed?",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 **reports** what Khalid wondered. It is a statement, so it ends with a **period**.\n\nSentence 2 asks directly, so it ends with a **question mark**."
+   },
+   "together": {
+    "passage": "Last week, our class had a visitor from a wildlife reserve. She showed us photos of Arabian oryx living in a protected area. Bandar asked her how many oryx live in the wild? She explained that their numbers had grown thanks to careful protection. Everyone clapped when she finished her talk.",
+    "stem": "How should the third sentence end?",
+    "options": [
+     "with a question mark, because it has the word how",
+     "with a period, because it reports a question",
+     "with an exclamation mark, because Bandar was excited",
+     "with a comma, because the talk continued"
+    ],
+    "answer": 1,
+    "hint": "Is the sentence asking you something, or telling what Bandar asked?",
+    "good": "Yes! It reports Bandar's question. It is a statement, so it ends with a period."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week, our class had a visitor from a wildlife reserve.",
+     "She showed us photos of Arabian oryx living in a protected area.",
+     "Bandar asked her how many oryx live in the wild?",
+     "She explained that their numbers had grown thanks to careful protection.",
+     "Everyone clapped when she finished her talk."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the wrong end mark.",
+    "wrong": "This sentence ends correctly. Look for a sentence that reports a question."
+   },
+   "checks": [
+    {
+     "passage": "My sister asked if she could borrow my pen.",
+     "stem": "Which end mark is correct?",
+     "options": [
+      "a question mark, because she asked",
+      "an exclamation mark",
+      "no end mark",
+      "a period, because it reports a question"
+     ],
+     "answer": 3,
+     "why": "The sentence tells what my sister asked. It is an indirect question, so it ends with a period."
+    },
+    {
+     "passage": "The bell rang the students lined up quietly.",
+     "stem": "How should it be fixed?",
+     "options": [
+      "The bell rang. The students lined up quietly.",
+      "The bell rang the students. Lined up quietly.",
+      "The bell. Rang the students lined up quietly.",
+      "The bell rang the students lined up quietly?"
+     ],
+     "answer": 0,
+     "why": "It is a run-on. The first thought ends after rang, so put a period there and start the next sentence with a capital."
+    },
+    {
+     "passage": "We waited for the results all morning. finally, the teacher posted them",
+     "stem": "What two things need to be fixed?",
+     "options": [
+      "Remove the period; add a comma.",
+      "Capitalize results; add an exclamation mark.",
+      "Capitalize finally; add a period at the end.",
+      "Add a question mark after morning; capitalize teacher."
+     ],
+     "answer": 2,
+     "why": "A new sentence starts after morning, so Finally needs a capital, and the last sentence needs an end mark."
+    }
+   ],
+   "again": {
+    "title": "Is anyone waiting for an answer?",
+    "text": "Ask: **Is the sentence waiting for someone to answer it?**\n\nYes → question mark.\n\nNo, it only tells that someone asked → period.",
+    "example": "Can I come? → waiting for an answer → **?**\n\nAli asked if he could come. → just telling → **.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "End marks and quotation marks",
+     "text": "In American English, periods and commas go **inside** closing quotation marks.\n\nThe guide said, \"The tour starts at nine.\"\n\nA question mark or exclamation mark goes inside **only if** the quoted words ask or exclaim:\nHe asked, \"Is it far?\""
+    },
+    {
+     "title": "When the whole sentence asks",
+     "text": "If the **whole sentence** asks, but the quoted words do not, the question mark goes **outside**:\n\nDid the teacher really say, \"No homework this week\"?\n\nUse only **one** end mark at the end of a sentence."
+    },
+    {
+     "title": "Abbreviations at the end",
+     "text": "If a sentence ends with an abbreviation that has a period, do **not** add a second period.\n\nThe flight lands at 6 a.m.\n\nA question still needs its mark: Does it land at 6 a.m.?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each sentence's true end.\n2. Decide what kind of sentence the **whole** sentence is, and what kind the **quoted words** are.\n3. Place the end mark inside or outside the quotation marks to match.\n4. Check for doubled marks.\n\nPoint to the sentence where the end punctuation does not match its meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem asked, \"Has anyone seen my notebook?\"",
+      "role": "key"
+     },
+     {
+      "t": "Did Reem say, \"I left it in the library\"?",
+      "role": "key"
+     }
+    ],
+    "explain": "In sentence 1, the **quoted words** ask, so the question mark goes **inside**.\n\nIn sentence 2, the **whole sentence** asks but the quoted words are a statement, so the question mark goes **outside**."
+   },
+   "together": {
+    "passage": "The school debate team gathered in the hall at 7:30 a.m. Their coach looked at them and said, \"Remember to listen carefully to the other side.\" Then Hessa raised her hand and asked, \"What happens if we run out of time\". The coach smiled and replied, \"Finish your sentence and sit down calmly.\" When the debate ended, the judges announced that both teams had argued well.",
+    "stem": "How should Hessa's question be punctuated?",
+    "options": [
+     "...asked, \"What happens if we run out of time?\"",
+     "...asked, \"What happens if we run out of time\"?",
+     "...asked, \"What happens if we run out of time.\"",
+     "...asked, \"What happens if we run out of time?\"."
+    ],
+    "answer": 0,
+    "hint": "Do Hessa's own words ask a question? Then where does the question mark go, and how many end marks are allowed?",
+    "good": "Yes! Her quoted words are a question, so the question mark goes inside the quotation marks, with no extra period."
+   },
+   "evidence": {
+    "sentences": [
+     "The school debate team gathered in the hall at 7:30 a.m.",
+     "Their coach looked at them and said, \"Remember to listen carefully to the other side.\"",
+     "Then Hessa raised her hand and asked, \"What happens if we run out of time\".",
+     "The coach smiled and replied, \"Finish your sentence and sit down calmly.\"",
+     "When the debate ended, the judges announced that both teams had argued well."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the end punctuation error.",
+    "wrong": "This sentence is punctuated correctly. The period after a.m. also ends the sentence, so no second period is needed."
+   },
+   "checks": [
+    {
+     "passage": "The pilot announced, \"We will land in twenty minutes\".",
+     "stem": "Which ending is correct in American English?",
+     "options": [
+      "...in twenty minutes\".",
+      "...in twenty minutes.\"",
+      "...in twenty minutes?\"",
+      "...in twenty minutes\"!"
+     ],
+     "answer": 1,
+     "why": "The quoted words are a statement. In American English, the period goes inside the quotation marks."
+    },
+    {
+     "passage": "Did you hear the guide say, \"The museum closes early today\"?",
+     "stem": "Why is the question mark outside the quotation marks?",
+     "options": [
+      "The quoted words ask a question.",
+      "It always goes outside.",
+      "Only the whole sentence asks.",
+      "The quote is an exclamation."
+     ],
+     "answer": 2,
+     "why": "The guide's words are a statement. Only the whole sentence asks, so the question mark goes outside."
+    },
+    {
+     "passage": "The meeting will start at 10 a.m..",
+     "stem": "What is wrong?",
+     "options": [
+      "It needs a question mark.",
+      "a.m. needs capital letters.",
+      "Nothing is wrong.",
+      "There are two periods at the end."
+     ],
+     "answer": 3,
+     "why": "The period after a.m. also ends the sentence. Do not add a second one."
+    }
+   ],
+   "again": {
+    "title": "Who is asking?",
+    "text": "Look at the quotation.\n\n1. Do the **quoted words** ask or exclaim? → mark **inside**.\n2. Does only the **whole sentence** ask? → mark **outside**.\n3. Just a statement? → period **inside**.\n\nNever end with two marks.",
+    "example": "Omar asked, \"Is lunch ready\"?\n\nThe quoted words ask → **Omar asked, \"Is lunch ready?\"**"
+   }
+  }
+ }
+}

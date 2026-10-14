@@ -16,6 +16,7 @@ export class MeasuringRepo implements Repo {
   private get st(): Stats { return (this.root ?? this).stats; }
   private get l(): number { return (this.root ?? this).latency; }
   private async run<T>(model: string, p: Promise<T>): Promise<T> {
+    Promise.resolve(p).catch(() => undefined); // a failing call is awaited below (after the delay): never an unhandled rejection meanwhile
     if (this.l) await sleep(this.l);
     const r = await p;
     const rows = Array.isArray(r) ? r.length : r && typeof r === "object" ? 1 : 0;

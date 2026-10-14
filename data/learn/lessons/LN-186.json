@@ -1,0 +1,454 @@
+{
+ "code": "LN-186",
+ "title": "Satire, sarcasm and understatement",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [],
+ "families": [],
+ "skillNames": [
+  "Satire, Sarcasm and Understatement"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that mean the opposite",
+     "text": "Sometimes people say the **opposite** of what they mean.\n\nIt rains all day. Dad says, \"What a **great** day for a picnic!\"\n\nDad does not think it is great. He means it is a **bad** day."
+    },
+    {
+     "title": "This is called sarcasm",
+     "text": "When someone says the opposite to be funny, or to show they are upset, it is called **sarcasm**.\n\nThe words say one thing. The person means **another**."
+    },
+    {
+     "title": "How to spot it",
+     "text": "1. Look at **what happens**. Is it good or bad?\n2. Look at **what the person says**.\n3. Do they match? If not, the person means the **opposite**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The clue is **what happened**.\n\n1. Find the sentences that tell what happened.\n2. Find what the person said.\n3. If the words do not fit what happened, the person means the opposite.\n\nPoint to the sentences that show what really happened."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda's pencil broke in the test.",
+      "role": "key"
+     },
+     {
+      "t": "Then her eraser fell under the desk.",
+      "role": "key"
+     },
+     {
+      "t": "\"Wow, I am so lucky today,\" she said.",
+      "role": "other"
+     }
+    ],
+    "explain": "Huda says she is **lucky**. But her pencil broke and her eraser fell. That is **not** lucky!\n\nShe means the opposite: she is **unlucky** today."
+   },
+   "together": {
+    "passage": "Ali dropped his ice cream on the floor. It was the very last one. \"Oh, great,\" he said. \"This is the best day ever.\"",
+    "stem": "What does Ali really mean?",
+    "options": [
+     "He is upset that he lost his ice cream.",
+     "He is having the best day ever.",
+     "He wants to clean the floor.",
+     "He does not like ice cream."
+    ],
+    "answer": 0,
+    "hint": "Look at what happened to the ice cream. Is that a good thing?",
+    "good": "Yes! He dropped his last ice cream. He says the opposite of how he feels."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali dropped his ice cream on the floor.",
+     "It was the very last one.",
+     "\"Oh, great,\" he said.",
+     "\"This is the best day ever.\""
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: Ali is upset. Tap 2 sentences that show what really happened.",
+    "wrong": "This is what Ali SAYS. Find the sentences that show what really happened to him."
+   },
+   "checks": [
+    {
+     "passage": "The test was very hard. Sara got a low mark. \"That was so easy,\" she said with a sigh.",
+     "stem": "What does Sara really mean?",
+     "options": [
+      "The test was easy.",
+      "She liked the test.",
+      "She wants another test.",
+      "The test was hard for her."
+     ],
+     "answer": 3,
+     "why": "The test was **hard** and she got a **low mark**. \"So easy\" means the opposite."
+    },
+    {
+     "passage": "It was very hot outside. Omar came in red and wet with sweat. \"It is so cool out there,\" he said.",
+     "stem": "Why are Omar's words not true?",
+     "options": [
+      "It was cold and windy.",
+      "It was very hot, not cool.",
+      "Omar was not outside.",
+      "Omar likes cool water."
+     ],
+     "answer": 1,
+     "why": "He was **red and wet with sweat** because it was very hot."
+    },
+    {
+     "passage": "Mona's little brother ate all the cookies. Mona looked at the empty box. \"Thank you for saving me some,\" she said.",
+     "stem": "What does Mona really mean?",
+     "options": [
+      "She is happy he saved her some.",
+      "She does not like cookies.",
+      "She is upset he left her none.",
+      "She wants to buy a box."
+     ],
+     "answer": 2,
+     "why": "The box was **empty**. He saved her **none**, so she means the opposite."
+    }
+   ],
+   "again": {
+    "title": "Does it match?",
+    "text": "Think of a **thumbs up** and a **thumbs down**.\n\n1. Is what happened 👍 or 👎?\n2. Are the words 👍 or 👎?\n\nIf they do not match, the person means the opposite.",
+    "example": "The car will not start. Dad says, \"Nice!\"\n\nWhat happened: 👎. Words: 👍. They do not match. Dad is **not** happy."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Saying the opposite",
+     "text": "**Sarcasm** is saying the opposite of what you mean, often to show you are annoyed or to joke.\n\nThe bus is an hour late. \"Wow, right on time!\""
+    },
+    {
+     "title": "Saying much less",
+     "text": "**Understatement** makes something sound much **smaller** or less serious than it really is.\n\nAfter a ten-hour drive: \"That was a bit of a trip.\"\n\nIt is often calm, polite or funny."
+    },
+    {
+     "title": "Find the clues",
+     "text": "1. Read what **really happened**.\n2. Compare it with the **words** someone uses.\n3. Opposite? That is **sarcasm**. Much smaller? That is **understatement**.\n\nTone words help too: *rolled her eyes, sighed, grinned, groaned*."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove that someone does not mean their words exactly, show the **gap**.\n\n1. Find the sentences that show how big, bad or good the situation really is.\n2. Find the speaker's words.\n3. Explain the gap: opposite, or much less.\n\nYour proof is the sentences about **what really happened**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Faris had a fever, a cough and a sore throat for a week.",
+      "role": "key"
+     },
+     {
+      "t": "He could not even get out of bed.",
+      "role": "key"
+     },
+     {
+      "t": "When his friend called, Faris said, \"I'm a little under the weather.\"",
+      "role": "other"
+     }
+    ],
+    "explain": "A week of fever, cough and staying in bed is **very** sick.\n\n\"A little under the weather\" makes it sound small. That is **understatement**."
+   },
+   "together": {
+    "passage": "The sandstorm lasted three whole days. Sand covered the cars, the doorsteps and even the inside of the cupboards. When it finally ended, Grandpa opened the door and looked at the yard. \"Well,\" he said with a smile, \"it seems we had a little dust.\"",
+    "stem": "Why does Grandpa say \"a little dust\"?",
+    "options": [
+     "He thinks the storm was very small.",
+     "He cannot see the yard from the door.",
+     "He wants to buy more sand for the yard.",
+     "He is making a huge mess sound small, as a calm joke."
+    ],
+    "answer": 3,
+    "hint": "Look at how long the storm lasted and what the sand covered. Was it really little?",
+    "good": "Yes! The storm was huge, and Grandpa calmly makes it sound small. That is understatement."
+   },
+   "evidence": {
+    "sentences": [
+     "The sandstorm lasted three whole days.",
+     "Sand covered the cars, the doorsteps and even the inside of the cupboards.",
+     "When it finally ended, Grandpa opened the door and looked at the yard.",
+     "\"Well,\" he said with a smile, \"it seems we had a little dust.\""
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: Grandpa makes a huge mess sound small. Tap 2 sentences that show the storm was NOT little.",
+    "wrong": "This sentence tells what Grandpa did or said. Find the sentences that show how big the storm really was."
+   },
+   "checks": [
+    {
+     "passage": "Yusuf waited forty minutes for the bus in the heat. When it finally came, he rolled his eyes and said, \"Wow, right on time.\"",
+     "stem": "What does Yusuf really mean?",
+     "options": [
+      "The bus was very late.",
+      "The bus came early.",
+      "He likes waiting in the heat.",
+      "The bus driver was kind."
+     ],
+     "answer": 0,
+     "why": "He waited **forty minutes** and **rolled his eyes**. \"Right on time\" is sarcasm."
+    },
+    {
+     "passage": "Rana ran the whole ten-kilometre race on a hot morning. At the finish line, she fell onto the grass, breathing hard. \"I might be a tiny bit tired,\" she said.",
+     "stem": "What is true about Rana's words?",
+     "options": [
+      "She is not tired at all.",
+      "She is extremely tired but says it lightly.",
+      "She wants to run the race again.",
+      "She is upset with the other runners."
+     ],
+     "answer": 1,
+     "why": "She **fell onto the grass, breathing hard**. \"A tiny bit tired\" is an understatement."
+    },
+    {
+     "passage": "The power went out during the football final, just as the penalty kick began. \"Perfect timing,\" groaned Khalid.",
+     "stem": "Which word shows that Khalid does not mean \"perfect\"?",
+     "options": [
+      "final",
+      "power",
+      "groaned",
+      "kick"
+     ],
+     "answer": 2,
+     "why": "People **groan** when they are unhappy, so \"perfect\" means the opposite."
+    }
+   ],
+   "again": {
+    "title": "Opposite or smaller?",
+    "text": "Draw a line in your mind:\n\n**Opposite** words (bad thing called good) = sarcasm.\n**Smaller** words (huge thing called small) = understatement.",
+    "example": "Your team loses 0–7. A fan says, \"We had a slightly difficult game.\"\n\nNot the opposite, just **much smaller**. That is **understatement**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Meaning more or less",
+     "text": "Writers sometimes mean **more** or **less** than their words say.\n\n**Sarcasm:** the opposite, to mock or show annoyance.\n**Understatement:** much less, for calm humour or effect."
+    },
+    {
+     "title": "Satire",
+     "text": "**Satire** uses humour to point at a problem in society or at people's foolish habits.\n\nIt often **exaggerates** a problem until it looks silly, or **pretends to praise** something the writer actually thinks is wrong."
+    },
+    {
+     "title": "Find the real message",
+     "text": "1. What does the text **pretend** to say?\n2. What details are **too silly** or extreme to be serious?\n3. What real problem do they point to?\n\nThe answer to step 3 is the writer's real message."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "In satire, the proof is the **exaggerated** details.\n\n1. Find sentences that go too far to be serious.\n2. Ask what real habit or problem they make fun of.\n3. Pick the answer those details point to, not what the text pretends to praise.\n\nIf you take satire at face value, you will choose the wrong answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "To save time, our neighbour now waters his garden with the car engine running, so he can leave quickly.",
+      "role": "key"
+     },
+     {
+      "t": "He has saved two minutes a day.",
+      "role": "detail"
+     },
+     {
+      "t": "The car has used a full tank of fuel.",
+      "role": "key"
+     }
+    ],
+    "explain": "The writer pretends this is clever, but the details show it is **wasteful**.\n\nThe real message: rushing everywhere can be foolish and wasteful."
+   },
+   "together": {
+    "passage": "Good news for busy families! Scientists in our town have found that families who look at their phones during dinner never argue. In fact, they never say anything at all. To help, the town will now sell dinner tables with a phone stand at every seat, so that no one has to look up from a screen. \"Last night my son and I shared a wonderful meal,\" said one father. \"I think he was there.\"",
+    "stem": "What is the writer really making fun of?",
+    "options": [
+     "Scientists who study family dinners.",
+     "Families who look at phones instead of talking.",
+     "Fathers who cook dinner for their sons.",
+     "Tables that are too small for families."
+    ],
+    "answer": 1,
+    "hint": "The text pretends this is good news. Which details are too silly to be serious? What do they point at?",
+    "good": "Yes! Families who never speak and a father unsure his son was there show the writer is mocking phone habits at the table."
+   },
+   "evidence": {
+    "sentences": [
+     "Good news for busy families!",
+     "Scientists in our town have found that families who look at their phones during dinner never argue.",
+     "In fact, they never say anything at all.",
+     "To help, the town will now sell dinner tables with a phone stand at every seat, so that no one has to look up from a screen.",
+     "\"Last night my son and I shared a wonderful meal,\" said one father.",
+     "\"I think he was there.\""
+    ],
+    "proof": [
+     2,
+     3,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: families who look at phones instead of talking. Tap 2 sentences that exaggerate the problem.",
+    "wrong": "This sentence sets up the story or pretends to be serious. Find the details that are too extreme to be true."
+   },
+   "checks": [
+    {
+     "passage": "The Empty Quarter is one of the largest sand deserts in the world. After crossing it by camel for many days, my uncle wrote home: \"There is a bit of sand here.\"",
+     "stem": "What does the uncle use in his note?",
+     "options": [
+      "Understatement",
+      "Sarcasm",
+      "A simple fact",
+      "A question"
+     ],
+     "answer": 0,
+     "why": "He crossed a huge desert, yet calls it \"a bit of sand\". He makes something big sound small."
+    },
+    {
+     "passage": "To stop litter, the city has removed every rubbish bin from the park. \"If there are no bins, there will be no rubbish,\" an official explained proudly. The park has never been messier.",
+     "stem": "What does the writer suggest about the plan?",
+     "options": [
+      "It solved the problem quickly.",
+      "The official was right.",
+      "It was a foolish idea that made things worse.",
+      "People should not visit the park."
+     ],
+     "answer": 2,
+     "why": "The writer repeats the official's proud words, then shows the park is **messier**. The plan was foolish."
+    },
+    {
+     "passage": "Hessa's brother took a forty-minute shower. When he finally came out, she said, \"Thanks so much for leaving me all that hot water.\"",
+     "stem": "Why does Hessa use sarcasm?",
+     "options": [
+      "To thank him kindly.",
+      "To ask for a towel.",
+      "To show she is happy.",
+      "To show she is annoyed that he used it all."
+     ],
+     "answer": 3,
+     "why": "After a forty-minute shower there is little hot water left. Her \"thanks\" shows annoyance."
+    }
+   ],
+   "again": {
+    "title": "Too silly to be true",
+    "text": "When something in a text sounds **too silly to be true**, stop.\n\nAsk: what real thing is the writer laughing at?\n\nThat real thing is the target of the satire.",
+    "example": "\"Our school is so proud of its new car park that it built it on top of the football field.\"\n\nToo silly? Yes. Real target: **caring more about cars than about children playing**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Irony with a purpose",
+     "text": "Sarcasm, understatement and satire are all forms of **irony**: a gap between what is said and what is meant.\n\nSkilled writers use that gap to **criticize** or **amuse**, and the reader must work out the true attitude."
+    },
+    {
+     "title": "Tools of satire",
+     "text": "1. **Exaggeration:** stretching a real habit until it is absurd.\n2. **Mock praise:** praising what the writer opposes.\n3. **Understatement:** calling serious harm \"a small matter\".\n4. **A serious voice** describing ridiculous things."
+    },
+    {
+     "title": "Find the target and the tone",
+     "text": "Ask three questions:\n\n**Target:** who or what is being criticized?\n**Technique:** how does the writer create the gap?\n**Attitude:** what does the writer really think?\n\nThe tone may be playful, bitter or gently mocking."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Satire is proved by showing the gap between **surface meaning** and **real meaning**.\n\n1. Find claims the speaker presents as good news.\n2. Find details that quietly show the harm.\n3. Choose the answer that names the real target and attitude.\n\nAnswers that repeat the speaker's claims as true miss the irony."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The company proudly announced that its new factory had created twenty jobs.",
+      "role": "other"
+     },
+     {
+      "t": "It did not mention that the factory's smoke now hides the mountains from the town.",
+      "role": "key"
+     },
+     {
+      "t": "\"A small price for progress,\" said the manager, coughing slightly.",
+      "role": "key"
+     }
+    ],
+    "explain": "The surface: **good news** about jobs. The gap: smoke hides the mountains, and even the manager **coughs**.\n\n\"A small price\" is understatement. The writer criticizes ignoring pollution."
+   },
+   "together": {
+    "passage": "The Committee for Faster Learning is proud to announce its newest success. Why should students waste whole evenings reading books when an app can reduce any novel to three sentences? Last term, our students \"read\" four hundred books each, a record we expect to break again soon. Test scores for remembering book titles have never been higher. Admittedly, a few students could not explain what happened in any of the stories, and one confused the hero of a novel with its author, but such small matters hardly deserve attention. Next year, we plan to shorten the summaries to a single word, freeing even more time for students to do nothing in particular.",
+    "stem": "What is the writer's real point?",
+    "options": [
+     "Summary apps are the best way to learn because they save time.",
+     "Students should remember the titles of four hundred books.",
+     "Novels should be shorter so that students can finish them.",
+     "Rushing through summaries replaces real reading and understanding."
+    ],
+    "answer": 3,
+    "hint": "The committee calls this a success. Which details quietly show what students have lost?",
+    "good": "Yes! Students \"read\" hundreds of books but cannot explain any story. The writer mocks shortcuts that replace real understanding."
+   },
+   "evidence": {
+    "sentences": [
+     "The Committee for Faster Learning is proud to announce its newest success.",
+     "Why should students waste whole evenings reading books when an app can reduce any novel to three sentences?",
+     "Last term, our students \"read\" four hundred books each, a record we expect to break again soon.",
+     "Test scores for remembering book titles have never been higher.",
+     "Admittedly, a few students could not explain what happened in any of the stories, and one confused the hero of a novel with its author, but such small matters hardly deserve attention.",
+     "Next year, we plan to shorten the summaries to a single word, freeing even more time for students to do nothing in particular."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: rushing through summaries replaces real understanding. Tap 2 sentences that show the gap between the \"success\" and what students actually learned.",
+    "wrong": "This sentence states the committee's proud claim on the surface. Find the details that quietly reveal the harm."
+   },
+   "checks": [
+    {
+     "passage": "The new bridge cracked on its opening day and had to be closed for a year. No one was hurt. The mayor called it \"a minor delay in an otherwise excellent project.\"",
+     "stem": "How does the writer use the mayor's words?",
+     "options": [
+      "To show the mayor's plan was excellent.",
+      "To show the bridge needed only small repairs.",
+      "To make the mayor seem out of touch through understatement.",
+      "To praise the builders for their speed."
+     ],
+     "answer": 2,
+     "why": "A year-long closure is not \"minor\". Quoting the understatement exposes the mayor's attitude."
+    },
+    {
+     "passage": "In our town, success is easy to measure: the bigger your car, the better your character. Families now park in their living rooms so that guests can admire the paint. Some have stopped walking altogether; one family drives to its own kitchen.",
+     "stem": "What is the target of this satire?",
+     "options": [
+      "People who judge worth by showing off expensive things.",
+      "Families who do not own a car.",
+      "Builders who make living rooms too large.",
+      "Drivers who park in the wrong places."
+     ],
+     "answer": 0,
+     "why": "Exaggerations like parking in living rooms mock the idea that a big car shows good character."
+    },
+    {
+     "passage": "Our class chose a \"Quiet Leader\" this year. He has been so successful at keeping the class calm that he has not spoken a single word since September, not even when the teacher asked him a direct question. Truly, we are fortunate to have such a leader.",
+     "stem": "What does the last sentence most likely mean?",
+     "options": [
+      "The class is grateful for a hard-working leader.",
+      "The writer thinks the leader does nothing useful.",
+      "The teacher wants the leader to stay quiet.",
+      "The leader is shy and needs help."
+     ],
+     "answer": 1,
+     "why": "\"Fortunate\" is mock praise. A leader who never speaks, even when asked, is not leading at all."
+    }
+   ],
+   "again": {
+    "title": "Surface vs. underneath",
+    "text": "Split the text into two columns:\n\n**What it says on the surface** (the proud claim).\n**What the details show underneath** (the real result).\n\nThe writer's attitude lives in the gap.",
+    "example": "\"Our new school timetable is wonderful: there is no break at all, so students can study for seven hours without the distraction of food.\"\n\nSurface: **wonderful**. Underneath: **hungry, tired students**. Real attitude: **the timetable is a bad idea**."
+   }
+  }
+ }
+}

@@ -11,7 +11,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { getQuestion, reviewQuestion, reviseQuestion, submitForReview, updateDraft, validateEditorInput, type EditorInput } from "./questions";
-import { questionOfSchool, schoolSkillIds, tagsOf } from "./question-requests";
+import { questionOfSchool, requestRows, schoolSkillIds, tagsOf } from "./question-requests";
 
 const s = (v: unknown) => String(v ?? "");
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
@@ -72,9 +72,8 @@ function changesOf(cur: EditorInput, next: EditorInput): string[] {
 
 export async function listEditRequests(repo: Repo, actor: Actor): Promise<EditRequestRow[]> {
   if (!isAdmin(actor)) throw new ForbiddenError("Only admins see edit requests.");
-  const skills = await schoolSkillIds(repo, actor.schoolId!);
-  if (!skills.length) return [];
-  const qs = (await repo.findMany("Question", { skillId: { in: skills }, deletedAt: null }, { select: ["id", "stem", "status", "tags", "skillId", "difficultyLevel"] })).filter((q) => editRequestOf(q));
+  // ⚡ from the one kept scan of the school's questions with a teacher request (src/server/admin/question-requests.ts)
+  const qs = (await requestRows(repo, actor.schoolId!)).filter((q) => editRequestOf(q));
   const names = new Map((qs.length ? await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => s(q.skillId)))] } }, { select: ["id", "name"] }) : []).map((k) => [s(k.id), s(k.name)]));
   const rows: EditRequestRow[] = [];
   for (const q of qs) {

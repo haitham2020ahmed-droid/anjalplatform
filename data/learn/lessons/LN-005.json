@@ -1,0 +1,471 @@
+{
+ "code": "LN-005",
+ "title": "Research questions and sources",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.7",
+  "W.5.8"
+ ],
+ "families": [
+  "writing-research"
+ ],
+ "skillNames": [
+  "Evaluating Research Questions",
+  "Research and Sources"
+ ],
+ "statements": [
+  "L-0019",
+  "L-0080",
+  "L-0081",
+  "L-0082",
+  "L-0183",
+  "L-0184",
+  "L-0185",
+  "L-0286"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Asking a question",
+     "text": "When we do **research**, we start with a **question**.\n\nWhat do owls eat? Where do penguins live?"
+    },
+    {
+     "title": "Finding the answer",
+     "text": "A **source** is a place to find facts: a book, a website or an expert.\n\nWe read the source and look for the **sentence that answers** our question."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read your question.\n2. Find the **key word** in it, like **eat** or **live**.\n3. Look for that idea in the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer to a research question is **in the source**.\n\n1. Find the key word in your question.\n2. Find the sentence in the text that tells about it.\n3. Point to that sentence. It is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Frogs are animals.",
+      "role": "other"
+     },
+     {
+      "t": "They can live on land and in water.",
+      "role": "key"
+     },
+     {
+      "t": "Frogs can jump far.",
+      "role": "other"
+     }
+    ],
+    "explain": "Question: **Where do frogs live?** The key word is **live**. The second sentence tells where they live: **on land and in water**."
+   },
+   "together": {
+    "passage": "Owls are birds. They hunt at night. Owls eat mice, insects and small birds. They have big eyes.",
+    "stem": "Your question is: What do owls eat? Which sentence answers it?",
+    "options": [
+     "Owls eat mice, insects and small birds.",
+     "Owls are birds.",
+     "They hunt at night.",
+     "They have big eyes."
+    ],
+    "answer": 0,
+    "hint": "That sentence does not tell about food. The key word is eat.",
+    "good": "Yes! The question asks what owls **eat**. This sentence names their food."
+   },
+   "evidence": {
+    "sentences": [
+     "Owls are birds.",
+     "They hunt at night.",
+     "Owls eat mice, insects and small birds.",
+     "They have big eyes."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: Owls eat mice, insects and small birds. Tap the sentence that answers the question.",
+    "wrong": "This sentence is about owls, but it does not tell what they eat."
+   },
+   "checks": [
+    {
+     "passage": "Penguins are birds that cannot fly. Most penguins live in the cold south of the world. They are good swimmers.",
+     "stem": "Your question is: Where do penguins live? Which sentence answers it?",
+     "options": [
+      "Penguins are birds that cannot fly.",
+      "They are good swimmers.",
+      "Most penguins live in the cold south of the world.",
+      "Penguins cannot fly."
+     ],
+     "answer": 2,
+     "why": "The key word is **live**. This sentence tells where penguins live."
+    },
+    {
+     "passage": "Sami has four books: Stars in the Night Sky, Fun with Clay, Cooking Rice and Big Trucks.",
+     "stem": "Sami wants to learn about stars. Which book will help him most?",
+     "options": [
+      "Fun with Clay",
+      "Stars in the Night Sky",
+      "Cooking Rice",
+      "Big Trucks"
+     ],
+     "answer": 1,
+     "why": "Only this book is about stars."
+    },
+    {
+     "passage": "Lions live in groups. A lion can sleep up to 20 hours a day. Lions roar loudly.",
+     "stem": "Your question is: How long do lions sleep? Which sentence answers it?",
+     "options": [
+      "Lions live in groups.",
+      "Lions roar loudly.",
+      "Lions are big cats.",
+      "A lion can sleep up to 20 hours a day."
+     ],
+     "answer": 3,
+     "why": "The key word is **sleep**. This sentence tells how many hours."
+    }
+   ],
+   "again": {
+    "title": "Match the word",
+    "text": "Circle the **key word** in your question.\n\nThen look for the **same word** or idea in the text. The sentence with that word often has your answer.",
+    "example": "Question: What colour is a flamingo?\nText: Flamingos are birds. **Their feathers are pink.**\nKey idea: **colour** → pink. That is the answer."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "A good research question",
+     "text": "A good research question:\n\n- is about **your topic**\n- can be **answered** by looking in sources\n- is not too **big** and not too **small**"
+    },
+    {
+     "title": "Too big, too small",
+     "text": "**Too big:** What are all the animals on Earth?\n**Too small:** Is a camel brown?\n**Just right:** How do camels survive in the desert?"
+    },
+    {
+     "title": "Choosing sources",
+     "text": "A **relevant** source is about your question.\n\nBefore you read a whole book or website, check its **title** and **topic**. If it is not about your question, skip it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the best research question or source, look back at the **task**.\n\n1. Find the sentences that tell what the writer must explain.\n2. Pick the question or source that matches **those** sentences.\n3. Point to the sentences as your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Reem is writing a report about how honey bees make honey.",
+      "role": "key"
+     },
+     {
+      "t": "Her library has many books.",
+      "role": "other"
+     },
+     {
+      "t": "She chooses a book called How Bees Make Honey.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Reem's topic is **how bees make honey**. The book with that title is relevant. A book about another topic would not help."
+   },
+   "together": {
+    "passage": "Huda's class is making a booklet about farming in Saudi Arabia. Huda chose to write about date palms. She wants to explain how farmers plant the trees, water them and harvest the fruit. First, she needs one good question to guide her research.",
+    "stem": "Which is the best research question for Huda's report?",
+    "options": [
+     "Do I like eating dates?",
+     "How do farmers plant and care for date palms?",
+     "What is the tallest tree in the world?",
+     "What are all the plants on Earth?"
+    ],
+    "answer": 1,
+    "hint": "That question is too small, too big or not about her topic. What does Huda want to explain?",
+    "good": "Yes! Huda wants to explain planting, watering and harvesting. This question covers exactly that."
+   },
+   "evidence": {
+    "sentences": [
+     "Huda's class is making a booklet about farming in Saudi Arabia.",
+     "Huda chose to write about date palms.",
+     "She wants to explain how farmers plant the trees, water them and harvest the fruit.",
+     "First, she needs one good question to guide her research."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: How do farmers plant and care for date palms? Tap the 2 sentences that show what Huda's report is about.",
+    "wrong": "This sentence does not tell Huda's exact topic. Find what she chose and what she wants to explain."
+   },
+   "checks": [
+    {
+     "passage": "Ali is writing a guide on how to keep pet rabbits healthy. He finds four sources.",
+     "stem": "Which source would be most useful for Ali?",
+     "options": [
+      "A story about a rabbit on the moon",
+      "A website about African animals",
+      "A cookbook of vegetable soups",
+      "A vet's article on caring for rabbits"
+     ],
+     "answer": 3,
+     "why": "Ali's topic is keeping rabbits healthy. A vet's article on rabbit care is about exactly that."
+    },
+    {
+     "passage": "In autumn, days become shorter and cooler. Many trees stop making the green colouring in their leaves. As the green fades, yellow and orange colours that were hidden begin to show. Many people enjoy walking in parks at this time of year.",
+     "stem": "Your question is: Why do some leaves change colour in autumn? Which note answers it?",
+     "options": [
+      "The green fades, so hidden yellow and orange show.",
+      "Days become longer and warmer in autumn.",
+      "People enjoy walking in parks in autumn.",
+      "Trees make more green colouring in autumn."
+     ],
+     "answer": 0,
+     "why": "The source says the green fades and hidden colours show. That explains the change."
+    },
+    {
+     "passage": "Omar has one week to write a one-page report about animals that live in the Red Sea.",
+     "stem": "Which research question is best for Omar's report?",
+     "options": [
+      "What is the history of every ocean on Earth?",
+      "Is the sea nice to look at?",
+      "Which fish live on the Red Sea's coral reefs?",
+      "What is Omar's favourite colour?"
+     ],
+     "answer": 2,
+     "why": "It is about Red Sea animals and is small enough for one page."
+    }
+   ],
+   "again": {
+    "title": "Goldilocks questions",
+    "text": "Like the story of the three bowls, a research question should be **just right**.\n\nToo big: you could never finish.\nToo small: one word answers it.\nJust right: you can find a full answer in a few sources.",
+    "example": "Topic: sea turtles.\nToo big: What lives in the sea?\nToo small: Do turtles swim?\nJust right: **How do baby sea turtles reach the ocean?**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Questions with a purpose",
+     "text": "A research question must fit your **purpose**.\n\nIf you want to **persuade**, ask questions that find reasons.\nIf you want to **explain**, ask how or why something happens."
+    },
+    {
+     "title": "Is the source relevant?",
+     "text": "Check a source before you use it:\n\n1. Is its **topic** the same as my question?\n2. Does it give **facts**, not just a story?\n3. Does it answer my **exact** question, or only something close?"
+    },
+    {
+     "title": "Taking good notes",
+     "text": "When you find information, take only the parts that **answer your question**.\n\nSkip interesting facts that answer a different question."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a note answers your question, match it to the **source sentences**.\n\n1. Read your research question.\n2. Find the sentences in the source that answer it.\n3. Your note should come from those sentences, not from others."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Question: How do camels save water?",
+      "role": "other"
+     },
+     {
+      "t": "Camels can drink a very large amount of water at one time.",
+      "role": "other"
+     },
+     {
+      "t": "Their bodies lose very little water through sweat.",
+      "role": "key"
+     },
+     {
+      "t": "Camels are used for racing in some countries.",
+      "role": "other"
+     }
+    ],
+    "explain": "Only the third sentence explains how camels **save** water. Drinking a lot is about getting water, and racing is not about water at all."
+   },
+   "together": {
+    "passage": "Rüppell's fox lives in the deserts of Arabia and North Africa. Its large ears do more than hear well: blood flowing through them gives off heat, which helps the fox stay cool. Thick fur on the soles of its feet protects it from hot sand. The fox rests in a cool den during the day and hunts at night, when temperatures fall. It eats insects, lizards and small rodents. Foxes appear in many old stories and poems.",
+    "stem": "A student's question is: How does Rüppell's fox survive the desert heat? Which note best answers it using the source?",
+    "options": [
+     "It eats insects, lizards and small rodents.",
+     "Foxes appear in many old stories and poems.",
+     "Its ears give off heat, and it rests in a den by day.",
+     "It lives in the deserts of Arabia and Africa."
+    ],
+    "answer": 2,
+    "hint": "That note is true, but it does not explain how the fox deals with heat.",
+    "good": "Yes! The ears giving off heat and the cool den by day both explain how the fox survives the heat."
+   },
+   "evidence": {
+    "sentences": [
+     "Rüppell's fox lives in the deserts of Arabia and North Africa.",
+     "Its large ears do more than hear well: blood flowing through them gives off heat, which helps the fox stay cool.",
+     "Thick fur on the soles of its feet protects it from hot sand.",
+     "The fox rests in a cool den during the day and hunts at night, when temperatures fall.",
+     "It eats insects, lizards and small rodents.",
+     "Foxes appear in many old stories and poems."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: Its ears give off heat, and it rests in a den by day. Tap the 2 sentences in the source that this note comes from.",
+    "wrong": "This sentence is not where the note comes from. Find the sentences about the ears and the den."
+   },
+   "checks": [
+    {
+     "passage": "Sara is writing a letter to persuade her principal to plant more trees in the school playground.",
+     "stem": "Which research question would help her most?",
+     "options": [
+      "How do trees cool the air and give shade?",
+      "What is the oldest tree in the world?",
+      "How many leaves does a palm tree have?",
+      "Why are some trees used to make paper?"
+     ],
+     "answer": 0,
+     "why": "Sara needs reasons to plant trees at school. Cooling and shade are strong reasons."
+    },
+    {
+     "passage": "Khalid is researching how sandstorms form. He has a short time to choose one source.",
+     "stem": "Which source is most relevant?",
+     "options": [
+      "A travel blog about hotels in Riyadh",
+      "A storybook about a lost camel",
+      "A report on a football match played in wind",
+      "A science page titled What Causes Sandstorms?"
+     ],
+     "answer": 3,
+     "why": "Only the science page is about how sandstorms form."
+    },
+    {
+     "passage": "The numerals we use today, 0 to 9, first came from India. Scholars writing in Arabic, such as al-Khwarizmi, wrote books that explained them. Later, these books were translated in Europe. Over time, the new numerals replaced Roman numerals there.",
+     "stem": "Your question is: How did these numerals reach Europe? Which note answers it?",
+     "options": [
+      "They first came from India.",
+      "Arabic books about them were translated in Europe.",
+      "They replaced Roman numerals over time.",
+      "Al-Khwarizmi wrote about mathematics."
+     ],
+     "answer": 1,
+     "why": "The source says the books were translated in Europe. That is how the numerals reached it."
+    }
+   ],
+   "again": {
+    "title": "Question first, then read",
+    "text": "Write your question at the top of your page.\n\nAs you read, ask after every sentence: **Does this answer my question?** Copy only the yes sentences into your notes.",
+    "example": "Question: Why do some birds fly south in winter?\nSource: Food becomes hard to find. ✔ Some birds have bright feathers. ✘ Warmer places have more insects. ✔"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Relevance is specific",
+     "text": "A source can be about your **subject** and still not help your **question**.\n\nA question about **saving water on farms** needs sources about water use on farms, not just about farms."
+    },
+    {
+     "title": "Check the details",
+     "text": "Strong researchers look at:\n\n- **Focus**: does it answer my exact question?\n- **Date**: is the information recent enough for my task?\n- **Type**: does it give facts and evidence, or only opinions and stories?"
+    },
+    {
+     "title": "Use part of a source",
+     "text": "Even a good source may have only **one useful section**.\n\nRead with your question in mind and take notes only from the parts that answer it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a source is the most relevant, point to the **requirements** of the task.\n\n1. Find the exact research question.\n2. Find any other needs, such as how recent the facts must be.\n3. Choose the source that meets **every** requirement."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Question: Which snacks give young athletes quick, healthy energy?",
+      "role": "other"
+     },
+     {
+      "t": "Source A: a recent sports nutrition article on snacks for young athletes",
+      "role": "key"
+     },
+     {
+      "t": "Source B: a history of the first Olympic Games",
+      "role": "other"
+     }
+    ],
+    "explain": "Source A matches the exact question: snacks, energy and young athletes. Source B is about sport, but it says nothing about food or energy."
+   },
+   "together": {
+    "passage": "Faisal is writing a science report on one question: How are modern farms in Saudi Arabia saving water? His teacher wants facts from the last few years. Faisal has found four sources. The first is a 1985 encyclopedia article on the history of farming in Arabia. The second is a recent government report on drip irrigation and water recycling on Saudi farms. The third is a magazine article about the most popular fruits sold in Gulf markets. The fourth is a recent website that explains how deserts form around the world.",
+    "stem": "Which source is most relevant to Faisal's report?",
+    "options": [
+     "The 1985 encyclopedia article on farming history",
+     "The magazine article on popular fruits in Gulf markets",
+     "The recent website on how deserts form around the world",
+     "The recent report on drip irrigation and water recycling"
+    ],
+    "answer": 3,
+    "hint": "That source misses part of the task. Is it about saving water on farms, and is it recent?",
+    "good": "Yes! It is about saving water on Saudi farms, and it is recent. It meets every requirement."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal is writing a science report on one question: How are modern farms in Saudi Arabia saving water?",
+     "His teacher wants facts from the last few years.",
+     "Faisal has found four sources.",
+     "The first is a 1985 encyclopedia article on the history of farming in Arabia.",
+     "The second is a recent government report on drip irrigation and water recycling on Saudi farms.",
+     "The third is a magazine article about the most popular fruits sold in Gulf markets.",
+     "The fourth is a recent website that explains how deserts form around the world."
+    ],
+    "proof": [
+     0,
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the recent report on drip irrigation. Tap 2 sentences that prove it is the best choice.",
+    "wrong": "This sentence does not show the task's needs or the matching source. Find the exact question, the date requirement or the source that meets them."
+   },
+   "checks": [
+    {
+     "passage": "The Arabian leopard lives in the mountains of the Arabian Peninsula. Fewer than 200 are thought to remain in the wild. Breeding centres in Saudi Arabia raise leopards in safe conditions, and some areas have been made protected reserves. Leopards are excellent climbers.",
+     "stem": "Your question is: What is being done to protect the Arabian leopard? Which sentence is most useful?",
+     "options": [
+      "Fewer than 200 are thought to remain in the wild.",
+      "Breeding centres in Saudi Arabia raise leopards in safe conditions, and some areas have been made protected reserves.",
+      "The Arabian leopard lives in the mountains of the Arabian Peninsula.",
+      "Leopards are excellent climbers."
+     ],
+     "answer": 1,
+     "why": "The question asks what is being done. Only this sentence names actions: breeding centres and reserves."
+    },
+    {
+     "passage": "Lina must write a report that compares life in her city today with life 50 years ago. Her main sources will be interviews with her grandparents.",
+     "stem": "Which research question best fits her purpose and sources?",
+     "options": [
+      "What will our city look like in the year 2100?",
+      "What is the population of every city in the world?",
+      "How has daily life in our city changed since my grandparents were young?",
+      "Why do so many people like to live in big cities?"
+     ],
+     "answer": 2,
+     "why": "It compares then and now, and her grandparents can answer it from their own lives."
+    },
+    {
+     "passage": "Zaid's research question is: How does exercise affect students' sleep?",
+     "stem": "Which source is most relevant?",
+     "options": [
+      "A study of how activity levels changed students' sleep",
+      "A guide to the rules of basketball",
+      "An article on how many hours cats sleep",
+      "A report on how exercise builds muscle in adults"
+     ],
+     "answer": 0,
+     "why": "It covers exercise, sleep and students. The muscle report is about exercise but not sleep or students."
+    }
+   ],
+   "again": {
+    "title": "The checklist",
+    "text": "Write your task as a short checklist. Then tick each source against it.\n\n☐ right topic\n☐ answers my exact question\n☐ recent enough\n\nThe best source gets **every** tick.",
+    "example": "Task: recent facts on how Saudi cities plant trees.\nSource: a 2010 article on desert plants → right topic? partly. Exact question? no. Recent? no. **Not the best.**"
+   }
+  }
+ }
+}

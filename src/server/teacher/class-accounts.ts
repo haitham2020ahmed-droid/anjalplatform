@@ -26,6 +26,7 @@ import { cleanName, cleanUsername } from "../admin/users";
 import { readRosterFile } from "../admin/roster-import";
 import { nextNumbers } from "../admin/quick-students";
 import { assertClassAccess } from "./assignments";
+import { remember } from "../cache/lru";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 /** One class at a time. */
@@ -165,6 +166,21 @@ export interface AccountRow { userId: string; studentId: string; name: string; u
 export interface ClassAccounts { classId: string; className: string; grade: number; schoolName: string; rows: AccountRow[] }
 
 /**
+ * ⚡ "Is this password the username?" — one scrypt check (~80 ms, sharing the 2 scrypt slots with signing in) per
+ * account, so a class of 30 took 2+ s on every visit of Download Accounts / Student cards and held up sign-ins. The
+ * answer is fixed for a given (username, stored hash): every password change writes a new salted hash, so a
+ * remembered answer is never stale. Only a digest of the pair is kept (bounded).
+ */
+const sameAsUsername = new Map<string, boolean>();
+async function passwordIsUsername(username: string, stored: string): Promise<boolean> {
+  const key = createHash("sha256").update(`${username}\u0000${stored}`).digest("base64");
+  const hit = sameAsUsername.get(key);
+  if (hit !== undefined) return hit;
+  const ok = await verifyPassword(username, stored).catch(() => false);
+  return remember(sameAsUsername, key, ok, 20_000);
+}
+
+/**
  * The class's student accounts. A password is shown only when it is exactly the username (checked against the
  * stored hash, 4 at a time); any other password is never readable and shows as "set by admin / reset to show".
  */
@@ -182,7 +198,7 @@ export async function classAccounts(repo: Repo, actor: Actor, classId: string): 
   const rows: AccountRow[] = [];
   for (let i = 0; i < live.length; i += 4) {
     const part = live.slice(i, i + 4);
-    const same = await Promise.all(part.map((x) => { const u = userOf.get(s(x.userId))!; return u.passwordHash ? verifyPassword(s(u.username), s(u.passwordHash)).catch(() => false) : Promise.resolve(false); }));
+    const same = await Promise.all(part.map((x) => { const u = userOf.get(s(x.userId))!; return u.passwordHash ? passwordIsUsername(s(u.username), s(u.passwordHash)) : Promise.resolve(false); }));
     part.forEach((x, k) => { const u = userOf.get(s(x.userId))!; rows.push({ userId: s(u.id), studentId: s(x.id), name: s(u.displayName), username: s(u.username), number: s(x.studentNumber), password: same[k] ? s(u.username) : null }); });
   }
   rows.sort((a, b) => a.name.localeCompare(b.name));

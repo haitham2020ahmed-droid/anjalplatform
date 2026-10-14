@@ -1,0 +1,480 @@
+{
+ "code": "LN-126",
+ "title": "Evaluating arguments and evidence",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.4.8",
+  "RI.5.8",
+  "RI.6.8",
+  "RI.7.8",
+  "RI.8.6",
+  "RI.8.8"
+ ],
+ "families": [
+  "author-claim"
+ ],
+ "skillNames": [
+  "Evaluating Arguments and Faulty Reasoning",
+  "Author's Attitude and Counterarguments"
+ ],
+ "statements": [
+  "R-0330",
+  "R-0508",
+  "R-0509",
+  "R-0708",
+  "R-0710",
+  "R-0711",
+  "R-0892",
+  "R-0893",
+  "R-1018"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Claims and evidence",
+     "text": "A **claim** is what an author says is true or should happen.\n\n**Evidence** is the facts or reasons that **show** the claim is right."
+    },
+    {
+     "title": "Good evidence",
+     "text": "Good evidence is a **fact** that **matches** the claim.\n\nClaim: Cats are good climbers.\nGood evidence: Cats can climb tall trees.\nWeak evidence: Cats are soft."
+    },
+    {
+     "title": "Check the evidence",
+     "text": "1. Find the claim.\n2. Read each reason.\n3. Ask: **Does this reason prove the claim?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Tap the sentences that **prove** the claim.\n\n1. Read the claim.\n2. Find facts that match it.\n\nA sentence that is true but does **not** prove the claim is not good evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school should have more water fountains.",
+      "role": "main"
+     },
+     {
+      "t": "There are only two fountains for 600 students.",
+      "role": "key"
+     },
+     {
+      "t": "Students wait in long lines at break time.",
+      "role": "key"
+     },
+     {
+      "t": "Water is clear.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim: **We need more fountains.**\n\nTwo fountains for 600 students and long lines **prove** it. Water is clear is true, but it does not prove anything about fountains."
+   },
+   "together": {
+    "passage": "Kids should eat breakfast every day. Breakfast gives you energy for the morning. Kids who eat breakfast can pay attention better in class. Eggs are white or brown.",
+    "stem": "Which sentence is the BEST evidence for the claim?",
+    "options": [
+     "Eggs are white or brown.",
+     "Kids who eat breakfast can pay attention better in class.",
+     "Kids should eat breakfast every day.",
+     "Some kids like toast."
+    ],
+    "answer": 1,
+    "hint": "The claim is that kids should eat breakfast. Which fact shows WHY breakfast is good?",
+    "good": "Yes! Paying attention better is a reason that proves breakfast is good for kids."
+   },
+   "evidence": {
+    "sentences": [
+     "Kids should eat breakfast every day.",
+     "Breakfast gives you energy for the morning.",
+     "Kids who eat breakfast can pay attention better in class.",
+     "Eggs are white or brown."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The claim was: kids should eat breakfast every day. Tap the 2 sentences that give evidence for it.",
+    "wrong": "This sentence is the claim itself, or a fact that does not prove it. Find the reasons."
+   },
+   "checks": [
+    {
+     "passage": "Bikes are good for our town. They do not make the air dirty. They help people stay fit.",
+     "stem": "Which sentence is evidence for the claim?",
+     "options": [
+      "Bikes are good for our town.",
+      "Bikes have two wheels.",
+      "They help people stay fit.",
+      "Bikes can be red."
+     ],
+     "answer": 2,
+     "why": "Helping people stay fit is a reason bikes are good for the town."
+    },
+    {
+     "passage": "We should plant more trees at school. Trees give shade on hot days. They make the air cleaner. Birds can build nests in them. My favourite colour is green.",
+     "stem": "Which sentence does NOT support the claim?",
+     "options": [
+      "Trees give shade on hot days.",
+      "They make the air cleaner.",
+      "Birds can build nests in them.",
+      "My favourite colour is green."
+     ],
+     "answer": 3,
+     "why": "A favourite colour does not prove that the school needs trees."
+    },
+    {
+     "passage": "Reading every day makes you a better reader. Each day you learn new words. You also read faster.",
+     "stem": "Which sentence is evidence for the claim?",
+     "options": [
+      "Each day you learn new words.",
+      "Reading every day makes you a better reader.",
+      "Books have pages.",
+      "Some books are long."
+     ],
+     "answer": 0,
+     "why": "Learning new words is a fact that shows reading every day helps you."
+    }
+   ],
+   "again": {
+    "title": "Does it prove it?",
+    "text": "Say the claim. Then say **I know because...** and add the sentence.\n\nIf it makes sense, the sentence is evidence.",
+    "example": "Claim: Our class is very tidy.\nI know because **we put our books away every day.** ✔\nI know because **our class has a door.** ✘"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Is the evidence strong?",
+     "text": "Authors and advertisers make **claims**. A careful reader asks: **Is the evidence strong enough?**\n\nStrong evidence is **specific**, **relevant** and can be **checked**."
+    },
+    {
+     "title": "Strong vs. weak",
+     "text": "**Strong**: numbers, test results, expert studies, facts you can check.\n\n**Weak**: opinions, feelings, one person's story, everybody says so, no source."
+    },
+    {
+     "title": "Evidence in media",
+     "text": "Ads, posters and posts often use **weak evidence**: a famous face, a happy customer, a claim like proven! with no proof shown.\n\nAsk: **Who says so? How do they know?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Sort the sentences into **facts that can be checked** and **opinions or feelings**.\n\n1. Tap the sentences with checkable facts.\n2. Ask if those facts really support the claim.\n3. Strong evidence wins over sentences that only sound exciting."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our new water filter makes tap water safer.",
+      "role": "main"
+     },
+     {
+      "t": "In tests by a government lab, it removed 99% of harmful bacteria.",
+      "role": "key"
+     },
+     {
+      "t": "Our customers say the water tastes amazing.",
+      "role": "other"
+     },
+     {
+      "t": "Everyone loves it!",
+      "role": "other"
+     }
+    ],
+    "explain": "The **lab test** is strong evidence: specific and checkable.\n\nTastes amazing and everyone loves it are **opinions**. They do not prove the water is safer."
+   },
+   "together": {
+    "passage": "A new phone app claims it helps students improve their grades. Its website says, \"Students love our app!\" A famous singer appears in the app's video. The company also reports that in a study of 500 students, those who used the app for three months raised their maths scores by an average of 10 points. The app costs 15 riyals a month.",
+    "stem": "Which detail is the STRONGEST evidence for the claim that the app improves grades?",
+    "options": [
+     "Students love our app!",
+     "A famous singer appears in the app's video.",
+     "In a study of 500 students, app users raised maths scores by 10 points.",
+     "The app costs 15 riyals a month."
+    ],
+    "answer": 2,
+    "hint": "Strong evidence is specific and checkable. Which choice has numbers about grades?",
+    "good": "Yes! A study with 500 students and a 10-point increase is specific and connected to grades."
+   },
+   "evidence": {
+    "sentences": [
+     "A new phone app claims it helps students improve their grades.",
+     "Its website says, \"Students love our app!\"",
+     "A famous singer appears in the app's video.",
+     "The company also reports that in a study of 500 students, those who used the app for three months raised their maths scores by an average of 10 points.",
+     "The app costs 15 riyals a month."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was the study of 500 students. Tap the sentence with the strongest evidence.",
+    "wrong": "This sentence is an opinion, a famous face or a price. It does not prove the app improves grades."
+   },
+   "checks": [
+    {
+     "passage": "A poster says: \"Drink our bottled water. It's the healthiest water in the world! Famous athletes drink it.\"",
+     "stem": "Why is the evidence in this poster weak?",
+     "options": [
+      "It gives too many numbers about the water.",
+      "It uses opinions and famous people instead of facts.",
+      "It explains how the water is tested in a lab.",
+      "It shows a scientific study of athletes."
+     ],
+     "answer": 1,
+     "why": "Healthiest in the world has no proof, and famous athletes drinking it does not prove it is healthy."
+    },
+    {
+     "passage": "Claim: Our school's recycling program is working. Evidence A: The principal says she is proud of it. Evidence B: Waste sent to the landfill fell from 40 bags a week to 15 bags.",
+     "stem": "Which evidence better supports the claim, and why?",
+     "options": [
+      "Evidence B, because it gives specific numbers showing less waste.",
+      "Evidence A, because the principal is the most important person.",
+      "Evidence A, because pride is a strong and honest feeling.",
+      "Neither, because recycling programs never really work."
+     ],
+     "answer": 0,
+     "why": "Evidence B gives a checkable change in waste. The principal's pride is an opinion."
+    },
+    {
+     "passage": "An online post claims a new snack makes kids taller. It shows a photo of a tall boy holding the snack. No study is mentioned.",
+     "stem": "What would make the claim more believable?",
+     "options": [
+      "A bigger photo of the boy",
+      "A more colourful package",
+      "A famous person eating the snack",
+      "Results from a scientific study"
+     ],
+     "answer": 3,
+     "why": "A study with measured results could support the claim. Photos and famous faces are not evidence."
+    }
+   ],
+   "again": {
+    "title": "How do they know?",
+    "text": "For every claim, ask: **How do they know?**\n\nIf the answer is a test, a number or a fact you can check, the evidence is **strong**. If it is just someone's feeling, it is **weak**.",
+    "example": "Claim: This bag is waterproof.\nHow do they know? **It stayed dry after 30 minutes in heavy rain in a test.** → strong.\nHow do they know? **It looks tough.** → weak."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Arguments",
+     "text": "An **argument** has a **claim**, **reasons** and **evidence**.\n\nTo evaluate it, ask two questions:\n1. Is there **enough** evidence?\n2. Does the **reasoning** make sense?"
+    },
+    {
+     "title": "Unsupported claims",
+     "text": "Some claims have **no evidence** or **too little**.\n\nOne example is not enough to prove something is **always** true. A claim with no facts behind it is **inadequately supported**."
+    },
+    {
+     "title": "Faulty reasoning",
+     "text": "1. **Overgeneralization**: one case → everyone. One student failed, so the test is too hard for all.\n2. **False cause**: it happened after, so it was caused by it.\n3. **Either-or**: only two choices when there are more.\n4. **Attacking the person** instead of the idea."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a claim is weak, point to the **exact sentence** where the support fails.\n\n1. Find the claim.\n2. Find the evidence given for it.\n3. Ask: Is it enough? Does it really lead to the claim? Tap the weak link."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Homework should be banned in all schools.",
+      "role": "main"
+     },
+     {
+      "t": "My cousin had homework last night, and he was too tired to play football.",
+      "role": "key"
+     },
+     {
+      "t": "Therefore, homework is bad for every student.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim is about **all schools**, but the only evidence is **one cousin on one night**.\n\nThis is an **overgeneralization**. The claim is not adequately supported."
+   },
+   "together": {
+    "passage": "Our town should close the public library. Last Tuesday, I visited at noon and saw only three people inside. My neighbour also told me that she prefers to read on her tablet. Clearly, nobody uses the library anymore. Besides, everyone has the internet at home now. The money saved could be used to build a new car park, which drivers have wanted for years.",
+    "stem": "What is the main weakness in the author's argument?",
+    "options": [
+     "The author gives too many statistics.",
+     "The author bases a big conclusion on one short visit.",
+     "The author agrees that the library is useful.",
+     "The author explains the library's history."
+    ],
+    "answer": 1,
+    "hint": "How much evidence does the author give that nobody uses the library?",
+    "good": "Yes! One visit at noon on one day cannot prove that nobody uses the library."
+   },
+   "evidence": {
+    "sentences": [
+     "Our town should close the public library.",
+     "Last Tuesday, I visited at noon and saw only three people inside.",
+     "My neighbour also told me that she prefers to read on her tablet.",
+     "Clearly, nobody uses the library anymore.",
+     "Besides, everyone has the internet at home now.",
+     "The money saved could be used to build a new car park, which drivers have wanted for years."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: a big conclusion based on one short visit. Tap 2 sentences that show weak evidence or faulty reasoning.",
+    "wrong": "This sentence is the claim or the author's plan. Find the sentences with the weak evidence or the jump in reasoning."
+   },
+   "checks": [
+    {
+     "passage": "Since our school started selling fruit in the canteen, our football team has won three matches. Selling fruit clearly made our team better.",
+     "stem": "What is wrong with this reasoning?",
+     "options": [
+      "It gives too much evidence about football matches.",
+      "It uses a careful study with many students.",
+      "It assumes one thing caused another just because it came first.",
+      "It fairly shows both sides of the issue."
+     ],
+     "answer": 2,
+     "why": "The wins came after the fruit sales, but that does not prove the fruit caused them. This is a false cause."
+    },
+    {
+     "passage": "Either we build a new stadium, or our city's young people will have nothing to do.",
+     "stem": "What kind of faulty reasoning is this?",
+     "options": [
+      "Either-or: it pretends there are only two choices",
+      "Attacking the person who disagrees",
+      "Using a strong study as evidence",
+      "Overgeneralization from a survey"
+     ],
+     "answer": 0,
+     "why": "Young people could have parks, clubs, libraries and more. The argument falsely gives only two options."
+    },
+    {
+     "passage": "Mr. Saleh says we should save water, but he has a big garden, so his idea is wrong.",
+     "stem": "Why is this reasoning invalid?",
+     "options": [
+      "It gives too many facts about water.",
+      "It compares two gardens.",
+      "It uses numbers that are false.",
+      "It attacks the person instead of his idea."
+     ],
+     "answer": 3,
+     "why": "Whether Mr. Saleh has a garden does not change whether saving water is a good idea."
+    }
+   ],
+   "again": {
+    "title": "Is the jump too big?",
+    "text": "Imagine the evidence is a **step** and the claim is the **top of a wall**.\n\nIf the step is tiny and the wall is high, the jump is **too big**: the claim is not supported.",
+    "example": "Evidence: **One** shop raised its prices.\nClaim: **All** prices in the city are going up.\n\nThe jump is too big. One shop cannot prove something about all prices."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Strong arguments face the other side",
+     "text": "A strong argument does not ignore people who disagree. It **acknowledges a counterargument** (an opposing view) and then **responds** to it.\n\nThis shows the author has thought carefully and makes the argument more convincing."
+    },
+    {
+     "title": "Ways to respond",
+     "text": "1. **Rebut**: show the opposing view is wrong, with evidence.\n2. **Concede and outweigh**: admit it has a point, then show why your side matters more.\n3. **Dismiss**: wave it away without evidence. This is a **weak** response."
+    },
+    {
+     "title": "Evaluate the response",
+     "text": "Ask:\n\n1. Does the author state the opposing view **fairly**, or twist it?\n2. Is the response backed by **evidence**?\n3. Does the author's reasoning remain **valid**?\n\nA fair, evidence-based response strengthens the argument."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find **two** parts in the text: where the author **states** the opposing view, and where the author **answers** it.\n\nThen judge the answer: does it use evidence and logic, or only dismiss the other side?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Cities should build more bicycle lanes.",
+      "role": "main"
+     },
+     {
+      "t": "Some drivers argue that bike lanes will slow down traffic.",
+      "role": "key"
+     },
+     {
+      "t": "However, a study in several cities found that bike lanes reduced traffic jams because more people chose to cycle instead of drive.",
+      "role": "key"
+     }
+    ],
+    "explain": "The author **states** the drivers' view fairly, then **rebuts** it with a study.\n\nThis is a strong handling of a counterargument: fair and supported by evidence."
+   },
+   "together": {
+    "passage": "Students should be allowed to use calculators in maths exams. Some teachers worry that calculators will stop students from learning basic arithmetic. This concern is understandable, since mental maths is an important skill. However, calculators are only allowed after students have shown they can do basic operations by hand, and research in several countries has found that students who use calculators wisely solve more complex problems. Others say calculators make tests too easy, but these people simply do not understand modern education.",
+    "stem": "Which statement best evaluates how the author handles counterarguments?",
+    "options": [
+     "The author ignores every opposing view and gives only reasons for calculators.",
+     "The author answers the first objection with reasons and research but dismisses the second without evidence.",
+     "The author uses strong research evidence to answer both of the objections.",
+     "The author agrees with the teachers that calculators should be banned from exams."
+    ],
+    "answer": 1,
+    "hint": "There are TWO opposing views. How does the author answer each one?",
+    "good": "Yes! The first objection gets a fair concession and research; the second is dismissed with an insult, not evidence."
+   },
+   "evidence": {
+    "sentences": [
+     "Students should be allowed to use calculators in maths exams.",
+     "Some teachers worry that calculators will stop students from learning basic arithmetic.",
+     "This concern is understandable, since mental maths is an important skill.",
+     "However, calculators are only allowed after students have shown they can do basic operations by hand, and research in several countries has found that students who use calculators wisely solve more complex problems.",
+     "Others say calculators make tests too easy, but these people simply do not understand modern education."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the first objection is answered with research, the second is dismissed. Tap 2 sentences that show how the author answers the objections.",
+    "wrong": "This sentence states the claim, an objection or a concession. Find the 2 sentences where the author ANSWERS the objections."
+   },
+   "checks": [
+    {
+     "passage": "Some people argue that school should start later so teenagers can sleep more. They are right that teenagers need sleep. Even so, a later start would mean later finishes, leaving less time for sports and family. A better solution may be limiting screens at night.",
+     "stem": "How does the author handle the counterargument?",
+     "options": [
+      "The author admits teenagers need sleep but argues another solution is better.",
+      "The author refuses to mention the opposing view at all.",
+      "The author attacks the people who disagree instead of their ideas.",
+      "The author fully agrees that school should start later for everyone."
+     ],
+     "answer": 0,
+     "why": "They are right concedes a point. Even so introduces the author's response and a different solution."
+    },
+    {
+     "passage": "Critics say the new park is a waste of money. These critics are just people who never go outside anyway.",
+     "stem": "Why is this response to the counterargument weak?",
+     "options": [
+      "It uses too much evidence about parks.",
+      "It agrees with the critics about the cost.",
+      "It explains the cost of the park carefully.",
+      "It attacks the critics instead of answering their point."
+     ],
+     "answer": 3,
+     "why": "Saying the critics never go outside does not show the park is worth the money. It attacks people, not the argument."
+    },
+    {
+     "passage": "Opponents of school gardens say they take time away from lessons. Yet in one district, students who worked in school gardens scored higher on science tests than students who did not, because they practised measuring, observing and recording data.",
+     "stem": "What makes the author's rebuttal effective?",
+     "options": [
+      "It ignores the opponents' concern about lessons.",
+      "It insults the opponents instead of answering them.",
+      "It answers the concern with evidence that gardens help learning.",
+      "It changes the topic to sports and outdoor games."
+     ],
+     "answer": 2,
+     "why": "The author answers the worry about lost lesson time with a result showing gardens can help science learning."
+    }
+   ],
+   "again": {
+    "title": "They say, I say",
+    "text": "Look for the pattern **They say... but I say... because...**\n\nIf the because part has evidence, the response is strong. If it has only insults or no reason, it is weak.",
+    "example": "They say: uniforms cost too much.\nI say: they save money **because** families buy fewer clothes for school. → reasoned.\nI say: **that's silly.** → weak, no reason."
+   }
+  }
+ }
+}

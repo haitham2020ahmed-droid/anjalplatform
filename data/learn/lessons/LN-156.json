@@ -1,0 +1,481 @@
+{
+ "code": "LN-156",
+ "title": "Comparing ideas in stories",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.2.9",
+  "RL.3.9",
+  "RL.5.9",
+  "RL.6.9"
+ ],
+ "families": [
+  "compare-texts"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0090",
+  "R-0091",
+  "R-0167",
+  "R-0274",
+  "R-0289",
+  "R-0303",
+  "R-0456",
+  "R-0663",
+  "R-0855",
+  "R-0995"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Same and different",
+     "text": "When you **compare**, you find how things are the **same**.\n\nWhen you **contrast**, you find how things are **different**."
+    },
+    {
+     "title": "In a story",
+     "text": "You can compare two characters, two places or two things in a story.\n\n**Same**: both girls like to draw.\n**Different**: one is tall, one is short."
+    },
+    {
+     "title": "Clue words",
+     "text": "**Same**: both, too, also, like.\n**Different**: but, not, instead."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The answer is **in the story**.\n\n1. Find the sentence about the **first** thing.\n2. Find the sentence about the **second** thing.\n3. Look at them side by side."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali has a red bike.",
+      "role": "detail"
+     },
+     {
+      "t": "Sami has a red bike too.",
+      "role": "detail"
+     },
+     {
+      "t": "But Ali's bike is big, and Sami's bike is small.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Same**: both bikes are red (\"too\").\n\n**Different**: Ali's is big, Sami's is small (\"but\")."
+   },
+   "together": {
+    "passage": "Mona and Huda are sisters. Mona likes to read books. Huda likes to read books too. But Mona likes to read in bed, and Huda likes to read in the garden.",
+    "stem": "How are Mona and Huda the same?",
+    "options": [
+     "They both like to read books.",
+     "They both read in the garden.",
+     "They both read in bed.",
+     "They are both boys."
+    ],
+    "answer": 0,
+    "hint": "Look for the word \"too\". It shows what is the same.",
+    "good": "Yes! Mona likes to read, and Huda likes to read too."
+   },
+   "evidence": {
+    "sentences": [
+     "Mona and Huda are sisters.",
+     "Mona likes to read books.",
+     "Huda likes to read books too.",
+     "But Mona likes to read in bed, and Huda likes to read in the garden."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: they both like to read books. Tap 2 sentences that show it.",
+    "wrong": "This sentence tells who they are or how they are different. Find what they BOTH like."
+   },
+   "checks": [
+    {
+     "passage": "The cat is black. The dog is brown. They both like to sleep in the sun.",
+     "stem": "How are the cat and the dog different?",
+     "options": [
+      "They both sleep.",
+      "They are different colours.",
+      "They both like the sun.",
+      "They are both cats."
+     ],
+     "answer": 1,
+     "why": "The cat is black and the dog is brown. That is different."
+    },
+    {
+     "passage": "Fahad ate rice for lunch. His brother ate rice too. Fahad drank milk, but his brother drank water.",
+     "stem": "What did both boys eat?",
+     "options": [
+      "Bread",
+      "Fish",
+      "Rice",
+      "Eggs"
+     ],
+     "answer": 2,
+     "why": "Fahad ate rice, and his brother ate rice too."
+    },
+    {
+     "passage": "The first day was sunny. Children played outside. The next day was rainy. Children played inside.",
+     "stem": "What is different about the two days?",
+     "options": [
+      "Children played both days.",
+      "Both days were sunny.",
+      "Both days were cold.",
+      "One was sunny and one was rainy."
+     ],
+     "answer": 3,
+     "why": "The first day was sunny, but the next day was rainy."
+    }
+   ],
+   "again": {
+    "title": "Two hands",
+    "text": "Hold up **two hands**.\n\nLeft hand: the first thing. Right hand: the second thing.\n\nClap if they are the **same**. Wave if they are **different**.",
+    "example": "The bird can fly. The fish can swim.\n\nCan they both fly? **No**: wave! They are **different**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Compare and contrast",
+     "text": "**Comparing** means finding how things are **alike**. **Contrasting** means finding how they are **different**.\n\nYou can do this inside one story, or between **two stories**."
+    },
+    {
+     "title": "What to compare",
+     "text": "1. **Characters**: how they look, act and feel.\n2. **Settings**: where and when.\n3. **Events**: what happens.\n4. **Endings**: how things turn out."
+    },
+    {
+     "title": "Two stories",
+     "text": "When you read two stories, ask:\n\n1. What is the **same** about the characters or problems?\n2. What is **different**?\n3. Use **both** stories to prove your answer."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a comparison:\n\n1. Find the detail in the **first** story or part.\n2. Find the matching detail in the **second**.\n3. Check: are they the same or different?\n\nYour answer needs proof from **both** places."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Story 1: Hassan lost his kite in a tree and cried until his father got it down.",
+      "role": "detail"
+     },
+     {
+      "t": "Story 2: Laila lost her kite in a tree and climbed up to get it herself.",
+      "role": "key"
+     },
+     {
+      "t": "Laila's kite was shaped like a fish.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Same**: both lose a kite in a tree.\n\n**Different**: Hassan waits for help; Laila solves it herself."
+   },
+   "together": {
+    "passage": "Story 1: Saad wanted to win the class spelling contest. He studied his word list every night with his mother. On the day of the contest, he spelled every word correctly and won. Story 2: Rana also entered a spelling contest. She did not study, because she thought it would be easy. She missed three words and felt disappointed.",
+    "stem": "How are Saad and Rana different?",
+    "options": [
+     "Saad entered a contest, but Rana did not.",
+     "Saad studied and won, but Rana did not study and lost.",
+     "Both studied hard every night.",
+     "Rana won the contest, but Saad lost."
+    ],
+    "answer": 1,
+    "hint": "Look at what each one did before the contest and how each contest ended.",
+    "good": "Yes! Saad studied every night and won; Rana did not study and missed three words."
+   },
+   "evidence": {
+    "sentences": [
+     "Story 1: Saad wanted to win the class spelling contest.",
+     "He studied his word list every night with his mother.",
+     "On the day of the contest, he spelled every word correctly and won.",
+     "Story 2: Rana also entered a spelling contest.",
+     "She did not study, because she thought it would be easy.",
+     "She missed three words and felt disappointed."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: Saad studied and won, but Rana did not study and lost. Tap 2 sentences that show the difference, one from each story if you can.",
+    "wrong": "This sentence shows what is the same: they both entered a contest. Find what each one did, or how it ended."
+   },
+   "checks": [
+    {
+     "passage": "In the first story, a fox tricks a crow to get its food. In the second story, a monkey tricks a crocodile to save its own life.",
+     "stem": "How are the two stories alike?",
+     "options": [
+      "Both have an animal that tricks another animal.",
+      "Both happen under the sea.",
+      "Both have a crow and a fox in them.",
+      "Both end with a big party."
+     ],
+     "answer": 0,
+     "why": "In each story, one animal tricks another."
+    },
+    {
+     "passage": "Noura's house was in the busy city, full of cars and noise. Her cousin's house was in a quiet village where goats walked down the road.",
+     "stem": "How are the two houses different?",
+     "options": [
+      "Both houses are full of cars and noise.",
+      "Both houses have goats walking by the door.",
+      "One is in a busy city, the other in a quiet village.",
+      "Both houses are in the same busy city."
+     ],
+     "answer": 2,
+     "why": "Noura's is in a busy city; her cousin's is in a quiet village."
+    },
+    {
+     "passage": "At the start of the story, Majed was afraid of the water and would not go near the pool. By the end, he was swimming across it with his friends.",
+     "stem": "How does Majed at the start compare with Majed at the end?",
+     "options": [
+      "He is afraid of the pool at both times.",
+      "He swims well at the start and the end.",
+      "He has no friends to swim with at the end.",
+      "He is afraid at first, but swims by the end."
+     ],
+     "answer": 3,
+     "why": "At the start, he is afraid; at the end, he swims across the pool."
+    }
+   ],
+   "again": {
+    "title": "Same / different chart",
+    "text": "Draw two boxes: **Same** and **Different**.\n\nPut one detail from each story in the right box.",
+    "example": "Story A: a boy finds a lost cat. Story B: a girl finds a lost dog.\n\n**Same**: both find a lost pet. **Different**: a cat and a dog; a boy and a girl."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Comparing across stories",
+     "text": "Different stories can share a **topic** (such as friendship or courage) but treat it in **different ways**.\n\nComparing them helps you understand each story more deeply."
+    },
+    {
+     "title": "Ideas, not just details",
+     "text": "At this stage, compare **ideas** as well as details:\n\n1. How does each character **solve** a problem?\n2. What does each story suggest about the topic?\n3. How are the **lessons** alike or different?"
+    },
+    {
+     "title": "How to compare two texts",
+     "text": "1. Name the shared topic.\n2. Find what each story shows about it.\n3. Decide what is **similar** and what is **different**.\n4. Support your answer with details from **both** texts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A comparison of two stories needs evidence from **each** story.\n\n1. Find the sentences that show the idea in story 1.\n2. Find the sentences that show it in story 2.\n3. Choose the answer both sets of sentences support.\n\nWrong answers often describe only one story, or mix up which story did what."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Story 1: When the well dried up, the villagers argued about whose fault it was, and nobody found water.",
+      "role": "detail"
+     },
+     {
+      "t": "Story 2: When the well dried up, the villagers worked together to dig a new one.",
+      "role": "detail"
+     },
+     {
+      "t": "In story 2, by the end of the week, the whole village had water again.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both stories share a problem: **a dry well**. But they show different ideas.\n\nStory 1 shows that **arguing** leaves the problem unsolved. Story 2 shows that **working together** solves it."
+   },
+   "together": {
+    "passage": "In the first story, Badr finds a wallet on the bus. He thinks about keeping the money, but he remembers how upset his mother was when she lost her purse. He takes the wallet to the driver, and the owner later thanks him. In the second story, Jumana sees her classmate copy answers during a test. She feels uncomfortable but stays quiet. Later, she talks to her classmate privately and encourages her to tell the teacher. The classmate does, and the teacher allows her to retake the test.",
+    "stem": "What idea do the two stories share?",
+    "options": [
+     "Both stories show that it is best to stay quiet about problems.",
+     "Both characters choose to do the honest thing, even when it is not easy.",
+     "Both stories are about finding lost money on a bus.",
+     "Both characters get a reward of money for their actions."
+    ],
+    "answer": 1,
+    "hint": "Think about what each main character decides to do. What do Badr and Jumana have in common?",
+    "good": "Yes! Badr returns the wallet and Jumana encourages honesty. Both choose the honest path even though it is hard."
+   },
+   "evidence": {
+    "sentences": [
+     "In the first story, Badr finds a wallet on the bus.",
+     "He thinks about keeping the money, but he remembers how upset his mother was when she lost her purse.",
+     "He takes the wallet to the driver, and the owner later thanks him.",
+     "In the second story, Jumana sees her classmate copy answers during a test.",
+     "She feels uncomfortable but stays quiet.",
+     "Later, she talks to her classmate privately and encourages her to tell the teacher.",
+     "The classmate does, and the teacher allows her to retake the test."
+    ],
+    "proof": [
+     1,
+     2,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: both characters choose the honest thing, even when it is not easy. Tap 2 sentences that show their honest choices, one from each story if you can.",
+    "wrong": "This sentence sets up the problem or tells the result. Find what each character DECIDES to do."
+   },
+   "checks": [
+    {
+     "passage": "Story A: The tortoise moved slowly but never stopped, and he won the race. Story B: The young camel rushed ahead on the long journey, grew tired, and had to be carried by the others.",
+     "stem": "What idea do both stories suggest?",
+     "options": [
+      "Steady effort is better than rushing.",
+      "Camels are faster than tortoises.",
+      "Racing is always unfair.",
+      "Animals should never travel."
+     ],
+     "answer": 0,
+     "why": "The tortoise wins by being steady; the camel fails by rushing. Both value steady effort."
+    },
+    {
+     "passage": "Story A: Mariam moves to a new school and waits for others to talk to her. She feels lonely for weeks. Story B: Omar moves to a new school and invites classmates to play football on his first day.",
+     "stem": "How do Mariam and Omar handle a new school differently?",
+     "options": [
+      "Both wait for others to talk to them.",
+      "Both feel lonely for many weeks.",
+      "Mariam waits for others; Omar reaches out first.",
+      "Omar waits for others; Mariam reaches out first."
+     ],
+     "answer": 2,
+     "why": "Mariam waits and feels lonely; Omar invites others to play on day one."
+    },
+    {
+     "passage": "In one story, a grandfather teaches his grandson to fish so he can feed himself. In another, a mother teaches her daughter to sew so she can make her own clothes.",
+     "stem": "How are the two stories alike?",
+     "options": [
+      "Both stories are about fishing in the sea.",
+      "Both children are already experts at their skill.",
+      "Both stories are set in a big, busy city.",
+      "Both show an adult teaching a child a useful skill."
+     ],
+     "answer": 3,
+     "why": "In each story, an adult teaches a child a skill that makes them independent."
+    }
+   ],
+   "again": {
+    "title": "Venn diagram",
+    "text": "Draw two circles that overlap.\n\n1. Left circle: only story 1.\n2. Right circle: only story 2.\n3. Middle: **both**.\n\nThe middle shows the shared idea.",
+    "example": "Story 1: a girl shares her lunch. Story 2: a boy shares his umbrella.\n\nMiddle: **both share something with someone in need.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Comparing ideas across texts",
+     "text": "Two stories can explore the **same idea** and reach **different conclusions**. Or they can tell very different stories that make **the same point**.\n\nComparing them reveals each author's view."
+    },
+    {
+     "title": "What to analyse",
+     "text": "1. **Shared topic**: courage, change, family, ambition...\n2. **Each text's message** about that topic.\n3. **How** each author develops it: characters, events, endings.\n4. **Similarity or contrast** between the messages."
+    },
+    {
+     "title": "Precise comparisons",
+     "text": "A strong comparison is **specific**. Not just \"both are about family\", but: \"Both suggest that family ties survive distance, but the first shows this through letters, the second through a shared recipe.\""
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "When comparing ideas in two texts, prove the point from **both** texts.\n\n1. Identify what each text suggests about the shared topic.\n2. Find the sentences, often near the end, that reveal each message.\n3. Choose the answer that describes **both** messages accurately.\n\nReject choices that fit only one text, overstate a similarity, or confuse the details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Text 1: The young pearl diver refused to follow the old ways and was nearly lost at sea.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 1: In the end, he returned to his grandfather to learn the old methods.",
+      "role": "key"
+     },
+     {
+      "t": "Text 2: The young farmer tried a new watering system that the village elders had rejected.",
+      "role": "detail"
+     },
+     {
+      "t": "Text 2: When the drought came, her fields were the only ones that stayed green.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both texts are about **tradition and change**. But the messages **contrast**.\n\nText 1 suggests that traditional knowledge **keeps people safe**. Text 2 suggests that new ideas can **succeed where tradition fails**."
+   },
+   "together": {
+    "passage": "In the first story, Salim spends years saving to buy a fishing boat of his own. When he finally buys it, he works alone from dawn to dusk, refusing help from the other fishermen. His catches are good, but he returns each evening to an empty house and eats in silence. By the end, he sits on his new boat watching the others laugh together on the harbour wall, and he wonders what all his hard work has been for. In the second story, Nadia wins a scholarship to study engineering in a distant city. She calls her family every week and invites her classmates to share meals from her home country. When she graduates, both her family and her new friends crowd the hall to cheer for her.",
+    "stem": "How do the two stories compare in what they suggest about success?",
+    "options": [
+     "Both stories suggest that success is only about money and hard work.",
+     "Both suggest that people must be alone to succeed.",
+     "Salim's story suggests success without others feels empty, while Nadia's shows success is richer when shared.",
+     "Nadia's story suggests that studying far away always leads to loneliness."
+    ],
+    "answer": 2,
+    "hint": "Look at how each story ends. How does Salim feel? Who is with Nadia when she graduates?",
+    "good": "Yes! Salim succeeds alone and feels empty; Nadia stays connected and celebrates with family and friends."
+   },
+   "evidence": {
+    "sentences": [
+     "In the first story, Salim spends years saving to buy a fishing boat of his own.",
+     "When he finally buys it, he works alone from dawn to dusk, refusing help from the other fishermen.",
+     "His catches are good, but he returns each evening to an empty house and eats in silence.",
+     "By the end, he sits on his new boat watching the others laugh together on the harbour wall, and he wonders what all his hard work has been for.",
+     "In the second story, Nadia wins a scholarship to study engineering in a distant city.",
+     "She calls her family every week and invites her classmates to share meals from her home country.",
+     "When she graduates, both her family and her new friends crowd the hall to cheer for her."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: Salim's success feels empty, while Nadia's is richer because it is shared. Tap 2 sentences that show these different results, one from each story if you can.",
+    "wrong": "This sentence sets up a goal. Find what each character does with others, and how each story ends."
+   },
+   "checks": [
+    {
+     "passage": "Text A: A boy breaks his promise to his friend and spends the rest of the story trying to earn back his trust. Text B: A girl keeps a promise to her grandmother, even though it means missing a trip she was excited about.",
+     "stem": "What shared idea do the texts explore from different angles?",
+     "options": [
+      "The importance of keeping promises",
+      "The excitement of travelling abroad",
+      "The difficulty of making new friends",
+      "How to win a competition"
+     ],
+     "answer": 0,
+     "why": "Text A shows the cost of breaking a promise; text B shows the value of keeping one."
+    },
+    {
+     "passage": "Story 1 ends with a city boy moving to the desert and slowly learning to love its silence. Story 2 ends with a desert girl moving to the city and missing the silence every night.",
+     "stem": "Which statement best compares the endings?",
+     "options": [
+      "Both characters come to love the city's noise.",
+      "Both characters dislike every new place they move to.",
+      "Both stories end with the characters returning home.",
+      "Both are about moving, but one finds peace and the other feels loss."
+     ],
+     "answer": 3,
+     "why": "The boy grows to love the desert's silence; the girl misses it in the city."
+    },
+    {
+     "passage": "Text 1: An old fisherman says the sea teaches patience, because you cannot hurry the fish. Text 2: A young gardener learns that roses cannot be rushed; they bloom only when they are ready.",
+     "stem": "What idea do both texts share?",
+     "options": [
+      "Fishing in the sea is much harder than gardening.",
+      "Some things in nature cannot be rushed, so we must be patient.",
+      "Young people are always more patient than old people.",
+      "Roses grow best in gardens that are near the sea."
+     ],
+     "answer": 1,
+     "why": "The fisherman and the gardener both learn that nature has its own pace, which teaches patience."
+    }
+   ],
+   "again": {
+    "title": "Topic, message, message",
+    "text": "Fill in this frame:\n\nBoth texts are about **(topic)**.\nText 1 suggests **(message 1)**.\nText 2 suggests **(message 2)**.\nSo they are **alike / different** because...",
+    "example": "Both texts are about **courage**. Text 1 suggests courage means facing danger. Text 2 suggests courage means admitting a mistake. So they are **different**: one shows outward bravery, the other inner honesty."
+   }
+  }
+ }
+}

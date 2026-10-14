@@ -1,0 +1,568 @@
+{
+  "code": "NB-081",
+  "title": "The Summit Can Wait",
+  "kind": "LITERARY",
+  "genre": "dialogue story",
+  "words": 507,
+  "passage": "For several months, Majid had been dreaming about this moment, and now Jabal al-Lawz, one of the highest mountains in the north-west of the Kingdom, towered above him in the crisp winter light, and its rocky summit seemed close enough to touch. He and his older brother Turki had trained every weekend, climbing the stairs of their apartment building with heavy backpacks, until their father finally agreed to lead them to the top.\n\nThey set off at dawn, following a narrow, rocky path that zigzagged between enormous granite boulders. The temperature was so low that their breath formed miniature clouds, and Majid's fingers tingled inside his gloves. By late morning, however, they had climbed far above the valley, and the villages below looked like scattered handfuls of pebbles.\n\n\"We are making excellent progress,\" Father said, checking his watch, \"and if we maintain this pace, we will reach the summit in approximately an hour.\"\n\nMajid grinned proudly, but Turki, who had been unusually quiet, pointed toward the west. \"Father, look at those clouds,\" he said, \"because they were small and white when we started, but now they are towering and dark grey underneath.\"\n\nFather studied the threatening sky for a long moment, and his cheerful expression gradually became serious. A cold gust swept across the slope, scattering dry leaves, and somewhere in the distance a low rumble echoed between the peaks.\n\nAfter considering the situation carefully, he made a decision that neither boy expected. \"We are turning back,\" he announced firmly.\n\n\"Turning back?\" Majid protested, his voice rising with disbelief and frustration. \"We are almost there, we have trained for months, and the summit is only one hour away!\"\n\n\"That is precisely the problem,\" Father replied patiently. \"In one hour, we would be standing on the highest, most exposed rock on this mountain, exactly when that storm arrives. Lightning, hail and slippery granite are a dangerous combination, and no view is worth that risk.\"\n\nMajid said nothing, but he kicked a stone resentfully over the edge and watched it bounce away into the ravine. The descent felt absolutely endless, and with every step he imagined the photograph he would never take from the summit.\n\nThey had just reached the shelter of the car when the storm broke. Hailstones hammered on the roof like thousands of miniature drums, and through the streaming windscreen the boys watched a blinding flash of lightning strike the very ridge they had been climbing. For several seconds, nobody in the car was capable of speaking.\n\n\"That could have been us,\" Turki finally whispered, his face unusually pale.\n\nMajid swallowed hard, considering what might have happened. His disappointment had not disappeared completely, but it now felt small compared with the relief that was spreading through his chest. \"Father,\" he said quietly, \"I am sorry I was angry. Can we try again in spring?\"\n\nFather smiled affectionately and squeezed his shoulder. \"The mountain is not going anywhere,\" he said, \"and an experienced climber knows that the summit can always wait, but a life cannot be replaced.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “exposed” as it is used in paragraph 8?",
+      "options": [
+        "unprotected",
+        "famous",
+        "comfortable",
+        "sheltered"
+      ],
+      "answer": "A",
+      "why": "The highest rock has nothing around it to protect climbers from lightning and hail, so it is unprotected. “Sheltered” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “descent” as it is used in paragraph 9?",
+      "options": [
+        "journey",
+        "climb",
+        "fall",
+        "rest"
+      ],
+      "answer": "B",
+      "why": "The descent is the trip down the mountain; the opposite is the climb (going up)."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 9: “he kicked a stone resentfully over the edge”. What does “resentfully” suggest about Majid?",
+      "options": [
+        "He was playing a happy game with his older brother.",
+        "He was trying to test how deep the ravine really was.",
+        "He felt annoyed because he thought the decision was unfair.",
+        "He was frightened of falling."
+      ],
+      "answer": "C",
+      "why": "Majid had just protested and “said nothing”; kicking the stone resentfully shows bitter annoyance."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a NOUN?",
+      "options": [
+        "narrow",
+        "zigzagged",
+        "enormous",
+        "boulders"
+      ],
+      "answer": "D",
+      "why": "“Boulders” names things; “narrow” and “enormous” are adjectives and “zigzagged” is a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 10, “Hailstones hammered on the roof”. Which word in this sentence is PLURAL?",
+      "options": [
+        "roof",
+        "Hailstones",
+        "hammered",
+        "on"
+      ],
+      "answer": "B",
+      "why": "“Hailstones” means many pieces of hail; “roof” is singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “experienced” in paragraph 13?",
+      "options": [
+        "experiment",
+        "expert",
+        "inexperienced",
+        "expect"
+      ],
+      "answer": "C",
+      "why": "“Inexperienced” is formed from “experienced” with the prefix in-; the others only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “relief” in a meaningful sentence of your own.",
+      "model": "I felt great relief when I found my lost house key under the sofa just before my parents came home.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “relief” with its meaning (the good feeling when worry or danger ends)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Relief” is the happy, calm feeling when something worrying or dangerous is over."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “life”, which appears in the last sentence?",
+      "options": [
+        "lifes",
+        "lives",
+        "lifees",
+        "live"
+      ],
+      "answer": "B",
+      "why": "Like knife → knives, “life” changes f to v and adds -es: lives."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a QUESTION?",
+      "options": [
+        "“That is precisely the problem.”",
+        "“We are turning back.”",
+        "“That could have been us.”",
+        "“Can we try again in spring?”"
+      ],
+      "answer": "D",
+      "why": "Majid asks his father something, and the sentence ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of these would be another suitable title for the story?",
+      "options": [
+        "The Wise Decision",
+        "Racing to the Top",
+        "A Photograph from the Summit",
+        "The Lost Gloves"
+      ],
+      "answer": "A",
+      "why": "The most important event is Father's wise decision to turn back before the storm."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to describe how to train for a hike using stairs",
+        "to give facts about the height of Jabal al-Lawz",
+        "to show that safety and good judgement matter more than reaching a goal",
+        "to explain how hail forms in storm clouds"
+      ],
+      "answer": "C",
+      "why": "The story shows Father choosing safety over the summit and the boys realising he was right."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 1?",
+      "options": [
+        "Majid is excited to climb a mountain he has trained hard for.",
+        "Majid's apartment building has many stairs.",
+        "Turki does not want to climb the mountain.",
+        "The family has climbed Jabal al-Lawz many times."
+      ],
+      "answer": "A",
+      "why": "It shows Majid's long dream and the brothers' training before the climb."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Father decide to turn back?",
+      "options": [
+        "Majid's fingers were far too cold to hold the rocks safely.",
+        "A storm was coming, and they would be on the exposed summit when it arrived.",
+        "They had forgotten their camera at the bottom of the path.",
+        "Turki was too tired and hungry to continue to the top."
+      ],
+      "answer": "B",
+      "why": "Father says that in one hour they would be on “the highest, most exposed rock … exactly when that storm arrives.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a biography of a climber",
+        "a letter to a friend",
+        "a poem about mountains",
+        "a story with dialogue"
+      ],
+      "answer": "D",
+      "why": "It is an invented story told by a narrator, with many conversations between the characters."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "How had Majid and Turki prepared for the climb?",
+      "options": [
+        "by climbing other mountains every month",
+        "by running around the school field",
+        "by climbing the stairs of their building with heavy backpacks",
+        "by reading books about mountains"
+      ],
+      "answer": "C",
+      "why": "Paragraph 1: they trained “climbing the stairs of their apartment building with heavy backpacks”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these happened BEFORE Father announced that they were turning back?",
+      "options": [
+        "Turki pointed out the dark clouds.",
+        "Majid kicked a stone over the edge.",
+        "Lightning struck the ridge.",
+        "Majid apologised to his father."
+      ],
+      "answer": "A",
+      "why": "Turki pointed out the clouds in paragraph 4; the other events came after the decision."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who first noticed that the weather was changing?",
+      "options": [
+        "Majid",
+        "Turki",
+        "Father",
+        "a guide on the mountain"
+      ],
+      "answer": "B",
+      "why": "Turki “pointed toward the west” and described the clouds growing tall and dark."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail did Father consider when he judged the danger?",
+      "options": [
+        "the number of villages in the valley",
+        "the colour of Majid's gloves",
+        "the dry leaves on the path",
+        "lightning, hail and slippery granite"
+      ],
+      "answer": "D",
+      "why": "He says, “Lightning, hail and slippery granite are a dangerous combination.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Majid to say “I am sorry I was angry”?",
+      "options": [
+        "Father ordered him to apologise for kicking the stone.",
+        "He was cold and hungry and simply wanted to go home.",
+        "He saw lightning strike the ridge where they would have been.",
+        "Turki laughed at him."
+      ],
+      "answer": "C",
+      "why": "After watching lightning strike “the very ridge they had been climbing”, Majid understood the danger."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Majid feel when Father first announced they were turning back?",
+      "options": [
+        "disappointed and frustrated",
+        "relieved and grateful",
+        "calm and patient",
+        "bored and sleepy"
+      ],
+      "answer": "A",
+      "why": "He protests “with disbelief and frustration” and later kicks a stone resentfully."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 5?",
+      "options": [
+        "wanting to know what the villages looked like",
+        "wanting to know what Father will decide about the storm",
+        "wanting to know how many stairs the building had",
+        "wanting to know what the boys ate for breakfast"
+      ],
+      "answer": "B",
+      "why": "The threatening sky and Father's serious face create suspense about his decision."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Majid's attitude in paragraph 7 different from his attitude in paragraph 12?",
+      "options": [
+        "In paragraph 7 he is relieved; in paragraph 12 he is angry.",
+        "In paragraph 7 he is quiet; in paragraph 12 he shouts.",
+        "In paragraph 7 he is frightened; in paragraph 12 he is bored.",
+        "In paragraph 7 he argues against turning back; in paragraph 12 he accepts it was right."
+      ],
+      "answer": "D",
+      "why": "First he protests; later he apologises and asks to try again in spring."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Father's decision to turn back?",
+      "options": [
+        "The family missed the storm completely because it moved away.",
+        "The family reached the shelter of the car just as the storm broke.",
+        "The boys reached the summit without him.",
+        "Majid took the photograph he wanted."
+      ],
+      "answer": "B",
+      "why": "Paragraph 10: “They had just reached the shelter of the car when the storm broke.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Turki and Father have in common in this story?",
+      "options": [
+        "Both pay close attention to warning signs in the weather.",
+        "Both want to reach the summit at any cost.",
+        "Both are angry and upset about turning back.",
+        "Both forget their gloves at the start of the climb."
+      ],
+      "answer": "A",
+      "why": "Turki notices the changing clouds, and Father studies the sky carefully before deciding."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which phrase from the story is a SIMILE?",
+      "options": [
+        "“the crisp winter light”",
+        "“a low rumble echoed between the peaks”",
+        "“like thousands of miniature drums”",
+        "“a blinding flash of lightning”"
+      ],
+      "answer": "C",
+      "why": "It compares the hailstones' noise to drums using “like”."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does “the villages below looked like scattered handfuls of pebbles” tell the reader?",
+      "options": [
+        "The villages were built from small grey stones and pebbles.",
+        "The family had climbed so high that the villages looked tiny.",
+        "The villages had been damaged by the storm.",
+        "Someone had thrown many pebbles down into the valley."
+      ],
+      "answer": "B",
+      "why": "From high up, the villages appear as small as pebbles, which shows how far they had climbed."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer describe lightning striking “the very ridge they had been climbing”?",
+      "options": [
+        "to make the scene more colourful",
+        "to show that the car was in danger",
+        "to show that the summit was easy to reach",
+        "to prove that Father's decision probably saved their lives"
+      ],
+      "answer": "D",
+      "why": "The lightning hits exactly where they would have been, so readers see that turning back was right."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which choice in the story was the MOST sensible?",
+      "options": [
+        "Majid kicking a stone over the edge",
+        "Father turning back before the storm",
+        "climbing in the coldest season",
+        "continuing quickly to take a photograph"
+      ],
+      "answer": "B",
+      "why": "Turning back kept the whole family safe from lightning and hail."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer MOST LIKELY sharing?",
+      "options": [
+        "Mountains are far too dangerous for any children to climb.",
+        "Children should never argue with adults about any decision.",
+        "Being safe is more important than reaching a goal, which can wait for another day.",
+        "Photographs from summits are not worth taking."
+      ],
+      "answer": "C",
+      "why": "Father's last words: “the summit can always wait, but a life cannot be replaced.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is MOST present in paragraph 10?",
+      "options": [
+        "shock",
+        "boredom",
+        "pride",
+        "jealousy"
+      ],
+      "answer": "A",
+      "why": "The storm breaks violently and “nobody in the car was capable of speaking”: they are shocked."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "how the family knew the storm was coming",
+        "why the boys trained on the stairs",
+        "how high Jabal al-Lawz actually is",
+        "who decided to turn back"
+      ],
+      "answer": "C",
+      "why": "The story only says it is “one of the highest mountains” in the north-west; its height is never given."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mountain moves to another place in spring.",
+        "A storm cloud speaks kindly to the tired climbers.",
+        "Hailstones turn into pebbles on the ground.",
+        "Climbers turn back because thunderclouds are building."
+      ],
+      "answer": "D",
+      "why": "Real climbers often turn back when they see storm clouds forming; the others are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Turning Back Before the Storm",
+        "Lost on the Mountain",
+        "The Snowy Picnic",
+        "Turki's Photograph"
+      ],
+      "answer": "A",
+      "why": "The key event is Father turning back just before the storm breaks."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that show how the family could stay safe in another way.",
+      "model": "Before they could start down, Father noticed a deep cave a short distance below the ridge, so he led the boys inside to shelter. They sat away from the entrance while hail and lightning crashed outside, sharing dates and water until the storm had passed. Then they climbed down carefully over the wet rocks, promising to return in spring.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and setting and keeps the family safe in a believable way",
+        "1 = an ending is given but it is unclear, unsafe or unrealistic",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible, safe ending that fits the mountain setting and the characters is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the story, how can hikers keep safe in the mountains?",
+      "options": [
+        "Check the weather and watch the sky during the climb.",
+        "Be ready to turn back if a storm approaches.",
+        "A and B",
+        "Always hurry to the summit before clouds arrive."
+      ],
+      "answer": "C",
+      "why": "The family stayed safe because they watched the sky and were willing to turn back."
+    }
+  ]
+}

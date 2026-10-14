@@ -1,0 +1,451 @@
+{
+ "code": "LN-222",
+ "title": "Puns and wordplay",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [],
+ "families": [
+  "puns"
+ ],
+ "skillNames": [
+  "Puns and Wordplay"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words with two meanings",
+     "text": "Some words have **two meanings**.\n\nA **pun** is a joke that uses **both** meanings at the same time."
+    },
+    {
+     "title": "A pun joke",
+     "text": "Why did the student bring a ladder to school?\nBecause she wanted to go to **high** school!\n\n**High** = up tall. **High school** = a school for older students."
+    },
+    {
+     "title": "How to get the joke",
+     "text": "1. Find the word that makes the joke.\n2. Find its **two** meanings.\n3. See how both fit. That is why it is funny!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The joke lives in **one word**.\n\n1. Read the joke.\n2. Find the word with two meanings.\n3. Tap the sentence that has it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Why was the maths book sad?",
+      "role": "other"
+     },
+     {
+      "t": "It had too many problems.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Problems** can mean **maths questions** or **troubles**.\n\nThe book has maths problems, but it sounds like it has troubles. That is the pun!"
+   },
+   "together": {
+    "passage": "Ali told a joke at lunch. “Why are fish so clever?” he asked. “Because they live in schools!” Everyone laughed.",
+    "stem": "Which word has two meanings in the joke?",
+    "options": [
+     "fish",
+     "clever",
+     "schools",
+     "lunch"
+    ],
+    "answer": 2,
+    "hint": "That word has only one meaning here. Which word means a place to learn AND something about fish?",
+    "good": "Yes! A **school** is a place to learn, and a **school** of fish is a big group of fish."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali told a joke at lunch.",
+     "“Why are fish so clever?” he asked.",
+     "“Because they live in schools!”",
+     "Everyone laughed."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: schools. Tap the sentence with the word that has two meanings.",
+    "wrong": "This sentence does not have the funny word. Find the sentence that makes everyone laugh."
+   },
+   "checks": [
+    {
+     "passage": "Why did the student eat his homework? Because the teacher said it was a piece of cake!",
+     "stem": "Which words make the pun?",
+     "options": [
+      "student",
+      "homework",
+      "teacher",
+      "piece of cake"
+     ],
+     "answer": 3,
+     "why": "“A piece of cake” means very easy, but the student thought it meant real cake."
+    },
+    {
+     "passage": "What has hands but cannot clap? A clock!",
+     "stem": "What are the two meanings of “hands”?",
+     "options": [
+      "clock hands and people's hands",
+      "left and right",
+      "big and small",
+      "hot and cold"
+     ],
+     "answer": 0,
+     "why": "A clock has hands that point to the time. People have hands that can clap."
+    },
+    {
+     "passage": "What do you call a bear with no teeth? A gummy bear!",
+     "stem": "Why is the joke funny?",
+     "options": [
+      "Bears have no teeth.",
+      "“Gummy” has two meanings.",
+      "Bears like sweets.",
+      "Teeth are white."
+     ],
+     "answer": 1,
+     "why": "“Gummy” can mean having only gums (no teeth), and a gummy bear is a soft sweet."
+    }
+   ],
+   "again": {
+    "title": "Two pictures",
+    "text": "A pun makes **two pictures** in your head at the same time.\n\n1. Find the funny word.\n2. Picture meaning one.\n3. Picture meaning two.\n4. Both pictures fit the joke!",
+    "example": "“The bike could not stand up by itself. It was two tired.”\n\nPicture 1: **two tyres** (wheels). Picture 2: **too tired**. Both fit!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Two kinds of puns",
+     "text": "1. **One word, two meanings**: “The old car stopped on the hill. It was **exhausted**.” (very tired / a car's exhaust pipe)\n\n2. **Sound-alike words**: “Why could the horse not sing? It was a little **hoarse**.” (hoarse = rough voice / sounds like horse)"
+    },
+    {
+     "title": "Wordplay in real life",
+     "text": "Signs and headlines use wordplay to be **clever and memorable**.\n\nA sign at a tyre shop: “We will never let you down.”\n(let you down = let the air out of your tyre / disappoint you)"
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Find the word that seems a little strange or clever.\n2. Ask: does it have another meaning, or sound like another word?\n3. Explain both meanings and how each fits."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the words that make **each** meaning possible.\n\nOften one part of the text supports the first meaning, and another part supports the second. Tap them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old taxi could not climb the hill.",
+      "role": "detail"
+     },
+     {
+      "t": "Smoke came out from under it, and it stopped.",
+      "role": "key"
+     },
+     {
+      "t": "“Poor thing,” said the driver. “It's exhausted.”",
+      "role": "main"
+     }
+    ],
+    "explain": "**Exhausted** means **very tired**, and a car also has an **exhaust** pipe that lets out smoke.\n\nThe car seems tired AND has smoke coming out. That is the pun."
+   },
+   "together": {
+    "passage": "Our science teacher, Mr Hamdi, loves jokes. When we studied electricity, he held up a battery and said, “I'm positively charged about today's lesson!” Some students groaned, but most of us laughed. Then he showed us how the positive and negative ends of a battery make the current flow.",
+    "stem": "What makes Mr Hamdi's joke a pun?",
+    "options": [
+     "He held up a battery in front of the class.",
+     "“Positively charged” fits both electricity and excitement.",
+     "Some students groaned instead of laughing.",
+     "Batteries have positive and negative ends."
+    ],
+    "answer": 1,
+    "hint": "That is a fact from the passage, not the joke. Which words have TWO meanings?",
+    "good": "Yes! “Positively charged” is about electricity, and it also means very excited."
+   },
+   "evidence": {
+    "sentences": [
+     "Our science teacher, Mr Hamdi, loves jokes.",
+     "When we studied electricity, he held up a battery and said, “I'm positively charged about today's lesson!”",
+     "Some students groaned, but most of us laughed.",
+     "Then he showed us how the positive and negative ends of a battery make the current flow."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: “positively charged” fits both electricity and excitement. Tap the 2 sentences that support the two meanings.",
+    "wrong": "This sentence tells about Mr Hamdi or how students reacted. Find the sentences with the joke and the electricity meaning."
+   },
+   "checks": [
+    {
+     "passage": "Why could the horse not sing in the school show? It was a little hoarse.",
+     "stem": "What makes this a pun?",
+     "options": [
+      "“Hoarse” sounds like “horse”.",
+      "Horses cannot sing.",
+      "The show was cancelled.",
+      "The horse was little."
+     ],
+     "answer": 0,
+     "why": "“Hoarse” (a rough voice) sounds exactly like “horse”. Both fit the joke."
+    },
+    {
+     "passage": "A sign at an eye doctor's: “If you don't see what you're looking for, you've come to the right place.”",
+     "stem": "What are the two meanings of “see” in the sign?",
+     "options": [
+      "to visit / to leave",
+      "to watch TV / to read a book",
+      "to look with your eyes / to find what you want",
+      "to swim / to sail"
+     ],
+     "answer": 2,
+     "why": "“Don't see what you're looking for” usually means you can't find something. At an eye doctor's, it also means your eyes need help."
+    },
+    {
+     "passage": "Why did the scarecrow win a prize? Because he was outstanding in his field.",
+     "stem": "Which words make the pun?",
+     "options": [
+      "scarecrow, prize",
+      "win, because",
+      "he was",
+      "outstanding in his field"
+     ],
+     "answer": 3,
+     "why": "“Outstanding in his field” means excellent at his job, and a scarecrow really is standing out in a field."
+    }
+   ],
+   "again": {
+    "title": "Read it twice",
+    "text": "Read the joke **two times**.\n\n1st time: read it as a normal sentence.\n2nd time: read it with the **other meaning** of the key word.\n\nIf both readings make sense, you found the pun.",
+    "example": "“The clock was hungry, so it went back four seconds.”\n\n1st: it went back 4 seconds (time). 2nd: it went back **for seconds** (more food). It's a pun!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Wordplay with a purpose",
+     "text": "Writers use wordplay to **amuse**, to make a line **memorable**, or to add a **second meaning** that makes the reader think."
+    },
+    {
+     "title": "Headlines and titles",
+     "text": "Headlines love puns.\n\nA story about a bakery that wins an award: “Local Bakery **Rises** to the Top.”\n\n**Rises** = dough rising in the oven / becoming successful."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Find the key word.\n2. Name both meanings.\n3. Ask what each meaning adds: humour? a message?\n4. Connect it to the topic of the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show that **both** meanings are supported by the text.\n\nUsually the **topic** supports one meaning, and the **events** support the other. Tap a sentence for each."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Headline: Students Plant Ideas at School Garden Fair.",
+      "role": "main"
+     },
+     {
+      "t": "Students from five schools showed projects about growing food in dry climates.",
+      "role": "key"
+     },
+     {
+      "t": "One team designed a watering system that uses half the water of a hose.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Plant ideas** means **share new ideas**, but the fair is about **gardens**, where you plant seeds.\n\nThe article supports both: new ideas (projects) about plants (growing food)."
+   },
+   "together": {
+    "passage": "Headline: Young Engineers Bridge the Gap. Last week, students at a school in Dammam won first prize in a national science contest. Their task was to build a model bridge from wooden sticks that could hold the heaviest load. Their design held more than twenty kilograms. The team said the project also brought together students from different grades who had never worked together before.",
+    "stem": "Why is the headline “Young Engineers Bridge the Gap” a clever pun?",
+    "options": [
+     "They built a bridge and united students.",
+     "They fixed a gap in the school wall.",
+     "The bridge had a gap in the middle.",
+     "The engineers were all very young."
+    ],
+    "answer": 0,
+    "hint": "The article never mentions a wall or a gap in the bridge. “Bridge the gap” is also an everyday phrase meaning to bring people together.",
+    "good": "Yes! They built a real bridge, and they also “bridged the gap” between students from different grades."
+   },
+   "evidence": {
+    "sentences": [
+     "Headline: Young Engineers Bridge the Gap.",
+     "Last week, students at a school in Dammam won first prize in a national science contest.",
+     "Their task was to build a model bridge from wooden sticks that could hold the heaviest load.",
+     "Their design held more than twenty kilograms.",
+     "The team said the project also brought together students from different grades who had never worked together before."
+    ],
+    "proof": [
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: they built a bridge and united students. Tap 2 sentences, one for each meaning.",
+    "wrong": "This sentence gives the headline, the prize or the result. Find the sentence about the real BRIDGE and the one about bringing students TOGETHER."
+   },
+   "checks": [
+    {
+     "passage": "A poster for a recycling drive reads: “Don't waste this chance!”",
+     "stem": "Why is the word “waste” clever here?",
+     "options": [
+      "The poster is made of waste paper.",
+      "Recycling takes a long time.",
+      "It is spelled like “waist”.",
+      "It fits both rubbish and missed chances."
+     ],
+     "answer": 3,
+     "why": "Waste is the rubbish being recycled, and to waste a chance means to miss it."
+    },
+    {
+     "passage": "A story about a lighthouse keeper is titled “A Light Job”.",
+     "stem": "What are the two meanings of “light” in the title?",
+     "options": [
+      "bright and dark",
+      "easy, and the lamp of a lighthouse",
+      "small and big",
+      "happy and sad"
+     ],
+     "answer": 1,
+     "why": "A “light job” is an easy one, and a lighthouse keeper's job is all about the light."
+    },
+    {
+     "passage": "Headline about a new airport: “City's Plans Finally Take Off”.",
+     "stem": "Why is the headline clever?",
+     "options": [
+      "The plans were written on a plane.",
+      "The airport closed.",
+      "Planes take off, and the plans finally succeed.",
+      "The city lost its plans."
+     ],
+     "answer": 2,
+     "why": "Planes take off at an airport, and “take off” also means to start succeeding."
+    }
+   ],
+   "again": {
+    "title": "Topic + phrase",
+    "text": "Many puns join the **topic** of a text to an everyday **phrase**.\n\n1. What is the text about? (bridges, bread, planes)\n2. Which everyday phrase uses a word from that topic?\n3. The pun works in **both** worlds.",
+    "example": "Topic: bakeries. Phrase: “rise to the top” (become successful).\n\nHeadline: “Bakery Rises to the Top”: bread rises, and the bakery succeeds."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Wordplay that adds meaning",
+     "text": "In serious writing, a double meaning can add **depth** rather than humour.\n\nA story ending with “She finally found her **voice**” may mean she spoke up in a meeting **and** became confident in who she is."
+    },
+    {
+     "title": "Kinds of wordplay",
+     "text": "**Puns**: one word, two meanings.\n**Sound-alike play**: “knight” / “night”.\n**Idiom twists**: an everyday phrase used literally, such as a firefighter with “**burning** ambition”."
+    },
+    {
+     "title": "Analyse the effect",
+     "text": "1. Identify both meanings.\n2. Decide which is literal and which is figurative in this context.\n3. Explain how the second meaning adds humour, irony or a deeper theme.\n4. Support each meaning with details from the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A strong analysis shows evidence for **each** meaning.\n\nIf only one meaning is supported by the text, it may not be wordplay at all."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For years, the old fisherman had refused to leave his village by the sea.",
+      "role": "detail"
+     },
+     {
+      "t": "When his grandson finally convinced him to move to the city, he looked back at the shore one last time.",
+      "role": "detail"
+     },
+     {
+      "t": "“I suppose,” he said quietly, “it is time to let the tide turn.”",
+      "role": "key"
+     }
+    ],
+    "explain": "**The tide turns** literally at the shore, and the phrase also means **a big change is happening**.\n\nThe wordplay links the sea he loves to the **change in his life**, giving a sad but accepting tone."
+   },
+   "together": {
+    "passage": "When the town's only bookshop announced that it would close, the local newspaper ran the headline “The Final Chapter”. The owner, Mr Saleh, had sold books on the same corner for forty years. Students remembered buying their first dictionaries there; grandparents remembered reading the newspaper by his window. On the last day, the shop was crowded, and many customers left with bags of books at half price. Yet the story did not end there. A group of former customers rented the shop and turned it into a community library, with Mr Saleh as its first volunteer. A month later, the paper printed a new headline: “A New Page for Old Friends.”",
+    "stem": "What is the main effect of the wordplay in the two headlines?",
+    "options": [
+     "It explains how books are printed and bound.",
+     "It links book words to the shop's end and its fresh start.",
+     "It shows that the newspaper did not like the bookshop.",
+     "It tells readers the price of the books."
+    ],
+    "answer": 1,
+    "hint": "The headlines are not about printing or prices. What do “final chapter” and “new page” mean for books, and for the shop?",
+    "good": "Yes! “Final chapter” and “new page” are book words that also mean an ending and a fresh start."
+   },
+   "evidence": {
+    "sentences": [
+     "When the town's only bookshop announced that it would close, the local newspaper ran the headline “The Final Chapter”.",
+     "The owner, Mr Saleh, had sold books on the same corner for forty years.",
+     "Students remembered buying their first dictionaries there; grandparents remembered reading the newspaper by his window.",
+     "On the last day, the shop was crowded, and many customers left with bags of books at half price.",
+     "Yet the story did not end there.",
+     "A group of former customers rented the shop and turned it into a community library, with Mr Saleh as its first volunteer.",
+     "A month later, the paper printed a new headline: “A New Page for Old Friends.”"
+    ],
+    "proof": [
+     0,
+     3,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: it links book words to the shop's end and its fresh start. Tap 2 sentences that show the ending or the fresh start.",
+    "wrong": "This sentence gives background or memories of the shop. Find where the shop ENDS and where it STARTS AGAIN."
+   },
+   "checks": [
+    {
+     "passage": "At the end of the novel, the young pilot, who had been afraid of everything, finally takes the controls. The last line reads: “For the first time, she was flying on her own.”",
+     "stem": "What two meanings does the last line carry?",
+     "options": [
+      "She flies a plane and grows independent.",
+      "She is a bird and a pilot.",
+      "She is alone and lonely.",
+      "She is flying to visit her family."
+     ],
+     "answer": 0,
+     "why": "She literally flies the plane alone, and after being afraid of everything, she has become independent."
+    },
+    {
+     "passage": "An advertisement for a water-saving tap says: “Every drop counts.”",
+     "stem": "How does the wordplay work?",
+     "options": [
+      "The tap measures how many litres you use.",
+      "The advert says water drops are very small.",
+      "“Counts” means both “is counted” and “matters”.",
+      "The advert asks people to buy more water."
+     ],
+     "answer": 2,
+     "why": "A water-saving tap may count drops, and “every drop counts” also means every drop is important."
+    },
+    {
+     "passage": "A science article about a new kind of glue is titled “A Breakthrough That Sticks”.",
+     "stem": "What makes the title effective?",
+     "options": [
+      "It shows that glue is easy to make.",
+      "It tells readers the glue does not work.",
+      "It describes a broken object.",
+      "“Sticks” fits glue and a lasting success."
+     ],
+     "answer": 3,
+     "why": "Glue sticks things together, and an idea that “sticks” lasts. The title is about the glue and its success."
+    }
+   ],
+   "again": {
+    "title": "Two columns",
+    "text": "Draw two columns: **Literal** | **Figurative**.\n\n1. Write the first meaning in one column.\n2. Write the second meaning in the other.\n3. Find a sentence in the text for each.\n4. Ask: what does having both add?",
+    "example": "“The gardener's business is growing.”\n\nLiteral: plants grow. Figurative: the business gets bigger. Effect: a neat, memorable link between his work and his success."
+   }
+  }
+ }
+}

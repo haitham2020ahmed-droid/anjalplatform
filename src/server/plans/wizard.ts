@@ -32,6 +32,7 @@ import { tagProgram, type Program } from "./program";
 import { nafsAreaList as sharedNafsAreaList, nafsAreaSkills, publishedQuestionCounts } from "./nafs-areas";
 import { SOURCE_LABEL, sourceOfPlanKind, sourceOfWork, type SourceKey, type SourceLabel } from "../../lib/source-tags";
 import type { WorkKind } from "../../lib/work-kinds";
+import { needsSupportPairs } from "../skills/status-extras";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -287,7 +288,10 @@ export async function proposePlan(repo: Repo, actor: Actor, input: ProposeInput)
   } else if (type === "RTI") {
     const tiers = await repo.findMany("StudentTier", { studentId: { in: recipients } }, { select: ["studentId", "tier", "focusSkillId"] });
     const inRti = tiers.filter((t) => Number(t.tier) >= 2);
-    const out = recipients.filter((id) => !inRti.some((t) => s(t.studentId) === id));
+    // ⭐ skill stars: 50 questions on a skill without mastery → the student + skill join the RTI plan (skills/status.ts)
+    const support = await needsSupportPairs(repo, recipients).catch(() => []);
+    for (const p of support) want(p.skillId, [p.studentId], "Needs support: 50 questions without mastery");
+    const out = recipients.filter((id) => !inRti.some((t) => s(t.studentId) === id) && !support.some((p) => p.studentId === id));
     if (out.length) notes.push(`Not in RTI (left out): ${out.map((id) => nameOf.get(id) ?? "Student").join(", ")}.`);
     const noFocus = inRti.filter((t) => !t.focusSkillId).map((t) => s(t.studentId));
     const noData: string[] = [];

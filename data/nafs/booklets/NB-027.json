@@ -1,0 +1,568 @@
+{
+  "code": "NB-027",
+  "title": "The Night the Sky Was Generous",
+  "kind": "LITERARY",
+  "genre": "personal narrative",
+  "words": 434,
+  "passage": "When Baba announced that we would drive two hours into the desert on a freezing December night to observe a meteor shower, I was not exactly enthusiastic. I had already watched dozens of spectacular meteor videos online, and I could not understand why anyone would willingly shiver on a sand dune when the identical view was available on a comfortable sofa. Nevertheless, Grandfather insisted on accompanying us, and nobody in our family ever refuses Grandfather.\n\nBy the time we unrolled our carpets beside the car, the lights of Riyadh had shrunk to a faint orange glow on the distant horizon. Above us, however, the sky had been completely transformed. Instead of the handful of stars I usually noticed from our balcony, thousands of them were scattered across the darkness like sugar spilled on a black tablecloth. I glanced upward briefly, then took out my phone to check how many meteors other people were reporting.\n\n\"Lama,\" Grandfather said gently, \"every time you look at that bright screen, your eyes forget the night, because they need at least twenty minutes of darkness to notice the faintest lights.\"\n\nI sighed dramatically, but I reluctantly slipped the phone into my pocket. For a long, uneventful while nothing happened, and my toes became so numb that I could hardly feel them. To pass the time, Grandfather pointed out a modest star that seemed to remain perfectly still. \"That is al-Jadi, the North Star,\" he explained. \"When I was a young man, I crossed this desert in old trucks without any maps, and that star was our compass. Whenever you face it, north is directly in front of you.\"\n\nSuddenly, a silver thread raced across the sky and vanished. Before I could even shout, another followed, and then a third. \"Did you see that?\" I gasped, gripping Grandfather's sleeve. He chuckled softly and replied, \"The sky is generous, but only to those who are patient enough to wait.\"\n\nDuring the following hour, we counted more than fifty meteors. Baba explained that they were tiny fragments of rock and dust, many no larger than grains of sand, which burn up as they plunge into the atmosphere high above the Earth. Then, shortly before midnight, an enormous fireball blazed across the sky, so brilliant that it painted the sand with a ghostly green-white glow. Even Baba, who rarely raises his voice, cheered with delight.\n\nOn the journey home, I did not post a single photograph. Some moments, I realised, cannot be captured on a screen; instead, they must be experienced in the cold and the darkness, beside the people you love most.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “reluctantly” as it is used in paragraph 4?",
+      "options": [
+        "eagerly",
+        "unwillingly",
+        "quickly",
+        "secretly"
+      ],
+      "answer": "B",
+      "why": "Lama sighed dramatically before putting the phone away, so she did it unwillingly. “Eagerly” is the opposite."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “enthusiastic” as it is used in paragraph 1?",
+      "options": [
+        "excited",
+        "eager",
+        "uninterested",
+        "curious"
+      ],
+      "answer": "C",
+      "why": "“Enthusiastic” means very excited and interested; the opposite is “uninterested”. “Excited” and “eager” are synonyms."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 4: “my toes became so numb that I could hardly feel them”. What does “numb” mean?",
+      "options": [
+        "without feeling",
+        "very hot",
+        "covered in sand",
+        "badly swollen"
+      ],
+      "answer": "A",
+      "why": "The phrase “I could hardly feel them” explains that numb means without feeling, here because of the cold."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 6 is an adjective?",
+      "options": [
+        "fragments",
+        "plunge",
+        "shortly",
+        "brilliant"
+      ],
+      "answer": "D",
+      "why": "“Brilliant” describes the fireball; “fragments” is a noun, “plunge” a verb and “shortly” an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which noun from paragraph 6 is SINGULAR?",
+      "options": [
+        "meteors",
+        "grains",
+        "fireball",
+        "fragments"
+      ],
+      "answer": "C",
+      "why": "“An enormous fireball” is one fireball; the other nouns are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “generous” in paragraph 5?",
+      "options": [
+        "generosity",
+        "general",
+        "generator",
+        "genius"
+      ],
+      "answer": "A",
+      "why": "“Generosity” is the noun form of “generous”; the others only share some letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “transformed” in a meaningful sentence of your own.",
+      "model": "After the volunteers planted trees and painted the walls, the empty lot behind our school was transformed into a beautiful garden.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “transformed” with its meaning (changed completely in form or appearance)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Transformed” means changed completely."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 4 mentions Lama's “toes”, which simply adds -s. Which body-part noun has an IRREGULAR plural?",
+      "options": [
+        "hand",
+        "foot",
+        "finger",
+        "knee"
+      ],
+      "answer": "B",
+      "why": "One foot, two feet: the vowels change. Hands, fingers and knees just add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Grandfather says, “Whenever you face it, north is directly in front of you.” Which sentence turns his advice into a COMMAND?",
+      "options": [
+        "North is in front of anyone who faces it.",
+        "Is north in front of you when you face it?",
+        "Face the North Star, and you will be facing north.",
+        "How easily the North Star shows us the way!"
+      ],
+      "answer": "C",
+      "why": "A command tells someone to do something and begins with a verb (“Face…”); the others are a statement, a question and an exclamation."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "The Broken Phone",
+        "Lost in the Empty Quarter",
+        "How Trucks Cross the Desert",
+        "Patience Under the Desert Sky"
+      ],
+      "answer": "D",
+      "why": "The story is about Lama learning patience while waiting for meteors; the other titles do not match the events."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain in detail how meteors are formed in space",
+        "to show a girl learning to value real moments over screens",
+        "to persuade families to buy telescopes",
+        "to describe how to drive safely in the desert"
+      ],
+      "answer": "B",
+      "why": "The story follows Lama from preferring videos to realising that some moments “must be experienced”; the science is only a small part."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 2?",
+      "options": [
+        "The desert sky is amazing, yet Lama still turns to her phone.",
+        "The family forgets to bring their carpets.",
+        "Lama counts the meteors that other people report online.",
+        "Riyadh is too far away to be seen from the desert."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 contrasts the transformed sky with Lama's quick return to her phone; the city is still visible as a faint glow."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandfather want Lama to stop looking at her phone?",
+      "options": [
+        "He wanted her to save its battery.",
+        "He thought the phone was too expensive to take to the desert.",
+        "Her eyes needed time in the dark to see faint lights.",
+        "Baba had told him that phones were not allowed."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: her eyes “need at least twenty minutes of darkness to notice the faintest lights.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "an informational report",
+        "a letter to a friend",
+        "a poem with rhymes",
+        "a personal narrative"
+      ],
+      "answer": "D",
+      "why": "It is a true-to-life story told in the first person (“I”) by Lama about her own experience."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why was al-Jadi so useful to Grandfather when he was young?",
+      "options": [
+        "He crossed the desert without maps, and the star guided him north.",
+        "He used it to tell the exact time during long nights in the desert.",
+        "It warned him when a sandstorm was coming.",
+        "It showed him where the meteors would fall."
+      ],
+      "answer": "A",
+      "why": "Paragraph 4: he crossed the desert “without any maps, and that star was our compass.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened LAST?",
+      "options": [
+        "Lama put her phone into her pocket.",
+        "Grandfather pointed out al-Jadi.",
+        "An enormous fireball blazed across the sky.",
+        "Lama saw her first silver meteor."
+      ],
+      "answer": "C",
+      "why": "The fireball appeared “shortly before midnight,” after the phone, the North Star and the first meteors."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the narrator of the story?",
+      "options": [
+        "Grandfather",
+        "Lama",
+        "Baba",
+        "an outside narrator"
+      ],
+      "answer": "B",
+      "why": "The narrator says “I”, and Grandfather calls her “Lama”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Where and when does the story take place?",
+      "options": [
+        "on a balcony in Riyadh on a summer evening",
+        "in a school science lab during the day",
+        "in a museum about space one weekend",
+        "in the desert outside Riyadh on a December night"
+      ],
+      "answer": "D",
+      "why": "Paragraphs 1 and 2: the family drives two hours into the desert on a December night; Riyadh is a glow on the horizon."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What made it possible for Lama to finally see the meteors?",
+      "options": [
+        "Baba drove the car closer to the meteors.",
+        "She put her phone away and waited patiently in the dark.",
+        "Grandfather lent her his special glasses for seeing at night.",
+        "The lights of Riyadh became brighter."
+      ],
+      "answer": "B",
+      "why": "Once she stopped looking at the bright screen and waited, her eyes adjusted and she saw the meteors."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Lama NOT want to go to the desert at first?",
+      "options": [
+        "She was afraid of the dark desert.",
+        "She did not like spending time with Grandfather.",
+        "She thought online videos showed the same view more comfortably.",
+        "She had already seen a huge fireball from her balcony the year before."
+      ],
+      "answer": "C",
+      "why": "Paragraph 1: she could not understand why anyone would shiver on a dune “when the identical view was available on a comfortable sofa.”"
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading during paragraph 4?",
+      "options": [
+        "learning the exact temperature of the desert",
+        "finding out how Grandfather's trucks worked",
+        "discovering the name of Lama's school",
+        "wondering whether the long wait will be worth it"
+      ],
+      "answer": "D",
+      "why": "Nothing happens for a long time and Lama is cold, so readers want to know if any meteors will appear."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Lama at the end of the story different from Lama at the beginning?",
+      "options": [
+        "At first she prefers screens; at the end she values the real moment.",
+        "At first she loves the desert; at the end she wants to stay home.",
+        "At first she is patient; at the end she is impatient.",
+        "At first she trusts Grandfather; at the end she doubts him."
+      ],
+      "answer": "A",
+      "why": "She begins by preferring videos on a sofa and ends without posting a photo, realising some moments “must be experienced.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of the fireball on Baba?",
+      "options": [
+        "He fell asleep beside the car.",
+        "He cheered, although he rarely raises his voice.",
+        "He decided to drive home immediately.",
+        "He quickly took out his phone to film the fireball."
+      ],
+      "answer": "B",
+      "why": "Paragraph 6: “Even Baba, who rarely raises his voice, cheered with delight.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Grandfather and Baba have in common in the story?",
+      "options": [
+        "Both refuse to come to the desert.",
+        "Both are bored during the long wait.",
+        "Both teach Lama something about the night sky.",
+        "Both post photographs of the meteors online that night."
+      ],
+      "answer": "C",
+      "why": "Grandfather teaches her about dark-adapted eyes and al-Jadi; Baba explains what meteors are."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the simile “like sugar spilled on a black tablecloth” describe?",
+      "options": [
+        "the sand dunes shining in the moonlight",
+        "the meteors falling quickly all the way to the ground",
+        "the sweets the family brought for the trip",
+        "countless small, bright stars scattered across a dark sky"
+      ],
+      "answer": "D",
+      "why": "The stars are compared to tiny white grains of sugar scattered on a dark cloth."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Grandfather mean when he says, “The sky is generous, but only to those who are patient enough to wait”?",
+      "options": [
+        "People who wait patiently are rewarded with amazing sights.",
+        "The sky gives gifts to anyone who asks for them.",
+        "Only generous people can see meteors.",
+        "Meteors appear in the sky as soon as anyone looks up."
+      ],
+      "answer": "A",
+      "why": "Lama sees many meteors only after waiting a long time; the sky “gives” its beauty to patient watchers."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which phrase from the story gives a human action to something that is not human (personification)?",
+      "options": [
+        "“a faint orange glow”",
+        "“your eyes forget the night”",
+        "“more than fifty meteors”",
+        "“old trucks without any maps”"
+      ],
+      "answer": "B",
+      "why": "Eyes cannot really forget; the writer gives them a human action to show they lose their ability to see in the dark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which advice from the story would BEST help someone watching a meteor shower?",
+      "options": [
+        "Check online reports every few minutes.",
+        "Stay near the bright lights of the city to feel safe.",
+        "Avoid bright screens and wait patiently in the dark.",
+        "Leave after ten minutes if nothing happens."
+      ],
+      "answer": "C",
+      "why": "The story shows that eyes need darkness and that patience is rewarded."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Phones should be banned from all family trips into the desert.",
+        "The desert is too cold to visit in winter.",
+        "Grandparents always know more than parents.",
+        "Some experiences are best lived, not watched on a screen."
+      ],
+      "answer": "D",
+      "why": "The last paragraph says some moments “cannot be captured on a screen; instead, they must be experienced.” The story does not say phones should be banned."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the end of the story?",
+      "options": [
+        "regret",
+        "contentment",
+        "boredom",
+        "fear"
+      ],
+      "answer": "B",
+      "why": "Lama is calm and happy, valuing the night she shared with the people she loves."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the story?",
+      "options": [
+        "the name of the meteor shower they watched",
+        "how long the drive into the desert took",
+        "what al-Jadi is",
+        "how many meteors they counted"
+      ],
+      "answer": "A",
+      "why": "The drive (two hours), al-Jadi (the North Star) and the count (more than fifty) are all given, but the shower's name is not."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A meteor lands gently on the family's carpet.",
+        "Al-Jadi races quickly across the sky like a silver meteor.",
+        "A bright fireball lights up the desert sand for a moment.",
+        "Lama catches a falling star in her hands."
+      ],
+      "answer": "C",
+      "why": "Bright fireballs can briefly light up the ground; most meteors burn up high in the atmosphere, and the North Star seems to stay still."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the story?",
+      "options": [
+        "The Night Grandfather Got Lost",
+        "Fifty Photos of the Sky",
+        "A Hot Summer Picnic",
+        "The Night I Put Away My Phone"
+      ],
+      "answer": "D",
+      "why": "Lama's choice to put her phone away leads to the experience that changes her view."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences that still show what Lama learned that night.",
+      "model": "When we got home, I wrote down everything I had seen in a small notebook instead of posting photos. The next week, I invited my best friend to join us on our next trip to the desert. I told her to leave her phone in the car, because the sky only rewards people who are patient enough to wait.",
+      "rubric": [
+        "2 = a clear new ending that fits the characters and setting and shows what Lama learned (patience, valuing real experiences)",
+        "1 = an ending is given but it is unclear, does not fit the story, or does not show what Lama learned",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits Lama and her family and shows her lesson is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Lama's friend says she cannot see many stars from her balcony in Riyadh. Based on the story, what would help her most?",
+      "options": [
+        "Use a brighter phone screen to light up the sky.",
+        "Travel away from city lights and let her eyes adjust.",
+        "Watch the sky only in the middle of the day.",
+        "Look up for one minute and then check online."
+      ],
+      "answer": "B",
+      "why": "The story shows that the desert, far from city lights, reveals thousands of stars, and that eyes need time in darkness."
+    }
+  ]
+}

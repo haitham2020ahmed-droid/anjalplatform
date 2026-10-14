@@ -13,6 +13,7 @@ const ALIGN: number[][] = [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 
 // GF(256) with the QR polynomial 0x11d
 const EXP = new Array<number>(512), LOG = new Array<number>(256);
 (() => { let x = 1; for (let i = 0; i < 255; i++) { EXP[i] = x; LOG[x] = i; x <<= 1; if (x & 0x100) x ^= 0x11d; } for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255]; })();
+const PAT = [true, false, true, true, true, false, true];
 const mul = (a: number, b: number) => (a === 0 || b === 0 ? 0 : EXP[LOG[a] + LOG[b]]);
 function rsGenerator(n: number): number[] {
   let g = [1];
@@ -99,14 +100,20 @@ export function qrMatrix(text: string): boolean[][] {
     let p = 0;
     for (let pass = 0; pass < 2; pass++) for (let i = 0; i < n; i++) { let run = 1; for (let j = 1; j < n; j++) { const a = pass ? g[j][i] : g[i][j], b = pass ? g[j - 1][i] : g[i][j - 1]; if (a === b) { run++; if (run === 5) p += 3; else if (run > 5) p++; } else run = 1; } }
     for (let i = 0; i < n - 1; i++) for (let j = 0; j < n - 1; j++) { const v = g[i][j]; if (v === g[i + 1][j] && v === g[i][j + 1] && v === g[i + 1][j + 1]) p += 3; }
-    const pat = [true, false, true, true, true, false, true];
-    for (let i = 0; i < n; i++) for (let j = 0; j + 10 < n; j++) for (const pass of [0, 1]) {
-      const at = (k: number) => (pass ? g[j + k][i] : g[i][j + k]);
-      const core = pat.every((v, k) => at(k) === v), core2 = pat.every((v, k) => at(k + 4) === v);
-      if (core && !at(7) && !at(8) && !at(9) && !at(10)) p += 40;
-      if (core2 && !at(0) && !at(1) && !at(2) && !at(3)) p += 40;
+    // finder-like patterns along rows and columns (columns = rows of the transposed grid; plain loops, no closures:
+    // this was most of the time of a QR code, and a page of sign-in cards draws hundreds)
+    const gt = g.map((_row, i) => g.map((row) => row[i]));
+    for (const G of [g, gt]) for (let i = 0; i < n; i++) {
+      const row = G[i];
+      for (let j = 0; j + 10 < n; j++) {
+        let core = true, core2 = true;
+        for (let k = 0; k < 7 && (core || core2); k++) { if (row[j + k] !== PAT[k]) core = false; if (row[j + k + 4] !== PAT[k]) core2 = false; }
+        if (core && !row[j + 7] && !row[j + 8] && !row[j + 9] && !row[j + 10]) p += 40;
+        if (core2 && !row[j] && !row[j + 1] && !row[j + 2] && !row[j + 3]) p += 40;
+      }
     }
-    const dark = g.flat().filter(Boolean).length; p += Math.floor(Math.abs((dark * 20) / (n * n) - 10)) * 10;
+    let dark = 0; for (const row of g) for (const v of row) if (v) dark++;
+    p += Math.floor(Math.abs((dark * 20) / (n * n) - 10)) * 10;
     return p;
   };
   let best = withMask(0), bestP = penalty(best);
@@ -114,10 +121,26 @@ export function qrMatrix(text: string): boolean[][] {
   return best;
 }
 
-/** The QR code as an SVG path (with a 4-module quiet zone), to draw with <svg viewBox="0 0 total total">. */
+/**
+ * The QR code as an SVG path (with a 4-module quiet zone), to draw with <svg viewBox="0 0 total total">. Each run of
+ * dark modules in a row is one rectangle (the same picture as one square per module, a fraction of the size: a page
+ * of sign-in cards draws hundreds). The same text always gives the same code, so recent ones are kept (bounded).
+ */
 export function qrPath(text: string): { total: number; d: string } {
+  const hit = paths.get(text);
+  if (hit) return { ...hit };
   const g = qrMatrix(text), n = g.length, q = 4;
   let d = "";
-  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (g[r][c]) d += `M${c + q} ${r + q}h1v1h-1z`;
-  return { total: n + q * 2, d };
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+    if (!g[r][c]) continue;
+    let w = 1;
+    while (c + w < n && g[r][c + w]) w++;
+    d += `M${c + q} ${r + q}h${w}v1h-${w}z`;
+    c += w - 1;
+  }
+  const out = { total: n + q * 2, d };
+  paths.set(text, out);
+  if (paths.size > 2000) paths.delete(paths.keys().next().value as string);
+  return { ...out };
 }
+const paths = new Map<string, { total: number; d: string }>();

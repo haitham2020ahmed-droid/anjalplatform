@@ -1,0 +1,460 @@
+{
+ "code": "LN-009",
+ "title": "Precise words and strong verbs",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "L.5.3",
+  "W.5.2.d",
+  "W.5.3.d"
+ ],
+ "families": [
+  "precise-language"
+ ],
+ "skillNames": [
+  "Choosing Words and Phrases Precisely",
+  "Precise Language, Style and Tone"
+ ],
+ "statements": [
+  "L-0009",
+  "L-0043",
+  "L-0048",
+  "L-0049",
+  "L-0119",
+  "L-0120",
+  "L-0122",
+  "L-0123",
+  "L-0236",
+  "L-0238",
+  "L-0239",
+  "L-0243",
+  "L-0312",
+  "L-0314",
+  "L-0334"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Exact words",
+     "text": "Some words are **vague**. They do not tell much.\n\n**nice**, **good**, **went**, **thing**"
+    },
+    {
+     "title": "Better words",
+     "text": "**Exact** words help the reader see the picture.\n\nThe dog **went** home. → The dog **raced** home.\nA **thing** was in the tree. → A **bird** was in the tree."
+    },
+    {
+     "title": "How to choose",
+     "text": "1. Find the vague word.\n2. Ask: **What really happened?**\n3. Pick the word that shows it best."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Clues in the text tell you the **best word**.\n\n1. Read the sentences around the blank.\n2. Find clues: is someone happy, tired, in a hurry?\n3. Pick the word that matches the clues."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lina was late for the bus.",
+      "role": "detail"
+     },
+     {
+      "t": "She hurried out of the door.",
+      "role": "key"
+     }
+    ],
+    "explain": "Lina was **late**. **Hurried** shows she moved fast. It is more exact than **went**."
+   },
+   "together": {
+    "passage": "Omar's dad came home from a long trip. Omar was very happy to see him. He ___ across the room to hug him.",
+    "stem": "Which word shows the action best?",
+    "options": [
+     "raced",
+     "went",
+     "sat",
+     "slept"
+    ],
+    "answer": 0,
+    "hint": "Omar is very happy. Would he move slowly or fast?",
+    "good": "Yes! Omar was so happy that he **raced** to his dad. It shows how fast he moved."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar's dad came home from a long trip.",
+     "Omar was very happy to see him.",
+     "He raced across the room to hug him."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was: raced. Tap the 2 sentences that show why Omar moved fast.",
+    "wrong": "This sentence has the answer in it. Find the clues that show why Omar hurried."
+   },
+   "checks": [
+    {
+     "passage": "We ate a nice cake. It was sweet and soft.",
+     "stem": "Which word is more exact than nice?",
+     "options": [
+      "delicious",
+      "good",
+      "okay",
+      "big"
+     ],
+     "answer": 0,
+     "why": "**Delicious** tells how the sweet, soft cake tasted."
+    },
+    {
+     "passage": "The lion ___ loudly at the other lions.",
+     "stem": "Which word fits best?",
+     "options": [
+      "said",
+      "made",
+      "roared",
+      "did"
+     ],
+     "answer": 2,
+     "why": "Lions **roar**. It is the exact sound a lion makes."
+    },
+    {
+     "passage": "I saw a thing in the sky. It had wings and a beak.",
+     "stem": "Which word is more exact than thing?",
+     "options": [
+      "stuff",
+      "bird",
+      "it",
+      "shape"
+     ],
+     "answer": 1,
+     "why": "Wings and a beak tell us it was a **bird**."
+    }
+   ],
+   "again": {
+    "title": "Show me!",
+    "text": "Ask: **Can I act it out?**\n\n\"She went\" is hard to act. \"She tiptoed\" is easy to act. Pick the word you can act out.",
+    "example": "The baby **moved** across the floor.\nAct it out? Hard.\nThe baby **crawled** across the floor. Easy to act!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Vague or precise?",
+     "text": "A **vague** word could mean many things: good, bad, went, got, said, stuff.\n\nA **precise** word means one clear thing: delicious, stumbled, whispered, vegetables."
+    },
+    {
+     "title": "Strong verbs",
+     "text": "A **verb** is an action word. A strong verb shows **how** the action happened.\n\nwalked → **crept** (quietly), **marched** (proudly), **strolled** (slowly)\nsaid → **whispered**, **shouted**, **begged**"
+    },
+    {
+     "title": "Revise your words",
+     "text": "1. Find vague words in your writing.\n2. Look at the clues around them.\n3. Swap each one for a word that shows **exactly** what you mean."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The best word must match the **clues** in the text.\n\n1. Find the sentences that show how the action happened.\n2. Name the feeling or manner: quiet, angry, tired, fast?\n3. Pick the word that matches."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The baby was finally asleep.",
+      "role": "detail"
+     },
+     {
+      "t": "Dad said, \"Please be quiet.\"",
+      "role": "other"
+     },
+     {
+      "t": "Dad whispered, \"Please be quiet.\"",
+      "role": "key"
+     }
+    ],
+    "explain": "The baby is asleep, so Dad speaks softly. **Whispered** shows exactly how he spoke. **Said** does not."
+   },
+   "together": {
+    "passage": "Nasser walked into the dark kitchen so that nobody would hear him. He did not want his mother to see him take a cookie before dinner. He looked over his shoulder every few steps. His sister was reading in her room upstairs.",
+    "stem": "Which verb would best replace walked?",
+    "options": [
+     "marched",
+     "stomped",
+     "ran",
+     "crept"
+    ],
+    "answer": 3,
+    "hint": "That verb is loud or fast. Nasser does not want anyone to hear him.",
+    "good": "Yes! **Crept** means moved slowly and quietly, so nobody would hear."
+   },
+   "evidence": {
+    "sentences": [
+     "Nasser walked into the dark kitchen so that nobody would hear him.",
+     "He did not want his mother to see him take a cookie before dinner.",
+     "He looked over his shoulder every few steps.",
+     "His sister was reading in her room upstairs."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: crept. Tap 2 sentences that show Nasser moved quietly and secretly.",
+    "wrong": "This sentence does not show how Nasser moved. Find clues that show he was trying not to be noticed."
+   },
+   "checks": [
+    {
+     "passage": "At the top of the mountain, we stopped and looked around. The view was good.",
+     "stem": "Which word best replaces good?",
+     "options": [
+      "fine",
+      "breathtaking",
+      "okay",
+      "nice"
+     ],
+     "answer": 1,
+     "why": "**Breathtaking** shows how amazing the view was. The other words are vague."
+    },
+    {
+     "passage": "The tired runner ___ across the finish line, almost falling.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "went",
+      "skipped",
+      "danced",
+      "stumbled"
+     ],
+     "answer": 3,
+     "why": "**Almost falling** is the clue. **Stumbled** means moved unsteadily."
+    },
+    {
+     "passage": "Mom bought some stuff at the market: tomatoes, cucumbers and onions.",
+     "stem": "Which word best replaces stuff?",
+     "options": [
+      "vegetables",
+      "things",
+      "items",
+      "goods"
+     ],
+     "answer": 0,
+     "why": "Tomatoes, cucumbers and onions are all **vegetables**. That is the most exact word."
+    }
+   ],
+   "again": {
+    "title": "Ask how",
+    "text": "When you see a plain verb, ask **How?**\n\nHow did she walk? Slowly? Proudly? Quietly?\nThen pick one verb that says it all.",
+    "example": "He **ate** the soup. How? Very fast and noisily.\nStrong verb: He **gulped** the soup."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Precise words in any writing",
+     "text": "Precise words matter in stories **and** in reports.\n\nIn a story they help the reader see. In a report they make facts clear and correct."
+    },
+    {
+     "title": "Replace weak phrases",
+     "text": "Some phrases use many words but say little:\n\n**did a lot of bad things to** → **destroyed**\n**went down fast** → **plunged**\n**got bigger** → **expanded**"
+    },
+    {
+     "title": "Choosing the best verb",
+     "text": "1. Picture the action.\n2. List two or three verbs that could fit.\n3. Choose the one that matches the **speed**, **force** and **feeling** shown in the text."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your word choice, find details that show **how** the action happens.\n\n1. Find the sentences that describe the subject.\n2. Ask: do they show speed, force, care or feeling?\n3. Choose the verbs that match those details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lava came out of the volcano.",
+      "role": "other"
+     },
+     {
+      "t": "Red-hot lava poured out of the volcano and flowed down the slope.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Came out** is vague. **Poured** and **flowed** show how the thick, hot lava moved."
+   },
+   "together": {
+    "passage": "Falcons are skilled hunters. The falcon circled high above the field, watching for movement. When it spotted a small bird, it went down at great speed and got it in its claws. Then it carried its meal to a rocky ledge. In a dive, a falcon can fly faster than most cars.",
+    "stem": "Which revision of the third sentence uses the most precise verbs?",
+    "options": [
+     "When it spotted a small bird, it moved down and took it in its claws.",
+     "When it spotted a small bird, it came down and had it in its claws.",
+     "When it spotted a small bird, it dived and seized it in its claws.",
+     "When it spotted a small bird, it went down and got it with its claws."
+    ],
+    "answer": 2,
+    "hint": "Are those verbs as strong as a falcon's hunt? Look for verbs that show speed and force.",
+    "good": "Yes! **Dived** shows a fast drop, and **seized** shows a quick, strong grab, just like a skilled hunter."
+   },
+   "evidence": {
+    "sentences": [
+     "Falcons are skilled hunters.",
+     "The falcon circled high above the field, watching for movement.",
+     "When it spotted a small bird, it went down at great speed and got it in its claws.",
+     "Then it carried its meal to a rocky ledge.",
+     "In a dive, a falcon can fly faster than most cars."
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: it dived and seized it in its claws. Tap 2 sentences that show the falcon is fast and strong.",
+    "wrong": "This sentence is the draft, or it tells what happened before or after the hunt. Find the sentences about the falcon's skill and speed."
+   },
+   "checks": [
+    {
+     "passage": "In her science report, Dana wrote: \"The volcano did a lot of bad things to the town.\"",
+     "stem": "Which revision is most precise?",
+     "options": [
+      "The volcano made the town very bad.",
+      "The volcano did many things to the town.",
+      "The volcano buried the town under ash.",
+      "The volcano was bad for the town a lot."
+     ],
+     "answer": 2,
+     "why": "**Buried under ash** tells exactly what happened. The others stay vague."
+    },
+    {
+     "passage": "Hurrying before anyone saw, Laila ___ the letter from the table and hid it in her bag.",
+     "stem": "Which verb fits best?",
+     "options": [
+      "snatched",
+      "had",
+      "looked at",
+      "got"
+     ],
+     "answer": 0,
+     "why": "**Hurrying** and **hid** are clues. **Snatched** means grabbed quickly."
+    },
+    {
+     "passage": "To make sure there were no mistakes, the scientist ___ the results three times.",
+     "stem": "Which verb is most precise?",
+     "options": [
+      "looked",
+      "enjoyed",
+      "made",
+      "verified"
+     ],
+     "answer": 3,
+     "why": "**Verified** means checked that something is correct, which is exactly what she did."
+    }
+   ],
+   "again": {
+    "title": "Camera test",
+    "text": "Imagine filming the sentence.\n\nIf the camera could show it in many different ways, the verb is vague. If the camera knows exactly what to film, the verb is precise.",
+    "example": "\"The cat **got** onto the wall.\" Climbed? Jumped? The camera does not know.\n\"The cat **leapt** onto the wall.\" The camera knows exactly what to film."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Words with exact meanings",
+     "text": "Near-synonyms are **not** the same.\n\n**prohibit** = not allowed at all\n**discourage** = try to stop, but still allowed\n**permit** = allowed\n\nThe wrong one can change the meaning of a whole sentence."
+    },
+    {
+     "title": "Subject words",
+     "text": "In science and other subjects, use the **exact term**:\n\nwater turning into gas → **evaporation**\nwind and water wearing away rock → **erosion**\nplants making food from light → **photosynthesis**"
+    },
+    {
+     "title": "Revising for precision",
+     "text": "1. Find vague verbs and long, wordy phrases.\n2. Use the context to decide the exact meaning.\n3. Choose the word whose meaning, not just its feeling, fits the facts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove a word choice with the **facts** in the text.\n\n1. Find the sentences that describe what actually happens.\n2. Define each choice in your head.\n3. The precise word is the one whose meaning matches those facts exactly."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The new rule says that phones are prohibited in exams.",
+      "role": "key"
+     },
+     {
+      "t": "Any student who brings a phone will lose marks.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Prohibited** means not allowed at all. The penalty in the second sentence proves that phones are fully banned, not just discouraged."
+   },
+   "together": {
+    "passage": "In the deserts of Arabia, a dry valley called a wadi can change in minutes. After a heavy storm in the mountains, rainwater rushes down the bare rock, because the hard ground cannot soak it up quickly. The water gathers speed as it flows into the wadi, carrying sand, stones and sometimes even cars. Over many years, these floods slowly ___ the sides of the valley, making it deeper and wider. Drivers are warned never to cross a wadi when water is flowing.",
+    "stem": "Which word most precisely describes what the floods do to the sides of the valley?",
+    "options": [
+     "damage",
+     "erode",
+     "attack",
+     "fill"
+    ],
+    "answer": 1,
+    "hint": "Does that word explain how the valley becomes deeper and wider over many years?",
+    "good": "Yes! **Erode** means to wear away slowly by water or wind. Carrying away sand and stones makes the valley deeper and wider."
+   },
+   "evidence": {
+    "sentences": [
+     "In the deserts of Arabia, a dry valley called a wadi can change in minutes.",
+     "After a heavy storm in the mountains, rainwater rushes down the bare rock, because the hard ground cannot soak it up quickly.",
+     "The water gathers speed as it flows into the wadi, carrying sand, stones and sometimes even cars.",
+     "Over many years, these floods slowly erode the sides of the valley, making it deeper and wider.",
+     "Drivers are warned never to cross a wadi when water is flowing."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: erode. Tap the 2 sentences that show the water wearing the valley away.",
+    "wrong": "This sentence is about the storm, the wadi or safety. Find the sentences that show material carried away and the valley growing deeper."
+   },
+   "checks": [
+    {
+     "passage": "The new law ___ smoking in all public parks, so anyone who smokes there can be fined.",
+     "stem": "Which verb is most precise?",
+     "options": [
+      "discourages",
+      "mentions",
+      "permits",
+      "prohibits"
+     ],
+     "answer": 3,
+     "why": "A fine means smoking is not allowed at all. **Prohibits** has exactly that meaning."
+    },
+    {
+     "passage": "With the score tied in the last minute, the goalkeeper ___ to his left and tipped the ball over the bar with his fingertips.",
+     "stem": "Which verb best conveys the action?",
+     "options": [
+      "went",
+      "dived",
+      "moved",
+      "stepped"
+     ],
+     "answer": 1,
+     "why": "Reaching the ball with only his fingertips shows a fast, full-body leap. **Dived** shows that action."
+    },
+    {
+     "passage": "A student's draft says: \"Leaves are where the process plants use to make food from sunlight happens.\"",
+     "stem": "Which term could replace the long phrase about how plants make food?",
+     "options": [
+      "evaporation",
+      "digestion",
+      "photosynthesis",
+      "pollination"
+     ],
+     "answer": 2,
+     "why": "**Photosynthesis** is the exact scientific term for plants making food from sunlight."
+    }
+   ],
+   "again": {
+    "title": "Define, then decide",
+    "text": "For each choice, say its meaning in a few words. Then hold it up against the facts in the text.",
+    "example": "Fact: the bridge was closed and nobody could cross.\n**restricted** = limited ✘\n**blocked** = completely stopped ✔\nThe precise word is **blocked**."
+   }
+  }
+ }
+}

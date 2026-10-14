@@ -1,0 +1,447 @@
+{
+ "code": "LN-043",
+ "title": "Their, there and they're: pronoun homophones",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "pronoun-homophones"
+ ],
+ "skillNames": [
+  "Pronoun Homophones (its/it's, their/there/they're, your/you're)",
+  "Pronouns, Contractions and Homophones"
+ ],
+ "statements": [
+  "L-0084",
+  "L-0189"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Three words, one sound",
+     "text": "**their**, **there** and **they're** sound the same.\n\nBut each one has a different job."
+    },
+    {
+     "title": "What they mean",
+     "text": "**their** = it belongs to them. “**their** books”\n\n**there** = a place. “Put it **there**.”\n\n**they're** = **they are**. “**They're** happy.”"
+    },
+    {
+     "title": "Memory tricks",
+     "text": "**there** has **here** inside it. Both are places.\n\n**they're** has an apostrophe ( ' ) because a letter is missing: they **a**re → they're.\n\n**their** comes before a thing they own: their **car**, their **house**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Try saying **they are** in the blank. Does it work? → **they're**\n2. Is something **owned**? → **their**\n3. Is it a **place**? → **there**\n\nPoint to the sentence that shows who owns it, or where it is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My cousins have a new puppy.",
+      "role": "other"
+     },
+     {
+      "t": "Their puppy is brown.",
+      "role": "key"
+     },
+     {
+      "t": "They're very happy.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Their** puppy = the puppy belongs to my cousins.\n\n**They're** very happy = **they are** very happy."
+   },
+   "together": {
+    "passage": "Sara and Lina have a garden. ___ garden has big sunflowers. They water it every day. The flowers grow fast.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "There",
+     "They're",
+     "Their",
+     "Them"
+    ],
+    "answer": 2,
+    "hint": "Try “they are garden”. Does it work? Who owns the garden?",
+    "good": "Yes! The garden belongs to Sara and Lina, so it is **their** garden."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara and Lina have a garden.",
+     "___ garden has big sunflowers.",
+     "They water it every day.",
+     "The flowers grow fast."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that shows whose garden it is.",
+    "wrong": "This sentence does not tell who owns the garden. Find the girls' names."
+   },
+   "checks": [
+    {
+     "passage": "Look over ___! A big bird is in the tree.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "their",
+      "there",
+      "they're",
+      "they"
+     ],
+     "answer": 1,
+     "why": "The blank is a **place**: over there, in the tree."
+    },
+    {
+     "passage": "The boys are tired. ___ going to sleep now.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "They're",
+      "There",
+      "Their",
+      "Theirs"
+     ],
+     "answer": 0,
+     "why": "**They are** going to sleep now → **They're**."
+    },
+    {
+     "passage": "The children washed ___ hands before lunch.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "there",
+      "they're",
+      "them",
+      "their"
+     ],
+     "answer": 3,
+     "why": "The hands belong to the children → **their** hands."
+    }
+   ],
+   "again": {
+    "title": "The “they are” test",
+    "text": "Put **they are** in the blank.\n\nDoes it make sense? Use **they're**.\n\nIf not, ask: owning → **their**. A place → **there**.",
+    "example": "“___ shoes are by the door.” → “They are shoes…”? No. Do the shoes belong to them? Yes → **Their** shoes."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Their, there, they're",
+     "text": "**their** → owning: “their project”\n**there** → a place: “over there”\n**they're** → they are: “they're ready”"
+    },
+    {
+     "title": "There is, there are",
+     "text": "**There** also starts sentences that say something **exists**.\n\n“**There** are ten students in the room.” “**There** is milk in the fridge.”\n\nIt is not owning, and it is not “they are”."
+    },
+    {
+     "title": "All three together",
+     "text": "When all three appear, check each one:\n\n“**They're** proud of **their** project. It is over **there**.”\n\nThey are proud · the project belongs to them · a place."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every their / there / they're in the text.\n2. Test each one: they are? owning? place or “there is”?\n3. Point to the sentence where a word fails its test."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The players left there bags on the bench.",
+      "role": "key"
+     },
+     {
+      "t": "Then they ran onto the field.",
+      "role": "other"
+     }
+    ],
+    "explain": "“There bags” is wrong. The bags **belong to the players**, so it should be **their** bags.\n\nThe second sentence has no mistake."
+   },
+   "together": {
+    "passage": "My neighbors, Majid and Yousef, built a tree house last month. They're very proud of it. There is a rope ladder on one side and a small window on the other. Every evening, the brothers climb up to read there favorite books. Their mother sends them a basket of dates on a string.",
+    "stem": "Which change corrects the mistake?",
+    "options": [
+     "“They're very proud” → “Their very proud”",
+     "“There is a rope ladder” → “Their is a rope ladder”",
+     "“there favorite books” → “their favorite books”",
+     "“Their mother” → “They're mother”"
+    ],
+    "answer": 2,
+    "hint": "Test each word. Which one should show owning but does not?",
+    "good": "Yes! The books belong to the brothers, so it should be **their** favorite books."
+   },
+   "evidence": {
+    "sentences": [
+     "My neighbors, Majid and Yousef, built a tree house last month.",
+     "They're very proud of it.",
+     "There is a rope ladder on one side and a small window on the other.",
+     "Every evening, the brothers climb up to read there favorite books.",
+     "Their mother sends them a basket of dates on a string."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that had the mistake.",
+    "wrong": "The word in this sentence passes its test. Find the sentence where something owned uses the wrong word."
+   },
+   "checks": [
+    {
+     "passage": "___ are three new students in our class this year.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "Their",
+      "There",
+      "They're",
+      "Theirs"
+     ],
+     "answer": 1,
+     "why": "The sentence says that new students **exist** in the class: **There** are."
+    },
+    {
+     "passage": "My aunts said ___ coming to visit on Friday.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "their",
+      "there",
+      "they're",
+      "they"
+     ],
+     "answer": 2,
+     "why": "**They are** coming to visit → **they're**."
+    },
+    {
+     "passage": "The birds built ___ nest under our roof, and ___ feeding the chicks now.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "their, they're",
+      "there, their",
+      "they're, there",
+      "their, there"
+     ],
+     "answer": 0,
+     "why": "The nest belongs to the birds → **their**. **They are** feeding the chicks → **they're**."
+    }
+   ],
+   "again": {
+    "title": "Look for the apostrophe",
+    "text": "An apostrophe ( ' ) means letters are missing.\n\n**they're** = they **a**re. If you cannot say “they are”, you need **their** or **there**.",
+    "example": "“___ is a park near my house.” → “They are is a park”? No. Owning? No. It says a park exists → **There** is a park."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "More pronoun twins",
+     "text": "**its** = belongs to it. “The cat licked **its** paw.”\n**it's** = it is. “**It's** raining.”\n\n**your** = belongs to you. “**your** bag”\n**you're** = you are. “**You're** late.”"
+    },
+    {
+     "title": "The pattern",
+     "text": "Owning words **never** use an apostrophe: **its, your, their, his, ours**.\n\nThe apostrophe always means a **short form**: it's = it is, you're = you are, they're = they are."
+    },
+    {
+     "title": "Read it long",
+     "text": "Read every short form in its **long** form.\n\n“**It's** tail is long” → “**It is** tail is long.” Wrong!\n\nThe tail belongs to it → **its** tail."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every its / it's, your / you're, their / there / they're.\n2. Read each short form in its long form, or ask: is it owning?\n3. The sentence where the test fails holds the error. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The museum opened it's new hall on Sunday.",
+      "role": "key"
+     },
+     {
+      "t": "Visitors can see old maps and coins there.",
+      "role": "other"
+     }
+    ],
+    "explain": "“It's new hall” would mean “it is new hall”. That makes no sense. The hall belongs to the museum, so: **its** new hall.\n\nIn the second sentence, **there** is a place, so it is correct."
+   },
+   "together": {
+    "passage": "Grandpa gave me a telescope for my birthday. It's the best gift I have ever received. Last night my friends came over, and we pointed it at the moon. They could not believe how many craters they could see. Mom says the sky will be clear next weekend, so its a perfect time to look at Jupiter and its moons. My friends said they're coming back with their own snacks.",
+    "stem": "Which change corrects the error in the paragraph?",
+    "options": [
+     "“It's the best gift” → “Its the best gift”",
+     "“its a perfect time” → “it's a perfect time”",
+     "“Jupiter and its moons” → “Jupiter and it's moons”",
+     "“they're coming” → “their coming”"
+    ],
+    "answer": 1,
+    "hint": "Read each one in its long form. Where does “it is” fit, but the apostrophe is missing?",
+    "good": "Yes! “**It is** a perfect time” makes sense, so it needs the apostrophe: **it's**."
+   },
+   "evidence": {
+    "sentences": [
+     "Grandpa gave me a telescope for my birthday.",
+     "It's the best gift I have ever received.",
+     "Last night my friends came over, and we pointed it at the moon.",
+     "They could not believe how many craters they could see.",
+     "Mom says the sky will be clear next weekend, so its a perfect time to look at Jupiter and its moons.",
+     "My friends said they're coming back with their own snacks."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that had the error.",
+    "wrong": "Every pronoun twin in this sentence passes the test. Find the sentence where “it is” is written without an apostrophe."
+   },
+   "checks": [
+    {
+     "passage": "The camel lifted ___ head when ___ owner called.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "it's, it's",
+      "its, it's",
+      "its, its",
+      "it's, its"
+     ],
+     "answer": 2,
+     "why": "The head and the owner both belong to the camel. Owning → **its**, both times."
+    },
+    {
+     "passage": "___ going to need ___ jacket on the mountain tonight.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "Your, you're",
+      "You're, your",
+      "You're, you're",
+      "Your, your"
+     ],
+     "answer": 1,
+     "why": "**You are** going to need → **You're**. The jacket belongs to you → **your**."
+    },
+    {
+     "passage": "Four students wrote about the school trip.",
+     "stem": "Which sentence is correct?",
+     "options": [
+      "Its going to be a long drive.",
+      "Their going to bring lunch.",
+      "You're allowed to bring a camera.",
+      "The bus has it's own fridge."
+     ],
+     "answer": 2,
+     "why": "“You are allowed” → **You're** is right. The others need it's, they're and its."
+    }
+   ],
+   "again": {
+    "title": "Owning words have no apostrophe",
+    "text": "**his** has no apostrophe. Neither do **its, your, their**.\n\nIf the word shows owning, leave the apostrophe out.",
+    "example": "“The tree lost ___ leaves.” Owning? Yes, the leaves belong to the tree. Like **his** leaves → **its** leaves."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "It's can mean it has",
+     "text": "“**It's** been a long day” = **it has** been a long day.\n\nSo the long-form test must try **both** “it is” and “it has” before you decide."
+    },
+    {
+     "title": "whose or who's?",
+     "text": "**whose** = belonging to which person. “**Whose** phone is this?”\n\n**who's** = who is / who has. “**Who's** ready?”\n\nSame rule: owning words take no apostrophe."
+    },
+    {
+     "title": "Edit a whole passage",
+     "text": "In a long text, errors hide among correct uses.\n\nCheck **every** pronoun twin, one at a time. Do not stop at the first one that looks right."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. List each pronoun twin in the passage.\n2. Test each one: long form (is / are / has), or owning?\n3. The answer is the **only** word that fails.\n\nPoint to its sentence, and to the clue that proves the right form: the noun that is owned, or who “they” are."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The committee announced it's decision on Monday.",
+      "role": "key"
+     },
+     {
+      "t": "It's been a difficult choice, but everyone respects the result.",
+      "role": "detail"
+     }
+    ],
+    "explain": "“It's decision” → “it is decision”? “It has decision”? Neither works. The decision belongs to the committee → **its**.\n\nIn sentence 2, “It's been” = “it has been”, so it is correct."
+   },
+   "together": {
+    "passage": "The city's oldest souq is changing, but its spirit has stayed the same. For decades, families have sold spices, cloth and perfume from the same small shops. Now some of the younger shopkeepers sell online too. “It's been hard to learn,” admits one seller, whose grandfather opened the shop in the 1950s. “But if you're not online, customers forget you,” she says. Many older merchants are unsure. They worry that there customers will stop visiting in person. Others believe the two can work together: buyers who find a shop online often come to see it for themselves.",
+    "stem": "Which change corrects the error in the passage?",
+    "options": [
+     "“its spirit” → “it's spirit”",
+     "“whose grandfather” → “who's grandfather”",
+     "“if you're not online” → “if your not online”",
+     "“there customers” → “their customers”"
+    ],
+    "answer": 3,
+    "hint": "Test every twin: “it has been”, “you are”, owning… Which one fails?",
+    "good": "Yes! The customers belong to the merchants, so it should be **their** customers."
+   },
+   "evidence": {
+    "sentences": [
+     "The city's oldest souq is changing, but its spirit has stayed the same.",
+     "For decades, families have sold spices, cloth and perfume from the same small shops.",
+     "Now some of the younger shopkeepers sell online too.",
+     "“It's been hard to learn,” admits one seller, whose grandfather opened the shop in the 1950s.",
+     "“But if you're not online, customers forget you,” she says.",
+     "Many older merchants are unsure.",
+     "They worry that there customers will stop visiting in person.",
+     "Others believe the two can work together: buyers who find a shop online often come to see it for themselves."
+    ],
+    "proof": [
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences: the one with the error, and the one that tells who owns the customers.",
+    "wrong": "This sentence is correct and does not name the owners. Find the error, and the sentence that tells who “they” are."
+   },
+   "checks": [
+    {
+     "passage": "___ been three years since the library replaced ___ old computers.",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "Its, it's",
+      "It's, its",
+      "It's, it's",
+      "Its, its"
+     ],
+     "answer": 1,
+     "why": "**It has** been three years → **It's**. The computers belong to the library → **its**."
+    },
+    {
+     "passage": "Do you know ___ bringing the projector, and ___ laptop we will use?",
+     "stem": "Which words fill the blanks?",
+     "options": [
+      "who's, whose",
+      "whose, who's",
+      "who's, who's",
+      "whose, whose"
+     ],
+     "answer": 0,
+     "why": "**Who is** bringing → **who's**. The laptop belongs to which person → **whose**."
+    },
+    {
+     "passage": "Students, please check that you're names are on your forms before you hand them in. If you're unsure, ask your teacher.",
+     "stem": "Which word should be changed?",
+     "options": [
+      "the first “you're”",
+      "“your forms”",
+      "the second “you're”",
+      "“your teacher”"
+     ],
+     "answer": 0,
+     "why": "“You are names” makes no sense. The names belong to you → **your** names. “If you're unsure” = if you are unsure, which is correct."
+    }
+   ],
+   "again": {
+    "title": "Two questions, every time",
+    "text": "For each twin, ask:\n\n1. Can I say it long (it is / it has / you are / they are / who is)?\n2. If not, is it owning? Then **no apostrophe**.",
+    "example": "“___ turn is it?” → “Who is turn”? No. Owning? Yes, the turn belongs to someone → **Whose** turn is it?"
+   }
+  }
+ }
+}

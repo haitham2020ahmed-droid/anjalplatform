@@ -1,0 +1,568 @@
+{
+  "code": "NB-094",
+  "title": "The Rain Gauge on the Roof",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 431,
+  "passage": "When Mr Saleh announced that every student in Class 6C would keep a weather journal for the entire winter term, Khalid groaned quietly, because in Riyadh the weather seemed to do nothing interesting at all. Nevertheless, he followed the instructions carefully. He sliced the top off an empty plastic bottle, turned it upside down inside the base to form a funnel, and stuck a paper ruler along its side. Then, with his father's permission, he wedged the homemade rain gauge between two bricks on the flat roof of their house, where no wall or tree could shelter it.\n\nFor the first three weeks, Khalid's journal contained the same discouraging entry: \"Sunny. Dry. Rainfall: 0 millimetres.\" His classmate Faris, who had spent the holidays with cousins in Abha, boasted about the dramatic thunderstorms he had seen in the mountains, and Khalid began to suspect that his gauge was a complete waste of time.\n\n\"Patience, my son,\" his grandfather advised one evening, as they drank sweet tea together on the roof. \"Keep checking your gauge every morning. When I was a boy, we watched the northern sky for weeks, and when the rain finally arrived, the whole neighbourhood rushed outside to celebrate. Rain in the desert is rare, which is exactly why it is precious.\"\n\nTwo nights later, Khalid woke to a sound he hardly recognised: a steady drumming on the window, interrupted by distant growls of thunder. He crept to the door of the roof and watched, fascinated, as silver curtains of rain swept across the sleeping city and the streetlights shimmered in deepening puddles. He longed to check the gauge immediately, yet he remembered Mr Saleh's warning that nobody should go onto a roof during a thunderstorm, so he returned reluctantly to bed.\n\nAt dawn, he raced up the stairs, his heart pounding with a mixture of hope and dread. The wind had toppled one of the bricks, but the bottle was still standing, tilted only slightly. Squinting at the ruler, Khalid read the water level twice before he wrote it down: eighteen millimetres.\n\nThat afternoon, Mr Saleh displayed the official report from the national weather centre on the classroom screen. \"Northern Riyadh received approximately seventeen to nineteen millimetres last night,\" he read aloud. Then he turned to Khalid with a smile. \"Your measurement agrees with the professionals. That is what careful scientists do!\"\n\nKhalid felt a glow of pride spread through his chest. From that day on, he never complained about dry weeks, because he understood that a long record of zeros was just as valuable as one exciting storm.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “discouraging” as it is used in paragraph 2?",
+      "options": [
+        "making him lose hope",
+        "making him laugh",
+        "making him curious",
+        "making him angry"
+      ],
+      "answer": "A",
+      "why": "Writing “Rainfall: 0 millimetres” again and again made Khalid think his gauge was “a complete waste of time,” so the entry made him lose hope."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the opposite of “reluctantly” as it is used in paragraph 4?",
+      "options": [
+        "unwillingly",
+        "sadly",
+        "eagerly",
+        "quietly"
+      ],
+      "answer": "C",
+      "why": "Khalid went back to bed “reluctantly” (without wanting to). The opposite is “eagerly”; “unwillingly” is a synonym."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “The wind had toppled one of the bricks, but the bottle was still standing, tilted only slightly.” What does “toppled” mean?",
+      "options": [
+        "carried far away",
+        "knocked over",
+        "filled with water",
+        "cracked open"
+      ],
+      "answer": "B",
+      "why": "The brick fell over in the wind, while the bottle stayed standing, so “toppled” means knocked over."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is a verb?",
+      "options": [
+        "steady",
+        "distant",
+        "crept",
+        "puddles"
+      ],
+      "answer": "C",
+      "why": "“Crept” is the past tense of “creep” and tells what Khalid did; “steady” and “distant” are adjectives and “puddles” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a PLURAL noun?",
+      "options": [
+        "boy",
+        "sky",
+        "neighbourhood",
+        "weeks"
+      ],
+      "answer": "D",
+      "why": "“Weeks” names more than one week; the other three nouns are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “measurement” in paragraph 6?",
+      "options": [
+        "meadow",
+        "measure",
+        "mention",
+        "meant"
+      ],
+      "answer": "B",
+      "why": "“Measurement” is made from the verb “measure” + -ment; the other words only begin with similar letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “precious” in a meaningful sentence of your own.",
+      "model": "Clean water is precious in the desert, so my family never leaves a tap running.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “precious” with its meaning (very valuable, important or rare)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Precious” means of great value, often because something is rare or loved."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The noun “entry” in paragraph 2 becomes “entries” in the plural. Which word forms its plural in the SAME way?",
+      "options": [
+        "day",
+        "storm",
+        "city",
+        "roof"
+      ],
+      "answer": "C",
+      "why": "Words ending in a consonant + y change y to -ies: city → cities. “Day” ends in a vowel + y, so it simply adds -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is a command?",
+      "options": [
+        "Rain in the desert is rare, which is exactly why it is precious.",
+        "Your measurement agrees with the professionals.",
+        "That is what careful scientists do!",
+        "Keep checking your gauge every morning."
+      ],
+      "answer": "D",
+      "why": "Grandfather tells Khalid what to do, so it is a command. The others are statements, and the third is exclamatory."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "Faris's Holiday in the Mountains",
+        "Eighteen Millimetres of Patience",
+        "The Bricks That Fell in the Wind",
+        "How to Build a Home Weather Station"
+      ],
+      "answer": "B",
+      "why": "The story is about Khalid's patient wait until he finally measures eighteen millimetres; Faris and the bricks are small details."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main message of the story?",
+      "options": [
+        "Living near the mountains is better than living in Riyadh.",
+        "Students should never trust their own measurements.",
+        "Patience and careful observation are rewarded, even when nothing seems to happen.",
+        "Thunderstorms are the most exciting kind of weather."
+      ],
+      "answer": "C",
+      "why": "Khalid waits through weeks of zeros, measures the storm accurately and learns that “a long record of zeros was just as valuable as one exciting storm.”"
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Grandfather encourages Khalid to wait patiently because desert rain is rare and precious.",
+        "Grandfather explains how to build a better rain gauge.",
+        "Grandfather complains that the weather has changed since he was young.",
+        "Grandfather and Khalid drink sweet tea every evening on the roof."
+      ],
+      "answer": "A",
+      "why": "Grandfather says “Patience, my son,” remembers waiting for rain as a boy, and explains why rain is precious."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Khalid NOT check the gauge during the storm?",
+      "options": [
+        "He was too sleepy to climb the stairs.",
+        "His father had locked the door to the roof.",
+        "He was afraid the rain would ruin his journal.",
+        "He remembered the warning not to go onto a roof during a thunderstorm."
+      ],
+      "answer": "D",
+      "why": "Paragraph 4: “he remembered Mr Saleh's warning that nobody should go onto a roof during a thunderstorm.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which genre best describes this text?",
+      "options": [
+        "an expository text",
+        "a narrative story",
+        "a friendly letter",
+        "a biography of a scientist"
+      ],
+      "answer": "B",
+      "why": "It tells an invented story with characters, a setting, dialogue, a problem and a resolution."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Khalid put the gauge in a place “where no wall or tree could shelter it”?",
+      "options": [
+        "so that his father could see it from the street",
+        "so that the sun could dry it each morning",
+        "so that rain could fall into it without being blocked",
+        "so that the wind would not reach it"
+      ],
+      "answer": "C",
+      "why": "A wall or tree would block some of the rain and give a wrong reading, so the gauge needed open sky."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Grandfather told Khalid to be patient.",
+        "Khalid read the water level twice.",
+        "Khalid stuck a paper ruler along the side of the bottle.",
+        "Mr Saleh showed the official report."
+      ],
+      "answer": "C",
+      "why": "Khalid built the gauge in paragraph 1, before all the other events."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "From whose point of view is the story told?",
+      "options": [
+        "Khalid's, using “I” and “my”",
+        "Mr Saleh's, as the class teacher",
+        "Grandfather's, as he remembers his childhood",
+        "a narrator outside the story who describes Khalid's actions and feelings"
+      ],
+      "answer": "D",
+      "why": "The narrator calls Khalid “he” and describes his thoughts, so it is a third-person narrator; “I” appears only in Grandfather's speech."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did Khalid find when he reached the roof at dawn?",
+      "options": [
+        "The bottle had blown away, so he had no reading.",
+        "One brick had fallen, but the bottle was still standing.",
+        "Both bricks were in place and the bottle was empty.",
+        "The paper ruler had washed off the bottle."
+      ],
+      "answer": "B",
+      "why": "Paragraph 5: “The wind had toppled one of the bricks, but the bottle was still standing.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Khalid groan when Mr Saleh first announced the project?",
+      "options": [
+        "He believed the weather in Riyadh never did anything interesting.",
+        "He did not have a plastic bottle at home.",
+        "He wanted to study the weather in Abha instead.",
+        "He disliked writing in journals every day."
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: he groaned “because in Riyadh the weather seemed to do nothing interesting at all.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
+      "options": [
+        "the description of how to cut a plastic bottle",
+        "the list of Khalid's school subjects",
+        "the hope that a rare storm will finally fill the gauge",
+        "the explanation of how thunder is formed"
+      ],
+      "answer": "C",
+      "why": "After weeks of zeros and Khalid's doubts, the reader wonders whether the rain will ever come."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Khalid's feelings as he “raced up the stairs” at dawn?",
+      "options": [
+        "calm and bored",
+        "excited but worried that the gauge was damaged",
+        "angry that the storm had stopped",
+        "sad that he had missed the rain"
+      ],
+      "answer": "B",
+      "why": "His heart was “pounding with a mixture of hope and dread”: hope for a reading, fear that the wind had ruined the gauge."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is Khalid's attitude to dry weeks in paragraph 7 different from his attitude in paragraph 2?",
+      "options": [
+        "In paragraph 2 he enjoys them; in paragraph 7 he finds them boring.",
+        "In both paragraphs he thinks they are a waste of time.",
+        "In paragraph 2 he is proud of them; in paragraph 7 he is ashamed of them.",
+        "In paragraph 2 they discourage him; in paragraph 7 he sees them as valuable."
+      ],
+      "answer": "D",
+      "why": "He first suspected the gauge was “a complete waste of time,” but later understood that “a long record of zeros was just as valuable.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was the effect of Mr Saleh's words in paragraph 6 on Khalid?",
+      "options": [
+        "He felt proud of his careful work.",
+        "He felt embarrassed in front of the class.",
+        "He decided to stop keeping his journal.",
+        "He began to doubt his own reading."
+      ],
+      "answer": "A",
+      "why": "Right after the praise, “Khalid felt a glow of pride spread through his chest.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Grandfather and Mr Saleh have in common in the story?",
+      "options": [
+        "Both experienced dramatic storms in Abha.",
+        "Both measure rainfall with plastic bottles.",
+        "Both complain about the dry weather.",
+        "Both guide Khalid to value patient, careful observation."
+      ],
+      "answer": "D",
+      "why": "Grandfather tells him to keep checking and be patient; Mr Saleh praises his careful measurement."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “silver curtains of rain swept across the sleeping city”?",
+      "options": [
+        "Shiny fabric was blowing through the streets.",
+        "Heavy sheets of rain moved across the city at night.",
+        "The rain stopped before it reached the houses.",
+        "Moonlight shone on the city after the rain."
+      ],
+      "answer": "B",
+      "why": "The rain looked like silver curtains as it fell in sheets, and the city was “sleeping” because it was night."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "Keep checking your gauge every morning.",
+        "Your measurement agrees with the professionals.",
+        "That is what careful scientists do!",
+        "Sunny. Dry. Rainfall: 0 millimetres."
+      ],
+      "answer": "C",
+      "why": "It expresses strong feeling (Mr Saleh's pride) and ends with an exclamation mark."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer include Grandfather's memory of waiting for rain as a boy?",
+      "options": [
+        "to show that rain has always been precious and worth waiting for",
+        "to explain how rain gauges were made long ago",
+        "to prove that it rained more in the past",
+        "to show that Grandfather disliked the rain"
+      ],
+      "answer": "A",
+      "why": "His memory of the neighbourhood rushing out to celebrate shows how valued rain is and supports his advice to be patient."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which advice from the story would be MOST useful for a student doing a long science project?",
+      "options": [
+        "Give up if the first results are boring.",
+        "Keep recording carefully, even when nothing seems to change.",
+        "Change your method every week to find exciting results.",
+        "Copy results from a classmate who lives elsewhere."
+      ],
+      "answer": "B",
+      "why": "Khalid's success came from steady, careful recording; the story says a record of zeros is valuable too."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely made the writer write this story?",
+      "options": [
+        "a wish to explain how thunder is formed",
+        "a plan to compare the weather of Abha and Riyadh",
+        "a belief that homemade equipment is useless",
+        "a wish to show that real science needs patience and accuracy"
+      ],
+      "answer": "D",
+      "why": "The story rewards Khalid's patience and shows that his careful reading matches the professionals."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the story as a whole?",
+      "options": [
+        "impatience that slowly turns into pride",
+        "fear that turns into anger",
+        "jealousy that turns into sadness",
+        "boredom that never changes"
+      ],
+      "answer": "A",
+      "why": "Khalid is impatient and discouraged at first, but ends the story with “a glow of pride.”"
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "why Khalid could not check the gauge during the storm",
+        "how Khalid made a funnel for his gauge",
+        "what rainfall Khalid's classmates recorded on the night of the storm",
+        "what the official report said about northern Riyadh"
+      ],
+      "answer": "C",
+      "why": "The story never mentions the other students' readings; the other points are clearly explained."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A plastic bottle on an open roof fills with rain while the sky stays completely clear.",
+        "A homemade rain gauge measures nearly the same rainfall as an official weather station.",
+        "Grandfather makes the rain arrive by watching the northern sky.",
+        "A thunderstorm lasts for three weeks without stopping."
+      ],
+      "answer": "B",
+      "why": "Simple gauges can measure rain accurately, as Khalid's did; the other events are impossible or extremely unlikely."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Lost in the Storm",
+        "A Holiday in the Mountains",
+        "Grandfather's Secret Recipe",
+        "The Night the Gauge Finally Filled"
+      ],
+      "answer": "D",
+      "why": "The key event is the storm that finally fills Khalid's gauge after weeks of waiting."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story: imagine the wind had knocked the bottle over. Write two or three sentences that show what Khalid could do and what he learns.",
+      "model": "Khalid felt his heart sink when he saw the empty bottle lying on its side. Instead of giving up, he wrote in his journal, “Gauge knocked over – reading lost,” and fixed a new bottle firmly inside a heavy box. When the next storm came, his gauge stood firm, and he learned that scientists improve their equipment after every mistake.",
+      "rubric": [
+        "2 = a clear new ending that follows from the bottle falling, shows a sensible action by Khalid and a lesson he learns",
+        "1 = a new ending is given but the action or lesson is unclear or does not fit the story",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any logical ending in which Khalid responds sensibly and learns something is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could Khalid stop the wind from knocking his gauge over in future storms?",
+      "options": [
+        "Move it under a tree where the wind is weaker.",
+        "Bring it indoors whenever the sky looks cloudy.",
+        "Hold it in place on the roof during every thunderstorm.",
+        "Fix it firmly inside a heavy box on the open roof."
+      ],
+      "answer": "D",
+      "why": "A heavy, fixed base keeps the gauge upright while it still catches rain; a tree would block the rain, bringing it indoors catches nothing, and the roof is unsafe in storms."
+    }
+  ]
+}

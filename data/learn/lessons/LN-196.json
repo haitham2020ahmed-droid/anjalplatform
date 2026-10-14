@@ -1,0 +1,476 @@
+{
+ "code": "LN-196",
+ "title": "Shades of meaning: the best word",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.1.6",
+  "L.2.6",
+  "L.3.5.c",
+  "L.4.5.c",
+  "L.5.5.c",
+  "L.6.5.c",
+  "L.7.5.c",
+  "L.8.5.c",
+  "L.K.6"
+ ],
+ "families": [
+  "connotation"
+ ],
+ "skillNames": [],
+ "statements": [
+  "R-0015",
+  "R-0051",
+  "R-0239",
+  "R-0395",
+  "R-0581",
+  "R-0777",
+  "R-0941",
+  "R-1058",
+  "R-1101"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "The best word",
+     "text": "Sometimes many words **could** go in a sentence. But only **one** fits best.\n\nThe other sentences help you choose."
+    },
+    {
+     "title": "Read around the blank",
+     "text": "It is cold outside. I put on my ___ coat.\n\n**warm** or **thin**? It is **cold**, so **warm** fits best."
+    },
+    {
+     "title": "How to do it",
+     "text": "1. Read all the sentences.\n2. Try each word in the blank.\n3. Pick the word that makes the **most sense** with the other sentences."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The other sentences are your **clues**.\n\n1. Find the sentences that tell about the blank.\n2. Ask: which word do they fit?\n3. Point to those sentences."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The baby is ___.",
+      "role": "main"
+     },
+     {
+      "t": "She is crying.",
+      "role": "key"
+     },
+     {
+      "t": "She wants her milk.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Happy** or **hungry**? She is crying and wants milk.\n\nSo **hungry** fits best."
+   },
+   "together": {
+    "passage": "It is a very hot day. Ali is thirsty after playing outside. He drinks a big glass of ___ water. \"Ah, that cools me down!\" he says.",
+    "stem": "Which word fits best in the blank?",
+    "options": [
+     "hot",
+     "dry",
+     "cold",
+     "loud"
+    ],
+    "answer": 2,
+    "hint": "Try each word. Which one cools Ali down on a hot day?",
+    "good": "Yes! On a hot day, cold water cools Ali down."
+   },
+   "evidence": {
+    "sentences": [
+     "It is a very hot day.",
+     "Ali is thirsty after playing outside.",
+     "He drinks a big glass of ___ water.",
+     "\"Ah, that cools me down!\" he says."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: cold. Tap 2 sentences that show why cold fits best.",
+    "wrong": "This sentence does not tell why the water should be cold. Find the sentences about the hot day and cooling down."
+   },
+   "checks": [
+    {
+     "passage": "The kitten is very ___. It fits in my hand.",
+     "stem": "Which word fits best?",
+     "options": [
+      "tiny",
+      "tall",
+      "heavy",
+      "huge"
+     ],
+     "answer": 0,
+     "why": "It **fits in my hand**, so it is **tiny**."
+    },
+    {
+     "passage": "Mom says, \"Shh! The baby is ___.\" Everyone is quiet.",
+     "stem": "Which word fits best?",
+     "options": [
+      "shouting",
+      "running",
+      "singing",
+      "sleeping"
+     ],
+     "answer": 3,
+     "why": "Everyone is **quiet** so they do not wake the baby. The baby is **sleeping**."
+    },
+    {
+     "passage": "The ice cream was in the hot sun. Soon it was all ___ and runny.",
+     "stem": "Which word fits best?",
+     "options": [
+      "frozen",
+      "melted",
+      "hard",
+      "dry"
+     ],
+     "answer": 1,
+     "why": "In the **hot sun** it became **runny**. It **melted**."
+    }
+   ],
+   "again": {
+    "title": "Say it out loud",
+    "text": "Read the sentence out loud with **each** word.\n\nThe right word sounds right **and** matches the clues.",
+    "example": "\"The road is ___. Many cars are on it.\"\n\nbusy ✔ (many cars) · empty ✘ · quiet ✘"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Words that are close",
+     "text": "Some words have **almost** the same meaning, but not quite.\n\n**walk, stroll, march, rush** all mean moving on foot. But they show **different ways** of moving."
+    },
+    {
+     "title": "Shades of meaning",
+     "text": "Think of colours: **pink, red, dark red**. They are all red, but different **shades**.\n\nWords are the same:\n**annoyed → angry → furious**\n**whisper → say → shout**"
+    },
+    {
+     "title": "Choose the exact word",
+     "text": "1. Find the clues: how fast, how loud, how strong?\n2. Line up the word choices from weak to strong.\n3. Pick the one that matches the clues **exactly**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The clues tell you **how much** or **what kind**.\n\n1. Find the sentences that describe the situation.\n2. Ask: quiet or loud? slow or fast? a little or a lot?\n3. Choose the word that fits, and point to the clues."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The bus would leave in one minute.",
+      "role": "key"
+     },
+     {
+      "t": "Sami ___ to the bus stop with his bag bouncing on his back.",
+      "role": "main"
+     },
+     {
+      "t": "He jumped on just as the doors closed.",
+      "role": "key"
+     }
+    ],
+    "explain": "**strolled** or **dashed**? He had **one minute** and jumped on **just in time**.\n\n**Dashed** (ran very fast) fits best."
+   },
+   "together": {
+    "passage": "The library was completely silent. Every student was reading or writing. Nora needed to ask her friend which page they were on. She leaned close and ___ the question in her friend's ear. Her friend pointed to page twelve without saying a word.",
+    "stem": "Which word fits best in the blank?",
+    "options": [
+     "shouted",
+     "whispered",
+     "screamed",
+     "called"
+    ],
+    "answer": 1,
+    "hint": "Was the library loud or quiet? How did Nora have to speak?",
+    "good": "Yes! In a silent library, Nora leaned close and whispered."
+   },
+   "evidence": {
+    "sentences": [
+     "The library was completely silent.",
+     "Every student was reading or writing.",
+     "Nora needed to ask her friend which page they were on.",
+     "She leaned close and ___ the question in her friend's ear.",
+     "Her friend pointed to page twelve without saying a word."
+    ],
+    "proof": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: whispered. Tap 2 sentences that show Nora had to be quiet.",
+    "wrong": "This sentence only tells what Nora needed. Find the clues that show she had to be quiet."
+   },
+   "checks": [
+    {
+     "passage": "The runners ___ toward the finish line, each one trying to win the race.",
+     "stem": "Which word fits best?",
+     "options": [
+      "strolled",
+      "wandered",
+      "raced",
+      "tiptoed"
+     ],
+     "answer": 2,
+     "why": "They were **trying to win**, so they moved very fast: **raced**."
+    },
+    {
+     "passage": "Lina was a little ___ when her friend was late, but she forgot about it in a few minutes.",
+     "stem": "Which word fits best?",
+     "options": [
+      "annoyed",
+      "furious",
+      "heartbroken",
+      "terrified"
+     ],
+     "answer": 0,
+     "why": "**A little** and **forgot about it** show a mild feeling: annoyed."
+    },
+    {
+     "passage": "Grandpa ___ along the beach, enjoying the cool evening breeze, in no hurry at all.",
+     "stem": "Which word fits best?",
+     "options": [
+      "sprinted",
+      "dashed",
+      "rushed",
+      "strolled"
+     ],
+     "answer": 3,
+     "why": "**In no hurry** and **enjoying the breeze** show a slow, relaxed walk: strolled."
+    }
+   ],
+   "again": {
+    "title": "Line them up",
+    "text": "Put the words in a line from **weakest** to **strongest**.\n\nThen ask: how strong is the feeling or action in the text?",
+    "example": "Words: **giggle, laugh, roar with laughter**\n\nText: \"The joke was so funny that Ahmad fell off his chair.\" Very strong, so **roared with laughter**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Precise words",
+     "text": "Good writers choose the **most precise** word. *Ate* is fine, but *nibbled* and *devoured* tell you much more.\n\nAs a reader, you notice which word fits the **exact** situation."
+    },
+    {
+     "title": "Ways words differ",
+     "text": "Related words can differ in:\n\n**Strength:** pleased → thrilled → overjoyed\n**Speed or time:** glance (quick) vs. stare (long)\n**Amount:** nibble (a little) vs. devour (a lot, fast)\n**Feeling:** fragrant (nice smell) vs. stinking (bad smell)"
+    },
+    {
+     "title": "Steps",
+     "text": "1. Collect details from the passage: how much, how fast, how strong, good or bad?\n2. Check each choice against **all** the details.\n3. Reject words that are close but too weak, too strong or the wrong feeling."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the best word, point to the details it matches.\n\n1. Find the sentences that describe the situation.\n2. Show how the details match your word's exact meaning.\n3. Show why a close choice does **not** match those details."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sara ___ at the clock.",
+      "role": "main"
+     },
+     {
+      "t": "She had only a second before the teacher turned around.",
+      "role": "key"
+     },
+     {
+      "t": "She looked back at her paper right away.",
+      "role": "key"
+     }
+    ],
+    "explain": "**stared** or **glanced**? She had **only a second** and looked back **right away**.\n\n**Glanced** (a very quick look) fits best."
+   },
+   "together": {
+    "passage": "Faisal had not eaten anything since dawn. After the long football match, he was starving. At the table, he ___ two whole plates of kabsa in five minutes. His mother laughed and brought him a third. His little sister, who had eaten a big lunch, only picked at a few grains of rice.",
+    "stem": "Which word fits best in the blank?",
+    "options": [
+     "nibbled",
+     "tasted",
+     "sampled",
+     "devoured"
+    ],
+    "answer": 3,
+    "hint": "How hungry was Faisal? How much did he eat, and how fast?",
+    "good": "Yes! Starving, two plates in five minutes: devoured means ate a lot, very fast."
+   },
+   "evidence": {
+    "sentences": [
+     "Faisal had not eaten anything since dawn.",
+     "After the long football match, he was starving.",
+     "At the table, he ___ two whole plates of kabsa in five minutes.",
+     "His mother laughed and brought him a third.",
+     "His little sister, who had eaten a big lunch, only picked at a few grains of rice."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: devoured. Tap 2 sentences that show how hungry Faisal was or how much he ate.",
+    "wrong": "This sentence is about his sister, who was not hungry. Find the clues about Faisal."
+   },
+   "checks": [
+    {
+     "passage": "In the museum, Yusuf ___ at the old painting for a full ten minutes, noticing every tiny brushstroke.",
+     "stem": "Which word fits best?",
+     "options": [
+      "glanced",
+      "peeked",
+      "blinked",
+      "gazed"
+     ],
+     "answer": 3,
+     "why": "**Ten minutes** and **every tiny brushstroke** show a long, steady look: gazed. Glanced and peeked are quick."
+    },
+    {
+     "passage": "When Majed won the national science prize, he was not just happy. He jumped up, shouted and hugged everyone around him. He was ___.",
+     "stem": "Which word fits best?",
+     "options": [
+      "content",
+      "satisfied",
+      "overjoyed",
+      "pleased"
+     ],
+     "answer": 2,
+     "why": "**Not just happy**, plus jumping and shouting, shows the strongest word: overjoyed."
+    },
+    {
+     "passage": "The ___ smell of fresh bread drifted out of the bakery, and people on the street stopped to breathe it in.",
+     "stem": "Which word fits best?",
+     "options": [
+      "stinking",
+      "fragrant",
+      "musty",
+      "sour"
+     ],
+     "answer": 1,
+     "why": "People **stopped to breathe it in**, so the smell is pleasant: fragrant."
+    }
+   ],
+   "again": {
+    "title": "Too weak, too strong, just right",
+    "text": "Test each word:\n\n**Too weak?** It does not match how strong the details are.\n**Too strong?** It is more than the details show.\n**Just right?** It matches every detail.",
+    "example": "\"The water was ___, so we swam for hours.\"\n\nfreezing: too strong (no one swims for hours). chilly: a bit cold. **pleasant: just right**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Connotation",
+     "text": "Words have a dictionary meaning (**denotation**) and a feeling (**connotation**).\n\n*persistent* and *stubborn* both mean not giving up. *Persistent* sounds **positive**; *stubborn* often sounds **negative**."
+    },
+    {
+     "title": "Context decides",
+     "text": "The same fact can be described with praise or criticism:\n\n*She is* **thrifty** (wise with money) / *She is* **stingy** (unwilling to share)\n\nThe writer's attitude and the details tell you which word fits."
+    },
+    {
+     "title": "A careful method",
+     "text": "1. Find the writer's **attitude**: praising, criticising, neutral?\n2. Note the details that show it.\n3. Compare choices for both **meaning** and **connotation**.\n4. Pick the word that fits both."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a nuanced choice, show the **attitude** and the **facts**.\n\n1. Find details that show what the person did or what happened.\n2. Find words that show how the writer or others judge it (praised, criticised, admired).\n3. Choose the word that matches both, and reject words with the wrong feeling."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The scholar is ___ across the Arab world for her translations of classical poetry.",
+      "role": "main"
+     },
+     {
+      "t": "Universities invite her to speak every year.",
+      "role": "key"
+     },
+     {
+      "t": "Her books are used in classrooms in many countries.",
+      "role": "key"
+     }
+    ],
+    "explain": "**famous**, **notorious** or **renowned**? The details are all **admiring**.\n\n*Notorious* means famous for something bad, so **renowned** (famous and respected) fits best."
+   },
+   "together": {
+    "passage": "Dr. Amal's laboratory sits on the edge of the city, beside a small date farm. For three years, she tested more than two hundred ways to grow wheat with less water. When early trials failed, she adjusted her methods rather than giving up. Colleagues who once doubted her now describe her work as a model for farmers in dry regions. At a ceremony in her honour, the minister praised her as ___ and inspiring.",
+    "stem": "Which word fits best in the blank?",
+    "options": [
+     "stubborn",
+     "obstinate",
+     "persistent",
+     "pushy"
+    ],
+    "answer": 2,
+    "hint": "All four words describe someone who does not give up. Which one sounds like praise?",
+    "good": "Yes! Persistent means continuing through difficulty, and it is a word of praise, which fits the ceremony."
+   },
+   "evidence": {
+    "sentences": [
+     "Dr. Amal's laboratory sits on the edge of the city, beside a small date farm.",
+     "For three years, she tested more than two hundred ways to grow wheat with less water.",
+     "When early trials failed, she adjusted her methods rather than giving up.",
+     "Colleagues who once doubted her now describe her work as a model for farmers in dry regions.",
+     "At a ceremony in her honour, the minister praised her as ___ and inspiring."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: persistent. Tap 2 sentences that show she kept going, or that people admire her for it.",
+    "wrong": "This sentence only tells where her laboratory is. Find the sentences about her long effort or the praise she received."
+   },
+   "checks": [
+    {
+     "passage": "The travel guide describes the old souq as ___, with narrow lanes full of history, friendly shopkeepers and the smell of spices.",
+     "stem": "Which word fits best?",
+     "options": [
+      "cramped",
+      "charming",
+      "shabby",
+      "congested"
+     ],
+     "answer": 1,
+     "why": "The details (history, friendly, spices) are **positive**. The other words describe narrow lanes negatively."
+    },
+    {
+     "passage": "Our neighbour is ___: he refused to lend his ladder for even five minutes, though he has not used it in years.",
+     "stem": "Which word fits best?",
+     "options": [
+      "thrifty",
+      "frugal",
+      "economical",
+      "stingy"
+     ],
+     "answer": 3,
+     "why": "Refusing to **share** something he never uses is negative. **Stingy** has that negative connotation; the others are about wisely saving."
+    },
+    {
+     "passage": "The reporter wanted to stay neutral. She wrote that the council ___ the new parking fees, without praising or criticising the decision.",
+     "stem": "Which word fits best?",
+     "options": [
+      "announced",
+      "forced through",
+      "proudly unveiled",
+      "sneakily added"
+     ],
+     "answer": 0,
+     "why": "She wanted to be **neutral**. **Announced** has no positive or negative feeling."
+    }
+   ],
+   "again": {
+    "title": "Plus, minus, zero",
+    "text": "Give each choice a sign:\n\n**+** sounds positive · **−** sounds negative · **0** neutral\n\nThen match the sign to the writer's attitude in the text.",
+    "example": "\"The crowd ___ outside the stadium, waiting calmly for the gates to open.\"\n\nmob (−) · horde (−) · **gathered (0)** ✔ The word *calmly* shows the writer is not criticising."
+   }
+  }
+ }
+}

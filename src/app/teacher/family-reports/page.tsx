@@ -6,7 +6,9 @@ import { readableClasses } from "@/server/teacher/coordinators";
 import { classMembers, studentNames } from "@/server/insights/student-data";
 import { staffFamilyReports, KIND_LABEL, type ReportStatus } from "@/server/reports/family-reports";
 import { StatusChip } from "@/components/reports/family-report-view";
-import { newFamilyReportAction } from "./actions";
+import { newFamilyReportAction, prepareMonthlyReportsAction } from "./actions";
+import { getT } from "@/i18n/server";
+import { Combo } from "@/components/ui/combo";
 
 export const metadata = { title: "Family Reports" };
 
@@ -14,6 +16,7 @@ export const metadata = { title: "Family Reports" };
 export default async function FamilyReportsPage({ searchParams }: { searchParams: Promise<{ classId?: string; status?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
+  const { t } = await getT();
   const sp = await searchParams;
   const classes = (await readableClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const klass = classes.find((c) => c.id === sp.classId) ?? classes[0];
@@ -28,7 +31,17 @@ export default async function FamilyReportsPage({ searchParams }: { searchParams
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="👪" title="Family Reports"
         subtitle="Prepare a report with one click (the platform writes it from MAP, the Diagnostic, reading fluency and practice) or write your own. Check it, edit it, then send it: a school admin approves it before the family sees it." />
-      <p className="mb-4"><Link prefetch={false} href={`/teacher/family-reports/weekly${klass ? `?classId=${klass.id}` : ""}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">🗓</span> Weekly family summary (print, one page per student)</Link></p>
+      {/* one weekly family page (the older "Weekly family summary" redirects here) and the monthly reports */}
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <Link prefetch={false} href={`/teacher/family-reports/this-week${klass ? `?classId=${klass.id}` : ""}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-teal-700 px-4 py-2 font-semibold text-white"><span aria-hidden="true">👪</span> {t("Family reports this week")}</Link>
+        {klass && (
+          <form action={prepareMonthlyReportsAction}>
+            <input type="hidden" name="classId" value={String(klass.id)} />
+            <button className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">📅</span> {t("Prepare the monthly reports")}</button>
+          </form>
+        )}
+        <span className="text-sm text-slate-500">{t("Monthly reports are written for every student at month end: read each one, add your note, send it for approval.")}</span>
+      </div>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {klass && (
         <section className="rounded-3xl bg-gradient-to-br from-teal-50 to-white p-5 ring-1 ring-teal-200">
@@ -37,7 +50,7 @@ export default async function FamilyReportsPage({ searchParams }: { searchParams
           <form action={newFamilyReportAction} className="mt-4 flex flex-wrap items-end gap-3">
             <input type="hidden" name="back" value={`/teacher/family-reports?classId=${klass.id}`} />
             <label className="text-sm font-semibold text-slate-700">Student
-              <select name="studentId" required className="mt-1 block min-w-60 rounded-xl border border-slate-300 bg-white px-3 py-2">{names.map((n) => <option key={n.id} value={n.id}>{n.name}</option>)}</select>
+              <Combo name="studentId" required label="Student" options={names.map((n) => ({ value: n.id, label: n.name }))} className="mt-1 min-w-60" />
             </label>
             <button name="kind" value="AUTO" className="rounded-xl bg-brand-navy px-4 py-2.5 font-semibold text-white hover:bg-brand-purple">✨ Prepare it for me</button>
             <button name="kind" value="MANUAL" className="rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">✍️ I will write it</button>

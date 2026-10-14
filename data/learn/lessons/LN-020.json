@@ -1,0 +1,474 @@
+{
+ "code": "LN-020",
+ "title": "Supporting a claim with reasons and evidence",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Provide Support; Develop Topics; Conduct Research",
+ "standards": [
+  "W.5.1.b"
+ ],
+ "families": [
+  "writing-argument"
+ ],
+ "skillNames": [],
+ "statements": [
+  "L-0072",
+  "L-0073",
+  "L-0074",
+  "L-0172",
+  "L-0173",
+  "L-0174",
+  "L-0175",
+  "L-0276",
+  "L-0277",
+  "L-0278",
+  "L-0322"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Opinion and reason",
+     "text": "An **opinion** is what you think.\n\nA **reason** tells **why** you think it.\n\nGood writers always give reasons."
+    },
+    {
+     "title": "Use because",
+     "text": "**Opinion:** Cats are the best pets.\n\n**Reason:** **because** they are clean and quiet.\n\nThe word **because** helps you give a reason."
+    },
+    {
+     "title": "Does it fit?",
+     "text": "A good reason must **match** the opinion.\n\n\"Cats are the best pets because the sky is blue.\" That reason does **not** fit!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A reason must be **about** the opinion.\n\n1. Find the opinion.\n2. Read each reason.\n3. Ask: **Does this tell WHY?**\n\nIf it does not tell why, it is not a good reason."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Playing outside is good for kids.",
+      "role": "main"
+     },
+     {
+      "t": "They get fresh air.",
+      "role": "detail"
+     },
+     {
+      "t": "They run and get strong.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The opinion is: **playing outside is good for kids**.\n\nFresh air and getting strong both tell **why**. They are good reasons."
+   },
+   "together": {
+    "passage": "Our class should have a pet fish. Fish are easy to feed. They are fun to watch. My friend has a red bike.",
+    "stem": "Which sentence does NOT belong in this paragraph?",
+    "options": [
+     "Our class should have a pet fish.",
+     "Fish are easy to feed.",
+     "They are fun to watch.",
+     "My friend has a red bike."
+    ],
+    "answer": 3,
+    "hint": "That sentence belongs. It is the opinion or a reason for it. Which sentence is not about the pet fish at all?",
+    "good": "Yes! A red bike has nothing to do with a pet fish. It is not a reason."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class should have a pet fish.",
+     "Fish are easy to feed.",
+     "They are fun to watch.",
+     "My friend has a red bike."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: My friend has a red bike. Tap the 2 sentences that DO give reasons for a pet fish.",
+    "wrong": "This sentence is the opinion or not about fish. Find the two reasons."
+   },
+   "checks": [
+    {
+     "passage": "Opinion: Children should eat fruit every day.",
+     "stem": "Which is the best reason?",
+     "options": [
+      "Fruit comes in many colours, shapes and sizes.",
+      "Fruit has vitamins that keep you healthy.",
+      "Shops sell fruit.",
+      "I ate a banana."
+     ],
+     "answer": 1,
+     "why": "Vitamins that keep you healthy tell why children should eat fruit."
+    },
+    {
+     "passage": "Opinion: Reading at night is a good habit.",
+     "stem": "Which is the best reason?",
+     "options": [
+      "It helps you relax before sleep.",
+      "Books have covers.",
+      "The moon is out at night.",
+      "My lamp is yellow."
+     ],
+     "answer": 0,
+     "why": "Relaxing before sleep tells why reading at night is good."
+    },
+    {
+     "passage": "Opinion: Our school needs more trees.",
+     "stem": "Which is the best reason?",
+     "options": [
+      "Trees can be very old.",
+      "Some trees are tall.",
+      "Trees give us shade on hot days.",
+      "I saw a tree."
+     ],
+     "answer": 2,
+     "why": "Shade on hot days tells why the school needs trees."
+    }
+   ],
+   "again": {
+    "title": "Opinion + because",
+    "text": "Say your opinion. Then add **because**.\n\nCheck: does the part after **because** tell **why**?",
+    "example": "\"Bikes are fun **because** you can ride fast and feel the wind.\"\n\nYes! That tells why."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Support your position",
+     "text": "In persuasive writing, you take a **position**. You must **support** it with reasons and details.\n\nWithout support, the reader has no reason to agree."
+    },
+    {
+     "title": "Kinds of support",
+     "text": "1. **Reasons:** why your position is right.\n2. **Facts:** things that can be checked. \"Our yard has no shade.\"\n3. **Examples:** real cases that show your point.\n\nFeelings alone (\"I just like it\") are weak support."
+    },
+    {
+     "title": "Stay on topic",
+     "text": "Every detail must help **your** position.\n\nA detail can be true and interesting, but if it does not support the position, it does **not** belong."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a detail supports a position, connect them.\n\n1. State the position in your own words.\n2. Read the detail.\n3. Ask: **Does this make the position stronger?**\n\nIf the answer is no, or the detail argues the other side, it does not support it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Students should be allowed to bring water bottles to class.",
+      "role": "main"
+     },
+     {
+      "t": "Drinking water helps the brain stay alert.",
+      "role": "detail"
+     },
+     {
+      "t": "On hot days, students who drink water feel less tired.",
+      "role": "detail"
+     },
+     {
+      "t": "Water bottles come in many colours.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentences 2 and 3 **support** the position: they give reasons why water in class helps.\n\nSentence 4 is true, but the colour of a bottle does not make the position stronger."
+   },
+   "together": {
+    "passage": "Our town should open a skate park for young people. Right now, many teenagers skate in car parks, where it is not safe. A skate park would give them a safe place to practise. It would also bring friends together and keep young people active. The town already has two shopping centres.",
+    "stem": "A student wants to add one more detail to support the position. Which is best?",
+    "options": [
+     "Skateboards were first made many years ago.",
+     "Some people enjoy football more than skating.",
+     "Towns that built skate parks found that fewer young people skated in busy streets.",
+     "Car parks are usually painted grey."
+    ],
+    "answer": 2,
+    "hint": "Does that detail make the position stronger? Or is it just true and off topic?",
+    "good": "Yes! It is a fact that shows skate parks make skating safer, which supports the position."
+   },
+   "evidence": {
+    "sentences": [
+     "Our town should open a skate park for young people.",
+     "Right now, many teenagers skate in car parks, where it is not safe.",
+     "A skate park would give them a safe place to practise.",
+     "It would also bring friends together and keep young people active.",
+     "The town already has two shopping centres."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer showed that skate parks keep skaters safer. Tap 2 sentences in the text that also talk about safety.",
+    "wrong": "This sentence states the position, gives a different reason, or is off topic. Find the sentences about safety."
+   },
+   "checks": [
+    {
+     "passage": "Position: Our school should have a longer lunch break.",
+     "stem": "Which detail supports it best?",
+     "options": [
+      "Students who eat slowly often cannot finish their lunch in twenty minutes.",
+      "Lunch is the meal that most people eat in the middle of the day.",
+      "Some students bring rice for lunch.",
+      "The canteen has blue chairs and tables."
+     ],
+     "answer": 0,
+     "why": "It gives a fact that shows why a longer break is needed."
+    },
+    {
+     "passage": "Position: Families should visit museums together.",
+     "stem": "Which detail supports it best?",
+     "options": [
+      "Museums are buildings that have doors and windows.",
+      "Some museums close on Fridays.",
+      "Some families live far away from cities.",
+      "Museums let children ask questions and learn with their parents."
+     ],
+     "answer": 3,
+     "why": "It shows a benefit of visiting together, which supports the position."
+    },
+    {
+     "passage": "Position: Students should learn to swim at school.",
+     "stem": "Which kind of support is weakest?",
+     "options": [
+      "Swimming is a skill that can save lives.",
+      "I just like swimming a lot.",
+      "Swimming builds strong muscles.",
+      "Many families live near the sea."
+     ],
+     "answer": 1,
+     "why": "\"I just like it\" is only a feeling. It gives the reader no real reason."
+    }
+   ],
+   "again": {
+    "title": "Would it convince a friend?",
+    "text": "Imagine telling your reason to a friend who disagrees.\n\nWould it make them think? If it is off topic or only a feeling, find a better reason.",
+    "example": "Position: **We should plant a garden.**\n\nWeak: \"Gardens are nice.\" Strong: **\"A garden would give us fresh vegetables and a place to learn about plants.\"**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Claims need evidence",
+     "text": "In argument writing, a **claim** is the point you want to prove. **Reasons** explain why it is true, and **evidence** proves each reason.\n\nClaim → reason → evidence."
+    },
+    {
+     "title": "Types of evidence",
+     "text": "1. **Facts and numbers:** \"The school uses 2,000 plastic cups a week.\"\n2. **Expert opinion:** what a doctor, scientist or teacher says.\n3. **Examples:** a real case that shows the reason.\n\nChoose the type that best proves **your** reason."
+    },
+    {
+     "title": "Relevant and specific",
+     "text": "Strong evidence is **relevant** (about the reason) and **specific** (exact details, not \"lots\" or \"everyone knows\").\n\nWeak evidence is vague, off topic, or just someone's feeling."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose evidence, match it to the **reason** it must prove.\n\n1. Find the claim and the reason in the text.\n2. Ask: **What would prove this reason?**\n3. Choose the evidence that is about that reason and is specific.\n\nTrue facts about other things do not prove this reason."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: Schools should start later in the morning.",
+      "role": "main"
+     },
+     {
+      "t": "Reason: Teenagers need more sleep.",
+      "role": "detail"
+     },
+     {
+      "t": "Evidence: Sleep experts say that teenagers need about eight to ten hours of sleep each night.",
+      "role": "key"
+     }
+    ],
+    "explain": "The evidence matches the reason exactly: the reason is about **sleep**, and an **expert** gives a specific number of hours.\n\nThat makes the argument much stronger."
+   },
+   "together": {
+    "passage": "Our school should replace plastic cups in the canteen with reusable ones. Plastic cups are used once and then thrown away. Most of them end up in landfills, where they can take hundreds of years to break down. Reusable cups, on the other hand, can be washed and used again for years. Some students might forget to bring their cup, but the canteen could keep extra cups for them. Cups come in many sizes.",
+    "stem": "Which piece of evidence would best support the claim?",
+    "options": [
+     "Some students prefer orange juice to water at lunch.",
+     "Last term, our canteen threw away more than 3,000 plastic cups.",
+     "Plastic was invented more than a hundred years ago.",
+     "Many people like to drink tea from small glass cups."
+    ],
+    "answer": 1,
+    "hint": "Is that evidence about the problem of plastic cups at our school? Or is it true but off topic?",
+    "good": "Yes! A specific number from our own canteen proves that plastic cups create a lot of waste."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school should replace plastic cups in the canteen with reusable ones.",
+     "Plastic cups are used once and then thrown away.",
+     "Most of them end up in landfills, where they can take hundreds of years to break down.",
+     "Reusable cups, on the other hand, can be washed and used again for years.",
+     "Some students might forget to bring their cup, but the canteen could keep extra cups for them.",
+     "Cups come in many sizes."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The evidence showed how much waste the cups make. Tap 2 sentences that explain the waste problem it proves.",
+    "wrong": "This sentence states the claim, the solution, the other side or an off-topic fact. Find the sentences about plastic waste."
+   },
+   "checks": [
+    {
+     "passage": "Claim: Students should walk to school when it is safe. Reason: Walking improves health.",
+     "stem": "Which evidence best supports the reason?",
+     "options": [
+      "Walking shoes come in many different styles, colours and sizes for children.",
+      "Some roads have many cars.",
+      "Doctors recommend at least an hour of activity for children every day.",
+      "My neighbour has a car."
+     ],
+     "answer": 2,
+     "why": "An expert recommendation about daily activity proves that walking helps health."
+    },
+    {
+     "passage": "Claim: The city should build more bus stops. Reason: Many people have no easy way to travel.",
+     "stem": "Which kind of evidence would prove this reason best?",
+     "options": [
+      "A poem about buses",
+      "A list of bus colours",
+      "A story about a fast car",
+      "A survey of how many residents live far from a bus stop"
+     ],
+     "answer": 3,
+     "why": "Numbers from a survey show how many people lack transport, which proves the reason."
+    },
+    {
+     "passage": "Claim: Every class should have a class library.",
+     "stem": "Which sentence is the most specific evidence?",
+     "options": [
+      "After our class library opened, students borrowed 120 books in one month.",
+      "Everyone knows libraries are good.",
+      "Lots and lots of people really like reading books, and that is a fact.",
+      "Libraries are nice places."
+     ],
+     "answer": 0,
+     "why": "It gives an exact, checkable fact. The others are vague or just feelings."
+    }
+   ],
+   "again": {
+    "title": "Claim → reason → proof",
+    "text": "Build a chain:\n\n**Claim:** what I believe.\n**Reason:** why.\n**Proof:** a fact, number, expert or example that shows the reason is true.",
+    "example": "Claim: **We need shade in the playground.** Reason: **Students get too hot.** Proof: **At noon, the playground reaches 45°C in June.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Evaluating evidence",
+     "text": "Not all evidence is equally strong. Good writers test each piece:\n\n1. **Relevant:** does it prove this exact reason?\n2. **Sufficient:** is there enough of it?\n3. **Credible:** does it come from a reliable source?\n4. **Specific:** does it give exact details?"
+    },
+    {
+     "title": "Matching evidence to purpose",
+     "text": "A claim about **health** is best supported by medical research or expert advice. A claim about **cost** needs prices and budgets. A claim about **what people want** needs surveys.\n\nThe type of evidence must fit the type of reason."
+    },
+    {
+     "title": "Answering the other side",
+     "text": "Strong arguments also address a **counterclaim**: what someone who disagrees might say.\n\nThe writer gives evidence that answers it. Evidence that actually supports the other side weakens your argument if left unanswered."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To choose the strongest evidence, read the passage to find **exactly what must be proved**.\n\n1. Identify the claim and each reason.\n2. Notice any counterclaim the writer must answer.\n3. Choose the evidence that is relevant, credible and specific for **that** point.\n\nReject evidence that is vague, off topic, or helps the other side."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Claim: The city should plant more trees along its streets.",
+      "role": "main"
+     },
+     {
+      "t": "Reason: Trees cool the air in hot weather.",
+      "role": "detail"
+     },
+     {
+      "t": "Evidence: Studies of city streets have found that shaded pavements can be many degrees cooler than unshaded ones in summer.",
+      "role": "key"
+     },
+     {
+      "t": "Weak evidence: My uncle thinks trees are pretty.",
+      "role": "other"
+     }
+    ],
+    "explain": "The strong evidence is **relevant** (it is about cooling), **credible** (it comes from studies) and **specific** (it compares shaded and unshaded pavements).\n\nThe uncle's opinion is about beauty, not cooling, and is not credible support."
+   },
+   "together": {
+    "passage": "Some parents argue that tablets distract young students, but I believe our primary school should use tablets for part of each school day. Tablets give students access to reading apps that adjust to each child's level. They can also hold hundreds of books, so students are never short of something to read. Critics worry that children will spend the time playing games instead of learning. However, teachers can lock tablets so that only school apps open during lessons. Tablets are also lighter than a bag full of books.",
+    "stem": "The writer wants to add evidence that answers the critics' worry. Which is the strongest?",
+    "options": [
+     "In a pilot class where tablets were locked to learning apps, teachers reported that students stayed on task as well as with paper books.",
+     "Tablets were first sold to the public many years ago and are now very popular.",
+     "My cousin loves playing games on his tablet every evening.",
+     "Some tablets have larger screens than others, which makes reading easier for students with weak eyesight."
+    ],
+    "answer": 0,
+    "hint": "Which choice directly answers the worry about games? Is it credible and specific, or off topic?",
+    "good": "Yes! It answers the critics with specific, credible evidence that locked tablets keep students on task."
+   },
+   "evidence": {
+    "sentences": [
+     "Some parents argue that tablets distract young students, but I believe our primary school should use tablets for part of each school day.",
+     "Tablets give students access to reading apps that adjust to each child's level.",
+     "They can also hold hundreds of books, so students are never short of something to read.",
+     "Critics worry that children will spend the time playing games instead of learning.",
+     "However, teachers can lock tablets so that only school apps open during lessons.",
+     "Tablets are also lighter than a bag full of books."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The evidence answers a worry. Tap the 2 sentences that state the worry and the writer's first answer to it.",
+    "wrong": "This sentence states the claim or gives a different benefit. Find the worry about games and the writer's reply."
+   },
+   "checks": [
+    {
+     "passage": "Claim: Our school should add a daily ten-minute reading time. Reason: Reading every day improves vocabulary.",
+     "stem": "Which evidence is most relevant and credible?",
+     "options": [
+      "Many students say they enjoy picture books.",
+      "The library is next to the gym.",
+      "Some students read faster than others.",
+      "Research on young readers shows that daily reading time is linked to stronger vocabulary growth."
+     ],
+     "answer": 3,
+     "why": "It is research about the exact reason: daily reading and vocabulary."
+    },
+    {
+     "passage": "Claim: The school should buy solar panels. Reason: They will save money over time.",
+     "stem": "Which type of evidence best fits this reason?",
+     "options": [
+      "A drawing of the sun",
+      "Electricity bills compared with the cost of the panels",
+      "A student's favourite colour",
+      "A story about a sunny day at the beach"
+     ],
+     "answer": 1,
+     "why": "A reason about saving money needs cost evidence, such as bills and prices."
+    },
+    {
+     "passage": "Claim: Students should have a choice of sports in PE. A counterclaim says it would be hard to organise.",
+     "stem": "Which evidence best answers the counterclaim?",
+     "options": [
+      "Football is the most popular sport in many countries, and millions of children play it every week.",
+      "Some students do not like running.",
+      "A nearby school runs three sports at once with the same number of teachers, using a simple timetable.",
+      "Sports clothes can be expensive."
+     ],
+     "answer": 2,
+     "why": "It shows with a specific example that choice can be organised, answering the concern."
+    }
+   ],
+   "again": {
+    "title": "The three-question test",
+    "text": "Hold up each piece of evidence and ask:\n\n1. Is it **about my reason**?\n2. Can it be **trusted**?\n3. Is it **exact**?\n\nThree yeses = strong evidence.",
+    "example": "Reason: **Breakfast helps students focus.**\n\n\"Everyone eats breakfast\" → no, no, no. \"A school nurse's records showed fewer morning headaches after a breakfast club began\" → yes, yes, yes."
+   }
+  }
+ }
+}

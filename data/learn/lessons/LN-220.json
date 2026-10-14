@@ -1,0 +1,466 @@
+{
+ "code": "LN-220",
+ "title": "Analogies",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "RI.8.4"
+ ],
+ "families": [],
+ "skillNames": [
+  "Analogies"
+ ],
+ "statements": [
+  "R-0801"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an analogy?",
+     "text": "An **analogy** explains something **new** by comparing it to something you **already know**.\n\n“The heart is like a **pump**. It pushes blood around the body.”"
+    },
+    {
+     "title": "Why it helps",
+     "text": "A pump pushes water through pipes. The heart pushes blood through the body.\n\nNow the heart is **easy to understand**."
+    },
+    {
+     "title": "How to read it",
+     "text": "1. Find the two things being compared.\n2. Ask: what is the **same** about them?\n3. Use the thing you know to understand the new thing."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentences that show **how** the two things are the same.\n\nTap them. They are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Your skin is like a coat for your body.",
+      "role": "main"
+     },
+     {
+      "t": "A coat keeps out the cold and rain.",
+      "role": "key"
+     },
+     {
+      "t": "Your skin keeps out dirt and germs.",
+      "role": "key"
+     }
+    ],
+    "explain": "A coat **protects** you. Skin **protects** your body too.\n\nThe analogy helps us understand what skin does."
+   },
+   "together": {
+    "passage": "A school is like a beehive. In a hive, every bee has a job. Some bees make honey, and some guard the door. In a school, teachers teach, cooks make lunch and guards keep everyone safe.",
+    "stem": "How is a school like a beehive?",
+    "options": [
+     "Both have honey.",
+     "Everyone in them has a job.",
+     "Both are made of wax.",
+     "Both are very small."
+    ],
+    "answer": 1,
+    "hint": "A school has no honey or wax! What do the bees and the people DO?",
+    "good": "Yes! Every bee has a job, and every person in a school has a job too."
+   },
+   "evidence": {
+    "sentences": [
+     "A school is like a beehive.",
+     "In a hive, every bee has a job.",
+     "Some bees make honey, and some guard the door.",
+     "In a school, teachers teach, cooks make lunch and guards keep everyone safe."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: everyone in them has a job. Tap 2 sentences that show it.",
+    "wrong": "This sentence only says they are alike. Find sentences that show HOW they are alike."
+   },
+   "checks": [
+    {
+     "passage": "The eye works like a camera. Light goes into the front. A picture forms at the back.",
+     "stem": "How is the eye like a camera?",
+     "options": [
+      "Both take in light and make a picture.",
+      "The eye is made of plastic.",
+      "The eye can print photos.",
+      "The eye needs batteries."
+     ],
+     "answer": 0,
+     "why": "Light goes in, and a picture forms. That is what a camera does too."
+    },
+    {
+     "passage": "A library is like a bank for books. You take out a book, and later you bring it back.",
+     "stem": "What does the analogy help explain?",
+     "options": [
+      "You pay money at a library.",
+      "Libraries are very big.",
+      "You borrow and return books.",
+      "Books are made of money."
+     ],
+     "answer": 2,
+     "why": "You take out a book and bring it back. You borrow and return books."
+    },
+    {
+     "passage": "Roots are like straws for a plant. They drink water up from the soil.",
+     "stem": "What does the analogy help explain?",
+     "options": [
+      "Roots are made of plastic.",
+      "Plants drink juice.",
+      "Roots are long and thin.",
+      "Roots bring water up into the plant."
+     ],
+     "answer": 3,
+     "why": "A straw brings a drink up to you. Roots bring water up from the soil into the plant."
+    }
+   ],
+   "again": {
+    "title": "Known → new",
+    "text": "1. Find the thing you **know** (pump, coat, straw).\n2. Say what it **does**.\n3. The new thing does the **same job**.",
+    "example": "“The brain is like the boss of the body.”\n\nA boss **gives orders**. The brain **tells the body what to do**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Analogies explain",
+     "text": "An **analogy** compares two things to explain how something **works**.\n\nIt is often longer than a simile. It shows **several ways** the two things are alike."
+    },
+    {
+     "title": "An example",
+     "text": "“A city's roads are like the body's blood vessels. Big highways carry lots of traffic, like large blood vessels. Small streets reach every house, like tiny ones. If a road is blocked, traffic stops, just as a blocked blood vessel causes problems.”"
+    },
+    {
+     "title": "Three steps",
+     "text": "1. Name the **familiar** thing and the **new** thing.\n2. List the matching parts.\n3. Ask: what does the analogy help me understand?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentences where the writer **matches parts** of the two things.\n\nThose sentences prove what the analogy explains."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A computer's memory is like a desk.",
+      "role": "main"
+     },
+     {
+      "t": "The bigger the desk, the more papers you can spread out and work on at once.",
+      "role": "key"
+     },
+     {
+      "t": "In the same way, more memory lets a computer run more programs at the same time.",
+      "role": "key"
+     }
+    ],
+    "explain": "Desk space ↔ memory. Papers ↔ programs.\n\nThe analogy explains that **more memory lets a computer do more things at once**."
+   },
+   "together": {
+    "passage": "Think of the Earth's atmosphere as a blanket. A blanket keeps your body warm at night by trapping the heat your body gives off. In a similar way, gases in the atmosphere trap some of the heat that the Earth gives off after the sun warms it. Without this blanket, the Earth would be far colder, and nights would be freezing. But if the blanket gets too thick, the planet can become too warm.",
+    "stem": "What does the blanket analogy help explain?",
+    "options": [
+     "why people sleep better under thick blankets",
+     "how the atmosphere traps heat to warm the Earth",
+     "why the sun is so hot",
+     "how blankets are made in factories"
+    ],
+    "answer": 1,
+    "hint": "The passage is not really about sleep or making blankets. What does the blanket stand for, and what does it do?",
+    "good": "Yes! A blanket traps body heat, and the atmosphere traps the Earth's heat."
+   },
+   "evidence": {
+    "sentences": [
+     "Think of the Earth's atmosphere as a blanket.",
+     "A blanket keeps your body warm at night by trapping the heat your body gives off.",
+     "In a similar way, gases in the atmosphere trap some of the heat that the Earth gives off after the sun warms it.",
+     "Without this blanket, the Earth would be far colder, and nights would be freezing.",
+     "But if the blanket gets too thick, the planet can become too warm."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: how the atmosphere traps heat to warm the Earth. Tap 2 sentences that match the parts.",
+    "wrong": "This sentence introduces the comparison or warns about too much heat. Find the sentences that show HOW the blanket and the atmosphere work alike."
+   },
+   "checks": [
+    {
+     "passage": "The nucleus is the control centre of a cell, like a school's head office. The head office makes decisions and sends instructions to every classroom. The nucleus holds the instructions that tell the cell what to do.",
+     "stem": "What does the analogy help explain?",
+     "options": [
+      "what the nucleus does in a cell",
+      "how big a school is",
+      "why cells are small",
+      "who works in a head office"
+     ],
+     "answer": 0,
+     "why": "Head office ↔ nucleus; instructions to classrooms ↔ instructions to the cell. It explains the nucleus's job."
+    },
+    {
+     "passage": "A good friendship is like a garden. If you water it and pull the weeds, it grows. If you forget about it, it slowly dries up.",
+     "stem": "What does the analogy suggest?",
+     "options": [
+      "Friends like gardening.",
+      "Gardens are full of friends.",
+      "Friendships need care to stay strong.",
+      "Weeds are bad friends."
+     ],
+     "answer": 2,
+     "why": "Watering and weeding stand for caring. Without care, a friendship dries up like a garden."
+    },
+    {
+     "passage": "Learning a language is like building a wall. Each new word is a brick. Grammar is the cement that holds the bricks together.",
+     "stem": "In this analogy, what is grammar compared to?",
+     "options": [
+      "the bricks",
+      "the wall",
+      "the cement",
+      "the builder"
+     ],
+     "answer": 2,
+     "why": "The text says: “Grammar is the cement that holds the bricks together.”"
+    }
+   ],
+   "again": {
+    "title": "Match the parts",
+    "text": "Make pairs.\n\nfamiliar thing ↔ new thing\npart ↔ part\njob ↔ job\n\nThe pairs show what the analogy teaches.",
+    "example": "“The internet is like a road system.”\n\nroads ↔ cables\ncars ↔ messages\ntraffic jams ↔ slow connections\n\nIt explains how **information travels**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The effect of an analogy",
+     "text": "Analogies do more than explain. They can make an idea **vivid**, **memorable** or **persuasive**.\n\nA writer who compares cutting school sports to “removing a car's engine to save fuel” makes the plan sound **foolish**."
+    },
+    {
+     "title": "Explain or persuade?",
+     "text": "In science writing, analogies usually **explain**: “Electricity flows through wires like water through pipes.”\n\nIn opinion writing, analogies often **persuade**: they make the reader see an issue in a certain way."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Identify the two things compared.\n2. Note the matching parts.\n3. Ask: does the analogy explain, persuade, or both?\n4. Explain what the reader now understands or feels."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show the matching parts **and** the writer's point.\n\nThe best evidence includes the sentences that develop the comparison and the sentence that states what it is meant to show."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Some people say that cutting the school library budget will save money.",
+      "role": "other"
+     },
+     {
+      "t": "But closing a library to save money is like refusing to buy seeds to save on farming costs.",
+      "role": "main"
+     },
+     {
+      "t": "You save a little today, but nothing grows tomorrow.",
+      "role": "key"
+     }
+    ],
+    "explain": "Seeds ↔ books. Harvest ↔ students' learning.\n\nThe analogy **persuades** by making the cut sound **short-sighted**: a small saving now leads to a big loss later."
+   },
+   "together": {
+    "passage": "Many students think that studying the night before a test is enough. But learning is more like building a road than painting a wall. A painted wall looks finished in an afternoon, yet the paint can peel within weeks. A road, by contrast, is built layer by layer: first the foundation, then the gravel, then the surface. Each layer takes time, but together they create something that lasts for years. In the same way, studying a little each day builds knowledge that stays with you long after the test.",
+    "stem": "What is the writer's main purpose in using this analogy?",
+    "options": [
+     "to explain how roads are built",
+     "to show that steady daily study lasts longer",
+     "to argue that painting walls is a waste of time",
+     "to describe a school building project"
+    ],
+    "answer": 1,
+    "hint": "The road details are there for a reason. Read the last sentence: what does the writer want students to DO?",
+    "good": "Yes! Quick work peels like paint, but layer-by-layer study lasts like a road. The writer wants students to study every day."
+   },
+   "evidence": {
+    "sentences": [
+     "Many students think that studying the night before a test is enough.",
+     "But learning is more like building a road than painting a wall.",
+     "A painted wall looks finished in an afternoon, yet the paint can peel within weeks.",
+     "A road, by contrast, is built layer by layer: first the foundation, then the gravel, then the surface.",
+     "Each layer takes time, but together they create something that lasts for years.",
+     "In the same way, studying a little each day builds knowledge that stays with you long after the test."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: to show that steady daily study lasts longer. Tap 2 sentences that build this point.",
+    "wrong": "This sentence gives the opposite view or just introduces the comparison. Find the sentences that show what LASTS and what does NOT."
+   },
+   "checks": [
+    {
+     "passage": "A vaccine works like a “wanted” poster. It shows the body's defence system what a germ looks like, so the body can recognise and fight the germ quickly if it ever appears.",
+     "stem": "What does the analogy help explain?",
+     "options": [
+      "Vaccines are printed on paper.",
+      "Germs are criminals.",
+      "Posters can cure illness.",
+      "Vaccines teach the body to recognise a germ."
+     ],
+     "answer": 3,
+     "why": "A wanted poster helps people recognise someone. A vaccine helps the body recognise a germ."
+    },
+    {
+     "passage": "Throwing plastic into the ocean is like hiding rubbish under your bed. You cannot see it, but it is still there, and one day the room will be full.",
+     "stem": "What effect does this analogy have?",
+     "options": [
+      "It makes the hidden problem feel real.",
+      "It teaches how to clean a bedroom.",
+      "It shows that oceans are small.",
+      "It explains how plastic is made."
+     ],
+     "answer": 0,
+     "why": "Everyone can imagine a bedroom filling with hidden rubbish. The analogy makes ocean pollution feel close and serious."
+    },
+    {
+     "passage": "The writer compares a team without a captain to “a ship without a rudder”.",
+     "stem": "What does the analogy suggest?",
+     "options": [
+      "The team needs a boat.",
+      "The captain is too strict.",
+      "The team plays near the sea.",
+      "Without a leader, the team drifts."
+     ],
+     "answer": 3,
+     "why": "A rudder steers a ship. Without a captain, the team has nothing to steer it, so it has no direction."
+    }
+   ],
+   "again": {
+    "title": "So what?",
+    "text": "After you match the parts, ask **So what?**\n\n1. What is the writer trying to make me **understand**?\n2. What is the writer trying to make me **feel or believe**?",
+    "example": "“A city without trees is like a house without windows.”\n\nMatch: trees ↔ windows (light, fresh air).\nSo what? The writer wants us to feel that trees are **essential**, not decoration."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Analogies in argument",
+     "text": "Writers use analogies to make abstract ideas concrete and to steer the reader's judgement.\n\nComparing a country's economy to a family budget suggests that a government should spend only what it earns."
+    },
+    {
+     "title": "Where analogies break down",
+     "text": "Every analogy has **limits**. A family cannot print money or borrow the way a government can, so the budget analogy leaves out important differences.\n\nCritical readers ask: **what does the comparison hide?**"
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Map the matching parts.\n2. State what the writer wants you to conclude.\n3. Judge the effect: does it clarify, persuade or oversimplify?\n4. Note any important way the two things differ."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your analysis with the sentences that build or challenge the comparison **and** the sentence that reveals the writer's conclusion.\n\nSentences that only describe the opposing view are not proof of the writer's purpose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our brains are often compared to computers.",
+      "role": "other"
+     },
+     {
+      "t": "Like a computer, the brain takes in information, stores it and uses it to solve problems.",
+      "role": "key"
+     },
+     {
+      "t": "But unlike a computer, the brain changes its own connections every time it learns, and it can imagine and feel.",
+      "role": "key"
+     },
+     {
+      "t": "The analogy is useful, but it captures only part of what a brain can do.",
+      "role": "main"
+     }
+    ],
+    "explain": "The writer uses the analogy to **explain**, then shows its **limits**.\n\nThe effect is a balanced view: the comparison helps, but it **oversimplifies** the brain."
+   },
+   "together": {
+    "passage": "Some people argue that a school should be run like a factory: students enter at one end, receive the same lessons in the same order, and leave at the other end as finished products. This model, they say, is efficient and fair because everyone is treated the same. Yet children are not raw materials. A factory turns identical pieces of metal into identical cars, but no two students arrive with the same strengths, interests or needs. A better comparison might be a garden, where a skilled gardener gives each plant the light, water and space it needs to grow in its own way. The factory analogy may make schools sound organised, but it hides the very thing that makes education human.",
+    "stem": "What is the writer's main purpose in contrasting the factory analogy with the garden analogy?",
+    "options": [
+     "to argue that schools should meet each student's needs",
+     "to explain how cars are made in factories",
+     "to prove that factories are unfair to their workers",
+     "to suggest that students should study gardening"
+    ],
+    "answer": 0,
+    "hint": "The writer is not really discussing cars or gardening. Which view does the writer reject, and which does the writer prefer?",
+    "good": "Yes! The writer rejects the factory (everyone the same) and prefers the garden (each one gets what it needs)."
+   },
+   "evidence": {
+    "sentences": [
+     "Some people argue that a school should be run like a factory: students enter at one end, receive the same lessons in the same order, and leave at the other end as finished products.",
+     "This model, they say, is efficient and fair because everyone is treated the same.",
+     "Yet children are not raw materials.",
+     "A factory turns identical pieces of metal into identical cars, but no two students arrive with the same strengths, interests or needs.",
+     "A better comparison might be a garden, where a skilled gardener gives each plant the light, water and space it needs to grow in its own way.",
+     "The factory analogy may make schools sound organised, but it hides the very thing that makes education human."
+    ],
+    "proof": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: to argue that schools should meet each student's needs. Tap 2 sentences that build the writer's argument.",
+    "wrong": "This sentence describes the view the writer DISAGREES with. Find the sentences where the writer challenges it or offers a better comparison."
+   },
+   "checks": [
+    {
+     "passage": "One article describes the human immune system as “an army that guards the body's borders”. White blood cells are “soldiers” that attack invaders.",
+     "stem": "What effect does the army analogy have?",
+     "options": [
+      "It suggests the body is at war with other people.",
+      "It proves that white blood cells carry weapons.",
+      "It shows that the body has real borders on a map.",
+      "It makes the immune system feel active and protective."
+     ],
+     "answer": 3,
+     "why": "Soldiers guarding borders are active defenders. The analogy helps readers picture the immune system protecting the body."
+    },
+    {
+     "passage": "A writer argues: “Banning phones in class because some students misuse them is like banning pencils because some students doodle.”",
+     "stem": "What does the analogy suggest about the ban?",
+     "options": [
+      "Phones and pencils cost the same.",
+      "Doodling is a serious problem in schools.",
+      "The ban punishes everyone for the actions of a few.",
+      "Students should use pencils instead of phones."
+     ],
+     "answer": 2,
+     "why": "Nobody would ban pencils for everyone because a few doodle. The analogy makes the phone ban seem unfair to the many."
+    },
+    {
+     "passage": "A speaker says that learning to read is “like learning to ride a bicycle: once you can do it, you never forget”.",
+     "stem": "What is one LIMIT of this analogy?",
+     "options": [
+      "Everyone learns to read and ride at the same age.",
+      "Reading skills keep developing for years; riding does not.",
+      "Bicycles and books are both used by children.",
+      "Reading is easier to learn than riding a bicycle."
+     ],
+     "answer": 1,
+     "why": "The analogy suggests reading is learned once and then fixed. In fact, readers keep building harder skills for years."
+    }
+   ],
+   "again": {
+    "title": "Helps or hides?",
+    "text": "Every analogy **helps** you see some things and **hides** others.\n\n1. What does it help you see?\n2. What does it hide or leave out?\n3. Why might the writer have chosen it?",
+    "example": "“The Earth is a spaceship.”\n\nHelps: we have limited supplies and nowhere else to go. Hides: the Earth renews some resources, such as water through rain. Chosen to make us **careful with resources**."
+   }
+  }
+ }
+}

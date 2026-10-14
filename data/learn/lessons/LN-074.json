@@ -1,0 +1,439 @@
+{
+ "code": "LN-074",
+ "title": "Subject and object pronouns",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "pronouns"
+ ],
+ "skillNames": [
+  "Subject and Object Pronouns",
+  "Pronouns After Prepositions"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words for people",
+     "text": "Pronouns take the place of names.\n\n**Ali** is tall. → **He** is tall.\n**Sara and Mona** are here. → **They** are here."
+    },
+    {
+     "title": "Subject pronouns",
+     "text": "These do the action. They come **before** the verb.\n\n**I**, **he**, **she**, **we**, **they**\n\n**She** runs. **We** sing."
+    },
+    {
+     "title": "Object pronouns",
+     "text": "These get the action. They come **after** the verb.\n\n**me**, **him**, **her**, **us**, **them**\n\nMom calls **me**. I help **them**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find who the pronoun stands for. Look back in the text.\n2. Ask: does this person **do** the action or **get** it?\n3. Pick the pronoun that fits both.\n\nThe sentence that names the people is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Faisal has a little sister.",
+      "role": "key"
+     },
+     {
+      "t": "He reads to her every night.",
+      "role": "main"
+     }
+    ],
+    "explain": "**He** = Faisal. He **does** the reading, so it is **He**.\n\n**her** = his sister. She **gets** the reading, so it is **her**."
+   },
+   "together": {
+    "passage": "Ali and Sara are my friends. ___ live on my street. I walk to school with them. We play together after school.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "Them",
+     "They",
+     "He",
+     "Us"
+    ],
+    "answer": 1,
+    "hint": "Who lives on my street? Are they doing the action, before the verb?",
+    "good": "Yes! Ali and Sara do the action, so we use **They**."
+   },
+   "evidence": {
+    "sentences": [
+     "Ali and Sara are my friends.",
+     "___ live on my street.",
+     "I walk to school with them.",
+     "We play together after school."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: They. Tap the sentence that tells who 'they' are.",
+    "wrong": "This sentence does not name the friends. Find the sentence with their names."
+   },
+   "checks": [
+    {
+     "passage": "My dad is a pilot. ___ flies big planes.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "He",
+      "Him",
+      "She",
+      "They"
+     ],
+     "answer": 0,
+     "why": "Dad does the flying, so we use **He**."
+    },
+    {
+     "passage": "Huda lost her pen. I gave ___ my pen.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "she",
+      "they",
+      "her",
+      "he"
+     ],
+     "answer": 2,
+     "why": "Huda gets the pen, after the verb, so we use **her**."
+    },
+    {
+     "passage": "Grandma made cookies. She gave them to we.",
+     "stem": "Which word is wrong?",
+     "options": [
+      "She",
+      "gave",
+      "them",
+      "we"
+     ],
+     "answer": 3,
+     "why": "We **get** the cookies, so it should be **us**: She gave them to **us**."
+    }
+   ],
+   "again": {
+    "title": "Before or after?",
+    "text": "Before the verb → I, he, she, we, they\nAfter the verb → me, him, her, us, them",
+    "example": "___ likes cake. (before **likes**) → **She** likes cake.\n\nI see ___. (after **see**) → I see **her**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Subject or object?",
+     "text": "**Subject** pronouns do the action: **I, he, she, we, they**.\n\n**Object** pronouns receive the action: **me, him, her, us, them**.\n\n**We** visited **them**."
+    },
+    {
+     "title": "Two people together",
+     "text": "It is harder when there are **two** people.\n\n___ and Huda went to the market.\nThe teacher thanked Huda and ___."
+    },
+    {
+     "title": "The cover trick",
+     "text": "Cover the other person. Read the sentence with only the pronoun.\n\n~~Huda and~~ **I** went to the market. ✔\nThe teacher thanked ~~Huda and~~ **me**. ✔\n\nPolite tip: put the other person first: Huda and I."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Cover the other name.\n2. Say the sentence with just the pronoun.\n3. Look for other sentences in the text with object pronouns after the verb. They show the pattern."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My brother and I built a model ship.",
+      "role": "key"
+     },
+     {
+      "t": "Dad helped him and me paint it.",
+      "role": "key"
+     }
+    ],
+    "explain": "Cover **My brother and**: '**I** built a model ship.' ✔\n\nCover **him and**: 'Dad helped **me** paint it.' ✔"
+   },
+   "together": {
+    "passage": "Last Friday, Grandpa took Omar and ___ to the zoo. He showed us the lions first. Then he bought Omar and me some ice cream. Omar and I had a wonderful day.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "I",
+     "myself",
+     "me",
+     "mine"
+    ],
+    "answer": 2,
+    "hint": "Cover 'Omar and'. Read: 'Grandpa took ___ to the zoo.'",
+    "good": "Yes! 'Grandpa took **me** to the zoo.' The pronoun receives the action, so it is **me**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last Friday, Grandpa took Omar and ___ to the zoo.",
+     "He showed us the lions first.",
+     "Then he bought Omar and me some ice cream.",
+     "Omar and I had a wonderful day."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: me. Tap 2 sentences that also use an object pronoun after the verb.",
+    "wrong": "Here the pronoun does the action, so it is a subject. Find sentences where the pronoun receives the action."
+   },
+   "checks": [
+    {
+     "passage": "Fatima and ___ are on the same team.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "me",
+      "her",
+      "I",
+      "us"
+     ],
+     "answer": 2,
+     "why": "Cover 'Fatima and': '**I** am on the team.' The pronoun is a subject."
+    },
+    {
+     "passage": "The coach called Saad and ___ to the field.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "him",
+      "he",
+      "they",
+      "we"
+     ],
+     "answer": 0,
+     "why": "Cover 'Saad and': 'The coach called **him**.' The pronoun receives the action."
+    },
+    {
+     "passage": "Me and my cousin visited the museum.",
+     "stem": "How should the start be fixed?",
+     "options": [
+      "My cousin and me",
+      "Me and him",
+      "Myself and my cousin",
+      "My cousin and I"
+     ],
+     "answer": 3,
+     "why": "This is the subject. Cover 'my cousin and': '**I** visited the museum.' Put the other person first: **My cousin and I**."
+    }
+   ],
+   "again": {
+    "title": "Say it alone",
+    "text": "If two people are named, take one away and say the sentence again.",
+    "example": "Sara and (I / me) made tea.\n'**I** made tea.' ✔ → **Sara and I** made tea.\n\nMom thanked Sara and (I / me).\n'Mom thanked **me**.' ✔ → **Sara and me**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "After a preposition",
+     "text": "After a preposition, always use an **object** pronoun.\n\nwith **me**\nfor **him**\nbetween **us**\nto **them**\nnear **her**"
+    },
+    {
+     "title": "Between you and me",
+     "text": "**between** is a preposition, so both pronouns after it are objects.\n\n✔ between you and **me**\n✘ between you and I\n\nThe same goes for: for Huda and **me**, with him and **her**."
+    },
+    {
+     "title": "Find the job",
+     "text": "Ask what job the pronoun has.\n\nDoing the action → subject: **I, he, she, we, they**\nReceiving the action → object\nAfter a preposition → object: **me, him, her, us, them**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look at the word right **before** the pronoun. Is it a preposition or a verb?\n2. If yes, use an object pronoun.\n3. Find other object pronouns in the passage. They follow the same rule."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The gift was from Ahmed and me.",
+      "role": "key"
+     },
+     {
+      "t": "Grandmother put it next to her and Grandfather.",
+      "role": "key"
+     },
+     {
+      "t": "She smiled at us.",
+      "role": "key"
+     }
+    ],
+    "explain": "**from**, **next to** and **at** are prepositions. After each one, the writer uses object pronouns: **me**, **her**, **us**."
+   },
+   "together": {
+    "passage": "Our teacher asked Lina and me to make a poster about saving water. She divided the jobs between ___ and Lina. Lina drew the pictures, and I wrote the facts. When we finished, the teacher hung the poster near the door. Many students stopped to read it, and some of them asked us questions.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "I",
+     "me",
+     "myself",
+     "my"
+    ],
+    "answer": 1,
+    "hint": "Look at the word before the blank. **between** is a preposition.",
+    "good": "Yes! After the preposition **between**, we use the object pronoun **me**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our teacher asked Lina and me to make a poster about saving water.",
+     "She divided the jobs between ___ and Lina.",
+     "Lina drew the pictures, and I wrote the facts.",
+     "When we finished, the teacher hung the poster near the door.",
+     "Many students stopped to read it, and some of them asked us questions."
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: me. Tap 2 sentences that also use object pronouns like me, them or us.",
+    "wrong": "The pronouns in this sentence do the action, so they are subjects. Find object pronouns."
+   },
+   "checks": [
+    {
+     "passage": "The prize was shared between Rana and ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "she",
+      "her",
+      "hers",
+      "herself"
+     ],
+     "answer": 1,
+     "why": "After **between**, we use an object pronoun: **her**."
+    },
+    {
+     "passage": "Can you sit with Majed and I at lunch?",
+     "stem": "How should the error be fixed?",
+     "options": [
+      "Change sit to sat.",
+      "Change Majed and I to I and Majed.",
+      "Change with to for.",
+      "Change I to me."
+     ],
+     "answer": 3,
+     "why": "After the preposition **with**, use the object pronoun **me**."
+    },
+    {
+     "passage": "The teacher handed the books to ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "them",
+      "they",
+      "their",
+      "theirs"
+     ],
+     "answer": 0,
+     "why": "After the preposition **to**, we use the object pronoun **them**."
+    }
+   ],
+   "again": {
+    "title": "Preposition = object",
+    "text": "Remember one rule: a preposition is always followed by an object pronoun.",
+    "example": "to (I / me) → to **me**\nfor (we / us) → for **us**\nwith (he / him) → with **him**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "After than and as",
+     "text": "In comparisons, finish the sentence in your head.\n\nMy brother is taller than **I** (am).\nShe helped you more than (she helped) **me**.\n\nThe missing words show which pronoun is correct."
+    },
+    {
+     "title": "We students, us students",
+     "text": "When a pronoun comes right before a noun, **drop the noun** to test it.\n\n**We** students planned the trip. → **We** planned it. ✔\nThe trip was for **us** students. → for **us** ✔"
+    },
+    {
+     "title": "Pronouns that rename",
+     "text": "A pronoun that renames a noun takes the **same job** as that noun.\n\nThe winners, Hassan and **I**, went on stage. (winners = subject)\nThe judges praised the winners, Hassan and **me**. (winners = object)"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Test each tricky pronoun:\n\n1. After **than** or **as**: finish the clause.\n2. Before a noun: drop the noun.\n3. Renaming: find the noun it renames and copy its job.\n\nThe pronoun that passes the test is the one the text proves."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nobody in our family cooks as well as she.",
+      "role": "key"
+     },
+     {
+      "t": "Her rice is better than any I have tasted.",
+      "role": "other"
+     }
+    ],
+    "explain": "Finish the clause: 'as well as **she** (cooks)'. The pronoun does the action, so **she** is correct in careful writing."
+   },
+   "together": {
+    "passage": "At the end of the year, ___ students organised a farewell event for our teachers. The principal said that no class had ever worked harder than we did. She thanked the organisers, Huda and me, in front of everyone. Later, our teacher told us that the speech by Huda and me had made her smile. It was a proud moment for us students.",
+    "stem": "Which word fills the blank?",
+    "options": [
+     "us",
+     "them",
+     "we",
+     "ourselves"
+    ],
+    "answer": 2,
+    "hint": "Drop the word 'students'. Which pronoun can do the action 'organised'?",
+    "good": "Yes! Drop 'students': '**We** organised a farewell event.' The pronoun is a subject."
+   },
+   "evidence": {
+    "sentences": [
+     "At the end of the year, ___ students organised a farewell event for our teachers.",
+     "The principal said that no class had ever worked harder than we did.",
+     "She thanked the organisers, Huda and me, in front of everyone.",
+     "Later, our teacher told us that the speech by Huda and me had made her smile.",
+     "It was a proud moment for us students."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: we. Tap 2 OTHER sentences that pass the same kind of test: one after 'than' and one right before 'students'.",
+    "wrong": "The pronouns here are not after 'than' or right before 'students'. Find those two tricky spots."
+   },
+   "checks": [
+    {
+     "passage": "My cousin can run faster than ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "me",
+      "I",
+      "myself",
+      "mine"
+     ],
+     "answer": 1,
+     "why": "Finish the clause: 'faster than **I** (can run)'. The pronoun is a subject."
+    },
+    {
+     "passage": "The award went to the two captains, Rashid and ___.",
+     "stem": "Which word fills the blank?",
+     "options": [
+      "him",
+      "he",
+      "his",
+      "himself"
+     ],
+     "answer": 0,
+     "why": "The captains are the object of **to**, so the pronoun that renames them is also an object: **him**."
+    },
+    {
+     "passage": "The museum offers free entry to we students on Saturdays.",
+     "stem": "How should the error be fixed?",
+     "options": [
+      "Change offers to offer.",
+      "Change Saturdays to Saturday.",
+      "Change free to freely.",
+      "Change we to us."
+     ],
+     "answer": 3,
+     "why": "Drop 'students': 'free entry to **us**'. After **to**, use the object pronoun."
+    }
+   ],
+   "again": {
+    "title": "Shrink the sentence",
+    "text": "Make the sentence shorter until only the pronoun's job is left.",
+    "example": "(We / Us) girls won the debate. → Drop 'girls': '**We** won.' ✔\n\nShe is older than (I / me). → Finish it: 'than **I** am.' ✔"
+   }
+  }
+ }
+}

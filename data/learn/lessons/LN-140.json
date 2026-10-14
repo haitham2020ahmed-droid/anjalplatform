@@ -1,0 +1,462 @@
+{
+ "code": "LN-140",
+ "title": "A speaker's reasons and evidence",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Speaking and Listening",
+ "standards": [],
+ "families": [
+  "author-claim"
+ ],
+ "skillNames": [
+  "A Speaker's Reasons and Evidence"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Speakers give reasons",
+     "text": "When someone gives a **talk**, they want you to agree with them.\n\nGood speakers tell you **why**. These are their **reasons**."
+    },
+    {
+     "title": "Point and reason",
+     "text": "**Point:** what the speaker wants.\n\n**Reason:** why it is a good idea.\n\n*We should have a class pet* (point) *because it teaches us to care for animals* (reason)."
+    },
+    {
+     "title": "Listen for 'because'",
+     "text": "1. Find what the speaker wants.\n2. Listen for **because**, **so** or **this will**.\n3. The words after them are often the reasons."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The reason is **in the speaker's words**.\n\n1. Find the point: what does the speaker want?\n2. Find the sentence that tells **why**.\n3. Point to that sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our park needs more benches.",
+      "role": "main"
+     },
+     {
+      "t": "Old people get tired when they walk.",
+      "role": "key"
+     },
+     {
+      "t": "Right now they have nowhere to sit.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker's point: **we need more benches**. The reason: **people get tired** and **have nowhere to sit**."
+   },
+   "together": {
+    "passage": "Hello, everyone. I think we should have a reading corner in our class. Books help us learn new words. A quiet corner helps us read calmly.",
+    "stem": "What is one reason the speaker gives?",
+    "options": [
+     "Hello, everyone.",
+     "Books help us learn new words.",
+     "The class is big.",
+     "Reading is hard."
+    ],
+    "answer": 1,
+    "hint": "What does the speaker want? Now find a sentence that tells WHY.",
+    "good": "Yes! Learning new words is a reason for a reading corner."
+   },
+   "evidence": {
+    "sentences": [
+     "Hello, everyone.",
+     "I think we should have a reading corner in our class.",
+     "Books help us learn new words.",
+     "A quiet corner helps us read calmly."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: books help us learn new words. Tap a sentence that gives a reason.",
+    "wrong": "This sentence is a greeting or tells what the speaker wants. Find a sentence that tells WHY."
+   },
+   "checks": [
+    {
+     "passage": "We should walk to school. Walking keeps us healthy. It is good for the air too.",
+     "stem": "What reason does the speaker give?",
+     "options": [
+      "Walking keeps us healthy.",
+      "Cars are fast.",
+      "School starts at seven.",
+      "We like shoes."
+     ],
+     "answer": 0,
+     "why": "Keeping healthy is why the speaker thinks we should walk."
+    },
+    {
+     "passage": "Please turn off the lights when you leave. It saves power. It also saves money for the school.",
+     "stem": "Why does the speaker want us to turn off the lights?",
+     "options": [
+      "The lights are too bright.",
+      "The room is dark.",
+      "It saves power and money.",
+      "We leave early."
+     ],
+     "answer": 2,
+     "why": "The speaker says it saves power and money."
+    },
+    {
+     "passage": "Let's plant a tree in the yard. It will give us shade. Birds can live in it.",
+     "stem": "Which is a reason from the talk?",
+     "options": [
+      "Trees are tall.",
+      "The yard is big.",
+      "We like birds.",
+      "It will give us shade."
+     ],
+     "answer": 3,
+     "why": "Giving shade is a reason the speaker wants a tree."
+    }
+   ],
+   "again": {
+    "title": "Ask 'Why?'",
+    "text": "After the speaker says what they want, ask: **Why?**\n\nThe answer to your 'why' is the reason.",
+    "example": "'We should eat breakfast every day.' **Why?** 'It gives us energy for the morning.'\n\nThe reason: **it gives us energy.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Reasons and evidence",
+     "text": "A good speaker gives **reasons** and then backs them up with **evidence**.\n\n**Reason:** why the point is true.\n**Evidence:** facts, numbers or examples that prove the reason."
+    },
+    {
+     "title": "Kinds of evidence",
+     "text": "1. **Facts:** things that can be checked.\n2. **Numbers:** *three out of four students…*\n3. **Examples:** a real case that shows the reason.\n4. **Expert words:** what a doctor or scientist says."
+    },
+    {
+     "title": "Match them up",
+     "text": "Each piece of evidence should support a **reason**. When you listen, ask: **Which reason does this fact prove?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove what the speaker uses by pointing to the exact words.\n\n1. Find the speaker's point.\n2. Find each reason.\n3. Find the fact, number or example that supports it.\n\nA feeling or wish is not evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school needs a second water fountain.",
+      "role": "main"
+     },
+     {
+      "t": "Students get very thirsty after sports.",
+      "role": "detail"
+     },
+     {
+      "t": "Last week, we counted 120 students using the one fountain during a single break.",
+      "role": "key"
+     },
+     {
+      "t": "Many had to wait so long that they missed the start of class.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker's reason is that **students are thirsty**. The evidence is a **number**: 120 students used the fountain each break."
+   },
+   "together": {
+    "passage": "Good morning. I believe our school should have a recycling club. First, we throw away a lot of paper. Our class alone filled four large bins last month. Second, recycling teaches us to care for the environment. In schools with recycling clubs, students start recycling at home too, according to our science teacher.",
+    "stem": "What evidence does the speaker give to support the reason that the school throws away a lot of paper?",
+    "options": [
+     "Recycling teaches us to care for the environment.",
+     "I believe our school should have a recycling club.",
+     "Our class alone filled four large bins last month.",
+     "Students start recycling at home too."
+    ],
+    "answer": 2,
+    "hint": "Find the reason 'we throw away a lot of paper'. What fact comes right after it?",
+    "good": "Yes! Four large bins in one month is a fact that proves the school throws away a lot of paper."
+   },
+   "evidence": {
+    "sentences": [
+     "Good morning.",
+     "I believe our school should have a recycling club.",
+     "First, we throw away a lot of paper.",
+     "Our class alone filled four large bins last month.",
+     "Second, recycling teaches us to care for the environment.",
+     "In schools with recycling clubs, students start recycling at home too, according to our science teacher."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: our class filled four large bins last month. Tap the sentence with that evidence.",
+    "wrong": "This sentence is the point, a reason, or evidence for a different reason. Find the fact about how much paper is thrown away."
+   },
+   "checks": [
+    {
+     "passage": "I think the school day should include a short break for stretching. Sitting for a long time makes our backs hurt. A doctor who visited our school said that moving every hour helps the body and the brain.",
+     "stem": "What kind of evidence does the speaker use?",
+     "options": [
+      "A number from a survey",
+      "Words from an expert",
+      "A story about a trip",
+      "A joke"
+     ],
+     "answer": 1,
+     "why": "The speaker quotes a doctor, which is an expert."
+    },
+    {
+     "passage": "We should keep the school library open after school. Many students have no quiet place to study at home. Last term, twenty students asked the librarian if they could stay later.",
+     "stem": "Which sentence is evidence?",
+     "options": [
+      "We should keep the library open after school.",
+      "Libraries are nice.",
+      "Students like books.",
+      "Twenty students asked if they could stay later."
+     ],
+     "answer": 3,
+     "why": "Twenty students asking is a fact that can be checked. It supports the reason."
+    },
+    {
+     "passage": "Our town needs a bike lane on Market Street. Twenty riders use the street each morning. Last year there were six bike accidents there. A police officer said the street is unsafe. Bikes are the best thing ever invented.",
+     "stem": "Which sentence from the talk is NOT evidence?",
+     "options": [
+      "Bikes are the best thing ever invented.",
+      "Last year there were six bike accidents there.",
+      "A police officer said the street is unsafe.",
+      "Twenty riders use the street each morning."
+     ],
+     "answer": 0,
+     "why": "'The best thing ever invented' is an opinion, not a fact that proves a reason."
+    }
+   ],
+   "again": {
+    "title": "Proof-or-feeling test",
+    "text": "For each sentence, ask: **Could I check this?**\n\nIf yes, it is probably **evidence**. If it is only a feeling or wish, it is **not** evidence.",
+    "example": "'Eating vegetables is great!' → a feeling.\n'Doctors say vegetables give us vitamins.' → **evidence** (you could check it)."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Following a speaker's argument",
+     "text": "In a longer talk, a speaker makes **several points**. Each point should have its **own reasons and evidence**.\n\nYour job is to track which evidence goes with which point."
+    },
+    {
+     "title": "Listening map",
+     "text": "Make a quick map as you read or listen:\n\n**Point 1 → reason → evidence**\n**Point 2 → reason → evidence**\n\nSignal words like *first*, *another reason*, *for example* and *studies show* help you."
+    },
+    {
+     "title": "Strong and weak support",
+     "text": "**Strong:** facts, numbers and examples that clearly relate to the point.\n\n**Weak:** feelings, rumours, or facts that are about something else."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show which evidence supports which point.\n\n1. Find each point the speaker makes.\n2. For the point in the question, find the fact or example that **directly** supports it.\n3. Do not choose evidence that belongs to a different point."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "First, students want healthier food in the canteen.",
+      "role": "main"
+     },
+     {
+      "t": "In our survey, 70 out of 100 students asked for more fruit and salads.",
+      "role": "key"
+     },
+     {
+      "t": "Second, changes can be simple.",
+      "role": "main"
+     },
+     {
+      "t": "When one school added a fruit stand, the queue for snacks actually got shorter.",
+      "role": "key"
+     }
+    ],
+    "explain": "The speaker makes **two points**. The survey (sentence 2) supports point 1. The shorter queue (sentence 4) supports point 2."
+   },
+   "together": {
+    "passage": "Members of the council, I am here to ask you to keep the town pool open in winter. First, swimming is one of the best forms of exercise for older people. Doctors at our health centre say it builds strength without harming the joints. Second, closing the pool for five months hurts the young swim team. Last year, our team lost three regional races in the spring because members had not trained all winter. Finally, the cost is smaller than many think: heating the pool would add about two percent to the sports budget.",
+    "stem": "Which evidence supports the speaker's point about the swim team?",
+    "options": [
+     "Doctors say swimming builds strength.",
+     "Heating would add about two percent to the budget.",
+     "Swimming is good exercise for older people.",
+     "The team lost three races after not training in winter."
+    ],
+    "answer": 3,
+    "hint": "Find the point about the swim team. Which fact comes with it?",
+    "good": "Yes! Losing three races after a winter without training is evidence that closing the pool hurts the team."
+   },
+   "evidence": {
+    "sentences": [
+     "Members of the council, I am here to ask you to keep the town pool open in winter.",
+     "First, swimming is one of the best forms of exercise for older people.",
+     "Doctors at our health centre say it builds strength without harming the joints.",
+     "Second, closing the pool for five months hurts the young swim team.",
+     "Last year, our team lost three regional races in the spring because members had not trained all winter.",
+     "Finally, the cost is smaller than many think: heating the pool would add about two percent to the sports budget."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: the team lost three races after not training in winter. Tap the sentence with this evidence.",
+    "wrong": "This sentence states the request, another point, or evidence for a different point. Find the evidence about the swim team."
+   },
+   "checks": [
+    {
+     "passage": "Our school should start a homework club. First, many students have no one at home who can help with maths. In a class poll, 15 of 28 students said this. Second, students learn by helping each other. When older students tutored younger ones last year, both groups' test scores improved.",
+     "stem": "Which evidence supports the second point?",
+     "options": [
+      "Fifteen of 28 students have no one to help at home.",
+      "Many students need help with maths.",
+      "Tutoring last year improved both groups' test scores.",
+      "Students should start a club."
+     ],
+     "answer": 2,
+     "why": "The second point is about learning by helping each other. The tutoring results support it."
+    },
+    {
+     "passage": "We should have more trees on our streets. Trees cool the air: one study found shaded streets can be several degrees cooler. Trees also make people happier. Everyone knows that.",
+     "stem": "Which part of the speaker's support is weakest?",
+     "options": [
+      "'Everyone knows that.'",
+      "'One study found shaded streets can be cooler.'",
+      "'Trees cool the air.'",
+      "'We should have more trees.'"
+     ],
+     "answer": 0,
+     "why": "'Everyone knows that' is not evidence. It gives no fact to prove that trees make people happier."
+    },
+    {
+     "passage": "I ask the school to allow students to bring water bottles to class. On hot days, students feel dizzy and tired. Our school nurse reported eleven visits for dizziness in one week of May. Being able to drink often would help prevent this.",
+     "stem": "What kind of evidence does the speaker use?",
+     "options": [
+      "A survey of all parents",
+      "A report from the school nurse with a number",
+      "A story about the speaker's family",
+      "A quote from a famous person"
+     ],
+     "answer": 1,
+     "why": "The nurse's report of eleven visits is expert evidence with a number."
+    }
+   ],
+   "again": {
+    "title": "Sort into piles",
+    "text": "Sort every sentence into one of three piles:\n\n**Point** (what the speaker wants)\n**Reason** (why)\n**Evidence** (proof you could check)\n\nThen match each evidence card to its reason.",
+    "example": "Point: longer lunch. Reason: students rush eating. Evidence: **teachers saw half the class leave food uneaten.** Match: evidence → reason about rushing."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Evaluating a speaker's support",
+     "text": "Advanced listeners do more than find evidence. They **judge** it.\n\nIs it **relevant** to the point? Is there **enough** of it? Is it from a **trustworthy** source? Does the speaker make claims with **no support** at all?"
+    },
+    {
+     "title": "Common weaknesses",
+     "text": "1. **Irrelevant evidence:** true, but about something else.\n2. **Too little evidence:** one example used to prove a big claim.\n3. **Unreliable source:** rumours, anonymous posts.\n4. **Unsupported claim:** a point with no evidence."
+    },
+    {
+     "title": "Fair judgement",
+     "text": "A speech can be **partly strong**: some points well supported, others not. A careful listener can say exactly which."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To evaluate support, link each piece of evidence to the claim it is meant to prove.\n\n1. Identify every claim in the speech.\n2. Find the evidence for each one.\n3. Ask: is it relevant, sufficient and reliable? Point to the claim that lacks support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The weekend craft market has brought new visitors to our town.",
+      "role": "main"
+     },
+     {
+      "t": "The tourist office sold 4,000 more parking passes this spring than last spring.",
+      "role": "key"
+     },
+     {
+      "t": "Soon, our town will be famous around the world.",
+      "role": "key"
+     }
+    ],
+    "explain": "Claim 1 (the market brings visitors) is backed by **ticket numbers**. Claim 2 (it will make the town famous worldwide) has **no evidence**: it is an unsupported claim."
+   },
+   "together": {
+    "passage": "Honoured guests, I stand before you to argue that our city should build a new public library in the eastern district. The eastern district has grown faster than any other part of the city; according to the city's own records, its population has doubled in ten years. Yet the nearest library is a forty-minute bus ride away, and the city's transport office confirms that only one bus route connects the two areas. A library would also reduce crime in the district. Furthermore, libraries today are more than book rooms: in the western district, the library's free computer classes have trained more than 2,000 adults since opening. For all these reasons, the eastern district deserves a library of its own.",
+    "stem": "Which claim in the speech is NOT supported by evidence?",
+    "options": [
+     "The eastern district's population has grown fast.",
+     "A library would reduce crime in the district.",
+     "The nearest library is far away.",
+     "Libraries offer more than books."
+    ],
+    "answer": 1,
+    "hint": "Check each claim. Which one has a fact, a source or a number after it, and which one stands alone?",
+    "good": "Yes! The speaker gives records, transport data and class numbers for the other claims, but no evidence that a library would reduce crime."
+   },
+   "evidence": {
+    "sentences": [
+     "Honoured guests, I stand before you to argue that our city should build a new public library in the eastern district.",
+     "The eastern district has grown faster than any other part of the city; according to the city's own records, its population has doubled in ten years.",
+     "Yet the nearest library is a forty-minute bus ride away, and the city's transport office confirms that only one bus route connects the two areas.",
+     "A library would also reduce crime in the district.",
+     "Furthermore, libraries today are more than book rooms: in the western district, the library's free computer classes have trained more than 2,000 adults since opening.",
+     "For all these reasons, the eastern district deserves a library of its own."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: the crime claim is unsupported. Tap 2 sentences that show how the OTHER claims ARE supported.",
+    "wrong": "This sentence is the opening, the conclusion, or the unsupported claim itself. Find sentences with records, data or numbers."
+   },
+   "checks": [
+    {
+     "passage": "The speaker argues that students should have tablets instead of textbooks. She notes that tablets are lighter than a full bag of books, and that one school reported higher test scores after switching. She does not mention cost, screen time, or what happened at schools where scores did not rise.",
+     "stem": "What is the main weakness in the speaker's evidence?",
+     "options": [
+      "The evidence is too technical to understand.",
+      "She gives too many numbers.",
+      "Her evidence is from experts only.",
+      "One school's result is too little to prove her big claim."
+     ],
+     "answer": 3,
+     "why": "A single school's scores are not enough to prove that all students should switch; the evidence is insufficient."
+    },
+    {
+     "passage": "To show that the new ferry service is popular, the speaker says, 'My cousin uses it every day and loves it.' He then adds that ticket sales have risen each month since it began, according to the port authority.",
+     "stem": "Which piece of evidence is more reliable, and why?",
+     "options": [
+      "Ticket sales, because they come from an official source and cover many riders",
+      "The cousin's opinion, because he uses the ferry often",
+      "Both are equally reliable.",
+      "Neither, because ferries are slow"
+     ],
+     "answer": 0,
+     "why": "Official ticket data covers many riders; one relative's opinion is a single, personal example."
+    },
+    {
+     "passage": "In a speech supporting longer school holidays, the speaker explains that children's brains need rest, citing a sleep study of adults who work night shifts.",
+     "stem": "Why is the speaker's evidence weak?",
+     "options": [
+      "It comes from a study.",
+      "It is about school holidays.",
+      "It is about adults working at night, not children's holidays.",
+      "It is too short."
+     ],
+     "answer": 2,
+     "why": "The study is about a different group and situation, so it is not relevant to the claim about children's holidays."
+    }
+   ],
+   "again": {
+    "title": "Three checks",
+    "text": "For every piece of evidence, run three checks:\n\n1. **On topic?** Does it match the claim?\n2. **Enough?** Is it more than one small example?\n3. **Trustworthy?** Where does it come from?",
+    "example": "Claim: 'Our students read less than before.' Evidence: 'I saw a boy on his phone yesterday.'\n\nOn topic? Barely. Enough? **No**, one boy. Trustworthy? A single memory. **Weak evidence.**"
+   }
+  }
+ }
+}

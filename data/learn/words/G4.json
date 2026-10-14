@@ -1,0 +1,4052 @@
+{
+ "grade": 4,
+ "selections": [
+  {
+   "unit": 1,
+   "number": 1,
+   "selection": "A World of Change",
+   "words": [
+    {
+     "word": "alter",
+     "pos": "verb",
+     "meaning": "to change something, often a little",
+     "example": "Wind and rain slowly alter the shape of a desert rock.",
+     "arabic": "يُغيِّر / يُعدِّل",
+     "synonyms": [
+      "change",
+      "modify"
+     ],
+     "antonyms": [
+      "keep",
+      "preserve"
+     ],
+     "family": [
+      "alters",
+      "altered",
+      "altering",
+      "alteration"
+     ],
+     "check": {
+      "stem": "What does alter mean?",
+      "options": [
+       "to clean completely",
+       "to change something",
+       "to build again",
+       "to measure carefully"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "collapse",
+     "pos": "verb",
+     "meaning": "to fall down or cave in suddenly",
+     "example": "After the heavy storm, part of the old bridge began to collapse.",
+     "arabic": "ينهار / يسقط",
+     "synonyms": [
+      "fall",
+      "cave in",
+      "crumble"
+     ],
+     "antonyms": [
+      "stand",
+      "rise"
+     ],
+     "family": [
+      "collapses",
+      "collapsed",
+      "collapsing",
+      "collapsible"
+     ],
+     "check": {
+      "stem": "Which sentence uses collapse correctly?",
+      "options": [
+       "She will collapse a letter to her aunt.",
+       "The ground shook so hard that the wall started to collapse.",
+       "We collapse breakfast every morning.",
+       "The bird began to collapse a song."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "crisis",
+     "pos": "noun",
+     "meaning": "a time of great danger or serious trouble",
+     "example": "When the volcano erupted, the town faced a crisis and needed help fast.",
+     "arabic": "أزمة",
+     "synonyms": [
+      "emergency",
+      "disaster"
+     ],
+     "antonyms": [
+      "calm",
+      "safety"
+     ],
+     "family": [
+      "crises",
+      "critical"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The flood caused a ___, so families moved to a safe shelter.",
+      "options": [
+       "rhyme",
+       "holiday",
+       "crisis",
+       "picnic"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "destruction",
+     "pos": "noun",
+     "meaning": "great damage that ruins something",
+     "example": "The landslide left destruction along the mountain road.",
+     "arabic": "دمار / تدمير",
+     "synonyms": [
+      "damage",
+      "ruin",
+      "devastation"
+     ],
+     "antonyms": [
+      "construction",
+      "creation"
+     ],
+     "family": [
+      "destroy",
+      "destroys",
+      "destroyed",
+      "destructive"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as destruction?",
+      "options": [
+       "repair",
+       "comfort",
+       "building",
+       "ruin"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "hazard",
+     "pos": "noun",
+     "meaning": "something that could cause harm or danger",
+     "example": "Falling rocks are a hazard for drivers near steep cliffs.",
+     "arabic": "خطر",
+     "synonyms": [
+      "danger",
+      "risk",
+      "threat"
+     ],
+     "antonyms": [
+      "safety"
+     ],
+     "family": [
+      "hazards",
+      "hazardous"
+     ],
+     "check": {
+      "stem": "What is a hazard?",
+      "options": [
+       "something that may cause harm",
+       "a quiet place to rest",
+       "a reward for good work",
+       "a kind of tool"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "severe",
+     "pos": "adjective",
+     "meaning": "very serious, strong, or harsh",
+     "example": "The severe earthquake cracked many roads in the city.",
+     "arabic": "شديد / عنيف",
+     "synonyms": [
+      "serious",
+      "harsh",
+      "extreme"
+     ],
+     "antonyms": [
+      "mild",
+      "gentle"
+     ],
+     "family": [
+      "severely",
+      "severity"
+     ],
+     "check": {
+      "stem": "Which sentence uses severe correctly?",
+      "options": [
+       "The severe kitten slept softly.",
+       "A severe storm knocked down trees and power lines.",
+       "She wore a severe smile to the party.",
+       "The severe breeze was light and pleasant."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "substantial",
+     "pos": "adjective",
+     "meaning": "large in amount, size, or importance",
+     "example": "Years of erosion carried away a substantial amount of soil.",
+     "arabic": "كبير / ضخم / جوهري",
+     "synonyms": [
+      "large",
+      "considerable",
+      "significant"
+     ],
+     "antonyms": [
+      "small",
+      "slight"
+     ],
+     "family": [
+      "substantially",
+      "substance"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The river moved a ___ amount of sand over many years.",
+      "options": [
+       "quiet",
+       "empty",
+       "substantial",
+       "tiny"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "unpredictable",
+     "pos": "adjective",
+     "meaning": "not able to be known before it happens",
+     "example": "Landslides can be unpredictable, so people watch the hills closely.",
+     "arabic": "لا يمكن التنبؤ به",
+     "synonyms": [
+      "uncertain",
+      "surprising"
+     ],
+     "antonyms": [
+      "predictable",
+      "expected"
+     ],
+     "family": [
+      "predict",
+      "predictable",
+      "unpredictably",
+      "prediction"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of unpredictable?",
+      "options": [
+       "strange",
+       "sudden",
+       "expected",
+       "dangerous"
+      ],
+      "answer": 2
+     }
+    }
+   ]
+  },
+  {
+   "unit": 1,
+   "number": 2,
+   "selection": "The Talent Show",
+   "words": [
+    {
+     "word": "accountable",
+     "pos": "adjective",
+     "meaning": "expected to take responsibility for your actions",
+     "example": "Each friend was accountable for practicing her part of the show.",
+     "arabic": "مسؤول / مُحاسَب",
+     "synonyms": [
+      "responsible",
+      "answerable"
+     ],
+     "antonyms": [
+      "irresponsible"
+     ],
+     "family": [
+      "accountability",
+      "account"
+     ],
+     "check": {
+      "stem": "What does accountable mean?",
+      "options": [
+       "responsible for what you do",
+       "scared of crowds",
+       "good at counting",
+       "feeling very sleepy"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "advise",
+     "pos": "verb",
+     "meaning": "to tell someone what you think they should do",
+     "example": "Grandmother likes to advise her granddaughter to speak honestly.",
+     "arabic": "يَنصح",
+     "synonyms": [
+      "counsel",
+      "suggest",
+      "guide"
+     ],
+     "antonyms": [],
+     "family": [
+      "advises",
+      "advised",
+      "advising",
+      "advice",
+      "adviser"
+     ],
+     "check": {
+      "stem": "Which sentence uses advise correctly?",
+      "options": [
+       "The cat advised under the table.",
+       "The coach will advise us to warm up before we perform.",
+       "We advise the window to open it.",
+       "I advise my sandwich at lunch."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "desperately",
+     "pos": "adverb",
+     "meaning": "in a way that shows you want something very badly",
+     "example": "She desperately wanted a chance to sing on her own.",
+     "arabic": "بِيأس / بشدّة",
+     "synonyms": [
+      "urgently",
+      "badly"
+     ],
+     "antonyms": [
+      "calmly"
+     ],
+     "family": [
+      "desperate",
+      "desperation"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Lost in the crowd, the boy looked ___ for his mother.",
+      "options": [
+       "lazily",
+       "quietly",
+       "desperately",
+       "neatly"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "hesitated",
+     "pos": "verb",
+     "meaning": "paused before acting because of being unsure",
+     "example": "Maya hesitated before telling her friend how she really felt.",
+     "arabic": "تردّد",
+     "synonyms": [
+      "paused",
+      "wavered"
+     ],
+     "antonyms": [
+      "hurried",
+      "rushed"
+     ],
+     "family": [
+      "hesitate",
+      "hesitates",
+      "hesitating",
+      "hesitation"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as hesitated?",
+      "options": [
+       "jumped",
+       "shouted",
+       "laughed",
+       "paused"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "humiliated",
+     "pos": "adjective",
+     "meaning": "feeling very embarrassed and ashamed in front of others",
+     "example": "He felt humiliated when he forgot his lines on stage.",
+     "arabic": "مُهان / مُحرَج جدًّا",
+     "synonyms": [
+      "embarrassed",
+      "ashamed"
+     ],
+     "antonyms": [
+      "proud"
+     ],
+     "family": [
+      "humiliate",
+      "humiliates",
+      "humiliating",
+      "humiliation"
+     ],
+     "check": {
+      "stem": "What does humiliated mean?",
+      "options": [
+       "extremely embarrassed",
+       "completely rested",
+       "very hungry",
+       "very excited"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "inspiration",
+     "pos": "noun",
+     "meaning": "something or someone that gives you a good new idea",
+     "example": "Her grandmother's stories were the inspiration for her song.",
+     "arabic": "إلهام",
+     "synonyms": [
+      "motivation",
+      "encouragement"
+     ],
+     "antonyms": [],
+     "family": [
+      "inspire",
+      "inspires",
+      "inspired",
+      "inspiring",
+      "inspirational"
+     ],
+     "check": {
+      "stem": "Which sentence uses inspiration correctly?",
+      "options": [
+       "I ate an inspiration for lunch.",
+       "Watching great dancers gave her inspiration for her own routine.",
+       "He locked the door with an inspiration.",
+       "The inspiration fell off the shelf."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "self-esteem",
+     "pos": "noun",
+     "meaning": "how much you like and believe in yourself",
+     "example": "Practicing her talent every day helped build her self-esteem.",
+     "arabic": "تقدير الذات / الثقة بالنفس",
+     "synonyms": [
+      "self-confidence",
+      "self-respect"
+     ],
+     "antonyms": [],
+     "family": [],
+     "check": {
+      "stem": "Fill in the blank: When her teacher praised her hard work, her ___ grew stronger.",
+      "options": [
+       "self-esteem",
+       "homework",
+       "shoelace",
+       "weather"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "uncomfortably",
+     "pos": "adverb",
+     "meaning": "in a way that feels awkward or not at ease",
+     "example": "She shifted uncomfortably when her friend chose the song for her.",
+     "arabic": "بِانزعاج / بعدم ارتياح",
+     "synonyms": [
+      "awkwardly",
+      "uneasily"
+     ],
+     "antonyms": [
+      "comfortably"
+     ],
+     "family": [
+      "comfort",
+      "comfortable",
+      "uncomfortable",
+      "comfortably"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of uncomfortably?",
+      "options": [
+       "awkwardly",
+       "nervously",
+       "sadly",
+       "comfortably"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 1,
+   "number": 3,
+   "selection": "Dollars and Sense",
+   "words": [
+    {
+     "word": "compassionate",
+     "pos": "adjective",
+     "meaning": "showing care and kindness for people who are suffering",
+     "example": "A compassionate shop owner gave warm coats to families in need.",
+     "arabic": "رحيم / عطوف",
+     "synonyms": [
+      "kind",
+      "caring",
+      "sympathetic"
+     ],
+     "antonyms": [
+      "cruel",
+      "heartless"
+     ],
+     "family": [
+      "compassion",
+      "compassionately"
+     ],
+     "check": {
+      "stem": "What does compassionate mean?",
+      "options": [
+       "kind and caring toward others",
+       "angry and loud",
+       "very rich",
+       "fast and strong"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "enterprise",
+     "pos": "noun",
+     "meaning": "a business or company",
+     "example": "Her small juice enterprise gives part of its money to a local school.",
+     "arabic": "مشروع / مؤسسة تجارية",
+     "synonyms": [
+      "business",
+      "company",
+      "firm"
+     ],
+     "antonyms": [],
+     "family": [
+      "enterprises",
+      "enterprising"
+     ],
+     "check": {
+      "stem": "Which sentence uses enterprise correctly?",
+      "options": [
+       "The enterprise flew south for the winter.",
+       "The enterprise sells shoes and donates a pair for each one sold.",
+       "She brushed her enterprise before bed.",
+       "I put an enterprise on my sandwich."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "exceptional",
+     "pos": "adjective",
+     "meaning": "much better than usual; outstanding",
+     "example": "The company did exceptional work helping people after the flood.",
+     "arabic": "استثنائي / مُتميّز",
+     "synonyms": [
+      "outstanding",
+      "remarkable",
+      "extraordinary"
+     ],
+     "antonyms": [
+      "ordinary",
+      "average"
+     ],
+     "family": [
+      "exception",
+      "exceptionally"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as exceptional?",
+      "options": [
+       "ordinary",
+       "broken",
+       "outstanding",
+       "careless"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "funds",
+     "pos": "noun",
+     "meaning": "money that is saved or collected for a purpose",
+     "example": "The students raised funds to build a new playground.",
+     "arabic": "أموال / تمويل",
+     "synonyms": [
+      "money",
+      "savings"
+     ],
+     "antonyms": [],
+     "family": [
+      "fund",
+      "funded",
+      "funding"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The charity collected ___ to buy food for hungry families.",
+      "options": [
+       "pencils",
+       "stories",
+       "clouds",
+       "funds"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "innovative",
+     "pos": "adjective",
+     "meaning": "using new and creative ideas",
+     "example": "An innovative company designed cheap water filters for villages.",
+     "arabic": "مُبتكَر / مُبدِع",
+     "synonyms": [
+      "creative",
+      "original",
+      "inventive"
+     ],
+     "antonyms": [
+      "old-fashioned",
+      "traditional"
+     ],
+     "family": [
+      "innovate",
+      "innovation",
+      "innovator"
+     ],
+     "check": {
+      "stem": "What does innovative mean?",
+      "options": [
+       "using new ideas",
+       "hard to see",
+       "very expensive",
+       "boring and old"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "process",
+     "pos": "noun",
+     "meaning": "a series of steps used to do or make something",
+     "example": "The process of making the shoes takes several careful steps.",
+     "arabic": "عملية / إجراء",
+     "synonyms": [
+      "method",
+      "procedure",
+      "system"
+     ],
+     "antonyms": [],
+     "family": [
+      "processes",
+      "processed",
+      "processing"
+     ],
+     "check": {
+      "stem": "Which sentence uses process correctly?",
+      "options": [
+       "My process is blue and soft.",
+       "The process ran away from the dog.",
+       "Baking bread is a process with many steps.",
+       "He drank a glass of process."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "routine",
+     "pos": "noun",
+     "meaning": "a usual way of doing things, often every day",
+     "example": "Donating leftover bread became part of the bakery's daily routine.",
+     "arabic": "روتين / عادة يومية",
+     "synonyms": [
+      "habit",
+      "schedule",
+      "pattern"
+     ],
+     "antonyms": [],
+     "family": [
+      "routines",
+      "routinely"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Checking the shop's money every evening is part of her ___.",
+      "options": [
+       "river",
+       "rocket",
+       "routine",
+       "rainbow"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "undertaking",
+     "pos": "noun",
+     "meaning": "a big job or task that someone decides to do",
+     "example": "Building a school for the village was a huge undertaking.",
+     "arabic": "مُهمّة / مشروع كبير",
+     "synonyms": [
+      "task",
+      "project",
+      "venture"
+     ],
+     "antonyms": [],
+     "family": [
+      "undertake",
+      "undertakes",
+      "undertook",
+      "undertaken"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as undertaking?",
+      "options": [
+       "rest",
+       "mistake",
+       "holiday",
+       "project"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 2,
+   "number": 1,
+   "selection": "Animal Adaptations",
+   "words": [
+    {
+     "word": "camouflaged",
+     "pos": "adjective",
+     "meaning": "hidden by colors or patterns that match the surroundings",
+     "example": "The camouflaged lizard was hard to see against the sandy rock.",
+     "arabic": "مُموَّه / متخفٍّ",
+     "synonyms": [
+      "disguised",
+      "concealed",
+      "hidden"
+     ],
+     "antonyms": [
+      "visible",
+      "exposed"
+     ],
+     "family": [
+      "camouflage",
+      "camouflages",
+      "camouflaging"
+     ],
+     "check": {
+      "stem": "What does camouflaged mean?",
+      "options": [
+       "hidden by matching colors",
+       "very loud",
+       "bright and shiny",
+       "fast asleep"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "dribbles",
+     "pos": "verb",
+     "meaning": "lets liquid fall in small drops",
+     "example": "Juice dribbles from the bear's mouth as it eats berries.",
+     "arabic": "يَسيل / يَقطُر",
+     "synonyms": [
+      "drips",
+      "trickles"
+     ],
+     "antonyms": [
+      "gushes"
+     ],
+     "family": [
+      "dribble",
+      "dribbled",
+      "dribbling"
+     ],
+     "check": {
+      "stem": "Which sentence uses dribbles correctly?",
+      "options": [
+       "He dribbles a loud song.",
+       "Water dribbles slowly from the leaf onto the ground.",
+       "The rock dribbles up the hill quickly.",
+       "The owl dribbles a nest in the tree."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "extraordinary",
+     "pos": "adjective",
+     "meaning": "very unusual or amazing",
+     "example": "An owl has extraordinary hearing that helps it hunt at night.",
+     "arabic": "استثنائي / خارق",
+     "synonyms": [
+      "amazing",
+      "remarkable",
+      "incredible"
+     ],
+     "antonyms": [
+      "ordinary",
+      "common"
+     ],
+     "family": [
+      "extraordinarily"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of extraordinary?",
+      "options": [
+       "amazing",
+       "unusual",
+       "ordinary",
+       "special"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "poisonous",
+     "pos": "adjective",
+     "meaning": "containing something that can make you sick or kill you",
+     "example": "Some frogs have poisonous skin that keeps predators away.",
+     "arabic": "سامّ",
+     "synonyms": [
+      "toxic",
+      "venomous"
+     ],
+     "antonyms": [
+      "harmless"
+     ],
+     "family": [
+      "poison",
+      "poisons",
+      "poisoned"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Bright colors warn other animals that the snake is ___.",
+      "options": [
+       "tiny",
+       "friendly",
+       "sleepy",
+       "poisonous"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "pounce",
+     "pos": "verb",
+     "meaning": "to jump suddenly to grab something",
+     "example": "The fox waited quietly, ready to pounce on the mouse.",
+     "arabic": "ينقضّ",
+     "synonyms": [
+      "leap",
+      "spring",
+      "jump"
+     ],
+     "antonyms": [],
+     "family": [
+      "pounces",
+      "pounced",
+      "pouncing"
+     ],
+     "check": {
+      "stem": "What does pounce mean?",
+      "options": [
+       "to jump suddenly to catch something",
+       "to sleep for a long time",
+       "to sing loudly",
+       "to swim slowly"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "predator",
+     "pos": "noun",
+     "meaning": "an animal that hunts and eats other animals",
+     "example": "The hawk is a predator that spots mice from high in the sky.",
+     "arabic": "مُفترِس",
+     "synonyms": [
+      "hunter"
+     ],
+     "antonyms": [
+      "prey"
+     ],
+     "family": [
+      "predators",
+      "predatory",
+      "predation"
+     ],
+     "check": {
+      "stem": "Which sentence uses predator correctly?",
+      "options": [
+       "The rabbit is a predator that eats grass.",
+       "A predator like the lion hunts zebras for food.",
+       "The predator grew on the tree.",
+       "She planted a predator in the garden."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "prey",
+     "pos": "noun",
+     "meaning": "an animal that is hunted and eaten by another animal",
+     "example": "A rabbit is prey for foxes, so it stays alert.",
+     "arabic": "فريسة",
+     "synonyms": [
+      "quarry",
+      "victim"
+     ],
+     "antonyms": [
+      "predator",
+      "hunter"
+     ],
+     "family": [
+      "preys",
+      "preyed",
+      "preying"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of prey?",
+      "options": [
+       "victim",
+       "target",
+       "predator",
+       "meal"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "vibrations",
+     "pos": "noun",
+     "meaning": "small, quick shaking movements",
+     "example": "Snakes can feel the vibrations of footsteps through the ground.",
+     "arabic": "اهتزازات / ذبذبات",
+     "synonyms": [
+      "shaking",
+      "trembling",
+      "tremors"
+     ],
+     "antonyms": [
+      "stillness"
+     ],
+     "family": [
+      "vibrate",
+      "vibrates",
+      "vibrated",
+      "vibration"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The spider felt ___ in its web when a fly got stuck.",
+      "options": [
+       "smells",
+       "shadows",
+       "colors",
+       "vibrations"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 2,
+   "number": 2,
+   "selection": "The Ant and the Grasshopper",
+   "words": [
+    {
+     "word": "annoyed",
+     "pos": "adjective",
+     "meaning": "a little angry or bothered",
+     "example": "The ant was annoyed when the grasshopper kept interrupting her work.",
+     "arabic": "مُنزعِج / متضايق",
+     "synonyms": [
+      "irritated",
+      "bothered",
+      "upset"
+     ],
+     "antonyms": [
+      "pleased",
+      "calm"
+     ],
+     "family": [
+      "annoy",
+      "annoys",
+      "annoying",
+      "annoyance"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as annoyed?",
+      "options": [
+       "irritated",
+       "proud",
+       "sleepy",
+       "delighted"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "attitude",
+     "pos": "noun",
+     "meaning": "the way you think or feel about something",
+     "example": "The grasshopper's lazy attitude left him with no food.",
+     "arabic": "موقف / سلوك",
+     "synonyms": [
+      "outlook",
+      "mindset"
+     ],
+     "antonyms": [],
+     "family": [
+      "attitudes"
+     ],
+     "check": {
+      "stem": "What does attitude mean?",
+      "options": [
+       "a rainy season",
+       "how you think or feel about something",
+       "a heavy bag of food",
+       "a kind of insect"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "commotion",
+     "pos": "noun",
+     "meaning": "a lot of noisy, confused activity",
+     "example": "The grasshopper's loud music caused a commotion in the field.",
+     "arabic": "ضجّة / هَرْج",
+     "synonyms": [
+      "uproar",
+      "fuss",
+      "disturbance"
+     ],
+     "antonyms": [
+      "calm",
+      "peace",
+      "quiet"
+     ],
+     "family": [
+      "commotions"
+     ],
+     "check": {
+      "stem": "Which sentence uses commotion correctly?",
+      "options": [
+       "The commotion fell asleep quietly.",
+       "The commotion was soft and silent.",
+       "There was a commotion when everyone shouted at once.",
+       "She ate a commotion for dinner."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "cranky",
+     "pos": "adjective",
+     "meaning": "grumpy and easily annoyed",
+     "example": "Hungry and tired, the grasshopper became cranky.",
+     "arabic": "نَكِد / سريع الغضب",
+     "synonyms": [
+      "grumpy",
+      "irritable",
+      "grouchy"
+     ],
+     "antonyms": [
+      "cheerful",
+      "pleasant"
+     ],
+     "family": [
+      "crankier",
+      "crankiest",
+      "crankiness"
+     ],
+     "check": {
+      "stem": "Fill in the blank: After skipping lunch, Ali felt ___ and snapped at his brother.",
+      "options": [
+       "cheerful",
+       "polite",
+       "cranky",
+       "generous"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "familiar",
+     "pos": "adjective",
+     "meaning": "well known because you have seen or heard it before",
+     "example": "The ant heard a familiar song coming from the grass.",
+     "arabic": "مألوف",
+     "synonyms": [
+      "known",
+      "recognizable"
+     ],
+     "antonyms": [
+      "unfamiliar",
+      "strange",
+      "unknown"
+     ],
+     "family": [
+      "familiarity",
+      "unfamiliar"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of familiar?",
+      "options": [
+       "strange",
+       "common",
+       "known",
+       "usual"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "frustrated",
+     "pos": "adjective",
+     "meaning": "upset because you cannot do what you want",
+     "example": "The grasshopper felt frustrated when he could not find any food.",
+     "arabic": "مُحبَط",
+     "synonyms": [
+      "discouraged",
+      "annoyed"
+     ],
+     "antonyms": [
+      "satisfied",
+      "content"
+     ],
+     "family": [
+      "frustrate",
+      "frustrates",
+      "frustrating",
+      "frustration"
+     ],
+     "check": {
+      "stem": "What does frustrated mean?",
+      "options": [
+       "brave and strong",
+       "upset because things are not working",
+       "happy and relaxed",
+       "hungry and full"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "selfish",
+     "pos": "adjective",
+     "meaning": "caring only about yourself and not about others",
+     "example": "It was selfish of the grasshopper to expect others to share without helping.",
+     "arabic": "أناني",
+     "synonyms": [
+      "self-centered",
+      "greedy"
+     ],
+     "antonyms": [
+      "generous",
+      "unselfish"
+     ],
+     "family": [
+      "selfishly",
+      "selfishness",
+      "unselfish"
+     ],
+     "check": {
+      "stem": "Which sentence uses selfish correctly?",
+      "options": [
+       "The selfish teacher helped every student.",
+       "A selfish friend always thinks of others first.",
+       "She was selfish and refused to share any of her snacks.",
+       "He was selfish and shared his food with everyone."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "specialty",
+     "pos": "noun",
+     "meaning": "something a person is especially good at",
+     "example": "Storing food for the dry season is the ant's specialty.",
+     "arabic": "تَخصُّص / ما يُتقِنه المرء",
+     "synonyms": [
+      "strength",
+      "talent",
+      "expertise"
+     ],
+     "antonyms": [
+      "weakness"
+     ],
+     "family": [
+      "special",
+      "specialize",
+      "specialties"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Making music is the grasshopper's ___; he plays better than anyone.",
+      "options": [
+       "season",
+       "weakness",
+       "problem",
+       "specialty"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 2,
+   "number": 3,
+   "selection": "Dog",
+   "words": [
+    {
+     "word": "brittle",
+     "pos": "adjective",
+     "meaning": "hard but easily broken or cracked",
+     "example": "The eagle's claws snapped the brittle branch.",
+     "arabic": "هَشّ / سريع الكسر",
+     "synonyms": [
+      "fragile",
+      "breakable"
+     ],
+     "antonyms": [
+      "flexible",
+      "sturdy"
+     ],
+     "family": [
+      "brittleness"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as brittle?",
+      "options": [
+       "fragile",
+       "wet",
+       "strong",
+       "soft"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "creative",
+     "pos": "adjective",
+     "meaning": "good at making new and original things or ideas",
+     "example": "The poet used creative words to describe the chimpanzee's tricks.",
+     "arabic": "مُبدِع / خلّاق",
+     "synonyms": [
+      "imaginative",
+      "inventive",
+      "original"
+     ],
+     "antonyms": [
+      "unimaginative"
+     ],
+     "family": [
+      "create",
+      "creativity",
+      "creation",
+      "creatively"
+     ],
+     "check": {
+      "stem": "What does creative mean?",
+      "options": [
+       "always quiet",
+       "good at thinking of new ideas",
+       "very tall",
+       "afraid of animals"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "descriptive",
+     "pos": "adjective",
+     "meaning": "giving details that help you picture something",
+     "example": "Descriptive words like 'golden' and 'sharp' help us see the eagle.",
+     "arabic": "وصفي",
+     "synonyms": [
+      "detailed",
+      "vivid"
+     ],
+     "antonyms": [
+      "vague"
+     ],
+     "family": [
+      "describe",
+      "description",
+      "descriptively"
+     ],
+     "check": {
+      "stem": "Which sentence uses descriptive correctly?",
+      "options": [
+       "The descriptive dog barked at the cat.",
+       "He ran descriptive to the bus.",
+       "I ate a descriptive apple.",
+       "The descriptive poem helped me picture the eagle's huge wings."
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "outstretched",
+     "pos": "adjective",
+     "meaning": "stretched out as far as possible",
+     "example": "The eagle glided with its outstretched wings.",
+     "arabic": "مَمدود / مَبسوط",
+     "synonyms": [
+      "extended",
+      "spread"
+     ],
+     "antonyms": [
+      "folded"
+     ],
+     "family": [
+      "outstretch",
+      "stretch"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The chimp reached for the fruit with its ___ arm.",
+      "options": [
+       "silent",
+       "folded",
+       "sleepy",
+       "outstretched"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "metaphor",
+     "pos": "noun",
+     "meaning": "a comparison that says one thing is another, without 'like' or 'as'",
+     "example": "'The eagle is a thunderbolt' is a metaphor about its speed.",
+     "arabic": "استعارة",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "metaphors",
+      "metaphorical"
+     ],
+     "check": {
+      "stem": "Which sentence is a metaphor?",
+      "options": [
+       "The eagle is a king of the sky.",
+       "The eagle flies like a rocket.",
+       "The eagle flew over the hill.",
+       "The eagle has brown feathers."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "simile",
+     "pos": "noun",
+     "meaning": "a comparison using 'like' or 'as'",
+     "example": "'The chimp swung like a pendulum' is a simile.",
+     "arabic": "تشبيه",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "similes",
+      "similar"
+     ],
+     "check": {
+      "stem": "Which sentence is a simile?",
+      "options": [
+       "The chimp lives in the forest.",
+       "The chimp jumped as quick as a spring.",
+       "The chimp ate a banana.",
+       "The chimp is a clown."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "rhyme",
+     "pos": "noun",
+     "meaning": "words that end with the same sound",
+     "example": "In the poem, 'flight' and 'height' make a rhyme.",
+     "arabic": "قافية",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "rhymes",
+      "rhymed",
+      "rhyming"
+     ],
+     "check": {
+      "stem": "Which pair of words is a rhyme?",
+      "options": [
+       "eagle / chimp",
+       "wing / feather",
+       "sky / high",
+       "tree / branch"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "meter",
+     "pos": "noun",
+     "meaning": "the regular pattern of beats in a line of poetry",
+     "example": "The poem's steady meter sounds like the beat of wings.",
+     "arabic": "الوزن الشعري / الإيقاع",
+     "synonyms": [
+      "rhythm",
+      "beat"
+     ],
+     "antonyms": [],
+     "family": [
+      "meters",
+      "metrical"
+     ],
+     "check": {
+      "stem": "What is meter in a poem?",
+      "options": [
+       "a picture beside the poem",
+       "the name of the poet",
+       "the title of the poem",
+       "the regular beat in the lines"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 3,
+   "number": 1,
+   "selection": "Remembering Hurricane Katrina",
+   "words": [
+    {
+     "word": "assigned",
+     "pos": "verb",
+     "meaning": "gave someone a job or task to do",
+     "example": "The teacher assigned each student a box of toys to sort.",
+     "arabic": "كلَّف / عيَّن",
+     "synonyms": [
+      "gave",
+      "appointed",
+      "allotted"
+     ],
+     "antonyms": [],
+     "family": [
+      "assign",
+      "assigns",
+      "assigning",
+      "assignment"
+     ],
+     "check": {
+      "stem": "Which sentence uses assigned correctly?",
+      "options": [
+       "Our leader assigned me the job of packing the blankets.",
+       "He assigned a sandwich for breakfast.",
+       "The storm assigned the trees to fall.",
+       "The river assigned quietly to the sea."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "generosity",
+     "pos": "noun",
+     "meaning": "being happy to give time, money, or things to others",
+     "example": "The town's generosity filled three trucks with supplies.",
+     "arabic": "كَرَم",
+     "synonyms": [
+      "kindness",
+      "charity"
+     ],
+     "antonyms": [
+      "selfishness",
+      "greed"
+     ],
+     "family": [
+      "generous",
+      "generously"
+     ],
+     "check": {
+      "stem": "What does generosity mean?",
+      "options": [
+       "being very fast",
+       "being afraid of storms",
+       "being willing to give to others",
+       "being very tired"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "gingerly",
+     "pos": "adverb",
+     "meaning": "in a very careful and gentle way",
+     "example": "He gingerly lifted the broken picture frame from the mud.",
+     "arabic": "بِحَذَر / برِفق",
+     "synonyms": [
+      "carefully",
+      "cautiously",
+      "gently"
+     ],
+     "antonyms": [
+      "carelessly",
+      "roughly"
+     ],
+     "family": [],
+     "check": {
+      "stem": "Fill in the blank: She ___ stepped over the broken glass.",
+      "options": [
+       "loudly",
+       "lazily",
+       "gingerly",
+       "angrily"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "mature",
+     "pos": "adjective",
+     "meaning": "acting in a sensible, grown-up way",
+     "example": "Organizing the toy drive was a mature thing for a ten-year-old to do.",
+     "arabic": "ناضج",
+     "synonyms": [
+      "grown-up",
+      "responsible",
+      "sensible"
+     ],
+     "antonyms": [
+      "childish",
+      "immature"
+     ],
+     "family": [
+      "maturity",
+      "immature",
+      "matured"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of mature?",
+      "options": [
+       "responsible",
+       "grown-up",
+       "sensible",
+       "childish"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "organizations",
+     "pos": "noun",
+     "meaning": "groups of people who work together for a purpose",
+     "example": "Many organizations sent food and water to the flooded city.",
+     "arabic": "مُنظَّمات / هيئات",
+     "synonyms": [
+      "groups",
+      "agencies",
+      "associations"
+     ],
+     "antonyms": [],
+     "family": [
+      "organization",
+      "organize",
+      "organized",
+      "organizer"
+     ],
+     "check": {
+      "stem": "Which sentence uses organizations correctly?",
+      "options": [
+       "Several organizations helped families rebuild their homes.",
+       "My shoe has organizations on it.",
+       "I ate two organizations for lunch.",
+       "The organizations fell from the sky like rain."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "residents",
+     "pos": "noun",
+     "meaning": "people who live in a particular place",
+     "example": "Residents of the neighborhood returned to clean their streets.",
+     "arabic": "سُكّان / مُقيمون",
+     "synonyms": [
+      "inhabitants",
+      "locals",
+      "citizens"
+     ],
+     "antonyms": [
+      "visitors"
+     ],
+     "family": [
+      "resident",
+      "reside",
+      "residence",
+      "residential"
+     ],
+     "check": {
+      "stem": "What are residents?",
+      "options": [
+       "toys for children",
+       "people who live in a place",
+       "tools used to build",
+       "storms at sea"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "scattered",
+     "pos": "verb",
+     "meaning": "spread or thrown in many directions",
+     "example": "The wind scattered roof tiles across the yard.",
+     "arabic": "بَعثَر / نَثَر",
+     "synonyms": [
+      "spread",
+      "strewn",
+      "dispersed"
+     ],
+     "antonyms": [
+      "gathered",
+      "collected"
+     ],
+     "family": [
+      "scatter",
+      "scatters",
+      "scattering"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as scattered?",
+      "options": [
+       "stacked",
+       "gathered",
+       "spread",
+       "fixed"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "selective",
+     "pos": "adjective",
+     "meaning": "careful about choosing only certain things",
+     "example": "The children were selective and picked only toys in good condition.",
+     "arabic": "انتقائي",
+     "synonyms": [
+      "choosy",
+      "particular",
+      "picky"
+     ],
+     "antonyms": [
+      "random",
+      "careless"
+     ],
+     "family": [
+      "select",
+      "selection",
+      "selectively"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Be ___ and pack only the clothes that are clean and useful.",
+      "options": [
+       "noisy",
+       "careless",
+       "sleepy",
+       "selective"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 3,
+   "number": 2,
+   "selection": "Judy’s Appalachia",
+   "words": [
+    {
+     "word": "boycott",
+     "pos": "verb",
+     "meaning": "to refuse to buy or use something as a protest",
+     "example": "Some families chose to boycott products from the harmful mining company.",
+     "arabic": "يُقاطِع",
+     "synonyms": [
+      "avoid",
+      "shun",
+      "refuse"
+     ],
+     "antonyms": [
+      "support"
+     ],
+     "family": [
+      "boycotts",
+      "boycotted",
+      "boycotting"
+     ],
+     "check": {
+      "stem": "What does boycott mean?",
+      "options": [
+       "to build a new road",
+       "to vote in an election",
+       "to refuse to buy or use something to protest",
+       "to clean a river"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "encouragement",
+     "pos": "noun",
+     "meaning": "words or actions that give someone hope or confidence",
+     "example": "With her neighbors' encouragement, Judy spoke out against the pollution.",
+     "arabic": "تشجيع",
+     "synonyms": [
+      "support",
+      "motivation",
+      "inspiration"
+     ],
+     "antonyms": [
+      "discouragement"
+     ],
+     "family": [
+      "encourage",
+      "encourages",
+      "encouraged",
+      "encouraging"
+     ],
+     "check": {
+      "stem": "Which sentence uses encouragement correctly?",
+      "options": [
+       "He drank a cup of encouragement in the garden.",
+       "Her friends' encouragement helped her keep fighting for clean water.",
+       "The encouragement fell into the river.",
+       "Encouragement is a kind of coal."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "fulfill",
+     "pos": "verb",
+     "meaning": "to do what is needed or promised; to make something come true",
+     "example": "Judy worked hard to fulfill her promise to protect the mountains.",
+     "arabic": "يُحقِّق / يَفي بـ",
+     "synonyms": [
+      "achieve",
+      "complete",
+      "carry out"
+     ],
+     "antonyms": [
+      "fail",
+      "break"
+     ],
+     "family": [
+      "fulfills",
+      "fulfilled",
+      "fulfilling",
+      "fulfillment"
+     ],
+     "check": {
+      "stem": "Fill in the blank: She studied every night to ___ her dream of becoming a doctor.",
+      "options": [
+       "boycott",
+       "forget",
+       "fulfill",
+       "destroy"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "injustice",
+     "pos": "noun",
+     "meaning": "something that is unfair or not right",
+     "example": "Polluting a town's water was an injustice to the people living there.",
+     "arabic": "ظُلم",
+     "synonyms": [
+      "unfairness",
+      "wrong"
+     ],
+     "antonyms": [
+      "justice",
+      "fairness"
+     ],
+     "family": [
+      "justice",
+      "unjust",
+      "just"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of injustice?",
+      "options": [
+       "pollution",
+       "wrong",
+       "harm",
+       "fairness"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "mistreated",
+     "pos": "verb",
+     "meaning": "treated badly or unfairly",
+     "example": "Judy felt her community was mistreated by the mining company.",
+     "arabic": "أُسيئت معاملته",
+     "synonyms": [
+      "abused",
+      "wronged",
+      "harmed"
+     ],
+     "antonyms": [
+      "respected",
+      "cared for"
+     ],
+     "family": [
+      "mistreat",
+      "mistreats",
+      "mistreating",
+      "mistreatment",
+      "treat"
+     ],
+     "check": {
+      "stem": "What does mistreated mean?",
+      "options": [
+       "treated badly",
+       "cleaned well",
+       "sent a letter",
+       "given a prize"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "protest",
+     "pos": "noun",
+     "meaning": "an event where people show they strongly disagree with something",
+     "example": "Hundreds of people joined the protest to save the forests.",
+     "arabic": "احتجاج / مُظاهرة",
+     "synonyms": [
+      "demonstration",
+      "objection"
+     ],
+     "antonyms": [
+      "agreement",
+      "approval"
+     ],
+     "family": [
+      "protests",
+      "protested",
+      "protesting",
+      "protester"
+     ],
+     "check": {
+      "stem": "Which sentence uses protest correctly?",
+      "options": [
+       "The protest was a small blue bird.",
+       "People held signs at a peaceful protest against pollution.",
+       "He wore a protest on his foot.",
+       "I baked a protest for my brother."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "qualified",
+     "pos": "adjective",
+     "meaning": "having the skills or training needed for a job",
+     "example": "A qualified scientist tested the water from the stream.",
+     "arabic": "مؤهَّل",
+     "synonyms": [
+      "skilled",
+      "trained",
+      "capable"
+     ],
+     "antonyms": [
+      "unqualified",
+      "untrained"
+     ],
+     "family": [
+      "qualify",
+      "qualification",
+      "unqualified"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as qualified?",
+      "options": [
+       "unknown",
+       "careless",
+       "skilled",
+       "lazy"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "registered",
+     "pos": "verb",
+     "meaning": "officially put a name on a list",
+     "example": "Judy registered to vote so she could help choose leaders.",
+     "arabic": "سَجَّل / قَيَّد",
+     "synonyms": [
+      "enrolled",
+      "signed up",
+      "recorded"
+     ],
+     "antonyms": [],
+     "family": [
+      "register",
+      "registers",
+      "registering",
+      "registration"
+     ],
+     "check": {
+      "stem": "Fill in the blank: My parents ___ me for the after-school science club.",
+      "options": [
+       "polluted",
+       "registered",
+       "scattered",
+       "boycotted"
+      ],
+      "answer": 1
+     }
+    }
+   ]
+  },
+  {
+   "unit": 3,
+   "number": 3,
+   "selection": "Food Fight",
+   "words": [
+    {
+     "word": "advancements",
+     "pos": "noun",
+     "meaning": "steps forward or improvements, especially in science",
+     "example": "Advancements in science help farmers grow stronger crops.",
+     "arabic": "تطوُّرات / تقدُّم",
+     "synonyms": [
+      "improvements",
+      "progress",
+      "developments"
+     ],
+     "antonyms": [
+      "setbacks"
+     ],
+     "family": [
+      "advance",
+      "advanced",
+      "advancement",
+      "advancing"
+     ],
+     "check": {
+      "stem": "What does advancements mean?",
+      "options": [
+       "improvements or progress",
+       "old mistakes",
+       "kinds of insects",
+       "empty fields"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "agriculture",
+     "pos": "noun",
+     "meaning": "the work of growing crops and raising animals",
+     "example": "Agriculture provides much of the food people eat every day.",
+     "arabic": "الزراعة",
+     "synonyms": [
+      "farming",
+      "cultivation"
+     ],
+     "antonyms": [],
+     "family": [
+      "agricultural"
+     ],
+     "check": {
+      "stem": "Which sentence uses agriculture correctly?",
+      "options": [
+       "The agriculture barked at the mailman.",
+       "Modern agriculture uses machines to plant and harvest wheat.",
+       "She wore agriculture to the party.",
+       "He read the agriculture on his watch."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "characteristics",
+     "pos": "noun",
+     "meaning": "special qualities or features of something",
+     "example": "Scientists change the characteristics of corn so it can survive dry weather.",
+     "arabic": "خصائص / سِمات",
+     "synonyms": [
+      "features",
+      "qualities",
+      "traits"
+     ],
+     "antonyms": [],
+     "family": [
+      "characteristic",
+      "character",
+      "characterize"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as characteristics?",
+      "options": [
+       "prices",
+       "problems",
+       "features",
+       "farms"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "concerns",
+     "pos": "noun",
+     "meaning": "worries about something",
+     "example": "Some people have concerns about eating changed foods.",
+     "arabic": "مخاوف",
+     "synonyms": [
+      "worries",
+      "fears",
+      "doubts"
+     ],
+     "antonyms": [
+      "confidence"
+     ],
+     "family": [
+      "concern",
+      "concerned",
+      "concerning"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Parents shared their ___ about the safety of the new snacks.",
+      "options": [
+       "games",
+       "colors",
+       "crops",
+       "concerns"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "disagreed",
+     "pos": "verb",
+     "meaning": "had a different opinion",
+     "example": "The two scientists disagreed about whether the new crops were safe.",
+     "arabic": "اختلف / لم يتّفق",
+     "synonyms": [
+      "differed",
+      "argued",
+      "objected"
+     ],
+     "antonyms": [
+      "agreed"
+     ],
+     "family": [
+      "disagree",
+      "disagrees",
+      "disagreeing",
+      "disagreement",
+      "agree"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of disagreed?",
+      "options": [
+       "agreed",
+       "objected",
+       "argued",
+       "differed"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "inherit",
+     "pos": "verb",
+     "meaning": "to receive features from your parents",
+     "example": "Young plants inherit traits such as size and color from their parent plants.",
+     "arabic": "يَرِث",
+     "synonyms": [
+      "receive",
+      "get"
+     ],
+     "antonyms": [],
+     "family": [
+      "inherits",
+      "inherited",
+      "inheriting",
+      "inheritance"
+     ],
+     "check": {
+      "stem": "What does inherit mean?",
+      "options": [
+       "to water a garden",
+       "to receive features from parents",
+       "to plant seeds in rows",
+       "to sell food at a market"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "prevalent",
+     "pos": "adjective",
+     "meaning": "common or found in many places",
+     "example": "Changed corn is prevalent in many grocery store foods.",
+     "arabic": "سائد / مُنتشِر",
+     "synonyms": [
+      "common",
+      "widespread"
+     ],
+     "antonyms": [
+      "rare",
+      "uncommon"
+     ],
+     "family": [
+      "prevalence"
+     ],
+     "check": {
+      "stem": "Which sentence uses prevalent correctly?",
+      "options": [
+       "The prevalent apple was the only one of its kind.",
+       "Wheat fields are prevalent across the region, stretching for miles.",
+       "She prevalent the cake carefully.",
+       "He was prevalent and ran home."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "resistance",
+     "pos": "noun",
+     "meaning": "the ability to fight off or not be harmed by something",
+     "example": "These rice plants have resistance to insects and disease.",
+     "arabic": "مقاومة / مَناعة",
+     "synonyms": [
+      "defense",
+      "immunity"
+     ],
+     "antonyms": [
+      "weakness"
+     ],
+     "family": [
+      "resist",
+      "resists",
+      "resistant",
+      "resisted"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The new tomato plants have ___ to harmful bugs.",
+      "options": [
+       "music",
+       "weakness",
+       "color",
+       "resistance"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 4,
+   "number": 1,
+   "selection": "A World Without Rules",
+   "words": [
+    {
+     "word": "amendments",
+     "pos": "noun",
+     "meaning": "changes or additions made to a law or official document",
+     "example": "Amendments to the law gave more people the right to vote.",
+     "arabic": "تعديلات",
+     "synonyms": [
+      "changes",
+      "revisions",
+      "additions"
+     ],
+     "antonyms": [],
+     "family": [
+      "amendment",
+      "amend",
+      "amends",
+      "amended"
+     ],
+     "check": {
+      "stem": "What are amendments?",
+      "options": [
+       "changes added to a law",
+       "types of parks",
+       "kinds of roads",
+       "rules of a sport only"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "commitment",
+     "pos": "noun",
+     "meaning": "a promise to do something or to stay loyal to it",
+     "example": "Leaders made a commitment to keep the city's water clean.",
+     "arabic": "التزام",
+     "synonyms": [
+      "promise",
+      "pledge",
+      "dedication"
+     ],
+     "antonyms": [],
+     "family": [
+      "commit",
+      "commits",
+      "committed",
+      "committing"
+     ],
+     "check": {
+      "stem": "Which sentence uses commitment correctly?",
+      "options": [
+       "My commitment is green and leafy.",
+       "The mayor kept her commitment to fix the dangerous roads.",
+       "He put a commitment in the oven.",
+       "The commitment flew over the river."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "compromise",
+     "pos": "noun",
+     "meaning": "an agreement where each side gives up something",
+     "example": "The two groups reached a compromise about where to build the park.",
+     "arabic": "حلّ وسط / تسوية",
+     "synonyms": [
+      "agreement",
+      "deal",
+      "settlement"
+     ],
+     "antonyms": [
+      "disagreement"
+     ],
+     "family": [
+      "compromises",
+      "compromised",
+      "compromising"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Neither team got everything it wanted, so they made a ___.",
+      "options": [
+       "mistake",
+       "holiday",
+       "compromise",
+       "pollution"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "democracy",
+     "pos": "noun",
+     "meaning": "a government where people choose leaders by voting",
+     "example": "In a democracy, citizens vote to choose who will make the laws.",
+     "arabic": "الديمقراطية",
+     "synonyms": [
+      "self-government"
+     ],
+     "antonyms": [
+      "dictatorship"
+     ],
+     "family": [
+      "democratic",
+      "democracies"
+     ],
+     "check": {
+      "stem": "What is a democracy?",
+      "options": [
+       "a large library",
+       "a kind of sports team",
+       "a city with no roads",
+       "a government chosen by the people's votes"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "eventually",
+     "pos": "adverb",
+     "meaning": "in the end, after some time",
+     "example": "Without rules, the roads would eventually become unsafe.",
+     "arabic": "في النهاية / مع الوقت",
+     "synonyms": [
+      "finally",
+      "ultimately",
+      "in the end"
+     ],
+     "antonyms": [
+      "immediately"
+     ],
+     "family": [
+      "eventual",
+      "event"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as eventually?",
+      "options": [
+       "finally",
+       "suddenly",
+       "quickly",
+       "never"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "legislation",
+     "pos": "noun",
+     "meaning": "laws made by a government",
+     "example": "New legislation requires drivers to wear seat belts.",
+     "arabic": "تشريعات / قوانين",
+     "synonyms": [
+      "laws",
+      "rules",
+      "statutes"
+     ],
+     "antonyms": [],
+     "family": [
+      "legislate",
+      "legislator",
+      "legislature",
+      "legislative"
+     ],
+     "check": {
+      "stem": "Which sentence uses legislation correctly?",
+      "options": [
+       "The government passed legislation to protect parks from pollution.",
+       "I painted my bedroom legislation.",
+       "She tied her legislation with a ribbon.",
+       "The legislation swam across the lake."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "privilege",
+     "pos": "noun",
+     "meaning": "a special right or advantage given to some people",
+     "example": "Voting is a privilege that comes with being an adult citizen.",
+     "arabic": "امتياز",
+     "synonyms": [
+      "right",
+      "advantage",
+      "benefit"
+     ],
+     "antonyms": [],
+     "family": [
+      "privileges",
+      "privileged"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Using the school library after hours is a ___ for good readers.",
+      "options": [
+       "pollution",
+       "problem",
+       "privilege",
+       "punishment"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "version",
+     "pos": "noun",
+     "meaning": "one form of something that is a bit different from others",
+     "example": "The class wrote its own version of the school rules.",
+     "arabic": "نُسخة / صيغة",
+     "synonyms": [
+      "form",
+      "edition",
+      "copy"
+     ],
+     "antonyms": [
+      "original"
+     ],
+     "family": [
+      "versions"
+     ],
+     "check": {
+      "stem": "What does version mean?",
+      "options": [
+       "a tall building",
+       "a kind of fruit",
+       "a very loud noise",
+       "one form of something"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 4,
+   "number": 2,
+   "selection": "A Telephone Mix-Up",
+   "words": [
+    {
+     "word": "decade",
+     "pos": "noun",
+     "meaning": "a period of ten years",
+     "example": "Within a decade, most homes in town had a telephone.",
+     "arabic": "عَقد (عشر سنوات)",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "decades"
+     ],
+     "check": {
+      "stem": "How long is a decade?",
+      "options": [
+       "ten years",
+       "ten days",
+       "one hundred years",
+       "one year"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "directing",
+     "pos": "verb",
+     "meaning": "guiding or controlling where something goes",
+     "example": "The operator was directing each call to the right house.",
+     "arabic": "يُوجِّه / يُدير",
+     "synonyms": [
+      "guiding",
+      "leading",
+      "steering"
+     ],
+     "antonyms": [
+      "following"
+     ],
+     "family": [
+      "direct",
+      "directs",
+      "directed",
+      "direction",
+      "director"
+     ],
+     "check": {
+      "stem": "Which sentence uses directing correctly?",
+      "options": [
+       "The tree was directing in the wind.",
+       "The operator was directing calls to the doctor's office.",
+       "The cat was directing a nap on the sofa.",
+       "He was directing his soup with a spoon."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "engineering",
+     "pos": "noun",
+     "meaning": "using science to design and build machines and structures",
+     "example": "Engineering made it possible to run telephone wires between towns.",
+     "arabic": "الهندسة",
+     "synonyms": [
+      "design",
+      "construction"
+     ],
+     "antonyms": [],
+     "family": [
+      "engineer",
+      "engineers",
+      "engineered"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Building the new telephone lines took clever ___.",
+      "options": [
+       "cooking",
+       "sleeping",
+       "engineering",
+       "singing"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "gleaming",
+     "pos": "adjective",
+     "meaning": "shining brightly",
+     "example": "A gleaming new telephone hung on the kitchen wall.",
+     "arabic": "لامع / بَرّاق",
+     "synonyms": [
+      "shining",
+      "sparkling",
+      "glowing"
+     ],
+     "antonyms": [
+      "dull"
+     ],
+     "family": [
+      "gleam",
+      "gleams",
+      "gleamed"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of gleaming?",
+      "options": [
+       "shining",
+       "bright",
+       "sparkling",
+       "dull"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "scouted",
+     "pos": "verb",
+     "meaning": "looked around a place to find information",
+     "example": "Workers scouted the town to decide where to put the poles.",
+     "arabic": "استطلع / استكشف",
+     "synonyms": [
+      "explored",
+      "searched",
+      "surveyed"
+     ],
+     "antonyms": [],
+     "family": [
+      "scout",
+      "scouts",
+      "scouting"
+     ],
+     "check": {
+      "stem": "What does scouted mean?",
+      "options": [
+       "looked around to gather information",
+       "fell asleep quickly",
+       "painted a wall",
+       "shouted loudly"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "squirmed",
+     "pos": "verb",
+     "meaning": "twisted the body because of being nervous or uncomfortable",
+     "example": "The girl squirmed in her seat while waiting for the call.",
+     "arabic": "تَلوّى / تململ",
+     "synonyms": [
+      "wiggled",
+      "fidgeted",
+      "wriggled"
+     ],
+     "antonyms": [],
+     "family": [
+      "squirm",
+      "squirms",
+      "squirming"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as squirmed?",
+      "options": [
+       "whispered",
+       "fidgeted",
+       "smiled",
+       "rested"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "technology",
+     "pos": "noun",
+     "meaning": "new machines and tools made using science",
+     "example": "The telephone was exciting technology in the early 1900s.",
+     "arabic": "التقنية / التكنولوجيا",
+     "synonyms": [
+      "machinery",
+      "invention"
+     ],
+     "antonyms": [],
+     "family": [
+      "technological",
+      "technologies"
+     ],
+     "check": {
+      "stem": "Which sentence uses technology correctly?",
+      "options": [
+       "Technology is a kind of soup.",
+       "The technology chirped in the tree.",
+       "New technology let the doctor talk to patients far away.",
+       "She planted technology in the garden."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "tinkering",
+     "pos": "verb",
+     "meaning": "trying to fix or improve something by making small changes",
+     "example": "Father was tinkering with the telephone to make the sound clearer.",
+     "arabic": "يُصلِح / يعبث لإصلاح",
+     "synonyms": [
+      "fiddling",
+      "adjusting"
+     ],
+     "antonyms": [],
+     "family": [
+      "tinker",
+      "tinkers",
+      "tinkered",
+      "tinkerer"
+     ],
+     "check": {
+      "stem": "Fill in the blank: My uncle spent the afternoon ___ with the old radio.",
+      "options": [
+       "sleeping",
+       "running",
+       "crying",
+       "tinkering"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 4,
+   "number": 3,
+   "selection": "Sing to Me",
+   "words": [
+    {
+     "word": "attain",
+     "pos": "verb",
+     "meaning": "to reach or achieve a goal after hard work",
+     "example": "After weeks of practice, she was able to attain her goal of playing the whole song.",
+     "arabic": "يُحقِّق / يَبلُغ",
+     "synonyms": [
+      "achieve",
+      "reach",
+      "accomplish"
+     ],
+     "antonyms": [
+      "fail",
+      "lose"
+     ],
+     "family": [
+      "attains",
+      "attained",
+      "attaining",
+      "attainable"
+     ],
+     "check": {
+      "stem": "What does attain mean?",
+      "options": [
+       "to reach a goal",
+       "to give up",
+       "to fall asleep",
+       "to break something"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "dangling",
+     "pos": "verb",
+     "meaning": "hanging loosely and swinging",
+     "example": "His legs were dangling from the high branch of the tree.",
+     "arabic": "مُتدلٍّ",
+     "synonyms": [
+      "hanging",
+      "swinging",
+      "drooping"
+     ],
+     "antonyms": [],
+     "family": [
+      "dangle",
+      "dangles",
+      "dangled"
+     ],
+     "check": {
+      "stem": "Which sentence uses dangling correctly?",
+      "options": [
+       "She was dangling her homework on time.",
+       "A rope was dangling from the tree branch.",
+       "The fish was dangling a song.",
+       "He was dangling the soup to cool it."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "hovering",
+     "pos": "verb",
+     "meaning": "staying in one place in the air",
+     "example": "Her fingers were hovering above the piano keys before she began.",
+     "arabic": "يحوم / يُرفرف في مكانه",
+     "synonyms": [
+      "floating",
+      "hanging"
+     ],
+     "antonyms": [],
+     "family": [
+      "hover",
+      "hovers",
+      "hovered"
+     ],
+     "check": {
+      "stem": "Fill in the blank: A bee was ___ over the flower before it landed.",
+      "options": [
+       "swimming",
+       "sleeping",
+       "hovering",
+       "digging"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "triumph",
+     "pos": "noun",
+     "meaning": "a great success or win",
+     "example": "Reaching the top of the tree felt like a triumph.",
+     "arabic": "انتصار / نجاح عظيم",
+     "synonyms": [
+      "victory",
+      "success",
+      "win"
+     ],
+     "antonyms": [
+      "failure",
+      "defeat"
+     ],
+     "family": [
+      "triumphs",
+      "triumphant",
+      "triumphed"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of triumph?",
+      "options": [
+       "victory",
+       "win",
+       "failure",
+       "success"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "stanza",
+     "pos": "noun",
+     "meaning": "a group of lines in a poem, like a paragraph",
+     "example": "The first stanza of the poem tells about the child's first piano lesson.",
+     "arabic": "مقطع شعري",
+     "synonyms": [
+      "verse"
+     ],
+     "antonyms": [],
+     "family": [
+      "stanzas"
+     ],
+     "check": {
+      "stem": "What is a stanza?",
+      "options": [
+       "a group of lines in a poem",
+       "a rhyming word",
+       "the title of a song",
+       "a type of piano"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "repetition",
+     "pos": "noun",
+     "meaning": "saying or doing something again and again",
+     "example": "The poet uses repetition of 'try again' to show the child never gives up.",
+     "arabic": "تَكرار",
+     "synonyms": [
+      "repeating",
+      "recurrence"
+     ],
+     "antonyms": [],
+     "family": [
+      "repeat",
+      "repeats",
+      "repeated",
+      "repetitive"
+     ],
+     "check": {
+      "stem": "Which sentence uses repetition correctly?",
+      "options": [
+       "My repetition is tall and green.",
+       "The repetition of 'climb, climb, climb' shows how hard he tried.",
+       "She ate a bowl of repetition.",
+       "The repetition flew out the window."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "denotation",
+     "pos": "noun",
+     "meaning": "the exact dictionary meaning of a word",
+     "example": "The denotation of 'climb' is to move upward using hands and feet.",
+     "arabic": "المعنى الحرفي (المعجمي)",
+     "synonyms": [
+      "literal meaning",
+      "definition"
+     ],
+     "antonyms": [
+      "connotation"
+     ],
+     "family": [
+      "denote",
+      "denotes",
+      "denoted"
+     ],
+     "check": {
+      "stem": "What is the denotation of a word?",
+      "options": [
+       "the number of letters",
+       "the way it rhymes",
+       "its dictionary meaning",
+       "the feeling it gives"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "connotation",
+     "pos": "noun",
+     "meaning": "the feeling or idea a word suggests beyond its exact meaning",
+     "example": "The word 'soar' has a connotation of freedom and joy.",
+     "arabic": "الإيحاء / المعنى الضمني",
+     "synonyms": [
+      "implication",
+      "association"
+     ],
+     "antonyms": [
+      "denotation"
+     ],
+     "family": [
+      "connote",
+      "connotes",
+      "connotations"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The word 'home' has a warm ___ of safety and love.",
+      "options": [
+       "stanza",
+       "denotation",
+       "decade",
+       "connotation"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 5,
+   "number": 1,
+   "selection": "Your World Up Close",
+   "words": [
+    {
+     "word": "cling",
+     "pos": "verb",
+     "meaning": "to hold on tightly to something",
+     "example": "Under the microscope, tiny bits of dust cling to a strand of hair.",
+     "arabic": "يلتصق / يتشبّث",
+     "synonyms": [
+      "stick",
+      "hold",
+      "grip"
+     ],
+     "antonyms": [
+      "release",
+      "let go"
+     ],
+     "family": [
+      "clings",
+      "clung",
+      "clinging",
+      "clingy"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as cling?",
+      "options": [
+       "stick",
+       "melt",
+       "drop",
+       "float"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "dissolves",
+     "pos": "verb",
+     "meaning": "mixes into a liquid until it can no longer be seen",
+     "example": "Salt dissolves in water, but a microscope can show what happens.",
+     "arabic": "يذوب",
+     "synonyms": [
+      "melts",
+      "disappears"
+     ],
+     "antonyms": [],
+     "family": [
+      "dissolve",
+      "dissolved",
+      "dissolving"
+     ],
+     "check": {
+      "stem": "Which sentence uses dissolves correctly?",
+      "options": [
+       "The bird dissolves a nest.",
+       "Sugar dissolves quickly in hot tea.",
+       "He dissolves his shoes every morning.",
+       "The rock dissolves up the mountain."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "gritty",
+     "pos": "adjective",
+     "meaning": "rough and full of tiny hard pieces",
+     "example": "Up close, sand looks like gritty bits of broken rock.",
+     "arabic": "خَشِن / مُحبَّب",
+     "synonyms": [
+      "grainy",
+      "sandy",
+      "rough"
+     ],
+     "antonyms": [
+      "smooth"
+     ],
+     "family": [
+      "grit",
+      "grittier",
+      "grittiest"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of gritty?",
+      "options": [
+       "rough",
+       "sandy",
+       "grainy",
+       "smooth"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "humid",
+     "pos": "adjective",
+     "meaning": "damp and full of moisture in the air",
+     "example": "Snowflakes form differently when the air is cold and humid.",
+     "arabic": "رَطْب",
+     "synonyms": [
+      "damp",
+      "moist",
+      "muggy"
+     ],
+     "antonyms": [
+      "dry"
+     ],
+     "family": [
+      "humidity"
+     ],
+     "check": {
+      "stem": "What does humid mean?",
+      "options": [
+       "very windy",
+       "very cold and icy",
+       "bright and sunny",
+       "having a lot of moisture in the air"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "magnify",
+     "pos": "verb",
+     "meaning": "to make something look bigger than it is",
+     "example": "A strong lens can magnify a snowflake hundreds of times.",
+     "arabic": "يُكبِّر",
+     "synonyms": [
+      "enlarge",
+      "expand"
+     ],
+     "antonyms": [
+      "shrink",
+      "reduce"
+     ],
+     "family": [
+      "magnifies",
+      "magnified",
+      "magnifying",
+      "magnification"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Scientists ___ cells so they can see every tiny detail.",
+      "options": [
+       "magnify",
+       "hide",
+       "forget",
+       "shrink"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "microscope",
+     "pos": "noun",
+     "meaning": "a tool with lenses that makes tiny things look much larger",
+     "example": "Through the microscope, the skin looked like a bumpy landscape.",
+     "arabic": "مِجهَر",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "microscopes",
+      "microscopic"
+     ],
+     "check": {
+      "stem": "Which sentence uses microscope correctly?",
+      "options": [
+       "We ate a microscope for dinner.",
+       "She used a microscope to study tiny cells.",
+       "The microscope sang a song.",
+       "He wore a microscope on his feet."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "mingle",
+     "pos": "verb",
+     "meaning": "to mix together with other things",
+     "example": "In the drop of pond water, tiny creatures mingle with bits of plants.",
+     "arabic": "يختلط / يمتزج",
+     "synonyms": [
+      "mix",
+      "blend",
+      "combine"
+     ],
+     "antonyms": [
+      "separate"
+     ],
+     "family": [
+      "mingles",
+      "mingled",
+      "mingling"
+     ],
+     "check": {
+      "stem": "What does mingle mean?",
+      "options": [
+       "to stand alone",
+       "to break apart",
+       "to mix together",
+       "to grow taller"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "typical",
+     "pos": "adjective",
+     "meaning": "normal or usual for a kind of thing",
+     "example": "A typical snowflake has six sides.",
+     "arabic": "نموذجي / مُعتاد",
+     "synonyms": [
+      "normal",
+      "usual",
+      "ordinary"
+     ],
+     "antonyms": [
+      "unusual",
+      "rare"
+     ],
+     "family": [
+      "typically",
+      "type"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as typical?",
+      "options": [
+       "giant",
+       "rare",
+       "strange",
+       "usual"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 5,
+   "number": 2,
+   "selection": "Sadie’s Game",
+   "words": []
+  },
+  {
+   "unit": 5,
+   "number": 3,
+   "selection": "The Founding of Jamestown",
+   "words": [
+    {
+     "word": "archaeology",
+     "pos": "noun",
+     "meaning": "the study of the past by digging up old objects",
+     "example": "Archaeology helps us learn how the Jamestown settlers lived.",
+     "arabic": "علم الآثار",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "archaeologist",
+      "archaeological"
+     ],
+     "check": {
+      "stem": "What is archaeology?",
+      "options": [
+       "the study of the past through old objects",
+       "the study of music",
+       "the study of stars",
+       "the study of weather"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "document",
+     "pos": "noun",
+     "meaning": "an official paper that gives information",
+     "example": "An old document listed the names of the first settlers.",
+     "arabic": "وثيقة / مستند",
+     "synonyms": [
+      "record",
+      "paper",
+      "file"
+     ],
+     "antonyms": [],
+     "family": [
+      "documents",
+      "documented",
+      "documentation"
+     ],
+     "check": {
+      "stem": "Which sentence uses document correctly?",
+      "options": [
+       "The museum showed a document written by John Smith.",
+       "The document barked at the ship.",
+       "She planted a document in the field.",
+       "He swam across the document."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "era",
+     "pos": "noun",
+     "meaning": "a long period of time in history",
+     "example": "The colonial era began with settlements like Jamestown.",
+     "arabic": "حِقبة / عصر",
+     "synonyms": [
+      "period",
+      "age",
+      "time"
+     ],
+     "antonyms": [],
+     "family": [
+      "eras"
+     ],
+     "check": {
+      "stem": "Fill in the blank: People in that ___ traveled by sailing ship.",
+      "options": [
+       "stanza",
+       "recipe",
+       "era",
+       "telephone"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "evidence",
+     "pos": "noun",
+     "meaning": "facts or objects that show something is true",
+     "example": "Bones and tools are evidence of what settlers ate.",
+     "arabic": "دليل / بُرهان",
+     "synonyms": [
+      "proof",
+      "clues",
+      "signs"
+     ],
+     "antonyms": [],
+     "family": [
+      "evident",
+      "evidently"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as evidence?",
+      "options": [
+       "guess",
+       "story",
+       "rumor",
+       "proof"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "expedition",
+     "pos": "noun",
+     "meaning": "a long trip made for a special purpose",
+     "example": "The expedition sailed from England to Virginia in 1607.",
+     "arabic": "بعثة / رحلة استكشافية",
+     "synonyms": [
+      "journey",
+      "voyage",
+      "mission"
+     ],
+     "antonyms": [],
+     "family": [
+      "expeditions"
+     ],
+     "check": {
+      "stem": "What is an expedition?",
+      "options": [
+       "a long trip with a purpose",
+       "a short nap",
+       "a type of food",
+       "a small house"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "permanent",
+     "pos": "adjective",
+     "meaning": "lasting for a very long time or forever",
+     "example": "Jamestown was the first permanent English settlement in North America.",
+     "arabic": "دائم",
+     "synonyms": [
+      "lasting",
+      "enduring",
+      "fixed"
+     ],
+     "antonyms": [
+      "temporary"
+     ],
+     "family": [
+      "permanently",
+      "permanence"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of permanent?",
+      "options": [
+       "forever",
+       "temporary",
+       "fixed",
+       "lasting"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "tremendous",
+     "pos": "adjective",
+     "meaning": "very large or great",
+     "example": "The settlers faced tremendous challenges during their first winter.",
+     "arabic": "هائل / ضخم",
+     "synonyms": [
+      "huge",
+      "enormous",
+      "great"
+     ],
+     "antonyms": [
+      "tiny",
+      "small"
+     ],
+     "family": [
+      "tremendously"
+     ],
+     "check": {
+      "stem": "Which sentence uses tremendous correctly?",
+      "options": [
+       "She tremendous her bread.",
+       "He walked tremendous to the store.",
+       "Finding clean water was a tremendous problem for the settlers.",
+       "The tremendous ant was too small to see."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "uncover",
+     "pos": "verb",
+     "meaning": "to find something that was hidden",
+     "example": "Researchers dig carefully to uncover the old fort's walls.",
+     "arabic": "يكشف / يُزيل الغطاء",
+     "synonyms": [
+      "reveal",
+      "discover",
+      "expose"
+     ],
+     "antonyms": [
+      "cover",
+      "hide",
+      "bury"
+     ],
+     "family": [
+      "uncovers",
+      "uncovered",
+      "uncovering",
+      "cover"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Diggers hope to ___ more tools buried under the soil.",
+      "options": [
+       "bury",
+       "break",
+       "forget",
+       "uncover"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 6,
+   "number": 1,
+   "selection": "The Great Energy Debate",
+   "words": [
+    {
+     "word": "coincidence",
+     "pos": "noun",
+     "meaning": "two things happening together by chance",
+     "example": "By coincidence, both teams chose solar power for their opening argument.",
+     "arabic": "مصادفة",
+     "synonyms": [
+      "chance",
+      "accident",
+      "fluke"
+     ],
+     "antonyms": [],
+     "family": [
+      "coincidences",
+      "coincide",
+      "coincidental"
+     ],
+     "check": {
+      "stem": "What is a coincidence?",
+      "options": [
+       "a debate rule",
+       "things happening together by chance",
+       "a kind of fuel",
+       "a carefully made plan"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "consequences",
+     "pos": "noun",
+     "meaning": "results that happen because of an action",
+     "example": "Burning coal has harmful consequences for the air we breathe.",
+     "arabic": "عواقب / نتائج",
+     "synonyms": [
+      "results",
+      "effects",
+      "outcomes"
+     ],
+     "antonyms": [
+      "causes"
+     ],
+     "family": [
+      "consequence",
+      "consequently"
+     ],
+     "check": {
+      "stem": "Which sentence uses consequences correctly?",
+      "options": [
+       "The consequences played soccer outside.",
+       "Wasting energy can have serious consequences for the planet.",
+       "He drew consequences on the wall.",
+       "She drank a glass of consequences."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "consume",
+     "pos": "verb",
+     "meaning": "to use up something such as fuel or energy",
+     "example": "Large factories consume a lot of electricity every day.",
+     "arabic": "يستهلك",
+     "synonyms": [
+      "use",
+      "use up",
+      "spend"
+     ],
+     "antonyms": [
+      "save",
+      "conserve"
+     ],
+     "family": [
+      "consumes",
+      "consumed",
+      "consuming",
+      "consumer",
+      "consumption"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of consume?",
+      "options": [
+       "use",
+       "eat",
+       "save",
+       "burn"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "converted",
+     "pos": "verb",
+     "meaning": "changed from one form into another",
+     "example": "Solar panels converted sunlight into electricity for the school.",
+     "arabic": "حُوِّل",
+     "synonyms": [
+      "changed",
+      "transformed",
+      "turned"
+     ],
+     "antonyms": [],
+     "family": [
+      "convert",
+      "converts",
+      "converting",
+      "conversion"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The wind turbine ___ wind into power for the town.",
+      "options": [
+       "ignored",
+       "hid",
+       "consumed",
+       "converted"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "efficient",
+     "pos": "adjective",
+     "meaning": "working well without wasting time or energy",
+     "example": "LED bulbs are more efficient than old light bulbs.",
+     "arabic": "فعّال / كفء",
+     "synonyms": [
+      "effective",
+      "productive",
+      "economical"
+     ],
+     "antonyms": [
+      "wasteful",
+      "inefficient"
+     ],
+     "family": [
+      "efficiency",
+      "efficiently",
+      "inefficient"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as efficient?",
+      "options": [
+       "effective",
+       "wasteful",
+       "slow",
+       "broken"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "incredible",
+     "pos": "adjective",
+     "meaning": "amazing and hard to believe",
+     "example": "The amount of energy in sunlight is incredible.",
+     "arabic": "مُذهِل / لا يُصدَّق",
+     "synonyms": [
+      "amazing",
+      "unbelievable",
+      "astonishing"
+     ],
+     "antonyms": [
+      "ordinary",
+      "believable"
+     ],
+     "family": [
+      "incredibly"
+     ],
+     "check": {
+      "stem": "What does incredible mean?",
+      "options": [
+       "dark and cold",
+       "amazing and hard to believe",
+       "dull and boring",
+       "small and weak"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "installed",
+     "pos": "verb",
+     "meaning": "put in place so it is ready to use",
+     "example": "Workers installed solar panels on the school roof.",
+     "arabic": "رَكَّب / ثَبَّت",
+     "synonyms": [
+      "set up",
+      "fitted",
+      "placed"
+     ],
+     "antonyms": [
+      "removed"
+     ],
+     "family": [
+      "install",
+      "installs",
+      "installing",
+      "installation"
+     ],
+     "check": {
+      "stem": "Which sentence uses installed correctly?",
+      "options": [
+       "The bird installed a song in the morning.",
+       "He installed to the park on foot.",
+       "My father installed a new fan in the kitchen.",
+       "She installed her lunch quickly."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "renewable",
+     "pos": "adjective",
+     "meaning": "able to be replaced naturally and never used up",
+     "example": "Wind and sunlight are renewable sources of energy.",
+     "arabic": "مُتجدِّد",
+     "synonyms": [
+      "sustainable",
+      "replaceable"
+     ],
+     "antonyms": [
+      "nonrenewable"
+     ],
+     "family": [
+      "renew",
+      "renewal",
+      "nonrenewable"
+     ],
+     "check": {
+      "stem": "Fill in the blank: Solar power is ___ because the sun keeps shining.",
+      "options": [
+       "harmful",
+       "renewable",
+       "expensive",
+       "wasteful"
+      ],
+      "answer": 1
+     }
+    }
+   ]
+  },
+  {
+   "unit": 6,
+   "number": 2,
+   "selection": "A Surprise Reunion",
+   "words": [
+    {
+     "word": "ancestors",
+     "pos": "noun",
+     "meaning": "family members who lived long ago",
+     "example": "Cameahwait told stories about his ancestors who hunted in the mountains.",
+     "arabic": "الأجداد / الأسلاف",
+     "synonyms": [
+      "forefathers",
+      "forebears"
+     ],
+     "antonyms": [
+      "descendants"
+     ],
+     "family": [
+      "ancestor",
+      "ancestry",
+      "ancestral"
+     ],
+     "check": {
+      "stem": "What are ancestors?",
+      "options": [
+       "family members from long ago",
+       "young children",
+       "travelers from far away",
+       "new neighbors"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "despised",
+     "pos": "verb",
+     "meaning": "strongly disliked",
+     "example": "The chief despised the people who had taken his sister.",
+     "arabic": "احتقر / كَرِه بشدّة",
+     "synonyms": [
+      "hated",
+      "loathed",
+      "scorned"
+     ],
+     "antonyms": [
+      "loved",
+      "admired"
+     ],
+     "family": [
+      "despise",
+      "despises",
+      "despising"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of despised?",
+      "options": [
+       "ignored",
+       "loved",
+       "feared",
+       "hated"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "endurance",
+     "pos": "noun",
+     "meaning": "the strength to keep going through something hard",
+     "example": "Crossing the mountains took great endurance.",
+     "arabic": "التحمُّل / الصمود",
+     "synonyms": [
+      "stamina",
+      "strength",
+      "persistence"
+     ],
+     "antonyms": [
+      "weakness"
+     ],
+     "family": [
+      "endure",
+      "endures",
+      "endured",
+      "enduring"
+     ],
+     "check": {
+      "stem": "Which sentence uses endurance correctly?",
+      "options": [
+       "He put endurance on his bread.",
+       "The endurance sang in the tree.",
+       "The long, cold journey tested the explorers' endurance.",
+       "She folded her endurance neatly."
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "forfeit",
+     "pos": "verb",
+     "meaning": "to lose or give up something as a result of an action",
+     "example": "If the explorers had no horses, they might forfeit their chance to cross the mountains.",
+     "arabic": "يخسر / يتنازل عن",
+     "synonyms": [
+      "lose",
+      "give up",
+      "surrender"
+     ],
+     "antonyms": [
+      "keep",
+      "win"
+     ],
+     "family": [
+      "forfeits",
+      "forfeited",
+      "forfeiting"
+     ],
+     "check": {
+      "stem": "Fill in the blank: If the team arrives late, it will ___ the game.",
+      "options": [
+       "win",
+       "cling",
+       "honor",
+       "forfeit"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "honor",
+     "pos": "noun",
+     "meaning": "great respect shown to someone",
+     "example": "It was an honor for the chief to welcome the visitors.",
+     "arabic": "شَرَف / تكريم",
+     "synonyms": [
+      "respect",
+      "pride",
+      "dignity"
+     ],
+     "antonyms": [
+      "shame",
+      "disgrace"
+     ],
+     "family": [
+      "honors",
+      "honored",
+      "honorable"
+     ],
+     "check": {
+      "stem": "Which word means almost the same as honor?",
+      "options": [
+       "respect",
+       "fear",
+       "anger",
+       "shame"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "intensity",
+     "pos": "noun",
+     "meaning": "great strength or force of a feeling or action",
+     "example": "He felt the intensity of his joy when he saw his sister again.",
+     "arabic": "شِدّة / حِدّة",
+     "synonyms": [
+      "strength",
+      "force",
+      "power"
+     ],
+     "antonyms": [
+      "mildness"
+     ],
+     "family": [
+      "intense",
+      "intensely",
+      "intensify"
+     ],
+     "check": {
+      "stem": "What does intensity mean?",
+      "options": [
+       "a gentle sound",
+       "great strength or force",
+       "a long nap",
+       "a small change"
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "irritating",
+     "pos": "adjective",
+     "meaning": "annoying and bothersome",
+     "example": "The buzzing of insects was irritating during the long march.",
+     "arabic": "مُزعِج",
+     "synonyms": [
+      "annoying",
+      "bothersome"
+     ],
+     "antonyms": [
+      "pleasant",
+      "soothing"
+     ],
+     "family": [
+      "irritate",
+      "irritates",
+      "irritated",
+      "irritation"
+     ],
+     "check": {
+      "stem": "Which sentence uses irritating correctly?",
+      "options": [
+       "He gave an irritating hug to welcome his friend.",
+       "She ate an irritating sandwich happily.",
+       "The irritating song made everyone relaxed and calm.",
+       "The constant dripping noise was irritating."
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "retreated",
+     "pos": "verb",
+     "meaning": "moved back or away",
+     "example": "The scouts retreated to camp when the storm began.",
+     "arabic": "تراجع / انسحب",
+     "synonyms": [
+      "withdrew",
+      "backed away"
+     ],
+     "antonyms": [
+      "advanced"
+     ],
+     "family": [
+      "retreat",
+      "retreats",
+      "retreating"
+     ],
+     "check": {
+      "stem": "Which word is the opposite of retreated?",
+      "options": [
+       "backed away",
+       "withdrew",
+       "left",
+       "advanced"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  },
+  {
+   "unit": 6,
+   "number": 3,
+   "selection": "Climbing Blue Hill",
+   "words": [
+    {
+     "word": "gobble",
+     "pos": "verb",
+     "meaning": "to eat something very quickly",
+     "example": "After the long hike, the children gobble their sandwiches.",
+     "arabic": "يلتهم",
+     "synonyms": [
+      "devour",
+      "gulp",
+      "wolf"
+     ],
+     "antonyms": [
+      "nibble"
+     ],
+     "family": [
+      "gobbles",
+      "gobbled",
+      "gobbling"
+     ],
+     "check": {
+      "stem": "What does gobble mean?",
+      "options": [
+       "to eat very quickly",
+       "to sing softly",
+       "to walk slowly",
+       "to climb high"
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "individuality",
+     "pos": "noun",
+     "meaning": "the qualities that make a person different from others",
+     "example": "Her unusual name shows her individuality.",
+     "arabic": "التفرُّد / الشخصية المستقلة",
+     "synonyms": [
+      "uniqueness",
+      "originality"
+     ],
+     "antonyms": [
+      "sameness"
+     ],
+     "family": [
+      "individual",
+      "individually"
+     ],
+     "check": {
+      "stem": "Which sentence uses individuality correctly?",
+      "options": [
+       "The individuality climbed the hill.",
+       "Each sister shows her individuality in the way she paints.",
+       "Individuality is a kind of rock.",
+       "He ate individuality for breakfast."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "mist",
+     "pos": "noun",
+     "meaning": "a thin cloud of tiny water drops in the air",
+     "example": "A soft mist covered the top of the hill in the morning.",
+     "arabic": "ضباب خفيف / رذاذ",
+     "synonyms": [
+      "fog",
+      "haze",
+      "vapor"
+     ],
+     "antonyms": [],
+     "family": [
+      "mists",
+      "misty",
+      "misted"
+     ],
+     "check": {
+      "stem": "Fill in the blank: We could barely see the trees through the morning ___.",
+      "options": [
+       "sand",
+       "dust",
+       "mist",
+       "fire"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "roots",
+     "pos": "noun",
+     "meaning": "the family history and place a person comes from",
+     "example": "Grandfather's stories help me understand my family's roots.",
+     "arabic": "الجذور / الأصول",
+     "synonyms": [
+      "origins",
+      "heritage",
+      "background"
+     ],
+     "antonyms": [],
+     "family": [
+      "root",
+      "rooted"
+     ],
+     "check": {
+      "stem": "What does roots mean in 'proud of her family roots'?",
+      "options": [
+       "parts of a plant only",
+       "new friends",
+       "the bottom of a hill",
+       "where her family comes from"
+      ],
+      "answer": 3
+     }
+    },
+    {
+     "word": "metaphor",
+     "pos": "noun",
+     "meaning": "a comparison that says one thing is another, without 'like' or 'as'",
+     "example": "'My family is a strong vine' is a metaphor about staying close.",
+     "arabic": "استعارة",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "metaphors",
+      "metaphorical"
+     ],
+     "check": {
+      "stem": "Which sentence is a metaphor?",
+      "options": [
+       "Her smile is sunshine.",
+       "She smiled at me.",
+       "Her smile is like the sun.",
+       "Her smile was wide."
+      ],
+      "answer": 0
+     }
+    },
+    {
+     "word": "personification",
+     "pos": "noun",
+     "meaning": "giving human actions or feelings to things that are not human",
+     "example": "'The hill welcomed us' is personification.",
+     "arabic": "التشخيص / الأنسنة",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [
+      "personify",
+      "personifies",
+      "personified"
+     ],
+     "check": {
+      "stem": "Which sentence uses personification?",
+      "options": [
+       "There was a lot of wind.",
+       "The wind whispered through the trees.",
+       "The wind blew for an hour.",
+       "The wind was cold."
+      ],
+      "answer": 1
+     }
+    },
+    {
+     "word": "imagery",
+     "pos": "noun",
+     "meaning": "words that help readers see, hear, smell, taste, or feel something",
+     "example": "The poem's imagery of green leaves and cool air makes me feel the hike.",
+     "arabic": "الصور الحِسّية / التصوير الفنّي",
+     "synonyms": [
+      "description"
+     ],
+     "antonyms": [],
+     "family": [
+      "image",
+      "images",
+      "imagine"
+     ],
+     "check": {
+      "stem": "Fill in the blank: The poet's ___ let me smell the pine trees and hear the birds.",
+      "options": [
+       "title",
+       "meter",
+       "imagery",
+       "rhyme"
+      ],
+      "answer": 2
+     }
+    },
+    {
+     "word": "free verse",
+     "pos": "noun",
+     "meaning": "poetry without a regular rhyme or beat",
+     "example": "She wrote a poem about her grandmother in free verse, with no rhymes.",
+     "arabic": "الشعر الحُرّ",
+     "synonyms": [],
+     "antonyms": [],
+     "family": [],
+     "check": {
+      "stem": "What is free verse?",
+      "options": [
+       "a poem that must rhyme",
+       "a story with chapters",
+       "a song with a chorus",
+       "poetry without regular rhyme or beat"
+      ],
+      "answer": 3
+     }
+    }
+   ]
+  }
+ ]
+}

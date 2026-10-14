@@ -7,6 +7,7 @@
  *     difficulty starts at the student's RIT level (seedAbilityFromRit), then adapts after every answer.
  */
 import { countGroups } from "../db/group-count";
+import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -382,25 +383,50 @@ export interface StudentMap {
 async function practiceAreas(repo: Repo, studentId: string): Promise<MapArea[]> {
   const g = await studentGrade(repo, studentId);
   if (!g?.curriculumId) return [];
-  const skills = await repo.findMany("Skill", { curriculumId: g.curriculumId, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] });
-  if (!skills.length) return [];
-  const fams = await repo.findMany("SkillFamily", { id: { in: [...new Set(skills.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] });
-  const areaIds = [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))];
-  if (!areaIds.length) return [];
-  const areas = await repo.findMany("MapGoalArea", { id: { in: areaIds } }, { select: ["id", "code", "name"] });
-  const manual = [...new Set((await repo.findMany("QuestionType", { code: "SHORT_ANSWER" }, { select: ["id"] })).map((t) => s(t.id)))];
-  // ⚡ counted by the database (one row per skill); teacher-marked questions left out as before
-  const count = await countGroups(repo, "Question", "skillId", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null, ...(manual.length ? { typeId: { notIn: manual } } : {}) });
-  const mastery = new Map((await repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] })).map((m) => [s(m.skillId), Math.round(Number(m.score))]));
-  const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
-  return areas.map((a) => {
-    const list = skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && (count.get(s(k.id)) ?? 0) > 0)
-      .map((k) => ({ id: s(k.id), name: s(k.name), mastery: mastery.get(s(k.id)) ?? null, questions: count.get(s(k.id)) ?? 0 }));
+  // the grade's MAP skills (bank data, kept) and this student's mastery: read side by side
+  const [bank, masteryRows] = await Promise.all([
+    curriculumMapSkills(repo, g.curriculumId),
+    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] }),
+  ]);
+  if (!bank.length) return [];
+  const mastery = new Map(masteryRows.map((m) => [s(m.skillId), Math.round(Number(m.score))]));
+  return bank.map((a) => {
+    const list = a.skills.map((k) => ({ id: k.id, name: k.name, mastery: mastery.get(k.id) ?? null, questions: k.questions }));
     const seen = list.filter((k) => k.mastery !== null);
     // next: the weakest skill (not started counts as weakest)
     const next = [...list].sort((x, y) => (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name))[0]?.id ?? null;
-    return { code: s(a.code), name: s(a.name), skills: list, mastery: seen.length ? Math.round(seen.reduce((t, k) => t + k.mastery!, 0) / seen.length) : null, next };
+    return { code: a.code, name: a.name, skills: list, mastery: seen.length ? Math.round(seen.reduce((t, k) => t + k.mastery!, 0) / seen.length) : null, next };
   }).filter((a) => a.skills.length).sort((x, y) => (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name));
+}
+
+type BankArea = { code: string; name: string; skills: { id: string; name: string; questions: number }[] };
+/**
+ * ⚡ The MAP goal areas of a curriculum with their skills that have questions to practise — the same for every student
+ * of the grade, so it is kept while the bank is unchanged (was 6 reads one after another on every practice start and
+ * every My MAP visit). Areas in the order read, skills in the order read (as before).
+ */
+function curriculumMapSkills(repo: Repo, curriculumId: string): Promise<BankArea[]> {
+  return keptWhileUnchanged(repo, `mapskills|${curriculumId}`, BANK_MODELS, 5 * 60_000, async () => {
+    const skills = await repo.findMany("Skill", { curriculumId, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] });
+    if (!skills.length) return [];
+    const [fams, manualRows] = await Promise.all([
+      repo.findMany("SkillFamily", { id: { in: [...new Set(skills.map((k) => s(k.familyId)))] } }, { select: ["id", "mapGoalAreaId"] }),
+      repo.findMany("QuestionType", { code: "SHORT_ANSWER" }, { select: ["id"] }),
+    ]);
+    const areaIds = [...new Set(fams.map((f) => s(f.mapGoalAreaId)).filter(Boolean))];
+    if (!areaIds.length) return [];
+    const manual = [...new Set(manualRows.map((t) => s(t.id)))];
+    // ⚡ counted by the database (one row per skill); teacher-marked questions left out as before
+    const [areas, count] = await Promise.all([
+      repo.findMany("MapGoalArea", { id: { in: areaIds } }, { select: ["id", "code", "name"] }),
+      countGroups(repo, "Question", "skillId", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null, ...(manual.length ? { typeId: { notIn: manual } } : {}) }),
+    ]);
+    const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
+    return areas.map((a) => ({
+      code: s(a.code), name: s(a.name),
+      skills: skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && (count.get(s(k.id)) ?? 0) > 0).map((k) => ({ id: s(k.id), name: s(k.name), questions: count.get(s(k.id)) ?? 0 })),
+    }));
+  });
 }
 
 export async function studentMap(repo: Repo, actor: Actor): Promise<StudentMap> {
@@ -438,7 +464,10 @@ export async function studentMap(repo: Repo, actor: Actor): Promise<StudentMap> 
 /** Practice gate for MAP practice: the skill is in the student's own MAP practice list. */
 export async function isMapPracticeSkill(repo: Repo, actor: Actor, skillId: string): Promise<boolean> {
   if (actor.role !== "STUDENT" || !actor.studentId) return false;
-  return (await practiceAreas(repo, actor.studentId)).some((a) => a.skills.some((k) => k.id === skillId));
+  // the student's grade's MAP skills (kept bank data): no mastery needed to know whether the skill is one of them
+  const g = await studentGrade(repo, actor.studentId);
+  if (!g?.curriculumId) return false;
+  return (await curriculumMapSkills(repo, g.curriculumId)).some((a) => a.skills.some((k) => k.id === skillId));
 }
 
 /**

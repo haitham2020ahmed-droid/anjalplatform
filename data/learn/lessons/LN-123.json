@@ -1,0 +1,469 @@
+{
+ "code": "LN-123",
+ "title": "Messages in media and advertising",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.6.6",
+  "RI.7.9"
+ ],
+ "families": [],
+ "skillNames": [
+  "Media Messages: Focus and Technique",
+  "Information in Different Media"
+ ],
+ "statements": [
+  "R-0337",
+  "R-0366",
+  "R-0517",
+  "R-0552",
+  "R-0703"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is an ad?",
+     "text": "An **ad** (advertisement) is a message that wants you to **buy** something or **do** something.\n\nYou see ads on signs, on TV, on phones and in magazines."
+    },
+    {
+     "title": "The main message",
+     "text": "Every ad has one **main message**: the big thing it wants you to believe or do.\n\nFor example: **Buy this juice.** Or: **Come to our park.**"
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read the whole ad.\n2. Ask: **What does it want me to do or believe?**\n3. Look for words like **buy**, **try**, **come**, **best**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The ad **tells** you its message.\n\n1. Find the sentence that asks you to **do** something.\n2. Find the sentence that says why it is **good**.\n\nTap those sentences to prove the message."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Try our new apple bars!",
+      "role": "key"
+     },
+     {
+      "t": "They are sweet and crunchy.",
+      "role": "detail"
+     },
+     {
+      "t": "They give you energy for school.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The main message is: **Try our new apple bars.**\n\nThe other sentences give reasons to try them."
+   },
+   "together": {
+    "passage": "Come to the Fun Farm this weekend! You can feed the goats. You can ride a pony. Tickets are only five riyals. It is the best day out for kids!",
+    "stem": "What does this ad want you to do?",
+    "options": [
+     "Buy a goat.",
+     "Visit the farm.",
+     "Learn to ride a bike.",
+     "Stay home this weekend."
+    ],
+    "answer": 1,
+    "hint": "Read the first sentence again. What does it ask you to do?",
+    "good": "Yes! Come to the Fun Farm tells you the ad wants you to visit."
+   },
+   "evidence": {
+    "sentences": [
+     "Come to the Fun Farm this weekend!",
+     "You can feed the goats.",
+     "You can ride a pony.",
+     "Tickets are only five riyals.",
+     "It is the best day out for kids!"
+    ],
+    "proof": [
+     0,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: visit the farm. Tap 2 sentences that tell you to come or say the farm is great.",
+    "wrong": "This sentence tells one thing you can do there. Find the sentences that ask you to come or say it is the best."
+   },
+   "checks": [
+    {
+     "passage": "Drink more water! Water keeps your body healthy. Fill a bottle and take it to school.",
+     "stem": "What is the main message?",
+     "options": [
+      "Water is wet.",
+      "Bottles are big.",
+      "Drink more water.",
+      "Go to school early."
+     ],
+     "answer": 2,
+     "why": "The ad starts with Drink more water and gives reasons to do it."
+    },
+    {
+     "passage": "Our new shoes are light and fast. Run faster than ever! Get yours today.",
+     "stem": "What does the ad want you to do?",
+     "options": [
+      "Buy the new shoes.",
+      "Run in a race.",
+      "Clean your shoes.",
+      "Walk slowly."
+     ],
+     "answer": 0,
+     "why": "Get yours today asks you to buy the shoes."
+    },
+    {
+     "passage": "Read a book tonight! Books take you to new places. Visit the school library. It is open every day.",
+     "stem": "What is the main message?",
+     "options": [
+      "The library is big.",
+      "Read a book.",
+      "Books are heavy.",
+      "Go to sleep early."
+     ],
+     "answer": 1,
+     "why": "The ad starts with Read a book tonight! The other sentences tell why and where."
+    }
+   ],
+   "again": {
+    "title": "What do they want from me?",
+    "text": "Every ad wants **something** from you.\n\nAsk: **What do they want me to do?** The answer is the main message.",
+    "example": "Sign: Fresh dates! Sweet and soft! Buy a box today!\n\nWhat do they want? **For me to buy dates.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Ads have a focus",
+     "text": "Each ad **focuses** on one thing it wants you to notice: low price, speed, fun, health or being popular.\n\nThe focus is the **main claim**: the reason it gives you to buy or act."
+    },
+    {
+     "title": "Common techniques",
+     "text": "1. **Everybody is doing it**: join the crowd.\n2. **Expert or star says so**: a famous person or a doctor praises it.\n3. **Repetition**: the same words again and again.\n4. **Hurry**: only today, limited time."
+    },
+    {
+     "title": "Read like a detective",
+     "text": "1. What is the **main claim**?\n2. What **technique** does the ad use?\n3. Does the ad give **facts**, or only feelings?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The technique is shown by the **exact words** of the ad.\n\n1. Everyone, all your friends → join the crowd.\n2. Today only, hurry → hurry.\n3. Dr. or a famous name → expert.\n\nTap the sentences with these words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Everyone at school is using the new homework planner!",
+      "role": "key"
+     },
+     {
+      "t": "Don't be the only one without it.",
+      "role": "key"
+     },
+     {
+      "t": "It has a pocket for pens.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Everyone** and **don't be the only one** show the **join the crowd** technique.\n\nThe pocket is a fact, but the ad's focus is being like everyone else."
+   },
+   "together": {
+    "passage": "Thousands of families have already joined the Summer Science Club. Your friends are building rockets and robots there right now! Don't miss out on the fun everyone is talking about. The club meets three mornings a week. Join today and be part of the team.",
+    "stem": "Which technique does this ad mainly use?",
+    "options": [
+     "It uses an expert's opinion.",
+     "It tells you everyone is joining, so you should too.",
+     "It gives prices and compares them.",
+     "It explains science facts."
+    ],
+    "answer": 1,
+    "hint": "Look for words like thousands of families, your friends and everyone.",
+    "good": "Yes! Thousands of families, your friends and everyone is talking about it show the join-the-crowd technique."
+   },
+   "evidence": {
+    "sentences": [
+     "Thousands of families have already joined the Summer Science Club.",
+     "Your friends are building rockets and robots there right now!",
+     "Don't miss out on the fun everyone is talking about.",
+     "The club meets three mornings a week.",
+     "Join today and be part of the team."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: everyone is joining, so you should too. Tap 2 sentences that use this technique.",
+    "wrong": "This sentence gives a plain fact or a request. Find sentences that talk about other people joining."
+   },
+   "checks": [
+    {
+     "passage": "Hurry! The book fair ends tomorrow. Prices this low won't last. Come before the best books are gone!",
+     "stem": "Which technique does the ad use?",
+     "options": [
+      "An expert says so",
+      "Join the crowd",
+      "Hurry, before it is too late",
+      "Funny pictures"
+     ],
+     "answer": 2,
+     "why": "Hurry, ends tomorrow and won't last push you to act quickly."
+    },
+    {
+     "passage": "Famous football player Khalid says, \"This drink gives me energy for every match.\" Be a champion like Khalid!",
+     "stem": "What is the main focus of this ad?",
+     "options": [
+      "The drink makes you like a star athlete.",
+      "The drink is cheaper than water.",
+      "Football is a hard sport to learn.",
+      "Khalid plays football every day."
+     ],
+     "answer": 0,
+     "why": "The ad uses a famous player to make you believe the drink will make you a champion too."
+    },
+    {
+     "passage": "Clean hands, healthy kids. Clean hands, fewer colds. Clean hands, happy families. Wash your hands with soap every day.",
+     "stem": "Which technique does the message use?",
+     "options": [
+      "An expert says so",
+      "Hurry, before it is too late",
+      "Join the crowd",
+      "Repeating the same words"
+     ],
+     "answer": 3,
+     "why": "Clean hands is repeated three times so the message sticks in your mind."
+    }
+   ],
+   "again": {
+    "title": "The ad's trick",
+    "text": "Most ads use a **trick** to make you want something.\n\nAsk: **Is it saying everyone has it? A star likes it? Hurry? Or saying the same words again and again?**",
+    "example": "Last chance! Only 5 bikes left at this price!\n\nTrick: **Hurry**. The ad wants you to buy before thinking."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Language that sells",
+     "text": "Advertisers choose words carefully. **Loaded words** carry strong positive feelings: amazing, natural, fresh, pure, new and improved, ultimate.\n\nThese words make you **feel** good about a product, even when they give few facts."
+    },
+    {
+     "title": "Fact or feeling?",
+     "text": "A **fact** can be checked: 250 ml, made in Jeddah, 20% less sugar.\n\nA **feeling claim** cannot: the best taste ever, you'll love it, the smartest choice.\n\nStrong ads mix both, but many rely mostly on feelings."
+    },
+    {
+     "title": "Analyze the language",
+     "text": "1. Underline **loaded words**.\n2. Separate **facts** from **feeling claims**.\n3. Ask: What does this language want me to **believe**, and is there proof?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your analysis with the ad's **words**.\n\n1. Tap sentences full of loaded words or feeling claims.\n2. Compare them with sentences that give checkable facts.\n3. The answer should explain what the **language** is doing, not just what the product is."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Discover the ultimate backpack: incredibly light, amazingly strong.",
+      "role": "key"
+     },
+     {
+      "t": "It weighs 600 grams and has two side pockets.",
+      "role": "detail"
+     },
+     {
+      "t": "It's the only bag you'll ever need!",
+      "role": "key"
+     }
+    ],
+    "explain": "**Ultimate**, **incredibly** and **amazingly** are loaded words. **The only bag you'll ever need** is a feeling claim nobody can check.\n\nOnly the second sentence gives facts. The language is meant to make the bag seem perfect."
+   },
+   "together": {
+    "passage": "Introducing our new breakfast cereal: a delicious, golden start to every morning! Made with real honey, it's the natural way to fuel your busy day. Each bowl is packed with flavour and crunch that kids can't resist. Parents trust it to give their families the very best. A 40-gram serving contains 12 grams of sugar.",
+    "stem": "How does the ad mainly use language to persuade?",
+    "options": [
+     "It lists many facts that readers can check.",
+     "It compares the cereal with other cereals.",
+     "It uses warm, positive words to make the cereal seem healthy and special.",
+     "It warns readers about eating too much sugar."
+    ],
+    "answer": 2,
+    "hint": "Look at words like delicious, golden, natural and the very best. Are they facts or feelings?",
+    "good": "Yes! Delicious, golden, natural and the very best create good feelings. Only the last sentence gives a checkable fact."
+   },
+   "evidence": {
+    "sentences": [
+     "Introducing our new breakfast cereal: a delicious, golden start to every morning!",
+     "Made with real honey, it's the natural way to fuel your busy day.",
+     "Each bowl is packed with flavour and crunch that kids can't resist.",
+     "Parents trust it to give their families the very best.",
+     "A 40-gram serving contains 12 grams of sugar."
+    ],
+    "proof": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it uses warm, positive words to make the cereal seem healthy and special. Tap 2 sentences full of these words.",
+    "wrong": "This sentence gives a checkable fact. Find sentences that use positive feeling words instead."
+   },
+   "checks": [
+    {
+     "passage": "New and improved! Our shampoo now leaves hair silkier, shinier and more beautiful than ever. Feel the difference from the very first wash.",
+     "stem": "Which phrase is a feeling claim rather than a fact?",
+     "options": [
+      "Our shampoo now",
+      "more beautiful than ever",
+      "the very first wash",
+      "a shampoo for hair"
+     ],
+     "answer": 1,
+     "why": "More beautiful than ever cannot be measured or checked. It is meant to create a feeling."
+    },
+    {
+     "passage": "Every litre counts. Turning off the tap while brushing your teeth can save up to 6 litres of water a minute. Our country's water is precious. Protect it for the next generation.",
+     "stem": "What is the main message of this public message?",
+     "options": [
+      "Save water because it is precious.",
+      "Brush your teeth twice a day.",
+      "Buy a new tap.",
+      "Water is free for everyone."
+     ],
+     "answer": 0,
+     "why": "Every litre counts, precious and protect it all support the message to save water."
+    },
+    {
+     "passage": "The new tablet: smarter, faster, thinner. It's the only device a student will ever need. Join the future today.",
+     "stem": "What does the phrase join the future suggest?",
+     "options": [
+      "The tablet will only be sold in shops next year.",
+      "Every school now requires students to buy it.",
+      "The tablet has a clock that shows the date.",
+      "Owning the tablet makes you modern and ahead of others."
+     ],
+     "answer": 3,
+     "why": "Join the future is loaded language that links the tablet with being modern. It gives no fact."
+    }
+   ],
+   "again": {
+    "title": "Cross out the feelings",
+    "text": "Read an ad and **cross out** every word that only shows a feeling (amazing, best, love).\n\nWhat is left are the **facts**. If little is left, the ad relies on language, not proof.",
+    "example": "Ad: The amazing, super-soft pillow you'll love! 60 cm long.\n\nCross out amazing, super-soft, you'll love. Left: **a pillow, 60 cm long.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Media messages",
+     "text": "Ads, posters, videos and social media posts are all **media messages**. Each has a **purpose**, a **target audience** and a **focus**: the one idea it wants the audience to remember.\n\nAnalyzing them means asking how every choice serves that focus."
+    },
+    {
+     "title": "Techniques and language",
+     "text": "1. **Emotional appeal**: fear, pride, belonging, hope.\n2. **Selective facts**: only the numbers that help.\n3. **Loaded language and slogans**: short, catchy, repeated.\n4. **Images and sound**: described in words, they set the mood."
+    },
+    {
+     "title": "Analyze critically",
+     "text": "1. Who is the **audience**?\n2. What is the **focus**, and what is **left out**?\n3. How do the **words** shape the audience's feelings?\n4. Is the message trying to **inform**, **persuade** or **both**?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Support your analysis with **specific language** from the message.\n\n1. Find words that target the audience's feelings.\n2. Notice what the message stresses and what it leaves out.\n3. Choose the answer that explains **how** the message works, not just what it is about."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Video script: A grandfather and his grandson walk along a clean beach at sunset.",
+      "role": "other"
+     },
+     {
+      "t": "Voice: \"He taught you to love this sea. Now it's your turn to protect it.\"",
+      "role": "key"
+     },
+     {
+      "t": "On screen: Pick up your litter. Keep our coast beautiful.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The video targets **family pride**: the grandfather passed on love of the sea, and the viewer must **protect** it.\n\nThe focus is a **responsibility handed down** between generations, and the language makes protecting the coast feel like a family duty."
+   },
+   "together": {
+    "passage": "Radio advertisement script. Sound: a crowd cheering in a stadium. Voice: \"Every champion starts somewhere.\" The shoe comes in four colours and in sizes for all ages. Ninety percent of runners in our survey said they felt faster. Don't let your dream wait. The shoe is available now in all sports stores, and the first 500 buyers receive a free water bottle.",
+    "stem": "Which statement best analyzes how this advertisement persuades its audience?",
+    "options": [
+     "It mainly relies on scientific tests that prove the shoe makes runners faster.",
+     "It explains how professional athletes train.",
+     "It links the shoe with young runners' dreams of success, supported by a vague survey and a limited offer.",
+     "It compares the prices of several shoes."
+    ],
+    "answer": 2,
+    "hint": "Look at the cheering crowd, the champion slogan, the survey and the first 500 buyers. What do they do together?",
+    "good": "Yes! The stadium sound and slogan appeal to dreams of success, the survey only says runners felt faster, and the offer creates hurry."
+   },
+   "evidence": {
+    "sentences": [
+     "Radio advertisement script.",
+     "Sound: a crowd cheering in a stadium.",
+     "Voice: \"Every champion starts somewhere.\"",
+     "The shoe comes in four colours and in sizes for all ages.",
+     "Ninety percent of runners in our survey said they felt faster.",
+     "Don't let your dream wait.",
+     "The shoe is available now in all sports stores, and the first 500 buyers receive a free water bottle."
+    ],
+    "proof": [
+     1,
+     2,
+     4,
+     5,
+     6
+    ],
+    "need": 2,
+    "stem": "The answer was: it links the shoe with dreams of success, a vague survey and a limited offer. Tap 2 sentences that use one of these techniques.",
+    "wrong": "This sentence names the type of script or gives a plain fact about the shoe. Find sentences that appeal to dreams, use the survey or create hurry."
+   },
+   "checks": [
+    {
+     "passage": "Poster: A large photo shows a crowded, smoky city street. Small text: Every year, cars add tonnes of pollution to our air. Large text: Walk. Cycle. Breathe.",
+     "stem": "What is the main focus of the poster?",
+     "options": [
+      "Cars are expensive to buy and to fix.",
+      "Cities are always crowded and noisy.",
+      "Choosing to walk or cycle can mean cleaner air.",
+      "Large photos are better than small words."
+     ],
+     "answer": 2,
+     "why": "The smoky street shows the problem, and Walk. Cycle. Breathe. links healthy choices with clean air."
+    },
+    {
+     "passage": "A post from a snack company says: \"Our crisps are baked, not fried!\" It does not mention that each bag contains more salt than a child should eat in half a day.",
+     "stem": "What technique does this message use?",
+     "options": [
+      "Selective facts: it stresses a healthy detail and leaves out a less healthy one",
+      "Repeating a short slogan many times so people remember it",
+      "Using an expert's opinion to make the snack seem healthy",
+      "Comparing its prices with other snack companies"
+     ],
+     "answer": 0,
+     "why": "Baked, not fried sounds healthy, but the post leaves out the high salt. That is using selective facts."
+    },
+    {
+     "passage": "TV announcement: Soft music plays as a girl reads to her younger brother. Voice: \"A story tonight is a gift for a lifetime. Read together.\"",
+     "stem": "How does the language serve the message?",
+     "options": [
+      "It lists the prices of children's books for families.",
+      "It makes reading together feel like a precious, lasting gift.",
+      "It warns that watching television at night is harmful.",
+      "It describes how children's books are printed."
+     ],
+     "answer": 1,
+     "why": "Calling a story a gift for a lifetime gives reading together emotional value."
+    }
+   ],
+   "again": {
+    "title": "Who, what, how",
+    "text": "Ask three questions about any media message:\n\n1. **Who** is it for?\n2. **What** does it want them to think or do?\n3. **How** do the words and images make them feel that way?",
+    "example": "Poster: a smiling family at a table. Words: Eat together, grow together.\n\nWho: **families**. What: **share meals**. How: **warm image and a short repeated slogan** that links meals with closeness."
+   }
+  }
+ }
+}

@@ -96,7 +96,7 @@ before(async () => {
 
 describe("tabs, cut-offs and the range", () => {
   test("Dashboard is the second tab; group cut-offs live in one place", () => {
-    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Adaptive practice", "Create test", "Question bank", "Marking", "Reports"]);
+    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]); // owner r67: Practice · Tests
     assert.deepEqual(NAFS_GROUPS.map((g) => [g.name, g.min]), [["Exceeding", 85], ["Meeting", 65], ["Approaching", 45], ["Needs support", 0]]);
     assert.equal(WEAK_BELOW, 65);
     assert.equal(groupOf(85), "EXCEEDING"); assert.equal(groupOf(84), "MEETING"); assert.equal(groupOf(65), "MEETING");
@@ -202,15 +202,15 @@ describe("4. groups, movement, actions", () => {
     assert.deepEqual(p.searchParams.getAll("sid").sort(), [s1, s2].sort());
     assert.equal(p.hash, "#give");
     const t = new URL(c.testHref, "http://x");
-    assert.equal(t.pathname, "/teacher/nafs/tests/new"); assert.equal(t.searchParams.get("mode"), "AUTO"); assert.equal(t.searchParams.get("class"), klassId);
+    assert.equal(t.pathname, "/teacher/nafs/tests/new"); assert.equal(t.searchParams.get("start"), "CHOOSE"); assert.equal(t.searchParams.get("class"), klassId);
     assert.equal(t.searchParams.get("codes"), "MOE.S01,MOE.S04,MOE.S05");
     assert.equal(practiceHref("k", ["MOE.S02"]), "/teacher/nafs?tab=practice&class=k&target=MOE.S02#give");
-    assert.equal(testHref("k", ["MOE.S02"]), "/teacher/nafs/tests/new?mode=AUTO&class=k&codes=MOE.S02");
+    assert.equal(testHref("k", ["MOE.S02"]), "/teacher/nafs/tests/new?start=CHOOSE&class=k&codes=MOE.S02"); // owner r67: the one builder
     // the tools read the prefill
     const tab = read("src/components/nafs/practice-tab.tsx");
-    assert.match(tab, /defaultChecked=\{preTargets\.has\(x\.code\)\}/); assert.match(tab, /defaultValue=\{preClass\}/); assert.match(tab, /defaultValue=\{preSids\}/);
+    assert.match(tab, /defaultValue=\{\[\.\.\.preTargets\]\}/); assert.match(tab, /defaultValue=\{preClass \?\? classes\[0\]\.id\}/); assert.match(tab, /defaultValue=\{preSids\}/);
     assert.match(read("src/app/teacher/nafs/tests/new/page.tsx"), /initialCodes=\{initialCodes\}/);
-    assert.match(read("src/components/nafs/test-builder.tsx"), /props\.initialCodes/);
+    assert.match(read("src/components/nafs/nafs-builder.tsx"), /props\.initialCodes/);
     for (const k of ["Assign adaptive practice on these standards", "Make a test on these standards", "Dashboard", "Student groups", "Movement since the previous test", "Groups by weakest standard", ...GROUP_WORDS]) assert.ok(hasAr(k), k);
   });
 });

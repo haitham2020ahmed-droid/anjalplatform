@@ -1,0 +1,461 @@
+{
+ "code": "LN-056",
+ "title": "Better, best, worse, worst",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Parts of Speech",
+ "standards": [],
+ "families": [
+  "comparatives"
+ ],
+ "skillNames": [
+  "Comparing with Good (better, best)",
+  "Comparing with Bad (worse, worst)",
+  "Irregular Adverbs That Compare (better, best)"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Good, better, best",
+     "text": "**good**: one thing\n**better**: compare two things\n**best**: compare three or more\n\nMy kite is good. Your kite is **better**. Omar's kite is the **best**."
+    },
+    {
+     "title": "No -er here",
+     "text": "We never say gooder or goodest.\n\n✓ better\n✓ best"
+    },
+    {
+     "title": "Use than",
+     "text": "With **better**, we often use **than**.\n\nMy kite is **better than** yours.\n\nWith **best**, we often use **the**: the **best** kite."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the blank.\n2. Count: how many things are compared?\n3. Look for clue words: **than** (two), **of all** (many).\n\nPoint to the clue words."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Ali's drawing is good.",
+      "role": "other"
+     },
+     {
+      "t": "Sara's drawing is better.",
+      "role": "key"
+     },
+     {
+      "t": "Hind's drawing is the best of all.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sara's drawing is compared with Ali's: two drawings → **better**.\n\nHind's is compared with all of them → **the best**."
+   },
+   "together": {
+    "passage": "Three friends made juice. Nora's juice was good. Lama's juice was better. Reem's juice was the ___ of all.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "good",
+     "better",
+     "best",
+     "goodest"
+    ],
+    "answer": 2,
+    "hint": "How many juices are compared? Look at the words of all.",
+    "good": "Yes! Three juices are compared, so Reem's is the best of all."
+   },
+   "evidence": {
+    "sentences": [
+     "Three friends made juice.",
+     "Nora's juice was good.",
+     "Lama's juice was better.",
+     "Reem's juice was the ___ of all."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: best. Tap 2 sentences that show three or more things are compared.",
+    "wrong": "This sentence tells about one or two juices. Find the clues that show three or more."
+   },
+   "checks": [
+    {
+     "passage": "My new bike is ___ than my old bike.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "good",
+      "better",
+      "best",
+      "gooder"
+     ],
+     "answer": 1,
+     "why": "Two bikes are compared, and the sentence has than, so we use better."
+    },
+    {
+     "passage": "This is the ___ day of my life!",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "best",
+      "better",
+      "good",
+      "goodest"
+     ],
+     "answer": 0,
+     "why": "This day is compared with all the days of my life, so it is the best."
+    },
+    {
+     "passage": "Rami's sandwich is gooder than mine.",
+     "stem": "Which word should replace gooder?",
+     "options": [
+      "good",
+      "best",
+      "goodest",
+      "better"
+     ],
+     "answer": 3,
+     "why": "Gooder is not a word. Two sandwiches are compared, so we use better."
+    }
+   ],
+   "again": {
+    "title": "Count them",
+    "text": "Count how many things you compare.\n\n**One** → good\n**Two** → better\n**Three or more** → best",
+    "example": "Apples are good. Mangoes are better. Dates are the best!\n\nDates are compared with **all** the fruits, so they are the **best**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Bad, worse, worst",
+     "text": "**bad**: one thing\n**worse**: compare two\n**worst**: compare three or more\n\nNever say badder or baddest."
+    },
+    {
+     "title": "Two or more?",
+     "text": "Comparing **two** → better or worse, often with **than**.\n\nComparing **three or more** → **the** best or **the** worst."
+    },
+    {
+     "title": "Clue words",
+     "text": "**than** → better, worse\n\n**the ... of all**, **in the class**, **ever** → best, worst\n\nClue words tell you which form to use."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the sentences around the blank.\n2. Find how many things are compared.\n3. Find the clue words: **than**, **of all**, **ever**.\n\nPoint to the sentences that give the facts."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yesterday's storm was bad.",
+      "role": "other"
+     },
+     {
+      "t": "Today's storm is worse than yesterday's.",
+      "role": "key"
+     },
+     {
+      "t": "It is the worst storm of the year.",
+      "role": "key"
+     }
+    ],
+    "explain": "Today's storm is compared with **one** other storm, and we see **than** → **worse**.\n\nThen it is compared with **every** storm of the year → **the worst**."
+   },
+   "together": {
+    "passage": "Our class grew bean plants in three cups. The plant in the dark cupboard grew badly. It was thin and pale. The plant by the door looked ___ than that one. It had some green leaves. The plant on the sunny window was the best of all.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "good",
+     "better",
+     "best",
+     "worse"
+    ],
+    "answer": 1,
+    "hint": "Two plants are compared (than). Did the plant by the door do better or worse than the thin, pale one?",
+    "good": "Yes! It had green leaves, and the cupboard plant was thin and pale, so it looked better."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class grew bean plants in three cups.",
+     "The plant in the dark cupboard grew badly.",
+     "It was thin and pale.",
+     "The plant by the door looked ___ than that one.",
+     "It had some green leaves.",
+     "The plant on the sunny window was the best of all."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: better. Tap 2 sentences that prove the plant by the door did better than the cupboard plant.",
+    "wrong": "This sentence does not compare the plant by the door with the cupboard plant. Look for what each plant looked like."
+   },
+   "checks": [
+    {
+     "passage": "The traffic today is ___ than it was yesterday.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "worse",
+      "bad",
+      "worst",
+      "badder"
+     ],
+     "answer": 0,
+     "why": "Two days are compared, with than, so we use worse."
+    },
+    {
+     "passage": "That was the ___ meal I have ever eaten. Everything was burnt!",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "worse",
+      "bad",
+      "baddest",
+      "worst"
+     ],
+     "answer": 3,
+     "why": "The meal is compared with every meal ever eaten, so it is the worst."
+    },
+    {
+     "passage": "Huda reads more books than anyone. She is the ___ reader in our class.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "better",
+      "good",
+      "best",
+      "goodest"
+     ],
+     "answer": 2,
+     "why": "Huda is compared with the whole class, so she is the best reader."
+    }
+   ],
+   "again": {
+    "title": "Than or the?",
+    "text": "See **than**? Use better or worse.\n\nSee **the** ... **of all** or **ever**? Use best or worst.",
+    "example": "My cold is ___ than last week.\n\nThe clue is **than**, so: My cold is **worse than** last week."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Well and badly compare too",
+     "text": "**well → better → best**\n**badly → worse → worst**\n\nHe sings **well**. She sings **better**. Their teacher sings **best**."
+    },
+    {
+     "title": "Do not double up",
+     "text": "Better, best, worse and worst already compare. Do not add more, most or -er.\n\n✗ more better ✗ most worst ✗ worser\n✓ better ✓ worst"
+    },
+    {
+     "title": "Same word, two jobs",
+     "text": "**Better** can be an adjective: a **better** plan.\n\nIt can also be an adverb: She plans **better** now.\n\nThe form is the same. Look at what it describes."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find what is being compared: two times, two people, or a whole group.\n2. Point to the facts in the text that show which one did more or less well.\n3. Choose the form those facts prove."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Turki plays chess well.",
+      "role": "other"
+     },
+     {
+      "t": "His cousin plays even better.",
+      "role": "key"
+     },
+     {
+      "t": "Their uncle plays best of all.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Well** describes how Turki plays. His cousin is compared with Turki → **better**.\n\nTheir uncle is compared with everyone → **best**."
+   },
+   "together": {
+    "passage": "Our school held a spelling bee last month. In the first round, Majed spelled badly because he was nervous. He missed four words, including \"surprise.\" In the second round, he did ___. He missed only two words. By the final round, Majed had calmed down. His teacher said it was his best effort of the year.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "worse",
+     "worst",
+     "better",
+     "more better"
+    ],
+    "answer": 2,
+    "hint": "Compare the two rounds. Did Majed miss more words or fewer words in the second round?",
+    "good": "Yes! He missed two words instead of four, so he did better."
+   },
+   "evidence": {
+    "sentences": [
+     "Our school held a spelling bee last month.",
+     "In the first round, Majed spelled badly because he was nervous.",
+     "He missed four words, including \"surprise.\"",
+     "In the second round, he did ___.",
+     "He missed only two words.",
+     "By the final round, Majed had calmed down.",
+     "His teacher said it was his best effort of the year."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: better. Tap 2 sentences that prove Majed did better in the second round.",
+    "wrong": "This sentence does not tell how many words Majed missed. Find the numbers for each round."
+   },
+   "checks": [
+    {
+     "passage": "Our team played most better after the break.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "Our team played more well after the break.",
+      "Our team played better after the break.",
+      "Our team played gooder after the break.",
+      "Our team played more better after the break."
+     ],
+     "answer": 1,
+     "why": "Better already compares, so we do not add most or more."
+    },
+    {
+     "passage": "My cough was bad on Monday, but it was even ___ on Tuesday.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "worst",
+      "badder",
+      "more bad",
+      "worse"
+     ],
+     "answer": 3,
+     "why": "Two days are compared, and even needs a comparing word, so we use worse."
+    },
+    {
+     "passage": "Four students read the poem aloud.",
+     "stem": "Which sentence correctly compares how they read?",
+     "options": [
+      "Laila read best of all four.",
+      "Laila read the most best.",
+      "Laila read worser than Dana.",
+      "Laila read more well than Dana."
+     ],
+     "answer": 0,
+     "why": "Best compares one reader with the whole group, and it needs no extra word."
+    }
+   ],
+   "again": {
+    "title": "Already done",
+    "text": "Better, best, worse and worst are **already** comparing words.\n\nUse them **alone**. Do not add more, most, -er or -est.",
+    "example": "✗ This road is more worse.\n✓ This road is **worse**.\n\nWorse already means \"more bad\"."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Comparing in real writing",
+     "text": "Writers use better, best, worse and worst to **judge**: the **best** solution, a **worse** result.\n\nThe form tells the reader how many things are being compared."
+    },
+    {
+     "title": "Make it stronger",
+     "text": "Put **much**, **far**, **even** or **a lot** before better or worse: **far better**, **much worse**.\n\nNever use **more**: ✗ more better."
+    },
+    {
+     "title": "Two choices, careful style",
+     "text": "In careful writing, when there are only **two**, use **better** or **worse**: Of the two plans, this one is **the better**.\n\nWith three or more, use **the best** or **the worst**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Count the things compared. Look for **two**, **three**, **of the two**, **of all**.\n2. Find the facts that show which one did more or less well.\n3. Point to the sentences with the number and the result.\n\nThe form must match both."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The council looked at two ways to reduce traffic.",
+      "role": "detail"
+     },
+     {
+      "t": "A new bus line would cost less than a wider road.",
+      "role": "detail"
+     },
+     {
+      "t": "Of the two plans, the bus line was clearly the better choice.",
+      "role": "key"
+     }
+    ],
+    "explain": "There are only **two** plans, so careful writers use **the better**, not the best.\n\nThe second sentence gives the reason: it costs less."
+   },
+   "together": {
+    "passage": "Last summer, our classroom was the hottest room in the school. The students tested three ways to keep it cool. First, they kept the door open, but hot air from the corridor made the room even worse. Next, they hung thick curtains on the sunny windows, and the room felt slightly cooler. Finally, they used the curtains and switched on the ceiling fans at the same time. This time the room felt much cooler than ever before. In their report, the students wrote that the third method worked ___ of the three.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "better",
+     "best",
+     "more better",
+     "the most good"
+    ],
+    "answer": 1,
+    "hint": "How many methods were tested? Which form do we use for three or more?",
+    "good": "Yes! Three methods were compared, and the third made the room much cooler than ever, so it worked best."
+   },
+   "evidence": {
+    "sentences": [
+     "Last summer, our classroom was the hottest room in the school.",
+     "The students tested three ways to keep it cool.",
+     "First, they kept the door open, but hot air from the corridor made the room even worse.",
+     "Next, they hung thick curtains on the sunny windows, and the room felt slightly cooler.",
+     "Finally, they used the curtains and switched on the ceiling fans at the same time.",
+     "This time the room felt much cooler than ever before.",
+     "In their report, the students wrote that the third method worked ___ of the three."
+    ],
+    "proof": [
+     1,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: best. Tap 2 sentences that prove it: how many methods there were, and how well the third one worked.",
+    "wrong": "This sentence describes one of the other methods. Find how many were tested and how the last one worked."
+   },
+   "checks": [
+    {
+     "passage": "This year's harvest was far more better than last year's.",
+     "stem": "Which revision is correct?",
+     "options": [
+      "This year's harvest was far best than last year's.",
+      "This year's harvest was far more good than last year's.",
+      "This year's harvest was far gooder than last year's.",
+      "This year's harvest was far better than last year's."
+     ],
+     "answer": 3,
+     "why": "Far makes the comparison stronger. Better already compares, so more must go."
+    },
+    {
+     "passage": "Of the two routes to the beach, the coast road is the ___ one because it has less traffic.",
+     "stem": "In careful writing, which word fits the blank?",
+     "options": [
+      "best",
+      "most good",
+      "better",
+      "worse"
+     ],
+     "answer": 2,
+     "why": "Only two routes are compared, and less traffic is a good thing, so careful writers use the better."
+    },
+    {
+     "passage": "The storm damaged many houses, but the flood that followed caused even ___ damage.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "worse",
+      "worst",
+      "badder",
+      "more bad"
+     ],
+     "answer": 0,
+     "why": "The flood is compared with the storm (two events), and even needs a comparing form: worse."
+    }
+   ],
+   "again": {
+    "title": "Count, then choose",
+    "text": "1. Count the things.\n2. **Two** → better or worse (often with than).\n3. **Three or more** → the best or the worst.\n4. Never add more, most, -er or -est.",
+    "example": "We tried three recipes. The second was **better** than the first, but the third was **the best** of all."
+   }
+  }
+ }
+}

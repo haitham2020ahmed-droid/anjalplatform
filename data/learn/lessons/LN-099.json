@@ -1,0 +1,476 @@
+{
+ "code": "LN-099",
+ "title": "Parts of a book; authors and illustrators",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.1.5",
+  "RI.2.5",
+  "RI.3.5",
+  "RI.K.5",
+  "RI.K.6",
+  "RL.K.6"
+ ],
+ "families": [
+  "text-features"
+ ],
+ "skillNames": [
+  "Book Parts and Reference Features"
+ ],
+ "statements": [
+  "R-0005",
+  "R-0008",
+  "R-0009",
+  "R-0036",
+  "R-0037",
+  "R-0070",
+  "R-0092",
+  "R-0094"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Front and back",
+     "text": "The **front cover** is where a book starts. It shows the **title** and often a picture.\n\nThe **back cover** is on the other side. It often tells a little about the book."
+    },
+    {
+     "title": "The title page",
+     "text": "Open the book. One of the first pages is the **title page**.\n\nIt shows:\n1. the **title**\n2. the **author**: the person who wrote the words\n3. the **illustrator**: the person who drew the pictures"
+    },
+    {
+     "title": "Find the facts",
+     "text": "Want the title? Look at the **front cover** or the **title page**.\n\nWant to know what the book is about? Read the **back cover**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Read the question. What part of the book is it about?\n2. Find the sentence that tells about that part.\n3. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The book has a blue front cover.",
+      "role": "other"
+     },
+     {
+      "t": "The title page says: Sun and Sand.",
+      "role": "key"
+     },
+     {
+      "t": "It also says: by Laila Omar.",
+      "role": "key"
+     }
+    ],
+    "explain": "The **title page** gives the title, **Sun and Sand**, and the author, **Laila Omar**."
+   },
+   "together": {
+    "passage": "Look at this book. The front cover has a big picture of a falcon. The title is Fly High, Falcon. The back cover has a short note about the story. Inside, the title page shows the title and the writer's name.",
+    "stem": "Which part of the book has a short note about the story?",
+    "options": [
+     "the front cover",
+     "the back cover",
+     "the title page",
+     "the last picture"
+    ],
+    "answer": 1,
+    "hint": "Read each sentence. Which part is said to have a note about the story?",
+    "good": "Yes! The **back cover** has a short note about the story."
+   },
+   "evidence": {
+    "sentences": [
+     "Look at this book.",
+     "The front cover has a big picture of a falcon.",
+     "The title is Fly High, Falcon.",
+     "The back cover has a short note about the story.",
+     "Inside, the title page shows the title and the writer's name."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: the back cover. Tap the sentence that shows it.",
+    "wrong": "This sentence does not tell about a note on the story. Find the sentence about the back cover."
+   },
+   "checks": [
+    {
+     "passage": "The title page says: The Lost Kite. By Huda Omar. Pictures by Sami Nasser.",
+     "stem": "What is the title of the book?",
+     "options": [
+      "Huda Omar",
+      "Sami Nasser",
+      "The Lost Kite",
+      "Pictures"
+     ],
+     "answer": 2,
+     "why": "The title is the name of the book: **The Lost Kite**."
+    },
+    {
+     "passage": "You pick up a new book. The first thing you see is a big picture and the title.",
+     "stem": "Which part of the book are you looking at?",
+     "options": [
+      "the front cover",
+      "the back cover",
+      "the index",
+      "the last page"
+     ],
+     "answer": 0,
+     "why": "The picture and the title are on the **front cover**."
+    },
+    {
+     "passage": "The title page says: Our Desert. Written by Ali Hassan. Riyadh Books.",
+     "stem": "Who wrote the book?",
+     "options": [
+      "Our Desert",
+      "Riyadh Books",
+      "Sami Nasser",
+      "Ali Hassan"
+     ],
+     "answer": 3,
+     "why": "The words **Written by** tell us the author: **Ali Hassan**."
+    }
+   ],
+   "again": {
+    "title": "Like a person",
+    "text": "A book is like a person.\n\nThe **front cover** is its face. You see it first.\nThe **back cover** is its back.\nThe **title page** is where it says \"Hello, my name is ...\".",
+    "example": "Front cover: a picture and the title.\nTitle page: the title, the author and the illustrator."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "The table of contents",
+     "text": "Near the **front** of a book is the **table of contents**.\n\nIt lists the **chapters** or parts of the book **in order**, with the **page** where each one starts."
+    },
+    {
+     "title": "How to use it",
+     "text": "1. Think about what you want to learn.\n2. Read the chapter titles.\n3. Pick the one that matches.\n4. Turn to the page number next to it."
+    },
+    {
+     "title": "Where does it end?",
+     "text": "A chapter ends just **before** the next chapter starts.\n\nChapter 2: page 11\nChapter 3: page 19\n\nSo Chapter 2 runs from page 11 to page **18**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Find the **key word** in the question, like foxes.\n2. Find the chapter title that matches it.\n3. Point to that line of the contents."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Contents",
+      "role": "other"
+     },
+     {
+      "t": "Chapter 1: Seeds ..... page 2",
+      "role": "other"
+     },
+     {
+      "t": "Chapter 2: Roots ..... page 8",
+      "role": "key"
+     },
+     {
+      "t": "Chapter 3: Leaves ..... page 14",
+      "role": "other"
+     }
+    ],
+    "explain": "To learn how roots drink water, use **Chapter 2: Roots**. It starts on **page 8**."
+   },
+   "together": {
+    "passage": "This is the table of contents of a book called Animals of Saudi Arabia. Chapter 1: The Arabian Oryx ..... page 3 Chapter 2: Camels ..... page 11 Chapter 3: Desert Foxes ..... page 19 Chapter 4: Birds of the Red Sea Coast ..... page 27",
+    "stem": "On which page should you start reading to learn about foxes?",
+    "options": [
+     "page 3",
+     "page 11",
+     "page 27",
+     "page 19"
+    ],
+    "answer": 3,
+    "hint": "Find the chapter title with the word foxes. What page number is next to it?",
+    "good": "Yes! **Chapter 3: Desert Foxes** starts on **page 19**."
+   },
+   "evidence": {
+    "sentences": [
+     "This is the table of contents of a book called Animals of Saudi Arabia.",
+     "Chapter 1: The Arabian Oryx ..... page 3",
+     "Chapter 2: Camels ..... page 11",
+     "Chapter 3: Desert Foxes ..... page 19",
+     "Chapter 4: Birds of the Red Sea Coast ..... page 27"
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: page 19. Tap the line of the contents that proves it.",
+    "wrong": "This chapter is not about foxes. Find the chapter title with the word Foxes."
+   },
+   "checks": [
+    {
+     "passage": "Contents: Chapter 1 Planting Seeds, page 2. Chapter 2 Watering Your Garden, page 8. Chapter 3 Picking Fruit, page 14.",
+     "stem": "Which chapter would help you learn how much water plants need?",
+     "options": [
+      "Chapter 1",
+      "Chapter 2",
+      "Chapter 3",
+      "the front cover"
+     ],
+     "answer": 1,
+     "why": "**Chapter 2: Watering Your Garden** matches the question about water."
+    },
+    {
+     "passage": "Contents: Chapter 1 Our Solar System, page 2. Chapter 2 The Sun, page 9. Chapter 3 The Moon, page 16. Chapter 4 Stars, page 23.",
+     "stem": "Chapter 3 begins on page 16. On which page does it most likely end?",
+     "options": [
+      "page 9",
+      "page 23",
+      "page 22",
+      "page 16"
+     ],
+     "answer": 2,
+     "why": "Chapter 4 starts on page 23, so Chapter 3 ends just before it, on **page 22**."
+    },
+    {
+     "passage": "At the front of Mona's book is a list of chapters with page numbers.",
+     "stem": "What is this list called?",
+     "options": [
+      "the table of contents",
+      "the index",
+      "the back cover",
+      "the title page"
+     ],
+     "answer": 0,
+     "why": "A list of chapters with page numbers at the front of a book is the **table of contents**."
+    }
+   ],
+   "again": {
+    "title": "A map of the book",
+    "text": "The table of contents is like a **map** of the book.\n\nIt shows **what** is inside and **where** to find it.",
+    "example": "You want to read about the moon.\nMap: Chapter 3 The Moon ..... page 16\nGo to **page 16**!"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "The index",
+     "text": "At the **back** of many books is an **index**.\n\nIt lists topics in **ABC order**, with **every** page where each topic is mentioned.\n\nturtles, 33, 45–46\n\nA dash (45–46) means pages 45 **to** 46."
+    },
+    {
+     "title": "The glossary",
+     "text": "A **glossary** is a small dictionary at the back of a book.\n\nIt lists **hard words** from the book in ABC order and gives their **meanings**."
+    },
+    {
+     "title": "The appendix",
+     "text": "An **appendix** holds **extra** information at the end of a book: maps, charts, lists of dates, or more facts.\n\nIt adds to the book, but the main chapters can be read without it."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove your answer:\n\n1. Decide which part fits the question: index (pages for a topic), glossary (meaning of a word) or appendix (extra material).\n2. Find the exact line that answers it.\n3. Point to that line."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Index",
+      "role": "other"
+     },
+     {
+      "t": "camels, 4, 18–20",
+      "role": "other"
+     },
+     {
+      "t": "dates, 7, 30",
+      "role": "key"
+     },
+     {
+      "t": "falcons, 12–13",
+      "role": "other"
+     }
+    ],
+    "explain": "To find every page about **dates**, look at its line in the index: pages **7** and **30**. The index is in ABC order, so dates comes after camels."
+   },
+   "together": {
+    "passage": "Here is part of the index at the back of a book about the ocean. coral reefs, 12–15, 40 dolphins, 22, 31 sharks, 24–28 turtles, 33, 45–46 waves, 6–8 Majid wants to learn how sea turtles lay their eggs on the beach, so he checks the index first.",
+    "stem": "Which pages should Majid read?",
+    "options": [
+     "33 and 45–46",
+     "22 and 31",
+     "24–28",
+     "6–8"
+    ],
+    "answer": 0,
+    "hint": "Find the topic Majid wants in the index. The topics are in ABC order.",
+    "good": "Yes! The index line for **turtles** lists pages **33** and **45–46**."
+   },
+   "evidence": {
+    "sentences": [
+     "Here is part of the index at the back of a book about the ocean.",
+     "coral reefs, 12–15, 40",
+     "dolphins, 22, 31",
+     "sharks, 24–28",
+     "turtles, 33, 45–46",
+     "waves, 6–8",
+     "Majid wants to learn how sea turtles lay their eggs on the beach, so he checks the index first."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: pages 33 and 45–46. Tap the index line that proves it.",
+    "wrong": "This line is about a different topic. Find the line for turtles."
+   },
+   "checks": [
+    {
+     "passage": "At the back of a science book is a list of hard words in ABC order, with the meaning of each word.",
+     "stem": "What is this part of the book called?",
+     "options": [
+      "the index",
+      "the table of contents",
+      "the title page",
+      "the glossary"
+     ],
+     "answer": 3,
+     "why": "A list of words with their **meanings** is a **glossary**."
+    },
+    {
+     "passage": "Lina wants to find every page that mentions volcanoes in a big book about Earth.",
+     "stem": "Where should she look?",
+     "options": [
+      "the table of contents",
+      "the index",
+      "the front cover",
+      "the title page"
+     ],
+     "answer": 1,
+     "why": "The **index** lists **every** page where a topic is mentioned."
+    },
+    {
+     "passage": "At the end of a book about Saudi history, there are extra pages with a map of old trade routes and a list of important dates.",
+     "stem": "What is this extra section called?",
+     "options": [
+      "the glossary",
+      "the cover",
+      "the appendix",
+      "the contents"
+     ],
+     "answer": 2,
+     "why": "Extra material at the end of a book, such as maps and lists of dates, is an **appendix**."
+    }
+   ],
+   "again": {
+    "title": "Which helper do I need?",
+    "text": "Ask what you want:\n\n**Which chapter?** → table of contents (front)\n**Which pages?** → index (back)\n**What does it mean?** → glossary (back)\n**More extra facts?** → appendix (back)",
+    "example": "\"What does erosion mean?\" → **glossary**.\n\"Where is erosion mentioned?\" → **index**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Author and illustrator",
+     "text": "The **author** writes the words. The author chooses the facts, the events and how to explain them.\n\nThe **illustrator** makes the pictures: drawings, paintings or diagrams. The pictures can show things the words do **not** say."
+    },
+    {
+     "title": "Working together",
+     "text": "Good books use words and pictures **together**.\n\nThe words might say: \"The falcon searched for food.\"\nThe picture might show **how**: its sharp eyes fixed on the sand below.\n\nAsk: what does each person add?"
+    },
+    {
+     "title": "Notes about the author",
+     "text": "Some books have an **author's note** or an **about the author** page.\n\nThey tell **why** or **how** the author wrote the book. This can help you understand the author's purpose."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove who did what:\n\n1. Look for words like **wrote**, **drew**, **painted** or **pictures by**.\n2. Separate what is in the **words** from what is in the **pictures**.\n3. Point to the sentence that shows the person's work."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The words of the book say that the souq was busy.",
+      "role": "other"
+     },
+     {
+      "t": "The illustrator painted crowds, colourful cloth and baskets of spices.",
+      "role": "key"
+     },
+     {
+      "t": "Readers can almost smell the cardamom.",
+      "role": "other"
+     }
+    ],
+    "explain": "The author only says the souq was **busy**. The illustrator **adds** the details: crowds, cloth and spices."
+   },
+   "together": {
+    "passage": "Mariam Saleh wrote the words of the book Fly High, Falcon. She spent months reading about falcons and talking to falcon trainers. Yasir Ali painted the pictures for the book. He studied photographs of real falcons so that every feather looked right. On one page, the words only say that the falcon was searching for food, but his painting shows its sharp eyes fixed on a tiny lizard on the sand far below. Together, the two of them made a book that both teaches and delights.",
+    "stem": "What did the illustrator add that the author's words did not say?",
+    "options": [
+     "facts the author learned from falcon trainers",
+     "the title of the book",
+     "a lizard far below the falcon's sharp eyes",
+     "the words about searching for food"
+    ],
+    "answer": 2,
+    "hint": "Find the page where the words and the painting are both described. What is only in the painting?",
+    "good": "Yes! The words only say the falcon was searching. The **painting** adds the lizard and the falcon's sharp eyes."
+   },
+   "evidence": {
+    "sentences": [
+     "Mariam Saleh wrote the words of the book Fly High, Falcon.",
+     "She spent months reading about falcons and talking to falcon trainers.",
+     "Yasir Ali painted the pictures for the book.",
+     "He studied photographs of real falcons so that every feather looked right.",
+     "On one page, the words only say that the falcon was searching for food, but his painting shows its sharp eyes fixed on a tiny lizard on the sand far below.",
+     "Together, the two of them made a book that both teaches and delights."
+    ],
+    "proof": [
+     4
+    ],
+    "need": 1,
+    "stem": "The answer was: the painting adds the lizard and the sharp eyes. Tap the sentence that proves it.",
+    "wrong": "This sentence does not compare the words and the picture. Find the one that tells what the painting shows."
+   },
+   "checks": [
+    {
+     "passage": "The cover says: Story by Nora Ahmed. Pictures by Khaled Omar.",
+     "stem": "What was Khaled Omar's job?",
+     "options": [
+      "He drew the pictures.",
+      "He wrote the story.",
+      "He printed the book.",
+      "He sold the book."
+     ],
+     "answer": 0,
+     "why": "**Pictures by** tells us he is the illustrator: he drew the pictures."
+    },
+    {
+     "passage": "In a note at the start of the book, the author explains that she grew up in a fishing village in Jazan and based the story on her own childhood.",
+     "stem": "What does this note tell you about the author?",
+     "options": [
+      "She drew all of the pictures.",
+      "She owns a fishing boat today.",
+      "She wrote the book's index.",
+      "She used her own life in the story."
+     ],
+     "answer": 3,
+     "why": "The note says she based the story on her **own childhood**."
+    },
+    {
+     "passage": "Faris is reading a book about space. He wants to know what the word orbit means. The book has a glossary, an index and a table of contents.",
+     "stem": "Which part should he use first?",
+     "options": [
+      "the index",
+      "the glossary",
+      "the table of contents",
+      "the back cover"
+     ],
+     "answer": 1,
+     "why": "The **glossary** gives the meaning of hard words. The index only lists pages."
+    }
+   ],
+   "again": {
+    "title": "Words person, picture person",
+    "text": "Ask two questions about any page:\n\n1. What do the **words** tell me? → the author's work.\n2. What do the **pictures** show that the words do not? → the illustrator's work.",
+    "example": "Words: \"It was a stormy night.\"\nPicture: a boy holding a lamp at a window.\n\nThe **illustrator** added the boy and the lamp."
+   }
+  }
+ }
+}

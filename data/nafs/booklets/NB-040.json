@@ -1,0 +1,568 @@
+{
+  "code": "NB-040",
+  "title": "At-Turaif: Where a Nation Began",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 414,
+  "passage": "On the north-western edge of Riyadh, where the dry valley of Wadi Hanifa curves between palm groves, stand the mud-brick walls of At-Turaif. This district is the historic heart of Diriyah. Today it attracts visitors from across the world, but almost three hundred years ago it was the capital of a new state. In 1727, Imam Muhammad bin Saud became the ruler of Diriyah and founded the First Saudi State. The Kingdom now celebrates that beginning every year on 22 February, a date known as Founding Day.\n\nDiriyah itself is even older than the state. According to historical accounts, the town was established in the fifteenth century beside the wadi, where wells and fertile soil allowed families to grow dates and grain. Its location also placed it near routes used by traders and pilgrims. Over time, it grew from a small farming settlement into an important centre of the region.\n\nThe buildings of At-Turaif are fine examples of the Najdi style of building, which suited the harsh climate of central Arabia perfectly. Builders mixed clay with straw and water, shaped the mixture into bricks and dried them in the sun. They then raised thick walls that kept the rooms cool during blazing summer days and warm during cold desert nights. Roofs rested on beams of tamarisk wood and palm trunks, which were covered with palm fronds and a final layer of mud. Small, high openings, often shaped like triangles, let in light and air while keeping out much of the heat and dust. The largest building in the district, Salwa Palace, was the home of the ruling family and the place from which the state was governed.\n\nHowever, Diriyah's history also includes a painful chapter. In 1818, after a siege that lasted several months, Ottoman-Egyptian forces led by Ibrahim Pasha captured the town and destroyed much of it. The First Saudi State came to an end, yet the family's determination survived. Only a few years later, the Second Saudi State was established, with Riyadh as its new capital.\n\nFor many decades afterwards, the ruins of At-Turaif stood almost silent. In 2010, UNESCO added the district to its World Heritage List, recognising its outstanding value. Specialists then began a careful restoration using traditional materials and methods rather than modern concrete. Walking through its narrow lanes today, visitors can still touch walls built by hand from the earth of the valley. They can also understand how a small oasis town became the birthplace of a nation.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “harsh” as it is used in paragraph 3 (“the harsh climate of central Arabia”)?",
+      "options": [
+        "gentle",
+        "severe",
+        "rainy",
+        "changing"
+      ],
+      "answer": "B",
+      "why": "A climate with blazing summer days and cold desert nights is severe and difficult to live in."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “fertile” as it is used in paragraph 2?",
+      "options": [
+        "rich",
+        "productive",
+        "wet",
+        "barren"
+      ],
+      "answer": "D",
+      "why": "Fertile soil lets crops grow; barren soil produces almost nothing. “Rich” and “productive” are close in meaning to “fertile”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “Specialists then began a careful restoration using traditional materials and methods rather than modern concrete.” What does “restoration” mean?",
+      "options": [
+        "the work of repairing something to its earlier condition",
+        "the act of knocking down old buildings to make space",
+        "the building of a new district beside the old one",
+        "a careful drawing of how a building once looked"
+      ],
+      "answer": "A",
+      "why": "The specialists repaired the old walls with the original kind of materials, returning them to their earlier condition."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is an ADVERB?",
+      "options": [
+        "perfectly",
+        "blazing",
+        "thick",
+        "builders"
+      ],
+      "answer": "A",
+      "why": "“Perfectly” tells how the style suited the climate; “blazing” and “thick” are adjectives and “builders” is a noun."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from the passage is a SINGULAR noun?",
+      "options": [
+        "walls",
+        "bricks",
+        "siege",
+        "nights"
+      ],
+      "answer": "C",
+      "why": "“Siege” names one event; the others end in -s and are plural."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “determination” in paragraph 4?",
+      "options": [
+        "destination",
+        "determined",
+        "decoration",
+        "detail"
+      ],
+      "answer": "B",
+      "why": "“Determined” and “determination” both come from the verb “determine”."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “established” in a meaningful sentence of your own.",
+      "model": "Our school library was established ten years ago with only a few hundred books, but now it has thousands.",
+      "rubric": [
+        "2 = a complete, correct sentence of the student's own that uses “established” with its meaning (founded or set up)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Established” means started, founded or set up."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “century”, as in “the fifteenth century” (paragraph 2)?",
+      "options": [
+        "centuries",
+        "centurys",
+        "centuryes",
+        "century"
+      ],
+      "answer": "A",
+      "why": "A consonant + y changes to -ies: century → centuries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "A guide tells visitors, “Walk carefully through the narrow lanes of At-Turaif.” What type of sentence is this?",
+      "options": [
+        "a statement",
+        "a question",
+        "an exclamation",
+        "a command"
+      ],
+      "answer": "D",
+      "why": "It tells someone what to do, so it is a command (an imperative sentence)."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the passage?",
+      "options": [
+        "The Siege of 1818",
+        "Mud Bricks and the Birth of a State",
+        "How to Grow Dates in Riyadh",
+        "A Visit to a Modern Shopping Mall"
+      ],
+      "answer": "B",
+      "why": "The passage covers the mud-brick buildings of At-Turaif and its role as the first capital; the siege is only one paragraph."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the passage?",
+      "options": [
+        "to inform readers about At-Turaif's history and buildings",
+        "to persuade modern builders to use mud bricks again",
+        "to describe the battle of 1818 in great detail",
+        "to explain how UNESCO chooses its heritage sites"
+      ],
+      "answer": "A",
+      "why": "The passage informs readers about the district's history, architecture and protection."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 3?",
+      "options": [
+        "Salwa Palace was the largest building in At-Turaif.",
+        "Tamarisk wood was the strongest material available.",
+        "Najdi buildings were designed to suit the harsh climate.",
+        "Builders dried every brick inside the cool rooms."
+      ],
+      "answer": "C",
+      "why": "Every detail in paragraph 3 (thick walls, roofs, small high openings) shows how the buildings suited the climate; Salwa Palace is one detail."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why were the walls of At-Turaif built so thick?",
+      "options": [
+        "to support several heavy upper floors",
+        "to protect the town from the floods of the wadi",
+        "to keep rooms cool by day and warm at night",
+        "to make the houses look grand to traders"
+      ],
+      "answer": "C",
+      "why": "Paragraph 3: the thick walls “kept the rooms cool during blazing summer days and warm during cold desert nights.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a story with dialogue",
+        "a personal letter",
+        "a poem",
+        "an informational text"
+      ],
+      "answer": "D",
+      "why": "It gives historical facts, dates and descriptions about a real place."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did families first settle beside the wadi?",
+      "options": [
+        "Wells and fertile soil let them grow dates and grain.",
+        "The valley was protected by high stone walls.",
+        "It was the coolest place in the whole region.",
+        "Pilgrims asked them to build a resting place there."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: the town grew “beside the wadi, where wells and fertile soil allowed families to grow dates and grain.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Imam Muhammad bin Saud founded the First Saudi State.",
+        "Diriyah was established beside the wadi.",
+        "Ibrahim Pasha's forces captured the town.",
+        "UNESCO added At-Turaif to its list."
+      ],
+      "answer": "B",
+      "why": "Diriyah was established in the fifteenth century, long before 1727, 1818 and 2010."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What happened only a few years AFTER the First Saudi State came to an end?",
+      "options": [
+        "Diriyah was established beside Wadi Hanifa.",
+        "UNESCO added At-Turaif to its World Heritage List.",
+        "The Second Saudi State was established.",
+        "Imam Muhammad bin Saud became the ruler of Diriyah."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “Only a few years later, the Second Saudi State was established.” The other events happened long before 1818 or long after it."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what were the roofs placed on?",
+      "options": [
+        "thick layers of sand and straw",
+        "stone arches brought from the coast",
+        "a final layer of palm fronds",
+        "beams of tamarisk wood and palm trunks"
+      ],
+      "answer": "D",
+      "why": "“Roofs rested on beams of tamarisk wood and palm trunks.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused the end of the First Saudi State?",
+      "options": [
+        "A flood in Wadi Hanifa destroyed the mud-brick town.",
+        "Ottoman-Egyptian forces captured and destroyed much of Diriyah.",
+        "The ruling family chose to move the capital to Riyadh.",
+        "Traders and pilgrims stopped using the nearby routes."
+      ],
+      "answer": "B",
+      "why": "Paragraph 4: after the siege of 1818, the forces “captured the town and destroyed much of it. The First Saudi State came to an end.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did the specialists most likely choose traditional materials instead of modern concrete?",
+      "options": [
+        "Concrete was too expensive to buy.",
+        "UNESCO does not allow any repairs.",
+        "Mud bricks are stronger than concrete.",
+        "They wanted to keep the site authentic."
+      ],
+      "answer": "D",
+      "why": "Using the original kind of materials keeps the site authentic, which is what makes it historically valuable."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Why did Diriyah grow into an important centre of the region?",
+      "options": [
+        "It was the largest port on the Gulf coast.",
+        "Its rulers built the region's first school.",
+        "It was close to routes used by traders and pilgrims.",
+        "Its houses were the tallest in central Arabia."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 explains that “its location also placed it near routes used by traders and pilgrims”, and over time it grew in importance."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Salwa Palace DIFFERENT from the other buildings in At-Turaif?",
+      "options": [
+        "It was built of stone instead of mud brick.",
+        "It had no openings for light or air.",
+        "It was the largest, and the state was governed from it.",
+        "It was built after the siege of 1818."
+      ],
+      "answer": "C",
+      "why": "Paragraph 3 calls it “the largest building in the district” and the place “from which the state was governed.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the thick walls and the small, high openings have in common?",
+      "options": [
+        "Both helped to protect the rooms from the heat.",
+        "Both were made from palm fronds and mud.",
+        "Both were added during the restoration.",
+        "Both let in as much light as possible."
+      ],
+      "answer": "A",
+      "why": "Thick walls kept the rooms cool, and the small openings kept out “much of the heat and dust.”"
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What was one effect of UNESCO adding At-Turaif to its World Heritage List?",
+      "options": [
+        "The ruins became completely silent.",
+        "The Second Saudi State was founded.",
+        "A careful restoration of the district began.",
+        "Visitors were no longer allowed inside."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5: after the listing in 2010, “Specialists then began a careful restoration.”"
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by describing the events of 1818 as “a painful chapter”?",
+      "options": [
+        "a section of a book that was hard to read",
+        "a sad and difficult period in Diriyah's history",
+        "a time when many people were injured by bricks",
+        "the last page of a history book"
+      ],
+      "answer": "B",
+      "why": "History is compared to a book; the “painful chapter” is the sad period when the town was destroyed."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which sentence from the passage includes the writer's OPINION?",
+      "options": [
+        "In 1727, Imam Muhammad bin Saud became the ruler of Diriyah.",
+        "In 2010, UNESCO added the district to its World Heritage List.",
+        "Builders mixed clay with straw and water.",
+        "The buildings of At-Turaif are fine examples of the Najdi style."
+      ],
+      "answer": "D",
+      "why": "Calling them “fine examples” is a judgement; the other sentences give facts that can be checked."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer say the ruins “stood almost silent”?",
+      "options": [
+        "to suggest that the place was empty and forgotten for years",
+        "to show that visitors were not allowed to speak there",
+        "to explain that the thick walls kept out every sound",
+        "to describe how quiet the desert wind was at night"
+      ],
+      "answer": "A",
+      "why": "Giving the ruins the human quality of silence creates an image of an abandoned, forgotten place before the restoration."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which is the BEST reason for restoring At-Turaif?",
+      "options": [
+        "It helps people understand how the nation began.",
+        "It makes the walls taller than modern buildings.",
+        "It stops tourists from visiting Riyadh.",
+        "It replaces mud with concrete."
+      ],
+      "answer": "A",
+      "why": "The last sentence says visitors can “understand how a small oasis town became the birthplace of a nation.”"
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this passage?",
+      "options": [
+        "to describe modern life in the city of Riyadh",
+        "to criticise traditional building methods",
+        "to explain how to make mud bricks at home",
+        "to encourage pride in an important heritage site"
+      ],
+      "answer": "D",
+      "why": "The writer praises the site's architecture and history and ends by calling it the birthplace of a nation."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the final paragraph?",
+      "options": [
+        "fear",
+        "boredom",
+        "anger",
+        "pride"
+      ],
+      "answer": "D",
+      "why": "Words such as “outstanding value” and “the birthplace of a nation” express pride."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the passage is the LEAST clear?",
+      "options": [
+        "when the First Saudi State was founded",
+        "what the walls were made of",
+        "how many people lived in Diriyah in 1727",
+        "when UNESCO listed At-Turaif"
+      ],
+      "answer": "C",
+      "why": "The passage never gives Diriyah's population; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A mud-brick wall rebuilds itself overnight.",
+        "Visitors touch walls that were built by hand long ago.",
+        "Salwa Palace walks to a new place in the wadi.",
+        "A palm trunk grows into a roof by itself."
+      ],
+      "answer": "B",
+      "why": "The passage says visitors can still touch the hand-built walls; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the passage?",
+      "options": [
+        "From Oasis Town to Birthplace of a Nation",
+        "The Day the Wadi Flooded the Palace",
+        "Concrete Towers of Modern Riyadh",
+        "A Long Journey Across the Red Sea"
+      ],
+      "answer": "A",
+      "why": "The passage traces Diriyah from a small farming settlement to the capital of the First Saudi State and a protected heritage site."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "The passage ends with visitors walking through At-Turaif today. Suggest a different ending: write two or three sentences describing another way the passage could end, for example by showing what a student could do to share the site's story.",
+      "model": "After visiting At-Turaif on Founding Day, a group of students could create a small exhibition at school with photographs and models of mud-brick houses. By explaining how the Najdi builders kept their homes cool, they would help their classmates understand why the site deserves to be protected.",
+      "rubric": [
+        "2 = a clear, logical new ending or solution that fits the facts and ideas of the passage",
+        "1 = an answer is given but it is unclear or only loosely linked to the passage",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any logical ending that fits the history and ideas of the passage is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the passage, how can visitors help to protect At-Turaif?",
+      "options": [
+        "Write their names on the mud walls.",
+        "Respect the site and avoid damaging the old walls.",
+        "Ask for the walls to be covered in concrete.",
+        "Take bricks home as souvenirs."
+      ],
+      "answer": "B",
+      "why": "The walls are fragile mud brick restored with care, so respecting the site and avoiding damage protects it."
+    }
+  ]
+}

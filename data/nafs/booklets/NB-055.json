@@ -1,0 +1,568 @@
+{
+  "code": "NB-055",
+  "title": "Training Smarter: How Muscles Grow Stronger",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 466,
+  "passage": "Every time you climb a staircase, lift a school bag or kick a ball, you depend on some of the more than 600 muscles that are attached to your skeleton. Each of these muscles is made of thousands of long, thin cells called fibres, which are bundled together like the strands of a rope. When your brain sends a signal along a nerve, the fibres shorten and pull on the bones, and your body moves. But how do muscles become stronger when we train, and why do sports scientists insist that rest is just as important as effort?\n\nThe first surprising fact is that muscles can only pull; they can never push. For this reason, they usually work in pairs. When you bend your arm, the biceps on the front of your upper arm contracts, while the triceps on the back relaxes. To straighten the arm again, the two muscles simply swap roles. Coaches therefore train both muscles in a pair, because a strong muscle with a weak partner can lead to poor balance and injury.\n\nWhen you exercise harder than usual, you create tiny tears in some of your muscle fibres. This sounds alarming, but it is a normal part of training. During the hours and days that follow, the body repairs the damage and builds the fibres back slightly thicker than before, so that they can cope with a similar challenge next time. The stiffness that people often feel one or two days after an unfamiliar activity is partly a sign of this repair work, and it usually fades within a few days.\n\nThe repair process needs the right materials and enough time. Protein, which is found in eggs, fish, chicken, beans, lentils and milk, supplies the building blocks for new muscle tissue. Sleep is equally valuable, since the body releases growth hormone during deep sleep, helping muscles recover. An athlete who trains hard every single day without rest may actually become weaker, because the muscles never have a chance to rebuild.\n\nScientists describe successful training with a principle called progressive overload. It means increasing the challenge gradually, for example by adding a few more repetitions, a little more weight or a slightly longer run each week. If the challenge never changes, the muscles have no reason to adapt. If it increases too quickly, however, the risk of injury rises sharply. For young people, exercises that use body weight, such as push-ups, squats and climbing, are an excellent and safe way to begin.\n\nA good training session also starts with a warm-up and ends with a cool-down. A few minutes of light jogging and gentle stretching raise the temperature of the muscles, making them more flexible and less likely to tear. Train steadily, eat well and rest wisely, and your muscles will reward you!",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which phrase is closest in meaning to “insist” as it is used in paragraph 1?",
+      "options": [
+        "seriously doubt",
+        "quietly wonder",
+        "quickly forget",
+        "state firmly"
+      ],
+      "answer": "D",
+      "why": "Sports scientists “insist that rest is just as important as effort”, which means they state it firmly and will not change their view."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “gradually” as it is used in paragraph 5?",
+      "options": [
+        "slowly",
+        "steadily",
+        "suddenly",
+        "carefully"
+      ],
+      "answer": "C",
+      "why": "“Gradually” means little by little; its opposite is “suddenly”. “Slowly” and “steadily” are close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 5: “If the challenge never changes, the muscles have no reason to adapt.” What does “adapt” mean?",
+      "options": [
+        "change in order to cope with new demands",
+        "become tired and painful",
+        "stay exactly the same as before",
+        "stop working for a short time"
+      ],
+      "answer": "A",
+      "why": "The muscles adapt by becoming stronger so that they can cope with a bigger challenge."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word is used as a NOUN in paragraph 2?",
+      "options": [
+        "contracts",
+        "relaxes",
+        "balance",
+        "simply"
+      ],
+      "answer": "C",
+      "why": "“Balance” names a thing (“poor balance”), so it is a noun. In this paragraph “contracts” and “relaxes” are verbs, and “simply” is an adverb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.NEAR",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 does NOT belong with the others?",
+      "options": [
+        "eggs",
+        "lentils",
+        "hormone",
+        "beans"
+      ],
+      "answer": "C",
+      "why": "Eggs, lentils and beans are foods that supply protein; growth hormone is a substance the body releases during sleep."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "The word “people” in paragraph 3 is an irregular plural. What is its singular form?",
+      "options": [
+        "peoples",
+        "peopled",
+        "persons",
+        "person"
+      ],
+      "answer": "D",
+      "why": "We say one person, many people. “Persons” is also a plural, and “peoples” means different nations."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “challenge” in a meaningful sentence of your own.",
+      "model": "Climbing to the top of Jabal Sawda was a real challenge for my father, but he refused to give up.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “challenge” with its meaning (something difficult that tests your ability)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Challenge” means a difficult task that tests a person's strength or skill."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Paragraph 6 mentions a “warm-up”. Which is the correct plural form?",
+      "options": [
+        "warms-up",
+        "warm-ups",
+        "warm-upes",
+        "warms-ups"
+      ],
+      "answer": "B",
+      "why": "In this compound noun the -s is added at the end: one warm-up, two warm-ups, just like push-ups in paragraph 5."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read the last sentence of the text: “Train steadily, eat well and rest wisely, and your muscles will reward you!” Which statement about it is correct?",
+      "options": [
+        "It asks the reader a question about training.",
+        "It describes something that happened in the past.",
+        "It gives the reader commands with strong feeling.",
+        "It states a scientific fact about protein."
+      ],
+      "answer": "C",
+      "why": "It begins with commands (“Train … eat … rest”) and ends with an exclamation mark that shows strong feeling."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the whole text?",
+      "options": [
+        "Stronger After Rest: How Muscles Grow",
+        "The Biceps and the Triceps",
+        "Delicious Foods Full of Protein",
+        "Why Athletes Should Train Every Day"
+      ],
+      "answer": "A",
+      "why": "The text explains how training, repair and rest make muscles stronger. The other titles cover a single detail or contradict the text."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the text?",
+      "options": [
+        "to describe the life and career of a famous athlete",
+        "to persuade readers to buy expensive protein drinks",
+        "to warn readers that exercise always causes injury",
+        "to explain how muscles grow and how to train safely"
+      ],
+      "answer": "D",
+      "why": "The text explains how muscles work and adapt, then gives advice on rest, food, overload and warming up."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence best states the main idea of paragraph 3?",
+      "options": [
+        "Hard exercise causes tiny tears, which are repaired thicker.",
+        "Muscle stiffness is a sign that you should stop training forever.",
+        "Muscles are made of fibres that are bundled together like a rope.",
+        "The body repairs muscle fibres only during exercise."
+      ],
+      "answer": "A",
+      "why": "Paragraph 3 explains that tiny tears are normal and that the body rebuilds the fibres “slightly thicker than before”."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, why do coaches train both muscles in a pair?",
+      "options": [
+        "Muscles can push as well as pull.",
+        "Training one muscle makes its partner smaller.",
+        "The biceps is always weaker than the triceps.",
+        "A strong muscle with a weak partner may cause injury."
+      ],
+      "answer": "D",
+      "why": "The writer says “a strong muscle with a weak partner can lead to poor balance and injury.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which statement about the type of this text is correct?",
+      "options": [
+        "It is a story, because it begins by talking to “you”.",
+        "It is informational, though it ends with advice.",
+        "It is a poem, because its last sentence is exciting.",
+        "It is a biography of a famous sports scientist."
+      ],
+      "answer": "B",
+      "why": "It explains facts about muscles in paragraphs, and its final sentences give advice; it has no plot, rhyme or life story."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, why might an athlete who trains hard every day without rest become weaker?",
+      "options": [
+        "The muscles never have a chance to rebuild.",
+        "The athlete eats too much protein.",
+        "The muscles begin to push instead of pull.",
+        "The athlete forgets to warm up."
+      ],
+      "answer": "A",
+      "why": "The writer explains that this can happen “because the muscles never have a chance to rebuild.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 2, what happens when you straighten your arm again after bending it?",
+      "options": [
+        "Both muscles relax at the same time.",
+        "The triceps pushes the arm straight.",
+        "The biceps contracts even more strongly.",
+        "The biceps and the triceps swap roles."
+      ],
+      "answer": "D",
+      "why": "“To straighten the arm again, the two muscles simply swap roles.” Choice B is wrong because muscles can only pull."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which detail must be considered when planning training based on progressive overload?",
+      "options": [
+        "The challenge should stay the same every week.",
+        "Rest days should be avoided completely.",
+        "Only heavy weights can make muscles grow.",
+        "The challenge should rise gradually, not suddenly."
+      ],
+      "answer": "D",
+      "why": "Paragraph 5 says the challenge must increase gradually, because if it never changes the muscles do not adapt, and if it rises too fast injury becomes likely."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which order of events matches paragraph 3? (1) The body rebuilds fibres slightly thicker. (2) You exercise harder than usual. (3) The fibres cope better with the same challenge. (4) Tiny tears form in some fibres.",
+      "options": [
+        "4, 2, 1, 3",
+        "2, 1, 4, 3",
+        "1, 2, 4, 3",
+        "2, 4, 1, 3"
+      ],
+      "answer": "D",
+      "why": "First you exercise harder (2), which creates tiny tears (4); the body then repairs them thicker (1), so the fibres cope better next time (3)."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, what partly causes the stiffness people feel a day or two after an unfamiliar activity?",
+      "options": [
+        "a lack of protein in their meals",
+        "the body repairing tiny tears in the fibres",
+        "a muscle that has stopped working",
+        "too much rest after the activity"
+      ],
+      "answer": "B",
+      "why": "The stiffness “is partly a sign of this repair work”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer compare muscle fibres to “the strands of a rope”?",
+      "options": [
+        "to suggest that muscles are made of string",
+        "to explain how ropes are made in factories",
+        "to picture many thin parts working together",
+        "to show that muscles break as easily as old rope"
+      ],
+      "answer": "C",
+      "why": "A rope is made of many thin strands bundled together, just as a muscle is made of thousands of thin fibres."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the text, how is sleep connected to stronger muscles?",
+      "options": [
+        "Muscles grow only while a person is dreaming at night.",
+        "Sleep completely replaces the need for protein.",
+        "Deep sleep releases growth hormone that aids recovery.",
+        "Sleep makes the muscles pull harder the next day."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “the body releases growth hormone during deep sleep, helping muscles recover.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is the job of the biceps different from the job of the triceps when you BEND your arm?",
+      "options": [
+        "The biceps contracts, while the triceps relaxes.",
+        "The biceps relaxes, while the triceps contracts.",
+        "The biceps pushes, while the triceps pulls.",
+        "Both contract together to bend the arm."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: when you bend your arm, the biceps contracts while the triceps relaxes. Choice C is wrong because muscles can only pull."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what is the effect of increasing the challenge too quickly?",
+      "options": [
+        "The muscles stop adapting.",
+        "The risk of injury rises sharply.",
+        "The muscles become lighter.",
+        "Stiffness disappears faster."
+      ],
+      "answer": "B",
+      "why": "“If it increases too quickly, however, the risk of injury rises sharply.” Choice A happens when the challenge never changes."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do protein and sleep have in common, according to paragraph 4?",
+      "options": [
+        "Both are found in eggs and lentils.",
+        "Both make muscles push instead of pull.",
+        "Both should be avoided before a match.",
+        "Both help the body repair muscle."
+      ],
+      "answer": "D",
+      "why": "Protein supplies building blocks for new tissue, and sleep releases growth hormone that helps muscles recover."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end paragraph 1 with two questions?",
+      "options": [
+        "to show that scientists do not know the answers",
+        "to tell readers what the rest of the text will explain",
+        "to test whether readers have read paragraph 1",
+        "to change the topic from muscles to food"
+      ],
+      "answer": "B",
+      "why": "The questions about getting stronger and resting are answered in the paragraphs that follow, so they prepare the reader."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by “your muscles will reward you”?",
+      "options": [
+        "Your muscles will give you a prize or gift.",
+        "Good habits will make your muscles stronger.",
+        "Your muscles will stop feeling tired forever.",
+        "Your muscles will need less food."
+      ],
+      "answer": "B",
+      "why": "This is figurative: muscles cannot give prizes, but good habits will make them stronger, which is the “reward”."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which statement based on the text gives the writer's ADVICE rather than a scientific fact?",
+      "options": [
+        "Muscles can only pull on bones; they can never push them.",
+        "The body releases growth hormone during deep sleep each night.",
+        "Body-weight exercises are a safe way for young people to begin.",
+        "Each muscle is made of thousands of long, thin cells called fibres."
+      ],
+      "answer": "C",
+      "why": "Calling these exercises “excellent and safe” for young people is a recommendation; the other sentences report facts about the body."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Hamad wants to become stronger before the school football season. In your opinion, which plan BEST follows the text?",
+      "options": [
+        "training as hard as possible every day without a single day off",
+        "lifting the heaviest weights in the gym from the very first day",
+        "push-ups and squats, adding a few each week, with rest days",
+        "skipping warm-ups so that he has more time for hard exercise"
+      ],
+      "answer": "C",
+      "why": "It uses body-weight exercises, progressive overload, rest and sleep, which are all recommended in the text; the other plans break its advice."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which statement would the writer MOST likely agree with?",
+      "options": [
+        "Rest is part of training, not a break from it.",
+        "Stiffness always means a muscle is badly injured.",
+        "Only adults should do any kind of exercise.",
+        "Muscles grow most when the challenge never changes."
+      ],
+      "answer": "A",
+      "why": "The writer says rest is “just as important as effort” and that muscles rebuild during rest and sleep."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the writer's attitude toward rest in this text?",
+      "options": [
+        "It is a waste of valuable training time.",
+        "It is needed only after a serious injury.",
+        "It matters only for older athletes.",
+        "It is as important as effort."
+      ],
+      "answer": "D",
+      "why": "Paragraph 1 says rest is “just as important as effort”, and paragraph 4 explains why."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information is the LEAST clear in the text?",
+      "options": [
+        "how many muscles are attached to the skeleton",
+        "what the biceps does when you bend your arm",
+        "how much protein a young athlete needs each day",
+        "when stiffness usually appears after exercise"
+      ],
+      "answer": "C",
+      "why": "The text names foods that contain protein but never says how much is needed; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A boy's triceps pushes his arm straight when he throws a ball.",
+        "A girl adding a few push-ups weekly can do many more after two months.",
+        "A runner's leg muscles double in size overnight after one race.",
+        "A man lifts a car with ease after his first training session."
+      ],
+      "answer": "B",
+      "why": "Progressive overload makes muscles adapt gradually. Choice A is impossible because muscles can only pull."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best sums up the ideas in the text?",
+      "options": [
+        "Pull, Repair, Repeat",
+        "The Rope in the Gym",
+        "No Pain, No Gain",
+        "Eggs for Breakfast"
+      ],
+      "answer": "A",
+      "why": "Muscles pull, are repaired during rest and grow stronger as training is repeated; “No Pain, No Gain” ignores the text's message about rest."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the text: write two or three sentences that end it with a training tip for a beginner that follows progressive overload, and explain why it works.",
+      "model": "If you are just starting, try ten squats a day this week and add two more each week after that. Take at least one day of rest between harder sessions so that your fibres can rebuild. Small, steady steps give your muscles a reason to adapt without risking injury.",
+      "rubric": [
+        "2 = a clear new ending with a sensible beginner's tip that increases the challenge gradually and a reason that links to the text",
+        "1 = an ending is given but the tip is vague, unsafe or not explained",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any safe tip that raises the challenge gradually and links to the text (adaptation, rest, injury risk) is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Two days after trying a new climbing class, Lama feels stiff. Based on the text, what is the most sensible solution?",
+      "options": [
+        "Train twice as hard tomorrow to remove the stiffness.",
+        "Rest, eat protein and sleep well, then return gradually.",
+        "Give up climbing because it has caused an injury.",
+        "Skip the warm-up next time to save energy."
+      ],
+      "answer": "B",
+      "why": "Stiffness after an unfamiliar activity is normal repair work; rest, protein, sleep and a gradual return support it."
+    }
+  ]
+}

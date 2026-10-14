@@ -37,6 +37,14 @@ export function SkillAssignSteps({ skillId, track, grammar = false, trackField =
         <ProgramChoice value={program} onChange={setProgram} />
         <SkillQuestionPicker key={skillId} skillId={skillId} onChange={setValue} />
         {empty && <p className="rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">{t("Tick at least one question, or let the platform choose.")}</p>}
+        {/* r67: the platform chooses → at least 30 questions, Done when mastered, at most 50 — unless the teacher sets a count */}
+        {value.auto && (
+          <label className="grid gap-1 text-sm text-slate-700">
+            <span className="font-semibold text-brand-navy">{t("Number of questions (optional)")}</span>
+            <input type="number" name="questionCount" min={5} max={50} inputMode="numeric" placeholder="30–50" className="w-32 rounded-lg border border-slate-300 px-3 py-2" />
+            <span className="text-xs text-slate-500">{t("Leave empty: each student answers at least 30 questions, done when mastered, at most 50.")}</span>
+          </label>
+        )}
       </div>
       {step === "preview" && (
         <div className="grid gap-2">

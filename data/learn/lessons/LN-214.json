@@ -1,0 +1,488 @@
+{
+ "code": "LN-214",
+ "title": "Figurative language: meaning and effect",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.3.5.a",
+  "L.4.5.a",
+  "L.5.5.a",
+  "L.6.5.a",
+  "L.7.5.a",
+  "RI.4.4",
+  "RI.5.4",
+  "RI.6.4",
+  "RI.7.4",
+  "RI.8.4",
+  "RL.3.4",
+  "RL.4.4",
+  "RL.5.4",
+  "RL.6.4",
+  "RL.7.4",
+  "RL.8.4"
+ ],
+ "families": [
+  "figurative-language"
+ ],
+ "skillNames": [
+  "Figurative Language (Similes, Metaphors, Personification, Hyperbole)"
+ ],
+ "statements": [
+  "R-0227",
+  "R-0373",
+  "R-0399",
+  "R-0557",
+  "R-0585",
+  "R-0757",
+  "R-0780",
+  "R-0928",
+  "R-0943",
+  "R-1050"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words that paint pictures",
+     "text": "Sometimes writers say things that are **not really true** to make a picture in your mind.\n\n“The wind **whispered**.” Wind cannot talk. It means the wind was **soft and quiet**."
+    },
+    {
+     "title": "Not real, but it has a meaning",
+     "text": "“My room is a **zoo**.”\n\nThere are no animals! It means the room is **messy and noisy**."
+    },
+    {
+     "title": "How to read it",
+     "text": "1. Find the words that cannot be real.\n2. Ask: what does the writer **really** mean?\n3. Use the other sentences to check."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentences that show what is **really** happening.\n\n1. Read the strange words.\n2. Look at the other sentences.\n3. Tap the ones that show the real meaning."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The classroom was a beehive.",
+      "role": "main"
+     },
+     {
+      "t": "Everyone was busy working.",
+      "role": "key"
+     },
+     {
+      "t": "There was a happy hum of voices.",
+      "role": "key"
+     }
+    ],
+    "explain": "A beehive is full of busy bees. The class was **busy and full of soft noise**.\n\nThe other two sentences prove it."
+   },
+   "together": {
+    "passage": "The old car coughed in the morning. It made loud noises. It shook and stopped. Dad had to start it again.",
+    "stem": "What does “the old car coughed” mean?",
+    "options": [
+     "The car was sick in bed.",
+     "The car made rough noises and did not start well.",
+     "The car drove very fast.",
+     "The car was new."
+    ],
+    "answer": 1,
+    "hint": "A car cannot be sick in bed! What do the other sentences say the car did?",
+    "good": "Yes! A cough is a rough noise. The car made loud noises, shook and stopped."
+   },
+   "evidence": {
+    "sentences": [
+     "The old car coughed in the morning.",
+     "It made loud noises.",
+     "It shook and stopped.",
+     "Dad had to start it again."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: the car made rough noises and did not start well. Tap 2 sentences that show it.",
+    "wrong": "This sentence has the strange words. Find sentences that show what REALLY happened."
+   },
+   "checks": [
+    {
+     "passage": "Mona's smile was sunshine. Everyone in the room felt happy when she came in.",
+     "stem": "What does “Mona's smile was sunshine” mean?",
+     "options": [
+      "Her smile was hot.",
+      "She stood in the sun.",
+      "Her smile was yellow.",
+      "Her smile made people feel happy."
+     ],
+     "answer": 3,
+     "why": "Sunshine makes people feel good. Everyone felt happy when Mona came in."
+    },
+    {
+     "passage": "The leaves danced in the wind. They went up and down and round and round.",
+     "stem": "What does “the leaves danced” mean?",
+     "options": [
+      "The leaves moved around in the wind.",
+      "The leaves had a party.",
+      "The leaves fell in a pile.",
+      "The leaves were green."
+     ],
+     "answer": 0,
+     "why": "Leaves cannot really dance. They went up, down and round: they moved around in the wind."
+    },
+    {
+     "passage": "“I have told you a million times to close the door!” said Mum.",
+     "stem": "What does “a million times” mean?",
+     "options": [
+      "exactly one million times",
+      "only one time",
+      "many, many times",
+      "never"
+     ],
+     "answer": 2,
+     "why": "Nobody can say something a million times. Mum means she has said it many, many times."
+    }
+   ],
+   "again": {
+    "title": "Real or not real?",
+    "text": "1. Read the words.\n2. Ask: **Can this really happen?**\n3. If not, ask: **What is the writer trying to show me?**",
+    "example": "“The stars winked at us.”\n\nCan stars wink? No. What does it show? The stars **twinkled**: they seemed to shine on and off."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Four kinds",
+     "text": "**Simile**: compares with like or as. “as fast as the wind”\n**Metaphor**: says one thing **is** another. “Time is a thief.”\n**Personification**: gives human actions to things. “The door groaned.”\n**Hyperbole**: a huge exaggeration. “I could eat a whole camel.”"
+    },
+    {
+     "title": "First: the meaning",
+     "text": "First, find what the phrase **really means**.\n\n“Time is a thief” → time takes things away from us without our noticing."
+    },
+    {
+     "title": "Then: the effect",
+     "text": "Then ask **why** the writer used it. Figurative language can:\n\n1. help you **picture** something\n2. show a **feeling**\n3. make the writing **fun or exciting**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Read the sentences around the phrase. They show what is really happening and how the character feels.\n\n1. Choose a meaning and an effect.\n2. Find sentences that agree.\n3. If nothing in the text agrees, it is **not** the answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The night before the trip, Lulwa could not sleep.",
+      "role": "key"
+     },
+     {
+      "t": "Her suitcase sat by the door, waiting patiently for morning.",
+      "role": "main"
+     },
+     {
+      "t": "She checked her clock every few minutes.",
+      "role": "key"
+     }
+    ],
+    "explain": "A suitcase cannot wait patiently. This is **personification**.\n\nIt shows the trip is **ready and close**, and it makes Lulwa's **excitement** stronger: even her bag is waiting."
+   },
+   "together": {
+    "passage": "When the bell rang, the students poured out of the school gates like water from a broken dam. Some ran straight to the buses. Others raced across the field, shouting and laughing. After a long week of exams, the holiday had finally begun.",
+    "stem": "Why does the writer compare the students to water from a broken dam?",
+    "options": [
+     "To show that it was raining.",
+     "To show that the school gates were broken.",
+     "To show they rushed out quickly, all together.",
+     "To show that the students were tired."
+    ],
+    "answer": 2,
+    "hint": "Nothing in the text is about rain or broken gates. What does water from a broken dam DO?",
+    "good": "Yes! Water from a broken dam rushes out all at once. The students ran and raced out together."
+   },
+   "evidence": {
+    "sentences": [
+     "When the bell rang, the students poured out of the school gates like water from a broken dam.",
+     "Some ran straight to the buses.",
+     "Others raced across the field, shouting and laughing.",
+     "After a long week of exams, the holiday had finally begun."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: they rushed out quickly, all together. Tap 2 sentences that show what the students DID.",
+    "wrong": "This sentence holds the simile itself or gives the reason for the excitement. Find what the students DID."
+   },
+   "checks": [
+    {
+     "passage": "The thunder grumbled angrily over the hills, and the little goats ran to the shelter.",
+     "stem": "What is the effect of “grumbled angrily”?",
+     "options": [
+      "It makes the thunder sound threatening, like an angry person.",
+      "It tells us the goats were angry.",
+      "It shows the weather was calm.",
+      "It explains how thunder is made."
+     ],
+     "answer": 0,
+     "why": "Thunder cannot really be angry. The personification makes it sound threatening, and the goats running away agree."
+    },
+    {
+     "passage": "My backpack weighs a ton today! I have five textbooks, my lunch and my sports shoes in it.",
+     "stem": "What does “weighs a ton” mean?",
+     "options": [
+      "It weighs exactly 1,000 kilograms.",
+      "It is very heavy.",
+      "It is empty.",
+      "It is broken."
+     ],
+     "answer": 1,
+     "why": "This is hyperbole. Five books, lunch and shoes make the bag very heavy, not a real ton."
+    },
+    {
+     "passage": "For Grandfather, the old date palm was a history book. Under its shade he told us stories of every season the family had lived through.",
+     "stem": "What does the metaphor “the old date palm was a history book” mean?",
+     "options": [
+      "The tree had pages and words.",
+      "Grandfather read books under the tree.",
+      "The tree was old and falling down.",
+      "The tree reminded Grandfather of the family's past."
+     ],
+     "answer": 3,
+     "why": "A history book holds stories of the past. Under the tree, Grandfather told the family's stories."
+    }
+   ],
+   "again": {
+    "title": "Meaning, then why",
+    "text": "Use two steps.\n\n1. **Meaning:** say it in plain words.\n2. **Why:** what did the special words add? A picture? A feeling? Fun?",
+    "example": "“The kettle sang on the stove.”\n\nMeaning: the kettle made a whistling sound. Why: it makes the kitchen feel **warm and cheerful**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Figurative language shapes feeling",
+     "text": "The same thing can be described in different ways.\n\n“The sea **smiled** in the sunlight” feels calm and friendly.\n“The sea **swallowed** the little boat” feels dangerous.\n\nThe writer's choice tells you how to feel."
+    },
+    {
+     "title": "It can reveal a character",
+     "text": "Figurative language can show what a character thinks.\n\n“To Majid, the maths test was a mountain” shows he sees it as **huge and hard to climb**. That tells us he is **worried**."
+    },
+    {
+     "title": "Four steps",
+     "text": "1. Name the type (simile, metaphor, personification, hyperbole).\n2. Explain the literal meaning.\n3. Explain the effect: what feeling, picture or emphasis does it add?\n4. Support it with details from the passage."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "An effect must be **backed by the passage**.\n\nLook for actions, feelings and results near the figurative phrase that point in the same direction. Tap them."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The desert at noon was a furnace.",
+      "role": "main"
+     },
+     {
+      "t": "The sand burned through the soles of our sandals, and the air shimmered above the dunes.",
+      "role": "key"
+     },
+     {
+      "t": "We walked slowly from one patch of shade to the next.",
+      "role": "key"
+     }
+    ],
+    "explain": "**Metaphor**: the desert is compared to a furnace. Meaning: it was **extremely hot**.\n\nEffect: it makes us **feel** the heat. The burning sand and slow walking confirm it."
+   },
+   "together": {
+    "passage": "For weeks, the dry riverbed had been silent. Then, one evening, dark clouds gathered over the mountains. By midnight, the valley was awake. Water roared down the wadi, tossing stones as if they were toys and dragging whole bushes along with it. In the morning, villagers stood at a safe distance and watched the brown water rush past. They knew the wadi could turn from friend to enemy in a single night.",
+    "stem": "What is the effect of the phrase “tossing stones as if they were toys”?",
+    "options": [
+     "It shows the water was playful and safe.",
+     "It shows that children had left toys in the wadi.",
+     "It shows that the stones were very small.",
+     "It shows how powerful the flood was."
+    ],
+    "answer": 3,
+    "hint": "Who tosses toys easily? Someone much stronger than the toys. Do the villagers act as if the water is safe?",
+    "good": "Yes! Heavy stones moved as easily as toys show the flood's great power. The villagers kept a safe distance."
+   },
+   "evidence": {
+    "sentences": [
+     "For weeks, the dry riverbed had been silent.",
+     "Then, one evening, dark clouds gathered over the mountains.",
+     "By midnight, the valley was awake.",
+     "Water roared down the wadi, tossing stones as if they were toys and dragging whole bushes along with it.",
+     "In the morning, villagers stood at a safe distance and watched the brown water rush past.",
+     "They knew the wadi could turn from friend to enemy in a single night."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: it shows how powerful the flood was. Tap 2 sentences that support it.",
+    "wrong": "This sentence sets the scene before the flood. Find details that show the flood's POWER and how people reacted."
+   },
+   "checks": [
+    {
+     "passage": "Hind's science project was a puzzle with one missing piece. She had the model, the poster and the notes, but she still could not explain why her plant had died.",
+     "stem": "What does the metaphor suggest?",
+     "options": [
+      "Her project was almost complete, but one key part was missing.",
+      "Hind built a puzzle for her project.",
+      "Hind lost a piece of her model.",
+      "Hind's plant was part of a game."
+     ],
+     "answer": 0,
+     "why": "She had everything except the explanation. Like a puzzle missing one piece, the project was not quite complete."
+    },
+    {
+     "passage": "The old library had stood on the corner for a hundred years. Its windows watched over the street, and its heavy doors welcomed anyone who wanted to read.",
+     "stem": "What is the effect of the personification?",
+     "options": [
+      "It makes the library seem frightening.",
+      "It makes the library seem like a kind guardian of the town.",
+      "It shows that the library had cameras.",
+      "It shows that the library was closing."
+     ],
+     "answer": 1,
+     "why": "“Watched over” and “welcomed” are caring human actions. The library seems like a kind protector."
+    },
+    {
+     "passage": "I waited forever for my turn at the doctor's. When I finally went in, the doctor said I had only been there for twenty minutes.",
+     "stem": "What does the hyperbole “waited forever” show?",
+     "options": [
+      "The narrator waited for days.",
+      "The doctor was not honest.",
+      "The wait felt very long to the narrator.",
+      "The narrator was the first patient."
+     ],
+     "answer": 2,
+     "why": "It was only twenty minutes, but it FELT endless. Hyperbole shows the narrator's feeling."
+    }
+   ],
+   "again": {
+    "title": "Picture, feeling, point",
+    "text": "After you find the meaning, test the effect with three words:\n\n1. **Picture**: what do I see?\n2. **Feeling**: what do I feel?\n3. **Point**: what does the writer want me to notice?",
+    "example": "“The crowd's cheer shook the stadium.”\n\nPicture: the stadium trembling. Feeling: excitement. Point: the cheer was **extremely loud**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Figurative language in nonfiction",
+     "text": "Articles and speeches use figurative language to make ideas memorable. Calling the internet an “information highway” suggests speed, heavy traffic and links between places.\n\nIn nonfiction, ask how the comparison helps the **argument** or **explanation**."
+    },
+    {
+     "title": "Extended metaphors",
+     "text": "Sometimes a writer keeps a metaphor going across several sentences. If knowledge is a “journey”, the writer may mention **paths**, **steps** and **destinations**.\n\nTrack every part: each one adds to the meaning."
+    },
+    {
+     "title": "Analysing effect",
+     "text": "1. Identify the figure and its literal meaning.\n2. Explain the **connotations** it brings (danger, warmth, speed…).\n3. Explain how it supports the **tone** or **central idea**.\n4. Consider why the writer did not use plain words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Your analysis is strong when you can point to **several** parts of the text that work with the figurative phrase: other images from the same family, or statements of the writer's purpose.\n\nReject a reading that fits the image but not the passage."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "A coral reef is a city beneath the waves.",
+      "role": "main"
+     },
+     {
+      "t": "Its stony towers shelter thousands of residents, from tiny shrimp to sea turtles.",
+      "role": "key"
+     },
+     {
+      "t": "Cleaner fish run busy stations where larger fish line up to have tiny pests removed.",
+      "role": "key"
+     },
+     {
+      "t": "Like any city, it can fall into decline when pollution reaches its streets.",
+      "role": "detail"
+     }
+    ],
+    "explain": "This is an **extended metaphor**: towers, residents, stations and streets keep the city idea going.\n\nThe effect: the reef seems **crowded, organised and full of life**, and its damage feels like the loss of a whole community."
+   },
+   "together": {
+    "passage": "Some people treat the Earth's fresh water as an endless river that will always run. But the truth is that fresh water is a bank account, and we have been withdrawing far more than we deposit. Underground layers of rock called aquifers can take thousands of years to fill, yet in many dry regions pumps have drained them in a few decades. Each time a farm floods its fields in the heat of midday, more of the account disappears into the air. If we keep spending without saving, one day the account will be empty, and no amount of money will refill it quickly.",
+    "stem": "What does the writer suggest by comparing fresh water to a bank account?",
+    "options": [
+     "Water costs too much money for most farmers.",
+     "Fresh water is limited and can run out if overused.",
+     "Banks should pay for new water pumps.",
+     "Aquifers are full of money that people have saved."
+    ],
+    "answer": 1,
+    "hint": "The writer is not talking about real money. In the comparison, what are “withdrawing” and “depositing” water?",
+    "good": "Yes! Like a bank account, water can be used up faster than it is replaced. The aquifer facts prove it."
+   },
+   "evidence": {
+    "sentences": [
+     "Some people treat the Earth's fresh water as an endless river that will always run.",
+     "But the truth is that fresh water is a bank account, and we have been withdrawing far more than we deposit.",
+     "Underground layers of rock called aquifers can take thousands of years to fill, yet in many dry regions pumps have drained them in a few decades.",
+     "Each time a farm floods its fields in the heat of midday, more of the account disappears into the air.",
+     "If we keep spending without saving, one day the account will be empty, and no amount of money will refill it quickly."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: fresh water is limited and can run out if overused. Tap 2 sentences that develop this idea.",
+    "wrong": "This sentence gives the view the writer disagrees with. Find sentences that show water being used up faster than it returns."
+   },
+   "checks": [
+    {
+     "passage": "From Lina's diary: “Today my new school was an ocean, and I was a small fish without a map. Every hallway looked the same, every face was a stranger's, and the bell's sudden ring sent me swimming in the wrong direction.”",
+     "stem": "What does the extended metaphor reveal about Lina's first day?",
+     "options": [
+      "She went swimming after school.",
+      "She enjoyed exploring the large school.",
+      "She was late because she had no map.",
+      "She felt lost in a big, strange place."
+     ],
+     "answer": 3,
+     "why": "An ocean is huge and a small fish can easily get lost. Same hallways, strangers and wrong directions show she felt lost."
+    },
+    {
+     "passage": "In his speech, the headteacher said: “Reading is the key that unlocks every door in this school. Science, history and maths all wait behind those doors, and only students who read well can open them.”",
+     "stem": "What is the effect of the metaphor?",
+     "options": [
+      "It shows the school has too many locked doors.",
+      "It warns that students will lose their keys.",
+      "It shows reading opens the way to every subject.",
+      "It explains that maths is more important than reading."
+     ],
+     "answer": 2,
+     "why": "The key is reading; the doors are subjects. The metaphor makes reading seem essential to all learning."
+    },
+    {
+     "passage": "Nobody in the village had ever seen such a harvest. Baskets of dates rose into mountains beside every house, and the sweet smell drifted through the streets for weeks.",
+     "stem": "What does the hyperbole “rose into mountains” emphasise?",
+     "options": [
+      "The harvest was unusually large.",
+      "The houses were built on mountains.",
+      "The baskets were too heavy to carry.",
+      "The dates had gone bad."
+     ],
+     "answer": 0,
+     "why": "The baskets were not really mountains. The exaggeration stresses how huge the harvest was, as the first sentence says."
+    }
+   ],
+   "again": {
+    "title": "Plain words test",
+    "text": "1. Rewrite the figurative phrase in **plain words**.\n2. Read the plain version and the original.\n3. Ask: what did the original add that the plain version lost? That is the **effect**.",
+    "example": "“Homework is a mountain I climb every night.”\n\nPlain: I have a lot of homework. Lost: the feeling of **effort and struggle**. That is the effect."
+   }
+  }
+ }
+}

@@ -1,0 +1,454 @@
+{
+ "code": "LN-016",
+ "title": "Clear and concise sentences",
+ "subject": "LANGUAGE",
+ "goalArea": "Writing",
+ "subtopic": "Establish and Maintain Style; Use Precise Language",
+ "standards": [
+  "L.5.3.a",
+  "W.5.5"
+ ],
+ "families": [
+  "precise-language"
+ ],
+ "skillNames": [
+  "Concise Language and Wordiness"
+ ],
+ "statements": [
+  "L-0051",
+  "L-0133",
+  "L-0248",
+  "L-0249",
+  "L-0315"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Say it once",
+     "text": "Good writers say each idea **one time**.\n\nIf you say the same thing again, the reader gets bored."
+    },
+    {
+     "title": "Extra words",
+     "text": "**Too many words:** I saw a big, large cat.\n\n**Better:** I saw a big cat.\n\n\"Big\" and \"large\" mean the same. Keep one."
+    },
+    {
+     "title": "How to fix it",
+     "text": "1. Read your sentences.\n2. Ask: **Did I already say this?**\n3. If yes, take it out."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find a repeat, look for **the same idea** in two places.\n\n1. Read each sentence.\n2. Ask: **Which sentence told me this before?**\n3. Point to it. If you can, the second one is extra."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lina has a white cat.",
+      "role": "key"
+     },
+     {
+      "t": "It likes milk.",
+      "role": "detail"
+     },
+     {
+      "t": "Her cat is white.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1 already says the cat is **white**. Sentence 3 says it again.\n\nWe can take out sentence 3. The text is shorter and still clear."
+   },
+   "together": {
+    "passage": "Omar has a new ball. He kicks it in the yard. His friends play with him. His ball is new.",
+    "stem": "Which sentence says the same thing again?",
+    "options": [
+     "Omar has a new ball.",
+     "He kicks it in the yard.",
+     "His friends play with him.",
+     "His ball is new."
+    ],
+    "answer": 3,
+    "hint": "That sentence tells something new. Which one only says what we already know?",
+    "good": "Yes! The first sentence already told us the ball is new."
+   },
+   "evidence": {
+    "sentences": [
+     "Omar has a new ball.",
+     "He kicks it in the yard.",
+     "His friends play with him.",
+     "His ball is new."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: His ball is new. Tap the sentence that already told us this.",
+    "wrong": "This sentence tells something new. Find the sentence that first says the ball is new."
+   },
+   "checks": [
+    {
+     "passage": "I ate a small, little apple.",
+     "stem": "Which words mean the same thing?",
+     "options": [
+      "ate, apple",
+      "small, little",
+      "I, ate",
+      "a, apple"
+     ],
+     "answer": 1,
+     "why": "Small and little mean the same. Keep only one."
+    },
+    {
+     "passage": "We sat in a circle. We sat in a round circle. We read a book.",
+     "stem": "Which sentence should we take out?",
+     "options": [
+      "We sat in a round circle.",
+      "We read a book.",
+      "We sat in a circle.",
+      "None of them."
+     ],
+     "answer": 0,
+     "why": "It repeats the first sentence. A circle is always round."
+    },
+    {
+     "passage": "Dad came back home again at six.",
+     "stem": "Which is the best way to say it?",
+     "options": [
+      "Dad came back home again again.",
+      "Dad came back home again at six o'clock in the evening.",
+      "Dad came home at six.",
+      "Dad home six."
+     ],
+     "answer": 2,
+     "why": "\"Came back\" and \"again\" repeat the idea. \"Dad came home at six\" says it once."
+    }
+   ],
+   "again": {
+    "title": "The twin test",
+    "text": "Look for **twins**: two words or sentences that mean the same.\n\nKeep one twin. Take the other out.",
+    "example": "\"The tiny, small bird sang.\"\n\nTwins: **tiny** and **small**. Better: **The tiny bird sang.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Redundant means repeated",
+     "text": "Writing is **redundant** when it says the same thing twice.\n\n\"At 7 a.m. in the morning\" is redundant: **a.m.** already means morning."
+    },
+    {
+     "title": "Common repeats",
+     "text": "**In my opinion, I think** → I think\n\n**Return back** → return\n\n**Final end** → end\n\n**Each and every** → every"
+    },
+    {
+     "title": "Revise in three steps",
+     "text": "1. Read each sentence slowly.\n2. Circle words that mean the same as other words.\n3. Cut the extra ones. Check that the meaning stays the same.\n\nAlso look for **whole sentences** that repeat an earlier sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence is redundant, find where the text **already says it**.\n\n1. Choose the sentence you think repeats an idea.\n2. Go back and find the sentence(s) that give that same idea.\n3. If you can point to them, the sentence adds nothing new and can go."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our team practised every day for the final match.",
+      "role": "key"
+     },
+     {
+      "t": "We trained daily to get ready for the last game.",
+      "role": "other"
+     },
+     {
+      "t": "On Friday, we won by two goals.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 2 says the same as sentence 1 in different words: **every day = daily**, **final match = last game**.\n\nCutting sentence 2 makes the paragraph tighter."
+   },
+   "together": {
+    "passage": "Every Saturday, my grandmother bakes bread for the whole family. She mixes flour, water and yeast in a large bowl. The bread she makes each Saturday feeds all of us. Then she lets the dough rise for an hour. The house smells wonderful when it bakes.",
+    "stem": "Which sentence should the writer delete because it repeats an idea?",
+    "options": [
+     "She mixes flour, water and yeast in a large bowl.",
+     "The bread she makes each Saturday feeds all of us.",
+     "Then she lets the dough rise for an hour.",
+     "The house smells wonderful when it bakes."
+    ],
+    "answer": 1,
+    "hint": "That sentence adds a new step or detail. Which one only repeats what you already know?",
+    "good": "Yes! The first sentence already says she bakes on Saturdays for the whole family."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Saturday, my grandmother bakes bread for the whole family.",
+     "She mixes flour, water and yeast in a large bowl.",
+     "The bread she makes each Saturday feeds all of us.",
+     "Then she lets the dough rise for an hour.",
+     "The house smells wonderful when it bakes."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was the sentence about Saturday bread for all of us. Tap the sentence that already says this.",
+    "wrong": "This sentence gives new information. Find the sentence that first tells about the Saturday bread for the family."
+   },
+   "checks": [
+    {
+     "passage": "Please return the library books back by Thursday.",
+     "stem": "Which revision is clearest?",
+     "options": [
+      "Please return back the library books by Thursday.",
+      "Please, please return the books back.",
+      "Return the books back to the library.",
+      "Please return the library books by Thursday."
+     ],
+     "answer": 3,
+     "why": "\"Return\" already means \"give back\", so \"back\" is extra."
+    },
+    {
+     "passage": "In my opinion, I think the trip was the best trip of the whole year.",
+     "stem": "Which revision removes the repeated words?",
+     "options": [
+      "In my opinion, I think the trip was the best.",
+      "The trip was a trip that was the best of the year.",
+      "I think the trip was the best of the year.",
+      "In my opinion, the trip was the best trip."
+     ],
+     "answer": 2,
+     "why": "\"In my opinion\" and \"I think\" repeat each other, and \"trip\" is said twice."
+    },
+    {
+     "passage": "The cake was a round circle shape with bright yellow colour icing.",
+     "stem": "Which revision is most concise?",
+     "options": [
+      "The round cake had bright yellow icing.",
+      "The cake was round in a circle shape with yellow colour.",
+      "The cake was a round circle with yellow icing colour.",
+      "The round circle cake had icing that was yellow in colour."
+     ],
+     "answer": 0,
+     "why": "Round already means circle shape, and yellow is already a colour."
+    }
+   ],
+   "again": {
+    "title": "Does it add something new?",
+    "text": "For every word and sentence ask: **Does this tell the reader something new?**\n\nIf not, cut it.",
+    "example": "\"We all worked together as a team.\"\n\n\"Together\" and \"as a team\" say the same thing. Better: **We worked as a team.**"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Combine short sentences",
+     "text": "Many short sentences about the same thing sound choppy.\n\n**Choppy:** The oryx is white. It lives in the desert. It has long horns.\n\n**Combined:** The white oryx, which lives in the desert, has long horns."
+    },
+    {
+     "title": "Ways to combine",
+     "text": "1. Join with **and, but, so, because, when**.\n2. Move a describing word into one sentence: \"the **white** oryx\".\n3. Use **who** or **which** to add information.\n\nKeep every important fact. Drop only the repeats."
+    },
+    {
+     "title": "Make it clear",
+     "text": "A sentence can be short and still **unclear**.\n\nWatch out for words like **he, she, it, they** when two people or things could match. Name the person if the reader could be confused."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence is unclear, find the **other people or things** it could mean.\n\n1. Find the pronoun (he, she, it, they).\n2. Look back: how many people or things could it point to?\n3. If there is more than one, the sentence needs a name instead."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Nora and her sister Huda baked cookies.",
+      "role": "key"
+     },
+     {
+      "t": "She burned the first tray.",
+      "role": "other"
+     },
+     {
+      "t": "Revised: Huda burned the first tray.",
+      "role": "main"
+     }
+    ],
+    "explain": "\"She\" could mean Nora **or** Huda. The first sentence names two girls, so the reader cannot tell.\n\nNaming **Huda** makes the sentence clear."
+   },
+   "together": {
+    "passage": "Khalid and his uncle Saeed set out early to hike the canyon trail. The path was rocky, and the sun climbed quickly. After two hours, they stopped to rest in the shade of a cliff. He had forgotten to bring enough water. Luckily, a ranger at the next station gave them extra bottles.",
+    "stem": "Which sentence is unclear and most needs to be revised?",
+    "options": [
+     "The path was rocky, and the sun climbed quickly.",
+     "After two hours, they stopped to rest in the shade of a cliff.",
+     "He had forgotten to bring enough water.",
+     "Luckily, a ranger at the next station gave them extra bottles."
+    ],
+    "answer": 2,
+    "hint": "Is that sentence confusing? Look for a word that could point to more than one person.",
+    "good": "Yes! \"He\" could mean Khalid or Saeed. The writer should name the person."
+   },
+   "evidence": {
+    "sentences": [
+     "Khalid and his uncle Saeed set out early to hike the canyon trail.",
+     "The path was rocky, and the sun climbed quickly.",
+     "After two hours, they stopped to rest in the shade of a cliff.",
+     "He had forgotten to bring enough water.",
+     "Luckily, a ranger at the next station gave them extra bottles."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "The answer was: He had forgotten to bring enough water. Tap the sentence that shows why \"he\" is unclear.",
+    "wrong": "This sentence does not name the two people. Find the sentence where both men are introduced."
+   },
+   "checks": [
+    {
+     "passage": "The library is quiet. The library is on the second floor. It has new computers.",
+     "stem": "Which is the best combined sentence?",
+     "options": [
+      "The quiet library on the second floor has new computers.",
+      "The library is quiet, and the library is on the second floor, and it has computers.",
+      "The library is on the second floor.",
+      "The quiet library is quiet and has new computers on the floor."
+     ],
+     "answer": 0,
+     "why": "It keeps all three facts and says each one only once."
+    },
+    {
+     "passage": "Maha likes science. Maha likes art. She does not like sports.",
+     "stem": "Which is the best combined sentence?",
+     "options": [
+      "Maha likes science, Maha likes art.",
+      "Maha likes science and she likes art, and Maha does not like sports.",
+      "Maha does not like science, art or sports.",
+      "Maha likes science and art, but she does not like sports."
+     ],
+     "answer": 3,
+     "why": "It joins the likes with \"and\" and the contrast with \"but\", with no repeated names."
+    },
+    {
+     "passage": "When the teacher talked to the student, she smiled.",
+     "stem": "Which revision is clearest?",
+     "options": [
+      "When she talked to her, she smiled.",
+      "The student smiled when the teacher talked to her.",
+      "When the teacher talked, someone smiled.",
+      "She smiled when the teacher talked to the student, she said."
+     ],
+     "answer": 1,
+     "why": "Now the reader knows exactly who smiled."
+    }
+   ],
+   "again": {
+    "title": "Same subject? Join them!",
+    "text": "If two sentences start with the **same subject**, you can often join them.",
+    "example": "\"Ali opened the door. Ali saw the rain.\"\n\nJoined: **Ali opened the door and saw the rain.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Concise is not the same as short",
+     "text": "**Concise** writing uses no more words than the meaning needs. A long sentence can be concise; a short one can be padded.\n\nCut words that **repeat**, words that say **nothing** (\"really\", \"basically\"), and phrases that could be **one word**."
+    },
+    {
+     "title": "Wordy phrases",
+     "text": "**Due to the fact that** → because\n\n**At this point in time** → now\n\n**In order to** → to\n\n**Has the ability to** → can\n\n**Is of the opinion that** → believes"
+    },
+    {
+     "title": "Repeated sentences",
+     "text": "In longer writing, a whole sentence may repeat what an earlier one said, just in new words. It feels like a new point, but it adds **no information**.\n\nCompare each sentence with the ones before it. If it offers nothing new, cut it or add something new."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence is redundant, you must show where its **information already appears**.\n\n1. List the facts in the sentence you suspect.\n2. Find each fact earlier in the passage.\n3. If every fact is already there, the sentence can be cut without any loss.\n\nIf even one fact is new, the sentence must stay or be combined."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Due to the fact that the road was closed, the bus arrived late.",
+      "role": "other"
+     },
+     {
+      "t": "Because the road was closed, the bus arrived late.",
+      "role": "main"
+     }
+    ],
+    "explain": "\"Due to the fact that\" is five words doing the job of one: **because**.\n\nThe revised sentence keeps the full meaning with fewer words."
+   },
+   "together": {
+    "passage": "In the 1930s, geologists discovered large amounts of oil beneath eastern Saudi Arabia. Within a few decades, this discovery changed the economy of the whole country. New cities, roads and ports were built, and many people moved to work in the growing industry. The finding of oil under the eastern region in the 1930s transformed the nation's economy over the following years. Today, the government is also investing in tourism, technology and renewable energy so that the economy does not depend on oil alone.",
+    "stem": "Which sentence could be deleted without losing any information?",
+    "options": [
+     "The finding of oil under the eastern region in the 1930s transformed the nation's economy over the following years.",
+     "New cities, roads and ports were built, and many people moved to work in the growing industry.",
+     "Within a few decades, this discovery changed the economy of the whole country.",
+     "Today, the government is also investing in tourism, technology and renewable energy so that the economy does not depend on oil alone."
+    ],
+    "answer": 0,
+    "hint": "Does that sentence add a fact that appears nowhere else? Compare it with the sentences around it.",
+    "good": "Yes! Its facts (oil, the east, the 1930s, a changed economy) are all given earlier."
+   },
+   "evidence": {
+    "sentences": [
+     "In the 1930s, geologists discovered large amounts of oil beneath eastern Saudi Arabia.",
+     "Within a few decades, this discovery changed the economy of the whole country.",
+     "New cities, roads and ports were built, and many people moved to work in the growing industry.",
+     "The finding of oil under the eastern region in the 1930s transformed the nation's economy over the following years.",
+     "Today, the government is also investing in tourism, technology and renewable energy so that the economy does not depend on oil alone."
+    ],
+    "proof": [
+     0,
+     1
+    ],
+    "need": 2,
+    "stem": "The answer was the sentence about oil transforming the economy. Tap the 2 sentences that already give this information.",
+    "wrong": "This sentence adds new facts, such as new cities or new industries. Find the sentences that already said where, when and what the oil changed."
+   },
+   "checks": [
+    {
+     "passage": "At this point in time, the club has the ability to accept new members.",
+     "stem": "Which revision is most concise?",
+     "options": [
+      "At this time, the club has the ability to accept members.",
+      "The club, at this point, is able to accept new members now.",
+      "The club can now accept new members.",
+      "Currently, at present, the club can accept new members."
+     ],
+     "answer": 2,
+     "why": "\"At this point in time\" becomes \"now\" and \"has the ability to\" becomes \"can\"."
+    },
+    {
+     "passage": "Scientists study coral reefs in order to understand them better. They want to learn more about how reefs work. Their research helps protect reefs from damage.",
+     "stem": "Which sentence is redundant?",
+     "options": [
+      "Scientists study coral reefs in order to understand them better.",
+      "They want to learn more about how reefs work.",
+      "Their research helps protect reefs from damage.",
+      "None; each sentence adds new information."
+     ],
+     "answer": 1,
+     "why": "Wanting to learn how reefs work repeats \"to understand them better\"."
+    },
+    {
+     "passage": "The students basically worked really hard on the project, which was a project about water, and it was completed by them on time.",
+     "stem": "Which revision is most concise without losing meaning?",
+     "options": [
+      "The students worked hard on the project.",
+      "The students basically worked hard on their water project on time.",
+      "The project about water was completed.",
+      "The students worked hard on their water project and finished it on time."
+     ],
+     "answer": 3,
+     "why": "It keeps every fact (hard work, water, on time) and removes filler and repeats. The first choice loses facts."
+    }
+   ],
+   "again": {
+    "title": "Count the facts",
+    "text": "Before you cut, **count the facts** in the sentence. After you revise, count again.\n\nSame facts, fewer words = concise. Fewer facts = you cut too much.",
+    "example": "\"In order to win the race, the runner trained really hard every single day.\"\n\nFacts: wanted to win, trained hard, daily. Concise: **To win the race, the runner trained hard every day.**"
+   }
+  }
+ }
+}

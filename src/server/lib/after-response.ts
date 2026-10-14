@@ -42,7 +42,23 @@ export function runAfterResponse(label: string, fn: () => Promise<unknown> | unk
   }
   pending.add(done);
   void done.finally(() => pending.delete(done));
+  if (held) { held.push(() => void task()); return; }
   setImmediate(() => { void task(); });
+}
+
+let held: (() => void)[] | null = null;
+/**
+ * Tests (page timing): work scheduled outside a request waits until the returned `release()` — as next/server's
+ * `after()` runs it only once the response is sent — so a page's measured time never includes it.
+ */
+export function holdAfterResponse(): () => Promise<void> {
+  held ??= [];
+  return async () => {
+    const q = held ?? [];
+    held = null;
+    for (const run of q) run();
+    await afterResponseSettled();
+  };
 }
 
 /** Waits until every piece of work scheduled outside a request has finished (including work it scheduled). */

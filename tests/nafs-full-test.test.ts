@@ -296,16 +296,16 @@ describe("in the school's NAFS center", () => {
 });
 
 describe("the tile and the builder", () => {
-  test("the tile comes first on Home and on Create test; the builder lists FULL first", () => {
-    const home = read("src/components/nafs/home-tab.tsx");
-    assert.ok(home.indexOf("<FullTestTile") > 0 && home.indexOf("<FullTestTile") < home.indexOf("aria-label={t(\"Summary\")}"), "first on Home");
+  test("the complete test is the builder's start: All 13 standards (owner r67: one builder, no second tile)", () => {
     const tests = read("src/components/nafs/tests-tab.tsx");
-    assert.ok(tests.indexOf("<FullTestTile") < tests.indexOf("NEW.map"), "first on Create test");
-    const b = read("src/components/nafs/test-builder.tsx");
-    assert.match(b, /const MODES[^\n]*\[\{ k: "FULL"/);
-    assert.match(read("src/app/teacher/nafs/tests/new/page.tsx"), /"FULL"/);
+    assert.match(tests, /STARTS\.map/);
+    const starts = read("src/components/nafs/builder-starts.ts");
+    assert.match(starts, /key: "ALL", icon: "★", title: "All 13 standards — complete test"/);
+    assert.match(read("src/app/teacher/nafs/tests/new/page.tsx"), /"ALL"/);
+    // the old ?mode=FULL links open it
+    assert.match(read("src/server/nafs/center.ts"), /FULL: \{ start: "ALL" \}/);
   });
   test("the new strings have Arabic", () => {
-    for (const x of ["Complete NAFS test (all standards)", "Build as a test", "Build as practice", "Summary to check before saving", "Generate with AI (draft)", "Use fewer for this standard", "Every one of the 13 standards is covered.", "Not covered", "Texts used", "PIRLS processes", "By standard", "Test order", "Purpose", "Build the complete test"]) assert.ok(hasAr(x), `Arabic for "${x}"`);
+    for (const x of ["Complete NAFS test (all standards)", "Summary to check before saving", "Use fewer for this standard", "Every one of the 13 standards is covered.", "Not covered", "Texts used", "PIRLS processes", "By standard", "Test order", "Purpose", "Build the complete test"]) assert.ok(hasAr(x), `Arabic for "${x}"`);
   });
 });

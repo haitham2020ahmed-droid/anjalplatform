@@ -8,6 +8,7 @@ import { listImportJobs } from "@/server/admin/question-import";
 import { ImportUpload } from "./upload-form";
 import { BankTabs } from "../bank-tabs";
 import { CcssNote } from "@/components/ccss-note";
+import { LineIcon } from "@/components/ui/line-icon";
 
 const STATUS: Record<string, { text: string; cls: string }> = {
   VALIDATING: { text: "Being checked", cls: "bg-sky-100 text-sky-900" },
@@ -33,8 +34,8 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
       <p className="mt-1 max-w-3xl text-slate-600">Prepare your Excel file, upload it, review every question, then import. Nothing is added to the question bank until you confirm, and imported questions go through the normal review before students see them.</p>
 
       <nav aria-label="Import to" className="mt-5 flex flex-wrap gap-3">
-        <Link href="/admin/questions/import" aria-current={!toCurriculum ? "page" : undefined} className={tab(!toCurriculum)}><span aria-hidden="true">📚</span> Import to Question Bank</Link>
-        <Link href="/admin/questions/import?to=curriculum" aria-current={toCurriculum ? "page" : undefined} className={tab(toCurriculum)}><span aria-hidden="true">🧭</span> Import to Curriculum</Link>
+        <Link href="/admin/questions/import" aria-current={!toCurriculum ? "page" : undefined} className={tab(!toCurriculum)}><LineIcon name="book" className="me-1 inline-block h-4 w-4 align-[-3px]" /> Import to Question Bank</Link>
+        <Link href="/admin/questions/import?to=curriculum" aria-current={toCurriculum ? "page" : undefined} className={tab(toCurriculum)}><LineIcon name="compass" className="me-1 inline-block h-4 w-4 align-[-3px]" /> Import to Curriculum</Link>
       </nav>
       <p className="mt-2 text-sm text-slate-600">{toCurriculum ? "Curriculum questions go to the Curriculum Map and the Question Bank." : "Question Bank questions stay in the bank (not on the Curriculum Map). Use the optional Use column for Placement and MAP tests."}</p>
 
@@ -46,7 +47,7 @@ export default async function ImportQuestionsPage({ searchParams }: { searchPara
             <div className="mt-3 flex flex-wrap gap-3">
               <a href="/api/question-imports/template?format=map-xlsx" className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">Download Curriculum Excel template</a>
               <a href="/api/question-imports/template?format=map-csv" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Download Curriculum CSV template</a>
-              <Link href="/admin/curriculum-map" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Open the Curriculum Map</Link>
+              <Link href="/admin/curriculum-map" className="rounded-xl px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><LineIcon name="compass" className="me-1 inline-block h-4 w-4 align-[-3px]" />Open the Curriculum Map</Link>
             </div>
             <h3 className="mt-4 font-semibold text-brand-navy">Rules</h3>
             <ul className="mt-1 list-disc space-y-1 ps-5 text-sm text-slate-700">{CURRICULUM_RULES.map((r) => <li key={r}>{r}</li>)}</ul>

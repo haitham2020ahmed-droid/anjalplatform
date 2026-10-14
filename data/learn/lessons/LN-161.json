@@ -1,0 +1,482 @@
+{
+ "code": "LN-161",
+ "title": "Plot development and climax",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Point of View, Features, and Structure",
+ "standards": [
+  "RL.2.5",
+  "RL.3.5"
+ ],
+ "families": [
+  "plot-conflict"
+ ],
+ "skillNames": [
+  "Plot Development: Conflict, Climax and Resolution"
+ ],
+ "statements": [
+  "R-0144",
+  "R-0254",
+  "R-0416",
+  "R-0418"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a plot?",
+     "text": "The **plot** is what happens in a story.\n\nIt has a **beginning**, a **middle** and an **end**."
+    },
+    {
+     "title": "Every plot has a problem",
+     "text": "In the **beginning**, we meet the characters. Then a **problem** starts.\n\nIn the **middle**, the characters try to fix it.\n\nAt the **end**, the problem is solved."
+    },
+    {
+     "title": "How to follow the plot",
+     "text": "1. Who is in the story?\n2. What is the **problem**?\n3. **How** is it fixed?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the sentence that shows the **problem**. Words like **lost, broke, could not** often show a problem.\n\nThen find the sentence that shows how it is **fixed**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lulu has a red kite.",
+      "role": "other"
+     },
+     {
+      "t": "The kite gets stuck in a tree.",
+      "role": "key"
+     },
+     {
+      "t": "Dad gets a ladder.",
+      "role": "detail"
+     },
+     {
+      "t": "He gets the kite down.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Beginning: Lulu has a kite.\n\nProblem: the kite is **stuck in a tree**.\n\nEnd: Dad uses a ladder and gets it down."
+   },
+   "together": {
+    "passage": "Saad gets ready for school. He cannot find his left shoe. He looks under the bed. His dog brings the shoe to him.",
+    "stem": "What is the problem in the story?",
+    "options": [
+     "Saad cannot find his shoe.",
+     "Saad is late for the bus.",
+     "The dog is hungry.",
+     "Saad has new shoes."
+    ],
+    "answer": 0,
+    "hint": "What goes wrong for Saad? Look for the word that shows a problem.",
+    "good": "Yes! Saad cannot find his shoe. Then the dog helps him find it."
+   },
+   "evidence": {
+    "sentences": [
+     "Saad gets ready for school.",
+     "He cannot find his left shoe.",
+     "He looks under the bed.",
+     "His dog brings the shoe to him."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "The answer was: Saad cannot find his shoe. Tap the sentence that shows the problem.",
+    "wrong": "This sentence shows the beginning or what happens next. Find the sentence that tells what went wrong."
+   },
+   "checks": [
+    {
+     "passage": "Hind made a cake. She dropped it on the floor. Mom helped her make a new one.",
+     "stem": "What happens at the end?",
+     "options": [
+      "Hind drops the cake.",
+      "Hind eats the cake.",
+      "Mom helps make a new cake.",
+      "Mom buys a cake."
+     ],
+     "answer": 2,
+     "why": "At the end, Mom helps Hind make a new cake. That fixes the problem."
+    },
+    {
+     "passage": "The boys play ball. The ball goes over the wall. A kind man throws it back.",
+     "stem": "What is the problem?",
+     "options": [
+      "The boys are tired.",
+      "The ball goes over the wall.",
+      "The man is kind.",
+      "The wall is new."
+     ],
+     "answer": 1,
+     "why": "The problem is that the ball goes over the wall."
+    },
+    {
+     "passage": "Rana wants to read a book. It is too dark. She turns on the lamp. Now she can read.",
+     "stem": "How is the problem solved?",
+     "options": [
+      "Rana goes to sleep.",
+      "Rana finds a new book.",
+      "Rana goes outside.",
+      "Rana turns on the lamp."
+     ],
+     "answer": 3,
+     "why": "It was too dark, so Rana turned on the lamp. Now she can read."
+    }
+   ],
+   "again": {
+    "title": "First, then, last",
+    "text": "Tell the story in three parts:\n\n**First** ...\n**Then** ...\n**Last** ...\n\nThe **then** part is usually the problem.",
+    "example": "First, Omar plants a seed. Then, the seed does not grow. Last, he gives it water, and it grows."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "The parts of a plot",
+     "text": "1. **Beginning:** meet the characters and the setting.\n2. **Problem:** something goes wrong.\n3. **Rising events:** the characters try to fix it.\n4. **Climax:** the most exciting moment.\n5. **Ending:** the problem is solved."
+    },
+    {
+     "title": "The climax",
+     "text": "The **climax** is the turning point. It is the moment of greatest **excitement** or worry.\n\nAfter the climax, the story starts to wind down."
+    },
+    {
+     "title": "One event leads to another",
+     "text": "In a good plot, each event **causes** the next one.\n\nAsk: **What happened because of this?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To find a plot part, look for clue words:\n\n**Problem:** but, suddenly, could not\n**Climax:** just then, at last, finally, the moment\n**Ending:** after that, from then on\n\nThen check: does this sentence really change the story?"
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Yousef practised his song for the school show every day.",
+      "role": "detail"
+     },
+     {
+      "t": "On the big night, his voice disappeared because he had a cold.",
+      "role": "detail"
+     },
+     {
+      "t": "Just as his turn came, his friend handed him a cup of warm honey water, and Yousef stepped onto the stage.",
+      "role": "key"
+     },
+     {
+      "t": "His voice was quiet, but the audience clapped loudly at the end.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Problem: Yousef loses his voice.\n\nClimax: the tense moment when his turn comes and he **steps onto the stage**.\n\nEnding: the audience claps."
+   },
+   "together": {
+    "passage": "The family drove into the desert for a picnic. On the way home, the car got stuck in soft sand, and night was falling. Mona climbed the highest dune to look around. From the top, she suddenly saw the lights of a village not far away. Soon, two men from the village came with a truck and pulled the car free.",
+    "stem": "Which event is the climax of the story?",
+    "options": [
+     "The family drives to the desert.",
+     "The family sets up the tent.",
+     "Dad says they will reach the road by morning.",
+     "Mona spots the lights of the village from the top of the dune."
+    ],
+    "answer": 3,
+    "hint": "The climax is the most exciting moment, when the problem turns around.",
+    "good": "Yes! Seeing the village lights is the turning point. After that, the family is safe."
+   },
+   "evidence": {
+    "sentences": [
+     "The family drove into the desert for a picnic.",
+     "On the way home, the car got stuck in soft sand, and night was falling.",
+     "Mona climbed the highest dune to look around.",
+     "From the top, she suddenly saw the lights of a village not far away.",
+     "Soon, two men from the village came with a truck and pulled the car free."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: Mona spots the village lights. Tap the sentence that shows this turning point.",
+    "wrong": "This sentence comes before or after the turning point. Find the moment when everything changes."
+   },
+   "checks": [
+    {
+     "passage": "Abeer's cat was missing. She searched the garden and asked the neighbours. Late in the evening, she heard a small cry from the roof. There was the cat, too scared to come down. Her father climbed up and brought it safely inside.",
+     "stem": "What is the problem in the story?",
+     "options": [
+      "Abeer's cat is missing.",
+      "The neighbours are not home.",
+      "The garden is too big.",
+      "Her father cannot climb."
+     ],
+     "answer": 0,
+     "why": "The story starts with the problem: Abeer's cat is missing. Everything else is about finding it."
+    },
+    {
+     "passage": "The class wanted to win the clean school prize. They picked up rubbish and painted the old benches. The day before judging, a strong wind blew leaves all over the yard. The whole class came early and swept until the yard was perfect. They won the prize.",
+     "stem": "Which event happens right after the wind blows leaves into the yard?",
+     "options": [
+      "They paint all of the old benches.",
+      "They win the clean school prize.",
+      "The class comes early and sweeps the yard.",
+      "They pick up rubbish around the school."
+     ],
+     "answer": 2,
+     "why": "The wind causes the next event: the class comes early to sweep."
+    },
+    {
+     "passage": "Nawaf was nervous about the swimming race. When the whistle blew, he dived in. Halfway across, he was in last place. Then he remembered his coach's words, kicked harder, and passed two swimmers just before the wall. He finished second and smiled all the way home.",
+     "stem": "Which part is the climax?",
+     "options": [
+      "Nawaf is nervous before the race.",
+      "Nawaf kicks harder and passes two swimmers.",
+      "Nawaf smiles all the way home.",
+      "The whistle blows."
+     ],
+     "answer": 1,
+     "why": "The most exciting moment is when Nawaf kicks harder and passes two swimmers. After that, the story ends."
+    }
+   ],
+   "again": {
+    "title": "Climb the mountain",
+    "text": "Think of a plot like a mountain.\n\n1. You start at the bottom (**beginning**).\n2. You climb as things get harder (**problem**, **rising events**).\n3. The **top** is the climax.\n4. Then you walk down to the **end**.",
+    "example": "Bottom: Lama enters a spelling contest. Climbing: the words get harder. Top: she spells the last word correctly. Down: she gets her prize."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Conflict drives the plot",
+     "text": "The **conflict** is the struggle in the story. It can be between a character and another person, nature, or their own fears.\n\nThe plot follows how the character deals with the conflict."
+    },
+    {
+     "title": "Rising action",
+     "text": "After the conflict starts, problems often **grow**. Each event makes things harder or more tense.\n\nThis is the **rising action**. It builds toward the climax."
+    },
+    {
+     "title": "Climax and resolution",
+     "text": "The **climax** is the turning point, when the character faces the conflict head-on.\n\nThe **resolution** shows how things settle afterwards. It often shows what changed."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove the climax:\n\n1. Find the conflict.\n2. Follow the events that make it **worse**.\n3. Find the moment where the character **acts** and the outcome is decided.\n\nIf the story could still go either way after a sentence, it is not the climax yet."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Rakan had never spoken in front of the whole school.",
+      "role": "detail"
+     },
+     {
+      "t": "When his teacher chose him to give the welcome speech, his stomach twisted for days.",
+      "role": "detail"
+     },
+     {
+      "t": "On the morning of the assembly, he lost his notes on the bus.",
+      "role": "detail"
+     },
+     {
+      "t": "Standing at the microphone with nothing in his hands, he took a deep breath and began to speak from memory.",
+      "role": "key"
+     },
+     {
+      "t": "Afterwards, his classmates said it was the best speech of the year.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Conflict: Rakan's fear. Rising action: he is chosen, then **loses his notes**.\n\nClimax: he faces the microphone and **speaks from memory**. Resolution: his classmates praise him."
+   },
+   "together": {
+    "passage": "Hamza and his cousin Adel wandered too far from the camp while looking for interesting rocks. When they turned around, every hill looked the same. Then Adel reached into his pocket and found that the compass had fallen out somewhere on the way. The sun was getting lower, and they had only half a bottle of water left. At last, Hamza remembered that the camp was east of the tall rock shaped like a camel's hump, and they walked back by its shadow.",
+    "stem": "How does losing the compass add to the rising action?",
+    "options": [
+     "It ends the conflict right away.",
+     "It shows the boys are lost at the very beginning.",
+     "It makes their problem harder and the story more tense.",
+     "It explains how the boys get home safely."
+    ],
+    "answer": 2,
+    "hint": "Rising action makes things harder. What does losing the compass do to the boys' problem?",
+    "good": "Yes! Losing the compass makes finding the camp even harder, so the tension grows."
+   },
+   "evidence": {
+    "sentences": [
+     "Hamza and his cousin Adel wandered too far from the camp while looking for interesting rocks.",
+     "When they turned around, every hill looked the same.",
+     "Then Adel reached into his pocket and found that the compass had fallen out somewhere on the way.",
+     "The sun was getting lower, and they had only half a bottle of water left.",
+     "At last, Hamza remembered that the camp was east of the tall rock shaped like a camel's hump, and they walked back by its shadow."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: losing the compass makes the problem harder. Tap a sentence that shows the problem getting worse.",
+    "wrong": "This sentence starts the story or shows how the problem is solved. Find a sentence where things get harder."
+   },
+   "checks": [
+    {
+     "passage": "Dana entered the science fair with a plant experiment. A week before the fair, half of her plants died. She worked late every night to start again, testing new soil. On the day of the fair, the judges stopped at her table and asked why she had two sets of results. Dana explained how her failure had taught her more than success would have.",
+     "stem": "What is the conflict in this story?",
+     "options": [
+      "Dana does not get along with the judges.",
+      "Dana must save her project after her plants die.",
+      "The science fair is cancelled at the last minute.",
+      "Dana's best friend wins the first prize."
+     ],
+     "answer": 1,
+     "why": "Half of Dana's plants die, and she must work hard to save her project. That is the struggle."
+    },
+    {
+     "passage": "Sultan's team was losing by one goal with a minute left. He had missed two easy shots already, and the crowd had gone quiet. When the ball came to him, he thought about passing. Instead, he steadied himself and kicked. The ball curved past the keeper into the net.",
+     "stem": "Which sentence is the climax?",
+     "options": [
+      "Sultan's team was losing by one goal.",
+      "He had missed two easy shots already.",
+      "The crowd had gone quiet.",
+      "The ball curved past the keeper into the net."
+     ],
+     "answer": 3,
+     "why": "The goal is the turning point that decides the outcome of the match. Everything before it builds tension."
+    },
+    {
+     "passage": "A fierce sandstorm trapped the travellers in a small roadside station for two days. Food grew short, and tempers grew shorter. On the third morning, the wind dropped. The travellers stepped outside, shared what was left of their bread, and promised to keep in touch.",
+     "stem": "What does the resolution show?",
+     "options": [
+      "How the travellers part as friends after the storm",
+      "Why the sandstorm started in the first place",
+      "How the travellers argued about the food",
+      "Where the small roadside station was built"
+     ],
+     "answer": 0,
+     "why": "After the wind drops, the travellers share bread and promise to stay in touch. This shows how things settle."
+    }
+   ],
+   "again": {
+    "title": "Ask: is it decided yet?",
+    "text": "Read the story one sentence at a time. After each sentence, ask:\n\n**Do I know how it ends yet?**\n\nThe first sentence where the answer becomes **yes** is usually the climax.",
+    "example": "Hala is stuck on the last puzzle piece. (Not decided.) The clock is ticking. (Not decided.) She turns the piece and it clicks into place! (**Decided!** That is the climax.)"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "How plots are built",
+     "text": "Authors arrange events so that each scene **raises the stakes**: something important can be gained or lost.\n\nThe climax is where the main conflict reaches its **highest point** and is finally decided."
+    },
+    {
+     "title": "Not just action",
+     "text": "The climax is not always the loudest scene. It can be a quiet **decision**: a character tells the truth, forgives someone, or chooses a new path.\n\nAsk: Where is the **main conflict** decided?"
+    },
+    {
+     "title": "Why the climax matters",
+     "text": "The climax connects the **beginning** to the **end**. It answers the question the story raised.\n\nAfter it, the falling action and resolution show the **results** of the character's choice."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse a climax:\n\n1. State the **main conflict** in one sentence.\n2. Find the moment where it is **decided**.\n3. Check the events after it: do they show **results** of that moment?\n\nA scene that is exciting but does not decide the main conflict is not the climax."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For months, Nasser had hidden the fact that he had broken his grandfather's old radio.",
+      "role": "detail"
+     },
+     {
+      "t": "Each time the family talked about it, he changed the subject, and the secret grew heavier.",
+      "role": "detail"
+     },
+     {
+      "t": "At dinner on his grandfather's birthday, the old man sadly mentioned that he missed listening to the evening news on it.",
+      "role": "detail"
+     },
+     {
+      "t": "Nasser put down his spoon and said, \"Grandfather, I broke it. I am sorry.\"",
+      "role": "key"
+     },
+     {
+      "t": "The next weekend, the two of them took it to a repair shop together.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The main conflict is **inside** Nasser: guilt against fear. It is decided in a quiet moment when he **confesses**.\n\nThe repair trip is the result. The climax is a decision, not an action scene."
+   },
+   "together": {
+    "passage": "Dalal had joined the debate team to prove she could win, and she had won every round so far. In the final, while the other team was speaking, she realised that one of her key facts was wrong. No one else seemed to have noticed, and admitting it would almost certainly cost her the trophy. When her turn came, she stood, took a breath, and told the judges she had made an error. The judges awarded the trophy to the other team but gave Dalal a special prize for honesty. On the bus home, she was surprised to find she felt prouder than if she had won.",
+    "stem": "Which event is the climax of the story?",
+    "options": [
+     "Dalal joins the debate team.",
+     "Dalal chooses to admit the mistake in her own argument.",
+     "The other team presents its argument.",
+     "The judges announce the winners."
+    ],
+    "answer": 1,
+    "hint": "The main conflict is Dalal's struggle between winning and being honest. Where is that decided?",
+    "good": "Yes! Her choice to admit the mistake decides the conflict. The judges' praise is the result."
+   },
+   "evidence": {
+    "sentences": [
+     "Dalal had joined the debate team to prove she could win, and she had won every round so far.",
+     "In the final, while the other team was speaking, she realised that one of her key facts was wrong.",
+     "No one else seemed to have noticed, and admitting it would almost certainly cost her the trophy.",
+     "When her turn came, she stood, took a breath, and told the judges she had made an error.",
+     "The judges awarded the trophy to the other team but gave Dalal a special prize for honesty.",
+     "On the bus home, she was surprised to find she felt prouder than if she had won."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "The answer was: Dalal admits her mistake. Tap the sentence that is the climax.",
+    "wrong": "This sentence builds the tension or shows what happens after the choice. Find the moment the conflict is decided."
+   },
+   "checks": [
+    {
+     "passage": "The fishing village had argued for weeks about whether to sell the old harbour to a hotel company. The young wanted jobs; the old wanted to keep their boats. At the final meeting, the oldest fisherman stood up and offered to teach young people to repair boats and guide tourists by sea. The village voted to keep the harbour. Within a year, boat tours had become the village's busiest business.",
+     "stem": "Why is the fisherman's offer the climax of the story?",
+     "options": [
+      "It is the first event that happens in the story.",
+      "It explains why the village had become so poor.",
+      "It shows what the hotel company planned to build.",
+      "It settles the conflict between jobs and the harbour."
+     ],
+     "answer": 3,
+     "why": "His offer answers both sides' needs and leads directly to the vote that decides the conflict."
+    },
+    {
+     "passage": "Lamees wanted to beat her own record in the school run. During the race, she saw a younger runner fall and twist her ankle. Lamees hesitated, then stopped to help her to the side. She finished the race well outside her record time. At the assembly the next day, the principal told the whole school what she had done.",
+     "stem": "Which event raises the stakes for Lamees?",
+     "options": [
+      "She sees a younger runner fall and twist her ankle.",
+      "She finishes outside her record time.",
+      "The principal speaks at the assembly.",
+      "She wants to beat her own record in the school run."
+     ],
+     "answer": 0,
+     "why": "When the runner falls, Lamees must choose between her goal and helping. That raises the stakes."
+    },
+    {
+     "passage": "Majed had always been afraid of the dark sea at night. On the family's boat trip, the engine failed, and the lights went out. His little sister began to cry. Majed found the torch, crawled to the back of the boat and, hands shaking, flashed the signal his father had taught him until a coastguard boat answered. Later, he sat on the deck and looked out at the dark water without fear.",
+     "stem": "How does the climax connect to the ending?",
+     "options": [
+      "The engine failure explains why Majed fears the sea.",
+      "His sister's tears explain why the boat stopped.",
+      "Facing his fear lets him look at the sea calmly later.",
+      "The coastguard teaches the family to fix the engine."
+     ],
+     "answer": 2,
+     "why": "At the climax Majed faces his fear. The ending shows the result: he is no longer afraid."
+    }
+   ],
+   "again": {
+    "title": "Find the question",
+    "text": "Every story asks a **question** near the beginning.\n\nWill she win? Will he tell the truth? Will they get home?\n\nThe climax is where that question is **answered**.",
+    "example": "Question: Will Faris find the courage to apologise to his friend?\n\nClimax: Faris knocks on his friend's door and says sorry. The question is answered."
+   }
+  }
+ }
+}

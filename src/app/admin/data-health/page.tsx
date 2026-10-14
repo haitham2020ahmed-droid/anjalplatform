@@ -5,6 +5,7 @@ import { AtAGlance, Callout, ReportHeader } from "@/components/report-kit";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { dataHealth } from "@/server/insights/level-story";
+import { shortPoolSkills } from "@/server/practice/short-pool";
 
 export const metadata = { title: "Data Health" };
 
@@ -14,6 +15,8 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
   const me = (await getActor())!.user;
   const sp = await searchParams;
   const v = await dataHealth(repo, actor);
+  // 🕳 r67: skills whose questions ran out before the 30 practice asks for (the students saw Done)
+  const short = await shortPoolSkills(repo, Object.keys(v.names)).catch(() => []);
   const total = v.rows.reduce((t, r) => t + r.students, 0);
   const sum = (k: "noMap" | "noDiagnostic" | "inactive" | "noData") => v.rows.reduce((t, r) => t + r[k].length, 0);
   // never round a gap away (199 of 200 is 99.5%, not 100%): 100% only when nothing is missing (Update 39C)
@@ -61,6 +64,18 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
           </div>
         )}
       </Section>
+      {short.length > 0 && (
+        <Section title={`${t("Skills that ran out of questions")} (${short.length})`} icon="🕳" className="mb-6" hint={t("Students finished every question of these skills before 30 answers. Add questions so practice can go on.")}>
+          <ul className="divide-y divide-slate-100">
+            {short.map((k) => (
+              <li key={k.skillId} className="flex flex-wrap items-center justify-between gap-2 py-2.5 text-sm">
+                <span><b className="text-brand-navy" data-content lang="en">{k.name}</b> <span className="text-slate-600">· {k.questions !== null ? t("{n} questions in all", { n: k.questions }) : ""} · {t("{n} students ran out", { n: k.students })} · <span dir="ltr">{k.last}</span></span></span>
+                {actor.role === "TEACHER" ? <Link href="/teacher/messages" className="font-semibold text-brand-teal underline">{t("Ask for more questions")}</Link> : <Link href={`/admin/questions?status=PUBLISHED&skill=${encodeURIComponent(k.skillId)}`} className="font-semibold text-brand-teal underline">{t("Add questions")}</Link>}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
       <Section title={`Data Disagree (${v.conflicts.length})`} icon="⚖️" hint="One source says Exceeding, another says Approaching. Often guessing, a bad test day, or real growth — worth a look.">
         {!v.conflicts.length ? <p className="text-emerald-800">✅ No strong disagreement.</p> : (
           <ul className="divide-y divide-slate-100">

@@ -1,0 +1,450 @@
+{
+ "code": "LN-049",
+ "title": "Subjects and predicates",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.5.1"
+ ],
+ "families": [
+  "subjects-predicates"
+ ],
+ "skillNames": [
+  "Simple and Complete Subjects and Predicates",
+  "Subjects and Predicates",
+  "Compound Subjects and Compound Predicates"
+ ],
+ "statements": [
+  "L-0206",
+  "L-0209"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two parts of a sentence",
+     "text": "Every sentence has two parts.\n\nThe **subject** tells **who or what**.\n\nThe **predicate** tells **what they do** or **what they are**."
+    },
+    {
+     "title": "Split it",
+     "text": "**The little bird** | **sang a song.**\n\nSubject: The little bird.\nPredicate: sang a song."
+    },
+    {
+     "title": "Find them",
+     "text": "1. Ask: **Who or what** is this about? → subject\n2. Ask: **What does it do?** → predicate"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Ask the two questions.\n\nThe words that answer “who or what?” are the subject. The words that answer “what does it do?” are the predicate.\n\nPoint to them in the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "My grandfather tells funny stories.",
+      "role": "key"
+     },
+     {
+      "t": "He makes everyone laugh.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Who? **My grandfather** → subject.\n\nWhat does he do? **tells funny stories** → predicate."
+   },
+   "together": {
+    "passage": "Our class has a fish tank. The orange fish swims fast. The small snail moves slowly. We feed them every day.",
+    "stem": "In “The orange fish swims fast,” what is the subject?",
+    "options": [
+     "swims fast",
+     "The orange fish",
+     "fast",
+     "fish swims"
+    ],
+    "answer": 1,
+    "hint": "Ask: WHO or WHAT swims fast?",
+    "good": "Yes! **The orange fish** is who the sentence is about. “Swims fast” is what it does."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class has a fish tank.",
+     "The orange fish swims fast.",
+     "The small snail moves slowly.",
+     "We feed them every day."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that tells what the orange fish does.",
+    "wrong": "This sentence is not about the orange fish. Find the sentence where the orange fish does something."
+   },
+   "checks": [
+    {
+     "passage": "The tall girl runs every morning.",
+     "stem": "What is the predicate?",
+     "options": [
+      "runs every morning",
+      "The tall girl",
+      "tall girl runs",
+      "The tall"
+     ],
+     "answer": 0,
+     "why": "What does the girl do? She **runs every morning**. That is the predicate."
+    },
+    {
+     "passage": "My cat sleeps on the sofa.",
+     "stem": "Who or what is the sentence about?",
+     "options": [
+      "sleeps",
+      "the sofa",
+      "My cat",
+      "on the sofa"
+     ],
+     "answer": 2,
+     "why": "The sentence is about **my cat**. That is the subject."
+    },
+    {
+     "passage": "Dad cooks rice.",
+     "stem": "Which part is the subject?",
+     "options": [
+      "cooks",
+      "rice",
+      "cooks rice",
+      "Dad"
+     ],
+     "answer": 3,
+     "why": "Who cooks? **Dad**. That is the subject."
+    }
+   ],
+   "again": {
+    "title": "Draw a line",
+    "text": "Draw a line between the two parts.\n\nLeft side: **who or what**. Right side: **does what**.",
+    "example": "“The happy baby | laughed.” Left: **The happy baby** (subject). Right: **laughed** (predicate)."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Complete and simple subject",
+     "text": "The **complete subject** is all the words that tell who or what: “**The tall old tree** fell.”\n\nThe **simple subject** is the main word: **tree**."
+    },
+    {
+     "title": "Complete and simple predicate",
+     "text": "The **complete predicate** is everything about what the subject does: “The tree **fell across the road**.”\n\nThe **simple predicate** is the verb: **fell**."
+    },
+    {
+     "title": "A predicate is not a sentence",
+     "text": "“Fell across the road.” → **Who** fell?\n\nA predicate alone is a fragment. It needs a subject: “**The tall old tree** fell across the road.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb (the simple predicate).\n2. Ask who or what does it (the subject).\n3. If a sentence has a predicate but **no subject**, it is not complete. Point to it."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The hungry goats ate the grass.",
+      "role": "key"
+     },
+     {
+      "t": "Then ran to the water.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1: subject **The hungry goats**, predicate **ate the grass**. Complete.\n\nSentence 2 is only a predicate. Who ran? Fix: “Then **they** ran to the water.”"
+   },
+   "together": {
+    "passage": "Every evening, my father walks to the mosque. My little brother goes with him. Holds Dad's hand the whole way. On the way, they greet their neighbors. They come home together after prayer.",
+    "stem": "Why is “Holds Dad's hand the whole way.” not a complete sentence?",
+    "options": [
+     "It has no predicate.",
+     "It is a predicate with no subject.",
+     "It needs a question mark.",
+     "It is too long."
+    ],
+    "answer": 1,
+    "hint": "Find the verb: holds. Now ask: WHO holds Dad's hand? Does the sentence say?",
+    "good": "Yes! It tells what someone does, but not **who**. Fix: “**He** holds Dad's hand the whole way.”"
+   },
+   "evidence": {
+    "sentences": [
+     "Every evening, my father walks to the mosque.",
+     "My little brother goes with him.",
+     "Holds Dad's hand the whole way.",
+     "On the way, they greet their neighbors.",
+     "They come home together after prayer."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the group of words that is only a predicate.",
+    "wrong": "This sentence has a subject and a predicate. Find the one that never says who."
+   },
+   "checks": [
+    {
+     "passage": "The busy students in our class finished the project early.",
+     "stem": "What is the simple subject?",
+     "options": [
+      "students",
+      "The busy students in our class",
+      "class",
+      "finished"
+     ],
+     "answer": 0,
+     "why": "The complete subject is “The busy students in our class”. Its main word is **students**."
+    },
+    {
+     "passage": "The busy students in our class finished the project early.",
+     "stem": "What is the simple predicate?",
+     "options": [
+      "finished the project early",
+      "project",
+      "finished",
+      "early"
+     ],
+     "answer": 2,
+     "why": "The simple predicate is the verb: **finished**."
+    },
+    {
+     "passage": "Mona baked bread. Gave some to her neighbor.",
+     "stem": "Which fixes the second group of words?",
+     "options": [
+      "Gave some to her neighbor, Mona.",
+      "Some to her neighbor.",
+      "Gave some bread to her neighbor.",
+      "She gave some to her neighbor."
+     ],
+     "answer": 3,
+     "why": "The second group is only a predicate. Adding the subject **She** makes it complete."
+    }
+   ],
+   "again": {
+    "title": "Find the verb first",
+    "text": "1. Find the action word: that is the **simple predicate**.\n2. Ask “who or what ___?” The answer is the **subject**.\n3. No answer? The sentence is missing its subject.",
+    "example": "“Jumped over the fence.” Verb: **jumped**. Who jumped? No answer.\n\nAdd a subject: “**The cat** jumped over the fence.”"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Compound subjects",
+     "text": "Two subjects can share one predicate.\n\n“Ali swims.” + “Omar swims.” → “**Ali and Omar** swim.”\n\nTwo subjects → plural verb."
+    },
+    {
+     "title": "Compound predicates",
+     "text": "One subject can have two predicates.\n\n“The baby laughed.” + “The baby clapped.” → “The baby **laughed and clapped**.”"
+    },
+    {
+     "title": "Combine to avoid repeats",
+     "text": "When sentences repeat the same subject or the same predicate, combine them.\n\nNo comma is needed between two predicates joined by **and**: “She washed the dishes **and** dried them.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Look for sentences that repeat the **same subject** or the **same predicate**.\n2. Join the different parts with **and**, **or** or **but**.\n3. Check that the new sentence is complete and that the verb agrees."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Huda painted a picture.",
+      "role": "key"
+     },
+     {
+      "t": "Huda hung it on the wall.",
+      "role": "key"
+     }
+    ],
+    "explain": "Both sentences have the same subject: **Huda**.\n\nCombine the predicates: “Huda **painted a picture and hung it on the wall**.”"
+   },
+   "together": {
+    "passage": "Every Thursday, volunteers visit the home for older people near our school. My mother goes there. My aunt goes there too. The volunteers read newspapers aloud and play board games with the residents. Some of the residents tell stories about their childhood. Others teach the volunteers traditional songs.",
+    "stem": "Which sentence best combines “My mother goes there. My aunt goes there too.”?",
+    "options": [
+     "My mother goes there and my aunt.",
+     "My mother and my aunt go there.",
+     "My mother goes there, my aunt goes there too.",
+     "My mother and my aunt goes there."
+    ],
+    "answer": 1,
+    "hint": "The two sentences share a predicate. Join the subjects, then check that the verb agrees with two people.",
+    "good": "Yes! A compound subject (**my mother and my aunt**) takes the plural verb **go**."
+   },
+   "evidence": {
+    "sentences": [
+     "Every Thursday, volunteers visit the home for older people near our school.",
+     "My mother goes there.",
+     "My aunt goes there too.",
+     "The volunteers read newspapers aloud and play board games with the residents.",
+     "Some of the residents tell stories about their childhood.",
+     "Others teach the volunteers traditional songs."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap the 2 sentences that share the same predicate.",
+    "wrong": "This sentence has a different predicate. Find the two sentences that tell the same action."
+   },
+   "checks": [
+    {
+     "passage": "The cat climbed the tree. The cat sat on a branch.",
+     "stem": "Which is the best combined sentence?",
+     "options": [
+      "The cat climbed the tree, the cat sat on a branch.",
+      "The cat and the tree sat on a branch.",
+      "Climbed the tree and sat on a branch.",
+      "The cat climbed the tree and sat on a branch."
+     ],
+     "answer": 3,
+     "why": "Same subject (**the cat**), two predicates joined by **and**."
+    },
+    {
+     "passage": "Sami and his father ___ the car every Friday.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "washes",
+      "wash",
+      "is washing",
+      "has washed"
+     ],
+     "answer": 1,
+     "why": "A compound subject joined by **and** is plural → **wash**."
+    },
+    {
+     "passage": "Played football after school and did homework.",
+     "stem": "What is missing from this group of words?",
+     "options": [
+      "A predicate",
+      "A verb",
+      "A subject",
+      "A period"
+     ],
+     "answer": 2,
+     "why": "It has a compound predicate (played… and did…) but no subject. Who played?"
+    }
+   ],
+   "again": {
+    "title": "Spot the twins",
+    "text": "Look for **twin parts**: the same subject or the same predicate in two sentences.\n\nKeep the twin once. Join the other parts with **and**.",
+    "example": "“Rami reads. Rami writes.” Twin: **Rami**. Combined: “Rami **reads and writes**.”"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Combining for smooth writing",
+     "text": "Good writers combine short, choppy sentences.\n\nCompound subject: “**Salt and sand** are carried by the wind.”\n\nCompound predicate: “The engineers **tested the bridge and approved it**.”"
+    },
+    {
+     "title": "Keep the meaning",
+     "text": "Use the joining word that fits:\n\n**and** = both · **or** = one or the other · **but** = contrast\n\n“The museum **opens early but closes at noon** on Fridays.”"
+    },
+    {
+     "title": "Split predicates",
+     "text": "A writer may break a predicate off into its own sentence by mistake:\n\n“The students collected the litter. **And sorted it into bags.**”\n\nThat is only a predicate. Join it: “…collected the litter and sorted it into bags.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each sentence's subject and predicate.\n2. Look for sentences that share a subject or a predicate, and for groups of words that are only a predicate.\n3. Choose the revision that combines them correctly, keeps the meaning and keeps agreement."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Diriyah was the first capital of the Saudi state.",
+      "role": "detail"
+     },
+     {
+      "t": "Its mud-brick palaces were restored.",
+      "role": "key"
+     },
+     {
+      "t": "Its mud-brick palaces were opened to visitors.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentences 2 and 3 share the subject **Its mud-brick palaces**.\n\nCombined: “Its mud-brick palaces **were restored and opened to visitors**.”"
+   },
+   "together": {
+    "passage": "Desert locusts are a type of grasshopper. Most of the time, they live alone and do little harm. After heavy rains, however, the desert turns green, and their numbers grow quickly. The young locusts crowd together. They change color. They begin to move as a group. A large swarm can travel more than a hundred kilometers in a day and eat as much food as millions of people. Farmers and scientists watch the weather closely so they can warn villages early.",
+    "stem": "Which is the best way to combine “The young locusts crowd together. They change color. They begin to move as a group.”?",
+    "options": [
+     "The young locusts crowd together, they change color, they begin to move as a group.",
+     "The young locusts crowd together and change color. And begin to move as a group.",
+     "The young locusts crowd together, change color and begin to move as a group.",
+     "The young locusts and their color crowd together and move as a group."
+    ],
+    "answer": 2,
+    "hint": "The three sentences share one subject. Which choice keeps that subject once and joins all three predicates correctly?",
+    "good": "Yes! One subject (**the young locusts**) with a compound predicate: crowd together, change color and begin to move."
+   },
+   "evidence": {
+    "sentences": [
+     "Desert locusts are a type of grasshopper.",
+     "Most of the time, they live alone and do little harm.",
+     "After heavy rains, however, the desert turns green, and their numbers grow quickly.",
+     "The young locusts crowd together.",
+     "They change color.",
+     "They begin to move as a group.",
+     "A large swarm can travel more than a hundred kilometers in a day and eat as much food as millions of people.",
+     "Farmers and scientists watch the weather closely so they can warn villages early."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 3,
+    "stem": "Tap the 3 sentences that share the same subject.",
+    "wrong": "This sentence has a different subject. Find the three short sentences about the young locusts."
+   },
+   "checks": [
+    {
+     "passage": "A large swarm can travel more than a hundred kilometers in a day. And eat as much food as millions of people.",
+     "stem": "What is wrong with the second group of words?",
+     "options": [
+      "It has a subject but no predicate.",
+      "It is a predicate with no subject.",
+      "It is a complete sentence.",
+      "It needs a question mark."
+     ],
+     "answer": 1,
+     "why": "“And eat as much food…” tells what the swarm does but has no subject. Join it: “…in a day and eat as much food…”"
+    },
+    {
+     "passage": "A student wrote four sentences about a picnic.",
+     "stem": "Which sentence has a compound subject AND a compound predicate?",
+     "options": [
+      "My cousins laughed and sang.",
+      "My cousins and I ate dates.",
+      "My cousins and I ate dates and drank tea.",
+      "We ate dates, and then we drank tea."
+     ],
+     "answer": 2,
+     "why": "Two subjects (my cousins and I) share two predicates (ate dates and drank tea)."
+    },
+    {
+     "passage": "Fahad cleaned his room. His sister cleaned her room too.",
+     "stem": "Which revision combines the sentences correctly?",
+     "options": [
+      "Fahad and his sister cleaned their rooms.",
+      "Fahad and his sister cleans their rooms.",
+      "Fahad cleaned his room and his sister.",
+      "Fahad and his sister cleaned his room."
+     ],
+     "answer": 0,
+     "why": "A compound subject, a matching verb (cleaned) and a pronoun that fits both people (their rooms)."
+    }
+   ],
+   "again": {
+    "title": "Same subject? Say it once",
+    "text": "When several sentences in a row start with the same subject (or a pronoun for it), say the subject **once** and list the actions.\n\nUse commas between three or more actions, and **and** before the last.",
+    "example": "“The chef chopped onions. She fried them. She added rice.” → “The chef **chopped onions, fried them and added rice**.”"
+   }
+  }
+ }
+}

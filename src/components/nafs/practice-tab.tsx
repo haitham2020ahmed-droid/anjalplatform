@@ -6,7 +6,11 @@ import { nafsClasses } from "@/server/nafs/tests";
 import { DEFAULT_PRACTICE_QUESTIONS, listNafsPractice, MAX_PRACTICE_QUESTIONS, nafsPracticeReport } from "@/server/nafs/practice";
 import { CONTENT_SKILLS, MOE_AREAS, MOE_STANDARDS, NAFS_DOMAINS } from "@/server/nafs/framework";
 import { createPracticeAction, deletePracticeAction } from "@/app/teacher/nafs/actions";
+import { Combo } from "@/components/ui/combo";
 import { PracticeReportView } from "./practice-report";
+import { TargetChecklist } from "./target-checklist";
+import { DifficultyPicker } from "./difficulty-picker";
+import { nafsGroups } from "./builder-starts";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line";
 const INPUT = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -61,38 +65,20 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
             {picked.length > 0 ? (
               <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{t("{n} chosen question(s) from the Question bank: the practice adapts inside them.", { n: picked.length })} <Link href="/teacher/nafs?tab=practice#give" className="font-semibold underline">{t("Clear")}</Link></p>
             ) : (
-              <fieldset className="grid gap-3">
-                <legend className="mb-1 text-sm font-semibold text-ink-2">{t("What to practise")} <span className="font-normal text-muted">({t("or choose questions in the Question bank")})</span></legend>
-                <div className="grid gap-3 md:grid-cols-3">
-                  {MOE_AREAS.map((a) => (
-                    <div key={a.code} className="rounded-xl bg-surface-2 p-3 ring-1 ring-line">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-muted">{t(a.name)}</p>
-                      {MOE_STANDARDS.filter((x) => x.area === a.code).map((x) => (
-                        <label key={x.code} className="mt-1.5 flex items-start gap-2 text-sm text-ink"><input type="checkbox" name="target" value={x.code} defaultChecked={preTargets.has(x.code)} className="mt-1 h-4 w-4" /><span><b className="me-1 font-mono" dir="ltr">{x.short}</b>{t(x.text)}</span></label>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-                <div className="grid gap-3 md:grid-cols-3">
-                  {NAFS_DOMAINS.filter((d) => d.code !== "PIRLS").map((d) => (
-                    <div key={d.code} className="rounded-xl bg-surface-2 p-3 ring-1 ring-line">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-muted">{t(d.name)}</p>
-                      {CONTENT_SKILLS.filter((k) => k.domain === d.code).map((k) => (
-                        <label key={k.code} className="mt-1.5 flex items-center gap-2 text-sm text-ink"><input type="checkbox" name="target" value={k.code} defaultChecked={preTargets.has(k.code)} className="h-4 w-4" />{t(k.name)}</label>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </fieldset>
+              <TargetChecklist name="target" pickName="pick" mcqOnly defaultValue={[...preTargets]} legend="What to practise"
+                groups={nafsGroups({ areas: MOE_AREAS, standards: MOE_STANDARDS, domains: NAFS_DOMAINS.filter((d) => d.code !== "PIRLS"), skills: CONTENT_SKILLS }, t)} />
             )}
             <div className="flex flex-wrap items-end gap-3">
-              <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Class")}<select name="classId" defaultValue={preClass} className={INPUT}>{classes.map((c) => <option key={c.id} value={c.id}>{c.name} · {t("{n} students", { n: c.students.length })}</option>)}</select></label>
-              <label className="grid min-w-60 flex-1 gap-1 text-sm font-semibold text-ink-2">{t("Only these students (optional)")}
-                <select name="sid" multiple size={4} defaultValue={preSids} className="rounded-xl bg-surface px-2 py-1 ring-1 ring-line">
-                  {classes.map((c) => <optgroup key={c.id} label={c.name}>{c.students.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</optgroup>)}
-                </select>
-              </label>
+              <div className="grid min-w-56 gap-1 text-sm font-semibold text-ink-2"><span>{t("Class")}</span>
+                <Combo name="classId" required label={t("Class")} defaultValue={preClass ?? classes[0].id} options={classes.map((c) => ({ value: c.id, label: c.name, hint: t("{n} students", { n: c.students.length }) }))} />
+              </div>
+              <div className="grid min-w-60 flex-1 gap-1 text-sm font-semibold text-ink-2"><span>{t("Only these students (optional)")}</span>
+                <Combo multiple name="sid" label={t("Only these students (optional)")} defaultValue={preSids} placeholder={t("The whole class")}
+                  options={classes.flatMap((c) => c.students.map((x) => ({ value: x.id, label: x.name, group: c.name })))} />
+              </div>
             </div>
+            <DifficultyPicker name="difficulty" defaultValue="ADAPTIVE" allow={["ADAPTIVE", "1", "2", "3", "MIX", "ANY"]}
+              adaptiveNote="Recommended: each student starts at Medium; a right answer brings a harder question, a wrong answer an easier one. A fixed difficulty keeps the practice to questions of that difficulty." />
             <div className="flex flex-wrap items-end gap-3">
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Questions per student")}<input type="number" name="max" min={1} max={MAX_PRACTICE_QUESTIONS} placeholder={String(DEFAULT_PRACTICE_QUESTIONS)} className={`${INPUT} w-28`} /></label>
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Time (minutes, optional)")}<input type="number" name="minutes" min={1} max={120} className={`${INPUT} w-28`} /></label>

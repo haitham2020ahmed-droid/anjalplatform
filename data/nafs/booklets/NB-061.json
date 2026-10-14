@@ -1,0 +1,568 @@
+{
+  "code": "NB-061",
+  "title": "The Monarch's Marathon",
+  "kind": "INFORMATIONAL",
+  "genre": "expository",
+  "words": 492,
+  "passage": "Every autumn, millions of orange-and-black butterflies leave the fields and gardens of southern Canada and the northern United States. They are setting off on one of the most remarkable journeys in the animal kingdom. These travellers are monarch butterflies, and although each one weighs less than a paper clip, many of them will fly as far as 4,000 kilometres to reach a small group of mountain forests in central Mexico. Scientists have studied this migration for decades, yet several of its mysteries still puzzle them.\n\nThe migration is extraordinary partly because no single butterfly completes the entire round trip. A monarch that emerges in early summer usually lives for only two to six weeks. That is just long enough to feed, grow strong and lay eggs before it dies. As a result, three or four short-lived generations follow one another through the summer, each spreading a little farther north. The final generation, which emerges in late summer, is remarkably different. Its members delay laying eggs, store energy as fat, and may survive for as long as eight months, so they can fly south, rest through the winter, and begin the return journey in spring.\n\nHow do these insects find a place that none of them has ever visited? Researchers have discovered that monarchs use the sun as a compass. Because the sun's position shifts during the day, a butterfly must also know the time in order to steer accurately. Experiments suggest that an internal clock, partly located in its antennae, supplies this information. Some studies indicate that monarchs can also sense the Earth's magnetic field, which may guide them on cloudy days when the sun is hidden.\n\nWhen the travellers finally arrive in the cool fir forests of the Mexican mountains, they cluster on the branches in enormous numbers. The trees appear to be covered in orange leaves! The high altitude keeps the butterflies cold enough to stay still and conserve energy. Meanwhile, the thick forest shelters them from freezing rain and wind like a gigantic blanket.\n\nMilkweed plays an essential role in the monarch's survival. Females lay their eggs only on this plant, and the caterpillars eat nothing else. Milkweed contains bitter chemicals that do not harm the caterpillars, but they make both caterpillars and adult butterflies taste unpleasant to birds. The monarch's brilliant colouring therefore acts as a warning: a bird that has tasted one monarch usually avoids the next.\n\nUnfortunately, monarch numbers have fallen sharply in recent decades. Huge areas of milkweed have been cleared for farms and buildings, and illegal logging has damaged parts of the winter forests. A single severe storm can kill millions of resting butterflies. In response, schools, families and conservation groups are planting milkweed in gardens and along roadsides. They are creating chains of \"butterfly stations\" where exhausted travellers can feed and lay eggs. Such efforts demonstrate that ordinary people can help to protect an astonishing journey that nature has shaped over countless generations.",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “conserve” as it is used in paragraph 4?",
+      "options": [
+        "waste",
+        "save",
+        "warm",
+        "share"
+      ],
+      "answer": "B",
+      "why": "The butterflies stay still so that they do not use up their energy; “conserve” means to save it."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 5, the monarch has “brilliant colouring”. Which word is the OPPOSITE of “brilliant” as it is used here?",
+      "options": [
+        "dull",
+        "clever",
+        "bright",
+        "warning"
+      ],
+      "answer": "A",
+      "why": "Here “brilliant” means very bright and vivid, so its opposite is “dull”. “Bright” is a synonym, and “clever” is a different meaning of “brilliant”."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this phrase from paragraph 6: “where exhausted travellers can feed and lay eggs”. What does “exhausted” mean here?",
+      "options": [
+        "extremely tired",
+        "lost and confused",
+        "hungry for nectar",
+        "newly hatched"
+      ],
+      "answer": "A",
+      "why": "After flying very long distances the monarchs are worn out, so “exhausted” means extremely tired."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 3 is a VERB?",
+      "options": [
+        "compass",
+        "accurately",
+        "magnetic",
+        "steer"
+      ],
+      "answer": "D",
+      "why": "“Steer” is an action (to guide a direction); “compass” is a noun, “accurately” an adverb and “magnetic” an adjective."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which plural noun from the text is IRREGULAR (it does not simply add -s or -es)?",
+      "options": [
+        "forests",
+        "people",
+        "caterpillars",
+        "decades"
+      ],
+      "answer": "B",
+      "why": "The plural of “person” is “people”; the other words just add -s."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “migration”?",
+      "options": [
+        "magnet",
+        "mighty",
+        "margin",
+        "migratory"
+      ],
+      "answer": "D",
+      "why": "“Migratory” comes from the same root as “migrate” and “migration”; the others only look similar."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “essential” in a meaningful sentence of your own.",
+      "model": "Clean water is essential for every living thing, so we must never waste it.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “essential” with its meaning (absolutely necessary, very important)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Essential” means extremely important or necessary."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "In paragraph 4, the trees appear covered in orange “leaves” (one leaf, many leaves). Which word forms its plural in the SAME way?",
+      "options": [
+        "roof",
+        "chief",
+        "knife",
+        "belief"
+      ],
+      "answer": "C",
+      "why": "Knife → knives, just like leaf → leaves; roof, chief and belief simply add -s."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is the first sentence of paragraph 3?",
+      "options": [
+        "a command",
+        "a statement",
+        "an exclamation",
+        "a question"
+      ],
+      "answer": "D",
+      "why": "“How do these insects find a place that none of them has ever visited?” asks something and ends with a question mark."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the text?",
+      "options": [
+        "Tiny Wings, Giant Journey",
+        "How to Grow Milkweed at Home",
+        "The Forests of Southern Canada",
+        "Why Birds Hunt Butterflies"
+      ],
+      "answer": "A",
+      "why": "The whole text is about a very small insect making an enormous journey; the other titles describe only small details or ideas that are not in the text."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the writer's main purpose in this text?",
+      "options": [
+        "to persuade readers to visit the forests of Mexico",
+        "to tell the story of one butterfly's adventure",
+        "to explain how farmers grow milkweed for profit",
+        "to inform readers about the monarch migration and the dangers it faces"
+      ],
+      "answer": "D",
+      "why": "The text explains how the migration works and ends with the threats and ways to help; it is not a story or a travel advertisement."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 2?",
+      "options": [
+        "Several generations share the journey, and the last generation lives much longer than the others.",
+        "Monarchs that emerge in early summer live longer than those that emerge later.",
+        "Each monarch completes the round trip to Mexico twice in its life.",
+        "Monarchs store fat so that they can survive the cold Canadian winter."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2 explains that no single butterfly makes the round trip: short-lived summer generations are followed by a long-lived final generation."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, why must a monarch know the time in order to steer by the sun?",
+      "options": [
+        "because it must reach Mexico before the winter begins",
+        "because the sun's position shifts during the day",
+        "because it can only fly during the warmest hours",
+        "because its antennae stop working at night"
+      ],
+      "answer": "B",
+      "why": "The text says: “Because the sun's position shifts during the day, a butterfly must also know the time in order to steer accurately.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "an informational (expository) text",
+        "a personal narrative",
+        "a poem",
+        "a dialogue story"
+      ],
+      "answer": "A",
+      "why": "It gives facts, explanations and research findings about a real insect, organised by topic."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why do most birds avoid eating monarch butterflies?",
+      "options": [
+        "Monarchs fly too high for birds to reach them.",
+        "Monarchs hide in fir trees all year round.",
+        "Chemicals from milkweed make monarchs taste unpleasant.",
+        "Monarchs are too small to be worth catching."
+      ],
+      "answer": "C",
+      "why": "Paragraph 5 says milkweed's bitter chemicals make caterpillars and adults taste unpleasant to birds."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to the text, what does the final generation do AFTER it reaches the Mexican forests?",
+      "options": [
+        "It lays its eggs on milkweed at once.",
+        "It continues flying south to warmer countries.",
+        "It rests through the winter and starts back north in spring.",
+        "It returns to Canada a few days later."
+      ],
+      "answer": "C",
+      "why": "Paragraph 2 says this generation can “fly south, rest through the winter, and begin the return journey in spring.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In which paragraph does the writer explain HOW monarchs find their way?",
+      "options": [
+        "paragraph 2",
+        "paragraph 4",
+        "paragraph 5",
+        "paragraph 3"
+      ],
+      "answer": "D",
+      "why": "Paragraph 3 describes the sun compass, the internal clock and the magnetic sense."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which list shows the order in which the writer presents the ideas?",
+      "options": [
+        "threats → navigation → milkweed → generations",
+        "generations → navigation → winter forests → milkweed → threats",
+        "winter forests → generations → threats → navigation",
+        "navigation → threats → generations → milkweed"
+      ],
+      "answer": "B",
+      "why": "Paragraphs 2–6 move from the generations, to navigation, to the winter forests, to milkweed, and finally to the threats."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What causes the monarchs in the Mexican forests to stay still for the winter?",
+      "options": [
+        "The thick forest blocks all sunlight.",
+        "They are too hungry to move.",
+        "The cold of the high mountains keeps them inactive.",
+        "Birds frighten them into hiding."
+      ],
+      "answer": "C",
+      "why": "Paragraph 4: “The high altitude keeps the butterflies cold enough to stay still and conserve energy.”"
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, which of these has caused monarch numbers to fall?",
+      "options": [
+        "clearing milkweed for farms and buildings",
+        "illegal logging in the winter forests",
+        "severe storms",
+        "All of the above"
+      ],
+      "answer": "D",
+      "why": "Paragraph 6 names all three: cleared milkweed, illegal logging and severe storms."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why does the final generation most likely store energy as fat?",
+      "options": [
+        "to make its body taste bitter to birds",
+        "to keep warm during the Canadian summer",
+        "to lay more eggs during the summer months",
+        "to power a long flight and a winter with little food"
+      ],
+      "answer": "D",
+      "why": "This generation must fly thousands of kilometres and rest all winter; the bitter taste comes from milkweed, not fat."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How is a monarch of the final generation DIFFERENT from one that emerges in early summer?",
+      "options": [
+        "It lives much longer and delays laying its eggs.",
+        "It feeds only on fir needles instead of milkweed.",
+        "It travels north instead of south in autumn.",
+        "It dies after only two to six weeks."
+      ],
+      "answer": "A",
+      "why": "Early-summer monarchs live two to six weeks; the final generation delays laying eggs and may live eight months."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the Mexican fir forests and the “butterfly stations” have in common?",
+      "options": [
+        "Both provide places that help monarchs survive part of their journey.",
+        "Both are found only in southern Canada.",
+        "Both were planted by schools and families.",
+        "Both are damaged by illegal logging."
+      ],
+      "answer": "A",
+      "why": "The forests shelter the butterflies in winter, and the stations let travellers feed and lay eggs; both support the journey."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "According to paragraph 3, how does the sun compass differ from the monarch's magnetic sense?",
+      "options": [
+        "The sun compass works only at night, while the magnetic sense works by day.",
+        "The magnetic sense needs an internal clock, but the sun compass does not.",
+        "The sun compass needs the sun to be visible, while the magnetic sense may guide them on cloudy days.",
+        "The magnetic sense is in the wings, while the sun compass is in the legs."
+      ],
+      "answer": "C",
+      "why": "The magnetic field “may guide them on cloudy days when the sun is hidden”; it is the sun compass that needs the clock."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the writer mean by saying the forest shelters the butterflies “like a gigantic blanket”?",
+      "options": [
+        "The trees are covered in soft cloth.",
+        "The forest protects the butterflies from cold and wet weather.",
+        "The butterflies sleep on the forest floor.",
+        "The forest is too thick for the butterflies to enter."
+      ],
+      "answer": "B",
+      "why": "A blanket covers and protects; the simile shows that the thick forest protects the monarchs from freezing rain and wind."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the text is exclamatory?",
+      "options": [
+        "Milkweed plays an essential role in the monarch's survival.",
+        "Unfortunately, monarch numbers have fallen sharply in recent decades.",
+        "The trees appear to be covered in orange leaves!",
+        "How do these insects find a place that none of them has ever visited?"
+      ],
+      "answer": "C",
+      "why": "It expresses surprise and ends with an exclamation mark; the last option begins with “How” but is a question."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer begin paragraph 3 with a question?",
+      "options": [
+        "to show that scientists have no idea how monarchs travel",
+        "to make readers curious about a mystery before explaining the answer",
+        "to ask readers to send their answers to the writer",
+        "to change the topic from butterflies to birds"
+      ],
+      "answer": "B",
+      "why": "The question invites readers to wonder, and the rest of the paragraph then gives what researchers have discovered."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which action would be MOST helpful to monarch butterflies?",
+      "options": [
+        "catching monarchs and keeping them safely in jars",
+        "spraying gardens to remove all insects",
+        "replacing fir forests with flower gardens",
+        "planting milkweed in gardens along their route"
+      ],
+      "answer": "D",
+      "why": "Monarchs need milkweed to lay eggs and to feed their caterpillars; the other actions would harm them."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What most likely motivated the writer to write this text?",
+      "options": [
+        "a wish to help readers admire the migration and want to protect it",
+        "a wish to warn readers that monarchs are dangerous to touch",
+        "a wish to sell milkweed seeds to schools",
+        "a wish to prove that scientists have solved every mystery"
+      ],
+      "answer": "A",
+      "why": "The text praises an “astonishing journey” and ends by showing how ordinary people can help protect it."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present in the text as a whole?",
+      "options": [
+        "anger at farmers",
+        "fear of insects",
+        "amazement mixed with concern",
+        "boredom with science"
+      ],
+      "answer": "C",
+      "why": "The writer admires the “remarkable” journey but is worried about the falling numbers."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the text is the LEAST clear?",
+      "options": [
+        "what monarch caterpillars eat",
+        "where the winter forests are",
+        "how long early-summer monarchs live",
+        "exactly how monarchs sense the Earth's magnetic field"
+      ],
+      "answer": "D",
+      "why": "The writer only says that some studies indicate a magnetic sense that “may” guide them; the other facts are stated clearly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A storm kills many monarchs resting in a Mexican forest.",
+        "A monarch born in June flies to Mexico and back twice.",
+        "A bird eats monarchs every day because it enjoys their taste.",
+        "A single monarch lives for five years."
+      ],
+      "answer": "A",
+      "why": "Paragraph 6 says a severe storm can kill millions of resting butterflies; the other events contradict the text."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the journey explained in the text?",
+      "options": [
+        "One Butterfly, One Summer",
+        "A Relay Race Across a Continent",
+        "The Butterfly That Never Left Home",
+        "Lost in the Mexican Mountains"
+      ],
+      "answer": "B",
+      "why": "Like runners passing a baton, several generations each carry the journey forward across North America."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Monarchs face several dangers. Suggest a solution to ONE of these problems, and explain in two or three sentences how it would help.",
+      "model": "Our school could create a “butterfly station” by planting milkweed and flowers in an empty corner of the playground. Female monarchs would then have a safe place to lay their eggs, and their caterpillars would have food. If many schools along the route did this, the travellers would find food at every stage of their journey.",
+      "rubric": [
+        "2 = a clear, sensible solution linked to a problem from the text, with an explanation of how it helps",
+        "1 = a solution is given but it is vague, or the explanation is missing or weak",
+        "0 = no answer, an unrelated idea, or text copied without a solution"
+      ],
+      "why": "Any reasonable solution (planting milkweed, protecting winter forests, raising awareness, etc.) that is explained clearly is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Based on the text, how can people help protect the monarch migration?",
+      "options": [
+        "Plant milkweed along roads and in gardens.",
+        "Protect the winter forests from illegal logging.",
+        "A and B",
+        "Move the butterflies to Canada for the winter."
+      ],
+      "answer": "C",
+      "why": "The text mentions planting milkweed and shows that logging damages the winter forests, so both would help."
+    }
+  ]
+}

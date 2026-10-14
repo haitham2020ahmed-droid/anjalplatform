@@ -8,6 +8,7 @@
  *   - trouble spots: the questions most students missed.
  * Times: each answer counts at most 5 minutes (a student who left the page is not “working” for an hour).
  */
+import { sessionEffort } from "../practice/guessing";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
@@ -28,14 +29,19 @@ export function atSchool(at: Date | string | number): boolean {
 }
 export const riyadhDay = (at: Date | string | number) => new Date(new Date(at).getTime() + RIYADH).toISOString().slice(0, 10);
 
-export interface SkillUse { skillId: string; name: string; questions: number; correct: number; accuracy: number | null; minutes: number; students: number }
-export interface StudentSkill { skillId: string; name: string; questions: number; minutes: number; accuracy: number | null; change: number | null; mastery: number | null; band: string | null; mastered: boolean }
-export interface StudentUse { id: string; name: string; questions: number; minutes: number; accuracy: number | null; skills: number; proficient: number; mastered: number; schoolPct: number | null; lastActive: string | null; detail: StudentSkill[] }
+/** r67 effort: % careful answers (not rapid guesses) — accuracy counts careful answers only */
+export interface SkillUse { skillId: string; name: string; questions: number; correct: number; accuracy: number | null; minutes: number; students: number; effort: number | null }
+export interface StudentSkill { skillId: string; name: string; questions: number; minutes: number; accuracy: number | null; change: number | null; mastery: number | null; band: string | null; mastered: boolean; effort: number | null }
+export interface StudentUse { id: string; name: string; questions: number; minutes: number; accuracy: number | null; skills: number; proficient: number; mastered: number; schoolPct: number | null; lastActive: string | null; detail: StudentSkill[]; effort: number | null; unreliable: number }
+/** one practice session of a student (the one-student view): its effort, and Unreliable when over 20 % guesses */
+export interface SessionUse { id: string; day: string; skill: string; answers: number; effort: number | null; unreliable: boolean }
 export interface DayUse { day: string; questions: number; school: number; home: number; minutes: number }
 export interface PracticeAnalytics {
   scope: { classId: string; className: string; studentId: string | null }; from: string; to: string;
-  totals: { questions: number; correct: number; accuracy: number | null; minutes: number; activeStudents: number; students: number; skills: number; proficient: number; mastered: number; schoolQuestions: number; homeQuestions: number; avgPerStudent: number | null };
+  totals: { questions: number; correct: number; accuracy: number | null; minutes: number; activeStudents: number; students: number; skills: number; proficient: number; mastered: number; schoolQuestions: number; homeQuestions: number; avgPerStudent: number | null; effort: number | null; unreliable: number };
   days: DayUse[]; skills: SkillUse[]; students: StudentUse[];
+  /** the one-student view: the student's sessions in the range, newest first (at most 40) */
+  sessions: SessionUse[];
   trouble: { questionId: string; stem: string; skill: string; missedBy: number; tried: number }[];
 }
 
@@ -48,7 +54,7 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
   const from = input.from.getTime(), to = input.to.getTime();
   const [names, attempts, mastery] = await Promise.all([
     studentNames(repo, ids),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: input.from, lte: input.to } }, { select: ["studentId", "questionId", "skillId", "isCorrect", "responseMs", "createdAt"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: input.from, lte: input.to } }, { select: ["studentId", "questionId", "skillId", "isCorrect", "responseMs", "createdAt", "rapidGuess", "sessionId"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "band", "isMastered", "masteredAt"] }) : Promise.resolve([] as Row[]),
   ]);
   const rows = attempts.filter((a) => { const x = t(a.createdAt); return x >= from && x <= to; }).sort((a, b) => t(a.createdAt) - t(b.createdAt));
@@ -57,6 +63,15 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
   const skillName = new Map(skillRows.map((k) => [s(k.id), s(k.name)]));
   const ms = (r: Row) => Math.min(MAX_MS, Math.max(0, Number(r.responseMs) || 0));
   const masteryOf = new Map(mastery.map((m) => [`${s(m.studentId)}|${s(m.skillId)}`, m]));
+  // r67: a rapid guess counts for nothing in accuracy; effort = careful answers / all answers
+  const careful = (list: Row[]) => list.filter((r) => !r.rapidGuess);
+  const accOf = (list: Row[]) => { const c = careful(list); return pct(c.filter((r) => r.isCorrect).length, c.length); };
+  const effortOf = (list: Row[]) => sessionEffort(list).effort;
+  // sessions: Unreliable (over 20 % guesses) — counted per student; listed for one student
+  const bySession = new Map<string, Row[]>();
+  for (const r of rows) { const k = s(r.sessionId); const l = bySession.get(k); if (l) l.push(r); else bySession.set(k, [r]); }
+  const unreliableOf = new Map<string, number>();
+  for (const list of bySession.values()) if (sessionEffort(list).unreliable) { const k = s(list[0].studentId); unreliableOf.set(k, (unreliableOf.get(k) ?? 0) + 1); }
 
   // by day
   const dayMap = new Map<string, DayUse>();
@@ -70,24 +85,24 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
 
   // by skill
   const skills: SkillUse[] = skillIds.map((id) => {
-    const mine = rows.filter((r) => s(r.skillId) === id), c = mine.filter((r) => r.isCorrect).length;
-    return { skillId: id, name: skillName.get(id) ?? "Skill", questions: mine.length, correct: c, accuracy: pct(c, mine.length), minutes: mins(mine.reduce((x, r) => x + ms(r), 0)), students: new Set(mine.map((r) => s(r.studentId))).size };
+    const mine = rows.filter((r) => s(r.skillId) === id), c = careful(mine).filter((r) => r.isCorrect).length;
+    return { skillId: id, name: skillName.get(id) ?? "Skill", questions: mine.length, correct: c, accuracy: accOf(mine), minutes: mins(mine.reduce((x, r) => x + ms(r), 0)), students: new Set(mine.map((r) => s(r.studentId))).size, effort: effortOf(mine) };
   }).sort((a, b) => b.questions - a.questions);
 
   // per student (and each skill they practised)
   const inRange = (v: unknown) => v && t(v) >= from && t(v) <= to;
   const students: StudentUse[] = ids.map((id) => {
-    const mine = rows.filter((r) => s(r.studentId) === id), c = mine.filter((r) => r.isCorrect).length;
+    const mine = rows.filter((r) => s(r.studentId) === id);
     const sk = [...new Set(mine.map((r) => s(r.skillId)))];
     const detail: StudentSkill[] = sk.map((k) => {
       const a = mine.filter((r) => s(r.skillId) === k), m = masteryOf.get(`${id}|${k}`);
       const first = a.slice(0, 5), last = a.slice(-5);
       const change = a.length >= 6 ? (pct(last.filter((r) => r.isCorrect).length, last.length)! - pct(first.filter((r) => r.isCorrect).length, first.length)!) : null;
-      return { skillId: k, name: skillName.get(k) ?? "Skill", questions: a.length, minutes: mins(a.reduce((x, r) => x + ms(r), 0)), accuracy: pct(a.filter((r) => r.isCorrect).length, a.length), change, mastery: m ? Math.round(Number(m.score)) : null, band: m ? s(m.band) : null, mastered: Boolean(m?.isMastered) };
+      return { skillId: k, name: skillName.get(k) ?? "Skill", questions: a.length, minutes: mins(a.reduce((x, r) => x + ms(r), 0)), accuracy: accOf(a), change, mastery: m ? Math.round(Number(m.score)) : null, band: m ? s(m.band) : null, mastered: Boolean(m?.isMastered), effort: effortOf(a) };
     }).sort((a, b) => b.questions - a.questions);
     const last = mine.length ? riyadhDay(t(mine[mine.length - 1].createdAt)) : null;
     return {
-      id, name: names.get(id)?.name ?? "Student", questions: mine.length, minutes: mins(mine.reduce((x, r) => x + ms(r), 0)), accuracy: pct(c, mine.length), skills: sk.length,
+      id, name: names.get(id)?.name ?? "Student", questions: mine.length, minutes: mins(mine.reduce((x, r) => x + ms(r), 0)), accuracy: accOf(mine), skills: sk.length, effort: effortOf(mine), unreliable: unreliableOf.get(id) ?? 0,
       proficient: detail.filter((d) => d.band === "PROFICIENT").length, mastered: mastery.filter((m) => s(m.studentId) === id && m.isMastered && inRange(m.masteredAt)).length,
       schoolPct: pct(mine.filter((r) => atSchool(t(r.createdAt))).length, mine.length), lastActive: last, detail,
     };
@@ -95,7 +110,7 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
 
   // trouble spots: questions missed by the most students (2+)
   const byQ = new Map<string, { wrong: Set<string>; tried: Set<string>; skillId: string }>();
-  for (const r of rows) {
+  for (const r of careful(rows)) {
     const q = byQ.get(s(r.questionId)) ?? { wrong: new Set<string>(), tried: new Set<string>(), skillId: s(r.skillId) };
     q.tried.add(s(r.studentId)); if (!r.isCorrect) q.wrong.add(s(r.studentId)); byQ.set(s(r.questionId), q);
   }
@@ -103,14 +118,18 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
   const stems = hard.length ? await repo.findMany("Question", { id: { in: hard.map(([id]) => id) } }, { select: ["id", "stem"] }) : [];
   const trouble = hard.map(([id, q]) => ({ questionId: id, stem: s(stems.find((x) => x.id === id)?.stem).replace(/\s+/g, " ").slice(0, 160), skill: skillName.get(q.skillId) ?? "", missedBy: q.wrong.size, tried: q.tried.size }));
 
-  const correct = rows.filter((r) => r.isCorrect).length, school = rows.filter((r) => atSchool(t(r.createdAt))).length;
+  const correct = careful(rows).filter((r) => r.isCorrect).length, school = rows.filter((r) => atSchool(t(r.createdAt))).length;
+  const sessions: SessionUse[] = input.studentId ? [...bySession].map(([id, list]) => {
+    const e = sessionEffort(list), skillsHere = [...new Set(list.map((r) => skillName.get(s(r.skillId)) ?? "Skill"))];
+    return { id, day: riyadhDay(t(list[0].createdAt)), skill: skillsHere.slice(0, 2).join(", ") + (skillsHere.length > 2 ? " +" : ""), answers: e.answers, effort: e.effort, unreliable: e.unreliable };
+  }).sort((a, b) => b.day.localeCompare(a.day)).slice(0, 40) : [];
   const active = students.filter((x) => x.questions > 0).length;
   return {
     scope: { classId: input.classId, className: s(klass.name), studentId: input.studentId ?? null }, from: input.from.toISOString().slice(0, 10), to: input.to.toISOString().slice(0, 10),
     totals: {
-      questions: rows.length, correct, accuracy: pct(correct, rows.length), minutes: mins(rows.reduce((x, r) => x + ms(r), 0)), activeStudents: active, students: ids.length, skills: skillIds.length,
+      questions: rows.length, correct, accuracy: accOf(rows), effort: effortOf(rows), unreliable: [...unreliableOf.values()].reduce((a, b) => a + b, 0), minutes: mins(rows.reduce((x, r) => x + ms(r), 0)), activeStudents: active, students: ids.length, skills: skillIds.length,
       proficient: students.reduce((x, st) => x + st.proficient, 0), mastered: students.reduce((x, st) => x + st.mastered, 0), schoolQuestions: school, homeQuestions: rows.length - school, avgPerStudent: active ? Math.round(rows.length / active) : null,
     },
-    days, skills, students, trouble,
+    days, skills, students, trouble, sessions,
   };
 }

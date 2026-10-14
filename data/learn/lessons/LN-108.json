@@ -1,0 +1,508 @@
+{
+ "code": "LN-108",
+ "title": "Evidence that supports a claim",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [
+  "RI.2.8",
+  "RI.3.8",
+  "RI.4.8",
+  "RI.5.8",
+  "RI.6.8",
+  "RI.7.8",
+  "RI.8.8"
+ ],
+ "families": [
+  "author-claim",
+  "text-evidence"
+ ],
+ "skillNames": [
+  "Author's Claim and Evidence"
+ ],
+ "statements": [
+  "R-0042",
+  "R-0100",
+  "R-0186",
+  "R-0314",
+  "R-0329",
+  "R-0331",
+  "R-0332",
+  "R-0491",
+  "R-0503",
+  "R-0504",
+  "R-0505",
+  "R-0510",
+  "R-0677",
+  "R-0678",
+  "R-0689",
+  "R-0690",
+  "R-0696",
+  "R-0867",
+  "R-0870",
+  "R-0871",
+  "R-1004",
+  "R-1005",
+  "R-1084",
+  "R-1107"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a claim?",
+     "text": "A **claim** is what the writer says is true.\n\nExample: **Dogs are good helpers.**"
+    },
+    {
+     "title": "Reasons hold it up",
+     "text": "A good writer gives **reasons**.\n\nReasons tell **why** the claim is true. They hold up the claim like legs hold up a table."
+    },
+    {
+     "title": "How to find them",
+     "text": "1. Find the claim.\n2. Ask: **Why?**\n3. Find the sentences that answer why. Those are the reasons."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The reasons are **in the text**.\n\n1. Read the claim.\n2. Find a sentence that tells **why** it is true.\n3. Point to it.\n\nA sentence that does not tell why is not a reason."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Walking to school is good for you.",
+      "role": "main"
+     },
+     {
+      "t": "It makes your body strong.",
+      "role": "key"
+     },
+     {
+      "t": "It wakes up your brain.",
+      "role": "key"
+     },
+     {
+      "t": "My school has a red door.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim is: **Walking to school is good for you.**\n\nWhy? It makes your body strong. It wakes up your brain. The red door does not tell why, so it is **not** a reason."
+   },
+   "together": {
+    "passage": "Water is the best drink for kids. It helps your body stay cool. It has no sugar to hurt your teeth. My cup is blue.",
+    "stem": "Which sentence tells why water is the best drink?",
+    "options": [
+     "My cup is blue.",
+     "Water is the best drink for kids.",
+     "Kids like to play.",
+     "It has no sugar to hurt your teeth."
+    ],
+    "answer": 3,
+    "hint": "That sentence does not tell WHY. Which sentence gives a reason water is good?",
+    "good": "Yes! No sugar is a reason water is good for you."
+   },
+   "evidence": {
+    "sentences": [
+     "Water is the best drink for kids.",
+     "It helps your body stay cool.",
+     "It has no sugar to hurt your teeth.",
+     "My cup is blue."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The claim is: water is the best drink. Tap 2 sentences that give reasons.",
+    "wrong": "This sentence is the claim or does not tell why. Find sentences that tell WHY water is best."
+   },
+   "checks": [
+    {
+     "passage": "Reading at night is a good habit. It helps you learn new words. It helps you sleep well. My brother has a lamp.",
+     "stem": "Which sentence is a reason for the claim?",
+     "options": [
+      "It helps you learn new words.",
+      "My brother has a lamp.",
+      "Reading at night is a good habit.",
+      "Books can be big."
+     ],
+     "answer": 0,
+     "why": "Learning new words tells why reading at night is a good habit."
+    },
+    {
+     "passage": "Our class should have a plant. Plants make the room look nice. We can learn how plants grow. The window is big.",
+     "stem": "Which sentence tells why the class should have a plant?",
+     "options": [
+      "The window is big.",
+      "Our class should have a plant.",
+      "We can learn how plants grow.",
+      "Plants are green."
+     ],
+     "answer": 2,
+     "why": "Learning how plants grow is a reason to have a plant in class."
+    },
+    {
+     "passage": "Cats are easy pets. They clean themselves. They do not need to go for walks. They are quiet. Cats can be gray.",
+     "stem": "Which sentence does NOT tell why cats are easy pets?",
+     "options": [
+      "They clean themselves.",
+      "Cats can be gray.",
+      "They do not need to go for walks.",
+      "They are quiet."
+     ],
+     "answer": 1,
+     "why": "Being gray does not make a cat easy to look after. It is not a reason."
+    }
+   ],
+   "again": {
+    "title": "The why test",
+    "text": "Read the claim. Then read each sentence and say: **The claim is true because ___.**\n\nIf the sentence fits the blank, it is a reason.",
+    "example": "Claim: Fruit is a good snack.\n\nFruit is a good snack **because it has vitamins**. Fits! That is a reason.\nFruit is a good snack **because bananas are yellow**. Does not fit. Not a reason."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Claims and support",
+     "text": "Writers who want to **persuade** you make a **claim**: an idea they want you to agree with.\n\nThen they support it with **reasons** and **details**."
+    },
+    {
+     "title": "Strong support",
+     "text": "Good support is **about the claim** and gives a **fact or example**.\n\nWeak support is off-topic, or is only a feeling with no reason. A claim with no support is just an opinion."
+    },
+    {
+     "title": "Find the support",
+     "text": "1. Find the claim (often the first or last sentence).\n2. Ask: **Why should I believe this?**\n3. Find sentences that answer that question.\n4. Skip sentences that are off-topic."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a sentence is support, connect it to the claim.\n\n1. Say the claim.\n2. Add **because** and the sentence.\n3. If it makes sense and gives a real reason, it supports the claim.\n\nIf it does not, it is not support."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school should add a bike rack.",
+      "role": "main"
+     },
+     {
+      "t": "Many students live close enough to ride to school.",
+      "role": "key"
+     },
+     {
+      "t": "Right now, bikes are left on the ground where they can be damaged.",
+      "role": "key"
+     },
+     {
+      "t": "Bikes come in many colors.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim: **Our school should add a bike rack.**\n\nSentences 2 and 3 give reasons: students could ride, and bikes get damaged now. Sentence 4 is true but does not support the claim."
+   },
+   "together": {
+    "passage": "Every home should have a first aid kit. Small accidents, like cuts and burns, happen in most homes. A kit lets you clean and cover a wound quickly. It also keeps bandages and medicine in one place, so you do not waste time searching. First aid kits are often red or white.",
+    "stem": "Which detail best supports the writer's claim?",
+    "options": [
+     "A kit lets you clean and cover a wound quickly.",
+     "First aid kits are often red or white.",
+     "Every home should have a first aid kit.",
+     "Kits can be bought in many shops."
+    ],
+    "answer": 0,
+    "hint": "That sentence is the claim, a color, or not in the text. Which detail explains WHY a home needs a kit?",
+    "good": "Yes! Treating a wound quickly is a strong reason to have a kit."
+   },
+   "evidence": {
+    "sentences": [
+     "Every home should have a first aid kit.",
+     "Small accidents, like cuts and burns, happen in most homes.",
+     "A kit lets you clean and cover a wound quickly.",
+     "It also keeps bandages and medicine in one place, so you do not waste time searching.",
+     "First aid kits are often red or white."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The claim was: every home should have a first aid kit. Tap 2 sentences that support it.",
+    "wrong": "This sentence is the claim itself or does not support it. Find reasons why a home needs a kit."
+   },
+   "checks": [
+    {
+     "passage": "Children should learn to swim. Swimming is good exercise for the whole body. It also helps keep children safe near pools and the sea. Many families visit the beach in the holidays.",
+     "stem": "Which sentence supports the claim that children should learn to swim?",
+     "options": [
+      "Many families visit the beach in the holidays.",
+      "It also helps keep children safe near pools and the sea.",
+      "Children should learn to swim.",
+      "The sea is blue."
+     ],
+     "answer": 1,
+     "why": "Staying safe near water is a reason children should learn to swim."
+    },
+    {
+     "passage": "Our library should stay open later. Many students have no quiet place to study at home. Some parents finish work late and cannot bring children earlier. The library has three floors.",
+     "stem": "Which sentence does NOT support the claim?",
+     "options": [
+      "Many students have no quiet place to study at home.",
+      "Some parents finish work late.",
+      "They cannot bring children earlier.",
+      "The library has three floors."
+     ],
+     "answer": 3,
+     "why": "The number of floors does not give a reason to stay open later."
+    },
+    {
+     "passage": "Sami says his town has the best park in the country. He says it is the best because he likes it. He gives no other facts.",
+     "stem": "Is Sami's claim well supported?",
+     "options": [
+      "Yes, he gives many facts.",
+      "Yes, because the park is big.",
+      "No, he only says he likes it.",
+      "No, because the park is closed."
+     ],
+     "answer": 2,
+     "why": "Liking something is a feeling, not a reason or fact. Sami gives no evidence."
+    }
+   ],
+   "again": {
+    "title": "The because test",
+    "text": "Say the claim, then add **because**, then the sentence.\n\nDoes it make sense? Does it give a real reason? Then it is support.",
+    "example": "Claim: We should plant more trees.\n\nWe should plant more trees **because they give shade**. Real reason. Support!\nWe should plant more trees **because I saw one yesterday**. Not a reason."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Reasons and evidence",
+     "text": "In an **argument**, the writer states a **claim** and backs it up.\n\nA **reason** says why the claim is true. **Evidence** proves the reason: facts, numbers, examples, or what experts found."
+    },
+    {
+     "title": "Which evidence is strongest?",
+     "text": "Strong evidence is **relevant** (about this claim) and **specific** (a fact, number or example).\n\nWeak evidence is vague (\"everyone knows\"), off-topic, or only a feeling."
+    },
+    {
+     "title": "Check the claim",
+     "text": "1. Find the claim.\n2. List the reasons.\n3. For each one, find the evidence.\n4. Ask: does this evidence **really** prove the claim?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Match evidence to the claim, not just to the topic.\n\n1. Read the claim's exact words.\n2. Find sentences with facts or numbers about **that** point.\n3. Reject details that are about the topic but do not prove the claim."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Students should eat breakfast every school day.",
+      "role": "main"
+     },
+     {
+      "t": "In one study, students who ate breakfast scored higher on morning tests.",
+      "role": "key"
+     },
+     {
+      "t": "Breakfast gives the brain energy after a long night without food.",
+      "role": "key"
+     },
+     {
+      "t": "Some people eat eggs, while others eat bread and cheese.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim is about **eating breakfast every school day**. A study with test scores is **evidence**; energy for the brain is a **reason**. The kinds of breakfast are about the topic, but they do **not** prove the claim."
+   },
+   "together": {
+    "passage": "Cities in hot countries should plant more trees along their streets. Trees give shade, which makes walking more comfortable in summer. Studies have measured streets lined with trees that were several degrees cooler than nearby streets without them. Leaves also trap dust from the air. Some trees, like the neem, grow well in dry places and need little water once they are established. Many people enjoy the look of green streets.",
+    "stem": "Which sentence gives the strongest evidence for the claim?",
+    "options": [
+     "Many people enjoy the look of green streets.",
+     "Trees give shade, which makes walking more comfortable in summer.",
+     "Studies have measured streets lined with trees that were several degrees cooler.",
+     "Cities in hot countries should plant more trees along their streets."
+    ],
+    "answer": 2,
+    "hint": "That is the claim, a feeling, or a reason without a measurement. Which sentence gives a measured fact?",
+    "good": "Yes! A measured difference in temperature is specific evidence that trees help in hot places."
+   },
+   "evidence": {
+    "sentences": [
+     "Cities in hot countries should plant more trees along their streets.",
+     "Trees give shade, which makes walking more comfortable in summer.",
+     "Studies have measured streets lined with trees that were several degrees cooler than nearby streets without them.",
+     "Leaves also trap dust from the air.",
+     "Some trees, like the neem, grow well in dry places and need little water once they are established.",
+     "Many people enjoy the look of green streets."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The claim was: hot cities should plant more street trees. Tap 2 sentences that give reasons or evidence for it.",
+    "wrong": "This sentence is the claim itself or only a feeling. Look for reasons or facts that show why more trees would help."
+   },
+   "checks": [
+    {
+     "passage": "The writer claims that learning a second language is good for the brain. She says it is fun to say hello in many languages. She notes that people who speak two languages often switch between tasks more easily. She adds that language classes are popular.",
+     "stem": "Which detail best supports the writer's claim?",
+     "options": [
+      "It is fun to say hello in many languages.",
+      "Language classes are popular.",
+      "Many languages exist in the world.",
+      "People who speak two languages often switch between tasks more easily."
+     ],
+     "answer": 3,
+     "why": "Switching between tasks more easily is a fact about how the brain works. The others are feelings or off-topic."
+    },
+    {
+     "passage": "The author argues that school gardens help students learn science. In one school, students recorded plant growth each week and made graphs. Teachers reported that students understood plant life cycles better after the project. The garden also has a bench.",
+     "stem": "Which sentence is evidence for the author's claim?",
+     "options": [
+      "Teachers reported students understood plant life cycles better.",
+      "The garden also has a bench.",
+      "School gardens help students learn science.",
+      "Gardens can be large or small."
+     ],
+     "answer": 0,
+     "why": "The teachers' report is evidence that students learned science. The bench is not evidence."
+    },
+    {
+     "passage": "Claim: Our town's new recycling program is working. Since it began, the amount of rubbish sent to the landfill has dropped by a quarter. More than half of homes now put out a recycling bin each week.",
+     "stem": "Is the claim supported by evidence?",
+     "options": [
+      "No, the writer only gives an opinion.",
+      "Yes, the writer gives numbers about less rubbish and more recycling.",
+      "No, because recycling is hard.",
+      "Yes, because everyone likes recycling."
+     ],
+     "answer": 1,
+     "why": "Less landfill rubbish and more homes recycling are measured facts that support the claim."
+    }
+   ],
+   "again": {
+    "title": "Fact or feeling?",
+    "text": "Sort each sentence into a box:\n\n**Fact or number** (strong evidence)\n**Reason** (explains why)\n**Feeling or off-topic** (not evidence)\n\nThe strongest support usually comes from the first box.",
+    "example": "Claim: Bikes are good for cities.\n\nBikes make no fumes. **Reason.**\nIn one city, bike lanes cut car trips by 10%. **Fact.**\nBikes are pretty. **Feeling.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Evaluating support",
+     "text": "Strong readers do more than find support. They **judge** it.\n\nIs the evidence **relevant**? Is it **sufficient**, or is the claim bigger than the evidence? Does the evidence prove **this** claim, or a different one?"
+    },
+    {
+     "title": "Claims that go too far",
+     "text": "A claim may be **partly** supported. Evidence about one school does not prove something about all schools. A study showing two things happen together does not prove one causes the other.\n\nWatch for words like **all, always, never, proves**."
+    },
+    {
+     "title": "Method",
+     "text": "1. State the claim precisely.\n2. Find each piece of evidence.\n3. Ask: does it support the **whole** claim, part of it, or none of it?\n4. Choose the detail that gives the most direct support."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove support by showing the **exact match** between claim and evidence.\n\n1. Underline the key words of the claim.\n2. Find a detail that shows the same thing with facts.\n3. Reject details that are interesting but prove something else, or that support only a smaller claim."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The author claims that the city's new bus lanes have shortened travel times.",
+      "role": "main"
+     },
+     {
+      "t": "Before the lanes opened, the trip from the university to the city center took about 40 minutes at rush hour.",
+      "role": "key"
+     },
+     {
+      "t": "A year later, the same trip took about 25 minutes.",
+      "role": "key"
+     },
+     {
+      "t": "The new buses also have comfortable seats and free internet.",
+      "role": "other"
+     }
+    ],
+    "explain": "The claim is about **travel times**. The before and after times are direct evidence. Comfortable seats may make riders happy, but they do **not** prove trips are shorter."
+   },
+   "together": {
+    "passage": "In her memoir, a retired nurse argues that small acts of kindness help patients recover. She describes an older man who refused to eat until a young nurse sat with him and asked about his grandchildren; after that, he finished every meal. She recalls a frightened girl who stopped crying when a cleaner showed her how to fold a paper bird. She writes that hospital food was often cold, and that the night shifts were long. She also mentions a study in which patients who felt cared for by staff reported less pain. Kindness, she concludes, is not an extra; it is part of treatment.",
+    "stem": "Which detail most directly supports the nurse's claim?",
+    "options": [
+     "Hospital food was often cold.",
+     "Patients who felt cared for by staff reported less pain.",
+     "The night shifts were long.",
+     "The cleaner knew how to fold a paper bird."
+    ],
+    "answer": 1,
+    "hint": "Some details are true about the hospital but do not show kindness helping patients. Which detail shows care leading to recovery?",
+    "good": "Yes! The study links feeling cared for with less pain, which directly supports her claim."
+   },
+   "evidence": {
+    "sentences": [
+     "In her memoir, a retired nurse argues that small acts of kindness help patients recover.",
+     "She describes an older man who refused to eat until a young nurse sat with him and asked about his grandchildren; after that, he finished every meal.",
+     "She recalls a frightened girl who stopped crying when a cleaner showed her how to fold a paper bird.",
+     "She writes that hospital food was often cold, and that the night shifts were long.",
+     "She also mentions a study in which patients who felt cared for by staff reported less pain.",
+     "Kindness, she concludes, is not an extra; it is part of treatment."
+    ],
+    "proof": [
+     1,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The claim was: small acts of kindness help patients recover. Tap 2 sentences that support it.",
+    "wrong": "This sentence states the claim or gives a detail about hospital life that does not show kindness helping. Look for examples or a study."
+   },
+   "checks": [
+    {
+     "passage": "An article claims that all students learn better with tablets than with books. It reports that in one class of 25 students, test scores rose after tablets were introduced. The article gives no information about other classes or schools.",
+     "stem": "Which statement best evaluates the support for the claim?",
+     "options": [
+      "The claim is fully proven by the test scores.",
+      "The claim is unsupported because tablets are expensive.",
+      "The evidence covers one class, so it cannot prove a claim about all students.",
+      "The evidence proves that books harm learning."
+     ],
+     "answer": 2,
+     "why": "Results from one class of 25 students are too limited to support a claim about all students."
+    },
+    {
+     "passage": "The historian claims that the Hejaz Railway, opened in 1908, changed travel to Madinah. Before the railway, the journey from Damascus could take over a month by camel caravan. By train, it took only a few days. The stations were built of local stone, and some still stand today.",
+     "stem": "Which detail best supports the historian's claim?",
+     "options": [
+      "The journey went from over a month to a few days.",
+      "The stations were built of local stone.",
+      "Some stations still stand today.",
+      "The railway opened in 1908."
+     ],
+     "answer": 0,
+     "why": "The change in journey time directly shows how the railway changed travel."
+    },
+    {
+     "passage": "A writer claims that reading fiction can increase empathy, the ability to understand others' feelings. She cites researchers who found that people scored higher on tests of understanding emotions after reading short stories. She adds that novels are sold in airports and that some books are very long.",
+     "stem": "Which sentence does NOT support the writer's claim?",
+     "options": [
+      "Researchers tested people's understanding of emotions.",
+      "People scored higher after reading short stories.",
+      "The stories the people read were fiction.",
+      "Novels are sold in airports."
+     ],
+     "answer": 3,
+     "why": "Where novels are sold says nothing about whether reading builds empathy."
+    }
+   ],
+   "again": {
+    "title": "Size the claim",
+    "text": "Compare the **size** of the claim with the **size** of the evidence.\n\nBig claim (all, always, everyone) needs **lots** of evidence.\nSmall claim (in this school, sometimes) needs **less**.\n\nIf the evidence is smaller than the claim, the claim is only partly supported.",
+    "example": "Claim: **Every** child in the city loves the new park.\nEvidence: 30 children at one school said they liked it.\n\nThe evidence is much **smaller** than the claim. It does not prove every child loves it."
+   }
+  }
+ }
+}

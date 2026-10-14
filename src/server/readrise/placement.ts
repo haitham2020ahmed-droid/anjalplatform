@@ -172,11 +172,19 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
   return { level, note };
 }
 
-/** 👩‍🏫 Lets a student take the placement again — once per term (for the teacher pages). */
-export async function teacherResetPlacement(repo: Repo, actor: Actor, studentId: string, reason = "", now = new Date()): Promise<{ allowedAt: Date }> {
+/**
+ * 👩‍🏫 Lets a student take the placement again — once per term (for the teacher pages). A test the student started
+ * and did not finish is restarted instead (any time). A student never placed can take the test at any time.
+ */
+export async function teacherResetPlacement(repo: Repo, actor: Actor, studentId: string, reason = "", now = new Date()): Promise<{ allowedAt: Date; restarted?: boolean }> {
   const st = await assertStaffForStudent(repo, actor, studentId);
   const status = await placementStatus(repo, studentId);
-  if (status.open) throw new ValidationError("The student is taking the placement now.");
+  // a test started and not finished: the teacher restarts it from the first passage (the answers so far are cleared;
+  // the row stays, no level is set)
+  if (status.open) {
+    await repo.updateMany("RRPlacement", { id: s(status.open.id) }, { steps: [], startedAt: now });
+    return { allowedAt: now, restarted: true };
+  }
   if (!status.last) throw new ValidationError("The student has not taken the placement yet.");
   if (status.canStart) throw new ValidationError("A retake is already allowed.");
   // this term (the current academic year's term that contains today), else the last 120 days

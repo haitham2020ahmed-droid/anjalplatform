@@ -4,7 +4,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { answerPlacement, startPlacement, type PlacementAnswer } from "@/server/readrise/placement";
 import {
-  finishReading, practiceActivity, saveReading, saveWritingDraft, startRun, submitActivity, submitPostPoll, submitPrePoll, submitWriting,
+  finishReading, practiceActivity, readRiseAccess, saveReading, saveWritingDraft, startRun, submitActivity, submitPostPoll, submitPrePoll, submitWriting,
   type ReadingProgress, type Review, type RunView,
 } from "@/server/readrise/student";
 
@@ -17,7 +17,11 @@ async function guard<T>(fn: () => Promise<T>): Promise<Result<T>> {
 
 export async function startRunAction(articleId: string, stretch: boolean): Promise<Result<RunView>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => startRun(repo, actor, String(articleId), { stretch: Boolean(stretch) }));
+  return guard(async () => {
+    // 🔒 no articles before the placement test (readRiseAccess): the default start level is not a real level
+    if ((await readRiseAccess(repo, actor.studentId!)).locked) throw new ValidationError("Take the placement test first.");
+    return startRun(repo, actor, String(articleId), { stretch: Boolean(stretch) });
+  });
 }
 
 export async function prePollAction(runId: string, value: number): Promise<Result<RunView>> {

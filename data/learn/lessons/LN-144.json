@@ -1,0 +1,461 @@
+{
+ "code": "LN-144",
+ "title": "Rhetoric in famous speeches and documents",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+ "standards": [],
+ "families": [
+  "author-claim"
+ ],
+ "skillNames": [
+  "Rhetoric in Seminal Texts"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Famous speeches",
+     "text": "Some speeches are so strong that people **remember them for hundreds of years**.\n\nThey are famous because of **what** they say and **how** they say it."
+    },
+    {
+     "title": "Words that stick",
+     "text": "Great speakers use special tricks:\n\n**Saying words again:** *We will try. We will work. We will win.*\n\n**Groups of three:** *brave, strong and kind.*\n\n**Talking to 'we':** it makes listeners feel part of the team."
+    },
+    {
+     "title": "How to spot them",
+     "text": "1. Read the speech words.\n2. Look for words that **repeat**.\n3. Look for **three** things in a row.\n4. Look for **we** and **us**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The trick is **in the words**.\n\n1. Find the words that repeat, or come in threes.\n2. Point to them.\n3. Say why they help people remember."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Abraham Lincoln gave a very short speech in 1863.",
+      "role": "detail"
+     },
+     {
+      "t": "At the end, he spoke of government 'of the people, by the people, for the people.'",
+      "role": "key"
+     },
+     {
+      "t": "People still learn these words today.",
+      "role": "detail"
+     }
+    ],
+    "explain": "In 1863, President Abraham Lincoln ended a short speech with **'of the people, by the people, for the people.'** The word **people** comes three times. That makes it easy to remember."
+   },
+   "together": {
+    "passage": "In 1961, a new American president gave a speech. He said, 'Ask not what your country can do for you; ask what you can do for your country.' He used the same words twice, but in a new order. People still repeat this line today.",
+    "stem": "Why do people remember this line?",
+    "options": [
+     "It is very long.",
+     "It has a lot of numbers.",
+     "It uses the same words in a new order.",
+     "It talks about the weather."
+    ],
+    "answer": 2,
+    "hint": "Look at the words 'your country' and 'you'. What did the speaker do with them?",
+    "good": "Yes! He used the same words twice but flipped the order. That makes the line catchy."
+   },
+   "evidence": {
+    "sentences": [
+     "In 1961, a new American president gave a speech.",
+     "He said, 'Ask not what your country can do for you; ask what you can do for your country.'",
+     "He used the same words twice, but in a new order.",
+     "People still repeat this line today."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: it uses the same words in a new order. Tap 2 sentences that show this.",
+    "wrong": "This sentence tells when the speech was given or what happened later. Find the line itself and what the speaker did."
+   },
+   "checks": [
+    {
+     "passage": "A leader said to the team: 'We will train hard. We will play fair. We will win together.'",
+     "stem": "Which trick does the leader use?",
+     "options": [
+      "A funny joke",
+      "A list of numbers",
+      "A sad story",
+      "Repeating 'We will'"
+     ],
+     "answer": 3,
+     "why": "'We will' starts every sentence. Repeating it makes the words strong."
+    },
+    {
+     "passage": "A speaker asked the class to be 'kind, honest and brave.'",
+     "stem": "Which trick is this?",
+     "options": [
+      "A group of three words",
+      "A question",
+      "A number fact",
+      "A story"
+     ],
+     "answer": 0,
+     "why": "Kind, honest and brave are three words in a row."
+    },
+    {
+     "passage": "The coach did not say 'you'. She said, 'Let us do our best. We are one team.'",
+     "stem": "Why did the coach say 'us' and 'we'?",
+     "options": [
+      "To ask a question",
+      "To make everyone feel part of the team",
+      "To talk about another team",
+      "To sound angry"
+     ],
+     "answer": 1,
+     "why": "We and us include everyone, so the team feels together."
+    }
+   ],
+   "again": {
+    "title": "Read it out loud",
+    "text": "Read the speech **out loud**.\n\nDoes a part sound like a **drum beat**? That is usually repetition or a group of three.",
+    "example": "'We will not stop. We will not rest. We will not give up.'\n\nRead it aloud: **We will not… We will not… We will not…** It sounds like a drum. That is **repetition**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Seminal texts",
+     "text": "Some speeches and documents changed history. They are called **seminal** texts: texts that started new ideas.\n\nWe study them to see **how** their words persuaded people."
+    },
+    {
+     "title": "Tools of famous speakers",
+     "text": "1. **Repetition:** repeating a phrase to make it powerful.\n2. **Parallel structure:** sentences built the same way (*of the people, by the people, for the people*).\n3. **Reference to the past:** reminding listeners of history.\n4. **A call to action:** telling listeners what to do."
+    },
+    {
+     "title": "Ask about purpose",
+     "text": "Every famous speech had a **purpose**: to unite, to comfort, to inspire, to demand change.\n\nAsk: **What did the speaker want listeners to feel or do?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Point to the exact words that use a tool.\n\n1. Find repeated or parallel words.\n2. Find any reference to history or a call to action.\n3. Explain how those words serve the speaker's purpose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lincoln's Gettysburg Address was given in November 1863, during the American Civil War.",
+      "role": "detail"
+     },
+     {
+      "t": "It begins, 'Four score and seven years ago.'",
+      "role": "key"
+     },
+     {
+      "t": "A score is twenty, so he meant 87 years earlier: 1776, the year the United States declared independence.",
+      "role": "key"
+     }
+    ],
+    "explain": "Lincoln began with **'Four score and seven years ago'** (87 years). He was pointing back to **1776**, when the nation was founded. This **reference to the past** reminded listeners what they were fighting for."
+   },
+   "together": {
+    "passage": "In June 1940, during the Second World War, British Prime Minister Winston Churchill spoke to Parliament. His country was in great danger, and many people were afraid. In one famous part, he repeated the words 'we shall fight' again and again, naming the beaches, the fields, the streets and the hills. He ended by saying that Britain would never surrender. The speech gave people courage at one of the darkest moments of the war.",
+    "stem": "Which tool did Churchill mainly use to give his listeners courage?",
+    "options": [
+     "Funny stories",
+     "Repeating 'we shall fight'",
+     "Long lists of numbers",
+     "Questions with no answers"
+    ],
+    "answer": 1,
+    "hint": "Which words did he say again and again?",
+    "good": "Yes! Repeating 'we shall fight' made his promise sound strong and certain."
+   },
+   "evidence": {
+    "sentences": [
+     "In June 1940, during the Second World War, British Prime Minister Winston Churchill spoke to Parliament.",
+     "His country was in great danger, and many people were afraid.",
+     "In one famous part, he repeated the words 'we shall fight' again and again, naming the beaches, the fields, the streets and the hills.",
+     "He ended by saying that Britain would never surrender.",
+     "The speech gave people courage at one of the darkest moments of the war."
+    ],
+    "proof": [
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: repeating 'we shall fight'. Tap 2 sentences that show what he said.",
+    "wrong": "This sentence gives the setting or the effect. Find the sentences that describe his actual words."
+   },
+   "checks": [
+    {
+     "passage": "In 1776, American leaders wrote the Declaration of Independence. After stating their beliefs, they gave a long list of complaints against the British king. Each complaint began with 'He has…'",
+     "stem": "Why did the writers list so many complaints?",
+     "options": [
+      "To tell a funny story about the king",
+      "To show all of the king's good actions",
+      "To give many reasons for their decision",
+      "To make the document shorter"
+     ],
+     "answer": 2,
+     "why": "The long list is evidence. Each complaint is a reason for breaking away from the king."
+    },
+    {
+     "passage": "The Universal Declaration of Human Rights was adopted by the United Nations in 1948. Its first article says that all human beings are born free and equal in dignity and rights.",
+     "stem": "What is the purpose of this opening idea?",
+     "options": [
+      "To list the members of the United Nations",
+      "To tell the story of one person",
+      "To describe a war",
+      "To state a belief that applies to every person"
+     ],
+     "answer": 3,
+     "why": "It states a basic belief about all human beings, which the rest of the document builds on."
+    },
+    {
+     "passage": "Lincoln said: 'We can not dedicate, we can not consecrate, we can not hallow this ground.' All three words mean making a place special or holy.",
+     "stem": "Which tool does Lincoln use here?",
+     "options": [
+      "Three matching phrases",
+      "A list of numbers",
+      "A joke",
+      "A question to the crowd"
+     ],
+     "answer": 0,
+     "why": "'We can not…' three times, each with a similar word, builds power."
+    }
+   ],
+   "again": {
+    "title": "Find the pattern, find the purpose",
+    "text": "1. **Find the pattern:** what repeats or matches?\n2. **Find the purpose:** what did the speaker want?\n3. Connect them: **the pattern helps the purpose.**",
+    "example": "Pattern: 'Ask not what your country can do for you; ask what you can do for your country.' Purpose: get citizens to serve. Connection: the flipped words make the call to serve **memorable**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "How documents persuade",
+     "text": "Famous documents persuade through **structure** as well as words. A declaration may state **beliefs**, then give **evidence**, then announce a **decision**.\n\nThis order makes the decision seem logical and fair."
+    },
+    {
+     "title": "Rhetorical devices",
+     "text": "1. **Anaphora:** repeating words at the start of sentences.\n2. **Parallelism:** matching grammar in a series.\n3. **Antithesis:** placing opposites side by side (*not this, but that*).\n4. **Inclusive language:** *we the peoples*, *all human beings*."
+    },
+    {
+     "title": "Purpose and audience",
+     "text": "Ask **who** the text was for. Lincoln spoke to a grieving crowd; the Declaration spoke to the world. The audience shapes the choice of devices."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Analyse a device by quoting it and explaining its **effect**.\n\n1. Identify the device (repetition, contrast, inclusive words).\n2. Point to where it appears.\n3. Explain what it makes the audience think or feel, given the purpose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Charter of the United Nations was signed in June 1945, as the Second World War was ending.",
+      "role": "detail"
+     },
+     {
+      "t": "Its opening words are 'We the peoples of the United Nations.'",
+      "role": "key"
+     },
+     {
+      "t": "It goes on to say they are determined to save future generations from the scourge of war.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The Charter begins with **'We the peoples'**, not 'We the governments'. This **inclusive language** presents the UN as belonging to ordinary people everywhere."
+   },
+   "together": {
+    "passage": "The Declaration of Independence follows a clear plan. It opens with general beliefs: that all men are created equal and have rights to life, liberty and the pursuit of happiness. It then argues that when a government destroys these rights, the people may change it. Next comes a long list of the king's actions, presented as facts 'submitted to a candid world'. Only at the end do the writers declare the colonies free and independent states. By the time readers reach this decision, it seems to follow naturally from everything before it.",
+    "stem": "How does the order of the Declaration help persuade readers?",
+    "options": [
+     "It begins with the decision, then tells a story.",
+     "It lists the colonies in order of size.",
+     "It moves from beliefs to evidence to a decision, so the decision seems logical.",
+     "It hides its main decision from readers."
+    ],
+    "answer": 2,
+    "hint": "What comes first, what comes next, and what comes last? Read the final sentence.",
+    "good": "Yes! Beliefs, then a principle, then evidence, then the decision: each step prepares the next."
+   },
+   "evidence": {
+    "sentences": [
+     "The Declaration of Independence follows a clear plan.",
+     "It opens with general beliefs: that all men are created equal and have rights to life, liberty and the pursuit of happiness.",
+     "It then argues that when a government destroys these rights, the people may change it.",
+     "Next comes a long list of the king's actions, presented as facts 'submitted to a candid world'.",
+     "Only at the end do the writers declare the colonies free and independent states.",
+     "By the time readers reach this decision, it seems to follow naturally from everything before it."
+    ],
+    "proof": [
+     1,
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: it moves from beliefs to evidence to a decision. Tap 2 sentences that show parts of this order.",
+    "wrong": "This sentence introduces the plan or states the principle. Find the beliefs, the evidence, the decision or its effect."
+   },
+   "checks": [
+    {
+     "passage": "In his 1961 inaugural address, President John F. Kennedy said, 'Ask not what your country can do for you; ask what you can do for your country.'",
+     "stem": "Which device does this sentence use?",
+     "options": [
+      "A list of facts",
+      "Antithesis: two opposite ideas placed side by side",
+      "A story about the past",
+      "A question the audience must answer aloud"
+     ],
+     "answer": 1,
+     "why": "The sentence contrasts what the country does for you with what you do for it, using reversed words."
+    },
+    {
+     "passage": "Lincoln's Gettysburg Address lasted only about two minutes. Another speaker that day spoke for around two hours. Yet it is Lincoln's short speech that is carved in stone and studied in schools.",
+     "stem": "What does this suggest about the power of Lincoln's speech?",
+     "options": [
+      "Well-chosen words matter more than length.",
+      "Long speeches are always the better ones.",
+      "No one listened to Lincoln.",
+      "Lincoln did not prepare."
+     ],
+     "answer": 0,
+     "why": "Despite being short, it is remembered, showing that well-chosen words carry power."
+    },
+    {
+     "passage": "The Universal Declaration of Human Rights repeats the words 'Everyone has the right…' at the start of many articles: to life, to education, to rest and leisure.",
+     "stem": "What is the effect of this repetition?",
+     "options": [
+      "It shows that only some people have rights.",
+      "It makes the document harder to read.",
+      "It names a single country.",
+      "It stresses that these rights belong to every person."
+     ],
+     "answer": 3,
+     "why": "Repeating 'Everyone' makes clear that each right applies to all people, without exception."
+    }
+   ],
+   "again": {
+    "title": "Device, quote, effect",
+    "text": "Use a simple three-step sentence:\n\n**The speaker uses [device] in '[quote]', which makes the audience [effect].**",
+    "example": "The speaker uses **repetition** in '**we shall fight** on the beaches… we shall fight in the fields', which makes the audience **feel determined and united**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Appeals in seminal texts",
+     "text": "Historic speeches combine three classic appeals:\n\n**Ethos:** trust in the speaker or shared values.\n**Pathos:** emotion (grief, hope, pride, fear).\n**Logos:** logic and evidence.\n\nThe most powerful texts blend all three."
+    },
+    {
+     "title": "Analysing rhetoric deeply",
+     "text": "1. **Context:** what crisis or moment produced the text?\n2. **Audience:** who needed persuading, and of what?\n3. **Devices:** how do structure and word choice serve the purpose?\n4. **Effect:** why has the text lasted?"
+    },
+    {
+     "title": "Reframing",
+     "text": "Great speeches often **reframe** a situation: turning a defeat into a duty, a cemetery into a promise, a list of complaints into a case for freedom. Look for the moment the meaning shifts."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A strong analysis connects **device, purpose and context**.\n\n1. Identify the context and audience.\n2. Quote the device.\n3. Explain how it serves the purpose in that moment.\n\nReject answers that name a device without explaining its effect, or that ignore the context."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Lincoln spoke at the dedication of a cemetery for soldiers killed at Gettysburg.",
+      "role": "other"
+     },
+     {
+      "t": "He said that the living could not truly make the ground holy; the soldiers who fought there had already done so.",
+      "role": "detail"
+     },
+     {
+      "t": "Instead, he urged, it was for the living to be dedicated to 'the unfinished work' the soldiers had begun.",
+      "role": "key"
+     },
+     {
+      "t": "A ceremony of mourning became a promise about the nation's future.",
+      "role": "key"
+     }
+    ],
+    "explain": "Lincoln **reframes** the event: the crowd came to dedicate a cemetery, but he says the living must instead dedicate themselves to the **unfinished work**. The ceremony becomes a **call to action**."
+   },
+   "together": {
+    "passage": "When Lincoln rose to speak at Gettysburg in 1863, the war was far from over, and many in the North were weary of the loss of life. He did not mention the battle's details, generals or victories. Instead, he opened with the nation's founding, 'four score and seven years ago', and its promise that all men are created equal. He then admitted that the world 'will little note, nor long remember' what was said there, but could never forget what the soldiers did. Finally, he turned grief into purpose, asking listeners to resolve 'that these dead shall not have died in vain'. By linking the soldiers' sacrifice to the nation's founding ideals, the speech gave a tired public a reason to continue.",
+    "stem": "Which statement best analyses how Lincoln's rhetoric served his purpose?",
+    "options": [
+     "He described the battle in detail so listeners would understand the military victory.",
+     "He used mainly statistics about the soldiers to prove the war was going well.",
+     "He spoke humbly about his own words to show the speech was unimportant.",
+     "He tied the soldiers' sacrifice to the nation's founding ideals, turning grief into a reason to keep going."
+    ],
+    "answer": 3,
+    "hint": "Notice what Lincoln left out and what he linked together. How did the speech end?",
+    "good": "Yes! By connecting the dead to the founding promise of equality, Lincoln gave a weary audience a purpose."
+   },
+   "evidence": {
+    "sentences": [
+     "When Lincoln rose to speak at Gettysburg in 1863, the war was far from over, and many in the North were weary of the loss of life.",
+     "He did not mention the battle's details, generals or victories.",
+     "Instead, he opened with the nation's founding, 'four score and seven years ago', and its promise that all men are created equal.",
+     "He then admitted that the world 'will little note, nor long remember' what was said there, but could never forget what the soldiers did.",
+     "Finally, he turned grief into purpose, asking listeners to resolve 'that these dead shall not have died in vain'.",
+     "By linking the soldiers' sacrifice to the nation's founding ideals, the speech gave a tired public a reason to continue."
+    ],
+    "proof": [
+     2,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The answer was: he tied the sacrifice to founding ideals, turning grief into purpose. Tap 2 sentences that prove this.",
+    "wrong": "This sentence gives context or describes what Lincoln avoided. Find where he links the past and asks for resolve."
+   },
+   "checks": [
+    {
+     "passage": "Churchill's June 1940 speech came just after British troops had been rescued from the beaches of Dunkirk. Before the famous 'we shall fight' passage, he warned Parliament plainly that 'wars are not won by evacuations' and described the losses.",
+     "stem": "Why might Churchill's honest warning have made his later promise more persuasive?",
+     "options": [
+      "It built trust, so the promise sounded believable.",
+      "It made listeners forget about the losses.",
+      "It showed that Britain had already won.",
+      "It replaced emotion with humour."
+     ],
+     "answer": 0,
+     "why": "By admitting the hard truth first (ethos), Churchill made his determined promise more believable."
+    },
+    {
+     "passage": "The Declaration of Independence states that its long list of complaints is 'submitted to a candid world.' The writers were addressing not only the king and the colonists, but other nations whose support they hoped to win.",
+     "stem": "How does knowing this audience help explain the list of complaints?",
+     "options": [
+      "The list was written to make the king laugh.",
+      "The list was meant to entertain the colonists.",
+      "It gave evidence to show other nations the break was fair.",
+      "The list hid the colonists' real reasons."
+     ],
+     "answer": 2,
+     "why": "Addressing 'a candid world', the writers used the list as evidence (logos) to win outside support."
+    },
+    {
+     "passage": "In the Universal Declaration of Human Rights, Article 1 states that all human beings 'are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.' It was written in 1948, only three years after a war that had killed tens of millions.",
+     "stem": "How does the historical context deepen the meaning of Article 1?",
+     "options": [
+      "It shows the article was about a sports competition.",
+      "It explains the stress on shared humanity after cruelty.",
+      "It proves the article was never adopted.",
+      "It shows the article was written before the war."
+     ],
+     "answer": 1,
+     "why": "After a devastating war, stressing reason, conscience and brotherhood answered the cruelty the world had just seen."
+    }
+   ],
+   "again": {
+    "title": "Moment, move, meaning",
+    "text": "Analyse any famous text in three steps:\n\n1. **Moment:** what was happening when it was written?\n2. **Move:** what rhetorical choice did the author make?\n3. **Meaning:** what did that choice do for people at that moment?",
+    "example": "Moment: 1961, a new president, a tense world. Move: 'Ask not what your country can do for you…' Meaning: it turned citizens from **receivers** into **contributors**, calling them to serve."
+   }
+  }
+ }
+}

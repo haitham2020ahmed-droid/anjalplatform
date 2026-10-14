@@ -10,6 +10,7 @@ import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { studentCards, studentPasswordIsUsername } from "@/server/admin/student-cards";
 import { setUsernamePasswordsAction, stopUsernamePasswordsAction } from "./actions";
+import { Combo } from "@/components/ui/combo";
 
 /** 🪪 Printable sign-in cards for the school's students (the browser's "Save as PDF" makes the PDF). */
 export default async function StudentCardsPage({ searchParams }: { searchParams: Promise<{ classId?: string; grade?: string; msg?: string; view?: string; cut?: string }> }) {
@@ -58,7 +59,7 @@ export default async function StudentCardsPage({ searchParams }: { searchParams:
         <section className={card} aria-labelledby="which">
           <h2 id="which" className={h2}>Which students</h2>
           <form method="get" className="mt-3 flex flex-wrap items-end gap-3">
-            <label className={label}>Class<select name="classId" defaultValue={classId} className={field}><option value="">All classes</option>{classes.map((c) => <option key={c.id} value={c.id}>{c.name} · Grade {c.grade}</option>)}</select></label>
+            <label className={label}>Class<Combo name="classId" label="Class" defaultValue={classId ?? ""} options={[{ value: "", label: "All classes" }, ...classes.map((c) => ({ value: c.id, label: c.name, group: `Grade ${c.grade}` }))]} /></label>
             <label className={label}>or Grade<select name="grade" defaultValue={grade ? String(grade) : ""} className={field}><option value="">All grades</option>{grades.map((g) => <option key={g.id} value={g.level}>Grade {g.level}</option>)}</select></label>
             <input type="hidden" name="view" value={view} />
             <button className="min-h-11 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Show</button>

@@ -1,0 +1,503 @@
+{
+ "code": "LN-170",
+ "title": "Theme",
+ "subject": "READING",
+ "goalArea": "Literary Text",
+ "subtopic": "Analyze Theme and Literary Elements; Summarize",
+ "standards": [
+  "RL.3.9",
+  "RL.4.2",
+  "RL.4.9",
+  "RL.5.2",
+  "RL.5.9",
+  "RL.6.2",
+  "RL.6.9",
+  "RL.7.2",
+  "RL.7.9",
+  "RL.8.2"
+ ],
+ "families": [
+  "theme"
+ ],
+ "skillNames": [
+  "Theme"
+ ],
+ "statements": [
+  "R-0171",
+  "R-0172",
+  "R-0290",
+  "R-0299",
+  "R-0300",
+  "R-0457",
+  "R-0458",
+  "R-0472",
+  "R-0644",
+  "R-0645",
+  "R-0656",
+  "R-0657",
+  "R-0659",
+  "R-0833",
+  "R-0845",
+  "R-0848",
+  "R-0980",
+  "R-0994",
+  "R-1074"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a theme?",
+     "text": "The **theme** is the big message of a story. It is an idea about **life** that the story teaches.\n\nExamples: **Friends help each other.** **Never give up.**"
+    },
+    {
+     "title": "Theme is not the topic",
+     "text": "**Topic:** what the story is about (a race, a garden).\n\n**Theme:** what the story **teaches** about life (Hard work pays off)."
+    },
+    {
+     "title": "Two stories, one theme",
+     "text": "Two different stories can share the **same theme**.\n\nOne story is about a bird; one is about a boy. Both can teach: **be kind to others**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. What does the character **do**?\n2. What **happens** at the end?\n3. Ask: **What does this teach me about life?**\n\nTap the sentences that show the lesson."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Sami tried to build a tower.",
+      "role": "detail"
+     },
+     {
+      "t": "It fell down three times.",
+      "role": "detail"
+     },
+     {
+      "t": "He kept trying.",
+      "role": "key"
+     },
+     {
+      "t": "At last, his tower stood tall.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sami did not stop when the tower fell. In the end, it stood tall.\n\nTheme: **Keep trying, and you can do it.**"
+   },
+   "together": {
+    "passage": "Story 1: Ali's friend fell off his bike. Ali helped him up and shared his snack. Story 2: A bird saw a lost chick. The bird led the chick back to its nest.",
+    "stem": "What is the theme of both stories?",
+    "options": [
+     "Bikes are fun.",
+     "Birds can fly.",
+     "Snacks are tasty.",
+     "It is good to help others."
+    ],
+    "answer": 3,
+    "hint": "What do Ali and the bird BOTH do?",
+    "good": "Yes! Ali helps a friend, and the bird helps a lost chick. Both stories show helping others."
+   },
+   "evidence": {
+    "sentences": [
+     "Story 1: Ali's friend fell off his bike.",
+     "Ali helped him up and shared his snack.",
+     "Story 2: A bird saw a lost chick.",
+     "The bird led the chick back to its nest."
+    ],
+    "proof": [
+     1,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: it is good to help others. Tap 2 sentences that show someone helping.",
+    "wrong": "This sentence shows the problem. Find the sentences where someone helps."
+   },
+   "checks": [
+    {
+     "passage": "Hala was new at school. Nobody played with her. Then Mona asked her to play. Now they are best friends.",
+     "stem": "What is the theme?",
+     "options": [
+      "School is big.",
+      "A little kindness can make a friend.",
+      "Games are hard.",
+      "New things are bad."
+     ],
+     "answer": 1,
+     "why": "Mona was kind to Hala, and they became best friends."
+    },
+    {
+     "passage": "Badr told a lie about the broken cup. He felt bad all day. At night, he told Mom the truth. Mom hugged him, and he felt better.",
+     "stem": "What is the theme?",
+     "options": [
+      "Telling the truth is best.",
+      "Cups break easily.",
+      "Moms like hugs.",
+      "Night is dark."
+     ],
+     "answer": 0,
+     "why": "Badr felt bad after lying and better after telling the truth."
+    },
+    {
+     "passage": "Story 1: Ant saved food all summer. In winter, she had enough to eat. Story 2: Huda saved her coins all year. She bought a gift for her mom.",
+     "stem": "What theme do both stories share?",
+     "options": [
+      "Ants are small.",
+      "Winter is cold.",
+      "Saving now helps you later.",
+      "Gifts are for moms."
+     ],
+     "answer": 2,
+     "why": "Ant and Huda both saved, and it helped them later."
+    }
+   ],
+   "again": {
+    "title": "What should I learn?",
+    "text": "After the story, ask: **What should I learn from this?**\n\nSay it as a short rule for **everyone**.",
+    "example": "Story: Lina shared her umbrella with a friend in the rain. They both stayed dry and laughed.\n\nWhat should I learn? **Sharing makes things better for everyone.**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Theme is a message",
+     "text": "A **theme** is a message about life that the author shares through the story.\n\nIt is a **full sentence**: not \"friendship\", but **\"True friends stand by you in hard times.\"**"
+    },
+    {
+     "title": "Where to find the theme",
+     "text": "Look at:\n\n1. The **problem** the character faces\n2. How the character **responds**\n3. What the character **learns** or how things end"
+    },
+    {
+     "title": "Shared themes",
+     "text": "Stories from different places can share a theme. A folktale from Arabia and a story from Japan might both teach that **greed leads to loss**.\n\nCompare **what happens** in each story to find the shared message."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a theme:\n\n1. Find the character's **choice**.\n2. Find the **result** of that choice.\n3. Choose the theme that the choice and result **teach**.\n\nWrong answers often name a **detail** or a **topic** instead of a message."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The young palm tree wanted to grow tall quickly, so it stretched toward the sun and ignored its roots.",
+      "role": "detail"
+     },
+     {
+      "t": "The old palm beside it grew slowly, sending its roots deep into the ground.",
+      "role": "detail"
+     },
+     {
+      "t": "When a strong wind came, the young palm fell over.",
+      "role": "key"
+     },
+     {
+      "t": "The old palm bent but stayed standing.",
+      "role": "key"
+     }
+    ],
+    "explain": "Choice: the young palm rushes; the old palm builds deep roots. Result: only the old palm survives.\n\nTheme: **Strong foundations matter more than quick success.**"
+   },
+   "together": {
+    "passage": "Reem wanted to build a kite for the family picnic. She tried by herself, but the frame broke twice. Her cousin Fahd cut the sticks, her sister Lama tied the string, and Reem glued the paper. When the wind lifted the kite high above the beach, all three cousins cheered. \"We did it together,\" Reem said.",
+    "stem": "Which sentence best states the theme of the story?",
+    "options": [
+     "Kites are hard to make.",
+     "Working together can solve problems that one person cannot.",
+     "Older brothers are always right.",
+     "Wind is strong in winter."
+    ],
+    "answer": 1,
+    "hint": "Look at what happened when Reem tried alone and what happened when the cousins worked together.",
+    "good": "Yes! Alone, Reem failed. When the cousins each did a part, the kite flew. Working together solved the problem."
+   },
+   "evidence": {
+    "sentences": [
+     "Reem wanted to build a kite for the family picnic.",
+     "She tried by herself, but the frame broke twice.",
+     "Her cousin Fahd cut the sticks, her sister Lama tied the string, and Reem glued the paper.",
+     "When the wind lifted the kite high above the beach, all three cousins cheered.",
+     "\"We did it together,\" Reem said."
+    ],
+    "proof": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: working together solves problems. Tap 2 sentences that support this theme.",
+    "wrong": "This sentence only says what Reem wanted. Find what happened when she worked alone or together."
+   },
+   "checks": [
+    {
+     "passage": "Majed loved to boast that he was the fastest runner in school. He laughed at the slower boys. On sports day, he stopped to wave at the crowd, tripped, and finished last. A quiet boy he had laughed at won the race.",
+     "stem": "What is the theme of the story?",
+     "options": [
+      "Sports day is fun.",
+      "Running fast is easy.",
+      "Pride can lead to a fall.",
+      "Crowds like to wave."
+     ],
+     "answer": 2,
+     "why": "Majed's boasting and showing off made him trip and lose, which shows that pride can lead to a fall."
+    },
+    {
+     "passage": "Story 1: A fisherman threw back a small fish, which later led him to a great catch. Story 2: A girl gave her last coin to an old man, and he later helped her find her lost goat.",
+     "stem": "What theme do both stories share?",
+     "options": [
+      "Fishing is a good job.",
+      "Goats get lost easily.",
+      "Coins are valuable.",
+      "Kindness is often repaid."
+     ],
+     "answer": 3,
+     "why": "In both stories, a kind act is later repaid with help."
+    },
+    {
+     "passage": "Nada was afraid to sing at the school show. Her teacher said, \"Just sing for one person: your mother in the front row.\" Nada looked only at her mother and sang. At the end, the whole hall clapped.",
+     "stem": "Which sentence best states the theme?",
+     "options": [
+      "Facing fear can lead to success.",
+      "Mothers sit in front rows.",
+      "School shows are long.",
+      "Teachers like singing."
+     ],
+     "answer": 0,
+     "why": "Nada was afraid, but she faced her fear and sang. The whole hall clapped."
+    }
+   ],
+   "again": {
+    "title": "Choice and result",
+    "text": "Fill in:\n\nThe character **chose** to ____.\nThe **result** was ____.\nSo the story teaches that ____.",
+    "example": "The character chose to **study a little every day**. The result was **he passed his exam easily**. So the story teaches that **steady effort leads to success**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Themes are developed",
+     "text": "A theme is not found in one sentence. It is **developed** through the whole story: the conflict, the characters' choices, and the ending.\n\nEach part adds to the message."
+    },
+    {
+     "title": "Supporting details",
+     "text": "The details that best support a theme show the character **learning** or **acting** on the message.\n\nA detail about the setting or a small event may not support the theme at all."
+    },
+    {
+     "title": "Same theme, different stories",
+     "text": "When two texts share a theme, they may develop it **differently**: one through a character's mistake, another through a character's success.\n\nCompare **how** each story leads to the message."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a theme:\n\n1. State the theme as a full sentence.\n2. Find details from the **beginning, middle and end** that support it.\n3. Reject details that are true but **unrelated** to the message.\n\nThe best support shows the theme in action."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "When the flood destroyed the village bridge, every family argued about who should rebuild it.",
+      "role": "detail"
+     },
+     {
+      "t": "For weeks, nothing happened, and the children could not reach their school.",
+      "role": "detail"
+     },
+     {
+      "t": "Finally, an old woman began carrying stones to the river by herself.",
+      "role": "key"
+     },
+     {
+      "t": "One by one, the neighbours joined her, and within a month the bridge stood again.",
+      "role": "key"
+     }
+    ],
+    "explain": "Theme: **Change begins when one person takes action.**\n\nThe arguing shows the problem. The old woman's action and the neighbours joining her are the details that **develop** the theme."
+   },
+   "together": {
+    "passage": "The night before the maths exam, Abdullah's friends found a copy of the answers and passed it around. \"Everyone's using it,\" said Salem. \"Don't be the only one who fails.\" Abdullah's hands felt cold, but he pushed the paper away and opened his textbook instead. His friends laughed at him, and the next day his mark was lower than theirs. Still, when the teacher discovered the copied answers, Abdullah was the only one who could look her in the eye.",
+    "stem": "Which theme is best developed in the story?",
+    "options": [
+     "True courage means doing what is right even when it is hard.",
+     "Exams are the most important part of school.",
+     "Teachers always notice everything.",
+     "Friends should always share their answers."
+    ],
+    "answer": 0,
+    "hint": "Look at the hard choice Abdullah makes and why. What does it teach?",
+    "good": "Yes! Abdullah refuses to cheat even though his friends laugh and he gets a lower mark. That takes courage."
+   },
+   "evidence": {
+    "sentences": [
+     "The night before the maths exam, Abdullah's friends found a copy of the answers and passed it around.",
+     "\"Everyone's using it,\" said Salem. \"Don't be the only one who fails.\"",
+     "Abdullah's hands felt cold, but he pushed the paper away and opened his textbook instead.",
+     "His friends laughed at him, and the next day his mark was lower than theirs.",
+     "Still, when the teacher discovered the copied answers, Abdullah was the only one who could look her in the eye."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: true courage means doing what is right even when it is hard. Tap 2 sentences that develop this theme.",
+    "wrong": "This sentence sets up the temptation. Find the details that show Abdullah's courageous choice and its result."
+   },
+   "checks": [
+    {
+     "passage": "Waleed wanted the newest phone, so he saved for a year. When he finally bought it, he spent every evening alone with it. One night, he noticed his little sister drawing by herself and his grandfather sitting quietly on the balcony. He put the phone in a drawer and sat down beside them.",
+     "stem": "Which detail best supports the theme that people matter more than things?",
+     "options": [
+      "Waleed saved his money for a whole year.",
+      "He bought the newest phone he could find.",
+      "His grandfather sat quietly on the balcony.",
+      "He put the phone away to sit with his family."
+     ],
+     "answer": 3,
+     "why": "Choosing his family over his phone shows the theme in action. The other details do not show the message."
+    },
+    {
+     "passage": "Text A: A young falcon refuses to practise flying, crashes on its first hunt, and finally learns from its mother. Text B: A girl practises the oud every day for a year and plays beautifully at her cousin's wedding.",
+     "stem": "How do the two texts develop the same theme differently?",
+     "options": [
+      "Both texts show only success with no failure.",
+      "Both texts teach that birds learn from parents.",
+      "A shows the cost of no practice; B its reward.",
+      "Text B shows what happens when you skip practice."
+     ],
+     "answer": 2,
+     "why": "Both teach that practice matters. The falcon learns through failure; the girl through success."
+    },
+    {
+     "passage": "The new girl in class spoke little English, and the others ignored her. Tala began sitting with her at lunch, teaching her words with pictures. By the end of term, the new girl was helping Tala with maths, and the two were inseparable.",
+     "stem": "Which theme does the story develop?",
+     "options": [
+      "Lunch is the best part of school.",
+      "Reaching out to others can enrich both sides.",
+      "Maths is harder than English.",
+      "Pictures are better than words."
+     ],
+     "answer": 1,
+     "why": "Tala helps the new girl, and later the new girl helps Tala. Reaching out benefited both."
+    }
+   ],
+   "again": {
+    "title": "Beginning, middle, end",
+    "text": "Find one detail from each part:\n\n**Beginning:** the problem\n**Middle:** the choice\n**End:** the result\n\nNow ask: What message connects all three?",
+    "example": "Beginning: Hamza is afraid of the dark sea. Middle: he swims out to help his little brother. End: he realises he was braver than he thought.\n\nMessage: **Love for others can give us courage.**"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Complex themes",
+     "text": "Mature stories often have **complex** themes. They show that life is not simple: a choice may bring both gain and loss.\n\nA good theme statement reflects this: **\"Progress can bring comfort, but it may cost us connections to the past.\"**"
+    },
+    {
+     "title": "How themes develop",
+     "text": "Authors develop themes through:\n\n1. **Conflict:** what the character struggles with\n2. **Change:** how the character grows\n3. **Symbols:** objects that stand for ideas\n4. **Ending:** what the story leaves us with"
+    },
+    {
+     "title": "Comparing themes across texts",
+     "text": "Two texts may share a **topic** but develop **different** themes. Or they may share a theme but reach it in **different ways**.\n\nAsk: What does each author suggest about the topic? Do they agree?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To analyse theme:\n\n1. Track the conflict from beginning to end.\n2. Note any **symbols** or repeated images.\n3. Find details that show how the character's view **changes**.\n4. Choose the theme statement that **all** this evidence supports, including the ending."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "For years, Ahmad's grandmother kept a small wooden box of seeds from her village.",
+      "role": "detail"
+     },
+     {
+      "t": "When the family moved to the city, Ahmad thought the seeds were useless; there was no land to plant them.",
+      "role": "detail"
+     },
+     {
+      "t": "After his grandmother died, he found the box, filled pots on the balcony with soil, and planted every seed.",
+      "role": "key"
+     },
+     {
+      "t": "That spring, the balcony bloomed with the same flowers that had once grown outside her childhood home.",
+      "role": "key"
+     }
+    ],
+    "explain": "The seed box is a **symbol** of family roots. Ahmad's view changes from \"useless\" to precious.\n\nTheme: **We can carry our heritage with us and make it grow anywhere.**"
+   },
+   "together": {
+    "passage": "Yasir's grandfather often sang the old songs that pearl divers once sang on their long voyages. Yasir thought they were outdated; his phone was full of newer music. One evening, his grandfather explained that the songs had kept the divers' spirits up during months away from home, and that each verse held the name of a lost friend. Yasir listened in silence and asked him to sing one more time. The next week, he recorded his grandfather singing every song he could remember and played them for his class.",
+    "stem": "Which statement best expresses a theme developed in the passage?",
+    "options": [
+     "Technology always makes life worse.",
+     "Young people do not respect older people.",
+     "Even in a changing world, some traditions are worth keeping.",
+     "Pearl diving was a dangerous job."
+    ],
+    "answer": 2,
+    "hint": "Track how Yasir's view of the songs changes, and look at what he does at the end.",
+    "good": "Yes! Yasir first thinks the songs are outdated, but by the end he records them and teaches his friends. Some traditions are worth keeping."
+   },
+   "evidence": {
+    "sentences": [
+     "Yasir's grandfather often sang the old songs that pearl divers once sang on their long voyages.",
+     "Yasir thought they were outdated; his phone was full of newer music.",
+     "One evening, his grandfather explained that the songs had kept the divers' spirits up during months away from home, and that each verse held the name of a lost friend.",
+     "Yasir listened in silence and asked him to sing one more time.",
+     "The next week, he recorded his grandfather singing every song he could remember and played them for his class."
+    ],
+    "proof": [
+     2,
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: some traditions are worth keeping. Tap 2 sentences that show how this theme develops.",
+    "wrong": "This sentence sets up the story or Yasir's first opinion. Find the details that show his view changing and what he does."
+   },
+   "checks": [
+    {
+     "passage": "Text A: A boy leaves his small town to study abroad. He succeeds, but each year his visits home grow shorter, and he notices that he no longer knows the names of his neighbours' children. Text B: A girl leaves her village to become a doctor. She returns each summer to run a free clinic, and the village celebrates her as one of its own.",
+     "stem": "How do the two texts develop the theme of leaving home differently?",
+     "options": [
+      "A shows growing distance; B shows a kept connection.",
+      "Both show that leaving home always leads to loss.",
+      "Both show that people should never leave home.",
+      "Text B shows a character who forgets her village."
+     ],
+     "answer": 0,
+     "why": "In Text A, the boy grows distant. In Text B, the girl keeps her connection through the clinic. The texts treat the topic differently."
+    },
+    {
+     "passage": "The old lighthouse keeper refused to leave when the new automatic light was installed. \"A machine can turn a lamp,\" he said, \"but it cannot watch the sea.\" Months later, on a night of heavy fog, the automatic light failed. It was the keeper, still watching from his window, who rang the warning bell and saved a fishing boat.",
+     "stem": "Which theme does the story's ending most strongly support?",
+     "options": [
+      "Machines are always better than people.",
+      "Human care and attention cannot be fully replaced.",
+      "Lighthouses are no longer needed.",
+      "Fishing boats should not sail in fog."
+     ],
+     "answer": 1,
+     "why": "When the machine failed, the keeper's watchfulness saved the boat. The ending supports the value of human care."
+    },
+    {
+     "passage": "Rasha always measured herself against her brilliant older sister. When Rasha won a poetry prize, she barely enjoyed it, thinking her sister would have won a bigger one. Years later, she found a notebook in which her sister had written: \"I wish I could write like Rasha.\"",
+     "stem": "What theme does the notebook help develop?",
+     "options": [
+      "Poetry prizes are very difficult to win.",
+      "Sisters should never read each other's notebooks.",
+      "Older sisters are always the more talented ones.",
+      "Comparing ourselves to others hides our own worth."
+     ],
+     "answer": 3,
+     "why": "Rasha could not enjoy her success because of comparison, yet her sister admired her. The notebook shows she misjudged her own worth."
+    }
+   ],
+   "again": {
+    "title": "Topic + author's view",
+    "text": "1. Name the **topic** in one or two words (change, family, courage).\n2. Ask: **What does the author say about it?**\n3. Join them: **topic + view = theme**.",
+    "example": "Topic: **change**. Author's view: change is hard, but it can bring good things.\n\nTheme: **Change can be painful, but it often opens new doors.**"
+   }
+  }
+ }
+}

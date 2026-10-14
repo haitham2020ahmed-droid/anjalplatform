@@ -28,6 +28,8 @@ const GROUP_TONE: Record<string, string> = {
  * numbers for what is waiting (red = late / urgent). "More" starts folded; groups fold and the choice is remembered.
  * Literise D1 for every role: a white rail, calm line icons, quiet group headings with a small coloured dot, and the
  * current page as a navy pill. `variant="calm"` (teachers) only drops the dots.
+ * ⚡ Menu links keep Next's default prefetch: only the page's "Loading…" skeleton is fetched ahead (never its data),
+ * so a click shows the next page's frame at once instead of after a round trip to the server.
  */
 export function SideNav({ items, brand, footer, tools, extras, variant = "default" }: { items: NavItem[]; brand: React.ReactNode; footer?: React.ReactNode; /** under the brand: "Find a page" */ tools?: React.ReactNode; /** bottom of the menu on every screen (notifications, feedback, print) */ extras?: React.ReactNode; variant?: "default" | "calm" }) {
   const calm = variant === "calm";
@@ -77,7 +79,7 @@ export function SideNav({ items, brand, footer, tools, extras, variant = "defaul
                     const on = i.href === current;
                     return (
                       <li key={i.href}>
-                        <Link prefetch={false} href={i.href} aria-current={on ? "page" : undefined} data-tour={TOUR_TARGET[i.href] ?? (i.href === "/teacher/assignments" && !hasAssessments ? "assessments" : undefined)}
+                        <Link href={i.href} aria-current={on ? "page" : undefined} data-tour={TOUR_TARGET[i.href] ?? (i.href === "/teacher/assignments" && !hasAssessments ? "assessments" : undefined)}
                           className={`group relative flex min-h-10 items-center gap-3 rounded-xl px-3 py-1.5 text-[14px] transition ${on ? "bg-brand-navy font-semibold text-white shadow-btn" : "font-medium text-ink-2 hover:bg-surface-2 hover:text-ink"}`}>
                           {i.line
                             ? <span aria-hidden="true" className={`grid w-5 place-items-center ${on ? "text-white" : "text-muted group-hover:text-ink"}`}><LineIcon name={i.line} className="h-[18px] w-[18px]" /></span>

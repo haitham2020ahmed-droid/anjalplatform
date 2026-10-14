@@ -1,0 +1,462 @@
+{
+ "code": "LN-199",
+ "title": "Synonyms and antonyms",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.6.5.b",
+  "L.7.5.b",
+  "L.8.5.b",
+  "L.K.5.b"
+ ],
+ "families": [
+  "synonyms-antonyms"
+ ],
+ "skillNames": [
+  "Synonyms and Antonyms"
+ ],
+ "statements": [
+  "R-0050",
+  "R-0406",
+  "R-0805"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Same meaning",
+     "text": "A **synonym** is a word that means the **same**, or almost the same, as another word.\n\n**big** and **large**\n**happy** and **glad**"
+    },
+    {
+     "title": "Opposite meaning",
+     "text": "An **antonym** is a word that means the **opposite**.\n\n**hot** and **cold**\n**up** and **down**\n**fast** and **slow**"
+    },
+    {
+     "title": "How to check",
+     "text": "1. Read the word.\n2. Ask: same or opposite?\n3. Try the new word in the sentence.\n\nSame meaning: the sentence still makes sense. Opposite: the sentence means the other thing."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "The text helps you.\n\n1. Find the word in the text.\n2. Read the sentences near it.\n3. They show what the word means. Use them to pick a word that means the same or the opposite."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The box was heavy.",
+      "role": "main"
+     },
+     {
+      "t": "Dad could hardly lift it.",
+      "role": "key"
+     },
+     {
+      "t": "Inside were many big books.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Heavy** means hard to lift. Dad could hardly lift it.\n\nThe **opposite** of heavy is **light**."
+   },
+   "together": {
+    "passage": "The baby kitten was tiny. It could sit in my hand. It was smaller than my shoe.",
+    "stem": "Which word means the SAME as tiny?",
+    "options": [
+     "Tall",
+     "Little",
+     "Loud",
+     "Huge"
+    ],
+    "answer": 1,
+    "hint": "How big is the kitten? It can sit in a hand. Which word means the same?",
+    "good": "Yes! Tiny and little both mean very small."
+   },
+   "evidence": {
+    "sentences": [
+     "The baby kitten was tiny.",
+     "It could sit in my hand.",
+     "It was smaller than my shoe."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: little. Tap a sentence that shows the kitten is very small.",
+    "wrong": "This sentence uses the word tiny, but it does not show how small. Find a sentence that shows it."
+   },
+   "checks": [
+    {
+     "passage": "Sara was sad. Her friend moved away. Then her friend called her, and Sara felt happy again.",
+     "stem": "Which word is the OPPOSITE of sad?",
+     "options": [
+      "Tired",
+      "Late",
+      "Happy",
+      "Sorry"
+     ],
+     "answer": 2,
+     "why": "Sad and happy are opposites. Sara felt sad, then happy."
+    },
+    {
+     "passage": "The street was quiet at night. No cars went by. Everyone was asleep.",
+     "stem": "Which word is the OPPOSITE of quiet?",
+     "options": [
+      "Noisy",
+      "Dark",
+      "Calm",
+      "Soft"
+     ],
+     "answer": 0,
+     "why": "Quiet means no noise. Noisy is the opposite."
+    },
+    {
+     "passage": "Yousef has a fast bike. It is quick on the road. He wins every race.",
+     "stem": "Which word means the SAME as fast?",
+     "options": [
+      "Slow",
+      "Old",
+      "Red",
+      "Quick"
+     ],
+     "answer": 3,
+     "why": "Fast and quick both mean moving at great speed. The text uses both."
+    }
+   ],
+   "again": {
+    "title": "Same or flip?",
+    "text": "Put the new word in the sentence.\n\n**Same meaning?** It is a synonym.\n**Flips the meaning?** It is an antonym.",
+    "example": "The cup is **full**.\n\nThe cup is **empty**. The meaning flips. So **empty** is an antonym of full."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Words with close meanings",
+     "text": "Synonyms are words with **close** meanings: **begin** and **start**, **shout** and **yell**.\n\nAntonyms are words with **opposite** meanings: **ancient** and **modern**, **arrive** and **leave**."
+    },
+    {
+     "title": "Use the sentence",
+     "text": "If you do not know a word, the sentences around it can help.\n\nFirst work out what the word means. Then look for a word that matches it, or one that is its opposite."
+    },
+    {
+     "title": "Watch the question",
+     "text": "1. Read the question: does it ask for the **same** or the **opposite**?\n2. Work out the word's meaning from the text.\n3. Test each choice.\n\nTest makers often put an antonym in a synonym question, and a synonym in an antonym question!"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your answer with a **clue sentence**.\n\n1. Find the word.\n2. Find the sentence that shows what it means, often with an example.\n3. Check your choice matches that clue."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our neighbour is very generous.",
+      "role": "main"
+     },
+     {
+      "t": "She shares the dates from her farm with every family on our street.",
+      "role": "key"
+     },
+     {
+      "t": "Last Eid, she also gave toys to all the children.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sharing dates and giving toys show that **generous** means **giving**.\n\nA synonym is **giving**. An antonym is **selfish**."
+   },
+   "together": {
+    "passage": "The old fort near our town is ancient. It was built hundreds of years ago, long before cars or electricity. Its stone walls are worn smooth by wind and sand. Next to it stands a new museum with glass walls and moving screens. Visitors love seeing the two buildings side by side.",
+    "stem": "Which word is an ANTONYM of ancient?",
+    "options": [
+     "Old",
+     "Modern",
+     "Stone",
+     "Huge"
+    ],
+    "answer": 1,
+    "hint": "Ancient means very old. Which word means the opposite of very old?",
+    "good": "Yes! Ancient means very old. Modern means new, like the museum with glass walls."
+   },
+   "evidence": {
+    "sentences": [
+     "The old fort near our town is ancient.",
+     "It was built hundreds of years ago, long before cars or electricity.",
+     "Its stone walls are worn smooth by wind and sand.",
+     "Next to it stands a new museum with glass walls and moving screens.",
+     "Visitors love seeing the two buildings side by side."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 1,
+    "stem": "The answer was: modern, the opposite of ancient. Tap a sentence that shows the fort is very old.",
+    "wrong": "This sentence is about the new museum or the visitors. Find a sentence that shows how OLD the fort is."
+   },
+   "checks": [
+    {
+     "passage": "The test was simple. Every student finished it in ten minutes, and nobody asked the teacher for help.",
+     "stem": "Which word is a SYNONYM of simple?",
+     "options": [
+      "Hard",
+      "Long",
+      "Easy",
+      "Strange"
+     ],
+     "answer": 2,
+     "why": "Everyone finished quickly without help, so simple means easy."
+    },
+    {
+     "passage": "The guide asked us to remain in our seats until the bus stopped. Nobody stood up until the doors opened.",
+     "stem": "Which word is a SYNONYM of remain?",
+     "options": [
+      "Leave",
+      "Stay",
+      "Jump",
+      "Push"
+     ],
+     "answer": 1,
+     "why": "Nobody stood up, so remain means stay. Leave is the opposite."
+    },
+    {
+     "passage": "At first, Badr was timid. He spoke softly and hid behind his father. By the end of the visit, he was bold enough to talk to everyone.",
+     "stem": "Which word is an ANTONYM of timid?",
+     "options": [
+      "Shy",
+      "Quiet",
+      "Afraid",
+      "Bold"
+     ],
+     "answer": 3,
+     "why": "Timid means shy. The text shows Badr changing from timid to bold, its opposite."
+    }
+   ],
+   "again": {
+    "title": "Picture a line",
+    "text": "Imagine a line with a word at each end.\n\nWords at the **same end** are synonyms. Words at **opposite ends** are antonyms.",
+    "example": "**tiny** ——————— **enormous**\n\n**small** sits next to tiny: synonym.\n**huge** sits next to enormous: an antonym of tiny."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Harder word pairs",
+     "text": "In middle-school texts, synonyms and antonyms are less common words.\n\n**abundant** = plentiful\n**reluctant** ≠ eager\n**conceal** ≠ reveal"
+    },
+    {
+     "title": "Close is not the same",
+     "text": "Some choices are **related** to the word but are not synonyms.\n\n**Desert** and **sand** are related. **Desert** and **wasteland** are close in meaning.\n\nA synonym must be able to **replace** the word."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Decide the word's meaning from context.\n2. For a synonym, find the choice that can **replace** it.\n3. For an antonym, find the choice that **reverses** it.\n4. Reject choices that are only related or are the wrong type of word."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Use **contrast** and **example** clues.\n\n1. Words like **but**, **however**, **unlike** often show an antonym.\n2. Examples and repeated ideas often show a synonym.\n3. Point to the sentence that shows the meaning before you choose."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "After the rains, water in the wadi was abundant.",
+      "role": "main"
+     },
+     {
+      "t": "Pools formed between the rocks, and the plants turned green almost overnight.",
+      "role": "key"
+     },
+     {
+      "t": "By summer, however, the water was scarce, and only a few puddles were left.",
+      "role": "key"
+     }
+    ],
+    "explain": "Pools and green plants show **abundant** means **plentiful**.\n\nThe word **however** signals a contrast: **scarce** (very little) is its **antonym**."
+   },
+   "together": {
+    "passage": "Reem was reluctant to join the school debate team. She worried that she would forget her words in front of the audience. For a week, she found reasons to avoid the first meeting. Her brother, however, was eager to join and signed up on the first day. In the end, he persuaded her to come along, and she discovered she enjoyed it.",
+    "stem": "Which word is an ANTONYM of reluctant?",
+    "options": [
+     "Unwilling",
+     "Nervous",
+     "Eager",
+     "Forgetful"
+    ],
+    "answer": 2,
+    "hint": "Reluctant means unwilling. Look for the word 'however', which shows a contrast with Reem.",
+    "good": "Yes! Reluctant means unwilling. Her brother was the opposite: eager to join."
+   },
+   "evidence": {
+    "sentences": [
+     "Reem was reluctant to join the school debate team.",
+     "She worried that she would forget her words in front of the audience.",
+     "For a week, she found reasons to avoid the first meeting.",
+     "Her brother, however, was eager to join and signed up on the first day.",
+     "In the end, he persuaded her to come along, and she discovered she enjoyed it."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: eager. Tap 2 sentences that help prove reluctant and eager are opposites.",
+    "wrong": "This sentence names the word or tells the ending, but it does not show what reluctant means or what contrasts with it."
+   },
+   "checks": [
+    {
+     "passage": "The thief tried to conceal the stolen phone in his sleeve, but the shop guard saw it and asked him to show his hands.",
+     "stem": "Which word is a SYNONYM of conceal?",
+     "options": [
+      "Hide",
+      "Show",
+      "Steal",
+      "Drop"
+     ],
+     "answer": 0,
+     "why": "He put it in his sleeve so nobody would see it: conceal means hide. Show is the antonym."
+    },
+    {
+     "passage": "Unlike his calm brother, Talal was always restless. He tapped his feet, changed seats and could not sit still for more than a minute.",
+     "stem": "Which word is an ANTONYM of restless?",
+     "options": [
+      "Busy",
+      "Calm",
+      "Nervous",
+      "Jumpy"
+     ],
+     "answer": 1,
+     "why": "'Unlike his calm brother' shows calm is the opposite of restless. Nervous and jumpy are close to restless."
+    },
+    {
+     "passage": "The scientist gave a brief talk. She spoke for only five minutes and then answered questions.",
+     "stem": "Which word is a SYNONYM of brief?",
+     "options": [
+      "Serious",
+      "Boring",
+      "Lengthy",
+      "Short"
+     ],
+     "answer": 3,
+     "why": "Five minutes is a short time. Brief means short. Lengthy is its opposite."
+    }
+   ],
+   "again": {
+    "title": "The swap test",
+    "text": "Swap each choice into the sentence. Read it aloud.",
+    "example": "The hall was **vacant**; every chair was free.\n\nSwap in **empty**: The hall was empty. ✔ Same meaning, so **empty** is a synonym.\nSwap in **crowded**: the meaning flips. **Crowded** is an antonym."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Shades of meaning",
+     "text": "Advanced synonyms are rarely exact copies. **Frugal** and **stingy** both mean careful with money, but **frugal** sounds positive and **stingy** sounds negative.\n\nThe best synonym matches both the **meaning** and the **feeling** in the text."
+    },
+    {
+     "title": "True antonyms",
+     "text": "A true antonym is the **direct opposite** on the same scale.\n\n**meticulous** (extremely careful) ↔ **careless**\n**diminish** (make smaller) ↔ **increase**\n\nA word that is simply different, like **meticulous** and **slow**, is not an antonym."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Define the word precisely from context.\n2. Decide which scale it sits on (size, care, speed, honesty...).\n3. For a synonym, pick the choice at the same point on that scale; for an antonym, the far end.\n4. Check the tone fits too."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "At this stage, prove meaning with **more than one clue**.\n\n1. A definition or example in the text.\n2. A contrast that shows the opposite.\n3. The tone of the passage.\n\nAn answer supported by two clues beats one supported by a single guess."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The old manuscript had to be restored with meticulous care.",
+      "role": "main"
+     },
+     {
+      "t": "Experts spent months cleaning each page with soft brushes and checking every letter under a lamp.",
+      "role": "key"
+     },
+     {
+      "t": "One careless movement could have torn the fragile paper.",
+      "role": "key"
+     }
+    ],
+    "explain": "Months of work and checking every letter show **meticulous** means **extremely careful and exact**.\n\nThe last sentence gives the antonym itself: **careless**."
+   },
+   "together": {
+    "passage": "For years, the old fishing village had been in decline. Young people moved to the cities, and many houses stood empty. Then a group of residents decided to revive the village. They repaired the harbour, opened a small market for local crafts, and started a summer festival of traditional boat races. Within five years, families had returned, and the streets were lively again. Visitors now describe the village as thriving.",
+    "stem": "Which word is closest in meaning to revive as it is used in the passage?",
+    "options": [
+     "Abandon",
+     "Visit",
+     "Describe",
+     "Restore"
+    ],
+    "answer": 3,
+    "hint": "What did the residents do after the decline? What happened to the village as a result?",
+    "good": "Yes! Revive means bring back to life. Repairing, opening a market and starting a festival restored the village."
+   },
+   "evidence": {
+    "sentences": [
+     "For years, the old fishing village had been in decline.",
+     "Young people moved to the cities, and many houses stood empty.",
+     "Then a group of residents decided to revive the village.",
+     "They repaired the harbour, opened a small market for local crafts, and started a summer festival of traditional boat races.",
+     "Within five years, families had returned, and the streets were lively again.",
+     "Visitors now describe the village as thriving."
+    ],
+    "proof": [
+     3,
+     4
+    ],
+    "need": 2,
+    "stem": "The answer was: restore. Tap 2 sentences that show what reviving the village meant.",
+    "wrong": "This sentence describes the village before the residents acted, or only what visitors say. Find what the residents did and what changed."
+   },
+   "checks": [
+    {
+     "passage": "Although the young author's first novel was praised, she remained modest. In interviews, she thanked her teachers and rarely spoke about her own talent.",
+     "stem": "Which word is an ANTONYM of modest?",
+     "options": [
+      "Boastful",
+      "Humble",
+      "Quiet",
+      "Thankful"
+     ],
+     "answer": 0,
+     "why": "Modest means not talking about your own talent. Boastful, praising yourself, is the direct opposite. Humble is a synonym."
+    },
+    {
+     "passage": "The medicine did not cure the illness, but it helped to diminish the pain. After a few days, the patient said the ache was much weaker.",
+     "stem": "Which word is a SYNONYM of diminish?",
+     "options": [
+      "Increase",
+      "Explain",
+      "Reduce",
+      "Cause"
+     ],
+     "answer": 2,
+     "why": "The ache became much weaker, so diminish means reduce. Increase is the antonym."
+    },
+    {
+     "passage": "Most witnesses gave vague answers, saying only that they had seen 'someone' near the gate. One shopkeeper, however, gave a precise description: a tall man in a grey coat carrying a blue bag.",
+     "stem": "Which word from the passage is an ANTONYM of vague?",
+     "options": [
+      "Witnesses",
+      "Precise",
+      "Someone",
+      "Description"
+     ],
+     "answer": 1,
+     "why": "'However' signals a contrast. The shopkeeper's exact details are the opposite of the vague answers."
+    }
+   ],
+   "again": {
+    "title": "Place it on a scale",
+    "text": "Draw a scale and place words along it. Synonyms sit close together. Antonyms sit at opposite ends.",
+    "example": "careless — casual — careful — **meticulous**\n\nSynonym for meticulous: **thorough** (next to it).\nAntonym: **careless** (the far end). **Casual** is in between, so it is neither."
+   }
+  }
+ }
+}

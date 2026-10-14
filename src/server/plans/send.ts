@@ -20,6 +20,7 @@ import { assignSkill } from "../teacher/assign";
 import { familyIdsInSchool } from "../questions/skill-questions";
 import { assertClassAccess } from "../teacher/assignments";
 import { planKindOf, programOfPlanKind, tagProgram, trackOfProgram, type Program } from "./program";
+import { masteredBySkill } from "../skills/status-extras";
 
 const s = (v: unknown) => String(v ?? "");
 /** most skills one plan may send at once (each is one assignment) */
@@ -59,6 +60,8 @@ export interface SendPlanInput {
    * an empty list) = the platform chooses at each student's level. Stored on that skill's Assignment.questionIds.
    */
   questionIds?: Record<string, string[] | null | undefined> | null;
+  /** ⭐ leave out each skill's students who already mastered it (the teacher answered Yes) */
+  excludeMastered?: boolean;
 }
 export interface SendPlanResult { planId: string; skills: number; students: number; assignmentIds: string[] }
 
@@ -75,6 +78,12 @@ export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanI
     bySkill.set(s(p.skillId), (bySkill.get(s(p.skillId)) ?? new Set()).add(s(p.studentId)));
   }
   if (!bySkill.size) throw new ValidationError("Choose at least one skill.");
+  // ⭐ "N students already mastered this skill — exclude them?" → Yes: a student never repeats a mastered skill
+  if (input.excludeMastered) {
+    const mastered = await masteredBySkill(repo, s(klass.schoolId), [...members], [...bySkill.keys()]);
+    for (const [skillId, who] of bySkill) { for (const id of mastered.get(skillId) ?? []) who.delete(id); if (!who.size) bySkill.delete(skillId); }
+    if (!bySkill.size) throw new ValidationError("Every student already mastered these skills.");
+  }
   if (bySkill.size > MAX_SEND_SKILLS) throw new ValidationError(`A plan can have at most ${MAX_SEND_SKILLS} skills.`);
   const skillRows = await repo.findMany("Skill", { id: { in: [...bySkill.keys()] } }, { select: ["id", "name", "code", "curriculumId"] });
   const curs = skillRows.length ? await repo.findMany("Curriculum", { id: { in: [...new Set(skillRows.map((k) => s(k.curriculumId)))] } }, { select: ["id", "gradeId"] }) : [];

@@ -1,0 +1,441 @@
+{
+ "code": "LN-089",
+ "title": "Capital letters for names and I",
+ "subject": "LANGUAGE",
+ "goalArea": "Mechanics",
+ "subtopic": "Capitalization",
+ "standards": [],
+ "families": [
+  "capitalization"
+ ],
+ "skillNames": [
+  "Capitalization",
+  "Capitalizing Proper Nouns",
+  "Capitalizing I and Clear Pronouns"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Big letters for names",
+     "text": "A person's **name** always starts with a **capital letter**.\n\n**S**ara, **A**li, **M**ona"
+    },
+    {
+     "title": "I is always big",
+     "text": "The word **I** is always a capital letter, wherever it is in the sentence.\n\nMy friend and **I** play.\nCan **I** help?"
+    },
+    {
+     "title": "Pet names too",
+     "text": "Names of **pets** start with a capital letter too.\n\nOur cat is called **S**unny.\n\nBut **cat** is not a name, so it stays small."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read each sentence.\n2. Find every name and the word I.\n3. Does each one start with a capital letter?\n\nThe sentence with a small letter that should be big is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Today i went to the shop.",
+      "role": "key"
+     },
+     {
+      "t": "Dad came with me.",
+      "role": "other"
+     }
+    ],
+    "explain": "**i** should be **I**. The word I is always a capital letter."
+   },
+   "together": {
+    "passage": "My best friend is huda. We sit next to each other. She has a cat named Sunny. I like to play with Sunny.",
+    "stem": "Which word needs a capital letter?",
+    "options": [
+     "friend",
+     "huda",
+     "cat",
+     "each"
+    ],
+    "answer": 1,
+    "hint": "Find the name of a person. Does it start with a big letter?",
+    "good": "Yes! Huda is a name, so it starts with a capital H."
+   },
+   "evidence": {
+    "sentences": [
+     "My best friend is huda.",
+     "We sit next to each other.",
+     "She has a cat named Sunny.",
+     "I like to play with Sunny."
+    ],
+    "proof": [
+     0
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the name that needs a capital letter.",
+    "wrong": "The names and the word I in this sentence are written correctly. Look again."
+   },
+   "checks": [
+    {
+     "passage": "Can i have some water?",
+     "stem": "Which word should be a capital letter?",
+     "options": [
+      "i",
+      "have",
+      "some",
+      "water"
+     ],
+     "answer": 0,
+     "why": "The word I is always a capital letter."
+    },
+    {
+     "passage": "My brother omar is eight.",
+     "stem": "How should it be written?",
+     "options": [
+      "My Brother omar is eight.",
+      "my brother omar is eight.",
+      "My brother Omar is eight.",
+      "My brother omar Is eight."
+     ],
+     "answer": 2,
+     "why": "Omar is a name, so it needs a capital O. Brother is not a name."
+    },
+    {
+     "passage": "We have a dog named rocky. The dog likes to run.",
+     "stem": "Which word needs a capital?",
+     "options": [
+      "dog",
+      "rocky",
+      "likes",
+      "run"
+     ],
+     "answer": 1,
+     "why": "Rocky is the dog's name, so it needs a capital R. The word dog is not a name."
+    }
+   ],
+   "again": {
+    "title": "Is it a name?",
+    "text": "Ask: **Is this the name of one special person or pet?**\n\nYes → capital letter.\n\nAnd the word **I** is always a capital.",
+    "example": "my friend sami and i → **My** friend **Sami** and **I**"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Special names, special letters",
+     "text": "Names of **special** people, places and things are **proper nouns**. They start with a capital.\n\n**R**iyadh, **S**audi **A**rabia, **K**ing **F**ahd **R**oad"
+    },
+    {
+     "title": "Days, months and holidays",
+     "text": "Days of the week, months and holidays are capitalized.\n\n**S**unday, **M**arch, **E**id al-**F**itr\n\nSeasons are **not**: spring, summer, autumn, winter."
+    },
+    {
+     "title": "Common or proper?",
+     "text": "A **common noun** names any person, place or thing: city, day, street.\n\nA **proper noun** names a **special** one: **Jeddah**, **Friday**, **Palm Street**.\n\nOnly proper nouns get a capital in the middle of a sentence."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each name of a place, day, month or holiday.\n2. Ask: Is it the name of a **special** one?\n3. If yes, check that every important word starts with a capital.\n\nThe sentence with a missing capital is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "We will visit my aunt in madinah in the spring.",
+      "role": "key"
+     },
+     {
+      "t": "She lives near a big park.",
+      "role": "other"
+     }
+    ],
+    "explain": "**madinah** is the name of a special city, so it needs a capital: **Madinah**.\n\n**spring** is a season, so it stays small. **park** is a common noun."
+   },
+   "together": {
+    "passage": "Our family always travels during the winter break. This year, we drove from Riyadh to the city of abha. We left on a Thursday morning in January. The mountain air was cool and fresh, and we stayed for one week.",
+    "stem": "Which word needs a capital letter?",
+    "options": [
+     "winter",
+     "morning",
+     "mountain",
+     "abha"
+    ],
+    "answer": 3,
+    "hint": "Seasons and common nouns stay small. Which word is the name of a special place?",
+    "good": "Yes! Abha is the name of a special city, so it needs a capital A."
+   },
+   "evidence": {
+    "sentences": [
+     "Our family always travels during the winter break.",
+     "This year, we drove from Riyadh to the city of abha.",
+     "We left on a Thursday morning in January.",
+     "The mountain air was cool and fresh, and we stayed for one week."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the missing capital letter.",
+    "wrong": "The capitals in this sentence are correct. Winter is a season, so it stays small."
+   },
+   "checks": [
+    {
+     "passage": "Our school trip is on monday.",
+     "stem": "Which word should start with a capital?",
+     "options": [
+      "school",
+      "trip",
+      "monday",
+      "on"
+     ],
+     "answer": 2,
+     "why": "Monday is the name of a day, so it needs a capital M."
+    },
+    {
+     "passage": "We celebrate Eid with our cousins. In summer, we visit the beach.",
+     "stem": "Why does summer start with a small letter?",
+     "options": [
+      "It is a holiday.",
+      "Seasons are not capitalized.",
+      "It comes after In.",
+      "It is a person's name."
+     ],
+     "answer": 1,
+     "why": "Summer is a season. Seasons stay small, but holidays like Eid get a capital."
+    },
+    {
+     "passage": "My cousin lives on king abdullah road.",
+     "stem": "Which is correct?",
+     "options": [
+      "King Abdullah Road",
+      "King abdullah road",
+      "king Abdullah Road",
+      "King Abdullah road"
+     ],
+     "answer": 0,
+     "why": "It is the name of a special road, so every word starts with a capital."
+    }
+   ],
+   "again": {
+    "title": "Any or special?",
+    "text": "Ask: Does the word name **any** one, or **one special** one?\n\n**any** city → city (small)\n**one special** city → Jeddah (capital)",
+    "example": "We went to a city. → **city** (any)\n\nWe went to Jeddah. → **Jeddah** (special)"
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Titles before names",
+     "text": "A **title** right before a name is capitalized: **Dr.** Noura, **Captain** Khalid, **Uncle** Sami.\n\nWhen the word is used without a name, it is a common noun: the **doctor**, our **captain**, my **uncle**."
+    },
+    {
+     "title": "Mom or my mom?",
+     "text": "Use a capital when a family word is used **as a name**:\n\nCan **Mom** come too? (Like: Can Huda come too?)\n\nUse a small letter after **my, your, his, her, our**:\n\nMy **mom** is a teacher."
+    },
+    {
+     "title": "Titles of books and stories",
+     "text": "In titles, capitalize the **first word**, the **last word** and all **important words**.\n\nSmall words like **a, an, the, and, of, in, on, to** stay small unless they come first or last.\n\n**The Boy and the Falcon**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find each title, family word and book title.\n2. Ask: Is it used **as a name**, or does it come right before a name? → capital.\n3. Does it follow **my, the, our**? → usually small.\n4. In book titles, check the first word and every important word.\n\nPoint to the sentence where a capital is missing or not needed."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Uncle Fahad is a pilot.",
+      "role": "key"
+     },
+     {
+      "t": "My uncle flies to many countries.",
+      "role": "key"
+     },
+     {
+      "t": "He brings us books like Tales from the Sea.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Uncle Fahad**: the title comes right before his name, so it is capitalized.\n\n**my uncle**: there is no name, and it follows **my**, so it is small.\n\nIn **Tales from the Sea**, the small words **from** and **the** stay lowercase."
+   },
+   "together": {
+    "passage": "Last week, I had a bad cough, so my mother took me to the clinic. The doctor listened to my chest and checked my throat. Her name was dr. Reem Al-Qahtani. She told me to drink warm water and to rest at home. Two days later, I felt much better.",
+    "stem": "Which correction is needed?",
+    "options": [
+     "my mother → my Mother",
+     "The doctor → The Doctor",
+     "dr. Reem → Dr. Reem",
+     "clinic → Clinic"
+    ],
+    "answer": 2,
+    "hint": "A title is capitalized when it comes right before a name. Which title comes before a name?",
+    "good": "Yes! Dr. comes right before her name, so it needs a capital D. The doctor, with no name, stays small."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week, I had a bad cough, so my mother took me to the clinic.",
+     "The doctor listened to my chest and checked my throat.",
+     "Her name was dr. Reem Al-Qahtani.",
+     "She told me to drink warm water and to rest at home.",
+     "Two days later, I felt much better."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the capital letter mistake.",
+    "wrong": "This sentence is correct. My mother and the doctor have no name after them, so they stay small."
+   },
+   "checks": [
+    {
+     "passage": "Yesterday, grandpa told us a story about the old days.",
+     "stem": "Which word needs a capital?",
+     "options": [
+      "Yesterday",
+      "grandpa",
+      "story",
+      "days"
+     ],
+     "answer": 1,
+     "why": "Grandpa is used as a name here (no my or our before it), so it needs a capital."
+    },
+    {
+     "passage": "Our Principal spoke at the meeting this morning.",
+     "stem": "What is wrong?",
+     "options": [
+      "Our should be our.",
+      "spoke should be Spoke.",
+      "Nothing is wrong.",
+      "Principal should be principal."
+     ],
+     "answer": 3,
+     "why": "Principal is not followed by a name and comes after our, so it should be small."
+    },
+    {
+     "passage": "Lama is reading the book a journey to the stars.",
+     "stem": "How should the title be written?",
+     "options": [
+      "A Journey To The Stars",
+      "a journey to the stars",
+      "A Journey to the Stars",
+      "A journey to the stars"
+     ],
+     "answer": 2,
+     "why": "Capitalize the first word and the important words. Small words like to and the stay small."
+    }
+   ],
+   "again": {
+    "title": "Swap in a name",
+    "text": "Not sure about Mom, Dad, Grandma or Uncle? Try **swapping in a real name**.\n\nIf the sentence still works, use a capital.\n\nIf it does not, use a small letter.",
+    "example": "I asked **Mom** for help. → I asked **Huda** for help. ✓ → capital\n\nI asked my **mom** for help. → I asked my **Huda**? ✗ → small"
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Languages and nationalities",
+     "text": "Names of **languages**, **nationalities** and **religions** are always capitalized.\n\n**Arabic**, **English**, **Saudi**, **Egyptian**, **Islam**\n\nSchool subjects are small (math, science), except languages (**English**, **Arabic**)."
+    },
+    {
+     "title": "Places: specific or general?",
+     "text": "Capitalize the full name of a **specific** place: the **Red Sea**, the **Empty Quarter**, the **Eastern Province**.\n\nUse a small letter for a **general** word: a sea, the desert, the province.\n\nDirections are small: We drove **north**."
+    },
+    {
+     "title": "Groups, events and holidays",
+     "text": "Official names of **organizations**, **events** and **holidays** are proper nouns:\n\nthe **United Nations**, the **Olympic Games**, **National Day**\n\nGeneral words stay small: a meeting of nations, a sports event, a national holiday."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find every noun that might be a name.\n2. Ask: Is it the **official name** of one specific place, group, language, event or holiday? → capital.\n3. Is it a **general** word or a direction? → small.\n4. Check every important word in a name with several words.\n\nPoint to the sentence where the capital letters do not match the kind of noun."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Our school celebrates National Day every September.",
+      "role": "key"
+     },
+     {
+      "t": "We study Arabic, English, math and science.",
+      "role": "key"
+     },
+     {
+      "t": "Next year, we will learn about the history of our region.",
+      "role": "other"
+     }
+    ],
+    "explain": "**National Day** is the name of a specific holiday. **Arabic** and **English** are languages, so they are capitalized, while **math** and **science** stay small.\n\n**region** is a general word."
+   },
+   "together": {
+    "passage": "The Arabian Peninsula is home to one of the largest sand deserts in the world. This desert, called the Empty Quarter, stretches across parts of Saudi Arabia, Oman, Yemen and the United Arab Emirates. Explorers from many countries have crossed it, often guided by local Bedouin travelers. On the western side of the peninsula, mountains rise along the coast of the red sea. Today, scientists study the desert to learn how plants and animals survive extreme heat.",
+    "stem": "Which correction is needed?",
+    "options": [
+     "desert → Desert",
+     "red sea → Red Sea",
+     "western → Western",
+     "scientists → Scientists"
+    ],
+    "answer": 1,
+    "hint": "Look for the official name of a specific place. Does every important word have a capital?",
+    "good": "Yes! The Red Sea is the official name of a specific sea, so both words are capitalized."
+   },
+   "evidence": {
+    "sentences": [
+     "The Arabian Peninsula is home to one of the largest sand deserts in the world.",
+     "This desert, called the Empty Quarter, stretches across parts of Saudi Arabia, Oman, Yemen and the United Arab Emirates.",
+     "Explorers from many countries have crossed it, often guided by local Bedouin travelers.",
+     "On the western side of the peninsula, mountains rise along the coast of the red sea.",
+     "Today, scientists study the desert to learn how plants and animals survive extreme heat."
+    ],
+    "proof": [
+     3
+    ],
+    "need": 1,
+    "stem": "Tap the sentence with the capital letter mistake.",
+    "wrong": "The capitals in this sentence are correct. Look for a specific place name written in small letters."
+   },
+   "checks": [
+    {
+     "passage": "My cousin is learning french at university this year.",
+     "stem": "Which word needs a capital letter?",
+     "options": [
+      "cousin",
+      "university",
+      "year",
+      "french"
+     ],
+     "answer": 3,
+     "why": "French is a language, and languages are always capitalized."
+    },
+    {
+     "passage": "From Riyadh, we drove North for three hours to reach the farm.",
+     "stem": "What is wrong?",
+     "options": [
+      "Riyadh should be riyadh.",
+      "North should be north.",
+      "farm should be Farm.",
+      "Nothing is wrong."
+     ],
+     "answer": 1,
+     "why": "Here north is only a direction, not the name of a place, so it stays small."
+    },
+    {
+     "passage": "Athletes from around the world compete in the olympic games.",
+     "stem": "How should the event's name be written?",
+     "options": [
+      "the olympic Games",
+      "the Olympic games",
+      "the Olympic Games",
+      "The olympic games"
+     ],
+     "answer": 2,
+     "why": "Olympic Games is the official name of an event, so both words are capitalized."
+    }
+   ],
+   "again": {
+    "title": "The official name test",
+    "text": "Ask: **Could I find this exact name on a map, a calendar or an official sign?**\n\nYes → it is an official name → capital.\n\nNo, it just describes something → small letter.",
+    "example": "the red sea → on a map as **the Red Sea** → capitals\n\na calm sea → just describes → small"
+   }
+  }
+ }
+}

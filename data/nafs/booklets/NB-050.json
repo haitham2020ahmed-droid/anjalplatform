@@ -1,0 +1,568 @@
+{
+  "code": "NB-050",
+  "title": "The Robot That Kept Turning Left",
+  "kind": "LITERARY",
+  "genre": "narrative story",
+  "words": 493,
+  "passage": "For six weeks, Reem, Lama and Joud had spent every Tuesday afternoon in the school laboratory, building a small robot they affectionately named Sanad. Its task at the regional robotics competition sounded simple: follow a curving black line across a white mat, pick up three coloured blocks and deliver each one to the correct square. During practice, Sanad had completed the course flawlessly so many times that the girls could almost recite every movement it made.\n\nThe competition hall in Dammam, however, was nothing like their quiet laboratory. Dozens of teams crowded around their tables, laptops glowed in every direction, and enormous spotlights hung from the ceiling, flooding the mats with brilliant white light. When the judge finally called their school's name, Reem placed Sanad at the starting line with trembling hands.\n\nThe robot rolled forward confidently and followed the line for a few seconds, but then, without any warning, it swung sharply to the left and drove straight off the mat. A murmur spread through the audience. \"Time!\" announced the judge, who explained that the team had exactly ten minutes to make repairs before their second and final attempt.\n\nLama's face turned pale. \"We've ruined everything,\" she whispered, convinced that a wheel must be broken or that the batteries had suddenly become weak.\n\nJoud immediately reached for the screwdriver, determined to take the robot apart, but Reem raised her hand. \"Wait,\" she said slowly. \"If we change everything at once, we'll never know what the real problem was. Let's think like engineers and ask ourselves what is different here compared with our laboratory.\"\n\nThe three girls looked around. Then Reem glanced up at the dazzling spotlights, and suddenly the answer seemed obvious. Sanad depended on a light sensor to distinguish the black line from the white mat, and that sensor had been adjusted for the dim lamps of their school laboratory. Under these powerful lights, even the black line reflected so much brightness that the sensor could no longer recognise it.\n\nWorking quickly but carefully, the girls connected the laptop and measured the new readings of both the line and the mat. Joud typed the fresh numbers into the program while Lama, who was still anxious, checked each one twice. With barely a minute remaining, they placed Sanad back at the starting line and held their breath.\n\nThis time the robot glided smoothly along every curve, collected all three blocks and delivered two of them to the correct squares before the buzzer sounded. Although the team did not win first place, the judges presented them with a special award for problem solving at the closing ceremony, praising the calm and logical way in which they had investigated the failure.\n\nOn the bus home, Lama held the certificate proudly and admitted that she had honestly believed they had failed. Reem smiled. \"We only failed for ten minutes,\" she replied. \"After that, we learned something that no amount of practice could have taught us.\"",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “flawlessly” as it is used in paragraph 1?",
+      "options": [
+        "slowly",
+        "perfectly",
+        "nervously",
+        "rarely"
+      ],
+      "answer": "B",
+      "why": "During practice Sanad completed the course so well that the girls knew every movement, so “flawlessly” means perfectly, without mistakes."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is the OPPOSITE of “dim” as it is used in paragraph 6?",
+      "options": [
+        "bright",
+        "quiet",
+        "small",
+        "dark"
+      ],
+      "answer": "A",
+      "why": "“Dim” means not giving much light; its opposite is “bright”. “Dark” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Read this sentence from paragraph 3: “A murmur spread through the audience.” What is a “murmur”?",
+      "options": [
+        "a loud, excited cheer",
+        "a sudden, total silence",
+        "a low sound of quiet voices",
+        "a burst of happy laughter"
+      ],
+      "answer": "C",
+      "why": "The audience reacts quietly to the robot's mistake, so a murmur is a soft, low sound of voices."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 7 is an adverb?",
+      "options": [
+        "fresh",
+        "carefully",
+        "remaining",
+        "program"
+      ],
+      "answer": "B",
+      "why": "“Carefully” describes how the girls worked. “Fresh” is an adjective, “program” a noun and “remaining” a verb form."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 2 is a PLURAL noun?",
+      "options": [
+        "ceiling",
+        "hall",
+        "spotlights",
+        "light"
+      ],
+      "answer": "C",
+      "why": "“Spotlights” means more than one spotlight; the others are singular."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “competition”?",
+      "options": [
+        "complete",
+        "compete",
+        "compass",
+        "company"
+      ],
+      "answer": "B",
+      "why": "“Compete” is the verb from which “competition” is formed; the others only begin with the same letters."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “obvious” in a meaningful sentence of your own.",
+      "model": "When the classroom lights went out at the same moment as the fan, it was obvious that the power had been cut.",
+      "rubric": [
+        "2 = a complete, correct sentence that uses “obvious” with its meaning (easy to see or understand)",
+        "1 = the word is used correctly but the sentence is incomplete or has several errors",
+        "0 = the word is missing, misused, or the sentence copies the text"
+      ],
+      "why": "“Obvious” means easy to see or understand."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What is the plural of “battery”, a word used in the plural in paragraph 4?",
+      "options": [
+        "batterys",
+        "batteries",
+        "batteryes",
+        "battery"
+      ],
+      "answer": "B",
+      "why": "A consonant + y ending changes y to i and adds -es: battery → batteries."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of sentence is “Let's think like engineers and ask ourselves what is different here compared with our laboratory.” in paragraph 5?",
+      "options": [
+        "a question",
+        "an exclamation",
+        "a statement of fact",
+        "a command or suggestion"
+      ],
+      "answer": "D",
+      "why": "“Let's…” tells the team what to do, so it is a command (a suggestion that includes the speaker)."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the story?",
+      "options": [
+        "A Bus Ride to Dammam",
+        "Thinking Clearly Under Pressure",
+        "How to Build a Robot in a Day",
+        "The Robot That Won First Place"
+      ],
+      "answer": "B",
+      "why": "Reem's calm thinking during the ten-minute repair period solves the problem. The team did not win first place."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of the story?",
+      "options": [
+        "to explain how factories manufacture light sensors",
+        "to describe the busy city of Dammam and its halls",
+        "to persuade every reader to join a robotics club",
+        "to show how calm thinking can turn failure into success"
+      ],
+      "answer": "D",
+      "why": "The story's events and Reem's final words show how careful thinking rescued the team."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 6?",
+      "options": [
+        "Reem realises the bright lights are confusing the sensor.",
+        "The spotlights hang from the high ceiling of the hall.",
+        "The robot uses a light sensor to follow the line.",
+        "The school laboratory has only dim lamps."
+      ],
+      "answer": "A",
+      "why": "The paragraph explains Reem's discovery; the other options are details that support it."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 6, why could the sensor no longer recognise the black line?",
+      "options": [
+        "Someone had painted over part of the black line.",
+        "One of the robot's wheels had broken off.",
+        "The robot's batteries had become too weak.",
+        "Even the black line reflected too much light."
+      ],
+      "answer": "D",
+      "why": "“Under these powerful lights, even the black line reflected so much brightness that the sensor could no longer recognise it.”"
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which type of text is this?",
+      "options": [
+        "a narrative story",
+        "an expository article",
+        "a letter",
+        "a poem"
+      ],
+      "answer": "A",
+      "why": "It has characters, a setting, a problem and a solution, told as a sequence of events with dialogue."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Reem stop Joud from taking the robot apart?",
+      "options": [
+        "She wanted to save the screwdriver for later use.",
+        "Changing everything at once would hide the real problem.",
+        "The judge did not allow any tools at the table.",
+        "She believed that the robot could never be repaired."
+      ],
+      "answer": "B",
+      "why": "Reem says, “If we change everything at once, we'll never know what the real problem was.”"
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "What did the girls do immediately AFTER Reem realised what the problem was?",
+      "options": [
+        "They changed the robot's batteries.",
+        "They asked the judge for more time.",
+        "They measured new sensor readings with the laptop.",
+        "They tightened every wheel with a screwdriver."
+      ],
+      "answer": "C",
+      "why": "Paragraph 7: they “connected the laptop and measured the new readings of both the line and the mat.”"
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "From whose point of view is the story told?",
+      "options": [
+        "Reem's, using “I”",
+        "the judge's",
+        "Lama's, using “I”",
+        "an outside narrator's"
+      ],
+      "answer": "D",
+      "why": "The narrator describes all three girls using “she” and “they” and is not a character in the story."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which task did Sanad have to complete at the competition?",
+      "options": [
+        "follow a line and deliver coloured blocks",
+        "climb a steep ramp and ring a bell",
+        "draw a map of the whole competition hall",
+        "race against another school's robot"
+      ],
+      "answer": "A",
+      "why": "Paragraph 1: follow “a curving black line”, pick up three coloured blocks and deliver each one to the correct square."
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What caused Sanad to leave the mat on its first attempt?",
+      "options": [
+        "Lama had placed it facing the wrong direction.",
+        "One of its wheels fell off during the run.",
+        "Someone in the audience pushed the table.",
+        "Its sensor was set for the laboratory's dim lamps."
+      ],
+      "answer": "D",
+      "why": "Paragraph 6: the sensor “had been adjusted for the dim lamps of their school laboratory”, so it failed under the spotlights."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How would you describe Lama's feelings in paragraph 4?",
+      "options": [
+        "calm and confident",
+        "bored and tired",
+        "jealous and angry",
+        "shocked and discouraged"
+      ],
+      "answer": "D",
+      "why": "Her face “turned pale” and she whispers, “We've ruined everything,” which shows shock and discouragement."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what most makes the reader want to keep reading after paragraph 3?",
+      "options": [
+        "wanting to know if the team can fix Sanad in time",
+        "wanting to know the name of the strict judge",
+        "wanting to know how many teams are in the hall",
+        "wanting to know the colour of each of the blocks"
+      ],
+      "answer": "A",
+      "why": "The sudden failure and the ten-minute time limit create suspense about whether the team can recover."
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Reem's reaction to the failure DIFFERENT from Joud's?",
+      "options": [
+        "Reem wanted to give up, while Joud wanted to keep trying.",
+        "Reem looked for the cause first; Joud wanted to act at once.",
+        "Reem blamed the judge, while Joud blamed the batteries.",
+        "Reem began to cry, while Joud started to laugh."
+      ],
+      "answer": "B",
+      "why": "Joud “immediately reached for the screwdriver”, while Reem said, “Wait… Let's think like engineers.”"
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do the school laboratory and the competition hall have in common in the story?",
+      "options": [
+        "Both have powerful spotlights hanging from the ceiling.",
+        "Both are quiet, empty rooms with dim lamps.",
+        "The team runs Sanad on a course in both.",
+        "Both are buildings in the city of Dammam."
+      ],
+      "answer": "C",
+      "why": "The team practises in the laboratory and competes in the hall; the lighting and noise are different."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What was the effect of entering the new sensor readings?",
+      "options": [
+        "Sanad drove straight off the mat once again.",
+        "The judges decided to stop the whole competition.",
+        "The organisers switched off all the spotlights.",
+        "Sanad followed the line and delivered two blocks."
+      ],
+      "answer": "D",
+      "why": "Paragraph 8: “the robot glided smoothly along every curve” and delivered two blocks correctly."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does the phrase “flooding the mats with brilliant white light” suggest about the hall?",
+      "options": [
+        "Water had leaked from the ceiling onto the mats.",
+        "The light was so strong it covered everything.",
+        "The mats had been painted a brilliant white.",
+        "The hall was dark, gloomy and difficult to see in."
+      ],
+      "answer": "B",
+      "why": "“Flooding” is figurative: the light poured over the mats like water, showing how strong it was."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does the writer end the story with Reem's words, “We only failed for ten minutes”?",
+      "options": [
+        "to show that Reem did not care about the competition",
+        "to explain the rules of the competition to readers",
+        "to sum up the lesson that failure can teach",
+        "to suggest that the judges had been unfair to the team"
+      ],
+      "answer": "C",
+      "why": "Reem's reply turns the failure into a short, memorable lesson about learning from mistakes."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the story is exclamatory?",
+      "options": [
+        "“Time!” announced the judge.",
+        "“We've ruined everything,” she whispered.",
+        "Reem smiled.",
+        "The three girls looked around."
+      ],
+      "answer": "A",
+      "why": "“Time!” is a sudden, forceful exclamation that ends with an exclamation mark."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which lesson from the story would be MOST useful for students doing a group project?",
+      "options": [
+        "Always change everything quickly when something goes wrong.",
+        "Let one person make every decision alone.",
+        "Look for the real cause of a problem before trying to fix it.",
+        "Avoid competitions in case you fail."
+      ],
+      "answer": "C",
+      "why": "Reem's method of finding the real cause before acting is what solved the team's problem."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which message is the writer most likely sharing through the story?",
+      "options": [
+        "Winning first place is all that matters.",
+        "Robots are too difficult for students.",
+        "Mistakes can teach lessons that practice cannot.",
+        "Bright lights are dangerous."
+      ],
+      "answer": "C",
+      "why": "Reem says they “learned something that no amount of practice could have taught us.”"
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the END of the story?",
+      "options": [
+        "proud satisfaction",
+        "bitter disappointment",
+        "nervous fear",
+        "angry frustration"
+      ],
+      "answer": "A",
+      "why": "Lama holds the certificate “proudly” and Reem smiles as she explains what they learned."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the story is the LEAST clear?",
+      "options": [
+        "why Sanad drove off the mat the first time",
+        "which award the judges gave the team",
+        "why one block was not delivered correctly",
+        "how much time the team had for repairs"
+      ],
+      "answer": "C",
+      "why": "The story explains the sensor problem, the award and the ten minutes, but never says why one block was not delivered correctly."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A robot decides by itself to leave the competition.",
+        "A sensor reads differently under brighter lights.",
+        "A robot finishes the course before it is switched on.",
+        "The spotlights repair the robot by themselves."
+      ],
+      "answer": "B",
+      "why": "Light sensors measure brightness, so stronger lights really can change their readings."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events of the story?",
+      "options": [
+        "Ten Minutes to Think",
+        "The Broken Wheel",
+        "A Day Off School",
+        "The Winning Robot"
+      ],
+      "answer": "A",
+      "why": "The key events take place in the ten-minute repair period, when careful thinking saves the team."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the story. Write two or three sentences in which the team does NOT finish the second run, but still learns something useful.",
+      "model": "On the second attempt, Sanad followed the line perfectly, but the buzzer sounded before it reached the last block. The girls felt disappointed at first, yet on the bus Reem wrote a new rule in their notebook: always test the robot in the competition lights first. The next year, they arrived early, measured the readings and finished the course in record time.",
+      "rubric": [
+        "2 = a clear new ending in which the run is not completed but the team learns a sensible lesson linked to the story",
+        "1 = an ending is given but it does not follow the instruction or the lesson is unclear",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any sensible ending that fits the instruction and the story's ideas is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could the team avoid the same problem at their next competition?",
+      "options": [
+        "Test the sensor under the hall's lights before their turn.",
+        "Bring extra batteries in case the old ones are weak.",
+        "Practise only in a completely dark room.",
+        "Ask the judges to switch off every light in the hall."
+      ],
+      "answer": "A",
+      "why": "The problem was the lighting, so checking sensor readings in the real hall beforehand prevents it; extra batteries would not help."
+    }
+  ]
+}

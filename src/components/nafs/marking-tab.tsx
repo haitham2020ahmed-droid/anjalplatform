@@ -5,9 +5,9 @@ import { repo } from "@/server/auth/next";
 import { listNafsTests, markingQueue } from "@/server/nafs/tests";
 import { markWrittenAction } from "@/app/teacher/nafs/actions";
 import { SheetsTab } from "./sheets-tab";
+import { Combo } from "@/components/ui/combo";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line";
-const SEL = "min-h-10 rounded-lg bg-surface px-2 text-sm ring-1 ring-line";
 
 /**
  * 🇸🇦 Marking: the short written answers of NAFS tests (online, on paper or typed) waiting for the teacher's rubric
@@ -23,7 +23,7 @@ export async function MarkingTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: R
     <div className="grid gap-4">
       <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3`}>
         <input type="hidden" name="tab" value="marking" />
-        <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Test")}<select name="test" defaultValue={sp.test ?? ""} className={SEL}><option value="">{t("All tests")}</option>{tests.map((x) => <option key={x.id} value={x.id}>{x.title}</option>)}</select></label>
+        <div className="grid min-w-60 gap-1 text-xs font-semibold text-ink-2"><span>{t("Test")}</span><Combo name="test" label={t("Test")} defaultValue={sp.test ?? ""} options={[{ value: "", label: t("All tests") }, ...tests.map((x) => ({ value: x.id, label: x.title, hint: t("{n} questions", { n: x.questions }) }))]} /></div>
         <label className="flex min-h-10 items-center gap-2 text-sm text-ink"><input type="checkbox" name="all" value="1" defaultChecked={all} className="h-4 w-4" /> {t("Show marked answers too")}</label>
         <button className="min-h-10 rounded-lg bg-brand-navy px-4 text-sm font-semibold text-white">{t("Show")}</button>
         <p className="ms-auto text-sm text-ink-2" role="status"><b className="tabular-nums text-ink">{q.waiting}</b> {t("written answer(s) waiting for marking")}</p>

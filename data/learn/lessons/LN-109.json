@@ -1,0 +1,474 @@
+{
+ "code": "LN-109",
+ "title": "Topic of a text",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Analyze Central Idea, Concepts, and Events; Summarize",
+ "standards": [
+  "RI.2.2",
+  "RI.3.2"
+ ],
+ "families": [
+  "central-idea"
+ ],
+ "skillNames": [
+  "Topic and Main Idea"
+ ],
+ "statements": [
+  "R-0110",
+  "R-0199",
+  "R-0341"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is the topic?",
+     "text": "The **topic** is what a text is about.\n\nYou can say it in **one or two words**: rain, cats, my school."
+    },
+    {
+     "title": "Look for the word that comes back",
+     "text": "The topic word often comes back again and again.\n\nOr other words point to it. **He**, **she**, **it** and **they** can stand for the topic."
+    },
+    {
+     "title": "How to find it",
+     "text": "1. Read all the sentences.\n2. Ask: **What is every sentence about?**\n3. Say it in one or two words."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Check your topic.\n\n1. Read each sentence.\n2. Is it about your topic?\n\nIf **most** sentences are about it, you are right."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The moon is in the sky at night.",
+      "role": "main"
+     },
+     {
+      "t": "It looks round and white.",
+      "role": "detail"
+     },
+     {
+      "t": "It changes shape during the month.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Every sentence is about **the moon**. The word **it** means the moon. So the topic is **the moon**."
+   },
+   "together": {
+    "passage": "Ducks live near ponds. They have soft feathers. Their feet help them swim. Ducks say quack.",
+    "stem": "What is the topic of this text?",
+    "options": [
+     "Ponds",
+     "Feet",
+     "Ducks",
+     "Swimming"
+    ],
+    "answer": 2,
+    "hint": "That word is in only one sentence. What is EVERY sentence about?",
+    "good": "Yes! Every sentence tells about ducks."
+   },
+   "evidence": {
+    "sentences": [
+     "Ducks live near ponds.",
+     "They have soft feathers.",
+     "Their feet help them swim.",
+     "Ducks say quack."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The topic was: ducks. Tap 2 sentences that say the word ducks.",
+    "wrong": "This sentence is about ducks too, but it says they or their. Find the sentences with the word ducks."
+   },
+   "checks": [
+    {
+     "passage": "Bread is made from flour. Bakers mix it with water. Then they bake it in a hot oven.",
+     "stem": "What is the topic?",
+     "options": [
+      "Bread",
+      "Water",
+      "Ovens",
+      "Bakers"
+     ],
+     "answer": 0,
+     "why": "Every sentence tells about bread and how it is made."
+    },
+    {
+     "passage": "Rain falls from clouds. It makes the ground wet. Plants need it to grow.",
+     "stem": "What is this text about?",
+     "options": [
+      "Clouds",
+      "Plants",
+      "The ground",
+      "Rain"
+     ],
+     "answer": 3,
+     "why": "The word it means rain. Every sentence is about rain."
+    },
+    {
+     "passage": "Our teacher is kind. She reads us stories. She helps us when we are stuck.",
+     "stem": "What is the topic?",
+     "options": [
+      "Stories",
+      "Our teacher",
+      "Our class",
+      "Books"
+     ],
+     "answer": 1,
+     "why": "Every sentence is about our teacher. The word she means the teacher."
+    }
+   ],
+   "again": {
+    "title": "Name it in a word",
+    "text": "Read the text. Close your eyes.\n\nSay **one word** that tells what it was about. That word is the topic.",
+    "example": "Sharks have sharp teeth. They swim fast. They live in the sea.\n\nOne word: **sharks**. That is the topic!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Topic: a word or two",
+     "text": "The **topic** names the subject of a text in a word or a short phrase: **volcanoes**, **school uniforms**, **the Red Sea**.\n\nIt is not a full sentence."
+    },
+    {
+     "title": "Not too big, not too small",
+     "text": "A good topic is just the right size.\n\n**Too big:** animals (the text is only about one animal).\n**Too small:** whiskers (only one sentence is about them).\n**Just right:** cats."
+    },
+    {
+     "title": "Steps",
+     "text": "1. Read the whole text.\n2. Find the word or idea that keeps coming back.\n3. Check the size: does it cover the **whole** text, and **only** this text?"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Prove your topic by checking the sentences.\n\n1. Point to sentences about your topic.\n2. If **most** sentences fit, your topic is right.\n3. If only one sentence fits, it is a **detail**, not the topic."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Volcanoes are openings in the Earth's surface.",
+      "role": "main"
+     },
+     {
+      "t": "Hot melted rock, called lava, can flow out of them.",
+      "role": "detail"
+     },
+     {
+      "t": "Some volcanoes have not erupted for thousands of years.",
+      "role": "detail"
+     },
+     {
+      "t": "Harrat Rahat, near Madinah, is a large volcanic field.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**Lava** is too small: only one sentence. **Mountains** is too big. The word that keeps coming back is **volcanoes**. That is the topic."
+   },
+   "together": {
+    "passage": "Penguins are birds, but they cannot fly. Instead, their wings work like flippers in the water. Most penguins live in the cold southern part of the world. They have thick feathers and a layer of fat to keep warm. Penguins catch fish and krill in the sea.",
+    "stem": "What is the topic of this paragraph?",
+    "options": [
+     "Birds",
+     "Penguins",
+     "Flippers",
+     "The cold sea"
+    ],
+    "answer": 1,
+    "hint": "Check the size. Is that too big, or only in one sentence? What is every sentence about?",
+    "good": "Yes! Every sentence tells about penguins. Birds is too big, and flippers is too small."
+   },
+   "evidence": {
+    "sentences": [
+     "Penguins are birds, but they cannot fly.",
+     "Instead, their wings work like flippers in the water.",
+     "Most penguins live in the cold southern part of the world.",
+     "They have thick feathers and a layer of fat to keep warm.",
+     "Penguins catch fish and krill in the sea."
+    ],
+    "proof": [
+     0,
+     2,
+     4
+    ],
+    "need": 2,
+    "stem": "The topic was: penguins. Tap 2 sentences that name penguins.",
+    "wrong": "This sentence is about penguins too, but it uses another word for them. Find sentences that say the word penguins."
+   },
+   "checks": [
+    {
+     "passage": "The Red Sea lies between Africa and the Arabian Peninsula. Its water is very salty. Colorful coral reefs grow along its coasts. Many divers visit to see its fish.",
+     "stem": "What is the topic?",
+     "options": [
+      "Divers",
+      "Coral",
+      "Africa",
+      "The Red Sea"
+     ],
+     "answer": 3,
+     "why": "Every sentence tells about the Red Sea. Coral and divers are only details."
+    },
+    {
+     "passage": "Many schools now teach students to write computer code. Students learn to give clear steps to a computer. They make simple games and animations. Coding also helps them solve problems step by step.",
+     "stem": "What is the topic?",
+     "options": [
+      "Games",
+      "Schools",
+      "Learning to code",
+      "Animations"
+     ],
+     "answer": 2,
+     "why": "Every sentence is about students learning to code. Games and animations are details."
+    },
+    {
+     "passage": "Dates come from date palm trees. There are hundreds of kinds, such as Sukkari and Ajwa. Dates are sweet and full of energy. People often eat them with coffee.",
+     "stem": "What is the topic?",
+     "options": [
+      "Dates",
+      "Coffee",
+      "Trees",
+      "Sweet food"
+     ],
+     "answer": 0,
+     "why": "Every sentence is about dates. Trees and sweet food are too big; coffee is a detail."
+    }
+   ],
+   "again": {
+    "title": "The Goldilocks check",
+    "text": "Try three sizes:\n\n**Too big**: it covers many other texts too.\n**Too small**: it is only one sentence.\n**Just right**: it covers this whole text.",
+    "example": "Text about how camels store fat and walk on sand.\n\nToo big: **animals**. Too small: **fat**. Just right: **camels**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Topic in longer texts",
+     "text": "In longer texts, the topic may be named with **different words**: a whale, the giant mammal, this animal.\n\nYou must see that all these words point to **one subject**."
+    },
+    {
+     "title": "Topic or main idea?",
+     "text": "The **topic** is the subject: **solar energy**.\nThe **main idea** is what the text says about it: **Solar energy is growing fast in Saudi Arabia.**\n\nA question about the topic wants the short subject, not the full point."
+    },
+    {
+     "title": "Find the exact topic",
+     "text": "1. List the key nouns in each sentence.\n2. Group the ones that mean the same thing.\n3. Choose the group that covers the most sentences.\n4. Name it as exactly as you can."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "To prove a topic, show it appears in **every part**.\n\n1. Find the topic or a word for it in the first sentence.\n2. Find it again in the middle and the end.\n3. A detail appears in only one part of the text."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The Empty Quarter covers a huge part of the southern Arabian Peninsula.",
+      "role": "main"
+     },
+     {
+      "t": "This sea of sand has some of the tallest dunes in the world.",
+      "role": "detail"
+     },
+     {
+      "t": "Few people have ever crossed the vast desert on foot.",
+      "role": "detail"
+     },
+     {
+      "t": "Its Arabic name, Ar-Rub' al-Khali, also means the Empty Quarter.",
+      "role": "detail"
+     }
+    ],
+    "explain": "**The Empty Quarter**, **this sea of sand**, **the vast desert** and **its** all name the same place. The topic is **the Empty Quarter**. Dunes are only a detail."
+   },
+   "together": {
+    "passage": "For hundreds of years, the falcon has been a partner to hunters in Arabia. Trainers spend months teaching the bird to trust them and to return to the glove. Today, these hunting birds are prized, and owners take great care of them. Special hospitals in the Gulf treat injured or sick falcons. Each year, festivals bring trainers together to show the speed and skill of their birds.",
+    "stem": "What is the topic of this passage?",
+    "options": [
+     "Hospitals in the Gulf",
+     "Hunting in the desert",
+     "Festivals",
+     "Falcons and falconry"
+    ],
+    "answer": 3,
+    "hint": "That is too big or only in one sentence. What do the bird, these hunting birds and their birds all name?",
+    "good": "Yes! Every sentence is about falcons and the people who train them."
+   },
+   "evidence": {
+    "sentences": [
+     "For hundreds of years, the falcon has been a partner to hunters in Arabia.",
+     "Trainers spend months teaching the bird to trust them and to return to the glove.",
+     "Today, these hunting birds are prized, and owners take great care of them.",
+     "Special hospitals in the Gulf treat injured or sick falcons.",
+     "Each year, festivals bring trainers together to show the speed and skill of their birds."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The topic was: falcons and falconry. Tap 2 sentences that use the word falcon or falcons.",
+    "wrong": "This sentence is about falcons too, but it uses other words, like the bird. Find the sentences with the word falcon or falcons."
+   },
+   "checks": [
+    {
+     "passage": "The kidneys are two bean-shaped organs near the middle of your back. Every day they filter your blood and remove waste. The waste leaves the body in urine. These organs also help control how much water stays in your body.",
+     "stem": "What is the topic?",
+     "options": [
+      "Blood",
+      "The kidneys",
+      "The human body",
+      "Drinking water"
+     ],
+     "answer": 1,
+     "why": "The kidneys and these organs name the same subject in every sentence. The human body is too big."
+    },
+    {
+     "passage": "Lightning is a giant spark of electricity in the sky. It forms when tiny pieces of ice in storm clouds bump together. A single bolt is hotter than the surface of the sun. The sound it makes as the air quickly expands is thunder.",
+     "stem": "What is the topic?",
+     "options": [
+      "Lightning",
+      "Thunder",
+      "Storms",
+      "Ice"
+     ],
+     "answer": 0,
+     "why": "Every sentence tells about lightning; thunder and ice are details, storms is too big."
+    },
+    {
+     "passage": "Solar power is growing quickly in Saudi Arabia. Large fields of panels have been built in the desert. The country gets strong sunshine for most of the year. Engineers are working to keep the panels free of dust, which can block sunlight.",
+     "stem": "Which choice names the topic, not the main idea?",
+     "options": [
+      "Solar power is growing quickly in Saudi Arabia.",
+      "Dust can block sunlight.",
+      "Solar power in Saudi Arabia",
+      "Engineers clean panels."
+     ],
+     "answer": 2,
+     "why": "A topic is a short phrase. Solar power in Saudi Arabia names the subject; the first choice is a full sentence, so it is the main idea."
+    }
+   ],
+   "again": {
+    "title": "Circle the name",
+    "text": "Circle every word that names the **same thing**.\n\nIf circles appear in almost every sentence, that thing is the topic.",
+    "example": "**The cheetah** is the fastest land animal. **This big cat** can run 100 km an hour. **It** hunts in the day.\n\nCircles: the cheetah, this big cat, it. Topic: **the cheetah**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Naming a precise topic",
+     "text": "In advanced texts, a good topic is **precise**. Not just \"water\" but \"how cities reuse wastewater\".\n\nThe topic phrase should cover the **whole** text and fit **only** this text."
+    },
+    {
+     "title": "Hidden topics",
+     "text": "Sometimes the topic word does not appear until late, or appears only once. The author uses examples, synonyms and pronouns instead.\n\nThen you must **build** the topic from what the examples share."
+    },
+    {
+     "title": "Test your topic phrase",
+     "text": "1. Write a short topic phrase.\n2. Check the opening, middle and ending: does each fit?\n3. Too broad? Add a limit (where, what kind, which part).\n4. Too narrow? Remove the detail that fits only one part."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "A precise topic is proved by **coverage**.\n\n1. Point to a sentence at the start, middle and end that fit it.\n2. Show why a broader choice also fits many other texts.\n3. Show why a narrower choice fits only one sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "In Singapore, used water is cleaned so carefully that it can be safe to drink again.",
+      "role": "detail"
+     },
+     {
+      "t": "Some Gulf cities pipe treated wastewater to water parks and street trees.",
+      "role": "detail"
+     },
+     {
+      "t": "Farmers in dry regions use it to irrigate crops that are not eaten raw.",
+      "role": "detail"
+     },
+     {
+      "t": "Each case shows wastewater turned from a problem into a resource.",
+      "role": "key"
+     }
+    ],
+    "explain": "\"Water\" is too broad. \"Parks\" fits only one sentence. Every example is about **reusing treated wastewater**. That precise phrase is the topic."
+   },
+   "together": {
+    "passage": "Some animals can tell the difference between the planet's north and south. Young sea turtles that hatch on beaches in Florida swim thousands of kilometers around the Atlantic and return to the same coast years later. Homing pigeons released far from home fly straight back, even under cloudy skies. Scientists believe these animals may sense Earth's magnetic field, almost as if they carry a compass. Some research suggests tiny particles of a magnetic mineral in their bodies, or chemical reactions in their eyes, may help them. The way animals use Earth's magnetism to find their way is still being studied today.",
+    "stem": "Which choice best names the topic of the passage?",
+    "options": [
+     "How animals use Earth's magnetism to navigate",
+     "Sea turtles",
+     "Earth's magnetic field",
+     "Homing pigeons on cloudy days"
+    ],
+    "answer": 0,
+    "hint": "One choice fits only one example, and one is so broad it fits a science text about compasses. Which covers every part?",
+    "good": "Yes! Turtles, pigeons and the research all show animals using magnetism to find their way."
+   },
+   "evidence": {
+    "sentences": [
+     "Some animals can tell the difference between the planet's north and south.",
+     "Young sea turtles that hatch on beaches in Florida swim thousands of kilometers around the Atlantic and return to the same coast years later.",
+     "Homing pigeons released far from home fly straight back, even under cloudy skies.",
+     "Scientists believe these animals may sense Earth's magnetic field, almost as if they carry a compass.",
+     "Some research suggests tiny particles of a magnetic mineral in their bodies, or chemical reactions in their eyes, may help them.",
+     "The way animals use Earth's magnetism to find their way is still being studied today."
+    ],
+    "proof": [
+     3,
+     4,
+     5
+    ],
+    "need": 2,
+    "stem": "The topic was: how animals use Earth's magnetism to navigate. Tap 2 sentences that name both animals and magnetism.",
+    "wrong": "This sentence gives one example or one detail. Find sentences that name the whole topic: animals sensing Earth's magnetism."
+   },
+   "checks": [
+    {
+     "passage": "In many countries, old trains, ships and factories are now museums. A former power station in London houses a famous art gallery. In Jeddah, old coral-stone houses have become places to learn about history. Instead of tearing down old buildings, cities are finding them new purposes.",
+     "stem": "Which choice best names the topic?",
+     "options": [
+      "Art galleries",
+      "Life in Jeddah",
+      "Giving old buildings new uses",
+      "Trains and ships"
+     ],
+     "answer": 2,
+     "why": "Every example shows an old building or machine given a new use. The other choices fit only one part."
+    },
+    {
+     "passage": "A single honeybee visits hundreds of flowers on one trip. Other insects, birds and even bats carry pollen too. Without them, many crops such as almonds, apples and melons would produce much less food. Some farmers rent beehives during the flowering season to make sure their crops are pollinated.",
+     "stem": "Which choice best names the topic?",
+     "options": [
+      "Honeybees",
+      "Pollinators and food crops",
+      "Farming",
+      "Bats"
+     ],
+     "answer": 1,
+     "why": "The passage is about animals that pollinate and why crops need them. Honeybees and bats are only examples; farming is too broad."
+    },
+    {
+     "passage": "The first maps were drawn on clay tablets and animal skins. Later, sailors and travelers added coastlines and roads. Printing made maps cheap enough for many people to own. Today, satellites and phones show maps that update every second.",
+     "stem": "Which choice best names the topic?",
+     "options": [
+      "Satellites",
+      "Sailors and travelers",
+      "Printing in Europe",
+      "How maps changed over time"
+     ],
+     "answer": 3,
+     "why": "Each sentence is a different stage in the history of maps, from clay tablets to phones."
+    }
+   ],
+   "again": {
+    "title": "What do the examples share?",
+    "text": "When the topic is hidden, list the **examples**. Then ask: **What do they all have in common?**\n\nThat shared thing, said in a short phrase, is the topic.",
+    "example": "Examples: turtles return to their beach; pigeons fly home; scientists study magnetism.\n\nShared: **animals finding their way using magnetism**. That is the topic."
+   }
+  }
+ }
+}

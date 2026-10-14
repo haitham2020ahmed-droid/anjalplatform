@@ -1,0 +1,568 @@
+{
+  "code": "NB-076",
+  "title": "Patience, One Tap at a Time",
+  "kind": "LITERARY",
+  "genre": "letter",
+  "words": 437,
+  "passage": "Dear Hamad,\nI hope your engineering studies in Dhahran are going well and that you are not working too late every night. I have exciting news, but I also have a confession, so I decided to write you a real letter rather than a short message that you might read too quickly between lectures.\n\nThe exciting news first: Grandfather can now make video calls by himself! You probably remember how he refused to touch the smartphone that Baba bought him last year, insisting that his old telephone with large buttons was perfectly adequate. However, ever since you moved away, he has been missing you terribly, and one evening he asked me, rather shyly, whether I could teach him to see your face on the screen.\n\nNow for the confession, which is considerably more difficult to write: during the first lesson, I behaved badly. I showed him the steps far too quickly, tapping and swiping as if he had been using phones all his life, and when he pressed the wrong icon for the fourth time, I sighed loudly and said, \"Grandfather, it is really very easy!\" He placed the phone on the table and said quietly, \"It is easy for you, Yara, because you were born into this world of screens. I was born into a world of letters that took a month to arrive.\" I felt so ashamed that I could not look at him.\n\nThat night, I thought about how patiently Grandfather had taught me to recite verses of the Quran when I was small, repeating each line without ever complaining, no matter how many times I forgot it. I realised that I owed him the same patience. So, the next day, I made a set of instruction cards in thick black marker, with one simple step and a large drawing on each card. We practised every afternoon for just fifteen minutes, and whenever he made a mistake, I reminded him that I had made hundreds of mistakes while learning, too.\n\nProgress was slow but remarkably steady, and by the end of the second week, he could open the application, find your name and press the green button, although he still holds the phone so close to his face that the caller sees mainly his eyebrows! Yesterday he even sent a voice message to Uncle Saleh, and he was as proud as if he had climbed a mountain.\n\nSo, please do not be surprised if your phone rings unexpectedly at six o'clock tomorrow morning. Grandfather has been practising his greeting, and he insists on calling you before you leave for university.\nYour loving sister,\nYara",
+  "questions": [
+    {
+      "n": 1,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word is closest in meaning to “adequate” as it is used in paragraph 2?",
+      "options": [
+        "too expensive",
+        "very modern",
+        "badly broken",
+        "good enough"
+      ],
+      "answer": "D",
+      "why": "Grandfather insisted his old telephone was “perfectly adequate”, meaning it was good enough for him."
+    },
+    {
+      "n": 2,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.SYNANT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "In paragraph 2, Grandfather asked his question “rather shyly”. Which word is the OPPOSITE of “shyly”?",
+      "options": [
+        "quietly",
+        "nervously",
+        "gently",
+        "boldly"
+      ],
+      "answer": "D",
+      "why": "Asking shyly means asking in a timid way; the opposite is asking boldly. “Nervously” is close in meaning."
+    },
+    {
+      "n": 3,
+      "standard": "MOE.S01",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What does “insisting” mean in paragraph 2, where Grandfather refused the smartphone, “insisting that his old telephone … was perfectly adequate”?",
+      "options": [
+        "asking politely for someone else's opinion",
+        "admitting quietly that he had been wrong",
+        "saying firmly and refusing to change his mind",
+        "explaining slowly and carefully how a telephone works"
+      ],
+      "answer": "C",
+      "why": "Grandfather kept firmly repeating that the old phone was good enough and would not touch the new one."
+    },
+    {
+      "n": 4,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 4 is an ADVERB?",
+      "options": [
+        "instruction",
+        "simple",
+        "patiently",
+        "reminded"
+      ],
+      "answer": "C",
+      "why": "“Patiently” tells how Grandfather taught; “instruction” is a noun, “simple” an adjective and “reminded” a verb."
+    },
+    {
+      "n": 5,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which word belongs to the same word family as “confession” in paragraph 3?",
+      "options": [
+        "confuse",
+        "conference",
+        "confess",
+        "confident"
+      ],
+      "answer": "C",
+      "why": "“Confession” is the noun formed from the verb “confess”; the other words only share the first letters."
+    },
+    {
+      "n": 6,
+      "standard": "MOE.S02",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which word from paragraph 5 is a PLURAL noun?",
+      "options": [
+        "eyebrows",
+        "progress",
+        "application",
+        "mountain"
+      ],
+      "answer": "A",
+      "why": "“Eyebrows” means more than one eyebrow. “Progress” ends in -s but is singular."
+    },
+    {
+      "n": 7,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "WRITTEN",
+      "stem": "Use the word “patience” in a meaningful sentence of your own.",
+      "model": "Teaching my little sister to tie her shoelaces took a lot of patience, because she needed to try many times.",
+      "rubric": [
+        "2 = a complete, correct sentence of your own that uses “patience” with its meaning (the ability to stay calm and keep trying without getting annoyed)",
+        "1 = the word is used correctly but the sentence is incomplete, unclear or has several errors",
+        "0 = the word is missing, misused, or the sentence is copied from the text"
+      ],
+      "why": "“Patience” means staying calm while something takes time; Yara realises she owed Grandfather “the same patience”."
+    },
+    {
+      "n": 8,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.FORMS",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Grandfather wants to call Hamad before he leaves for “university”. What is the correct plural of “university”?",
+      "options": [
+        "universitys",
+        "universityes",
+        "universities",
+        "universitis"
+      ],
+      "answer": "C",
+      "why": "A consonant + y changes to -ies: university → universities."
+    },
+    {
+      "n": 9,
+      "standard": "MOE.S03",
+      "nafs": "NAFS.V.CONTEXT",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Which sentence from the letter is EXCLAMATORY?",
+      "options": [
+        "The exciting news first: Grandfather can now make video calls by himself!",
+        "I hope your engineering studies in Dhahran are going well and that you are not working too late every night.",
+        "Grandfather has been practising his greeting.",
+        "Progress was slow but remarkably steady."
+      ],
+      "answer": "A",
+      "why": "It shows strong excitement and ends with an exclamation mark; the others are statements."
+    },
+    {
+      "n": 10,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which is another suitable title for the letter?",
+      "options": [
+        "How to Build a Smartphone",
+        "Teaching My First Teacher",
+        "Grandfather's Old Telephone",
+        "Life at University in Dhahran"
+      ],
+      "answer": "B",
+      "why": "Grandfather once taught Yara patiently; now she teaches him with the same patience."
+    },
+    {
+      "n": 11,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What is the main purpose of Yara's letter?",
+      "options": [
+        "to ask Hamad to buy Grandfather a new smartphone",
+        "to complain to Hamad that Grandfather learns new things very slowly",
+        "to explain to Hamad how video calls work technically",
+        "to share news about Grandfather and admit a mistake she made"
+      ],
+      "answer": "D",
+      "why": "Yara writes “I have exciting news, but I also have a confession” — Grandfather's success and her impatience."
+    },
+    {
+      "n": 12,
+      "standard": "MOE.S04",
+      "nafs": "NAFS.RC.MAIN",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What is the main idea of paragraph 4?",
+      "options": [
+        "Yara decides to stop teaching Grandfather because he learns far too slowly.",
+        "Yara remembers Grandfather's patience and teaches him patiently in return.",
+        "Grandfather teaches Yara how to use a smartphone in fifteen minutes.",
+        "Yara makes the instruction cards with colourful paints and stickers."
+      ],
+      "answer": "B",
+      "why": "Recalling how patiently he taught her the Quran, Yara makes simple cards and practises with him calmly."
+    },
+    {
+      "n": 13,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Grandfather want to learn to make video calls?",
+      "options": [
+        "He was missing Hamad after he moved away.",
+        "His old telephone had stopped working.",
+        "Baba told him that he must learn quickly.",
+        "He wanted to call his friends at the mosque."
+      ],
+      "answer": "A",
+      "why": "Paragraph 2: “ever since you moved away, he has been missing you terribly”."
+    },
+    {
+      "n": 14,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What type of text is this?",
+      "options": [
+        "a friendly letter",
+        "an instruction leaflet",
+        "a newspaper article",
+        "a short poem"
+      ],
+      "answer": "A",
+      "why": "It begins “Dear Hamad”, shares family news and ends “Your loving sister, Yara”."
+    },
+    {
+      "n": 15,
+      "standard": "MOE.S05",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Why did Yara choose to write a real letter instead of a short message?",
+      "options": [
+        "Hamad had asked her to send him letters by post.",
+        "Grandfather wanted to read the letter before she sent it.",
+        "Her phone was not working during that week.",
+        "She worried Hamad might read a message too quickly."
+      ],
+      "answer": "D",
+      "why": "Paragraph 1: she did not want to send “a short message that you might read too quickly between lectures”."
+    },
+    {
+      "n": 16,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "Which of these events happened FIRST?",
+      "options": [
+        "Yara sighed loudly during the first lesson.",
+        "Yara made a set of instruction cards.",
+        "Grandfather sent a voice message to Uncle Saleh.",
+        "Grandfather practised his greeting for Hamad."
+      ],
+      "answer": "A",
+      "why": "Yara's impatient sigh happened in the first lesson, before the cards, the voice message and the greeting practice."
+    },
+    {
+      "n": 17,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "Who is the writer of the letter, and who receives it?",
+      "options": [
+        "Hamad writes to his younger sister Yara.",
+        "Grandfather writes to his son.",
+        "Yara writes to her brother Hamad.",
+        "Yara writes to Uncle Saleh."
+      ],
+      "answer": "C",
+      "why": "The letter begins “Dear Hamad” and is signed “Your loving sister, Yara”."
+    },
+    {
+      "n": 18,
+      "standard": "MOE.S06",
+      "nafs": "NAFS.RC.DETAIL",
+      "pirls": "P1",
+      "type": "MCQ",
+      "stem": "According to paragraph 4, how long did Yara and Grandfather practise each afternoon?",
+      "options": [
+        "one whole hour",
+        "about thirty minutes",
+        "fifteen minutes",
+        "two hours"
+      ],
+      "answer": "C",
+      "why": "“We practised every afternoon for just fifteen minutes.”"
+    },
+    {
+      "n": 19,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "What made Yara feel so ashamed in paragraph 3?",
+      "options": [
+        "Hamad's angry message from university",
+        "Grandfather's calm reply to her impatience",
+        "Baba's warning about the expensive phone",
+        "breaking Grandfather's new smartphone by accident"
+      ],
+      "answer": "B",
+      "why": "After her sigh, Grandfather quietly explained the difference between their worlds, and Yara “felt so ashamed”."
+    },
+    {
+      "n": 20,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Why did Yara decide to make instruction cards with one step and a large drawing on each?",
+      "options": [
+        "to make each step simple and easy to see",
+        "to save time by not teaching him herself",
+        "to decorate Grandfather's room for Hamad",
+        "to test whether Grandfather could read English"
+      ],
+      "answer": "A",
+      "why": "After rushing the first lesson, she wanted to show the steps slowly and clearly, one at a time."
+    },
+    {
+      "n": 21,
+      "standard": "MOE.S07",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How did Grandfather feel after sending a voice message to Uncle Saleh?",
+      "options": [
+        "slightly bored",
+        "rather angry",
+        "quite frightened",
+        "very proud"
+      ],
+      "answer": "D",
+      "why": "“He was as proud as if he had climbed a mountain.”"
+    },
+    {
+      "n": 22,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How was Yara's teaching in paragraph 4 different from her teaching in paragraph 3?",
+      "options": [
+        "She rushed through the steps instead of going slowly.",
+        "She taught slowly and calmly instead of rushing.",
+        "She asked Hamad to teach instead of teaching herself.",
+        "She used the old telephone instead of the smartphone."
+      ],
+      "answer": "B",
+      "why": "In paragraph 3 she tapped and swiped too quickly and sighed; in paragraph 4 she used simple cards and short, patient sessions."
+    },
+    {
+      "n": 23,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P2",
+      "type": "MCQ",
+      "stem": "According to paragraph 5, what was the effect of two weeks of patient practice?",
+      "options": [
+        "Grandfather bought a second, newer smartphone.",
+        "Grandfather stopped using the phone altogether.",
+        "Grandfather asked Hamad to come home at once.",
+        "Grandfather could make a video call by himself."
+      ],
+      "answer": "D",
+      "why": "By the end of the second week he could open the application, find Hamad's name and press the green button."
+    },
+    {
+      "n": 24,
+      "standard": "MOE.S08",
+      "nafs": "NAFS.IAE.ANALYZE",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What do Grandfather's way of teaching the Quran and Yara's later way of teaching the phone have in common?",
+      "options": [
+        "Both are quick and use the latest technology.",
+        "Both happen only in the early mornings.",
+        "Both include long lectures with no practice.",
+        "Both are patient and allow many mistakes."
+      ],
+      "answer": "D",
+      "why": "Grandfather repeated each line “without ever complaining”, and Yara later reminded him that mistakes are part of learning."
+    },
+    {
+      "n": 25,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "What does Grandfather mean by “you were born into this world of screens. I was born into a world of letters that took a month to arrive”?",
+      "options": [
+        "Yara was born inside a hospital full of screens.",
+        "Grandfather never learned to read or write letters.",
+        "Letters are always faster than modern phones.",
+        "Each grew up with very different technology."
+      ],
+      "answer": "D",
+      "why": "He explains that phones are natural for Yara's generation but new for his, where letters travelled slowly."
+    },
+    {
+      "n": 26,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Yara writes that Grandfather was “as proud as if he had climbed a mountain”. What does this simile suggest?",
+      "options": [
+        "Sending the message felt like a great achievement.",
+        "Grandfather had really climbed a mountain that day.",
+        "Grandfather wanted to go hiking with Uncle Saleh.",
+        "Sending the message made Grandfather very tired."
+      ],
+      "answer": "A",
+      "why": "Climbing a mountain is a great achievement; for Grandfather, the voice message felt just as important."
+    },
+    {
+      "n": 27,
+      "standard": "MOE.S09",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, why does Yara include the funny detail that the caller “sees mainly his eyebrows”?",
+      "options": [
+        "to complain that Grandfather's eyebrows are too large",
+        "to add warm humour while showing he is still learning",
+        "to warn Hamad that the phone camera is broken",
+        "to prove that Grandfather has not learned anything"
+      ],
+      "answer": "B",
+      "why": "The playful detail makes the letter lively and affectionate while showing honest, imperfect progress."
+    },
+    {
+      "n": 28,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, what is the MOST helpful way to teach an older relative to use new technology?",
+      "options": [
+        "explain one simple step at a time and practise often",
+        "show all the steps quickly so they can copy you",
+        "do everything for them so they never need to learn",
+        "give up if they make the same mistake twice"
+      ],
+      "answer": "A",
+      "why": "Yara succeeded with simple cards, short daily practice and patience with mistakes."
+    },
+    {
+      "n": 29,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which value does the letter show most clearly?",
+      "options": [
+        "speed and competition with others",
+        "patience and respect for elders",
+        "wealth and success",
+        "silence and secrecy"
+      ],
+      "answer": "B",
+      "why": "Yara learns to treat Grandfather with the same patience he once showed her."
+    },
+    {
+      "n": 30,
+      "standard": "MOE.S10",
+      "nafs": "NAFS.IAE.INFER",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "Which feeling is most present at the END of the letter?",
+      "options": [
+        "happy excitement",
+        "quiet sadness",
+        "growing anger",
+        "lonely worry about Hamad"
+      ],
+      "answer": "A",
+      "why": "Yara cheerfully warns Hamad that Grandfather will call him early the next morning."
+    },
+    {
+      "n": 31,
+      "standard": "MOE.S11",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "In your opinion, which information in the letter is the LEAST clear?",
+      "options": [
+        "how long each practice session lasted",
+        "what Hamad thinks about Grandfather's progress",
+        "what Grandfather can now do by himself",
+        "why Grandfather wanted to learn to make video calls"
+      ],
+      "answer": "B",
+      "why": "The letter is written to Hamad, so his reaction is not known yet; the other details are stated."
+    },
+    {
+      "n": 32,
+      "standard": "MOE.S12",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which of the following events could really happen?",
+      "options": [
+        "A smartphone teaches itself to speak politely to Grandfather every day.",
+        "A grandfather learns to make video calls after practising daily.",
+        "A letter takes only one second to travel by post.",
+        "Grandfather climbs a mountain inside his telephone."
+      ],
+      "answer": "B",
+      "why": "Older people can learn new technology with steady practice; the other events are impossible."
+    },
+    {
+      "n": 33,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "MCQ",
+      "stem": "Which title best describes the events in the letter?",
+      "options": [
+        "The Broken Smartphone",
+        "Hamad Comes Home",
+        "Grandfather's First Video Call",
+        "A Letter That Never Arrived in Dhahran"
+      ],
+      "answer": "C",
+      "why": "The letter is about teaching Grandfather to call Hamad by video."
+    },
+    {
+      "n": 34,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P4",
+      "type": "WRITTEN",
+      "stem": "Suggest a different ending for the letter. Write two or three sentences telling what might have happened if Grandfather had given up after the first lesson.",
+      "model": "Grandfather put the phone away, so I asked Baba to help me plan a surprise. We set up the video call ourselves and handed him the phone with your face already on the screen, and he was so delighted that he asked me to teach him again the next day.",
+      "rubric": [
+        "2 = a clear, believable new ending that fits the characters and deals with Grandfather's wish to see Hamad",
+        "1 = an ending is given but it is unclear, does not fit the story well, or ignores the problem",
+        "0 = no answer, or the original ending is copied"
+      ],
+      "why": "Any believable ending that fits the characters and still deals with Grandfather missing Hamad is acceptable."
+    },
+    {
+      "n": 35,
+      "standard": "MOE.S13",
+      "nafs": "NAFS.IAE.EVAL",
+      "pirls": "P3",
+      "type": "MCQ",
+      "stem": "How could families help grandparents who find new technology difficult?",
+      "options": [
+        "Write simple, large-print instructions they can keep.",
+        "Practise with them for a short time every day.",
+        "A and B",
+        "Tell them that technology is only for young people."
+      ],
+      "answer": "C",
+      "why": "Both ideas worked for Yara and Grandfather; telling them technology is not for them would discourage them."
+    }
+  ]
+}

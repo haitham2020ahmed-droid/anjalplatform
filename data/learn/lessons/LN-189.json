@@ -1,0 +1,460 @@
+{
+ "code": "LN-189",
+ "title": "Sorting words into groups",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.1.5.a",
+  "L.K.5.a"
+ ],
+ "families": [],
+ "skillNames": [
+  "Word Categories and Examples"
+ ],
+ "statements": [
+  "R-0014",
+  "R-0049",
+  "R-0056",
+  "R-0113",
+  "R-0212"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Words in groups",
+     "text": "We can put words into **groups**.\n\n**Animals:** cat, dog, camel\n**Colours:** red, blue, green"
+    },
+    {
+     "title": "What is the same?",
+     "text": "Words in a group are the **same kind** of thing.\n\nA cat, a dog and a camel are all **animals**."
+    },
+    {
+     "title": "How to sort",
+     "text": "1. Read the words.\n2. Ask: **What kind of thing is it?**\n3. Put words of the same kind together."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find the words in the text.\n\n1. Read each sentence.\n2. Find the words that are the same kind.\n3. Point to the sentences where they are."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "I eat an apple.",
+      "role": "key"
+     },
+     {
+      "t": "I eat a banana.",
+      "role": "key"
+     },
+     {
+      "t": "I sit on a chair.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Apple** and **banana** are both **fruit**. They go in one group.\n\nA **chair** is not fruit. It does not belong."
+   },
+   "together": {
+    "passage": "Sara has a red hat. She has a blue bag. Her shoes are green. She likes to run in the park.",
+    "stem": "Which words are all colours?",
+    "options": [
+     "hat, bag, shoes",
+     "red, blue, green",
+     "Sara, run, park",
+     "red, hat, run"
+    ],
+    "answer": 1,
+    "hint": "Are those colours? Look for words that tell what colour things are.",
+    "good": "Yes! Red, blue and green are all colours."
+   },
+   "evidence": {
+    "sentences": [
+     "Sara has a red hat.",
+     "She has a blue bag.",
+     "Her shoes are green.",
+     "She likes to run in the park."
+    ],
+    "proof": [
+     0,
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: red, blue, green. Tap 2 sentences that have a colour word.",
+    "wrong": "This sentence has no colour word. Find the sentences that tell a colour."
+   },
+   "checks": [
+    {
+     "passage": "At the farm, we saw a cow, a hen and a goat. Then I ate an apple.",
+     "stem": "Which word does NOT go in the animal group?",
+     "options": [
+      "cow",
+      "hen",
+      "goat",
+      "apple"
+     ],
+     "answer": 3,
+     "why": "An apple is a food, not an animal."
+    },
+    {
+     "passage": "Hana has rice, fish and bread for lunch.",
+     "stem": "Which group do rice, fish and bread go in?",
+     "options": [
+      "toys",
+      "food",
+      "colours",
+      "animals"
+     ],
+     "answer": 1,
+     "why": "We eat rice, fish and bread. They are all **food**."
+    },
+    {
+     "passage": "I see a bus. I see a car. I see a bike.",
+     "stem": "Which word can join this group?",
+     "options": [
+      "train",
+      "tree",
+      "cup",
+      "dog"
+     ],
+     "answer": 0,
+     "why": "A bus, a car and a bike take people places. A train does too."
+    }
+   ],
+   "again": {
+    "title": "Find the boss word",
+    "text": "Every group has a **boss word** that names it.\n\nAsk: **What boss word covers all of them?**",
+    "example": "milk, water, juice\n\nBoss word: **drinks**. You drink all of them!"
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Categories",
+     "text": "A **category** is a group of words that are the same kind.\n\n**Feelings:** happy, sad, scared\n**Places:** school, park, shop\n**Kitchen things:** pot, spoon, plate"
+    },
+    {
+     "title": "Name the category",
+     "text": "Sometimes you must **name** the group. Sometimes you must **find** the words that fit a group.\n\nEither way, ask: **What do these words have in common?**"
+    },
+    {
+     "title": "Sort in three steps",
+     "text": "1. Read the category name.\n2. Test each word: \"Is ___ a kind of ___?\"\n3. Keep the words that pass. Leave out the ones that do not."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Find each word in the passage and check how it is used.\n\n1. Find the sentences that have the words.\n2. Check: does the word really fit the category there?\n3. Those sentences are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The kitten was scared of the loud noise.",
+      "role": "key"
+     },
+     {
+      "t": "Then it saw its mother and felt calm.",
+      "role": "key"
+     },
+     {
+      "t": "It curled up on a soft blanket.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Scared** and **calm** are both **feelings**.\n\n**Blanket** is a thing, so it goes in a different category."
+   },
+   "together": {
+    "passage": "On the first day of school, Faisal felt nervous. His hands were cold and his stomach hurt. Then he met a friendly boy named Saud. By lunchtime, Faisal felt happy, and by the end of the day he was proud that he had made a new friend.",
+    "stem": "Which words from the text belong in the category \"feelings\"?",
+    "options": [
+     "nervous, happy, proud",
+     "school, lunchtime, day",
+     "hands, stomach, boy",
+     "cold, new, first"
+    ],
+    "answer": 0,
+    "hint": "Test each word: is it a kind of feeling? Is a hand a feeling?",
+    "good": "Yes! Nervous, happy and proud are all ways Faisal felt."
+   },
+   "evidence": {
+    "sentences": [
+     "On the first day of school, Faisal felt nervous.",
+     "His hands were cold and his stomach hurt.",
+     "Then he met a friendly boy named Saud.",
+     "By lunchtime, Faisal felt happy, and by the end of the day he was proud that he had made a new friend."
+    ],
+    "proof": [
+     0,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: nervous, happy, proud. Tap 2 sentences that tell how Faisal felt.",
+    "wrong": "This sentence tells about his body or a new boy, not a feeling word. Find the sentences that say how Faisal felt."
+   },
+   "checks": [
+    {
+     "passage": "After school, Huda went to the library, then to the bakery, and finally to the park with her cousins.",
+     "stem": "Which category do library, bakery and park belong to?",
+     "options": [
+      "foods",
+      "places",
+      "feelings",
+      "people"
+     ],
+     "answer": 1,
+     "why": "Huda **went to** each one. They are all places."
+    },
+    {
+     "passage": "Mom asked me to put away the spoon, the pot, the pillow and the plate.",
+     "stem": "Which word does NOT belong with kitchen things?",
+     "options": [
+      "spoon",
+      "pot",
+      "plate",
+      "pillow"
+     ],
+     "answer": 3,
+     "why": "A pillow belongs on a bed, not in the kitchen."
+    },
+    {
+     "passage": "Our class made a weather chart. Monday was sunny. Tuesday was windy. Wednesday was cloudy.",
+     "stem": "Which word can join the group sunny, windy and cloudy?",
+     "options": [
+      "Monday",
+      "chart",
+      "rainy",
+      "class"
+     ],
+     "answer": 2,
+     "why": "Sunny, windy and cloudy are kinds of weather. **Rainy** is weather too."
+    }
+   ],
+   "again": {
+    "title": "Use a question",
+    "text": "Turn the category into a question:\n\nFeelings → **Can you feel it?**\nPlaces → **Can you go there?**\nFood → **Can you eat it?**",
+    "example": "brave, garden, tired\n\nCan you feel it? brave: **yes**. garden: no. tired: **yes**. So **brave** and **tired** are feelings."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Many ways to sort",
+     "text": "The same words can be sorted in **different** ways.\n\nA **horse** is an animal. It is also a way to **travel**.\n\nAlways read the **category name** carefully."
+    },
+    {
+     "title": "Action categories",
+     "text": "Categories are not only for things. Words that show **actions** can be sorted too.\n\n**Ways of moving:** run, hop, crawl, swim\n**Ways of speaking:** shout, whisper, ask"
+    },
+    {
+     "title": "Odd one out",
+     "text": "1. Find what **most** of the words have in common.\n2. Name that category.\n3. The word that does not fit is the **odd one out**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Look at how each word is **used** in the passage.\n\n1. Find each word in its sentence.\n2. Ask: in this sentence, what kind of word is it?\n3. Choose the group that every word in it fits."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The fish swam in the pond.",
+      "role": "key"
+     },
+     {
+      "t": "A frog jumped onto a rock.",
+      "role": "key"
+     },
+     {
+      "t": "A green leaf floated on the water.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Swam** and **jumped** are ways animals **move** themselves.\n\n**Floated** describes the leaf sitting on water. The leaf is not moving by itself, so it is the odd one out."
+   },
+   "together": {
+    "passage": "At sports day, the children took part in many races. Some raced across the field, and others hopped along in sacks. The little ones crawled through a long tunnel. Parents sat on chairs and cheered. Later, everyone ate sandwiches and drank juice under a big tent.",
+    "stem": "Which group of words from the text are all ways of moving from place to place?",
+    "options": [
+     "chairs, tunnel, tent",
+     "raced, hopped, crawled",
+     "sandwiches, juice, chairs",
+     "children, parents, ones"
+    ],
+    "answer": 1,
+    "hint": "Ask of each word: is it a way to move from one place to another?",
+    "good": "Yes! Racing, hopping and crawling are all ways the children moved."
+   },
+   "evidence": {
+    "sentences": [
+     "At sports day, the children took part in many races.",
+     "Some raced across the field, and others hopped along in sacks.",
+     "The little ones crawled through a long tunnel.",
+     "Parents sat on chairs and cheered.",
+     "Later, everyone ate sandwiches and drank juice under a big tent."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "The answer was: raced, hopped, crawled. Tap 2 sentences that show children moving.",
+    "wrong": "In this sentence, nobody moves from place to place. Find the sentences about racing, hopping or crawling."
+   },
+   "checks": [
+    {
+     "passage": "Ahmad packed for a day at the beach: a towel, sunscreen, a swimsuit and a heavy winter coat.",
+     "stem": "Which item does not belong with things for a hot beach day?",
+     "options": [
+      "towel",
+      "heavy winter coat",
+      "sunscreen",
+      "swimsuit"
+     ],
+     "answer": 1,
+     "why": "You use the others on a hot beach. A heavy winter coat is for cold weather."
+    },
+    {
+     "passage": "Grandpa keeps a hammer, a saw and a screwdriver in a box in the garage. He uses them to fix things around the house.",
+     "stem": "Which category fits hammer, saw and screwdriver?",
+     "options": [
+      "toys",
+      "food",
+      "furniture",
+      "tools"
+     ],
+     "answer": 3,
+     "why": "He uses them to **fix things**. They are tools."
+    },
+    {
+     "passage": "The night market was full of light. Lanterns hung over the stalls, and the full moon shone above. A man sold small toy cars and bottles of water.",
+     "stem": "Which category do lanterns and the moon belong to?",
+     "options": [
+      "Things that give light",
+      "Things you can eat",
+      "Things you can drive",
+      "Things that live in water"
+     ],
+     "answer": 0,
+     "why": "Both lanterns and the moon **shine** and give light."
+    }
+   ],
+   "again": {
+    "title": "Sort into boxes",
+    "text": "Draw two or three boxes in your mind. Write a name on each box.\n\nDrop each word into the box where it fits best.",
+    "example": "Boxes: **Animals** / **Ways of moving**\n\nWords: rabbit, hop, owl, fly\n\nAnimals: **rabbit, owl**. Ways of moving: **hop, fly**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Headings",
+     "text": "Good readers and writers sort ideas under **headings**: *Jobs, Sounds, Landforms, Feelings*.\n\nA heading must cover **every** word in its group."
+    },
+    {
+     "title": "Exact categories",
+     "text": "Some groups are close. **Sounds** and **feelings** are different headings, even when the words are in the same story.\n\nA heading that is too **wide** (\"things\") or too **narrow** (\"birds\") is not the best one."
+    },
+    {
+     "title": "Check your heading",
+     "text": "1. Name what the words share.\n2. Test every word against the heading.\n3. If one word fails, change the heading or remove the word."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "Show where each word in the group is used.\n\n1. Find the sentence for each word.\n2. Check that it is used the way the heading says.\n3. Reject groups that mix different kinds of words, even if they come from the same sentence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The baker pulled hot loaves from the oven.",
+      "role": "key"
+     },
+     {
+      "t": "Next door, the tailor measured a customer for a new thobe.",
+      "role": "key"
+     },
+     {
+      "t": "The street smelled of bread and coffee.",
+      "role": "other"
+     }
+    ],
+    "explain": "**Baker** and **tailor** both fit the heading **Jobs**: each names a person by the work they do.\n\n**Bread** and **coffee** fit a different heading: **food and drink**."
+   },
+   "together": {
+    "passage": "Our street wakes up early. First, the baker opens his shop, and the smell of fresh bread fills the air. Next, the street sweeper brushes the pavement while the mechanic rolls up the metal door of his garage. A nurse hurries past on her way to the hospital. By eight o'clock, cars are honking, birds are chirping and a radio is buzzing in an open window.",
+    "stem": "Which group of words from the text could all go under the heading \"Jobs\"?",
+    "options": [
+     "honking, chirping, buzzing",
+     "shop, garage, hospital",
+     "baker, mechanic, nurse",
+     "bread, pavement, door"
+    ],
+    "answer": 2,
+    "hint": "A job names a person by the work they do. Do those words name people at work?",
+    "good": "Yes! A baker, a mechanic and a nurse are all people named by their jobs."
+   },
+   "evidence": {
+    "sentences": [
+     "Our street wakes up early.",
+     "First, the baker opens his shop, and the smell of fresh bread fills the air.",
+     "Next, the street sweeper brushes the pavement while the mechanic rolls up the metal door of his garage.",
+     "A nurse hurries past on her way to the hospital.",
+     "By eight o'clock, cars are honking, birds are chirping and a radio is buzzing in an open window."
+    ],
+    "proof": [
+     1,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "The answer was: baker, mechanic, nurse. Tap 2 sentences that name people by their jobs.",
+    "wrong": "This sentence does not name a person by their job. Find the sentences with the baker, the mechanic or the nurse."
+   },
+   "checks": [
+    {
+     "passage": "During the storm, thunder rumbled, the windows rattled and rain drummed on the roof.",
+     "stem": "Which heading fits rumbled, rattled and drummed?",
+     "options": [
+      "Colours",
+      "Places",
+      "Sounds",
+      "Foods"
+     ],
+     "answer": 2,
+     "why": "Each word tells a noise the storm made. They are sounds."
+    },
+    {
+     "passage": "From the plane window, Laila saw tall mountains, a deep valley, a wide desert and a big white cloud.",
+     "stem": "Which word does NOT belong under the heading \"Landforms\"?",
+     "options": [
+      "mountain",
+      "valley",
+      "desert",
+      "cloud"
+     ],
+     "answer": 3,
+     "why": "Mountains, valleys and deserts are shapes of the land. A cloud is in the sky."
+    },
+    {
+     "passage": "When her brother came home after two years abroad, Dana was delighted. Her mother was overjoyed, and even little Yasser was thrilled.",
+     "stem": "Which word can join the group delighted, overjoyed and thrilled?",
+     "options": [
+      "joyful",
+      "gloomy",
+      "furious",
+      "sleepy"
+     ],
+     "answer": 0,
+     "why": "All three words mean **very happy**. Joyful fits. The others are different feelings."
+    }
+   ],
+   "again": {
+    "title": "Too wide, too narrow, just right",
+    "text": "Test your heading three ways:\n\n**Too wide:** it fits almost anything (\"stuff\").\n**Too narrow:** it leaves out a word (\"desert animals\" for camel, lizard, whale).\n**Just right:** it fits all the words and nothing extra.",
+    "example": "camel, lizard, whale\n\n\"Things\": **too wide**. \"Desert animals\": **too narrow** (whale!). \"Animals\": **just right**."
+   }
+  }
+ }
+}
