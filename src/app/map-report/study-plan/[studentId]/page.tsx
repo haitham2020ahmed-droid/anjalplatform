@@ -12,6 +12,8 @@ import { studentStarsSummary } from "@/server/skills/student-stars";
 import { safeIfBehind } from "@/server/db/schema-errors";
 import { planStarCount } from "@/lib/plan-groups";
 import { getT } from "@/i18n/server";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { studyPlanSummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Personal Study Plan" };
 
@@ -41,7 +43,9 @@ export default async function StudyPlanPage({ params, searchParams }: { params: 
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={back} base={`/map-report/study-plan/${studentId}`} subject={subject} full={d.full} />
       {mine && <div className="mx-auto max-w-4xl print:hidden"><StudentStarsPanel s={mine} t={t} back={`/map-report/study-plan/${studentId}`} count={d.counts ?? planStarCount(d.areas)} /></div>}
+      <div className="mx-auto max-w-4xl"><ReportIntro text="The skills to practise next, by goal area, and how many are already mastered." /></div>
       <StudyPlanView d={d} link={actor.role === "STUDENT"} hub={["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(actor.role)} t={t} star={star} />
+      <div className="mx-auto max-w-4xl"><ReportSummary summary={studyPlanSummary({ ...d, counts: d.counts ?? planStarCount(d.areas) }, actor.role === "STUDENT" ? "student" : actor.role === "PARENT" ? "parent" : "staff")} /></div>
       {sp.print === "1" && <AutoPrint />}
     </AppShell>
   );

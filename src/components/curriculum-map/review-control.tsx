@@ -4,6 +4,7 @@ import { useT } from "@/i18n/client";
 import type { ReviewControlView, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
 import { reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewWriteAction } from "@/app/teacher/curriculum-review/actions";
+import { RichInline } from "@/components/rich-inline";
 
 const btn = "inline-flex min-h-9 items-center rounded-lg px-3 text-sm font-semibold ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-50";
 const main = "inline-flex min-h-10 items-center rounded-xl bg-brand-navy px-4 text-sm font-semibold text-white disabled:opacity-50";
@@ -57,7 +58,7 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
           <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${i < v.count ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
             <div className="flex flex-wrap items-start gap-2">
               <span className="w-7 shrink-0 font-bold text-brand-navy">{i + 1}.</span>
-              <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en">{x.stem}</p>
+              <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
               <span className="flex flex-wrap gap-1 text-xs">
                 {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
                 <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
@@ -97,7 +98,7 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
         <details className="rounded-xl bg-white p-3 ring-1 ring-slate-200">
           <summary className="cursor-pointer text-sm font-semibold text-slate-700">{t("Removed from my Review ({n})", { n: v.hidden.length })}</summary>
           <ul className="mt-2 space-y-1">{v.hidden.map((x) => (
-            <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1">{x.stem}</span>
+            <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
               {v.canEdit && <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "restore", questionId: x.id })); })}>{t("Put back")}</button>}</li>
           ))}</ul>
         </details>
@@ -135,7 +136,7 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
               </form>
               {bank && (bank.length ? (
                 <ul className="divide-y divide-slate-100">{bank.map((x) => (
-                  <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1">{x.stem}</span>
+                  <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
                     <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "addBank", questionId: x.id }), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
                 ))}</ul>
               ) : <p className="text-sm text-slate-600">{t("No question matches.")}</p>)}

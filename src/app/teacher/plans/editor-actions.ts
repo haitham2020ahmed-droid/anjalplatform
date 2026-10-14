@@ -85,7 +85,7 @@ export async function addQuestionsAction(f: FormData) {
 
 export async function sendPlanAction(f: FormData) {
   const a = await requireActor(ACCESS);
-  await back(f, async () => { const r = await sendPlan(repo, a, str(f, "planId")); const { t } = await getT(); return t("Sent: {parts} part(s) to {students} student(s). They see it in My Plans and My Work.", { parts: r.sections, students: r.students }); });
+  await back(f, async () => { const r = await sendPlan(repo, a, str(f, "planId"), new Date(), String(f.get("source") ?? "")); const { t } = await getT(); return t("Sent: {parts} part(s) to {students} student(s). They see it in My Plans and My Work.", { parts: r.sections, students: r.students }); });
 }
 export async function pausePlanAction(f: FormData) {
   const a = await requireActor(ACCESS);

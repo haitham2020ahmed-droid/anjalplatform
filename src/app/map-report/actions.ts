@@ -14,7 +14,7 @@ export async function assignGroupAction(f: FormData): Promise<void> {
   const due = String(f.get("dueAt") ?? "");
   let msg: string;
   try {
-    const r = await assignGroupSkills(repo, actor, { classId, group, low: Number(f.get("low")), high: Number(f.get("high")), skillIds: f.getAll("skill").map(String), studentIds: f.getAll("student").map(String), count: Number(f.get("count")) || 15, dueAt: due ? new Date(`${due}T20:59:00Z`) : null, startAt: startOfDay(f.get("startAt")) });
+    const r = await assignGroupSkills(repo, actor, { classId, group, low: Number(f.get("low")), high: Number(f.get("high")), skillIds: f.getAll("skill").map(String), studentIds: f.getAll("student").map(String), count: Number(f.get("count")) || 15, dueAt: due ? new Date(`${due}T20:59:00Z`) : null, startAt: startOfDay(f.get("startAt")), source: String(f.get("source") ?? "") });
     msg = `✓ Sent to ${r.students} student(s): one adaptive set from ${r.questions} questions of their band.`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
   redirect(`/map-report/class/${classId}/groups?${new URLSearchParams({ subject, msg })}#${group}`);

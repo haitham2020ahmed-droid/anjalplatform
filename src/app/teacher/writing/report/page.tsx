@@ -6,6 +6,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { writingResults } from "@/server/writing/locked";
+import { InfoTip, ReportIntro, ReportSummary } from "@/components/report-kit";
+import { writingSummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Writing results" };
 
@@ -22,6 +24,7 @@ export default async function WritingReportPage({ searchParams }: { searchParams
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="✍️" title="Writing results" subtitle={klass ? <><bdi>{String(klass.name)}</bdi> · {t("Rubric score (%) of graded writing.")}</> : undefined}><PrintButton /></PageHeader>
+      <ReportIntro text="The rubric score (%) of each graded writing task, per student." />
       {!res || !res.tasks.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{t("No graded writing yet.")}</p> : (
         <>
           <p className="mb-3 text-sm text-slate-600">{t("Class average")}: <b dir="ltr">{res.average === null ? "—" : `${res.average}%`}</b></p>
@@ -30,7 +33,7 @@ export default async function WritingReportPage({ searchParams }: { searchParams
               <thead className="bg-slate-50 text-xs text-slate-600"><tr>
                 <th className="p-3 text-start">{t("Student")}</th>
                 {res.tasks.map((k) => <th key={k.id} className="p-3 text-start">{k.locked ? <Link prefetch={false} href={`/teacher/writing/task/${k.id}`} className="hover:underline">🔒 {k.title}</Link> : k.title}</th>)}
-                <th className="p-3 text-start">{t("Average")}</th>
+                <th className="p-3 text-start">{t("Average")} <InfoTip text="The average of the student's graded scores." /></th>
               </tr></thead>
               <tbody className="divide-y divide-slate-100">{res.rows.map((r) => (
                 <tr key={r.studentId}>
@@ -43,6 +46,7 @@ export default async function WritingReportPage({ searchParams }: { searchParams
           </div>
         </>
       )}
+      {res && klass && <ReportSummary summary={writingSummary(res, String(klass.id), actor.role !== "TEACHER")} />}
     </AppShell>
   );
 }

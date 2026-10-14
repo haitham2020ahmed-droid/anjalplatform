@@ -39,9 +39,11 @@ export async function finishReadingAction(runId: string, p: ReadingProgress): Pr
   return guard(() => finishReading(repo, actor, String(runId), p ?? {}));
 }
 
-export async function submitActivityAction(runId: string, answers: Record<string, string>): Promise<Result<RunView>> {
+export async function submitActivityAction(runId: string, answers: Record<string, string>, at?: Record<string, number>): Promise<Result<RunView>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => submitActivity(repo, actor, String(runId), answers ?? {}));
+  // the answer times (ms after the questions opened) — only numbers are kept (accuracy.ts checks them)
+  const times = at && typeof at === "object" ? Object.fromEntries(Object.entries(at).slice(0, 20).map(([k, v]) => [String(k).slice(0, 3), Number(v)])) : null;
+  return guard(() => submitActivity(repo, actor, String(runId), answers ?? {}, new Date(), { at: times }));
 }
 
 export async function practiceAction(runId: string, answers: Record<string, string>): Promise<Result<{ correct: number; total: number; review: Review[] }>> {

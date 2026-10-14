@@ -4,6 +4,7 @@ import { PrintNow } from "@/components/learn/print-now";
 import { repo, requireActor } from "@/server/auth/next";
 import { teacherLessonView } from "@/server/learn/teacher";
 import { getT } from "@/i18n/server";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Learn — PDF" };
 
@@ -31,14 +32,14 @@ export default async function LessonPrintPage({ params, searchParams }: { params
       {c.slides.map((s, i) => <section key={i} className={box}><h2 className="mb-2 text-xl">{s.title}</h2><RichText text={s.text} /></section>)}
       <section className={box}><h2 className="mb-2 text-xl">{c.proof.title}</h2><RichText text={c.proof.text} /></section>
       <section className={box}><h2 className="mb-2 text-xl">Worked example</h2><p>{c.example.sentences.map((x) => x.t).join(" ")}</p><div className="mt-2"><RichText text={c.example.explain} /></div></section>
-      <section className={box}><h2 className="mb-2 text-xl">Try together</h2><p className="mb-2">{c.together.passage}</p><p className="font-semibold">{c.together.stem}</p><ol className="mt-1 space-y-1">{c.together.options.map((o, k) => <li key={k}>{letters[k]}. {o}</li>)}</ol></section>
-      <section className={box}><h2 className="mb-2 text-xl">Point to the proof</h2><p className="font-semibold">{c.evidence.stem}</p><ol className="mt-1 list-decimal ps-6">{c.evidence.sentences.map((x, k) => <li key={k}>{x}</li>)}</ol></section>
-      {c.checks.map((q, i) => <section key={i} className={box}><h2 className="mb-2 text-xl">Check {i + 1}</h2><p className="mb-2">{q.passage}</p><p className="font-semibold">{q.stem}</p><ol className="mt-1 space-y-1">{q.options.map((o, k) => <li key={k}>{letters[k]}. {o}</li>)}</ol></section>)}
+      <section className={box}><h2 className="mb-2 text-xl">Try together</h2><p className="mb-2"><RichInline text={c.together.passage} /></p><p className="font-semibold"><RichInline text={c.together.stem} /></p><ol className="mt-1 space-y-1">{c.together.options.map((o, k) => <li key={k}>{letters[k]}. <RichInline text={o} /></li>)}</ol></section>
+      <section className={box}><h2 className="mb-2 text-xl">Point to the proof</h2><p className="font-semibold"><RichInline text={c.evidence.stem} /></p><ol className="mt-1 list-decimal ps-6">{c.evidence.sentences.map((x, k) => <li key={k}><RichInline text={x} /></li>)}</ol></section>
+      {c.checks.map((q, i) => <section key={i} className={box}><h2 className="mb-2 text-xl">Check {i + 1}</h2><p className="mb-2"><RichInline text={q.passage} /></p><p className="font-semibold"><RichInline text={q.stem} /></p><ol className="mt-1 space-y-1">{q.options.map((o, k) => <li key={k}>{letters[k]}. <RichInline text={o} /></li>)}</ol></section>)}
       <section className={box}><h2 className="mb-2 text-xl">{c.again.title}</h2><RichText text={c.again.text} /><div className="mt-2"><RichText text={c.again.example} /></div></section>
       <section className={`${box} break-before-page`}>
         <h2 className="mb-2 text-xl">Answer key</h2>
         <p>Try together: {letters[c.together.answer]} · Proof sentences: {c.evidence.proof.map((x) => x + 1).join(", ")}</p>
-        <ol className="mt-1 space-y-1">{c.checks.map((q, i) => <li key={i}>Check {i + 1}: {letters[q.answer]} — {q.why}</li>)}</ol>
+        <ol className="mt-1 space-y-1">{c.checks.map((q, i) => <li key={i}>Check {i + 1}: {letters[q.answer]} — <RichInline text={q.why} /></li>)}</ol>
       </section>
     </main>
   );

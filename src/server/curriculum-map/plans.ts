@@ -8,6 +8,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { attachmentNodes, mapEpoch } from "./questions";
 import { modelVersion } from "../cache/bank-version";
@@ -47,8 +48,9 @@ export async function planPlaces(repo: Repo, schoolId: string, grade: number): P
   return out;
 }
 
-export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId: string; title: string; codes: string[]; studentIds?: string[]; maxQuestions?: number; targetCorrect?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; note?: string | null }, now = new Date()): Promise<{ planId: string; items: number; skipped: string[] }> {
+export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId: string; title: string; codes: string[]; studentIds?: string[]; maxQuestions?: number; targetCorrect?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; note?: string | null; /** r74: REQUIRED source */ source: string | null | undefined }, now = new Date()): Promise<{ planId: string; items: number; skipped: string[] }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const title = s(input.title).replace(/\s+/g, " ").trim();
   if (!title) throw new ValidationError("Give the plan a title.");
@@ -64,7 +66,7 @@ export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId
     const place = all.find((p) => p.code === code);
     if (!place) { skipped.push(`${code}: not a place of Grade ${grade}`); continue; }
     try {
-      const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: code, studentIds: input.studentIds?.length ? input.studentIds : undefined, maxQuestions: input.maxQuestions, targetCorrect: input.targetCorrect ?? DEFAULT_TARGET_CORRECT, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? `Skill plan: ${title}`, mode: "ADAPTIVE" }, now);
+      const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: code, studentIds: input.studentIds?.length ? input.studentIds : undefined, maxQuestions: input.maxQuestions, targetCorrect: input.targetCorrect ?? DEFAULT_TARGET_CORRECT, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? `Skill plan: ${title}`, mode: "ADAPTIVE", source }, now);
       await repo.create("SkillPlanItem", { planId: plan.id, code, label: `${place.where} · ${place.label}`.slice(0, 255), assignmentIds: r.groups.map((g) => g.assignmentId), order: order++ });
     } catch (e) {
       if (e instanceof ValidationError) skipped.push(`${place.label} (${place.where}): ${e.message}`); else throw e;

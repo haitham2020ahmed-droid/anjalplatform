@@ -201,12 +201,12 @@ describe("Update 15", () => {
     assert.equal(pv.counts.BELOW + pv.counts.ON + pv.counts.ABOVE >= 6, true);
     assert.ok(pv.questions.every((q) => q.answer !== undefined));
     await assert.rejects(previewWork(repo, await studentActor(students[0]), { skillId }), ForbiddenError);
-    const auto = await assignSkillByLevel(repo, teacher, { classId, skillId, mode: "AUTOMATIC" });
+    const auto = await assignSkillByLevel(repo, teacher, { source: "CURRICULUM", classId, skillId, mode: "AUTOMATIC" });
     assert.equal(auto.groups[0].students, students.length);
     const levels = Object.fromEntries(students.map((id, i) => [id, i % 3 === 0 ? "BELOW" : i % 3 === 1 ? "ON" : "ABOVE"]));
-    const man = await assignSkillByLevel(repo, teacher, { classId, skillId, mode: "MANUAL", levels, dueAt: new Date(Date.now() + 86_400_000) });
+    const man = await assignSkillByLevel(repo, teacher, { source: "CURRICULUM", classId, skillId, mode: "MANUAL", levels, dueAt: new Date(Date.now() + 86_400_000) });
     assert.equal(man.groups.reduce((t, g) => t + g.students, 0), students.length);
-    await assert.rejects(assignSkillByLevel(repo, other, { classId, skillId, mode: "AUTOMATIC" }), ForbiddenError);
+    await assert.rejects(assignSkillByLevel(repo, other, { source: "CURRICULUM", classId, skillId, mode: "AUTOMATIC" }), ForbiddenError);
   });
 
   test("tags & review: derived tags, a ~10% sample, verify, and RIT recalibration from answers", async () => {

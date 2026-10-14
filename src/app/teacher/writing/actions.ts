@@ -86,7 +86,7 @@ export async function reteachAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const ids = f.getAll("studentIds").map(String).filter(Boolean);
   const msg = await run(async () => {
-    const r = await assignReteach(repo, actor, { taskId: str(f, "taskId"), skillId: str(f, "skillId"), studentIds: ids.length ? ids : undefined });
+    const r = await assignReteach(repo, actor, { taskId: str(f, "taskId"), skillId: str(f, "skillId"), studentIds: ids.length ? ids : undefined, source: String(f.get("source") ?? "") });
     return `✓ Assigned to ${r.students} student${r.students === 1 ? "" : "s"}.`;
   });
   redirect(back(f, msg));

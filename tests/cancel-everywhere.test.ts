@@ -47,13 +47,13 @@ describe("🚫 cancel honoured everywhere the student sees work", () => {
     const skills = (await repo.findMany("Skill", { curriculumId: { in: (await repo.findMany("Curriculum", { gradeId: grade!.id })).map((x) => x.id) } }, { select: ["id"] })).map((k) => String(k.id));
     const qs = (await repo.findMany("Question", { skillId: { in: skills }, status: "PUBLISHED", deletedAt: null }, { select: ["id"], take: 12 })).map((q) => String(q.id));
     // 1. the Review as a single Curriculum Map set (Assign on the Review place)
-    review = (await assignQuestions(repo, teacher, { classId, questionIds: qs.slice(0, 6), title: REVIEW, exactTitle: true, track: "CURRICULUM", adaptive: { maxQuestions: 6 } }, now)).assignmentId;
+    review = (await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: qs.slice(0, 6), title: REVIEW, exactTitle: true, track: "CURRICULUM", adaptive: { maxQuestions: 6 } }, now)).assignmentId;
     // the student opened it: an unfinished session ("Continue" on the home)
     await repo.create("PracticeSession", { studentId: me.studentId!, assignmentId: review, mode: "TEACHER_QUIZ", startedAt: new Date(now.getTime() - 3_600_000), questionCount: 2, correctCount: 1, activeMs: 0 });
     // 2. the same kind of Review as a PLACE of a unit plan (sent from the Curriculum Map)
     const plan = await repo.create("SkillPlan", { schoolId, classId, title: "Grade 4 · Unit 1 plan", kind: "UNIT", gradeLevel: Number(grade!.level), status: "SENT", createdById: teacher.userId, createdAt: now });
     planId = String(plan.id);
-    place = (await assignQuestions(repo, teacher, { classId, questionIds: qs.slice(6, 12), title: `${REVIEW} 2`, exactTitle: true, track: "CURRICULUM", adaptive: { maxQuestions: 6 }, curriculumPlanId: planId, silent: true }, now)).assignmentId;
+    place = (await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: qs.slice(6, 12), title: `${REVIEW} 2`, exactTitle: true, track: "CURRICULUM", adaptive: { maxQuestions: 6 }, curriculumPlanId: planId, silent: true }, now)).assignmentId;
     await repo.create("SkillPlanItem", { planId, code: "G4.U1.S1.REVIEW", label: "Unit 1 · Selection 1: Amigo Brothers · Review", assignmentIds: [place], order: 0 });
   });
 

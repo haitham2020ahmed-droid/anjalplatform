@@ -13,9 +13,15 @@
  *  Stretch   the same article one version higher (stretch = true): ≥ 75% counts toward goals; never lowers the level.
  *  completedAt = when the activity (step 3) was scored — the moment the reading "counts". step = DONE when all
  *  5 steps are finished.
+ *  Accuracy  owner r69 (accuracy.ts): the reader sends when each question was first answered; 2+ rapid guesses make
+ *            the run Unreliable (teacher-only): it never moves the level, never counts toward the goal and never feeds
+ *            the skills. Careful answers feed the skill stars through the skill-status hook, after the response.
  */
 import { feedReadRise, safeFeed } from "../practice/skill-evidence";
 import { runAfterResponse } from "../lib/after-response";
+import { onSkillAnswer } from "../skills/status";
+import { alertMapGap, rapidAnswers } from "./accuracy";
+import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -179,7 +185,11 @@ export function recommend(unread: ArticleCard[], runs: Row[], arts: Row[], now: 
 
 export interface QuestionView { number: number; stem: string; options: string[]; skill: string }
 export interface Review { number: number; chosen: string | null; answer: string; correct: boolean; why: string; wrongWhy: string | null }
-export interface DoneView { score: number | null; firstTry: boolean; stretch: boolean; levelBefore: number; levelAfter: number; goal: GoalStats; canStretch: boolean; prePoll: number | null; postPoll: number | null }
+export interface DoneView {
+  score: number | null; firstTry: boolean; stretch: boolean; levelBefore: number; levelAfter: number; goal: GoalStats; canStretch: boolean; prePoll: number | null; postPoll: number | null;
+  /** owner r69: some answers were too fast to be read, so this reading did not count (a gentle "take your time") */
+  tooFast?: boolean;
+}
 export interface RunView {
   runId: string; articleId: string; step: RunStep; stretch: boolean; firstTry: boolean; versionLevel: number; band: RRBand;
   title: string; topic: string; poll: string; prePoll: number | null; postPoll: number | null;
@@ -256,8 +266,9 @@ const MEASURE_COLS = ["level", "estLevel", "officialLexile"];
 
 async function goalFor(repo: Repo, studentId: string, now: Date): Promise<GoalStats> {
   const rr = await repo.findUnique("RRStudent", { studentId });
-  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { gte: ENGINE.up } }, { select: ["completedAt"] });
-  return goalStats(runs.filter((r) => r.completedAt).map((r) => toDate(r.completedAt)), Number(rr?.weeklyGoal ?? 2), now);
+  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { gte: ENGINE.up } }, { select: ["completedAt", "unreliable"] });
+  // an Unreliable run (2+ rapid answers) never counts toward the goal
+  return goalStats(runs.filter((r) => r.completedAt && r.unreliable !== true && r.unreliable !== 1).map((r) => toDate(r.completedAt)), Number(rr?.weeklyGoal ?? 2), now);
 }
 
 /** Everything the reader needs for one run (answers hidden until the activity is scored). */
@@ -290,6 +301,7 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
       levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal,
       canStretch: run.stretch !== true && !others.length && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
+      tooFast: run.unreliable === true || run.unreliable === 1,
     };
   }
   return {
@@ -399,30 +411,56 @@ export async function saveReading(repo: Repo, actor: Actor, runId: string, p: Re
 export async function finishReading(repo: Repo, actor: Actor, runId: string, p: ReadingProgress, now = new Date()): Promise<RunView> {
   const run = await ownRun(repo, actor, runId);
   expectStep(run, "READ");
-  await repo.updateMany("RRRun", { id: runId, step: "READ" }, { ...(await readingPatch(repo, run, p)), step: "QUIZ" });
+  // quizAt: when the questions opened (the server's clock for the answer times, accuracy.ts)
+  await repo.updateMany("RRRun", { id: runId, step: "READ" }, { ...(await readingPatch(repo, run, p)), step: "QUIZ", quizAt: now });
   return runView(repo, actor, runId, now);
 }
 
-/** Step 3: scores the 8 questions on the server. The first scored reading of an article moves the level. */
-export async function submitActivity(repo: Repo, actor: Actor, runId: string, raw: Record<string, unknown>, now = new Date()): Promise<RunView> {
+/** The reader's answer times: question number → ms after the questions opened when it was first answered. */
+export interface ActivityTiming { at?: Record<string, unknown> | null }
+
+/**
+ * Step 3: scores the 8 questions on the server. The first scored reading of an article moves the level — unless 2+
+ * answers were rapid guesses (an Unreliable run: accuracy.ts), which never moves it.
+ */
+export async function submitActivity(repo: Repo, actor: Actor, runId: string, raw: Record<string, unknown>, now = new Date(), timing: ActivityTiming = {}): Promise<RunView> {
+  let moved = false, studentId = "";
   await repo.transaction(async (tx) => {
     const run = await ownRun(tx, actor, runId);
     expectStep(run, "QUIZ");
-    const qs = await questionsOf(tx, s(run.articleId), s(run.band));
+    studentId = s(run.studentId);
+    const [qs, ver] = await Promise.all([
+      questionsOf(tx, s(run.articleId), s(run.band)),
+      tx.findMany("RRVersion", { articleId: s(run.articleId), level: Number(run.versionLevel) }, { select: ["wordCount"], take: 1 }).then((r) => r[0]),
+    ]);
     if (!qs.length) throw new ValidationError("This article has no questions yet.");
     const answers = cleanAnswers(raw, qs);
     const { pct } = scoreAnswers(qs, answers);
-    const changed = await tx.updateMany("RRRun", { id: runId, step: "QUIZ" }, { answers, score: pct, completedAt: now, step: "WRITE" });
+    // 🎯 rapid guesses (the practice rules): the first answer against the text's reading time, the others under 3 s
+    const quizAt = run.quizAt ? toDate(run.quizAt).getTime() : NaN;
+    const words = Number(ver?.wordCount) || 0;
+    const fast = rapidAnswers({ at: timing?.at ?? null, numbers: qs.map((q) => Number(q.number)), readSeconds: Number(run.readSeconds ?? 0), words, serverMs: Number.isFinite(quizAt) ? now.getTime() - quizAt : null });
+    const changed = await tx.updateMany("RRRun", { id: runId, step: "QUIZ" }, {
+      answers, score: pct, completedAt: now, step: "WRITE",
+      answerMs: { ms: fast.ms, rapid: fast.rapid }, rapidCount: fast.rapid.length, unreliable: fast.unreliable,
+    });
     if (!changed) throw new ValidationError("Already submitted. Reload the page.");
     const rr = await ensureRRStudent(tx, s(run.studentId), now);
     let before = Number(rr.level), after = before;
-    // first try counts; a stretch below 75% is ignored by the level (never lowers it)
-    if (run.firstTry === true && (run.stretch !== true || pct >= ENGINE.up)) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now }, now));
+    // first try counts; a stretch below 75% is ignored by the level (never lowers it); an Unreliable run never counts
+    if (run.firstTry === true && !fast.unreliable && (run.stretch !== true || pct >= ENGINE.up)) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
+    moved = after !== before;
     await tx.updateMany("RRRun", { id: runId }, { levelBefore: before, levelAfter: after });
   });
-  // 🔗 the answers also feed the skills they measure (main idea, inference, vocabulary in context …; Update 39B) —
-  // after the response (Update 42B): the student's score and level are already saved above
-  runAfterResponse("readrise.skill_feed", () => safeFeed("readrise", () => feedReadRise(repo, runId, now)));
+  // 🔗 the careful answers also feed the skills they measure (main idea, inference, vocabulary in context …) and then
+  // the skill stars through the skill-status hook — all after the response: the score and level are saved above
+  runAfterResponse("readrise.skill_feed", () => safeFeed("readrise", async () => {
+    const skills: string[] = [];
+    await feedReadRise(repo, runId, now, (ids) => skills.push(...ids));
+    for (const skillId of new Set(skills)) runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now), { key: `skills.status|${studentId}|${skillId}` });
+  }));
+  // ⚖️ the level moved: ReadRise vs MAP far apart → one alert for the teacher
+  if (moved) runAfterResponse("readrise.map_gap", () => alertMapGap(repo, studentId, now).catch(() => false), { key: `readrise.map_gap|${studentId}` });
   return runView(repo, actor, runId, now);
 }
 
@@ -471,8 +509,17 @@ export const VERSION_LEVELS = RR_LEVELS;
 export interface ReadRiseHome {
   library: Library; summary: ReadRiseSummary;
   growth: { points: { at: string; level: number }[]; projected: number | null; yearEnd: string };
-  /** NEED = never placed and the test is ready; RETAKE = a teacher allowed a retake; OPEN = a test is half done. */
-  placement: { state: "NONE" | "NEED" | "OPEN" | "RETAKE"; result: number | null; /** r68: when the last placement was finished (the Placement test tab) */ doneAt?: string | null; /** the test's passages are on this server */ ready?: boolean };
+  /**
+   * NEED = never placed and the test is ready; RETAKE = a teacher allowed a retake; OPEN = a test is half done;
+   * CHECK = the middle / end of year reading check is open (owner r69: "Check your reading level").
+   */
+  placement: {
+    state: "NONE" | "NEED" | "OPEN" | "RETAKE" | "CHECK"; result: number | null; /** r68: when the last placement was finished (the Placement test tab) */ doneAt?: string | null; /** the test's passages are on this server */ ready?: boolean;
+    /** the reading check that is open now */
+    due?: RRPeriod | null;
+    /** this school year's reading checks: start → middle → end (null = not taken) */
+    checks?: Record<RRPeriod, { level: number; at: string } | null>;
+  };
   /** a real level (readRisePlaced): until then no level number is shown anywhere (the summary's level is a working start) */
   placed: boolean;
   /** not placed and the placement test is available: the articles stay locked until the placement is finished */
@@ -492,17 +539,20 @@ export async function readRiseAccess(repo: Repo, studentId: string, passages: Pl
 /** Everything /student/readrise shows: level, goal, streak, growth + projection, placement prompt and the library. */
 export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: string; topic?: string } = {}, now = new Date(), passages: PlacementPassage[] = loadPlacementPassages()): Promise<ReadRiseHome> {
   const { studentId, schoolId } = studentOf(actor);
-  const [library, yearEnd, pst] = await Promise.all([
+  const [library, yearEnd, pst, windows] = await Promise.all([
     studentLibrary(repo, actor, filter, now), // creates the RRStudent row on first use
-    yearEndFor(repo, schoolId, now), placementStatus(repo, studentId),
+    yearEndFor(repo, schoolId, now), placementStatus(repo, studentId, now), loadReadRiseWindows(repo, schoolId, now),
   ]);
-  const [summary, hist] = await Promise.all([studentReadRiseSummary(repo, studentId, now), levelHistory(repo, studentId)]);
+  const [summary, hist, placements] = await Promise.all([
+    studentReadRiseSummary(repo, studentId, now), levelHistory(repo, studentId),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null } }, { select: ["result", "period", "completedAt"], take: 50 }),
+  ]);
   const ready = passages.length >= 5;
-  const state = pst.open ? "OPEN" : !ready ? "NONE" : !pst.last ? "NEED" : pst.canStart ? "RETAKE" : "NONE";
+  const state = pst.open ? "OPEN" : !ready ? "NONE" : !pst.last ? "NEED" : pst.retake ? "RETAKE" : pst.due ? "CHECK" : "NONE";
   return {
     library, summary: summary!,
     growth: { points: hist.points.map((p) => ({ at: p.at.toISOString(), level: p.level })), projected: summary!.projected, yearEnd: yearEnd.toISOString() },
-    placement: { state, result: pst.last ? Number(pst.last.result) : null, doneAt: pst.last?.completedAt ? new Date(pst.last.completedAt instanceof Date ? pst.last.completedAt.toISOString() : String(pst.last.completedAt)).toISOString() : null, ready },
+    placement: { state, result: pst.last ? Number(pst.last.result) : null, doneAt: pst.last?.completedAt ? new Date(pst.last.completedAt instanceof Date ? pst.last.completedAt.toISOString() : String(pst.last.completedAt)).toISOString() : null, ready, due: pst.due, checks: placementChecks(windows, placements) },
     placed: summary!.placed, locked: !summary!.placed && ready,
   };
 }

@@ -21,6 +21,9 @@ import {
   addQuestionsAction, addSectionAction, deleteDraftAction, duplicatePlanAction, pausePlanAction, questionAction, saveDetailsAction,
   saveStudentsAction, sectionAction, sendPlanAction, withdrawPlanAction,
 } from "@/app/teacher/plans/editor-actions";
+import { RichInline } from "@/components/rich-inline";
+import { SourceSelect } from "@/components/assign/source-select";
+import { stripMarks } from "@/lib/inline-marks";
 
 export type EditorStep = "what" | "preview" | "send";
 /** A stored sentence in the reader's language (values kept as they are). */
@@ -244,7 +247,7 @@ export function SectionCard({ t, v, x, i, n, readOnly, addOpen, bank, types, fil
             <li key={q.id} className={`flex flex-wrap items-start gap-2 px-3 py-2 ${q.published ? "" : "bg-red-50"}`}>
               <span className="w-6 shrink-0 pt-1 text-sm tabular-nums text-slate-500">{qi + 1}.</span>
               <div className="min-w-0 flex-1">
-                <p className="line-clamp-2 text-slate-900">{q.stem || t("(no text)")}</p>
+                <p className="line-clamp-2 text-slate-900">{q.stem ? <RichInline text={q.stem} /> : t("(no text)")}</p>
                 <p className="mt-1 flex flex-wrap items-center gap-1 text-xs text-slate-600">
                   <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${LEVEL_TONE[q.level]}`}>{t(LEVEL_NAME[q.level])}</span>
                   <span className="rounded-full bg-slate-100 px-2 py-0.5">{q.type}</span>
@@ -296,9 +299,9 @@ function BankPanel({ t, v, x, bank, types, filters }: { t: TFn; v: PlanEditorVie
           <ul className="max-h-96 divide-y divide-slate-100 overflow-y-auto rounded-xl bg-white ring-1 ring-slate-200">
             {bank.map((q) => (
               <li key={q.id} className="flex items-start gap-2 px-2 py-2">
-                <label className="flex min-h-11 shrink-0 items-center px-1"><input type="checkbox" name="qid" value={q.id} className="h-5 w-5" aria-label={q.stem.slice(0, 60)} /></label>
+                <label className="flex min-h-11 shrink-0 items-center px-1"><input type="checkbox" name="qid" value={q.id} className="h-5 w-5" aria-label={stripMarks(q.stem).slice(0, 60)} /></label>
                 <div className="min-w-0 flex-1 text-sm">
-                  <p className="line-clamp-2 text-slate-900">{q.stem}</p>
+                  <p className="line-clamp-2 text-slate-900"><RichInline text={q.stem} /></p>
                   <p className="mt-1 flex flex-wrap gap-1 text-xs text-slate-600"><span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${LEVEL_TONE[q.level]}`}>{t(LEVEL_NAME[q.level])}</span><span className="rounded-full bg-slate-100 px-2 py-0.5">{q.type}</span>{q.passageTitle && <span>· 📖 {q.passageTitle}</span>}</p>
                 </div>
                 <Link href={`/teacher/plans/${v.id}?add=${x.key}&open=${q.id}#question`} className={`${SMALL} bg-white text-brand-navy ring-1 ring-slate-200`}>{t("Open")}</Link>
@@ -374,14 +377,14 @@ export function QuestionPanel({ t, q, closeHref }: { t: TFn; q: FullQuestion; cl
           <div className="max-h-[28rem] overflow-y-auto"><PassageText text={q.passage.text} paraClassName="mt-2 whitespace-pre-line leading-relaxed text-slate-800" headingClassName="mt-3 font-bold text-brand-navy" /></div>
         </details>
       )}
-      <p className="mt-4 whitespace-pre-line text-lg text-slate-900">{q.stem}</p>
+      <p className="mt-4 whitespace-pre-line text-lg text-slate-900"><RichInline text={q.stem} /></p>
       {q.choices.length > 0 && (
         <ul className="mt-3 space-y-1">
-          {q.choices.map((c) => <li key={c.label} className={`rounded-xl px-3 py-2 ring-1 ${c.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-white ring-slate-200"}`}>{c.label}. {c.text}{c.correct && <span className="ms-2 text-xs">✓ {t("Correct answer")}</span>}</li>)}
+          {q.choices.map((c) => <li key={c.label} className={`rounded-xl px-3 py-2 ring-1 ${c.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-white ring-slate-200"}`}>{c.label}. <RichInline text={c.text} />{c.correct && <span className="ms-2 text-xs">✓ {t("Correct answer")}</span>}</li>)}
         </ul>
       )}
-      {!q.choices.length && q.answer && <p className="mt-3 rounded-xl bg-emerald-50 px-3 py-2 text-emerald-900 ring-1 ring-emerald-200">✓ {t("Correct answer")}: {q.answer}</p>}
-      {q.hint && <p className="mt-3 text-sm text-slate-600">💡 {q.hint}</p>}
+      {!q.choices.length && q.answer && <p className="mt-3 rounded-xl bg-emerald-50 px-3 py-2 text-emerald-900 ring-1 ring-emerald-200">✓ {t("Correct answer")}: <RichInline text={q.answer} /></p>}
+      {q.hint && <p className="mt-3 text-sm text-slate-600">💡 <RichInline text={q.hint} /></p>}
     </section>
   );
 }
@@ -426,7 +429,7 @@ export function PreviewStep({ t, v, as, lines }: { t: TFn; v: PlanEditorView; as
                 <p className="font-semibold text-brand-navy">{i + 1}. {hideLevels(x.label ?? x.skillName)}{x.lesson && <span className="ms-2 text-sm font-normal text-slate-600">{t("Lesson first")}</span>}</p>
                 {x.auto ? <p className="text-sm text-slate-600">{t("Questions chosen for them as they go.")}</p> : (
                   <ol className="mt-1 list-decimal space-y-1 ps-6 text-sm text-slate-800">
-                    {x.questionIds.map((id) => <li key={id}>{hideLevels(lines.get(id)?.stem ?? "")}{lines.get(id)?.passageTitle && <span className="text-slate-500"> · {lines.get(id)!.passageTitle}</span>}</li>)}
+                    {x.questionIds.map((id) => <li key={id}><RichInline text={hideLevels(lines.get(id)?.stem ?? "")} />{lines.get(id)?.passageTitle && <span className="text-slate-500"> · {lines.get(id)!.passageTitle}</span>}</li>)}
                   </ol>
                 )}
               </li>
@@ -458,7 +461,7 @@ export function SendStep({ t, v, canSend, classes }: { t: TFn; v: PlanEditorView
           <div className="mt-4 flex flex-wrap items-center justify-end gap-3">
             <Link href={`/teacher/plans/${v.id}?step=preview`} className={BTN_SOFT}>{t("Preview as student")}</Link>
             <form action={deleteDraftAction}><Keep planId={v.id} step="send" /><button className={`${BTN} bg-white text-red-700 ring-1 ring-red-200 hover:bg-red-50`}>{t("Delete draft")}</button></form>
-            {canSend && v.sections.length > 0 && <form action={sendPlanAction}><Keep planId={v.id} step="what" /><button className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button></form>}
+            {canSend && v.sections.length > 0 && <form action={sendPlanAction} className="flex flex-wrap items-end gap-2"><Keep planId={v.id} step="what" /><SourceSelect t={t} /><button className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button></form>}
           </div>
         )}
         {(v.status === "SENT" || v.status === "PAUSED") && canSend && (

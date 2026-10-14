@@ -9,6 +9,7 @@ import type { ClientQuestion } from "@/server/practice/items";
 import type { Graded } from "@/server/teacher/worksheet";
 import { FlagButton } from "./flag-button";
 import { WordLookup } from "./word-lookup";
+import { RichInline } from "@/components/rich-inline";
 
 type Result = { correct: number; total: number; review: Graded[] };
 
@@ -50,15 +51,15 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
           if (q.passage) passages.add(q.passage.text);
           return (
             <section key={q.questionId} className={`rounded-2xl bg-white p-5 ring-1 ${rv ? (rv.correct ? "ring-2 ring-emerald-400" : "ring-2 ring-red-300") : "ring-slate-200"}`}>
-              {showPassage && q.passage && <details open className="mb-3 rounded-xl bg-slate-50 p-3"><summary className="cursor-pointer font-bold text-brand-navy">📖 {q.passage.title || "Read the text"}</summary><PassageText text={q.passage.text} /></details>}
+              {showPassage && q.passage && <details open className="mb-3 rounded-xl bg-slate-50 p-3"><summary className="cursor-pointer font-bold text-brand-navy">📖 <RichInline text={q.passage.title || "Read the text"} /></summary><PassageText text={q.passage.text} /></details>}
               {q.image && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={q.image.url} alt={q.image.alt} className="mb-3 max-h-80 w-auto max-w-full rounded-xl ring-1 ring-slate-200" />
               )}
-              <p className="font-semibold text-slate-900">{i + 1}. {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" ? q.stem : ""}</p>
+              <p className="font-semibold text-slate-900">{i + 1}. {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" ? <RichInline text={q.stem} /> : ""}</p>
               <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen" className="mt-1" />
               <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => { onAnswer(q.questionId); setValues((s) => ({ ...s, [q.questionId]: v })); }} disabled={Boolean(result) || busy} /></div>
-              {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : `✗ The answer is: ${rv.correctAnswer}.`} {rv.why}</p>}
+              {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : <>✗ The answer is: <RichInline text={rv.correctAnswer} />.</>} <RichInline text={rv.why} /></p>}
               {!result && <FlagButton questionId={q.questionId} />}
             </section>
           );

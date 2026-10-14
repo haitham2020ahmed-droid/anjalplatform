@@ -181,7 +181,7 @@ describe("assignments", () => {
     const curId = (await repo.findMany("Curriculum", { gradeId: st.gradeId }))[0].id;
     const theme = String((await repo.findUnique("Skill", { curriculumId: curId, code: "G4.theme" }))!.id);
     const cc = String((await repo.findUnique("Skill", { curriculumId: curId, code: "G4.context-clues" }))!.id);
-    await createAssignment(repo, t4a, { classId: classA, title: "Theme and context clues", target: "SKILL", skillIds: [theme, cc], dueAt: new Date("2026-11-09T12:00:00Z"), targetMastery: 60 }, new Date("2026-11-03T08:00:00Z"));
+    await createAssignment(repo, t4a, { source: "CURRICULUM", classId: classA, title: "Theme and context clues", target: "SKILL", skillIds: [theme, cc], dueAt: new Date("2026-11-09T12:00:00Z"), targetMastery: 60 }, new Date("2026-11-03T08:00:00Z"));
     assert.equal(await repo.count("AssignmentStudent", {}), 3);
     assert.equal(await repo.count("Notification", { type: "NEW_ASSIGNMENT" }), 3);
     const list = await classAssignments(repo, t4a, classA, new Date("2026-11-03T09:00:00Z"));
@@ -202,7 +202,7 @@ describe("assignments", () => {
   test("past the due date unfinished work becomes overdue; teachers cannot assign to other classes or with past dates", async () => {
     const list = await classAssignments(repo, t4a, classA, new Date("2026-11-20T08:00:00Z"));
     assert.ok(list[0].counts.OVERDUE + list[0].counts.COMPLETED === 3 && list[0].counts.OVERDUE >= 1);
-    await assert.rejects(createAssignment(repo, t4a, { classId: classB, title: "x", target: "UNIT", unitId: "u", dueAt: null }), /do not teach/);
-    await assert.rejects(createAssignment(repo, t4a, { classId: classA, title: "x", target: "SKILL", skillIds: ["nope"], dueAt: new Date("2020-01-01") }, new Date("2026-11-20")), /past/);
+    await assert.rejects(createAssignment(repo, t4a, { source: "CURRICULUM", classId: classB, title: "x", target: "UNIT", unitId: "u", dueAt: null }), /do not teach/);
+    await assert.rejects(createAssignment(repo, t4a, { source: "CURRICULUM", classId: classA, title: "x", target: "SKILL", skillIds: ["nope"], dueAt: new Date("2020-01-01") }, new Date("2026-11-20")), /past/);
   });
 });

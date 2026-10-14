@@ -980,7 +980,8 @@
    "Clauses and Complex Sentences",
    "Complex Sentences",
    "Independent and Dependent Clauses",
-   "Phrases and Clauses"
+   "Phrases and Clauses",
+   "Complex and Compound-Complex Sentences"
   ],
   "ritMin": 181,
   "ritMax": 210,
@@ -4459,7 +4460,8 @@
    "point-of-view"
   ],
   "skillNames": [
-   "Point of View and Perspective"
+   "Point of View and Perspective",
+   "Point of View: First, Second, Third Limited, Third Omniscient"
   ],
   "ritMin": 181,
   "ritMax": 220,
@@ -6420,5 +6422,30 @@
   "ritMax": null,
   "statementIds": [],
   "summary": "Enjoy jokes that play on two meanings of a word."
+ },
+ {
+  "code": "LN-223",
+  "title": "Agreement with compound subjects",
+  "subject": "LANGUAGE",
+  "goalArea": "Grammar and Usage",
+  "subtopic": "Phrases, Clauses, Agreement, Sentences",
+  "standards": [
+   "L.4.1",
+   "L.5.1",
+   "L.6.1"
+  ],
+  "families": [
+   "subject-verb-agreement"
+  ],
+  "skillNames": [
+   "Subject-Verb Agreement with Compound Subjects"
+  ],
+  "ritMin": 181,
+  "ritMax": 230,
+  "statementIds": [
+   "L-0206",
+   "L-0208"
+  ],
+  "summary": "Make the verb match a compound subject: and, or, nor, both, either and neither."
  }
 ]

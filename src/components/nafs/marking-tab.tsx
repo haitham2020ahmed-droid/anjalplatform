@@ -6,6 +6,7 @@ import { listNafsTests, markingQueue } from "@/server/nafs/tests";
 import { markWrittenAction } from "@/app/teacher/nafs/actions";
 import { SheetsTab } from "./sheets-tab";
 import { Combo } from "@/components/ui/combo";
+import { RichInline } from "@/components/rich-inline";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line";
 
@@ -37,7 +38,7 @@ export async function MarkingTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: R
                 <p className="text-ink"><b>{x.studentName}</b> <span className="text-muted">· {x.className} · {x.testTitle} · {t("Question {n}", { n: x.n })}</span></p>
                 {x.score !== null && <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{t("Score")}: {x.score} / 2</span>}
               </div>
-              <p className="mt-2 font-semibold text-ink" lang="en" dir="ltr">{x.stem}</p>
+              <p className="mt-2 font-semibold text-ink" lang="en" dir="ltr"><RichInline text={x.stem} /></p>
               <div className="mt-2 grid gap-3 md:grid-cols-2">
                 <div className="rounded-xl bg-surface-2 p-3 ring-1 ring-line">
                   <p className="text-xs font-semibold uppercase tracking-wide text-muted">{t("Student's answer")}</p>

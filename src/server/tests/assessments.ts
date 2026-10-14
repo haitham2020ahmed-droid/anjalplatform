@@ -15,6 +15,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { accessibleClasses, assignQuestions, assignSkill, MAX_TEST_SET_QUESTIONS, openAssignmentFor, refreshQuestionSets } from "../teacher/assign";
 import { skillPickerList } from "../skills/picker";
@@ -211,6 +212,8 @@ export interface AssignTestInput {
   templateId?: string | null;
   /** points per question (questionId → points); missing questions count 1 point */
   marks?: Record<string, number> | null;
+  /** r74: REQUIRED — the Source chosen in the Assign window (MAP | NAFS | CURRICULUM | GRAMMAR | RTI) */
+  source?: string | null;
 }
 
 /** Highest points one question may carry. */
@@ -262,6 +265,7 @@ async function testTeacher(repo: Repo, actor: Actor, classId: string): Promise<R
 export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInput, now = new Date()): Promise<{ testId: string; students: number; sets: number }> {
   staff(actor);
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, s(input.classId)); // teacher: own classes only
   const type = asTestType(input.type);
   const title = s(input.title).replace(/\s+/g, " ").trim().slice(0, 150) || autoTestName(type, await schoolWeek(repo, s(klass.schoolId), now));
@@ -317,7 +321,7 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
     for (const g of groups) {
       const r = await assignQuestions(repo, actor, {
         classId: s(klass.id), studentIds: g.students, questionIds: qOf(g.key), title: g.key === "SAME" ? title : `${title} (${LEVEL_NAME[g.key]})`, exactTitle: true,
-        startAt: openAt, dueAt, curriculumPlanId: TEST_MARK, silent: true, track: type === "MAP" ? "MAP" : "CURRICULUM", test: true,
+        startAt: openAt, dueAt, curriculumPlanId: TEST_MARK, silent: true, track: type === "MAP" ? "MAP" : "CURRICULUM", test: true, source,
       }, now);
       made.push(r.assignmentId);
     }
@@ -522,7 +526,7 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
  * Work with the existing assignSkill (own classes only — assignSkill checks), unless the student already has it open;
  * students who left the class are skipped.
  */
-export async function assignReteach(repo: Repo, actor: Actor, input: { classId: string; note: string; track: "MAP" | "NAFS" | "CURRICULUM"; skills: { skillId: string; below: { id: string; name: string }[] }[] }, now = new Date()): Promise<{ assigned: number; who: Set<string>; skipped: Set<string> }> {
+export async function assignReteach(repo: Repo, actor: Actor, input: { classId: string; note: string; track: "MAP" | "NAFS" | "CURRICULUM"; /** r74: the source of the reteach work (its context: the test's / game's) */ source: string; skills: { skillId: string; below: { id: string; name: string }[] }[] }, now = new Date()): Promise<{ assigned: number; who: Set<string>; skipped: Set<string> }> {
   assertCan(actor, "assignments:create");
   const members = new Set((await repo.findMany("ClassMembership", { classId: input.classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)));
   let assigned = 0;
@@ -536,7 +540,7 @@ export async function assignReteach(repo: Repo, actor: Actor, input: { classId: 
       if (!(await openAssignmentFor(repo, st.id, k.skillId, now))) need.push(st.id);
     }
     if (!need.length) continue;
-    await assignSkill(repo, actor, { classId: input.classId, skillId: k.skillId, studentIds: need, note: input.note, track: input.track }, now);
+    await assignSkill(repo, actor, { classId: input.classId, skillId: k.skillId, studentIds: need, note: input.note, track: input.track, source: input.source }, now);
     assigned++;
     for (const id of need) who.add(id);
   }
@@ -555,7 +559,7 @@ export async function reteach(repo: Repo, actor: Actor, testId: string, now = ne
   const type = r.test.type;
   const note = `Reteach: ${r.test.title}`;
   const track = type === "MAP" ? "MAP" : type === "NAFS" ? "NAFS" : "CURRICULUM";
-  const { assigned, who, skipped } = await assignReteach(repo, actor, { classId: r.test.classId, note, track, skills: r.skills }, now);
+  const { assigned, who, skipped } = await assignReteach(repo, actor, { classId: r.test.classId, note, track, source: track, skills: r.skills }, now);
   await repo.updateMany("TeacherTest", { id: testId }, { reteachAt: now });
   await audit(repo, { actorId: actor.userId, action: "test.reteach", entityType: "TeacherTest", entityId: testId, after: { assigned, students: who.size, skipped: skipped.size } });
   return { assigned, students: who.size, skipped: [...skipped] };

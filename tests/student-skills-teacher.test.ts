@@ -18,6 +18,7 @@ import { skillKeyIndex } from "../src/server/skills/status";
 import { GRID_PAGE, GRID_PLANS, skillsGrid } from "../src/server/skills/skills-grid";
 import { needsReteach, RETEACH_SHARE, sendSkillsToFamily, skillPage, skillPageAction, studentSkillsForTeacher } from "../src/server/skills/student-skills";
 import { REPORT_CATEGORIES } from "../src/components/teacher/report-catalog";
+import { assignSkill } from "../src/server/teacher/assign";
 import { UI_STRINGS } from "../src/i18n/en";
 import { ar } from "../src/i18n/ar";
 
@@ -52,10 +53,13 @@ describe("⭐ Reports → Student Skills (teacher)", () => {
     const qs = await repo.findMany("Question", { skillId: g4.get("theme")!, status: "PUBLISHED" }, { select: ["id"], take: 3 });
     const ses = await repo.create("PracticeSession", { studentId: ids[1], skillId: g4.get("theme")!, mode: "ADAPTIVE_PRACTICE", startedAt: now, questionCount: 6, correctCount: 1, activeMs: 0 });
     for (let i = 0; i < 6; i++) await repo.create("QuestionAttempt", { sessionId: ses.id, studentId: ids[1], questionId: qs[i % 2].id, skillId: g4.get("theme")!, response: { value: "x" }, isCorrect: i === 5, responseMs: 9000, rapidGuess: false, difficultyB: 0, createdAt: new Date(now.getTime() - 86_400_000) });
+    // r74: Student Skills shows only assigned skills — theme (Curriculum) and capitalization (Grammar) for the class
+    await assignSkill(repo, teacher, { classId, skillId: g4.get("theme")!, source: "CURRICULUM" }, now);
+    await assignSkill(repo, teacher, { classId, skillId: g4.get("capitalization")!, source: "GRAMMAR" }, now);
   });
 
   test("Skills Grid: the source and strand filters, the column counts, pagination", async () => {
-    assert.deepEqual(GRID_PLANS.map((p) => p.key).slice(0, 5), ["ALL", "CURRICULUM", "MAP", "NAFS", "GRAMMAR"], "Curriculum · MAP · NAFS · Grammar · All");
+    assert.deepEqual(GRID_PLANS.map((p) => p.key), ["ALL", "MAP", "NAFS", "CURRICULUM", "GRAMMAR", "RTI"], "r74: All sources · MAP · NAFS · Curriculum · Grammar · RTI");
     const g = await skillsGrid(repo, teacher, { classId }, now);
     const theme = g.skills.find((k) => k.key === "fam:theme")!;
     assert.deepEqual([theme.mastered, theme.total], [1, ids.length], "1 of 5 mastered");
@@ -79,16 +83,16 @@ describe("⭐ Reports → Student Skills (teacher)", () => {
     const cap = await skillPage(repo, teacher, classId, "fam:capitalization", now);
     assert.equal(cap.reteach, false);
     // Assign to students not mastered: the 4 who are not ⭐
-    const a = await skillPageAction(repo, teacher, classId, "fam:theme", "NOT_MASTERED", now);
+    const a = await skillPageAction(repo, teacher, classId, "fam:theme", "NOT_MASTERED", now, "CURRICULUM");
     assert.equal(a.students, 4);
     const mine = new Set((await repo.findMany("AssignmentStudent", { assignmentId: a.assignmentId })).map((r) => s(r.studentId)));
     assert.ok(!mine.has(ids[0]) && mine.has(ids[4]), "the mastered student is left out");
     // Create small group: Learning + Review only
-    const sg = await skillPageAction(repo, teacher, classId, "fam:theme", "SMALL_GROUP", now);
+    const sg = await skillPageAction(repo, teacher, classId, "fam:theme", "SMALL_GROUP", now, "CURRICULUM");
     assert.equal(sg.students, 3);
     assert.match(s((await repo.findUnique("Assignment", { id: sg.assignmentId }))!.note), /^Small group:/);
     // Reteach to whole class
-    const rt = await skillPageAction(repo, teacher, classId, "fam:theme", "RETEACH", now);
+    const rt = await skillPageAction(repo, teacher, classId, "fam:theme", "RETEACH", now, "CURRICULUM");
     assert.equal(rt.students, ids.length);
     assert.match(s((await repo.findUnique("Assignment", { id: rt.assignmentId }))!.note), /^Reteach:/);
     await assert.rejects(skillPage(repo, other, classId, "fam:theme", now), /not|class|Forbidden/i, "another teacher's class: no");
@@ -99,6 +103,9 @@ describe("⭐ Reports → Student Skills (teacher)", () => {
     assert.equal(v.skills.counts.REVIEW, 1); assert.equal(v.skills.counts.MASTERED, 1);
     assert.match(v.summary, /1 mastered · \d+ learning · 1 to review · \d+ not started/);
     assert.ok(v.skills.groups.MASTERED.flatMap((g) => g.rows).every((r) => r.href === null), "read-only: no practice buttons");
+    // r74: the teacher's view lists only the skills assigned to this student (theme 🔄 + capitalization ⭐), by strand, with sources
+    assert.deepEqual(v.assigned.groups.map((g) => [g.strand, g.rows.map((r) => [r.key, r.status, r.sources.join("+")])]), [["LITERATURE", [["fam:theme", "NEEDS_REVIEW", "CURRICULUM"]]], ["GRAMMAR", [["fam:capitalization", "MASTERED", "GRAMMAR"]]]]);
+    assert.deepEqual([v.assigned.total, v.assigned.counts.NOT_STARTED], [2, 0]);
     assert.ok(v.planHref && v.planHref.startsWith("/teacher/plans?"), "Create Plan");
     const q = new URLSearchParams(v.planHref!.split("?")[1]);
     assert.equal(q.get("tab"), "new"); assert.equal(q.get("who"), "student"); assert.equal(q.get("sid"), ids[3]);

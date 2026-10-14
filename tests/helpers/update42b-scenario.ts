@@ -79,7 +79,7 @@ export async function runScenario(load: Load) {
   const teacher = await actorFor(String((await repo.findUnique("User", { id: (await repo.findUnique("Teacher", { id: ct.teacherId }))!.userId }))!.username));
   const k2 = usable[2] ?? usable[0];
   const setItems = (await loadSkillItems(repo, String(k2.id))).sort((a: any, b: any) => a.level - b.level).slice(0, 5);
-  const set = await assignQuestions(repo, teacher, { classId: String(cm.classId), questionIds: setItems.map((x: any) => x.questionId), studentIds: [lina.studentId], title: "Scenario set" }, at((t += 60)));
+  const set = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId: String(cm.classId), questionIds: setItems.map((x: any) => x.questionId), studentIds: [lina.studentId], title: "Scenario set" }, at((t += 60)));
   let q = await P.startQuiz(repo, lina, set.assignmentId, at((t += 30)));
   for (let i = 0; q.question && i < 10; i++) {
     const it = (await loadQuestionItems(repo, [q.question.questionId]))[0];

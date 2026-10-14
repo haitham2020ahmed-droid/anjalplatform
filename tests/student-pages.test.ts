@@ -170,10 +170,10 @@ describe("student pages (b1): data and access", () => {
   });
 
   test("programWork: a MAP item is in My Work AND in the MAP section; each program sees only its own", async () => {
-    await assignSkill(repo, t4, { classId, skillId: skills[0] }, NOW);
-    await assignSkill(repo, t4, { classId, skillId: skills[1], track: "MAP", studentIds: [a] }, NOW);
-    await assignSkill(repo, t4, { classId, skillId: skills[2], track: "NAFS", studentIds: [a] }, NOW);
-    await assignSkill(repo, t4, { classId, skillId: skills[3], track: "RTI", studentIds: [b] }, NOW);
+    await assignSkill(repo, t4, { source: "CURRICULUM", classId, skillId: skills[0] }, NOW);
+    await assignSkill(repo, t4, { source: "MAP", classId, skillId: skills[1], track: "MAP", studentIds: [a] }, NOW);
+    await assignSkill(repo, t4, { source: "NAFS", classId, skillId: skills[2], track: "NAFS", studentIds: [a] }, NOW);
+    await assignSkill(repo, t4, { source: "RTI", classId, skillId: skills[3], track: "RTI", studentIds: [b] }, NOW);
     const map = await programWork(repo, a, "MAP", NOW);
     assert.deepEqual(map.map((w) => w.skillId), [skills[1]]);
     assert.deepEqual((await programWork(repo, a, "NAFS", NOW)).map((w) => w.skillId), [skills[2]]);

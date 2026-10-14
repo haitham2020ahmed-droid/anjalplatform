@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { AtAGlance, ReportHeader, ReportSection, SimpleBar, Sparkline, EmptyState, type Glance } from "@/components/report-kit";
+import { AtAGlance, ReportHeader, ReportIntro, ReportSection, ReportSummary, SimpleBar, Sparkline, EmptyState, type Glance } from "@/components/report-kit";
+import { earlyWarningSummary } from "@/lib/report-summaries";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { reportHref } from "@/reports/links";
@@ -55,6 +56,7 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
         subtitle="Level movements of every student — drops, rises, up-down swings — and the serious problems that need action now."
         downloads={v.classId || school ? [{ href: files("xlsx"), label: "Excel" }, { href: files("pdf"), label: "PDF file" }] : []} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
+      <ReportIntro text="Students whose results dropped, rose or swung, with the ones who need action now first." />
 
       {v.isAdmin ? (
         <form method="get" className="mb-4 flex flex-wrap items-end gap-2 print:hidden">
@@ -113,6 +115,7 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
             )}
           </ReportSection>
           <p className="text-xs text-slate-500">{t("Updated {date}. The school is checked every 3 hours.", { date: v.scannedAt.slice(0, 16).replace("T", " ") })}</p>
+          <ReportSummary summary={earlyWarningSummary(v)} />
         </>
       )}
       <datalist id="ew-quick">{QUICK.map((q) => <option key={q} value={t(q)} />)}</datalist>

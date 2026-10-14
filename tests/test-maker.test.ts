@@ -163,7 +163,7 @@ describe("⚡ generateTest, 🔁 replace, 👁 question detail, marks (demo scho
   test("questions the class was given recently are left out of the next test", async () => {
     const first = await generateTest(repo, teacher, { lessons: [lessonA], count: 5, level: "MIXED", classId, seed: "s1" });
     const ids = first.questions.map((q) => q.id);
-    await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Quiz A", levelMode: "SAME", questions: { SAME: ids }, marks: first.marks });
+    await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Quiz A", levelMode: "SAME", questions: { SAME: ids }, marks: first.marks });
     const second = await generateTest(repo, teacher, { lessons: [lessonA], count: 5, level: "MIXED", classId, seed: "s1" });
     assert.equal(second.questions.filter((q) => ids.includes(q.id)).length, 0, "20 questions in the lesson: new ones are used first");
     assert.ok(!second.notes.some((x) => /saw recently/.test(x)));
@@ -185,14 +185,14 @@ describe("⚡ generateTest, 🔁 replace, 👁 question detail, marks (demo scho
     const r = await generateTest(repo, teacher, { skillIds: [skillId], count: 5, level: "MIXED", totalMarks: 12, seed: "mk" });
     const ids = r.questions.map((q) => q.id);
     const marks = { ...r.marks, [ids[0]]: 4 };
-    const { testId } = await assignTest(repo, teacher, { classId, type: "CHAPTER_TEST", title: "Marked test", levelMode: "SAME", questions: { SAME: ids }, marks });
+    const { testId } = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CHAPTER_TEST", title: "Marked test", levelMode: "SAME", questions: { SAME: ids }, marks });
     const res = await testResults(repo, teacher, testId);
     assert.equal(res.marks?.[ids[0]], 4);
     const max = Math.round(Object.values(marks).reduce((a, b) => a + b, 0) * 100) / 100;
     assert.ok(res.students.every((x) => x.maxPoints === max && x.points === 0));
     const tid = await saveTemplate(repo, teacher, { title: "Marked", type: "CHAPTER_TEST", spec: { skills: [], levelMode: "SAME", timeLimitMin: null, shuffle: false, questions: { SAME: ids }, mapQuestionIds: ids, marks } });
     assert.equal((await openTemplate(repo, teacher, tid)).spec.marks?.[ids[0]], 4);
-    await assert.rejects(assignTest(repo, teacher, { classId, type: "CHAPTER_TEST", title: "Bad", levelMode: "SAME", questions: { SAME: ids }, marks: { [ids[0]]: 500 } }), ValidationError);
+    await assert.rejects(assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CHAPTER_TEST", title: "Bad", levelMode: "SAME", questions: { SAME: ids }, marks: { [ids[0]]: 500 } }), ValidationError);
   });
 
   test("👁 question detail: the full passage, every option with the answer marked; staff of the school only", async () => {

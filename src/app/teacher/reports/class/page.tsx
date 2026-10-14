@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { AtAGlance, EmptyState, ReportHeader, ReportSection, type Glance } from "@/components/report-kit";
+import { AtAGlance, EmptyState, ReportHeader, InfoTip, ReportIntro, ReportSection, ReportSummary, type Glance } from "@/components/report-kit";
+import { classCompareSummary } from "@/lib/report-summaries";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
@@ -43,6 +44,7 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="📈" title="Class progress" who={klass ? <bdi>{klass.name}</bdi> : undefined}
         subtitle="This class this month, compared with the same class last month. Never ranked against other classes." />
+      <ReportIntro text="This class this month against last month, and how each student is growing compared with classmates." />
       {!klass || !m || !peers ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : (
         <>
           <AtAGlance items={glance(m.thisMonth, m.lastMonth)} />
@@ -74,7 +76,7 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
           </div>
           <ReportSection title="Each student against the class" icon="👥" hint={t("Teachers only: students and parents never see this.")}>
             <div className="rk-box"><table className="w-full min-w-[520px] text-sm">
-              <thead><tr><th className="p-2 text-start">{t("Student")}</th><th className="p-2 text-start">{t("Position")}</th><th className="p-2 text-start">{t("Growth this month")}</th><th className="p-2 text-start">{t("New stars")}</th></tr></thead>
+              <thead><tr><th className="p-2 text-start">{t("Student")}</th><th className="p-2 text-start">{t("Position")} <InfoTip text="Above, around or below the middle of the class (practice accuracy)." /></th><th className="p-2 text-start">{t("Growth this month")} <InfoTip text="How many classmates this student is growing faster than, this month." /></th><th className="p-2 text-start">{t("New stars")}</th></tr></thead>
               <tbody className="divide-y divide-slate-100">{peers.rows.map((r) => (
                 <tr key={r.studentId}>
                   <td className="p-2"><Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link></td>
@@ -85,6 +87,7 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
               ))}</tbody>
             </table></div>
           </ReportSection>
+          <ReportSummary summary={classCompareSummary(m, peers, klass.id)} />
         </>
       )}
     </AppShell>

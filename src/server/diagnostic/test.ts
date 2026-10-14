@@ -529,7 +529,7 @@ async function ensureClassAssignmentUnlocked(repo: Repo, t: Row, klass: Row, act
   }
   const lead = (await repo.findMany("ClassTeacher", { classId: klass.id }, { select: ["teacherId", "isLead"] })).sort((a, b) => Number(Boolean(b.isLead)) - Number(Boolean(a.isLead)))[0];
   if (!lead || !members.length) return false;
-  const a = await repo.create("Assignment", { classId: klass.id, createdById: lead.teacherId, title: s(t.title), target: "ASSESSMENT", track: "CURRICULUM", assessmentId: t.assessmentId, startAt: opensAt, dueAt: closesAt, note: `${PERIOD_LABEL[asPeriod(t.period)]} Diagnostic Test`, createdAt: now });
+  const a = await repo.create("Assignment", { classId: klass.id, createdById: lead.teacherId, title: s(t.title), target: "ASSESSMENT", track: "CURRICULUM", assessmentId: t.assessmentId, startAt: opensAt, dueAt: closesAt, note: `${PERIOD_LABEL[asPeriod(t.period)]} Diagnostic Test`, createdAt: now, source: "CURRICULUM" });
   await repo.createMany("AssignmentStudent", members.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
   const users = await repo.findMany("Student", { id: { in: members } }, { select: ["userId"] });
   await repo.createMany("Notification", users.map((u) => ({ userId: u.userId, type: "NEW_ASSIGNMENT", title: "📝 Your Diagnostic Test is ready", body: `${s(t.title)}: about ${DIAGNOSTIC_SIZE} questions. Take your time and do your best — there is no score shown until your teacher shares your report.`, link: `/quiz/${s(a.id)}`, readAt: null, createdAt: now })));

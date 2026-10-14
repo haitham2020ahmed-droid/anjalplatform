@@ -86,16 +86,16 @@ describe("UI reorg Phase 2: Student Home", () => {
     const empty = await studentHome(repo, A, NOW);
     assert.equal(empty.toDo, 0);
     assert.equal(empty.work.length, 0, "friendly empty state when there is no work");
-    await assignSkill(repo, t4, { classId: class4, skillId: skill1 }, NOW);
-    await assignSkill(repo, t4, { classId: class4, skillId: skill2, track: "MAP", studentIds: [a] }, NOW);
-    await assignPlan(repo, t4, { classId: class4, type: "CUSTOM", skillIds: [grammarSkill], studentIds: [a] }, NOW);
-    await assignSkill(repo, t4, { classId: class4, skillId: reteachSkill, studentIds: [a], note: "Reteach: Weekly Quiz – Week 6" }, NOW);
+    await assignSkill(repo, t4, { source: "CURRICULUM", classId: class4, skillId: skill1 }, NOW);
+    await assignSkill(repo, t4, { source: "MAP", classId: class4, skillId: skill2, track: "MAP", studentIds: [a] }, NOW);
+    await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "CUSTOM", skillIds: [grammarSkill], studentIds: [a] }, NOW);
+    await assignSkill(repo, t4, { source: "CURRICULUM", classId: class4, skillId: reteachSkill, studentIds: [a], note: "Reteach: Weekly Quiz – Week 6" }, NOW);
     // one test waiting (My Tests, not My Work)
     const qIds = (await repo.findMany("Question", { skillId: skill1, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId"] }));
     const types = await repo.findMany("QuestionType", { id: { in: [...new Set(qIds.map((q) => q.typeId))] } });
     const auto = qIds.filter((q) => AUTO.has(String(types.find((t) => t.id === q.typeId)?.code))).slice(0, 3).map((q) => String(q.id));
     assert.ok(auto.length >= 2, "auto-marked questions for the test");
-    await assignTest(repo, t4, { classId: class4, type: "WEEKLY_QUIZ", title: "Weekly Quiz – Week 6", levelMode: "SAME", questions: { SAME: auto }, studentIds: [a] }, NOW);
+    await assignTest(repo, t4, { source: "CURRICULUM", classId: class4, type: "WEEKLY_QUIZ", title: "Weekly Quiz – Week 6", levelMode: "SAME", questions: { SAME: auto }, studentIds: [a] }, NOW);
 
     const h = await studentHome(repo, A, NOW);
     const tag = (id: string) => h.work.find((w) => w.skillId === id);
@@ -140,7 +140,7 @@ describe("UI reorg Phase 2: Student Home", () => {
     assert.ok(!navItemsFor("STUDENT").some((i) => i.href === "/student/rti"), "no RTI entry by default");
     assert.ok(!("/student/rti" in (await navCounts(repo, B, NOW))));
     await repo.create("StudentTier", { studentId: b, schoolId: admin.schoolId, tier: 2, source: "TEACHER", locked: false, reason: "Test", focusSkillId: skill2, since: NOW, monitorEveryDays: 14, updatedAt: NOW });
-    await assignPlan(repo, t4, { classId: class4, type: "RTI" }, NOW);
+    await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "RTI" }, NOW);
     const h = await studentHome(repo, B, NOW);
     assert.deepEqual(h.rti, { tier: 2, focusSkillId: skill2 });
     assert.ok(h.work.some((w) => w.sourceKey === "RTI"), "support skills are in My Work (shown to the student as ordinary practice)");

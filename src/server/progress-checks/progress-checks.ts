@@ -108,7 +108,7 @@ export async function createProgressCheck(repo: Repo, actor: Actor, input: { cla
   const form = FORM[earlier.length] ?? String(earlier.length + 1);
   const title = `${TITLE_PREFIX}${s(lesson.code)} ${s(lesson.title)}${earlier.length ? ` (Form ${form})` : ""}`.slice(0, 180);
   const dueAt = input.dueAt === undefined ? new Date(now.getTime() + 7 * DAY) : input.dueAt;
-  const set = await assignQuestions(repo, actor, { classId: s(klass.id), questionIds: items.map((q) => q.id), title, exactTitle: true, dueAt, note: `Unit ${Number(unit.number)} text set check: ${items.length} questions. Pass mark ${PASS_PCT}%.` }, now);
+  const set = await assignQuestions(repo, actor, { classId: s(klass.id), questionIds: items.map((q) => q.id), title, exactTitle: true, dueAt, note: `Unit ${Number(unit.number)} text set check: ${items.length} questions. Pass mark ${PASS_PCT}%.`, source: "CURRICULUM" }, now); // r74: a unit check: Curriculum
   const categories = Object.fromEntries(items.map((q) => [q.id, q.category]));
   const row = await repo.create("ProgressCheck", { schoolId: s(klass.schoolId), classId: s(klass.id), lessonId: s(lesson.id), assignmentId: set.assignmentId, title, categories, createdById: actor.userId, createdAt: now });
   await audit(repo, { actorId: actor.userId, action: "progress_check.create", entityType: "ProgressCheck", entityId: s(row.id), after: { classId: s(klass.id), lessonId: s(lesson.id), items: items.length, form }, at: now });

@@ -10,6 +10,7 @@ import { PrintButton } from "@/components/plans/print-button";
 import { LineChart, Sparkline } from "./charts";
 import { CodeHead } from "./code-name";
 import { Combo } from "@/components/ui/combo";
+import { RichInline } from "@/components/rich-inline";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
 const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -108,7 +109,7 @@ function DimTable({ rows, t, title, id }: { rows: SkillRow[]; t: TFn; title: str
                 <td className="text-center tabular-nums">{x.items}</td>
                 {DIFFICULTIES.map((k) => <td key={k} className="text-center"><Pc v={x.byDifficulty[k].pct} /><span className="block text-[11px] text-muted">({x.byDifficulty[k].n})</span></td>)}
                 <td className="text-center"><Sparkline points={x.trend.map((p) => p.pct)} label={t("Trend")} /><span className="block text-[11px] tabular-nums text-muted" dir="ltr">{x.trend.map((p) => p.pct ?? "—").join(" → ")}</span></td>
-                <td className="max-w-xs text-xs text-ink-2">{x.missed ? <><span className="line-clamp-2">{x.missed.stem}</span><span className="text-muted"><Pc v={x.missed.pct} /> · {x.missed.topWrong !== null ? t("most chose {o}", { o: LETTERS[x.missed.topWrong] }) : ""}</span></> : "—"}</td>
+                <td className="max-w-xs text-xs text-ink-2">{x.missed ? <><span className="line-clamp-2"><RichInline text={x.missed.stem} /></span><span className="text-muted"><Pc v={x.missed.pct} /> · {x.missed.topWrong !== null ? t("most chose {o}", { o: LETTERS[x.missed.topWrong] }) : ""}</span></> : "—"}</td>
               </tr>
             ))}
           </tbody>
@@ -131,7 +132,7 @@ function Skills({ d, t }: { d: Dashboard; t: TFn }) {
           <ol className="mt-2 grid gap-2">
             {d.missed.map((m) => (
               <li key={m.id} className="rounded-xl bg-surface-2 p-3 text-sm ring-1 ring-line">
-                <p className="text-ink">{m.stem || "—"}</p>
+                <p className="text-ink">{m.stem ? <RichInline text={m.stem} /> : "—"}</p>
                 <p className="mt-1 text-xs text-ink-2">{m.standard && <b className="me-1">{short(m.standard, t)} ·</b>}{t("Correct")}: <Pc v={m.pct} /> · {t("{n} answers", { n: m.answered })}{m.topWrong !== null ? ` · ${t("Most chosen wrong option: {o} ({n})", { o: LETTERS[m.topWrong], n: m.topWrongCount })}` : ""} · {m.kinds.map((k) => t(k === "TEST" ? "Tests" : "Practice")).join(" + ")}</p>
               </li>
             ))}

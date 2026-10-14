@@ -15,6 +15,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { isGrammarCode } from "../grammar/grammar";
 import { assignSkill } from "../teacher/assign";
 import { familyIdsInSchool } from "../questions/skill-questions";
@@ -51,6 +52,8 @@ export interface SendPlanInput {
   classId: string;
   /** the page it is sent from (null = a custom plan) */
   program: Program | null;
+  /** r74: REQUIRED — the Source chosen in the window */
+  source?: string | null;
   title?: string | null;
   picks: PlanPick[];
   dueAt?: Date | null;
@@ -71,6 +74,7 @@ export interface SendPlanResult { planId: string; skills: number; students: numb
 export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanInput, now = new Date()): Promise<SendPlanResult> {
   assertCan(actor, "assignments:create");
   if (!input.classId) throw new ValidationError("Choose a class.");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId); // a teacher: their own class only
   const members = new Set((await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)));
   const bySkill = new Map<string, Set<string>>();
@@ -110,7 +114,7 @@ export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanI
       const picked = await pickedOfSkill(repo, s(klass.schoolId), skillId, input.questionIds?.[skillId]);
       const r = await assignSkill(repo, actor, {
         classId: s(klass.id), skillId, studentIds: ids.length === classSize ? undefined : ids, track: trackOfProgram(input.program, isGrammarCode(k.code)), dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${label}: ${title}`,
-        program: input.program ?? null, questionIds: picked?.length ? picked : null,
+        program: input.program ?? null, questionIds: picked?.length ? picked : null, source,
       }, now);
       assignmentIds.push(r.assignmentId);
       for (const id of ids) students.add(id);

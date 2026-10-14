@@ -6,6 +6,8 @@ import { ReportToolbar } from "@/components/map/report-toolbar";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { classFamilyReports } from "@/server/map/map-reports";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { classFamilySummary, mapFamilySummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Family Reports · Class" };
 
@@ -19,6 +21,7 @@ export default async function ClassFamilyPage({ params }: { params: Promise<{ cl
   return (
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={{ href: `/teacher/map-reports?classId=${classId}`, label: "MAP Reports" }} base={`/map-report/class/${classId}/family`} />
+      <div className="mx-auto max-w-4xl"><ReportIntro text="Every family report of the class: a cover page with each student, then one report for each family." /></div>
       <ReportPage first>
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-teal">Family Report · Whole Class</p>
         <h1 className="text-3xl font-black text-brand-navy">{v.className} <span className="text-lg font-normal text-slate-500">({v.docs.length} students)</span></h1>
@@ -29,8 +32,9 @@ export default async function ClassFamilyPage({ params }: { params: Promise<{ cl
             <tr key={d.student.id} className="border-b last:border-0"><td className="py-1.5 font-semibold text-slate-800">{d.student.name}</td><td>{r ? `${r.rit} · ${r.descriptor ?? ""}` : "—"}</td><td>{l ? `${l.rit} · ${l.descriptor ?? ""}` : "—"}</td><td>{d.practice.answers} answers · {d.practice.days} days</td></tr>
           ); })}</tbody>
         </table>
+        <ReportSummary summary={classFamilySummary(v.docs, classId)} />
       </ReportPage>
-      {v.docs.map((d) => <FamilyView key={d.student.id} d={d} first={false} />)}
+      {v.docs.map((d) => <FamilyView key={d.student.id} d={d} first={false} summary={mapFamilySummary(d)} />)}
     </AppShell>
   );
 }

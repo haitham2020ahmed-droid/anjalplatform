@@ -20,7 +20,7 @@ export async function sendRtiPlanAction(f: FormData): Promise<void> {
     const suggested = p.skills.map((k) => ({ id: k.id, name: k.name, reason: k.reason, studentIds: k.studentIds }));
     const inRti = p.students.filter((s) => suggested.some((k) => k.studentIds.includes(s.id))).map((s) => s.id);
     const plan = applyEdits(suggested, form.keep, await skillsByIds(repo, actor, form.add), inRti.length ? inRti : p.students.map((s) => s.id));
-    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: "RTI", title: form.title, picks: picksOf(plan), dueAt: form.dueAt, startAt: form.startAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
+    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: "RTI", title: form.title, picks: picksOf(plan), dueAt: form.dueAt, startAt: form.startAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered, source: form.source });
     msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
   } catch (e) {
     if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;

@@ -80,7 +80,7 @@ describe("no repeated questions within a skill (per student, across sessions)", 
 
   test("across sessions: never an attempted question; a missed one does not come back; finished → Done", async () => {
     const served: string[] = [];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: g4, studentIds: [A.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g4, studentIds: [A.studentId!] }, tick(0));
     // session 1: one right, one wrong, then the student leaves
     let v = await startPractice(repo, A, g4, tick());
     served.push(v.question!.questionId);
@@ -102,7 +102,7 @@ describe("no repeated questions within a skill (per student, across sessions)", 
     assert.equal(r.feedback.next.endReason, "SKILL_FINISHED");
     assert.equal(r.view.ended, true);
     // session 3: nothing to serve — the finished screen at once, and the work is Done
-    const again = await assignSkill(repo, teacher, { classId, skillId: g4, studentIds: [A.studentId!] }, tick(0));
+    const again = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g4, studentIds: [A.studentId!] }, tick(0));
     v = await startPractice(repo, A, g4, tick());
     assert.deepEqual([v.question, v.ended, v.endReason], [null, true, "SKILL_FINISHED"]);
     for (const id of [assignmentId, again.assignmentId]) {
@@ -115,7 +115,7 @@ describe("no repeated questions within a skill (per student, across sessions)", 
   test("the skill family counts: answers on Grade 4's copy finish Grade 5's copy too", async () => {
     const st = await answerState(repo, A.studentId!, keyed(await loadSkillItems(repo, g5)));
     assert.equal(st.answered.size, 6, "attempts recorded on the Grade 4 skill id are read for the Grade 5 copy");
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: g5, studentIds: [A.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g5, studentIds: [A.studentId!] }, tick(0));
     const v = await startPractice(repo, A, g5, tick());
     assert.deepEqual([v.question, v.endReason], [null, "SKILL_FINISHED"], "no repeat through another grade's copy");
     assert.equal((await repo.findMany("AssignmentStudent", { assignmentId, studentId: A.studentId! }))[0].status, "COMPLETED");
@@ -123,7 +123,7 @@ describe("no repeated questions within a skill (per student, across sessions)", 
 
   test("the teacher's picked questions (Assignment.questionIds): the same rules inside the picks", async () => {
     const picks = [qs[5], qs[2], qs[4]];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: g4, studentIds: [B.studentId!], questionIds: picks }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g4, studentIds: [B.studentId!], questionIds: picks }, tick(0));
     let v = await startPractice(repo, B, g4, tick());
     const served: string[] = [];
     let guard = 0, last = null as Awaited<ReturnType<typeof answer>> | null;

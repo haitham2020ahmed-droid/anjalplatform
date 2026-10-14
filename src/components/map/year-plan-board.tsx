@@ -6,8 +6,11 @@ import type { Pos, YearEdit, YearPlanView } from "@/server/map/year-plan";
 import { yearAssignWeekAction, yearEditAction, yearQuestionsAction } from "@/app/teacher/map-center/year-actions";
 import type { PreviewQuestion } from "@/server/map/year-plan-share";
 import { StarAssign } from "@/components/assign/star-assign";
+import { SourceSelect } from "@/components/assign/source-select";
+import { SOURCE_REQUIRED, type AssignSource } from "@/lib/assign-source";
 import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
 import { StarGlyph, StarLegend } from "@/components/skills/skill-star";
+import { RichInline } from "@/components/rich-inline";
 
 const btn = "inline-flex min-h-8 items-center rounded-lg px-2 text-xs font-semibold ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-40";
 const AREA_TONE: Record<string, string> = { LIT: "border-sky-400", INFO: "border-indigo-400", VOCAB: "border-amber-400", GRAMMAR: "border-rose-400", MECH: "border-teal-400", WRITING: "border-lime-500" };
@@ -40,10 +43,12 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
   });
   // ⭐ "N students already mastered … — exclude them?" before assigning a week whose skills some students mastered
   const [askWeek, setAskWeek] = useState<{ week: number; n: number } | null>(null);
-  const tryWeek = (week: number) => { const w = v.weeks.find((x) => x.week === week); const n = Math.max(0, ...(w?.skills.filter((k) => !k.assignedId).map((k) => k.mastered ?? 0) ?? [0])); if (n > 0) setAskWeek({ week, n }); else assignWeek(week, false); };
+  // r74: the source of the weeks assigned from here (always chosen by the teacher: no default)
+  const [source, setSource] = useState<AssignSource | "">("");
+  const tryWeek = (week: number) => { if (!source) { setMsg({ ok: false, text: t(SOURCE_REQUIRED) }); return; } const w = v.weeks.find((x) => x.week === week); const n = Math.max(0, ...(w?.skills.filter((k) => !k.assignedId).map((k) => k.mastered ?? 0) ?? [0])); if (n > 0) setAskWeek({ week, n }); else assignWeek(week, false); };
   const assignWeek = (week: number, excludeMastered: boolean) => start(async () => {
     setMsg(null); setAskWeek(null);
-    const r = await yearAssignWeekAction(v.classId, week, excludeMastered);
+    const r = await yearAssignWeekAction(v.classId, week, excludeMastered, source || null);
     if (r.ok) { setV(r.value); setMsg({ ok: true, text: t("Week {n} assigned ✓", { n: week }) }); } else setMsg({ ok: false, text: r.message });
   });
   const swap = (p: Pos) => { if (!swapFrom) { setSwapFrom(p); return; } if (swapFrom.week !== p.week || swapFrom.index !== p.index) edit({ op: "swap", a: swapFrom, b: p }); setSwapFrom(null); };
@@ -61,6 +66,7 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
       <div className="flex flex-wrap items-center gap-2">
         <label className="inline-flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={onlyOpen} onChange={(e) => setOnlyOpen(e.target.checked)} />{t("Only weeks not assigned yet")}</label>
+        {v.canEdit && <SourceSelect t={t} compact value={source} onChange={setSource} />}
         {v.canEdit && <button type="button" className={`${btn} ms-auto min-h-10 px-3 text-sm`} disabled={busy} onClick={() => { if (window.confirm(t("Make the plan again from the latest MAP scores? Your changes to the weeks are replaced."))) edit({ op: "regenerate" }, t("The plan was made again ✓")); }}>🔄 {t("Make the plan again")}</button>}
       </div>
       {swapFrom && <p role="status" className="rounded-xl bg-sky-50 px-4 py-2 text-sm text-sky-900">{t("Now press ⇄ on the skill to swap with.")} <button type="button" className="underline" onClick={() => setSwapFrom(null)}>{t("Cancel")}</button></p>}
@@ -102,7 +108,7 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
                         : (() => { const d = qs[k.skillId] as { total: number; questions: PreviewQuestion[] }; return d.questions.length ? (
                           <>
                             <p className="mb-1 text-slate-500">{t("{n} of {total} questions", { n: d.questions.length, total: d.total })}</p>
-                            <ol className="list-decimal space-y-1.5 ps-4" data-content lang="en">{d.questions.map((q) => <li key={q.id}><span className="text-slate-800">{q.stem}</span>{q.choices.length > 0 && <ul className="mt-0.5 space-y-0.5">{q.choices.map((c, ci) => <li key={ci} className={c.correct ? "font-semibold text-emerald-700" : "text-slate-600"}>{c.correct ? "✓ " : "· "}{c.text}</li>)}</ul>}</li>)}</ol>
+                            <ol className="list-decimal space-y-1.5 ps-4" data-content lang="en">{d.questions.map((q) => <li key={q.id}><span className="text-slate-800"><RichInline text={q.stem} /></span>{q.choices.length > 0 && <ul className="mt-0.5 space-y-0.5">{q.choices.map((c, ci) => <li key={ci} className={c.correct ? "font-semibold text-emerald-700" : "text-slate-600"}>{c.correct ? "✓ " : "· "}<RichInline text={c.text} /></li>)}</ul>}</li>)}</ol>
                           </>
                         ) : <p className="text-slate-500">{t("No questions yet.")}</p>; })()}
                     </div>

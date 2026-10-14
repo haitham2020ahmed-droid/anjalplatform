@@ -19,6 +19,7 @@ import { POWER_INFO } from "@/games/kit/powerups";
 import { playSound, useMute } from "@/games/kit/sound";
 import { confetti } from "@/games/kit/confetti";
 import { livePost, ordinal, useLiveFeed } from "./live-feed";
+import { RichInline } from "@/components/rich-inline";
 
 const LIVE_POWERS: PowerUpId[] = ["double", "time", "fifty", "shield", "hint"];
 
@@ -133,7 +134,7 @@ export function LivePlayer({ initial }: { initial: PlayerView }) {
             </div>
           ) : (
             <>
-              <h2 dir="ltr" lang="en" className="rounded-3xl bg-white p-5 text-center text-xl font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200">{v.question.stem}</h2>
+              <h2 dir="ltr" lang="en" className="rounded-3xl bg-white p-5 text-center text-xl font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200"><RichInline text={v.question.stem} /></h2>
               {hint && <p className="rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
               {Pad ? <Pad question={v.question} hidden={hidden} disabled={busy || v.paused} submit={submit} {...(teamLetter(v.team) ? { team: teamLetter(v.team) } : {})} />
                 : <AnswerTiles big options={v.question.options ?? []} hidden={hidden} disabled={busy || v.paused} onPick={(label) => submit(label)} />}

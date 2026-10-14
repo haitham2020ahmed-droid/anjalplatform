@@ -63,7 +63,7 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
     });
 
     test("a student with no data starts at On Level, climbs to Above, and finishes when Above is mastered", async () => {
-      const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.ACS", studentIds: [roster[0].id, roster[1].id], maxQuestions: 20 });
+      const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.ACS", studentIds: [roster[0].id, roster[1].id], maxQuestions: 20 });
       assert.deepEqual([r.groups.length, r.groups[0].questions], [1, 18], "one adaptive set with the whole pool");
       const aid = r.groups[0].assignmentId; adaptiveId = aid;
       const st = await student(roster[0].id);
@@ -112,14 +112,14 @@ describe("adaptive curriculum levels (Below → On → Above) driven by Lexile",
 
     test("from the map: one level to chosen students only; ☆ Choose questions lists the whole category", async () => {
       const chosen = [roster[5].id, roster[6].id];
-      const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.ACS.ON", studentIds: chosen });
+      const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.ACS.ON", studentIds: chosen });
       assert.deepEqual(r.groups.map((g) => [g.level, g.students, g.questions]), [["ON", 2, 6]]);
       const got = (await repo.findMany("AssignmentStudent", { assignmentId: r.groups[0].assignmentId })).map((x) => String(x.studentId)).sort();
       assert.deepEqual(got, [...chosen].sort(), "only the chosen students");
       const qs = (await repo.findMany("AssessmentQuestion", { assessmentId: (await repo.findUnique("Assignment", { id: r.groups[0].assignmentId }))!.assessmentId })).map((x) => String(x.questionId));
       assert.ok((await repo.findMany("Question", { id: { in: qs } })).every((q) => String(q.stem).startsWith("ON ")), "only On Level questions");
       // adaptive for chosen students only
-      const ad = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.ACS", studentIds: [roster[7].id] });
+      const ad = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.ACS", studentIds: [roster[7].id] });
       assert.equal(ad.groups[0].students, 1);
       // the bank filter by a category code shows the questions of its three levels
       const { listQuestions } = await import("../src/server/admin/questions");

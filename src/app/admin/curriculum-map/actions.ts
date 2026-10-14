@@ -8,7 +8,7 @@ import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
 import { getT } from "@/i18n/server";
 import { buildSendPreview, sendScope, type SendPreview, type SendScopeKind, type SendScopeResult } from "@/server/curriculum-map/send-scope";
 
-export interface PlaceAssignInput { classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null }
+export interface PlaceAssignInput { /** r74: the required Source */ source?: string | null; classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null }
 
 /** ⭐ Assign from the Curriculum Map, without leaving the page. */
 export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: boolean; message: string }> {
@@ -22,7 +22,7 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
     if (input.startLevels?.length) await setStudentLevels(repo, actor, input.classId, input.startLevels.filter((x) => ["ABOVE", "ON", "BELOW"].includes(x.level)));
     const startAt = startOfDay(input.startAt);
     if (startAt && due && due.getTime() < startAt.getTime()) throw new ValidationError(DATE_ORDER_ERROR);
-    const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, startAt, note: input.note ?? null });
+    const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, startAt, note: input.note ?? null, source: input.source ?? null });
     const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
     const parts = r.groups.map((g) => `${g.level ? LV[g.level] : "everyone"}: ${g.students} student(s)`);
     return { ok: true, message: `Assigned ✓ ${parts.join(" · ")}. Students were notified.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}` };
@@ -34,7 +34,7 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
 
 
 export interface ScopeInput { grade: number; kind: SendScopeKind; codes?: string[] | null; classIds?: string[] }
-export interface ScopeSendInput extends ScopeInput { studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
+export interface ScopeSendInput extends ScopeInput { /** r74: the required Source */ source?: string | null; studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
 const day = (v: unknown, end: boolean): Date | null => (typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) ? new Date(`${v}T${end ? "23:59:59" : "00:00:00"}`) : null);
 const list = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : []);
 
@@ -56,7 +56,7 @@ export async function sendScopeAction(input: ScopeSendInput): Promise<{ ok: bool
   try {
     const r = await sendScope(repo, actor, {
       grade: Number(input.grade), kind: input.kind, codes: list(input.codes), classIds: list(input.classIds), studentIds: list(input.studentIds),
-      exclude: list(input.exclude), resend: input.resend === true, dueAt: day(input.dueAt, true), startAt: day(input.startAt, false),
+      exclude: list(input.exclude), resend: input.resend === true, dueAt: day(input.dueAt, true), startAt: day(input.startAt, false), source: input.source ?? null,
     });
     const msg = [t("Sent ✓ {n} parts and {m} writing tasks.", { n: r.parts, m: r.writing }), r.alreadySent ? t("{n} parts were already sent and were skipped.", { n: r.alreadySent }) : ""].filter(Boolean).join(" ");
     return { ok: true, message: msg, result: r };

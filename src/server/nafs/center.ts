@@ -23,7 +23,7 @@ const s = (v: unknown) => String(v ?? "");
  *                          item analysis, distractors, export)
  *   3. Ministry booklets — the 100 model booklets: open one (passage + questions + answers), assign one or several
  *                          (online or print), a Report per booklet
- *   4. Reports           — the overall picture of EVERYTHING the students did in NAFS (the old Dashboard merged in)
+ *   4. Reports           — the overall picture of EVERYTHING the students did in NAFS (the old Dashboard merged in) · Compare (up or down)
  *   5. Suggested plan    — from the reports: the weakest standards per class / group / student, one-click assign
  *   then Question bank and Marking (still needed: the bank behind every tool; written answers + bubble sheets).
  */
@@ -44,6 +44,11 @@ export const SUB_TABS: Partial<Record<CenterTab, readonly { key: string; label: 
   test: [{ key: "create", label: "Create" }, { key: "report", label: "Report" }],
   booklets: [{ key: "list", label: "Booklets" }, { key: "report", label: "Report" }],
 };
+/**
+ * The views inside 4. Reports (?view=): the overview, the full detail (the old Dashboard) and COMPARE (r75: did the
+ * students go up or down — Tests & Booklets · Practice · All; ?mode=tests|practice|all).
+ */
+export const REPORT_VIEWS = [{ key: "", label: "Overview" }, { key: "detail", label: "Full detail" }, { key: "compare", label: "Compare" }] as const;
 export const subOf = (tab: string, sub: string | null | undefined): string => {
   const list = SUB_TABS[tab as CenterTab];
   return list?.find((x) => x.key === sub)?.key ?? list?.[0]?.key ?? "";
@@ -73,6 +78,7 @@ export function centerRedirect(sp: Record<string, string | string[] | undefined>
   if (tab === "home") return to([["tab", "reports"], ...keep()]);
   if (tab === "dashboard") return to([["tab", "reports"], ["view", "detail"], ...keep(["view"])]);
   if (tab === "reports") {
+    if (sp.sub === "compare" && sp.view !== "compare") return to([["tab", "reports"], ["view", "compare"], ...keep(["sub", "view"])]);
     if (sp.view === "practice") return to([["tab", "adaptive"], ["sub", "report"], ...(typeof sp.practice === "string" ? [["open", sp.practice] as [string, string]] : []), ...keep(["view", "practice"])]);
     if (sp.view === "test" || sp.view === "across" || sp.view === "trend" || sp.view === "student" || (sp.test && sp.view !== "detail")) return to([["tab", "test"], ["sub", "report"], ...keep()]);
   }

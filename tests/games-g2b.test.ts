@@ -268,7 +268,7 @@ describe("🎲 Games Part 2b — build rules", () => {
         assert.match(ar[m[1] as keyof typeof ar], /[؀-ۿ]/, `${id}: “${m[1]}” has Arabic`);
       }
       // question text, choices and hints are English, left to right
-      assert.match(src, /dir="ltr" lang="en"[^>]*>\{q\.stem\}/);
+      assert.match(src, /dir="ltr" lang="en"[^>]*>(?:\{q\.stem\}|<RichInline text=\{q\.stem\} \/>)/); // r72: shown with its underline / bold marks
     }
   });
 });

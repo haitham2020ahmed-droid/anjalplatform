@@ -6,6 +6,7 @@ import type { PlacementView } from "@/server/readrise/placement";
 import { answerPlacementAction, startPlacementAction } from "@/app/student/readrise/actions";
 import { paragraphsOf } from "./text";
 import { LevelBadge } from "./widgets";
+import { RichInline } from "@/components/rich-inline";
 
 /**
  * 🚀 The ReadRise placement runner: intro → one passage at a time (3 questions) → the result.
@@ -26,7 +27,7 @@ export function PlacementRunner({ view, level }: { view: PlacementView; level: n
       <section className="rounded-3xl bg-gradient-to-br from-emerald-50 to-white p-6 ring-1 ring-emerald-200" aria-live="polite">
         <h2 className="text-2xl font-bold text-brand-navy">🎉 {finished ? "You finished the placement!" : "Your placement is done"}</h2>
         {result !== null && result !== undefined && (
-          <p className="mt-3 flex flex-wrap items-center gap-2 text-lg text-slate-800">My starting ReadRise Level: <LevelBadge level={Number(result)} /></p>
+          <p className="mt-3 flex flex-wrap items-center gap-2 text-lg text-slate-800">{view.retake ? "My ReadRise Level" : "My starting ReadRise Level"}: <LevelBadge level={Number(result)} /></p>
         )}
         {finished?.note && <p className="mt-2 text-sm text-slate-600">We also looked at your MAP reading result to make this fair.</p>}
         {level !== null && result !== null && Number(result) !== level && <p className="mt-2 text-sm text-slate-600">Your level now is {level} — it has changed as you read.</p>}
@@ -50,7 +51,8 @@ export function PlacementRunner({ view, level }: { view: PlacementView; level: n
   if (view.state === "READY" || !view.passage || !view.placementId) {
     return (
       <section className="rounded-3xl bg-white p-6 ring-1 ring-slate-200">
-        <h2 className="text-xl font-bold text-brand-navy">{view.retake ? "Ready for a fresh start?" : "Let's find the articles that fit you"}</h2>
+        <h2 className="text-xl font-bold text-brand-navy">{view.check ? "Time to check your reading level" : view.retake ? "Ready for a fresh start?" : "Let's find the articles that fit you"}</h2>
+        {view.check && <p className="mt-1 text-slate-700">You check your reading level three times a year. This one shows how much you have grown since the start.</p>}
         <ul className="mt-3 space-y-2 text-slate-700">
           <li>📖 Read a short passage, then answer 3 questions.</li>
           <li>🔀 The next passage gets harder or easier depending on your answers.</li>
@@ -100,20 +102,20 @@ function PassageForm({ view, busy, error, onSubmit }: { view: PlacementView; bus
       </div>
       <article lang="en" className="reading mt-4 rounded-3xl bg-white p-5 text-lg leading-relaxed text-slate-900 shadow-sm ring-1 ring-slate-200 sm:p-8">
         <h2 ref={head} tabIndex={-1} className="text-2xl font-bold text-brand-navy outline-none">{p.title || `Passage ${view.stepNumber}`}</h2>
-        {paragraphsOf(p.text).map((t, i) => <p key={i} className="mt-4">{t}</p>)}
+        {paragraphsOf(p.text).map((t, i) => <p key={i} className="mt-4"><RichInline text={t} /></p>)}
       </article>
       <ol className="mt-5 space-y-4">
         {p.questions.map((q, qi) => (
           <li key={qi} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
             <fieldset>
-              <legend className="font-semibold text-slate-900">{qi + 1}. {q.stem}</legend>
+              <legend className="font-semibold text-slate-900">{qi + 1}. <RichInline text={q.stem} /></legend>
               <div className="mt-2 grid gap-2">
                 {q.options.map((o, i) => {
                   const l = "ABCD"[i];
                   return (
                     <label key={l} className={`flex cursor-pointer items-start gap-2 rounded-xl px-3 py-2.5 ring-1 ${a[qi] === l ? "bg-teal-50 ring-brand-teal" : "ring-slate-200 hover:ring-slate-300"}`}>
                       <input type="radio" name={`q${qi}`} value={l} checked={a[qi] === l} onChange={() => setA((x) => x.map((v, j) => (j === qi ? l : v)))} className="mt-1 h-4 w-4 accent-teal-600" />
-                      <span><strong>{l}.</strong> {o}</span>
+                      <span><strong>{l}.</strong> <RichInline text={o} /></span>
                     </label>
                   );
                 })}

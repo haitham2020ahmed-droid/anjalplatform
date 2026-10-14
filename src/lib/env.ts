@@ -27,7 +27,7 @@ const EnvSchema = z.object({
   REPORT_FONT_DIR: z.string().default("./assets/fonts"),
   REPORT_BRANDING_DIR: z.string().default("./storage/branding"),
   REPORT_CHROMIUM_PATH: z.string().optional(), // empty = Playwright's bundled Chromium
-  REPORT_PDF_CONCURRENCY: z.coerce.number().int().min(1).max(8).default(2),
+  REPORT_PDF_CONCURRENCY: z.coerce.number().int().min(1).max(8).default(1),
   REPORT_CHROMIUM_NO_SANDBOX: z.enum(["true", "false"]).default("false"), // only for containers that cannot sandbox
   // AI-assisted question bank (optional; without a key the generator explains how to enable it)
   ANTHROPIC_API_KEY: z.string().optional(),

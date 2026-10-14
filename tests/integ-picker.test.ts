@@ -62,7 +62,7 @@ describe("🧩 picker ↔ plans: picked questions go into the assignment and the
     const form = new Map([[pickField(skillId), field], [pickField(otherSkillId), ""]]);
     const picks = readQuestionPicks((k) => form.get(k) ?? null, [skillId, otherSkillId]);
     assert.deepEqual(picks, { [skillId]: picked }, "a skill left on the platform's choice has no picks");
-    const r = await sendProgramPlan(repo, teacher, {
+    const r = await sendProgramPlan(repo, teacher, { source: "CURRICULUM",
       classId, program: "RTI", title: "Picked plan",
       picks: students.flatMap((s) => [{ studentId: s.id, skillId }, { studentId: s.id, skillId: otherSkillId }]), questionIds: picks,
     }, NOW);
@@ -82,7 +82,7 @@ describe("🧩 picker ↔ plans: picked questions go into the assignment and the
     const foreign = (await questionsOfSkill(repo, teacher.schoolId!, otherSkillId)).filter((q) => !picked.includes(q.id)).slice(0, 1).map((q) => q.id);
     const own = new Set((await questionsOfSkill(repo, teacher.schoolId!, skillId)).map((q) => q.id));
     if (foreign.length && !own.has(foreign[0])) {
-      await assert.rejects(sendProgramPlan(repo, teacher, { classId, program: null, picks: [{ studentId: students[0].id, skillId }], questionIds: { [skillId]: foreign } }, NOW), /this skill only/);
+      await assert.rejects(sendProgramPlan(repo, teacher, { source: "CURRICULUM", classId, program: null, picks: [{ studentId: students[0].id, skillId }], questionIds: { [skillId]: foreign } }, NOW), /this skill only/);
     }
   });
 

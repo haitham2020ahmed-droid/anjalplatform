@@ -186,19 +186,19 @@ describe("🗓️ Year plan on the demo school", () => {
     const w = v.weeks.find((x) => x.skills.length)!;
     const k = w.skills[0];
     assert.equal(k.assignedId, null);
-    const r = await starAssign(repo, teacher, { kind: "SKILL", ref: k.skillId, classId, dueAt: w.due, track: "MAP" }, now);
+    const r = await starAssign(repo, teacher, { source: "MAP", kind: "SKILL", ref: k.skillId, classId, dueAt: w.due, track: "MAP" }, now);
     const a = (await repo.findUnique("Assignment", { id: r.id }))!;
     assert.equal(s(a.skillId), k.skillId); assert.equal(s(a.track), "MAP"); assert.equal(a.deletedAt ?? null, null);
     assert.ok(new Date(s(a.dueAt instanceof Date ? a.dueAt.toISOString() : a.dueAt)).getTime() >= now.getTime() - 60_000, "a past week's due date becomes today");
     assert.equal((await repo.findMany("AssignmentStudent", { assignmentId: r.id })).length, ids.length, "the whole class");
     assert.equal((await yearPlanView(repo, teacher, classId, now)).weeks.find((x) => x.week === w.week)!.skills[0].assignedId, r.id, "★");
-    const again = await starAssign(repo, teacher, { kind: "SKILL", ref: k.skillId, classId }, now);
+    const again = await starAssign(repo, teacher, { source: "CURRICULUM", kind: "SKILL", ref: k.skillId, classId }, now);
     assert.equal(again.already, true); assert.equal(again.id, r.id, "pressing ☆ twice never assigns twice");
     await assert.rejects(cancelStar(repo, other, { kind: "SKILL", id: r.id }, now), ForbiddenError, "another teacher cannot cancel it");
     await cancelStar(repo, teacher, { kind: "SKILL", id: r.id }, now);
     assert.ok((await repo.findUnique("Assignment", { id: r.id }))!.deletedAt, "soft: the row stays, marked cancelled");
     assert.equal((await starredSkills(repo, classId, [k.skillId])).size, 0, "☆ again");
-    const done = await assignYearWeek(repo, teacher, classId, w.week, now);
+    const done = await assignYearWeek(repo, teacher, classId, w.week, now, { source: "MAP" });
     assert.equal(done.assigned, new Set(w.skills.map((x) => x.skillId)).size);
     const after = (await yearPlanView(repo, teacher, classId, now)).weeks.find((x) => x.week === w.week)!;
     assert.ok(after.skills.every((x) => x.assignedId), "the whole week is ★");
@@ -240,7 +240,7 @@ describe("🗓️ Year plan on the demo school", () => {
     assert.ok(v.weeks.some((w) => w.skills.length));
     await assert.rejects(editYearPlan(repo, admin, classId, { op: "regenerate" }, now), ForbiddenError);
     await assert.rejects(yearPlanView(repo, other, classId, now), ForbiddenError, "not their class");
-    await assert.rejects(starAssign(repo, admin, { kind: "SKILL", ref: v.weeks[0].skills[0].skillId, classId }, now), ForbiddenError);
+    await assert.rejects(starAssign(repo, admin, { source: "CURRICULUM", kind: "SKILL", ref: v.weeks[0].skills[0].skillId, classId }, now), ForbiddenError);
     // the other class (no scores yet): its plan is empty with a note, and nothing is saved for it by the admin
     const t2 = (await repo.findUnique("Teacher", { userId: other.userId }))!;
     const class2 = s((await repo.findMany("ClassTeacher", { teacherId: t2.id }))[0].classId);

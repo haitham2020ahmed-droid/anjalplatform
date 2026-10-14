@@ -16,6 +16,7 @@ import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { countQuestionsOfSkills, SKILL_SYNONYMS } from "../questions/skill-questions";
 import { sweptWeakMap } from "../cache/idle";
+import { stripMarks } from "../../lib/inline-marks";
 
 const s = (v: unknown) => String(v ?? "");
 export type HitKind = "SKILL" | "GRAMMAR" | "PLACE" | "ARTICLE" | "QUESTION" | "STUDENT" | "PAGE";
@@ -139,8 +140,9 @@ async function searchOnce(repo: Repo, actor: Actor, raw: string): Promise<Search
   // questions (their stem)
   const skillName = new Map(skills.map((k) => [s(k.id), s(k.name)]));
   for (const r of stems) {
-    const sc = matchScore(words, s(r.stem).slice(0, 300));
-    if (sc) hits.push({ kind: "QUESTION", id: s(r.id), title: s(r.stem).replace(/\s+/g, " ").slice(0, 120), sub: skillName.get(s(r.skillId)) ?? "", href: `/teacher/preview?skillId=${s(r.skillId)}`, assignHref: teacher ? `/teacher/skill-assign?skillId=${s(r.skillId)}` : null, score: sc });
+    const plainStem = stripMarks(s(r.stem));
+    const sc = matchScore(words, plainStem.slice(0, 300));
+    if (sc) hits.push({ kind: "QUESTION", id: s(r.id), title: plainStem.replace(/\s+/g, " ").slice(0, 120), sub: skillName.get(s(r.skillId)) ?? "", href: `/teacher/preview?skillId=${s(r.skillId)}`, assignHref: teacher ? `/teacher/skill-assign?skillId=${s(r.skillId)}` : null, score: sc });
   }
 
   // the platform's own pages (the menu and the pages that left it)

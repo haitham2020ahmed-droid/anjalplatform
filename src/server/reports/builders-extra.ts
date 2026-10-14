@@ -15,6 +15,7 @@ import { classReadMasterReport, readMasterAnalytics, type ReadMasterAnalytics } 
 import { classReport as readRiseClass, schoolDashboard as readRiseSchool } from "../readrise/dashboards";
 import { classGrowth as readRiseClassGrowth, studentGrowthReport as readRiseStudentGrowth } from "../readrise/growth-report";
 import { FIT_LABEL, RANGE_NOTE, SKILL_LABEL, rangeText } from "../readrise/growth-words";
+import { readRiseTeacherReport } from "../readrise/teacher-report";
 import { ForbiddenError } from "../auth/rbac";
 import { earlyWarning } from "../insights/early-warning";
 import { MEASURES, PATTERN_NAME, SEVERITY_NAME } from "../insights/early-warning-rules";
@@ -25,7 +26,7 @@ export const isExtraKind = (k: string): k is ExtraKind => (EXTRA_KINDS as readon
 /** which extra kinds are school-wide (need analytics:school) for a scope */
 export const EXTRA_SCHOOL: Record<ExtraKind, "never" | "always" | "scope"> = { grammar: "scope", games: "never", rti: "never", levels: "always", readmaster: "scope", readrise: "scope", warning: "scope" };
 
-export const RR_EXPORT_NOTE = "ReadRise Level (estimate): ReadRise's own reading level on a Lexile-like scale — an estimate from first-try article scores, not an official Lexile measure and not the MAP Lexile.";
+export const RR_EXPORT_NOTE = "ReadRise Level (estimate): ReadRise's own reading level — an estimate from the reading checks and first-try article scores. It is not the MAP reading level.";
 const TITLES: Record<ExtraKind, string> = {
   grammar: "Grammar Results", games: "Live Games Report", rti: "RTI Weekly Plan", levels: "Approaching / Meeting / Exceeding Distribution", readmaster: "ReadMaster Results", readrise: "ReadRise Report", warning: "Early Warning",
 };
@@ -150,7 +151,7 @@ export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts:
     ], "classes", ["school"]);
   }
   if (opts.studentId && opts.classId) return readRiseStudentDoc(ctx, opts.classId, opts.studentId);
-  const [r, g] = await Promise.all([readRiseClass(repo, actor, opts.classId!, now), readRiseClassGrowth(repo, actor, opts.classId!, now)]);
+  const [r, g, tr] = await Promise.all([readRiseClass(repo, actor, opts.classId!, now), readRiseClassGrowth(repo, actor, opts.classId!, now), readRiseTeacherReport(repo, actor, opts.classId!, now)]);
   const ev = new Map(g.students.map((x) => [x.studentId, x]));
   return doc(ctx, "readrise", "ReadRise Level (estimate) · class", [{ label: "Class", value: r.className, isolate: "latin" }, { label: "Grade band", value: `${r.band.low}–${r.band.high}` }], [
     kpis("Summary", [{ label: "Placed", value: r.summary.placed, kind: "int", glance: true, hint: "students with a ReadRise Level (estimate)" }, { label: "Median ReadRise Level (estimate)", value: r.summary.medianLevel, kind: "int", glance: true, hint: "the middle student's level" }, { label: "Avg growth", value: r.summary.avgGrowth, kind: "signed", glance: true, hint: "average change since placement (+ means up)" }, { label: "Below band", value: r.summary.belowBand, kind: "int", glance: true, hint: "students below the grade band" }, { label: "Inactive 14+ days", value: r.summary.inactive, kind: "int", glance: true, hint: "students who have not read for two weeks" }]),
@@ -163,6 +164,13 @@ export async function buildExtraReport(ctx: BuildContext, kind: ExtraKind, opts:
       g.notReading.map((x) => ({ name: x.name, placed: x.placed ? "yes" : "no", last: x.lastActivity ? x.lastActivity.slice(0, 10) : null })), undefined, "Not reading"),
     table("skills", "Accuracy by question skill (class, first tries)", [col("skill", "Skill", "text", 2), col("acc", "Accuracy", "pct"), col("answers", "Answers", "int")],
       g.skills.map((k) => ({ skill: SKILL_LABEL[k.skill] ?? k.skill, acc: num(k.pct), answers: k.total })), undefined, "Skills"),
+    // owner r69: the three reading checks, the end-of-year estimate, stuck / rising, question types and unreliable runs
+    table("checks", "Reading checks and end-of-year estimate", [col("name", "Student", "name", 2.2), col("boy", "Start of year", "int"), col("moy", "Middle of year", "int"), col("eoy", "End of year", "int"), col("now", "ReadRise Level now (estimate)", "int", 1.4), col("projected", "Projected end of year (estimate)", "latin", 1.6), col("status", "Status", "text", 1.4)],
+      tr.students.map((x) => ({ name: x.name, boy: x.checks.BOY?.level ?? null, moy: x.checks.MOY?.level ?? null, eoy: x.checks.EOY?.level ?? null, now: num(x.level), projected: rangeText(x.projected), status: !x.placed ? "not placed" : (x.gain4w ?? 0) >= 100 ? "rising fast" : (x.daysSinceChange ?? 0) >= 28 ? `stuck ${x.daysSinceChange} days` : "—" })), undefined, "Reading checks"),
+    table("types", "Class accuracy by question type (reliable first tries)", [col("type", "Question type", "text", 2), col("acc", "Accuracy", "pct"), col("answers", "Answers", "int")],
+      tr.byType.map((k) => ({ type: k.name, acc: num(k.pct), answers: k.total })), undefined, "Question types"),
+    table("unreliable", "Unreliable readings (2+ answers too fast to be read: the level did not move)", [col("name", "Student", "name", 2.2), col("title", "Article", "latin", 3), col("date", "Date", "date"), col("rapid", "Rapid answers", "int"), col("score", "Score", "pct")],
+      tr.unreliable.map((x) => ({ name: x.name, title: x.title, date: x.at.slice(0, 10), rapid: x.rapid, score: num(x.score) })), undefined, "Unreliable"),
     table("weak", "Skill weaknesses and suggested articles", [col("skill", "Skill", "text", 1.4), col("acc", "Class accuracy", "pct"), col("students", "Students under 60%", "text", 2.4), col("articles", "Suggested articles", "text", 3)],
       g.weaknesses.map((w) => ({ skill: SKILL_LABEL[w.skill] ?? w.skill, acc: num(w.cell.pct), students: w.struggling.map((x) => x.name).join(", ") || "—", articles: w.suggested.map((a) => a.title).join("; ") || "—" })), undefined, "Weak skills"),
     { type: "notes", title: "Notes", items: [RR_EXPORT_NOTE, "First-try accuracy = average score of each article's first reading; only first tries move the level.", "Confirmed by = first-try readings that support the current level (50%+ since it was reached, plus the readings that moved it).", RANGE_NOTE] },

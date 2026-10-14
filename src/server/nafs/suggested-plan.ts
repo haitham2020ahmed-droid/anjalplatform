@@ -8,13 +8,14 @@
  */
 import { MOE_BY_CODE } from "./framework";
 import { MIN_STD_ITEMS, practiceHref, testHref, WEAK_BELOW, type Dashboard } from "./dashboard";
+import { STRENGTH_FROM, strengthsWeaknesses } from "./strengths";
 
 /** At most this many standards per suggestion (a practice stays focused). */
 export const PLAN_CODES = 3;
 /** At most this many groups per class (the most shared weak standards). */
 export const MAX_GROUPS = 6;
-/** A standard at or over this is a strength. */
-export const STRONG_FROM = 85;
+/** A standard at or over this is a strength — the ONE NAFS rule (strengths.ts, owner r70: 80 %). */
+export const STRONG_FROM = STRENGTH_FROM;
 
 export interface PlanStudent { id: string; name: string; pct: number | null }
 export interface PlanItem {
@@ -75,9 +76,6 @@ export function suggestedPlan(d: Dashboard): SuggestedPlan {
 
 /** A student's strengths and weaknesses from the reports' cells (enough items; strongest / weakest first; 2 each). */
 export function strengthsOf(cells: Record<string, { pct: number | null; n: number }>): { strong: string[]; weak: string[] } {
-  const ok = Object.entries(cells).filter(([, c]) => c.n >= MIN_STD_ITEMS && c.pct !== null);
-  return {
-    strong: ok.filter(([, c]) => c.pct! >= STRONG_FROM).sort((a, b) => b[1].pct! - a[1].pct! || a[0].localeCompare(b[0])).slice(0, 2).map(([k]) => k),
-    weak: ok.filter(([, c]) => c.pct! < WEAK_BELOW).sort((a, b) => a[1].pct! - b[1].pct! || a[0].localeCompare(b[0])).slice(0, 2).map(([k]) => k),
-  };
+  const sw = strengthsWeaknesses(cells, 2); // r70: the ONE rule (strengths.ts)
+  return { strong: sw.strengths, weak: sw.weaknesses };
 }

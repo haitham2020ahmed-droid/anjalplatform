@@ -11,10 +11,17 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { readableClasses, assertClassRead } from "../teacher/coordinators";
 import { classMembers, studentNames } from "../insights/student-data";
-import { skillKeyIndex, skillStatusesFor, type StarStatus } from "./status";
-import { mySkills, summaryLine, tabOf, type MySkills, type MySkillsTab } from "./my-skills";
+import { skillKeyIndex, skillStatusesFor, type StarStatus, type StarView } from "./status";
+import { mySkills, MY_SKILLS_TABS, STRAND_LABEL, STRANDS, strandOf, summaryLine, tabOf, type MySkills, type MySkillsTab, type Strand } from "./my-skills";
+import { studentAssignedSkills } from "./assigned-skills";
+import { ASSIGN_SOURCES, type AssignSource } from "../../lib/assign-source";
+import { byCode, skillCode } from "./skills-grid";
+import { fallbackStars, starsMigrated } from "./grid-fallback";
+import { schoolSkillIndex } from "../questions/skill-questions";
+import { shortStandard } from "../../lib/report-columns";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const DAY = 86_400_000;
@@ -69,18 +76,45 @@ export type SkillAction = "NOT_MASTERED" | "SMALL_GROUP" | "RETEACH";
  * One press on the skill page: the skill assigned (the usual assignSkill: My Work, Assigned, stars) to — the students not
  * mastered (Learning + Review + Not started) · a small group (Learning + Review) · the whole class ("Reteach:" note).
  */
-export async function skillPageAction(repo: Repo, actor: Actor, classId: string, key: string, action: SkillAction, now = new Date()): Promise<{ assignmentId: string; students: number }> {
+export async function skillPageAction(repo: Repo, actor: Actor, classId: string, key: string, action: SkillAction, now = new Date(), /** r74: REQUIRED source */ sourceIn?: string | null): Promise<{ assignmentId: string; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(sourceIn);
   const p = await skillPage(repo, actor, classId, key, now);
   if (!p.skillId) throw new ValidationError("This skill has no questions to assign yet.");
   const { assignSkill } = await import("../teacher/assign");
   const ids = action === "RETEACH" ? [] : action === "SMALL_GROUP" ? [...p.lists.LEARNING, ...p.lists.REVIEW].map((x) => x.id) : [...p.lists.LEARNING, ...p.lists.REVIEW, ...p.lists.NOT_STARTED].map((x) => x.id);
   if (action !== "RETEACH" && !ids.length) throw new ValidationError(action === "SMALL_GROUP" ? "No student is learning or reviewing this skill right now." : "Every student already mastered this skill.");
   const note = action === "RETEACH" ? `Reteach: ${p.name}` : action === "SMALL_GROUP" ? `Small group: ${p.name}` : null;
-  return assignSkill(repo, actor, { classId, skillId: p.skillId, studentIds: ids.length ? ids : undefined, note }, now);
+  return assignSkill(repo, actor, { classId, skillId: p.skillId, studentIds: ids.length ? ids : undefined, note, source }, now);
 }
 
-export interface StudentSkillsView { studentId: string; name: string; className: string; classId: string | null; skills: MySkills; summary: string; planHref: string | null }
+/** r72: one skill the student practised (the teacher's per-student view): code + short name, the star and its level */
+export interface PractisedSkill { key: string; name: string; code: string; short: string; strand: Strand; status: StarStatus; needsSupport: boolean; answered: number; score: number; /** r74: the sources it was assigned from (badges) */ sources: AssignSource[] }
+export interface PractisedSkills { groups: { strand: Strand; label: string; rows: PractisedSkill[] }[]; total: number; counts: Record<MySkillsTab, number> }
+export interface StudentSkillsView {
+  studentId: string; name: string; className: string; classId: string | null; skills: MySkills; summary: string; planHref: string | null;
+  /** r74: ONLY the skills assigned to this student (practised or not yet: ☆), grouped by strand, sorted by code, with their sources */
+  assigned: PractisedSkills;
+}
+
+/** One assigned skill not in the student's My Skills rows yet (e.g. only a set of its questions was assigned). */
+export interface AssignedMeta { name: string; skillId: string | null; strand: Strand }
+/**
+ * Pure (r74): the ASSIGNED skills of a My Skills view — a practised skill that was never assigned is left out; an
+ * assigned skill not practised yet is ☆ — grouped by strand and sorted by code, each with its sources.
+ */
+export function assignedOf(v: MySkills, assigned: ReadonlyMap<string, AssignSource[]>, codeOf: (key: string, skillId: string | null) => string, metaOf: (key: string) => AssignedMeta): PractisedSkills {
+  const seen = new Map(MY_SKILLS_TABS.flatMap((tab) => v.groups[tab].flatMap((g) => g.rows)).map((r) => [r.key, r]));
+  const rows: PractisedSkill[] = [...assigned].map(([key, sources]) => {
+    const r = seen.get(key), m = r ? { name: r.name, skillId: r.skillId, strand: r.strand } : metaOf(key);
+    const code = codeOf(key, m.skillId);
+    return { key, name: m.name, code, short: shortStandard(code, m.name, 4).short, strand: m.strand, status: r?.status ?? "NOT_STARTED", needsSupport: Boolean(r?.needsSupport), answered: r?.answered ?? 0, score: r?.score ?? 0, sources };
+  });
+  const counts: Record<MySkillsTab, number> = { MASTERED: 0, LEARNING: 0, REVIEW: 0, NOT_STARTED: 0 };
+  for (const r of rows) counts[tabOf(r.status)]++;
+  const groups = STRANDS.map((strand) => ({ strand, label: STRAND_LABEL[strand], rows: rows.filter((r) => r.strand === strand).sort(byCode) })).filter((g) => g.rows.length);
+  return { groups, total: rows.length, counts };
+}
 
 /** The student's My Skills, read-only for the teacher (their class), with the summary and a prefilled Create Plan link. */
 export async function studentSkillsForTeacher(repo: Repo, actor: Actor, studentId: string, now = new Date()): Promise<StudentSkillsView> {
@@ -91,10 +125,19 @@ export async function studentSkillsForTeacher(repo: Repo, actor: Actor, studentI
   const mine = (await readableClasses(repo, actor)).map((c) => ({ id: s(c.id), name: s(c.name) }));
   const klass = mine.find((c) => m.some((x) => s(x.classId) === c.id)) ?? null;
   if (actor.role === "TEACHER" && !klass) throw new ForbiddenError("This student is not in your classes.");
-  const [skills, names] = await Promise.all([mySkills(repo, studentId, now, { href: false }), studentNames(repo, [studentId])]);
+  // r72: before the school's star migration, the practice with no star row yet is counted from the raw answers
+  const schoolId = s(st.schoolId);
+  const [ix, sidx, migrated] = await Promise.all([skillKeyIndex(repo, schoolId), schoolSkillIndex(repo, schoolId), starsMigrated(repo, schoolId)]);
+  const extra = migrated ? undefined : (await fallbackStars(repo, [studentId], ix).catch(() => new Map<string, Map<string, StarView>>())).get(studentId);
+  const [skills, names] = await Promise.all([mySkills(repo, studentId, now, { href: false, extra }), studentNames(repo, [studentId])]);
+  // r74: only the skills ASSIGNED to the student (with their sources)
+  const given = await studentAssignedSkills(repo, studentId, ix);
+  const assigned = assignedOf(skills, new Map([...given.byStudent.get(studentId) ?? []].map(([k, set]) => [k, ASSIGN_SOURCES.filter((x) => set.has(x))])),
+    (key, skillId) => { const id = skillId ?? ix.skillsOf.get(key)?.[0] ?? null; const row = id ? sidx.skillOf.get(id) ?? null : null; return skillCode(key, row?.code, id ? ix.gradeOf.get(id) ?? row?.grade : null); },
+    (key) => { const id = given.skillIdOf.get(key) ?? ix.skillsOf.get(key)?.[0] ?? null; const row = id ? sidx.skillOf.get(id) ?? null : null; return { name: ix.nameOf.get(key) ?? row?.name ?? "Skill", skillId: id, strand: strandOf(key, row) }; });
   const add = [...skills.groups.LEARNING, ...skills.groups.REVIEW].flatMap((g) => g.rows.map((r) => r.skillId)).filter((x): x is string => Boolean(x)).slice(0, 20);
   const planHref = klass && add.length ? `/teacher/plans?${new URLSearchParams([["tab", "new"], ["classId", klass.id], ["who", "student"], ["sid", studentId], ...add.map((id) => ["add", id] as [string, string])])}` : null;
-  return { studentId, name: names.get(studentId)?.name ?? "Student", className: klass?.name ?? "", classId: klass?.id ?? null, skills, summary: summaryLine(skills.counts), planHref };
+  return { studentId, name: names.get(studentId)?.name ?? "Student", className: klass?.name ?? "", classId: klass?.id ?? null, skills, summary: summaryLine(skills.counts), planHref, assigned };
 }
 
 /**

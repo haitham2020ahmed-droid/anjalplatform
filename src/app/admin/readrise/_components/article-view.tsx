@@ -3,6 +3,7 @@ import type { ArticleDetail } from "@/server/readrise/library";
 import { BAND_RANGE, BANDS } from "@/server/readrise/import";
 import { deleteReadRiseAction, setReadRiseHiddenAction, setReadRiseLexileAction, setReadRiseStatusAction } from "../actions";
 import { btn, btnGhost, RR_NOTE, SourcePill, StatusPill } from "./ui";
+import { RichInline } from "@/components/rich-inline";
 
 const BAND_STYLE = {
   LOW: { head: "bg-orange-50 text-orange-900", ring: "ring-orange-200" },
@@ -123,11 +124,11 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
                   <ol className="mt-2 space-y-3 text-sm">
                     {d.questions.map((q) => (
                       <li key={q.id} className="rounded-xl ring-1 ring-slate-200 p-3">
-                        <p className="font-semibold text-slate-900">{q.number}. {q.stem} <span className="ms-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">{skillName(q.skill)}</span></p>
+                        <p className="font-semibold text-slate-900">{q.number}. <RichInline text={q.stem} /> <span className="ms-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">{skillName(q.skill)}</span></p>
                         <ul className="mt-1 grid gap-1 sm:grid-cols-2">
-                          {q.options.map((o, j) => { const L = "ABCD"[j]; const ok = L === q.answer; return <li key={L} className={`rounded-lg px-2 py-1 ${ok ? "bg-teal-50 font-semibold text-teal-900 ring-1 ring-teal-200" : "text-slate-700"}`}>{L}. {o}{ok ? " ✓" : ""}</li>; })}
+                          {q.options.map((o, j) => { const L = "ABCD"[j]; const ok = L === q.answer; return <li key={L} className={`rounded-lg px-2 py-1 ${ok ? "bg-teal-50 font-semibold text-teal-900 ring-1 ring-teal-200" : "text-slate-700"}`}>{L}. <RichInline text={o} />{ok ? " ✓" : ""}</li>; })}
                         </ul>
-                        {q.rationale?.[q.answer] && <p className="mt-1 text-xs text-slate-500">Why: {q.rationale[q.answer]}</p>}
+                        {q.rationale?.[q.answer] && <p className="mt-1 text-xs text-slate-500">Why: <RichInline text={q.rationale[q.answer]} /></p>}
                       </li>
                     ))}
                   </ol>

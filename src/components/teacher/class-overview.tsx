@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { AssignmentSummary } from "../../server/teacher/assignments";
 import type { ClassOverview as Overview, GroupName } from "../../server/teacher/queries";
 import { AtAGlance, BandBar, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar, toneOfPct } from "../report-kit";
+import { RichInline } from "@/components/rich-inline";
 
 const fmtMin = (m: number) => (m >= 60 ? `${Math.floor(m / 60)} h ${m % 60} min` : `${m} min`);
 
@@ -99,7 +100,7 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap, badg
           <ul className="divide-y divide-slate-100">
             {o.hardQuestions.map((q) => (
               <li key={q.questionId} className="grid gap-1 py-2 md:grid-cols-[minmax(0,1fr)_10rem]">
-                <span><span className="text-sm text-slate-500">{q.skill}</span><br />{q.stem}</span>
+                <span><span className="text-sm text-slate-500">{q.skill}</span><br /><RichInline text={q.stem} /></span>
                 <span className="tabular-nums text-slate-600 md:text-right">{q.accuracyPct}% correct<br /><span className="text-sm">{q.attempts} answers</span></span>
               </li>
             ))}

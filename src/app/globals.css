@@ -248,6 +248,8 @@ html[data-comfort="1"]:not([data-theme="night"]) body { background: #fbf7ee; }
   [dir="rtl"] .rk-box tr.rk-flag-warn > td:first-child { box-shadow: inset -4px 0 0 #fbbf24; }
   [dir="rtl"] .rk-box tr.rk-flag-good > td:first-child { box-shadow: inset -4px 0 0 #10b981; }
   @media (min-width: 640px) { .rk-box.rk-tall { max-height: 78vh; overflow: auto; } }
+  /* r70 fewer columns without script: .rk-more cells stay hidden until the box's "More details" box is ticked */
+  .rk-morebox:not(:has(.rk-more-toggle:checked)) .rk-more { display: none; }
   /* phones: every row is a card, every cell a "label: value" line */
   @media (max-width: 639.98px) {
     .rk-cards { overflow: visible; background: transparent; box-shadow: none; }

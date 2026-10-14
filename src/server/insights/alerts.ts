@@ -24,7 +24,7 @@ import { safeIfBehind } from "../db/schema-errors";
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 const DAY = 86_400_000;
-export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST" | "EARLY_WARNING";
+export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST" | "EARLY_WARNING" | "RR_MAP_GAP";
 export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: string }> = {
   MAP_RISK: { icon: "🗺️", title: "MAP: at risk", tip: "Check the MAP plan; a small group for the focus area helps." },
   RAPID_GUESS: { icon: "⚡", title: "Rapid guessing", tip: "Talk with the student; if it is the MAP test, ask about a retest." },
@@ -36,8 +36,10 @@ export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: s
   INVALID_TEST: { icon: "⚡", title: "Invalid result — re-test", tip: "Too many answers were too fast to read: the result is not used for the level or the tier. Talk with the student and let them take it again." },
   EARLY_WARNING: { icon: "🔴", title: "Early warning: urgent", tip: "Open the early warning: see which measures fell, make a plan or assign practice, and write what you did." },
   LEVEL_CONFLICT: { icon: "⚖️", title: "Data disagree", tip: "Open their Level Story: one source says Exceeding, another Approaching. Decide the level, or check for guessing." },
+  // owner r69: raised once a school year by ReadRise itself (readrise/accuracy.ts alertMapGap), not by the scan
+  RR_MAP_GAP: { icon: "🚀", title: "ReadRise and MAP disagree", tip: "The ReadRise level and the MAP reading level are far apart. Check the placement or the MAP result; set the ReadRise level by hand or allow a new placement." },
 };
-const ORDER: AlertKind[] = ["EARLY_WARNING", "DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
+const ORDER: AlertKind[] = ["EARLY_WARNING", "DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "RR_MAP_GAP", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
 
 /** ISO week label of a date, e.g. 2026-W41. */
 export function weekKey(d: Date): string {

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
-import { ReportHeader } from "@/components/report-kit";
+import { ReportHeader, ReportIntro, ReportSummary } from "@/components/report-kit";
+import { hubSummary } from "@/lib/report-summaries";
 import { LineIcon } from "@/components/ui/line-icon";
 import { hubCards, MOVED_REPORTS, openReportUrl, REPORT_CATEGORIES, REPORT_PERIODS, reportByKey, type HubCard, type ReportPeriod } from "@/components/teacher/report-catalog";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -54,6 +55,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
     <AppShell name={String(me!.user.displayName)}>
       <ReportHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} title="Reports" print={false}
         subtitle={t("Every report in one place: your class, each student, the programs and the follow-up.")} />
+      <ReportIntro text="Every report in one place; each report ends with a short summary and the next steps." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {week && (
         <section aria-label={t("This week")} data-weekly-summary className="mb-6 rounded-2xl bg-gradient-to-r from-teal-50 to-white px-5 py-4 ring-1 ring-teal-200">
@@ -89,6 +91,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
           ))}
         </div>
       )}
+      <ReportSummary summary={hubSummary(week, { classId: cid || null, admin: actor.role !== "TEACHER" })} />
     </AppShell>
   );
 }

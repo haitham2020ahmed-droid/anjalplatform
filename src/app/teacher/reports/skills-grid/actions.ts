@@ -15,7 +15,7 @@ export async function skillActionAction(f: FormData): Promise<void> {
   let msg: string;
   try {
     if (!["NOT_MASTERED", "SMALL_GROUP", "RETEACH"].includes(action)) throw new ValidationError("Choose an action.");
-    const r = await skillPageAction(repo, actor, classId, key, action);
+    const r = await skillPageAction(repo, actor, classId, key, action, new Date(), String(f.get("source") ?? ""));
     msg = `Assigned to ${r.students} student${r.students === 1 ? "" : "s"} ✓`;
   } catch (e) { if (!known(e)) throw e; msg = (e as Error).message; }
   redirect(back({ classId, view: "skill", skill: key, msg }));

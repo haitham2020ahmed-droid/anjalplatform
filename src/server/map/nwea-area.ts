@@ -1,3 +1,4 @@
+import { stripMarks } from "../../lib/inline-marks";
 /**
  * 🧭 NWEA MAP Growth classification of ONE question (pure: no database).
  *
@@ -210,7 +211,7 @@ export function classifyQuestion(q: ClassifyInput): Classified {
   const out = (area: AreaKey | null, source: AreaSource | null, standard: StandardChange | null = null, note: string | null = null): Classified =>
     ({ test: area ? areaByKey(area).test : null, area, name: area ? areaByKey(area).name : null, source, standard, note });
   const own = parseCcss(q.standard);
-  const ask = `${q.stem} ${(q.options ?? []).join(" ")}`;
+  const ask = stripMarks(`${q.stem} ${(q.options ?? []).join(" ")}`);
   const aboutSpelling = /\bspell|\bmisspell/i.test(ask) || /spell/i.test(String(q.skillName ?? ""));
 
   // 1 · the file said it

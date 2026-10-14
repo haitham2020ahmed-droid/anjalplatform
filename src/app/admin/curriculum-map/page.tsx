@@ -88,7 +88,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
             </section>
           )}
           {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} />}
-          {canSend && <SendPlanHost grade={v.grade} send={sendScopeAction} preview={sendPreviewAction}
+          {canSend && <SendPlanHost key={v.grade} grade={v.grade} send={sendScopeAction} preview={sendPreviewAction}
             classes={classes.filter((c) => c.grade == null || c.grade === v.grade).map(({ id, name, students }) => ({ id, name, students }))}
             units={v.units.map((u, i) => ({ code: u.code, n: i + 1, lessons: u.lessons.map((l) => ({ code: l.code, name: l.name })) }))} />}
         </>

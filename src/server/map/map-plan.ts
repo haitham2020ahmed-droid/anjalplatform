@@ -14,6 +14,7 @@ import { scoringParams } from "../practice/scoring-params";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
@@ -411,8 +412,9 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
 }
 
 /** Sends plans: each area becomes one adaptive set of the student's band (track MAP); the student is notified. */
-export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now = new Date()): Promise<{ sent: number; sets: number; skipped: string[] }> {
+export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now = new Date(), /** r74: REQUIRED source (teacher: the window's choice; automatic drafts: MAP) */ sourceIn?: string | null): Promise<{ sent: number; sets: number; skipped: string[] }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(sourceIn);
   const bands = await bandSettings(repo, actor.schoolId);
   let sent = 0, sets = 0; const skipped: string[] = [];
   const poolCache = new Map<number, Awaited<ReturnType<typeof groupPools>>>();
@@ -427,7 +429,7 @@ export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now
     for (const it of (r.items ?? []) as PlanItem[]) {
       const pick = pickBand(pk.pools.get(it.group) ?? [], it.low, it.high, bands.size, it.skillIds);
       if (pick.ids.length < 3) { skipped.push(`${groupOf(it.group).name}: not enough questions yet`); continue; }
-      const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null }, now);
+      const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source }, now);
       assignmentIds.push(a.assignmentId); sets++;
     }
     if (!assignmentIds.length) continue;
@@ -470,14 +472,15 @@ export async function smallGroups(repo: Repo, actor: Actor, classId: string, sub
 }
 
 /** One adaptive set for a small group (their area and band). */
-export async function sendToGroup(repo: Repo, actor: Actor, classId: string, input: { group: GroupKey; low: number; high: number; studentIds: string[]; count?: number; dueAt?: Date | null }, now = new Date()): Promise<{ assignmentId: string; questions: number }> {
+export async function sendToGroup(repo: Repo, actor: Actor, classId: string, input: { group: GroupKey; low: number; high: number; studentIds: string[]; count?: number; dueAt?: Date | null; /** r74: REQUIRED */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; questions: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, classId);
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const bands = await bandSettings(repo, actor.schoolId);
   const pick = pickBand((await groupPools(repo, actor.schoolId!, grade)).pools.get(input.group) ?? [], input.low, input.high, bands.size, null);
   if (pick.ids.length < 3) throw new ValidationError("Not enough questions for this area and band yet.");
-  const r = await assignQuestions(repo, actor, { classId, studentIds: input.studentIds, questionIds: pick.ids, title: `MAP group · ${groupOf(input.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(input.count ?? 15, pick.ids.length) }, dueAt: input.dueAt ?? null }, now);
+  const r = await assignQuestions(repo, actor, { classId, studentIds: input.studentIds, questionIds: pick.ids, title: `MAP group · ${groupOf(input.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(input.count ?? 15, pick.ids.length) }, dueAt: input.dueAt ?? null, source }, now);
   return { assignmentId: r.assignmentId, questions: pick.ids.length };
 }
 

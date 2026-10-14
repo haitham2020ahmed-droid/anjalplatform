@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ClassChips, Empty, exportsOf, fmtNum, fmtPct, pctTone, WindowChips, windowText } from "@/components/reports/report-ui";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { grammarClassSummary, grammarSchoolSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
@@ -39,6 +40,7 @@ export default async function GrammarReportPage({ searchParams }: { searchParams
       <ReportHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="🔤" title="Grammar results"
         subtitle="Grammar and mechanics skills of the grade: mastery, accuracy (rapid guesses left out), the errors students make and what to reteach."
         who={school ? t("Whole school") : klass?.name} when={windowText(t, days)} downloads={exports} filters={filters} />
+      <ReportIntro text={school ? "Grammar accuracy of every class in the school, side by side." : "How well the class answers grammar questions, skill by skill, and what to re-teach."} />
       {school ? <SchoolView actorDays={days} /> : !klass ? <Empty>You have no classes yet.</Empty> : <ClassView classId={klass.id} days={days} />}
     </AppShell>
   );
@@ -52,7 +54,7 @@ export default async function GrammarReportPage({ searchParams }: { searchParams
         <ReportSection title="Every class" icon="🏫" hint="The same numbers as each class's report." className="mt-5">
           <SimpleBar label="Accuracy" items={rows.map((r) => ({ label: <bdi>{r.name}</bdi>, value: r.accuracy, href: url({ classId: r.classId }) }))} className="mb-4" />
           <ReportTable label="Grammar results by class"
-            cols={[{ key: "c", label: "Class" }, { key: "g", label: "Grade", num: true }, { key: "p", label: "Practised", num: true }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "m", label: "Avg mastery", num: true }, { key: "r", label: "Skills to reteach", num: true }]}
+            cols={[{ key: "c", label: "Class" }, { key: "g", label: "Grade", num: true, more: true }, { key: "p", label: "Practised", num: true }, { key: "a", label: "Answers", num: true, more: true }, { key: "acc", label: "Accuracy", num: true }, { key: "m", label: "Avg mastery", num: true, more: true }, { key: "r", label: "Skills to reteach", num: true }]}
             rows={rows.map((r) => ({
               id: r.classId, flag: r.reteachSkills ? "warn" : undefined,
               sort: { c: r.name, p: r.practised, acc: r.accuracy, m: r.avgMastery },
@@ -60,6 +62,7 @@ export default async function GrammarReportPage({ searchParams }: { searchParams
                 acc: <span className={`font-semibold ${pctTone(r.accuracy)}`}>{fmtPct(r.accuracy)}</span>, m: fmtNum(r.avgMastery), r: r.reteachSkills },
             }))} />
         </ReportSection>
+        <ReportSummary summary={grammarSchoolSummary(rows, (id) => url({ classId: id }))} />
       </>
     );
   }
@@ -104,7 +107,7 @@ export default async function GrammarReportPage({ searchParams }: { searchParams
             <>
               <SimpleBar items={practisedSkills.map((k) => ({ label: k.name, value: k.accuracy, note: t("{n} answers", { n: k.answers }) }))} className="mb-5" />
               <ReportTable label="Grammar skills"
-                cols={[{ key: "s", label: "Skill" }, { key: "st", label: "Students", num: true }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "m", label: "Avg mastery", num: true }, { key: "r", label: "To reteach", num: true }, { key: "e", label: "Most common error" }]}
+                cols={[{ key: "s", label: "Skill" }, { key: "st", label: "Students", num: true }, { key: "a", label: "Answers", num: true, more: true }, { key: "acc", label: "Accuracy", num: true }, { key: "m", label: "Avg mastery", num: true, more: true }, { key: "r", label: "To reteach", num: true }, { key: "e", label: "Most common error", more: true }]}
                 rows={practisedSkills.map((k) => ({
                   id: k.skillId, flag: k.reteach.length ? "bad" : undefined, sort: { acc: k.accuracy, m: k.avgMastery, r: k.reteach.length, e: k.topError?.label ?? null },
                   cells: { s: k.name, st: k.practised, a: k.answers, acc: <span className={`font-semibold ${pctTone(k.accuracy)}`}>{fmtPct(k.accuracy)}</span>, m: fmtNum(k.avgMastery), r: k.reteach.length || "—", e: <span className="text-slate-600">{k.topError?.label ?? "—"}</span> },
@@ -115,7 +118,7 @@ export default async function GrammarReportPage({ searchParams }: { searchParams
 
         <ReportSection title="Students" icon="👩‍🎓" hint="Open a student for each skill and their recent answers.">
           <ReportTable label="Students"
-            cols={[{ key: "n", label: "Student" }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "m", label: "Avg mastery", num: true }, { key: "s", label: "Skills", num: true }, { key: "r", label: "To reteach", num: true }, { key: "e", label: "Most common error" }]}
+            cols={[{ key: "n", label: "Student" }, { key: "a", label: "Answers", num: true, more: true }, { key: "acc", label: "Accuracy", num: true }, { key: "m", label: "Avg mastery", num: true, more: true }, { key: "s", label: "Skills", num: true, more: true }, { key: "r", label: "To reteach", num: true }, { key: "e", label: "Most common error" }]}
             rows={r.students.map((st) => ({
               id: st.studentId, flag: st.reteach ? "bad" : undefined, sort: { n: st.name, acc: st.accuracy, m: st.avgMastery, r: st.reteach, e: st.topError },
               cells: { n: <Link className="inline-flex min-h-8 items-center font-semibold text-brand-teal hover:underline" href={`/teacher/reports/grammar/${st.studentId}?days=${d}`}><bdi>{st.name}</bdi></Link>,
@@ -130,6 +133,7 @@ export default async function GrammarReportPage({ searchParams }: { searchParams
             ))}</ul>
           ) : <p className="text-slate-600">No error types recorded in this window.</p>}
         </ReportSection>
+        <ReportSummary summary={grammarClassSummary(r, classId, actor.role !== "TEACHER")} />
       </div>
     );
   }

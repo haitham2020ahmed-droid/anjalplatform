@@ -11,7 +11,10 @@
  *       READRISE  each article question → its skill (RR_SKILL_MAP), weight 0.5, chance floor 0.25 (4 options),
  *                 difficulty = the article version against the grade's On-level band; an item far easier than the
  *                 student's current ability counts half again (easy LOW-band questions cannot inflate a level);
- *                 a run read in under 45 s is a rapid run and is left out
+ *                 a run read in under 45 s is a rapid run and is left out; owner r69: an Unreliable run (2+
+ *                 rapid answers) feeds nothing and a single rapid answer is left out; a question without a type gets
+ *                 one from its stem; the touched skills' stars are refreshed by the skill-status hook after the
+ *                 response (readrise/student.ts → skills/status.ts onSkillAnswer)
  *       VOCAB     word review (meaning of a looked-up word, shown in its context sentence) → the grade's
  *                 Concept Vocabulary skill, else its Context Clues skill, weight 0.3
  *       WRITING   the teacher's rubric score (only after grading) → the genre's writing skill, weight 0.4; the
@@ -166,10 +169,14 @@ export async function safeFeed(what: string, f: () => Promise<unknown>): Promise
 // ------------------------------------------------------------------ the feeds
 
 /** ReadRise: a scored run's questions → their skills (difficulty from the version level vs the grade's On band). */
-export async function feedReadRise(repo: Repo, runId: string, now = new Date()): Promise<number> {
+export async function feedReadRise(repo: Repo, runId: string, now = new Date(), onSkills?: (skillIds: string[]) => void): Promise<number> {
   const run = await repo.findUnique("RRRun", { id: runId });
   if (!run || run.score === null || run.score === undefined) return 0;
   if (Number(run.readSeconds ?? 0) > 0 && Number(run.readSeconds) < RR_MIN_READ_SECONDS) return 0; // a rapid run
+  // owner r69: an Unreliable run (2+ rapid answers) feeds nothing; a single rapid answer is left out
+  if (run.unreliable === true || run.unreliable === 1) return 0;
+  const { storedRapid, questionTypeOf } = await import("../readrise/accuracy");
+  const rapid = new Set(storedRapid(run.answerMs));
   const qs = await repo.findMany("RRQuestion", { articleId: run.articleId, band: run.band });
   if (!qs.length) return 0;
   const answers = (typeof run.answers === "string" ? JSON.parse(run.answers) : run.answers ?? {}) as Record<string, string>;
@@ -181,14 +188,17 @@ export async function feedReadRise(repo: Repo, runId: string, now = new Date()):
   const b = (Number(run.versionLevel) - mid) / RR_POINTS_PER_LOGIT;
   const items: EvidenceItem[] = [];
   for (const q of qs) {
-    const skillId = firstFamily(family, RR_SKILL_MAP[s(q.skill).toLowerCase()]);
-    if (!skillId) continue;
+    // the question's type (a question without one gets it from its stem: accuracy.ts)
+    const skillId = firstFamily(family, RR_SKILL_MAP[s(q.skill).toLowerCase()] ?? RR_SKILL_MAP[questionTypeOf(q)]);
+    if (!skillId || rapid.has(Number(q.number))) continue;
     const chosen = answers[String(q.number)];
     if (chosen === undefined || chosen === null || chosen === "") continue;
     const n = Array.isArray(q.options) ? q.options.length : (() => { try { return (JSON.parse(s(q.options)) as unknown[]).length; } catch { return 4; } })();
     items.push({ skillId, source: "READRISE", refId: `${runId}:${Number(q.number)}`, credit: String(chosen).toUpperCase() === s(q.answer).toUpperCase() ? 1 : 0, b, c: n >= 2 ? Math.min(0.5, 1 / n) : 0.25 });
   }
-  return recordSkillEvidence(repo, s(run.studentId), items, now);
+  const saved = await recordSkillEvidence(repo, s(run.studentId), items, now);
+  if (saved && onSkills) onSkills([...new Set(items.map((i) => i.skillId))]);
+  return saved;
 }
 
 /**

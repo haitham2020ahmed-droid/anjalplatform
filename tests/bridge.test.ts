@@ -63,7 +63,7 @@ describe("🌉 Cross-Grade Bridge: the same skill one grade up (challenge) and o
     await mk(`${from}.BELOW`, "BELOW", 4); await mk(`${from}.ON`, "ON", 4); await mk(`${from}.ABOVE`, "ABOVE", 4); await mk(`${challenge}.ABOVE`, "CHALLENGE", 5);
     await repo.updateMany("Question", { id: { in: ids } }, { status: "PUBLISHED" });
     const roster = await teacherRoster(repo, teacher);
-    const r = await assignFromMap(repo, teacher, { classId: roster[0].id, categoryCode: from, studentIds: [roster[0].students[0].id], maxQuestions: 30 });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId: roster[0].id, categoryCode: from, studentIds: [roster[0].students[0].id], maxQuestions: 30 });
     assert.ok(r.notes.some((n) => /Challenge path: 5 question/.test(n)));
     const st = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: roster[0].students[0].id }))!.userId }))!);
     const aid = r.groups[0].assignmentId;

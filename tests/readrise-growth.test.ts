@@ -286,7 +286,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
     assert.ok(readings && readings.type === "table" && readings.rows.some((r) => r.text === 920 && r.student === 900 && r.fit === "exact"));
     const clsFile = await exp(admin, { classId });
     assert.match(Buffer.from(clsFile.bytes).toString("utf8").split("\n")[0], /Growth this term,Confirmed by \(readings\),Projected end of year \(range\)/);
-    assert.deepEqual(tableIds(clsFile.doc), ["students", "distribution", "notreading", "skills", "weak"]);
+    assert.deepEqual(tableIds(clsFile.doc), ["students", "distribution", "notreading", "skills", "checks", "types", "unreliable", "weak"], "owner r69: reading checks, question types and unreliable readings");
     const x = await exp(admin, { classId, studentId: A.studentId!, format: "xlsx" });
     assert.ok(x.bytes.length > 1000 && x.filename.endsWith(".xlsx"));
     await assert.rejects(exp(A, { classId, studentId: A.studentId! }), ForbiddenError);

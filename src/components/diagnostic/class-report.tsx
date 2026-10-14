@@ -4,6 +4,8 @@ import type { ClassDiagnosticReport } from "@/server/diagnostic/report";
 import { STRAND_LABEL } from "@/server/diagnostic/standards";
 import { shareDiagnosticAction } from "@/app/diagnostic/actions";
 import { gradeLabel } from "@/server/diagnostic/adaptive";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 export const heat = (p: number | null | undefined) => (p === null || p === undefined ? "bg-slate-50 text-slate-400" : p >= 75 ? "bg-emerald-100 text-emerald-900" : p >= 60 ? "bg-sky-100 text-sky-900" : p >= 40 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
 export const LEVEL_CHIP = { ABOVE: "bg-emerald-600 text-white", ON: "bg-sky-600 text-white", BELOW: "bg-rose-500 text-white" } as const;
@@ -219,7 +221,7 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
           {r.items.map((x) => (
             <div key={x.n} className={`flex items-start gap-2 rounded-lg px-2 py-1 ${x.answered && x.pct < 30 ? "bg-rose-50" : ""}`}>
               <span className="w-6 text-end tabular-nums text-slate-400">{x.n}</span>
-              <span className="min-w-0 flex-1 truncate" title={x.stem}><span className="font-mono text-xs text-brand-teal">{x.code}</span> {x.stem}</span>
+              <span className="min-w-0 flex-1 truncate" title={stripMarks(x.stem)}><span className="font-mono text-xs text-brand-teal">{x.code}</span> <RichInline text={x.stem} /></span>
               <span className={`w-12 rounded text-center text-xs font-bold tabular-nums ${heat(x.answered ? x.pct : null)}`}>{x.answered ? `${Math.round(x.pct)}%` : "—"}</span>
             </div>
           ))}

@@ -164,7 +164,7 @@ export const HUB_LINKS: HubLink[] = [
   // ⭐ the Skills grid (the skill-status stars, every student × skill) — its page arrives from the skill-status branch
   { key: "skills-grid", category: "My class", line: "star", title: "Student Skills", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
   { key: "nafs-reports", category: "Programs", line: "flag", title: "NAFS reports", hint: "NAFS tests and practice: results by student and skill.", href: () => "/teacher/nafs?tab=reports", nafs: true },
-  { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise growth", hint: "ReadRise levels over time and who is not reading.", href: (c) => `/teacher/readrise?${qs({ class: c, tab: "growth" })}` },
+  { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise report", hint: "ReadRise levels over the year, the reading checks, who is stuck or rising fast, accuracy by question type.", href: (c) => `/teacher/readrise/report${c ? `?${qs({ class: c })}` : ""}` },
   { key: "learn-results", category: "Programs", line: "learn", title: "Learn results", hint: "Each lesson: who finished, scores, who needs it again.", href: () => "/teacher/learn" },
   { key: "fluency", category: "Programs", line: "mic", title: "Reading Fluency", hint: "Words correct per minute and progress of every student.", href: (c) => `/teacher/fluency${c ? `?${qs({ classId: c })}` : ""}` },
   { key: "alerts", category: "Follow-up", line: "bell", title: "Alerts", hint: "Who needs attention now (practice, MAP flags, reviews due) and what was done.", href: (c) => `/teacher/alerts${c ? `?${qs({ classId: c })}` : ""}` },

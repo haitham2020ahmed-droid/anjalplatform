@@ -354,11 +354,11 @@ export async function scoreResearchAnswers(repo: Repo, actor: Actor, taskId: str
 // ------------------------------------------------------------------ the teacher: reteach and the class's writing errors
 
 /** Assigns a reteach skill (from a weak trait or a frequent error) with the normal skill assignment. */
-export async function assignReteach(repo: Repo, actor: Actor, input: { taskId: string; skillId: string; studentIds?: string[] }, now = new Date()): Promise<{ assignmentId: string; students: number }> {
+export async function assignReteach(repo: Repo, actor: Actor, input: { taskId: string; skillId: string; studentIds?: string[]; /** r74: REQUIRED source */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; students: number }> {
   assertCan(actor, "assignments:create");
   const t = await loadTask(repo, input.taskId);
   await assertClassAccess(repo, actor, s(t.classId));
-  return assignSkill(repo, actor, { classId: s(t.classId), skillId: input.skillId, studentIds: input.studentIds, note: `Reteach after the writing task “${s(t.title).slice(0, 120)}”.` }, now);
+  return assignSkill(repo, actor, { classId: s(t.classId), skillId: input.skillId, studentIds: input.studentIds, note: `Reteach after the writing task “${s(t.title).slice(0, 120)}”.`, source: input.source }, now);
 }
 
 export interface WritingErrorRow { code: string; label: string; fix: string; count: number; students: number; skills: ReteachSkill[] }

@@ -5,6 +5,7 @@ import type { TFn } from "@/i18n";
 import { groupMyWork, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
 import { SkillStar } from "@/components/skills/skill-star";
 import type { StarInfo } from "@/lib/skill-stars";
+import { SourceChips } from "./my-work-list";
 
 type Row = StudentHome["work"][number];
 const STATUS: Record<Row["status"], "NOT_STARTED" | "IN_PROGRESS" | "DONE"> = { "Not started": "NOT_STARTED", "In progress": "IN_PROGRESS", Done: "DONE" };
@@ -35,6 +36,7 @@ function CompactCard({ r, t }: { r: Row; t: TFn }) {
       <div className="min-w-0 flex-1">
         <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-brand-navy">{(r as Row & { star?: StarInfo }).star && <SkillStar info={(r as Row & { star?: StarInfo }).star!} who="student" t={t} label={r.skill} />}<bdi className="truncate">{r.skill}</bdi></p>
         <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
+          {!r.kind && (r.sources?.length ?? 0) > 1 && <SourceChips sources={r.sources!} t={t} />}
           <StatusPill status={STATUS[r.status]} />
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="text-slate-600">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}

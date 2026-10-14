@@ -99,7 +99,7 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
     const on = p.versions.ON!.map((q) => q.id);
     const removed = on[on.length - 1];
     const questions = { BELOW: p.versions.BELOW!.map((q) => q.id), ON: on.slice(0, -1), ABOVE: p.versions.ABOVE!.map((q) => q.id) };
-    const r = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "", levelMode: "LEVEL", questions, dueAt: new Date(Date.now() + 5 * 86_400_000) });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "", levelMode: "LEVEL", questions, dueAt: new Date(Date.now() + 5 * 86_400_000) });
     weeklyId = r.testId;
     assert.equal(r.students, 34);
     const t = await repo.findUnique("TeacherTest", { id: weeklyId });
@@ -123,17 +123,17 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
   test("assign to one student or a group only; only the teacher's own classes (server-side)", async () => {
     const p = await previewTest(repo, teacher, { skills: [{ skillId: skills[0].skillId, count: 2 }], levelMode: "SAME" });
     const q = { SAME: p.versions.SAME!.map((x) => x.id) };
-    const one = await assignTest(repo, teacher, { classId, type: "CUSTOM", title: "Friday check-in", questions: q, studentIds: [classmate.studentId!] });
+    const one = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CUSTOM", title: "Friday check-in", questions: q, studentIds: [classmate.studentId!] });
     assert.equal(one.students, 1);
     const tagOf = (await myTests(repo, classmate)).toDo.find((x) => x.title === "Friday check-in")!;
     assert.equal(tagOf.tag, "Friday check-in", "a custom test shows its own name");
     assert.equal((await teacherTests(repo, teacher)).find((x) => x.id === one.testId)!.typeName, "Other", "custom tests group as Other");
     assert.ok(!(await myTests(repo, student)).toDo.some((x) => x.title === "Friday check-in"), "not for other students");
-    await assert.rejects(assignTest(repo, teacher, { classId, type: "CUSTOM", title: "", questions: q }), /name/);
-    await assert.rejects(assignTest(repo, otherTeacher, { classId, type: "MAP", questions: q }), ForbiddenError, "another teacher's class");
+    await assert.rejects(assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CUSTOM", title: "", questions: q }), /name/);
+    await assert.rejects(assignTest(repo, otherTeacher, { source: "CURRICULUM", classId, type: "MAP", questions: q }), ForbiddenError, "another teacher's class");
     const outsider = (await repo.findMany("ClassMembership", {})).find((m) => m.classId !== classId)!;
-    await assert.rejects(assignTest(repo, teacher, { classId, type: "MAP", questions: q, studentIds: [String(outsider.studentId)] }), ForbiddenError);
-    await assert.rejects(assignTest(repo, student, { classId, type: "MAP", questions: q }), ForbiddenError);
+    await assert.rejects(assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "MAP", questions: q, studentIds: [String(outsider.studentId)] }), ForbiddenError);
+    await assert.rejects(assignTest(repo, student, { source: "CURRICULUM", classId, type: "MAP", questions: q }), ForbiddenError);
   });
 
   test("the student takes it (no right/wrong while testing), submits, and it moves to Completed with the score", async () => {
@@ -204,7 +204,7 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
 
   test("time limit is enforced by the server", async () => {
     const p = await previewTest(repo, teacher, { skills: [{ skillId: skills[0].skillId, count: 3 }], levelMode: "SAME" });
-    const r = await assignTest(repo, teacher, { classId, type: "NAFS", title: "Timed NAFS practice", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, timeLimitMin: 5, studentIds: [classmate.studentId!] });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "NAFS", title: "Timed NAFS practice", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, timeLimitMin: 5, studentIds: [classmate.studentId!] });
     const aid = (await myTests(repo, classmate)).toDo.find((x) => x.title === "Timed NAFS practice")!.assignmentId;
     const t0 = new Date();
     let v = await startQuiz(repo, classmate, aid, t0);
@@ -224,7 +224,7 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
   test("shuffle: question order and answer choices differ per student and stay the same for each student", async () => {
     const p = await previewTest(repo, teacher, { skills: skills.map((k) => ({ skillId: k.skillId, count: 5 })), levelMode: "SAME" });
     const ids = p.versions.SAME!.map((x) => x.id);
-    const r = await assignTest(repo, teacher, { classId, type: "CHAPTER_TEST", questions: { SAME: ids }, shuffle: true });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CHAPTER_TEST", questions: { SAME: ids }, shuffle: true });
     const a = (await repo.findMany("Assignment", { testId: r.testId }))[0];
     const others = (await teacherRoster(repo, teacher))[0].students.map((x) => x.id);
     const orders = new Set(others.slice(0, 6).map((id) => testOrder(a, ids, id).join(",")));
@@ -259,7 +259,7 @@ describe("UI reorg Phase 5 — Assessments and My Tests", () => {
     assert.equal((await listTemplates(repo, otherTeacher)).length, 0);
     // reuse: assign straight from the template
     const t = await openTemplate(repo, teacher, id);
-    const r = await assignTest(repo, teacher, { classId, type: t.type, title: t.title, levelMode: t.spec.levelMode, questions: t.spec.questions, timeLimitMin: t.spec.timeLimitMin, shuffle: t.spec.shuffle, templateId: id });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: t.type, title: t.title, levelMode: t.spec.levelMode, questions: t.spec.questions, timeLimitMin: t.spec.timeLimitMin, shuffle: t.spec.shuffle, templateId: id });
     const made = await repo.findUnique("TeacherTest", { id: r.testId });
     assert.deepEqual([made!.templateId, Number(made!.timeLimitMin), Boolean(made!.shuffle)], [id, 20, true]);
     // edit: one question fewer, new name

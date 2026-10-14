@@ -56,13 +56,13 @@ describe("Assigned: see and cancel everything a teacher assigned", () => {
     // skills the Test School has not given this class yet (My Work shows one row per skill)
     const given0 = new Set((await repo.findMany("Assignment", { classId }, { select: ["skillId"] })).map((a) => String(a.skillId)));
     const skillIds = [...new Set(qs.map((q) => String(q.skillId)))].filter((k) => !given0.has(k)).sort();
-    const skill = (await assignSkill(repo, teacher, { classId, skillId: skillIds[0] }, now)).assignmentId;
+    const skill = (await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillIds[0] }, now)).assignmentId;
     made.SKILL = [skill, skill];
-    const check = (await assignSkill(repo, teacher, { classId, skillId: skillIds[1] }, now)).assignmentId;
+    const check = (await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillIds[1] }, now)).assignmentId;
     await repo.create("ProgressCheck", { schoolId, classId, lessonId: "L1", assignmentId: check, title: "Check 1", categories: [], createdById: u, createdAt: now });
     made.PROGRESS_CHECK = [check, check];
     // a test of the "Review" type (any testType string)
-    const review = await assignTest(repo, teacher, { classId, type: "CUSTOM", title: "Unit review", levelMode: "SAME", questions: { SAME: qs.slice(3, 6).map((q) => String(q.id)) } }, now);
+    const review = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CUSTOM", title: "Unit review", levelMode: "SAME", questions: { SAME: qs.slice(3, 6).map((q) => String(q.id)) } }, now);
     await repo.updateMany("TeacherTest", { id: review.testId }, { testType: "REVIEW" });
     const set = String((await repo.findMany("Assignment", { testId: review.testId }))[0].id);
     made.TEST = [review.testId, `test:${set}`];
@@ -89,7 +89,7 @@ describe("Assigned: see and cancel everything a teacher assigned", () => {
     const lesson = String((await repo.create("LessonRun", { studentId: sid, schoolId, skillId: skillIds[0], source: "TEACHER", log: [], startedAt: now, updatedAt: now })).id);
     made.LESSON = [lesson, `lesson:${lesson}`];
     // a study plan whose place is its own (sent) set
-    const place = (await assignSkill(repo, teacher, { classId, skillId: skillIds[2] }, now)).assignmentId;
+    const place = (await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillIds[2] }, now)).assignmentId;
     const plan = String((await repo.create("SkillPlan", { schoolId, classId, title: "Grade curriculum plan", kind: "CURRICULUM", gradeLevel: Number(grade!.level), status: "SENT", createdById: u, createdAt: now })).id);
     await repo.create("SkillPlanItem", { planId: plan, code: "U1", label: "Unit 1", assignmentIds: [place], order: 1 });
     made.PLAN = [plan, `plan:${plan}`];

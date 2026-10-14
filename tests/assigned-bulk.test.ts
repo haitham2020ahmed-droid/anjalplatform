@@ -42,7 +42,7 @@ describe("📌 Assigned: select several, cancel / undo in one go", () => {
     const withQs = new Set((await repo.findMany("Question", { skillId: { in: skills }, status: "PUBLISHED" }, { select: ["skillId"] })).map((q) => String(q.skillId)));
     const given = new Set((await repo.findMany("Assignment", { classId }, { select: ["skillId"] })).map((a) => String(a.skillId)));
     const free = skills.filter((k) => withQs.has(k) && !given.has(k)).slice(0, 3);
-    for (const k of free) refs.push({ kind: "SKILL", id: (await assignSkill(repo, teacher, { classId, skillId: k }, now)).assignmentId });
+    for (const k of free) refs.push({ kind: "SKILL", id: (await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: k }, now)).assignmentId });
     const teacherRow = await repo.findUnique("Teacher", { userId: teacher.userId });
     for (const n of [1, 2]) {
       const r = await repo.create("RespondAssignment", { schoolId, classId, setCode: `G4.U${n}.TS1.RTR`, title: `Respond to Reading · Unit ${n} · Set 1`, createdById: teacherRow!.id, createdAt: new Date(now.getTime() - n * 60_000) });

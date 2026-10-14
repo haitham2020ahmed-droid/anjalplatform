@@ -5,12 +5,15 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { accessibleClasses } from "@/server/teacher/assign";
 import { classLevels, LEVEL_NAMES, previewMapAssign, type ClassLevels, type MapAssignPreview } from "@/server/curriculum-map/levels";
 import { assignFromMapAction } from "../levels-actions";
+import { SourceSelect } from "@/components/assign/source-select";
+import { getT } from "@/i18n/server";
 
 /** ⭐ Assign a Curriculum Map category by level: each student gets the questions of their own level. */
 export default async function MapAssignPage({ searchParams }: { searchParams: Promise<{ code?: string; classId?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
+  const { t } = await getT();
   const code = String(sp.code ?? "").toUpperCase();
   const classes = await accessibleClasses(repo, actor);
   const grades = await repo.findMany("Grade", { id: { in: classes.map((c) => c.gradeId) } });
@@ -85,6 +88,7 @@ export default async function MapAssignPage({ searchParams }: { searchParams: Pr
                 <label className="flex flex-col">Questions per student (max)<input type="number" name="max" min={1} max={50} defaultValue={20} className={`${box} w-28`} /></label>
                 <label className="flex flex-col">Start date (optional)<input type="date" name="startAt" className={box} /></label>
                 <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
+                <SourceSelect t={t} field={box} className="!font-normal" />
                 <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
               </div>
               <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">⭐ Assign to the class (by level)</button>

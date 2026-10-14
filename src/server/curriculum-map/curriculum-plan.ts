@@ -92,7 +92,7 @@ async function openPlanItemUnlocked(repo: Repo, actor: Actor, planId: string, it
   const creator = plan.createdById ? await repo.findUnique("User", { id: plan.createdById }) : null;
   const teacher = creator ? await resolveActor(repo, creator) : null;
   if (!teacher) throw new ValidationError("Ask your teacher to send the plan again.");
-  const r = await assignFromMap(repo, teacher, { classId: s(plan.classId), categoryCode: s(item.code), mode: "ADAPTIVE", targetCorrect: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: "Curriculum plan" }, now);
+  const r = await assignFromMap(repo, teacher, { classId: s(plan.classId), categoryCode: s(item.code), mode: "ADAPTIVE", targetCorrect: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: "Curriculum plan", source: "CURRICULUM" }, now);
   const made = r.groups.map((g) => g.assignmentId);
   await repo.updateMany("SkillPlanItem", { id: item.id }, { assignmentIds: made });
   const mine = await repo.findMany("AssignmentStudent", { assignmentId: { in: made }, studentId: actor.studentId }, { select: ["assignmentId"] });

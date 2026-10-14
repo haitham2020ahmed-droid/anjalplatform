@@ -8,6 +8,9 @@ import { codeName, MOE_AREA_NAME, MOE_BY_CODE, PROCESSES } from "@/server/nafs/f
 import { PrintButton } from "@/components/plans/print-button";
 import { Combo } from "@/components/ui/combo";
 import { CodeHead } from "./code-name";
+import { ClassLineCards, LineCells, LineHeads } from "./student-line";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
@@ -203,12 +206,9 @@ export async function TestReport({ actor, t, testId, classId, cuts }: { actor: A
   const flagged = r.items.filter((x) => x.flags.length);
   return (
     <>
+      <ClassLineCards c={r.cls} t={t} />
       <section className={`${CARD} flex flex-wrap items-center justify-between gap-3`}>
-        <div className="grid grid-cols-3 gap-3 text-center">
-          <div><p className="text-2xl font-bold text-ink tabular-nums">{r.taken}/{r.roster}</p><p className="text-xs text-muted">{t("Taken")}</p></div>
-          <div><p className="text-2xl font-bold tabular-nums"><P v={r.avgPct} cuts={cuts} /></p><p className="text-xs text-muted">{t("Class average")}</p></div>
-          <div><p className="text-2xl font-bold text-ink tabular-nums">{r.avgPoints ?? "—"}<span className="text-sm text-muted"> / {r.maxPoints}</span></p><p className="text-xs text-muted">{t("Average marks")}</p></div>
-        </div>
+        <div className="text-center"><p className="text-2xl font-bold text-ink tabular-nums">{r.avgPoints ?? "—"}<span className="text-sm text-muted"> / {r.maxPoints}</span></p><p className="text-xs text-muted">{t("Average marks")}</p></div>
         <Exports t={t} q={q} />
       </section>
       {r.pending > 0 && <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200 print:hidden">✍ {t("{n} written answer(s) waiting for marking: they count once scored.", { n: r.pending })} <Link href={`/teacher/nafs?tab=marking&test=${testId}`} className="font-semibold underline">{t("Marking")}</Link></p>}
@@ -226,8 +226,31 @@ export async function TestReport({ actor, t, testId, classId, cuts }: { actor: A
               <p className="mt-3 text-xs text-muted">{t("Domains")}: {r.domains.map((d) => `${t(d.name)} ${d.pct ?? "—"}%`).join(" · ")}</p>
             </section>
           </div>
-          <section className={CARD}>
+          <section className={CARD} data-testid="nafs-students">
             <h2 className="text-lg font-semibold text-ink">{t("Students")}</h2>
+            <div className="mt-2 overflow-x-auto">
+              <table className="w-full min-w-[44rem] text-sm">
+                <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><LineHeads t={t} /><th>{t("Marks")}</th></tr></thead>
+                <tbody className="divide-y divide-line">
+                  {r.students.map((x) => (
+                    <tr key={x.id}>
+                      <td className="py-2"><Link href={`/teacher/nafs?tab=test&sub=report&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className}{x.blanks ? ` · ${t("{n} blank", { n: x.blanks })}` : ""}{x.pending ? ` · ✍ ${t("{n} to mark", { n: x.pending })}` : ""}</span></td>
+                      <LineCells x={x} t={t} />
+                      <td className="text-center tabular-nums text-ink-2">{x.points}/{x.maxPoints}</td>
+                    </tr>
+                  ))}
+                  {r.notTaken.map((x) => (
+                    <tr key={x.id} className="text-muted">
+                      <td className="py-2"><span className="font-semibold">{x.name}</span><span className="block text-xs">{x.className}</span></td>
+                      <td className="text-center">—</td><td className="text-center">—</td><td className="text-center">—</td><td className="text-center">{t(x.started ? "No (started)" : "No (not started)")}</td><td>—</td><td>—</td><td className="text-center">—</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <details className={CARD}>
+            <summary className="cursor-pointer text-sm font-semibold text-ink">{t("More details")}: {t("reading processes, content areas and text types per student")}</summary>
             <div className="mt-2 overflow-x-auto">
               <table className="w-full min-w-[44rem] text-sm">
                 <thead><tr className="text-start text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th className="text-start">{t("Score")}</th><th className="text-start">{t("Marks")}</th>{PROCESSES.map((p) => <th key={p} className="text-start">{p}</th>)}<th className="text-start">{t("Vocabulary")}</th><th className="text-start">{t("Comprehension and analysis")}</th><th className="text-start">{t("Evaluation")}</th><th className="text-start">{t("Informational")}</th><th className="text-start">{t("Literary")}</th><th className="text-start">{t("From")}</th></tr></thead>
@@ -244,8 +267,7 @@ export async function TestReport({ actor, t, testId, classId, cuts }: { actor: A
                 </tbody>
               </table>
             </div>
-            {r.notTaken.length > 0 && <p className="mt-3 text-sm text-muted">{t("Not taken yet")}: {r.notTaken.map((x) => x.name).join(", ")}</p>}
-          </section>
+          </details>
           <section className={CARD}>
             <h2 className="text-lg font-semibold text-ink">{t("Item analysis")}</h2>
             <p className="text-sm text-muted">{t("% correct, discrimination D (upper 27% minus lower 27% of the students: 0.20 or more is good), the most chosen wrong option, and flags for items to review.")} {missed.length ? `${t("Most missed")}: ${missed.map((x) => `#${x.n}`).join(", ")}` : ""}</p>
@@ -257,7 +279,7 @@ export async function TestReport({ actor, t, testId, classId, cuts }: { actor: A
                   {r.items.map((x) => (
                     <tr key={x.id}>
                       <td className="py-2 font-semibold text-ink">{x.n}</td>
-                      <td className="max-w-xs truncate text-ink-2" lang="en" dir="ltr" title={x.stem}>{x.kind === "WRITTEN" ? "✍ " : ""}{x.stem}</td>
+                      <td className="max-w-xs truncate text-ink-2" lang="en" dir="ltr" title={stripMarks(x.stem)}>{x.kind === "WRITTEN" ? "✍ " : ""}<RichInline text={x.stem} /></td>
                       <td className="max-w-[14rem] text-xs text-ink-2">{x.standard ? codeName(x.standard, t) : "—"}</td>
                       <td className="text-xs text-ink-2">{t(x.skill)} · {codeName(x.process, t)}</td>
                       <td><P v={x.pct} cuts={cuts} />{x.pending ? <span className="block text-[11px] text-muted">{t("{n} to mark", { n: x.pending })}</span> : null}</td>
@@ -285,6 +307,7 @@ async function Across({ actor, t, classId, cuts }: { actor: Actor; t: TFn; class
   if (!r.tests.length) return <p className={`${CARD} text-sm text-muted`}>{t("No NAFS results yet.")}</p>;
   return (
     <>
+      <ClassLineCards c={r.cls} t={t} finishedLabel="Took a NAFS test" />
       <section className={`${CARD} flex flex-wrap items-center justify-between gap-3`}>
         <p className="text-sm text-ink-2">{t("Every NAFS test of these classes together ({n} tests): each student's items pooled.", { n: r.tests.length })}</p>
         <Exports t={t} q={q} />
@@ -299,10 +322,19 @@ async function Across({ actor, t, classId, cuts }: { actor: Actor; t: TFn; class
         <h2 className="text-lg font-semibold text-ink">{t("Students (all tests)")}</h2>
         <div className="mt-2 overflow-x-auto">
           <table className="w-full min-w-[40rem] text-sm">
-            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Tests")}</th><th>{t("Overall")}</th>{PROCESSES.map((p) => <th key={p}>{p}</th>)}<th>{t("Vocabulary")}</th><th>{t("Comprehension and analysis")}</th><th>{t("Evaluation")}</th></tr></thead>
-            <tbody className="divide-y divide-line">{r.students.map((x) => <tr key={x.id}><td className="py-2"><Link href={`/teacher/nafs?tab=test&sub=report&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className} · {t("{n} items", { n: x.n })}</span></td><td className="text-center tabular-nums">{x.tests}</td><td className="text-center"><P v={x.pct} cuts={cuts} /></td>{PROCESSES.map((p) => <td key={p} className="text-center"><P v={x.processes[p]} cuts={cuts} /></td>)}<td className="text-center"><P v={x.areas.VOC} cuts={cuts} /></td><td className="text-center"><P v={x.areas.CA} cuts={cuts} /></td><td className="text-center"><P v={x.areas.EV} cuts={cuts} /></td></tr>)}</tbody>
+            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th title={t("NAFS tests handed in")}>{t("Tests finished")}</th><LineHeads t={t} finished={false} /></tr></thead>
+            <tbody className="divide-y divide-line">{r.students.map((x) => <tr key={x.id}><td className="py-2"><Link href={`/teacher/nafs?tab=test&sub=report&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className} · {t("{n} items", { n: x.n })}</span></td><td className="text-center tabular-nums">{x.tests}</td><LineCells x={x} t={t} finished={false} /></tr>)}</tbody>
           </table>
         </div>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-sm font-semibold text-ink">{t("More details")}: {t("reading processes and content areas per student")}</summary>
+        <div className="mt-2 overflow-x-auto">
+          <table className="w-full min-w-[40rem] text-sm">
+            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Overall")}</th>{PROCESSES.map((p) => <th key={p}>{p}</th>)}<th>{t("Vocabulary")}</th><th>{t("Comprehension and analysis")}</th><th>{t("Evaluation")}</th></tr></thead>
+            <tbody className="divide-y divide-line">{r.students.map((x) => <tr key={x.id}><td className="py-2 font-semibold text-ink">{x.name}</td><td className="text-center"><P v={x.pct} cuts={cuts} /></td>{PROCESSES.map((p) => <td key={p} className="text-center"><P v={x.processes[p]} cuts={cuts} /></td>)}<td className="text-center"><P v={x.areas.VOC} cuts={cuts} /></td><td className="text-center"><P v={x.areas.CA} cuts={cuts} /></td><td className="text-center"><P v={x.areas.EV} cuts={cuts} /></td></tr>)}</tbody>
+          </table>
+        </div>
+        </details>
       </section>
     </>
   );

@@ -78,6 +78,8 @@ export interface MySkillRow {
   /** Learning: the mastery bar (0–99 before the star; no question counts shown) */ score: number;
   href: string | null; action: string;
   /** the plans the skill comes from (small tags): MAP plan, Year plan, Grammar, Assigned */ from: string[];
+  /** r72 (teacher view only, never shown to students): the RTI flag and the counted answers */
+  needsSupport?: boolean; answered?: number;
 }
 export interface MySkillsGroup { strand: Strand; label: string; rows: MySkillRow[] }
 export interface MySkills { counts: Record<MySkillsTab, number>; tabs: MySkillsTab[]; tab: MySkillsTab; groups: Record<MySkillsTab, MySkillsGroup[]>; total: number }
@@ -112,7 +114,7 @@ export async function planSkillIdsOf(repo: Repo, studentId: string, schoolId: st
 }
 
 /** The student's My Skills (the student's own page, or the teacher's read-only view of it). */
-export async function mySkills(repo: Repo, studentId: string, now = new Date(), opts: { href?: boolean } = {}): Promise<MySkills> {
+export async function mySkills(repo: Repo, studentId: string, now = new Date(), opts: { href?: boolean; /** r72: stars computed from the raw practice for keys with no row yet (teacher view, before the migration) */ extra?: ReadonlyMap<string, StarView> } = {}): Promise<MySkills> {
   const schoolId = await studentSchool(repo, studentId);
   const [rows, ix, idx, plan] = await Promise.all([
     repo.findMany("SkillStatus", { studentId }, { select: ["studentId", "skillKey", "level", "status", "skillId", "answered", "correct", "score", "startedAt", "masteredAt", "reviewDueAt", "needsSupportAt", "selfCheck", "updatedAt"] }),
@@ -120,6 +122,7 @@ export async function mySkills(repo: Repo, studentId: string, now = new Date(), 
     planSkillIdsOf(repo, studentId, schoolId, now),
   ]);
   const byKey = new Map<string, StarView>([...currentRows(rows)].map(([k, r]) => [k, viewOf(r)]));
+  for (const [k, v] of opts.extra ?? []) if (!byKey.has(k)) byKey.set(k, v);
   // plan skills by key (each skill once, whichever copy the plan used)
   const planKeys = new Map<string, { skillId: string; from: Set<string> }>();
   for (const [id, from] of plan) {
@@ -142,7 +145,7 @@ export async function mySkills(repo: Repo, studentId: string, now = new Date(), 
       key, name: ix.nameOf.get(key) ?? sk?.name ?? "Skill", skillId, strand: strandOf(key, sk), status, tab,
       masteredAt: v?.masteredAt ? v.masteredAt.slice(0, 10) : null, score: v ? Math.min(99, v.score) : 0,
       href: opts.href === false || !skillId ? null : `/practice/${encodeURIComponent(skillId)}?from=free`, action: ACTION_LABEL[tab],
-      from: [...(planKeys.get(key)?.from ?? [])],
+      from: [...(planKeys.get(key)?.from ?? [])], needsSupport: Boolean(v?.needsSupport), answered: v?.answered ?? 0,
     });
   }
   const counts: Record<MySkillsTab, number> = { MASTERED: 0, LEARNING: 0, REVIEW: 0, NOT_STARTED: 0 };

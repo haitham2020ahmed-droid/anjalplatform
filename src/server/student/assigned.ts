@@ -9,6 +9,7 @@
  */
 import { runAfterResponse } from "../lib/after-response";
 import { hideLevels } from "../../lib/hide-levels";
+import { sourceOfAssignment, type AssignSource } from "../../lib/assign-source";
 import type { Repo, Row } from "../seeding/repo";
 import { visibleDiagnostics } from "../diagnostic/window";
 import { audit } from "../audit";
@@ -37,6 +38,8 @@ export interface AssignedSkill {
   /** where the work comes from: CURRICULUM, MAP, NAFS, RTI, GRAMMAR or CUSTOM (the source tag) */
   track: Track;
   assignmentId: string; skillId: string; skill: string; standard: string | null;
+  /** r74: the assignment's source (MAP | NAFS | CURRICULUM | GRAMMAR | RTI; older rows inferred) */
+  source?: AssignSource;
   /** a 🔤 Grammar skill (shown with the grammar icon and under the Grammar filter) */
   grammar?: boolean; assignedAt: string; startAt: string | null; dueAt: string | null;
   status: Status; progress: number; note: string | null; startsLater: boolean; completedAt: string | null;
@@ -96,7 +99,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     const skillId = skillOf(a)!;
     const startAt = d(a.startAt);
     return {
-      kind: "skill" as const, track: trackOf(a.track), assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
+      kind: "skill" as const, track: trackOf(a.track), source: sourceOfAssignment(a), assignmentId: s(a.id), skillId, skill: s(skills.find((k) => k.id === skillId)?.name ?? a.title), standard: primary(skillId),
       grammar: a.track === "GRAMMAR" || s(skills.find((k) => k.id === skillId)?.code).toLowerCase().includes(".grammar."),
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
@@ -109,7 +112,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
     if (!r) continue;
     const startAt = d(a.startAt);
     items.push({
-      kind: "questions", track: trackOf(a.track), questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: hideLevels(s(a.title)), standard: null,
+      kind: "questions", track: trackOf(a.track), source: sourceOfAssignment(a), questionCount: setSize.get(s(a.assessmentId)) ?? 0, assignmentId: s(a.id), skillId: "", skill: hideLevels(s(a.title)), standard: null,
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now), completedAt: d(r.completedAt)?.toISOString() ?? null,
     });

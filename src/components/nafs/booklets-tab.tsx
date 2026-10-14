@@ -13,6 +13,7 @@ import { Combo } from "@/components/ui/combo";
 import { PrintButton } from "@/components/plans/print-button";
 import { CutFields, Legend, TestReport } from "./reports-tab";
 import { SubNav } from "./sub-nav";
+import { RichInline } from "@/components/rich-inline";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
 const INPUT = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -79,11 +80,11 @@ async function BookletList({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<
             <ol className="grid content-start gap-2">
               {open.questions.map((q) => (
                 <li key={q.id} className="rounded-xl p-3 ring-1 ring-line">
-                  <p className="text-sm font-semibold text-ink"><span className="me-1">{q.n}.</span>{q.stem}</p>
+                  <p className="text-sm font-semibold text-ink"><span className="me-1">{q.n}.</span><RichInline text={q.stem} /></p>
                   {q.kind === "WRITTEN" ? (
                     <div className="mt-1 text-sm text-ink-2"><p><b>{t("Model answer")}:</b> {q.model}</p><ul className="text-xs">{q.rubric.map((r) => <li key={r}>{r}</li>)}</ul></div>
                   ) : (
-                    <ul className="mt-1 grid gap-0.5 text-sm">{q.options.map((o, k) => <li key={k} className={k === q.correct ? "font-semibold text-emerald-800" : "text-ink-2"}><b>{"ABCD"[k]}.</b> {o}{k === q.correct ? " ✓" : ""}</li>)}</ul>
+                    <ul className="mt-1 grid gap-0.5 text-sm">{q.options.map((o, k) => <li key={k} className={k === q.correct ? "font-semibold text-emerald-800" : "text-ink-2"}><b>{"ABCD"[k]}.</b> <RichInline text={o} />{k === q.correct ? " ✓" : ""}</li>)}</ul>
                   )}
                   {q.why && <p className="mt-1 text-xs text-muted">{q.why}</p>}
                   <p className="mt-1 text-[11px] text-muted" dir="auto">{q.standard ? codeName(q.standard, t) : "—"} · {codeName(q.skill, t)} · {t(q.difficultyName)}</p>

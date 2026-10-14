@@ -50,6 +50,27 @@ export function assertSameOrigin(headers: { origin?: string | null; referer?: st
 }
 
 /**
+ * Same-origin check for a plain form POST (no session yet: sign-in pages): APP_URL, or the host this request reached
+ * (behind a proxy the app can be reached by more than one name). A missing Origin and Referer is rejected.
+ */
+export function isSameOriginPost(headers: { get(name: string): string | null }, appUrl: string): boolean {
+  const h = { origin: headers.get("origin"), referer: headers.get("referer") };
+  if (isSameOrigin(h, appUrl)) return true;
+  const source = h.origin ?? (h.referer ? safeOrigin(h.referer) : null);
+  const host = headers.get("x-forwarded-host") ?? headers.get("host");
+  if (!source || !host) return false;
+  try { return new URL(source).host === host; } catch { return false; }
+}
+
+/**
+ * Class QR sign-in (r76): the student pages are open without a session — /qr (type the short code), /qr/<token or
+ * code> (the class's names) and /qr/signin (the form post). Exact paths only (never "/qrs…").
+ */
+export function isClassSignInPath(pathname: string): boolean {
+  return pathname === "/qr" || pathname.startsWith("/qr/");
+}
+
+/**
  * Security headers applied to every response (next.config.ts). The Content-Security-
  * Policy is NOT here: it needs a per-request nonce and is set by middleware (csp.ts).
  */

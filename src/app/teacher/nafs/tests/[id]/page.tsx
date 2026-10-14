@@ -12,6 +12,7 @@ import { codeName, MAX_NAFS_MINUTES } from "@/server/nafs/framework";
 import { Combo } from "@/components/ui/combo";
 import { assignOnlineAction, deleteTestAction, nafsTimeAction, releaseAction, updateAssignmentAction } from "../../actions";
 import { LiveTimePanel } from "@/components/live-time-panel";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "NAFS test" };
 const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -126,7 +127,7 @@ export default async function NafsTestPage({ params, searchParams }: { params: P
           {rows.map((r, i) => (
             <li key={r.id} className="py-2">
               {r.passageId && rows[i - 1]?.passageId !== r.passageId && <p className="text-xs font-semibold text-teal-ink">📄 {r.passageTitle}</p>}
-              <p className="text-sm text-ink" lang="en" dir="ltr"><b>{r.n}.</b> {r.stem}</p>
+              <p className="text-sm text-ink" lang="en" dir="ltr"><b>{r.n}.</b> <RichInline text={r.stem} /></p>
               <p className="text-xs text-muted">{r.standard ? <b className="me-1 text-ink-2">{codeName(r.standard, t)} ·</b> : null}{t(r.skill)} · {codeName(r.process, t)} · {r.kind === "WRITTEN" ? `✍ ${t("Short written answer")}` : `${t("Answer")}: ${"ABCD"[r.correct]}`} · {t("{n} marks", { n: markOf(test.marks, r.id) })}</p>
             </li>
           ))}

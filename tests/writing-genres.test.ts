@@ -260,9 +260,9 @@ describe("✍️ genre writing end to end", () => {
     assert.deepEqual(sub.reteach.map((r) => r.trait), ["organization", "conventions"]);
     assert.ok(sub.reteach[0].skills.some((k) => /\.(sequence|text-structure|compare-contrast)$/.test(k.code)), JSON.stringify(sub.reteach[0].skills));
     assert.ok(sub.reteach[1].skills.some((k) => /\.(capitalization|titles-abbreviations|subject-verb-agreement)$/.test(k.code)), JSON.stringify(sub.reteach[1].skills));
-    const a = await W.assignReteach(repo, teacher, { taskId: id, skillId: sub.reteach[0].skills[0].id, studentIds: [students[0]] }, now);
+    const a = await W.assignReteach(repo, teacher, { taskId: id, skillId: sub.reteach[0].skills[0].id, studentIds: [students[0]], source: "CURRICULUM" }, now);
     assert.equal(a.students, 1);
-    await assert.rejects(W.assignReteach(repo, other, { taskId: id, skillId: sub.reteach[0].skills[0].id, studentIds: [students[0]] }, now), ForbiddenError);
+    await assert.rejects(W.assignReteach(repo, other, { taskId: id, skillId: sub.reteach[0].skills[0].id, studentIds: [students[0]], source: "CURRICULUM" }, now), ForbiddenError);
 
     // the class's writing errors (approved feedback only)
     const errs = await W.classWritingErrors(repo, teacher, classId);

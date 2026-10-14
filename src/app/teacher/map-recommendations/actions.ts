@@ -12,7 +12,7 @@ export async function assignRecommendationsAction(f: FormData): Promise<void> {
   try {
     const picks = f.getAll("pick").map(String).map((v) => { const [studentId, skillId] = v.split("|"); return { studentId, skillId }; }).filter((p) => p.studentId && p.skillId);
     const due = String(f.get("dueAt") ?? "");
-    const r = await assignRecommendations(repo, actor, classId, picks, /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null);
+    const r = await assignRecommendations(repo, actor, classId, picks, /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null, String(f.get("source") ?? ""));
     msg = `Assigned ✓ ${r.assignments} MAP skill(s) to ${r.students} student(s). They appear in each student's 🗺️ My MAP.`;
   } catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; msg = e.message; }
   redirect(`/teacher/map-recommendations?classId=${classId}&msg=${encodeURIComponent(msg)}`);

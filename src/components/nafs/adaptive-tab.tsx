@@ -13,6 +13,7 @@ import { PracticeTab } from "./practice-tab";
 import { PracticeReportView } from "./practice-report";
 import { Sparkline } from "./charts";
 import { Card, PctBar, SubNav } from "./sub-nav";
+import { ClassLineCards, LINE_TIPS, LineCells, LineHeads, SwText } from "./student-line";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
 const mm = (sec: number) => { const h = Math.floor(sec / 3600), m = Math.round((sec % 3600) / 60); return h ? `${h} h ${m} min` : `${m} min`; };
@@ -52,20 +53,21 @@ async function AdaptiveReportView({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
       </form>
       {one && <PracticeReportView r={one} t={t} closeHref={centerHref("adaptive", { sub: "report", class: classId })} />}
       {!s.runs ? <p className={`${CARD} text-sm text-muted`}>{t("No adaptive practice results yet.")} <Link href={centerHref("adaptive")} className="font-semibold text-teal-ink underline">{t("Give adaptive practice")}</Link></p> : <>
+        <ClassLineCards c={r.cls} t={t} finishedLabel="Finished every practice" />
         <section aria-label={t("Summary")} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <Card n={s.practices} label={t("Practices given")} sub={t("{n} finished", { n: s.finished })} />
           <Card n={s.students} label={t("Students who practised")} />
-          <Card n={s.answers} label={t("Answers")} sub={`${t("Accuracy")}: ${s.pct ?? "—"}%`} />
+          <Card n={s.answers} label={t("Answers")} sub={<span title={t(LINE_TIPS.wrong)}>✓ {s.right} · ✗ {s.wrong} · {t("Accuracy")}: {s.pct ?? "—"}%</span>} />
           <Card n={`${s.mastered}/${s.targetRuns}`} label={t("Skills mastered")} sub={t("4 of the last 5 right, at least 2 at Medium or Hard")} />
           <Card n={mm(s.seconds)} label={t("Time spent")} />
         </section>
         {r.classes.length > 1 && (
           <section className={CARD} aria-labelledby="ac-h">
             <h2 id="ac-h" className="text-lg font-semibold text-ink">{t("Per class")}</h2>
-            <div className="mt-2 overflow-x-auto"><table className="w-full min-w-[32rem] text-sm">
-              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Class")}</th><th>{t("Practised")}</th><th>{t("Answers")}</th><th className="w-1/3">{t("Accuracy")}</th><th>{t("Mastered")}</th></tr></thead>
+            <div className="mt-2 overflow-x-auto"><table className="w-full min-w-[40rem] text-sm">
+              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Class")}</th><th>{t("Practised")}</th><th title={t(LINE_TIPS.average)}>{t("Class average")}</th><th>{t("Finished every practice")}</th><th>{t("Right")}</th><th>{t("Wrong")}</th><th className="text-start">{t("Strongest standard")}</th><th className="text-start">{t("Weakest standard")}</th></tr></thead>
               <tbody className="divide-y divide-line">{r.classes.map((c) => (
-                <tr key={c.id}><td className="py-2 font-semibold text-ink"><Link href={centerHref("adaptive", { sub: "report", class: c.id })} className="hover:underline">{c.name}</Link></td><td className="text-center tabular-nums">{c.practised}/{c.students}</td><td className="text-center tabular-nums">{c.answers}</td><td><PctBar v={c.pct} label="" /></td><td className="text-center tabular-nums">{c.masteryPct === null ? "—" : `${c.masteryPct}%`}</td></tr>
+                <tr key={c.id}><td className="py-2 font-semibold text-ink"><Link href={centerHref("adaptive", { sub: "report", class: c.id })} className="hover:underline">{c.name}</Link></td><td className="text-center tabular-nums">{c.practised}/{c.students}</td><td className="text-center tabular-nums font-semibold">{c.average === null ? "—" : `${c.average}%`}</td><td className="text-center tabular-nums">{c.finished}/{c.students}</td><td className="text-center tabular-nums">{c.right}</td><td className="text-center tabular-nums">{c.wrong}</td><td><SwText code={c.strongest} why={c.strongestWhy} t={t} tone="good" /></td><td><SwText code={c.weakest} why={c.weakestWhy} t={t} tone="bad" /></td></tr>
               ))}</tbody>
             </table></div>
           </section>
@@ -90,21 +92,34 @@ async function AdaptiveReportView({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
         <section className={CARD} aria-labelledby="as-h">
           <h2 id="as-h" className="text-lg font-semibold text-ink">{t("Per student")}</h2>
           <div className="mt-2 overflow-x-auto"><table className="w-full min-w-[56rem] text-sm">
-            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Practices")}</th><th>{t("Answers")}</th><th className="w-40">{t("Accuracy")}</th><th>{t("Mastered")}</th><th>{t("Level reached")}</th><th>{t("Time spent")}</th><th>{t("Trend")}</th><th className="text-start">{t("Strengths")}</th><th className="text-start">{t("To work on")}</th></tr></thead>
+            <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><LineHeads t={t} /><th>{t("Practices")}</th><th>{t("Level reached")}</th></tr></thead>
             <tbody className="divide-y divide-line">{r.students.map((x) => (
               <tr key={x.id} className="align-top">
                 <td className="py-2 pe-2"><Link href={`/teacher/nafs/students/${encodeURIComponent(x.id)}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className}</span></td>
-                <td className="text-center tabular-nums">{x.practices}</td><td className="text-center tabular-nums">{x.answers}</td>
-                <td><PctBar v={x.pct} label="" /></td>
-                <td className="text-center tabular-nums">{x.mastered}/{x.tried}</td>
+                <LineCells x={{ ...x, finished: x.finishedAll, strength: x.strengths[0] ?? null, weakness: x.workOn[0] ?? null }} t={t} />
+                <td className="text-center tabular-nums">{x.finished}/{x.practices}</td>
                 <td className="text-center">{x.best ? t(REACHED[x.best]) : "—"}</td>
-                <td className="text-center tabular-nums">{mm(x.seconds)}</td>
-                <td className="text-center"><Sparkline points={x.trend} label={t("Trend")} /><span className="block text-[11px] tabular-nums text-muted" dir="ltr">{x.trend.map((p) => p ?? "—").join(" → ")}</span></td>
-                <td className="text-xs text-emerald-800">{x.strengths.map((c) => codeName(c, t)).join(" · ") || "—"}</td>
-                <td className="text-xs text-rose-800">{x.workOn.map((c) => codeName(c, t)).join(" · ") || "—"}</td>
               </tr>
             ))}</tbody>
           </table></div>
+          <details className="mt-3">
+            <summary className="cursor-pointer text-sm font-semibold text-ink">{t("More details")}: {t("mastery, time, trend and every strength per student")}</summary>
+            <div className="mt-2 overflow-x-auto"><table className="w-full min-w-[48rem] text-sm">
+              <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Answers")}</th><th className="w-40">{t("Accuracy")}</th><th>{t("Mastered")}</th><th>{t("Time spent")}</th><th>{t("Trend")}</th><th className="text-start">{t("Strengths")}</th><th className="text-start">{t("To work on")}</th></tr></thead>
+              <tbody className="divide-y divide-line">{r.students.map((x) => (
+                <tr key={x.id} className="align-top">
+                  <td className="py-2 pe-2 font-semibold text-ink">{x.name}</td>
+                  <td className="text-center tabular-nums">{x.answers}</td>
+                  <td><PctBar v={x.pct} label="" /></td>
+                  <td className="text-center tabular-nums">{x.mastered}/{x.tried}</td>
+                  <td className="text-center tabular-nums">{mm(x.seconds)}</td>
+                  <td className="text-center"><Sparkline points={x.trend} label={t("Trend")} /><span className="block text-[11px] tabular-nums text-muted" dir="ltr">{x.trend.map((p) => p ?? "—").join(" → ")}</span></td>
+                  <td className="text-xs text-emerald-800">{x.strengths.map((c) => codeName(c, t)).join(" · ") || "—"}</td>
+                  <td className="text-xs text-rose-800">{x.workOn.map((c) => codeName(c, t)).join(" · ") || "—"}</td>
+                </tr>
+              ))}</tbody>
+            </table></div>
+          </details>
         </section>
       </>}
     </div>

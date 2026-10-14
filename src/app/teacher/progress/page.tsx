@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { IntensityBadge, LevelBadge, StatusBadge } from "@/components/insights/badges";
-import { AtAGlance, BandBar, Callout, ReportHeader, ReportSection, ReportTable, Sparkline } from "@/components/report-kit";
+import { AtAGlance, BandBar, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, Sparkline } from "@/components/report-kit";
+import { progressSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { recordResultsView } from "@/server/insights/teacher-followup";
@@ -59,6 +60,7 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
             )}
           </>
         ) : undefined} />
+      <ReportIntro text="Each student's practice accuracy, work and MAP progress, with who needs help first." />
       {!classes.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No classes yet.</p> : (
         <>
           {v && (
@@ -93,10 +95,10 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
               </ReportSection>
               <ReportTable label="Students"
                 cols={[
-                  { key: "n", label: "Student" }, { key: "st", label: "Status" }, { key: "lv", label: "Level" }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true },
+                  { key: "n", label: "Student" }, { key: "st", label: "Status" }, { key: "lv", label: "Level", more: true }, { key: "a", label: "Answers", num: true, more: true }, { key: "acc", label: "Accuracy", num: true },
                   { key: "tr", label: "Trend", hint: "Weekly accuracy, last 6 weeks: trend, consistency, last 4 weeks vs the 4 before, percentile rank in the class", sort: false },
-                  { key: "sk", label: "Skills mastered / need work", num: true }, { key: "tm", label: "Time (week · month)", num: true }, { key: "w", label: "Tasks done · pending · late", num: true },
-                  { key: "la", label: "Last active" }, { key: "map", label: "MAP Fall → now → target", num: true }, { key: "p", label: "Plan", sort: false },
+                  { key: "sk", label: "Skills mastered / need work", num: true, more: true }, { key: "tm", label: "Time (week · month)", num: true, more: true }, { key: "w", label: "Tasks done · pending · late", num: true },
+                  { key: "la", label: "Last active", more: true }, { key: "map", label: "MAP Fall → now → target", num: true }, { key: "p", label: "Plan", sort: false, more: true },
                 ]}
                 rows={rows.map((r) => {
                   const tr = v.trends[r.studentId];
@@ -126,6 +128,7 @@ export default async function ProgressPage({ searchParams }: { searchParams: Pro
                   };
                 })} empty="No students match." />
               <p className="mt-2 text-xs text-slate-500">Status: MAP mid-year score against the Spring target when there is one; otherwise platform accuracy in the last 30 days (under 50% = at risk). Levels are visible to staff only.</p>
+              <ReportSummary summary={progressSummary(v.rows, classId, actor.role !== "TEACHER")} />
             </>
           )}
         </>

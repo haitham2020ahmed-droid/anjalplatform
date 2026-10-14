@@ -74,9 +74,9 @@ describe("end to end: admin → teacher → student → teacher", () => {
     // "assigned you a new skill" notifications only (a due/overdue reminder may be written in the background meanwhile)
     const newWork = async () => (await repo.findMany("Notification", { userId: student.userId, type: "NEW_ASSIGNMENT", readAt: null })).length;
     const before = await newWork();
-    assignmentId = (await assignSkill(repo, teacher, { classId, skillId, dueAt: new Date(Date.now() + 5 * 86_400_000), note: "Do your best!" })).assignmentId;
-    assert.equal((await assignSkill(repo, teacher, { classId, skillId: usable[1], studentIds: view.students.slice(0, 3).map((x) => x.id) })).students, 3);
-    assert.equal((await assignSkill(repo, teacher, { classId, skillId: usable[2], studentIds: [view.students[5].id] })).students, 1);
+    assignmentId = (await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, dueAt: new Date(Date.now() + 5 * 86_400_000), note: "Do your best!" })).assignmentId;
+    assert.equal((await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: usable[1], studentIds: view.students.slice(0, 3).map((x) => x.id) })).students, 3);
+    assert.equal((await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: usable[2], studentIds: [view.students[5].id] })).students, 1);
     assert.equal(await newWork(), before + 1, "the student got a notification");
   });
 

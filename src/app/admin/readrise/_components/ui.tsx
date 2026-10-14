@@ -3,7 +3,7 @@
 /** 🚀 ReadRise staff pages — small shared pieces (server-rendered, no client JS). */
 import type { ReactNode } from "react";
 
-export const RR_NOTE = "ReadRise Level is an estimate on a Lexile-like scale, not an official Lexile measure.";
+export const RR_NOTE = "The ReadRise level is ReadRise's own reading level (an estimate from the reading checks and first-try scores).";
 export const btn = "rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple";
 export const btnGhost = "rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
 export const field = "rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm";

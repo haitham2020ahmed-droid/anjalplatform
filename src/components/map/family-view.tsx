@@ -1,9 +1,12 @@
 import type { FamilyDoc, FamilySubject } from "@/server/map/map-reports";
 import { PercentileBar, ReportHead, ReportPage, RitChart, RitLegend, ordinal } from "./report-ui";
+import { ReportSummary } from "@/components/report-kit/report-summary";
+import type { Summary } from "@/lib/report-summary";
 
 /** 👪 Family Report: what MAP Growth is, then for each subject achievement, growth, the RIT history and the goal;
  *  then the student's practice on the platform and questions to ask the teacher. Two printed pages. */
-export function FamilyView({ d, first = true }: { d: FamilyDoc; first?: boolean }) {
+/** r72: `summary` = the parent-friendly summary (mapFamilySummary), at the end of the report (buttons not printed). */
+export function FamilyView({ d, first = true, summary }: { d: FamilyDoc; first?: boolean; summary?: Summary }) {
   const name = d.student.first.toUpperCase();
   return (
     <>
@@ -52,6 +55,7 @@ export function FamilyView({ d, first = true }: { d: FamilyDoc; first?: boolean 
           </ul>
           <p className="mt-3"><b>At home:</b> 15–20 minutes of practice on the platform, 4 days a week, makes a clear difference. Reading together every day helps every goal area.</p>
         </section>
+        {summary && <ReportSummary summary={summary} />}
         <p className="mt-8 text-[11px] text-slate-400">Percentiles marked ≈ and growth percentiles are estimated by the platform from national norms; NWEA&apos;s own reports are the official results. Confidential: for the student&apos;s family and school.</p>
       </ReportPage>
     </>

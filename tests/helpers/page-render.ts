@@ -156,7 +156,8 @@ for (const ext of [".tsx", ".ts", ".jsx"]) {
 }
 
 // ── the renderer ────────────────────────────────────────────────────────────────────────────────────────────────
-export interface RenderStats { components: number; clientProps: number; clientBytes: number }
+/** `seen`: every client component drawn, with its props (filled when the request asks `collect`). */
+export interface RenderStats { components: number; clientProps: number; clientBytes: number; seen?: { name: string; props: Record<string, unknown> }[] }
 
 const isElement = (v: unknown): v is { type: unknown; props: Record<string, unknown> } => !!v && typeof v === "object" && "$$typeof" in (v as object) && "props" in (v as object);
 const isThenable = (v: unknown): v is PromiseLike<unknown> => !!v && (typeof v === "object" || typeof v === "function") && typeof (v as { then?: unknown }).then === "function";
@@ -179,6 +180,7 @@ async function walk(node: unknown, st: RenderStats, depth = 0): Promise<void> {
     const client = (type as Stub)[CLIENT];
     if (client) {
       st.clientProps++;
+      st.seen?.push({ name: client, props });
       st.clientBytes += sizeOf(props);
       await walkData(props, st, depth + 1, 0);
       return;
@@ -220,8 +222,8 @@ export interface PageResult { ms: number; stats: RenderStats; outcome: "ok" | "r
  * Renders one page component (and its generateMetadata) as one request: what a client navigation to it costs on the
  * server. `segments` = layouts between the role frame and the page, if any (rendered too).
  */
-export async function renderPage(load: () => Record<string, unknown>, r: RequestInit & { params?: Record<string, string>; searchParams?: Record<string, string> }): Promise<PageResult & { after: (() => unknown)[] }> {
-  const st: RenderStats = { components: 0, clientProps: 0, clientBytes: 0 };
+export async function renderPage(load: () => Record<string, unknown>, r: RequestInit & { params?: Record<string, string>; searchParams?: Record<string, string>; collect?: boolean }): Promise<PageResult & { after: (() => unknown)[] }> {
+  const st: RenderStats = { components: 0, clientProps: 0, clientBytes: 0, ...(r.collect ? { seen: [] } : {}) };
   const mod = load();
   const Page = mod.default as (p: unknown) => unknown;
   const props = { params: Promise.resolve(r.params ?? {}), searchParams: Promise.resolve(r.searchParams ?? {}) };

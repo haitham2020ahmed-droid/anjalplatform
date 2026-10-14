@@ -42,10 +42,10 @@ describe("student: assigned skills only, notifications, report", () => {
   });
 
   test("the home page lists only assigned skills, with status, dates and a summary", async () => {
-    await assignSkill(repo, teacher, { classId, skillId: skillA, dueAt: new Date("2027-03-08T20:59:59Z"), note: "Focus on the clues." }, NOW);
-    await assignSkill(repo, teacher, { classId, skillId: skillB, studentIds: [student.studentId!] }, NOW);
-    await assignSkill(repo, teacher, { classId, skillId: skillC, studentIds: [classmate.studentId!] }, NOW); // not for our student
-    await assignSkill(repo, teacher, { classId, skillId: skillC, studentIds: [student.studentId!], startAt: new Date("2027-03-20T00:00:00Z") }, NOW);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillA, dueAt: new Date("2027-03-08T20:59:59Z"), note: "Focus on the clues." }, NOW);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillB, studentIds: [student.studentId!] }, NOW);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillC, studentIds: [classmate.studentId!] }, NOW); // not for our student
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillC, studentIds: [student.studentId!], startAt: new Date("2027-03-20T00:00:00Z") }, NOW);
     const v = await assignedSkills(repo, student, NOW);
     assert.equal(v.items.length, 3);
     assert.deepEqual(new Set(v.items.map((i) => i.skillId)), new Set([skillA, skillB, skillC]));

@@ -9,6 +9,7 @@
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
@@ -121,8 +122,9 @@ export async function skillPlan(repo: Repo, actor: Actor, input: { grade: number
 }
 
 /** Assigns the ticked skills of one range to the ticked students: one adaptive set of that range's questions. */
-export async function assignRange(repo: Repo, actor: Actor, input: { classId: string; group: GroupKey; range: number; skillIds: string[]; studentIds: string[]; count?: number; dueAt?: Date | null }, now = new Date()): Promise<{ assignmentId: string; questions: number; students: number }> {
+export async function assignRange(repo: Repo, actor: Actor, input: { classId: string; group: GroupKey; range: number; skillIds: string[]; studentIds: string[]; count?: number; dueAt?: Date | null; /** r74: REQUIRED */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; questions: number; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ranges = await skillRanges(repo, grade);
@@ -143,7 +145,7 @@ export async function assignRange(repo: Repo, actor: Actor, input: { classId: st
   }
   if (qs.length < 3) throw new ValidationError("Not enough questions for these skills yet (3 or more needed): tick more skills or add questions.");
   const g = groupOf(input.group);
-  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs, title: `MAP skills · ${g.name} · RIT ${ranges[input.range].label}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null }, now);
+  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs, title: `MAP skills · ${g.name} · RIT ${ranges[input.range].label}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, source }, now);
   return { assignmentId: a.assignmentId, questions: qs.length, students: studentIds.length };
 }
 

@@ -1,14 +1,16 @@
 "use client";
 /**
- * The end of every "assign a skill" form: Program (required, Curriculum by default) → which questions (the platform
- * chooses, or the teacher picks) → "Preview as student" → Assign. Must sit inside a <form>: it adds the fields
- * `program`, `questionIds` (and `track` when asked) and the submit button.
+ * The end of every "assign a skill" form: Source (required, ALWAYS empty: MAP · NAFS · Curriculum · Grammar · RTI;
+ * owner r74 — it replaced the Program choice) → which questions (the platform chooses, or the teacher picks) →
+ * "Preview as student" → Assign. Must sit inside a <form>: it adds the fields `source`, `program` (the source when it
+ * is a program; Grammar → Curriculum), `questionIds` (and `track` when asked) and the submit button.
  */
 import { useState, type ReactNode } from "react";
 import { useT } from "@/i18n/client";
 import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
-import { AUTO, defaultProgram, type PickerValue, type Program } from "./helpers";
-import { ProgramChoice } from "./program-choice";
+import { AUTO, isProgram, type PickerValue } from "./helpers";
+import { SourceSelect } from "@/components/assign/source-select";
+import type { AssignSource } from "@/lib/assign-source";
 import { SkillQuestionPicker } from "./skill-question-picker";
 import { StudentPreview } from "./student-preview";
 
@@ -26,15 +28,20 @@ export function SkillAssignSteps({ skillId, track, grammar = false, trackField =
   disabled?: boolean;
 }) {
   const t = useT();
-  const [program, setProgram] = useState<Program>(defaultProgram(grammar ? "CURRICULUM" : track));
+  void track;
+  // r74: no default — the teacher must choose the source (the server refuses work without one)
+  const [source, setSource] = useState<AssignSource | "">("");
+  const program = source && isProgram(source) ? source : source === "GRAMMAR" ? "CURRICULUM" : "";
   const [value, setValue] = useState<PickerValue>(AUTO);
   const [step, setStep] = useState<"edit" | "preview">("edit");
   const empty = !value.auto && value.questionIds.length === 0;
   return (
     <div className="grid gap-4">
-      {trackField && <input type="hidden" name="track" value={grammar ? "GRAMMAR" : program} />}
+      {trackField && <input type="hidden" name="track" value={grammar || source === "GRAMMAR" ? "GRAMMAR" : program} />}
+      <input type="hidden" name="program" value={program} />
+      {step === "preview" && <input type="hidden" name="source" value={source} />}
       <div className={step === "preview" ? "hidden" : "grid gap-4"}>
-        <ProgramChoice value={program} onChange={setProgram} />
+        {step === "edit" && <SourceSelect t={t} value={source} onChange={setSource} field="h-11 rounded-lg border border-slate-300 px-3 font-normal" className="max-w-xs" />}
         <SkillQuestionPicker key={skillId} skillId={skillId} onChange={setValue} />
         {empty && <p className="rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">{t("Tick at least one question, or let the platform choose.")}</p>}
         {/* r67: the platform chooses → at least 30 questions, Done when mastered, at most 50 — unless the teacher sets a count */}
@@ -55,7 +62,7 @@ export function SkillAssignSteps({ skillId, track, grammar = false, trackField =
       <div className="flex flex-wrap justify-end gap-3">
         {cancel}
         {step === "edit"
-          ? <button type="button" onClick={() => setStep("preview")} disabled={empty || disabled} className={`${BTN_PRIMARY} disabled:opacity-50`}>{t("Preview as student")}</button>
+          ? <>{!source && <span className="self-center text-sm text-amber-800">{t("Choose the source first.")}</span>}<button type="button" onClick={() => setStep("preview")} disabled={empty || disabled || !source} className={`${BTN_PRIMARY} disabled:opacity-50`}>{t("Preview as student")}</button></>
           : <>
               <button type="button" onClick={() => setStep("edit")} className={BTN_SECONDARY}>{t("Back")}</button>
               <button type="submit" disabled={pending || disabled} className={`${BTN_PRIMARY} disabled:opacity-60`}>{t(pending ? "Assigning…" : submitLabel)}</button>

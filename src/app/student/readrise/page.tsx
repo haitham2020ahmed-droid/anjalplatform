@@ -5,7 +5,7 @@ import type { TFn } from "@/i18n";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { startReadRiseLibraryLoad } from "@/server/readrise/seed";
-import { readRiseHome } from "@/server/readrise/student";
+import { readRiseHome, type ReadRiseHome } from "@/server/readrise/student";
 import { ReadRiseIcon } from "@/components/readrise/readrise-icon";
 import { GoalRing, GrowthChart, LevelBadge } from "@/components/readrise/widgets";
 import { ReadRiseLibrary } from "@/components/readrise/library";
@@ -47,12 +47,12 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
       {/* 🎯 no level before the placement: the big card sits at the top of both tabs until the test is finished */}
       {/* 🎯 r68: the first visit without a finished placement: a friendly window (Start / Later); the card below stays */}
       {!h.placement.doneAt && (h.placement.state === "NEED" || h.placement.state === "OPEN") && !placementTab && <PlacementPopup studentKey={actor.studentId!} href="/student/readrise/placement" cont={h.placement.state === "OPEN"} />}
-      {h.placement.state !== "NONE" && (!h.placed || !report) && !placementTab && (
-        <Link href="/student/readrise/placement" data-testid="rr-placement-card" className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-6 text-white shadow-pop">
+      {h.placement.state !== "NONE" && (!h.placed || !report || h.placement.state === "CHECK") && !placementTab && (
+        <Link href="/student/readrise/placement" data-testid="rr-placement-card" data-state={h.placement.state} className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-6 text-white shadow-pop">
           <span className="min-w-0 flex-1">
-            <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 {t("Find my level")}</span>
-            <span className="block text-2xl font-extrabold">{h.placement.state === "OPEN" ? t("Finish your ReadRise placement") : h.placement.state === "RETAKE" ? t("Take the placement again") : t("Take the placement test")}</span>
-            <span className="block text-sm text-indigo-100">{t("A few short passages with 3 questions each. It finds the articles that are just right for you.")}</span>
+            <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 {h.placement.state === "CHECK" ? t("Reading check") : t("Find my level")}</span>
+            <span className="block text-2xl font-extrabold">{h.placement.state === "OPEN" ? t("Finish your ReadRise placement") : h.placement.state === "RETAKE" ? t("Take the placement again") : h.placement.state === "CHECK" ? t("Check your reading level") : t("Take the placement test")}</span>
+            <span className="block text-sm text-indigo-100">{h.placement.state === "CHECK" ? t("It is time for your reading check: a few short passages with 3 questions each. It shows how much you have grown.") : t("A few short passages with 3 questions each. It finds the articles that are just right for you.")}</span>
           </span>
           <span className="rounded-xl bg-white px-6 py-3 text-lg font-bold text-brand-navy">{h.placement.state === "OPEN" ? t("Continue ▶") : t("Start ▶")}</span>
         </Link>
@@ -68,7 +68,8 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
             <>
               <p className="text-lg font-semibold text-emerald-800">✅ {t("Placement test done on {date}", { date: h.placement.doneAt.slice(0, 10) })}</p>
               {h.placement.result !== null && <p className="mt-1 text-slate-700">{t("Your starting level")}: <b className="text-brand-navy">{h.placement.result}</b></p>}
-              {h.placement.state === "RETAKE" ? <Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Take the placement again")} ▶</Link>
+              {h.placement.state === "CHECK" ? <Link href="/student/readrise/placement" data-testid="rr-check-start" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Check your reading level")} ▶</Link>
+                : h.placement.state === "RETAKE" ? <Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Take the placement again")} ▶</Link>
                 : <p className="mt-2 text-sm text-slate-500">{t("Your teacher can let you take it again.")}</p>}
             </>
           ) : h.placement.ready === false ? (
@@ -98,7 +99,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
             {sum.growth > 0 ? `▲ +${sum.growth} since I started (${sum.startLevel})` : sum.growth < 0 ? `▼ ${sum.growth} since I started (${sum.startLevel})` : `Starting level ${sum.startLevel}`}
           </p>
           {sum.projected !== null && sum.projected >= sum.level && <p className="mt-1 text-sm text-slate-600">On track for about <strong>{sum.projected}</strong> by the end of the year (estimate).</p>}
-          <p className="mt-2 text-xs text-slate-500">An estimate on a Lexile-like scale — not an official Lexile measure.</p>
+          <p className="mt-2 text-xs text-slate-500">{t("Your ReadRise level is ReadRise's own reading level.")}</p>
         </div>
         <div className="rounded-3xl bg-gradient-to-br from-amber-50 to-white p-5 shadow-card ring-1 ring-amber-200">
           <p className="text-sm font-semibold text-slate-600">Weekly goal</p>
@@ -121,10 +122,14 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         <ul className="mt-2 list-disc space-y-1 ps-5">
           <li>Only your <strong>first try</strong> on an article counts.</li>
           <li>Score 75% or more on 3 of your last 4 articles and your level goes <strong>up 50</strong>.</li>
-          <li>Score under 50% on 2 of your last 3 and it goes down 50, so articles fit you better.</li>
+          <li>If an article was too hard (25% or less, or under 50% two times in a row), your level goes down 100 so the next articles fit you better.</li>
+          <li>Take your time: answers that come too fast do not count.</li>
+          <li>Three times a year you check your reading level with a few short passages: at the start, in the middle and at the end of the year.</li>
           <li>After reading an article, try a <strong>Stretch</strong>: the same article one level higher. It can help you move up and never lowers your level.</li>
         </ul>
       </details>
+
+      {h.placement.checks && <ReadingChecks checks={h.placement.checks} t={t} />}
 
       <section aria-labelledby="growth-h" className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
         <h2 id="growth-h" className="text-xl font-bold text-brand-navy">📈 My growth</h2>
@@ -142,6 +147,27 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         <p data-testid="rr-locked" className="mt-6 rounded-2xl bg-white p-5 text-slate-700 ring-1 ring-slate-200">🔒 {t("Your articles open after the placement test.")}</p>
       ) : <ReadRiseLibrary lib={h.library} showLevel={h.placed} />)}
     </AppShell>
+  );
+}
+
+/** 🗓️ The year's three reading checks: start → middle → end (owner r69). Numbers only — never a level word. */
+function ReadingChecks({ checks, t }: { checks: NonNullable<ReadRiseHome["placement"]["checks"]>; t: TFn }) {
+  const items: { key: keyof typeof checks; label: string }[] = [{ key: "BOY", label: t("Start of year") }, { key: "MOY", label: t("Middle of year") }, { key: "EOY", label: t("End of year") }];
+  return (
+    <section aria-labelledby="checks-h" data-testid="rr-reading-checks" className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+      <h2 id="checks-h" className="text-xl font-bold text-brand-navy">🗓️ {t("My reading checks")}</h2>
+      <ol className="mt-3 flex flex-wrap items-center gap-2">
+        {items.map((x, i) => (
+          <li key={x.key} className="flex items-center gap-2">
+            {i > 0 && <span aria-hidden="true" className="text-slate-400">→</span>}
+            <span className="rounded-xl bg-indigo-50 px-4 py-2 ring-1 ring-indigo-200">
+              <span className="block text-xs font-semibold text-slate-600">{x.label}</span>
+              <span className="block text-xl font-bold tabular-nums text-brand-navy">{checks[x.key] ? checks[x.key]!.level : <span className="text-sm font-semibold text-slate-400">{t("Not yet")}</span>}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }
 

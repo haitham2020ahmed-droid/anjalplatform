@@ -20,10 +20,10 @@ export async function yearEditAction(classId: string, edit: YearEdit): Promise<O
 }
 
 /** ☆ Assign this week: every skill of the week not assigned yet. */
-export async function yearAssignWeekAction(classId: string, week: number, excludeMastered = false): Promise<Out<YearPlanView>> {
+export async function yearAssignWeekAction(classId: string, week: number, excludeMastered = false, source: string | null = null): Promise<Out<YearPlanView>> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   try {
-    const r = await assignYearWeek(repo, actor, String(classId ?? ""), Number(week), new Date(), { excludeMastered: excludeMastered === true });
+    const r = await assignYearWeek(repo, actor, String(classId ?? ""), Number(week), new Date(), { excludeMastered: excludeMastered === true, source });
     return { ok: true, value: await yearPlanView(repo, actor, String(classId ?? "")), message: [`${r.assigned}`, ...r.skipped].join(" · ") };
   } catch (e) { if (known(e)) return { ok: false, message: (e as Error).message }; throw e; }
 }

@@ -2,9 +2,13 @@
  * 🚀 ReadRise level engine (Achieve3000-like): the student's personal ReadRise Level and how it moves.
  *
  *  - Only FIRST-TRY activity scores count (the first scored reading of an article; re-reads never count).
- *  - Rolling window of the first-try scores since the last level change (any change resets it):
- *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (cap 1500)
- *      2 of the last 3 < 50% and the latest < 50%  → −50 (floor 200)
+ *  - Rolling window of the first-try scores since the last level change (any change resets it) — owner r69: faster
+ *    DOWN, careful UP (a student placed far above their level, e.g. the old default start, is corrected quickly):
+ *      one first-try score ≤ 25%                   → −100 at once
+ *      two first-try scores in a row < 50%         → −100
+ *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (unchanged)
+ *    never below 200 or above 1500; the reason is written in plain words (RRLevelChange) for the teacher.
+ *  - An UNRELIABLE run (2+ rapid answers, accuracy.ts) never takes part: no level move, no goal, no skill evidence.
  *  - A STRETCH reading (one version higher) joins the window only when it scored ≥ 75%: it can help a student
  *    move up and counts toward the weekly goal, but never lowers the level.
  *  - A teacher can set the level (source TEACHER). Every change is an RRLevelChange with a clear reason.
@@ -19,7 +23,7 @@ import { RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
 
 export const s = (v: unknown) => String(v ?? "");
 export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
-export const ENGINE = { up: 75, down: 50, step: 50, max: 1500, min: 200 } as const;
+export const ENGINE = { up: 75, down: 50, step: 50, max: 1500, min: 200, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
 export const RETAKE_REASON = "Placement retake allowed";
 const DAY = 86_400_000, WEEK = 7 * DAY, RIYADH = 3 * 3_600_000;
@@ -102,19 +106,28 @@ export async function levelChanges(repo: Repo, studentId: string): Promise<Row[]
 
 export interface LevelDecision { delta: number; reason: string | null }
 
-/** The level rule on the window of first-try scores since the last change (oldest → newest). */
+/**
+ * The level rule on the window of first-try scores since the last change (oldest → newest). Pure.
+ * Down first (≤ 25% once, or two in a row under 50%: −100), then up (3 of the last 4 at 75%+ with the latest
+ * 75%+: +50). The reason is in plain words for the teacher.
+ */
 export function levelDecision(scores: number[]): LevelDecision {
   if (!scores.length) return { delta: 0, reason: null };
   const latest = scores[scores.length - 1];
-  const last4 = scores.slice(-4), last3 = scores.slice(-3);
-  const high = last4.filter((x) => x >= ENGINE.up).length, low = last3.filter((x) => x < ENGINE.down).length;
+  if (latest <= ENGINE.floor) return { delta: -ENGINE.downStep, reason: `the first-try score on the last article was ${latest}% (${ENGINE.floor}% or lower), so the articles were too hard` };
+  const prev = scores.length >= 2 ? scores[scores.length - 2] : null;
+  if (prev !== null && latest < ENGINE.down && prev < ENGINE.down) return { delta: -ENGINE.downStep, reason: `the last two first-try scores were both under ${ENGINE.down}% (${prev}% and ${latest}%), so the articles were too hard` };
+  const last4 = scores.slice(-4);
+  const high = last4.filter((x) => x >= ENGINE.up).length;
   if (latest >= ENGINE.up && high >= 3) return { delta: ENGINE.step, reason: `${high} of the last ${last4.length} first-try scores were ${ENGINE.up}% or higher (latest ${latest}%)` };
-  if (latest < ENGINE.down && low >= 2) return { delta: -ENGINE.step, reason: `${low} of the last ${last3.length} first-try scores were under ${ENGINE.down}% (latest ${latest}%)` };
   return { delta: 0, reason: null };
 }
 
-/** Does this scored run take part in the level window? (first try; a stretch only when ≥ 75%) */
-export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && (r.stretch !== true || Number(r.score) >= ENGINE.up);
+/** A run marked Unreliable (2+ rapid answers: accuracy.ts). */
+const unreliableRun = (r: Row) => r.unreliable === true || r.unreliable === 1;
+
+/** Does this scored run take part in the level window? (first try, not Unreliable; a stretch only when ≥ 75%) */
+export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && (r.stretch !== true || Number(r.score) >= ENGINE.up);
 
 /**
  * Runs after a first-try activity was scored (the run row already has its score and completedAt).
@@ -254,7 +267,8 @@ export async function readRiseProjection(repo: Repo, firstTry: Row[], points: Le
 export async function studentReadRiseSummary(repo: Repo, studentId: string, now = new Date()): Promise<ReadRiseSummary | null> {
   const rr = await repo.findUnique("RRStudent", { studentId });
   if (!rr) return null;
-  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["score", "stretch", "completedAt"] });
+  // an Unreliable run (2+ rapid answers) counts for nothing: not the average, the goal or the projection
+  const runs = (await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["score", "stretch", "completedAt", "unreliable"] })).filter((r) => !unreliableRun(r));
   const main = runs.filter((r) => r.stretch !== true);
   const firstTryAvg = main.length ? Math.round(main.reduce((a, r) => a + Number(r.score), 0) / main.length) : null;
   const g = goalStats(runs.filter((r) => Number(r.score) >= ENGINE.up && r.completedAt).map((r) => toDate(r.completedAt)), Number(rr.weeklyGoal), now);

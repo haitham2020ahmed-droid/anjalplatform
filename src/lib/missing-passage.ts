@@ -1,3 +1,4 @@
+import { stripMarks } from "./inline-marks";
 /**
  * 🧾 “Needs a missing passage” (owner, r68): a question whose wording depends on a passage, story, text, poem, chart
  * or picture that is NOT attached to it. Such a question cannot be answered, so it is removed from the platform
@@ -38,7 +39,7 @@ const words = (x: string) => x.trim().split(/\s+/).filter(Boolean).length;
 
 /** The question carries its own text (a long quotation, a long part after a colon, a long stem). */
 export function carriesOwnText(stem: string): boolean {
-  const t = String(stem ?? "");
+  const t = stripMarks(String(stem ?? ""));
   for (const m of t.matchAll(/["“]([^"”]{20,})["”]/g)) if (words(m[1]) >= 12) return true;
   const colon = t.indexOf(":");
   if (colon >= 0 && words(t.slice(colon + 1)) >= 25) return true;
@@ -63,7 +64,7 @@ function titleQuote(q: string): boolean {
 
 /** The rule and the words that make a question depend on a text it does not carry, or null. Pure. */
 export function missingPassageHit(stem: string): MissingPassageHit | null {
-  const raw = String(stem ?? "").replace(/\s+/g, " ").trim();
+  const raw = stripMarks(String(stem ?? "")).replace(/\s+/g, " ").trim();
   if (!raw || carriesOwnText(raw)) return null;
 
   // TITLE: a text named by its title (before quotes are removed)

@@ -6,6 +6,7 @@ import { codeName, DIFFICULTY_NAME, type Difficulty } from "@/server/nafs/framew
 import { targetQuestionsAction } from "@/app/teacher/nafs/actions";
 
 import type { ChecklistGroup } from "./builder-starts";
+import { RichInline } from "@/components/rich-inline";
 
 export type { ChecklistGroup } from "./builder-starts";
 
@@ -112,7 +113,7 @@ export function TargetChecklist(props: {
                     <div className="flex items-start gap-2">
                       <input type="checkbox" checked={picked.includes(r.id)} onChange={() => pick(picked.includes(r.id) ? picked.filter((x) => x !== r.id) : [...picked, r.id])} className="mt-1 h-4 w-4 shrink-0" aria-label={t("Choose this question")} />
                       <button type="button" aria-expanded={view === r.id} onClick={() => setView(view === r.id ? null : r.id)} className="min-w-0 flex-1 text-start">
-                        <span className="block text-sm text-ink" lang="en" dir="ltr">{r.stem}</span>
+                        <span className="block text-sm text-ink" lang="en" dir="ltr"><RichInline text={r.stem} /></span>
                         <span className="mt-0.5 flex flex-wrap gap-1 text-[11px]">
                           <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${DIF_CHIP[r.difficulty]}`}>{t(DIFFICULTY_NAME[r.difficulty])}</span>
                           {r.standard && <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-indigo-900 ring-1 ring-indigo-200">{codeName(r.standard, t)}</span>}
@@ -123,7 +124,7 @@ export function TargetChecklist(props: {
                     </div>
                     {view === r.id && (r.options.length ? (
                       <ol className="mt-2 grid gap-1 ps-6 sm:grid-cols-2" lang="en" dir="ltr">
-                        {r.options.map((o, i) => <li key={i} className={`rounded-md px-2 py-1 text-xs ring-1 ${i === r.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> {o}</li>)}
+                        {r.options.map((o, i) => <li key={i} className={`rounded-md px-2 py-1 text-xs ring-1 ${i === r.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> <RichInline text={o} /></li>)}
                       </ol>
                     ) : <p className="mt-2 ps-6 text-xs text-muted">✍ {t("Short written answer")}</p>)}
                   </li>

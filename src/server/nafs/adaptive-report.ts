@@ -15,7 +15,7 @@ import { assertNafs } from "../teacher/nafs-access";
 import { safeIfBehind } from "../db/schema-errors";
 import { MOE_BY_CODE, SKILL_BY_CODE, type Difficulty } from "./framework";
 import { json, nafsClasses } from "./tests";
-import { roundPct } from "./reports";
+import { averageOf, cellOf, classLine, roundPct, strengthsWeaknesses, WEAKNESS_BELOW, type Cell, type ClassLine, type NoneWhy } from "./strengths";
 import type { RunState } from "./practice";
 
 const s = (v: unknown) => String(v ?? "");
@@ -23,18 +23,25 @@ const ms = (v: unknown): number => { const t = (v instanceof Date ? v : new Date
 
 export const MAX_ADAPTIVE_PRACTICES = 300;
 export const MAX_ADAPTIVE_RUNS = 6000;
-/** Under this accuracy (with enough answers) a skill tried and not mastered is "to work on". */
-export const WORK_ON_BELOW = 60;
-const MIN_N = 3;
+/** Under this accuracy (with at least 2 answers) a standard / skill is "to work on" — the ONE NAFS rule (strengths.ts). */
+export const WORK_ON_BELOW = WEAKNESS_BELOW;
 
 export type Reached = 0 | Difficulty;
 export interface TargetRow { code: string; short: string; name: string; students: number; answers: number; pct: number | null; mastered: number; reached: Record<Reached, number>; secPerAnswer: number | null }
-export interface StudentRow { id: string; name: string; classId: string; className: string; practices: number; finished: number; answers: number; right: number; pct: number | null; mastered: number; tried: number; best: Reached; seconds: number; trend: (number | null)[]; strengths: string[]; workOn: string[] }
-export interface ClassRow { id: string; name: string; students: number; practised: number; answers: number; pct: number | null; masteryPct: number | null }
+/**
+ * r70: score = right ÷ answers; wrong = answers − right; finishedAll = every practice the student started is finished;
+ * strengths (≥ 80 %) / workOn (< 60 %) per standard or skill with at least 2 answers (strengths.ts — never "mastered
+ * only": a student at 88 % shows the standard as a strength).
+ */
+export interface StudentRow { id: string; name: string; classId: string; className: string; practices: number; finished: number; finishedAll: boolean; answers: number; right: number; wrong: number; pct: number | null; mastered: number; tried: number; best: Reached; seconds: number; trend: (number | null)[]; strengths: string[]; workOn: string[]; strengthWhy: NoneWhy | null; weaknessWhy: NoneWhy | null }
+/** pct = all the class's answers pooled; average = the mean of the students' scores (each student once). */
+export interface ClassRow { id: string; name: string; students: number; practised: number; answers: number; right: number; wrong: number; pct: number | null; average: number | null; finished: number; masteryPct: number | null; strongest: string | null; weakest: string | null; strongestWhy: NoneWhy | null; weakestWhy: NoneWhy | null }
 export interface AdaptiveReport {
   classId: string | null;
-  summary: { practices: number; students: number; runs: number; finished: number; answers: number; pct: number | null; mastered: number; targetRuns: number; seconds: number };
+  summary: { practices: number; students: number; runs: number; finished: number; answers: number; right: number; wrong: number; pct: number | null; average: number | null; finishedStudents: number; strongest: string | null; weakest: string | null; mastered: number; targetRuns: number; seconds: number };
   classes: ClassRow[]; targets: TargetRow[]; students: StudentRow[];
+  /** r70: the class line of everything shown (finished = students who finished every practice they started) */
+  cls: ClassLine;
 }
 
 const shortOf = (code: string) => MOE_BY_CODE.get(code)?.short ?? SKILL_BY_CODE.get(code)?.name ?? code;
@@ -81,26 +88,34 @@ export function buildAdaptiveReport(practices: Row[], runs: Row[], classes: { id
     const c = classOfStudent.get(id);
     const ordered = [...x.runs].sort((a, b) => (pDate.get(s(a.practiceId)) ?? ms(a.startedAt)) - (pDate.get(s(b.practiceId)) ?? ms(b.startedAt)));
     const tried = [...x.tried];
+    const sw = strengthsWeaknesses(tried.map(([k, t]) => [k, cellOf(t.right, t.n)] as [string, Cell]));
     return {
-      id, name: nameOfStudent.get(id) ?? "Student", classId: c?.id ?? s(x.runs[0]?.classId), className: c?.name ?? "", practices: x.runs.length, finished: x.finished,
-      answers: x.n, right: x.right, pct: roundPct(x.right, x.n), mastered: x.mastered.size, tried: tried.length, best: x.best, seconds: x.seconds,
+      id, name: nameOfStudent.get(id) ?? "Student", classId: c?.id ?? s(x.runs[0]?.classId), className: c?.name ?? "", practices: x.runs.length, finished: x.finished, finishedAll: x.runs.length > 0 && x.finished === x.runs.length,
+      answers: x.n, right: x.right, wrong: x.n - x.right, pct: roundPct(x.right, x.n), mastered: x.mastered.size, tried: tried.length, best: x.best, seconds: x.seconds,
       trend: ordered.filter((r) => Number(r.asked ?? 0) > 0).slice(-8).map((r) => roundPct(Number(r.correct ?? 0), Number(r.asked ?? 0))),
-      strengths: tried.filter(([, t]) => t.mastered).sort((a, b) => b[1].right / b[1].n - a[1].right / a[1].n).slice(0, 3).map(([k]) => k),
-      workOn: tried.filter(([, t]) => !t.mastered && t.n >= MIN_N && (roundPct(t.right, t.n) ?? 100) < WORK_ON_BELOW).sort((a, b) => a[1].right / a[1].n - b[1].right / b[1].n).slice(0, 3).map(([k]) => k),
+      strengths: sw.strengths, workOn: sw.weaknesses, strengthWhy: sw.topWhy, weaknessWhy: sw.weakWhy,
     };
   }).sort((a, b) => a.className.localeCompare(b.className) || a.name.localeCompare(b.name));
   const shown = classId ? classes.filter((c) => c.id === classId) : classes;
+  // pooled per standard / skill (answers of the students shown) for the strongest / weakest of a class and of all
+  const pooled = (ids: Set<string>): Map<string, Cell> => {
+    const m = new Map<string, { right: number; n: number }>();
+    for (const [sid, x] of sAcc) if (ids.has(sid)) for (const [code, t] of x.tried) { const a = m.get(code) ?? { right: 0, n: 0 }; a.right += t.right; a.n += t.n; m.set(code, a); }
+    return new Map([...m].map(([k, a]) => [k, cellOf(a.right, a.n)]));
+  };
   const classRows: ClassRow[] = shown.map((c) => {
     const mine = students.filter((x) => x.classId === c.id);
     const n = mine.reduce((a, x) => a + x.answers, 0);
     const r = mine.reduce((a, x) => a + x.right, 0);
     const tried = mine.reduce((a, x) => a + x.tried, 0), mast = mine.reduce((a, x) => a + x.mastered, 0);
-    return { id: c.id, name: c.name, students: c.students.length, practised: mine.length, answers: n, pct: roundPct(r, n), masteryPct: roundPct(mast, tried) };
+    const cl = classLine(mine.map((x) => ({ pct: x.pct, finished: x.finishedAll })), pooled(new Set(mine.map((x) => x.id))), c.students.length);
+    return { id: c.id, name: c.name, students: c.students.length, practised: mine.length, answers: n, right: r, wrong: n - r, pct: roundPct(r, n), average: cl.average, finished: cl.finished, masteryPct: roundPct(mast, tried), strongest: cl.strongest, weakest: cl.weakest, strongestWhy: cl.strongestWhy, weakestWhy: cl.weakestWhy };
   });
+  const all = classLine(students.map((x) => ({ pct: x.pct, finished: x.finishedAll })), pooled(new Set(students.map((x) => x.id))), Math.max(students.length, shown.reduce((a, c) => a + c.students.length, 0)));
   return {
     classId,
-    summary: { practices: practices.length, students: sAcc.size, runs: runs.length, finished, answers, pct: roundPct(right, answers), mastered, targetRuns, seconds },
-    classes: classRows, targets, students,
+    summary: { practices: practices.length, students: sAcc.size, runs: runs.length, finished, answers, right, wrong: answers - right, pct: roundPct(right, answers), average: averageOf(students.map((x) => x.pct)), finishedStudents: all.finished, strongest: all.strongest, weakest: all.weakest, mastered, targetRuns, seconds },
+    classes: classRows, targets, students, cls: all,
   };
 }
 

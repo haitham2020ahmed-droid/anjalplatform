@@ -121,7 +121,7 @@ describe("👀 Preview as student", () => {
   });
 
   test("a test: the student's own version and order, nothing started, answered or recorded", async () => {
-    const r = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Quiz 3", levelMode: "SAME", shuffle: true, questions: { SAME: qids } });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Quiz 3", levelMode: "SAME", shuffle: true, questions: { SAME: qids } });
     const count = async () => [await repo.count("QuestionAttempt", {}), await repo.count("PracticeSession", {}), await repo.count("AssignmentStudent", { status: "COMPLETED" })];
     const before = await count();
     const a = await assignedTestPreview(repo, teacher, r.testId, mine[1]);
@@ -134,7 +134,7 @@ describe("👀 Preview as student", () => {
     assert.deepEqual(await count(), before, "a preview never writes an attempt, a session or a result");
     await assert.rejects(assignedTestPreview(repo, otherTeacher, r.testId, mine[0]), ForbiddenError);
     // a level test: the student's set title has "(Approaching)" — the preview shows the test's own name only
-    const lv = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Quiz 4", levelMode: "LEVEL", questions: { BELOW: qids.slice(0, 2), ON: qids.slice(2, 4), ABOVE: qids.slice(4, 6) } });
+    const lv = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Quiz 4", levelMode: "LEVEL", questions: { BELOW: qids.slice(0, 2), ON: qids.slice(2, 4), ABOVE: qids.slice(4, 6) } });
     const p = await assignedTestPreview(repo, teacher, lv.testId, mine[0]);
     assert.doesNotMatch(p.title, LEVEL_WORDS);
     assert.equal(p.questions.length, 2);

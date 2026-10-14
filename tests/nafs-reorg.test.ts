@@ -155,7 +155,9 @@ describe("2. Adaptive → Report", () => {
     const r = buildAdaptiveReport(P, [run("p2", "a", 5, 5, true, 3), run("p1", "a", 5, 2, false, 1), run("p1", "b", 4, 1, false, 0)], [{ id: "k", name: "6A", students: [{ id: "a", name: "Ali" }, { id: "b", name: "Badr" }] }], null);
     const a = r.students.find((x) => x.id === "a")!;
     assert.deepEqual(a.trend, [40, 100], "date order of the practices");
-    assert.deepEqual([a.mastered, a.best, a.strengths], [1, 3, ["MOE.S01"]]);
+    // r70 (owner): strengths come from the % (≥ 80 with ≥ 2 answers), not from "mastered": 7 of 10 = 70 % is neither
+    assert.deepEqual([a.mastered, a.best, a.strengths, a.workOn, a.strengthWhy, a.weaknessWhy], [1, 3, [], [], "NONE_HIGH", "NONE_LOW"]);
+    assert.deepEqual([a.answers, a.right, a.wrong, a.pct, a.finishedAll], [10, 7, 3, 70, true]);
     const t = r.targets[0];
     assert.deepEqual([t.students, t.mastered, t.reached[3], t.reached[0]], [2, 1, 1, 1]);
     assert.equal(r.classes[0].practised, 2);

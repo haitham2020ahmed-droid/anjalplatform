@@ -63,6 +63,28 @@ const unescape = (s: string) =>
 /** Text of all <t> elements inside a fragment (handles rich text runs). */
 const textOf = (xml: string) => [...xml.matchAll(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/g)].map((m) => unescape(m[1])).join("");
 
+/**
+ * Like textOf, but a rich-text run that is underlined or bold in Excel keeps that as <u>…</u> / <b>…</b> (the
+ * emphasis marks of question text, lib/inline-marks.ts): "the underlined word" stays underlined after import.
+ */
+export function markedTextOf(xml: string): string {
+  const runs = [...xml.matchAll(/<r>([\s\S]*?)<\/r>/g)].map((m) => {
+    const pr = m[1].match(/<rPr>([\s\S]*?)<\/rPr>/)?.[1] ?? "";
+    return { text: textOf(m[1].replace(/<rPr>[\s\S]*?<\/rPr>/, "")), u: /<u(?:\s+val="(?!none")[^"]*")?\s*\/>/.test(pr), b: /<b(?:\s+val="(?:1|true)")?\s*\/>/.test(pr) };
+  });
+  if (!runs.some((r) => r.u || r.b)) return textOf(xml);
+  const merged: typeof runs = [];
+  for (const r of runs) { const last = merged[merged.length - 1]; if (last && last.u === r.u && last.b === r.b) last.text += r.text; else merged.push({ ...r }); }
+  return merged.map((r) => {
+    const m = r.text.match(/^(\s*)([\s\S]*?)(\s*)$/)!;
+    if (!m[2] || (!r.u && !r.b)) return r.text;
+    let inner = m[2];
+    if (r.u) inner = `<u>${inner}</u>`;
+    if (r.b) inner = `<b>${inner}</b>`;
+    return m[1] + inner + m[3];
+  }).join("");
+}
+
 function colIndex(ref: string): number {
   const letters = ref.match(/^[A-Z]+/)![0];
   let n = 0;
@@ -74,12 +96,12 @@ function colIndex(ref: string): number {
  * Reads one worksheet. By default the first sheet in workbook order; with `sheet`, the sheet of that
  * name (case-insensitive) when the workbook has one, else the first sheet.
  */
-export function readXlsx(buf: Buffer, opts: { sheet?: string } = {}): string[][] {
+export function readXlsx(buf: Buffer, opts: { sheet?: string; /** keep underlined / bold runs as <u>/<b> marks */ marks?: boolean } = {}): string[][] {
   if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new Error("This is not a valid Excel (.xlsx) file.");
   const entries = readZipEntries(buf);
   const shared: string[] = [];
   const ss = entries.get("xl/sharedStrings.xml");
-  if (ss) for (const m of readPart(buf, ss).matchAll(/<si>([\s\S]*?)<\/si>/g)) shared.push(textOf(m[1]));
+  if (ss) for (const m of readPart(buf, ss).matchAll(/<si>([\s\S]*?)<\/si>/g)) shared.push(opts.marks ? markedTextOf(m[1]) : textOf(m[1]));
   const wb = readPart(buf, entries.get("xl/workbook.xml") ?? (() => { throw new Error("The Excel file has no workbook."); })());
   const sheets = [...wb.matchAll(/<sheet\b[^>]*>/g)].map((m) => ({ name: unescape(m[0].match(/\bname="([^"]*)"/)?.[1] ?? ""), rid: m[0].match(/\br:id="([^"]+)"/)?.[1] }));
   const wanted = opts.sheet ? sheets.find((x) => x.name.trim().toLowerCase() === opts.sheet!.toLowerCase()) : undefined;
@@ -110,7 +132,7 @@ export function readXlsx(buf: Buffer, opts: { sheet?: string } = {}): string[][]
       const v = body.match(/<v>([\s\S]*?)<\/v>/)?.[1];
       let val = "";
       if (type === "s" && v !== undefined) val = shared[Number(v)] ?? "";
-      else if (type === "inlineStr") val = textOf(body);
+      else if (type === "inlineStr") val = opts.marks ? markedTextOf(body) : textOf(body);
       else if (type === "b") val = v === "1" ? "TRUE" : "FALSE";
       else if (v !== undefined) val = unescape(v);
       const idx = ref ? colIndex(ref) : row.length;

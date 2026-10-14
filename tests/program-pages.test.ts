@@ -113,7 +113,7 @@ describe("program pages (Demo School)", () => {
     // the teacher removes one skill and adds one, then sends: tagged MAP, only to the right students
     const extra = (await repo.findMany("Skill", { id: { in: high[high.length - 1].skills.map((k) => k.id) } }))[0];
     const plan = applyEdits(sug.skills, sug.skills.slice(1).map((k) => k.id), [{ id: String(extra.id), name: String(extra.name) }], [sA, sB]);
-    const r = await sendProgramPlan(repo, t4, { classId: class4, program: "MAP", title: "MAP Plan · test", picks: picksOf(plan), dueAt: null }, NOW);
+    const r = await sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class4, program: "MAP", title: "MAP Plan · test", picks: picksOf(plan), dueAt: null }, NOW);
     assert.equal(r.skills, plan.length);
     const rows = await repo.findMany("Assignment", { id: { in: r.assignmentIds } });
     assert.ok(rows.every((x) => x.program === "MAP" && x.track === "MAP"));
@@ -128,10 +128,10 @@ describe("program pages (Demo School)", () => {
   test("myWorkByProgram returns only one program's work (older rows inferred)", async () => {
     const skills = (await teacherCurriculum(repo, t4, class4))!.units.flatMap((u) => u.skills).slice(0, 4).map((k) => k.id);
     const st = students4[2];
-    const cur = await assignSkill(repo, t4, { classId: class4, skillId: skills[0], studentIds: [st], track: "CURRICULUM" }, NOW);
-    const nafsOld = await assignSkill(repo, t4, { classId: class4, skillId: skills[1], studentIds: [st], track: "NAFS" }, NOW); // no program: an older row
-    const rti = await sendProgramPlan(repo, t4, { classId: class4, program: "RTI", picks: [{ studentId: st, skillId: skills[2] }] }, NOW);
-    const custom = await sendProgramPlan(repo, t4, { classId: class4, program: null, picks: [{ studentId: st, skillId: skills[3] }] }, NOW);
+    const cur = await assignSkill(repo, t4, { source: "CURRICULUM", classId: class4, skillId: skills[0], studentIds: [st], track: "CURRICULUM" }, NOW);
+    const nafsOld = await assignSkill(repo, t4, { source: "NAFS", classId: class4, skillId: skills[1], studentIds: [st], track: "NAFS" }, NOW); // no program: an older row
+    const rti = await sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class4, program: "RTI", picks: [{ studentId: st, skillId: skills[2] }] }, NOW);
+    const custom = await sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class4, program: null, picks: [{ studentId: st, skillId: skills[3] }] }, NOW);
     assert.equal((await repo.findUnique("Assignment", { id: custom.assignmentIds[0] }))!.program ?? null, null, "a custom plan has no program");
     const ids = async (p: "MAP" | "RTI" | "CURRICULUM" | "NAFS") => (await myWorkByProgram(repo, st, p, NOW)).map((w) => w.assignmentId);
     assert.deepEqual(await ids("CURRICULUM"), [cur.assignmentId]);
@@ -149,9 +149,9 @@ describe("program pages (Demo School)", () => {
 
   test("the Plans wizard tags its plans too (NAFS → NAFS, Custom → none)", async () => {
     const skill = (await teacherCurriculum(repo, t4, class4))!.units.flatMap((u) => u.skills)[5].id;
-    const r = await assignPlan(repo, t4, { classId: class4, type: "CUSTOM", skillIds: [skill] }, NOW);
+    const r = await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "CUSTOM", skillIds: [skill] }, NOW);
     assert.equal((await repo.findUnique("Assignment", { id: r.assignmentIds[0] }))!.program ?? null, null);
-    const n = await assignPlan(repo, t4, { classId: class4, type: "NAFS", studentIds: [students4[0]] }, NOW);
+    const n = await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "NAFS", studentIds: [students4[0]] }, NOW);
     if (n.assignmentIds.length) assert.ok((await repo.findMany("Assignment", { id: { in: n.assignmentIds } })).every((a) => a.program === "NAFS"));
   });
 
@@ -166,8 +166,8 @@ describe("program pages (Demo School)", () => {
   test("a teacher cannot send to another teacher's class, nor to a student outside the class", async () => {
     const skill = (await teacherCurriculum(repo, t4, class4))!.units.flatMap((u) => u.skills)[0].id;
     const st5 = (await repo.findMany("ClassMembership", { classId: class5, leftAt: null }))[0].studentId as string;
-    await assert.rejects(sendProgramPlan(repo, t4, { classId: class5, program: "MAP", picks: [{ studentId: st5, skillId: skill }] }, NOW), ForbiddenError);
-    await assert.rejects(sendProgramPlan(repo, t4, { classId: class4, program: "MAP", picks: [{ studentId: st5, skillId: skill }] }, NOW), ForbiddenError);
+    await assert.rejects(sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class5, program: "MAP", picks: [{ studentId: st5, skillId: skill }] }, NOW), ForbiddenError);
+    await assert.rejects(sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class4, program: "MAP", picks: [{ studentId: st5, skillId: skill }] }, NOW), ForbiddenError);
     await assert.rejects(suggestMapPlan(repo, t4, { classId: class5 }), ForbiddenError, "another class's MAP data is private");
     await assert.rejects(suggestMapPlan(repo, t4, { classId: class4, studentIds: [st5] }), ForbiddenError);
     assert.equal(await repo.count("SkillPlan", { classId: class5 }), 0, "nothing half-made");

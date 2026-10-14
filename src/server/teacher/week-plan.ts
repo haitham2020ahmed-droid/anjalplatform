@@ -58,9 +58,9 @@ export async function planNextWeek(repo: Repo, actor: Actor, classId: string, no
   const monday = new Date(weekStart(now).getTime() + 7 * DAY);
   const due = new Date(monday.getTime() + 3 * DAY + 20 * 3600_000);   // Thursday evening
   const assigned: string[] = [];
-  for (const w of weak) { await assignSkill(repo, actor, { classId, skillId: w.skillId, startAt: monday, dueAt: due, note: "Practice again: this skill was hard for the class." }, now); assigned.push(w.name); }
+  for (const w of weak) { await assignSkill(repo, actor, { classId, skillId: w.skillId, startAt: monday, dueAt: due, note: "Practice again: this skill was hard for the class.", source: "CURRICULUM" /* r74: automatic weekly plan: its context */ }, now); assigned.push(w.name); }
   const drafts = (await classPlans(repo, actor, classId, "READING")).plans.filter((p) => p.status === "DRAFT").map((p) => p.id);
-  const sent = drafts.length ? (await sendPlans(repo, actor, drafts, now)).sent : 0;
+  const sent = drafts.length ? (await sendPlans(repo, actor, drafts, now, "MAP")).sent : 0;
   if (!assigned.length && !sent) throw new ValidationError("Nothing to plan: no weak skill (under 70%) and no MAP draft. Well done!");
   return { assigned, plansSent: sent };
 }

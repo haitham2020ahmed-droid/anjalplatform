@@ -17,7 +17,7 @@ export async function assignSkillAction(f: FormData): Promise<void> {
   let msg: string;
   try {
     const levels = Object.fromEntries([...f.keys()].filter((k) => k.startsWith("lv:")).map((k) => [k.slice(3), String(f.get(k) ?? "")]));
-    const r = await assignSkillByLevel(repo, actor, { classId, skillId, mode, levels, skip: f.getAll("skip").map(String), dueAt: day(f.get("dueAt")), startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null, max: Number(f.get("max") ?? 20) || 20, program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")) });
+    const r = await assignSkillByLevel(repo, actor, { classId, skillId, mode, levels, skip: f.getAll("skip").map(String), dueAt: day(f.get("dueAt")), startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null, max: Number(f.get("max") ?? 20) || 20, program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")), source: String(f.get("source") ?? "") });
     const parts = r.groups.map((g) => `${g.level ? { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" }[g.level] + ": " : ""}${g.students} student(s)`);
     msg = `✅ Assigned. ${parts.join(" · ")}.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
@@ -37,7 +37,7 @@ export async function assignAdaptiveFromBankAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   let msg: string;
   try {
-    const r = await assignSkill(repo, actor, { classId: String(f.get("classId") ?? ""), skillId: String(f.get("skillId") ?? ""), dueAt: day(f.get("dueAt")), startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null });
+    const r = await assignSkill(repo, actor, { classId: String(f.get("classId") ?? ""), skillId: String(f.get("skillId") ?? ""), dueAt: day(f.get("dueAt")), startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null, source: String(f.get("source") ?? "") });
     msg = `✅ Adaptive practice assigned to ${r.students} student${r.students === 1 ? "" : "s"}.`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
   redirect(back(f, msg));
@@ -52,7 +52,7 @@ export async function assignReadySetFromBankAction(f: FormData): Promise<void> {
     const set = await buildSkillSet(repo, actor, { skillId, lessonId, classId, n: Number(f.get("n") ?? 10) || 10, includeRevision: f.get("revision") === "1" });
     if (!set.questionIds.length) throw new ValidationError("No auto-marked questions were found for this skill.");
     const skill = await repo.findUnique("Skill", { id: skillId });
-    const r = await assignQuestions(repo, actor, { classId, questionIds: set.questionIds, title: `${String(skill?.name ?? "Skill")} (ready set)`, dueAt: day(f.get("dueAt")), startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null });
+    const r = await assignQuestions(repo, actor, { classId, questionIds: set.questionIds, title: `${String(skill?.name ?? "Skill")} (ready set)`, dueAt: day(f.get("dueAt")), startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null, source: String(f.get("source") ?? "") });
     msg = `✅ A set of ${r.questions} question${r.questions === 1 ? "" : "s"} assigned to ${r.students} student${r.students === 1 ? "" : "s"}.${set.notes.length ? ` ${set.notes.join(" ")}` : ""}`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
   redirect(back(f, msg));

@@ -2,6 +2,9 @@
  * ⭐ Reports → Skills grid (owner r67 §6): students × skills with the five icons, filters (class, plan, "skills most
  * of the class hasn't mastered"), a cell's detail (dates, questions, accuracy, reviews, self-check mismatch), the weekly
  * goals per class, and a fixed number of reads whatever the class size. In-memory demo school only.
+ * r72: grouped by strand (tests/r72-skills-grid.test.ts). r74: the columns are only the ASSIGNED skills (the fixture
+ * assigns its three skills to the class); the Source filter (All · MAP · NAFS · Curriculum · Grammar · RTI) shows one
+ * source's assignments (tests/r74-skills-source.test.ts has the full fixture).
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
@@ -14,8 +17,9 @@ import { publishGrade4Bank, simulatePractice } from "./helpers/practice";
 import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
 import { cellDetail, GRID_PLANS, isWeakForClass, skillsGrid } from "../src/server/skills/skills-grid";
-import { setSkillGoal, migrateSchool, countsLine } from "../src/server/skills/status-extras";
+import { setSkillGoal, skillGoalOf, migrateSchool, countsLine } from "../src/server/skills/status-extras";
 import { skillKeyIndex } from "../src/server/skills/status";
+import { assignSkill } from "../src/server/teacher/assign";
 
 const s = (v: unknown) => String(v ?? "");
 const read = (f: string) => readFileSync(join(ROOT, f), "utf8");
@@ -55,6 +59,8 @@ describe("⭐ Skills grid", () => {
       await row(id, "inference", i === 0 ? "MASTERED" : "IN_PROGRESS", i === 1 ? { selfCheck: "HAPPY", needsSupportAt: now, answered: 50 } : {});
     }
     await row(ids[2], "capitalization", "NEEDS_REVIEW", { history: [{ at: "2026-10-01T00:00:00Z", review: "FAIL", right: 2, of: 5, status: "NEEDS_REVIEW" }] });
+    // r74: only assigned skills are columns — the three skills are assigned to the whole class (Curriculum)
+    for (const code of ["theme", "inference", "capitalization"]) await assignSkill(repo, teacher, { classId, skillId: g4.get(code)!, source: "CURRICULUM" }, now);
   });
 
   test("students × skills with one status per cell; counts per skill", async () => {
@@ -66,6 +72,9 @@ describe("⭐ Skills grid", () => {
     assert.equal(g.cells[ids[2]]["fam:capitalization"].status, "NEEDS_REVIEW");
     assert.equal(g.cells[ids[3]]["fam:capitalization"].status, "NOT_STARTED", "☆ for a skill not started");
     assert.equal(g.cells[ids[1]]["fam:inference"].needsSupport, true);
+    // r74: only the assigned skills are columns, each with its source badge
+    assert.deepEqual(new Set(g.skills.map((k) => k.key)), new Set(["fam:theme", "fam:inference", "fam:capitalization"]));
+    for (const k of g.skills) assert.deepEqual(k.sources, ["CURRICULUM"], k.key);
   });
 
   test("filter: skills most of the class hasn't mastered", async () => {
@@ -75,16 +84,15 @@ describe("⭐ Skills grid", () => {
     assert.ok(!g.skills.some((k) => k.key === "fam:theme"), "3 of 4 mastered: not weak");
   });
 
-  test("filter by plan: MAP plan · Curriculum · Year plan · custom", async () => {
-    // r68 (owner): the source filter also has NAFS and Grammar (Curriculum · MAP · NAFS · Grammar · All)
-    assert.deepEqual(GRID_PLANS.map((p) => p.key), ["ALL", "CURRICULUM", "MAP", "NAFS", "GRAMMAR", "YEAR", "CUSTOM"]);
-    const tRow = await repo.findUnique("Teacher", { userId: teacher.userId });
-    await repo.create("Assignment", { classId, createdById: tRow!.id, title: "Theme", target: "SKILL", skillId: g4.get("theme"), program: "MAP", track: "MAP", createdAt: now });
-    await repo.create("Assignment", { classId, createdById: tRow!.id, title: "Inference", target: "SKILL", skillId: g4.get("inference"), createdAt: now });
-    await repo.create("MapYearPlan", { schoolId, classId, startDate: now, weeks: [{ week: 1, skills: [{ skillId: g4.get("capitalization"), code: "", name: "Capitalization", group: "MECH", need: 2, of: 4, rit: 200 }] }], createdById: tRow!.id, generatedAt: now, updatedAt: now });
-    assert.deepEqual((await skillsGrid(repo, teacher, { classId, plan: "MAP" }, now)).skills.map((k) => k.key), ["fam:theme"]);
-    assert.deepEqual((await skillsGrid(repo, teacher, { classId, plan: "CUSTOM" }, now)).skills.map((k) => k.key), ["fam:inference"]);
-    assert.deepEqual((await skillsGrid(repo, teacher, { classId, plan: "YEAR" }, now)).skills.map((k) => k.key), ["fam:capitalization"]);
+  test("filter by source: All sources · MAP · NAFS · Curriculum · Grammar · RTI (r74)", async () => {
+    assert.deepEqual(GRID_PLANS.map((p) => p.key), ["ALL", "MAP", "NAFS", "CURRICULUM", "GRAMMAR", "RTI"]);
+    await assignSkill(repo, teacher, { classId, skillId: g4.get("theme")!, source: "MAP", studentIds: [ids[0]] }, now);
+    await assignSkill(repo, teacher, { classId, skillId: g4.get("inference")!, source: "RTI", studentIds: [ids[1]] }, now);
+    const map = await skillsGrid(repo, teacher, { classId, plan: "MAP" }, now);
+    assert.deepEqual(map.skills.map((k) => [k.key, k.total]), [["fam:theme", 1]], "the MAP assignment only: one student");
+    assert.deepEqual((await skillsGrid(repo, teacher, { classId, plan: "RTI" }, now)).skills.map((k) => k.key), ["fam:inference"]);
+    assert.deepEqual((await skillsGrid(repo, teacher, { classId, plan: "NAFS" }, now)).skills.map((k) => k.key), []);
+    assert.deepEqual((await skillsGrid(repo, teacher, { classId }, now)).skills.find((k) => k.key === "fam:theme")!.sources, ["MAP", "CURRICULUM"], "two sources: two badges");
   });
 
   test("a cell's detail: dates, questions, accuracy, reviews, self-check mismatch; own classes only", async () => {
@@ -98,13 +106,18 @@ describe("⭐ Skills grid", () => {
     await assert.rejects(() => cellDetail(repo, other, ids[0], "fam:theme"), /not in your classes/);
   });
 
-  test("🎯 weekly goals per class: the teacher sets one, the grid shows progress", async () => {
+  test("🎯 weekly goal: set by the teacher on the student's page (r70: no longer a grid column)", async () => {
     await setSkillGoal(repo, teacher, { studentId: ids[0], target: 2 }, now);
     await assert.rejects(() => setSkillGoal(repo, other, { studentId: ids[0], target: 2 }, now), /not in your classes/);
+    const goal = await skillGoalOf(repo, ids[0], now);
+    assert.deepEqual([goal?.target, goal?.mastered, goal?.setBy], [2, 2, "TEACHER"], "theme + inference mastered this week");
+    assert.equal(goal?.done, true);
     const g = await skillsGrid(repo, teacher, { classId }, now);
-    const st = g.students.find((x) => x.id === ids[0])!;
-    assert.deepEqual([st.goal?.target, st.goal?.mastered, st.goal?.setBy], [2, 2, "TEACHER"], "theme + inference mastered this week");
-    assert.equal(st.goal?.done, true);
+    assert.ok(!("goal" in g.students[0]), "the grid carries no goal");
+    const src = read("src/app/teacher/reports/skills-grid/page.tsx");
+    const grid = src.slice(src.indexOf("function GridView"), src.indexOf("function SkillView"));
+    assert.doesNotMatch(grid, /Weekly goal|setStudentSkillGoalAction/, "no weekly-goal select in the grid");
+    assert.match(src.slice(src.indexOf("function StudentView")), /setStudentSkillGoalAction[\s\S]*Skills to master this week/, "the goal form is on the student's page, with a label");
   });
 
   test("⚡ fast: a fixed number of reads, whatever the class size", async () => {

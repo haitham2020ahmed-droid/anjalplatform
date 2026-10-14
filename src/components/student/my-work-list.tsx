@@ -10,6 +10,11 @@ const day = (v: string | null) => (v ? new Date(v).toLocaleDateString("en-GB", {
 /** soft row colour per program (Curriculum blue, MAP green, Grammar purple, NAFS teal); support work looks like any work */
 const SOFT: Record<string, string> = { CURRICULUM: "bg-blue-50/70 ring-blue-100 border-blue-300", MAP: "bg-green-50/70 ring-green-100 border-green-300", RTI: "bg-slate-50 ring-slate-100 border-slate-300", GRAMMAR: "bg-purple-50/70 ring-purple-100 border-purple-300", NAFS: "bg-teal-50/70 ring-teal-100 border-teal-300", CUSTOM: "bg-slate-50 ring-slate-100 border-slate-300" };
 
+/** r74: one badge per source of a skill assigned from several sources (RTI shows as "Practice": never support wording). */
+export function SourceChips({ sources, t }: { sources: readonly string[]; t: TFn }) {
+  return <span data-testid="work-sources" className="inline-flex flex-wrap gap-1">{sources.map((k) => k === "RTI" ? <SourceTag key={k} source="CUSTOM" label={t("Practice")} /> : <SourceTag key={k} source={k} />)}</span>;
+}
+
 /**
  * One My Work row: 📌 (assigned by the teacher), the skill, its program chip, status, due date, one button.
  * Support (RTI) work is shown as ordinary practice: students never see RTI or support-level wording.
@@ -20,7 +25,7 @@ export function WorkCard({ r, t }: { r: Row; t: TFn }) {
       <div className="min-w-0 flex-1">
         <p className="text-[0.95rem] font-semibold leading-snug text-brand-navy"><span aria-label={t("Assigned by your teacher")} title={t("Assigned by your teacher")}>📌</span> <bdi>{r.skill}</bdi></p>
         <div className="mt-1 flex flex-wrap items-center gap-1.5">
-          {r.kind ? <SourceTag source={r.sourceKey} label={t(WORK_KIND_LABEL[r.kind])} /> : r.reteach ? <SourceTag source="CUSTOM" label={t("Reteach")} /> : r.sourceKey === "RTI" ? <SourceTag source="CUSTOM" label={t("Practice")} /> : <SourceTag source={r.sourceKey} icon />}
+          {r.kind ? <SourceTag source={r.sourceKey} label={t(WORK_KIND_LABEL[r.kind])} /> : r.reteach ? <SourceTag source="CUSTOM" label={t("Reteach")} /> : (r.sources?.length ?? 0) > 1 ? <SourceChips sources={r.sources!} t={t} /> : r.sourceKey === "RTI" ? <SourceTag source="CUSTOM" label={t("Practice")} /> : <SourceTag source={r.sourceKey} icon />}
           <StatusPill status={STATUS[r.status]} />
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="rounded-full bg-white px-2 py-0.5 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}

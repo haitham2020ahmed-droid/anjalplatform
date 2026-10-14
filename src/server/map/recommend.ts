@@ -7,6 +7,7 @@ import { countGroups } from "../db/group-count";
 import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assignSkill } from "../teacher/assign";
 
@@ -81,14 +82,15 @@ export async function classRecommendations(repo: Repo, actor: Actor, classId: st
 }
 
 /** Assigns the chosen (student, skill) pairs as MAP practice. */
-export async function assignRecommendations(repo: Repo, actor: Actor, classId: string, picks: { studentId: string; skillId: string }[], dueAt: Date | null = null): Promise<{ assignments: number; students: number }> {
+export async function assignRecommendations(repo: Repo, actor: Actor, classId: string, picks: { studentId: string; skillId: string }[], dueAt: Date | null = null, /** r74: REQUIRED source */ sourceIn?: string | null): Promise<{ assignments: number; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(sourceIn);
   await assertClassAccess(repo, actor, classId);
   if (!picks.length) throw new ValidationError("Tick at least one recommended skill.");
   const bySkill = new Map<string, string[]>();
   for (const p of picks) bySkill.set(p.skillId, [...(bySkill.get(p.skillId) ?? []), p.studentId]);
   let n = 0;
-  for (const [skillId, studentIds] of bySkill) { await assignSkill(repo, actor, { classId, skillId, studentIds: [...new Set(studentIds)], track: "MAP", dueAt, note: "Recommended from your MAP score" }); n++; }
+  for (const [skillId, studentIds] of bySkill) { await assignSkill(repo, actor, { classId, skillId, studentIds: [...new Set(studentIds)], track: "MAP", dueAt, note: "Recommended from your MAP score", source }); n++; }
   return { assignments: n, students: new Set(picks.map((p) => p.studentId)).size };
 }
 

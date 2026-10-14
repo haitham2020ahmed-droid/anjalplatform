@@ -13,6 +13,7 @@ import { bestBrowserVoice } from "@/lib/tts/voices";
 import { passageSpeech } from "@/lib/tts/text";
 import { ListenButton } from "../listen-button";
 import { AnswerFx } from "../feedback-fx/answer-fx";
+import { RichInline } from "@/components/rich-inline";
 
 /**
  * 🚀 The ReadRise reader: the 5-step routine (before-poll → read → activity → thought question → after-poll),
@@ -62,7 +63,7 @@ export function ReadRiseReader({ page }: { page: ArticlePage }) {
           </h2>
           {view.step === "PREPOLL" && <Poll statement={view.poll} busy={busy} onSubmit={(v) => go(() => prePollAction(view.runId, v))} />}
           {view.step === "READ" && <ReadStep view={view} busy={busy} onDone={(p) => go(() => finishReadingAction(view.runId, p))} />}
-          {view.step === "QUIZ" && <Activity view={view} busy={busy} onSubmit={async (a) => { const v = await go(() => submitActivityAction(view.runId, a)); if (v) setJustScored(true); }} />}
+          {view.step === "QUIZ" && <Activity view={view} busy={busy} onSubmit={async (a, at) => { const v = await go(() => submitActivityAction(view.runId, a, at)); if (v) setJustScored(true); }} />}
           {view.step === "WRITE" && (
             <>
               {view.review && <ReviewPanel view={view} open={justScored} call={call} />}
@@ -120,6 +121,7 @@ function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView;
           <p className="text-sm text-slate-600">{d.stretch ? "Stretch score" : d.firstTry ? "First-try score" : "Re-read score (practice)"}</p>
           <p className="text-3xl font-bold text-brand-navy">{d.score ?? "—"}%</p>
           {!d.firstTry && <p className="text-xs text-slate-500">Only your first reading of an article counts.</p>}
+          {d.tooFast && <p data-testid="rr-too-fast" className="mt-1 text-xs font-semibold text-amber-800">⏳ Some answers came very fast, so this reading did not change your level. Take your time with each question next time.</p>}
         </div>
         <div className="rounded-xl bg-white p-4 ring-1 ring-slate-200">
           <p className="text-sm text-slate-600">My ReadRise Level</p>
@@ -432,7 +434,7 @@ function Questions({ view, value, onChange, review, name }: { view: RunView; val
         return (
           <li key={q.number} className={`rounded-2xl bg-white p-4 ring-1 ${r ? (r.correct ? "ring-emerald-300" : "ring-rose-300") : "ring-slate-200"}`}>
             <fieldset>
-              <legend className="font-semibold text-slate-900">{q.number}. {q.stem}</legend>
+              <legend className="font-semibold text-slate-900">{q.number}. <RichInline text={q.stem} /></legend>
               <div className="mt-2 grid gap-2">
                 {q.options.map((o, i) => {
                   const l = "ABCD"[i];
@@ -440,7 +442,7 @@ function Questions({ view, value, onChange, review, name }: { view: RunView; val
                   return (
                     <label key={l} className={`flex cursor-pointer items-start gap-2 rounded-xl px-3 py-2 ring-1 ${value[q.number] === l ? "bg-teal-50 ring-brand-teal" : "ring-slate-200"} ${r && l === r.answer ? "bg-emerald-50" : ""}`}>
                       <input type="radio" name={`${name}-${q.number}`} checked={value[q.number] === l} onChange={() => onChange(q.number, l)} disabled={Boolean(review) && name === "final"} className="mt-1 h-4 w-4 accent-teal-600" />
-                      <span><strong>{l}.</strong> {o} {mark && <span aria-label={mark === "✓" ? "correct answer" : "your answer, wrong"}>{mark}</span>}</span>
+                      <span><strong>{l}.</strong> <RichInline text={o} /> {mark && <span aria-label={mark === "✓" ? "correct answer" : "your answer, wrong"}>{mark}</span>}</span>
                     </label>
                   );
                 })}
@@ -449,8 +451,8 @@ function Questions({ view, value, onChange, review, name }: { view: RunView; val
             {r && (
               <div className="mt-2 text-sm">
                 <p className={r.correct ? "text-emerald-800" : "text-rose-800"}>{r.correct ? "Correct!" : `Not quite. The answer is ${r.answer}.`}</p>
-                {r.wrongWhy && <p className="text-slate-700">Why {r.chosen} is wrong: {r.wrongWhy}</p>}
-                {r.why && <p className="text-slate-700">Why {r.answer} is right: {r.why}</p>}
+                {r.wrongWhy && <p className="text-slate-700">Why {r.chosen} is wrong: <RichInline text={r.wrongWhy} /></p>}
+                {r.why && <p className="text-slate-700">Why {r.answer} is right: <RichInline text={r.why} /></p>}
               </div>
             )}
           </li>
@@ -473,14 +475,22 @@ function LookBack({ body, title }: { body: string; title: string }) {
   );
 }
 
-function Activity({ view, busy, onSubmit }: { view: RunView; busy: boolean; onSubmit: (a: Record<string, string>) => void }) {
+function Activity({ view, busy, onSubmit }: { view: RunView; busy: boolean; onSubmit: (a: Record<string, string>, at: Record<string, number>) => void }) {
   const [a, setA] = useState<Record<string, string>>({});
+  // 🎯 when each question was FIRST answered (ms after the questions opened): answers too fast to be read do not count (owner r69)
+  const opened = useRef<number | null>(null);
+  const firstAt = useRef<Record<string, number>>({});
+  useEffect(() => { opened.current = Date.now(); }, []);
+  const pick = (n: number, l: string) => {
+    if (opened.current !== null && firstAt.current[String(n)] === undefined) firstAt.current[String(n)] = Math.max(0, Date.now() - opened.current);
+    setA((x) => ({ ...x, [n]: l }));
+  };
   const all = view.questions.every((q) => a[q.number]);
   return (
-    <form className="mt-3" onSubmit={(e) => { e.preventDefault(); if (all) onSubmit(a); }}>
+    <form className="mt-3" onSubmit={(e) => { e.preventDefault(); if (all) onSubmit(a, { ...firstAt.current }); }}>
       <p className="text-slate-700">Answer all {view.questions.length} questions. <strong>Your first try is your score</strong> — take your time.</p>
       <LookBack body={view.body} title={view.title} />
-      <div className="mt-4"><Questions view={view} value={a} onChange={(n, l) => setA((x) => ({ ...x, [n]: l }))} review={null} name="final" /></div>
+      <div className="mt-4"><Questions view={view} value={a} onChange={pick} review={null} name="final" /></div>
       <button type="submit" disabled={busy || !all} className="mt-4 rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Submit my answers</button>
       {!all && <p className="mt-2 text-sm text-slate-600">{view.questions.filter((q) => !a[q.number]).length} question(s) left.</p>}
     </form>
@@ -535,7 +545,7 @@ function WriteStep({ view, busy, onSubmit }: { view: RunView; busy: boolean; onS
   const n = countWords(text);
   return (
     <form className="mt-3 rounded-2xl bg-white p-5 ring-1 ring-slate-200" onSubmit={(e) => { e.preventDefault(); if (n >= MIN_WORDS) onSubmit(text); }}>
-      <p className="text-lg font-semibold text-slate-900">{view.prompt}</p>
+      <p className="text-lg font-semibold text-slate-900"><RichInline text={view.prompt} /></p>
       {view.checklist.length > 0 && (
         <fieldset className="mt-3">
           <legend className="text-sm font-semibold text-slate-700">A strong answer:</legend>

@@ -6,6 +6,7 @@ import { getT } from "@/i18n/server";
 import { listMissingPassage } from "@/server/admin/missing-passage";
 import { BankTabs } from "../bank-tabs";
 import { removeMissingPassageAction } from "./actions";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Questions that need a missing passage" };
 
@@ -36,7 +37,7 @@ export default async function MissingPassagePage({ searchParams }: { searchParam
               <thead><tr className="border-b text-slate-500"><th className="py-2">{t("Question")}</th><th>{t("Skill")}</th><th>{t("Why")}</th></tr></thead>
               <tbody>{items.map((r) => (
                 <tr key={r.id} className="border-b align-top last:border-0">
-                  <td className="max-w-md py-2 pe-3"><Link href={`/admin/questions/${r.id}`} className="text-brand-navy hover:underline">{r.stem || r.id}</Link></td>
+                  <td className="max-w-md py-2 pe-3"><Link href={`/admin/questions/${r.id}`} className="text-brand-navy hover:underline">{r.stem ? <RichInline text={r.stem} /> : r.id}</Link></td>
                   <td className="pe-3 text-slate-600">{r.grade ? `G${r.grade} · ` : ""}{r.skill}</td>
                   <td className="py-2 text-slate-700">{r.reason}</td>
                 </tr>

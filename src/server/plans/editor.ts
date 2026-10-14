@@ -23,6 +23,8 @@ import { safeIfBehind } from "../db/schema-errors";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
+import { sourceOfAssignment } from "../../lib/assign-source";
 import { isGrammarCode } from "../grammar/grammar";
 import { assertSchoolSkill, assignSkill, cancelAssignment, pickedQuestionIds } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
@@ -498,14 +500,14 @@ async function itemCode(repo: Repo, x: PlanSection): Promise<string> {
 }
 
 /** Sends a section: one skill assignment with the section's questions (or the platform's choice), and its plan item. */
-async function sendSection(repo: Repo, actor: Actor, p: LoadedPlan, x: PlanSection, order: number, now: Date, paused: boolean): Promise<string[]> {
+async function sendSection(repo: Repo, actor: Actor, p: LoadedPlan, x: PlanSection, order: number, now: Date, paused: boolean, source: string): Promise<string[]> {
   const who = (x.studentIds ?? p.planStudents).filter((id) => p.members.includes(id)).sort();
   if (!who.length) throw new ValidationError(`${x.label ?? x.skillName}: none of its students is in the class now.`);
   const skill = await repo.findUnique("Skill", { id: x.skillId });
   const r = await assignSkill(repo, actor, {
     classId: s(p.klass.id), skillId: x.skillId, studentIds: who.length === p.members.length ? undefined : who, track: trackOfProgram(p.program, isGrammarCode(s(skill?.code))),
     dueAt: d(p.row.dueAt), startAt: paused ? null : d(p.row.startAt), note: s(p.row.note) || `${editorPlanLabel(p.program)}: ${s(p.row.title)}`, program: p.program,
-    questionIds: x.auto ? null : x.questionIds,
+    questionIds: x.auto ? null : x.questionIds, source,
   }, now);
   if (x.label) await repo.updateMany("Assignment", { id: r.assignmentId }, { title: x.label.slice(0, 191) });
   if (paused) await repo.updateMany("Assignment", { id: r.assignmentId }, { startAt: PAUSE_UNTIL });
@@ -516,8 +518,9 @@ async function sendSection(repo: Repo, actor: Actor, p: LoadedPlan, x: PlanSecti
 }
 
 /** ▶ Sends a draft: every section to its students. Nothing half-made on an error. */
-export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<{ planId: string; sections: number; students: number }> {
+export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = new Date(), /** r74: REQUIRED — the Source chosen next to Send */ sourceIn?: string | null): Promise<{ planId: string; sections: number; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(sourceIn);
   const p = await loadPlan(repo, actor, planId);
   if (p.status !== "DRAFT") throw new ValidationError("This plan was sent already. Your changes reach the students as you make them.");
   assertProgramFitsGrade(p.program, p.grade);
@@ -535,7 +538,7 @@ export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = n
   const made: string[] = [];
   try {
     let order = 0;
-    for (const x of doc.sections) { for (const id of await sendSection(repo, actor, p, x, order++, now, false)) students.add(id); made.push(x.assignmentId!); }
+    for (const x of doc.sections) { for (const id of await sendSection(repo, actor, p, x, order++, now, false, source)) students.add(id); made.push(x.assignmentId!); }
   } catch (e) {
     if (made.length) await repo.updateMany("Assignment", { id: { in: made } }, { deletedAt: now });
     await repo.deleteMany("SkillPlanItem", { planId: p.row.id });
@@ -551,6 +554,13 @@ export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = n
  * (answers kept), changed ones updated in place (questions, students, dates, note). Returns how many students were
  * told about the change.
  */
+/** r74: the source of a sent plan = the source of its first sent part (older parts: inferred from the row); else its program. */
+async function sentPlanSource(repo: Repo, p: LoadedPlan, before: PlanDoc): Promise<string> {
+  const first = before.sections.find((x) => x.assignmentId)?.assignmentId;
+  const row = first ? await repo.findUnique("Assignment", { id: first }) : null;
+  return sourceOfAssignment(row ?? { program: p.program });
+}
+
 async function syncSent(repo: Repo, actor: Actor, p: LoadedPlan, before: PlanDoc, after: PlanDoc, now: Date): Promise<number> {
   const paused = p.status === "PAUSED";
   const touched = new Set<string>();
@@ -562,8 +572,10 @@ async function syncSent(repo: Repo, actor: Actor, p: LoadedPlan, before: PlanDoc
     for (const l of await repo.findMany("AssignmentStudent", { assignmentId: x.assignmentId }, { select: ["studentId"] })) touched.add(s(l.studentId));
   }
   let order = 0;
+  // r74: a part added to a SENT plan keeps the plan's source (the one chosen at Send; older plans: inferred)
+  const planSource = after.sections.some((x) => !x.assignmentId) ? await sentPlanSource(repo, p, before) : "CURRICULUM";
   for (const x of after.sections) {
-    if (!x.assignmentId) { for (const id of await sendSection(repo, actor, p, x, order++, now, paused)) touched.add(id); continue; }
+    if (!x.assignmentId) { for (const id of await sendSection(repo, actor, p, x, order++, now, paused, planSource)) touched.add(id); continue; }
     const old = before.sections.find((y) => y.assignmentId === x.assignmentId);
     const who = (x.studentIds ?? p.planStudents).filter((id) => p.members.includes(id));
     const rows = await repo.findMany("AssignmentStudent", { assignmentId: x.assignmentId }, { select: ["studentId"] });

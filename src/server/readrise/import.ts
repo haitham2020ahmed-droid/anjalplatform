@@ -13,6 +13,7 @@
  *
  * "ReadRise Level" is an estimate on a Lexile-like scale, never an official Lexile measure.
  */
+import { inferQuestionType, normalizeQuestionType } from "./question-type";
 import type { Repo, Row } from "../seeding/repo";
 import { can, ForbiddenError, type Actor } from "../auth/rbac";
 import { audit } from "../audit";
@@ -165,10 +166,13 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
       const q = (rq && typeof rq === "object" ? rq : {}) as Record<string, unknown>;
       const key = `q:${b}:${i + 1}`;
       const stem = str(q.stem), options = Array.isArray(q.options) ? (q.options as unknown[]).map(str) : [];
-      const answer = str(q.answer).toUpperCase(), skill = str(q.skill).toLowerCase().replace(/[\s_]+/g, "-"), why = str(q.why);
+      const answer = str(q.answer).toUpperCase(), why = str(q.why);
+      // owner r69: the question type — a known spelling ("main idea" → central-idea), else, when empty, from the stem (deterministic)
+      let skill = normalizeQuestionType(q.skill) ?? str(q.skill).toLowerCase().replace(/[\s_]+/g, "-");
       if (!stem) err(key, "Question text is required.");
       if (options.length !== 4 || options.some((o) => !o)) err(key, "Needs exactly 4 answer choices (A, B, C, D), none empty.");
       if (!/^[ABCD]$/.test(answer)) err(key, `Answer must be A, B, C or D (found “${str(q.answer) || "(empty)"}”).`);
+      if (!skill && stem) { skill = inferQuestionType(stem); warn(key, `No skill given: set to “${skill}” from the question.`); }
       if (!skill) err(key, `Skill is required (${RR_SKILLS.join(", ")}).`);
       else if (!(RR_SKILLS as readonly string[]).includes(skill)) err(key, `Skill “${str(q.skill)}” is not known. Use one of: ${RR_SKILLS.join(", ")}.`);
       if (!why) warn(key, "No explanation (Why): students see why the answer is right after the quiz.");

@@ -219,6 +219,42 @@ model Session {
   @@index([expiresAt])
 }
 
+/// r76 Class QR sign-in: one open QR of one class, shown by its teacher (src/server/auth/class-signin.ts).
+/// The QR link carries a random 256-bit token; only its SHA-256 is stored. `code` = the short code to type instead
+/// (6 letters/digits). Ends at expiresAt (10 minutes) or when the teacher closes it (closedAt).
+model ClassSignIn {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique @db.VarChar(64)
+  code      String    @db.VarChar(8)
+  schoolId  String
+  classId   String
+  teacherId String // Teacher.id of the teacher who opened it
+  expiresAt DateTime
+  closedAt  DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([code])
+  @@index([classId, createdAt])
+}
+
+/// r76: a student who signed in by tapping their name on a Class QR page. `day` = the school day (Riyadh,
+/// YYYY-MM-DD): the name stays off the list for the rest of that day (also on a re-opened QR) until the teacher
+/// signs the student out or lets them in again (signedOutAt).
+model ClassSignInUse {
+  id          String    @id @default(cuid())
+  signInId    String
+  schoolId    String
+  classId     String
+  studentId   String
+  userId      String
+  day         String    @db.VarChar(10)
+  createdAt   DateTime  @default(now())
+  signedOutAt DateTime?
+
+  @@index([classId, day])
+  @@index([studentId, day])
+}
+
 /// Fine-grained permission grants on top of the role (e.g. a teacher allowed to edit the question bank).
 model RolePermission {
   id         String @id @default(cuid())
@@ -1066,6 +1102,9 @@ model Assignment {
   /// r67: the number of questions the teacher set for skill work (each student answers exactly this many counted
   /// answers); null = the 30–50 rule
   questionCount Int?
+  /// r74 (owner): where the work comes from — MAP | NAFS | CURRICULUM | GRAMMAR | RTI, chosen on every assign window
+  /// (required for new work); null = older rows (the source is inferred for display: lib/assign-source.ts)
+  source        String?  @db.VarChar(16)
 
   class      Class               @relation(fields: [classId], references: [id])
   createdBy  Teacher             @relation(fields: [createdById], references: [id])
@@ -3118,6 +3157,13 @@ model RRRun {
   listened     Boolean   @default(false)
   startedAt    DateTime  @default(now())
   completedAt  DateTime?
+  /// owner r69 (accuracy): when the 8 questions opened (step 3), the answer time of each question and the rapid
+  /// guesses among them ({ ms: { "1": 5400, … }, rapid: [3, 4] }); 2+ rapid answers = an Unreliable run (teacher-only):
+  /// it never moves the level, never counts toward goals and never feeds the skills
+  quizAt       DateTime?
+  answerMs     Json?
+  rapidCount   Int       @default(0)
+  unreliable   Boolean   @default(false)
 
   @@index([studentId, completedAt])
   @@index([schoolId, completedAt])
@@ -3133,6 +3179,8 @@ model RRPlacement {
   /// [{ level, passageId, answers, correct }]
   steps       Json
   result      Int?
+  /// owner r69: the reading check of the school year it belongs to — BOY | MOY | EOY (null = an older row)
+  period      String?   @db.VarChar(3)
   startedAt   DateTime  @default(now())
   completedAt DateTime?
 

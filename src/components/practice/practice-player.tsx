@@ -12,6 +12,7 @@ import { CelebrateFx } from "../feedback-fx/answer-fx";
 import { WordLookup } from "../learn/word-lookup";
 import { FlagButton } from "../learn/flag-button";
 import { BUSY_MESSAGE, sendAnswer } from "../../lib/answer-send";
+import { RichInline } from "@/components/rich-inline";
 
 type Hint = (sessionId: string, questionId: string) => Promise<{ hint?: string; level?: number; maxLevel?: number; error?: string }>;
 type Submit = (input: { sessionId: string; questionId: string; response: unknown }) => Promise<{ feedback?: Feedback; view?: PracticeView; error?: string }>;
@@ -94,7 +95,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
         onFinish={() => setDone(feedback?.next.hasQuestion ? "COMPLETED" : feedback?.next.endReason ?? "COMPLETED")} />
       {shown && hint && !feedback && (
         <div className="mx-auto mt-3 max-w-5xl">
-          {hints.map((h) => <p key={h.level} className="mb-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">💡 <span className="font-semibold">Hint {h.level}:</span> {h.text}</p>)}
+          {hints.map((h) => <p key={h.level} className="mb-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">💡 <span className="font-semibold">Hint {h.level}:</span> <RichInline text={h.text} /></p>)}
           {hintText && !hints.length && <p className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">💡 {hintText}</p>}
           {(!hints.length || hints[hints.length - 1].level < hints[hints.length - 1].max) && !(hintText && !hints.length) && (
             <button type="button" className="rounded-lg border border-amber-300 bg-white px-3 py-1.5 text-sm text-amber-800 hover:bg-amber-50"

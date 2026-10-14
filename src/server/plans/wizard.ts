@@ -21,6 +21,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { isGrammarCode } from "../grammar/grammar";
 import { accessibleClasses, assertSchoolSkill, assignSkill, NO_CURRICULUM_MESSAGE, type Track } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
@@ -341,6 +342,8 @@ export interface AssignPlanInput extends ProposeInput {
   dueAt?: Date | null;
   startAt?: Date | null;
   note?: string | null;
+  /** r74: REQUIRED — the Source chosen in the wizard (MAP | NAFS | CURRICULUM | GRAMMAR | RTI) */
+  source?: string | null;
 }
 
 export interface AssignPlanResult { planId: string; skills: number; students: number; assignmentIds: string[]; notes: string[] }
@@ -348,6 +351,7 @@ export interface AssignPlanResult { planId: string; skills: number; students: nu
 /** Builds the plan again on the server, applies the teacher's edits and assigns it. */
 export async function assignPlan(repo: Repo, actor: Actor, input: AssignPlanInput, now = new Date()): Promise<AssignPlanResult> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const p = await proposePlan(repo, actor, input);
   const keep = input.keep ? new Set(input.keep.map(String)) : null;
   const skills = p.skills.filter((k) => !keep || keep.has(k.id));
@@ -381,7 +385,7 @@ export async function assignPlan(repo: Repo, actor: Actor, input: AssignPlanInpu
     let order = 0;
     for (const k of skills) {
       const whole = k.studentIds.length === classSize;
-      const r = await assignSkill(repo, actor, { classId: p.classId, skillId: k.id, studentIds: whole ? undefined : k.studentIds, track: k.track, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${LABEL[p.type]}: ${title}` }, now);
+      const r = await assignSkill(repo, actor, { classId: p.classId, skillId: k.id, studentIds: whole ? undefined : k.studentIds, track: k.track, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${LABEL[p.type]}: ${title}`, source }, now);
       assignmentIds.push(r.assignmentId);
       for (const id of k.studentIds) students.add(id);
       await repo.create("SkillPlanItem", { planId: plan.id, code: k.code.slice(0, 80), label: `${LABEL[p.type]} · Grade ${k.grade} · ${k.name}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
@@ -472,7 +476,7 @@ export async function personalizeNafsPlanFromResults(repo: Repo, actor: Actor, i
     for (const id of skillIds) {
       const k = rows.get(id)!;
       const who = [...new Set(missed.get(id)!)];
-      const r = await assignSkill(repo, actor, { classId: s(klass.id), skillId: id, studentIds: who, track: "NAFS", dueAt: input.dueAt ?? null, note: `NAFS practice: you missed this skill in ${testTitle}.`.slice(0, 1000) }, now);
+      const r = await assignSkill(repo, actor, { classId: s(klass.id), skillId: id, studentIds: who, track: "NAFS", dueAt: input.dueAt ?? null, note: `NAFS practice: you missed this skill in ${testTitle}.`.slice(0, 1000), source: "NAFS" }, now);
       for (const x of who) students.add(x);
       sent.push(r.assignmentId);
       await repo.create("SkillPlanItem", { planId: plan.id, code: k.code.slice(0, 80), label: `NAFS Plan · Grade ${k.grade} · ${k.name}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
@@ -503,6 +507,12 @@ export interface MyWorkItem {
   /** the teacher's note (e.g. "Reteach: Weekly Quiz – Week 6") */
   note?: string | null;
   /**
+   * r74: every source the work was assigned from (badges) — the same skill assigned from two sources is ONE item
+   * with both sources; its dates: the earliest start and the latest due date of those assignments
+   */
+  sources?: SourceKey[];
+  startAt?: string | null;
+  /**
    * work that is not a skill or a set of questions (student/all-work.ts): a test, a MAP Test, a NAFS test or
    * practice, a ReadRise article, writing, reading aloud, an exit ticket … — shown with this kind instead of the program
    */
@@ -513,13 +523,21 @@ export type { WorkKind };
 /**
  * My Work: ONE row per skill (a skill assigned twice shows once, the most urgent), with its source tag
  * (Curriculum / MAP / NAFS / RTI / Grammar / Custom), status and Start link. Work that starts later is left out.
+ * r74: the row of a skill assigned from several sources carries EVERY source (two badges), the earliest start and the
+ * latest due date of those assignments; it is one row, so its progress and the home badge count it once.
  */
 export async function myWorkItems(repo: Repo, actor: Actor, now = new Date()): Promise<MyWorkItem[]> {
   const view = await assignedSkills(repo, actor, now);
+  return mergeWorkItems(view.items, now);
+}
+
+/** Pure (r74): the assigned items → My Work rows, one per skill (see myWorkItems). */
+export function mergeWorkItems(items: readonly AssignedSkillItem[], now = new Date()): MyWorkItem[] {
   const rank = { OVERDUE: 0, IN_PROGRESS: 1, NOT_STARTED: 2, COMPLETED: 3 } as const;
   const out: MyWorkItem[] = [];
   const seen = new Map<string, number>();
-  for (const i of view.items) {
+  const lead = new Map<number, AssignedSkillItem>();
+  for (const i of items) {
     if (i.startsLater) continue;
     const status: WorkStatus = i.status === "COMPLETED" ? "Done" : i.status === "NOT_STARTED" ? "Not started" : i.status === "OVERDUE" && i.progress === 0 ? "Not started" : "In progress";
     const key = sourceOfWork(i.track, Boolean(i.grammar));
@@ -528,16 +546,22 @@ export async function myWorkItems(repo: Repo, actor: Actor, now = new Date()): P
       status, overdue: i.status === "OVERDUE", dueAt: i.dueAt,
       href: status === "Done" ? `/student/assignments/${i.assignmentId}/report` : i.kind === "skill" ? `/practice/${i.skillId}` : `/quiz/${i.assignmentId}`,
       action: status === "Done" ? "Review" : status === "Not started" ? "Start" : "Continue",
-      note: i.note,
+      note: i.note, sources: [sourceOfWork(i.source ?? i.track, Boolean(i.grammar) && !i.source)], startAt: i.startAt ?? null,
     };
     const dedupe = i.kind === "skill" ? `skill:${i.skillId}` : `set:${i.assignmentId}`;
     const at = seen.get(dedupe);
-    if (at === undefined) { seen.set(dedupe, out.length); out.push(row); continue; }
-    const prev = view.items.find((x) => x.assignmentId === out[at].assignmentId)!;
-    if (rank[i.status] < rank[prev.status]) out[at] = row;
+    if (at === undefined) { seen.set(dedupe, out.length); lead.set(out.length, i); out.push(row); continue; }
+    const prev = out[at];
+    // r74: one row, every source; the earliest start, the latest due date (no due date on one of them = none)
+    const sources = [...new Set([...(prev.sources ?? []), ...(row.sources ?? [])])];
+    const startAt = [prev.startAt, row.startAt].every(Boolean) ? [prev.startAt!, row.startAt!].sort()[0] : null;
+    const dueAt = [prev.dueAt, row.dueAt].every(Boolean) ? [prev.dueAt!, row.dueAt!].sort()[1] : null;
+    const keep = rank[i.status] < rank[lead.get(at)!.status] ? (lead.set(at, i), row) : prev;
+    out[at] = { ...keep, sources, startAt, dueAt, overdue: keep.status !== "Done" && Boolean(dueAt) && Date.parse(dueAt!) < now.getTime() };
   }
   return out;
 }
+type AssignedSkillItem = Awaited<ReturnType<typeof assignedSkills>>["items"][number];
 
 export interface MyPlan { id: string; title: string; kind: string; source: SourceLabel; sourceKey: SourceKey; parts: number; done: number; href: string }
 

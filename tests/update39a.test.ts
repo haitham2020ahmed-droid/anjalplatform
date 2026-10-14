@@ -92,7 +92,7 @@ describe("Update 39A · readiness fixes", () => {
 
   // ------------------------------------------------------------------ C-1
   test("C-1: opening the class page never resets finished work, and a second view writes nothing", async () => {
-    const set = await assignQuestions(repo, teacher, { classId, questionIds: qids.slice(0, 5), title: "C1 set", exactTitle: true, dueAt: new Date(now.getTime() + DAY) }, now);
+    const set = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: qids.slice(0, 5), title: "C1 set", exactTitle: true, dueAt: new Date(now.getTime() + DAY) }, now);
     // student 0 finished it (e.g. marked done before an update), no answers in this database
     await repo.updateMany("AssignmentStudent", { assignmentId: set.assignmentId, studentId: students[0] }, { status: "COMPLETED", progress: 1, completedAt: now });
     // a system set with no target skills and no question set (the old code read it as 0 %)
@@ -224,7 +224,7 @@ describe("Update 39A · readiness fixes", () => {
     await repo.create("Assignment", { classId: otherClassId, createdById: tid, title: "Weekly Check · 2026-W42", target: "ASSESSMENT", curriculumPlanId: "WEEKLY_CHECK", note: "Weekly Check", createdAt: now });
     await repo.create("Assignment", { classId: otherClassId, createdById: tid, title: "Re-check: Make Inferences", target: "ASSESSMENT", createdAt: now });
     assert.equal(await count(), before0, "system work is not the teacher's follow-up");
-    await assignQuestions(repo, other, { classId: otherClassId, questionIds: qids.slice(0, 3), title: "Teacher's own set", exactTitle: true }, now);
+    await assignQuestions(repo, other, { source: "CURRICULUM", classId: otherClassId, questionIds: qids.slice(0, 3), title: "Teacher's own set", exactTitle: true }, now);
     assert.equal(await count(), before0 + 1);
   });
 
@@ -341,7 +341,7 @@ describe("Update 39A · readiness fixes", () => {
   });
 
   test("S-11: a teacher can cancel their own assignment (soft delete, audited); another teacher cannot", async () => {
-    const a = await assignQuestions(repo, teacher, { classId, questionIds: qids.slice(0, 3), title: "To cancel", exactTitle: true }, now);
+    const a = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: qids.slice(0, 3), title: "To cancel", exactTitle: true }, now);
     await assert.rejects(cancelAssignment(repo, other, a.assignmentId, now), ForbiddenError);
     const r = await cancelAssignment(repo, teacher, a.assignmentId, now);
     assert.equal(r.title, "To cancel");

@@ -6,6 +6,7 @@ import { articleDetail, LEVEL_NAMES } from "@/server/readmaster/service";
 import { lexileBands, levelForLexile } from "@/server/curriculum-map/lexile";
 import { addQuestionAction, saveVersionAction, setStatusAction } from "../actions";
 import { PageHeader } from "@/components/page-header";
+import { RichInline } from "@/components/rich-inline";
 
 const STYLE = {
   BELOW: { icon: "🟠", ring: "ring-orange-200", head: "bg-orange-50 text-orange-900" },
@@ -60,7 +61,7 @@ export default async function ReadMasterArticlePage({ params, searchParams }: { 
               {v && (
                 <>
                   <h3 className="mt-4 font-semibold text-slate-800">Questions ({v.questions.length})</h3>
-                  <ol className="mt-1 list-decimal space-y-1 ps-5 text-sm">{v.questions.map((q) => <li key={q.id}><Link href={`/admin/questions/${q.id}`} className="hover:underline">{q.stem}</Link>{q.status !== "PUBLISHED" && <span className="ms-1 text-xs text-amber-800">({q.status.toLowerCase()})</span>}</li>)}</ol>
+                  <ol className="mt-1 list-decimal space-y-1 ps-5 text-sm">{v.questions.map((q) => <li key={q.id}><Link href={`/admin/questions/${q.id}`} className="hover:underline"><RichInline text={q.stem} /></Link>{q.status !== "PUBLISHED" && <span className="ms-1 text-xs text-amber-800">({q.status.toLowerCase()})</span>}</li>)}</ol>
                   <details className="mt-2 text-sm">
                     <summary className="cursor-pointer font-semibold text-brand-teal">➕ Add a question</summary>
                     <form action={addQuestionAction} className="mt-2 space-y-2">

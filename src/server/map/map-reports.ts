@@ -16,6 +16,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { mapLimit } from "../db/parallel";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
@@ -408,8 +409,9 @@ export async function groupStudyPlan(repo: Repo, actor: Actor, classId: string, 
 }
 
 /** Sends a group its practice: the ticked skills, questions of the band and the band above (widened when too few). */
-export async function assignGroupSkills(repo: Repo, actor: Actor, input: { classId: string; group: GroupKey; low: number; high: number; skillIds: string[]; studentIds: string[]; count?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; title?: string }, now = new Date()): Promise<{ assignmentId: string; questions: number; students: number }> {
+export async function assignGroupSkills(repo: Repo, actor: Actor, input: { classId: string; group: GroupKey; low: number; high: number; skillIds: string[]; studentIds: string[]; count?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; title?: string; /** r74: REQUIRED */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; questions: number; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   if (!input.skillIds.length) throw new ValidationError("Tick at least one skill.");
   const members = new Set(await classMembers(repo, input.classId));
@@ -421,7 +423,7 @@ export async function assignGroupSkills(repo: Repo, actor: Actor, input: { class
   for (let w = 0; w < 4 && qs.length < 8; w++) { lo -= 10; hi += 10; qs = pool.filter((q) => q.rit >= lo && q.rit <= hi); }
   if (qs.length < 3) qs = pool;
   if (qs.length < 3) throw new ValidationError("Not enough questions for these skills yet (3 or more needed).");
-  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs.map((q) => q.id), title: input.title ?? `MAP group · ${groupOf(input.group).name} · RIT ${input.low}–${input.high}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null }, now);
+  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs.map((q) => q.id), title: input.title ?? `MAP group · ${groupOf(input.group).name} · RIT ${input.low}–${input.high}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, source }, now);
   return { assignmentId: a.assignmentId, questions: qs.length, students: studentIds.length };
 }
 

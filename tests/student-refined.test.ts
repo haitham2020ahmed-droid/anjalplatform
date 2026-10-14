@@ -96,7 +96,7 @@ describe("Curriculum Map → the student's own study plan", () => {
   test("only my plans; the newest of my own grade by default; a switcher when there are several", async () => {
     assert.deepEqual((await studentStudyPlans(repo, student)).plans, [], "nothing sent yet → the friendly empty page");
     const cur = await sendCurriculumPlan(repo, teacher, { classId }, new Date("2026-09-01T08:00:00Z"));
-    const unit = await sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] }, new Date("2026-09-20T08:00:00Z"));
+    const unit = await sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] }, new Date("2026-09-20T08:00:00Z"));
     await repo.updateMany("SkillPlan", { id: cur.planId }, { createdAt: new Date("2026-09-01T08:00:00Z") });
     await repo.updateMany("SkillPlan", { id: unit.planId }, { createdAt: new Date("2026-09-20T08:00:00Z") });
     let mine = await studentStudyPlans(repo, student);

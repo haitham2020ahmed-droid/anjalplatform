@@ -177,7 +177,7 @@ export async function sendCheck(repo: Repo, actor: Actor, classId: string, subje
       qids.push(...pick.ids.filter((_, i) => i % step === 0).slice(0, 4));
     }
     if (qids.length < 5) continue;
-    await assignQuestions(repo, actor, { classId, studentIds: group, questionIds: qids, title: `MAP check · ${subject === "READING" ? "Reading" : "Language Usage"}`, exactTitle: true, track: "MAP", dueAt: input.dueAt ?? null, note: "A short check: do your best, no hurry." }, now);
+    await assignQuestions(repo, actor, { classId, studentIds: group, questionIds: qids, title: `MAP check · ${subject === "READING" ? "Reading" : "Language Usage"}`, exactTitle: true, track: "MAP", dueAt: input.dueAt ?? null, note: "A short check: do your best, no hurry.", source: "MAP" }, now);
     sets++; students += group.length;
   }
   if (!sets) throw new ValidationError("Not enough questions linked to MAP goal areas for this grade yet.");

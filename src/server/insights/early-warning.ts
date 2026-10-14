@@ -237,7 +237,7 @@ export interface EarlyWarningView {
   /** admin: per class */
   byClass: { classId: string; className: string; teachers: string; urgent: number; watch: number; good: number; unhandled7: number }[];
   /** admin: urgent alerts not handled for UNHANDLED_DAYS+ days */
-  unhandled: { alertId: string; studentId: string; name: string; className: string; detail: string; days: number }[];
+  unhandled: { alertId: string; studentId: string; name: string; classId: string; className: string; detail: string; days: number }[];
   handledHidden: number;
   scannedAt: string;
 }
@@ -323,10 +323,10 @@ export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, n
     const old = await repo.findMany("StudentAlert", { schoolId, kind: EW_KIND, status: "OPEN", createdAt: { lte: new Date(now.getTime() - UNHANDLED_DAYS * DAY) } }, { select: ["id", "studentId", "classId", "detail", "createdAt"] });
     const oldIn = old.filter((a) => inScope.has(s(a.classId)));
     const oldNames = await studentNames(repo, [...new Set(oldIn.map((a) => s(a.studentId)))]);
-    unhandled = oldIn.map((a) => ({ alertId: s(a.id), studentId: s(a.studentId), name: oldNames.get(s(a.studentId))?.name ?? "Student", className: s(classes.find((c) => c.id === a.classId)?.name), detail: s(a.detail), days: Math.floor((now.getTime() - time(a.createdAt)) / DAY) })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
+    unhandled = oldIn.map((a) => ({ alertId: s(a.id), studentId: s(a.studentId), name: oldNames.get(s(a.studentId))?.name ?? "Student", classId: s(a.classId), className: s(classes.find((c) => c.id === a.classId)?.name), detail: s(a.detail), days: Math.floor((now.getTime() - time(a.createdAt)) / DAY) })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
     byClass = classes.filter((c) => inScope.has(c.id)).map((c) => {
       const mine = rows.filter((r) => r.classId === c.id);
-      return { classId: c.id, className: c.name, teachers: ct.filter((x) => x.classId === c.id).map((x) => teacherName.get(s(x.teacherId)) ?? "").filter(Boolean).join(", "), urgent: mine.filter((r) => r.severity === "URGENT").length, watch: mine.filter((r) => r.severity === "WATCH").length, good: mine.filter((r) => r.severity === "GOOD").length, unhandled7: unhandled.filter((u) => u.className === c.name).length };
+      return { classId: c.id, className: c.name, teachers: ct.filter((x) => x.classId === c.id).map((x) => teacherName.get(s(x.teacherId)) ?? "").filter(Boolean).join(", "), urgent: mine.filter((r) => r.severity === "URGENT").length, watch: mine.filter((r) => r.severity === "WATCH").length, good: mine.filter((r) => r.severity === "GOOD").length, unhandled7: unhandled.filter((u) => u.classId === c.id).length /* r72: by class id — two classes may share a name */ };
     });
   }
   return { isAdmin, classes, grades: gradeRows.map((g) => ({ id: s(g.id), level: Number(g.level) })).sort((a, b) => a.level - b.level), teachers, classId, rows: out, counts, dropping, moves, byClass, unhandled, handledHidden, scannedAt: new Date(scan.at).toISOString() };

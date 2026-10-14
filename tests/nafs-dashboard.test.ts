@@ -98,7 +98,7 @@ describe("tabs, cut-offs and the range", () => {
   test("Dashboard is the second tab; group cut-offs live in one place", () => {
     assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Adaptive", "NAFS test", "Ministry booklets", "Reports", "Suggested plan", "Question bank", "Marking"]); // owner r69: the Dashboard is merged into Reports
     assert.deepEqual(NAFS_GROUPS.map((g) => [g.name, g.min]), [["Exceeding", 85], ["Meeting", 65], ["Approaching", 45], ["Needs support", 0]]);
-    assert.equal(WEAK_BELOW, 65);
+    assert.equal(WEAK_BELOW, 60, "r70: the ONE NAFS weakness rule (strengths.ts): under 60 %");
     assert.equal(groupOf(85), "EXCEEDING"); assert.equal(groupOf(84), "MEETING"); assert.equal(groupOf(65), "MEETING");
     assert.equal(groupOf(64), "APPROACHING"); assert.equal(groupOf(45), "APPROACHING"); assert.equal(groupOf(44), "SUPPORT"); assert.equal(groupOf(null), null);
     assert.equal(movementOf("SUPPORT", "MEETING"), 1); assert.equal(movementOf("EXCEEDING", "MEETING"), -1); assert.equal(movementOf(null, "MEETING"), 0);

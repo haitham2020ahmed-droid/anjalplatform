@@ -87,6 +87,7 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher/week", label: "My Week", icon: "📅", line: "week", group: MORE },
   { href: "/teacher/messages", label: "Messages", icon: "📨", line: "mail", group: MORE },
   { href: "/teacher/games", label: "Live Challenge", icon: "🏁", line: "game", group: MORE },
+  { href: "/teacher/class-signin", label: "Class sign-in", icon: "📱", line: "qr", group: MORE },
   { href: "/teacher/calendar", label: "Calendar", icon: "🗓️", line: "calendar", group: MORE },
   { href: "/guide", label: "Help", icon: "❔", line: "help", group: MORE },
 ];

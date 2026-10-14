@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useT } from "@/i18n/client";
 import { bookletTimeAction, saveBookletAction } from "@/app/student/nafs/sim/actions";
+import { RichInline } from "@/components/rich-inline";
 
 type A = number | null;
 /** How often the timer asks whether the teacher changed the time (ms; the server's POLL_MS). */
@@ -114,15 +115,15 @@ export function NafsBooklet({ id, endsAt: endsAt0, stamp: stamp0 = 0, groups, in
         <section key={gi} className={`grid gap-4 ${g.passage ? "lg:grid-cols-2" : ""}`} lang="en" dir="ltr">
           {g.passage && (
             <article className="reading rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line lg:sticky lg:top-20 lg:max-h-[80vh] lg:overflow-y-auto">
-              {g.passage.title && <h2 className="mb-2 text-xl font-semibold text-ink">{g.passage.title}</h2>}
-              {g.passage.paragraphs.map((p, i) => <p key={i} className="mb-3 grid grid-cols-[1.75rem_1fr] text-ink"><span className="text-sm font-bold text-muted">{i + 1}</span><span>{p}</span></p>)}
+              {g.passage.title && <h2 className="mb-2 text-xl font-semibold text-ink"><RichInline text={g.passage.title} /></h2>}
+              {g.passage.paragraphs.map((p, i) => <p key={i} className="mb-3 grid grid-cols-[1.75rem_1fr] text-ink"><span className="text-sm font-bold text-muted">{i + 1}</span><span><RichInline text={p} /></span></p>)}
             </article>
           )}
           <div className="grid content-start gap-3">
             {g.questions.map((q) => (
               <fieldset key={q.n} id={`q${q.n}`} className="rounded-2xl bg-surface p-4 shadow-card ring-1 ring-line">
                 <legend className="sr-only">{q.n}</legend>
-                <p className="font-semibold text-ink"><span className="me-1">{q.n}.</span>{q.stem}</p>
+                <p className="font-semibold text-ink"><span className="me-1">{q.n}.</span><RichInline text={q.stem} /></p>
                 {q.kind === "WRITTEN" ? (
                   <label className="mt-2 grid gap-1 text-sm text-ink-2">{t("Write your answer")}
                     <textarea value={texts[String(q.n - 1)] ?? ""} onChange={(e) => write(q.n - 1, e.target.value)} rows={3} maxLength={2000} className="rounded-xl bg-surface-2 px-3 py-2 text-base text-ink ring-1 ring-line focus:outline-none focus:ring-2 focus:ring-brand-navy" />
@@ -133,7 +134,7 @@ export function NafsBooklet({ id, endsAt: endsAt0, stamp: stamp0 = 0, groups, in
                     return (
                       <label key={k} className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-xl px-3 py-2 ring-1 ${on ? "bg-sky-50 ring-2 ring-brand-navy" : "bg-surface-2 ring-line"}`}>
                         <input type="radio" name={`q${q.n}`} checked={on} onChange={() => choose(q.n - 1, k)} className="h-5 w-5" />
-                        <b className="text-ink">{"ABCD"[k]}.</b><span className="text-ink">{o}</span>
+                        <b className="text-ink">{"ABCD"[k]}.</b><span className="text-ink"><RichInline text={o} /></span>
                       </label>
                     );
                   })}

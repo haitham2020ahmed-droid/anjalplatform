@@ -6,6 +6,7 @@ import { PassageText } from "@/components/passage-text";
 import { useT } from "@/i18n/client";
 import type { TestScreen } from "@/server/map/sim";
 import { answerTestAction, mapTestTimeAction } from "@/app/student/map-test/actions";
+import { RichInline } from "@/components/rich-inline";
 
 /** How often the timer asks whether the teacher changed the time (ms). */
 const POLL_MS = 20_000;
@@ -118,7 +119,7 @@ export function TestPlayer({ initial }: { initial: TestScreen }) {
         <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
           {q.passage && (
             <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label={t("Reading passage")}>
-              <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
+              <h2 className="text-xl font-bold text-brand-navy"><RichInline text={q.passage.title} /></h2>
               <PassageText text={q.passage.text} />
             </article>
           )}
@@ -127,7 +128,7 @@ export function TestPlayer({ initial }: { initial: TestScreen }) {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
             )}
-            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>}
             <div className="mt-5"><AnswerInput key={q.questionId} q={q} value={value} onChange={setValue} disabled={busy} /></div>
             {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
             <button type="button" onClick={() => void send()} disabled={busy || !isAnswerReady(q, value)} className="mt-6 rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white disabled:opacity-50">{busy ? t("Saving…") : sc.n === sc.total ? `${t("Finish")} ✓` : `${t("Next")} ▶`}</button>

@@ -1,4 +1,5 @@
 import { StarAssign } from "@/components/assign/star-assign";
+import { SourceSelect } from "@/components/assign/source-select";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { TFn } from "@/i18n";
@@ -144,16 +145,17 @@ export function PlanBuilder(p: BuilderProps) {
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Plan name")}<input name="title" defaultValue={title} maxLength={191} className={BOX} /></label>
           <AssignDates t={t} start={form.startText} due={form.dueText} field={BOX} />
+          <SourceSelect t={t} field={BOX} />
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Note to students (optional)")}<input name="note" defaultValue={form.note} maxLength={1000} className={BOX} /></label>
         </div>
         <PlanMasteredPrompt t={t} classId={p.carry.find(([k]) => k === "classId")?.[1] ?? ""} plan={p.plan} excluded={form.excludeMastered} />
         <p className="mt-3 text-sm text-slate-600">{t("{skills} skill(s) for {students} student(s).", { skills: p.plan.length, students: withWork.length })}{pickedPairs.length > 0 && <> {t("Your own questions: {n} skill(s). The others: the platform chooses at each student's level.", { n: pickedPairs.length })}</>}</p>
         <div className="mt-4 flex flex-wrap justify-end gap-3">
-          <button name="step" value="edit" className={BTN_SOFT}>{t("Change the skills")}</button>
+          <button name="step" value="edit" formNoValidate className={BTN_SOFT}>{t("Change the skills")}</button>
           {/* ✏️ the full editor: every question visible and editable, saved as a draft (nothing is sent) */}
           {p.canSend && as && <>
             <input type="hidden" name="draftSpec" value={JSON.stringify({ classId: p.carry.find(([k]) => k === "classId")?.[1] ?? "", program: p.program, skills: p.plan.map((k) => ({ id: k.id, studentIds: k.studentIds, reason: k.reason, picks: picks[k.id] ?? [] })) })} />
-            <button formAction={builderDraftAction} formMethod="post" className={BTN_SOFT}>{t("Save as draft and edit every question")}</button>
+            <button formAction={builderDraftAction} formMethod="post" formNoValidate className={BTN_SOFT}>{t("Save as draft and edit every question")}</button>
           </>}
           {p.canSend && as && <button formAction={p.send} formMethod="post" className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button>}
         </div>

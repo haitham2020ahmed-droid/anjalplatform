@@ -30,6 +30,8 @@ export interface PlanForm {
   key: string;
   /** ⭐ "N students already mastered … — exclude them?": Yes (the default) leaves them out; xm=0 = No */
   excludeMastered: boolean;
+  /** r74: the Source chosen next to the dates ("" until chosen: no default) */
+  source: string;
 }
 
 /** The form field that carries the questions the teacher picked for one skill (the picker's hidden JSON field). */
@@ -70,6 +72,7 @@ export function readPlanForm(get: (k: string) => string | null, getAll: (k: stri
     startText: /^\d{4}-\d{2}-\d{2}$/.test(start) ? start : "",
     startAt: startOfDay(/^\d{4}-\d{2}-\d{2}$/.test(start) ? start : ""),
     excludeMastered: get("xm") !== "0",
+    source: String(get("source") ?? "").slice(0, 16),
   };
 }
 

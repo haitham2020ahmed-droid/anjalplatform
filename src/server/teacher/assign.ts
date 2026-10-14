@@ -20,6 +20,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "./assignments";
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { dedupeIds } from "../questions/fresh";
@@ -91,6 +92,8 @@ export interface AssignSkillInput {
   questionIds?: string[] | null;
   /** r67: the number of questions each student answers (5–50); empty = the 30–50 rule (at least 30, Done when mastered, at most 50) */
   questionCount?: number | null;
+  /** r74: REQUIRED — MAP | NAFS | CURRICULUM | GRAMMAR | RTI (the assign window's Source; system work: its context) */
+  source: string | null | undefined;
 }
 
 /** Who the work is from: the teacher themself; for a school admin, the class's teacher (the admin sends on their behalf). */
@@ -105,6 +108,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
   assertCan(actor, "assignments:create");
   if (!input.classId) throw new ValidationError("Choose a class.");
   if (!input.skillId) throw new ValidationError("Choose a skill to assign.");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   await assertTrackFitsClass(repo, klass, trackOf(input.track));
   const teacher = await assigningTeacher(repo, actor, String(klass.id));
@@ -138,7 +142,7 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
       classId: klass.id, createdById: teacher.id, title: s(skill.name).slice(0, 191), target: "SKILL", skillId: skill.id, skillIds: [s(skill.id)],
       startAt, dueAt, note, targetMastery: target, createdAt: now,
       ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}), ...(picked ? { questionIds: picked } : {}),
-      ...(count !== null && !picked ? { questionCount: count } : {}),
+      ...(count !== null && !picked ? { questionCount: count } : {}), source,
     });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
@@ -530,7 +534,9 @@ export interface AssignQuestionsInput {
   program?: string | null;
   track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null;
   /** a teacher-built test: at most MAX_TEST_SET_QUESTIONS questions (instead of MAX_SET_QUESTIONS) */
-  test?: boolean }
+  test?: boolean;
+  /** r74: REQUIRED — MAP | NAFS | CURRICULUM | GRAMMAR | RTI (the assign window's Source; system work: its context) */
+  source: string | null | undefined }
 
 /**
  * Assigns specific questions chosen by the teacher (from the question list) to a class, selected students or
@@ -540,6 +546,7 @@ export interface AssignQuestionsInput {
 export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQuestionsInput, now = new Date()): Promise<{ assignmentId: string; students: number; questions: number }> {
   assertCan(actor, "assignments:create");
   if (!input.classId) throw new ValidationError("Choose a class.");
+  const source = requireSource(input.source);
   const picked = [...new Set((input.questionIds ?? []).filter(Boolean))];
   if (!picked.length) throw new ValidationError("Choose at least one question.");
   const cap = input.adaptive ? 1000 : input.test ? MAX_TEST_SET_QUESTIONS : MAX_SET_QUESTIONS;
@@ -582,7 +589,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
     const target = input.adaptive?.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.adaptive.targetCorrect))) : null;
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? (target ? GOAL_SAFETY_CAP : Math.min(ids.length, input.adaptive.maxQuestions)) : ids.length, targetCorrect: target, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
-    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
+    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     if (!input.silent) await tx.createMany("Notification", students.map((st) => ({
@@ -648,6 +655,7 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
 export async function assignSkillToClasses(repo: Repo, actor: Actor, input: Omit<AssignSkillInput, "classId"> & { classIds: string[] }, now = new Date()): Promise<{ assignmentIds: string[]; students: number; classes: number }> {
   const classIds = [...new Set(input.classIds.map(s).filter(Boolean))];
   if (!classIds.length) throw new ValidationError("Choose at least one class.");
+  requireSource(input.source);
   // every class is checked BEFORE anything is written (all or nothing)
   for (const id of classIds) await assertClassAccess(repo, actor, id);
   const picked = [...new Set((input.studentIds ?? []).map(s).filter(Boolean))];

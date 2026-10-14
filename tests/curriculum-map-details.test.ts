@@ -100,12 +100,12 @@ describe("Send the curriculum plan", () => {
   test("a teacher sends only to their own classes and their own students", async () => {
     const targets = await sendTargets(repo, teacher);
     assert.ok(targets.length && !targets.some((c) => c.id === otherClassId));
-    await assert.rejects(sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId: otherClassId }), ForbiddenError);
+    await assert.rejects(sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId: otherClassId }), ForbiddenError);
     const stranger = String((await repo.findMany("ClassMembership", { classId: otherClassId }))[0].studentId);
-    await assert.rejects(sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId, studentIds: [stranger] }), ForbiddenError);
+    await assert.rejects(sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId, studentIds: [stranger] }), ForbiddenError);
     const sid = students[0];
     const before = await repo.count("Assignment", {});
-    const r = await sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] });
+    const r = await sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] });
     assert.equal(r.parts, 1, "only parts with questions are sent");
     assert.equal(r.students, 1);
     const made = (await repo.findMany("Assignment", {})).slice(before);
@@ -118,7 +118,7 @@ describe("Send the curriculum plan", () => {
     const sv = await studentCurriculumLessons(repo, st);
     assert.equal(sv.units.length, 6);
     // an admin may send to any class of the school
-    const ra = await sendMapPlan(repo, admin, { grade: 4, unitCode: null, classId: otherClassId });
+    const ra = await sendMapPlan(repo, admin, { source: "CURRICULUM", grade: 4, unitCode: null, classId: otherClassId });
     assert.equal(ra.parts, 1);
   });
 });

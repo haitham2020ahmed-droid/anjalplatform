@@ -29,6 +29,7 @@ import { isTargetCode, loadNafsQuestions, matchesTarget, nafsIndex, usable, type
 import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
 import { isRapidGuess } from "../practice/guessing";
+import { cellOf, classLine, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -269,10 +270,35 @@ export async function listNafsPractice(repo: Repo, actor: Actor, now = new Date(
   });
 }
 
-export interface PracticeCell { n: number; pct: number | null; reached: Difficulty | 0; level: Difficulty; mastered: boolean; seconds: number }
+export interface PracticeCell { n: number; right: number; pct: number | null; reached: Difficulty | 0; level: Difficulty; mastered: boolean; seconds: number }
+/** r70: each student's score, right, wrong (= asked − right), finished, top strength / weakness (strengths.ts). */
+export interface PracticeStudent { id: string; name: string; status: "NOT_STARTED" | "IN_PROGRESS" | "DONE"; asked: number; correct: number; right: number; wrong: number; finished: boolean; pct: number | null; seconds: number; end: RunState["end"] | null; cells: Record<string, PracticeCell>; strength: string | null; weakness: string | null; strengthWhy: NoneWhy | null; weaknessWhy: NoneWhy | null }
 export interface PracticeReport {
   id: string; title: string; className: string; targets: { code: string; short: string; name: string }[]; maxQuestions: number; minutes: number | null; dueAt: string | null;
-  students: { id: string; name: string; status: "NOT_STARTED" | "IN_PROGRESS" | "DONE"; asked: number; correct: number; pct: number | null; seconds: number; end: RunState["end"] | null; cells: Record<string, PracticeCell> }[];
+  students: PracticeStudent[];
+  /** r70: the class line (average of the students who answered, finished of those it was given to, strongest / weakest target) */
+  cls: ClassLine;
+}
+/** The report from the practice's runs (pure: the tests build it from rows). */
+export function practiceReportOf(meta: Omit<PracticeReport, "students" | "cls" | "targets">, targets: string[], students: { id: string; name: string }[], runs: Row[]): PracticeReport {
+  const rows: PracticeStudent[] = students.map((x) => {
+    const r = runs.find((y) => s(y.studentId) === x.id);
+    const st = r ? json<RunState | null>(r.state, null) : null;
+    const asked = Number(r?.asked ?? 0), correct = Number(r?.correct ?? 0);
+    const cells: Record<string, PracticeCell> = Object.fromEntries(targets.map((code) => {
+      const t = st?.targets[code];
+      return [code, { n: t?.n ?? 0, right: t?.right ?? 0, pct: t?.n ? roundPct(t.right, t.n) : null, reached: t?.reached ?? 0, level: t?.level ?? START_LEVEL, mastered: Boolean(t?.mastered), seconds: Math.round((t?.ms ?? 0) / 1000) }];
+    }));
+    const sw = strengthsWeaknesses(Object.fromEntries(Object.entries(cells).map(([k, c]) => [k, { pct: c.pct, n: c.n }])));
+    const status = !r ? "NOT_STARTED" as const : r.finishedAt ? "DONE" as const : "IN_PROGRESS" as const;
+    return {
+      id: x.id, name: x.name, status, asked, correct, right: correct, wrong: asked - correct, finished: status === "DONE",
+      pct: roundPct(correct, asked), seconds: Number(r?.seconds ?? 0), end: st?.end ?? null, cells,
+      strength: sw.top, weakness: sw.weak, strengthWhy: sw.topWhy, weaknessWhy: sw.weakWhy,
+    };
+  });
+  const pooled = Object.fromEntries(targets.map((code) => { const right = rows.reduce((a, x) => a + x.cells[code].right, 0), n = rows.reduce((a, x) => a + x.cells[code].n, 0); return [code, cellOf(right, n)]; }));
+  return { ...meta, targets: targets.map((code) => ({ code, short: targetShort(code), name: targetName(code) })), students: rows, cls: classLine(rows.map((x) => ({ pct: x.pct, finished: x.finished })), pooled, rows.length) };
 }
 /** Per student per target: the difficulty reached, accuracy, mastered or not, time spent (teacher-facing). */
 export async function nafsPracticeReport(repo: Repo, actor: Actor, id: string): Promise<PracticeReport> {
@@ -282,23 +308,7 @@ export async function nafsPracticeReport(repo: Repo, actor: Actor, id: string): 
   const who = assignedTo(p);
   const students = (klass?.students ?? []).filter((x) => !who || who.includes(x.id));
   const runs = students.length ? await repo.findMany("NafsPracticeRun", { practiceId: s(p.id), studentId: { in: students.map((x) => x.id) } }, { select: ["studentId", "state", "asked", "correct", "seconds", "finishedAt"] }) : [];
-  return {
-    id: s(p.id), title: s(p.title), className: klass?.name ?? "", maxQuestions: p.maxQuestions ? Number(p.maxQuestions) : DEFAULT_PRACTICE_QUESTIONS, minutes: p.timeLimitMin ? Number(p.timeLimitMin) : null, dueAt: iso(p.dueAt),
-    targets: targets.map((code) => ({ code, short: targetShort(code), name: targetName(code) })),
-    students: students.map((x) => {
-      const r = runs.find((y) => s(y.studentId) === x.id);
-      const st = r ? json<RunState | null>(r.state, null) : null;
-      const asked = Number(r?.asked ?? 0), correct = Number(r?.correct ?? 0);
-      return {
-        id: x.id, name: x.name, status: !r ? "NOT_STARTED" as const : r.finishedAt ? "DONE" as const : "IN_PROGRESS" as const, asked, correct,
-        pct: asked ? Math.round((100 * correct) / asked) : null, seconds: Number(r?.seconds ?? 0), end: st?.end ?? null,
-        cells: Object.fromEntries(targets.map((code) => {
-          const t = st?.targets[code];
-          return [code, { n: t?.n ?? 0, pct: t?.n ? Math.round((100 * t.right) / t.n) : null, reached: t?.reached ?? 0, level: t?.level ?? START_LEVEL, mastered: Boolean(t?.mastered), seconds: Math.round((t?.ms ?? 0) / 1000) }];
-        })),
-      };
-    }),
-  };
+  return practiceReportOf({ id: s(p.id), title: s(p.title), className: klass?.name ?? "", maxQuestions: p.maxQuestions ? Number(p.maxQuestions) : DEFAULT_PRACTICE_QUESTIONS, minutes: p.timeLimitMin ? Number(p.timeLimitMin) : null, dueAt: iso(p.dueAt) }, targets, students, runs);
 }
 
 // ------------------------------------------------------------------ the student: my practice, the next question, an answer

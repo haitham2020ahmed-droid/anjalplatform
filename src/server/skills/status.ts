@@ -366,14 +366,18 @@ export interface CountedAnswers { answered: number; correct: number; at: number[
 /**
  * The student's answers that count for a key: skill practice of ANY copy of the skill (practice, assigned work, MAP
  * plan, free practice, Curriculum Map question sets), not rapid guesses; never tests / checks / review checks /
- * Learn checks / lessons / ReadMaster / games. `since` (ms): only answers after it.
+ * Learn checks / lessons / ReadMaster / games. NAFS practice and ReadRise article questions (r69) count too.
+ * `since` (ms): only answers after it.
  */
 export async function countedAnswers(repo: Repo, studentId: string, skillIds: readonly string[], since = 0): Promise<CountedAnswers> {
   if (!skillIds.length) return { answered: 0, correct: 0, at: [] };
-  const [rows, nafs] = await Promise.all([
+  const [rows, nafs0, rr] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, skillId: { in: [...skillIds] }, rapidGuess: false }, { select: ["sessionId", "isCorrect", "source", "createdAt", "unreliable"] }),
     nafsPracticeAnswers(repo, studentId, skillIds, since),
+    readRisePracticeAnswers(repo, studentId, skillIds, since),
   ]);
+  // owner r69: ReadRise question answers (careful ones of reliable runs) count as practice too
+  const nafs: CountedAnswers = { answered: nafs0.answered + rr.answered, correct: nafs0.correct + rr.correct, at: [...nafs0.at, ...rr.at].sort((a, b) => a - b) };
   // r68 accuracy: answers of an Unreliable session (> 20 % rapid guesses) never count toward a star
   const mine = rows.filter((r) => !s(r.source) && !r.unreliable && (!since || ms(r.createdAt) > since));
   if (!mine.length) return nafs;
@@ -414,6 +418,22 @@ export async function nafsPracticeAnswers(repo: Repo, studentId: string, skillId
     const hit = real.filter((r) => mine.has(s(r.questionId)));
     return { answered: hit.length, correct: hit.filter((r) => Boolean(r.correct)).length, at: hit.map((r) => ms(r.at)).sort((a, b) => a - b) };
   } catch { return none; } // an older database without the NAFS tables: nothing to add
+}
+
+/** how many of the student's newest ReadRise answers on a skill are read for a star (bounded) */
+export const READRISE_STAR_TAKE = 400;
+/**
+ * 🚀 ReadRise practice evidence (owner r69): each ReadRise question answer is saved as skill evidence by its question
+ * type (SkillEvidence source READRISE, practice/skill-evidence.ts feedReadRise) — only careful answers of reliable runs
+ * (rapid guesses and Unreliable runs are never saved). Read only here; bounded.
+ */
+export async function readRisePracticeAnswers(repo: Repo, studentId: string, skillIds: readonly string[], since = 0): Promise<CountedAnswers> {
+  const none: CountedAnswers = { answered: 0, correct: 0, at: [] };
+  if (!skillIds.length) return none;
+  try {
+    const rows = await repo.findMany("SkillEvidence", { studentId, source: "READRISE", skillId: { in: [...skillIds] }, ...(since ? { createdAt: { gt: new Date(since) } } : {}) }, { select: ["credit", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: READRISE_STAR_TAKE });
+    return { answered: rows.length, correct: rows.filter((r) => Number(r.credit) >= 1).length, at: rows.map((r) => ms(r.createdAt)).sort((a, b) => a - b) };
+  } catch { return none; }
 }
 
 /** The engine's mastery for a key: the best score of the student's rows of its skills, mastered if one is. */

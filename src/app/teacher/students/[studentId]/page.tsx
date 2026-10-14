@@ -17,7 +17,9 @@ import { ReportDownloads } from "@/components/reports/report-downloads";
 import { FamilyReportPanel } from "@/components/reports/family-report-panel";
 import { StudentProfileCard } from "@/components/insights/student-profile-card";
 import { EmptyState, SourceTag, StatusPill } from "@/components/ui-kit";
-import { AtAGlance, Callout, ReportHeader, toneOfPct } from "@/components/report-kit";
+import { AtAGlance, Callout, InfoTip, ReportHeader, ReportIntro, ReportSummary, toneOfPct } from "@/components/report-kit";
+import { GLOSSARY } from "@/lib/report-columns";
+import { studentFileSummary } from "@/lib/report-summaries";
 import { studentEffort } from "@/server/practice/guessing";
 import { MASTERED_AT, NEEDS_BELOW } from "@/server/teacher/student-profile";
 import type { MapSummary } from "@/server/insights/student-data";
@@ -72,7 +74,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
   const noPractice = x.answers.correct + x.answers.incorrect === 0;
   const card = "rk-section mt-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6";
   const h2 = "text-lg font-semibold text-brand-navy";
-  const sections = [["overview", "Overview"], ["strands", "Language profile"], ["mistakes", "Mistakes"], ["class", "Compared with the class"], ["work", "My Work"], ["plans", "Plans"], ["tests", "Tests"], ["map", "MAP"], ["readrise", "ReadRise level"], ["skills", "Skills"], ["followup", "Follow-up"], ["rewards", "Rewards"], ["reports", "Reports"], ["details", "More details"]] as const;
+  const sections = [["overview", "Overview"], ["strands", "Language profile"], ["mistakes", "Mistakes"], ["class", "Compared with the class"], ["work", "My Work"], ["plans", "Plans"], ["tests", "Tests"], ["map", "MAP"], ["readrise", "ReadRise level"], ["skills", "Skills"], ["followup", "Follow-up"], ["rewards", "Rewards"], ["reports", "Reports"], ["summary", "Summary"], ["details", "More details"]] as const;
   const target = { classId, studentId };
   const LEVEL_UI: Record<string, { label: string; tone: string }> = { BELOW: { label: "Below", tone: "bg-rose-50 text-rose-800 ring-rose-200" }, ON: { label: "On", tone: "bg-sky-50 text-sky-800 ring-sky-200" }, ABOVE: { label: "Above", tone: "bg-emerald-50 text-emerald-800 ring-emerald-200" } };
   const first = String(d.name ?? "").split(" ")[0];
@@ -101,6 +103,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
         </nav>} />
 
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
+      <ReportIntro text="Everything about this student in one page: results, skills, work, MAP and follow-up." />
       {/* no answer yet (Teacher Home → Needs attention → "Open" lands here): say so plainly, with the next step */}
       {noPractice && (
         <section id="start" aria-labelledby="start-h" className="mb-5 flex scroll-mt-20 flex-wrap items-center justify-between gap-3 rounded-2xl bg-amber-50 p-4 ring-1 ring-amber-200">
@@ -140,7 +143,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
 
       {/* 🧭 the language profile: seven strands, one row each (level is for staff only) */}
       <section id="strands" className={`${card} scroll-mt-20`} aria-labelledby="strands-h">
-        <h2 id="strands-h" className={h2}><span aria-hidden="true">🧭</span> {t("Language profile")} <span className="text-sm font-normal text-slate-500">· {t("Staff only")}</span></h2>
+        <h2 id="strands-h" className={h2}><span aria-hidden="true">🧭</span> {t("Language profile")} <InfoTip text={GLOSSARY["Language profile"]} /> <span className="text-sm font-normal text-slate-500">· {t("Staff only")}</span></h2>
         <div className="rk-box mt-3">
           <table className="w-full min-w-[560px] text-sm">
             <thead><tr><th className="p-2 text-start">{t("Strand")}</th><th className="p-2 text-start">{t("Level")}</th><th className="p-2 text-start">{t("Skills mastered")}</th><th className="p-2 text-start">{t("Trend (4 weeks)")}</th><th className="p-2 text-start">{t("Next step")}</th></tr></thead>
@@ -159,7 +162,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
 
       {/* 🔍 the main mistake in plain words, and the real gap underneath (prerequisites) */}
       <section id="mistakes" className={`${card} scroll-mt-20`} aria-labelledby="mistakes-h">
-        <h2 id="mistakes-h" className={h2}><span aria-hidden="true">🔍</span> {t("Mistakes and the real gap")}</h2>
+        <h2 id="mistakes-h" className={h2}><span aria-hidden="true">🔍</span> {t("Mistakes and the real gap")} <InfoTip text={GLOSSARY["Mistakes and the real gap"]} /></h2>
         {!ins.mistake && !ins.rootCauses.length ? <p className="mt-2 text-sm text-slate-600">{t("No repeated mistake and no gap underneath right now.")}</p> : (
           <ul className="mt-3 space-y-3">
             {ins.mistake && (
@@ -184,7 +187,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
 
       {/* 👥 against the class: teachers and admins only (never shown to the student or the family) */}
       <section id="class" className={`${card} scroll-mt-20`} aria-labelledby="class-h">
-        <h2 id="class-h" className={h2}><span aria-hidden="true">👥</span> {t("Compared with the class")} <span className="text-sm font-normal text-slate-500">· {t("Staff only")}</span></h2>
+        <h2 id="class-h" className={h2}><span aria-hidden="true">👥</span> {t("Compared with the class")} <InfoTip text={GLOSSARY["Compared with the class"]} /> <span className="text-sm font-normal text-slate-500">· {t("Staff only")}</span></h2>
         {!ins.peer ? <p className="mt-2 text-sm text-slate-600">{t("Not enough answers yet to compare.")}</p> : (
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             <div className="rounded-2xl p-4 ring-1 ring-slate-200"><p className="text-sm text-slate-500">{t("Position")}</p><p className="text-xl font-bold text-brand-navy">{ins.peer.position ? t(ins.peer.position === "above" ? "Above the class middle" : ins.peer.position === "below" ? "Below the class middle" : "Around the class middle") : "—"}</p></div>
@@ -194,7 +197,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       </section>
 
       <section id="work" className={`${card} scroll-mt-20`} aria-labelledby="work-h">
-        <h2 id="work-h" className={h2}><span aria-hidden="true">📘</span> {t("My Work")} <span className="text-sm font-normal text-slate-500">· {t("{n} not started", { n: x.work.notStarted })} · {t("{n} in progress", { n: x.work.inProgress })} · {t("{n} done", { n: x.work.done })}</span></h2>
+        <h2 id="work-h" className={h2}><span aria-hidden="true">📘</span> {t("My Work")} <InfoTip text={GLOSSARY["My Work"]} /> <span className="text-sm font-normal text-slate-500">· {t("{n} not started", { n: x.work.notStarted })} · {t("{n} in progress", { n: x.work.inProgress })} · {t("{n} done", { n: x.work.done })}</span></h2>
         {x.work.items.length === 0 ? <div className="mt-3"><EmptyState compact icon="📭" title="Nothing here yet" /></div> : (
           <div className="rk-box rk-tall mt-3">
             <table className="w-full min-w-[480px] text-sm">
@@ -208,7 +211,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       </section>
 
       <section id="plans" className={`${card} scroll-mt-20`} aria-labelledby="plans-h">
-        <h2 id="plans-h" className={h2}><span aria-hidden="true">🗂️</span> {t("Plans")}</h2>
+        <h2 id="plans-h" className={h2}><span aria-hidden="true">🗂️</span> {t("Plans")} <InfoTip text={GLOSSARY["Student plans"]} /></h2>
         {x.plans.length === 0 ? <div className="mt-3"><EmptyState compact icon="🗂️" title="No plans yet" action={classId ? { href: `/teacher/plans?classId=${classId}`, label: "Plans" } : undefined} /></div> : (
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">{x.plans.map((p) => (
             <li key={p.id} className="flex items-center justify-between gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-200"><span className="min-w-0"><SourceTag source={p.sourceKey} size="sm" /> <span className="font-medium" data-content lang="en">{p.title}</span></span><span className="shrink-0 text-sm tabular-nums text-slate-600" dir="ltr">{p.done}/{p.parts}</span></li>
@@ -217,7 +220,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       </section>
 
       <section id="tests" className={`${card} scroll-mt-20`} aria-labelledby="tests-h">
-        <h2 id="tests-h" className={h2}><span aria-hidden="true">📝</span> {t("Tests and scores")}</h2>
+        <h2 id="tests-h" className={h2}><span aria-hidden="true">📝</span> {t("Tests and scores")} <InfoTip text={GLOSSARY["Tests and scores"]} /></h2>
         {x.tests.toDo.length + x.tests.completed.length === 0 ? <div className="mt-3"><EmptyState compact icon="📝" title="No results yet" /></div> : (
           <div className="rk-box rk-tall mt-3">
             <table className="w-full min-w-[480px] text-sm">
@@ -235,7 +238,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
         )}
         {myWriting.length > 0 && (
           <div className="mt-4">
-            <h3 className="font-semibold text-brand-navy">✍️ {t("Writing results")} <span className="text-sm font-normal text-slate-500">· {t("Average")} <span dir="ltr">{writing!.rows[0].average}%</span></span></h3>
+            <h3 className="font-semibold text-brand-navy">✍️ {t("Writing results")} <InfoTip text={GLOSSARY["Writing results"]} /> <span className="text-sm font-normal text-slate-500">· {t("Average")} <span dir="ltr">{writing!.rows[0].average}%</span></span></h3>
             <ul className="mt-2 divide-y divide-slate-100 text-sm">{myWriting.map((w) => (
               <li key={w.id} className="flex items-center justify-between gap-2 py-1.5">
                 {w.locked ? <Link prefetch={false} href={`/teacher/writing/task/${w.id}/${studentId}`} className="font-medium text-brand-navy underline" data-content lang="en">🔒 {w.title}</Link> : <span data-content lang="en">{w.title}</span>}
@@ -247,7 +250,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       </section>
 
       <section id="map" className={`${card} scroll-mt-20`} aria-labelledby="map-h">
-        <h2 id="map-h" className={h2}><span aria-hidden="true">🗺️</span> {t("MAP results")}</h2>
+        <h2 id="map-h" className={h2}><span aria-hidden="true">🗺️</span> {t("MAP results")} <InfoTip text={GLOSSARY["MAP results"]} /></h2>
         <div className="mt-3 grid gap-3 md:grid-cols-2"><MapCard label="Reading" m={x.map.reading} /><MapCard label="Language Usage" m={x.map.language} /></div>
         <p className="mt-3 flex flex-wrap gap-2 text-sm">
           <Link prefetch={false} href={`/map-report/profile/${studentId}`} className="font-semibold text-brand-teal hover:underline">{t("MAP Student Profile")}</Link>
@@ -258,7 +261,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
 
       {/* 🚀 ReadRise level growth (never called Lexile) */}
       <section id="readrise" className={`${card} scroll-mt-20`} aria-labelledby="readrise-h">
-        <h2 id="readrise-h" className={h2}><span aria-hidden="true">🚀</span> {t("ReadRise level")}</h2>
+        <h2 id="readrise-h" className={h2}><span aria-hidden="true">🚀</span> {t("ReadRise level")} <InfoTip text={GLOSSARY["ReadRise level"]} /></h2>
         {!ins.readRise?.placed || !ins.readRise.history.length ? <p className="mt-2 text-sm text-slate-600">{t("No ReadRise level yet: the student starts with the placement reading.")}</p> : (
           <>
             <ReadRiseLevelChart t={t} history={ins.readRise.history} />
@@ -268,7 +271,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       </section>
 
       <section id="skills" className={`${card} scroll-mt-20`} aria-labelledby="skills-h">
-        <h2 id="skills-h" className={h2}><span aria-hidden="true">🧩</span> {t("Skills: mastered and needed")}</h2>
+        <h2 id="skills-h" className={h2}><span aria-hidden="true">🧩</span> {t("Skills: mastered and needed")} <InfoTip text={GLOSSARY["Skills: mastered and needed"]} /></h2>
         <div className="mt-3 grid gap-4 md:grid-cols-2">
           <div><h3 className="font-semibold text-emerald-800">✓ {t("Mastered")} ({mastered.length})</h3>
             {mastered.length === 0 ? <p className="mt-1 text-sm text-slate-600">{t("Nothing to show yet")}</p> : <ul className="mt-1 space-y-1 text-sm">{mastered.slice(0, 15).map((k) => <li key={k.skillId} className="flex justify-between gap-2"><span data-content lang="en">{k.name}</span><span className="tabular-nums text-slate-500" dir="ltr">{k.score}</span></li>)}</ul>}
@@ -281,8 +284,8 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
 
       {/* 🚨 follow-up: alerts and what was done, comments (the student and the parent read them), private notes */}
       <section id="followup" className={`${card} scroll-mt-20`} aria-labelledby="followup-h">
-        <h2 id="followup-h" className={h2}><span aria-hidden="true">🚨</span> {t("Follow-up")}</h2>
-        <h3 className="mt-3 font-semibold text-brand-navy">{t("Alerts and what was done")}</h3>
+        <h2 id="followup-h" className={h2}><span aria-hidden="true">🚨</span> {t("Follow-up")} <InfoTip text={GLOSSARY["Follow-up"]} /></h2>
+        <h3 className="mt-3 font-semibold text-brand-navy">{t("Alerts and what was done")} <InfoTip text={GLOSSARY["Alerts and what was done"]} /></h3>
         {!ins.alerts.length ? <p className="mt-1 text-sm text-slate-600">{t("No alerts.")}</p> : (
           <ul className="mt-2 space-y-1 text-sm">{ins.alerts.map((a) => (
             <li key={a.id} className="rounded-lg bg-slate-50 px-3 py-1.5"><span dir="ltr">{a.date}</span> · <span aria-hidden="true">{a.icon}</span> <b>{t(a.title)}</b>: <span data-content lang="en">{a.detail}</span> — {a.status === "HANDLED" ? <span className="text-emerald-700">✅ <span data-content lang="en">{a.action}</span></span> : <Link prefetch={false} href={`/teacher/alerts?${new URLSearchParams(classId ? { classId } : {})}`} className="font-semibold text-red-700 underline">{t("not handled")}</Link>}</li>
@@ -290,7 +293,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
         )}
         <InsightActions t={t} target={target} className="mt-3" />
         <div id="comments" className="mt-5 scroll-mt-24">
-          <h3 className="font-semibold text-brand-navy">💬 {t("Comments to the student and the parent")}</h3>
+          <h3 className="font-semibold text-brand-navy">💬 {t("Comments to the student and the parent")} <InfoTip text={GLOSSARY["Comments to the student and the parent"]} /></h3>
           {actor.role !== "SUPER_ADMIN" && (
             <form action={addCommentAction} className="mt-2 flex flex-wrap items-end gap-2 print:hidden">
               <input type="hidden" name="studentId" value={studentId} />
@@ -303,7 +306,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
           {comments.length > 0 && <ul className="mt-2 space-y-2">{comments.map((c) => <li key={c.id} className="rounded-xl bg-slate-50 p-3 text-sm"><div className="text-slate-500">{c.author} · <span dir="ltr">{c.createdAt.slice(0, 10)}</span>{c.assignment ? <> · <span data-content lang="en">{c.assignment}</span></> : null}{c.mine && <form action={deleteCommentAction} className="ms-2 inline print:hidden"><input type="hidden" name="id" value={c.id} /><input type="hidden" name="studentId" value={studentId} /><button className="text-xs text-red-700 underline">{t("delete")}</button></form>}</div><p className="mt-1 whitespace-pre-line text-slate-900" data-content>{c.body}</p></li>)}</ul>}
         </div>
         <div id="notes" className="mt-5 scroll-mt-24 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200 print:hidden">
-          <h3 className="font-semibold text-brand-navy">🔒 {t("Private notes")} <span className="text-sm font-normal text-slate-500">· {t("staff only — never shown to the student or the parent")}</span></h3>
+          <h3 className="font-semibold text-brand-navy">🔒 {t("Private notes")} <InfoTip text={GLOSSARY["Private notes"]} /> <span className="text-sm font-normal text-slate-500">· {t("staff only — never shown to the student or the parent")}</span></h3>
           <form action={addNoteAction} className="mt-2 flex flex-wrap items-end gap-2">
             <input type="hidden" name="studentId" value={studentId} />
             <input name="body" required maxLength={1000} aria-label={t("Private notes")} className="min-w-[16rem] flex-1 rounded-lg border border-slate-300 px-3 py-2" />
@@ -318,7 +321,7 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
 
       <section id="reports" className="scroll-mt-20" aria-label={t("Reports")}>
         <div className={card}>
-          <h2 className={h2}><span aria-hidden="true">📊</span> {t("Reports")}</h2>
+          <h2 className={h2}><span aria-hidden="true">📊</span> {t("Reports")} <InfoTip text={GLOSSARY["Student reports"]} /></h2>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {([
               [`/teacher/progress/${studentId}/report`, "👪", "Parent Report"],
@@ -336,6 +339,9 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
         <FamilyReportPanel studentId={studentId} name={String(d.name ?? "")} reports={reports} />
       </section>
 
+      <div id="summary" className="scroll-mt-20">
+        <ReportSummary summary={studentFileSummary({ studentId, name: String(d.name ?? ""), classId, accuracy: x.answers.accuracy, skills: d.skills, late: x.work.items.filter((w) => w.overdue).length })} />
+      </div>
       <section id="details" className="scroll-mt-20" aria-label={t("More details")}>
         <StudentProfileCard p={profile} tier={tier} tierHref={`/teacher/tiers/${studentId}`} />
         <LearningPathView p={path} classId={classId} />

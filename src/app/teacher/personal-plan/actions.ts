@@ -16,7 +16,7 @@ export async function assignBandGoalsAction(f: FormData): Promise<void> {
     const b = p.bands.find((x) => x.band === band);
     const skills = (b?.goals ?? []).flatMap((g) => g.skills.slice(0, 2).map((k) => k.id));
     if (!b || !b.students.length || !skills.length) throw new ValidationError("This group has no students or no goal skills with questions yet.");
-    const r = await assignRecommendations(repo, actor, classId, b.students.flatMap((st) => skills.map((skillId) => ({ studentId: st.studentId, skillId }))), f.get("dueAt") ? new Date(String(f.get("dueAt"))) : null);
+    const r = await assignRecommendations(repo, actor, classId, b.students.flatMap((st) => skills.map((skillId) => ({ studentId: st.studentId, skillId }))), f.get("dueAt") ? new Date(String(f.get("dueAt"))) : null, String(f.get("source") ?? ""));
     msg = `⭐ ${r.assignments} assignment(s) for ${r.students} student(s) of the ${band.toLowerCase()} group (adaptive MAP practice).`;
   } catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; msg = e.message; }
   redirect(`/teacher/personal-plan?classId=${encodeURIComponent(classId)}&subject=${subject.toLowerCase()}&msg=${encodeURIComponent(msg)}`);

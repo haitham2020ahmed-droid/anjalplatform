@@ -90,7 +90,7 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
   test("⭐ Assign: the grammar skill appears in the student's assigned work and can be practised", async () => {
     const skillId = (await repo.findMany("Skill", { code: grammarCode(4, "G4-U1W1-S1") }))[0].id as string;
     const tv = await grammarView(repo, teacher, { classId });
-    const r = await assignSkill(repo, teacher, { classId, skillId, studentIds: [tv.students[0].id] });
+    const r = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [tv.students[0].id] });
     assert.equal(r.students, 1);
     const st = (await repo.findUnique("Student", { id: tv.students[0].id }))!;
     student = await resolveActor(repo, (await repo.findUnique("User", { id: st.userId }))!);
@@ -110,7 +110,7 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
     const t5 = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.5a" }))!).catch(() => null);
     if (t5) {
       const c5 = (await grammarView(repo, t5, {})).classId;
-      if (c5) { const r = await assignSkillByLevel(repo, t5, { classId: c5, skillId, mode: "AUTOMATIC" }); assert.ok(r.groups.some((g) => g.students > 0)); }
+      if (c5) { const r = await assignSkillByLevel(repo, t5, { source: "CURRICULUM", classId: c5, skillId, mode: "AUTOMATIC" }); assert.ok(r.groups.some((g) => g.students > 0)); }
     }
   });
 });

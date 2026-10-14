@@ -13,7 +13,7 @@ export async function assignRangeAction(f: FormData): Promise<void> {
   const due = String(f.get("dueAt") ?? "");
   let msg: string;
   try {
-    const r = await assignRange(repo, actor, { classId, group, range, skillIds: f.getAll("skill").map(String), studentIds: f.getAll("student").map(String), count: Number(f.get("count")) || 15, dueAt: due ? new Date(`${due}T20:59:00Z`) : null });
+    const r = await assignRange(repo, actor, { classId, group, range, skillIds: f.getAll("skill").map(String), studentIds: f.getAll("student").map(String), count: Number(f.get("count")) || 15, dueAt: due ? new Date(`${due}T20:59:00Z`) : null, source: String(f.get("source") ?? "") });
     msg = `✓ Assigned to ${r.students} student(s): one adaptive set from ${r.questions} questions of this RIT range. They find it in their work and in My MAP.`;
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
   redirect(`/teacher/map-skill-plan?${new URLSearchParams({ classId, group, msg })}#range-${range}`);

@@ -30,7 +30,7 @@ export async function savePlanAction(f: FormData): Promise<void> {
 export async function sendPlanAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   await run(f, async () => {
-    const r = await sendPlans(repo, actor, f.getAll("planId").map(String));
+    const r = await sendPlans(repo, actor, f.getAll("planId").map(String), new Date(), String(f.get("source") ?? ""));
     return `✓ ${r.sent} plan(s) assigned as ${r.sets} MAP set(s). Students were notified.${r.skipped.length ? ` Skipped: ${[...new Set(r.skipped)].join("; ")}.` : ""}`;
   });
 }
@@ -43,7 +43,7 @@ export async function rebuildPlanAction(f: FormData): Promise<void> {
 export async function sendGroupAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
   await run(f, async () => {
-    const r = await sendToGroup(repo, actor, String(f.get("classId")), { group: String(f.get("group")) as GroupKey, low: Number(f.get("low")), high: Number(f.get("high")), studentIds: f.getAll("studentId").map(String), count: Number(f.get("count")) || 15, dueAt: dateOf(f.get("dueAt")) });
+    const r = await sendToGroup(repo, actor, String(f.get("classId")), { group: String(f.get("group")) as GroupKey, low: Number(f.get("low")), high: Number(f.get("high")), studentIds: f.getAll("studentId").map(String), count: Number(f.get("count")) || 15, dueAt: dateOf(f.get("dueAt")), source: String(f.get("source") ?? "") });
     return `✓ Assigned to the group (adaptive set from ${r.questions} questions of their band).`;
   }, "groups");
 }

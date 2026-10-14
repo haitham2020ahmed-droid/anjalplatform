@@ -7,6 +7,7 @@ import { lexileBands } from "@/server/curriculum-map/lexile";
 import { listQuestions } from "@/server/admin/questions";
 import { ImportUpload } from "@/app/admin/questions/import/upload-form";
 import { CcssNote } from "@/components/ccss-note";
+import { RichInline } from "@/components/rich-inline";
 
 const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
 
@@ -67,7 +68,7 @@ export default async function PlacePage({ params }: { params: Promise<{ code: st
           <ol className="mt-3 space-y-2">
             {[...pub.items, ...draft.items].map((q) => (
               <li key={q.id} className="flex items-start justify-between gap-3 rounded-xl bg-white px-4 py-2 ring-1 ring-slate-200">
-                <Link href={`/admin/questions/${q.id}`} className="text-slate-900 hover:underline">{q.stem}</Link>
+                <Link href={`/admin/questions/${q.id}`} className="text-slate-900 hover:underline"><RichInline text={q.stem} /></Link>
                 <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-semibold ${q.status === "PUBLISHED" ? "bg-teal-100 text-teal-800" : "bg-slate-100 text-slate-600"}`}>{q.status === "PUBLISHED" ? "Published" : "Draft"}</span>
               </li>
             ))}

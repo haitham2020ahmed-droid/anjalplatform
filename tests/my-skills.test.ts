@@ -80,8 +80,8 @@ describe("⭐ My Skills (student)", () => {
     const sid = ids[3];
     const before = await mySkills(repo, sid, now);
     assert.equal(before.counts.NOT_STARTED, 0, "no plan: nothing not started (not the whole skill list)");
-    await assignSkill(repo, teacher, { classId, skillId: g4.get("capitalization")!, studentIds: [sid], track: "GRAMMAR" }, now);
-    await assignSkill(repo, teacher, { classId, skillId: g4.get("context-clues")!, studentIds: [sid] }, now);
+    await assignSkill(repo, teacher, { source: "GRAMMAR", classId, skillId: g4.get("capitalization")!, studentIds: [sid], track: "GRAMMAR" }, now);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g4.get("context-clues")!, studentIds: [sid] }, now);
     const v = await mySkills(repo, sid, now);
     const ns = v.groups.NOT_STARTED;
     assert.equal(v.counts.NOT_STARTED, 2);
@@ -108,7 +108,7 @@ describe("⭐ My Skills (student)", () => {
     assert.equal(r?.status, "MASTERED", "the Curriculum lesson's practice gives the star");
     // the MAP plan uses the Grade 5 copy; the NAFS plan a NAFS assignment of the same skill
     await repo.create("MapPlan", { schoolId, classId, studentId: sid, subject: "READING", term: "Fall 2026", status: "SENT", items: [{ group: "LIT", skillIds: [theme5], count: 15 }], createdAt: now, updatedAt: now, sentAt: now });
-    const nafs = await assignSkill(repo, teacher, { classId, skillId: theme4, studentIds: [sid], track: "NAFS", program: "NAFS" }, now);
+    const nafs = await assignSkill(repo, teacher, { source: "NAFS", classId, skillId: theme4, studentIds: [sid], track: "NAFS", program: "NAFS" }, now);
     const np = await repo.create("SkillPlan", { schoolId, classId, title: "NAFS plan", kind: "NAFS", gradeLevel: 4, status: "SENT", program: "NAFS", createdById: teacher.userId, createdAt: now });
     await repo.create("SkillPlanItem", { planId: np.id, code: "NAFS.RC", label: "Theme", assignmentIds: [nafs.assignmentId], order: 0 });
     // 1. My Skills
@@ -127,7 +127,8 @@ describe("⭐ My Skills (student)", () => {
     const g = await skillsGrid(repo, teacher, { classId }, now);
     assert.equal(g.cells[sid]["fam:theme"]?.status, "MASTERED", "⭐ in the teacher's Skills Grid");
     const col = g.skills.find((k) => k.key === "fam:theme")!;
-    assert.ok(col.mastered >= 1 && col.total === ids.length, "the column count (n of total mastered)");
+    // r74: a column counts the students the skill is ASSIGNED to (here the NAFS assignment: this student)
+    assert.ok(col.mastered === 1 && col.total === 1, "the column count (n of the assigned students mastered)");
   });
 
   test("the page and the menu: My Skills right after My Work, a real page (no redirect), translated", () => {

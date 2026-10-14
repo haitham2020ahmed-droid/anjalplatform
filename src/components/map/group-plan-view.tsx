@@ -1,6 +1,7 @@
 import type { GroupPlanDoc } from "@/server/map/map-reports";
 import { ReportPage } from "./report-ui";
 import { assignGroupAction } from "@/app/map-report/actions";
+import { SourceSelect } from "@/components/assign/source-select";
 
 const subjectName = (s: string) => (s === "READING" ? "Reading" : "Language Usage");
 
@@ -57,6 +58,7 @@ export function GroupPlanView({ d }: { d: GroupPlanDoc }) {
                       <label>Questions <input type="number" name="count" min={5} max={40} defaultValue={15} className="mt-1 block w-20 rounded-md border border-slate-300 px-2 py-1" /></label>
                       <label>Start <input type="date" name="startAt" className="mt-1 block rounded-md border border-slate-300 px-2 py-1" /></label>
                       <label>Due <input type="date" name="dueAt" className="mt-1 block rounded-md border border-slate-300 px-2 py-1" /></label>
+                      <SourceSelect field="mt-1 block rounded-md border border-slate-300 px-2 py-1 font-normal" className="!text-xs" />
                       <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📤 Assign this group its practice</button>
                       <span className="text-xs text-slate-500">Ticked skills · questions of their band and the band above · adapts to each student.</span>
                     </div>

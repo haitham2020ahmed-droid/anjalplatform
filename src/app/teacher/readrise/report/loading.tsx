@@ -1,0 +1,6 @@
+import { ReportSkeleton } from "@/components/loading-skeletons";
+
+/** Instant feedback while this page is prepared on the server (shaped like the page that is coming). */
+export default function Loading() {
+  return <ReportSkeleton label="Loading ReadRise…" />;
+}

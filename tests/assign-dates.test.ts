@@ -61,14 +61,14 @@ describe("📅 start and end dates everywhere", () => {
   });
 
   test("☆ a skill with a start date: not in My Work before, in it from that day; Assigned shows Scheduled + the start", async () => {
-    const r = await starAssign(repo, teacher, { kind: "SKILL", ref: free[0], classId, startAt: ymd(later), dueAt: ymd(new Date(later.getTime() + 4 * DAY)) }, now);
+    const r = await starAssign(repo, teacher, { source: "CURRICULUM", kind: "SKILL", ref: free[0], classId, startAt: ymd(later), dueAt: ymd(new Date(later.getTime() + 4 * DAY)) }, now);
     const a = (await repo.findUnique("Assignment", { id: r.id }))!;
     assert.ok(a.startAt, "the start is saved");
     assert.ok(!(await keys(now)).has(r.id), "not before the start");
     assert.ok((await keys(new Date(later.getTime() + DAY))).has(r.id), "from the start date");
     const row = (await assignedList(repo, teacher, {}, now)).items.find((x) => x.id === r.id)!;
     assert.equal(row.status, "SCHEDULED"); assert.ok(row.startAt);
-    await assert.rejects(starAssign(repo, teacher, { kind: "SKILL", ref: free[1], classId, startAt: ymd(later), dueAt: ymd(now) }, now), /must be on or after the start date/);
+    await assert.rejects(starAssign(repo, teacher, { source: "CURRICULUM", kind: "SKILL", ref: free[1], classId, startAt: ymd(later), dueAt: ymd(now) }, now), /must be on or after the start date/);
   });
 
   test("Learn, ReadRise and writing honour the start date", async () => {

@@ -112,16 +112,16 @@ describe("🧩 skill picker: the server keeps the program and the teacher's ques
 
   test("assignSkill stores Program and the picked questions; the platform's choice stores none", async () => {
     const ids = (await questionsOfSkill(repo, teacher.schoolId!, skillId)).slice(0, 3).map((q) => q.id);
-    const mine = await assignSkill(repo, teacher, { classId, skillId, program: "NAFS", questionIds: [ids[1], ids[0], ids[1]] }, NOW);
+    const mine = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, program: "NAFS", questionIds: [ids[1], ids[0], ids[1]] }, NOW);
     const row = (await repo.findUnique("Assignment", { id: mine.assignmentId }))!;
     assert.equal(row.program, "NAFS");
     const stored = typeof row.questionIds === "string" ? JSON.parse(row.questionIds) : row.questionIds;
     assert.deepEqual(stored, [ids[1], ids[0]], "order kept, duplicates dropped");
-    const auto = await assignSkill(repo, teacher, { classId, skillId, program: "CURRICULUM" }, NOW);
+    const auto = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, program: "CURRICULUM" }, NOW);
     const a = (await repo.findUnique("Assignment", { id: auto.assignmentId }))!;
     assert.equal(a.program, "CURRICULUM");
     assert.equal(a.questionIds ?? null, null, "the platform chooses");
-    const old = await assignSkill(repo, teacher, { classId, skillId }, NOW);
+    const old = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId }, NOW);
     assert.equal((await repo.findUnique("Assignment", { id: old.assignmentId }))!.program ?? null, null, "older callers: no program");
   });
 
@@ -137,7 +137,7 @@ describe("🧩 skill picker: the server keeps the program and the teacher's ques
   test("Assign a skill page: picked questions only, and the program on every set", async () => {
     const pool = await questionsOfSkill(repo, teacher.schoolId!, skillId);
     const picked = pool.slice(0, 4).map((q) => q.id);
-    const r = await assignSkillByLevel(repo, teacher, { classId, skillId, mode: "AUTOMATIC", program: "MAP", questionIds: picked }, NOW);
+    const r = await assignSkillByLevel(repo, teacher, { source: "CURRICULUM", classId, skillId, mode: "AUTOMATIC", program: "MAP", questionIds: picked }, NOW);
     assert.equal(r.groups[0].questions, picked.length, "only the teacher's questions");
     assert.equal(r.groups[0].students, students.length);
     const a = (await repo.findMany("Assignment", { classId, program: "MAP" })).at(-1)!;

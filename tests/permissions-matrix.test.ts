@@ -65,17 +65,17 @@ describe("permission matrix (server-side, with the 200-student Test School)", ()
     [admin, t1, t2, s1, s2, otherSchoolTeacher] = await Promise.all(["test.admin", "test.teacher.1", "test.teacher.2", "test.student.001", "test.student.040", "demo.teacher.4a"].map(a));
     const v1 = (await teacherCurriculum(repo, t1))!, v2 = (await teacherCurriculum(repo, t2))!;
     classOfT1 = v1.classId; classOfT2 = v2.classId; studentOfT2 = v2.students[0].id; skillT1 = v1.units[0].skills[0].id;
-    assignmentT1 = (await assignSkill(repo, t1, { classId: classOfT1, skillId: skillT1 })).assignmentId;
+    assignmentT1 = (await assignSkill(repo, t1, { source: "CURRICULUM", classId: classOfT1, skillId: skillT1 })).assignmentId;
   });
 
   test("teachers: only their own classes and students", async () => {
     await assert.rejects(teacherCurriculum(repo, t1, classOfT2), ForbiddenError);
-    await assert.rejects(assignSkill(repo, t1, { classId: classOfT2, skillId: skillT1 }), ForbiddenError);
-    await assert.rejects(assignSkill(repo, t1, { classId: classOfT1, skillId: skillT1, studentIds: [studentOfT2] }), ForbiddenError);
+    await assert.rejects(assignSkill(repo, t1, { source: "CURRICULUM", classId: classOfT2, skillId: skillT1 }), ForbiddenError);
+    await assert.rejects(assignSkill(repo, t1, { source: "CURRICULUM", classId: classOfT1, skillId: skillT1, studentIds: [studentOfT2] }), ForbiddenError);
     await assert.rejects(assignmentDetail(repo, t2, assignmentT1), ForbiddenError);
     await assert.rejects(assignmentReport(repo, t2, assignmentT1, s1.studentId!), ForbiddenError);
     assert.ok((await weeklyAssignments(repo, t2, new Date(Date.now() - 86_400_000))).every((r) => r.className !== "TEST 4A"));
-    await assert.rejects(assignSkill(repo, otherSchoolTeacher, { classId: classOfT1, skillId: skillT1 }), ForbiddenError, "another school");
+    await assert.rejects(assignSkill(repo, otherSchoolTeacher, { source: "CURRICULUM", classId: classOfT1, skillId: skillT1 }), ForbiddenError, "another school");
   });
 
   test("teachers cannot do admin-only things", async () => {
@@ -91,7 +91,7 @@ describe("permission matrix (server-side, with the 200-student Test School)", ()
   });
 
   test("students: own data only, no curriculum, no editing, no teacher or admin functions", async () => {
-    await assert.rejects(assignSkill(repo, s1, { classId: classOfT1, skillId: skillT1 }), ForbiddenError);
+    await assert.rejects(assignSkill(repo, s1, { source: "CURRICULUM", classId: classOfT1, skillId: skillT1 }), ForbiddenError);
     await assert.rejects(teacherCurriculum(repo, s1), ForbiddenError);
     await assert.rejects(weeklyAssignments(repo, s1, new Date()), ForbiddenError);
     await assert.rejects(curriculumTree(repo, s1), ForbiddenError);

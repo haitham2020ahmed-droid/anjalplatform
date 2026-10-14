@@ -2,6 +2,8 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { LearnResultsTable } from "@/components/learn/results-table";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { learnResultsSummary } from "@/lib/report-summaries";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { findSelection } from "@/server/learn/words";
 import { learnResults, myStudents } from "@/server/learn/teacher";
@@ -28,6 +30,7 @@ export default async function LearnResultsPage({ params, searchParams }: { param
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={kind === "WORDS" ? { href: `/teacher/learn/words?sel=${encodeURIComponent(code)}`, label: "Words" } : { href: `/teacher/learn/${code}`, label: "Lesson" }} icon="📊" title="Learn results" subtitle={<span lang="en">{title}</span>} />
+      <ReportIntro text="Who opened and finished this lesson, their check score and who needed it again." />
       <nav aria-label={t("Classes")} className="mb-4 flex flex-wrap gap-2">
         <Link prefetch={false} href={base()} className={chip(!sp.classId)}>{t("All my classes")}</Link>
         {classes.map((c) => <Link key={String(c.id)} prefetch={false} href={base(String(c.id))} className={chip(sp.classId === c.id)}>{String(c.name)}</Link>)}
@@ -38,6 +41,7 @@ export default async function LearnResultsPage({ params, searchParams }: { param
         ))}
       </ul>
       <LearnResultsTable rows={r.rows} words={kind === "WORDS"} />
+      <ReportSummary summary={learnResultsSummary(r, { kind, code, classId: sp.classId || null })} />
     </AppShell>
   );
 }

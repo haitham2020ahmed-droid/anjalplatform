@@ -110,7 +110,7 @@ export async function setStudentLevel(repo: Repo, actor: Actor, studentId: strin
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can set a ReadRise Level.");
   if (!Number.isFinite(level) || level < ENGINE.min || level > ENGINE.max) throw new ValidationError(`Enter a ReadRise Level from ${ENGINE.min} to ${ENGINE.max}.`);
   const why = reason.trim();
-  if (why.length < 3) throw new ValidationError("Write a short reason for the change (for example: “MAP Lexile 820 in the winter test”).");
+  if (why.length < 3) throw new ValidationError("Write a short reason for the change (for example: “MAP reading 820 in the winter test”).");
   const r = await setLevelByTeacher(repo, actor, studentId, level, why.slice(0, 250), now);
   await audit(repo, { actorId: actor.userId, action: "readrise.level.teacher", entityType: "RRStudent", entityId: studentId, before: { level: r.from }, after: { level: r.to, reason: why.slice(0, 250) }, at: now });
   return r;

@@ -115,7 +115,7 @@ describe("🆕 no repeats: one sitting, across sittings, builders, Second Chance
     // an adaptive set over six contents (one copy each), taken twice by student B
     const six = [...copies].filter(([n]) => n >= 10 && n <= 15).map(([, ids]) => ids[0]);
     const runSet = async (max: number): Promise<string[]> => {
-      const { assignmentId } = await assignQuestions(repo, teacher, { classId, studentIds: [B.studentId!], questionIds: six, adaptive: { maxQuestions: max } }, tick());
+      const { assignmentId } = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, studentIds: [B.studentId!], questionIds: six, adaptive: { maxQuestions: max } }, tick());
       let v: QuizView = await startQuiz(repo, B, assignmentId, tick());
       const out: string[] = [];
       for (let k = 0; k < 20 && v.question; k++) {
@@ -138,7 +138,7 @@ describe("🆕 no repeats: one sitting, across sittings, builders, Second Chance
 
   test("3. teacher-built sets never hold two copies; a set stored with copies serves one (delivery guard)", async () => {
     const withCopies = [copies.get(20)![0], copies.get(20)![1], copies.get(21)![0], copies.get(21)![1], copies.get(22)![0]];
-    const { assignmentId, questions } = await assignQuestions(repo, teacher, { classId, studentIds: [C.studentId!], questionIds: withCopies }, tick());
+    const { assignmentId, questions } = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, studentIds: [C.studentId!], questionIds: withCopies }, tick());
     assert.equal(questions, 3, "the builder kept one copy per content");
     const a = (await repo.findUnique("Assignment", { id: assignmentId }))!;
     assert.deepEqual((await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => s(x.questionId)), [copies.get(20)![0], copies.get(21)![0], copies.get(22)![0]]);
@@ -164,7 +164,7 @@ describe("🆕 no repeats: one sitting, across sittings, builders, Second Chance
     const D = C;
     const before = (await pendingMistakes(repo, D.studentId!, tick(0))).length;
     // the same content missed twice: in a set (copy 0) and in an exit ticket (copy 1)
-    const { assignmentId } = await assignQuestions(repo, teacher, { classId, studentIds: [D.studentId!], questionIds: [copies.get(23)![0]] }, tick());
+    const { assignmentId } = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, studentIds: [D.studentId!], questionIds: [copies.get(23)![0]] }, tick());
     const v = await startQuiz(repo, D, assignmentId, tick());
     await submitQuizAnswer(repo, D, { assignmentId, questionId: v.question!.questionId, response: "B" }, tick());
     const ticket = await createExitTicket(repo, teacher, classId, { questionIds: [copies.get(23)![1], copies.get(24)![0]] }, tick());

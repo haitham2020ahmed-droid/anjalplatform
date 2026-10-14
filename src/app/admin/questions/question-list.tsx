@@ -10,6 +10,8 @@ import { questionPreviewAction, type QuestionPreview } from "./preview-actions";
 import { AssignQuestionsDialog, type RosterClass } from "./assign-questions-dialog";
 import { Combo } from "@/components/ui/combo";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 const STATUS_LABEL: Record<QuestionStatus, string> = { DRAFT: "Draft", UNDER_REVIEW: "Waiting for review", PUBLISHED: "Published", ARCHIVED: "Archived" };
 const CHIP: Record<QuestionStatus, string> = { DRAFT: "bg-slate-100 text-slate-700", UNDER_REVIEW: "bg-amber-100 text-amber-900", PUBLISHED: "bg-teal-100 text-teal-900", ARCHIVED: "bg-slate-200 text-slate-600" };
@@ -178,9 +180,9 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
                 <Fragment key={q.id}>
                   <tr className={`border-b align-top ${open === q.id ? "bg-sky-50/60" : ""}`}>
                     {roster && <td className="py-2">{q.status === "PUBLISHED" && q.type !== "SHORT_ANSWER" && <button type="button" onClick={() => saveStars(starred.includes(q.id) ? starred.filter((x) => x !== q.id) : [...starred, q.id])} aria-pressed={starred.includes(q.id)} aria-label={t("Star for assigning")} className="text-amber-500"><LineIcon name="star" className={`h-5 w-5 ${starred.includes(q.id) ? "fill-amber-400" : ""}`} /></button>}</td>}
-                    {checkboxes && <td className="py-2"><input type="checkbox" aria-label={`${t("Select")}: ${q.stem.slice(0, 60)}`} checked={allMatching ? allMatching.includes(q.id) : selected.has(q.id)} disabled={!!busy} onChange={() => toggle(q.id)} /></td>}
+                    {checkboxes && <td className="py-2"><input type="checkbox" aria-label={`${t("Select")}: ${stripMarks(q.stem).slice(0, 60)}`} checked={allMatching ? allMatching.includes(q.id) : selected.has(q.id)} disabled={!!busy} onChange={() => toggle(q.id)} /></td>}
                     <td className="max-w-md py-2 pe-2">
-                      <button type="button" onClick={() => void toggleOpen(q.id)} aria-expanded={open === q.id} className="text-start text-brand-navy hover:underline">{q.stem || t("(no text)")}</button>
+                      <button type="button" onClick={() => void toggleOpen(q.id)} aria-expanded={open === q.id} className="text-start text-brand-navy hover:underline">{q.stem ? <RichInline text={q.stem} /> : t("(no text)")}</button>
                       <span className="mt-0.5 flex flex-wrap gap-1 text-xs">
                         {q.hasPassage && <span className="rounded bg-sky-50 px-1.5 text-sky-800">{t("Passage")}</span>}
                         {q.hasImage && <span className="rounded bg-violet-50 px-1.5 text-violet-800">{t("Picture")}</span>}
@@ -209,13 +211,13 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
                         {d && "error" in d && <p role="alert" className="text-red-700">{d.error}</p>}
                         {d && !("error" in d) && (
                           <div className="space-y-2">
-                            {d.passage && <details className="rounded-lg bg-white p-3 ring-1 ring-slate-200"><summary className="cursor-pointer font-semibold text-slate-700">{t("Passage")}</summary><p className="mt-2 max-h-60 overflow-y-auto whitespace-pre-line text-slate-800">{d.passage}</p></details>}
+                            {d.passage && <details className="rounded-lg bg-white p-3 ring-1 ring-slate-200"><summary className="cursor-pointer font-semibold text-slate-700">{t("Passage")}</summary><p className="mt-2 max-h-60 overflow-y-auto whitespace-pre-line text-slate-800"><RichInline text={d.passage} /></p></details>}
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             {d.image && <img src={d.image.url} alt={d.image.alt} loading="lazy" className="max-h-48 w-auto max-w-full rounded-lg ring-1 ring-slate-200" />}
-                            <p className="font-medium text-slate-900">{d.stem}</p>
-                            {d.options.length > 0 && <ul className="grid gap-1 sm:grid-cols-2">{d.options.map((o) => <li key={o.label} className={`rounded-lg px-3 py-1.5 ring-1 ${o.correct ? "bg-teal-50 ring-teal-400" : "bg-white ring-slate-200"}`}><b>{o.label}.</b> {o.text}{o.correct && <span className="ms-1 font-semibold text-teal-800">✓</span>}</li>)}</ul>}
-                            {d.answer && <p className="rounded-lg bg-teal-50 px-3 py-1.5 text-teal-900 ring-1 ring-teal-300"><b>{t("Answer")}:</b> {d.answer}</p>}
-                            {d.whyCorrect && <p className="text-slate-700"><b>{t("Why")}:</b> {d.whyCorrect}</p>}
+                            <p className="font-medium text-slate-900"><RichInline text={d.stem} /></p>
+                            {d.options.length > 0 && <ul className="grid gap-1 sm:grid-cols-2">{d.options.map((o) => <li key={o.label} className={`rounded-lg px-3 py-1.5 ring-1 ${o.correct ? "bg-teal-50 ring-teal-400" : "bg-white ring-slate-200"}`}><b>{o.label}.</b> <RichInline text={o.text} />{o.correct && <span className="ms-1 font-semibold text-teal-800">✓</span>}</li>)}</ul>}
+                            {d.answer && <p className="rounded-lg bg-teal-50 px-3 py-1.5 text-teal-900 ring-1 ring-teal-300"><b>{t("Answer")}:</b> <RichInline text={d.answer} /></p>}
+                            {d.whyCorrect && <p className="text-slate-700"><b>{t("Why")}:</b> <RichInline text={d.whyCorrect} /></p>}
                             <p className="flex flex-wrap gap-2 pt-1">
                               <Link href={`/admin/questions/${q.id}`} className="inline-flex items-center gap-1 rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white"><LineIcon name="pen" className="h-4 w-4" />{t("Open and edit")}</Link>
                               <button type="button" disabled={!!busy} onClick={() => confirmRun("flag", [q.id])} className="inline-flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="flag" className="h-4 w-4" />{t("Flag")}</button>

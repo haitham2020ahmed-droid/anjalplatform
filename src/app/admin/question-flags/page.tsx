@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { flagList } from "@/server/teacher/classroom";
 import { resolveFlagsAction } from "./actions";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Flagged questions" };
 
@@ -30,7 +31,7 @@ export default async function FlagsPage({ searchParams }: { searchParams: Promis
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0 flex-1">
                 <p className="text-sm text-slate-500">{r.skill} · <b className="text-red-700">{r.count} report(s)</b> · last {r.lastAt.slice(0, 10)}</p>
-                <p className="mt-1 font-semibold text-brand-navy">{r.stem}</p>
+                <p className="mt-1 font-semibold text-brand-navy"><RichInline text={r.stem} /></p>
                 <p className="mt-1 text-sm text-slate-700">{r.reasons.join(" · ")}</p>
                 {r.notes.length > 0 && <ul className="mt-1 list-disc ps-5 text-sm text-slate-600">{r.notes.map((n, i) => <li key={i}>“{n}”</li>)}</ul>}
               </div>

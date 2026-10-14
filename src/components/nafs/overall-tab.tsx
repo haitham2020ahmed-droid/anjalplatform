@@ -3,15 +3,16 @@ import type { TFn } from "@/i18n";
 import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { nafsClasses } from "@/server/nafs/tests";
-import { dashboardDownload, groupOf, GROUP_NAME, MIN_STD_ITEMS, nafsDashboardCached, studentHref, type Dashboard } from "@/server/nafs/dashboard";
-import { strengthsOf } from "@/server/nafs/suggested-plan";
+import { dashboardDownload, groupOf, GROUP_NAME, nafsDashboardCached, studentHref, type Dashboard } from "@/server/nafs/dashboard";
 import { centerHref } from "@/server/nafs/center";
-import { codeName } from "@/server/nafs/framework";
+import { ClassLineCards, LineCells, LineHeads } from "./student-line";
 import { PrintButton } from "@/components/plans/print-button";
 import { Combo } from "@/components/ui/combo";
 import { DashboardTab, Delta, GROUP_CLS, Pc } from "./dashboard-tab";
 import { LineChart, Sparkline } from "./charts";
 import { Card, PctBar } from "./sub-nav";
+import { CompareView } from "./compare-tab";
+import { REPORT_VIEWS } from "@/server/nafs/center";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
 const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -25,15 +26,17 @@ const SEL = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
 export async function OverallTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<string, string | undefined> }) {
   const classes = await nafsClasses(repo, actor);
   if (!classes.length) return <p className={`${CARD} text-sm text-muted`}>{t("You have no Grade 6 class yet.")}</p>;
-  const detail = sp.view === "detail";
+  const view = REPORT_VIEWS.find((x) => x.key === sp.view)?.key ?? "";
+  const detail = view === "detail";
   const views = (
     <nav aria-label={t("Reports")} className="flex flex-wrap gap-1.5 print:hidden">
-      {[["", "Overview"], ["detail", "Full detail"]].map(([k, label]) => (
-        <Link key={k} href={centerHref("reports", { view: k, class: sp.class, from: sp.from, to: sp.to })} aria-current={(k === "detail") === detail ? "page" : undefined}
-          className={`inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold ring-1 ${(k === "detail") === detail ? "bg-teal-700 text-white ring-teal-700" : "bg-surface text-ink-2 ring-line"}`}>{t(label)}</Link>
+      {REPORT_VIEWS.map(({ key: k, label }) => (
+        <Link key={k} href={centerHref("reports", { view: k, class: sp.class, ...(k === "compare" ? {} : { from: sp.from, to: sp.to }) })} aria-current={k === view ? "page" : undefined}
+          className={`inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold ring-1 ${k === view ? "bg-teal-700 text-white ring-teal-700" : "bg-surface text-ink-2 ring-line"}`}>{k === "compare" ? "⬆️⬇️ " : ""}{t(label)}</Link>
       ))}
     </nav>
   );
+  if (view === "compare") return <div className="grid gap-4">{views}<CompareView actor={actor} t={t} sp={sp} /></div>;
   if (detail) return <div className="grid gap-4">{views}<DashboardTab actor={actor} t={t} sp={sp} /></div>;
   const classId = classes.find((c) => c.id === sp.class)?.id ?? null;
   const d = await nafsDashboardCached(repo, actor, { classId, from: sp.from, to: sp.to });
@@ -65,18 +68,19 @@ export async function OverallTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: R
 
 function Overview({ d, t }: { d: Dashboard; t: TFn }) {
   const o = d.overview;
-  const weakest = d.standards.filter((x) => x.pct !== null && x.items >= MIN_STD_ITEMS).sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0))[0];
   return (
+    <>
+    <ClassLineCards c={d.cls} t={t} finishedLabel="Took a NAFS test" />
     <section aria-label={t("Summary")} className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <Card n={o.students} label={t("Students")} sub={t("{n} took a NAFS test", { n: o.tested })} />
-      <Card n={<Pc v={o.avgScore} />} label={t("Average score")} sub={<>{t("Tests taken")}: {o.testsTaken} · {t("{n} tests", { n: o.tests })}</>} />
+      <Card n={<Pc v={o.avgScore} />} label={t("Average test score")} sub={<>{t("Tests taken")}: {o.testsTaken} · {t("{n} tests", { n: o.tests })}</>} />
       <Card n={<Pc v={o.practicePct} />} label={t("Practice accuracy")} sub={<>{t("Practice sessions")}: {o.practiceSessions} · {t("{n} answers", { n: o.practiceAnswers })}</>} />
       <Card n={o.trend ? <Delta v={o.trend.delta} /> : "—"} label={t("Change from the previous test")} sub={o.trend ? `${o.trend.previous.pct}% → ${o.trend.latest.pct}%` : t("Two tests are needed.")} />
-      <Card n={weakest ? <Pc v={weakest.pct} /> : "—"} label={t("Weakest standard")} sub={weakest ? codeName(weakest.key, t) : t("No NAFS results yet.")} />
       <Card n={d.groups.find((g) => g.key === "SUPPORT")?.count ?? 0} label={t(GROUP_NAME.SUPPORT)} sub={t("From each student's latest NAFS test.")} />
       <Card n={d.noTest.length} label={t("No NAFS test yet")} />
       <Link href={centerHref("marking")} className="block"><Card n={o.waiting} label={t("Written answers waiting for marking")} /></Link>
     </section>
+    </>
   );
 }
 
@@ -122,20 +126,18 @@ function Students({ d, t }: { d: Dashboard; t: TFn }) {
       <h2 id="ostu-h" className="text-lg font-semibold text-ink">{t("Students")}</h2>
       <p className="text-sm text-muted">{t("Group words are for teachers only: students never see them.")}</p>
       <div className="mt-2 overflow-x-auto"><table className="w-full min-w-[52rem] text-sm">
-        <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Overall")}</th><th>{t("Latest")}</th><th>{t("Change from previous")}</th><th>{t("Group")}</th><th className="text-start">{t("Strengths")}</th><th className="text-start">{t("Weak standards")}</th></tr></thead>
+        <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><LineHeads t={t} finished={false} /><th title={t("NAFS tests handed in")}>{t("Tests finished")}</th><th>{t("Latest")}</th><th>{t("Change from previous")}</th><th>{t("Group")}</th></tr></thead>
         <tbody className="divide-y divide-line">{d.heat.students.map((st) => {
           const l = latest.get(st.id);
           const g = groupOf(l?.latest ?? null);
-          const sw = strengthsOf(st.cells);
           return (
             <tr key={st.id} className="align-top">
               <td className="py-2 pe-2"><Link href={studentHref(st.id, d.scope.range)} className="font-semibold text-ink hover:underline">{st.name}</Link><span className="block text-xs text-muted">{st.className}</span></td>
-              <td className="text-center"><Pc v={st.pct} /></td>
+              <LineCells x={st} t={t} finished={false} />
+              <td className="text-center tabular-nums">{st.tests}</td>
               <td className="text-center"><Pc v={l?.latest} /></td>
               <td className="text-center"><Delta v={l?.dPrev} /></td>
               <td className="text-center">{g ? <span className={`rounded-full px-2 py-0.5 text-xs ring-1 ${GROUP_CLS[g]}`}>{t(GROUP_NAME[g])}</span> : <span className="text-xs text-muted">—</span>}</td>
-              <td className="text-xs text-emerald-800">{sw.strong.map((c) => codeName(c, t)).join(" · ") || "—"}</td>
-              <td className="text-xs text-rose-800">{sw.weak.map((c) => codeName(c, t)).join(" · ") || "—"}</td>
             </tr>
           );
         })}</tbody>

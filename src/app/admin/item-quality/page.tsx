@@ -10,6 +10,8 @@ import { listAutoHidden } from "@/server/questions/auto-check";
 import { MIN_PER_SKILL, skillsUnderMinimum } from "@/server/questions/min-per-skill";
 import { autoCheckAction, resolveAlertAction, releaseHoldAction } from "./actions";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 export const metadata = { title: "Question quality" };
 const FLAG: Record<ItemFlag, [string, string, string]> = {
@@ -53,7 +55,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
             <thead><tr className="border-b text-slate-500"><th className="p-3">Question</th><th className="p-3">Place</th><th className="p-3">Answers</th><th className="p-3">Correct</th><th className="p-3">Guessed</th><th className="p-3">Why</th></tr></thead>
             <tbody>{rows.map((r) => (
               <tr key={r.id} className="border-b align-top last:border-0">
-                <td className="max-w-md p-3"><Link href={`/admin/questions/${r.id}`} className="font-medium text-brand-navy hover:underline">{r.stem.slice(0, 140)}</Link> <Link href={`/admin/item-quality?q=${r.id}`} className="text-xs text-slate-500 underline">per grade</Link></td>
+                <td className="max-w-md p-3"><Link href={`/admin/questions/${r.id}`} className="font-medium text-brand-navy hover:underline">{stripMarks(r.stem).slice(0, 140)}</Link> <Link href={`/admin/item-quality?q=${r.id}`} className="text-xs text-slate-500 underline">per grade</Link></td>
                 <td className="p-3"><code className="text-xs">{r.place ?? "—"}</code></td>
                 <td className="p-3 tabular-nums">{r.answers}</td><td className="p-3 tabular-nums">{r.correctPct}%</td><td className="p-3 tabular-nums">{r.rapidPct}%</td>
                 <td className="p-3"><div className="flex flex-wrap gap-1">{r.flags.map((f) => <span key={f} className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${FLAG[f][1]}`}>{FLAG[f][0]}{f === "UNUSED_OPTION" ? `: ${r.unused.join(", ")}` : ""}</span>)}</div></td>
@@ -78,7 +80,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
                   <span>Grade {r.grade} students{r.grade !== r.ownGrade ? ` (question is Grade ${r.ownGrade})` : ""} · {r.skill}</span>
                   {r.heldBack && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">⏸ held out of practice</span>}
                 </p>
-                <p className="mt-1 font-semibold text-brand-navy">{r.stem}</p>
+                <p className="mt-1 font-semibold text-brand-navy"><RichInline text={r.stem} /></p>
                 <p className="mt-1 text-sm text-slate-700">{r.detail}</p>
                 <p className="mt-1 text-xs tabular-nums text-slate-500">{r.responses ?? "—"} first answers · {r.pct ?? "—"}% right{r.discrimination !== null ? ` · discrimination ${r.discrimination.toFixed(2)}` : ""}{r.medianMs !== null ? ` · median ${Math.round(r.medianMs / 1000)} s` : ""} · since {r.createdAt.slice(0, 10)}</p>
               </div>
@@ -106,7 +108,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
         <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
           <table className="w-full text-left text-sm">
             <thead><tr className="border-b text-slate-500"><th className="p-3">Question</th><th className="p-3">Problem</th><th className="p-3">Hidden on</th><th className="p-3"></th></tr></thead>
-            <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3" data-content lang="en">{r.stem}</td><td className="p-3 font-semibold text-red-800">{r.problem}</td><td className="p-3">{r.at.slice(0, 10)}</td><td className="p-3 text-end"><Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-teal underline">Fix</Link></td></tr>)}</tbody>
+            <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3" data-content lang="en"><RichInline text={r.stem} /></td><td className="p-3 font-semibold text-red-800">{r.problem}</td><td className="p-3">{r.at.slice(0, 10)}</td><td className="p-3 text-end"><Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-teal underline">Fix</Link></td></tr>)}</tbody>
           </table>
         </div>
       )}
@@ -131,7 +133,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
       <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
         <table className="w-full text-left text-sm">
           <thead><tr className="border-b text-slate-500"><th className="p-3">Question</th><th className="p-3">Skill</th><th className="p-3"></th></tr></thead>
-          <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3">{r.stem}</td><td className="p-3">{r.skill}</td><td className="p-3 text-end"><Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-teal underline">Set level</Link></td></tr>)}</tbody>
+          <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="p-3"><RichInline text={r.stem} /></td><td className="p-3">{r.skill}</td><td className="p-3 text-end"><Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-teal underline">Set level</Link></td></tr>)}</tbody>
         </table>
       </div>
     );
@@ -147,7 +149,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
             <tbody>{rows.map((r) => (
               <tr key={r.id} className="border-b align-top last:border-0">
                 <td className="whitespace-nowrap p-3 tabular-nums">{r.createdAt.slice(0, 10)}</td>
-                <td className="max-w-xs p-3"><Link href={`/admin/item-quality?q=${r.questionId}`} className="text-brand-navy hover:underline">{r.stem}</Link></td>
+                <td className="max-w-xs p-3"><Link href={`/admin/item-quality?q=${r.questionId}`} className="text-brand-navy hover:underline"><RichInline text={r.stem} /></Link></td>
                 <td className="p-3">{r.grade}</td>
                 <td className="whitespace-nowrap p-3">{LEVEL[r.fromLevel] ?? r.fromLevel} → <b>{LEVEL[r.toLevel] ?? r.toLevel}</b> <span className="text-xs text-slate-500">({r.fromDifficulty} → {r.toDifficulty})</span></td>
                 <td className="p-3">{r.source === "APPROVED" ? "Approved" : "Automatic"}</td>
@@ -162,7 +164,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
     const v = await questionData(repo, actor, String(sp.q));
     subtitle = `Grade ${v.ownGrade} question · ${v.skill} · difficulty ${v.difficulty}${v.source ? ` (${v.source.toLowerCase()})` : ""}. Only the question's own grade decides its level; other grades are shown for information.`;
     body = <>
-      <p className="mb-4 rounded-2xl bg-white p-4 font-semibold text-brand-navy ring-1 ring-slate-200">{v.stem} <Link href={`/admin/questions/${v.questionId}`} className="ms-2 text-sm font-normal underline"><LineIcon name="pen" className="me-1 inline-block h-4 w-4 align-[-3px]" />Open in editor</Link></p>
+      <p className="mb-4 rounded-2xl bg-white p-4 font-semibold text-brand-navy ring-1 ring-slate-200"><RichInline text={v.stem} /> <Link href={`/admin/questions/${v.questionId}`} className="ms-2 text-sm font-normal underline"><LineIcon name="pen" className="me-1 inline-block h-4 w-4 align-[-3px]" />Open in editor</Link></p>
       {!v.grades.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No first answers counted yet.</p> : (
         <div className="mb-5 overflow-x-auto rounded-3xl bg-white shadow-sm ring-1 ring-slate-200">
           <table className="w-full text-left text-sm">

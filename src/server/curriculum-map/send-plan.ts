@@ -9,6 +9,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { accessibleClasses, DEFAULT_TARGET_CORRECT } from "../teacher/assign";
 import { assignFromMap } from "./levels";
@@ -21,6 +22,8 @@ export interface SendMapPlanInput {
   grade: number; unitCode?: string | null; classId: string; studentIds?: string[] | null;
   /** only these sections (category codes, in this order) — the scoped Send window; default: every part of the grade / unit */
   codes?: string[] | null; title?: string | null; dueAt?: Date | null; startAt?: Date | null;
+  /** r74: REQUIRED — the Source chosen in the Send window */
+  source: string | null | undefined;
 }
 export interface SendMapPlanResult { planId: string; parts: number; students: number; skipped: string[] }
 
@@ -30,6 +33,7 @@ const unitNumberOf = (code: string): number | null => { const m = /^G\d+\.U(\d+)
 export async function sendMapPlan(repo: Repo, actor: Actor, input: SendMapPlanInput, now = new Date()): Promise<SendMapPlanResult> {
   assertCan(actor, "assignments:create");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can send plans.");
+  const source = requireSource(input.source);
   // the teacher's own classes only (admins: any class of the school)
   const klass = await assertClassAccess(repo, actor, s(input.classId));
   const grade = Math.round(Number(input.grade));
@@ -57,7 +61,7 @@ export async function sendMapPlan(repo: Repo, actor: Actor, input: SendMapPlanIn
   let order = 0;
   for (const p of places) {
     try {
-      const r = await assignFromMap(repo, actor, { classId: s(klass.id), categoryCode: p.code, studentIds: chosen.length ? chosen : undefined, mode: "ADAPTIVE", targetCorrect: DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: title, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null }, now);
+      const r = await assignFromMap(repo, actor, { classId: s(klass.id), categoryCode: p.code, studentIds: chosen.length ? chosen : undefined, mode: "ADAPTIVE", targetCorrect: DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: title, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, source }, now);
       const aids = r.groups.map((g) => g.assignmentId);
       made.push(...aids);
       await repo.create("SkillPlanItem", { planId: plan.id, code: p.code, label: p.label.slice(0, 255), assignmentIds: aids, order: order++ });

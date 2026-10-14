@@ -63,7 +63,7 @@ describe("👪 weekly family report", () => {
     await repo.create("LessonRun", { studentId: sid, schoolId: student.schoolId, skillId: skill.id, phase: "DONE", log: [], startedAt: new Date("2026-10-13T10:00:00Z"), finishedAt: new Date("2026-10-13T10:20:00Z"), updatedAt: NOW });
     // a teacher test finished this week: 2 of 3 right
     const qs = (await repo.findMany("Question", { skillId: skill.id, status: "PUBLISHED" }, { select: ["id"], take: 3 })).map((q) => s(q.id));
-    const r = await assignTest(repo, teacher, { classId, type: "QUIZ", title: "Quiz 1 (Below Level)", levelMode: "SAME", questions: { SAME: qs } }, new Date("2026-10-12T07:00:00Z"));
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "QUIZ", title: "Quiz 1 (Below Level)", levelMode: "SAME", questions: { SAME: qs } }, new Date("2026-10-12T07:00:00Z"));
     const ta = (await repo.findMany("Assignment", { testId: r.testId }))[0];
     await repo.updateMany("AssignmentStudent", { assignmentId: ta.id, studentId: sid }, { status: "COMPLETED", completedAt: new Date("2026-10-13T11:00:00Z") });
     await repo.create("PracticeSession", { studentId: sid, skillId: skill.id, mode: "TEACHER_QUIZ", assignmentId: ta.id, correctCount: 2, questionCount: 3, startedAt: new Date("2026-10-13T10:50:00Z") });

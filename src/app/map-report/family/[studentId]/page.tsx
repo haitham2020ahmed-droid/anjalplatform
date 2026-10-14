@@ -6,6 +6,8 @@ import { ReportToolbar } from "@/components/map/report-toolbar";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { familyReport } from "@/server/map/map-reports";
+import { ReportIntro } from "@/components/report-kit";
+import { mapFamilySummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Family Report" };
 
@@ -21,7 +23,8 @@ export default async function FamilyReportPage({ params, searchParams }: { param
   return (
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={back} base={`/map-report/family/${studentId}`} />
-      <FamilyView d={d} />
+      <div className="mx-auto max-w-4xl"><ReportIntro text="How your child is doing in English: the MAP Growth scores and the practice on the platform." /></div>
+      <FamilyView d={d} summary={mapFamilySummary(d)} />
       {sp.print === "1" && <AutoPrint />}
     </AppShell>
   );

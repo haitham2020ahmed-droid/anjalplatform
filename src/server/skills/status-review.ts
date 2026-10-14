@@ -77,7 +77,7 @@ async function createCheck(repo: Repo, studentId: string, kind: "REVIEW" | "MIXE
   const id = await repo.transaction(async (tx) => {
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: "TEACHER_QUIZ", isAdaptive: false, maxQuestions: questions.length, status: "PUBLISHED", createdById: null, createdAt: now });
     await tx.createMany("AssessmentQuestion", questions.map((q, order) => ({ assessmentId: set.id, questionId: q.id, order, points: 1 })));
-    const a = await tx.create("Assignment", { track: "CURRICULUM", classId: ct.classId, createdById: ct.teacherId, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, dueAt: new Date(now.getTime() + 7 * DAY), createdAt: now });
+    const a = await tx.create("Assignment", { track: "CURRICULUM", classId: ct.classId, createdById: ct.teacherId, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, dueAt: new Date(now.getTime() + 7 * DAY), createdAt: now, source: "CURRICULUM" });
     await tx.create("AssignmentStudent", { assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 });
     return s(a.id);
   });

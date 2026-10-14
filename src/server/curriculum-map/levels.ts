@@ -10,6 +10,7 @@ import { recordLevel } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { accessibleClasses, assignQuestions } from "../teacher/assign";
 import { attachmentNodes, type AttachmentNode } from "./questions";
@@ -109,8 +110,9 @@ export async function previewMapAssign(repo: Repo, actor: Actor, classId: string
  * Analyze Craft / Respond to Reading → one set per level, each student in the set of their level
  * (no level yet = On Level; a level with no questions falls back to On Level, then to any level).
  */
-export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL"; targetCorrect?: number | null; silent?: boolean; curriculumPlanId?: string | null }, now = new Date()): Promise<MapAssignResult> {
+export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL"; targetCorrect?: number | null; silent?: boolean; curriculumPlanId?: string | null; /** r74: REQUIRED source */ source: string | null | undefined }, now = new Date()): Promise<MapAssignResult> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   await assertClassAccess(repo, actor, input.classId);
   const places = categoryPlaces(await attachmentNodes(repo, actor.schoolId!), input.categoryCode);
   if (!places.length) throw new ValidationError("That place is not on the Curriculum Map.");
@@ -128,7 +130,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
   const pick = (ids: string[]) => ids.slice(0, max);
   const send = async (level: Level | null, usedLevel: Level | null, students: string[], ids: string[]) => {
     const r = await assignQuestions(repo, actor, {
-      classId: input.classId, studentIds: students, questionIds: pick(ids), track: "CURRICULUM", exactTitle: true,
+      classId: input.classId, studentIds: students, questionIds: pick(ids), track: "CURRICULUM", exactTitle: true, source,
       title: `${base}${usedLevel ? ` (${LEVEL_NAMES[usedLevel]})` : ""}`, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
     }, now);
     groups.push({ level, students: students.length, questions: Math.min(ids.length, max), assignmentId: r.assignmentId, usedLevel });
@@ -147,7 +149,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     if (mine) {
       if (!mine.length) throw new ValidationError("Your Review has no questions: add some on the Review page first.");
       const r = await assignQuestions(repo, actor, {
-        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: mine, track: "CURRICULUM", exactTitle: true, title: base,
+        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: mine, track: "CURRICULUM", exactTitle: true, source, title: base,
         dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
       }, now);
       groups.push({ level: null, students: chosen.length, questions: r.questions, assignmentId: r.assignmentId, usedLevel: null });
@@ -165,7 +167,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     if ((input.mode ?? "ADAPTIVE") === "ADAPTIVE" && (spread.size >= 2 || (input.targetCorrect ?? 0) > 0)) {
       const maxQ = Math.max(5, Math.min(60, input.maxQuestions ?? 20));
       const r = await assignQuestions(repo, actor, {
-        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true,
+        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true, source,
         title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: maxQ, targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
         dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
       }, now);
@@ -196,7 +198,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     if (challenge.length) notes.push(`🚀 Challenge path: ${challenge.length} question(s) from Grade ${places[0].grade + 1} (same skill) for students who master Exceeding.`);
     if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Approaching.`);
     const r = await assignQuestions(repo, actor, {
-      classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true,
+      classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true, source,
       title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)), targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
       dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
     }, now);
@@ -266,6 +268,8 @@ export async function giveTest(repo: Repo, actor: Actor, input: { classId: strin
     ...(input.kind === "PLACEMENT" ? { adaptive: { maxQuestions: want } } : {}),
     classId: input.classId, studentIds: input.studentIds, questionIds: input.kind === "PLACEMENT" ? ids : ids.slice(0, want), title, exactTitle: true,
     kind: input.kind === "PLACEMENT" ? "PLACEMENT" : "BENCHMARK", track: input.kind === "MAP_TEST" ? "MAP" : "CURRICULUM", dueAt: input.dueAt ?? null,
+    // r74: a placement / MAP practice TEST (no skill is assigned): its source from the context
+    source: input.kind === "MAP_TEST" ? "MAP" : "CURRICULUM",
   }, now);
   return { assignmentId: r.assignmentId, students: r.students, questions: r.questions };
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { TFn } from "@/i18n";
-import { AtAGlance, Callout, ReportSection, ReportTable } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportIntro, ReportSection, ReportSummary, ReportTable } from "@/components/report-kit";
+import { mapOverviewSummary } from "@/lib/report-summaries";
 import { EmptyState } from "@/components/ui-kit";
 import { Q_COLORS } from "@/components/map/nwea-charts";
 import { repo } from "@/server/auth/next";
@@ -20,7 +21,7 @@ export async function OverviewView({ actor, t, subject, term, classId }: { actor
   const Table = ({ rows, title }: { rows: OverviewRow[]; title: string }) => (
     <ReportSection title={title} icon={title === "By grade" ? "🏫" : "👥"}>
       <ReportTable label={title}
-        cols={[{ key: "c", label: title === "By grade" ? "Grade" : "Class" }, { key: "n", label: "Tested", num: true }, { key: "m", label: "Mean RIT", num: true }, { key: "nat", label: "National", num: true }, { key: "d", label: "Diff", num: true }, { key: "p", label: "Median %ile", num: true }, { key: "q", label: "Percentile bands", sort: false, className: "min-w-56" }, { key: "g", label: "Growth", num: true }, { key: "met", label: "Met", num: true }, { key: "f", label: "Flags", num: true }]}
+        cols={[{ key: "c", label: title === "By grade" ? "Grade" : "Class" }, { key: "n", label: "Tested", num: true }, { key: "m", label: "Mean RIT", num: true }, { key: "nat", label: "National", num: true, more: true }, { key: "d", label: "Diff", num: true, hint: "The class mean RIT minus the national mean: ▼ below, ▲ above." }, { key: "p", label: "Median %ile", num: true }, { key: "q", label: "Percentile bands", sort: false, className: "min-w-56", more: true }, { key: "g", label: "Growth", num: true }, { key: "met", label: "Met", num: true }, { key: "f", label: "Flags", num: true, more: true }]}
         rows={rows.map((r) => {
           const tot = r.quintiles.reduce((t, c) => t + c, 0) || 1, diff = r.meanRit !== null && r.national !== null ? Math.round((r.meanRit - r.national) * 10) / 10 : null;
           return {
@@ -44,6 +45,7 @@ export async function OverviewView({ actor, t, subject, term, classId }: { actor
         {d.terms.slice(0, 6).map((tm) => <Link key={tm} href={link({ term: tm })} className={chip(tm === d.term)}>{tm}</Link>)}
       </div>
       <h2 className="mb-3 text-xl font-semibold text-brand-navy">{t("Grade and school overview")} · {SUBJECT_NAME[subject]}</h2>
+      <ReportIntro text="MAP scores of every grade and class compared with the national average." />
       {!d.term ? <EmptyState icon="🗺️" title="No MAP scores yet" action={{ href: "/teacher/map-rit", label: "Enter scores" }} /> : (
         <>
           <AtAGlance items={[
@@ -55,6 +57,7 @@ export async function OverviewView({ actor, t, subject, term, classId }: { actor
           <Table rows={d.grades} title="By grade" /><Table rows={d.classes} title="By class" />
         </>
       )}
+      <ReportSummary summary={mapOverviewSummary(d, { admin, classId, subject })} />
       {cuts && (
         <form action={saveCutScoresAction} className="mt-6 rounded-3xl bg-white p-5 ring-1 ring-slate-200 print:hidden">
           <h2 className="text-lg font-bold text-brand-navy">🎯 Proficiency cut scores (Spring RIT)</h2>

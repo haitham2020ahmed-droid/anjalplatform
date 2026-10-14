@@ -10,6 +10,8 @@ import { familyWeeks, NOTE_MAX, type FamilyWeekBatch } from "@/server/reports/fa
 import { getT } from "@/i18n/server";
 import { LANG_NAMES, makeT } from "@/i18n";
 import { saveFamilyWeekNoteAction } from "../actions";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { familyWeekSummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Family reports this week" };
 
@@ -45,6 +47,7 @@ export default async function FamilyWeekTeacherPage({ searchParams }: { searchPa
       <PageHeader back={{ href: "/teacher/family-reports", label: "Family Reports" }} icon="👪" title="Family reports this week"
         subtitle={t("Each student's week in simple words for the family: what they worked on, things to practise at home and your note. Preview it, then download a PDF to send by WhatsApp.")} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{String(sp.msg).slice(0, 200)}</p>}
+      <ReportIntro text="Each student's week in simple words for the family, ready to download and send." />
       {classes.length > 1 && <nav aria-label={t("Class")} className="mb-4 flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} prefetch={false} href={`/teacher/family-reports/this-week?classId=${c.id}${lang === "ar" ? "&lang=ar" : ""}`} aria-current={c.id === classId ? "page" : undefined} className={chip(c.id === classId)}>{String(c.name)}</Link>)}</nav>}
       {denied && <EmptyState icon="🔒" title="You cannot open this summary." text="Only the class teacher and the school admin can print it." />}
       {!denied && !items.length && <EmptyState icon="👥" title="No students in this class yet" />}
@@ -88,6 +91,7 @@ export default async function FamilyWeekTeacherPage({ searchParams }: { searchPa
           </div>
         </div>
       )}
+      {items.length > 0 && <ReportSummary summary={familyWeekSummary(items, classId)} />}
     </AppShell>
   );
 }

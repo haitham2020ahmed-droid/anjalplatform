@@ -65,6 +65,7 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
     { href: "/teacher/learn", label: "Learn", line: "learn" },
     ...(nafs ? [{ href: "/teacher/nafs", label: "NAFS", line: "flag" as LineIconName }] : []),
     { href: "/teacher/assigned", label: "Assigned", line: "inbox" },
+    { href: "/teacher/class-signin", label: "Class sign-in", line: "qr" },
   ];
   const cards: { label: string; value: number; line: LineIconName; alert?: boolean }[] = [
     { label: "My students", value: sum.students, line: "users" },

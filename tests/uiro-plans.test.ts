@@ -99,7 +99,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
   });
 
   test("Grade 11 class: assign a Grade 6 skill → it is in the student's My Work and can be practised", async () => {
-    const r = await assignSkill(repo, t11, { classId: class11, skillId: g6Skill }, NOW);
+    const r = await assignSkill(repo, t11, { source: "CURRICULUM", classId: class11, skillId: g6Skill }, NOW);
     assert.equal(r.students, 2);
     const [sid] = await members(class11);
     const st = await studentActor(sid);
@@ -116,7 +116,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     const other = (await repo.findMany("Skill", { code: "G6.theme" }))[0];
     if (other && String(other.id) !== g6Skill) await assert.rejects(startPractice(repo, st, String(other.id), NOW), ForbiddenError);
     // My Plans works for Grade 11 (Custom plan from another grade)
-    const p = await assignPlan(repo, t11, { classId: class11, type: "CUSTOM", skillIds: [g6Skill], title: "Grade 6 bridge" }, NOW);
+    const p = await assignPlan(repo, t11, { source: "CURRICULUM", classId: class11, type: "CUSTOM", skillIds: [g6Skill], title: "Grade 6 bridge" }, NOW);
     assert.equal(p.skills, 1);
     const plans = await myPlans(repo, st);
     assert.deepEqual(plans.map((x) => [x.title, x.source]), [["Grade 6 bridge", "Custom"]]);
@@ -143,15 +143,15 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     const found = await searchSkillsAnyGrade(repo, t4, g6SkillName.slice(0, 12));
     // one question bank: one row per skill family (any grade's copy stands for it)
     assert.ok(found.some((k) => k.name.toLowerCase().replace(/[^a-z]/g, "") === g6SkillName.toLowerCase().replace(/[^a-z]/g, "")), "search lists skills of every grade");
-    const r = await assignSkill(repo, t4, { classId: class4, skillId: g6Skill, track: "NAFS" }, NOW);
+    const r = await assignSkill(repo, t4, { source: "NAFS", classId: class4, skillId: g6Skill, track: "NAFS" }, NOW);
     assert.ok(r.assignmentId, "Nafs is no longer Grade 6 only and the skill may come from Grade 6");
     // older paths too: multi-skill assignment, assign-by-level
-    await createAssignment(repo, t4, { classId: class4, title: "Mixed", target: "SKILL", skillIds: [g6Skill], dueAt: null }, NOW);
-    const lv = await assignSkillByLevel(repo, t4, { classId: class4, skillId: g6Skill, mode: "AUTOMATIC" }, NOW);
+    await createAssignment(repo, t4, { source: "CURRICULUM", classId: class4, title: "Mixed", target: "SKILL", skillIds: [g6Skill], dueAt: null }, NOW);
+    const lv = await assignSkillByLevel(repo, t4, { source: "CURRICULUM", classId: class4, skillId: g6Skill, mode: "AUTOMATIC" }, NOW);
     assert.equal(lv.groups.length, 1);
     // never into a class that is not theirs
-    await assert.rejects(assignSkill(repo, t4, { classId: class5, skillId: g6Skill }, NOW), ForbiddenError);
-    await assert.rejects(assignPlan(repo, t4, { classId: class11, type: "CUSTOM", skillIds: [g6Skill] }, NOW), ForbiddenError);
+    await assert.rejects(assignSkill(repo, t4, { source: "CURRICULUM", classId: class5, skillId: g6Skill }, NOW), ForbiddenError);
+    await assert.rejects(assignPlan(repo, t4, { source: "CURRICULUM", classId: class11, type: "CUSTOM", skillIds: [g6Skill] }, NOW), ForbiddenError);
   });
 
   test("student data stays private: another teacher's student profile and password reset are refused (typed URL)", async () => {
@@ -200,7 +200,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     assert.ok(prop.skills.every((k) => k.track === "MAP" && k.studentIds.join() === sid));
     // edit: remove one skill, add one from another grade
     const keep = prop.skills.slice(1).map((k) => k.id);
-    const res = await assignPlan(repo, t4, { classId: class4, type: "MAP", studentIds: [sid], keep, add: [g6Skill], title: "MAP plan · Fall" }, NOW);
+    const res = await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "MAP", studentIds: [sid], keep, add: [g6Skill], title: "MAP plan · Fall" }, NOW);
     assert.equal(res.skills, keep.length + (keep.includes(g6Skill) ? 0 : 1));
     const me = await studentActor(sid);
     const plans = await myPlans(repo, me);
@@ -218,7 +218,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
   test("NAFS plan (general) and a Grammar skill → My Work with the NAFS and Grammar tags", async () => {
     const prop = await proposePlan(repo, t5, { classId: class5, type: "NAFS" });
     assert.ok(prop.skills.length > 0, `NAFS areas give skills (${prop.notes.join(" ")})`);
-    const res = await assignPlan(repo, t5, { classId: class5, type: "NAFS" }, NOW);
+    const res = await assignPlan(repo, t5, { source: "CURRICULUM", classId: class5, type: "NAFS" }, NOW);
     // a grammar skill (one library for every grade) assigned with Custom
     const g5 = (await repo.findMany("Grade", { schoolId: admin.schoolId!, level: 5 }))[0];
     const cur5 = (await repo.findMany("Curriculum", { gradeId: g5.id }))[0];
@@ -227,7 +227,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     void _id; void _code;
     const gram = await repo.create("Skill", { ...rest, code: "G5.grammar.test-u1w1-s1", name: "Test grammar: commas in a series" });
     await giveQuestion(repo, String(gram.id));
-    await assignPlan(repo, t5, { classId: class5, type: "CUSTOM", skillIds: [String(gram.id)] }, NOW);
+    await assignPlan(repo, t5, { source: "CURRICULUM", classId: class5, type: "CUSTOM", skillIds: [String(gram.id)] }, NOW);
     const [sid] = await members(class5);
     const me = await studentActor(sid);
     const work = await myWorkItems(repo, me, NOW);
@@ -240,7 +240,7 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
 
   test("NAFS plan (personal): after a practice test, each student gets the skills they missed", async () => {
     const [a, b] = await members(class5);
-    const test = await assignSkill(repo, t5, { classId: class5, skillId: g6Skill, track: "NAFS" }, NOW); // stands in for a NAFS practice test
+    const test = await assignSkill(repo, t5, { source: "NAFS", classId: class5, skillId: g6Skill, track: "NAFS" }, NOW); // stands in for a NAFS practice test
     const g5skills = (await teacherCurriculum(repo, t5))!.units.flatMap((u) => u.skills).slice(0, 2).map((k) => k.id);
     const r = await personalizeNafsPlanFromResults(repo, t5, { testId: test.assignmentId, results: [
       { studentId: a, skillId: g5skills[0], correct: 1, total: 5 }, { studentId: a, skillId: g5skills[1], correct: 5, total: 5 },
@@ -267,12 +267,12 @@ describe("UI reorg Phase 4: Plans wizard, source tags, assign across grades, Gra
     const prop = await proposePlan(repo, t4, { classId: class4, type: "RTI" });
     assert.deepEqual(prop.skills.map((k) => [k.id, k.studentIds]), [[focus, [a]]]);
     assert.ok(prop.notes.some((n) => /Not in RTI/.test(n)));
-    await assignPlan(repo, t4, { classId: class4, type: "RTI" }, NOW);
+    await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "RTI" }, NOW);
     assert.equal((await myWorkItems(repo, await studentActor(a), NOW)).find((w) => w.skillId === focus && w.source === "RTI")?.status, "Not started");
     assert.ok(!(await myWorkItems(repo, await studentActor(b), NOW)).some((w) => w.source === "RTI"), "students outside RTI get nothing");
     const cur = await proposePlan(repo, t4, { classId: class4, type: "CURRICULUM" });
     assert.ok(cur.units.length > 0 && cur.unitId && cur.skills.length > 0);
-    const done = await assignPlan(repo, t4, { classId: class4, type: "CURRICULUM", unitId: cur.unitId }, NOW);
+    const done = await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, type: "CURRICULUM", unitId: cur.unitId }, NOW);
     assert.ok((await myPlans(repo, await studentActor(b))).some((p) => p.id === done.planId && p.source === "Curriculum"));
     // Grade 11 Curriculum plan: skills from another grade (the class has none)
     const c11 = await proposePlan(repo, t11, { classId: class11, type: "CURRICULUM", grade: 6 });

@@ -46,7 +46,7 @@ describe("automatic removal of questions with missing passages", () => {
     await repo.create("QuestionAttempt", { sessionId: s.id, studentId: student.studentId!, questionId: ids.answered, skillId: reading.id, response: { value: "A" }, isCorrect: true, responseMs: 5000, usedHint: false, rapidGuess: false, difficultyB: 0, createdAt: new Date() });
     // a teacher put one in an assigned set
     const roster = await teacherRoster(repo, teacher);
-    await assignQuestions(repo, teacher, { classId: roster[0]!.id, questionIds: [ids.inSet] });
+    await assignQuestions(repo, teacher, { source: "CURRICULUM", classId: roster[0]!.id, questionIds: [ids.inSet] });
   });
 
   test("story-content questions are recognised; concept questions are not", () => {

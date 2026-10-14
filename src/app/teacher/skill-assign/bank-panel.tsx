@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { FinderQuestion, FinderResult } from "@/server/curriculum/question-finder";
 import { assignAdaptiveFromBankAction, assignReadySetFromBankAction } from "./actions";
 import { AssignDates } from "@/components/assign/assign-dates";
+import { SourceSelect } from "@/components/assign/source-select";
+import { RichInline } from "@/components/rich-inline";
 
 const PREVIEW = 8;
 const GROUPS: { key: keyof FinderResult["groups"]; label: string; hint: string }[] = [
@@ -17,7 +19,7 @@ function Preview({ items }: { items: FinderQuestion[] }) {
       {items.slice(0, PREVIEW).map((q) => (
         <li key={q.id} className="flex gap-2">
           <span className="shrink-0 rounded bg-slate-100 px-1.5 text-xs font-semibold text-slate-700" title="Difficulty level · Depth of Knowledge">D{q.difficultyLevel} · {q.dok ? `DOK ${q.dok}` : "DOK –"}</span>
-          <span className="text-slate-800">{q.stem || "(no text)"}{q.standardCode ? <span className="text-xs text-slate-500"> · {q.standardCode}</span> : null}</span>
+          <span className="text-slate-800">{q.stem ? <RichInline text={q.stem} /> : "(no text)"}{q.standardCode ? <span className="text-xs text-slate-500"> · {q.standardCode}</span> : null}</span>
         </li>
       ))}
       {items.length > PREVIEW && <li className="text-xs text-slate-500">…and {items.length - PREVIEW} more.</li>}
@@ -87,6 +89,7 @@ export function BankPanel({ found, classId, link }: { found: FinderResult; class
           <p className="font-semibold text-slate-900">Practice at each student’s level</p>
           <p className="text-sm text-slate-600">The engine picks each student's questions by mastery, previous answers, difficulty and weakness.</p>
           <AssignDates className="mt-2" field={box} />
+          <SourceSelect className="mt-2 max-w-xs" field={box} />
           <button disabled={pool === 0} className="mt-3 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Assign practice on this skill</button>
         </form>
         <form action={assignReadySetFromBankAction} className="rounded-xl bg-sky-50 p-4 ring-1 ring-sky-200">
@@ -96,6 +99,7 @@ export function BankPanel({ found, classId, link }: { found: FinderResult; class
           <div className="mt-2 flex flex-wrap items-end gap-3 text-sm">
             <label className="flex flex-col">N (questions)<input type="number" name="n" min={3} max={30} defaultValue={10} className={`${box} w-24`} /></label>
             <AssignDates field={box} />
+            <SourceSelect field={box} />
           </div>
           <label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" name="revision" value="1" disabled={!found.groups.standard.length} />Include revision (1–2 questions with the same standard)</label>
           <button disabled={pool === 0} className="mt-3 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Assign a ready set of N questions</button>
