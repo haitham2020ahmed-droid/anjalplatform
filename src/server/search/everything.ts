@@ -15,6 +15,7 @@ import { searchablePagesFor } from "../../components/nav-items";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { countQuestionsOfSkills, SKILL_SYNONYMS } from "../questions/skill-questions";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 export type HitKind = "SKILL" | "GRAMMAR" | "PLACE" | "ARTICLE" | "QUESTION" | "STUDENT" | "PAGE";
@@ -54,7 +55,7 @@ export function matchScore(words: string[], title: string, more = ""): number {
 }
 
 /** Published questions' stems per school (cached a minute; the bank changes rarely during a search). */
-const stemCache = new WeakMap<object, Map<string, { at: number; v: string; rows: Promise<Row[]> }>>();
+const stemCache = sweptWeakMap<{ at: number; v: string; rows: Promise<Row[]> }>("search.everything.stemCache", 2 * 60_000);
 function questionStems(repo: Repo, skillIds: string[], key: string): Promise<Row[]> {
   let m = stemCache.get(repo); if (!m) stemCache.set(repo, (m = new Map()));
   const v = modelVersion("Question"), hit = m.get(key);

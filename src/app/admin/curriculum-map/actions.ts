@@ -4,10 +4,11 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { assignFromMap, setStudentLevels } from "@/server/curriculum-map/levels";
 import { DEFAULT_TARGET_CORRECT } from "@/server/teacher/assign";
+import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
 import { getT } from "@/i18n/server";
 import { buildSendPreview, sendScope, type SendPreview, type SendScopeKind, type SendScopeResult } from "@/server/curriculum-map/send-scope";
 
-export interface PlaceAssignInput { classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; note?: string | null }
+export interface PlaceAssignInput { classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null }
 
 /** ⭐ Assign from the Curriculum Map, without leaving the page. */
 export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: boolean; message: string }> {
@@ -19,7 +20,9 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
     const adaptive = (input.mode ?? "ADAPTIVE") === "ADAPTIVE";
     // ✋ the teacher chose each student's starting level: saved as their level (the set adapts from there)
     if (input.startLevels?.length) await setStudentLevels(repo, actor, input.classId, input.startLevels.filter((x) => ["ABOVE", "ON", "BELOW"].includes(x.level)));
-    const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, note: input.note ?? null });
+    const startAt = startOfDay(input.startAt);
+    if (startAt && due && due.getTime() < startAt.getTime()) throw new ValidationError(DATE_ORDER_ERROR);
+    const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, startAt, note: input.note ?? null });
     const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
     const parts = r.groups.map((g) => `${g.level ? LV[g.level] : "everyone"}: ${g.students} student(s)`);
     return { ok: true, message: `Assigned ✓ ${parts.join(" · ")}. Students were notified.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}` };

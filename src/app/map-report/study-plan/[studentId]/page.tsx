@@ -40,7 +40,7 @@ export default async function StudyPlanPage({ params, searchParams }: { params: 
   return (
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={back} base={`/map-report/study-plan/${studentId}`} subject={subject} full={d.full} />
-      {mine && <div className="mx-auto max-w-4xl print:hidden"><StudentStarsPanel s={mine} t={t} back={`/map-report/study-plan/${studentId}`} count={planStarCount(d.areas)} /></div>}
+      {mine && <div className="mx-auto max-w-4xl print:hidden"><StudentStarsPanel s={mine} t={t} back={`/map-report/study-plan/${studentId}`} count={d.counts ?? planStarCount(d.areas)} /></div>}
       <StudyPlanView d={d} link={actor.role === "STUDENT"} hub={["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(actor.role)} t={t} star={star} />
       {sp.print === "1" && <AutoPrint />}
     </AppShell>

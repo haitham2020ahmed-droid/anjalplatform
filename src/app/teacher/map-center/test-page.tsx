@@ -11,7 +11,8 @@ import { studentNames } from "@/server/insights/student-data";
 import { worksheetView, MAX_WORKSHEET, type SheetView } from "@/server/teacher/worksheet";
 import { ESTIMATE_NOTE, MANUAL_RANGE, AUTO_RANGE, SUBJECT_NAME, groupsOf, studentItems, testDetail, testPool, testReport, type TestDetail } from "@/server/map/map-test";
 import type { GroupKey, Subject } from "@/server/map/map-plan";
-import { excludeAction, itemOpAction, updateMapTestAction } from "./test-actions";
+import { excludeAction, itemOpAction, mapTimeAction, updateMapTestAction } from "./test-actions";
+import { LiveTimePanel } from "@/components/live-time-panel";
 import { draftsAction, recalibrateAction } from "../map-test/actions";
 import { mapTestHref } from "./href";
 import { STATUS_CHIP, STATUS_LABEL } from "./test-tab";
@@ -204,6 +205,7 @@ async function Details({ t, d }: { t: TFn; d: TestDetail }) {
           </div>
         </details>
       )}
+      {d.canEdit && !d.v.draft && d.status !== "closed" && <LiveTimePanel t={t} action={mapTimeAction} hidden={{ id: d.v.id }} minutes={d.v.minutes} endsAt={d.v.closesAt} extra={d.extra} roster={roster.flatMap((c) => c.students)} untimedAllowed />}
       {d.v.draft && d.canEdit && (
         <form action={updateMapTestAction} className="mt-3 print:hidden"><input type="hidden" name="id" value={d.v.id} /><input type="hidden" name="part" value="publish" />
           <button className={BTN_MAIN}>✅ {t("Assign online (graded automatically)")}</button>

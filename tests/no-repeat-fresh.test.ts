@@ -151,8 +151,12 @@ describe("🆕 no repeats: one sitting, across sittings, builders, Second Chance
       v = (await submitQuizAnswer(repo, C, { assignmentId, questionId: v.question.questionId, response: "A" }, tick())).view;
     }
     assert.equal(new Set(served.map((id) => stemOf.get(id))).size, served.length, "each content once");
-    // an answered question is refused a second time (goal sets too)
-    await assert.rejects(submitQuizAnswer(repo, C, { assignmentId, questionId: served[0], response: "A" }, tick()));
+    // an answered question is never counted a second time (goal sets too): r68 — a repeat (the player sending again
+    // after a lost reply) gets that answer's saved result back, and nothing is written
+    const before = await repo.count("QuestionAttempt", { studentId: C.studentId! });
+    const again = await submitQuizAnswer(repo, C, { assignmentId, questionId: served[0], response: "A" }, tick());
+    assert.equal(again.feedback.replayed, true);
+    assert.equal(await repo.count("QuestionAttempt", { studentId: C.studentId! }), before, "no second attempt");
     await afterResponseSettled();
   });
 

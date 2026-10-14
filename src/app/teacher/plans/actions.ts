@@ -13,6 +13,7 @@ import { suggestNafsPlan } from "@/server/plans/nafs-suggest";
 import { assertNafs } from "@/server/teacher/nafs-access";
 import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
+import { startOfDay } from "@/lib/assign-dates";
 
 export async function createPlanAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
@@ -23,7 +24,7 @@ export async function createPlanAction(f: FormData): Promise<void> {
     const r = await createSkillPlan(repo, actor, {
       classId, title: String(f.get("title") ?? ""), codes: f.getAll("codes").map(String),
       studentIds: f.get("who") === "some" ? f.getAll("studentIds").map(String) : undefined,
-      targetCorrect: Number(f.get("max")) || 20, dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null, note: String(f.get("note") ?? "") || null,
+      targetCorrect: Number(f.get("max")) || 20, dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null, startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null,
     });
     target = `/teacher/plans/${r.planId}?msg=${encodeURIComponent(`Plan assigned: ${r.items} place(s). Students were notified.${r.skipped.length ? ` Skipped: ${r.skipped.join(" · ")}` : ""}`)}`;
   } catch (e) {
@@ -116,7 +117,7 @@ async function sendFromPlansPage(actor: Actor, f: FormData, kind: "nafs" | "cust
       const members = (await repo.findMany("ClassMembership", { classId: form.classId, leftAt: null }, { select: ["studentId"] })).map((m) => String(m.studentId));
       plan = applyEdits([], null, added, form.studentIds.length ? form.studentIds : members);
     }
-    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
+    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, startAt: form.startAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
     msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
     tab = "sent";
   } catch (e) {

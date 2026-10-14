@@ -11,6 +11,7 @@ import { CELEBRATE, PracticeFrame, endText } from "./practice-frame";
 import { CelebrateFx } from "../feedback-fx/answer-fx";
 import { WordLookup } from "../learn/word-lookup";
 import { FlagButton } from "../learn/flag-button";
+import { BUSY_MESSAGE, sendAnswer } from "../../lib/answer-send";
 
 type Hint = (sessionId: string, questionId: string) => Promise<{ hint?: string; level?: number; maxLevel?: number; error?: string }>;
 type Submit = (input: { sessionId: string; questionId: string; response: unknown }) => Promise<{ feedback?: Feedback; view?: PracticeView; error?: string }>;
@@ -25,6 +26,10 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
+  const t = useT();
+  // r68: "Trying again…" while an answer is being sent again; `canRetry` = every try went wrong (a "Try again" shows)
+  const [retrying, setRetrying] = useState(false);
+  const [canRetry, setCanRetry] = useState(false);
   const [ended, setEnded] = useState(false);
   // ✅ finished (the last answer saved, or nothing left in this skill): "Great job! ✓", then back to My Work
   const [done, setDone] = useState<string | null>(initial.ended && initial.endReason && CELEBRATE.has(initial.endReason) ? initial.endReason : null);
@@ -42,26 +47,32 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
     if (sending.current || pending) return;
     sending.current = true;
     start(async () => {
-      try { await send(); } finally { sending.current = false; }
+      try { await send(); } catch { setCanRetry(true); setError(t(BUSY_MESSAGE)); } finally { sending.current = false; }
     });
   };
   const send = async () => {
       if (!shown) return;
       const response = (shown.type === "SENTENCE_ORDER" || shown.type === "WORD_ORDER") && !Array.isArray(value) ? shown.elements : value;
-      // a weak connection: try again twice (the server accepts each answer once, so a retry is safe)
-      let r: Awaited<ReturnType<Submit>> | null = null;
-      for (let i = 0; i < 3 && !r; i++) { try { r = await submit({ sessionId: view.sessionId, questionId: shown.questionId, response }); } catch { await new Promise((ok) => setTimeout(ok, 1200)); } }
-      if (!r) return setError("No connection. Your answer was not sent: check the internet and press Check again.");
+      // r68: a plain fetch with a time limit, sent again by itself on a weak connection or a busy server (the server
+      // accepts each answer once, so a retry is safe); never throws — on failure the answer stays and "Try again" shows
+      setRetrying(false);
+      const input = { sessionId: view.sessionId, questionId: shown.questionId, response };
+      const sent = await sendAnswer<Awaited<ReturnType<Submit>>>({ kind: "practice", ...input }, () => submit(input), { onRetry: () => setRetrying(true) });
+      setRetrying(false);
+      if (!sent.ok) { setCanRetry(true); return setError(t(sent.message)); }
+      const r = sent.data;
+      setCanRetry(false);
       if (r.error) return setError(r.error);
       setError(null);
       // the practice had already finished (another tab or a second click): a friendly card, nothing changed
       if (r.feedback?.alreadyEnded) { setEnded(true); if (r.view) setView(r.view); return; }
-      setFeedback(r.feedback!);
-      setView(r.view!);
+      if (!r.feedback || !r.view) { setCanRetry(true); return setError(t(BUSY_MESSAGE)); }
+      setFeedback(r.feedback);
+      setView(r.view);
       // the work is saved as Done with this answer: a right last answer goes straight to "Great job! ✓"; after a
       // wrong one the student reads the feedback first, then presses Finish
-      const reason = r.feedback!.next.endReason;
-      if (!r.feedback!.next.hasQuestion && reason && CELEBRATE.has(reason) && r.feedback!.correct) setDone(reason);
+      const reason = r.feedback.next.endReason;
+      if (!r.feedback.next.hasQuestion && reason && CELEBRATE.has(reason) && r.feedback.correct) setDone(reason);
   };
 
   const next = () => {
@@ -79,7 +90,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   return (
     <WordLookup>
       <PracticeFrame view={view} shownQuestion={shown} value={value} onChange={setValue} feedback={feedback}
-        ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} onNext={next} unitHref={unitHref} locked={locked}
+        ready={!!shown && isAnswerReady(shown, value)} pending={pending} error={error} onCheck={check} retrying={retrying} canRetry={canRetry} t={t} onNext={next} unitHref={unitHref} locked={locked}
         onFinish={() => setDone(feedback?.next.hasQuestion ? "COMPLETED" : feedback?.next.endReason ?? "COMPLETED")} />
       {shown && hint && !feedback && (
         <div className="mx-auto mt-3 max-w-5xl">
@@ -87,7 +98,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
           {hintText && !hints.length && <p className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">💡 {hintText}</p>}
           {(!hints.length || hints[hints.length - 1].level < hints[hints.length - 1].max) && !(hintText && !hints.length) && (
             <button type="button" className="rounded-lg border border-amber-300 bg-white px-3 py-1.5 text-sm text-amber-800 hover:bg-amber-50"
-              onClick={async () => { const r = await hint(view.sessionId, shown.questionId); if (r.hint) { if (r.level) setHints((x) => [...x.filter((h) => h.level !== r.level), { text: r.hint!, level: r.level!, max: r.maxLevel ?? 3 }]); else setHintText(r.hint); } else if (r.error) setError(r.error); }}>
+              onClick={async () => { const r = await hint(view.sessionId, shown.questionId).catch(() => ({ error: t(BUSY_MESSAGE) }) as Awaited<ReturnType<Hint>>); if (r.hint) { if (r.level) setHints((x) => [...x.filter((h) => h.level !== r.level), { text: r.hint!, level: r.level!, max: r.maxLevel ?? 3 }]); else setHintText(r.hint); } else if (r.error) setError(r.error); }}>
               💡 {hints.length ? "Another hint" : "Show a hint"} <span className="text-xs text-amber-700">(this answer will count half)</span>
             </button>
           )}

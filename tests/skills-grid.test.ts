@@ -76,7 +76,8 @@ describe("⭐ Skills grid", () => {
   });
 
   test("filter by plan: MAP plan · Curriculum · Year plan · custom", async () => {
-    assert.deepEqual(GRID_PLANS.map((p) => p.key), ["ALL", "MAP", "CURRICULUM", "YEAR", "CUSTOM"]);
+    // r68 (owner): the source filter also has NAFS and Grammar (Curriculum · MAP · NAFS · Grammar · All)
+    assert.deepEqual(GRID_PLANS.map((p) => p.key), ["ALL", "CURRICULUM", "MAP", "NAFS", "GRAMMAR", "YEAR", "CUSTOM"]);
     const tRow = await repo.findUnique("Teacher", { userId: teacher.userId });
     await repo.create("Assignment", { classId, createdById: tRow!.id, title: "Theme", target: "SKILL", skillId: g4.get("theme"), program: "MAP", track: "MAP", createdAt: now });
     await repo.create("Assignment", { classId, createdById: tRow!.id, title: "Inference", target: "SKILL", skillId: g4.get("inference"), createdAt: now });

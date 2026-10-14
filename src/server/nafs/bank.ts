@@ -20,6 +20,7 @@ import { audit } from "../audit";
 import { assertNafs, NAFS_GRADE } from "../teacher/nafs-access";
 import { passageForText } from "../admin/passages";
 import { CONTENT_SKILLS, difficultyOfLevel, difficultyOfStats, domainOf, ensureNafsFramework, isDifficulty, isMoeCode, isNafsCode, isProcess, LEVEL_OF_DIFFICULTY, MOE_STANDARDS, NAFS_SKILLS, SKILL_BY_CODE, SKILL_OF_PROCESS, STATS_MIN_ATTEMPTS, standardFor, textTypeOf, type Difficulty, type NafsDomain, type NafsProcess } from "./framework";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const on = (v: unknown) => v === true || v === 1 || v === "1" || v === "true";
@@ -67,7 +68,7 @@ export interface NafsEntry {
 // ------------------------------------------------------------------ the index (cached a minute per school)
 
 const seeded = new WeakSet<object>();
-const cache = new WeakMap<object, Map<string, { at: number; entries: NafsEntry[] }>>();
+const cache = sweptWeakMap<{ at: number; entries: NafsEntry[] }>("nafs.bank.cache", 2 * 60_000);
 const INDEX_MS = 60_000;
 /** Forget the school's index after a change (the next read builds it again). */
 export function nafsBankChanged(repo: Repo, schoolId: string): void { cache.get(repo)?.delete(schoolId); }

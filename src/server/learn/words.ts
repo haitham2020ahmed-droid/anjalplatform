@@ -19,6 +19,7 @@ import type { EnvLike } from "../ai/engine";
 import { checkWordCard, type WordCard } from "../../lib/learn/format";
 import { curriculumSelections, readWordFiles, selectionKey, selectionLabel, wordKey, type SelectionRef } from "./files";
 import { classTeacherIds, pickEdit, staffSchool, teacherIdOf, type EditSource } from "./edits";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const json = <T>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
@@ -30,7 +31,7 @@ export interface SelectionView { sel: SelectionRef; label: string; words: WordVi
 
 // ------------------------------------------------------------------ the school's own vocabulary rows (cached)
 
-const vocabCache = new WeakMap<object, Map<string, { at: number; p: Promise<Map<string, string[]>> }>>();
+const vocabCache = sweptWeakMap<{ at: number; p: Promise<Map<string, string[]>> }>("learn.words.vocabCache", 10 * 60_000);
 export function clearLearnWords(repo: Repo): void { vocabCache.delete(repo); }
 /** grade → (selection key → words) from the school's Lesson rows (unit number + lesson number). 4 reads, cached 5 min. */
 function schoolVocab(repo: Repo, schoolId: string, grade: number): Promise<Map<string, string[]>> {

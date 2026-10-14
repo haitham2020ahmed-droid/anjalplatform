@@ -24,7 +24,8 @@ export interface PlanStarAssign { classId: string; assigned: Record<string, stri
  */
 export function StudyPlanView({ d, first = true, link = false, hub = false, t = same, star }: { d: StudyPlanDoc; first?: boolean; link?: boolean; hub?: boolean; t?: T; star?: PlanStarAssign }) {
   const who = link ? "student" : "teacher";
-  const count = planStarCount(d.areas);
+  // r68: the whole plan's count (the same in the Full and the Short version)
+  const count = d.counts ?? planStarCount(d.areas);
   return (
     <>
       <ReportPage first={first} className="overflow-hidden !p-0">
@@ -98,7 +99,7 @@ function AreaPage({ a, d, link, hub, t, star }: { a: StudyArea; d: StudyPlanDoc;
             <ul className="mt-2 divide-y divide-slate-100 rounded-xl ring-1 ring-slate-200">
               {g.skills.map((k) => <SkillRow key={k.key} k={k} link={link} hub={hub} t={t} star={star} />)}
             </ul>
-            {g.unlinked.length > 0 && (
+            {g.unlinked.length > 0 && !link && (
               <details className="mt-2 text-sm text-slate-600">
                 <summary className="cursor-pointer text-xs font-semibold text-slate-500">{t("Statements without a platform skill yet ({n})", { n: g.unlinked.length })}</summary>
                 <ul className="mt-1 list-disc space-y-0.5 ps-5">{g.unlinked.map((x, i) => <li key={i}>{x.text} <span className="text-[10px] text-slate-400">{x.standards.join(" ")}</span></li>)}</ul>

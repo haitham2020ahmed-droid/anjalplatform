@@ -7,6 +7,10 @@
 import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { RR_LEVELS } from "./level";
+// r68 (owner: "a student saw articles and no placement card"): the placement file is read from the working directory,
+// which the server image may not have (the standalone build carries only what it traces) — no passages meant "test
+// not ready": no card AND the articles unlocked. The file is now also bundled: a missing file falls back to it.
+import bundledPlacement from "../../../data/readrise/placement.json";
 
 export interface PlacementQuestion { stem: string; options: string[]; /** A | B | C | D */ answer: string; skill: string }
 export interface PlacementPassage { id: string; level: number; title: string; text: string; questions: PlacementQuestion[] }
@@ -55,9 +59,13 @@ export function loadPlacementPassages(root: string = process.cwd()): PlacementPa
     const { mtimeMs } = statSync(path);
     if (cache && cache.path === path && cache.mtimeMs === mtimeMs) return cache.passages;
     const passages = parsePlacement(JSON.parse(readFileSync(path, "utf8")));
+    if (passages.length < 5 && root === process.cwd()) return bundled();
     cache = { path, mtimeMs, passages };
     return passages;
   } catch {
-    return [];
+    // the app's own file is missing on this server: the copy bundled with the code (a test's own folder: nothing)
+    return root === process.cwd() ? bundled() : [];
   }
 }
+let bundledCache: PlacementPassage[] | null = null;
+const bundled = (): PlacementPassage[] => (bundledCache ??= parsePlacement(bundledPlacement));

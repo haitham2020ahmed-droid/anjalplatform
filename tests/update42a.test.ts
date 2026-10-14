@@ -58,9 +58,9 @@ describe("update 42A: crash guard (pure)", () => {
 });
 
 describe("update 42A: safe heap limit (scripts/start.mjs)", () => {
-  test("70% of WEB_MEMORY_MB, else the container limit, else 512 MB; never under 256 MB", async () => {
+  test("70% of WEB_MEMORY_MB, else the container limit, else 512 MB, leaving 210 MB outside the heap; never under 256 MB", async () => {
     const m = (await import(pathToFileURL(join(ROOT, "scripts/start.mjs")).href)) as { heapLimitMb: (o: { webMemoryMb?: string; cgroupMb?: number | null }) => number; cgroupLimitMb: (read: (p: string) => string) => number | null };
-    assert.equal(m.heapLimitMb({}), 358);
+    assert.equal(m.heapLimitMb({}), 302, "r68: 512 MB plan → about 300 MB of heap");
     assert.equal(m.heapLimitMb({ webMemoryMb: "1024" }), 717);
     assert.equal(m.heapLimitMb({ webMemoryMb: "", cgroupMb: 2048 }), 1434);
     assert.equal(m.heapLimitMb({ webMemoryMb: "100" }), 256);

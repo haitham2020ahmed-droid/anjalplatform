@@ -11,6 +11,7 @@ import { findQuestionsForSkill } from "@/server/curriculum/question-finder";
 import { ValidationError } from "@/server/curriculum-admin";
 import { BankPanel } from "./bank-panel";
 import { SkillAssignSteps } from "@/components/skill-picker";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "Assign a skill" };
 
@@ -64,7 +65,7 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
           </details>
           <div className="mt-4 flex flex-wrap items-end gap-3 text-sm">
             <label className="flex flex-col">Questions per student<input type="number" name="max" min={5} max={50} defaultValue={20} className={`${box} w-28`} /></label>
-            <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
+            <AssignDates field={box} />
             <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
           </div>
           <div className="mt-5 border-t border-slate-100 pt-4"><SkillAssignSteps skillId={pool.skill.id} grammar={pool.skill.grammar} /></div>

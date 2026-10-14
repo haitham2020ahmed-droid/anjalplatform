@@ -54,6 +54,8 @@ export interface SendPlanInput {
   title?: string | null;
   picks: PlanPick[];
   dueAt?: Date | null;
+  /** r68: students see the plan's work from this day */
+  startAt?: Date | null;
   note?: string | null;
   /**
    * The questions the teacher picked for a skill ("I'll pick the questions"), by skill id; a skill not listed (or
@@ -96,7 +98,7 @@ export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanI
   const title = (s(input.title).replace(/\s+/g, " ").trim() || `${label} · ${s(klass.name)}`).slice(0, 191);
   const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
   const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: planKindOf(input.program), targetCorrect: null, gradeLevel: classGrade, note, createdById: actor.userId, createdAt: now,
-    status: "SENT", program: input.program ?? null, dueAt: input.dueAt ?? null, sentAt: now, updatedAt: now });
+    status: "SENT", program: input.program ?? null, dueAt: input.dueAt ?? null, ...(input.startAt ? { startAt: input.startAt } : {}), sentAt: now, updatedAt: now });
   const assignmentIds: string[] = [];
   const students = new Set<string>();
   try {
@@ -107,7 +109,7 @@ export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanI
       const ids = [...who].sort();
       const picked = await pickedOfSkill(repo, s(klass.schoolId), skillId, input.questionIds?.[skillId]);
       const r = await assignSkill(repo, actor, {
-        classId: s(klass.id), skillId, studentIds: ids.length === classSize ? undefined : ids, track: trackOfProgram(input.program, isGrammarCode(k.code)), dueAt: input.dueAt ?? null, note: note ?? `${label}: ${title}`,
+        classId: s(klass.id), skillId, studentIds: ids.length === classSize ? undefined : ids, track: trackOfProgram(input.program, isGrammarCode(k.code)), dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${label}: ${title}`,
         program: input.program ?? null, questionIds: picked?.length ? picked : null,
       }, now);
       assignmentIds.push(r.assignmentId);

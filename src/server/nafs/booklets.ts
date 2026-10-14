@@ -12,6 +12,7 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { IdleBox } from "../cache/idle";
 import type { Repo } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 import { analyzeText } from "../../reading/prl";
@@ -34,9 +35,9 @@ export interface BookletRead { valid: Booklet[]; invalid: { file: string; proble
 let dirOverride: string | null = null;
 let packDirHint: string | null = null;
 /** Tests: point the loader at a folder of small fixture booklets (null = the default). */
-export function useBookletDir(dir: string | null): void { dirOverride = dir; parsed = null; sigMemo = null; complete.clear(); }
+export function useBookletDir(dir: string | null): void { dirOverride = dir; parsed.clear(); sigMemo = null; complete.clear(); }
 /** load-packs: when the packs read from another folder (tests), the booklets are its "nafs-booklets" sub-folder. */
-export function bookletPackDir(dir: string | null): void { packDirHint = dir; parsed = null; sigMemo = null; complete.clear(); }
+export function bookletPackDir(dir: string | null): void { packDirHint = dir; parsed.clear(); sigMemo = null; complete.clear(); }
 export const bookletDir = () => dirOverride ?? (packDirHint ? join(packDirHint, "nafs-booklets") : join(process.cwd(), "data", "nafs", "booklets"));
 
 export function bookletFiles(dir = bookletDir()): string[] {
@@ -104,12 +105,14 @@ export function checkBooklet(raw: unknown, file: string): { booklet: Booklet | n
   return { booklet: { file, code, title: s(b.title).trim().slice(0, 150), kind: kind as Booklet["kind"], genre: s(b.genre).trim().slice(0, 60), passage, questions: out.sort((a, z) => a.n - z.n) }, problems: [] };
 }
 
-let parsed: { sig: string; dir: string; read: BookletRead } | null = null;
+// r68 memory: kept while used, released after 5 idle minutes
+const parsed = new IdleBox<{ sig: string; dir: string; read: BookletRead }>("nafs.booklets");
 /** Every booklet of the folder, checked (kept in memory until a file changes). */
 export function readBooklets(dir = bookletDir()): BookletRead {
   const sig = bookletSignature(dir);
   if (!sig) return { valid: [], invalid: [], files: [] };
-  if (parsed && parsed.sig === sig && parsed.dir === dir) return parsed.read;
+  const kept = parsed.get();
+  if (kept && kept.sig === sig && kept.dir === dir) return kept.read;
   const files = bookletFiles(dir);
   const read: BookletRead = { valid: [], invalid: [], files };
   const codes = new Set<string>();
@@ -122,7 +125,7 @@ export function readBooklets(dir = bookletDir()): BookletRead {
     codes.add(r.booklet.code);
     read.valid.push(r.booklet);
   }
-  parsed = { sig, dir, read };
+  parsed.set({ sig, dir, read });
   return read;
 }
 

@@ -4,6 +4,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
+import { startOfDay } from "@/lib/assign-dates";
 import { approveAiDraft, assignReteach, createTask, dismissAiDraft, requestAiDraft, scoreResearchAnswers, scoreSubmission, type TaskKind } from "@/server/teacher/writing";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN")[], permission: "assignments:create" as const };
@@ -28,7 +29,7 @@ export async function createTaskAction(f: FormData): Promise<void> {
   const msg = await run(async () => {
     const id = await createTask(repo, actor, {
       classId, kind: (f.get("kind") === "READ_ALOUD" ? "READ_ALOUD" : "WRITE") as TaskKind, title: str(f, "title"), prompt: str(f, "prompt"), passage: str(f, "passage") || null,
-      minWords: Number(f.get("minWords")) || null, dueAt: f.get("dueAt") ? new Date(`${str(f, "dueAt")}T20:59:00Z`) : null,
+      minWords: Number(f.get("minWords")) || null, dueAt: f.get("dueAt") ? new Date(`${str(f, "dueAt")}T20:59:00Z`) : null, startAt: startOfDay(f.get("startAt")),
       genre: str(f, "genre") || "FREE", staged: f.get("staged") === "1", aiFeedback: f.get("aiFeedback") === "1", skillId: str(f, "skillId") || null, sources, research,
     });
     to = `/teacher/writing?classId=${classId}&task=${id}&msg=${encodeURIComponent("✓ Sent. Students were notified.")}`;

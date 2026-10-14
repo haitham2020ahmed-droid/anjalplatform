@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PracticePlayer } from "@/components/practice/practice-player";
+import { PlayerBoundary } from "@/components/practice/player-boundary";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
@@ -72,7 +73,7 @@ export default async function PracticePage({ params, searchParams }: { params: P
     const view = await startPractice(repo, actor, skillId, new Date(), undefined, work ? { work: String(work).slice(0, 64) } : {});
     return (
       <AppShell name={String(me.displayName)}>
-        <PracticePlayer initial={view} unitHref={unitHref} submit={submitAnswerAction} hint={hintAction} />
+        <PlayerBoundary where="practice"><PracticePlayer initial={view} unitHref={unitHref} submit={submitAnswerAction} hint={hintAction} /></PlayerBoundary>
       </AppShell>
     );
   } catch (e) {

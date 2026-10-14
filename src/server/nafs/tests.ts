@@ -13,6 +13,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { assertNafs, NAFS_GRADE } from "../teacher/nafs-access";
 import { MAX_NAFS_MINUTES, MAX_NAFS_QUESTIONS } from "./framework";
 import { loadNafsQuestions, nafsIndex } from "./bank";
+import { bumpLive, cleanShift, liveKey, withStudentExtra } from "../timing/live-time";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -265,7 +266,51 @@ export async function updateNafsAssignment(repo: Repo, actor: Actor, input: { te
   const timeLimitMin = minutesOf(input.timeLimitMin);
   if (timeLimitMin === null) throw new ValidationError("Set the time of the test (minutes).");
   await repo.updateMany("NafsTestClass", { id: row.id }, { openAt, dueAt, timeLimitMin });
+  bumpLive(liveKey("nafs", s(row.id)));
   await audit(repo, { actorId: actor.userId, action: "nafs.test.assign.update", entityType: "NafsTest", entityId: s(input.testId), after: { classId: s(input.classId), timeLimitMin, openAt: openAt?.toISOString() ?? null, dueAt: dueAt?.toISOString() ?? null }, at: now });
+}
+
+/**
+ * ⏱ r69 LIVE TIME during a timed NAFS test (the class or one student): `shift` minutes more (+) or fewer (−) for the
+ * whole class (the assignment's time limit), `endsAt` the class's end time (null = none; "end now" = now), or `shift`
+ * for ONE student (`studentId`: their own extra minutes). The students' timers follow on their next poll (a few
+ * seconds); answers after the new end hand the test in.
+ */
+export async function changeNafsTime(repo: Repo, actor: Actor, input: { testId: string; classId: string; shift?: number | null; studentId?: string | null; endsAt?: Date | null; setEnd?: boolean; minutes?: number | null; setMinutes?: boolean }, now = new Date()): Promise<{ minutes: number | null; endsAt: string | null }> {
+  const t = await ownTest(repo, actor, s(input.testId));
+  const klass = await grade6Class(repo, actor, s(input.classId));
+  const row = await repo.findUnique("NafsTestClass", { testId: t.id, classId: klass.id });
+  if (!row) throw new ValidationError("Give the test online to this class first.");
+  const data: Record<string, unknown> = {};
+  let minutes = row.timeLimitMin ? Number(row.timeLimitMin) : t.timeLimitMin ? Number(t.timeLimitMin) : null;
+  let endsAt = iso(row.endsAt);
+  if (input.setMinutes) {
+    minutes = minutesOf(input.minutes);
+    if (minutes === null) throw new ValidationError("Set the time of the test (minutes).");
+    data.timeLimitMin = minutes;
+  } else if (input.setEnd) {
+    const e = d(input.endsAt);
+    if (e && Number.isNaN(e.getTime())) throw new ValidationError("Choose the end time.");
+    data.endsAt = e; endsAt = e ? e.toISOString() : null;
+  } else {
+    const shift = cleanShift(input.shift);
+    if (shift === null) throw new ValidationError("Choose how many minutes to add or take away.");
+    if (input.studentId) {
+      const sid = s(input.studentId);
+      const members = (await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
+      const who = assignedTo(row);
+      if (!members.includes(sid) || (who && !who.includes(sid))) throw new ValidationError("Choose a student who has this test.");
+      data.studentMinutes = withStudentExtra(row.studentMinutes, sid, shift);
+    } else {
+      if (minutes === null) throw new ValidationError("Set the time of the test (minutes).");
+      minutes = Math.max(1, Math.min(MAX_NAFS_MINUTES, minutes + shift));
+      data.timeLimitMin = minutes;
+    }
+  }
+  await repo.updateMany("NafsTestClass", { id: row.id }, data);
+  bumpLive(liveKey("nafs", s(row.id)));
+  await audit(repo, { actorId: actor.userId, action: "nafs.test.time", entityType: "NafsTest", entityId: s(t.id), after: { classId: klass.id, studentId: input.studentId ?? null, shift: input.shift ?? null, endsAt, minutes }, at: now });
+  return { minutes, endsAt };
 }
 
 /** The teacher releases (or holds back) the results: students then see their score and the skills to practise. */
@@ -278,19 +323,28 @@ export async function releaseNafsResults(repo: Repo, actor: Actor, input: { test
   await repo.updateMany("NafsTestClass", { id: row.id }, { releasedAt: input.release ? now : null });
 }
 
-export interface GivenClass { classId: string; className: string; openAt: string | null; dueAt: string | null; releasedAt: string | null; minutes: number | null; chosen: string[] | null; done: number; students: number }
+export interface GivenClass { classId: string; className: string; openAt: string | null; dueAt: string | null; releasedAt: string | null; minutes: number | null; chosen: string[] | null; done: number; students: number;
+  /** r69 live time: the class's end time, the students with extra (or fewer) minutes, who has it, how many are taking it now */
+  endsAt: string | null; extra: { id: string; name: string; minutes: number }[]; roster: { id: string; name: string }[]; inProgress: number }
 export async function givenClasses(repo: Repo, actor: Actor, testId: string): Promise<GivenClass[]> {
   const t = await ownTest(repo, actor, testId);
   const mine = await nafsClasses(repo, actor);
   if (!mine.length) return [];
   const [rows, results] = await Promise.all([
     repo.findMany("NafsTestClass", { testId, classId: { in: mine.map((c) => c.id) } }),
-    repo.findMany("NafsResult", { testId, classId: { in: mine.map((c) => c.id) }, submittedAt: { not: null } }, { select: ["classId"] }),
+    repo.findMany("NafsResult", { testId, classId: { in: mine.map((c) => c.id) } }, { select: ["classId", "submittedAt"], take: 3000 }),
   ]);
   return rows.map((r) => {
     const c = mine.find((x) => x.id === r.classId)!;
     const chosen = assignedTo(r);
-    return { classId: c.id, className: c.name, openAt: iso(r.openAt), dueAt: iso(r.dueAt), releasedAt: iso(r.releasedAt), minutes: r.timeLimitMin ? Number(r.timeLimitMin) : t.timeLimitMin ? Number(t.timeLimitMin) : null, chosen: chosen ? chosen.map((id) => c.students.find((x) => x.id === id)?.name ?? "Student") : null, done: results.filter((x) => x.classId === c.id).length, students: chosen ? chosen.length : c.students.length };
+    const extraMap = json<Record<string, number>>(r.studentMinutes, {}) ?? {};
+    const roster = chosen ? c.students.filter((x) => chosen.includes(x.id)) : c.students;
+    return {
+      classId: c.id, className: c.name, openAt: iso(r.openAt), dueAt: iso(r.dueAt), releasedAt: iso(r.releasedAt), minutes: r.timeLimitMin ? Number(r.timeLimitMin) : t.timeLimitMin ? Number(t.timeLimitMin) : null, chosen: chosen ? chosen.map((id) => c.students.find((x) => x.id === id)?.name ?? "Student") : null,
+      done: results.filter((x) => x.classId === c.id && x.submittedAt).length, students: chosen ? chosen.length : c.students.length,
+      endsAt: iso(r.endsAt), roster, inProgress: results.filter((x) => x.classId === c.id && !x.submittedAt).length,
+      extra: Object.entries(extraMap).filter(([, m]) => Number(m)).map(([id, m]) => ({ id, name: c.students.find((x) => x.id === id)?.name ?? "Student", minutes: Number(m) })),
+    };
   });
 }
 

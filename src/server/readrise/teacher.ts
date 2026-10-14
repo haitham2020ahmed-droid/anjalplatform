@@ -46,14 +46,16 @@ async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Prom
 }
 
 /** Puts an article on a class's list (students still read the version of their own level). Re-assigning updates the due date. */
-export async function assignArticle(repo: Repo, actor: Actor, classId: string, articleId: string, dueAt: Date | null, now = new Date()): Promise<{ created: boolean }> {
+export async function assignArticle(repo: Repo, actor: Actor, classId: string, articleId: string, dueAt: Date | null, now = new Date(), startAt: Date | null = null): Promise<{ created: boolean }> {
   await assertClassWrite(repo, actor, classId);
   const a = await repo.findUnique("RRArticle", { id: articleId });
   const hidden = await hiddenArticleIds(repo, actor.schoolId);
   if (!a || !canView(actor, a, hidden) || a.status !== "PUBLISHED" || hidden.has(articleId)) throw new ValidationError("Choose a published article from the library.");
   if (dueAt && Number.isNaN(dueAt.getTime())) throw new ValidationError("The due date is not valid.");
+  if (startAt && dueAt && dueAt.getTime() < startAt.getTime()) throw new ValidationError("The end (due) date must be on or after the start date.");
   const have = await repo.findUnique("RRClassArticle", { classId, articleId });
-  await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, createdAt: now }, { dueAt });
+  // r68: the start date (students see it from that day); assigning again updates both dates
+  await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, ...(startAt ? { startAt } : {}), createdAt: now }, { dueAt, startAt });
   await audit(repo, { actorId: actor.userId, action: "readrise.assign", entityType: "RRClassArticle", entityId: `${classId}:${articleId}`, after: { dueAt: dueAt?.toISOString() ?? null }, at: now });
   return { created: !have };
 }

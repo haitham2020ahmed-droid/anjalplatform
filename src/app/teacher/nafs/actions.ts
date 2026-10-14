@@ -9,8 +9,9 @@ import { getT } from "@/i18n/server";
 import { assignNafsTestOnline, builderPractice, builderRows, buildNafsAutomatic, buildNafsFull, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, createFullNafsPractice, moreForStandard, replaceNafsQuestion, saveFullNafsTest, type BuilderRow, type FullSettings, type MinistrySettings } from "@/server/nafs/build";
 import { createNafsPractice, deleteNafsPractice } from "@/server/nafs/practice";
 import { nafsBankPage, retagNafsQuestion, reviewNafsDraft, saveNafsQuestion, setNafsFamilyLink, setNafsHidden, type BankPage, type BankSource, type NafsQuestionInput } from "@/server/nafs/bank";
-import { deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
+import { changeNafsTime, deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
 import { generateNafsDrafts, type AiNafsInput } from "@/server/nafs/ai";
+import { assignBooklets, ensureBookletTests } from "@/server/nafs/booklet-center";
 import type { SimulationSettings } from "@/server/nafs/framework";
 
 /**
@@ -151,7 +152,9 @@ export async function automaticAction(input: { codes: string[]; total?: number |
 /** "Give adaptive practice": the targets (or the questions chosen in the bank), the class / students, the limits. */
 export async function createPracticeAction(form: FormData): Promise<void> {
   const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
-  const ret = "/teacher/nafs?tab=practice";
+  const ret = "/teacher/nafs?tab=adaptive";
+  // r69: the Suggested plan's one-click assign comes back to the plan
+  const backTo = str(form.get("back"));
   const { t } = await getT();
   let id = "";
   try {
@@ -163,15 +166,15 @@ export async function createPracticeAction(form: FormData): Promise<void> {
     });
     id = r.id;
     revalidatePath("/teacher/nafs");
-    back(`${ret}&open=${encodeURIComponent(id)}`, t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
-  } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
+    back(backTo.startsWith("/teacher/nafs?") ? backTo : `/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(id)}`, t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
+  } catch (e) { if (known(e)) back(backTo.startsWith("/teacher/nafs?") ? backTo : ret, t((e as Error).message)); throw e; }
 }
 
 export async function deletePracticeAction(form: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const { t } = await getT();
-  try { await deleteNafsPractice(repo, actor, str(form.get("id"))); } catch (e) { if (known(e)) back("/teacher/nafs?tab=practice", t((e as Error).message)); throw e; }
-  back("/teacher/nafs?tab=practice", t("Practice removed."));
+  try { await deleteNafsPractice(repo, actor, str(form.get("id"))); } catch (e) { if (known(e)) back("/teacher/nafs?tab=adaptive", t((e as Error).message)); throw e; }
+  back("/teacher/nafs?tab=adaptive", t("Practice removed."));
 }
 
 // ------------------------------------------------------------------ "Complete NAFS test (all standards)"
@@ -252,8 +255,8 @@ export async function aiDraftsAction(input: AiNafsInput): Promise<{ ok?: { ids: 
 export async function deleteTestAction(form: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const { t } = await getT();
-  try { await deleteNafsTest(repo, actor, str(form.get("id"))); } catch (e) { if (known(e)) back("/teacher/nafs?tab=tests", t((e as Error).message)); throw e; }
-  back("/teacher/nafs?tab=tests", t("Test removed."));
+  try { await deleteNafsTest(repo, actor, str(form.get("id"))); } catch (e) { if (known(e)) back("/teacher/nafs?tab=test", t((e as Error).message)); throw e; }
+  back("/teacher/nafs?tab=test", t("Test removed."));
 }
 
 // ------------------------------------------------------------------ online, results
@@ -267,9 +270,36 @@ export async function assignOnlineAction(form: FormData): Promise<void> {
   if (who && !who.length) back(ret, t("Choose at least one student."));
   try {
     const r = await assignNafsTestOnline(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null, studentIds: who });
-    if (r.adaptive) back(`/teacher/nafs?tab=practice&open=${encodeURIComponent(r.practiceId ?? "")}`, t("Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice.", { n: r.students }));
+    if (r.adaptive) back(`/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.practiceId ?? "")}`, t("Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice.", { n: r.students }));
     back(ret, t("Given online to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
   } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
+}
+
+/**
+ * r69 Ministry booklets: the ticked booklets (one or several) → "Assign online" to a class / chosen students (each
+ * booklet whole, its own time and dates), or "Get ready to print" (each booklet becomes a NAFS test: print, key, sheets).
+ */
+export async function assignBookletsAction(form: FormData): Promise<void> {
+  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+  const ret0 = str(form.get("back"));
+  const ret = ret0.startsWith("/teacher/nafs?") ? ret0 : "/teacher/nafs?tab=booklets";
+  const { t } = await getT();
+  const codes = form.getAll("b").map(String).filter(Boolean);
+  const keepTicked = (href: string) => `${href}${codes.map((c) => `&b=${encodeURIComponent(c)}`).join("")}#assign`;
+  if (!codes.length) back(ret, t("Choose at least one booklet."));
+  let to = "";
+  try {
+    if (str(form.get("do")) === "print") {
+      const made = await ensureBookletTests(repo, actor, codes);
+      to = `/teacher/nafs?tab=booklets&ready=${made.map((m) => encodeURIComponent(m.testId)).join(",")}&msg=${encodeURIComponent(t("{n} booklet(s) ready to print.", { n: made.length }))}`;
+    } else {
+      const sids = form.getAll("sid").map(String).filter(Boolean);
+      const r = await assignBooklets(repo, actor, { codes, classId: str(form.get("classId")), studentIds: sids.length ? sids : null, minutes: str(form.get("minutes")) ? Number(form.get("minutes")) : null, openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true) });
+      to = `${ret}&msg=${encodeURIComponent(t("{n} booklet(s) given online to {s} student(s). They find them in their NAFS icon.", { n: r.booklets, s: r.students }))}`;
+    }
+  } catch (e) { if (known(e)) redirect(`${keepTicked(ret)}`.replace("#assign", `&msg=${encodeURIComponent(t((e as Error).message))}#assign`)); throw e; }
+  revalidatePath("/teacher/nafs");
+  redirect(to);
 }
 
 /** One assignment's time and open / due dates. */
@@ -281,6 +311,26 @@ export async function updateAssignmentAction(form: FormData): Promise<void> {
   try { await updateNafsAssignment(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null }); }
   catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
   back(ret, t("Saved."));
+}
+
+/**
+ * ⏱ r69 live time during a timed NAFS test: minutes more / fewer for the class or one student, a new time limit,
+ * "end in N minutes", "end now", or no end time. The students' timers follow within a few seconds.
+ */
+export async function nafsTimeAction(form: FormData): Promise<void> {
+  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+  const testId = str(form.get("testId")), classId = str(form.get("classId"));
+  const ret = `/teacher/nafs/tests/${encodeURIComponent(testId)}`;
+  const { t } = await getT();
+  const op = str(form.get("op"));
+  try {
+    if (op === "limit") await changeNafsTime(repo, actor, { testId, classId, setMinutes: true, minutes: str(form.get("minutes")) ? Number(form.get("minutes")) : null });
+    else if (op === "endin") { const m = Math.round(Number(form.get("in"))); if (!Number.isFinite(m) || m < 1 || m > 600) back(ret, t("Choose the end time.")); await changeNafsTime(repo, actor, { testId, classId, setEnd: true, endsAt: new Date(Date.now() + m * 60_000) }); }
+    else if (op === "endnow") await changeNafsTime(repo, actor, { testId, classId, setEnd: true, endsAt: new Date() });
+    else if (op === "noend") await changeNafsTime(repo, actor, { testId, classId, setEnd: true, endsAt: null });
+    else await changeNafsTime(repo, actor, { testId, classId, shift: Number(form.get("shift")) * (str(form.get("sign")) === "-" ? -1 : 1), studentId: str(form.get("studentId")) || null });
+  } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
+  back(ret, t("Time changed. The students' timers update in a few seconds."));
 }
 
 /** The marking queue: the teacher's rubric score (0 / 1 / 2) for one short written answer. */

@@ -138,7 +138,9 @@ describe("Assigned: see and cancel everything a teacher assigned", () => {
       const after = await keys(me);
       assert.ok(!after.has(key), `${k} hidden from My Work`);
       assert.ok(!(await keys(other)).has(key) || k === "LESSON", `${k} hidden for the other student too`);
-      const row = (await assignedList(repo, teacher, { kind: k }, now)).items.find((x) => x.id === id)!;
+      // r68 (owner): a cancelled item disappears from the default list; it is listed with Status = Cancelled
+      assert.ok(!(await assignedList(repo, teacher, { kind: k }, now)).items.some((x) => x.id === id), `${k} gone from the default list`);
+      const row = (await assignedList(repo, teacher, { kind: k, status: "CANCELLED" }, now)).items.find((x) => x.id === id)!;
       assert.equal(row.status, "CANCELLED"); assert.equal(row.cancelled, true);
       assert.deepEqual(await answers(), before, `${k}: no answer or row deleted`);
       await restoreAssignment(repo, teacher, k, id, null, now);

@@ -23,6 +23,7 @@ import { skillPool } from "../teacher/skill-assign";
 import { assignLearn } from "../learn/teacher";
 import { classMembers } from "../insights/student-data";
 import { masteredAmong } from "../skills/status-extras";
+import { DATE_ORDER_ERROR, startOfDay } from "../../lib/assign-dates";
 
 const s = (v: unknown) => String(v ?? "");
 export type StarKind = "SKILL" | "LESSON";
@@ -65,7 +66,7 @@ export async function starredLessons(repo: Repo, classId: string, codes: string[
   return new Map(rows.map((r) => [s(r.ref), s(r.id)]));
 }
 
-export interface StarInput { kind: StarKind; ref: string; classId: string; dueAt?: string | null; track?: Track | null; /** ⭐ leave out the students who already mastered the skill (the teacher answered Yes) */ excludeMastered?: boolean }
+export interface StarInput { kind: StarKind; ref: string; classId: string; dueAt?: string | null; /** r68: "yyyy-mm-dd": students see it from this day */ startAt?: string | null; track?: Track | null; /** ⭐ leave out the students who already mastered the skill (the teacher answered Yes) */ excludeMastered?: boolean }
 
 /** "5 students already mastered this skill — exclude them?": the class's students with ⭐ on the skill (any copy). */
 export async function masteredInClass(repo: Repo, actor: Actor, classId: string, skillId: string): Promise<{ count: number; total: number; studentIds: string[] }> {
@@ -84,10 +85,13 @@ export async function starAssign(repo: Repo, actor: Actor, input: StarInput, now
   const classId = s(klass.id);
   const due = dueOf(input.dueAt, now) ?? dueOf(endOfSchoolWeek(now), now);
   const dueIso = due ? due.toISOString() : null;
+  // r68: a start date (students see it from that day); never after the due date
+  const startAt = input.startAt ? startOfDay(input.startAt) : null;
+  if (startAt && due && due.getTime() < startAt.getTime()) throw new ValidationError(DATE_ORDER_ERROR);
   if (input.kind === "LESSON") {
     const open = (await starredLessons(repo, classId, [s(input.ref)])).get(s(input.ref));
     if (open) return { id: open, kind: "LESSON", ref: s(input.ref), students: 0, dueAt: dueIso, already: true };
-    const r = await assignLearn(repo, actor, { kind: "LESSON", ref: s(input.ref), classId, target: "CLASS", dueAt: due }, now);
+    const r = await assignLearn(repo, actor, { kind: "LESSON", ref: s(input.ref), classId, target: "CLASS", dueAt: due, startAt }, now);
     return { id: r.assignId, kind: "LESSON", ref: s(input.ref), students: r.students, dueAt: dueIso, already: false };
   }
   const skillId = s(input.ref);
@@ -106,7 +110,7 @@ export async function starAssign(repo: Repo, actor: Actor, input: StarInput, now
   }
   const r = await assignQuestions(repo, actor, {
     classId, questionIds: all, title: skill.name, exactTitle: true, track: input.track ?? "CURRICULUM", ...(studentIds ? { studentIds } : {}),
-    adaptive: { maxQuestions: Math.min(15, all.length) }, dueAt: due,
+    adaptive: { maxQuestions: Math.min(15, all.length) }, dueAt: due, startAt,
   }, now);
   // the star reads Assignment.skillId (one skill per assignment)
   await repo.updateMany("Assignment", { id: r.assignmentId }, { skillId });

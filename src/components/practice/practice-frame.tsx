@@ -46,6 +46,12 @@ export function PracticeFrame(props: {
   onFinish?: () => void;
   /** r67: after "take your time" the answer buttons wait a few seconds */
   locked?: boolean;
+  /** r68: the answer is being sent again by itself (weak connection, busy server) */
+  retrying?: boolean;
+  /** r68: every try failed: a small "Try again" inside the player (never a full-page error); the answer stays */
+  canRetry?: boolean;
+  /** the interface language's translate function (the frame itself is shared with server-drawn previews) */
+  t?: (text: string) => string;
 }) {
   const { view, shownQuestion: q, feedback: fb } = props;
   const finished = view.ended && (!fb || !fb.next.hasQuestion);
@@ -93,7 +99,13 @@ export function PracticeFrame(props: {
             {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-lg font-medium leading-relaxed text-slate-900">{q.stem}</p>}
             <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending || Boolean(props.locked)} /></div>
-            {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
+            {props.retrying && <p role="status" data-testid="answer-retrying" className="mt-4 rounded-lg bg-sky-50 px-3 py-2 text-sky-800">{props.t ? props.t("Trying again…") : "Trying again…"}</p>}
+            {props.error && (
+              <div role="alert" className="mt-4 flex flex-wrap items-center gap-3 rounded-lg bg-red-50 px-3 py-2 text-red-700">
+                <span>{props.error}</span>
+                {props.canRetry && !fb && <button type="button" data-testid="answer-try-again" onClick={props.onCheck} disabled={props.pending} className="rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-red-800 ring-1 ring-red-300 disabled:opacity-50">{props.t ? props.t("Try again") : "Try again"}</button>}
+              </div>
+            )}
             {/* the 30–50 rule: mastered at 30+ → Done and the practice ends; 50 answers without mastery → Done, and the
                 student chooses "Stop for now" or "Keep practising" */}
             {justDone && (doneBy === "MASTERED"

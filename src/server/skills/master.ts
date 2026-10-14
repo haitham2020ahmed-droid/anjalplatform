@@ -15,6 +15,7 @@ import { audit } from "../audit";
 import { countQuestionsOfSkills } from "../questions/skill-questions";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 export type SkillKind = "GRAMMAR" | "VOCABULARY" | "READING" | "LANGUAGE" | "OTHER";
@@ -33,7 +34,7 @@ function kindOf(code: string, domain: string, areaSubject: string | null): Skill
   return "OTHER";
 }
 
-const listCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<MasterSkill[]> }>>();
+const listCache = sweptWeakMap<{ v: string; at: number; p: Promise<MasterSkill[]> }>("skills.master.listCache", 2 * 60_000);
 /** what the list is built from: a write to any of these (in this process) builds it again */
 const LIST_MODELS = ["Grade", "Curriculum", "Skill", "SkillFamily", "SkillStandard", "Standard", "UnitSkill", "MapGoalArea", "Question", "QuestionMapLink"];
 

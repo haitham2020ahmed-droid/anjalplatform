@@ -4,6 +4,7 @@
  * server from these fields — nothing from the browser is trusted beyond the teacher's choices).
  */
 import { parseQuestionIdsField } from "../../components/skill-picker/helpers";
+import { startOfDay } from "../../lib/assign-dates";
 
 export interface PlanForm {
   classId: string;
@@ -21,6 +22,9 @@ export interface PlanForm {
   note: string;
   dueAt: Date | null;
   dueText: string;
+  /** r68: the start date (students see the plan's work from that day) */
+  startAt: Date | null;
+  startText: string;
   /** page options that change the suggestion (subject, areas…) */
   extra: string[];
   key: string;
@@ -51,6 +55,7 @@ export function readPlanForm(get: (k: string) => string | null, getAll: (k: stri
   const classId = String(get("classId") ?? "");
   const key = planKey(classId, who, studentIds, extra);
   const due = String(get("dueAt") ?? "");
+  const start = String(get("startAt") ?? "");
   return {
     classId, who, studentIds, extra, key,
     keep: get("edited") === "1" && get("pkey") === key ? getAll("keep").filter(Boolean) : null,
@@ -62,6 +67,8 @@ export function readPlanForm(get: (k: string) => string | null, getAll: (k: stri
     note: String(get("note") ?? "").slice(0, 1000),
     dueText: /^\d{4}-\d{2}-\d{2}$/.test(due) ? due : "",
     dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null,
+    startText: /^\d{4}-\d{2}-\d{2}$/.test(start) ? start : "",
+    startAt: startOfDay(/^\d{4}-\d{2}-\d{2}$/.test(start) ? start : ""),
     excludeMastered: get("xm") !== "0",
   };
 }

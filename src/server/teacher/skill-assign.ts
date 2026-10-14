@@ -36,7 +36,7 @@ export async function skillPool(repo: Repo, schoolId: string, skillId: string): 
   return { skill: { id: s(skill.id), name: s(skill.name), grade: Number(grade.level), grammar: isGrammarCode(skill.code) }, byLevel };
 }
 
-export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { classId: string; skillId: string; mode: "AUTOMATIC" | "MANUAL"; levels?: Record<string, string>; skip?: string[]; dueAt?: Date | null; note?: string | null; max?: number; program?: string | null; questionIds?: string[] | null }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[] }> {
+export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { classId: string; skillId: string; mode: "AUTOMATIC" | "MANUAL"; levels?: Record<string, string>; skip?: string[]; dueAt?: Date | null; /** r68: students see it from this day */ startAt?: Date | null; note?: string | null; max?: number; program?: string | null; questionIds?: string[] | null }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[] }> {
   assertCan(actor, "assignments:create");
   const klass = await assertClassAccess(repo, actor, input.classId);
   // access rules (UI reorg): a skill of ANY grade may go to the teacher's own class (e.g. Grade 11 with no curriculum yet)
@@ -59,7 +59,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
   const notes: string[] = [];
   const groups: { level: Level | null; students: number; questions: number }[] = [];
   if (input.mode === "AUTOMATIC") {
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Approaching → Meeting → Exceeding)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Approaching → Meeting → Exceeding)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
     groups.push({ level: null, students: students.length, questions: all.length });
     for (const l of ["BELOW", "ON", "ABOVE"] as Level[]) if (!byLevel[l].length) notes.push(`${NAME[l]} has no questions yet.`);
     return { groups, notes };
@@ -72,7 +72,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
     if (!ids.length) { used = "ON"; ids = byLevel.ON; }
     if (!ids.length) { used = (["ABOVE", "ON", "BELOW"] as Level[]).find((l) => byLevel[l].length)!; ids = byLevel[used]; }
     if (used !== level) notes.push(`${NAME[level]} has no questions yet: those ${who.length} student(s) got ${NAME[used]} questions.`);
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: who, questionIds: ids.slice(0, max), title: `${skill.name} (${NAME[used]})`, exactTitle: true, dueAt: input.dueAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: who, questionIds: ids.slice(0, max), title: `${skill.name} (${NAME[used]})`, exactTitle: true, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, program: input.program ?? null }, now);
     groups.push({ level, students: who.length, questions: Math.min(max, ids.length) });
   }
   return { groups, notes };

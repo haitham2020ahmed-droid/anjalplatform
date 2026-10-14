@@ -17,6 +17,7 @@ import { assertClassRead } from "../teacher/coordinators";
 import { audit } from "../audit";
 import { RESPOND_LEVELS, respondPage, rtrSetCode, type RespondLevel } from "./respond";
 import { suggestLevels, EVIDENCE_NAME, type Evidence } from "./auto-levels";
+import { startedBy } from "../../lib/assign-dates";
 
 const s = (v: unknown) => String(v ?? "");
 const iso = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).toISOString() : null);
@@ -40,7 +41,7 @@ export async function respondAssignPlan(repo: Repo, actor: Actor, classId: strin
 }
 
 /** Sends the Text Set's Respond to Reading: each student gets the level chosen for them. */
-export async function assignRespond(repo: Repo, actor: Actor, input: { classId: string; code: string; levels: Record<string, string>; dueAt?: Date | null; note?: string | null }, now = new Date()): Promise<{ assignmentId: string; students: number; byLevel: Record<RespondLevel, number>; fallback: number }> {
+export async function assignRespond(repo: Repo, actor: Actor, input: { classId: string; code: string; levels: Record<string, string>; dueAt?: Date | null; startAt?: Date | null; note?: string | null }, now = new Date()): Promise<{ assignmentId: string; students: number; byLevel: Record<RespondLevel, number>; fallback: number }> {
   assertCan(actor, "assignments:create");
   const klass = await assertClassAccess(repo, actor, input.classId);
   const setCode = rtrSetCode(input.code);
@@ -63,7 +64,7 @@ export async function assignRespond(repo: Repo, actor: Actor, input: { classId: 
   const teacher = (await repo.findMany("Teacher", { userId: actor.userId }))[0];
   const title = `Respond to Reading · ${page.unit} · ${page.heading}`.slice(0, 255);
   const id = await repo.transaction(async (tx) => {
-    const a = await tx.create("RespondAssignment", { schoolId: actor.schoolId!, classId: input.classId, setCode, title, dueAt: input.dueAt ?? null, note: s(input.note).slice(0, 1000) || null, createdById: s(teacher?.id ?? actor.userId), createdAt: now });
+    const a = await tx.create("RespondAssignment", { schoolId: actor.schoolId!, classId: input.classId, setCode, title, dueAt: input.dueAt ?? null, ...(input.startAt ? { startAt: input.startAt } : {}), note: s(input.note).slice(0, 1000) || null, createdById: s(teacher?.id ?? actor.userId), createdAt: now });
     await tx.createMany("RespondAssignmentStudent", rows.map((r) => ({ assignmentId: a.id, studentId: r.studentId, level: r.level, finishedAt: null, score: null, feedback: null, updatedAt: now })));
     const studs = await tx.findMany("Student", { id: { in: rows.map((r) => r.studentId) } }, { select: ["id", "userId"] });
     const due = input.dueAt ? ` Due ${input.dueAt.toISOString().slice(0, 10)}.` : "";
@@ -141,7 +142,8 @@ export async function studentRespondWork(repo: Repo, actor: Actor): Promise<Stud
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students have this list.");
   const mine = await repo.findMany("RespondAssignmentStudent", { studentId: actor.studentId });
   if (!mine.length) return [];
-  const as = (await repo.findMany("RespondAssignment", { id: { in: mine.map((m) => m.assignmentId) } })).filter((a) => !a.deletedAt);
+  // r68: a Respond to Reading with a start date shows from that day
+  const as = (await repo.findMany("RespondAssignment", { id: { in: mine.map((m) => m.assignmentId) } })).filter((a) => !a.deletedAt && startedBy(a.startAt));
   return as.map((a) => {
     const m = mine.find((x) => x.assignmentId === a.id)!;
     return { assignmentId: s(a.id), setCode: s(a.setCode), heading: s(a.title).split(" · ").slice(2).join(" · ") || s(a.title), dueAt: iso(a.dueAt), finishedAt: iso(m.finishedAt), level: s(m.level) as RespondLevel, score: m.score === null || m.score === undefined ? null : Number(m.score), feedback: m.feedback ? s(m.feedback) : null };

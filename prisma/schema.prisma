@@ -1927,6 +1927,7 @@ model RespondAssignment {
   setCode     String    @db.VarChar(120)
   title       String    @db.VarChar(255)
   dueAt       DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   note        String?   @db.VarChar(1000)
   createdById String
   createdAt   DateTime  @default(now())
@@ -2170,7 +2171,7 @@ model QuestionFlag {
   studentId    String
   reason       String    @db.VarChar(40)
   note         String?   @db.VarChar(500)
-  /// OPEN | FIXED | DISMISSED
+  /// OPEN | FIXED | DISMISSED | REMOVED (r68: the question was deleted, hidden or archived)
   status       String    @default("OPEN") @db.VarChar(10)
   resolvedById String?
   resolvedAt   DateTime?
@@ -2283,6 +2284,10 @@ model MapSimWindow {
   /// MANUAL: how it was built { areas, ritLow, ritHigh }
   settings    Json?
   updatedAt   DateTime?
+  /// r69 live time: minutes per subject sitting from the student's start (null = untimed, like MAP Growth)
+  timeLimitMin Int?
+  /// r69 live time: extra minutes per student { "<studentId>": +5 | -5 … }
+  studentMinutes Json?
 
   @@index([schoolId, closesAt])
 }
@@ -2365,6 +2370,7 @@ model WritingTask {
   passage     String?   @db.Text
   minWords    Int?
   dueAt       DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   /// NARRATIVE | INFORMATIONAL | OPINION | HOW_TO | RESEARCH | FREE (genre rubric and checklist)
   genre       String    @default("FREE") @db.VarChar(14)
   /// the skill the writing practises (scores feed its mastery and reteach routing)
@@ -3140,6 +3146,7 @@ model RRClassArticle {
   articleId    String
   assignedById String
   dueAt        DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   createdAt    DateTime  @default(now())
 
   @@unique([classId, articleId])
@@ -3599,6 +3606,10 @@ model NafsTestClass {
   releasedAt  DateTime?
   /// this assignment's own time in minutes (null = the test's time)
   timeLimitMin Int?
+  /// r69 live time: the class's end time (no student's timer runs past it; null = none) — changed live by the teacher
+  endsAt      DateTime?
+  /// r69 live time: extra minutes per student { "<studentId>": +5 | -5 … } (a student's own extension or cut)
+  studentMinutes Json?
   /// only these students of the class (Student ids); null = the whole class
   studentIds  Json?
   createdById String
@@ -3793,6 +3804,7 @@ model LearnAssign {
   /// 1–4: the teacher's choice of level (null = automatic)
   level       Int?
   dueAt       DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   createdById String
   createdAt   DateTime  @default(now())
   deletedAt   DateTime?
@@ -3812,6 +3824,7 @@ model LearnAssignee {
   title     String    @db.VarChar(191)
   level     Int?
   dueAt     DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   /// NOT_STARTED | IN_PROGRESS | DONE
   status    String    @default("NOT_STARTED") @db.VarChar(12)
   createdAt DateTime  @default(now())
@@ -3948,6 +3961,9 @@ model MapYearPlan {
   createdById String
   generatedAt DateTime @default(now())
   updatedAt   DateTime @default(now())
+  /// owner r68 §C: sent to the class's students (their MAP page shows a Year plan tab); null = teachers only
+  sentAt      DateTime?
+  sentById    String?
 
   @@index([schoolId])
 }

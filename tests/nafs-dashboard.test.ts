@@ -96,7 +96,7 @@ before(async () => {
 
 describe("tabs, cut-offs and the range", () => {
   test("Dashboard is the second tab; group cut-offs live in one place", () => {
-    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]); // owner r67: Practice · Tests
+    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Adaptive", "NAFS test", "Ministry booklets", "Reports", "Suggested plan", "Question bank", "Marking"]); // owner r69: the Dashboard is merged into Reports
     assert.deepEqual(NAFS_GROUPS.map((g) => [g.name, g.min]), [["Exceeding", 85], ["Meeting", 65], ["Approaching", 45], ["Needs support", 0]]);
     assert.equal(WEAK_BELOW, 65);
     assert.equal(groupOf(85), "EXCEEDING"); assert.equal(groupOf(84), "MEETING"); assert.equal(groupOf(65), "MEETING");
@@ -197,14 +197,14 @@ describe("4. groups, movement, actions", () => {
     const d = await nafsDashboard(repo, g6, { classId: klassId });
     const c = d.groups.find((x) => x.key === "MEETING")!.classes[0];
     const p = new URL(c.practiceHref, "http://x");
-    assert.equal(p.pathname, "/teacher/nafs"); assert.equal(p.searchParams.get("tab"), "practice"); assert.equal(p.searchParams.get("class"), klassId);
+    assert.equal(p.pathname, "/teacher/nafs"); assert.equal(p.searchParams.get("tab"), "adaptive"); // owner r69 assert.equal(p.searchParams.get("class"), klassId);
     assert.deepEqual(p.searchParams.getAll("target"), ["MOE.S01", "MOE.S04", "MOE.S05"]);
     assert.deepEqual(p.searchParams.getAll("sid").sort(), [s1, s2].sort());
     assert.equal(p.hash, "#give");
     const t = new URL(c.testHref, "http://x");
     assert.equal(t.pathname, "/teacher/nafs/tests/new"); assert.equal(t.searchParams.get("start"), "CHOOSE"); assert.equal(t.searchParams.get("class"), klassId);
     assert.equal(t.searchParams.get("codes"), "MOE.S01,MOE.S04,MOE.S05");
-    assert.equal(practiceHref("k", ["MOE.S02"]), "/teacher/nafs?tab=practice&class=k&target=MOE.S02#give");
+    assert.equal(practiceHref("k", ["MOE.S02"]), "/teacher/nafs?tab=adaptive&class=k&target=MOE.S02#give"); // owner r69
     assert.equal(testHref("k", ["MOE.S02"]), "/teacher/nafs/tests/new?start=CHOOSE&class=k&codes=MOE.S02"); // owner r67: the one builder
     // the tools read the prefill
     const tab = read("src/components/nafs/practice-tab.tsx");
@@ -252,9 +252,10 @@ describe("7. the admin's school view", () => {
     const one = await nafsDashboard(repo, admin, { classId: klassId });
     assert.equal(one.overview.avgScore, 67);
     // admins find the dashboard by name
-    assert.ok(searchablePagesFor("SCHOOL_ADMIN", { nafs: true }).some((x) => x.href === "/teacher/nafs?tab=dashboard"));
-    assert.ok(searchablePagesFor("TEACHER", { nafs: true }).some((x) => x.href === "/teacher/nafs?tab=dashboard"));
-    assert.ok(!searchablePagesFor("TEACHER", { nafs: false }).some((x) => x.href === "/teacher/nafs?tab=dashboard"));
+    // (owner r69: the Dashboard is merged into the Reports tab)
+    assert.ok(searchablePagesFor("SCHOOL_ADMIN", { nafs: true }).some((x) => x.href === "/teacher/nafs?tab=reports"));
+    assert.ok(searchablePagesFor("TEACHER", { nafs: true }).some((x) => x.href === "/teacher/nafs?tab=reports"));
+    assert.ok(!searchablePagesFor("TEACHER", { nafs: false }).some((x) => x.href === "/teacher/nafs?tab=reports"));
   });
 
   test("access: only Grade 6 teachers and admins; a teacher only their classes", async () => {

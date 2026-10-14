@@ -13,6 +13,7 @@ import { ProgramTabs } from "@/components/student/program-tabs";
 import { GrowthStory } from "@/components/readrise/growth-story";
 import { myGrowthStory } from "@/server/readrise/growth-report";
 import { getT } from "@/i18n/server";
+import { PlacementPopup } from "@/components/readrise/placement-popup";
 
 export const metadata = { title: "ReadRise" };
 export const dynamic = "force-dynamic";
@@ -23,8 +24,9 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
   startReadRiseLibraryLoad(repo); // new article files of a deploy load in the background — the page never waits for them
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  /** 📊 "My report" tab: my level, weekly goal, reading numbers and growth; the default tab is the library */
+  /** 📊 "My report" tab: my level, weekly goal, reading numbers and growth; 🎯 "Placement test" tab (r68); the default tab is the library */
   const report = sp.tab === "report";
+  const placementTab = sp.tab === "placement";
   const [h, { t }] = await Promise.all([
     readRiseHome(repo, actor, { q: typeof sp.q === "string" ? sp.q.slice(0, 100) : "", topic: typeof sp.topic === "string" ? sp.topic.slice(0, 100) : "" }),
     getT(),
@@ -43,7 +45,9 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
       </header>
 
       {/* 🎯 no level before the placement: the big card sits at the top of both tabs until the test is finished */}
-      {h.placement.state !== "NONE" && (!h.placed || !report) && (
+      {/* 🎯 r68: the first visit without a finished placement: a friendly window (Start / Later); the card below stays */}
+      {!h.placement.doneAt && (h.placement.state === "NEED" || h.placement.state === "OPEN") && !placementTab && <PlacementPopup studentKey={actor.studentId!} href="/student/readrise/placement" cont={h.placement.state === "OPEN"} />}
+      {h.placement.state !== "NONE" && (!h.placed || !report) && !placementTab && (
         <Link href="/student/readrise/placement" data-testid="rr-placement-card" className="lift mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-navy to-indigo-700 p-6 text-white shadow-pop">
           <span className="min-w-0 flex-1">
             <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">🎯 {t("Find my level")}</span>
@@ -54,7 +58,31 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
         </Link>
       )}
 
-      <div className="mt-5"><ProgramTabs tabs={[{ href: "/student/readrise", label: "Articles", icon: "📚", on: !report }, { href: "/student/readrise?tab=report", label: "My report", icon: "📊", on: report }]} /></div>
+      <div className="mt-5"><ProgramTabs tabs={[{ href: "/student/readrise", label: "Articles", icon: "📚", on: !report && !placementTab }, { href: "/student/readrise?tab=report", label: "My report", icon: "📊", on: report }, { href: "/student/readrise?tab=placement", label: "Placement test", icon: "🎯", on: placementTab }]} /></div>
+
+      {placementTab && (
+        <section data-testid="rr-placement-tab" aria-label={t("Placement test")} className="rounded-3xl bg-white p-6 shadow-card ring-1 ring-slate-200">
+          {h.placement.state === "OPEN" ? (
+            <><p className="text-lg font-semibold text-brand-navy">{t("Your placement test is half done.")}</p><Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Continue ▶")}</Link></>
+          ) : h.placement.doneAt ? (
+            <>
+              <p className="text-lg font-semibold text-emerald-800">✅ {t("Placement test done on {date}", { date: h.placement.doneAt.slice(0, 10) })}</p>
+              {h.placement.result !== null && <p className="mt-1 text-slate-700">{t("Your starting level")}: <b className="text-brand-navy">{h.placement.result}</b></p>}
+              {h.placement.state === "RETAKE" ? <Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("Take the placement again")} ▶</Link>
+                : <p className="mt-2 text-sm text-slate-500">{t("Your teacher can let you take it again.")}</p>}
+            </>
+          ) : h.placement.ready === false ? (
+            <p className="text-slate-700">{t("The placement test is not ready yet. Ask your teacher.")}</p>
+          ) : (
+            <>
+              <p className="text-lg font-semibold text-brand-navy">{t("Take the placement test")}</p>
+              <p className="mt-1 text-slate-600">{t("A few short passages with 3 questions each. It finds the articles that are just right for you.")}</p>
+              {h.placed && <p className="mt-1 text-sm text-slate-500">{t("Your teacher set your level; the placement test can still find your best level.")}</p>}
+              <Link href="/student/readrise/placement" className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white" data-testid="rr-placement-start">{t("Start ▶")}</Link>
+            </>
+          )}
+        </section>
+      )}
 
 
       {report && !h.placed && (
@@ -110,7 +138,7 @@ export default async function ReadRiseHomePage({ searchParams }: { searchParams:
 
       </>}
 
-      {!report && (h.locked ? (
+      {!report && !placementTab && (h.locked ? (
         <p data-testid="rr-locked" className="mt-6 rounded-2xl bg-white p-5 text-slate-700 ring-1 ring-slate-200">🔒 {t("Your articles open after the placement test.")}</p>
       ) : <ReadRiseLibrary lib={h.library} showLevel={h.placed} />)}
     </AppShell>

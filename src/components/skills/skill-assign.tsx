@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Combo } from "@/components/ui/combo";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 type Track = "CURRICULUM" | "MAP" | "NAFS";
 export interface SkillRosterClass { id: string; name: string; grade: number; students: { id: string; name: string }[] }
@@ -12,7 +13,7 @@ export function SkillAssignButton({ skillId, name, grade }: { skillId: string; n
 }
 
 /** The page's ONE window: any of the teacher's classes (any grade), all or starred students, Curriculum / MAP / Nafs. */
-export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass[]; assign: (i: { classId: string; skillId: string; studentIds?: string[]; track: Track; dueAt?: string | null }) => Promise<{ ok: boolean; message: string }> }) {
+export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass[]; assign: (i: { classId: string; skillId: string; studentIds?: string[]; track: Track; dueAt?: string | null; startAt?: string | null }) => Promise<{ ok: boolean; message: string }> }) {
   const [open, setOpen] = useState(false);
   const [skill, setSkill] = useState<{ skillId: string; name: string; grade: number } | null>(null);
   const [classId, setClassId] = useState("");
@@ -20,6 +21,7 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
   const [starred, setStarred] = useState<Set<string>>(new Set());
   const [track, setTrack] = useState<Track>("CURRICULUM");
   const [due, setDue] = useState("");
+  const [start, setStart] = useState("");
   const [busy, setBusy] = useState(false);
   const [res, setRes] = useState<{ ok: boolean; message: string } | null>(null);
   useEffect(() => {
@@ -38,7 +40,7 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
   const klass = fit.find((c) => c.id === classId);
   const send = async () => {
     setBusy(true); setRes(null);
-    setRes(await assign({ classId, skillId: skill.skillId, studentIds: who === "some" ? [...starred] : undefined, track, dueAt: due || null }));
+    setRes(await assign({ classId, skillId: skill.skillId, studentIds: who === "some" ? [...starred] : undefined, track, dueAt: due || null, startAt: start || null }));
     setBusy(false);
   };
   const pill = (on: boolean) => `rounded-full px-3 py-1.5 font-semibold ${on ? "bg-brand-navy text-white" : "ring-1 ring-slate-300"}`;
@@ -65,7 +67,7 @@ export function SkillAssignHost({ classes, assign }: { classes: SkillRosterClass
               <button type="button" onClick={() => setTrack("MAP")} className={pill(track === "MAP")}>🗺️ MAP</button>
               <button type="button" onClick={() => setTrack("NAFS")} className={pill(track === "NAFS")}>🇸🇦 Nafs</button>
             </div>
-            <label className="mt-4 flex flex-col font-semibold text-slate-700">Due date (optional)<input type="date" value={due} onChange={(e) => setDue(e.target.value)} className="mt-1 w-48 rounded-xl border border-slate-300 px-3 py-2 font-normal" /></label>
+            <AssignDates className="mt-4" start={start} onStart={setStart} due={due} onDue={setDue} />
             {res && <p role="status" className={`mt-3 rounded-xl px-3 py-2 ${res.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{res.message}</p>}
             <div className="mt-5 flex justify-end gap-2">
               <button type="button" onClick={() => setOpen(false)} className="rounded-xl px-4 py-2 font-semibold ring-1 ring-slate-300">{res?.ok ? "Done" : "Cancel"}</button>

@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { nafsPracticeView } from "@/server/nafs/practice";
 import { getT } from "@/i18n/server";
 import { NafsPracticePlayer } from "@/components/nafs/practice-player";
+import { PlayerBoundary } from "@/components/practice/player-boundary";
 
 export const metadata = { title: "NAFS practice" };
 export const dynamic = "force-dynamic";
@@ -32,7 +33,7 @@ export default async function NafsPracticePage({ params }: { params: Promise<{ i
             <p className="mt-1 text-emerald-800">{t("{n} of {total} right", { n: v.correct, total: v.asked })}</p>
             <Link href="/student/nafs?part=practice" className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("My practice")}</Link>
           </div>
-        ) : <NafsPracticePlayer key={v.question.id} id={v.id} n={v.n} max={v.max} minutesLeft={v.minutesLeft} question={v.question} />}
+        ) : <PlayerBoundary where="nafs"><NafsPracticePlayer key={v.question.id} id={v.id} n={v.n} max={v.max} minutesLeft={v.minutesLeft} question={v.question} /></PlayerBoundary>}
     </AppShell>
   );
 }

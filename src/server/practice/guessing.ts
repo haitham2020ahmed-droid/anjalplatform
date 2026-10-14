@@ -19,6 +19,7 @@
  *    of a passage-based skill prefers them, and the star needs a correct answer on one (session.ts).
  */
 import type { Repo } from "../seeding/repo";
+import { sweptMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -133,7 +134,7 @@ export async function studentEffort(repo: Repo, studentId: string, days = 30, no
 // ------------------------------------------------------------------ item time statistics (cached per process)
 
 const STATS_TTL_MS = 10 * 60_000;
-const statsCache = new Map<string, { at: number; v: ItemTimeStats }>();
+const statsCache = sweptMap<string, { at: number; v: ItemTimeStats }>("practice.item-times", STATS_TTL_MS, 5000);
 /** A question's careful answers (count, average time; at most its last 200), kept 10 minutes in memory. */
 export async function itemTimeStats(repo: Repo, questionId: string, now = Date.now()): Promise<ItemTimeStats> {
   const hit = statsCache.get(questionId);
@@ -141,7 +142,6 @@ export async function itemTimeStats(repo: Repo, questionId: string, now = Date.n
   const rows = await repo.findMany("QuestionAttempt", { questionId, rapidGuess: false }, { select: ["responseMs"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 });
   const ms = rows.map((r) => Number(r.responseMs) || 0).filter((x) => x > 0 && x <= 30 * 60_000);
   const v = { answers: ms.length, avgMs: ms.length ? Math.round(ms.reduce((a, b) => a + b, 0) / ms.length) : 0 };
-  if (statsCache.size > 20_000) statsCache.clear();
   statsCache.set(questionId, { at: now, v });
   return v;
 }

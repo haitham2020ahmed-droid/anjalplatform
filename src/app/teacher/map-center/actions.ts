@@ -21,7 +21,7 @@ export async function sendMapPlanAction(f: FormData): Promise<void> {
   try {
     const sug = await suggestMapPlan(repo, actor, { classId: form.classId, studentIds: form.studentIds, subject });
     const plan = applyEdits(sug.skills, form.keep, await skillsByIds(repo, actor, form.add), sug.students.map((s) => s.id));
-    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: "MAP", title: form.title, picks: picksOf(plan), dueAt: form.dueAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
+    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: "MAP", title: form.title, picks: picksOf(plan), dueAt: form.dueAt, startAt: form.startAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
     msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
   } catch (e) {
     if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;

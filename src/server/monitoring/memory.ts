@@ -3,16 +3,18 @@
  *
  *   startMemoryLog   every 60 s: when the process uses more than MEMORY_LOG_MB (400 MB RSS), one log line with
  *                    rss / heap / external / arrayBuffers, so a crash in Render's log is preceded by what grew.
- *   memoryHigh       true when the RSS is past MEMORY_BUSY_MB (380 MB): heavy background work (the daily job, the
+ *   memoryHigh       true when the RSS is past MEMORY_BUSY_MB (400 MB on 512 MB): heavy background work (the daily job, the
  *                    alert scan, the ReadMaster library) is not STARTED then — it starts on a later visit instead.
  *   runHeavy         heavy background work of this process runs one piece at a time (two admins opening the home
  *                    page at the same moment never run two school-wide scans side by side).
  */
 import { log } from "./log";
+import { cacheSizes } from "../cache/idle";
 
 const MB = 1048576;
 export const MEMORY_LOG_MB = 400;
-export const MEMORY_BUSY_MB = 380;
+/** r68: 78 % of the server's memory (400 MB on the 512 MB plan; WEB_MEMORY_MB on a bigger one) — the same line as the job runner's gate */
+export const MEMORY_BUSY_MB = Math.round((Number(process.env.WEB_MEMORY_MB) || 512) * 0.78);
 
 export function memorySnapshot(): { rssMB: number; heapUsedMB: number; heapTotalMB: number; externalMB: number; arrayBuffersMB: number } {
   const m = process.memoryUsage();
@@ -34,7 +36,8 @@ export function startMemoryLog(everyMs = 60_000, overMb = Number(process.env.MEM
   if (G.__memLog) return;
   G.__memLog = setInterval(() => {
     const snap = memorySnapshot();
-    if (snap.rssMB > overMb) log("warn", "memory.high", snap);
+    // r68: with the biggest caches, so the log says WHAT grew (src/server/cache/idle.ts)
+    if (snap.rssMB > overMb) log("warn", "memory.high", { ...snap, caches: cacheSizes().slice(0, 5).map((c) => `${c.name}:${c.size}`).join(" ") });
   }, everyMs);
   (G.__memLog as { unref?: () => void }).unref?.();
 }

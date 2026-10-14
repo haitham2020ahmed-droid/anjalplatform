@@ -4,7 +4,7 @@ import type { TFn } from "@/i18n";
 import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { nafsClasses } from "@/server/nafs/tests";
-import { dashboardDownload, groupOf, nafsDashboard, NAFS_GROUPS, studentHref, type AttemptRow, type Dashboard, type GroupKey, type Kind, type SkillRow } from "@/server/nafs/dashboard";
+import { dashboardDownload, groupOf, nafsDashboardCached, NAFS_GROUPS, studentHref, type AttemptRow, type Dashboard, type GroupKey, type Kind, type SkillRow } from "@/server/nafs/dashboard";
 import { DIFFICULTIES, DIFFICULTY_NAME, MOE_BY_CODE, codeName } from "@/server/nafs/framework";
 import { PrintButton } from "@/components/plans/print-button";
 import { LineChart, Sparkline } from "./charts";
@@ -43,7 +43,7 @@ function Stat({ n, label, sub }: { n: ReactNode; label: string; sub?: ReactNode 
 export async function DashboardTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<string, string | undefined> }) {
   const all = await nafsClasses(repo, actor);
   const classId = all.find((c) => c.id === sp.class)?.id ?? null;
-  const d = await nafsDashboard(repo, actor, { classId, from: sp.from, to: sp.to });
+  const d = await nafsDashboardCached(repo, actor, { classId, from: sp.from, to: sp.to });
   const r = d.scope.range;
   const allLabel = d.scope.admin ? t("All Grade 6 classes (the school)") : t("All my Grade 6 classes");
   if (!all.length) return <p className={`${CARD} text-sm text-muted`}>{t("You have no Grade 6 class yet.")}</p>;
@@ -51,7 +51,7 @@ export async function DashboardTab({ actor, t, sp }: { actor: Actor; t: TFn; sp:
   return (
     <div className="grid gap-4">
       <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3 print:hidden`}>
-        <input type="hidden" name="tab" value="dashboard" />
+        <input type="hidden" name="tab" value="reports" /><input type="hidden" name="view" value="detail" />
         <div className="grid min-w-52 gap-1 text-sm font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" label={t("Class")} defaultValue={classId ?? ""} options={[{ value: "", label: allLabel }, ...all.map((c) => ({ value: c.id, label: c.name }))]} /></div>
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("From")}<input type="date" name="from" defaultValue={r.from ?? ""} className={SEL} /></label>
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("To")}<input type="date" name="to" defaultValue={r.to ?? ""} className={SEL} /></label>
@@ -322,7 +322,7 @@ function School({ d, t }: { d: Dashboard; t: TFn }) {
                 const best = (code: string) => Math.max(...d.school.classes.map((x) => x.standards[code]?.test ?? -1));
                 return (
                   <tr key={c.id}>
-                    <td className="py-2 font-semibold text-ink"><Link href={`/teacher/nafs?tab=dashboard&class=${c.id}`} className="hover:underline">{c.name}</Link></td>
+                    <td className="py-2 font-semibold text-ink"><Link href={`/teacher/nafs?tab=reports&view=detail&class=${c.id}`} className="hover:underline">{c.name}</Link></td>
                     <td className="text-center tabular-nums">{c.students}</td><td className="text-center tabular-nums">{c.tested}</td>
                     <td className="text-center"><Pc v={c.testPct} /></td><td className="text-center"><Pc v={c.practicePct} /></td>
                     {codes.map((code) => <td key={code} className={`text-center text-xs ${c.standards[code]?.test !== null && c.standards[code]?.test === best(code) && d.school.classes.length > 1 ? "font-bold" : ""}`}><Pc v={c.standards[code]?.test} /><span className="text-muted"> / </span><Pc v={c.standards[code]?.practice} /></td>)}

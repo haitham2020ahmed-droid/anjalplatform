@@ -43,6 +43,7 @@ import {
 import { draftAiFeedback, readDraft, type AiDraft, type AiOutcome } from "../writing/ai-feedback";
 import { CODE_FAMILIES, WRITING_ERROR_CODES, reteachFor, skillsForFamilies, type ReteachRow, type ReteachSkill } from "../writing/reteach";
 import { assignedIds, isAssignedTo, isLocked, lockedStatus, scoreMax, type LockedStatus } from "../writing/locked";
+import { startedBy } from "../../lib/assign-dates";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -81,7 +82,7 @@ const staged = (t: Row) => s(t.kind) === "WRITE" && bool(t.staged);
 // ------------------------------------------------------------------ the teacher: create
 
 export interface CreateTaskInput {
-  classId: string; kind: TaskKind; title: string; prompt: string; passage?: string | null; minWords?: number | null; dueAt?: Date | null;
+  classId: string; kind: TaskKind; title: string; prompt: string; passage?: string | null; minWords?: number | null; dueAt?: Date | null; /** r68: students see it from this day */ startAt?: Date | null;
   genre?: string | null; staged?: boolean; sources?: unknown; research?: unknown; aiFeedback?: boolean; skillId?: string | null;
 }
 
@@ -108,7 +109,7 @@ export async function createTask(repo: Repo, actor: Actor, input: CreateTaskInpu
   }
   const t = await repo.create("WritingTask", {
     schoolId: actor.schoolId!, classId: input.classId, createdById: actor.userId, kind: write ? "WRITE" : "READ_ALOUD", title: title.slice(0, 191), prompt: prompt.slice(0, 5000),
-    passage: s(input.passage).trim().slice(0, 20000) || null, minWords: write && input.minWords ? Math.max(10, Math.min(1000, Math.round(input.minWords))) : null, dueAt: input.dueAt ?? null,
+    passage: s(input.passage).trim().slice(0, 20000) || null, minWords: write && input.minWords ? Math.max(10, Math.min(1000, Math.round(input.minWords))) : null, dueAt: input.dueAt ?? null, ...(input.startAt ? { startAt: input.startAt } : {}),
     genre, skillId, staged: write && Boolean(input.staged), sources: sources.length ? sources : null, research: research.length ? research : null, aiFeedback: write && Boolean(input.aiFeedback),
     createdAt: now, deletedAt: null,
   });
@@ -390,8 +391,9 @@ export async function classWritingErrors(repo: Repo, actor: Actor, classId: stri
 export async function myTasks(repo: Repo, actor: Actor): Promise<(TaskSummary & { status: SubmissionView["status"]; stage: Stage | null; total: number | null; max: number; lockedStatus: LockedStatus | null; timeLimitMin: number | null })[]> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError();
   const cls = (await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => m.classId);
-  const tasks = (cls.length ? await safeIfBehind("writing.mine", repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }), [] as Row[]) : [])
-    .filter((t) => isAssignedTo(t, actor.studentId!));
+  const tasks = (cls.length ? await safeIfBehind("writing.mine", repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "startAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }), [] as Row[]) : [])
+    // r68: a task with a start date shows from that day
+    .filter((t) => isAssignedTo(t, actor.studentId!) && startedBy(t.startAt));
   const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) }, studentId: actor.studentId }, { select: ["taskId", "status", "scores", "stage", "startedAt", "submitMode", "text"] }) : [];
   return tasks.map((t) => {
     const sub = subs.find((x) => x.taskId === t.id);

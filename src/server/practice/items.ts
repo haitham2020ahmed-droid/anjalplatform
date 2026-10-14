@@ -10,6 +10,7 @@ import type { CandidateItem } from "../../types/domain";
 import { mapLinkedQuestionIds, skillGrades, thetaShift } from "../questions/bank-scope";
 import type { Repo, Row } from "../seeding/repo";
 import { bankVersion } from "../cache/bank-version";
+import { sweptMap } from "../cache/idle";
 import { heldBackQuestionIds } from "../questions/held-back";
 import { skillFamilyIds } from "../questions/skill-questions";
 import { diagnoseSpelling } from "../word-study/spelling-diagnosis";
@@ -67,8 +68,10 @@ const str = (v: unknown) => String(v ?? "");
 const ITEM_CACHE_MS = 60_000;
 /** the question columns an item is built from (not the analysis / statistics columns) */
 const ITEM_COLUMNS = ["id", "externalRef", "skillId", "typeId", "passageId", "imageId", "stem", "content", "hint", "difficultyLevel", "estimatedSeconds", "irtA", "irtB", "irtC", "contentHash"] as const;
-const ITEM_CACHE_MAX = 500;
-const itemCache = new Map<string, { version: number; at: number; items: PracticeItem[] }>();
+// r68 memory: at most 80 pools (a class works on a handful of skills at a time); an expired pool is REMOVED by the
+// sweeper (before, an old pool stayed in memory until 500 had piled up — memory that never came back when idle)
+const ITEM_CACHE_MAX = 80;
+const itemCache = sweptMap<string, { version: number; at: number; items: PracticeItem[] }>("practice.pools", ITEM_CACHE_MS, ITEM_CACHE_MAX);
 
 /**
  * Load every PUBLISHED item for a skill (cached; batched on a miss: one query per table).
@@ -88,7 +91,6 @@ export async function loadSkillItems(repo: Repo, skillId: string, opts: { questi
   if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return atLevelOf(repo, skillId, tag(structuredClone(hit.items)));
   const version = bankVersion();
   const items = await loadItemsForSkills(repo, fam.length ? fam : [skillId], { includeMapLinked: Boolean(opts.wholePool) });
-  if (itemCache.size >= ITEM_CACHE_MAX) itemCache.clear();
   itemCache.set(key, { version, at: Date.now(), items: structuredClone(items) });
   return atLevelOf(repo, skillId, tag(items));
 }
@@ -130,7 +132,7 @@ export async function loadItemsForSkills(repo: Repo, skillIds: string[], opts: {
  */
 const QUESTION_CACHE_MAX = 1000;
 const QUESTION_CACHE_LIST = 50;
-const questionCache = new Map<string, { version: number; at: number; item: PracticeItem }>();
+const questionCache = sweptMap<string, { version: number; at: number; item: PracticeItem }>("practice.questions", ITEM_CACHE_MS, QUESTION_CACHE_MAX);
 
 /** Specific PUBLISHED questions (a teacher's question set), in the order given. Missing ones are skipped. */
 export async function loadQuestionItems(repo: Repo, questionIds: string[]): Promise<PracticeItem[]> {

@@ -29,12 +29,12 @@ export default async function NafsStudentPage({ params, searchParams }: { params
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   const d = await nafsStudentDashboard(repo, actor, id, { from: sp.from, to: sp.to }).catch(() => null);
-  if (!d) redirect("/teacher/nafs?tab=dashboard&msg=" + encodeURIComponent(t("This student is not in one of your Grade 6 classes.")));
+  if (!d) redirect("/teacher/nafs?tab=reports&msg=" + encodeURIComponent(t("This student is not in one of your Grade 6 classes.")));
   const codes = d.standards.map((x) => x.code);
   const groupName = (k: (typeof NAFS_GROUPS)[number]["key"]) => t(NAFS_GROUPS.find((g) => g.key === k)!.name);
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: `/teacher/nafs?tab=dashboard&class=${d.classId}`, label: "Dashboard" }} icon="🇸🇦" title={d.name} subtitle={`${d.className} · ${t("NAFS tests and practice")}`}>
+      <PageHeader back={{ href: `/teacher/nafs?tab=reports&class=${d.classId}`, label: "Reports" }} icon="🇸🇦" title={d.name} subtitle={`${d.className} · ${t("NAFS tests and practice")}`}>
         <PrintButton label={t("Print")} />
       </PageHeader>
       <div className="grid gap-4">

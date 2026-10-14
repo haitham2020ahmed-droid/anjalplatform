@@ -36,6 +36,8 @@ function studentMenu(opts: NavOpts): NavItem[] {
   return [
     { href: "/student", label: "Home", icon: "🏠", line: "home" },
     { href: "/student/work", label: "My Work", icon: "📋", line: "work" },
+    // ⭐ My Skills (owner r68): right after My Work — Mastered · Learning · Review · Not started
+    STUDENT_SKILLS_PAGE,
     { href: "/student/tests", label: "My Tests", icon: "📝", line: "tests" },
     { href: "/student/map", label: "MAP", icon: "🗺️", line: "map" },
     { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚", line: "reading" },
@@ -49,6 +51,8 @@ function studentMenu(opts: NavOpts): NavItem[] {
     ...(opts.nafs ? [STUDENT_NAFS_PAGE] : []),
   ];
 }
+/** The student's My Skills: every skill's ONE status in four tabs (src/app/student/skills, server/skills/my-skills.ts). */
+export const STUDENT_SKILLS_PAGE: NavItem = { href: "/student/skills", label: "My Skills", icon: "⭐", line: "star" };
 /** The student's Learn icon: lessons for every skill (src/app/student/learn); its "My Words" button opens My Words. */
 export const STUDENT_LEARN_PAGE: NavItem = { href: "/student/learn", label: "Learn", icon: "📘", line: "learn" };
 /** The student's My Words: the Curriculum Map words of Grades 4–6 + the words I saved (src/app/student/words). */
@@ -95,7 +99,7 @@ export const NAFS_PAGE: NavItem = { href: "/teacher/nafs", label: "NAFS", icon: 
 /** The NAFS plan (a tab of Plans, also linked from the NAFS section's Reports): found by name by the same people. */
 export const NAFS_PLAN_PAGE: NavItem = { href: "/teacher/plans?tab=nafs", label: "NAFS plan", icon: "🧾" };
 /** The NAFS center's Dashboard (teachers of a Grade 6 class: their classes; admins: the whole school), found by name. */
-export const NAFS_DASHBOARD_PAGE: NavItem = { href: "/teacher/nafs?tab=dashboard", label: "NAFS dashboard", icon: "📊" };
+export const NAFS_DASHBOARD_PAGE: NavItem = { href: "/teacher/nafs?tab=reports", label: "NAFS reports", icon: "📊" };
 function teacherMenuWithNafs(): NavItem[] {
   const at = TEACHER_MENU.findIndex((i) => i.href === "/teacher/assessments") + 1;
   return [...TEACHER_MENU.slice(0, at), NAFS_PAGE, ...TEACHER_MENU.slice(at)];
@@ -151,7 +155,6 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/student/decoding", label: "Word Sounds Check", icon: "🔤" },
     { href: "/student/strategy-survey", label: "My Reading Strategies", icon: "🧠" },
     { href: "/student/insights", label: "Progress Report", icon: "🌟" },
-    { href: "/student/skills", label: "My Skills", icon: "🧩" },
     { href: "/student/family", label: "Family Report", icon: "👪" },
     { href: "/play", label: "Join Live", icon: "🎮" },
     { href: "/guide", label: "Help", icon: "❔" },

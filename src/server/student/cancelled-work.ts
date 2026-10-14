@@ -57,6 +57,26 @@ export async function hiddenWorkKeys(repo: Repo, studentId: string, schoolId: st
   return out;
 }
 
+/**
+ * Is this assignment (a skill, a set, a test set, a plan's place) cancelled for this student? The quiz player, the
+ * home's "Continue" and the plan pages ask (owner r68: a cancel is honoured everywhere the student sees work). One
+ * cached read; nothing when nothing is cancelled.
+ */
+export async function isCancelledForStudent(repo: Repo, studentId: string, schoolId: string | null | undefined, assignmentId: string): Promise<boolean> {
+  if (!assignmentId || !schoolId) return false;
+  const rows = await activeCancels(repo, schoolId);
+  if (!rows.length) return false;
+  const hidden = await hiddenWorkKeys(repo, studentId, schoolId);
+  return hidden.has(assignmentId) || hidden.has(`test:${assignmentId}`);
+}
+
+/**
+ * A plan's place is cancelled for the student: the student's own set(s) of it are hidden, or every set of the place is
+ * (a Curriculum Map place the student has not opened yet, cancelled for everyone).
+ */
+export const placeCancelled = (aids: readonly string[], mine: readonly string[], hidden: Set<string>): boolean =>
+  hidden.size > 0 && ((mine.length > 0 && mine.every((a) => hidden.has(a))) || (aids.length > 0 && aids.every((a) => hidden.has(a))));
+
 /** Rows of My Work (or any list keyed the same way) without the cancelled ones. */
 export function withoutCancelled<T extends { assignmentId: string }>(rows: T[], hidden: Set<string>): T[] {
   return hidden.size ? rows.filter((r) => !hidden.has(r.assignmentId)) : rows;

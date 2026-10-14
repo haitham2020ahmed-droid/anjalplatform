@@ -26,6 +26,7 @@ import { ValidationError } from "../curriculum-admin";
 import { withLock } from "../lib/key-lock";
 import { runAfterResponse } from "../lib/after-response";
 import { modelVersion } from "../cache/bank-version";
+import { sweptMap } from "../cache/idle";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "../practice/items";
 import { normalizeResponse, type Feedback } from "../practice/session";
 import type { Repo, Row } from "../seeding/repo";
@@ -149,13 +150,12 @@ export const passNeed = (phase: ItemPhase, total: number): number => Math.min(PH
  * Skill rows and engine settings read on every lesson answer, kept in memory while no write to their tables has
  * happened in this process and for at most a minute (another process may change them) — Update 42B.
  */
-const refCache = new Map<string, { v: string; at: number; value: unknown }>();
+const refCache = sweptMap<string, { v: string; at: number; value: unknown }>("lessons.ref", 2 * 60_000, 5000);
 async function cachedRef<T>(key: string, models: string[], load: () => Promise<T>): Promise<T> {
   const v = modelVersion(...models), now = Date.now();
   const hit = refCache.get(key);
   if (hit && hit.v === v && now - hit.at < 60_000 && now >= hit.at) return hit.value as T;
   const value = await load();
-  if (refCache.size > 5000) refCache.clear();
   refCache.set(key, { v, at: now, value });
   return value;
 }

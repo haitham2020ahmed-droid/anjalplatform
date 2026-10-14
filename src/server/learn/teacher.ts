@@ -105,7 +105,7 @@ export async function lessonForSkill(repo: Repo, actor: Actor, skillId: string):
 // ------------------------------------------------------------------ assign
 
 export type AssignTarget = "CLASS" | "GROUP" | "STUDENTS";
-export interface AssignInput { kind: "LESSON" | "WORDS"; ref: string; title?: string; classId: string; target: AssignTarget; groupLevel?: string | null; studentIds?: string[]; level?: number | null; dueAt?: Date | null }
+export interface AssignInput { kind: "LESSON" | "WORDS"; ref: string; title?: string; classId: string; target: AssignTarget; groupLevel?: string | null; studentIds?: string[]; level?: number | null; dueAt?: Date | null; /** r68: students see it from this day (null: at once) */ startAt?: Date | null }
 
 /**
  * Assigns a lesson (or a selection's words) to a class, a level group of it or some of its students. A student who
@@ -141,8 +141,10 @@ export async function assignLearn(repo: Repo, actor: Actor, input: AssignInput, 
   const level = input.level && input.level >= 1 && input.level <= 4 ? Math.trunc(input.level) : null;
   const open = new Set((await repo.findMany("LearnAssignee", { studentId: { in: ids }, kind, ref: input.ref, status: { in: ["NOT_STARTED", "IN_PROGRESS"] } }, { select: ["studentId"] })).map((r) => s(r.studentId)));
   const fresh = ids.filter((id) => !open.has(id));
-  const a = await repo.create("LearnAssign", { schoolId, kind, ref: input.ref, title: title.slice(0, 191), classId: klass.id, target, groupLevel, level, dueAt: input.dueAt ?? null, createdById: actor.userId, createdAt: now });
-  if (fresh.length) await repo.createMany("LearnAssignee", fresh.map((studentId) => ({ assignId: s(a.id), schoolId, studentId, kind, ref: input.ref, title: title.slice(0, 191), level, dueAt: input.dueAt ?? null, status: "NOT_STARTED", createdAt: now, updatedAt: now })));
+  if (input.startAt && input.dueAt && input.dueAt.getTime() < input.startAt.getTime()) throw new ValidationError("The end (due) date must be on or after the start date.");
+  const start = input.startAt ? { startAt: input.startAt } : {};
+  const a = await repo.create("LearnAssign", { schoolId, kind, ref: input.ref, title: title.slice(0, 191), classId: klass.id, target, groupLevel, level, dueAt: input.dueAt ?? null, ...start, createdById: actor.userId, createdAt: now });
+  if (fresh.length) await repo.createMany("LearnAssignee", fresh.map((studentId) => ({ assignId: s(a.id), schoolId, studentId, kind, ref: input.ref, title: title.slice(0, 191), level, dueAt: input.dueAt ?? null, ...start, status: "NOT_STARTED", createdAt: now, updatedAt: now })));
   await audit(repo, { actorId: actor.userId, action: "learn.assign", entityType: "LearnAssign", entityId: s(a.id), after: { kind, ref: input.ref, classId: klass.id, target, students: fresh.length }, at: now });
   return { assignId: s(a.id), students: fresh.length, already: open.size };
 }

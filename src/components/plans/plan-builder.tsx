@@ -12,6 +12,7 @@ import { AUTO, SkillQuestionPicker, dedupeSkillsByName, questionIdsField } from 
 import { StudentPlanPreview } from "./student-preview";
 import { builderDraftAction } from "@/app/teacher/plans/editor-actions";
 import { PlanMasteredPrompt } from "./mastered-prompt";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 /**
  * The program pages' plan builder (server-rendered, one GET form): 1 Who → 2 the suggested skills (untick to
@@ -122,7 +123,7 @@ export function PlanBuilder(p: BuilderProps) {
     const as = withWork.find((s) => s.id === form.previewAs) ?? withWork[0] ?? null;
     const mine = as ? p.plan.filter((k) => k.studentIds.includes(as.id)) : [];
     const title = form.title || p.defaultTitle;
-    const link = (id: string) => `${p.path}?${new URLSearchParams([...p.carry, ["edited", "1"], ["pkey", form.key], ...kept.map((k) => ["keep", k.id] as [string, string]), ...added.map((k) => ["add", k.id] as [string, string]), ...pickedPairs, ["step", "preview"], ["as", id], ["title", form.title], ["dueAt", form.dueText], ["note", form.note]])}`;
+    const link = (id: string) => `${p.path}?${new URLSearchParams([...p.carry, ["edited", "1"], ["pkey", form.key], ...kept.map((k) => ["keep", k.id] as [string, string]), ...added.map((k) => ["add", k.id] as [string, string]), ...pickedPairs, ["step", "preview"], ["as", id], ["title", form.title], ["dueAt", form.dueText], ["startAt", form.startText], ["note", form.note]])}`;
     return (
       <Section title="3 · Preview" icon="👀" hint={t("This is what {name} will see. Nothing is sent until you press Send.", { name: as?.name ?? t("the student") })}>
         {hiddenEdits}
@@ -142,7 +143,7 @@ export function PlanBuilder(p: BuilderProps) {
         )}
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Plan name")}<input name="title" defaultValue={title} maxLength={191} className={BOX} /></label>
-          <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Due date (optional)")}<input type="date" name="dueAt" defaultValue={form.dueText} className={BOX} /></label>
+          <AssignDates t={t} start={form.startText} due={form.dueText} field={BOX} />
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Note to students (optional)")}<input name="note" defaultValue={form.note} maxLength={1000} className={BOX} /></label>
         </div>
         <PlanMasteredPrompt t={t} classId={p.carry.find(([k]) => k === "classId")?.[1] ?? ""} plan={p.plan} excluded={form.excludeMastered} />

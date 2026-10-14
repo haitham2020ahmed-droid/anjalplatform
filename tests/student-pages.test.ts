@@ -106,10 +106,10 @@ describe("student pages (b1): pure rules", () => {
     assert.equal(friendlyCertificateTitle({ kind: "MANUAL", title: "Star reader" }), "Star reader");
   });
 
-  test("redirects: My Plans → My Work; Progress Report, My Skills and Family Report → My Reports", () => {
+  test("redirects: My Plans → My Work; Progress Report and Family Report → My Reports (r68: My Skills is its own page again)", () => {
     assert.match(read("src/app/student/plans/page.tsx"), /redirect\("\/student"\)/);
     assert.match(read("src/app/student/insights/page.tsx"), /redirect\("\/student\/reports/);
-    assert.match(read("src/app/student/skills/page.tsx"), /redirect\("\/student\/reports/);
+    assert.match(read("src/app/student/skills/page.tsx"), /mySkills\(/, "⭐ My Skills (owner r68): its own page, in the menu");
     assert.match(read("src/app/student/family/page.tsx"), /redirect\("\/student\/reports\?view=family"\)/);
     // the student menu's routes all exist
     for (const r of ["", "/map", "/curriculum", "/rti", "/nafs", "/readmaster", "/readrise", "/fluency-coach", "/tests", "/certificates", "/badges", "/reports"]) {

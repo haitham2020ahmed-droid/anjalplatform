@@ -16,6 +16,8 @@
 import { skillHistoryWithEvidence } from "./skill-evidence";
 import { hideLevels } from "../../lib/hide-levels";
 import { modelVersion } from "../cache/bank-version";
+import { sweptMap } from "../cache/idle";
+import { admitted } from "../lib/admission";
 import { resolveEngineConfig, ENGINE_VERSION, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import { processAnswer } from "../../adaptive/engine";
 import { isRecentRepeat, markRepeats } from "../../adaptive/evidence";
@@ -128,13 +130,12 @@ const d = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
  * Reference data read on every answer but rarely changed (engine settings, prerequisites, skill rows) is
  * kept in memory and reused only while no write to those tables has happened (modelVersion).
  */
-const refCache = new Map<string, { v: string; at: number; value: unknown }>();
+const refCache = sweptMap<string, { v: string; at: number; value: unknown }>("practice.ref", 15 * 60_000, 5000);
 async function cached<T>(key: string, models: string[], load: () => Promise<T>, maxAgeMs = Infinity): Promise<T> {
   const v = modelVersion(...models), now = Date.now();
   const hit = refCache.get(key);
   if (hit && hit.v === v && now - hit.at < maxAgeMs && now >= hit.at) return hit.value as T;
   const value = await load();
-  if (refCache.size > 20_000) refCache.clear();
   refCache.set(key, { v, at: now, value });
   return value;
 }
@@ -726,19 +727,38 @@ async function submitAnswerUnlocked(
   };
   // after the response: the decision log (reports, prerequisite suggestions, content gaps) and the assignment's
   // progress (the student does not wait; their home page refreshes statuses too). Completion itself was written above.
-  runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now)); // ⭐ skill stars (skills/status.ts)
-  runAfterResponse("practice.decision_log", () => repo.create("AdaptiveDecisionLog", {
-    ...step.log, attemptId: attempt.row.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
-    newTheta: abilityNow.theta, masteryBefore: seenScore, masteryAfter: mst.score,
-    reason: (rapid ? "Rapid guess: counted for nothing. " : "") + (endReason === "COMPLETED" ? `${step.log.reason} Session complete.` : step.log.reason),
-  }));
-  // the work's status and progress for the lists (Not started → In progress …): after the response; not needed once
-  // the work is Done (it never moves back) or when this answer was not counted for it
-  if (linkedAssignment && !finished && !workNow?.justDone && workNow?.completion !== "DONE") runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, linkedAssignment, studentId, now, skillId || undefined));
+  // ⭐ skill stars (skills/status.ts), the decision log and — not needed once the work is Done (it never moves back) or
+  // when this answer was not counted for it — the work's status for the lists: all after the response, built from plain
+  // values only (r68: a queued task never keeps this answer's pool and history in memory)
+  queueAfterAnswer(repo, {
+    studentId, skillId, now, label: "practice.decision_log",
+    log: {
+      ...step.log, attemptId: attempt.row.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
+      newTheta: abilityNow.theta, masteryBefore: seenScore, masteryAfter: mst.score,
+      reason: (rapid ? "Rapid guess: counted for nothing. " : "") + (endReason === "COMPLETED" ? `${step.log.reason} Session complete.` : step.log.reason),
+    },
+    refreshAssignment: linkedAssignment && !finished && !workNow?.justDone && workNow?.completion !== "DONE" ? linkedAssignment : null,
+  });
   // the next screen comes from this answer's own results (no re-reading)
   const masteryRow = masteryData ? { studentId, skillId, ...masteryData } : prevMastery;
   const view = await currentQuestion(repo, actor, input.sessionId, now, { session: { ...s, ...sessionPatch }, mastery: masteryRow, work: workNow ? (({ justDone: _j, doneBy: _b, ...w }) => (void _j, void _b, w))(workNow) : null });
   return { feedback, view: paused ? { ...view, paused: true } : view };
+}
+
+/**
+ * The work after an answer's response (r68): its closures see only these plain values — a queued task never keeps the
+ * answer's pool, history and engine state in memory while it waits (a class rush queues thousands of them).
+ */
+function queueAfterAnswer(repo: Repo, x: { studentId: string; skillId: string; now: Date; label: string; log: Row; refreshAssignment?: string | null }): void {
+  const { studentId, skillId, now, label, log, refreshAssignment } = x;
+  runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now), { key: `skills.status|${studentId}|${skillId}` }); // ⭐ skill stars (skills/status.ts)
+  runAfterResponse(label, () => repo.create("AdaptiveDecisionLog", log));
+  if (refreshAssignment) runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, refreshAssignment, studentId, now, skillId || undefined), { key: `assignment_refresh|${refreshAssignment}|${studentId}` });
+}
+
+/** A set's status for the teacher and the work list, after the response (plain values only, as above). */
+function queueSetRefresh(repo: Repo, a: Row, studentId: string, now: Date): void {
+  runAfterResponse("quiz.status_refresh", () => refreshQuestionSets(repo, [a], [studentId], now), { key: `quiz.status_refresh|${String(a.id)}|${studentId}` });
 }
 
 /** The session's small JSON note (hint ladder, guess window). */
@@ -883,6 +903,25 @@ function blankFeedback(): Feedback {
   return { correct: false, credit: 0, yourAnswer: "", correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", rapidGuess: false, masteryBefore: 0, masteryAfter: 0, band: "", xp: 0, next: { hasQuestion: false, endReason: "COMPLETED", routeToSkillId: null, routeToSkillName: null }, tutor: null };
 }
 
+/** A question of the set answered already: its saved result again and the current screen (nothing is written). */
+async function quizReplay(repo: Repo, a: Row, order: string[], s: Row, item: PracticeItem | null, diagnostic: boolean, questionId: string): Promise<{ feedback: Feedback; view: QuizView }> {
+  const view = await quizView(repo, a, order, s);
+  const base: Feedback = { ...blankFeedback(), replayed: true, next: { hasQuestion: Boolean(view.question), endReason: view.question ? null : "COMPLETED", routeToSkillId: null, routeToSkillName: null } };
+  // a test or the Diagnostic never shows right or wrong
+  if (!item || diagnostic || isTestAssignment(a)) return { feedback: base, view };
+  const [attempt] = await repo.findMany("QuestionAttempt", { sessionId: s.id, questionId }, { select: ["isCorrect", "partialCredit", "response", "rapidGuess"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 1 });
+  if (!attempt) return { feedback: base, view };
+  let stored: unknown = attempt.response;
+  if (typeof stored === "string") { try { stored = JSON.parse(stored); } catch { stored = null; } }
+  const response = stored && typeof stored === "object" && "value" in stored ? (stored as { value: unknown }).value : stored;
+  const correct = Boolean(attempt.isCorrect);
+  const partial = attempt.partialCredit === null || attempt.partialCredit === undefined ? null : Number(attempt.partialCredit);
+  return {
+    feedback: { ...base, correct, credit: correct ? 1 : partial ?? 0, rapidGuess: Boolean(attempt.rapidGuess), yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect, whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip },
+    view,
+  };
+}
+
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
   const { a, order } = await quizContext(repo, actor, assignmentId, now);
@@ -931,7 +970,9 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     item ? cachedSkill(repo, skillId) : Promise.resolve(null), // cached for the ability read below
   ]);
   // one answer per question, in every set (goal sets too: a missed question waits in Second Chance, never comes back here)
-  if (sessionRows.some((x) => String(x.questionId) === input.questionId)) throw new ValidationError("You already answered this question.");
+  // r68: a repeat of an answer already saved (the player sends again after a lost reply, a double click): nothing is
+  // written; that answer's saved result comes back with the current screen (marked `replayed`) — never a dead end
+  if (sessionRows.some((x) => String(x.questionId) === input.questionId)) return quizReplay(repo, a, order, s, item ?? null, Boolean(diag), input.questionId);
   if (!item) throw new ValidationError("This question is no longer available.");
   // a shuffled test: the student's choice letters are mapped back to the question's own before scoring
   const response = normalizeResponse(item, a.shuffle ? unshuffleResponse(item, input.response, choiceSeed(a, studentId, item.questionId)) : input.response);
@@ -1019,13 +1060,15 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   const goalSet = after.goal !== null;
   // after the response: the decision log of a set answer (θ BEFORE the answer for item calibration, mastery
   // before/after for growth; the next question follows the set, not the adaptive selector, so no route is made)
-  runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now)); // ⭐ skill stars (skills/status.ts)
-  runAfterResponse("quiz.decision_log", () => repo.create("AdaptiveDecisionLog", {
-    ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
-    masteryBefore: seenBefore, masteryAfter: mst.score,
-    reason: `${rapid ? "Rapid guess: counted for nothing. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
-    reasonCode: "ASSIGNED_SET",
-  }));
+  queueAfterAnswer(repo, {
+    studentId, skillId, now, label: "quiz.decision_log",
+    log: {
+      ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
+      masteryBefore: seenBefore, masteryAfter: mst.score,
+      reason: `${rapid ? "Rapid guess: counted for nothing. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
+      reasonCode: "ASSIGNED_SET",
+    },
+  });
   // stuck: many answers without reaching the goal — the class's teachers are told once (after the response)
   if (goalSet && answered === STUCK_AFTER && !after.goal!.reached) {
     const goal = after.goal!;
@@ -1052,7 +1095,7 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   const known = { attempts: attemptsNow, set, ...(String(set?.type ?? "") === "DIAGNOSTIC" ? {} : { next: after }), ...(nextItem && after.nextId === nextFixed ? { nextItem } : {}) };
   if (feedback.next.hasQuestion && !patch.goalNow) {
     // the set's status for the teacher and the work list: after the response
-    runAfterResponse("quiz.status_refresh", () => refreshQuestionSets(repo, [a], [actor.studentId!], now));
+    queueSetRefresh(repo, a, actor.studentId!, now);
   } else {
     // the work is done (last answer, or the goal reached): its status now, then its result (Weekly Check RIT,
     // Diagnostic analysis, Placement level)
@@ -1079,7 +1122,7 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
 /** Starts or resumes practice on a skill (a double click never opens two sessions). */
 export interface StartOpts { /** a Curriculum Map lesson's assignment this practice continues (its questions done) */ work?: string | null }
 export function startPractice(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number, opts: StartOpts = {}): Promise<PracticeView> {
-  return withLock(`practice:${actor.userId}:${skillId}`, () => startPracticeUnlocked(repo, actor, skillId, now, random, opts));
+  return withLock(`practice:${actor.userId}:${skillId}`, () => admitted("answers", () => startPracticeUnlocked(repo, actor, skillId, now, random, opts)));
 }
 
 /** The student's own Curriculum Map lesson set (a question set on the CURRICULUM track) — or null. */
@@ -1116,7 +1159,9 @@ export async function lessonContinuation(repo: Repo, a: Row, studentId: string):
 /** One practice answer (a double click is answered once; a submit after the session ended is a no-op, not an error). */
 export function submitAnswer(repo: Repo, actor: Actor, input: { sessionId: string; questionId: string; response: unknown; usedHint?: boolean }, now = new Date(), random?: () => number): Promise<{ feedback: Feedback; view: PracticeView }> {
   return withLock(`practice-session:${input.sessionId}`, async () => {
-    try { return await submitAnswerUnlocked(repo, actor, input, now, random); }
+    // r68: at most ANSWER_CONCURRENCY answers are worked on at once per server (the others wait their turn): the memory
+    // of a class rush stays bounded (src/server/lib/admission.ts)
+    try { return await admitted("answers", () => submitAnswerUnlocked(repo, actor, input, now, random)); }
     catch (e) {
       // lost the race to another server or tab that ended the session: the same friendly no-op reply
       if (e instanceof ValidationError) {
@@ -1185,9 +1230,9 @@ async function storedAnswerReply(repo: Repo, s: Row, questionId: string, base: F
 }
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 export function startQuiz(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
-  return withLock(`quiz:${actor.userId}:${assignmentId}`, () => startQuizUnlocked(repo, actor, assignmentId, now));
+  return withLock(`quiz:${actor.userId}:${assignmentId}`, () => admitted("answers", () => startQuizUnlocked(repo, actor, assignmentId, now)));
 }
 /** One answer of a set (a double click is answered once). */
 export function submitQuizAnswer(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
-  return withLock(`quiz:${actor.userId}:${input.assignmentId}`, () => submitQuizAnswerUnlocked(repo, actor, input, now));
+  return withLock(`quiz:${actor.userId}:${input.assignmentId}`, () => admitted("answers", () => submitQuizAnswerUnlocked(repo, actor, input, now)));
 }

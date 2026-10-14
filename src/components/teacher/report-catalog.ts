@@ -162,7 +162,7 @@ export const REPORTS: ReportDef[] = [
 export interface HubLink { key: string; category: ReportCategory; line: LineIconName; title: string; hint: string; href: (classId: string) => string; nafs?: boolean; pending?: boolean }
 export const HUB_LINKS: HubLink[] = [
   // ⭐ the Skills grid (the skill-status stars, every student × skill) — its page arrives from the skill-status branch
-  { key: "skills-grid", category: "My class", line: "star", title: "Skills grid", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
+  { key: "skills-grid", category: "My class", line: "star", title: "Student Skills", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
   { key: "nafs-reports", category: "Programs", line: "flag", title: "NAFS reports", hint: "NAFS tests and practice: results by student and skill.", href: () => "/teacher/nafs?tab=reports", nafs: true },
   { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise growth", hint: "ReadRise levels over time and who is not reading.", href: (c) => `/teacher/readrise?${qs({ class: c, tab: "growth" })}` },
   { key: "learn-results", category: "Programs", line: "learn", title: "Learn results", hint: "Each lesson: who finished, scores, who needs it again.", href: () => "/teacher/learn" },

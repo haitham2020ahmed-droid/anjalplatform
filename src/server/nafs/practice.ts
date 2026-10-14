@@ -417,9 +417,14 @@ export interface PracticeFeedback { correct: boolean; answer: number; explanatio
 export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: string; questionId: string; choice: unknown }, now = new Date()): Promise<PracticeFeedback> {
   const { p, studentId } = await myPractice(repo, actor, s(input.id));
   const r = (await repo.findMany("NafsPracticeRun", { practiceId: s(p.id), studentId }))[0];
-  if (!r || r.finishedAt) throw new ValidationError("This practice is finished.");
   const targets = json<string[]>(p.targets, []);
-  const state = json<RunState>(r.state, newRunState(targets));
+  const state = json<RunState>(r?.state, newRunState(targets));
+  // r68: the same answer sent again (the reply was lost on a busy server, the player retried): its saved result, nothing written
+  if (r && (r.finishedAt || !state.cur || state.cur.questionId !== s(input.questionId))) {
+    const replay = await savedNafsAnswer(repo, s(r.id), s(input.questionId), Boolean(r.finishedAt));
+    if (replay) return replay;
+  }
+  if (!r || r.finishedAt) throw new ValidationError("This practice is finished.");
   if (!state.cur || state.cur.questionId !== s(input.questionId)) throw new ValidationError("This question is not on your screen any more. Open the practice again.");
   const choice = input.choice === null || input.choice === undefined || s(input.choice) === "" ? null : Number(input.choice);
   if (choice === null || !Number.isInteger(choice) || choice < 0 || choice > 3) throw new ValidationError("Choose an answer.");
@@ -428,7 +433,7 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
   const correct = choice === q.correct;
   const started = d(state.cur.at);
   const ms = started ? Math.min(MAX_ANSWER_MS, Math.max(0, now.getTime() - started.getTime())) : 0;
-  await repo.create("NafsPracticeAnswer", { runId: s(r.id), practiceId: s(p.id), studentId, questionId: q.id, target: state.cur.target, difficulty: state.cur.difficulty, choice, correct, ms, at: now });
+  const answerRow = { runId: s(r.id), practiceId: s(p.id), studentId, questionId: q.id, target: state.cur.target, difficulty: state.cur.difficulty, choice, correct, ms, at: now };
   // 🎲 r67: a rapid guess (under 3 s) is only logged (the answer row above) — it counts for nothing: no level move,
   // no mastery, not toward the question count or accuracy
   const rapid = started !== null && isRapidGuess(ms);
@@ -438,8 +443,29 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
   const limit = p.timeLimitMin ? Number(p.timeLimitMin) * 60 : null;
   const why: RunState["end"] | null = targets.every((t) => next.targets[t]?.mastered) ? "MASTERED" : asked >= max ? "COUNT" : limit && seconds >= limit ? "TIME" : null;
   if (why) next = { ...next, end: why };
-  await repo.updateMany("NafsPracticeRun", { id: r.id }, { state: next, asked, correct: right, seconds, updatedAt: now, ...(why ? { finishedAt: now } : {}) });
+  // r68: guarded (the run moves once): two copies of the same answer at the same moment write it once; the loser gets
+  // the saved result
+  const moved = await repo.transaction(async (tx) => {
+    const n = await tx.updateMany("NafsPracticeRun", { id: r.id, asked: r.asked ?? 0, updatedAt: r.updatedAt, finishedAt: null }, { state: next, asked, correct: right, seconds, updatedAt: now, ...(why ? { finishedAt: now } : {}) });
+    if (n !== 1) return false;
+    await tx.create("NafsPracticeAnswer", answerRow);
+    return true;
+  });
+  if (!moved) {
+    const replay = await savedNafsAnswer(repo, s(r.id), q.id, false);
+    if (replay) return replay;
+    throw new ValidationError("This question is not on your screen any more. Open the practice again.");
+  }
   return { correct, answer: q.correct, explanation: q.explanation, done: Boolean(why) };
+}
+
+/** The saved result when this question is the run's LAST answer (a retry after a lost reply); null otherwise. */
+async function savedNafsAnswer(repo: Repo, runId: string, questionId: string, finished: boolean): Promise<PracticeFeedback | null> {
+  const last = (await repo.findMany("NafsPracticeAnswer", { runId }, { select: ["correct", "questionId"], orderBy: [{ field: "at", dir: "desc" }], take: 1 }))[0];
+  if (!last || String(last.questionId) !== questionId) return null;
+  const q = (await loadNafsQuestions(repo, [questionId]))[0];
+  if (!q) return null;
+  return { correct: Boolean(last.correct), answer: q.correct, explanation: q.explanation, done: finished };
 }
 
 /** The difficulty's English name (teacher-facing; translated in the page). */

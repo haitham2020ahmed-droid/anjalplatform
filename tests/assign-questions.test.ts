@@ -104,7 +104,12 @@ describe("⭐ assign chosen questions from the question list", () => {
     let r = await submitQuizAnswer(repo, student, { assignmentId, questionId: chosen[0], response: right(chosen[0]) }, tick());
     assert.equal(r.feedback.correct, true);
     assert.ok(r.feedback.correctAnswer && r.feedback.whyCorrect, "the correct answer is shown after each question");
-    await assert.rejects(submitQuizAnswer(repo, student, { assignmentId, questionId: chosen[0], response: right(chosen[0]) }), /already answered/, "one attempt per question");
+    // one attempt per question: r68 — the same answer sent again (a retry after a lost reply) gets the saved result back
+    const attempts = await repo.count("QuestionAttempt", { studentId: student.studentId! });
+    const again = await submitQuizAnswer(repo, student, { assignmentId, questionId: chosen[0], response: right(chosen[0]) });
+    assert.equal(again.feedback.replayed, true, "one attempt per question");
+    assert.equal(again.feedback.correct, true, "the saved result");
+    assert.equal(await repo.count("QuestionAttempt", { studentId: student.studentId! }), attempts, "nothing written");
     assert.equal((await assignedSkills(repo, student)).items.find((i) => i.assignmentId === assignmentId)!.status, "IN_PROGRESS");
     v = await startQuiz(repo, student, assignmentId);
     assert.equal(v.question?.questionId, chosen[1], "continues where the student stopped");

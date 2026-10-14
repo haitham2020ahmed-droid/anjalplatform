@@ -83,7 +83,7 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
       {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{msg}</p>}
       {!classes.length ? <EmptyState icon="🗺️" title="No classes yet" text="When the admin adds you to a class, its MAP scores appear here." /> :
         tab === "results" ? <ResultsTab actor={actor} t={t} classId={classId} subject={subject} /> :
-        tab === "year" ? <YearTab actor={actor} t={t} classId={classId} /> :
+        tab === "year" ? <YearTab actor={actor} t={t} classId={classId} preview={one(sp.preview) === "1"} student={one(sp.student) || undefined} /> :
         tab === "test" ? <TestTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} /> :
         tab === "reports" ? (one(sp.view) === "overview" ? <OverviewView actor={actor} t={t} subject={subject} term={one(sp.term) || undefined} classId={classId} /> : <ReportsTab actor={actor} t={t} classId={classId} subject={subject} />) :
         <PlanTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} />}

@@ -75,7 +75,7 @@ describe("👀 Preview as student", () => {
     }
     for (const f of STUDENT_PAGES) {
       const src = read(f);
-      assert.ok(src.includes('await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }))'), `${f}: the student page itself, with ?preview= (students only otherwise)`);
+      assert.ok(src.includes('await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }))') || src.includes('await studentPage(sp.preview, () => requireActor({ roles: ["STUDENT"] }))'), `${f}: the student page itself, with ?preview= (students only otherwise)`);
       assert.match(src, /<PreviewFrame preview=\{preview\}>/, `${f}: read-only frame`);
       assert.doesNotMatch(src, /^export (const|function|async function) (?!default)(?!metadata)/m, `${f}: page files export only Next fields`);
     }

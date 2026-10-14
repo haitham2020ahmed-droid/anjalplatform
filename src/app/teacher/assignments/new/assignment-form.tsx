@@ -28,7 +28,8 @@ export function AssignmentForm({ classId, units, skills }: { classId: string; un
         <label className="block font-medium">Unit<Combo name="unitId" label="Unit" defaultValue={units[0]?.id ?? ""} options={units.map((u) => ({ value: u.id, label: u.label }))} className="mt-1" /></label>
       )}
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block font-medium">Due date<input type="date" name="dueAt" className={input} /></label>
+        <label className="block font-medium">Start date<input type="date" name="startAt" className={input} /></label>
+        <label className="block font-medium">End (due) date<input type="date" name="dueAt" className={input} /></label>
         <label className="block font-medium">Target mastery<input type="number" name="targetMastery" min={40} max={100} defaultValue={75} className={input} /></label>
       </div>
       {state.error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-red-700">{state.error}</p>}

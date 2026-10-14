@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { FinderQuestion, FinderResult } from "@/server/curriculum/question-finder";
 import { assignAdaptiveFromBankAction, assignReadySetFromBankAction } from "./actions";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 const PREVIEW = 8;
 const GROUPS: { key: keyof FinderResult["groups"]; label: string; hint: string }[] = [
@@ -85,7 +86,7 @@ export function BankPanel({ found, classId, link }: { found: FinderResult; class
           <input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={found.skill.id} /><input type="hidden" name="lessonId" value={found.lesson?.id ?? ""} />
           <p className="font-semibold text-slate-900">Practice at each student’s level</p>
           <p className="text-sm text-slate-600">The engine picks each student's questions by mastery, previous answers, difficulty and weakness.</p>
-          <label className="mt-2 flex flex-col text-sm">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
+          <AssignDates className="mt-2" field={box} />
           <button disabled={pool === 0} className="mt-3 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Assign practice on this skill</button>
         </form>
         <form action={assignReadySetFromBankAction} className="rounded-xl bg-sky-50 p-4 ring-1 ring-sky-200">
@@ -94,7 +95,7 @@ export function BankPanel({ found, classId, link }: { found: FinderResult; class
           <p className="text-sm text-slate-600">Everyone gets the same balanced set: lesson questions first, then the skill, spread around the class's level.</p>
           <div className="mt-2 flex flex-wrap items-end gap-3 text-sm">
             <label className="flex flex-col">N (questions)<input type="number" name="n" min={3} max={30} defaultValue={10} className={`${box} w-24`} /></label>
-            <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
+            <AssignDates field={box} />
           </div>
           <label className="mt-2 flex items-center gap-2 text-sm"><input type="checkbox" name="revision" value="1" disabled={!found.groups.standard.length} />Include revision (1–2 questions with the same standard)</label>
           <button disabled={pool === 0} className="mt-3 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">Assign a ready set of N questions</button>

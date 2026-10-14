@@ -7,7 +7,9 @@
  *   - blueprint: the questions are shared evenly between the subject's goal-area groups (Reading: Literary,
  *     Informational, Vocabulary · Language: Grammar & Usage, Mechanics, Writing);
  *   - one question per screen, no going back, no right / wrong during the test, no dictionary, hints or read-aloud;
- *   - untimed; it can be finished in two sittings (the same question comes back);
+ *   - untimed by default; it can be finished in two sittings (the same question comes back). r69: the teacher can
+ *     give it a time limit and change it LIVE (the class or one student; the end date too) — the player's timer follows;
+ *     when the time is up the test is finished with the answers given;
  *   - a question already seen in a practice test is never shown again; questions seen in practice only if needed;
  *   - rapid guessing (answers faster than the question can be read) is not scored, the student is asked to slow
  *     down, and the teacher is told;
@@ -31,6 +33,7 @@ import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { assertClassAccess } from "../teacher/assignments";
 import { bandSettings, groupOf, groupPools, GROUPS, mapProfiles, ritBand, autoItems, type GroupKey, type MapProfile, type PoolQ, type Subject, type AreaStatus, type Descriptor } from "./map-plan";
 import { bandOf, ensureNationalNorms, nationalNorm, type Season } from "./rit";
+import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -130,6 +133,8 @@ export interface WindowView {
   id: string; title: string; grade: number | null; season: string; subjects: Subject[]; items: number; opensAt: string; closesAt: string; open: boolean;
   /** MAP Test tab: AUTO (adaptive) or MANUAL (fixed items); classes / students it is for (null = the old school-wide window) */
   kind: TestKind; classIds: string[] | null; studentIds: string[] | null; draft: boolean; createdById: string;
+  /** r69: minutes per subject sitting (null = untimed) */
+  minutes: number | null;
 }
 /** A JSON column read as a value (MySQL gives objects, SQLite text). */
 export function jsonOf<T>(v: unknown, fallback: T): T {
@@ -146,6 +151,7 @@ export const windowView = (w: Row, now: Date): WindowView => {
     id: s(w.id), title: s(w.title), grade: w.grade === null || w.grade === undefined ? null : Number(w.grade), season: s(w.season), subjects: jsonOf<Subject[]>(w.subjects, []),
     items: kind === "MANUAL" ? manualItems(w).length : Number(w.items), opensAt: iso(w.opensAt)!, closesAt: iso(w.closesAt)!, open: !w.draft && time(w.opensAt) <= now.getTime() && time(w.closesAt) > now.getTime(),
     kind, classIds: idList(w.classIds), studentIds: idList(w.studentIds), draft: Boolean(w.draft), createdById: s(w.createdById),
+    minutes: w.timeLimitMin ? Number(w.timeLimitMin) : null,
   };
 };
 
@@ -234,7 +240,21 @@ export async function myTests(repo: Repo, actor: Actor, now = new Date()): Promi
 }
 
 /** `result.practise`: the goal areas to practise next (area names only — never a level word for the student). */
-export interface TestScreen { sessionId: string; subject: Subject; kind: "SIM" | "WARMUP"; n: number; total: number; question: ClientQuestion | null; done: boolean; warning: string | null; result: { rit: number; low: number; high: number; practise: string[] } | null }
+export interface TestScreen { sessionId: string; subject: Subject; kind: "SIM" | "WARMUP"; n: number; total: number; question: ClientQuestion | null; done: boolean; warning: string | null; result: { rit: number; low: number; high: number; practise: string[] } | null;
+  /** r69 live time: when this student's time is up (the limit from the start, the end date, the student's extra minutes), the window and the stamp the player polls with */
+  endsAt?: string | null; windowId?: string | null; stamp?: number; timed?: boolean }
+
+/** A little time after the end (slow networks) before answers are no longer taken. */
+export const MAP_GRACE_MS = 60_000;
+/** r69: when this student's sitting ends — the time limit (from the start), the window's end, the student's extra minutes. */
+export function mapEndFor(w: Row, row: Row): Date | null {
+  return effectiveEnd({ startedAt: (row.startedAt ?? null) as Date | string | null, minutes: w.timeLimitMin ? Number(w.timeLimitMin) : null, extra: studentExtra(w.studentMinutes, s(row.studentId)), endsAt: (w.closesAt ?? null) as Date | string | null });
+}
+/** The screen with its time (computed from rows already in memory — no read). */
+function withTime(sc: TestScreen, w: Row | null, row: Row): TestScreen {
+  if (!w) return sc;
+  return { ...sc, endsAt: mapEndFor(w, row)?.toISOString() ?? null, windowId: s(w.id), stamp: liveStamp(liveKey("map", s(w.id))), timed: Boolean(w.timeLimitMin) };
+}
 
 /** The goal areas to practise: those clearly under the overall result (else the lowest one). */
 export function areasToPractise(row: Row): string[] {
@@ -250,24 +270,34 @@ export function areasToPractise(row: Row): string[] {
 export async function startTest(repo: Repo, actor: Actor, input: { windowId?: string | null; subject: Subject; warmup?: boolean }, now = new Date()): Promise<TestScreen> {
   const sid = student(actor);
   const grade = await studentGrade(repo, sid);
-  let total = WARMUP_ITEMS, windowId: string | null = null;
+  let total = WARMUP_ITEMS, windowId: string | null = null, win: Row | null = null;
   if (!input.warmup) {
     const w = input.windowId ? await repo.findUnique("MapSimWindow", { id: input.windowId }) : null;
+    win = w;
     if (!w || s(w.schoolId) !== s(actor.schoolId) || !isForStudent(windowView(w, now), sid, grade, await studentClassIds(repo, sid))) throw new ForbiddenError("This test is not for you.");
     const v = windowView(w, now);
-    if (!v.open) throw new ValidationError("This practice test is not open now.");
     if (!v.subjects.includes(input.subject)) throw new ValidationError("This subject is not part of this test.");
     total = v.items; windowId = v.id;
   }
   const kind = input.warmup ? "WARMUP" : "SIM";
   const existing = (await repo.findMany("MapSimSession", { studentId: sid, subject: input.subject, kind })).filter((x) => (windowId ? x.windowId === windowId : true)).sort((a, b) => time(b.startedAt) - time(a.startedAt))[0];
-  if (existing && (existing.status === "IN_PROGRESS" || windowId)) return screen(repo, existing, now, null);
+  if (win && !windowView(win, now).open) {
+    // r69: a student the teacher gave extra minutes may finish the sitting they started after the end date
+    const mine = existing?.status === "IN_PROGRESS" && !win.draft && time(win.opensAt) <= now.getTime() && studentExtra(win.studentMinutes, sid) > 0 ? mapEndFor(win, existing) : null;
+    if (!mine || mine.getTime() <= now.getTime()) throw new ValidationError("This practice test is not open now.");
+  }
+  if (existing && (existing.status === "IN_PROGRESS" || windowId)) {
+    // r69: the time ran out while the student was away → finished with the answers given
+    const end = win && existing.status === "IN_PROGRESS" ? mapEndFor(win, existing) : null;
+    if (end && now.getTime() > end.getTime() + MAP_GRACE_MS) return withTime(await finish(repo, existing, now, null), win, existing);
+    return withTime(await screen(repo, existing, now, null), win, existing);
+  }
   // start: the student's latest MAP RIT for the subject, else the grade's national mean
   const p = (await mapProfiles(repo, actor.schoolId!, [sid], input.subject)).get(sid);
   await ensureNationalNorms(repo);
   const start = p?.overall?.rit ?? (await nationalNorm(repo, grade, "WINTER"))?.mean ?? 200;
   const row = await repo.create("MapSimSession", { windowId, schoolId: actor.schoolId!, studentId: sid, subject: input.subject, kind, status: "IN_PROGRESS", total, startRit: start, rit: start, se: PRIOR_SD, answered: 0, correct: 0, rapid: 0, startedAt: now });
-  return serveNext(repo, row, grade, now, null);
+  return withTime(await serveNext(repo, row, grade, now, null), win, row);
 }
 
 async function seenIds(repo: Repo, studentId: string): Promise<{ sim: Set<string>; practice: Set<string> }> {
@@ -340,9 +370,15 @@ export async function answerTest(repo: Repo, actor: Actor, sessionId: string, qu
   const row = await repo.findUnique("MapSimSession", { id: sessionId });
   if (!row || row.studentId !== sid) throw new ForbiddenError("This test is not yours.");
   if (row.status === "DONE") return screen(repo, row, now, null);
-  if (s(row.servedQuestionId) !== questionId) return screen(repo, row, now, null);   // an old screen: show the current question
   const w = await windowOf(repo, row);
-  if (row.windowId && (!w || time(w.closesAt) <= now.getTime())) throw new ValidationError("This practice test has closed.");
+  if (s(row.servedQuestionId) !== questionId) return withTime(await screen(repo, row, now, null), w, row);   // an old screen: show the current question
+  if (row.windowId && !w) throw new ValidationError("This practice test has closed.");
+  // r69 live time (from the rows in memory): after the end (+ a short grace) the test is finished with the answers given
+  const end = w ? mapEndFor(w, row) : null;
+  if (end && now.getTime() > end.getTime() + MAP_GRACE_MS) {
+    if (!w!.timeLimitMin && !studentExtra(w!.studentMinutes, sid)) throw new ValidationError("This practice test has closed.");
+    return withTime(await finish(repo, row, now, null), w, row);
+  }
   const [item] = await loadQuestionItems(repo, [questionId]);
   const grade = await studentGrade(repo, sid);
   // a manual test's item keeps the area and RIT it was chosen with; an adaptive one reads them from the pool
@@ -367,7 +403,24 @@ export async function answerTest(repo: Repo, actor: Actor, sessionId: string, qu
     warning = "Slow down 🙂 Read each question carefully before you answer. Your teacher wants to see what you really know.";
     if (recentRapid === 3 && row.kind === "SIM") await tellTeachers(repo, sid, `⚡ Rapid answers in the MAP practice test`, `A student is answering too fast to read the questions (${s(row.subject) === "READING" ? "Reading" : "Language Usage"}). Check on them.`, now);
   }
-  return serveNext(repo, { ...row, ...next }, grade, now, warning);
+  return withTime(await serveNext(repo, { ...row, ...next }, grade, now, warning), w, row);
+}
+
+/**
+ * ⏱ r69 the player's poll: "same" while the teacher changed nothing (no database read), else this student's end now.
+ * `up` = the player's clock reached 0: the test is finished when the end has really passed (the answers given count).
+ */
+export async function mapTestTime(repo: Repo, actor: Actor, input: { sessionId: string; windowId?: string | null; stamp?: number; up?: boolean }, now = new Date()): Promise<{ same: true } | { same: false; screen: TestScreen }> {
+  const sid = student(actor);
+  if (!input.up && input.windowId && Number(input.stamp) === liveStamp(liveKey("map", s(input.windowId)))) return { same: true };
+  const row = await repo.findUnique("MapSimSession", { id: s(input.sessionId) });
+  if (!row || row.studentId !== sid) throw new ForbiddenError("This test is not yours.");
+  const w = await windowOf(repo, row);
+  if (row.status === "DONE") return { same: false, screen: withTime(await screen(repo, row, now, null), w, row) };
+  const end = w ? mapEndFor(w, row) : null;
+  // (a few seconds of clock difference between the device and the server are allowed)
+  if (input.up && end && now.getTime() >= end.getTime() - 5_000) return { same: false, screen: withTime(await finish(repo, row, now, null), w, row) };
+  return { same: false, screen: withTime(await screen(repo, row, now, null), w, row) };
 }
 
 async function tellTeachers(repo: Repo, studentId: string, title: string, body: string, now: Date): Promise<void> {

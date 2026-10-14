@@ -12,6 +12,7 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { IdleBox } from "../cache/idle";
 import type { Repo } from "../seeding/repo";
 import { isDifficulty, isMoeCode, isNafsCode, domainOf, isProcess, type Difficulty, type NafsProcess } from "./framework";
 import { PRACTICE_FAMILY } from "./bank";
@@ -29,9 +30,9 @@ export interface PracticeRead { valid: Booklet[]; invalid: { file: string; probl
 let dirOverride: string | null = null;
 let packDirHint: string | null = null;
 /** Tests: point the loader at a folder of small fixture sets (null = the default). */
-export function usePracticeDir(dir: string | null): void { dirOverride = dir; parsed = null; sigMemo = null; complete.clear(); }
+export function usePracticeDir(dir: string | null): void { dirOverride = dir; parsed.clear(); sigMemo = null; complete.clear(); }
 /** load-packs: when the packs read from another folder (tests), the sets are its "nafs-practice" sub-folder. */
-export function practicePackDir(dir: string | null): void { packDirHint = dir; parsed = null; sigMemo = null; complete.clear(); }
+export function practicePackDir(dir: string | null): void { packDirHint = dir; parsed.clear(); sigMemo = null; complete.clear(); }
 export const practiceDir = () => dirOverride ?? (packDirHint ? join(packDirHint, "nafs-practice") : join(process.cwd(), "data", "nafs", "practice"));
 
 export function practiceFiles(dir = practiceDir()): string[] {
@@ -88,12 +89,14 @@ export function checkPracticeSet(raw: unknown, file: string): { set: Booklet | n
   return { set: { file, code, title: s(b.title).trim().slice(0, 150), kind: kind as Booklet["kind"], genre: s(b.genre).trim().slice(0, 60), passage, questions: out.sort((a, z) => a.n - z.n) }, problems: [] };
 }
 
-let parsed: { sig: string; dir: string; read: PracticeRead } | null = null;
+// r68 memory: kept while used, released after 5 idle minutes
+const parsed = new IdleBox<{ sig: string; dir: string; read: PracticeRead }>("nafs.practice");
 /** Every practice set of the folder, checked (kept in memory until a file changes). */
 export function readPracticeSets(dir = practiceDir()): PracticeRead {
   const sig = practiceSignature(dir);
   if (!sig) return { valid: [], invalid: [], files: [] };
-  if (parsed && parsed.sig === sig && parsed.dir === dir) return parsed.read;
+  const kept = parsed.get();
+  if (kept && kept.sig === sig && kept.dir === dir) return kept.read;
   const files = practiceFiles(dir);
   const read: PracticeRead = { valid: [], invalid: [], files };
   const codes = new Set<string>();
@@ -106,7 +109,7 @@ export function readPracticeSets(dir = practiceDir()): PracticeRead {
     codes.add(r.set.code);
     read.valid.push(r.set);
   }
-  parsed = { sig, dir, read };
+  parsed.set({ sig, dir, read });
   return read;
 }
 

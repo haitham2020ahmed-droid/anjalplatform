@@ -26,6 +26,8 @@ import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { cleanAnnotations, keyWordFor, minutesFor, tokenize, type Annotation, type KeyWord } from "../../components/readrise/text";
+import { sweptWeakMap } from "../cache/idle";
+import { startedBy } from "../../lib/assign-dates";
 
 export const STEPS = ["PREPOLL", "READ", "QUIZ", "WRITE", "POSTPOLL", "DONE"] as const;
 export type RunStep = (typeof STEPS)[number];
@@ -53,7 +55,7 @@ export async function hiddenArticleIds(repo: Repo, schoolId: string): Promise<Se
 const CARD_ARTICLE_COLS = ["id", "schoolId", "code", "title", "topic", "summary", "status"];
 const CARD_VERSION_COLS = ["articleId", "level", "title", "wordCount", "estLevel", "officialLexile"];
 interface Catalog { arts: Row[]; versions: Map<string, Row[]> }
-const catalogCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Catalog> }>>();
+const catalogCache = sweptWeakMap<{ v: string; at: number; p: Promise<Catalog> }>("readrise.student.catalogCache", 2 * 60_000);
 const CATALOG_MODELS = ["RRArticle", "RRVersion"];
 
 /**
@@ -118,7 +120,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   const level = Number(rr.level);
   const visible = new Set(arts.map((a) => s(a.id)));
   // the classes' assigned articles (few rows), kept to the visible ones: no list of every article id in the query
-  const assignedRows = mems.length && arts.length ? (await repo.findMany("RRClassArticle", { classId: { in: mems.map((m) => s(m.classId)) } }, { select: ["articleId", "dueAt"] })).filter((r) => visible.has(s(r.articleId))) : [];
+  const assignedRows = mems.length && arts.length ? (await repo.findMany("RRClassArticle", { classId: { in: mems.map((m) => s(m.classId)) } }, { select: ["articleId", "dueAt", "startAt"] })).filter((r) => visible.has(s(r.articleId)) && startedBy(r.startAt, now)) : [];
   const runsBy = new Map<string, Row[]>();
   for (const r of runs) { const l = runsBy.get(s(r.articleId)); if (l) l.push(r); else runsBy.set(s(r.articleId), [r]); }
   const due = new Map<string, Date | null>();
@@ -470,7 +472,7 @@ export interface ReadRiseHome {
   library: Library; summary: ReadRiseSummary;
   growth: { points: { at: string; level: number }[]; projected: number | null; yearEnd: string };
   /** NEED = never placed and the test is ready; RETAKE = a teacher allowed a retake; OPEN = a test is half done. */
-  placement: { state: "NONE" | "NEED" | "OPEN" | "RETAKE"; result: number | null };
+  placement: { state: "NONE" | "NEED" | "OPEN" | "RETAKE"; result: number | null; /** r68: when the last placement was finished (the Placement test tab) */ doneAt?: string | null; /** the test's passages are on this server */ ready?: boolean };
   /** a real level (readRisePlaced): until then no level number is shown anywhere (the summary's level is a working start) */
   placed: boolean;
   /** not placed and the placement test is available: the articles stay locked until the placement is finished */
@@ -500,7 +502,7 @@ export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: strin
   return {
     library, summary: summary!,
     growth: { points: hist.points.map((p) => ({ at: p.at.toISOString(), level: p.level })), projected: summary!.projected, yearEnd: yearEnd.toISOString() },
-    placement: { state, result: pst.last ? Number(pst.last.result) : null },
+    placement: { state, result: pst.last ? Number(pst.last.result) : null, doneAt: pst.last?.completedAt ? new Date(pst.last.completedAt instanceof Date ? pst.last.completedAt.toISOString() : String(pst.last.completedAt)).toISOString() : null, ready },
     placed: summary!.placed, locked: !summary!.placed && ready,
   };
 }

@@ -11,6 +11,7 @@ import { WordLookup } from "@/components/learn/word-lookup";
 import { useT } from "@/i18n/client";
 import { FlagButton } from "@/components/learn/flag-button";
 import { answerSavedFx } from "@/components/feedback-fx/sound";
+import { BUSY_MESSAGE, sendAnswer, type Sent } from "@/lib/answer-send";
 
 /**
  * The teacher's chosen questions, one by one; the correct answer after each; a report at the end.
@@ -25,6 +26,9 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
   const [fb, setFb] = useState<Feedback | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
+  // r68: "Trying again…" while the answer is sent again; `failed` = every try failed (a "Try again" shows)
+  const [retrying, setRetrying] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [celebrate, setCelebrate] = useState(false);
   // r67 guessing: after "take your time" the next question's answer buttons enable after a few seconds
   const [locked, setLocked] = useState(0);
@@ -55,10 +59,19 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
       setView(nv); setValue(null); setShown(nextQ);
       return;
     }
-    setPending(true); setError(null);
-    const r = await submitQuizAnswerAction({ assignmentId: view.assignmentId, questionId: q.questionId, response: value });
-    setPending(false);
+    setPending(true); setError(null); setFailed(false);
+    // r68: a plain fetch with a time limit, sent again by itself on a weak connection or a busy server (the server
+    // applies each answer once; a repeat gets its saved result). It never throws, and the buttons are ALWAYS released
+    // (before: a failed send left "Checking…" faded until the student left and pressed Continue again)
+    const input = { assignmentId: view.assignmentId, questionId: q.questionId, response: value };
+    let sent: Sent<Awaited<ReturnType<typeof submitQuizAnswerAction>>>;
+    try { sent = await sendAnswer({ kind: "quiz", ...input }, () => submitQuizAnswerAction(input), { onRetry: () => setRetrying(true) }); }
+    catch { sent = { ok: false, reason: "busy", message: BUSY_MESSAGE }; }
+    finally { setPending(false); setRetrying(false); }
+    if (!sent.ok) { setFailed(true); return setError(tr(sent.message)); }
+    const r = sent.data;
     if (r.error) return setError(r.error);
+    if (!r.view || (!view.testMode && !r.feedback)) { setFailed(true); return setError(tr(BUSY_MESSAGE)); }
     // a test: only a neutral "answer saved" tick — never right / wrong
     if (view.testMode) { answerSavedFx(); setView(r.view!); setValue(null); setShown(r.view!.question); return; }
     setFb(r.feedback!); setView(r.view!);
@@ -156,7 +169,13 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
         </div>
       )}
       <QuizQuestion q={q} value={value} onChange={setValue} disabled={!!fb || pending || locked > 0}>
-        {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
+        {retrying && <p role="status" data-testid="answer-retrying" className="mt-4 rounded-lg bg-sky-50 px-3 py-2 text-sky-800">{tr("Trying again…")}</p>}
+        {error && (
+          <div role="alert" className="mt-4 flex flex-wrap items-center gap-3 rounded-lg bg-red-50 px-3 py-2 text-red-700">
+            <span>{error}</span>
+            {failed && !fb && <button type="button" data-testid="answer-try-again" onClick={() => void submit()} disabled={pending} className="rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-red-800 ring-1 ring-red-300 disabled:opacity-50">{tr("Try again")}</button>}
+          </div>
+        )}
         <div className="mt-6">{fb && <FeedbackPanel fb={fb} questionId={q.questionId} />}</div>
         {fb?.guess?.action === "SLOW_DOWN" && <p role="status" data-testid="slow-down" className="mt-4 rounded-2xl bg-sky-50 px-4 py-3 text-center text-lg font-semibold text-sky-900 ring-1 ring-sky-200">Take your time 😊 there&apos;s no rush — read the question carefully</p>}
         {paused && <p role="status" data-testid="guess-pause" className="mt-4 rounded-2xl bg-sky-50 px-4 py-3 text-center text-lg font-semibold text-sky-900 ring-1 ring-sky-200">Looks like you need a break — your progress is saved</p>}

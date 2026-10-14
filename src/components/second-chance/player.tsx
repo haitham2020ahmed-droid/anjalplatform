@@ -1,4 +1,5 @@
 "use client";
+import { OFFLINE_MESSAGE } from "@/lib/answer-send";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
@@ -49,8 +50,11 @@ export function SecondChancePlayer({ questions, total }: { questions: ChanceQues
   const check = async () => {
     setBusy(true); setErr(null);
     const sent = (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements ?? null : v;
-    const r = await answerSecondChanceAction(cur.key, sent);
-    setBusy(false);
+    // r68: the button is always released, and a failed request shows a message here (never the full-page error)
+    let r: Awaited<ReturnType<typeof answerSecondChanceAction>>;
+    try { r = await answerSecondChanceAction(cur.key, sent); }
+    catch { setErr(t(OFFLINE_MESSAGE)); return; }
+    finally { setBusy(false); }
     if (!r.ok) { setErr(r.error); return; }
     setRes(r.value); setTries((n) => n + 1);
     if (r.value.correct) setFixed((n) => n + 1);

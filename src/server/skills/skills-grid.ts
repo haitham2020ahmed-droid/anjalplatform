@@ -11,23 +11,32 @@ import { readableClasses, assertClassRead } from "../teacher/coordinators";
 import { classMembers, studentNames } from "../insights/student-data";
 import { currentRows, historyOf, keysOfPlaceText, ms, NOT_STARTED_VIEW, skillKeyIndex, skillStatusesFor, viewOf, type StarView } from "./status";
 import { classSkillGoals, MISMATCH_TEXT, selfCheckMismatch, type SkillGoal } from "./status-extras";
+import { STRANDS, strandOf, type Strand } from "./my-skills";
+import { schoolSkillIndex } from "../questions/skill-questions";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const json = <T>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
 
-export type GridPlan = "ALL" | "MAP" | "CURRICULUM" | "YEAR" | "CUSTOM";
+export type GridPlan = "ALL" | "MAP" | "CURRICULUM" | "NAFS" | "GRAMMAR" | "YEAR" | "CUSTOM";
+/** the source filter (owner r68: Curriculum · MAP · NAFS · Grammar · All; the Year plan and custom plans kept) */
 export const GRID_PLANS: { key: GridPlan; label: string }[] = [
-  { key: "ALL", label: "All skills" }, { key: "MAP", label: "MAP plan" }, { key: "CURRICULUM", label: "Curriculum" }, { key: "YEAR", label: "Year plan" }, { key: "CUSTOM", label: "Custom plans" },
+  { key: "ALL", label: "All skills" }, { key: "CURRICULUM", label: "Curriculum" }, { key: "MAP", label: "MAP plan" }, { key: "NAFS", label: "NAFS" }, { key: "GRAMMAR", label: "Grammar" },
+  { key: "YEAR", label: "Year plan" }, { key: "CUSTOM", label: "Custom plans" },
 ];
+/** students per grid page (the grid is paginated: light on a big class) */
+export const GRID_PAGE = 40;
+export const isStrand = (v: unknown): v is Strand => (STRANDS as readonly string[]).includes(String(v));
 export const isGridPlan = (v: unknown): v is GridPlan => GRID_PLANS.some((p) => p.key === v);
 /** "most of the class hasn't mastered": fewer than half of the students have ⭐ */
 export const isWeakForClass = (mastered: number, total: number): boolean => total > 0 && mastered * 2 < total;
 
-export interface GridSkill { key: string; name: string; skillId: string | null; mastered: number; started: number; total: number }
+export interface GridSkill { key: string; name: string; skillId: string | null; mastered: number; started: number; total: number; strand?: Strand }
 export interface GridStudent { id: string; name: string; goal: SkillGoal | null }
 export interface SkillsGrid {
   classes: { id: string; name: string }[]; classId: string | null; className: string; plan: GridPlan; weakOnly: boolean;
   students: GridStudent[]; skills: GridSkill[]; cells: Record<string, Record<string, StarView>>;
+  /** r68: the strand filter, and the page of students shown (GRID_PAGE a page) */
+  strand?: Strand | null; page?: number; pages?: number; totalStudents?: number;
 }
 
 /** The class's skills for a plan filter: keys from its assignments (by program), its Curriculum Map plans and its Year plan. */
@@ -40,8 +49,9 @@ async function planKeys(repo: Repo, schoolId: string, classId: string, plan: Gri
     const as = await repo.findMany("Assignment", { classId, deletedAt: null }, { select: ["skillId", "skillIds", "program", "track", "curriculumPlanId"], take: 3000 });
     for (const a of as) {
       const ids = [...new Set([...(a.skillId ? [s(a.skillId)] : []), ...json<unknown[]>(a.skillIds, []).map(String)])].filter(Boolean);
-      const prog = s(a.program) || (s(a.track) === "MAP" ? "MAP" : "");
-      const fits = plan === "ALL" || (plan === "MAP" && prog === "MAP") || (plan === "CURRICULUM" && (prog === "CURRICULUM" || Boolean(a.curriculumPlanId) && !["TEST", "WEEKLY_CHECK"].includes(s(a.curriculumPlanId)))) || (plan === "CUSTOM" && !prog && !a.curriculumPlanId);
+      const prog = s(a.program) || (s(a.track) === "MAP" ? "MAP" : s(a.track) === "NAFS" ? "NAFS" : "");
+      const fits = plan === "ALL" || (plan === "MAP" && prog === "MAP") || (plan === "NAFS" && prog === "NAFS") || (plan === "GRAMMAR" && s(a.track) === "GRAMMAR")
+        || (plan === "CURRICULUM" && (prog === "CURRICULUM" || Boolean(a.curriculumPlanId) && !["TEST", "WEEKLY_CHECK"].includes(s(a.curriculumPlanId)))) || (plan === "CUSTOM" && !prog && !a.curriculumPlanId && s(a.track) !== "GRAMMAR");
       if (fits) for (const id of ids) add(ix.keyOf.get(id), id);
     }
   }
@@ -53,10 +63,15 @@ async function planKeys(repo: Repo, schoolId: string, classId: string, plan: Gri
     const y = (await repo.findMany("MapYearPlan", { classId }, { select: ["weeks"], take: 1 }).catch(() => [] as Row[]))[0];
     for (const w of json<{ skills?: { skillId: string }[] }[]>(y?.weeks, [])) for (const k of w.skills ?? []) add(ix.keyOf.get(s(k.skillId)), s(k.skillId));
   }
+  // Grammar: also every grammar skill the class has a star on (practised outside an assignment)
+  if (plan === "GRAMMAR") {
+    const idx = await schoolSkillIndex(repo, schoolId);
+    for (const k of statusKeys) { const sk = ix.skillsOf.get(k)?.[0]; const row = sk ? idx.skillOf.get(sk) ?? null : null; if (strandOf(k, row) === "GRAMMAR") add(k, sk ?? null); }
+  }
   return out;
 }
 
-export async function skillsGrid(repo: Repo, actor: Actor, opts: { classId?: string | null; plan?: GridPlan; weakOnly?: boolean } = {}, now = new Date()): Promise<SkillsGrid> {
+export async function skillsGrid(repo: Repo, actor: Actor, opts: { classId?: string | null; plan?: GridPlan; weakOnly?: boolean; strand?: Strand | null; page?: number } = {}, now = new Date()): Promise<SkillsGrid> {
   assertCan(actor, "reports:read");
   const classes = (await readableClasses(repo, actor)).map((c) => ({ id: s(c.id), name: s(c.name) }));
   const plan: GridPlan = opts.plan ?? "ALL";
@@ -72,15 +87,24 @@ export async function skillsGrid(repo: Repo, actor: Actor, opts: { classId?: str
   const ix = await skillKeyIndex(repo, s(klass.schoolId));
   const cells: Record<string, Record<string, StarView>> = {};
   for (const id of ids) { const m = all.get(id) ?? new Map(); cells[id] = Object.fromEntries([...keys.keys()].map((k) => [k, m.get(k) ?? NOT_STARTED_VIEW(k)])); }
+  const sidx = await schoolSkillIndex(repo, s(klass.schoolId));
   let skills: GridSkill[] = [...keys].map(([key, skillId]) => {
     const vs = ids.map((id) => cells[id][key]);
-    return { key, name: ix.nameOf.get(key) ?? key, skillId, mastered: vs.filter((v) => v.status === "MASTERED").length, started: vs.filter((v) => v.status !== "NOT_STARTED").length, total: ids.length };
+    const row = (skillId ?? ix.skillsOf.get(key)?.[0]) ? sidx.skillOf.get((skillId ?? ix.skillsOf.get(key)?.[0])!) ?? null : null;
+    return { key, name: ix.nameOf.get(key) ?? key, skillId, mastered: vs.filter((v) => v.status === "MASTERED").length, started: vs.filter((v) => v.status !== "NOT_STARTED").length, total: ids.length, strand: strandOf(key, row) };
   });
+  if (opts.strand) skills = skills.filter((k) => k.strand === opts.strand);
   if (opts.weakOnly) skills = skills.filter((k) => isWeakForClass(k.mastered, k.total)).sort((a, b) => a.mastered - b.mastered || a.name.localeCompare(b.name));
   else skills.sort((a, b) => b.started - a.started || a.name.localeCompare(b.name));
   skills = skills.slice(0, 60);
-  const students = ids.map((id) => ({ id, name: names.get(id)?.name ?? "Student", goal: goals.get(id) ?? null })).sort((a, b) => a.name.localeCompare(b.name));
-  return { classes, classId, className: s(klass.name), plan, weakOnly: Boolean(opts.weakOnly), students, skills, cells };
+  const everyone = ids.map((id) => ({ id, name: names.get(id)?.name ?? "Student", goal: goals.get(id) ?? null })).sort((a, b) => a.name.localeCompare(b.name));
+  // r68: paginated (GRID_PAGE students a page); the column counts ("12 of 20 mastered") stay for the whole class
+  const pages = Math.max(1, Math.ceil(everyone.length / GRID_PAGE));
+  const page = Math.min(pages, Math.max(1, Math.trunc(Number(opts.page) || 1)));
+  const students = everyone.slice((page - 1) * GRID_PAGE, page * GRID_PAGE);
+  const shown = new Set(students.map((x) => x.id));
+  for (const id of Object.keys(cells)) if (!shown.has(id)) delete cells[id];
+  return { classes, classId, className: s(klass.name), plan, weakOnly: Boolean(opts.weakOnly), students, skills, cells, strand: opts.strand ?? null, page, pages, totalStudents: everyone.length };
 }
 
 export interface CellDetail {

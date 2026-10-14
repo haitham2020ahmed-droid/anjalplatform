@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useT } from "@/i18n/client";
@@ -7,7 +8,7 @@ import { FixReportView } from "@/components/admin/fix-report";
 import type { Cursor, FixReport, StuckCounts } from "@/server/admin/stuck-questions";
 import { fixStuckStepAction } from "./fix-actions";
 
-const PHASE: Record<Cursor["phase"], string> = { classify: "Putting questions under their skills…", repair: "Repairing and publishing…", done: "Done" };
+const PHASE: Record<Cursor["phase"], string> = { passages: "Removing questions that need a missing passage…", classify: "Putting questions under their skills…", repair: "Repairing and publishing…", done: "Done" };
 
 /**
  * 🛠 Fix stuck questions (Question Bank, admins): one button; batches with a progress view; the final report with what
@@ -22,10 +23,10 @@ export function FixStuck({ counts, last }: { counts: StuckCounts; last: FixRepor
   const stuck = counts.unclassified + counts.drafts + counts.waiting;
 
   async function start() {
-    if (!window.confirm(t("Fix stuck questions now? Questions get their skill, what can be repaired is repaired, and every question that passes the publish checks is published. Nothing is deleted."))) return;
+    if (!window.confirm(t("Fix stuck questions now? Questions that need a passage or picture that is not attached are hidden (students' answers are kept), questions get their skill, what can be repaired is repaired, and every question that passes the publish checks is published."))) return;
     setError(null); setReport(null);
     let cursor: Cursor | null = null, processed = 0;
-    setBusy({ phase: "classify", processed });
+    setBusy({ phase: "passages", processed });
     for (let guard = 0; guard < 5000; guard++) {
       const r: Awaited<ReturnType<typeof fixStuckStepAction>> = await fixStuckStepAction(cursor).catch(() => ({ error: t("The server did not answer. Try again.") }));
       if (r.error || !r.cursor) { setBusy(null); setError(r.error ?? t("The server did not answer. Try again.")); router.refresh(); return; }
@@ -52,10 +53,11 @@ export function FixStuck({ counts, last }: { counts: StuckCounts; last: FixRepor
       </div>
       {busy && (
         <div role="status" className="mt-3">
-          <div className="h-2.5 w-full overflow-hidden rounded-full bg-teal-100"><div className="h-full animate-pulse bg-brand-teal" style={{ width: `${busy.phase === "classify" ? 40 : 80}%` }} /></div>
+          <div className="h-2.5 w-full overflow-hidden rounded-full bg-teal-100"><div className="h-full animate-pulse bg-brand-teal" style={{ width: `${busy.phase === "passages" ? 20 : busy.phase === "classify" ? 50 : 80}%` }} /></div>
           <p className="mt-1 text-sm text-slate-700">{t(PHASE[busy.phase])} {t("{n} checked", { n: busy.processed.toLocaleString("en") })}</p>
         </div>
       )}
+      <p className="mt-2 text-sm"><Link href="/admin/questions/missing-passage" className="font-semibold text-brand-navy underline" data-testid="missing-passage-link">{t("Remove questions that need a missing passage")}</Link></p>
       {error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{error}</p>}
       {(report ?? last) && !busy && (
         <details className="mt-3" open={!!report}>

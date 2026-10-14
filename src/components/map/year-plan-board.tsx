@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState, useTransition } from "react";
 import { useT } from "@/i18n/client";
 import type { Pos, YearEdit, YearPlanView } from "@/server/map/year-plan";
-import { yearAssignWeekAction, yearEditAction } from "@/app/teacher/map-center/year-actions";
+import { yearAssignWeekAction, yearEditAction, yearQuestionsAction } from "@/app/teacher/map-center/year-actions";
+import type { PreviewQuestion } from "@/server/map/year-plan-share";
 import { StarAssign } from "@/components/assign/star-assign";
 import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
 import { StarGlyph, StarLegend } from "@/components/skills/skill-star";
@@ -25,6 +26,13 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
   const [swapFrom, setSwapFrom] = useState<Pos | null>(null);
   const [drag, setDrag] = useState<Pos | null>(null);
   const [onlyOpen, setOnlyOpen] = useState(false);
+  // 🔎 r68: the questions behind a skill (loaded when the teacher opens them; a few, with their choices)
+  const [qs, setQs] = useState<Record<string, { total: number; questions: PreviewQuestion[] } | "…" | string>>({});
+  const toggleQs = (skillId: string) => {
+    if (qs[skillId]) { setQs((m) => { const n = { ...m }; delete n[skillId]; return n; }); return; }
+    setQs((m) => ({ ...m, [skillId]: "…" }));
+    void yearQuestionsAction(v.classId, skillId).then((r) => setQs((m) => ({ ...m, [skillId]: r.ok ? r.value : r.message })));
+  };
   const edit = (e: YearEdit, done?: string) => start(async () => {
     setMsg(null);
     const r = await yearEditAction(v.classId, e);
@@ -79,13 +87,26 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
                       {(k.mastered ?? 0) > 0 && <span data-testid="year-mastered" title={t("{n} of {total} students mastered this skill", { n: k.mastered ?? 0, total: v.summary.students })} className="ms-1 inline-flex items-center gap-0.5 text-[11px] text-amber-800"><StarGlyph status="MASTERED" size={12} /><span dir="ltr">{k.mastered}/{v.summary.students}</span></span>}
                       {k.review && <span className="ms-1 rounded bg-slate-200 px-1 text-[10px] font-semibold text-slate-600">{t("review")}</span>}
                     </p>
-                    {v.canEdit ? <StarAssign kind="SKILL" refId={k.skillId} classId={v.classId} assignedId={k.assignedId} defaultDue={w.due} track="MAP" label={k.name} />
+                    {v.canEdit ? <StarAssign kind="SKILL" refId={k.skillId} classId={v.classId} assignedId={k.assignedId} defaultDue={w.due} defaultStart={w.from > new Date().toISOString().slice(0, 10) ? w.from : ""} track="MAP" label={k.name} />
                       : <span aria-label={k.assignedId ? t("Assigned") : t("Not assigned")} className="text-lg">{k.assignedId ? "★" : "☆"}</span>}
                   </div>
                   <p className="flex flex-wrap items-center gap-x-2 text-xs text-slate-600">
                     {k.of > 0 && <span data-testid="year-need">{t("{n} of {m} students", { n: k.need, m: k.of })}</span>}
                     {k.lesson ? <Link prefetch={false} href={`/teacher/learn/${encodeURIComponent(k.lesson.code)}`} className="font-semibold text-brand-teal underline">📘 {t("Lesson")}</Link> : <span className="text-slate-400">{t("No lesson yet")}</span>}
+                    <button type="button" data-testid="year-questions" aria-expanded={Boolean(qs[k.skillId])} onClick={() => toggleQs(k.skillId)} className="font-semibold text-brand-navy underline">🔎 {t("Questions")}</button>
                   </p>
+                  {qs[k.skillId] && (
+                    <div className="rounded-lg bg-white p-2 text-xs ring-1 ring-slate-200">
+                      {qs[k.skillId] === "…" ? <p className="text-slate-500">{t("Loading…")}</p>
+                        : typeof qs[k.skillId] === "string" ? <p role="alert" className="text-red-700">{qs[k.skillId] as string}</p>
+                        : (() => { const d = qs[k.skillId] as { total: number; questions: PreviewQuestion[] }; return d.questions.length ? (
+                          <>
+                            <p className="mb-1 text-slate-500">{t("{n} of {total} questions", { n: d.questions.length, total: d.total })}</p>
+                            <ol className="list-decimal space-y-1.5 ps-4" data-content lang="en">{d.questions.map((q) => <li key={q.id}><span className="text-slate-800">{q.stem}</span>{q.choices.length > 0 && <ul className="mt-0.5 space-y-0.5">{q.choices.map((c, ci) => <li key={ci} className={c.correct ? "font-semibold text-emerald-700" : "text-slate-600"}>{c.correct ? "✓ " : "· "}{c.text}</li>)}</ul>}</li>)}</ol>
+                          </>
+                        ) : <p className="text-slate-500">{t("No questions yet.")}</p>; })()}
+                    </div>
+                  )}
                   {v.canEdit && (
                     <div className="flex flex-wrap gap-1">
                       <button type="button" className={btn} disabled={busy || (w.week === 1 && i === 0)} aria-label={t("Move up")} onClick={() => edit(i > 0 ? { op: "move", from: { week: w.week, index: i }, to: { week: w.week, index: i - 1 } } : { op: "move", from: { week: w.week, index: i }, to: { week: w.week - 1, index: 99 } })}>↑</button>

@@ -432,7 +432,9 @@ export async function assignYearWeek(repo: Repo, actor: Actor, classId: string, 
   for (const k of w.skills) {
     if (k.assignedId || seen.has(k.skillId)) continue;
     seen.add(k.skillId);
-    try { const r = await starAssign(repo, actor, { kind: "SKILL", ref: k.skillId, classId, dueAt: w.due < endOfSchoolWeek(now) ? endOfSchoolWeek(now) : w.due, track: "MAP", excludeMastered: opts.excludeMastered && (k.mastered ?? 0) > 0 }, now); if (!r.already) assigned++; }
+    // r68: a week still ahead starts on its Sunday (students see it from then) and ends on its Thursday
+    const startAt = w.from > new Date(now.getTime() + RIYADH).toISOString().slice(0, 10) ? w.from : null;
+    try { const r = await starAssign(repo, actor, { kind: "SKILL", ref: k.skillId, classId, dueAt: w.due < endOfSchoolWeek(now) ? endOfSchoolWeek(now) : w.due, startAt, track: "MAP", excludeMastered: opts.excludeMastered && (k.mastered ?? 0) > 0 }, now); if (!r.already) assigned++; }
     catch (e) { if (e instanceof ValidationError) skipped.push(`${k.name}: ${e.message}`); else throw e; }
   }
   return { assigned, skipped };

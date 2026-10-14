@@ -28,6 +28,7 @@ import { topUpSkills, thinSkills } from "./min-per-skill";
 import { normalizeSkillName, schoolSkillIndex } from "./skill-questions";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { sweptMap, sweptWeakMap } from "../cache/idle";
 import { readCacheFor } from "../db/read-cache-repo";
 import { bookletCount, bookletPackDir, bookletSignature, loadBookletsInto, readBooklets, type Booklet } from "../nafs/booklets";
 import { loadPracticeSetsInto, practiceCount, practicePackDir, practiceSignature, readPracticeSets } from "../nafs/practice-sets";
@@ -76,17 +77,18 @@ export function packSignature(def: PackDef): string | null {
 }
 
 type Loaded = { sets: SkillSet[]; nodes?: undefined } | { nodes: MapSetNode[]; sets?: undefined };
-const fileCache = new Map<string, { sig: string; p: Promise<Loaded> }>();
+// r68 memory: a parsed pack (up to 3 MB of JSON) is released 10 minutes after its last use
+const fileCache = sweptMap<string, { sig: string; at: number; p: Promise<Loaded> }>("packs.files", 10 * 60_000, 6);
 /** The pack's content (read once per file version, kept for the next chunks), or null when the file is missing. */
 export async function loadPack(def: PackDef): Promise<Loaded | null> {
   if (def.kind === "nafs" || def.kind === "nafsPractice" || def.kind === "learn") return null; // read by src/server/nafs/booklets.ts / practice-sets.ts / learn/files.ts
   const sig = packSignature(def);
   if (!sig) return null;
   const hit = fileCache.get(def.key);
-  if (hit && hit.sig === sig) return hit.p;
+  if (hit && hit.sig === sig) { hit.at = Date.now(); return hit.p; }
   const rel = join(dirOf(), def.file);
   const p: Promise<Loaded> = def.kind === "map" ? loadMapSetsFile(rel).then((nodes) => ({ nodes })) : loadSkillSetsFile(rel).then((sets) => ({ sets }));
-  remember(fileCache, def.key, { sig, p }, 6);
+  remember(fileCache, def.key, { sig, at: Date.now(), p }, 6);
   p.catch(() => fileCache.delete(def.key));
   return p;
 }
@@ -213,7 +215,7 @@ const qkey = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const fp = (t: string) => createHash("sha1").update(qkey(t)).digest("base64").slice(0, 16);
 /** a pack's count (and the school's text fingerprints) is kept this long while the bank does not change */
 export const COUNT_TTL_MS = 5 * 60_000;
-const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<PackCount> }>>();
+const countCache = sweptWeakMap<{ v: string; at: number; p: Promise<PackCount> }>("questions.load-packs.countCache", 10 * 60_000);
 
 /**
  * How many of the pack's questions are already in the school's bank and how many are left (an estimate by question
@@ -246,7 +248,7 @@ async function countNafsPack(repo: Repo, schoolId: string, def: PackDef): Promis
 
 /** skills per read of the school's question texts (each read returns only their stems, by the skill index) */
 const STEM_SKILLS = 200;
-const stemCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Set<string>> }>>();
+const stemCache = sweptWeakMap<{ v: string; at: number; p: Promise<Set<string>> }>("questions.load-packs.stemCache", 10 * 60_000);
 /**
  * Fingerprints of the school's (not deleted) question texts, read ONCE for every pack of the page (by skill, indexed;
  * only the stem column — never passages, choices or content), turned into 16-character fingerprints as each part

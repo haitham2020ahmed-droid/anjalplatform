@@ -50,7 +50,7 @@ export default async function NafsPrintPage({ params, searchParams }: { params: 
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   const test = await getNafsTest(repo, actor, id).catch(() => null);
-  if (!test) redirect("/teacher/nafs?tab=tests");
+  if (!test) redirect("/teacher/nafs?tab=test");
   const qs = await loadNafsQuestions(repo, test.questionIds);
   const groups = bookletGroups(test.questionIds, qs);
   // the Ministry booklet model prints its questions under the standard headings, like the guide

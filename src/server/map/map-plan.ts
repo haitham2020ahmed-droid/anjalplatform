@@ -25,6 +25,7 @@ import { masterSkills } from "../skills/master";
 import { mapLinkedQuestionIds } from "../questions/bank-scope";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -161,7 +162,7 @@ export interface PoolQ { id: string; skillId: string; rit: number }
 export type Pools = { pools: Map<GroupKey, PoolQ[]>; skills: Map<string, { id: string; name: string; group: GroupKey }> };
 /** Kept in memory per school and grade (speed: My MAP, the matrix and the plans all need it) until a question,
  *  skill or goal-area link changes in this process, and at most 60 s (other processes). */
-const poolCache = new WeakMap<object, Map<string, { at: number; v: string; p: Promise<Pools> }>>();
+const poolCache = sweptWeakMap<{ at: number; v: string; p: Promise<Pools> }>("map.map-plan.poolCache", 2 * 60_000);
 const POOL_MODELS = ["QuestionMapLink", "Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "QuestionMapLink", "CurriculumMapNode"];
 export function groupPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
   let m = poolCache.get(repo);

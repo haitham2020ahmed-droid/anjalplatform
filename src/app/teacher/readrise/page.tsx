@@ -18,6 +18,7 @@ import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, Scale
 import { classGrowth, studentGrowthReport } from "@/server/readrise/growth-report";
 import { ClassGrowthTab, StudentGrowthView } from "./_components/growth";
 import { allowReadRiseRetakeAction, assignReadRiseAction, scoreReadRiseWritingAction, setReadRiseLevelAction, unassignReadRiseAction } from "./actions";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "ReadRise" };
 
@@ -340,7 +341,7 @@ function AssignTab({ classId, canWrite, assigned, library }: { classId: string; 
                 ))}
               </div>
               <div className="flex flex-wrap items-end gap-3">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Due date (optional)<input type="date" name="dueAt" className={field} /></label>
+                <AssignDates field={field} />
                 <button className={btn}>Assign to the class</button>
               </div>
             </form>

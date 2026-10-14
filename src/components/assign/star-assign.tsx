@@ -12,21 +12,22 @@ import { ExcludeMasteredPrompt } from "./exclude-mastered";
  * ⭐ When some students already mastered the skill, the teacher is asked first: "5 students already mastered this
  * skill — exclude them?" (Yes / No).
  */
-export function StarAssign({ kind = "SKILL", refId, classId, assignedId, defaultDue, track, label, onChange }: {
-  kind?: "SKILL" | "LESSON"; refId: string; classId: string; assignedId: string | null; defaultDue: string;
+export function StarAssign({ kind = "SKILL", refId, classId, assignedId, defaultDue, defaultStart, track, label, onChange }: {
+  kind?: "SKILL" | "LESSON"; refId: string; classId: string; assignedId: string | null; defaultDue: string; /** r68: the start date (yyyy-mm-dd; empty = now) */ defaultStart?: string;
   /** where the work shows for students (MAP, CURRICULUM, NAFS…) */ track?: string; /** the item's name (for screen readers) */ label?: string;
   onChange?: (id: string | null) => void;
 }) {
   const t = useT();
   const [id, setId] = useState<string | null>(assignedId);
   const [due, setDue] = useState(defaultDue);
+  const [startDay, setStartDay] = useState(defaultStart ?? "");
   const [showDue, setShowDue] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const [ask, setAsk] = useState<number | null>(null);
   const [busy, start] = useTransition();
   const assign = (excludeMastered: boolean) => start(async () => {
     setAsk(null);
-    const r = await starAssignAction({ kind, ref: refId, classId, dueAt: due || null, track: track ?? null, excludeMastered });
+    const r = await starAssignAction({ kind, ref: refId, classId, dueAt: due || null, startAt: startDay || null, track: track ?? null, excludeMastered });
     if (r.ok) { setId(r.id); onChange?.(r.id); } else setMsg(r.message);
   });
   const press = () => start(async () => {
@@ -40,7 +41,7 @@ export function StarAssign({ kind = "SKILL", refId, classId, assignedId, default
       const m = await starMasteredAction({ classId, skillId: refId });
       if (m.count > 0) { setAsk(m.count); return; }
     }
-    const r = await starAssignAction({ kind, ref: refId, classId, dueAt: due || null, track: track ?? null });
+    const r = await starAssignAction({ kind, ref: refId, classId, dueAt: due || null, startAt: startDay || null, track: track ?? null });
     if (r.ok) { setId(r.id); onChange?.(r.id); } else setMsg(r.message);
   });
   const name = label ? ` · ${label}` : "";
@@ -53,7 +54,7 @@ export function StarAssign({ kind = "SKILL", refId, classId, assignedId, default
         <span aria-hidden="true">{busy ? "…" : id ? "★" : "☆"}</span>
       </button>
       {!id && ask === null && (showDue
-        ? <input type="date" value={due} onChange={(e) => setDue(e.target.value)} aria-label={t("Due date")} className="h-8 rounded-lg border border-slate-300 px-1 text-xs" />
+        ? <span className="inline-flex flex-wrap items-center gap-1 text-[11px] text-slate-500">{t("Start date")}<input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} aria-label={t("Start date")} className="h-8 rounded-lg border border-slate-300 px-1 text-xs" dir="ltr" />{t("End (due) date")}<input type="date" value={due} min={startDay || undefined} onChange={(e) => setDue(e.target.value)} aria-label={t("End (due) date")} className="h-8 rounded-lg border border-slate-300 px-1 text-xs" dir="ltr" /></span>
         : <button type="button" onClick={() => setShowDue(true)} title={t("Due {date}", { date: due })} aria-label={t("Change the due date")} className="text-xs text-slate-400 hover:text-brand-navy">📅</button>)}
       {ask !== null && <ExcludeMasteredPrompt count={ask} t={t} busy={busy} onYes={() => assign(true)} onNo={() => assign(false)} />}
       {msg && <span role="alert" className="text-xs text-red-700">{msg}</span>}

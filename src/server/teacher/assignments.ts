@@ -16,6 +16,8 @@ export interface NewAssignment {
   skillIds?: string[];
   unitId?: string;
   dueAt: Date | null;
+  /** r68: students see it from this day (null: at once) */
+  startAt?: Date | null;
   targetMastery?: number;
 }
 
@@ -70,7 +72,7 @@ export async function createAssignment(repo: Repo, actor: Actor, input: NewAssig
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!teacher) throw new ForbiddenError("Only teachers can create assignments.");
   const a = await repo.create("Assignment", {
-    classId: klass.id, createdById: teacher.id, title, target: input.target, unitId, skillIds, dueAt: input.dueAt, targetMastery, createdAt: now,
+    classId: klass.id, createdById: teacher.id, title, target: input.target, unitId, skillIds, dueAt: input.dueAt, ...(input.startAt ? { startAt: input.startAt } : {}), targetMastery, createdAt: now,
   });
   const members = await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null });
   for (const m of members) {

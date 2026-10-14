@@ -20,6 +20,7 @@ import { loadQuestionItems, type PracticeItem } from "../practice/items";
 import { evidenceLevels } from "../curriculum-map/evidence-level";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { sweptMap, sweptWeakMap } from "../cache/idle";
 import { hideLevels } from "../../lib/hide-levels";
 import { GAMES, gameMeta } from "../../games/registry";
 import type { BankType, GameMeta, PlayLevel, PlayQuestion } from "../../games/types";
@@ -64,7 +65,7 @@ export function toPlayQuestion(it: PracticeItem): PlayQuestion | null {
 // ------------------------------------------------------------------ the fitting questions of a skill (ids only)
 
 interface Fitting { id: string; level: PlayLevel; type: BankType }
-const fitCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Fitting[]> }>>();
+const fitCache = sweptWeakMap<{ v: string; at: number; p: Promise<Fitting[]> }>("game.questions.fitCache", 2 * 60_000);
 
 /** Every published, auto-scored question of the skill with a type some game can use (cached per bank version). */
 async function playableOfSkill(repo: Repo, schoolId: string, skillId: string): Promise<Fitting[]> {
@@ -116,7 +117,7 @@ export async function gameAvailability(repo: Repo, schoolId: string, skillId: st
 
 // ------------------------------------------------------------------ the student's level (read only)
 
-const levelCache = new Map<string, { at: number; level: PlayLevel }>();
+const levelCache = sweptMap<string, { at: number; level: PlayLevel }>("game.levels", 600_000, 3000);
 /** The student's level as the platform already shows it (On Level without data). Read only, cached 10 minutes. */
 export async function studentPlayLevel(repo: Repo, schoolId: string, studentId: string, now = new Date()): Promise<PlayLevel> {
   const hit = levelCache.get(studentId);
@@ -196,7 +197,7 @@ export async function fittingCounts(repo: Repo, schoolId: string, skillIds: stri
   for (const id of skillIds) out.set(id, (idx.ids.has(id) ? idx.members.get(idx.keyOf.get(id)!) ?? [id] : [id]).reduce((t, x) => t + (counts.get(x) ?? 0), 0));
   return out;
 }
-const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Map<string, number>> }>>();
+const countCache = sweptWeakMap<{ v: string; at: number; p: Promise<Map<string, number>> }>("game.questions.countCache", 2 * 60_000);
 
 // ------------------------------------------------------------------ solo play access + a round
 

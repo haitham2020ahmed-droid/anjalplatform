@@ -10,6 +10,7 @@ import { lessonForSkill, myStudents } from "@/server/learn/teacher";
 import { getT } from "@/i18n/server";
 import { assignAction } from "../actions";
 import { Combo } from "@/components/ui/combo";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "Assign" };
 
@@ -73,8 +74,8 @@ export default async function LearnAssignPage({ searchParams }: { searchParams: 
             </fieldset>
             <div className="grid gap-3 sm:grid-cols-2">
               {kind === "LESSON" && <label className="text-sm">{t("Level")}<select name="level" defaultValue="" className={field}><option value="">{t("Automatic (from MAP or the platform)")}</option>{[1, 2, 3, 4].map((n) => <option key={n} value={n}>{t("Level {n}", { n })}</option>)}</select></label>}
-              <label className="text-sm">{t("Due date (optional)")}<input type="date" name="dueAt" className={field} dir="ltr" /></label>
             </div>
+            <AssignDates t={t} field={field} />
             <button className="min-h-11 rounded-xl bg-brand-navy px-5 font-semibold text-white">⭐ {t("Assign")}</button>
           </form>
         </div>

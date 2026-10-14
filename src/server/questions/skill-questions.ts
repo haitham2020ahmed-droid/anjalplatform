@@ -24,6 +24,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
 import { mapLinkedQuestionIds } from "./bank-scope";
 import { remember } from "../cache/lru";
+import { sweptMap, sweptWeakMap } from "../cache/idle";
 import { countGroups } from "../db/group-count";
 
 const s = (v: unknown) => String(v ?? "");
@@ -57,7 +58,7 @@ interface SchoolSkills {
   /** one question bank: each skill's family key and the members (same skill, every grade) of each key */
   skillOf: Map<string, IndexedSkill>; keyOf: Map<string, string>; members: Map<string, string[]>;
 }
-const skillCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<SchoolSkills> }>>();
+const skillCache = sweptWeakMap<{ v: string; at: number; p: Promise<SchoolSkills> }>("questions.skill-questions.skillCache", 2 * 60_000);
 /** Every skill (also inactive / hidden ones: their questions still exist) of the school's grades, with its grade. */
 export function schoolSkillIndex(repo: Repo, schoolId: string): Promise<SchoolSkills> {
   let m = skillCache.get(repo); if (!m) skillCache.set(repo, (m = new Map()));
@@ -171,7 +172,7 @@ async function schoolOf(repo: Repo, skillId: string): Promise<string | null> {
  * Every skill id of a skill's family (the skill itself first, then the other grades). A skill without a school, a
  * deleted or a grade-bound one is alone: [skillId]. Memoised (the school's skill index is cached per version).
  */
-const familyMemo = new Map<string, { v: string; at: number; ids: string[] }>();
+const familyMemo = sweptMap<string, { v: string; at: number; ids: string[] }>("skills.family", 60_000, 5000);
 export async function skillFamilyIds(repo: Repo, skillId: string): Promise<string[]> {
   const id = s(skillId);
   if (!id) return [];
@@ -185,7 +186,7 @@ export async function skillFamilyIds(repo: Repo, skillId: string): Promise<strin
   return [...ids];
 }
 
-const studentGrade = new Map<string, { at: number; grade: number }>();
+const studentGrade = sweptMap<string, { at: number; grade: number }>("students.grade", 30 * 60_000, 5000);
 /**
  * The student's OWN row of a question's skill: a question taken from another grade's copy of the skill (one bank)
  * counts for the copy of the student's grade, when the family has one; otherwise the question's own skill. So a
@@ -260,7 +261,7 @@ export async function questionsOfSkill(repo: Repo, schoolId: string, skillId: st
   return rows.map((q) => ({ id: s(q.id), skillId: s(q.skillId), difficultyLevel: Number(q.difficultyLevel ?? 4), typeId: s(q.typeId), standardId: q.standardId ? s(q.standardId) : null, passageId: q.passageId ? s(q.passageId) : null, status: s(q.status) }));
 }
 
-const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Map<string, number>> }>>();
+const countCache = sweptWeakMap<{ v: string; at: number; p: Promise<Map<string, number>> }>("questions.skill-questions.countCache", 2 * 60_000);
 /**
  * How many questions each skill has (published by default; a level narrows it). One small read per 400 skills;
  * cached until the bank changes (and at most a minute). Skills of other schools count 0.

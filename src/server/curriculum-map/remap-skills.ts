@@ -31,6 +31,7 @@ import { estimateAbilityEAP } from "../../adaptive/irt";
 import { toWeighted } from "../../adaptive/evidence";
 import { computeMastery } from "../../mastery/mastery";
 import { skillEngineConfig, skillHistoryWithEvidence } from "../practice/skill-evidence";
+import { allLessonDetails, type LessonDetail } from "./lesson-details";
 
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -158,10 +159,38 @@ export function skillForPhrase(phrase: string, skills: GradeSkill[], category: s
 
 /** Pure: the decision for one question. */
 /** UI reorg Phase 1: how sure each rule is. Deterministic rules ≥ 0.8; closest-name and wording guesses below. */
-export const RULE_CONFIDENCE = { STANDARD_ONLY: 0.95, STANDARD_PLACE: 0.9, STANDARD_FIRST: 0.6, READMASTER_SKILL: 0.95, READMASTER_NAME: 0.85, PLACE_ALIAS: 0.9, PLACE_NAME: 0.65, CATEGORY: 0.8, CLUE: 0.8, TEXT: 0.5 } as const;
+export const RULE_CONFIDENCE = { STANDARD_ONLY: 0.95, STANDARD_PLACE: 0.9, STANDARD_FIRST: 0.6, READMASTER_SKILL: 0.95, READMASTER_NAME: 0.85, PLACE_ALIAS: 0.9, PLACE_NAME: 0.65, CATEGORY: 0.8, CLUE: 0.8, TEXT: 0.5, LESSON_CV: 0.85, LESSON_REVIEW: 0.8 } as const;
 
-export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[]; category: string | null; skillsText: string | null; article?: { skillId: string | null; skillName: string | null } | null }, skills: GradeSkill[]): { skill: GradeSkill; via: RemapVia; detail: string; confidence: number } | null {
-  const phrases = q.skillsText ? placePhrases(q.skillsText) : [];
+/**
+ * r68: the lesson a map place belongs to (its selection / text set): the reading skills of its Analyze Craft and
+ * Structure part (the map's own text, else the lesson details' readingSkills), its vocabulary skill (the Concept
+ * Vocabulary part's text, else the lesson details' vocabularySkill) and its vocabulary words.
+ */
+export interface LessonContext { readingPhrases: string[]; vocabularyPhrases: string[]; words: string[] }
+
+/** The grade's Concept Vocabulary skill among these (its name / code says so, else a plain “… Vocabulary” skill). */
+export function conceptVocabularyOf<T extends { name: string; code?: string }>(skills: T[]): T | null {
+  return skills.find((k) => /concept[\s._-]*vocab/i.test(`${k.code ?? ""} ${k.name}`) || /\.(?:cv|concept-vocabulary)$/i.test(k.code ?? ""))
+    ?? skills.find((k) => /\bvocabulary\b/i.test(k.name) && !/context|unclassified|academic|domain|grammar|reference|figurative/i.test(k.name))
+    ?? null;
+}
+
+/** A word of the lesson in the stem (“affect”, “affected”, “emerges”). */
+function usesLessonWord(stem: string, words: string[]): string | null {
+  const t = stem.toLowerCase();
+  for (const w of words) {
+    const base = w.toLowerCase().trim();
+    if (base.length < 3) continue;
+    const root = base.length > 5 ? base.replace(/(e|y|ly|ed|ing|s)$/, "") : base;
+    if (new RegExp(`\\b${root.replace(/[^a-z-]/g, "")}[a-z]*\\b`).test(t)) return w;
+  }
+  return null;
+}
+const VOCAB_STEM = /\b(?:means|meaning|definition|synonyms?|antonyms?|key words?|vocabulary)\b|\bmatch each (?:key )?word\b|\bwhat does [“"]?[a-z-]+[”"]? mean\b/i;
+
+export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[]; category: string | null; skillsText: string | null; article?: { skillId: string | null; skillName: string | null } | null; lesson?: LessonContext | null; cvSkill?: GradeSkill | null }, skills: GradeSkill[]): { skill: GradeSkill; via: RemapVia; detail: string; confidence: number } | null {
+  // an Analyze Craft and Structure place whose map text is empty: the lesson details' reading skills
+  const phrases = q.skillsText ? placePhrases(q.skillsText) : q.category === "ANALYZE_CRAFT_AND_STRUCTURE" ? (q.lesson?.readingPhrases ?? []) : q.category === "CONCEPT_VOCABULARY" ? (q.lesson?.vocabularyPhrases ?? []) : [];
   if (q.article) {
     const own = q.article.skillId ? skills.find((k) => k.id === q.article!.skillId) : undefined;
     if (own) return { skill: own, via: "READMASTER", detail: "the ReadMaster article's skill", confidence: RULE_CONFIDENCE.READMASTER_SKILL };
@@ -176,6 +205,29 @@ export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[];
   for (const ph of phrases) {
     const hit = skillForPhrase(ph, skills, q.category);
     if (hit) return { skill: hit.skill, via: "MAP_PLACE", detail: `map place “${ph}”${hit.how === "name" ? " (closest skill name)" : ""}`, confidence: hit.how === "alias" ? RULE_CONFIDENCE.PLACE_ALIAS : RULE_CONFIDENCE.PLACE_NAME };
+  }
+  // r68: a Concept Vocabulary place the map names no skill for (Grade 6: “1- Concept Vocabulary”) → the grade's
+  // Concept Vocabulary skill (the words of that selection)
+  if (q.category === "CONCEPT_VOCABULARY" && q.cvSkill) return { skill: q.cvSkill, via: "MAP_PLACE", detail: "the grade's Concept Vocabulary skill (Concept Vocabulary place)", confidence: RULE_CONFIDENCE.LESSON_CV };
+  // r68: a selection's Review → a vocabulary question goes with the selection's vocabulary; any other question with
+  // the selection's Analyze Craft and Structure skills (the one its wording names, else the lesson's main skill)
+  if (q.category === "REVIEW" && q.lesson) {
+    const stem = s(q.stem);
+    const word = usesLessonWord(stem, q.lesson.words);
+    if (word || VOCAB_STEM.test(stem)) {
+      for (const ph of q.lesson.vocabularyPhrases) { const hit = skillForPhrase(ph, skills, "CONCEPT_VOCABULARY"); if (hit && hit.how === "alias") return { skill: hit.skill, via: "MAP_PLACE", detail: `Review: the selection's vocabulary skill “${ph}”${word ? ` (the word “${word}”)` : ""}`, confidence: RULE_CONFIDENCE.LESSON_REVIEW }; }
+      if (q.cvSkill) return { skill: q.cvSkill, via: "MAP_PLACE", detail: `Review: the selection's vocabulary${word ? ` (the word “${word}”)` : ""}`, confidence: RULE_CONFIDENCE.LESSON_REVIEW };
+    }
+    const lessonSkills: GradeSkill[] = [];
+    for (const ph of q.lesson.readingPhrases) { const hit = skillForPhrase(ph, skills, "ANALYZE_CRAFT_AND_STRUCTURE"); if (hit && !lessonSkills.some((k) => k.id === hit.skill.id)) lessonSkills.push(hit.skill); }
+    if (lessonSkills.length) {
+      for (const [re, fams] of TEXT_RULES) {
+        if (!re.test(stem)) continue;
+        const k = lessonSkills.find((x) => fams.includes(x.family));
+        if (k) return { skill: k, via: "MAP_PLACE", detail: `Review: the selection's skill “${k.name}” (question wording)`, confidence: RULE_CONFIDENCE.LESSON_REVIEW };
+      }
+      return { skill: lessonSkills[0], via: "MAP_PLACE", detail: `Review: the selection's main skill “${lessonSkills[0].name}”`, confidence: RULE_CONFIDENCE.LESSON_REVIEW };
+    }
   }
   const byFamily = new Map(skills.map((k) => [k.family, k]));
   if (q.category === "RESPOND_TO_READING") {
@@ -201,22 +253,72 @@ export function decideSkill(q: { stem: string; standardCandidates: GradeSkill[];
   return null;
 }
 
-interface SchoolSkills { hidden: Row[]; gradeOfCur: Map<string, number>; byGrade: Map<number, GradeSkill[]>; real: Row[] }
+interface SchoolSkills { hidden: Row[]; gradeOfCur: Map<string, number>; byGrade: Map<number, GradeSkill[]>; real: Row[]; cvOf: Map<number, GradeSkill> }
 async function schoolSkills(repo: Repo, schoolId: string): Promise<SchoolSkills> {
   const grades = await repo.findMany("Grade", { schoolId }, { select: ["id", "level"] });
   const curs = grades.length ? await repo.findMany("Curriculum", { gradeId: { in: grades.map((g) => g.id) } }, { select: ["id", "gradeId"] }) : [];
   const gradeOfCur = new Map(curs.map((c) => [s(c.id), Number(grades.find((g) => g.id === c.gradeId)?.level ?? 0)]));
-  const all = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "code", "name", "curriculumId", "isActive", "category"] }) : [];
+  const all = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "code", "name", "curriculumId", "isActive", "category", "familyId"] }) : [];
   const hidden = all.filter((k) => isHiddenSkill(k.code));
-  const real = all.filter((k) => !isHiddenSkill(k.code) && k.isActive !== false);
+  const real = all.filter((k) => !isHiddenSkill(k.code) && k.isActive !== false && k.isActive !== 0);
   const byGrade = new Map<number, GradeSkill[]>();
+  const cvOf = new Map<number, GradeSkill>();
   for (const k of real) {
     const g = gradeOfCur.get(s(k.curriculumId)) ?? 0;
     const m = s(k.code).toLowerCase().match(/^g\d+\.([a-z0-9-]+)$/);
     if (!m) continue; // grammar-workbook skills (G4.grammar.…) are never a map place's skill
     const l = byGrade.get(g) ?? []; l.push({ id: s(k.id), name: s(k.name), family: m[1], category: s(k.category) }); byGrade.set(g, l);
   }
-  return { hidden, gradeOfCur, byGrade, real };
+  // r68: each grade's Concept Vocabulary skill (any code: an imported one too)
+  for (const g of new Set(real.map((k) => gradeOfCur.get(s(k.curriculumId)) ?? 0))) {
+    const k = conceptVocabularyOf(real.filter((x) => (gradeOfCur.get(s(x.curriculumId)) ?? 0) === g).map((x) => ({ id: s(x.id), name: s(x.name), code: s(x.code), category: s(x.category) })));
+    if (k) cvOf.set(g, { id: k.id, name: k.name, family: s(k.code).toLowerCase().match(/^g\d+\.([a-z0-9-]+)$/)?.[1] ?? "concept-vocabulary", category: k.category });
+  }
+  return { hidden, gradeOfCur, byGrade, real, cvOf };
+}
+
+/** “G6.U1.SEL1.CV” → the lesson details of Grade 6, Unit 1, Selection 1. */
+function lessonOfCode(code: string): LessonDetail | null {
+  const m = /^G(\d+)\.U(\d+)\.(?:TS|SEL)(\d+)\b/i.exec(code);
+  if (!m) return null;
+  return Object.values(allLessonDetails()[m[1]] ?? {}).find((l) => l.unit === Number(m[2]) && l.number === Number(m[3])) ?? null;
+}
+
+/**
+ * r68: a grade with Concept Vocabulary / Review questions waiting and no Concept Vocabulary skill gets one: the skill
+ * of another grade with that name is copied (its family kept), else “Concept Vocabulary” is created. A grade that has
+ * it under another name (“Vocabulary”, “Selection Vocabulary”) keeps that one (conceptVocabularyOf). Idempotent;
+ * written to the audit log. Returns the grades that got one.
+ */
+export async function ensureConceptVocabularySkills(repo: Repo, schoolId: string, questionIds: string[], actorId: string | null = null, now = new Date()): Promise<number[]> {
+  if (!questionIds.length) return [];
+  const links = await repo.findMany("QuestionMapLink", { questionId: { in: questionIds } }, { select: ["nodeId"] });
+  if (!links.length) return [];
+  const nodes = await repo.findMany("CurriculumMapNode", { id: { in: [...new Set(links.map((l) => s(l.nodeId)))] } }, { select: ["code"] });
+  const grades = [...new Set(nodes.map((n) => /^G(\d+)\..*\.(?:CV|REV)$/i.exec(s(n.code))?.[1]).filter(Boolean).map(Number))];
+  if (!grades.length) return [];
+  const sk = await schoolSkills(repo, schoolId);
+  const made: number[] = [];
+  for (const g of grades) {
+    if (sk.cvOf.has(g)) continue;
+    const grade = (await repo.findMany("Grade", { schoolId, level: g }, { select: ["id"] }))[0];
+    const cur = grade ? (await repo.findMany("Curriculum", { gradeId: grade.id }, { select: ["id"] }))[0] : undefined;
+    if (!cur) continue;
+    const code = `G${g}.concept-vocabulary`;
+    const have = (await repo.findMany("Skill", { curriculumId: cur.id, code }, { select: ["id", "deletedAt", "isActive"] }))[0];
+    if (have) continue; // switched off or deleted by an admin: left as the admin decided
+    const other = conceptVocabularyOf(sk.real.filter((k) => /concept[\s._-]*vocab/i.test(`${s(k.code)} ${s(k.name)}`)).map((k) => ({ id: s(k.id), name: s(k.name), code: s(k.code), familyId: s(k.familyId) })));
+    const familyId = other?.familyId || s((await repo.upsert("SkillFamily", { code: "concept-vocabulary" }, { name: "Concept Vocabulary", domain: "VOCABULARY", category: "VOCABULARY" })).id);
+    const name = other ? other.name.replace(/\s*\(?\b(?:grade|gr\.?|g)\s*\d{1,2}\)?\s*/gi, " ").trim() || "Concept Vocabulary" : "Concept Vocabulary";
+    const row = await repo.create("Skill", {
+      curriculumId: cur.id, familyId, code, name,
+      description: "The words of each selection's Concept Vocabulary on the Curriculum Map (and the vocabulary of its Review).",
+      domain: "VOCABULARY", category: "VOCABULARY", sequence: 900, isActive: true,
+    });
+    await repo.create("AuditLog", { actorId, action: "skill.create", entityType: "Skill", entityId: s(row.id), before: null, after: { code, name, grade: g, why: other ? `copied from “${other.name}” of another grade` : "the grade had no Concept Vocabulary skill (Curriculum Map questions)" }, createdAt: now });
+    made.push(g);
+  }
+  return made;
 }
 
 /** What a remap would do (no writes). `questionIds` limits it (new questions after an import or an edit). */
@@ -237,6 +339,21 @@ export async function planRemap(repo: Repo, schoolId: string, opts: { questionId
     for (const n of got) nodes.set(s(n.id), n);
     want = [...new Set(got.map((n) => s(n.parentId)).filter((p) => p && !nodes.has(p)))];
   }
+  // r68: the lesson of each place (its selection / text set): the other parts' skill texts and the lesson details
+  const sets = [...nodes.values()].filter((n) => /^G\d+\.U\d+\.(?:TS|SEL)\d+$/i.test(s(n.code)));
+  const parts = sets.length ? await repo.findMany("CurriculumMapNode", { parentId: { in: sets.map((n) => s(n.id)) } }, { select: ["id", "parentId", "categoryType", "skills"] }) : [];
+  const lessonOf = new Map<string, LessonContext>();
+  for (const set of sets) {
+    const mine = parts.filter((p) => s(p.parentId) === s(set.id));
+    const acs = s(mine.find((p) => p.categoryType === "ANALYZE_CRAFT_AND_STRUCTURE")?.skills).trim();
+    const cv = s(mine.find((p) => p.categoryType === "CONCEPT_VOCABULARY")?.skills).trim();
+    const d = lessonOfCode(s(set.code));
+    lessonOf.set(s(set.id), {
+      readingPhrases: acs ? placePhrases(acs) : d?.readingSkills?.length ? placePhrases(d.readingSkills.join(" \\ ")) : [],
+      vocabularyPhrases: cv ? [cv] : d?.vocabularySkill ? [d.vocabularySkill] : [],
+      words: d?.vocabulary ?? [],
+    });
+  }
   const stdIds = [...new Set(qs.map((q) => s(q.standardId)).filter(Boolean))];
   const stdLinks = stdIds.length ? await repo.findMany("SkillStandard", { standardId: { in: stdIds } }, { select: ["skillId", "standardId"] }) : [];
   // ReadMaster questions: their article (version → article)
@@ -251,14 +368,15 @@ export async function planRemap(repo: Repo, schoolId: string, opts: { questionId
     const link = links.find((l) => l.questionId === q.id);
     let node = link ? nodes.get(s(link.nodeId)) : undefined;
     const place = node ? s(node.code) : null;
-    let category: string | null = null, skillsText: string | null = null;
+    let category: string | null = null, skillsText: string | null = null, lesson: LessonContext | null = null;
     for (let i = 0; node && i < 4; i++) {
       if (!category && node.categoryType) category = s(node.categoryType);
       if (!skillsText && node.skills) skillsText = s(node.skills);
+      if (!lesson) lesson = lessonOf.get(s(node.id)) ?? null;
       node = node.parentId ? nodes.get(s(node.parentId)) : undefined;
     }
     const cands = q.standardId ? skills.filter((k) => stdLinks.some((l) => l.standardId === q.standardId && s(l.skillId) === k.id)) : [];
-    const pick = decideSkill({ stem: s(q.stem), standardCandidates: cands, category, skillsText, article: articleOf(s(q.id)) }, skills);
+    const pick = decideSkill({ stem: s(q.stem), standardCandidates: cands, category, skillsText, article: articleOf(s(q.id)), lesson, cvSkill: sk.cvOf.get(grade) ?? null }, skills);
     items.push({ questionId: s(q.id), grade, place, fromSkillId: s(q.skillId), toSkillId: pick?.skill.id ?? null, toSkill: pick?.skill.name ?? null, via: pick?.via ?? null, detail: pick?.detail ?? (place ? "the map place names no skill this grade has" : "not on the Curriculum Map"), confidence: pick?.confidence ?? 0 });
   }
   const mappedIds = items.filter((i) => i.toSkillId).map((i) => i.questionId);

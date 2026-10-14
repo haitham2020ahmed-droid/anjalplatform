@@ -44,6 +44,15 @@ export function FixReportView({ report: r, t }: { report: FixReport; t: (s: stri
           ))}</ul>
         </details>
       )}
+      {(r.removedNoPassage ?? 0) > 0 && (
+        <details className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200" data-testid="fix-removed-no-passage">
+          <summary className="cursor-pointer font-semibold text-slate-800">{t("Removed: they need a passage or picture that is not attached ({n})", { n: r.removedNoPassage ?? 0 })}</summary>
+          <p className="mt-1 text-sm text-slate-600">{t("Hidden from the whole platform; students' answers are kept.")}</p>
+          <ul className="mt-2 space-y-1.5 text-sm">{(r.removedList ?? []).map((x) => (
+            <li key={x.id}><span className="text-slate-800">{x.stem || x.id}</span> <span className="text-slate-600">· {x.reason}</span></li>
+          ))}</ul>
+        </details>
+      )}
       {r.left.length > 0 && (
         <details className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
           <summary className="cursor-pointer font-semibold text-slate-800">{t("Still without a skill ({n})", { n: r.leftCount })}</summary>

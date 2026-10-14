@@ -309,9 +309,14 @@ export async function reportQuestionProblem(repo: Repo, actor: Actor, questionId
 }
 
 export interface FlagRow { questionId: string; stem: string; skill: string; count: number; reasons: string[]; notes: string[]; lastAt: string; ids: string[] }
-export async function flagList(repo: Repo, actor: Actor, status: "OPEN" | "FIXED" | "DISMISSED" = "OPEN"): Promise<FlagRow[]> {
+/**
+ * The flag list (admins). r68: a question that was deleted, hidden or archived never stays in “To check” — its open
+ * reports are resolved as REMOVED first (src/server/questions/flags-removed.ts) and listed under “Removed”.
+ */
+export async function flagList(repo: Repo, actor: Actor, status: "OPEN" | "FIXED" | "DISMISSED" | "REMOVED" = "OPEN"): Promise<FlagRow[]> {
   assertCan(actor, "questions:review");
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Admins check flagged questions.");
+  if (status === "OPEN" && actor.schoolId) { const { sweepRemovedFlags } = await import("../questions/flags-removed"); await sweepRemovedFlags(repo, actor.schoolId); }
   const rows = await repo.findMany("QuestionFlag", { schoolId: actor.schoolId, status });
   const qids = [...new Set(rows.map((r) => s(r.questionId)))];
   const qs = qids.length ? await repo.findMany("Question", { id: { in: qids } }, { select: ["id", "stem", "skillId"] }) : [];

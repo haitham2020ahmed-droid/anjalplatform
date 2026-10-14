@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
 import { Combo } from "@/components/ui/combo";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 type Lv = "ABOVE" | "ON" | "BELOW";
 interface RosterLevel { level: Lv; from: string; reason: string }
@@ -46,6 +47,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   const [picked, setPicked] = useState<Record<string, "ABOVE" | "ON" | "BELOW">>({});
   const [max, setMax] = useState(20);
   const [due, setDue] = useState("");
+  const [start, setStart] = useState("");
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
   const klass = classes.find((c) => c.id === classId);
@@ -69,17 +71,17 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
     setBusy(true); setResult(null);
     // ✋ Manual: exactly the students given a level here, each starting at it; 🤖 Automatic: the class or the starred
     const r = mode === "MANUAL"
-      ? await assign({ classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null })
+      ? await assign({ classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null, startAt: start || null })
       : who === "all" && also.size
         ? await (async () => {
           const out: { ok: boolean; message: string }[] = [];
           for (const id of [classId, ...[...also].filter((x) => x !== classId)]) {
-            const one = await assign({ classId: id, code, mode: "ADAPTIVE", max, dueAt: due || null });
+            const one = await assign({ classId: id, code, mode: "ADAPTIVE", max, dueAt: due || null, startAt: start || null });
             out.push({ ok: one.ok, message: `${classes.find((c) => c.id === id)?.name ?? ""}: ${one.message}` });
           }
           return { ok: out.every((x) => x.ok), message: out.map((x) => x.message).join(" · ") };
         })()
-        : await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null });
+        : await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null, startAt: start || null });
     setBusy(false); setResult(r);
   };
   if (!classes.length) return null;
@@ -184,7 +186,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
             )}
             <div className="mt-3 flex flex-wrap gap-3">
               <label className="flex flex-col font-semibold text-slate-700">Correct answers to finish<input type="number" min={5} max={50} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
-              <label className="flex flex-col font-semibold text-slate-700">Due date (optional)<input type="date" value={due} onChange={(e) => setDue(e.target.value)} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
+              <AssignDates start={start} onStart={setStart} due={due} onDue={setDue} field="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" />
             </div>
             {result && <p role="status" className={`mt-3 rounded-lg px-3 py-2 ${result.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{result.message}</p>}
             <div className="mt-4 flex justify-end gap-2">

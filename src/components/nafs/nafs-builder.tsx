@@ -261,7 +261,7 @@ export function NafsBuilder(props: {
       difficulty: wholeBank ? dv : null, confirmUncovered: confirm,
     });
     if (r.error) return setError(r.error);
-    router.push(`/teacher/nafs?tab=practice&open=${encodeURIComponent(r.ok!.id)}&msg=${encodeURIComponent(t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.ok!.students }))}`);
+    router.push(`/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.ok!.id)}&msg=${encodeURIComponent(t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.ok!.students }))}`);
   });
 
   // ---------------------------------------------------------------- pieces

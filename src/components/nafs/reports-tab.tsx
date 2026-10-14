@@ -6,8 +6,6 @@ import { listNafsTests, nafsClasses } from "@/server/nafs/tests";
 import { cleanCuts, LEVEL_MARK, LEVEL_NAME, LEVELS, MIN_ITEMS, nafsAcrossReport, nafsStudentHistory, nafsTestReport, nafsTrend, ROUNDING_RULE, type Cuts, type Level, type StudentStd, type Summary } from "@/server/nafs/reports";
 import { codeName, MOE_AREA_NAME, MOE_BY_CODE, PROCESSES } from "@/server/nafs/framework";
 import { PrintButton } from "@/components/plans/print-button";
-import { listNafsPractice, nafsPracticeReport } from "@/server/nafs/practice";
-import { PracticeReportView } from "./practice-report";
 import { Combo } from "@/components/ui/combo";
 import { CodeHead } from "./code-name";
 
@@ -28,44 +26,33 @@ function Bar({ label, v, sub, cuts }: { label: string; v: number | null; sub?: s
 }
 
 /**
- * 🇸🇦 NAFS Reports (teacher-facing): one test or every test together; per class, per student, per Ministry standard,
- * NAFS skill, PIRLS process, content area and text type; the student × standard heat map; each student's level per
- * standard with the teacher's cut-offs (Mastered / Developing / Needs support — never shown to students); item analysis
- * with discrimination and flags; groups needing support → "Make a NAFS plan for this group"; classes compared; trend;
- * Excel (a sheet per view) / PDF. Online, bubble-sheet and typed answers together.
+ * 🇸🇦 NAFS center → NAFS test → REPORT (teacher-facing): one test or every test together; per class, per student, per
+ * Ministry standard, NAFS skill, PIRLS process, content area and text type; the student × standard heat map; each
+ * student's level per standard with the teacher's cut-offs (Mastered / Developing / Needs support — never shown to
+ * students); item analysis with discrimination, distractors and flags; groups needing support → "Make a NAFS plan for
+ * this group"; classes compared; progress across tests; Excel (a sheet per view) / PDF. Online, bubble-sheet and typed
+ * answers together. (Adaptive practice results live in Adaptive → Report; the overall picture in Reports.)
  */
 export async function ReportsTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<string, string | undefined> }) {
   const [tests, classes] = await Promise.all([listNafsTests(repo, actor), nafsClasses(repo, actor)]);
-  const view = sp.view === "trend" || sp.view === "student" || sp.view === "across" || sp.view === "practice" ? sp.view : "test";
+  const view = sp.view === "trend" || sp.view === "student" || sp.view === "across" ? sp.view : "test";
   const testId = tests.find((x) => x.id === sp.test)?.id ?? tests.find((x) => x.results > 0)?.id ?? tests[0]?.id;
   const classId = classes.find((c) => c.id === sp.class)?.id ?? "";
   const cuts = cleanCuts(sp.hi, sp.lo);
-  const keep = (extra: Record<string, string>) => `/teacher/nafs?${new URLSearchParams({ tab: "reports", ...(testId ? { test: testId } : {}), ...(classId ? { class: classId } : {}), hi: String(cuts.hi), lo: String(cuts.lo), ...extra })}`;
-  const views = [{ k: "test", label: "One test" }, { k: "across", label: "All tests together" }, { k: "trend", label: "Progress across simulations" }, { k: "student", label: "One student" }, { k: "practice", label: "Adaptive practice results" }];
-  if (view === "practice") return (
-    <div className="grid gap-4">
-      <nav className="flex flex-wrap gap-1.5 print:hidden" aria-label={t("Reports")}>
-        {views.map((x) => <Link key={x.k} href={keep({ view: x.k })} className={`min-h-10 rounded-full px-4 py-2 text-sm font-semibold ring-1 ${view === x.k ? "bg-teal-700 text-white ring-teal-700" : "bg-surface text-ink-2 ring-line"}`}>{t(x.label)}</Link>)}
-      </nav>
-      <PracticeResults actor={actor} t={t} practiceId={sp.practice ?? null} />
-    </div>
-  );
+  const keep = (extra: Record<string, string>) => `/teacher/nafs?${new URLSearchParams({ tab: "test", sub: "report", ...(testId ? { test: testId } : {}), ...(classId ? { class: classId } : {}), hi: String(cuts.hi), lo: String(cuts.lo), ...extra })}`;
+  const views = [{ k: "test", label: "One test" }, { k: "across", label: "All tests together" }, { k: "trend", label: "Progress across simulations" }, { k: "student", label: "One student" }];
   if (!tests.length || !classes.length) return <p className={`${CARD} text-sm text-muted`}>{t(!classes.length ? "You have no Grade 6 class yet." : "No NAFS tests yet. Start with a NAFS simulation.")}</p>;
   return (
     <div className="grid gap-4">
       <nav className="flex flex-wrap gap-1.5 print:hidden" aria-label={t("Reports")}>
-        {views.map((x) => <Link key={x.k} href={keep({ view: x.k })} className={`min-h-10 rounded-full px-4 py-2 text-sm font-semibold ring-1 ${view === x.k ? "bg-teal-700 text-white ring-teal-700" : "bg-surface text-ink-2 ring-line"}`}>{t(x.label)}</Link>)}
+        {views.map((x) => <Link key={x.k} href={keep({ view: x.k })} className={`min-h-10 rounded-full px-4 py-2 text-sm font-semibold ring-1 ${view === x.k ? "bg-brand-navy text-white ring-brand-navy" : "bg-surface text-ink-2 ring-line"}`}>{t(x.label)}</Link>)}
       </nav>
       <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3 print:hidden`}>
-        <input type="hidden" name="tab" value="reports" /><input type="hidden" name="view" value={view} />
+        <input type="hidden" name="tab" value="test" /><input type="hidden" name="sub" value="report" /><input type="hidden" name="view" value={view} />
         {view === "test" && <div className="grid min-w-60 gap-1 text-sm font-semibold text-ink-2"><span>{t("Test")}</span><Combo name="test" label={t("Test")} defaultValue={testId} options={tests.map((x) => ({ value: x.id, label: x.title, hint: x.results ? t("{n} result(s)", { n: x.results }) : undefined }))} /></div>}
         <div className="grid min-w-52 gap-1 text-sm font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="class" label={t("Class")} defaultValue={classId} options={[...(view !== "trend" ? [{ value: "", label: t("All my Grade 6 classes") }] : []), ...classes.map((c) => ({ value: c.id, label: c.name }))]} /></div>
         {view === "student" && <div className="grid min-w-60 gap-1 text-sm font-semibold text-ink-2"><span>{t("Student")}</span><Combo name="student" label={t("Student")} defaultValue={sp.student ?? ""} options={classes.filter((c) => !classId || c.id === classId).flatMap((c) => c.students.map((x) => ({ value: x.id, label: x.name, group: c.name })))} /></div>}
-        <fieldset className="flex items-end gap-2">
-          <legend className="mb-1 text-sm font-semibold text-ink-2">{t("Cut-offs")}</legend>
-          <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Mastered from")} %<input type="number" name="hi" min={1} max={100} defaultValue={cuts.hi} className={`${SEL} w-20`} /></label>
-          <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Developing from")} %<input type="number" name="lo" min={0} max={99} defaultValue={cuts.lo} className={`${SEL} w-20`} /></label>
-        </fieldset>
+        <CutFields t={t} cuts={cuts} />
         <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
         <PrintButton label={t("Print")} />
       </form>
@@ -78,26 +65,18 @@ export async function ReportsTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: R
   );
 }
 
-/** Adaptive-practice results: choose a practice → per student and skill (difficulty reached, accuracy, mastered, time). */
-async function PracticeResults({ actor, t, practiceId }: { actor: Actor; t: TFn; practiceId: string | null }) {
-  const list = await listNafsPractice(repo, actor);
-  if (!list.length) return <p className={`${CARD} text-sm text-muted`}>{t("No adaptive practice yet. Give the first one below.")} <Link href="/teacher/nafs?tab=practice#give" className="font-semibold text-teal-ink underline">{t("Give adaptive practice")}</Link></p>;
-  const id = list.find((x) => x.id === practiceId)?.id ?? list[0].id;
-  const r = await nafsPracticeReport(repo, actor, id);
+/** The teacher's cut-offs (the same fields in every NAFS test report form). */
+export function CutFields({ t, cuts }: { t: TFn; cuts: Cuts }) {
   return (
-    <>
-      <form method="get" action="/teacher/nafs" className={`${CARD} flex flex-wrap items-end gap-3 print:hidden`}>
-        <input type="hidden" name="tab" value="reports" /><input type="hidden" name="view" value="practice" />
-        <div className="grid min-w-60 gap-1 text-sm font-semibold text-ink-2"><span>{t("Adaptive practice")}</span><Combo name="practice" label={t("Adaptive practice")} defaultValue={id} options={list.map((x) => ({ value: x.id, label: x.title, hint: x.className }))} /></div>
-        <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
-        <PrintButton label={t("Print")} />
-      </form>
-      <PracticeReportView r={r} t={t} />
-    </>
+    <fieldset className="flex items-end gap-2">
+      <legend className="mb-1 text-sm font-semibold text-ink-2">{t("Cut-offs")}</legend>
+      <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Mastered from")} %<input type="number" name="hi" min={1} max={100} defaultValue={cuts.hi} className={`${SEL} w-20`} /></label>
+      <label className="grid gap-1 text-xs font-semibold text-ink-2">{t("Developing from")} %<input type="number" name="lo" min={0} max={99} defaultValue={cuts.lo} className={`${SEL} w-20`} /></label>
+    </fieldset>
   );
 }
 
-function Legend({ t, cuts }: { t: TFn; cuts: Cuts }) {
+export function Legend({ t, cuts }: { t: TFn; cuts: Cuts }) {
   return (
     <div className="flex flex-wrap items-center gap-2 text-xs text-ink-2">
       {LEVELS.map((l) => <span key={l} className={`rounded-full px-2.5 py-1 ring-1 ${LEVEL_CLS[l]}`}>{LEVEL_MARK[l]} {t(LEVEL_NAME[l])}{l === "MASTERED" ? ` ≥ ${cuts.hi}%` : l === "DEVELOPING" ? ` ≥ ${cuts.lo}%` : l === "SUPPORT" ? ` < ${cuts.lo}%` : ` (< ${MIN_ITEMS})`}</span>)}
@@ -168,7 +147,7 @@ function SummaryViews({ t, sum, students, cuts }: { t: TFn; sum: Summary; studen
               <tbody>
                 {students.map((st) => (
                   <tr key={st.id}>
-                    <td className="py-1 pe-2"><Link href={`/teacher/nafs?tab=reports&view=student&student=${st.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{st.name}</Link><span className="block text-xs text-muted">{st.className}</span></td>
+                    <td className="py-1 pe-2"><Link href={`/teacher/nafs?tab=test&sub=report&view=student&student=${st.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{st.name}</Link><span className="block text-xs text-muted">{st.className}</span></td>
                     {sum.standards.map((x) => <Cell key={x.key} c={st.standards[x.key]} t={t} />)}
                   </tr>
                 ))}
@@ -217,7 +196,7 @@ function Exports({ t, q }: { t: TFn; q: URLSearchParams }) {
   );
 }
 
-async function TestReport({ actor, t, testId, classId, cuts }: { actor: Actor; t: TFn; testId: string; classId: string | null; cuts: Cuts }) {
+export async function TestReport({ actor, t, testId, classId, cuts }: { actor: Actor; t: TFn; testId: string; classId: string | null; cuts: Cuts }) {
   const r = await nafsTestReport(repo, actor, testId, classId, new Date(), cuts);
   const q = new URLSearchParams({ testId, ...(classId ? { classId } : {}), hi: String(cuts.hi), lo: String(cuts.lo) });
   const missed = [...r.items].filter((x) => x.pct !== null).sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0)).slice(0, 5);
@@ -255,7 +234,7 @@ async function TestReport({ actor, t, testId, classId, cuts }: { actor: Actor; t
                 <tbody className="divide-y divide-line">
                   {r.students.map((x) => (
                     <tr key={x.id}>
-                      <td className="py-2"><Link href={`/teacher/nafs?tab=reports&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className}{x.blanks ? ` · ${t("{n} blank", { n: x.blanks })}` : ""}{x.pending ? ` · ✍ ${t("{n} to mark", { n: x.pending })}` : ""}</span></td>
+                      <td className="py-2"><Link href={`/teacher/nafs?tab=test&sub=report&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className}{x.blanks ? ` · ${t("{n} blank", { n: x.blanks })}` : ""}{x.pending ? ` · ✍ ${t("{n} to mark", { n: x.pending })}` : ""}</span></td>
                       <td><P v={x.pct} cuts={cuts} /></td><td className="tabular-nums text-ink-2">{x.points}/{x.maxPoints}</td>
                       {PROCESSES.map((p) => <td key={p}><P v={x.processes[p]} cuts={cuts} /></td>)}
                       <td><P v={x.areas.VOC} cuts={cuts} /></td><td><P v={x.areas.CA} cuts={cuts} /></td><td><P v={x.areas.EV} cuts={cuts} /></td><td><P v={x.texts.INFO} cuts={cuts} /></td><td><P v={x.texts.LIT} cuts={cuts} /></td>
@@ -321,7 +300,7 @@ async function Across({ actor, t, classId, cuts }: { actor: Actor; t: TFn; class
         <div className="mt-2 overflow-x-auto">
           <table className="w-full min-w-[40rem] text-sm">
             <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Student")}</th><th>{t("Tests")}</th><th>{t("Overall")}</th>{PROCESSES.map((p) => <th key={p}>{p}</th>)}<th>{t("Vocabulary")}</th><th>{t("Comprehension and analysis")}</th><th>{t("Evaluation")}</th></tr></thead>
-            <tbody className="divide-y divide-line">{r.students.map((x) => <tr key={x.id}><td className="py-2"><Link href={`/teacher/nafs?tab=reports&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className} · {t("{n} items", { n: x.n })}</span></td><td className="text-center tabular-nums">{x.tests}</td><td className="text-center"><P v={x.pct} cuts={cuts} /></td>{PROCESSES.map((p) => <td key={p} className="text-center"><P v={x.processes[p]} cuts={cuts} /></td>)}<td className="text-center"><P v={x.areas.VOC} cuts={cuts} /></td><td className="text-center"><P v={x.areas.CA} cuts={cuts} /></td><td className="text-center"><P v={x.areas.EV} cuts={cuts} /></td></tr>)}</tbody>
+            <tbody className="divide-y divide-line">{r.students.map((x) => <tr key={x.id}><td className="py-2"><Link href={`/teacher/nafs?tab=test&sub=report&view=student&student=${x.id}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{x.name}</Link><span className="block text-xs text-muted">{x.className} · {t("{n} items", { n: x.n })}</span></td><td className="text-center tabular-nums">{x.tests}</td><td className="text-center"><P v={x.pct} cuts={cuts} /></td>{PROCESSES.map((p) => <td key={p} className="text-center"><P v={x.processes[p]} cuts={cuts} /></td>)}<td className="text-center"><P v={x.areas.VOC} cuts={cuts} /></td><td className="text-center"><P v={x.areas.CA} cuts={cuts} /></td><td className="text-center"><P v={x.areas.EV} cuts={cuts} /></td></tr>)}</tbody>
           </table>
         </div>
       </section>
@@ -349,7 +328,7 @@ async function Trend({ actor, t, classId, cuts }: { actor: Actor; t: TFn; classI
       <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[32rem] text-sm">
           <thead><tr className="text-xs text-muted"><th className="py-2 text-start">{t("Test")}</th><th className="text-start">{t("Taken")}</th><th className="text-start">{t("Class average")}</th>{PROCESSES.map((p) => <th key={p} className="px-0.5 align-bottom"><CodeHead code={p} t={t} /></th>)}{stds.map((c) => <th key={c} className="px-0.5 align-bottom"><CodeHead code={c} t={t} /></th>)}</tr></thead>
-          <tbody className="divide-y divide-line">{points.map((p) => <tr key={p.testId}><td className="py-2"><Link href={`/teacher/nafs?tab=reports&test=${p.testId}&class=${classId}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{p.title}</Link></td><td className="tabular-nums">{p.taken}</td><td><P v={p.pct} cuts={cuts} /></td>{PROCESSES.map((k) => <td key={k}><P v={p.processes[k]} cuts={cuts} /></td>)}{stds.map((c) => <td key={c} className="text-center"><P v={p.standards[c]} cuts={cuts} /></td>)}</tr>)}</tbody>
+          <tbody className="divide-y divide-line">{points.map((p) => <tr key={p.testId}><td className="py-2"><Link href={`/teacher/nafs?tab=test&sub=report&test=${p.testId}&class=${classId}&hi=${cuts.hi}&lo=${cuts.lo}`} className="font-semibold text-ink hover:underline">{p.title}</Link></td><td className="tabular-nums">{p.taken}</td><td><P v={p.pct} cuts={cuts} /></td>{PROCESSES.map((k) => <td key={k}><P v={p.processes[k]} cuts={cuts} /></td>)}{stds.map((c) => <td key={c} className="text-center"><P v={p.standards[c]} cuts={cuts} /></td>)}</tr>)}</tbody>
         </table>
       </div>
     </section>

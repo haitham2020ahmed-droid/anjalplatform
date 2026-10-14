@@ -11,6 +11,7 @@ import { masteredInClasses } from "@/server/skills/status-extras";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
+import { startOfDay } from "@/lib/assign-dates";
 
 const id = z.string().min(1).max(191);
 
@@ -30,7 +31,7 @@ export async function createAssignmentAction(_: { error?: string }, f: FormData)
       classId, title: String(f.get("title") ?? ""), target,
       skillIds: target === "SKILL" ? f.getAll("skillIds").map(String) : undefined,
       unitId: target === "UNIT" ? String(f.get("unitId") ?? "") : undefined,
-      dueAt: due ? new Date(`${due}T23:59:00`) : null,
+      dueAt: due ? new Date(`${due}T23:59:00`) : null, startAt: startOfDay(f.get("startAt")),
       targetMastery: z.coerce.number().int().min(40).max(100).parse(f.get("targetMastery") ?? 75),
     });
   } catch (e) {

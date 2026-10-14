@@ -4,7 +4,7 @@ import { getT } from "@/i18n/server";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { createMapTest, editManualItems, testDetail, testPool, updateMapTest, type ItemOp } from "@/server/map/map-test";
+import { changeMapTestTime, createMapTest, editManualItems, testDetail, testPool, updateMapTest, type ItemOp } from "@/server/map/map-test";
 import type { GroupKey, Subject } from "@/server/map/map-plan";
 import type { Season } from "@/server/map/rit";
 import { mapTestHref } from "./href";
@@ -87,4 +87,21 @@ export async function itemOpAction(f: FormData): Promise<void> {
     await editManualItems(repo, actor, str(f, "id"), o);
     return mapTestHref(str(f, "id"), { area: str(f, "area"), msg: t("Saved.") }) + "#items";
   }, testBack(f, { area: str(f, "area") }));
+}
+
+/**
+ * ⏱ r69 live time: the time limit, minutes more / fewer (the test or one student), the end ("end in N minutes" — no
+ * clock or time-zone to get wrong — or "end now").
+ */
+export async function mapTimeAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  const { t } = await getT();
+  await run(async () => {
+    const op = str(f, "op");
+    if (op === "limit") await changeMapTestTime(repo, actor, str(f, "id"), { setMinutes: true, minutes: str(f, "minutes") ? Number(str(f, "minutes")) : null });
+    else if (op === "endin") { const m = Math.round(Number(str(f, "in"))); await changeMapTestTime(repo, actor, str(f, "id"), { closesAt: Number.isFinite(m) && m >= 1 && m <= 600 ? new Date(Date.now() + m * 60_000) : new Date(NaN) }); }
+    else if (op === "endnow") await changeMapTestTime(repo, actor, str(f, "id"), { closesAt: new Date() });
+    else await changeMapTestTime(repo, actor, str(f, "id"), { shift: Number(str(f, "shift")) * (str(f, "sign") === "-" ? -1 : 1), studentId: str(f, "studentId") || null });
+    return mapTestHref(str(f, "id"), { msg: t("Time changed. The students' timers update in a few seconds.") }) + "#time";
+  }, testBack(f));
 }

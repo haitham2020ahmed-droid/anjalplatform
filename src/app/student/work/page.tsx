@@ -26,7 +26,7 @@ export default async function MyWorkPage() {
   const sid = actor.studentId!;
   const [{ t }, h, stars] = await Promise.all([getT(), studentHome(repo, actor), safeIfBehind("work.stars", () => studentStarsSummary(repo, sid), null)]);
   // the review checks: settled / given after the response (the page never waits for them)
-  runAfterResponse("work.stars.fresh", () => keepStarsFresh(repo, sid));
+  runAfterResponse("work.stars.fresh", () => keepStarsFresh(repo, sid), { key: `work.stars.fresh|${sid}` });
   let rows = h.work;
   if (stars && stars.byKey.size) {
     rows = await markMasteredWork(repo, sid, rows, stars.byKey);

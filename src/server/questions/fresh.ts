@@ -22,6 +22,7 @@ import type { PracticeItem } from "../practice/items";
 import type { Repo, Row } from "../seeding/repo";
 import { bankVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { sweptMap } from "../cache/idle";
 import { normalizeText } from "./dedupe-hash";
 
 const s = (v: unknown) => String(v ?? "");
@@ -100,7 +101,7 @@ async function typeCodes(repo: Repo): Promise<Map<string, string>> {
   return m;
 }
 
-const keyCache = new Map<string, { v: number; at: number; p: Promise<Map<string, string[]>> }>();
+const keyCache = sweptMap<string, { v: number; at: number; p: Promise<Map<string, string[]>> }>("fresh.keys", 600_000, 200);
 /** contentKeysForIds kept in memory for a fixed pool (a set's order, a Diagnostic's design) while the bank is unchanged (≤ 10 min). */
 export function cachedContentKeys(repo: Repo, cacheKey: string, ids: string[]): Promise<Map<string, string[]>> {
   const hit = keyCache.get(cacheKey);
@@ -196,7 +197,7 @@ async function seenIndexOf(repo: Repo, studentId: string | { in: string[] }, poo
   };
 }
 
-const seenCache = new Map<string, { at: number; p: Promise<SeenIndex> }>();
+const seenCache = sweptMap<string, { at: number; p: Promise<SeenIndex> }>("fresh.seen", 20 * 60_000, 600);
 /**
  * seenIndex kept for one sitting (key: student + sitting + pool): what was answered in OTHER sittings does not change
  * while this one is being answered. At most 20 minutes, bounded.
@@ -205,7 +206,7 @@ export function cachedSeenIndex(repo: Repo, cacheKey: string, studentId: string,
   const hit = seenCache.get(cacheKey);
   if (hit && Date.now() - hit.at < 20 * 60_000) return hit.p;
   const p = seenIndex(repo, studentId, pool, opts).catch((e) => { seenCache.delete(cacheKey); throw e; });
-  remember(seenCache, cacheKey, { at: Date.now(), p }, 2000);
+  remember(seenCache, cacheKey, { at: Date.now(), p }, 600);
   return p;
 }
 

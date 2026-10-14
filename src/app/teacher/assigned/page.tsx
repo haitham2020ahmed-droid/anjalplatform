@@ -8,6 +8,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
 import { cancelAssignedAction, restoreAssignedAction } from "./actions";
+import { AssignedBulkBar } from "@/components/teacher/assigned-bulk";
 
 export const metadata = { title: "Assigned" };
 
@@ -15,7 +16,7 @@ type SP = { classId?: string; kind?: string; status?: string; from?: string; to?
 const SHOWN = 100;
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : "—");
 const TONE: Record<AssignedStatus, string> = {
-  OPEN: "bg-sky-50 text-sky-800 ring-sky-200", LATE: "bg-amber-50 text-amber-900 ring-amber-200",
+  SCHEDULED: "bg-violet-50 text-violet-800 ring-violet-200", OPEN: "bg-sky-50 text-sky-800 ring-sky-200", LATE: "bg-amber-50 text-amber-900 ring-amber-200",
   DONE: "bg-emerald-50 text-emerald-800 ring-emerald-200", CANCELLED: "bg-slate-100 text-slate-600 ring-slate-300",
 };
 
@@ -59,7 +60,7 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
         <label className="grid gap-0.5 text-xs font-semibold text-muted">{t("Type")}
           <select name="kind" defaultValue={sp.kind ?? ""} className={field}><option value="">{t("All types")}</option>{ASSIGNED_KINDS.map((k) => <option key={k} value={k}>{t(ASSIGNED_KIND_LABEL[k])}</option>)}</select></label>
         <label className="grid gap-0.5 text-xs font-semibold text-muted">{t("Status")}
-          <select name="status" defaultValue={sp.status ?? ""} className={field}><option value="">{t("All")}</option><option value="ACTIVE">{t("Not cancelled")}</option>{(Object.keys(ASSIGNED_STATUS_LABEL) as AssignedStatus[]).map((k) => <option key={k} value={k}>{t(ASSIGNED_STATUS_LABEL[k])}</option>)}</select></label>
+          <select name="status" defaultValue={sp.status ?? ""} className={field}><option value="">{t("Not cancelled")}</option><option value="ALL">{t("All")}</option>{(Object.keys(ASSIGNED_STATUS_LABEL) as AssignedStatus[]).map((k) => <option key={k} value={k}>{t(ASSIGNED_STATUS_LABEL[k])}</option>)}</select></label>
         <label className="grid gap-0.5 text-xs font-semibold text-muted">{t("From")}<input type="date" name="from" defaultValue={sp.from ?? ""} className={field} dir="ltr" /></label>
         <label className="grid gap-0.5 text-xs font-semibold text-muted">{t("To")}<input type="date" name="to" defaultValue={sp.to ?? ""} className={field} dir="ltr" /></label>
         {v.admin && <label className="grid gap-0.5 text-xs font-semibold text-muted">{t("Teacher")}
@@ -91,15 +92,19 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
       {v.items.length === 0 ? <EmptyState icon="📌" title="Nothing assigned yet" text="Work you assign (skills, tests, MAP, NAFS, Learn, ReadRise, writing …) is listed here." /> : (
         <section aria-label={t("Assigned")} className="overflow-hidden rounded-xl bg-surface shadow-card ring-1 ring-line">
           <p className="border-b border-line px-3 py-2 text-xs text-muted">{t("{n} items", { n: v.items.length })}</p>
-          <ul className="divide-y divide-line">
+          <AssignedBulkBar listId="assigned-list" cancelledView={sp.status === "CANCELLED"}
+            kinds={ASSIGNED_KINDS.filter((k) => shown.some((x) => x.kind === k)).map((k) => ({ key: k, label: t(ASSIGNED_KIND_LABEL[k]) }))}
+            units={[...new Set(shown.map((x) => x.unit).filter((u): u is string => Boolean(u)))].sort((a, b) => Number(a.slice(5)) - Number(b.slice(5)))} />
+          <ul id="assigned-list" className="divide-y divide-line">
             {shown.map((x) => (
               <li key={`${x.kind}:${x.id}`} className={`flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-1.5 text-sm ${x.cancelled ? "bg-surface-2/60" : ""}`}>
+                <input type="checkbox" name="sel" value={`${x.kind}:${x.id}`} data-kind={x.kind} data-unit={x.unit ?? ""} aria-label={`${t("Select")}: ${x.title}`} className="h-4 w-4 shrink-0" />
                 <span className="min-w-0 flex-1 basis-60 truncate">
-                  <span className={`font-semibold ${x.cancelled ? "text-muted line-through" : "text-ink"}`} data-content lang="en">{x.title}</span>
+                  <span className={`font-semibold ${x.cancelled ? "text-muted" : "text-ink"}`} data-content lang="en">{x.title}</span>
                   <span className="ms-1.5 rounded-full bg-surface-2 px-1.5 py-0.5 text-xs text-ink-2 ring-1 ring-line">{t(ASSIGNED_KIND_LABEL[x.kind])}{x.detail ? ` · ${x.detail}` : ""}</span>
                 </span>
                 <span className="truncate text-xs text-muted sm:basis-48"><bdi>{who(x)}</bdi>{v.admin && x.teacher ? <> · <bdi>{x.teacher.name}</bdi></> : null}</span>
-                <span className="text-xs text-muted" dir="ltr">{t("Due")}: {day(x.dueAt)}</span>
+                <span className="text-xs text-muted" dir="ltr">{x.startAt ? <>{t("Start")}: {day(x.startAt)} · </> : null}{t("Due")}: {day(x.dueAt)}</span>
                 <span className="w-14 text-xs tabular-nums text-ink-2" dir="ltr" title={t("Finished / students")}>{x.done}/{x.recipients}</span>
                 <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
                 <span className="flex shrink-0 items-center gap-1">

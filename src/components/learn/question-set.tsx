@@ -1,4 +1,5 @@
 "use client";
+import { OFFLINE_MESSAGE } from "@/lib/answer-send";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
@@ -32,8 +33,11 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
     setBusy(true); setError(null);
     const responses: Record<string, unknown> = {};
     for (const q of questions) { const v = values[q.questionId] ?? null; responses[q.questionId] = (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements : v; }
-    const r = await submit(id, responses, { ...spent.current });
-    setBusy(false);
+    // r68: the button is always released; a failed request shows a message here (never the full-page error)
+    let r: Awaited<ReturnType<typeof submit>>;
+    try { r = await submit(id, responses, { ...spent.current }); }
+    catch { setError(OFFLINE_MESSAGE); return; }
+    finally { setBusy(false); }
     if (r.ok) setResult(r.value); else setError(r.error);
   };
   const passages = new Set<string>();

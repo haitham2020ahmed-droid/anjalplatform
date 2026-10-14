@@ -39,14 +39,15 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: Home, My Work, My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
-    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
+  // r68 (owner): ⭐ My Skills right after My Work
+  test("student: Home, My Work, My Skills, My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
+    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Skills", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
     const items = navItemsFor("STUDENT", { rti: true, nafs: false });
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
+    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Skills", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
     assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
     assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");
     assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no label twice in the menu");
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
+    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/skills", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
   });
 
   test("student: never an RTI entry, whatever the flags (support work is ordinary work in My Work)", () => {

@@ -370,8 +370,8 @@ describe("Learn in a school (demo data)", () => {
   });
 
   test("menus: Learn for students (after ReadRise) and teachers; the admin finds Learn by name", () => {
-    // My Words (the curriculum words moved there) and Fluency have their own entries (owner's request)
-    assert.deepEqual(navItemsFor("STUDENT", { nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"]);
+    // My Words (the curriculum words moved there) and Fluency have their own entries (owner's request) (r68: ⭐ My Skills after My Work)
+    assert.deepEqual(navItemsFor("STUDENT", { nafs: true }).map((i) => i.label), ["Home", "My Work", "My Skills", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"]);
     assert.ok(navItemsFor("TEACHER").some((i) => i.href === "/teacher/learn" && i.line));
     const admin = searchablePagesFor("SCHOOL_ADMIN").map((i) => i.href);
     for (const h of ["/teacher/learn", "/teacher/learn/review", "/teacher/learn/coverage"]) assert.ok(admin.includes(h), h);

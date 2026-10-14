@@ -27,6 +27,7 @@ import { loadFonts } from "../../reports/fonts";
 import { renderHtml } from "../../reports/html";
 import { renderXlsx } from "../../reports/xlsx";
 import { audit } from "../audit";
+import { sweptMap } from "../cache/idle";
 import { consumeRateLimit } from "../auth/rate-limit";
 import { CONTENT_TYPES, loadBranding, RateLimitedError, REPORT_RATE, type ReportDeps } from "../reports/service";
 import { CONTENT_SKILLS, DIFFICULTIES, DIFFICULTY_NAME, isMoeCode, isNafsCode, MOE_BY_CODE, MOE_STANDARDS, PROCESS_NAME, PROCESSES, SKILL_BY_CODE, type Difficulty, type NafsProcess } from "./framework";
@@ -80,9 +81,9 @@ const inRange = (r: Range) => { const lo = r.from ? Date.parse(`${r.from}T00:00:
 // ------------------------------------------------------------------ prefilled actions
 
 const many = (k: string, list: string[]) => list.map((v) => [k, v] as [string, string]);
-/** "Assign adaptive practice on these standards": the Adaptive practice tab, prefilled (class, standards, students). */
+/** "Assign adaptive practice on these standards": the Adaptive tab (Practice), prefilled (class, standards, students). */
 export function practiceHref(classId: string, codes: string[], studentIds: string[] = []): string {
-  return `/teacher/nafs?${new URLSearchParams([["tab", "practice"], ["class", classId], ...many("target", codes), ...many("sid", studentIds)])}#give`;
+  return `/teacher/nafs?${new URLSearchParams([["tab", "adaptive"], ["class", classId], ...many("target", codes), ...many("sid", studentIds)])}#give`;
 }
 /** "Make a test on these standards": the ONE test builder (start: standards I choose), prefilled with them and the class. */
 export function testHref(classId: string, codes: string[]): string {
@@ -461,6 +462,22 @@ async function buildDashboard(data: Loaded, classes: NafsClass[], all: NafsClass
     scope: { classId, classes: all.map((c) => ({ id: c.id, name: c.name, students: c.students.length })), range, admin },
     overview, standards, skills, processes, missed: missedAll, heat, attempts: classAttempts, practiceEffect, students, groups, noTest, weakest, movement, school,
   };
+}
+
+/**
+ * r69: the Reports and Suggested plan tabs read the same dashboard — kept one minute per teacher and filter (a swept,
+ * bounded cache: 20 entries at most, given back by the sweeper), so moving between the two tabs computes it once.
+ */
+const dashCache = sweptMap<string, { at: number; d: Promise<Dashboard> }>("nafs.dashboard", 60_000, 20);
+export function nafsDashboardCached(repo: Repo, actor: Actor, opts: { classId?: string | null; from?: unknown; to?: unknown } = {}, now = Date.now()): Promise<Dashboard> {
+  const r = cleanRange(opts.from, opts.to);
+  const key = `${actor.userId}|${actor.role}|${opts.classId ?? ""}|${r.from ?? ""}|${r.to ?? ""}`;
+  const had = dashCache.get(key);
+  if (had && now - had.at < 60_000) return had.d;
+  const d = nafsDashboard(repo, actor, opts);
+  dashCache.set(key, { at: now, d });
+  d.catch(() => dashCache.delete(key));
+  return d;
 }
 
 // ------------------------------------------------------------------ 5. one student's drill-down

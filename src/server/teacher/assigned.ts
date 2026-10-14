@@ -41,8 +41,9 @@ export const ASSIGNED_KIND_LABEL: Record<AssignedKind, string> = {
 };
 export const isAssignedKind = (k: unknown): k is AssignedKind => (ASSIGNED_KINDS as readonly string[]).includes(String(k));
 
-export type AssignedStatus = "OPEN" | "LATE" | "DONE" | "CANCELLED";
-export const ASSIGNED_STATUS_LABEL: Record<AssignedStatus, string> = { OPEN: "Open", LATE: "Late", DONE: "Done", CANCELLED: "Cancelled" };
+export type AssignedStatus = "SCHEDULED" | "OPEN" | "LATE" | "DONE" | "CANCELLED";
+/** SCHEDULED: its start date is still ahead (students see it from that day) */
+export const ASSIGNED_STATUS_LABEL: Record<AssignedStatus, string> = { SCHEDULED: "Scheduled", OPEN: "Open", LATE: "Late", DONE: "Done", CANCELLED: "Cancelled" };
 
 export interface AssignedItem {
   kind: AssignedKind; id: string; title: string;
@@ -56,6 +57,10 @@ export interface AssignedItem {
   /** students it reaches now (students removed one by one are not counted) and how many finished */
   recipients: number; done: number; removed: number;
   createdAt: string | null; dueAt: string | null;
+  /** when the students see it (null: at once) — owner r68 §D start + end dates */
+  startAt?: string | null;
+  /** "Unit 1" when the title names a unit (the Assigned page's "Select unit" smart select) */
+  unit?: string | null;
   status: AssignedStatus; cancelled: boolean;
 }
 export interface AssignedStudent { id: string; name: string; done: boolean; removed: boolean; /** ⭐ the student's ONE status of the assigned skill (skill work only) */ star?: StarStatus }
@@ -99,7 +104,7 @@ async function scopeOf(repo: Repo, actor: Actor): Promise<Scope> {
 /** One assigned thing before the cancels are applied: its students (done or not) and the My Work keys it shows as. */
 interface Raw {
   kind: AssignedKind; id: string; title: string; detail: string | null; classIds: string[]; createdById: string;
-  scope: "class" | "students"; createdAt: string | null; dueAt: string | null;
+  scope: "class" | "students"; createdAt: string | null; dueAt: string | null; startAt?: string | null;
   students: Map<string, boolean>; keys: string[];
 }
 interface ReadOpts { kinds: Set<AssignedKind>; only?: string; creators: string[] | null }
@@ -125,8 +130,8 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
     const onlyKind = o.only ? [...o.kinds][0] : null;
     const [plain, tests, plans] = await Promise.all([
       want("SKILL") || want("PROGRESS_CHECK") ? repo.findMany("Assignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "testId", "curriculumPlanId", "createdAt", "dueAt", "startAt"], ...newest, take: o.only ? 1 : TAKE * 2 }) : Promise.resolve([] as Row[]),
-      want("TEST") ? safeIfBehind("assigned.tests", () => repo.findMany("TeacherTest", { classId: { in: classIds }, deletedAt: null, ...by("createdById", []), ...one() }, { select: ["id", "classId", "createdById", "title", "testType", "createdAt", "dueAt"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
-      want("PLAN") ? safeIfBehind("assigned.plans", () => repo.findMany("SkillPlan", { classId: { in: classIds }, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "kind", "status", "createdAt", "dueAt", "studentIds"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
+      want("TEST") ? safeIfBehind("assigned.tests", () => repo.findMany("TeacherTest", { classId: { in: classIds }, deletedAt: null, ...by("createdById", []), ...one() }, { select: ["id", "classId", "createdById", "title", "testType", "createdAt", "dueAt", "openAt"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
+      want("PLAN") ? safeIfBehind("assigned.plans", () => repo.findMany("SkillPlan", { classId: { in: classIds }, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "kind", "status", "createdAt", "dueAt", "startAt", "studentIds"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
     ]);
     const sentPlans = plans.filter((p) => !p.status || s(p.status) === "SENT");
     const [sets, items, checks] = await Promise.all([
@@ -151,7 +156,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const kind: AssignedKind = checkIds.has(s(a.id)) ? "PROGRESS_CHECK" : "SKILL";
       const cls = ofClass.get(s(a.classId)) ?? [];
       res.push({ kind, id: s(a.id), title: s(a.title), detail: null, classIds: [s(a.classId)], createdById: s(a.createdById), scope: st.length < cls.length ? "students" : "class",
-        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), students: new Map(st.map((r) => [s(r.studentId), s(r.status) === "COMPLETED"] as const)), keys: [s(a.id)] });
+        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), startAt: iso(a.startAt), students: new Map(st.map((r) => [s(r.studentId), s(r.status) === "COMPLETED"] as const)), keys: [s(a.id)] });
     }
     for (const t of tests) {
       const mineSets = sets.filter((x) => s(x.testId) === s(t.id));
@@ -160,7 +165,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       for (const r of st) students.set(s(r.studentId), (students.get(s(r.studentId)) ?? false) || s(r.status) === "COMPLETED");
       const cls = ofClass.get(s(t.classId)) ?? [];
       res.push({ kind: "TEST", id: s(t.id), title: s(t.title), detail: s(t.testType) || null, classIds: [s(t.classId)], createdById: s(t.createdById), scope: students.size < cls.length ? "students" : "class",
-        createdAt: iso(t.createdAt), dueAt: iso(t.dueAt ?? mineSets[0]?.dueAt), students, keys: mineSets.flatMap((x) => [`test:${s(x.id)}`, s(x.id)]) });
+        createdAt: iso(t.createdAt), dueAt: iso(t.dueAt ?? mineSets[0]?.dueAt), startAt: iso(t.openAt ?? mineSets[0]?.startAt), students, keys: mineSets.flatMap((x) => [`test:${s(x.id)}`, s(x.id)]) });
     }
     for (const p of sentPlans) {
       const places = placesOf.get(s(p.id)) ?? [];
@@ -175,7 +180,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const chosen = idList(p.studentIds);
       const ids = s(p.kind) === "CURRICULUM" ? ofClass.get(s(p.classId)) ?? [...who] : chosen.length ? chosen : [...who];
       res.push({ kind: "PLAN", id: s(p.id), title: s(p.title), detail: s(p.kind) || null, classIds: [s(p.classId)], createdById: s(p.createdById), scope: chosen.length ? "students" : "class",
-        createdAt: iso(p.createdAt), dueAt: iso(p.dueAt), students: mapOf(ids, (sid) => places.length > 0 && (doneCount.get(sid) ?? 0) >= places.length), keys: [`plan:${s(p.id)}`, ...places.flat()] });
+        createdAt: iso(p.createdAt), dueAt: iso(p.dueAt), startAt: iso(p.startAt), students: mapOf(ids, (sid) => places.length > 0 && (doneCount.get(sid) ?? 0) >= places.length), keys: [`plan:${s(p.id)}`, ...places.flat()] });
     }
     return res;
   };
@@ -183,7 +188,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
   // 2. MAP Tests (a test may reach several classes or chosen students)
   const mapTests = async (): Promise<Raw[]> => {
     if (!want("MAP_TEST")) return [];
-    const wins = (await repo.findMany("MapSimWindow", { schoolId: sc.schoolId, ...by(), ...one() }, { select: ["id", "title", "subjects", "classIds", "studentIds", "grade", "draft", "createdById", "createdAt", "closesAt"], ...newest }))
+    const wins = (await repo.findMany("MapSimWindow", { schoolId: sc.schoolId, ...by(), ...one() }, { select: ["id", "title", "subjects", "classIds", "studentIds", "grade", "draft", "createdById", "createdAt", "opensAt", "closesAt"], ...newest }))
       .filter((w) => !w.draft);
     const mineW = wins.filter((w) => { const c = idList(w.classIds); return sc.admin || o.creators !== null || !c.length || c.some((x) => classIds.includes(x)); });
     if (!mineW.length) return [];
@@ -197,14 +202,14 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
         : sc.classes.filter((c) => w.grade === null || w.grade === undefined || levelOf.get(s(c.gradeId)) === Number(w.grade)).flatMap((c) => ofClass.get(s(c.id)) ?? []);
       const done = (sid: string) => subjects.every((sub) => sessions.some((x) => s(x.windowId) === s(w.id) && s(x.studentId) === sid && s(x.subject) === sub));
       return { kind: "MAP_TEST" as const, id: s(w.id), title: s(w.title), detail: subjects.join(" · ") || null, classIds: cls.length ? cls : [], createdById: s(w.createdById), scope: chosen.length ? "students" as const : "class" as const,
-        createdAt: iso(w.createdAt), dueAt: iso(w.closesAt), students: mapOf([...new Set(ids)], done), keys: subjects.map((sub) => `map_test:${s(w.id)}:${sub}`) };
+        createdAt: iso(w.createdAt), dueAt: iso(w.closesAt), startAt: iso(w.opensAt), students: mapOf([...new Set(ids)], done), keys: subjects.map((sub) => `map_test:${s(w.id)}:${sub}`) };
     });
   };
 
   // 3. NAFS tests (given online) and NAFS practice
   const nafsTests = async (): Promise<Raw[]> => {
     if (!want("NAFS_TEST")) return [];
-    const given = await repo.findMany("NafsTestClass", { classId: { in: classIds }, ...by(), ...one() }, { select: ["id", "testId", "classId", "dueAt", "studentIds", "createdById", "createdAt"], ...newest });
+    const given = await repo.findMany("NafsTestClass", { classId: { in: classIds }, ...by(), ...one() }, { select: ["id", "testId", "classId", "dueAt", "openAt", "studentIds", "createdById", "createdAt"], ...newest });
     if (!given.length) return [];
     const ids = [...new Set(given.map((g) => s(g.testId)))];
     const [tests, results] = await Promise.all([
@@ -215,7 +220,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const chosen = idList(g.studentIds);
       const who = chosen.length ? chosen : ofClass.get(s(g.classId)) ?? [];
       return { kind: "NAFS_TEST" as const, id: s(g.id), title: s(tests.find((t) => t.id === g.testId)?.title), detail: null, classIds: [s(g.classId)], createdById: s(g.createdById), scope: chosen.length ? "students" as const : "class" as const,
-        createdAt: iso(g.createdAt), dueAt: iso(g.dueAt), students: mapOf(who, (sid) => results.some((r) => r.testId === g.testId && s(r.classId) === s(g.classId) && s(r.studentId) === sid && r.submittedAt)), keys: [`nafs_test:${s(g.id)}`] };
+        createdAt: iso(g.createdAt), dueAt: iso(g.dueAt), startAt: iso(g.openAt), students: mapOf(who, (sid) => results.some((r) => r.testId === g.testId && s(r.classId) === s(g.classId) && s(r.studentId) === sid && r.submittedAt)), keys: [`nafs_test:${s(g.id)}`] };
     });
   };
   const nafsPractice = async (): Promise<Raw[]> => {
@@ -234,21 +239,21 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
   const learn = async (): Promise<Raw[]> => {
     if (!want("LEARN") && !want("WORDS")) return [];
     const kinds = [...(want("LEARN") ? ["LESSON"] : []), ...(want("WORDS") ? ["WORDS"] : [])];
-    const rows = (await repo.findMany("LearnAssign", { schoolId: sc.schoolId, deletedAt: null, kind: { in: kinds }, ...by(), ...one() }, { select: ["id", "kind", "ref", "title", "classId", "target", "dueAt", "createdById", "createdAt"], ...newest }))
+    const rows = (await repo.findMany("LearnAssign", { schoolId: sc.schoolId, deletedAt: null, kind: { in: kinds }, ...by(), ...one() }, { select: ["id", "kind", "ref", "title", "classId", "target", "dueAt", "startAt", "createdById", "createdAt"], ...newest }))
       .filter((a) => sc.admin || o.creators !== null || !a.classId || classIds.includes(s(a.classId)));
     if (!rows.length) return [];
     const who = await inChunks(rows.map((a) => s(a.id)), (part) => repo.findMany("LearnAssignee", { assignId: { in: part } }, { select: ["assignId", "studentId", "status"] }));
     return rows.map((a) => {
       const st = who.filter((w) => w.assignId === a.id);
       return { kind: (s(a.kind) === "WORDS" ? "WORDS" : "LEARN") as AssignedKind, id: s(a.id), title: s(a.title), detail: null, classIds: a.classId ? [s(a.classId)] : [], createdById: s(a.createdById), scope: s(a.target) === "CLASS" ? "class" as const : "students" as const,
-        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), students: new Map(st.map((w) => [s(w.studentId), s(w.status) === "DONE"] as const)), keys: [`learn:${s(a.kind)}:${s(a.ref)}`] };
+        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), startAt: iso(a.startAt), students: new Map(st.map((w) => [s(w.studentId), s(w.status) === "DONE"] as const)), keys: [`learn:${s(a.kind)}:${s(a.ref)}`] };
     });
   };
 
   // 5. ReadRise articles given to a class
   const readrise = async (): Promise<Raw[]> => {
     if (!want("READRISE")) return [];
-    const given = await repo.findMany("RRClassArticle", { classId: { in: classIds }, ...by("assignedById"), ...one() }, { select: ["id", "classId", "articleId", "assignedById", "dueAt", "createdAt"], ...newest });
+    const given = await repo.findMany("RRClassArticle", { classId: { in: classIds }, ...by("assignedById"), ...one() }, { select: ["id", "classId", "articleId", "assignedById", "dueAt", "startAt", "createdAt"], ...newest });
     if (!given.length) return [];
     const ids = [...new Set(given.map((g) => s(g.articleId)))];
     const [arts, runs] = await Promise.all([
@@ -257,7 +262,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
     ]);
     return given.filter((g) => arts.some((a) => a.id === g.articleId)).map((g) => ({
       kind: "READRISE" as const, id: s(g.id), title: s(arts.find((a) => a.id === g.articleId)?.title), detail: null, classIds: [s(g.classId)], createdById: s(g.assignedById), scope: "class" as const,
-      createdAt: iso(g.createdAt), dueAt: iso(g.dueAt), students: mapOf(ofClass.get(s(g.classId)) ?? [], (sid) => runs.some((r) => r.articleId === g.articleId && s(r.studentId) === sid && (r.completedAt || r.step === "DONE"))), keys: [`readrise:${s(g.articleId)}`],
+      createdAt: iso(g.createdAt), dueAt: iso(g.dueAt), startAt: iso(g.startAt), students: mapOf(ofClass.get(s(g.classId)) ?? [], (sid) => runs.some((r) => r.articleId === g.articleId && s(r.studentId) === sid && (r.completedAt || r.step === "DONE"))), keys: [`readrise:${s(g.articleId)}`],
     }));
   };
 
@@ -265,7 +270,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
   const writing = async (): Promise<Raw[]> => {
     if (!want("WRITING") && !want("FLUENCY")) return [];
     const kinds = [...(want("WRITING") ? ["WRITE"] : []), ...(want("FLUENCY") ? ["READ_ALOUD"] : [])];
-    const tasks = await repo.findMany("WritingTask", { classId: { in: classIds }, deletedAt: null, kind: { in: kinds }, ...by(), ...one() }, { select: ["id", "kind", "title", "classId", "studentIds", "dueAt", "createdById", "createdAt"], ...newest });
+    const tasks = await repo.findMany("WritingTask", { classId: { in: classIds }, deletedAt: null, kind: { in: kinds }, ...by(), ...one() }, { select: ["id", "kind", "title", "classId", "studentIds", "dueAt", "startAt", "createdById", "createdAt"], ...newest });
     if (!tasks.length) return [];
     const subs = await inChunks(tasks.map((t) => s(t.id)), (part) => repo.findMany("WritingSubmission", { taskId: { in: part } }, { select: ["taskId", "studentId", "status"] }));
     return tasks.map((t) => {
@@ -273,7 +278,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const list = Array.isArray(chosen) ? chosen.map(s) : ofClass.get(s(t.classId)) ?? [];
       const aloud = s(t.kind) === "READ_ALOUD";
       return { kind: (aloud ? "FLUENCY" : "WRITING") as AssignedKind, id: s(t.id), title: s(t.title), detail: null, classIds: [s(t.classId)], createdById: s(t.createdById), scope: Array.isArray(chosen) ? "students" as const : "class" as const,
-        createdAt: iso(t.createdAt), dueAt: iso(t.dueAt), students: mapOf(list, (sid) => subs.some((x) => x.taskId === t.id && s(x.studentId) === sid && s(x.status) !== "DRAFT")), keys: [`${aloud ? "read_aloud" : "writing"}:${s(t.id)}`] };
+        createdAt: iso(t.createdAt), dueAt: iso(t.dueAt), startAt: iso(t.startAt), students: mapOf(list, (sid) => subs.some((x) => x.taskId === t.id && s(x.studentId) === sid && s(x.status) !== "DRAFT")), keys: [`${aloud ? "read_aloud" : "writing"}:${s(t.id)}`] };
     });
   };
 
@@ -290,13 +295,13 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
   };
   const respond = async (): Promise<Raw[]> => {
     if (!want("RESPOND")) return [];
-    const rows = await repo.findMany("RespondAssignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "title", "classId", "dueAt", "createdById", "createdAt"], ...newest });
+    const rows = await repo.findMany("RespondAssignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "title", "classId", "dueAt", "startAt", "createdById", "createdAt"], ...newest });
     if (!rows.length) return [];
     const st = await inChunks(rows.map((r) => s(r.id)), (part) => repo.findMany("RespondAssignmentStudent", { assignmentId: { in: part } }, { select: ["assignmentId", "studentId", "finishedAt"] }));
     return rows.map((r) => {
       const mine = st.filter((x) => x.assignmentId === r.id);
       return { kind: "RESPOND" as const, id: s(r.id), title: s(r.title), detail: null, classIds: [s(r.classId)], createdById: s(r.createdById), scope: mine.length < (ofClass.get(s(r.classId)) ?? []).length ? "students" as const : "class" as const,
-        createdAt: iso(r.createdAt), dueAt: iso(r.dueAt), students: new Map(mine.map((x) => [s(x.studentId), Boolean(x.finishedAt)] as const)), keys: [`respond:${s(r.id)}`] };
+        createdAt: iso(r.createdAt), dueAt: iso(r.dueAt), startAt: iso(r.startAt), students: new Map(mine.map((x) => [s(x.studentId), Boolean(x.finishedAt)] as const)), keys: [`respond:${s(r.id)}`] };
     });
   };
 
@@ -337,6 +342,12 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
 
 // ------------------------------------------------------------------ the list
 
+/** "Unit 1 · Selection 1: Amigo Brothers · Review" → "Unit 1" (the smart select "by unit"); null when no unit is named. */
+export function unitOfTitle(title: string): string | null {
+  const m = /\bunit\s*(\d{1,2})\b/i.exec(s(title));
+  return m ? `Unit ${Number(m[1])}` : null;
+}
+
 export interface AssignedFilters { classId?: string | null; kind?: string | null; status?: string | null; from?: string | null; to?: string | null; teacher?: string | null }
 export interface AssignedView {
   items: AssignedItem[];
@@ -353,6 +364,7 @@ const cancelState = (cancels: Row[], kind: string, id: string) => {
 function statusOf(r: Raw, cancelled: boolean, recipients: number, done: number, now: Date): AssignedStatus {
   if (cancelled) return "CANCELLED";
   if (recipients > 0 && done >= recipients) return "DONE";
+  if (r.startAt && Date.parse(r.startAt) > now.getTime()) return "SCHEDULED";
   if (r.dueAt && Date.parse(r.dueAt) < now.getTime()) return "LATE";
   return "OPEN";
 }
@@ -386,11 +398,13 @@ export async function assignedList(repo: Repo, actor: Actor, f: AssignedFilters 
     const live = [...r.students].filter(([sid]) => !c.removed.has(sid));
     const done = live.filter(([, d]) => d).length;
     const status = statusOf(r, c.all, live.length, done, now);
-    if (f.status && f.status !== "ALL" && (f.status === "ACTIVE" ? status === "CANCELLED" : status !== f.status)) continue;
+    // owner r68: a cancelled item DISAPPEARS from the list — it shows only with Status = "Cancelled" (or "All")
+    const want = f.status || "ACTIVE";
+    if (want !== "ALL" && (want === "ACTIVE" ? status === "CANCELLED" : status !== want)) continue;
     items.push({
       kind: r.kind, id: r.id, title: r.title, detail: r.detail, classIds: r.classIds, classNames: r.classIds.map((x) => className.get(x) ?? "").filter(Boolean),
       teacher: teacherOf.get(r.createdById) ?? null, scope: r.scope, recipients: live.length, done, removed: [...c.removed].filter((sid) => r.students.has(sid)).length,
-      createdAt: r.createdAt, dueAt: r.dueAt, status, cancelled: c.all,
+      createdAt: r.createdAt, dueAt: r.dueAt, startAt: r.startAt ?? null, unit: unitOfTitle(r.title), status, cancelled: c.all,
     });
   }
   items.sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""));
@@ -473,4 +487,75 @@ export async function restoreAssignment(repo: Repo, actor: Actor, kind: Assigned
   const n = await repo.updateMany("AssignmentCancel", { id: { in: rows.map((r) => s(r.id)) } }, { restoredAt: now, restoredById: actor.userId });
   await audit(repo, { actorId: actor.userId, action: sid ? "assignment.restore.student" : "assignment.restore", entityType: kind, entityId: item.id, after: { studentId: sid }, at: now }).catch(() => undefined);
   return n;
+}
+
+// ------------------------------------------------------------------ several at once (owner r68 §8 / §E)
+
+export interface BulkRef { kind: AssignedKind; id: string }
+export interface BulkResult { done: BulkRef[]; failed: { kind: string; id: string; message: string }[] }
+/** at most this many in one press */
+export const BULK_MAX = 300;
+
+/** "SKILL:abc" → { kind, id } (the Assigned page's checkbox values); unknown kinds and repeats are dropped. */
+export function parseBulkRefs(values: readonly string[]): BulkRef[] {
+  const out: BulkRef[] = [];
+  const seen = new Set<string>();
+  for (const v of values) {
+    const at = s(v).indexOf(":");
+    if (at < 1) continue;
+    const kind = s(v).slice(0, at), id = s(v).slice(at + 1);
+    if (!isAssignedKind(kind) || !id || seen.has(`${kind}:${id}`)) continue;
+    seen.add(`${kind}:${id}`);
+    out.push({ kind, id });
+  }
+  return out.slice(0, BULK_MAX);
+}
+
+/**
+ * 🚫 Cancel several things at once (one confirm on the page). Each one is checked like a single cancel (the teacher's
+ * own work or a class they teach); the reads are shared: ONE collect of the kinds asked, then each item (an item older
+ * than the newest rows read is checked on its own). Soft, like cancelAssignment: nothing is deleted.
+ */
+export function cancelMany(repo: Repo, actor: Actor, refs: readonly BulkRef[], now = new Date()): Promise<BulkResult> {
+  return bulk(repo, actor, refs, now, "cancel");
+}
+/** ↩ Undo several cancels at once (the toast's Undo, or "Undo selected" with Status = Cancelled). */
+export function restoreMany(repo: Repo, actor: Actor, refs: readonly BulkRef[], now = new Date()): Promise<BulkResult> {
+  return bulk(repo, actor, refs, now, "restore");
+}
+
+async function bulk(repo: Repo, actor: Actor, refs: readonly BulkRef[], now: Date, op: "cancel" | "restore"): Promise<BulkResult> {
+  assertCan(actor, "assignments:create");
+  const list = parseBulkRefs(refs.map((r) => `${r.kind}:${r.id}`));
+  const out: BulkResult = { done: [], failed: [] };
+  if (!list.length) return out;
+  const sc = await scopeOf(repo, actor);
+  const found = await collect(repo, sc, { kinds: new Set(list.map((r) => r.kind)), creators: null });
+  const byRef = new Map(found.map((r) => [`${r.kind}:${r.id}`, r]));
+  const active = await inChunks(list.map((r) => r.id), (part) => repo.findMany("AssignmentCancel", { schoolId: sc.schoolId, restoredAt: null, refId: { in: part } }, { select: ["id", "kind", "refId", "studentId"] }));
+  for (const ref of list) {
+    try {
+      let item = byRef.get(`${ref.kind}:${ref.id}`) ?? null;
+      if (!item) item = (await manageable(repo, actor, ref.kind, ref.id)).item;
+      else if (!sc.admin) {
+        const own = sc.mine.includes(item.createdById);
+        const mineClass = item.classIds.length > 0 && item.classIds.every((c) => sc.classes.some((k) => s(k.id) === c));
+        if (!own && !mineClass) throw new ForbiddenError("Only the teacher who assigned it (or a teacher of the class) can change it.");
+      }
+      const it = item;
+      const mine = active.filter((c) => s(c.kind) === ref.kind && s(c.refId) === it.id && !c.studentId);
+      if (op === "cancel") {
+        if (!mine.length) await repo.create("AssignmentCancel", {
+          schoolId: sc.schoolId, kind: ref.kind, refId: it.id, classId: it.classIds.length === 1 ? it.classIds[0] : null, studentId: null,
+          keys: it.keys, title: it.title.slice(0, 191) || ASSIGNED_KIND_LABEL[ref.kind], cancelledById: actor.userId, cancelledAt: now, restoredAt: null, restoredById: null,
+        });
+      } else if (mine.length) await repo.updateMany("AssignmentCancel", { id: { in: mine.map((c) => s(c.id)) } }, { restoredAt: now, restoredById: actor.userId });
+      out.done.push(ref);
+    } catch (e) {
+      if (e instanceof ForbiddenError || e instanceof ValidationError) out.failed.push({ ...ref, message: e.message });
+      else throw e;
+    }
+  }
+  if (out.done.length) await audit(repo, { actorId: actor.userId, action: op === "cancel" ? "assignment.cancel.bulk" : "assignment.restore.bulk", entityType: "Assigned", entityId: String(out.done.length), after: { items: out.done.slice(0, 50) }, at: now }).catch(() => undefined);
+  return out;
 }

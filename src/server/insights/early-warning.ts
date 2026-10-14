@@ -28,6 +28,7 @@ import {
   SERIES_DAYS, SEVERITY_ORDER, SKILL_WEEKS, UNHANDLED_DAYS, detectPattern, groupName, judge,
   type MeasureFinding, type MeasureKey, type Pattern, type Point, type Severity,
 } from "./early-warning-rules";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v === null || v === undefined || v === "" ? NaN : new Date(s(v)).getTime());
@@ -48,7 +49,7 @@ interface SchoolScan { at: number; rows: WarningRow[]; moves: GroupMove[] }
 
 // ------------------------------------------------------------------ the school's read (chunked, bounded)
 
-const cache = new WeakMap<object, Map<string, SchoolScan>>();
+const cache = sweptWeakMap<SchoolScan>("insights.early-warning.cache", 30 * 60_000);
 /** Forget the cached scan (tests, or after a big import). */
 export function clearEarlyWarningCache(repo: Repo, schoolId?: string): void { if (schoolId) cache.get(repo)?.delete(schoolId); else cache.delete(repo); }
 
