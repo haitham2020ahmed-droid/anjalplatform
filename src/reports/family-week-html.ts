@@ -6,6 +6,7 @@
  */
 import type { FamilyWeek } from "../server/reports/family-week";
 import type { Lang, TFn } from "../i18n";
+import { isPlanHref, planHref, planQrSvg } from "../lib/plan-links";
 
 const esc = (v: unknown) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 /** content that may be English inside an Arabic page */
@@ -32,6 +33,11 @@ export const FAMILY_WEEK_CSS = `
 .fw-home li{border-radius:12px;background:#fffbeb;border:1px solid #fde68a;padding:8px 10px}
 .fw-home b{display:block;color:#78350f}
 .fw-note{border-radius:12px;background:#eff6ff;border:1px solid #bfdbfe;padding:8px 10px;white-space:pre-wrap;margin:0}
+.fw-link{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px}
+.fw-links{margin:0 0 8px;color:#1e3a5f;font-size:10pt;font-weight:700}
+.fw-h3q{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.fw-qr{display:none}
+@media print{.fw-qr{display:block}}
 .fw-foot{margin:10px 0 0;color:#475569;font-size:10.5pt;text-align:center}
 @media (max-width:640px){.fw-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.fw-page{padding:16px}}
 @media print{.fw-page{border:none;border-radius:0;max-width:none}.fw-page + .fw-page{break-before:page;page-break-before:always}}
@@ -46,16 +52,20 @@ function dayOf(d: string, lang: Lang): string {
 export function familyWeekArticle(w: FamilyWeek, t: TFn, lang: Lang): string {
   const dir = lang === "ar" ? "rtl" : "ltr";
   const list = (items: string[], empty: string) => (items.length ? `<ul>${items.map((x) => `<li>${iso(x)}</li>`).join("")}</ul>` : `<p class="fw-none">${esc(t(empty))}</p>`);
+  // 🔗 r79: each thing to practise opens the student's practice of that skill (absolute platform link; QR on paper)
+  const first = w.practise.map((p) => (p.skillId ? planHref({ kind: "skill", id: p.skillId }, "family") : null)).find((x): x is string => Boolean(x)) ?? null;
+  const qr = first ? planQrSvg(first, 50) : "";
   const tiles: [number, string][] = [[w.tasks.length, "Tasks finished"], [w.minutes, "Minutes of learning"], [w.articles.length, "ReadRise articles"], [w.lessons.length, "Lessons"]];
   return `<article class="fw-page" dir="${dir}" lang="${lang}">
 <header class="fw-head"><div><h2>${esc(t("For my family: this week"))}</h2><p class="fw-who">${iso(w.name)}${w.className ? ` · ${esc(t("Class {c}", { c: w.className }))}` : ""}</p></div>
 <p class="fw-dates">${esc(t("From {from} to {to}", { from: dayOf(w.from, lang), to: dayOf(w.to, lang) }))}</p></header>
+${first ? `<p class="fw-links">🔗 ${esc(t("Everything in this plan is clickable"))}</p>` : ""}
 <ul class="fw-tiles">${tiles.map(([n, l]) => `<li class="fw-tile"><b dir="ltr">${n}</b><span>${esc(t(l))}</span></li>`).join("")}</ul>
 <section class="fw-sec"><h3>${esc(t("Tasks I finished"))}</h3>${list(w.tasks, "No tasks finished yet this week.")}</section>
 <section class="fw-sec"><h3>${esc(t("ReadRise articles I read"))}</h3>${list(w.articles, "No articles yet this week.")}</section>
 <section class="fw-sec"><h3>${esc(t("Lessons I learned"))}</h3>${list(w.lessons, "No lessons yet this week.")}</section>
 <section class="fw-sec"><h3>${esc(t("My tests"))}</h3>${w.tests.length ? `<ul>${w.tests.map((x) => `<li>${iso(x.title)} · <span class="fw-score" dir="ltr">${x.pct}%</span></li>`).join("")}</ul>` : `<p class="fw-none">${esc(t("No test results this week."))}</p>`}</section>
-<section class="fw-sec"><h3>${esc(t("Things to practise at home"))}</h3><ul class="fw-home">${w.practise.map((p) => `<li><b>${esc(t(p.title))}</b>${esc(t("At home:"))} ${esc(t(p.activity))}</li>`).join("")}</ul></section>
+<section class="fw-sec"><div class="fw-h3q"><h3>${esc(t("Things to practise at home"))}</h3>${qr && first ? `<a class="fw-qr" href="${esc(first)}">${qr}</a>` : ""}</div><ul class="fw-home">${w.practise.map((p) => { const href = p.skillId ? planHref({ kind: "skill", id: p.skillId }, "family") : null; const title = esc(t(p.title)); return `<li><b>${href && isPlanHref(href) ? `<a class="fw-link" href="${esc(href)}">${title}</a>` : title}</b>${esc(t("At home:"))} ${esc(t(p.activity))}</li>`; }).join("")}</ul></section>
 ${w.note ? `<section class="fw-sec"><h3>${esc(t("A note from my teacher"))}</h3><p class="fw-note" dir="auto">${esc(w.note)}</p></section>` : ""}
 <p class="fw-foot">${esc(t("Ask me what I learned this week!"))}</p>
 </article>`;

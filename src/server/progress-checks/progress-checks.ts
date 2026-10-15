@@ -22,6 +22,7 @@ import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
 import { findQuestionsForSkill, typicalLevel } from "../curriculum/question-finder";
 import { studentNames } from "../insights/student-data";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { DEFAULT_MIX, PASS_PCT, selectItems, skillCategory, type Candidate, type Category } from "./select";
 import { json, scoreChecks, type CheckScore } from "./score";
 
@@ -46,11 +47,12 @@ async function lessonForClass(repo: Repo, klass: Row, lessonId: string): Promise
   return { lesson, unit };
 }
 
-/** The live checks of a class (their assignment not deleted), oldest first. */
+/** The live checks of a class (their assignment not deleted, r78: not cancelled on Assigned for everyone), oldest first. */
 async function liveChecks(repo: Repo, where: Record<string, unknown>): Promise<Row[]> {
   const rows = await repo.findMany("ProgressCheck", where, { orderBy: [{ field: "createdAt" }, { field: "id" }] });
   if (!rows.length) return [];
-  const live = new Set((await repo.findMany("Assignment", { id: { in: rows.map((r) => s(r.assignmentId)) }, deletedAt: null }, { select: ["id"] })).map((a) => s(a.id)));
+  const ix = await cancelIndex(repo, s(rows[0].schoolId));
+  const live = new Set((await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: rows.map((r) => s(r.assignmentId)) } }), { select: ["id"] })).filter((a) => ix.live(a)).map((a) => s(a.id)));
   return rows.filter((r) => live.has(s(r.assignmentId)));
 }
 

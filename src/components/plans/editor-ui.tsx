@@ -24,6 +24,8 @@ import {
 import { RichInline } from "@/components/rich-inline";
 import { SourceSelect } from "@/components/assign/source-select";
 import { stripMarks } from "@/lib/inline-marks";
+import { planHref } from "@/lib/plan-links";
+import { PlanA } from "./plan-links";
 
 export type EditorStep = "what" | "preview" | "send";
 /** A stored sentence in the reader's language (values kept as they are). */
@@ -189,7 +191,7 @@ export function SectionCard({ t, v, x, i, n, readOnly, addOpen, bank, types, fil
       <div className="flex flex-wrap items-start gap-3">
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-navy font-bold text-white tabular-nums">{i + 1}</span>
         <div className="min-w-0 flex-1">
-          <h3 className="text-lg font-semibold text-brand-navy">{x.label ?? x.skillName}</h3>
+          <h3 className="text-lg font-semibold text-brand-navy"><PlanA href={x.skillId ? planHref({ kind: "skill", id: x.skillId }, "staff") : null}>{x.label ?? x.skillName}</PlanA></h3>
           <p className="text-sm text-slate-600">
             {x.label && <>{t("Skill")}: {x.skillName} · </>}
             {x.auto ? t("The platform chooses at each student's level") : t("{n} question(s)", { n: x.questions.length })}

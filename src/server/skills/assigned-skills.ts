@@ -9,12 +9,20 @@
  * tests, Weekly Check, Diagnostic, placement / MAP practice tests, MAP checks, the star review checks, RTI re-checks,
  * progress checks): those measure, they do not assign a skill.
  *
- * Light (512 MB): the newest ASSIGNED_TAKE assignments of the class (selected columns), their students and the
- * questions of their sets in batches; the skills of one set are capped at SET_SKILLS_CAP.
+ * r78: the assignments are EXACTLY the live rows of the Assigned page (teacher/assigned.ts assignedWorkOfClasses):
+ * cancelled there (for everyone or for one student) = gone from Student Skills; never sent = never here.
+ *
+ * Light (512 MB): the Assigned page's bounded reads (kinds SKILL + PLAN only), the Assignment rows of those (at most
+ * ASSIGNED_TAKE, selected columns) and the questions of their sets in batches; a set's skills are capped at SET_SKILLS_CAP.
  */
 import type { Repo, Row } from "../seeding/repo";
 import type { SkillKeyIndex } from "./status";
 import { ASSIGN_SOURCES, sourceOfAssignment, type AssignSource } from "../../lib/assign-source";
+import { assignedWorkOfClasses, type AssignedKind, type LiveAssigned } from "../teacher/assigned";
+import { liveAssignmentWhere } from "../student/cancelled-work";
+
+/** the Assigned page's kinds that can assign a skill */
+const SKILL_KINDS: readonly AssignedKind[] = ["SKILL", "PLAN"];
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const json = <T>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
@@ -94,30 +102,50 @@ async function skillsOfSets(repo: Repo, assessmentIds: readonly string[]): Promi
   return out;
 }
 
-const COLS = ["id", "skillId", "skillIds", "assessmentId", "testId", "curriculumPlanId", "title", "note", "track", "program", "source", "createdAt"];
+const COLS = ["id", "skillId", "skillIds", "assessmentId", "testId", "curriculumPlanId", "title", "note", "track", "program", "source", "createdAt", "deletedAt"];
 
-async function assignedFrom(repo: Repo, rows: Row[], links: Row[], ix: SkillKeyIndex, members?: ReadonlySet<string>): Promise<AssignedSkills> {
-  const work = rows.filter(isSkillWork);
-  const sets = [...new Set(work.filter((a) => a.assessmentId && !a.skillId && !json<unknown[]>(a.skillIds, []).length).map((a) => s(a.assessmentId)))];
-  return buildAssigned(work, await skillsOfSets(repo, sets), links, ix.keyOf, members);
+/**
+ * r78 (owner: "only what the teacher ASSIGNS — exactly the Assigned page"): the skill work of the live rows of the
+ * Assigned page (teacher/assigned.ts assignedWorkOfClasses — the SAME reads and the SAME cancels as the page):
+ *   SKILL  a skill / a set of questions sent (Assign, Curriculum Map Assign, MAP plan sets, Year plan ☆, RTI …)
+ *   PLAN   the places of a plan the teacher SENT (Curriculum Map send, unit plans) — but never the whole-grade
+ *          Curriculum plan (kind CURRICULUM): its places open when a STUDENT starts one (made for the whole class,
+ *          silently) — the teacher assigned no skill
+ * Nothing else: plans / drafts never sent (no row), a cancelled or removed row (gone from Assigned), and — even when
+ * listed — a test or a check (isSkillWork).
+ */
+async function assignedOfWork(repo: Repo, work: readonly LiveAssigned[], ix: SkillKeyIndex, members: ReadonlySet<string> | undefined, range?: { since: number | null; until: number | null }): Promise<AssignedSkills> {
+  const items = work.filter(countsAsAssigning);
+  const aids = [...new Set(items.flatMap((w) => w.aids))].slice(0, ASSIGNED_TAKE);
+  const rows: Row[] = [];
+  for (let i = 0; i < aids.length; i += 400) rows.push(...(await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: aids.slice(i, i + 400) } }), { select: COLS })));
+  const inRange = (a: Row) => !range || ((!range.since || ms(a.createdAt) >= range.since) && (!range.until || ms(a.createdAt) <= range.until));
+  const live = rows.filter((a) => isSkillWork(a) && inRange(a)).sort((a, b) => ms(b.createdAt) - ms(a.createdAt));
+  const liveIds = new Set(live.map((a) => s(a.id)));
+  const links = items.flatMap((w) => w.links.filter((l) => liveIds.has(s(l.assignmentId))));
+  const sets = [...new Set(live.filter((a) => a.assessmentId && !a.skillId && !json<unknown[]>(a.skillIds, []).length).map((a) => s(a.assessmentId)))];
+  return buildAssigned(live, await skillsOfSets(repo, sets), links, ix.keyOf, members);
 }
+
+/** Does a live row of Assigned assign skills? (SKILL; a sent plan's places — not the whole-grade Curriculum plan) Pure. */
+export function countsAsAssigning(w: Pick<LiveAssigned, "kind" | "detail">): boolean {
+  return w.kind === "SKILL" || (w.kind === "PLAN" && s(w.detail) !== "CURRICULUM");
+}
+
+const EMPTY = (): AssignedSkills => ({ sourcesOf: new Map(), skillIdOf: new Map(), byStudent: new Map() });
 
 /** The class's assigned skills (its current members only); r75: with dates, only the assignments made inside them (ms). */
 export async function classAssignedSkills(repo: Repo, classId: string, memberIds: readonly string[], ix: SkillKeyIndex, range?: { since: number | null; until: number | null }): Promise<AssignedSkills> {
-  const at = range ? { ...(range.since ? { gte: new Date(range.since) } : {}), ...(range.until ? { lte: new Date(range.until) } : {}) } : {};
-  const rows = (await repo.findMany("Assignment", { classId, deletedAt: null, ...(Object.keys(at).length ? { createdAt: at } : {}) }, { select: COLS, orderBy: [{ field: "createdAt", dir: "desc" }], take: ASSIGNED_TAKE })).filter(isSkillWork);
-  const links: Row[] = [];
-  const ids = rows.map((a) => s(a.id));
-  for (let i = 0; i < ids.length; i += 500) links.push(...(await repo.findMany("AssignmentStudent", { assignmentId: { in: ids.slice(i, i + 500) } }, { select: ["assignmentId", "studentId"] })));
-  return assignedFrom(repo, rows, links, ix, new Set(memberIds));
+  const klass = await repo.findUnique("Class", { id: classId });
+  if (!klass) return EMPTY();
+  const work = await assignedWorkOfClasses(repo, s(klass.schoolId), [classId], { kinds: SKILL_KINDS });
+  return assignedOfWork(repo, work, ix, new Set(memberIds), range);
 }
 
-/** One student's assigned skills (any of their classes). */
+/** One student's assigned skills: what is live for them on the Assigned rows of their current classes. */
 export async function studentAssignedSkills(repo: Repo, studentId: string, ix: SkillKeyIndex): Promise<AssignedSkills> {
-  const links = await repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "studentId"], take: 600 });
-  const ids = [...new Set(links.map((l) => s(l.assignmentId)))];
-  const rows: Row[] = [];
-  for (let i = 0; i < ids.length; i += 400) rows.push(...(await repo.findMany("Assignment", { id: { in: ids.slice(i, i + 400) }, deletedAt: null }, { select: COLS })));
-  rows.sort((a, b) => ms(b.createdAt) - ms(a.createdAt));
-  return assignedFrom(repo, rows, links, ix);
+  const [st, mem] = await Promise.all([repo.findUnique("Student", { id: studentId }), repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })]);
+  if (!st || !mem.length) return EMPTY();
+  const work = await assignedWorkOfClasses(repo, s(st.schoolId), mem.map((m) => s(m.classId)), { kinds: SKILL_KINDS, studentId });
+  return assignedOfWork(repo, work, ix, new Set([studentId]));
 }

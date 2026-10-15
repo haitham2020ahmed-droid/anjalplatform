@@ -7,6 +7,7 @@
  * The content and every number are the same as before.
  */
 import type { PersonalPlan } from "./personal-plan";
+import { planHref, planQrSvg, PLAN_LINKS_NOTE } from "../../lib/plan-links";
 
 const esc = (v: unknown) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 const TITLE = { BELOW: "Approaching the standard", ON: "Meeting the standard", ABOVE: "Exceeding the standard" } as const;
@@ -21,11 +22,15 @@ export function personalPlanDoc(p: PersonalPlan, generatedAt = new Date()): stri
   const total = p.bands.reduce((n, b) => n + b.students.length, 0);
   const chip = (b: keyof typeof TONE, text: string) => `<span style="background:${TONE[b].bg};color:${TONE[b].fg};font-weight:bold;padding:1pt 6pt;mso-highlight:none">${esc(text)}</span>`;
   const goal = (g: PersonalPlan["bands"][number]["goals"][number], i: number) =>
-    `<p style="margin:6pt 0 2pt"><b>${i + 1}. ${esc(g.area)}</b>${g.meanRit !== null ? ` <span style="color:#64748B">(group mean RIT ${g.meanRit})</span>` : ""}${g.result ? `<br><span style="color:#166534">Results (last 28 days): ${g.result.answers ? `${g.result.practiced}/${g.result.students} students practiced · ${g.result.answers} answers · ${g.result.accuracy}% correct${g.result.trend !== null ? ` · trend ${g.result.trend >= 0 ? "+" : ""}${g.result.trend}` : ""}` : "not practiced yet"}</span>` : ""}</p><ul style="margin-top:0">${g.skills.map((k) => `<li>${k.standards.length ? `<b>CCSS.ELA-LITERACY.${esc(k.standards.join(", "))}</b> – ` : ""}${esc(k.name)}</li>`).join("") || "<li>Skills will appear when the area’s skills have questions.</li>"}</ul>`;
+    `<p style="margin:6pt 0 2pt"><b>${i + 1}. ${esc(g.area)}</b>${g.meanRit !== null ? ` <span style="color:#64748B">(group mean RIT ${g.meanRit})</span>` : ""}${g.result ? `<br><span style="color:#166534">Results (last 28 days): ${g.result.answers ? `${g.result.practiced}/${g.result.students} students practiced · ${g.result.answers} answers · ${g.result.accuracy}% correct${g.result.trend !== null ? ` · trend ${g.result.trend >= 0 ? "+" : ""}${g.result.trend}` : ""}` : "not practiced yet"}</span>` : ""}</p><ul style="margin-top:0">${g.skills.map((k) => `<li>${k.standards.length ? `<b>CCSS.ELA-LITERACY.${esc(k.standards.join(", "))}</b> – ` : ""}${skillA(k)}</li>`).join("") || "<li>Skills will appear when the area’s skills have questions.</li>"}</ul>`;
+  // 🔗 r79: every skill is a link to its skill page (⭐ Assign, questions) — absolute APP_URL, ids only; Word keeps it
+  const skillA = (k: { id: string; name: string }) => { const h = planHref({ kind: "skill", id: k.id }, "staff"); return h ? `<a href="${esc(h)}" style="color:#1D4ED8;text-decoration:underline">${esc(k.name)}</a>` : esc(k.name); };
+  const planLink = planHref({ kind: "map-group-plan", classId: p.classId, subject: p.subject }, "staff");
+  const qr = planLink ? planQrSvg(planLink, 54) : "";
   const th = (t: string, num = false) => `<th style="background:${NAVY};color:#FFFFFF;padding:4pt 6pt;text-align:${num ? "right" : "left"};border:1px solid ${NAVY}">${t}</th>`;
   const td = (v: string, i: number, num = false) => `<td style="padding:3pt 6pt;border-bottom:1px solid #E2E8F0;${i % 2 ? "background:#F6F8FB;" : ""}text-align:${num ? "right" : "left"}">${v}</td>`;
   const band = (b: PersonalPlan["bands"][number]) => `
-    <h2 style="color:${NAVY};border-bottom:2px solid ${TONE[b.band].fg};padding-bottom:2pt;margin-top:16pt">${chip(b.band, TITLE[b.band])} ${b.ritRange ? `<span style="font-size:11pt">RIT ${esc(b.ritRange)}</span>` : ""} <span style="font-size:10pt;color:#64748B;font-weight:normal">— ${RULE[b.band]} · ${b.students.length} student${b.students.length === 1 ? "" : "s"}</span></h2>
+    <h2 style="color:${NAVY};border-bottom:2px solid ${TONE[b.band].fg};padding-bottom:2pt;margin-top:16pt">${qr && planLink ? `<a href="${esc(planLink)}" style="float:right">${qr}</a>` : ""}${chip(b.band, TITLE[b.band])} ${b.ritRange ? `<span style="font-size:11pt">RIT ${esc(b.ritRange)}</span>` : ""} <span style="font-size:10pt;color:#64748B;font-weight:normal">— ${RULE[b.band]} · ${b.students.length} student${b.students.length === 1 ? "" : "s"}</span></h2>
     <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;font-size:10pt"><tr>${th("Names")}${th("RIT Score", true)}${th("Projected Spring RIT Score", true)}${th("Percentile", true)}</tr>
     ${b.students.map((st, i) => `<tr>${td(`${esc(st.name)}${st.rapidGuess !== null && st.rapidGuess >= 30 ? ` <span style="color:#7A4B00;font-weight:bold">⚠ retest</span>` : ""}`, i)}${td(String(st.rit), i, true)}${td(st.projection === null ? "" : String(st.projection), i, true)}${td(st.percentile === null ? "" : String(st.percentile), i, true)}</tr>`).join("") || `<tr><td colspan="4" style="padding:4pt 6pt;color:#64748B">No students in this group.</td></tr>`}</table>
     <h3>Academic Goals – ${subj} + Standards</h3>${b.goals.map(goal).join("")}
@@ -53,6 +58,7 @@ h3 { color: ${NAVY}; font-size: 12pt; margin: 10pt 0 2pt; border-left: 4px solid
 <td style="padding:5pt 8pt"><span style="color:#64748B;font-size:8pt">Subject</span><br><b>L.A (${subj})</b></td>
 <td style="padding:5pt 8pt"><span style="color:#64748B;font-size:8pt">Teacher</span><br><b>${esc(p.teacher)}</b></td>
 <td style="padding:5pt 8pt"><span style="color:#64748B;font-size:8pt">MAP term</span><br><b>${esc(p.term ?? "—")}</b></td></tr></table>
+<p style="margin:6pt 0;padding:3pt 8pt;background:#EEF4FC;border:1px solid #C9DAF3;color:#1F3A68;font-weight:bold;font-size:9pt">${esc(PLAN_LINKS_NOTE.en)}</p>
 ${glance}${legend}
 ${p.bands.map(band).join("")}
 ${p.notTested.length ? `<h3>Not tested yet (${subj})</h3><p>${esc(p.notTested.join(", "))}</p>` : ""}

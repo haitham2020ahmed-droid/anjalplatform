@@ -3,6 +3,7 @@
  * answers, correct answers, minutes and days active. The school week starts on Sunday.
  */
 import type { Repo, Row } from "../seeding/repo";
+import { cancelIndexForStudents } from "./cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -30,9 +31,10 @@ export async function weekStats(repo: Repo, studentId: string, now = new Date())
   const aids = doneNow.map((r) => s(r.assignmentId));
   const parts: string[] = [];
   if (aids.length) {
-    const as = await repo.findMany("Assignment", { id: { in: aids } }, { select: ["id", "title", "curriculumPlanId"] });
+    // r78: a part cancelled on Assigned is not one of the week's parts
+    const [as, ix] = await Promise.all([repo.findMany("Assignment", { id: { in: aids }, deletedAt: null }, { select: ["id", "title", "curriculumPlanId", "testId"] }), cancelIndexForStudents(repo, [studentId])]);
     const items = await planItemsFor(repo, aids);
-    for (const a of as) if ((a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK") || items.has(s(a.id))) parts.push(items.get(s(a.id)) ?? s(a.title));
+    for (const a of as) if (ix.live(a, studentId) && (a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK") || items.has(s(a.id))) parts.push(items.get(s(a.id)) ?? s(a.title));
   }
   const inWeek = attempts.filter((x) => { const t = d(x.createdAt); return t && t <= now; });
   const days = new Set(inWeek.map((x) => d(x.createdAt)!.toISOString().slice(0, 10))).size;

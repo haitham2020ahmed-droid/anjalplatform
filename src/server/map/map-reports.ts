@@ -24,6 +24,7 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { isReportShared } from "../insights/parent-report";
 import { bandOf, seasonOf, type Season } from "./rit";
 import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfile, type Subject } from "./map-plan";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
 import { buildRanges, skillPlan } from "./skill-plan";
 import { GROWTH_SD, normFor, pctOfZ } from "./norm-tables";
@@ -107,11 +108,13 @@ export function anchorOf(code: string): string {
   const parts = s(code).replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase().split(".");
   return parts.length >= 3 ? `${parts[0]}.${parts[2]}` : parts.join(".");
 }
-const anchorCache = new Map<string, { at: number; map: Map<string, { id: string; name: string }[]> }>();
-/** The school's skills by Common Core anchor (one skill per family, the lowest grade first); cached 10 minutes. */
-async function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
-  const hit = anchorCache.get(schoolId);
-  if (hit && Date.now() - hit.at < 600_000) return hit.map;
+/** ⚡ r79: kept per school while its skills and standards are unchanged (at most 10 min; a few schools, swept). */
+const anchorCache = mapCache<Map<string, { id: string; name: string }[]>>("map.map-reports.anchors", MAP_KEEP_MS, 4);
+/** The school's skills by Common Core anchor (one skill per family, the lowest grade first). */
+function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
+  return anchorCache.get(repo, schoolId, ["Skill", "SkillFamily", "SkillStandard", "Standard", "Grade", "Curriculum"], () => anchorSkillsNow(repo, schoolId));
+}
+async function anchorSkillsNow(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
   const idx = await schoolSkillIndex(repo, schoolId);
   const ids = [...idx.ids].filter((id) => { const k = idx.skillOf.get(id)!; return k.isActive && !k.code.endsWith("curriculum-map-unclassified"); });
   const links: Row[] = [];
@@ -126,7 +129,6 @@ async function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, {
     const seen = famSeen.get(a) ?? new Set<string>(); if (seen.has(fam)) continue; seen.add(fam); famSeen.set(a, seen);
     map.set(a, [...(map.get(a) ?? []), { id: k.id, name: k.name }]);
   }
-  anchorCache.set(schoolId, { at: Date.now(), map });
   return map;
 }
 

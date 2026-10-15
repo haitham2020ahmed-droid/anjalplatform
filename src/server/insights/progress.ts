@@ -12,6 +12,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead, coordinatorGrades, readableClasses } from "../teacher/coordinators";
 import { gradeAreaSkills } from "../map/recommend";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { intensityFor, reconcileStatus, tiersOf } from "./student-status";
 import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, workStats, type Level, type MapSummary, type PracticeStats, type Subject, type WorkStats } from "./student-data";
 
@@ -181,12 +182,14 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   const allAreas = await gradeAreaSkills(repo, actor.schoolId!, grade);
   const subjOf = new Map((allAreas.length ? await repo.findMany("MapGoalArea", { id: { in: allAreas.map((a) => a.areaId) } }, { select: ["id", "subject"] }) : []).map((a) => [s(a.id), s(a.subject)]));
   const areas = allAreas.filter((a) => (subject === "READING" ? /read/i : /lang/i).test(subjOf.get(a.areaId) ?? ""));
-  const [mastery, open] = await Promise.all([
+  const [mastery, open, ix] = await Promise.all([
     repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] }),
     repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "status"] }),
+    cancelIndex(repo, actor.schoolId),
   ]);
   const openIds = open.filter((o) => o.status !== "COMPLETED").map((o) => s(o.assignmentId));
-  const openSkills = new Set(openIds.length ? (await repo.findMany("Assignment", { id: { in: openIds }, deletedAt: null }, { select: ["skillId"] })).map((a) => s(a.skillId)) : []);
+  // r78: a cancelled assignment is not "assigned" any more
+  const openSkills = new Set(openIds.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: openIds } }), { select: ["id", "skillId", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)).map((a) => s(a.skillId)) : []);
   const mOf = new Map(mastery.map((m) => [s(m.skillId), Math.round(Number(m.score))]));
   const goals = row.map?.goals ?? [];
   const goalAreaIds = new Set(goals.map((g) => g.areaId).filter(Boolean));
@@ -205,7 +208,7 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   const history = logs.map((l) => { const a = (l.after ?? {}) as Record<string, unknown>, b = (l.before ?? {}) as Record<string, unknown>; return { at: new Date(time(l.createdAt)).toISOString(), category: a.category ? s(a.category) : null, from: b.level ? s(b.level) : null, to: s(a.level), source: s(a.source), outcome: s(a.outcome) }; });
   const mapPoints = (await repo.findMany("MapResult", { studentId })).filter((r) => !r.goalName && (subject === "READING" ? /read/i : /language/i).test(s(r.subject))).sort((a, b) => time(a.testDate) - time(b.testDate)).map((r) => ({ term: s(r.termName), rit: Number(r.rit) }));
   const asg = await repo.findMany("AssignmentStudent", { studentId });
-  const aRows = asg.length ? await repo.findMany("Assignment", { id: { in: asg.map((x) => x.assignmentId) }, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] }) : [];
+  const aRows = asg.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: asg.map((x) => x.assignmentId) } }), { select: ["id", "title", "dueAt", "createdAt", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)) : [];
   const recent = aRows.sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 8).map((a) => ({ title: s(a.title), status: s(asg.find((x) => x.assignmentId === a.id)?.status), dueAt: a.dueAt ? new Date(time(a.dueAt)).toISOString() : null }));
   let canAssign = false;
   if (actor.role === "TEACHER") { const t = await repo.findUnique("Teacher", { userId: actor.userId }); canAssign = Boolean(t && (await repo.findUnique("ClassTeacher", { classId: klass.id, teacherId: t.id }))); }
@@ -249,13 +252,14 @@ export async function teacherAlerts(repo: Repo, actor: Actor, now = new Date()):
   }
   // assigned work not started by its due date (last 30 days)
   const asg = await repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: { in: ["NOT_STARTED", "OVERDUE"] } }, { select: ["studentId", "assignmentId", "progress"] });
-  const as = asg.length ? await repo.findMany("Assignment", { id: { in: [...new Set(asg.map((a) => s(a.assignmentId)))] }, deletedAt: null }, { select: ["id", "title", "dueAt"] }) : [];
+  const ix = await cancelIndex(repo, actor.schoolId);
+  const as = asg.length ? await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(asg.map((a) => s(a.assignmentId)))] } }), { select: ["id", "title", "dueAt", "testId", "curriculumPlanId"] }) : [];
   const late = new Map(as.filter((a) => a.dueAt && time(a.dueAt) < now.getTime() && time(a.dueAt) > now.getTime() - 30 * 86_400_000).map((a) => [s(a.id), a]));
   const count = new Map<string, { n: number; title: string; at: number }>();
-  for (const r of asg) { const a = late.get(s(r.assignmentId)); if (!a || Number(r.progress ?? 0) > 0) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
+  for (const r of asg) { const a = late.get(s(r.assignmentId)); if (!a || Number(r.progress ?? 0) > 0 || !ix.live(a, s(r.studentId))) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
   const rtr = await repo.findMany("RespondAssignmentStudent", { studentId: { in: ids }, finishedAt: null });
   const ra = rtr.length ? await repo.findMany("RespondAssignment", { id: { in: [...new Set(rtr.map((r) => s(r.assignmentId)))] }, deletedAt: null }) : [];
-  for (const r of rtr) { const a = ra.find((x) => x.id === r.assignmentId); if (!a?.dueAt || time(a.dueAt) >= now.getTime() || time(a.dueAt) < now.getTime() - 30 * 86_400_000) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
+  for (const r of rtr) { const a = ra.find((x) => x.id === r.assignmentId); if (!a?.dueAt || !ix.liveRef("RESPOND", s(a.id), s(r.studentId)) || time(a.dueAt) >= now.getTime() || time(a.dueAt) < now.getTime() - 30 * 86_400_000) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
   for (const [id, c] of count) out.push({ kind: "NOT_STARTED", studentId: id, name: nameOf(id), className: classOf.get(id) ?? "", detail: c.n === 1 ? `Did not start “${c.title.replace(/\s*\((?:adaptive[^)]*|(?:Below|On|Above) Level|Approaching|Meeting|Exceeding)\)/g, "")}” by its due date.` : `${c.n} tasks not started by their due date.`, at: new Date(c.at).toISOString() });
   const order: Record<AlertKind, number> = { AT_RISK: 0, DROPPED: 1, NOT_STARTED: 2 };
   return out.sort((a, b) => order[a.kind] - order[b.kind] || a.name.localeCompare(b.name));

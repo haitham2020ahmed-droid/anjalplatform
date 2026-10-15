@@ -24,7 +24,7 @@ export async function yearPlanDoc(deps: Pick<ReportDeps, "repo" | "brandingDir" 
   const { warning: _w, ...branding } = await loadBranding(repo, String(actor.schoolId), deps.brandingDir);
   const first = v.weeks[0], last = v.weeks[v.weeks.length - 1];
   return {
-    kind: "class", locale: "en", accent: "map", audience: "school",
+    kind: "class", locale: "en", accent: "map", audience: "school", links: true,
     title: "MAP Year plan", subtitle: `${v.className} · Grade ${v.grade} · ${first ? `${first.from} → ${last.to}` : ""}`,
     branding,
     meta: [
@@ -47,12 +47,12 @@ export async function yearPlanDoc(deps: Pick<ReportDeps, "repo" | "brandingDir" 
       { type: "table", id: "weeks", title: "The 40 weeks", sheet: "Weeks", columns: [
         { key: "week", label: "Week", kind: "int", width: 0.6, nowrap: true },
         { key: "dates", label: "Dates", kind: "latin", width: 1.6, nowrap: true },
-        { key: "skills", label: "New skills", kind: "latin", width: 3.4 },
-        { key: "review", label: "Review", kind: "latin", width: 2 },
+        { key: "skills", label: "New skills", kind: "latin", width: 3.4, linkKey: "skillsLink" },
+        { key: "review", label: "Review", kind: "latin", width: 2, linkKey: "reviewLink" },
         { key: "areas", label: "Goal areas", kind: "text", width: 1.6 },
-      ], rows: r.weeksRows, empty: "No weeks yet." },
+      ], rows: r.weeksRows, empty: "No weeks yet.", qr: r.planLink || undefined },
       { type: "table", id: "skills", title: "The skills of the plan", sheet: "Skills", columns: [
-        { key: "skill", label: "Skill", kind: "latin", width: 3 },
+        { key: "skill", label: "Skill", kind: "latin", width: 3, linkKey: "skillLink" },
         { key: "code", label: "Code", kind: "latin", width: 1.2, nowrap: true },
         { key: "area", label: "Goal area", kind: "text", width: 1.6 },
         { key: "weeks", label: "Week(s)", kind: "latin", width: 1, nowrap: true },

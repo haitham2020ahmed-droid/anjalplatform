@@ -21,6 +21,7 @@ import { assertNafs, NAFS_GRADE } from "../teacher/nafs-access";
 import { passageForText } from "../admin/passages";
 import { CONTENT_SKILLS, difficultyOfLevel, difficultyOfStats, domainOf, ensureNafsFramework, isDifficulty, isMoeCode, isNafsCode, isProcess, LEVEL_OF_DIFFICULTY, MOE_STANDARDS, NAFS_SKILLS, SKILL_BY_CODE, SKILL_OF_PROCESS, STATS_MIN_ATTEMPTS, standardFor, textTypeOf, type Difficulty, type NafsDomain, type NafsProcess } from "./framework";
 import { sweptWeakMap } from "../cache/idle";
+import { modelVersion } from "../cache/bank-version";
 
 const s = (v: unknown) => String(v ?? "");
 const on = (v: unknown) => v === true || v === 1 || v === "1" || v === "true";
@@ -68,10 +69,22 @@ export interface NafsEntry {
 // ------------------------------------------------------------------ the index (cached a minute per school)
 
 const seeded = new WeakSet<object>();
-const cache = sweptWeakMap<{ at: number; entries: NafsEntry[] }>("nafs.bank.cache", 2 * 60_000);
-const INDEX_MS = 60_000;
+/**
+ * ⚡ r78: the school's index is kept while the tables it is built from are unchanged in this process (their write
+ * counters: any question / skill / NAFS tag edit, through ANY path, builds it again at the next read; nafsBankChanged
+ * drops it at once) and at most INDEX_MS (other processes: the jobs worker's statistics). Before r78 it was kept one
+ * minute, so nearly every click in the NAFS center read the whole linked bank again (~25 reads, ~10 000 rows).
+ * Concurrent misses share one build; a few schools at most (swept by cache/idle).
+ */
+const cache = sweptWeakMap<{ at: number; v: string; entries: NafsEntry[] }>("nafs.bank.cache", 10 * 60_000);
+const building = new WeakMap<object, Map<string, { v: string; p: Promise<NafsEntry[]> }>>();
+const INDEX_MS = 10 * 60_000;
+const MAX_SCHOOLS = 8;
+/** The tables the index is built from (their write counters key the cache). */
+const INDEX_MODELS = ["Question", "Skill", "SkillFamily", "NafsSkillFamily", "NafsBankItem", "QuestionType", "Curriculum", "Grade"];
+const indexVersion = () => modelVersion(...INDEX_MODELS);
 /** Forget the school's index after a change (the next read builds it again). */
-export function nafsBankChanged(repo: Repo, schoolId: string): void { cache.get(repo)?.delete(schoolId); }
+export function nafsBankChanged(repo: Repo, schoolId: string): void { cache.get(repo)?.delete(schoolId); building.get(repo)?.delete(schoolId); }
 
 export async function ensureFramework(repo: Repo): Promise<void> {
   if (seeded.has(repo)) return;
@@ -81,8 +94,26 @@ export async function ensureFramework(repo: Repo): Promise<void> {
 
 /** Every NAFS question of the school (hidden and drafts included, flagged). */
 export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()): Promise<NafsEntry[]> {
+  const v = indexVersion();
   const hit = cache.get(repo)?.get(schoolId);
-  if (hit && now - hit.at < INDEX_MS) return hit.entries;
+  if (hit && hit.v === v && now - hit.at < INDEX_MS) return hit.entries;
+  let b = building.get(repo);
+  if (!b) { b = new Map(); building.set(repo, b); }
+  const busy = b.get(schoolId);
+  if (busy && busy.v === v) return busy.p;
+  const p: Promise<NafsEntry[]> = buildIndex(repo, schoolId).then((entries) => {
+    let m = cache.get(repo);
+    if (!m) { m = new Map(); cache.set(repo, m); }
+    m.delete(schoolId);
+    m.set(schoolId, { at: now, v, entries });
+    while (m.size > MAX_SCHOOLS) m.delete(m.keys().next().value as string);
+    return entries;
+  }).finally(() => { if (b!.get(schoolId)?.p === p) b!.delete(schoolId); });
+  b.set(schoolId, { v, p });
+  return p;
+}
+
+async function buildIndex(repo: Repo, schoolId: string): Promise<NafsEntry[]> {
   await ensureFramework(repo);
   const [links, fams, mc, grades, items] = await Promise.all([
     repo.findMany("NafsSkillFamily", {}, { select: ["nafsCode", "familyId", "source"] }),
@@ -133,7 +164,8 @@ export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()):
   }
   // the school's own questions and the NAFS model booklets' questions (platform content, loaded for the school)
   const own = items.filter((x) => on(x.own) || x.booklet);
-  const ownQs = own.length ? await inBatches(own.map((x) => s(x.questionId)), 400, (c) => repo.findMany("Question", { id: { in: c }, deletedAt: null }, { select: ["id", "passageId", "typeId", "stem", "difficultyLevel"] })) : [];
+  // (r78: 1000 ids a read — the ~4 500 booklet and practice-set questions in 5 reads, not 12)
+  const ownQs = own.length ? await inBatches(own.map((x) => s(x.questionId)), 1000, (c) => repo.findMany("Question", { id: { in: c }, deletedAt: null }, { select: ["id", "passageId", "typeId", "stem", "difficultyLevel"] })) : [];
   const ownQ = new Map(ownQs.map((q) => [s(q.id), q]));
   for (const it of own) {
     const q = ownQ.get(s(it.questionId));
@@ -149,10 +181,6 @@ export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()):
       practiceSet: set, difficulty: isDifficulty(Number(it.difficulty)) ? (Number(it.difficulty) as Difficulty) : difficultyOfLevel(q.difficultyLevel),
     });
   }
-  let m = cache.get(repo);
-  if (!m) { m = new Map(); cache.set(repo, m); }
-  if (m.size > 50) m.clear();
-  m.set(schoolId, { at: now, entries: out });
   return out;
 }
 

@@ -7,6 +7,8 @@ import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
 import { lessonAt } from "@/server/curriculum-map/lesson-details";
 import type { StudentPlanSummary, StudentPlanView } from "@/server/curriculum-map/plans";
 import { SkillStar, StarLegend } from "@/components/skills/skill-star";
+import { absolutePlanPath, planHref } from "@/lib/plan-links";
+import { PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
 
 type Place = StudentPlanView["places"][number];
 
@@ -73,6 +75,7 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg, previe
           ? t("Tap any part to practise it. Each part finishes when you get {n} correct answers.", { n: p.target })
           // skill plans open adaptive practice: at least 30 questions; done when mastered, or after 50 (completion.ts)
           : t("Tap any part to practise it. You answer at least 30 questions; the part is done when you master the skill, or after 50 questions.")}</p>
+        {!preview && <PlanLinksNote t={t} className="mt-2 inline-block" />}
         <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
           {(["COMPLETED", "IN_PROGRESS", "NOT_STARTED", "LOCKED", "EMPTY"] as const).map((k) => <span key={k} className="inline-flex items-center gap-1"><span className={STATE[k].cls}><LineIcon name={STATE[k].icon} className="h-3.5 w-3.5" strokeWidth={2.25} /></span>{t(STATE[k].label)}</span>)}
         </p>
@@ -86,6 +89,7 @@ export function StudyPlan({ t, p, studentName, plans = [], basePath, msg, previe
               <section key={u} className="break-inside-avoid-page">
                 <div className={`flex flex-wrap items-center justify-between gap-2 rounded-xl px-4 py-2.5 ${locked ? "bg-slate-100 text-slate-500" : "bg-brand-navy text-white"}`}>
                   <h2 className="flex items-center gap-2 text-base font-semibold">{locked && <LineIcon name="lock" className="h-4 w-4" />}{u}</h2>
+                  {!preview && <PlanQr href={absolutePlanPath(inUnit.find((x) => x.href)?.href) ?? planHref({ kind: "curriculum-unit", grade: p.grade, unit: ui + 1 }, "student")} size={44} />}
                   <span className="flex items-center gap-3 text-sm tabular-nums">
                     <span dir="ltr">{uDone}/{inUnit.length}</span>
                     {!preview && uDone === inUnit.length && inUnit.length > 0 && <Link prefetch={false} href={`/student/plans/${p.id}/certificate?unit=${encodeURIComponent(u)}`} className="inline-flex items-center gap-1 rounded-full bg-white/15 px-3 py-0.5 text-xs font-semibold text-white ring-1 ring-white/30 hover:bg-white/25 print:hidden"><LineIcon name="award" className="h-3.5 w-3.5" />{t("My certificate")}</Link>}
@@ -136,7 +140,8 @@ function Row({ x, n, target, t, preview = false }: { x: Place; n: string; target
   );
   return (
     <li data-section={review ? "review" : undefined}>
-      {x.href && !preview ? <Link prefetch={false} href={x.href} className="group flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50">{body}</Link>
+      {/* 🔗 r79: an absolute platform link, so the downloaded PDF opens the same step (sign in first if needed) */}
+      {x.href && !preview ? <Link prefetch={false} href={absolutePlanPath(x.href) ?? x.href} data-plan-link="1" className="group flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50 print:underline">{body}</Link>
         : <span className="flex items-start gap-2 px-2 py-1.5" title={preview ? undefined : x.locked ? t("Your teacher has not opened this unit yet") : t("Questions are not ready yet")}>{body}</span>}
     </li>
   );

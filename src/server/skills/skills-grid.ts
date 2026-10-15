@@ -9,6 +9,8 @@
  * badges (MAP · NAFS · Curriculum · Grammar · RTI); the Source filter shows one source's assignments only. A cell of a
  * student the skill was not assigned to is "—" and is left out of every count (each column counts its assigned
  * students). One star per student × skill everywhere (the same star in every source).
+ * r78 (owner): "assigned" = EXACTLY the live rows of the teacher's Assigned page (assigned-skills.ts → teacher/assigned.ts
+ * assignedWorkOfClasses): cancelled there = gone from every tab, number and report here.
  * Light: members, names, the class's assignments (bounded, assigned-skills.ts) and the star rows of the assigned keys.
  */
 import type { Repo, Row } from "../seeding/repo";

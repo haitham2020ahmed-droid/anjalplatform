@@ -40,6 +40,7 @@ import { lessonCatalog } from "../learn/files";
 import { learnSkills, matchSkills } from "../learn/match";
 import { hiddenCodes } from "../learn/edits";
 import { endOfSchoolWeek, starAssign, starredSkills } from "../assign/star";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 
 const s = (v: unknown) => String(v ?? "");
 const DAY = 86_400_000;
@@ -339,9 +340,19 @@ export async function yearPlanView(repo: Repo, actor: Actor, classId: string, no
   return view;
 }
 
-/** Each skill's Learn lesson (the first ready, not hidden lesson that explains it). */
+/**
+ * Each skill's Learn lesson (the first ready, not hidden lesson that explains it).
+ * ⚡ r79: matching reads the school's whole skill list: kept per class plan while the skills and the hidden lessons
+ * are unchanged (write counters; at most 10 min; a few plans, swept).
+ */
+const LESSON_MODELS = ["Skill", "SkillFamily", "SkillStandard", "Standard", "Grade", "Curriculum", "UnitSkill", "MapGoalArea", "LearnLesson"];
+const lessonCache = mapCache<Map<string, { code: string; title: string }>>("map.year-plan.lessons", MAP_KEEP_MS, 12);
 async function lessonLinks(repo: Repo, schoolId: string, skillIds: string[]): Promise<Map<string, { code: string; title: string }>> {
   if (!skillIds.length) return new Map();
+  const ids = [...new Set(skillIds)].sort();
+  return new Map(await lessonCache.get(repo, `${schoolId}|${ids.join(",")}`, LESSON_MODELS, () => lessonLinksNow(repo, schoolId, ids)));
+}
+async function lessonLinksNow(repo: Repo, schoolId: string, skillIds: string[]): Promise<Map<string, { code: string; title: string }>> {
   const want = new Set(skillIds);
   const [skills, hidden] = await Promise.all([learnSkills(repo, schoolId), safeIfBehind("learn.hidden", () => hiddenCodes(repo, schoolId), new Set<string>())]);
   const ready = lessonCatalog().filter((l) => l.ready && !hidden.has(l.code));

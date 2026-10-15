@@ -28,6 +28,8 @@ import { renderHtml } from "../../reports/html";
 import { renderXlsx } from "../../reports/xlsx";
 import { audit } from "../audit";
 import { sweptMap } from "../cache/idle";
+import { modelVersion } from "../cache/bank-version";
+import { nafsRemovedVersion } from "./removed";
 import { consumeRateLimit } from "../auth/rate-limit";
 import { CONTENT_TYPES, loadBranding, RateLimitedError, REPORT_RATE, type ReportDeps } from "../reports/service";
 import { CONTENT_SKILLS, DIFFICULTIES, DIFFICULTY_NAME, isMoeCode, isNafsCode, MOE_BY_CODE, MOE_STANDARDS, PROCESS_NAME, PROCESSES, SKILL_BY_CODE, type Difficulty, type NafsProcess } from "./framework";
@@ -474,15 +476,21 @@ async function buildDashboard(data: Loaded, classes: NafsClass[], all: NafsClass
 }
 
 /**
- * r69: the Reports and Suggested plan tabs read the same dashboard — kept one minute per teacher and filter (a swept,
- * bounded cache: 20 entries at most, given back by the sweeper), so moving between the two tabs computes it once.
+ * r69: the Reports and Suggested plan tabs read the same dashboard, kept per teacher and filter (a swept, bounded
+ * cache, given back by the sweeper), so moving between the two tabs computes it once.
+ * ⚡ r78: kept 10 minutes (was one) while no NAFS result, practice answer, NAFS tag or class roster was written in this
+ * process (write counters) and no NAFS test / practice was removed — the Suggested plan after an Assign, Reports ↔
+ * Plan, a reload: computed once. A new practice or test changes nothing here until a student answers (then the
+ * counters move and it is built again). At most 12 kept.
  */
-const dashCache = sweptMap<string, { at: number; d: Promise<Dashboard> }>("nafs.dashboard", 60_000, 20);
+const DASH_MS = 10 * 60_000;
+const DASH_MODELS = ["NafsResult", "NafsPracticeAnswer", "NafsBankItem", "ClassMembership", "ClassTeacher"];
+const dashCache = sweptMap<string, { at: number; d: Promise<Dashboard> }>("nafs.dashboard", DASH_MS, 12);
 export function nafsDashboardCached(repo: Repo, actor: Actor, opts: { classId?: string | null; from?: unknown; to?: unknown } = {}, now = Date.now()): Promise<Dashboard> {
   const r = cleanRange(opts.from, opts.to);
-  const key = `${actor.userId}|${actor.role}|${opts.classId ?? ""}|${r.from ?? ""}|${r.to ?? ""}`;
+  const key = `${actor.userId}|${actor.role}|${opts.classId ?? ""}|${r.from ?? ""}|${r.to ?? ""}|${modelVersion(...DASH_MODELS)}|${nafsRemovedVersion()}`;
   const had = dashCache.get(key);
-  if (had && now - had.at < 60_000) return had.d;
+  if (had && now - had.at < DASH_MS) return had.d;
   const d = nafsDashboard(repo, actor, opts);
   dashCache.set(key, { at: now, d });
   d.catch(() => dashCache.delete(key));

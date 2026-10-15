@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { absolutePlanPath, planHref } from "@/lib/plan-links";
+import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
 import { AppShell } from "@/components/app-shell";
 import { Section } from "@/components/page-header";
 import { ClassChips, Empty, exportsOf } from "@/components/reports/report-ui";
@@ -40,6 +42,7 @@ export default async function RtiPlanPage({ searchParams }: { searchParams: Prom
             { icon: "🟠", label: "Tier 2", value: p.counts.tier2, meaning: "targeted: a small group a few times a week", tone: p.counts.tier2 ? "warn" : "neutral" },
             { icon: "🔴", label: "Tier 3", value: p.counts.tier3, meaning: "intensive: a small group every day", tone: p.counts.tier3 ? "bad" : "neutral" },
           ]} />
+          {p.groups.length > 0 && <PlanLinksNote t={t} className="inline-block" />}
           <div className="grid gap-4 lg:grid-cols-2">
             <ReportSection title="Support tiers" icon="🪜" className="mb-0">
               <BandBar parts={[{ key: "T1", value: p.counts.tier1 }, { key: "T2", value: p.counts.tier2 }, { key: "T3", value: p.counts.tier3 }]} />
@@ -53,15 +56,16 @@ export default async function RtiPlanPage({ searchParams }: { searchParams: Prom
             <Section key={g.key} title={g.label} icon={g.tier === 3 ? "🔴" : "🟠"} tone={g.tier === 3 ? "amber" : "white"} className="rk-section break-inside-avoid">
               <div className="grid gap-3 md:grid-cols-3">
                 <div className="min-w-0 rounded-xl bg-white p-3 ring-1 ring-slate-200 text-sm">
-                  <p className="font-semibold text-brand-navy">📚 Intervention lesson</p>
+                  <p className="flex items-start justify-between gap-2 font-semibold text-brand-navy"><span>📚 Intervention lesson</span><PlanQr href={g.focusSkillId ? planHref({ kind: "skill", id: g.focusSkillId }, "staff") : null} size={44} /></p>
+                  {g.focusSkillId && <p className="mt-1">🎯 <PlanA href={planHref({ kind: "skill", id: g.focusSkillId }, "staff")} className="font-semibold">{g.focusSkill}</PlanA></p>}
                   {g.lesson ? (
                     <>
-                      <p className="mt-1"><Link href={g.lesson.href} className="font-semibold text-brand-teal hover:underline">{g.lesson.name}</Link></p>
+                      <p className="mt-1"><Link href={absolutePlanPath(g.lesson.href) ?? g.lesson.href} data-plan-link="1" className="font-semibold text-brand-teal underline">{g.lesson.name}</Link></p>
                       <p className="mt-1 text-slate-600"><b>Warm-up:</b> {g.lesson.warmUp}</p>
                       {g.lesson.approaches.map((a, i) => <p key={i} className="mt-1 text-slate-600"><b>{g.tier === 3 ? `Re-teach approach ${i + 1}` : "If they do not get it"}:</b> {a}</p>)}
                     </>
                   ) : <p className="mt-1 text-slate-600">{g.fallback}</p>}
-                  {g.assignHref && <p className="mt-2 print:hidden"><Link href={g.assignHref} className="inline-flex min-h-10 items-center font-semibold text-brand-teal hover:underline">Assign practice on the skill →</Link></p>}
+                  {g.assignHref && <p className="mt-2"><Link href={absolutePlanPath(g.assignHref) ?? g.assignHref} data-plan-link="1" className="inline-flex min-h-10 items-center font-semibold text-brand-teal hover:underline">Assign practice on the skill →</Link></p>}
                 </div>
                 <div className="min-w-0 rounded-xl bg-white p-3 ring-1 ring-slate-200 text-sm">
                   <p className="font-semibold text-brand-navy">⏱ Time</p>

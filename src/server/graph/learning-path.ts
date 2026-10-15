@@ -18,6 +18,7 @@ import { DEFAULT_MASTERY } from "../../config/engine";
 import { thetaToLevel } from "../../recommendations/recommend";
 import { misconceptionLabel } from "../../insights/misconceptions";
 import type { Repo, Row } from "../seeding/repo";
+import { cancelIndex } from "../student/cancelled-work";
 import { ancestors, loadGraph, skillStates, tested, weak, type Graph, type SkillState } from "./knowledge-graph";
 
 const s = (v: unknown) => String(v ?? "");
@@ -163,8 +164,9 @@ export async function pathContext(repo: Repo, studentId: string, now = new Date(
   const velocity = new Map<string, { answers: number; gain: number }>();
   for (const l of logs) { if (l.masteryBefore === null || l.masteryAfter === null || l.masteryBefore === undefined) continue; const v = velocity.get(s(l.skillId)) ?? { answers: 0, gain: 0 }; v.answers++; v.gain += Number(l.masteryAfter) - Number(l.masteryBefore); velocity.set(s(l.skillId), v); }
   const open = assignedRows.filter((r) => r.status !== "COMPLETED").map((r) => s(r.assignmentId));
-  const asg = open.length ? await repo.findMany("Assignment", { id: { in: open } }, { select: ["skillId", "deletedAt"] }) : [];
-  const assigned = new Set(asg.filter((a) => a.skillId && !a.deletedAt).map((a) => s(a.skillId)));
+  // r78: cancelled on Assigned (for everyone or this student) = not assigned
+  const [asg, ix] = await Promise.all([open.length ? repo.findMany("Assignment", { id: { in: open } }, { select: ["id", "skillId", "deletedAt", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]), cancelIndex(repo, s(student!.schoolId))]);
+  const assigned = new Set(asg.filter((a) => a.skillId && ix.live(a, studentId)).map((a) => s(a.skillId)));
   const { actionWeights } = await import("../insights/learning-weights");
   const weights = await memo(`weights:${s(student!.schoolId)}`, () => actionWeights(repo, s(student!.schoolId)));
   return { graph, states, practicable, weakArea, assigned, currentUnit, unitOf, currentUnitNo, velocity, reviewDue: new Set(mastery.map((m) => s(m.skillId))), weights };

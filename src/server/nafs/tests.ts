@@ -14,6 +14,7 @@ import { assertNafs, NAFS_GRADE } from "../teacher/nafs-access";
 import { MAX_NAFS_MINUTES, MAX_NAFS_QUESTIONS } from "./framework";
 import { loadNafsQuestions, nafsIndex } from "./bank";
 import { bumpLive, cleanShift, liveKey, withStudentExtra } from "../timing/live-time";
+import { nafsRemoved } from "./removed";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -154,6 +155,7 @@ export async function saveNafsTest(repo: Repo, actor: Actor, input: SaveTestInpu
 export async function deleteNafsTest(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<void> {
   const t = await ownTest(repo, actor, id, true);
   await repo.updateMany("NafsTest", { id: t.id }, { deletedAt: now });
+  nafsRemoved();
   await audit(repo, { actorId: actor.userId, action: "nafs.test.delete", entityType: "NafsTest", entityId: id, at: now });
 }
 

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { codeName, codeShort, MOE_BY_CODE } from "@/server/nafs/framework";
+import { codeName, codeShort, MOE_BY_CODE, MOE_LABEL } from "@/server/nafs/framework";
 import { RULE_TEXT, WHY_TEXT, type ClassLine, type NoneWhy } from "@/server/nafs/strengths";
 
 type T = (s: string, v?: Record<string, string | number>) => string;
@@ -22,17 +22,31 @@ export const LINE_TIPS = {
 
 /** The six column heads (with their ⓘ tooltip). `finished` = false leaves the Finished column out. */
 export function LineHeads({ t, finished = true, cls = "" }: { t: T; finished?: boolean; cls?: string }) {
-  const th = (label: string, tip: string) => <th key={label} className={cls} title={t(tip)}>{t(label)} <span aria-hidden="true" className="text-[10px] text-muted">ⓘ</span></th>;
+  const th = (label: string, tip: string) => <th key={label} className={cls}><Tip tip={t(tip)}>{t(label)} <span aria-hidden="true" className="text-[10px] text-muted">ⓘ</span></Tip></th>;
   return <>{th("Score", LINE_TIPS.score)}{th("Right", LINE_TIPS.right)}{th("Wrong", LINE_TIPS.wrong)}{finished ? th("Finished", LINE_TIPS.finished) : null}{th("Top strength", LINE_TIPS.strength)}{th("Top weakness", LINE_TIPS.weakness)}</>;
 }
 
-/** A standard / skill as a short code with its name on hover; "—" with the reason when there is none. */
+/** A standard / skill as a short code + a short name shown whole (r77); the full name on hover, keyboard focus or tap; "—" with the reason. */
 export function SwText({ code, why, t, tone }: { code: string | null; why: NoneWhy | null; t: T; tone: "good" | "bad" }) {
-  if (!code) return <span className="text-muted" title={why ? t(WHY_TEXT[why]) : undefined}>—</span>;
-  const name = MOE_BY_CODE.get(code)?.text;
+  if (!code) return <Tip tip={why ? t(WHY_TEXT[why]) : ""}><span className="text-muted">—</span></Tip>;
+  const std = MOE_BY_CODE.get(code);
+  const label = MOE_LABEL[code];
   return (
-    <span className={`inline-block max-w-[11rem] truncate align-bottom text-xs ${tone === "good" ? "text-emerald-800" : "text-rose-800"}`} title={codeName(code, t)}>
-      {name ? <><b className="me-1 font-mono" dir="ltr">{codeShort(code)}</b>{t(name)}</> : codeName(code, t)}
+    <Tip tip={codeName(code, t)}>
+      <span className={`text-xs ${tone === "good" ? "text-emerald-800" : "text-rose-800"}`} data-sw={code}>
+        {std ? <><b className="me-1 font-mono" dir="ltr">{codeShort(code)}</b>{t(label ?? std.text)}</> : codeName(code, t)}
+      </span>
+    </Tip>
+  );
+}
+
+/** A hover / focus / tap tooltip with no script (server components): the bubble shows on hover and on focus (a tap focuses). */
+export function Tip({ tip, children }: { tip: string; children: ReactNode }) {
+  if (!tip) return <>{children}</>;
+  return (
+    <span tabIndex={0} className="group relative inline-block cursor-help outline-none" aria-label={tip}>
+      {children}
+      <span role="tooltip" className="pointer-events-none absolute start-0 top-full z-30 mt-1 hidden w-64 max-w-[70vw] rounded-xl bg-slate-900 px-3 py-2 text-start text-xs font-normal normal-case leading-snug text-white shadow-lg group-hover:block group-focus:block print:hidden">{tip}</span>
     </span>
   );
 }
@@ -54,9 +68,9 @@ export function LineCells({ x, t, finished = true, cls = "text-center" }: { x: {
 /** The class line as four small cards: average, finished, strongest, weakest. */
 export function ClassLineCards({ c, t, finishedLabel = "Finished", extra }: { c: ClassLine; t: T; finishedLabel?: string; extra?: ReactNode }) {
   const card = (n: ReactNode, label: string, tip: string) => (
-    <div className="rounded-2xl bg-surface p-4 shadow-card ring-1 ring-line print:shadow-none" title={t(tip)}>
+    <div className="rounded-2xl bg-surface p-4 shadow-card ring-1 ring-line print:shadow-none">
       <p className="text-2xl font-bold tabular-nums text-ink">{n}</p>
-      <p className="mt-0.5 text-sm text-ink-2">{t(label)} <span aria-hidden="true" className="text-[10px] text-muted">ⓘ</span></p>
+      <p className="mt-0.5 text-sm text-ink-2"><Tip tip={t(tip)}>{t(label)} <span aria-hidden="true" className="text-[10px] text-muted">ⓘ</span></Tip></p>
     </div>
   );
   return (

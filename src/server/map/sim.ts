@@ -552,7 +552,9 @@ export async function accuracy(repo: Repo, actor: Actor, windowId: string, subje
   if (!w || s(w.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Not found.");
   let sessions = await repo.findMany("MapSimSession", { windowId, subject, kind: "SIM", status: "DONE" });
   if (!isAdmin(actor)) {   // a teacher sees only the students of their classes
-    const mine = new Set((await Promise.all((await readableClasses(repo, actor)).map((c) => classMembers(repo, s(c.id))))).flat());
+    // r79: every class's students in one read (was one read per class); nothing to read when nobody finished
+    const cls = sessions.length ? (await readableClasses(repo, actor)).map((c) => s(c.id)) : [];
+    const mine = new Set(cls.length ? (await repo.findMany("ClassMembership", { classId: { in: cls }, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)) : []);
     sessions = sessions.filter((x) => mine.has(s(x.studentId)));
   }
   const ids = sessions.map((x) => s(x.studentId));

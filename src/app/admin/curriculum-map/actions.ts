@@ -65,3 +65,17 @@ export async function sendScopeAction(input: ScopeSendInput): Promise<{ ok: bool
     throw e;
   }
 }
+
+/** 📘 r79: send the grade's Full curriculum map (PDF) to chosen classes — or stop showing it. Own classes of that grade only (server-checked). */
+export async function shareMapPdfAction(input: { grade: number; classIds: string[]; on: boolean }): Promise<{ ok: boolean; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  const { t } = await getT();
+  try {
+    const { shareCurriculumMap } = await import("@/server/curriculum-map/map-pdf");
+    const r = await shareCurriculumMap(repo, actor, Number(input.grade), list(input.classIds), input.on !== false);
+    return { ok: true, message: input.on !== false ? t("Sent to {n} student(s). They find it on their Curriculum page.", { n: r.students }) : t("Students no longer see the curriculum map.") };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: t(e.message) };
+    throw e;
+  }
+}

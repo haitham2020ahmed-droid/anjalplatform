@@ -292,3 +292,14 @@ describe("📱 rules and pages", () => {
     assert.equal(new Set(UI_STRINGS).size, UI_STRINGS.length, "no duplicate UI_STRINGS");
   });
 });
+
+// r77: with <meta name="referrer" content="no-referrer"> browsers send "Origin: null" on the name form's POST, and the
+// same-origin check blocked every student ("Cross-site request blocked."). The name page must keep same-origin referrers.
+import { readFileSync as r77read } from "node:fs";
+import { test as r77test } from "node:test";
+import r77assert from "node:assert/strict";
+r77test("r77: the name page never sets referrer no-referrer (Origin: null would block the sign-in)", () => {
+  const src = r77read("src/app/qr/[key]/page.tsx", "utf8");
+  r77assert.doesNotMatch(src, /referrer:\s*"no-referrer"/);
+  r77assert.match(src, /referrer:\s*"same-origin"/);
+});

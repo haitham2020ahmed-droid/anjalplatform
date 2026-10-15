@@ -5,6 +5,8 @@ import { repo, requireActor } from "@/server/auth/next";
 import { teacherLessonView } from "@/server/learn/teacher";
 import { getT } from "@/i18n/server";
 import { RichInline } from "@/components/rich-inline";
+import { planHref } from "@/lib/plan-links";
+import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
 
 export const metadata = { title: "Learn — PDF" };
 
@@ -28,7 +30,16 @@ export default async function LessonPrintPage({ params, searchParams }: { params
         <Link href={`/teacher/learn/${code}?level=${v.level}`} className="text-sm font-semibold text-teal-700">‹ {t("Back")}</Link>
         <PrintNow />
       </div>
-      <header><p className="text-sm text-slate-500">Learn · {v.meta.goalArea}</p><h1 className="text-3xl">{v.meta.title}</h1></header>
+      {/* 🔗 r79: the paper copy is for students — the title opens this lesson, each skill its practice (QR on paper) */}
+      <header className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm text-slate-500">Learn · {v.meta.goalArea}</p>
+          <h1 className="text-3xl"><PlanA href={planHref({ kind: "lesson", code: v.meta.code }, "student")}>{v.meta.title}</PlanA></h1>
+          {v.skills.length > 0 && <p className="mt-1 text-sm text-slate-600">{t("Practise")}: {v.skills.map((k, i) => <span key={k.id}>{i ? " · " : ""}<PlanA href={planHref({ kind: "skill", id: k.id }, "student")}>{k.name}</PlanA></span>)}</p>}
+          <PlanLinksNote t={t} className="mt-2 inline-block" />
+        </div>
+        <PlanQr href={planHref({ kind: "lesson", code: v.meta.code }, "student")} size={64} />
+      </header>
       {c.slides.map((s, i) => <section key={i} className={box}><h2 className="mb-2 text-xl">{s.title}</h2><RichText text={s.text} /></section>)}
       <section className={box}><h2 className="mb-2 text-xl">{c.proof.title}</h2><RichText text={c.proof.text} /></section>
       <section className={box}><h2 className="mb-2 text-xl">Worked example</h2><p>{c.example.sentences.map((x) => x.t).join(" ")}</p><div className="mt-2"><RichText text={c.example.explain} /></div></section>

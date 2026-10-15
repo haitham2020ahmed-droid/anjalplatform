@@ -11,7 +11,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
-import { groupPools, GROUPS, type GroupKey, type Subject } from "./map-plan";
+import { groupPools, GROUPS, MAP_POOL_MODELS, type GroupKey, type Subject } from "./map-plan";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 
 const s = (v: unknown) => String(v ?? "");
 export const CONTINUUM_HEADERS = ["Subject", "RIT Low", "RIT High", "Goal Area", "Sub-topic", "Statement", "Standards"] as const;
@@ -91,7 +92,17 @@ export interface ContinuumView { reinforce: Stage | null; develop: Stage | null;
 
 /** All the statements of a subject, and the links of a grade's skills (by short CCSS code). Load once per report. */
 export interface ContinuumIndex { rows: Row[]; skillsByCode: Map<string, LinkedSkill[]>; grade: number; groupOfSkill: Map<string, GroupKey> }
-export async function continuumIndex(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<ContinuumIndex> {
+/**
+ * ⚡ r79: the continuum (thousands of statements) and its skill links were read again for every report, plan and
+ * Year plan. Kept per school, grade and subject while the continuum, the grade's MAP pools and the standards are
+ * unchanged (write counters; at most 10 min); a few at most (swept). Read only: callers never change it.
+ */
+const contModels = (): string[] => ["LearningStatement", "SkillStandard", "Standard", ...MAP_POOL_MODELS];
+const indexCache = mapCache<ContinuumIndex>("map.continuum.index", MAP_KEEP_MS, 9);
+export function continuumIndex(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<ContinuumIndex> {
+  return indexCache.get(repo, `${schoolId}|${grade}|${subject}`, contModels(), () => continuumIndexNow(repo, schoolId, grade, subject));
+}
+async function continuumIndexNow(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<ContinuumIndex> {
   const [rows, pk] = await Promise.all([
     repo.findMany("LearningStatement", { subject }),
     groupPools(repo, schoolId, grade),
@@ -165,5 +176,8 @@ export function continuumFor(ix: ContinuumIndex, group: GroupKey, rit: number): 
   return view;
 }
 
-export const hasContinuum = async (repo: Repo, subject?: Subject) => (await repo.count("LearningStatement", subject ? { subject } : {})) > 0;
+/** ⚡ r79: asked by every report and plan: kept until the continuum is imported again (at most 10 min). */
+const hasCache = mapCache<boolean>("map.continuum.has", MAP_KEEP_MS, 4);
+export const hasContinuum = (repo: Repo, subject?: Subject): Promise<boolean> =>
+  hasCache.get(repo, subject ?? "ALL", ["LearningStatement"], async () => (await repo.count("LearningStatement", subject ? { subject } : {})) > 0);
 export const groupsOf = (subject: Subject) => GROUPS.filter((g) => g.subject === subject);

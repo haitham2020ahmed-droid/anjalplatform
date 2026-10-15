@@ -7,6 +7,7 @@ import { yearPlanView, type YearPlanView } from "@/server/map/year-plan";
 import { studentYearPlan, yearPlanSentAt } from "@/server/map/year-plan-share";
 import { classMembers, studentNames } from "@/server/insights/student-data";
 import { YearPlanBoard } from "@/components/map/year-plan-board";
+import { PendingButton } from "@/components/pending-button";
 import { StudentYearPlanView } from "@/components/map/student-year-plan";
 import { yearSendAction } from "./year-actions";
 
@@ -35,9 +36,8 @@ export async function YearTab({ actor, t, classId, preview, student }: { actor: 
         <form action={yearSendAction} className="inline-flex">
           <input type="hidden" name="classId" value={classId} />
           <input type="hidden" name="on" value={sentAt ? "0" : "1"} />
-          <button className={`${chip} ${sentAt ? "bg-white text-slate-700 ring-slate-300 hover:ring-rose-300" : "bg-brand-navy text-white ring-brand-navy hover:bg-brand-purple"}`} data-testid="year-send">
-            {sentAt ? `🙈 ${t("Stop showing to students")}` : `📤 ${t("Send to students")}`}
-          </button>
+          <PendingButton className={`${chip} ${sentAt ? "bg-white text-slate-700 ring-slate-300 hover:ring-rose-300" : "bg-brand-navy text-white ring-brand-navy hover:bg-brand-purple"}`} testId="year-send"
+            icon={sentAt ? "🙈" : "📤"} label={sentAt ? "Stop showing to students" : "Send to students"} pendingLabel={sentAt ? "Saving…" : "Sending…"} />
         </form>
       )}
       {sentAt && <span role="status" className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-900 ring-1 ring-teal-200">{t("Students see it since {date}", { date: sentAt.slice(0, 10) })}</span>}

@@ -74,7 +74,8 @@ export interface SendPlanResult { planId: string; skills: number; students: numb
 export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanInput, now = new Date()): Promise<SendPlanResult> {
   assertCan(actor, "assignments:create");
   if (!input.classId) throw new ValidationError("Choose a class.");
-  const source = requireSource(input.source);
+  // r78: a NAFS plan is NAFS work — its Source is set automatically (never refused for a missing one)
+  const source = requireSource(input.program === "NAFS" && !String(input.source ?? "").trim() ? "NAFS" : input.source);
   const klass = await assertClassAccess(repo, actor, input.classId); // a teacher: their own class only
   const members = new Set((await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)));
   const bySkill = new Map<string, Set<string>>();

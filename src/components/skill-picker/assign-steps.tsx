@@ -62,10 +62,10 @@ export function SkillAssignSteps({ skillId, track, grammar = false, trackField =
       <div className="flex flex-wrap justify-end gap-3">
         {cancel}
         {step === "edit"
-          ? <>{!source && <span className="self-center text-sm text-amber-800">{t("Choose the source first.")}</span>}<button type="button" onClick={() => setStep("preview")} disabled={empty || disabled || !source} className={`${BTN_PRIMARY} disabled:opacity-50`}>{t("Preview as student")}</button></>
+          ? <>{!source && <span className="self-center text-sm text-amber-800">{t("Choose the source first.")}</span>}<button key="to-preview" type="button" onClick={(e) => { e.preventDefault(); setStep("preview"); }} disabled={empty || disabled || !source} className={`${BTN_PRIMARY} disabled:opacity-50`}>{t("Preview as student")}</button></>
           : <>
-              <button type="button" onClick={() => setStep("edit")} className={BTN_SECONDARY}>{t("Back")}</button>
-              <button type="submit" disabled={pending || disabled} className={`${BTN_PRIMARY} disabled:opacity-60`}>{t(pending ? "Assigning…" : submitLabel)}</button>
+              <button key="back" type="button" onClick={(e) => { e.preventDefault(); setStep("edit"); }} className={BTN_SECONDARY}>{t("Back")}</button>
+              <button key="assign" type="submit" disabled={pending || disabled} className={`${BTN_PRIMARY} disabled:opacity-60`}>{t(pending ? "Assigning…" : submitLabel)}</button>
             </>}
       </div>
     </div>

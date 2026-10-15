@@ -13,7 +13,7 @@ import { growthReport } from "@/server/teacher/extras";
  * shown ONLY once a Winter or Spring score exists after the Fall one.
  */
 export async function ReportsTab({ actor, t, classId, subject }: { actor: Actor; t: TFn; classId: string; subject: Subject }) {
-  const [v, growth] = await Promise.all([reportsHub(repo, actor, classId), growthReport(repo, actor, subject)]);
+  const [v, growth] = await Promise.all([reportsHub(repo, actor, classId), growthReport(repo, actor, subject, { classId })]);
   const g = growth.find((c) => c.classId === classId && c.tested > 0) ?? null;
   const isAdmin = actor.role !== "TEACHER";
   return (

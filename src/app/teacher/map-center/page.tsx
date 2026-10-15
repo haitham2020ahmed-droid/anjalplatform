@@ -1,4 +1,4 @@
-import { classMembers } from "@/server/insights/student-data";
+import { countGroups } from "@/server/db/group-count";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ReportHeader } from "@/components/report-kit";
@@ -41,12 +41,14 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   const subject: Subject = /^lang/i.test(one(sp.subject)) ? "LANGUAGE" : "READING";
   const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
   // no class chosen: open the first class that has MAP scores (not just the first name)
+  // ⚡ r79: every class's students in one read and one count per student (was two reads per class, one after another)
   let firstWithScores: string | undefined;
   if (!one(sp.classId) && classes.length > 1) {
-    for (const c of classes) {
-      const ids = await classMembers(repo, c.id);
-      if (ids.length && (await repo.count("MapResult", { studentId: { in: ids.slice(0, 500) } })) > 0) { firstWithScores = c.id; break; }
-    }
+    const shown = classes.slice(0, 40);
+    const members = await repo.findMany("ClassMembership", { classId: { in: shown.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"], take: 3000 });
+    const ids = [...new Set(members.map((m) => String(m.studentId)))];
+    const scored = ids.length ? await countGroups(repo, "MapResult", "studentId", { studentId: { in: ids } }) : new Map<string, number>();
+    firstWithScores = shown.find((c) => members.some((m) => m.classId === c.id && (scored.get(String(m.studentId)) ?? 0) > 0))?.id;
   }
   const classId = classes.find((c) => c.id === one(sp.classId))?.id ?? firstWithScores ?? classes[0]?.id ?? "";
   const msg = one(sp.msg);

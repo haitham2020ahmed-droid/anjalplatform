@@ -12,6 +12,7 @@ import { hideLevels } from "../../lib/hide-levels";
 import { sourceOfAssignment, type AssignSource } from "../../lib/assign-source";
 import type { Repo, Row } from "../seeding/repo";
 import { visibleDiagnostics } from "../diagnostic/window";
+import { cancelIndex, liveAssignmentWhere } from "./cancelled-work";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
@@ -58,7 +59,12 @@ export interface AssignedView { summary: { assigned: number; completed: number; 
 export async function assignedSkills(repo: Repo, actor: Actor, now = new Date()): Promise<AssignedView> {
   const studentId = ownStudentId(actor);
   const rows = await repo.findMany("AssignmentStudent", { studentId });
-  const everything = rows.length ? await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }) : [];
+  const [found, ix] = await Promise.all([
+    rows.length ? repo.findMany("Assignment", liveAssignmentWhere({ id: { in: rows.map((r) => r.assignmentId) } })) : Promise.resolve([] as Row[]),
+    cancelIndex(repo, actor.schoolId),
+  ]);
+  // r78: cancelled on the teacher's Assigned page (for everyone or this student) = not listed, not counted
+  const everything = found.filter((a) => ix.live(a, studentId));
   // ✅ work finished before completion was written with the last answer: Done now (lazy, bounded, once in a while)
   await backfillForStudent(repo, studentId, rows, everything, now);
   // places of a full-curriculum plan live in the plan (My Plans), not in the work list

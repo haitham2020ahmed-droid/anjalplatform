@@ -29,7 +29,7 @@ import { safeIfBehind } from "../db/schema-errors";
 import { accessibleClasses } from "./assign";
 import { studentNames } from "../insights/student-data";
 import { TEST_MARK } from "../tests/runtime";
-import { activeCancels } from "../student/cancelled-work";
+import { activeCancels, cancelIndexOf } from "../student/cancelled-work";
 
 export const ASSIGNED_KINDS = ["SKILL", "PROGRESS_CHECK", "TEST", "MAP_TEST", "NAFS_TEST", "NAFS_PRACTICE", "LEARN", "WORDS", "READRISE", "WRITING", "FLUENCY", "EXIT_TICKET", "RESPOND", "PLAN", "LESSON"] as const;
 export type AssignedKind = (typeof ASSIGNED_KINDS)[number];
@@ -106,8 +106,10 @@ interface Raw {
   kind: AssignedKind; id: string; title: string; detail: string | null; classIds: string[]; createdById: string;
   scope: "class" | "students"; createdAt: string | null; dueAt: string | null; startAt?: string | null;
   students: Map<string, boolean>; keys: string[];
+  /** r78: Assignment-based kinds — the Assignment rows it is made of (a plan: its places) and their student links */
+  aids?: string[]; links?: Row[];
 }
-interface ReadOpts { kinds: Set<AssignedKind>; only?: string; creators: string[] | null }
+interface ReadOpts { kinds: Set<AssignedKind>; only?: string; creators: string[] | null; /** r78: read only this student's links (Student Skills of one student) */ studentId?: string }
 
 async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
   const classIds = sc.classes.map((c) => s(c.id));
@@ -144,10 +146,12 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
     const inPlan = new Set([...placesOf.values()].flat(2));
     const checkIds = new Set(checks.map((c) => s(c.assignmentId)));
     // single rows: not a test set, not a place of a listed plan
-    const single = plain.filter((a) => !a.testId && s(a.curriculumPlanId) !== TEST_MARK && (onlyKind ? true : !inPlan.has(s(a.id))))
+    // r78: a place of a plan that is not SENT (a draft, paused or withdrawn plan) never shows as its own row
+    const unsent = new Set(plans.filter((p) => p.status && s(p.status) !== "SENT").map((p) => s(p.id)));
+    const single = plain.filter((a) => !a.testId && s(a.curriculumPlanId) !== TEST_MARK && (onlyKind ? true : !inPlan.has(s(a.id)) && !unsent.has(s(a.curriculumPlanId))))
       .filter((a) => (checkIds.has(s(a.id)) ? want("PROGRESS_CHECK") : want("SKILL")));
     const aids = [...single.map((a) => s(a.id)), ...sets.map((a) => s(a.id)), ...inPlan];
-    const rows = aids.length ? await inChunks(aids, (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part } }, { select: ["assignmentId", "studentId", "status"] })) : [];
+    const rows = aids.length ? await inChunks(aids, (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part }, ...(o.studentId ? { studentId: o.studentId } : {}) }, { select: ["assignmentId", "studentId", "status"] })) : [];
     const byA = new Map<string, Row[]>();
     for (const r of rows) byA.set(s(r.assignmentId), [...(byA.get(s(r.assignmentId)) ?? []), r]);
     const res: Raw[] = [];
@@ -156,7 +160,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const kind: AssignedKind = checkIds.has(s(a.id)) ? "PROGRESS_CHECK" : "SKILL";
       const cls = ofClass.get(s(a.classId)) ?? [];
       res.push({ kind, id: s(a.id), title: s(a.title), detail: null, classIds: [s(a.classId)], createdById: s(a.createdById), scope: st.length < cls.length ? "students" : "class",
-        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), startAt: iso(a.startAt), students: new Map(st.map((r) => [s(r.studentId), s(r.status) === "COMPLETED"] as const)), keys: [s(a.id)] });
+        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), startAt: iso(a.startAt), students: new Map(st.map((r) => [s(r.studentId), s(r.status) === "COMPLETED"] as const)), keys: [s(a.id)], aids: [s(a.id)], links: st });
     }
     for (const t of tests) {
       const mineSets = sets.filter((x) => s(x.testId) === s(t.id));
@@ -180,7 +184,8 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const chosen = idList(p.studentIds);
       const ids = s(p.kind) === "CURRICULUM" ? ofClass.get(s(p.classId)) ?? [...who] : chosen.length ? chosen : [...who];
       res.push({ kind: "PLAN", id: s(p.id), title: s(p.title), detail: s(p.kind) || null, classIds: [s(p.classId)], createdById: s(p.createdById), scope: chosen.length ? "students" : "class",
-        createdAt: iso(p.createdAt), dueAt: iso(p.dueAt), startAt: iso(p.startAt), students: mapOf(ids, (sid) => places.length > 0 && (doneCount.get(sid) ?? 0) >= places.length), keys: [`plan:${s(p.id)}`, ...places.flat()] });
+        createdAt: iso(p.createdAt), dueAt: iso(p.dueAt), startAt: iso(p.startAt), students: mapOf(ids, (sid) => places.length > 0 && (doneCount.get(sid) ?? 0) >= places.length), keys: [`plan:${s(p.id)}`, ...places.flat()],
+        aids: places.flat(), links: places.flat().flatMap((aid) => byA.get(aid) ?? []) });
     }
     return res;
   };
@@ -416,6 +421,64 @@ export async function assignedList(repo: Repo, actor: Actor, f: AssignedFilters 
   };
 }
 
+// ------------------------------------------------------------------ r78: the ONE source of "what the teacher assigned"
+
+/**
+ * One live assigned thing of a class — exactly a row of the Assigned page (same reads: collect), with the page's cancels
+ * applied: a thing cancelled for everyone is not here, a student removed one by one is not among its students, and a
+ * set / place cancelled on its own (a plan's place) leaves its links. Student Skills (assigned-skills.ts) reads its
+ * skills from here, so the grid, the class report, the trend and a student's skills can never disagree with Assigned.
+ */
+export interface LiveAssigned {
+  kind: AssignedKind; id: string; title: string; detail: string | null; classIds: string[]; createdById: string; createdAt: string | null;
+  /** the students it reaches now */
+  students: Set<string>;
+  /** Assignment-based kinds: the Assignment rows it is made of (a plan: its places) and their live links */
+  aids: string[]; links: Row[];
+}
+
+function liveOf(raw: readonly Raw[], cancels: readonly Row[]): LiveAssigned[] {
+  const ix = cancelIndexOf(cancels);
+  const out: LiveAssigned[] = [];
+  for (const r of raw) {
+    const c = cancelState(cancels as Row[], r.kind, r.id);
+    if (c.all) continue;
+    const students = new Set([...r.students.keys()].filter((sid) => !c.removed.has(sid)));
+    const links = (r.links ?? []).filter((l) => !c.removed.has(s(l.studentId)) && ix.live({ id: s(l.assignmentId) }, s(l.studentId)));
+    out.push({ kind: r.kind, id: r.id, title: r.title, detail: r.detail, classIds: r.classIds, createdById: r.createdById, createdAt: r.createdAt, students, aids: r.aids ?? [], links });
+  }
+  return out;
+}
+
+/**
+ * Everything live that was assigned in these classes (every teacher of the class: what the students really have), as the
+ * Assigned page reads it. `kinds` narrows the read (Student Skills: SKILL + PLAN); `studentId` reads one student's links.
+ */
+export async function assignedWorkOfClasses(repo: Repo, schoolId: string, classIds: readonly string[], opts: { kinds?: readonly AssignedKind[]; studentId?: string } = {}): Promise<LiveAssigned[]> {
+  const ids = [...new Set(classIds.map(s).filter(Boolean))];
+  if (!schoolId || !ids.length) return [];
+  const classes = await repo.findMany("Class", { id: { in: ids }, schoolId }, { select: ["id", "name", "gradeId", "schoolId"] });
+  if (!classes.length) return [];
+  const sc: Scope = { schoolId, admin: true, classes, mine: [] };
+  const [raw, cancels] = await Promise.all([
+    collect(repo, sc, { kinds: new Set(opts.kinds ?? ASSIGNED_KINDS), creators: null, studentId: opts.studentId }),
+    activeCancels(repo, schoolId),
+  ]);
+  return liveOf(raw, cancels);
+}
+
+/** The teacher's live assigned work in one class they can see (the Assigned page's rows of that class). */
+export async function teacherAssignedWork(repo: Repo, actor: Actor, classId: string, opts: { kinds?: readonly AssignedKind[] } = {}): Promise<LiveAssigned[]> {
+  const sc = await scopeOf(repo, actor);
+  if (!sc.classes.some((c) => s(c.id) === s(classId))) throw new ForbiddenError("Not found, or not in your classes.");
+  return assignedWorkOfClasses(repo, sc.schoolId, [classId], opts);
+}
+
+/** r78: a cancel / undo shows at once in the reports that keep a cached scan (the early warning). */
+async function forgetCachedReports(repo: Repo, schoolId: string): Promise<void> {
+  try { (await import("../insights/early-warning")).clearEarlyWarningCache(repo, schoolId); } catch { /* nothing cached */ }
+}
+
 // ------------------------------------------------------------------ one item: its students, cancel, undo
 
 /** One assigned thing the actor may manage (teacher: assigned it, or it is in a class they teach; admin: the school). */
@@ -474,6 +537,7 @@ export async function cancelAssignment(repo: Repo, actor: Actor, kind: AssignedK
     keys: item.keys, title: item.title.slice(0, 191) || ASSIGNED_KIND_LABEL[kind], cancelledById: actor.userId, cancelledAt: now, restoredAt: null, restoredById: null,
   });
   await audit(repo, { actorId: actor.userId, action: sid ? "assignment.cancel.student" : "assignment.cancel", entityType: kind, entityId: item.id, after: { studentId: sid, title: item.title }, at: now }).catch(() => undefined);
+  await forgetCachedReports(repo, sc.schoolId);
   return s(row.id);
 }
 
@@ -486,6 +550,7 @@ export async function restoreAssignment(repo: Repo, actor: Actor, kind: Assigned
   if (!rows.length) return 0;
   const n = await repo.updateMany("AssignmentCancel", { id: { in: rows.map((r) => s(r.id)) } }, { restoredAt: now, restoredById: actor.userId });
   await audit(repo, { actorId: actor.userId, action: sid ? "assignment.restore.student" : "assignment.restore", entityType: kind, entityId: item.id, after: { studentId: sid }, at: now }).catch(() => undefined);
+  await forgetCachedReports(repo, s(actor.schoolId));
   return n;
 }
 
@@ -557,5 +622,6 @@ async function bulk(repo: Repo, actor: Actor, refs: readonly BulkRef[], now: Dat
     }
   }
   if (out.done.length) await audit(repo, { actorId: actor.userId, action: op === "cancel" ? "assignment.cancel.bulk" : "assignment.restore.bulk", entityType: "Assigned", entityId: String(out.done.length), after: { items: out.done.slice(0, 50) }, at: now }).catch(() => undefined);
+  if (out.done.length) await forgetCachedReports(repo, sc.schoolId);
   return out;
 }

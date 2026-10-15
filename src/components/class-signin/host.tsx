@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useT } from "@/i18n/client";
 import { qrPath } from "@/lib/qr";
-import { closeQrAction, letInStudentAction, openQrAction, signOutStudentAction, type OpenQr } from "@/app/teacher/class-signin/actions";
+import { closeQrAction, openQrAction, signOutStudentAction, type OpenQr } from "@/app/teacher/class-signin/actions";
 
 interface Roster { open: boolean; expiresAt: string; className: string; students: { id: string; name: string; in: boolean; at: string | null }[] }
 
@@ -68,11 +68,6 @@ export function ClassSignInHost({ classId, className, base }: { classId: string;
     if (!r.ok) setError(r.error ?? null);
     if (qr) void refresh(qr.id);
   };
-  const letIn = async (id: string) => {
-    const r = await letInStudentAction(classId, id);
-    if (!r.ok) { setError(r.error); return; }
-    if (r.qr) { setQr(r.qr); setRoster((x) => (x ? { ...x, open: true } : x)); setNow(Date.now()); } else if (qr) void refresh(qr.id);
-  };
   const fullScreen = () => { void panel.current?.requestFullscreen?.().catch(() => undefined); };
 
   const students = roster?.students ?? [];
@@ -107,6 +102,7 @@ export function ClassSignInHost({ classId, className, base }: { classId: string;
 
       <section aria-label={t("Who has signed in")} className="rounded-3xl bg-surface p-4 ring-1 ring-line">
         <h2 className="mb-3 text-lg font-semibold text-ink">{t("Signed in: {n} of {total}", { n: done, total: students.length })}</h2>
+        <p className="mb-2 text-sm text-muted" data-testid="class-signin-hint">{t("Students sign in by themselves: they scan and tap their name. You don't need to press anything. Late student? Press \u201cOpen QR again\u201d.")}</p>
         {roster && students.length === 0 && <p className="text-sm text-muted">{t("No students in this class yet")}</p>}
         <ul className="divide-y divide-line">
           {students.map((s) => (
@@ -114,9 +110,8 @@ export function ClassSignInHost({ classId, className, base }: { classId: string;
               <span aria-hidden="true">{s.in ? "✅" : "⏳"}</span>
               <span className="min-w-0 flex-1 truncate font-medium"><bdi>{s.name}</bdi></span>
               <span className="sr-only">{s.in ? t("Signed in") : t("Not yet")}</span>
-              {s.in
-                ? <button type="button" onClick={() => void signOut(s.id, s.name)} className="min-h-10 rounded-lg px-3 text-sm font-semibold text-red-700 ring-1 ring-red-200 hover:bg-red-50">{t("Sign out")}</button>
-                : <button type="button" onClick={() => void letIn(s.id)} className="min-h-10 rounded-lg px-3 text-sm font-semibold text-brand-teal ring-1 ring-line hover:ring-brand-teal">{t("Let in")}</button>}
+              {/* r77 (owner): no button next to ⏳ — students sign in by themselves; a late student = "Open QR again" */}
+              {s.in && <button type="button" onClick={() => void signOut(s.id, s.name)} className="min-h-10 rounded-lg px-3 text-sm font-semibold text-red-700 ring-1 ring-red-200 hover:bg-red-50">{t("Sign out")}</button>}
             </li>
           ))}
         </ul>

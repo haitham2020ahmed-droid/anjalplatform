@@ -10,6 +10,7 @@ import { Combo } from "@/components/ui/combo";
 import { TargetChecklist } from "./target-checklist";
 import { DifficultyPicker } from "./difficulty-picker";
 import { nafsGroups } from "./builder-starts";
+import { PendingButton } from "./pending-button";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line";
 const INPUT = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
@@ -80,7 +81,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Questions per student")}<input type="number" name="max" min={1} max={MAX_PRACTICE_QUESTIONS} placeholder={String(DEFAULT_PRACTICE_QUESTIONS)} className={`${INPUT} w-28`} /></label>
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Time (minutes, optional)")}<input type="number" name="minutes" min={1} max={120} className={`${INPUT} w-28`} /></label>
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Due date (optional)")}<input type="date" name="dueAt" className={INPUT} /></label>
-              <button className="min-h-11 rounded-xl bg-teal-700 px-6 font-semibold text-white">{t("Give the practice")}</button>
+              <PendingButton label="Give the practice" pendingLabel="Assigning…" className="min-h-11 rounded-xl bg-teal-700 px-6 font-semibold text-white" />
             </div>
           </form>
         )}

@@ -9,7 +9,9 @@ import { sendTargets } from "@/server/curriculum-map/send-plan";
 import { LessonCard } from "@/components/curriculum-map/lesson-card";
 import { SendPlanButton, SendPlanHost } from "@/components/curriculum-map/send-plan";
 import { getT } from "@/i18n/server";
-import { assignPlaceAction, sendPreviewAction, sendScopeAction } from "./actions";
+import { assignPlaceAction, sendPreviewAction, sendScopeAction, shareMapPdfAction } from "./actions";
+import { MapPdfBar } from "@/components/curriculum-map/map-pdf-bar";
+import { curriculumMapPdfHref, mapShareClasses } from "@/server/curriculum-map/map-pdf";
 import { MapAssignHost } from "@/components/curriculum-map/assign-button";
 import { rosterForGrade } from "@/server/curriculum-map/levels";
 import { respondCodes } from "@/server/curriculum-map/respond";
@@ -29,11 +31,13 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
-  const [{ t }, v] = await Promise.all([getT(), curriculumLessons(repo, actor, Number(sp.grade) || undefined)]);
+  const [{ t, lang }, v] = await Promise.all([getT(), curriculumLessons(repo, actor, Number(sp.grade) || undefined)]);
   const canSend = can(actor, "assignments:create");
   const isAdmin = actor.role !== "TEACHER";
   // ⭐ Assign beside each Concept Vocabulary / Analyze Craft and Structure / Respond to Reading section (teachers)
   const canAssign = canSend && actor.role === "TEACHER";
+  // 📘 r79: the Full curriculum map (PDF) of the grade shown + "Send to students" (own classes of that grade)
+  const pdfClasses = canSend && v.grade !== null ? await mapShareClasses(repo, actor, v.grade).catch(() => []) : [];
   const [classes, roster, sentMap] = await Promise.all([
     canSend && v.grade !== null ? sendTargets(repo, actor) : Promise.resolve([]),
     canAssign && v.grade !== null ? rosterForGrade(repo, actor, v.grade).catch(() => []) : Promise.resolve([]),
@@ -54,6 +58,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
         {isAdmin && can(actor, "questions:edit") && <Link href={`/admin/curriculum-map/edit${v.grade ? `?grade=${v.grade}` : ""}`} prefetch={false} className="text-sm font-semibold text-slate-600 underline underline-offset-4 hover:text-brand-navy">{t("Edit (admin)")}</Link>}
       </PageHeader>
 
+      {v.grade !== null && v.units.length > 0 && <MapPdfBar grade={v.grade} href={curriculumMapPdfHref(v.grade, "staff", lang)} studentHref={curriculumMapPdfHref(v.grade, "student", lang)} classes={pdfClasses} share={canSend ? shareMapPdfAction : null} />}
       {v.grade === null || !v.units.length ? <EmptyState icon="🧭" title="Nothing here yet" text="The Curriculum Map has not been created yet." /> : (
         <>
           {/* a teacher sees the Curriculum Map of their own grade(s) only; admins see every grade */}

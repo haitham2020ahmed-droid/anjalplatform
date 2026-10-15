@@ -2,8 +2,7 @@
 import { redirect } from "next/navigation";
 import { getT } from "@/i18n/server";
 import { repo, requireActor } from "@/server/auth/next";
-import { ForbiddenError } from "@/server/auth/rbac";
-import { ValidationError } from "@/server/curriculum-admin";
+import { failureMessage, isNextControl } from "@/server/lib/action-guard";
 import { changeMapTestTime, createMapTest, editManualItems, testDetail, testPool, updateMapTest, type ItemOp } from "@/server/map/map-test";
 import type { GroupKey, Subject } from "@/server/map/map-plan";
 import type { Season } from "@/server/map/rit";
@@ -19,10 +18,13 @@ const sharesOf = (f: FormData): Record<string, number> | null => {
 };
 const manualOf = (f: FormData) => ({ areas: f.getAll("areas").map(String) as GroupKey[], count: Number(str(f, "count")) || 20, ritLow: Number(str(f, "ritLow")) || 180, ritHigh: Number(str(f, "ritHigh")) || 230 });
 
-async function run(job: () => Promise<string>, back: (msg: string) => string): Promise<never> {
-  const { t } = await getT();
+/**
+ * 🧯 r79: `job` returns where to go; any error comes back to the test (or the tab) as a message — a known refusal's own
+ * text, anything else logged and "Something went wrong — try again" (never Next.js's error page).
+ */
+async function run(name: string, job: () => Promise<string>, back: (msg: string) => string): Promise<never> {
   let to: string;
-  try { to = await job(); } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) to = back(`⚠️ ${t(e.message)}`); else throw e; }
+  try { to = await job(); } catch (e) { if (isNextControl(e)) throw e; to = back(`⚠️ ${await failureMessage(e, "map", name, "/teacher/map-center?tab=test")}`); }
   redirect(to);
 }
 const tabBack = (f: FormData) => (msg: string) => `/teacher/map-center?${new URLSearchParams({ tab: "test", subject: subjectOf(f), msg })}`;
@@ -30,9 +32,9 @@ const testBack = (f: FormData, extra: Record<string, string> = {}) => (msg: stri
 
 /** The tab's two big buttons: an automatic test (opens on its dates) or a manual one (a draft to build). */
 export async function createMapTestAction(f: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
-  const { t } = await getT();
-  await run(async () => {
+  await run("createMapTest", async () => {
+    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+    const { t } = await getT();
     const kind = str(f, "kind") === "MANUAL" ? "MANUAL" : "AUTO";
     const id = await createMapTest(repo, actor, {
       kind, subject: subjectOf(f), title: str(f, "title"), classIds: f.getAll("classIds").map(String), studentIds: f.getAll("studentIds").map(String),
@@ -46,9 +48,9 @@ export async function createMapTestAction(f: FormData): Promise<void> {
 
 /** The test page: dates, students, title, length, area shares, publish (edits allowed before anyone starts). */
 export async function updateMapTestAction(f: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
-  const { t } = await getT();
-  await run(async () => {
+  await run("updateMapTest", async () => {
+    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+    const { t } = await getT();
     const part = str(f, "part");
     if (part === "dates") await updateMapTest(repo, actor, str(f, "id"), { opensAt: day(str(f, "opensAt"), false), closesAt: day(str(f, "closesAt"), true) });
     else if (part === "who") await updateMapTest(repo, actor, str(f, "id"), { classIds: f.getAll("classIds").map(String), studentIds: f.getAll("studentIds").map(String) });
@@ -61,10 +63,10 @@ export async function updateMapTestAction(f: FormData): Promise<void> {
 
 /** Automatic test → the pool of one goal area: the ticked questions are taken out (the others put back). */
 export async function excludeAction(f: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
-  const { t } = await getT();
   const area = str(f, "area") as GroupKey;
-  await run(async () => {
+  await run("exclude", async () => {
+    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+    const { t } = await getT();
     const [shown] = (await testPool(repo, actor, str(f, "id"), { area, limit: 400 })).filter((a) => a.key === area);
     const before = new Set((await testDetail(repo, actor, str(f, "id"))).excluded);
     const onPage = new Set((shown?.items ?? []).map((q) => q.id));
@@ -77,10 +79,10 @@ export async function excludeAction(f: FormData): Promise<void> {
 
 /** Manual test: remove / move / replace / add one item, or "Suggest for me" again. */
 export async function itemOpAction(f: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
-  const { t } = await getT();
   const op = str(f, "op");
-  await run(async () => {
+  await run("itemOp", async () => {
+    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+    const { t } = await getT();
     const o: ItemOp = op === "resuggest" ? { op: "resuggest", manual: manualOf(f) }
       : op === "add" ? { op: "add", id: str(f, "questionId") || null, area: (str(f, "area") || null) as GroupKey | null }
       : { op: (["remove", "up", "down", "replace"].includes(op) ? op : "remove") as "remove", id: str(f, "questionId") };
@@ -94,9 +96,9 @@ export async function itemOpAction(f: FormData): Promise<void> {
  * clock or time-zone to get wrong — or "end now").
  */
 export async function mapTimeAction(f: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
-  const { t } = await getT();
-  await run(async () => {
+  await run("mapTime", async () => {
+    const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+    const { t } = await getT();
     const op = str(f, "op");
     if (op === "limit") await changeMapTestTime(repo, actor, str(f, "id"), { setMinutes: true, minutes: str(f, "minutes") ? Number(str(f, "minutes")) : null });
     else if (op === "endin") { const m = Math.round(Number(str(f, "in"))); await changeMapTestTime(repo, actor, str(f, "id"), { closesAt: Number.isFinite(m) && m >= 1 && m <= 600 ? new Date(Date.now() + m * 60_000) : new Date(NaN) }); }

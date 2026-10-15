@@ -21,6 +21,7 @@ import { statusesOfSkills, type StarStatus } from "../skills/status";
 import { skillFamilyIds } from "../questions/skill-questions";
 import { groupOf } from "./map-plan";
 import { weekDates, yearPlanView, type YearWeek } from "./year-plan";
+import { planHref } from "../../lib/plan-links";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const ms = (v: unknown): number => (v === null || v === undefined || v === "" ? 0 : v instanceof Date ? v.getTime() : new Date(String(v)).getTime() || 0);
@@ -151,9 +152,12 @@ export async function yearPlanReport(repo: Repo, actor: Actor, classId: string, 
     const x = skills.get(k.skillId) ?? { name: k.name, code: k.code, area: groupOf(k.group)?.name ?? "", weeks: [], need: k.of ? `${k.need}/${k.of}` : "", mastered: k.mastered ?? 0 };
     x.weeks.push(w.week); skills.set(k.skillId, x);
   }
+  // 🔗 r79: every skill of the PDF is a link (staff copy → the skill page with ⭐ Assign); ids only
+  const link = (id: string) => planHref({ kind: "skill", id }, "staff") ?? "";
   return {
     view: v, teacher: s(teacher?.displayName), sentAt,
-    weeksRows: v.weeks.map((w) => ({ week: w.week, dates: `${w.from} – ${w.to}`, skills: w.skills.filter((k) => !k.review).map((k) => k.name).join(" · "), review: w.skills.filter((k) => k.review).map((k) => k.name).join(" · "), areas: [...new Set(w.skills.map((k) => groupOf(k.group)?.name ?? ""))].filter(Boolean).join(", ") })),
-    skillRows: [...skills.values()].sort((a, b) => a.weeks[0] - b.weeks[0]).map((k) => ({ skill: k.name, code: k.code, area: k.area, weeks: k.weeks.join(", "), need: k.need, mastered: `${k.mastered}/${v.summary.students}` })),
+    weeksRows: v.weeks.map((w) => ({ week: w.week, dates: `${w.from} – ${w.to}`, skills: w.skills.filter((k) => !k.review).map((k) => k.name).join(" · "), skillsLink: w.skills.filter((k) => !k.review).map((k) => link(k.skillId)).join(" "), review: w.skills.filter((k) => k.review).map((k) => k.name).join(" · "), reviewLink: w.skills.filter((k) => k.review).map((k) => link(k.skillId)).join(" "), areas: [...new Set(w.skills.map((k) => groupOf(k.group)?.name ?? ""))].filter(Boolean).join(", ") })),
+    skillRows: [...skills.entries()].sort((a, b) => a[1].weeks[0] - b[1].weeks[0]).map(([id, k]) => ({ skill: k.name, skillLink: link(id), code: k.code, area: k.area, weeks: k.weeks.join(", "), need: k.need, mastered: `${k.mastered}/${v.summary.students}` })),
+    planLink: planHref({ kind: "year-plan", classId }, "staff") ?? "",
   };
 }

@@ -22,6 +22,7 @@ import { bandOf, seasonOf, type Season } from "./rit";
 import { normFor } from "./norm-tables";
 import { reportStudent, type ReportStudent } from "./map-reports";
 import type { Subject } from "./map-plan";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 
 const s = (v: unknown) => String(v ?? "");
 const n = (v: unknown): number | null => (v === null || v === undefined || v === "" || Number.isNaN(Number(v)) ? null : Number(v));
@@ -161,8 +162,9 @@ export interface ClassProfile {
   proficiency: { level: string; count: number }[]; flagged: number;
 }
 
-async function termsOf(repo: Repo, ids: string[], subject: Subject): Promise<{ terms: string[]; rows: Row[] }> {
-  const rows = ids.length ? (await repo.findMany("MapResult", { studentId: { in: ids } })).filter((r) => isSubj(subject)(r.subject)) : [];
+async function termsOf(repo: Repo, ids: string[], subject: Subject, overallOnly = false): Promise<{ terms: string[]; rows: Row[] }> {
+  // r79: the school overview needs the overall scores only (not every goal-area row of every student)
+  const rows = ids.length ? (await repo.findMany("MapResult", overallOnly ? { studentId: { in: ids }, goalName: null } : { studentId: { in: ids } })).filter((r) => isSubj(subject)(r.subject)) : [];
   const latestByTerm = new Map<string, number>();
   for (const r of rows.filter((x) => !x.goalName)) latestByTerm.set(s(r.termName), Math.max(latestByTerm.get(s(r.termName)) ?? 0, time(r.testDate)));
   return { terms: [...latestByTerm].sort((a, b) => b[1] - a[1]).map(([t]) => t), rows };
@@ -172,8 +174,11 @@ function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string
   const students: ClassStudent[] = [];
   const notTested: { id: string; name: string }[] = [];
   const areaSet = new Set<string>();
+  // ⚡ r79: each student's rows of the term by id (was a scan of every row of the school for each student)
+  const byStudent = new Map<string, Row[]>();
+  for (const r of rows) { if (s(r.termName) !== term) continue; const k = s(r.studentId); const l = byStudent.get(k); if (l) l.push(r); else byStudent.set(k, [r]); }
   for (const id of ids) {
-    const mine = rows.filter((r) => s(r.studentId) === id && s(r.termName) === term);
+    const mine = byStudent.get(id) ?? [];
     const o = mine.filter((r) => !r.goalName).sort((a, b) => time(b.testDate) - time(a.testDate))[0];
     if (!o) { notTested.push({ id, name: names.get(id)?.name ?? "Student" }); continue; }
     const test = testOf(o);
@@ -224,14 +229,25 @@ export async function classProfile(repo: Repo, actor: Actor, classId: string, su
 export interface OverviewRow { grade: number; classId: string | null; className: string; n: number; meanRit: number | null; national: number | null; medianPct: number | null; quintiles: number[]; meanGrowth: number | null; pctMet: number | null; flagged: number }
 export interface SchoolOverview { subject: Subject; term: string; terms: string[]; grades: OverviewRow[]; classes: OverviewRow[] }
 
+/**
+ * ⚡ r79: the overview reads every MAP score of the school (an admin): kept per viewer, subject and term until a MAP
+ * score, a class or its roster, the cut scores or the norms change (write counters; at most 10 min); at most 8.
+ */
+const OVERVIEW_MODELS = ["MapResult", "ClassMembership", "ClassTeacher", "Class", "Student", "Grade", "SchoolSetting", "BenchmarkReference"];
+const overviewCache = mapCache<SchoolOverview>("map.nwea-reports.overview", MAP_KEEP_MS, 8);
 export async function schoolOverview(repo: Repo, actor: Actor, subject: Subject, term?: string | null): Promise<SchoolOverview> {
   assertCan(actor, "reports:read");
+  const key = `${actor.userId}|${actor.role}|${s(actor.schoolId)}|${subject}|${term ?? ""}`;
+  return structuredClone(await overviewCache.get(repo, key, OVERVIEW_MODELS, () => schoolOverviewNow(repo, actor, subject, term)));
+}
+
+async function schoolOverviewNow(repo: Repo, actor: Actor, subject: Subject, term?: string | null): Promise<SchoolOverview> {
   const classes = (await readableClasses(repo, actor)).filter((c) => !c.deletedAt);
   const grades = await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] });
   const levelOf = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
   const mem = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
   const ids = [...new Set(mem.map((m) => s(m.studentId)))];
-  const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject), cutScores(repo, s(actor.schoolId))]);
+  const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject, true), cutScores(repo, s(actor.schoolId))]);
   const t = term && terms.includes(term) ? term : terms[0] ?? "";
   const season = seasonOf(t, null);
   const rowOf = async (grade: number, classId: string | null, className: string, members: string[]): Promise<OverviewRow> => {

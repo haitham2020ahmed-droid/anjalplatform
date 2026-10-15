@@ -30,6 +30,7 @@
 import { BAND_ORDER, bandLabel, dirOf, formatter, t, type Fmt, type LabelKey } from "./i18n";
 import type { Accent, Audience, CellValue, Column, Kpi, ReportDoc, Section, Tone } from "./model";
 import { BRAND, PLATFORM, SOURCE_COLORS } from "../components/print/tokens";
+import { isPlanHref, PLAN_LINKS_NOTE, PLAN_QR_NOTE, planQrSvg } from "../lib/plan-links";
 
 export class SafeHtml {
   constructor(readonly value: string) {}
@@ -211,6 +212,25 @@ function barsChart(f: Fmt, s: Extract<Section, { type: "bars" }>, accent: string
 }
 
 /** Tables with more columns than this go on a landscape page. */
+/**
+ * 🔗 r79: a cell whose text is a platform link (or several: "A · B · C" with three space-separated links). Only the
+ * platform's own pages are linked (isPlanHref); anything else stays plain text.
+ */
+function linkedCell(f: Fmt, col: Column, v: CellValue, links: CellValue, bars: boolean): SafeHtml {
+  const hrefs = String(links ?? "").split(/\s+/).filter((x) => isPlanHref(x));
+  if (!hrefs.length || v === null || v === "") return cell(f, col, v, bars);
+  const a = (href: string, inner: SafeHtml) => h`<a class="plink" href="${href}">${inner}</a>`;
+  const parts = String(v).split(" · ");
+  if (hrefs.length > 1 && parts.length === hrefs.length) return h`${parts.map((p, i) => h`${i ? " · " : ""}${a(hrefs[i], cell(f, col, p, bars))}`)}`;
+  return a(hrefs[0], cell(f, col, v, bars));
+}
+
+/** 🔗 r79: true when the document prints at least one platform link (the "clickable" note goes at the top). */
+export function hasPlanLinks(doc: Pick<ReportDoc, "links" | "sections">): boolean {
+  if (doc.links) return true;
+  return doc.sections.some((x) => x.type === "table" && x.columns.some((c) => c.linkKey) && x.rows.some((r) => x.columns.some((c) => c.linkKey && String(r[c.linkKey] ?? "").split(/\s+/).some((u) => isPlanHref(u)))));
+}
+
 export const LANDSCAPE_COLUMNS = 11;
 
 function table(f: Fmt, s: Extract<Section, { type: "table" }>): SafeHtml {
@@ -221,11 +241,13 @@ function table(f: Fmt, s: Extract<Section, { type: "table" }>): SafeHtml {
   const dense = s.columns.length > 8;
   const bars = s.columns.length <= 7;
   const body = s.rows.length
-    ? s.rows.map((r) => h`<tr>${s.columns.map((c) => h`<td class="${[align(c), c.nowrap || c.kind === "date" ? "nowrap" : ""].join(" ").trim()}">${cell(f, c, r[c.key] ?? null, bars)}</td>`)}</tr>`)
+    ? s.rows.map((r) => h`<tr>${s.columns.map((c) => h`<td class="${[align(c), c.nowrap || c.kind === "date" ? "nowrap" : ""].join(" ").trim()}">${c.linkKey ? linkedCell(f, c, r[c.key] ?? null, r[c.linkKey] ?? null, bars) : cell(f, c, r[c.key] ?? null, bars)}</td>`)}</tr>`)
     : h`<tr><td class="empty" colspan="${s.columns.length}">${s.empty}</td></tr>`;
   const hasBand = s.rows.length > 0 && s.columns.some((c) => c.kind === "band");
   // the colour key sits between the heading and the table, so it is read first and never lands alone on a page
-  return h`<section class="block${landscape ? " landscape" : ""}"><h2>${s.title}</h2>${hasBand ? bandLegend(f) : ""}${toneLegend(f, s.columns, s.rows)}<table class="${[dense ? "wide" : "", landscape ? "xwide" : ""].join(" ").trim()}"><colgroup>${s.columns.map((c) => h`<col style="width:${((100 * wOf(c)) / total).toFixed(2)}%">`)}</colgroup><thead><tr>${s.columns.map(
+  const qr = s.qr && isPlanHref(s.qr) ? planQrSvg(s.qr, 52) : "";
+  const title = qr && s.qr ? h`<div class="h2-qr"><h2>${s.title}</h2><a class="qr-a" href="${s.qr}">${new SafeHtml(qr)}<span>${PLAN_QR_NOTE[f.locale === "ar" ? "ar" : "en"]}</span></a></div>` : h`<h2>${s.title}</h2>`;
+  return h`<section class="block${landscape ? " landscape" : ""}">${title}${hasBand ? bandLegend(f) : ""}${toneLegend(f, s.columns, s.rows)}<table class="${[dense ? "wide" : "", landscape ? "xwide" : ""].join(" ").trim()}"><colgroup>${s.columns.map((c) => h`<col style="width:${((100 * wOf(c)) / total).toFixed(2)}%">`)}</colgroup><thead><tr>${s.columns.map(
     (c) => h`<th class="${align(c)}" scope="col">${c.label}</th>`,
   )}</tr></thead><tbody>${body}</tbody></table>${s.note ? h`<p class="note">${s.note}</p>` : ""}</section>`;
 }
@@ -385,6 +407,13 @@ table.xwide .chip { font-size: 6.6pt; padding: 0 5px; }
 .explain p { margin: 0 0 4px; }
 .explain ul { margin: 2px 0 0; padding-inline-start: 18px; }
 .explain li { margin-bottom: 2px; }
+/* 🔗 r79: plan links (underlined, readable in print) and the paper-copy QR beside a section heading */
+a.plink { color: #1d4ed8; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: .6px; }
+.plinks-note { margin: 0 0 10px; padding: 4px 10px; border-radius: 8px; background: #eef4fc; border: 1px solid #c9daf3; color: #1f3a68; font-size: 8.4pt; font-weight: 700; }
+.h2-qr { display: flex; align-items: center; gap: 8px; break-after: avoid; }
+.h2-qr h2 { flex: 1; margin-bottom: 7px; }
+.qr-a { display: inline-flex; flex-direction: column; align-items: center; color: #64748b; font-size: 6.5pt; text-decoration: none; }
+.plan-qr { display: block; }
 `;
 }
 
@@ -406,12 +435,12 @@ export function renderHtml(doc: ReportDoc, opts: HtmlOptions): string {
       if (rest.length) parts.push(kpiGrid(f, s.items.length > rest.length ? t(doc.locale, "moreNumbers") : s.title, rest));
     } else parts.push(section(f, s, accent));
   });
-  const body = h`${header(doc, f)}${parts}`;
+  const body = h`${header(doc, f)}${hasPlanLinks(doc) ? h`<p class="plinks-note">${PLAN_LINKS_NOTE[doc.locale === "ar" ? "ar" : "en"]}</p>` : ""}${parts}`;
   return `<!doctype html><html lang="${doc.locale}" dir="${dirOf(doc.locale)}"><head><meta charset="utf-8"><title>${esc(doc.title)}</title><style>${opts.fontCss}\n${reportCss(opts.fontStack, accent)}</style></head><body>${body.value}</body></html>`;
 }
 
 /** Chromium page footer (report title, confidentiality, page numbers). Rendered by Chromium in a separate tiny page. */
 export function footerTemplate(doc: ReportDoc, fontStack: string): string {
   const L = doc.locale;
-  return `<div dir="${dirOf(L)}" lang="${L}" style="width:100%;box-sizing:border-box;padding:0 12mm;font-family:${esc(fontStack)};font-size:7pt;color:#64748b;"><div style="border-top:0.5px solid #cbd5e1;padding-top:3px;display:flex;justify-content:space-between;gap:12px;"><span style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${esc(doc.title ?? "")}${doc.title ? " · " : ""}${esc(t(L, "confidential"))}</span><span style="white-space:nowrap;">${esc(t(L, "page"))} <span class="pageNumber"></span> ${esc(t(L, "of"))} <span class="totalPages"></span></span></div></div>`;
+  return `<div dir="${dirOf(L)}" lang="${L}" style="width:100%;box-sizing:border-box;padding:0 12mm;font-family:${esc(fontStack)};font-size:7pt;color:#64748b;"><div style="border-top:0.5px solid #cbd5e1;padding-top:3px;display:flex;justify-content:space-between;gap:12px;"><span style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${doc.footer !== undefined ? esc(doc.footer) : `${esc(doc.title ?? "")}${doc.title ? " · " : ""}${esc(t(L, "confidential"))}`}</span><span style="white-space:nowrap;">${esc(t(L, "page"))} <span class="pageNumber"></span> ${esc(t(L, "of"))} <span class="totalPages"></span></span></div></div>`;
 }

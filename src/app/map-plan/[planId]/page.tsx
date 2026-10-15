@@ -31,7 +31,7 @@ export default async function MapPlanPage({ params, searchParams }: { params: Pr
         {staff && <Link href={`/map-plan/${encodeURIComponent(planId)}${asStudent ? "" : "?view=student"}`} className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 font-semibold text-brand-navy ring-1 ring-slate-300">{asStudent ? t("Back to the teacher view") : `👀 ${t("Preview as student")}`}</Link>}
       </PageHeader></div>
       {staff && asStudent && <p role="status" className="mb-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200 print:hidden">{t("This is exactly what the student sees. Read only: nothing is answered, sent or saved.")}</p>}
-      <PlanDocView d={d} forStudent={asStudent} />
+      <PlanDocView d={d} forStudent={asStudent} audience={actor.role === "PARENT" ? "family" : asStudent ? "student" : "staff"} />
       {sp.print === "1" && <AutoPrint />}
     </AppShell>
   );

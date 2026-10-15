@@ -520,7 +520,9 @@ async function sendSection(repo: Repo, actor: Actor, p: LoadedPlan, x: PlanSecti
 /** ▶ Sends a draft: every section to its students. Nothing half-made on an error. */
 export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = new Date(), /** r74: REQUIRED — the Source chosen next to Send */ sourceIn?: string | null): Promise<{ planId: string; sections: number; students: number }> {
   assertCan(actor, "assignments:create");
-  const source = requireSource(sourceIn);
+  // r78: a NAFS plan is NAFS work — its Source is set automatically (never refused for a missing one)
+  const nafs = !String(sourceIn ?? "").trim() && String((await repo.findUnique("SkillPlan", { id: String(planId ?? "") }))?.program ?? "") === "NAFS";
+  const source = requireSource(nafs ? "NAFS" : sourceIn);
   const p = await loadPlan(repo, actor, planId);
   if (p.status !== "DRAFT") throw new ValidationError("This plan was sent already. Your changes reach the students as you make them.");
   assertProgramFitsGrade(p.program, p.grade);

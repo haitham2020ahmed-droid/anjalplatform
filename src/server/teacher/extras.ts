@@ -175,10 +175,11 @@ export interface GrowthRow { studentId: string; name: string; fall: number; late
  *  met known): "% met" is met / measured — a student without an NWEA projection is never counted as "not met" (r72). */
 export interface GrowthClass { classId: string; className: string; grade: number; rows: GrowthRow[]; tested: number; measured: number; met: number; avgGrowth: number | null; avgProjected: number | null }
 
-export async function growthReport(repo: Repo, actor: Actor, subject: Subject = "READING"): Promise<GrowthClass[]> {
+export async function growthReport(repo: Repo, actor: Actor, subject: Subject = "READING", opts: { classId?: string } = {}): Promise<GrowthClass[]> {
   assertCan(actor, "reports:read");
   if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError();
-  const classes = (await readableClasses(repo, actor)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  // r79: the MAP Reports tab shows one class: only its rows are read (not every class of the school for an admin)
+  const classes = (await readableClasses(repo, actor)).filter((c) => !opts.classId || s(c.id) === opts.classId).sort((a, b) => s(a.name).localeCompare(s(b.name)));
   // ⚡ Update 57: every class's students, grades, names and MAP rows in four reads (before: four per class, in turn)
   const classIds = classes.map((c) => s(c.id));
   const [members, gradeRows] = await Promise.all([

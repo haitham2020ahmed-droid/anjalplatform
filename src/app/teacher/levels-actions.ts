@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
+import { failureMessage, isNextControl } from "@/server/lib/action-guard";
 import { assignFromMap, giveTest, setStudentLevels, type Level } from "@/server/curriculum-map/levels";
 import { setLexileBands } from "@/server/curriculum-map/lexile";
 
@@ -38,16 +39,16 @@ export async function giveTestAction(f: FormData): Promise<void> {
 
 /** Assign a Curriculum Map category by level. */
 export async function assignFromMapAction(f: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   const classId = String(f.get("classId") ?? ""), code = String(f.get("code") ?? "");
   let msg: string;
   try {
+    const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
     const picked = f.get("who") === "students" ? f.getAll("studentIds").map(String).filter(Boolean) : [];
     if (f.get("who") === "students" && !picked.length) throw new ValidationError("Choose at least one student.");
     const r = await assignFromMap(repo, actor, { classId, categoryCode: code, studentIds: picked.length ? picked : undefined, dueAt: day(f.get("dueAt"), true), startAt: day(f.get("startAt"), false), note: String(f.get("note") ?? "") || null, maxQuestions: Number(f.get("max") ?? 20) || 20, mode: f.get("mode") === "BY_LEVEL" ? "BY_LEVEL" : "ADAPTIVE", source: String(f.get("source") ?? "") });
     const parts = r.groups.map((g) => `${g.level ? { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" }[g.level] : "All"}: ${g.students} student(s), ${g.questions} question(s)`);
     msg = `Assigned. ${parts.join(" · ")}.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}`;
-  } catch (e) { msg = friendly(e); }
+  } catch (e) { if (isNextControl(e)) throw e; msg = await failureMessage(e, "map", "assignFromMap", "/teacher/map-assign"); } // r79: never a white page
   back("/teacher/map-assign", { classId, code, msg });
 }
 

@@ -23,6 +23,7 @@ import { safeIfBehind } from "../db/schema-errors";
 import { isHiddenSkill } from "../skills/master";
 import { readRisePlaced } from "../readrise/engine";
 import { mapSummaries, studentNames } from "./student-data";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import {
   DAY, DROPS, INVALID_WINDOW_DAYS, MAX_POINTS, MEASURES, MEASURE_KEYS, MIN_TEST_QUESTIONS, MIN_WEEK_ANSWERS, MOVES_DAYS, SCAN_CACHE_MS,
   SERIES_DAYS, SEVERITY_ORDER, SKILL_WEEKS, UNHANDLED_DAYS, detectPattern, groupName, judge,
@@ -75,7 +76,7 @@ async function readSchool(repo: Repo, schoolId: string, now: Date): Promise<Scho
   const ids = [...classOf.keys()];
   const rows: WarningRow[] = [], moves: GroupMove[] = [];
   for (let i = 0; i < ids.length; i += EW_CHUNK) {
-    const r = await readChunk(repo, now, ids.slice(i, i + EW_CHUNK), classOf, classById, gradeOfClass);
+    const r = await readChunk(repo, now, ids.slice(i, i + EW_CHUNK), classOf, classById, gradeOfClass, schoolId);
     rows.push(...r.rows); moves.push(...r.moves);
   }
   rows.sort(rowOrder);
@@ -85,7 +86,7 @@ async function readSchool(repo: Repo, schoolId: string, now: Date): Promise<Scho
 const rowOrder = (a: WarningRow, b: WarningRow) => SEVERITY_ORDER[a.severity] - SEVERITY_ORDER[b.severity] || b.rules.length - a.rules.length || a.className.localeCompare(b.className) || a.name.localeCompare(b.name);
 
 /** Reads one round of students: a FIXED number of queries whatever the round's size (no query per student). */
-async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<string, string>, classById: Map<string, Row>, gradeOfClass: Map<string, number>): Promise<{ rows: WarningRow[]; moves: GroupMove[] }> {
+async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<string, string>, classById: Map<string, Row>, gradeOfClass: Map<string, number>, schoolId?: string): Promise<{ rows: WarningRow[]; moves: GroupMove[] }> {
   const t = now.getTime();
   const since = new Date(t - SERIES_DAYS * DAY);
   const classIds = [...new Set(ids.map((id) => classOf.get(id) ?? ""))].filter(Boolean);
@@ -123,7 +124,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     safeIfBehind("early-warning.readrise", () => repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "placedAt", "source"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => countGroups(repo, "RRRun", "studentId", { studentId: { in: ids }, completedAt: { gte: new Date(t - 28 * DAY) }, firstTry: true }), new Map<string, number>()),
     safeIfBehind("early-warning.checks", () => repo.findMany("ProgressCheck", { classId: { in: classIds }, createdAt: { gte: since } }, { select: ["assignmentId"] }), [] as Row[]),
-    repo.findMany("Assignment", { classId: { in: classIds }, testId: { not: null }, deletedAt: null, createdAt: { gte: since } }, { select: ["id"] }),
+    repo.findMany("Assignment", liveAssignmentWhere({ classId: { in: classIds }, testId: { not: null }, createdAt: { gte: since } }), { select: ["id", "testId"] }),
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "createdAt"] }),
     repo.findMany("StudentLevelState", { studentId: { in: ids }, declining: true }, { select: ["studentId"] }),
     repo.findMany("StudentAlert", { studentId: { in: ids }, kind: "INVALID_TEST", createdAt: { gte: new Date(t - INVALID_WINDOW_DAYS * DAY) } }, { select: ["studentId"] }),
@@ -166,10 +167,13 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     rrFlatSince.set(id, list.length ? time(list[list.length - 1].createdAt) : time(st.placedAt));
   }
   // progress checks and teacher tests: the student's finished set of each
+  // r78: a check or test cancelled on Assigned (for everyone, or for this student) is not counted
+  const ix = await cancelIndexForStudents(repo, ids, schoolId);
   const checkIds = new Set(checkRows.map((c) => s(c.assignmentId)));
-  const setIds = [...checkIds, ...testRows.map((a) => s(a.id))];
+  const setRow = new Map<string, Row>([...[...checkIds].map((id) => [id, { id }] as [string, Row]), ...testRows.map((a) => [s(a.id), a] as [string, Row])]);
+  const setIds = [...setRow.keys()].filter((id) => ix.live(setRow.get(id)!));
   const sessions = setIds.length ? await repo.findMany("PracticeSession", { assignmentId: { in: setIds }, studentId: { in: ids }, endedAt: { not: null } }, { select: ["studentId", "assignmentId", "correctCount", "questionCount", "endedAt"] }) : [];
-  for (const x of sessions) if (Number(x.questionCount) >= MIN_TEST_QUESTIONS) add(s(x.studentId), checkIds.has(s(x.assignmentId)) ? "CHECKS" : "TESTS", time(x.endedAt), pct(Number(x.correctCount), Number(x.questionCount)));
+  for (const x of sessions) if (ix.live(setRow.get(s(x.assignmentId)) ?? { id: s(x.assignmentId) }, s(x.studentId)) && Number(x.questionCount) >= MIN_TEST_QUESTIONS) add(s(x.studentId), checkIds.has(s(x.assignmentId)) ? "CHECKS" : "TESTS", time(x.endedAt), pct(Number(x.correctCount), Number(x.questionCount)));
 
   const declSet = new Set(declining.map((d) => s(d.studentId)));
   const invalidBy = new Map<string, number>();

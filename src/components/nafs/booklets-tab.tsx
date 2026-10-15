@@ -13,6 +13,7 @@ import { Combo } from "@/components/ui/combo";
 import { PrintButton } from "@/components/plans/print-button";
 import { CutFields, Legend, TestReport } from "./reports-tab";
 import { SubNav } from "./sub-nav";
+import { PendingButton } from "./pending-button";
 import { RichInline } from "@/components/rich-inline";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
@@ -139,7 +140,7 @@ async function BookletList({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<
                   <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Time (minutes)")}<input type="number" name="minutes" min={1} max={MAX_NAFS_MINUTES} defaultValue={MINISTRY_DEFAULT.minutes} className={`${INPUT} w-24`} /></label>
                   <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Opens (optional)")}<input type="date" name="openAt" className={INPUT} /></label>
                   <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Due (optional)")}<input type="date" name="dueAt" className={INPUT} /></label>
-                  <button name="do" value="online" className="min-h-11 rounded-xl bg-teal-700 px-5 font-semibold text-white">💻 {t("Assign online")}</button>
+                  <PendingButton name="do" value="online" icon="💻" label="Assign online" pendingLabel="Assigning…" className="min-h-11 rounded-xl bg-teal-700 px-5 font-semibold text-white" />
                   <button name="do" value="print" className="min-h-11 rounded-xl bg-surface px-5 font-semibold text-ink ring-1 ring-line">🖨 {t("Get ready to print")}</button>
                 </div>
               </div>

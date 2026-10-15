@@ -14,7 +14,7 @@ import { BTN_MAIN } from "@/components/plans/plan-builder";
 
 /** Results: the class's MAP scores for one subject — RIT, projection, each sub-area (RIT, band, descriptor). */
 export async function ResultsTab({ actor, t, classId, subject }: { actor: Actor; t: TFn; classId: string; subject: Subject }) {
-  const m = await classMatrix(repo, actor, classId, subject);
+  const m = await classMatrix(repo, actor, classId, subject, new Date(), { estimates: false });
   const groups = GROUPS.filter((g) => g.subject === subject);
   const isAdmin = actor.role !== "TEACHER" && can(actor, "settings:school");
   const bands = isAdmin ? await bandSettings(repo, actor.schoolId) : null;

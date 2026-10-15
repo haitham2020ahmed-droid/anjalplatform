@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { SkillStar } from "@/components/skills/skill-star";
+import { absolutePlanPath } from "@/lib/plan-links";
+import { PlanA } from "@/components/plans/plan-links";
 import { TAB_ICON, TAB_LABEL, type MySkills, type MySkillsTab } from "@/server/skills/my-skills";
 
 type T = (text: string, vars?: Record<string, string | number>) => string;
@@ -37,7 +39,7 @@ export function MySkillsView({ v, tab, t, hrefOf, readOnly = false }: { v: MySki
               <li key={r.key} data-testid="my-skill" data-status={r.status} className="flex min-h-14 items-center gap-3 rounded-2xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-slate-200">
                 <SkillStar info={{ status: r.status }} who="student" t={t} label={r.name} size={22} />
                 <span className="min-w-0 flex-1">
-                  <span className="block font-semibold leading-snug text-slate-900" data-content lang="en">{r.name}</span>
+                  <span className="block font-semibold leading-snug text-slate-900" data-content lang="en">{/* 🔗 r79: printed, the skill's name still opens its practice */}{!readOnly && r.href ? <PlanA href={absolutePlanPath(r.href)}>{r.name}</PlanA> : r.name}</span>
                   {tab === "MASTERED" && r.masteredAt && <span className="block text-xs text-slate-500">{t("Mastered on {date}", { date: r.masteredAt })}</span>}
                   {tab === "LEARNING" && (
                     <span className="mt-1 block h-1.5 w-full max-w-[10rem] overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-label={t("Mastery")} aria-valuemin={0} aria-valuemax={100} aria-valuenow={r.score}>

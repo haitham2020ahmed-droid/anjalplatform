@@ -4,6 +4,8 @@ import { ReportHead, ReportPage, ordinal } from "./report-ui";
 import { SkillStar, StarLegend, StarLegendLine } from "@/components/skills/skill-star";
 import { StarAssign } from "@/components/assign/star-assign";
 import { groupStagesBySkill, planStarCount, type SkillGroup } from "@/lib/plan-groups";
+import { planHref } from "@/lib/plan-links";
+import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
 
 type T = (text: string, vars?: Record<string, string | number>) => string;
 const same: T = (text, vars) => (vars ? text.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? "")) : text);
@@ -65,6 +67,7 @@ export function StudyPlanView({ d, first = true, link = false, hub = false, t = 
               <li>{t("Each skill is listed once with its star; open it to see the MAP statements it covers.")}</li>
             </ol>
             <div className="mt-2"><StarLegend who={who} t={t} /></div>
+            <PlanLinksNote t={t} className="mt-2" />
           </div>
         </div>
       </ReportPage>
@@ -83,7 +86,7 @@ function AreaPage({ a, d, link, hub, t, star }: { a: StudyArea; d: StudyPlanDoc;
     <ReportPage>
       <ReportHead s={d.student} title={`${t("Personal Study Plan")} · ${t(subjectName(d.subject))}`} term={d.term} />
       <div className="mt-4 flex flex-wrap items-end justify-between gap-2">
-        <h2 className="text-3xl font-black text-brand-navy">{a.icon} {t(a.name)}</h2>
+        <h2 className="flex items-center gap-3 text-3xl font-black text-brand-navy">{a.icon} {t(a.name)}<PlanQr href={planHref({ kind: "study-plan", studentId: d.student.id, subject: d.subject === "LANGUAGE" ? "LANGUAGE" : "READING" }, hub ? "staff" : link ? "student" : "family")} size={48} /></h2>
         <p className="text-sm text-slate-600">RIT <b className="text-lg text-brand-navy">{a.rit}</b>{a.descriptor ? ` · ${a.descriptor}` : ""}{a.percentile !== null ? ` (${ordinal(a.percentile)} percentile)` : ""}{!a.fromGoal ? ` · ${t("overall RIT")}` : ""}</p>
       </div>
       {stages.filter((g) => g.skills.length || g.unlinked.length).map((g) => {
@@ -120,7 +123,8 @@ function SkillRow({ k, link, hub, t, star }: { k: SkillGroup; link: boolean; hub
     <li data-testid="plan-skill" data-key={k.key} className="break-inside-avoid px-3 py-2">
       <div className="flex flex-wrap items-center gap-2">
         <SkillStar info={k.star} who={link ? "student" : "teacher"} t={t} label={name} />
-        {hub ? <Link prefetch={false} href={`/skill/${k.skill.id}`} className="font-semibold text-brand-navy hover:underline">{name}</Link> : <span className="font-semibold text-brand-navy">{name}</span>}
+        {/* 🔗 r79: the skill's name is a link in every copy (staff → the skill page; student / family → practise it) */}
+        <PlanA href={planHref({ kind: "skill", id: k.skill.id, from: "map" }, hub ? "staff" : link ? "student" : "family")} className="font-semibold text-brand-navy">{name}</PlanA>
         {k.standards.length > 0 && <span className="text-[10px] text-slate-400" dir="ltr">{k.standards.slice(0, 4).join(" ")}{k.standards.length > 4 ? " …" : ""}</span>}
         <span className="ms-auto flex items-center gap-2 print:hidden">
           {link && <Link prefetch={false} href={`/practice/${k.skill.id}?from=map`} className="inline-flex min-h-9 items-center rounded-lg bg-brand-navy px-3 text-xs font-semibold text-white hover:bg-brand-purple">▶ {t("Practise")}</Link>}

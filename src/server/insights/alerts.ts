@@ -20,6 +20,7 @@ import { mapSummaries, practiceStats, studentNames } from "./student-data";
 import { statusOf } from "./progress";
 import { isHiddenSkill } from "../skills/master";
 import { safeIfBehind } from "../db/schema-errors";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -142,10 +143,14 @@ async function alertsFor(repo: Repo, schoolId: string, now: Date, ids: string[],
   }
   // late work: 2+ tasks not started by their due date (last 30 days)
   const asg = await repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: { in: ["NOT_STARTED", "OVERDUE"] } }, { select: ["studentId", "assignmentId", "progress"] });
-  const as = asg.length ? await repo.findMany("Assignment", { id: { in: [...new Set(asg.map((a) => s(a.assignmentId)))] }, deletedAt: null }, { select: ["id", "dueAt"] }) : [];
+  // r78: work cancelled on Assigned is never "late work"
+  const [as, ix] = await Promise.all([
+    asg.length ? repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(asg.map((a) => s(a.assignmentId)))] } }), { select: ["id", "dueAt", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]),
+    cancelIndex(repo, schoolId),
+  ]);
   const due = new Map(as.filter((a) => a.dueAt && time(a.dueAt) < now.getTime() && time(a.dueAt) > now.getTime() - 30 * DAY).map((a) => [s(a.id), a]));
   const late = new Map<string, number>();
-  for (const r of asg) if (due.has(s(r.assignmentId)) && Number(r.progress ?? 0) === 0) late.set(s(r.studentId), (late.get(s(r.studentId)) ?? 0) + 1);
+  for (const r of asg) if (due.has(s(r.assignmentId)) && Number(r.progress ?? 0) === 0 && ix.live(due.get(s(r.assignmentId))!, s(r.studentId))) late.set(s(r.studentId), (late.get(s(r.studentId)) ?? 0) + 1);
   for (const [id, n] of late) if (n >= 2) add(id, "LATE_WORK", wk, `${n} tasks not started by their due date.`);
   // ⚖️ the data disagree (MAP / Diagnostic / platform / Weekly Checks): once a month per pair of sources
   for (const c of await conflictsFor(repo, schoolId, ids, gradeOf, now)) add(c.studentId, "LEVEL_CONFLICT", `${c.key}|${now.toISOString().slice(0, 7)}`, c.detail);

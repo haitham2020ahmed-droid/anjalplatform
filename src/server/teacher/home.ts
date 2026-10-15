@@ -15,6 +15,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { accessibleClasses, NO_CURRICULUM_MESSAGE } from "./assign";
 import { assertClassAccess } from "./assignments";
 import { studentNames } from "../insights/student-data";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { schoolSkillIndex, skillsMatching } from "../questions/skill-questions";
 import { meaningKey } from "../skills/master";
 
@@ -83,11 +84,14 @@ interface Lists { notStarted: Map<string, string[]>; rti: Map<string, { tier: nu
 
 async function lists(repo: Repo, actor: Actor, classId: string, ids: string[], now: Date): Promise<Lists> {
   const since = now.getTime() - NOT_STARTED_AFTER_DAYS * 86_400_000;
-  const [work, tiers, tests] = await Promise.all([
-    repo.findMany("Assignment", { classId, deletedAt: null }, { select: ["id", "title", "startAt", "createdAt", "testId", "curriculumPlanId"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 300 }),
+  const [work, tiers, tests, ix] = await Promise.all([
+    repo.findMany("Assignment", liveAssignmentWhere({ classId }), { select: ["id", "title", "startAt", "createdAt", "testId", "curriculumPlanId"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 300 }),
     ids.length ? inChunks(ids, (part) => repo.findMany("StudentTier", { studentId: { in: part }, tier: { gte: 2 } }, { select: ["studentId", "tier", "reason"] })) : Promise.resolve([] as Row[]),
     repo.findMany("TeacherTest", { classId, deletedAt: null }, { select: ["id", "title"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 50 }),
+    cancelIndex(repo, actor.schoolId),
   ]);
+  // r78: work cancelled on Assigned (for everyone, or for one student) never "needs attention"
+  const byId = new Map(work.map((a) => [s(a.id), a]));
   // work that should have been started: assigned at least 2 days ago (and already open), not a test (tests have their own card)
   const open = work.filter((a) => !a.testId && s(a.curriculumPlanId) !== "TEST" && time(a.createdAt) <= since && (!a.startAt || time(a.startAt) <= now.getTime()));
   const title = new Map(open.map((a) => [s(a.id), s(a.title)]));
@@ -95,14 +99,14 @@ async function lists(repo: Repo, actor: Actor, classId: string, ids: string[], n
   const waiting = open.length ? await inChunks(open.map((a) => s(a.id)), (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part }, status: { in: ["NOT_STARTED", "OVERDUE"] } }, { select: ["studentId", "assignmentId", "progress"] })) : [];
   const notStarted = new Map<string, string[]>();
   for (const r of waiting) {
-    if (Number(r.progress ?? 0) > 0 || !idSet.has(s(r.studentId))) continue;
+    if (Number(r.progress ?? 0) > 0 || !idSet.has(s(r.studentId)) || !ix.live(byId.get(s(r.assignmentId)) ?? { id: s(r.assignmentId) }, s(r.studentId))) continue;
     notStarted.set(s(r.studentId), [...(notStarted.get(s(r.studentId)) ?? []), title.get(s(r.assignmentId)) ?? ""]);
   }
   const rti = new Map(tiers.map((t) => [s(t.studentId), { tier: Number(t.tier), reason: s(t.reason) }]));
   // tests with new results: someone finished in the last 7 days
   let fresh: { id: string; title: string; fresh: number }[] = [];
   if (tests.length) {
-    const sets = await repo.findMany("Assignment", { testId: { in: tests.map((t) => s(t.id)) }, deletedAt: null }, { select: ["id", "testId"] });
+    const sets = (await repo.findMany("Assignment", liveAssignmentWhere({ testId: { in: tests.map((t) => s(t.id)) } }), { select: ["id", "testId"] })).filter((a) => ix.live(a));
     const testOf = new Map(sets.map((x) => [s(x.id), s(x.testId)]));
     const done = sets.length ? await inChunks(sets.map((x) => s(x.id)), (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part }, status: "COMPLETED", completedAt: { gte: new Date(now.getTime() - NEW_RESULTS_DAYS * 86_400_000) } }, { select: ["assignmentId"] })) : [];
     const n = new Map<string, number>();

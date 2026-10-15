@@ -11,6 +11,9 @@ import { createPracticeAction } from "@/app/teacher/nafs/actions";
 import { Combo } from "@/components/ui/combo";
 import { PrintButton } from "@/components/plans/print-button";
 import { Pc } from "./dashboard-tab";
+import { PendingButton } from "./pending-button";
+import { absolutePlanPath } from "@/lib/plan-links";
+import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
 
@@ -34,10 +37,11 @@ export async function PlanTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
         <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
         <PrintButton label={t("Print")} />
       </form>
+      {!plan.noData && <PlanLinksNote t={t} className="justify-self-start" />}
       <p className="text-sm text-ink-2">{t("Built from the NAFS reports: the weakest Ministry standards per class, per group and per student. One click gives adaptive practice on exactly those standards (each student starts at Medium and the questions adapt).")}</p>
       {plan.noData ? <p className={`${CARD} text-sm text-muted`}>{t("No NAFS results in these dates yet. Give a NAFS test or adaptive practice first.")}</p> : plan.classes.filter((c) => c.withData > 0).map((c) => (
         <section key={c.classId} className={CARD} aria-labelledby={`pl-${c.classId}`}>
-          <h2 id={`pl-${c.classId}`} className="text-lg font-semibold text-ink">{c.className} <span className="text-sm font-normal text-muted">· {t("{n} students", { n: c.students })}</span></h2>
+          <h2 id={`pl-${c.classId}`} className="flex items-center justify-between gap-3 text-lg font-semibold text-ink"><span>{c.className} <span className="text-sm font-normal text-muted">· {t("{n} students", { n: c.students })}</span></span><PlanQr href={absolutePlanPath(centerHref("plan", { class: c.classId }))} size={46} /></h2>
           {c.strengths.length > 0 && <p className="mt-1 text-sm text-emerald-800">{t("Strengths")}: {c.strengths.map((x) => `${codeName(x.code, t)} (${x.pct}%)`).join(" · ")}</p>}
           <h3 className="mt-3 text-sm font-semibold uppercase tracking-wide text-muted">{t("The whole class")}</h3>
           {c.classItem ? <Item item={c.classItem} t={t} back={here} /> : <p className="mt-1 text-sm text-muted">{t("No class-wide weak standard: work with the groups and students below.")}</p>}
@@ -63,14 +67,15 @@ function Item({ item, t, back }: { item: PlanItem; t: TFn; back: string }) {
     <div className="mt-1 rounded-xl bg-surface p-3 ring-1 ring-line">
       <p className="text-sm text-ink">{item.scope === "STUDENT" ? <b>{who} <Pc v={item.students[0]?.pct} /></b> : item.scope === "GROUP" ? <b>{who}</b> : null}</p>
       <ul className="mt-1 grid gap-0.5 text-sm text-ink-2">
-        {item.evidence.map((e) => <li key={e.code}>{codeName(e.code, t)}{e.pct !== null ? <> · <Pc v={e.pct} /> <span className="text-xs text-muted">({t("{n} items", { n: e.n })})</span></> : null}</li>)}
+        {/* 🔗 r79: each standard opens the NAFS practice builder on exactly these standards and students */}
+        {item.evidence.map((e) => <li key={e.code}><PlanA href={absolutePlanPath(item.practiceHref)}>{codeName(e.code, t)}</PlanA>{e.pct !== null ? <> · <Pc v={e.pct} /> <span className="text-xs text-muted">({t("{n} items", { n: e.n })})</span></> : null}</li>)}
       </ul>
       <div className="mt-2 flex flex-wrap gap-1.5 print:hidden">
         <form action={createPracticeAction}>
           <input type="hidden" name="title" value={item.title} /><input type="hidden" name="classId" value={item.classId} /><input type="hidden" name="back" value={back} />
           {item.codes.map((c) => <input key={c} type="hidden" name="target" value={c} />)}
           {item.scope !== "CLASS" && item.students.map((x) => <input key={x.id} type="hidden" name="sid" value={x.id} />)}
-          <button className="inline-flex min-h-10 items-center rounded-lg bg-teal-700 px-3 text-sm font-semibold text-white">🎯 {t("Assign adaptive practice now")}</button>
+          <PendingButton icon="🎯" label="Assign adaptive practice now" pendingLabel="Assigning…" className="inline-flex min-h-10 items-center rounded-lg bg-teal-700 px-3 text-sm font-semibold text-white" />
         </form>
         <Link href={item.practiceHref} className="inline-flex min-h-10 items-center rounded-lg bg-surface px-3 text-sm font-semibold text-ink ring-1 ring-line">{t("Change first")}</Link>
         <Link href={item.testHref} className="inline-flex min-h-10 items-center rounded-lg bg-surface px-3 text-sm font-semibold text-ink ring-1 ring-line">📝 {t("Make a test on these standards")}</Link>

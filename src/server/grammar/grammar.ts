@@ -17,6 +17,7 @@ import { ValidationError } from "../curriculum-admin";
 import { readXlsx } from "../../imports/xlsx";
 import { shortStandard, TEMPLATE_HEADERS } from "../../imports/questions/template";
 import { accessibleClasses } from "../teacher/assign";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "").trim();
 export const GRAMMAR_PREFIX = ".grammar.";
@@ -263,12 +264,15 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
   const setting = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: settingKey(grade) }))[0];
   const catalog = (setting?.value ?? {}) as { lessons?: GrammarLesson[]; skills?: { code: string; lesson: string; kind: string; rule: string }[] };
   const ids = skills.map((k) => s(k.id));
-  const [qs, links, assignments, members] = await Promise.all([
+  const [qs, links, allAssignments, members, ix] = await Promise.all([
     ids.length ? repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "difficultyLevel", "typeId"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("SkillStandard", { skillId: { in: ids } }) : Promise.resolve([] as Row[]),
-    klass ? repo.findMany("Assignment", { classId: klass.id, deletedAt: null }, { select: ["id", "skillId"] }) : Promise.resolve([] as Row[]),
+    klass ? repo.findMany("Assignment", liveAssignmentWhere({ classId: klass.id }), { select: ["id", "skillId", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]),
     klass ? repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
+    cancelIndex(repo, actor.schoolId),
   ]);
+  // r78: cancelled on Assigned = not "assigned" on the grammar page
+  const assignments = allAssignments.filter((a) => ix.live(a));
   const [stds, open, studs] = await Promise.all([
     links.length ? repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : Promise.resolve([] as Row[]),
     assignments.length ? repo.findMany("AssignmentStudent", { assignmentId: { in: assignments.map((a) => a.id) }, status: { in: ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"] } }, { select: ["assignmentId"] }) : Promise.resolve([] as Row[]),

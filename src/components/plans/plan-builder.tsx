@@ -1,5 +1,6 @@
 import { StarAssign } from "@/components/assign/star-assign";
 import { SourceSelect } from "@/components/assign/source-select";
+import { PendingButton } from "@/components/pending-button";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { TFn } from "@/i18n";
@@ -157,7 +158,7 @@ export function PlanBuilder(p: BuilderProps) {
             <input type="hidden" name="draftSpec" value={JSON.stringify({ classId: p.carry.find(([k]) => k === "classId")?.[1] ?? "", program: p.program, skills: p.plan.map((k) => ({ id: k.id, studentIds: k.studentIds, reason: k.reason, picks: picks[k.id] ?? [] })) })} />
             <button formAction={builderDraftAction} formMethod="post" formNoValidate className={BTN_SOFT}>{t("Save as draft and edit every question")}</button>
           </>}
-          {p.canSend && as && <button formAction={p.send} formMethod="post" className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button>}
+          {p.canSend && as && <PendingButton formAction={p.send} className={`${BTN_MAIN} px-8 text-lg`} label="Send" pendingLabel="Sending…" />}
         </div>
       </Section>
     );

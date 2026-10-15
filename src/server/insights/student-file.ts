@@ -15,6 +15,7 @@ import { sentPlans, type PlanDoc } from "../map/map-more";
 import { commentsFor, dueMistakes, type CommentView } from "../teacher/classroom";
 import { notesFor } from "../teacher/extras";
 import { studentBadges } from "../student/badges";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { isReportShared } from "./parent-report";
 import { ALERT_INFO, type AlertKind } from "./alerts";
 import { matchesStudent, normalizeName } from "../../components/teacher/name-match";
@@ -128,7 +129,9 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
   const profile = await repo.findUnique("StudentProfile", { studentId });
   const windows = sims.length ? await repo.findMany("MapSimWindow", { id: { in: [...new Set(sims.map((x) => s(x.windowId)).filter(Boolean))] } }, { select: ["id", "title"] }) : [];
   const tasks = subs.length ? await repo.findMany("WritingTask", { id: { in: subs.map((x) => x.taskId) } }, { select: ["id", "title", "kind", "genre", "locked", "rubric"] }) : [];
-  const asg = asgRows.length ? await repo.findMany("Assignment", { id: { in: asgRows.map((a) => a.assignmentId) }, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] }) : [];
+  // r78: cancelled on Assigned (for everyone or this student) = not in the student's file
+  const ix = await cancelIndex(repo, actor.schoolId);
+  const asg = asgRows.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: asgRows.map((a) => a.assignmentId) } }), { select: ["id", "title", "dueAt", "createdAt", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)) : [];
   const tickets = exitAns.length ? await repo.findMany("ExitTicket", { id: { in: [...new Set(exitAns.map((a) => s(a.ticketId)))] } }, { select: ["id", "title", "createdAt"] }) : [];
   const skills = mastery.length ? await repo.findMany("Skill", { id: { in: mastery.map((m) => m.skillId) } }, { select: ["id", "name"] }) : [];
   const tried = mastery.filter((m) => Number(m.attempts) >= 5).map((m) => ({ name: s(skills.find((k) => k.id === m.skillId)?.name), pct: Math.round((100 * Number(m.correct)) / Number(m.attempts)), answers: Number(m.attempts) }));

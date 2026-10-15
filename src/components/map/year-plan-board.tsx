@@ -38,18 +38,24 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
   };
   const edit = (e: YearEdit, done?: string) => start(async () => {
     setMsg(null);
-    const r = await yearEditAction(v.classId, e);
-    if (r.ok) { setV(r.value); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
+    try {
+      const r = await yearEditAction(v.classId, e);
+      if (r.ok) { setV(r.value); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
+    } catch { setMsg({ ok: false, text: t("Something went wrong — try again") }); }
   });
   // ⭐ "N students already mastered … — exclude them?" before assigning a week whose skills some students mastered
   const [askWeek, setAskWeek] = useState<{ week: number; n: number } | null>(null);
   // r74: the source of the weeks assigned from here (always chosen by the teacher: no default)
   const [source, setSource] = useState<AssignSource | "">("");
   const tryWeek = (week: number) => { if (!source) { setMsg({ ok: false, text: t(SOURCE_REQUIRED) }); return; } const w = v.weeks.find((x) => x.week === week); const n = Math.max(0, ...(w?.skills.filter((k) => !k.assignedId).map((k) => k.mastered ?? 0) ?? [0])); if (n > 0) setAskWeek({ week, n }); else assignWeek(week, false); };
+  // r79: the week being assigned shows "Assigning…" (every button waits until it is done)
+  const [assigning, setAssigning] = useState<number | null>(null);
   const assignWeek = (week: number, excludeMastered: boolean) => start(async () => {
-    setMsg(null); setAskWeek(null);
-    const r = await yearAssignWeekAction(v.classId, week, excludeMastered, source || null);
-    if (r.ok) { setV(r.value); setMsg({ ok: true, text: t("Week {n} assigned ✓", { n: week }) }); } else setMsg({ ok: false, text: r.message });
+    setMsg(null); setAskWeek(null); setAssigning(week);
+    try {
+      const r = await yearAssignWeekAction(v.classId, week, excludeMastered, source || null);
+      if (r.ok) { setV(r.value); setMsg({ ok: true, text: t("Week {n} assigned ✓", { n: week }) }); } else setMsg({ ok: false, text: r.message });
+    } catch { setMsg({ ok: false, text: t("Something went wrong — try again") }); } finally { setAssigning(null); }
   });
   const swap = (p: Pos) => { if (!swapFrom) { setSwapFrom(p); return; } if (swapFrom.week !== p.week || swapFrom.index !== p.index) edit({ op: "swap", a: swapFrom, b: p }); setSwapFrom(null); };
   const s = v.summary;
@@ -80,7 +86,7 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
               <span className="font-bold text-brand-navy">{t("Week {n}", { n: w.week })}</span>
               <span className="text-xs text-slate-500" dir="ltr">{w.from.slice(5).replace("-", "/")} – {w.to.slice(5).replace("-", "/")}</span>
               {w.current && <span className="rounded-full bg-teal-50 px-2 py-0.5 text-xs font-semibold text-teal-800">{t("This week")}</span>}
-              {v.canEdit && w.skills.some((k) => !k.assignedId) && <button type="button" className={`${btn} ms-auto`} disabled={busy} onClick={() => tryWeek(w.week)}>☆ {t("Assign this week")}</button>}
+              {v.canEdit && w.skills.some((k) => !k.assignedId) && <button type="button" className={`${btn} ms-auto`} disabled={busy} aria-busy={assigning === w.week} onClick={() => tryWeek(w.week)}>{assigning === w.week ? t("Assigning…") : `☆ ${t("Assign this week")}`}</button>}
               {askWeek?.week === w.week && <ExcludeMasteredPrompt count={askWeek.n} t={t} busy={busy} onYes={() => assignWeek(w.week, true)} onNo={() => assignWeek(w.week, false)} />}
             </div>
             <ul className="mt-2 grid gap-1.5 sm:grid-cols-2 lg:grid-cols-3">

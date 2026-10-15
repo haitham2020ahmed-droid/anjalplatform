@@ -7,7 +7,7 @@ import { repo } from "@/server/auth/next";
 import { ClassSignInError, classSignInNames } from "@/server/auth/class-signin";
 import { getT } from "@/i18n/server";
 
-export const metadata = { title: "Class sign-in", robots: { index: false, follow: false }, referrer: "no-referrer" as const };
+export const metadata = { title: "Class sign-in", robots: { index: false, follow: false }, referrer: "same-origin" as const };
 export const dynamic = "force-dynamic";
 
 /** The messages a failed tap comes back with (?e=…). */

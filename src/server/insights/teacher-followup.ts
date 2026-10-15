@@ -13,6 +13,7 @@ import { ValidationError } from "../curriculum-admin";
 import { mapSummaries, practiceStats } from "./student-data";
 import { statusOf } from "./progress";
 import { reconcileStatus, tiersOf } from "./student-status";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).getTime() : 0);
@@ -75,9 +76,11 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
   const studentIds = [...new Set(members.map((m) => s(m.studentId)))];
   const grades = classes.length ? await repo.findMany("Grade", { id: { in: [...new Set(classes.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] }) : [];
   const gradeOf = new Map(members.map((m) => [s(m.studentId), Number(grades.find((g) => g.id === classes.find((c) => c.id === m.classId)?.gradeId)?.level ?? 0)]));
+  // r78: an assignment cancelled on Assigned does not count as the teacher's work
+  const ix = await cancelIndex(repo, actor.schoolId);
   const [maps, practice, assignments, views, asgStudents, tiers] = await Promise.all([
     mapSummaries(repo, studentIds, "READING", gradeOf), practiceStats(repo, studentIds, now),
-    teachers.length ? repo.findMany("Assignment", { createdById: { in: teachers.map((t) => t.id) }, deletedAt: null }, { select: ["id", "createdById", "createdAt", "classId", "title", "note", "curriculumPlanId"] }).then((l) => l.filter((a) => !isSystemAssignment(a))) : Promise.resolve([] as Row[]),
+    teachers.length ? repo.findMany("Assignment", liveAssignmentWhere({ createdById: { in: teachers.map((t) => t.id) } }), { select: ["id", "createdById", "createdAt", "classId", "title", "note", "curriculumPlanId", "testId"] }).then((l) => l.filter((a) => !isSystemAssignment(a) && ix.live(a))) : Promise.resolve([] as Row[]),
     repo.findMany("AuditLog", { action: "results.view", actorId: { in: users.map((u) => u.id) } }, { select: ["actorId", "createdAt"] }),
     studentIds.length ? repo.findMany("AssignmentStudent", { studentId: { in: studentIds } }, { select: ["studentId", "assignmentId"] }) : Promise.resolve([] as Row[]),
     tiersOf(repo, studentIds),

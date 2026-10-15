@@ -30,6 +30,7 @@ import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
 import { isRapidGuess } from "../practice/guessing";
 import { cellOf, classLine, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
+import { nafsRemoved } from "./removed";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -244,6 +245,7 @@ async function ownPractice(repo: Repo, actor: Actor, id: string, edit = false): 
 export async function deleteNafsPractice(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<void> {
   const p = await ownPractice(repo, actor, id, true);
   await repo.updateMany("NafsPractice", { id: p.id }, { deletedAt: now });
+  nafsRemoved();
   await audit(repo, { actorId: actor.userId, action: "nafs.practice.delete", entityType: "NafsPractice", entityId: id, at: now });
 }
 

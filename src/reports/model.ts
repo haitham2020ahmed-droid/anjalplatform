@@ -43,6 +43,13 @@ export interface Column {
   tones?: Record<string, Tone>;
   /** One short sentence for the Excel "Read me" sheet (what the column means). */
   help?: string;
+  /**
+   * 🔗 r79: the row key holding this cell's platform link(s) (src/lib/plan-links.ts; absolute APP_URL links, ids only).
+   * One link → the whole cell is clickable; several (space-separated) and a cell of the same number of " · "-separated
+   * names → each name is its own link. A link that is not the platform's own page is never printed (plain text).
+   * The PDF only: Excel and CSV keep the plain text (the link key is not a column).
+   */
+  linkKey?: string;
 }
 
 /** Colour family of a value. Always shown together with a text label, never colour alone. */
@@ -72,7 +79,7 @@ export interface Kpi {
 export type Section =
   | { type: "kpis"; title: string; items: Kpi[] }
   | { type: "bars"; title: string; items: { label: string; value: number | null; isolate?: "latin"; /** mastery band code: colours the bar */ band?: string }[]; max: number; kind: "pct" | "int" }
-  | { type: "table"; id: string; title: string; columns: Column[]; rows: TableRow[]; empty: string; note?: string; /** Short Excel sheet name (31-char limit) when the title is long. */ sheet?: string }
+  | { type: "table"; id: string; title: string; columns: Column[]; rows: TableRow[]; empty: string; note?: string; /** Short Excel sheet name (31-char limit) when the title is long. */ sheet?: string; /** 🔗 r79: one small QR code of this platform link beside the heading (paper copies; PDF only) */ qr?: string }
   | { type: "notes"; title: string; items: string[] }
   /** A plain-language box for families and students ("What this means", "How you can help at home"). */
   | { type: "explain"; title: string; tone?: "info" | "home"; paragraphs?: string[]; items?: string[] };
@@ -109,6 +116,10 @@ export interface ReportDoc {
   audience?: Audience;
   /** Default: from the kind. */
   accent?: Accent;
+  /** 🔗 r79: the plan's items are platform links — the PDF says so at the top ("Everything in this plan is clickable"). */
+  links?: boolean;
+  /** Footer text instead of "<title> · Confidential" (a document shared with students). */
+  footer?: string;
 }
 
 export function tableById(doc: ReportDoc, id: string): Extract<Section, { type: "table" }> | undefined {

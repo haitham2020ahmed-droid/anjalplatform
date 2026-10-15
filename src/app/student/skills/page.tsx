@@ -9,6 +9,7 @@ import { mySkills, MY_SKILLS_TABS, syncNafsPracticeStars, type MySkills, type My
 import { runAfterResponse } from "@/server/lib/after-response";
 import { safeIfBehind } from "@/server/db/schema-errors";
 import { getT } from "@/i18n/server";
+import { PlanLinksNote } from "@/components/plans/plan-links";
 
 export const metadata = { title: "My Skills" };
 
@@ -28,6 +29,7 @@ export default async function MySkillsPage({ searchParams }: { searchParams: Pro
     <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <ReportHeader back={{ href: "/student/work", label: "My Work" }} icon="⭐" title="My Skills" subtitle={t("Every skill you practise, with its star.")} who={String(me.displayName)} />
       <StarLegend who="student" t={t} className="mb-3" />
+      {v && <PlanLinksNote t={t} className="mb-3 hidden print:block" />}
       {v ? <MySkillsView v={v} tab={tab} t={t} hrefOf={(k) => `/student/skills?tab=${k}`} />
         : <p className="rounded-2xl bg-white p-5 text-slate-600 ring-1 ring-slate-200">{t("Your skills will appear here soon.")}</p>}
     </PreviewFrame></AppShell>
