@@ -17,6 +17,8 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { skillKeyIndex, skillStatusesFor, type StarStatus, type StarView } from "./status";
 import { mySkills, MY_SKILLS_TABS, STRAND_LABEL, STRANDS, strandOf, summaryLine, tabOf, type MySkills, type MySkillsTab, type Strand } from "./my-skills";
 import { studentAssignedSkills } from "./assigned-skills";
+import { viewerCreators } from "../teacher/assigned";
+import { isNafsKey, nafsAnswers, nafsCells, nafsColumn } from "./nafs-skills";
 import { ASSIGN_SOURCES, type AssignSource } from "../../lib/assign-source";
 import { byCode, skillCode } from "./skills-grid";
 import { fallbackStars, starsMigrated } from "./grid-fallback";
@@ -103,10 +105,12 @@ export interface AssignedMeta { name: string; skillId: string | null; strand: St
  * Pure (r74): the ASSIGNED skills of a My Skills view — a practised skill that was never assigned is left out; an
  * assigned skill not practised yet is ☆ — grouped by strand and sorted by code, each with its sources.
  */
-export function assignedOf(v: MySkills, assigned: ReadonlyMap<string, AssignSource[]>, codeOf: (key: string, skillId: string | null) => string, metaOf: (key: string) => AssignedMeta): PractisedSkills {
-  const seen = new Map(MY_SKILLS_TABS.flatMap((tab) => v.groups[tab].flatMap((g) => g.rows)).map((r) => [r.key, r]));
+export function assignedOf(v: MySkills, assigned: ReadonlyMap<string, AssignSource[]>, codeOf: (key: string, skillId: string | null) => string, metaOf: (key: string) => AssignedMeta, /** r82: stars from elsewhere (the NAFS practice columns) */ extra?: ReadonlyMap<string, Pick<StarView, "status" | "needsSupport" | "answered" | "score">>): PractisedSkills {
+  type Seen = Pick<StarView, "status" | "needsSupport" | "answered" | "score"> & { name?: string; skillId?: string | null; strand?: Strand };
+  const seen = new Map<string, Seen>(MY_SKILLS_TABS.flatMap((tab) => v.groups[tab].flatMap((g) => g.rows)).map((r): [string, Seen] => [r.key, { status: r.status, needsSupport: Boolean(r.needsSupport), answered: Number(r.answered ?? 0), score: Number(r.score ?? 0), name: r.name, skillId: r.skillId ?? null, strand: r.strand }]));
+  for (const [k, x] of extra ?? []) if (!seen.has(k)) seen.set(k, x);
   const rows: PractisedSkill[] = [...assigned].map(([key, sources]) => {
-    const r = seen.get(key), m = r ? { name: r.name, skillId: r.skillId, strand: r.strand } : metaOf(key);
+    const r = seen.get(key), m = r?.name ? { name: r.name, skillId: r.skillId ?? null, strand: r.strand ?? "LITERATURE" } : metaOf(key);
     const code = codeOf(key, m.skillId);
     return { key, name: m.name, code, short: shortStandard(code, m.name, 4).short, strand: m.strand, status: r?.status ?? "NOT_STARTED", needsSupport: Boolean(r?.needsSupport), answered: r?.answered ?? 0, score: r?.score ?? 0, sources };
   });
@@ -131,10 +135,16 @@ export async function studentSkillsForTeacher(repo: Repo, actor: Actor, studentI
   const extra = migrated ? undefined : (await fallbackStars(repo, [studentId], ix).catch(() => new Map<string, Map<string, StarView>>())).get(studentId);
   const [skills, names] = await Promise.all([mySkills(repo, studentId, now, { href: false, extra }), studentNames(repo, [studentId])]);
   // r74: only the skills ASSIGNED to the student (with their sources)
-  const given = await studentAssignedSkills(repo, studentId, ix);
+  // r82: a teacher of the student's class sees what THEY assigned (their Assigned page); admin / coordinator: everyone's
+  const creators = await viewerCreators(repo, actor, m.map((x) => s(x.classId)));
+  const given = await studentAssignedSkills(repo, studentId, ix, creators);
+  // r82: the NAFS practice columns: stars from the student's NAFS practice answers
+  const nafs = new Map<string, StarView>();
+  if (given.nafsPractices?.length) for (const [k, c] of nafsCells(await nafsAnswers(repo, given.nafsPractices, [studentId]).catch(() => []), { end: now.getTime(), cut: now.getTime() })) nafs.set(k.slice(k.indexOf("|") + 1), c.now);
   const assigned = assignedOf(skills, new Map([...given.byStudent.get(studentId) ?? []].map(([k, set]) => [k, ASSIGN_SOURCES.filter((x) => set.has(x))])),
-    (key, skillId) => { const id = skillId ?? ix.skillsOf.get(key)?.[0] ?? null; const row = id ? sidx.skillOf.get(id) ?? null : null; return skillCode(key, row?.code, id ? ix.gradeOf.get(id) ?? row?.grade : null); },
-    (key) => { const id = given.skillIdOf.get(key) ?? ix.skillsOf.get(key)?.[0] ?? null; const row = id ? sidx.skillOf.get(id) ?? null : null; return { name: ix.nameOf.get(key) ?? row?.name ?? "Skill", skillId: id, strand: strandOf(key, row) }; });
+    (key, skillId) => { if (isNafsKey(key)) return nafsColumn(key).code; const id = skillId ?? ix.skillsOf.get(key)?.[0] ?? null; const row = id ? sidx.skillOf.get(id) ?? null : null; return skillCode(key, row?.code, id ? ix.gradeOf.get(id) ?? row?.grade : null); },
+    (key) => { if (isNafsKey(key)) return { name: nafsColumn(key).name, skillId: null, strand: "NAFS" }; const id = given.skillIdOf.get(key) ?? ix.skillsOf.get(key)?.[0] ?? null; const row = id ? sidx.skillOf.get(id) ?? null : null; return { name: ix.nameOf.get(key) ?? row?.name ?? "Skill", skillId: id, strand: strandOf(key, row) }; },
+    nafs);
   const add = [...skills.groups.LEARNING, ...skills.groups.REVIEW].flatMap((g) => g.rows.map((r) => r.skillId)).filter((x): x is string => Boolean(x)).slice(0, 20);
   const planHref = klass && add.length ? `/teacher/plans?${new URLSearchParams([["tab", "new"], ["classId", klass.id], ["who", "student"], ["sid", studentId], ...add.map((id) => ["add", id] as [string, string])])}` : null;
   return { studentId, name: names.get(studentId)?.name ?? "Student", className: klass?.name ?? "", classId: klass?.id ?? null, skills, summary: summaryLine(skills.counts), planHref, assigned };

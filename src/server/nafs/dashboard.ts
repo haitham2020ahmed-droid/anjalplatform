@@ -483,7 +483,7 @@ async function buildDashboard(data: Loaded, classes: NafsClass[], all: NafsClass
  * Plan, a reload: computed once. A new practice or test changes nothing here until a student answers (then the
  * counters move and it is built again). At most 12 kept.
  */
-const DASH_MS = 10 * 60_000;
+const DASH_MS = 5 * 60_000; // r81: 10 → 5 minutes (512 MB plan)
 const DASH_MODELS = ["NafsResult", "NafsPracticeAnswer", "NafsBankItem", "ClassMembership", "ClassTeacher"];
 const dashCache = sweptMap<string, { at: number; d: Promise<Dashboard> }>("nafs.dashboard", DASH_MS, 12);
 export function nafsDashboardCached(repo: Repo, actor: Actor, opts: { classId?: string | null; from?: unknown; to?: unknown } = {}, now = Date.now()): Promise<Dashboard> {
@@ -654,6 +654,6 @@ export async function exportNafsDashboard(deps: ReportDeps, actor: Actor, req: {
 
 /** The download links of the dashboard (Excel / PDF) for the same class and dates. */
 export function dashboardDownload(format: "xlsx" | "pdf", classId: string | null, r: Range): string {
-  return `/api/nafs/dashboard?${new URLSearchParams([["format", format], ...(classId ? [["classId", classId]] : []), ...(r.from ? [["from", r.from]] : []), ...(r.to ? [["to", r.to]] : [])])}`;
+  return `/api/nafs/dashboard?${new URLSearchParams([["format", format], ...(classId ? [["classId", classId]] : []), ...(r.from ? [["from", r.from]] : []), ...(r.to ? [["to", r.to]] : []), ...(format === "pdf" ? [["print", "1"]] : [])])}`;
 }
 

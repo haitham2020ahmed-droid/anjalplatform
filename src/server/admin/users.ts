@@ -22,6 +22,7 @@ import { assertCan, can, ForbiddenError, permissionMessage, type Actor, type Per
 import { revokeAllSessions } from "../auth/sessions";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
+import { freeStudentNumbers, isUniqueClash } from "./quick-students";
 
 export const MANAGED_ROLES = ["SCHOOL_ADMIN", "TEACHER", "STUDENT", "PARENT"] as const;
 export type ManagedRole = (typeof MANAGED_ROLES)[number];
@@ -66,6 +67,78 @@ async function classInSchool(repo: Repo, actor: Actor, classId: string): Promise
   return c;
 }
 
+// ------------------------------------------------------------ who has it?
+
+/**
+ * A clash with an account the admin may not see in the normal list (an archived = "removed" student, or a deactivated
+ * account): the message names the account and `href` opens it in Users with "Show removed / inactive" on, where it can
+ * be restored. Never "already exists" about an account nobody can find (owner r83).
+ */
+export class AccountClashError extends ValidationError {
+  constructor(message: string, readonly href: string) { super(message); }
+}
+
+export interface AccountHolder { userId: string; studentId: string | null; name: string; username: string; place: string; state: "active" | "inactive" | "removed"; removedOn: string | null; schoolId: string | null }
+
+const day = (v: unknown) => (v ? new Date(v as string | Date).toISOString().slice(0, 10) : null);
+const time = (v: unknown) => (v ? new Date(v as string | Date).getTime() : 0);
+
+async function holderOf(repo: Repo, u: Row, st: Row | null): Promise<AccountHolder> {
+  let place = "no class";
+  if (st) {
+    // the open class, else the class the student was in last (archived students left it when archived)
+    const ms = await repo.findMany("ClassMembership", { studentId: st.id }, { select: ["classId", "leftAt"] });
+    const last = ms.find((m) => !m.leftAt) ?? [...ms].sort((a, b) => time(b.leftAt) - time(a.leftAt))[0];
+    const c = last ? await repo.findUnique("Class", { id: last.classId }) : null;
+    if (c) place = String(c.name);
+  }
+  const removed = Boolean(u.deletedAt || st?.deletedAt);
+  return {
+    userId: String(u.id), studentId: st ? String(st.id) : null, name: String(u.displayName), username: String(u.username), place,
+    state: removed ? "removed" : u.isActive === false || u.isActive === 0 ? "inactive" : "active",
+    removedOn: removed ? day(u.deletedAt ?? st?.deletedAt) : null, schoolId: u.schoolId ? String(u.schoolId) : null,
+  };
+}
+
+/** Who has this student number in the school (archived students too). */
+export async function studentNumberHolder(repo: Repo, schoolId: string, studentNumber: string): Promise<AccountHolder | null> {
+  const st = await repo.findUnique("Student", { schoolId, studentNumber });
+  if (!st) return null;
+  const u = await repo.findUnique("User", { id: st.userId });
+  return u ? holderOf(repo, u, st) : null;
+}
+
+/** Who has this username (any school; the caller describes only same-school holders). */
+export async function usernameHolder(repo: Repo, username: string): Promise<AccountHolder | null> {
+  const u = await repo.findUnique("User", { username });
+  if (!u) return null;
+  const st = u.role === "STUDENT" ? await repo.findUnique("Student", { userId: u.id }) : null;
+  return holderOf(repo, u, st);
+}
+
+/** "Sara Ali (4A, removed on 2026-10-01)" · "Sara Ali (no class, inactive)" · "Sara Ali (4A)" · a teacher: "Noura Saleh". */
+export function holderText(h: AccountHolder): string {
+  const parts = [h.studentId ? h.place : "", h.state === "removed" ? `removed on ${h.removedOn}` : h.state === "inactive" ? "inactive" : ""].filter(Boolean);
+  return parts.length ? `${h.name} (${parts.join(", ")})` : h.name;
+}
+
+/** Users, filtered to this one account, with removed / inactive accounts shown (Restore is there). */
+export const holderHref = (h: AccountHolder) => `/admin/users?${new URLSearchParams({ inactive: "1", q: h.username })}`;
+
+export function studentNumberClash(h: AccountHolder, number: string): AccountClashError {
+  const tail = h.state === "removed" ? " Restore that account, or leave the number empty to get a new one." : " Leave the number empty to get a new one.";
+  return new AccountClashError(`Student number ${number} is used by ${holderText(h)}.${tail}`, holderHref(h));
+}
+
+/** Throws a clear message when the username is used: who has it (same school) and a link to that account. */
+export async function assertUsernameFree(repo: Repo, schoolId: string, username: string): Promise<void> {
+  const h = await usernameHolder(repo, username);
+  if (!h) return;
+  if (h.schoolId !== schoolId) throw new ValidationError(`Username "${username}" is already taken.`);
+  const tail = h.state === "removed" ? " Restore that account instead, or choose another username." : " Choose another username.";
+  throw new AccountClashError(`Username "${username}" is already taken by ${holderText(h)}.${tail}`, holderHref(h));
+}
+
 // ------------------------------------------------------------------- list
 
 export interface UserListItem {
@@ -81,6 +154,10 @@ export interface UserListItem {
   className: string | null;
   classes: string[]; // teachers: classes taught
   children: string[]; // parents: children's names
+  /** students: for Restore */
+  studentId: string | null;
+  /** archived ("removed", Clean roster): listed only with "Show removed / inactive" */
+  removedOn: string | null;
 }
 
 export async function listUsers(repo: Repo, actor: Actor, filter: { role?: ManagedRole; q?: string; includeInactive?: boolean } = {}): Promise<UserListItem[]> {
@@ -89,7 +166,7 @@ export async function listUsers(repo: Repo, actor: Actor, filter: { role?: Manag
   const canStaff = can(actor, "teachers:manage");
   if (!canStudents && !canStaff) throw new ForbiddenError(permissionMessage("students:manage"), "students:manage");
   const roles = MANAGED_ROLES.filter((r) => (r === "STUDENT" || r === "PARENT" ? canStudents : canStaff)).filter((r) => !filter.role || r === filter.role);
-  let users = (await repo.findMany("User", { schoolId, role: { in: [...roles] } })).filter((u) => !u.deletedAt && (filter.includeInactive || u.isActive));
+  let users = (await repo.findMany("User", { schoolId, role: { in: [...roles] } })).filter((u) => filter.includeInactive || (!u.deletedAt && u.isActive));
   const q = (filter.q ?? "").trim().toLowerCase();
   const ids = users.map((u) => u.id);
   const [students, teachers, parents] = await Promise.all([
@@ -104,6 +181,10 @@ export async function listUsers(repo: Repo, actor: Actor, filter: { role?: Manag
     repo.findMany("Grade", { schoolId }),
     repo.findMany("Class", { schoolId }),
   ]);
+  // removed students left their class when archived: show the class they were in last (one read, removed ones only)
+  const gone = students.filter((x) => x.deletedAt || users.find((u) => u.id === x.userId)?.deletedAt).map((x) => String(x.id));
+  const lastOf = new Map<string, Row>();
+  if (gone.length) for (const m of (await repo.findMany("ClassMembership", { studentId: { in: gone } }, { select: ["studentId", "classId", "leftAt"] })).sort((a, b) => time(a.leftAt) - time(b.leftAt))) lastOf.set(String(m.studentId), m);
   const childStudents = links.length ? await repo.findMany("Student", { id: { in: links.map((l) => l.studentId) } }) : [];
   const childUsers = childStudents.length ? await repo.findMany("User", { id: { in: childStudents.map((s) => s.userId) } }) : [];
   const className = (id: unknown) => String(classes.find((c) => c.id === id)?.name ?? "");
@@ -111,7 +192,8 @@ export async function listUsers(repo: Repo, actor: Actor, filter: { role?: Manag
     const st = students.find((s) => s.userId === u.id);
     const te = teachers.find((t) => t.userId === u.id);
     const pa = parents.find((p) => p.userId === u.id);
-    const m = st ? members.find((x) => x.studentId === st.id) : undefined;
+    const m = st ? members.find((x) => x.studentId === st.id) ?? lastOf.get(String(st.id)) : undefined;
+    const removed = u.deletedAt ?? st?.deletedAt ?? null;
     return {
       userId: String(u.id), username: String(u.username), displayName: String(u.displayName), role: String(u.role) as ManagedRole,
       isActive: Boolean(u.isActive), mustChangePassword: Boolean(u.mustChangePassword),
@@ -120,6 +202,7 @@ export async function listUsers(repo: Repo, actor: Actor, filter: { role?: Manag
       grade: st ? Number(grades.find((g) => g.id === st.gradeId)?.level ?? 0) : null,
       className: m ? className(m.classId) : null,
       classes: te ? classTeachers.filter((c) => c.teacherId === te.id).map((c) => className(c.classId)).sort() : [],
+      studentId: st ? String(st.id) : null, removedOn: removed ? day(removed) : null,
       children: pa ? links.filter((l) => l.parentId === pa.id).map((l) => String(childUsers.find((cu) => cu.id === childStudents.find((s) => s.id === l.studentId)?.userId)?.displayName ?? "")) : [],
     };
   });
@@ -135,7 +218,7 @@ export interface NewUser {
   username: string;
   displayName: string;
   email?: string | null;
-  /** students */
+  /** students: empty = the next free number of the school's series (AJ26-001 …) */
   studentNumber?: string;
   gradeLevel?: number;
   classId?: string | null;
@@ -143,7 +226,7 @@ export interface NewUser {
   title?: string | null;
 }
 
-export async function createUser(repo: Repo, actor: Actor, input: NewUser, now = new Date()): Promise<{ userId: string; temporaryPassword: string }> {
+export async function createUser(repo: Repo, actor: Actor, input: NewUser, now = new Date()): Promise<{ userId: string; temporaryPassword: string; studentNumber: string | null }> {
   const schoolId = schoolOf(actor);
   if (!(MANAGED_ROLES as readonly string[]).includes(input.role)) throw new ValidationError("Choose a role.");
   assertCan(actor, permFor(input.role));
@@ -151,15 +234,27 @@ export async function createUser(repo: Repo, actor: Actor, input: NewUser, now =
   const displayName = cleanName(input.displayName);
   const email = input.email ? String(input.email).trim().toLowerCase() : null;
   if (email && !EMAIL.test(email)) throw new ValidationError("Email address is not valid.");
-  if (await repo.findUnique("User", { username })) throw new ValidationError(`Username "${username}" is already taken.`);
-  if (email && (await repo.findUnique("User", { email }))) throw new ValidationError("That email address is already used by another account.");
+  await assertUsernameFree(repo, schoolId, username);
+  if (email) {
+    const other = await repo.findUnique("User", { email });
+    if (other) {
+      const h = other.schoolId === schoolId ? await usernameHolder(repo, String(other.username)) : null;
+      if (!h) throw new ValidationError("That email address is already used by another account.");
+      throw new AccountClashError(`That email address is already used by ${holderText(h)}.`, holderHref(h));
+    }
+  }
 
   let gradeId: string | null = null;
   let studentNumber: string | null = null;
+  let autoNumber = false;
   if (input.role === "STUDENT") {
     studentNumber = String(input.studentNumber ?? "").trim();
-    if (!STUDENT_NO.test(studentNumber)) throw new ValidationError("Student number is required (letters, digits and dashes).");
-    if (await repo.findUnique("Student", { schoolId, studentNumber })) throw new ValidationError(`Student number ${studentNumber} already exists.`);
+    if (!studentNumber) autoNumber = true;
+    else {
+      if (!STUDENT_NO.test(studentNumber)) throw new ValidationError("Student number: letters, digits and dashes only (or leave it empty to get one automatically).");
+      const h = await studentNumberHolder(repo, schoolId, studentNumber);
+      if (h) throw studentNumberClash(h, studentNumber);
+    }
     const grade = (await repo.findMany("Grade", { schoolId, level: Number(input.gradeLevel) }))[0];
     if (!grade) throw new ValidationError("Choose a grade that exists in this school.");
     gradeId = String(grade.id);
@@ -173,18 +268,34 @@ export async function createUser(repo: Repo, actor: Actor, input: NewUser, now =
   const sameAsUsername = input.role === "STUDENT" && (await studentPasswordIsUsername(repo, schoolId));
   const temp = sameAsUsername ? username : temporaryPassword();
   const passwordHash = await hashPassword(temp);
-  const userId = await repo.transaction(async (tx) => {
-    const u = await tx.create("User", { username, displayName, email, role: input.role, schoolId, passwordHash, mustChangePassword: !sameAsUsername, isActive: true, createdAt: now, updatedAt: now });
-    if (input.role === "TEACHER") await tx.create("Teacher", { userId: u.id, schoolId, title: input.title ? cleanName(input.title, "Title", 20) : null });
-    if (input.role === "PARENT") await tx.create("Parent", { userId: u.id });
-    if (input.role === "STUDENT") {
-      const st = await tx.create("Student", { userId: u.id, schoolId, gradeId, studentNumber, createdAt: now });
-      if (input.classId) await tx.create("ClassMembership", { classId: input.classId, studentId: st.id, joinedAt: now });
+  let userId = "";
+  // an automatic number taken at the same moment by someone else (two admins, a teacher): take the next one and retry
+  for (let attempt = 0; ; attempt++) {
+    if (autoNumber) studentNumber = (await freeStudentNumbers(repo, schoolId, attempt + 1, now))[attempt];
+    try {
+      userId = await repo.transaction(async (tx) => {
+        const u = await tx.create("User", { username, displayName, email, role: input.role, schoolId, passwordHash, mustChangePassword: !sameAsUsername, isActive: true, createdAt: now, updatedAt: now });
+        if (input.role === "TEACHER") await tx.create("Teacher", { userId: u.id, schoolId, title: input.title ? cleanName(input.title, "Title", 20) : null });
+        if (input.role === "PARENT") await tx.create("Parent", { userId: u.id });
+        if (input.role === "STUDENT") {
+          const st = await tx.create("Student", { userId: u.id, schoolId, gradeId, studentNumber, createdAt: now });
+          if (input.classId) await tx.create("ClassMembership", { classId: input.classId, studentId: st.id, joinedAt: now });
+        }
+        return String(u.id);
+      });
+      break;
+    } catch (e) {
+      if (!isUniqueClash(e)) throw e;
+      const userTaken = Boolean(await repo.findUnique("User", { username }));
+      if (!autoNumber || userTaken || attempt >= 4) {
+        if (userTaken) await assertUsernameFree(repo, schoolId, username);
+        if (studentNumber) { const h = await studentNumberHolder(repo, schoolId, studentNumber); if (h) throw studentNumberClash(h, studentNumber); }
+        throw new ValidationError("Someone saved the same account at the same moment. Try again.");
+      }
     }
-    return String(u.id);
-  });
-  await audit(repo, { actorId: actor.userId, action: "user.create", entityType: "User", entityId: userId, after: { username, displayName, role: input.role, studentNumber, classId: input.classId ?? null }, at: now });
-  return { userId, temporaryPassword: temp };
+  }
+  await audit(repo, { actorId: actor.userId, action: "user.create", entityType: "User", entityId: userId, after: { username, displayName, role: input.role, studentNumber, autoNumber, classId: input.classId ?? null }, at: now });
+  return { userId, temporaryPassword: temp, studentNumber };
 }
 
 // ----------------------------------------------------------------- update

@@ -4,7 +4,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { ReportBusyError } from "@/reports/pdf";
 import { reportDeps } from "@/server/reports/runtime";
-import { contentDisposition, RateLimitedError } from "@/server/reports/service";
+import { reportFileResponse } from "@/server/reports/file-response";
+import { RateLimitedError } from "@/server/reports/service";
 import { exportYearPlanPdf } from "@/server/reports/year-plan-pdf";
 
 export const runtime = "nodejs";
@@ -17,11 +18,13 @@ export async function GET(req: Request) {
   const actor = await apiActor();
   if (!actor) return new NextResponse("Please sign in.", { status: 401 });
   if (actor.role === "STUDENT" || actor.role === "PARENT") return new NextResponse("Not found.", { status: 404 });
-  const cid = new URL(req.url).searchParams.get("classId");
+  const q = new URL(req.url).searchParams;
+  const cid = q.get("classId");
   if (!cid || !ID.test(cid)) return new NextResponse("Choose a class.", { status: 422 });
   try {
-    const file = await exportYearPlanPdf(reportDeps(), actor, cid);
-    return new NextResponse(Buffer.from(file.bytes), { headers: { "Content-Type": file.contentType, "Content-Disposition": contentDisposition(file.filename), "Content-Length": String(file.bytes.length), "Cache-Control": "no-store, private", "X-Content-Type-Options": "nosniff" } });
+    // 🖨 r85: signin=0 leaves out the class sign-in QR + code (on by default for the class's teacher)
+    const file = await exportYearPlanPdf(reportDeps(), actor, cid, { signin: q.get("signin") !== "0" });
+    return reportFileResponse(req, file); // r84: a print page (default) or a file
   } catch (e) {
     if (e instanceof ValidationError) return new NextResponse(e.message, { status: 422 });
     if (e instanceof RateLimitedError) return new NextResponse(e.message, { status: 429, headers: { "Retry-After": String(e.retryAfterSeconds) } });

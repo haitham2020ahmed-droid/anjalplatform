@@ -217,7 +217,8 @@ describe("r74 🏷️ source on every assign + Student Skills = assigned skills 
     await no("sendMapPlan", sendMapPlan(repo, teacher, { grade: 4, classId, source: undefined }, now));
     await no("sendScope (Curriculum Map Send)", sendScope(repo, teacher, { grade: 4, kind: "UNIT", codes: ["G4.U1"], classIds: [classId] }, now));
     await no("assignPlan (Plans wizard)", assignPlan(repo, teacher, { classId, type: "CUSTOM", skillIds: [sk] }, now));
-    await no("sendProgramPlan (MAP / RTI / NAFS plan)", sendProgramPlan(repo, teacher, { classId, program: "RTI", picks: [{ studentId: ids[0], skillId: sk }] }, now));
+    // owner r82: a program plan (MAP / RTI / NAFS / Curriculum) is that program's work; a custom plan needs the choice
+    await no("sendProgramPlan (custom plan)", sendProgramPlan(repo, teacher, { classId, program: null, picks: [{ studentId: ids[0], skillId: sk }] }, now));
     await no("sendPlan (plan editor)", sendPlan(repo, teacher, "nope", now));
     await no("assignRecommendations (MAP / intervention)", assignRecommendations(repo, teacher, classId, [{ studentId: ids[0], skillId: sk }]));
     await no("assignRange (MAP skill plan)", assignRange(repo, teacher, { classId, group: "LIT", range: 0, skillIds: [sk], studentIds: [ids[0]] }, now));

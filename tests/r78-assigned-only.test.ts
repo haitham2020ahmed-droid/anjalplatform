@@ -48,6 +48,9 @@ describe("r78 📌 Student Skills = the Assigned page; cancelled there = gone ev
   const past = new Date(now.getTime() - 5 * DAY);
   const COUNTED = ["fam:commas", "fam:context-clues", "fam:reread", "fam:summarize", "fam:theme"];
   const AFTER = ["fam:commas", "fam:summarize", "fam:theme"];
+  // r84: a SENT plan's skills (summarize, a place of "Unit 1 plan") are on the Plans tab, never Skills Grid columns —
+  // still assigned (Class report, By source, the student's skills)
+  const noPlan = (keys: string[]) => keys.filter((k) => k !== "fam:summarize");
   const cols = async () => (await skillsGrid(repo, teacher, { classId }, now)).skills.map((k) => k.key).sort();
   const link = async (aid: unknown, who: string[]) => { for (const st of who) await repo.create("AssignmentStudent", { assignmentId: aid, studentId: st, status: "NOT_STARTED", progress: 0 }); };
 
@@ -114,7 +117,8 @@ describe("r78 📌 Student Skills = the Assigned page; cancelled there = gone ev
   });
 
   test("Student Skills = EXACTLY the skills of the Assigned page's rows (count and columns)", async () => {
-    assert.deepEqual(await cols(), COUNTED, "plans never sent, the whole-grade Curriculum plan, a re-check and a deleted row add nothing");
+    assert.deepEqual(await cols(), noPlan(COUNTED), "plans never sent, the whole-grade Curriculum plan, a re-check and a deleted row add nothing (r84: the sent plan's skill is on the Plans tab)");
+    assert.deepEqual((await classSkills(repo, teacher, { classId })).plans!.map((p) => [p.title, p.type, Object.values(p.students).flat()[0]]), [["Unit 1 plan", "CURRICULUM", "fam:summarize"]], "r84: the sent plan is a Plans card");
     // the same live rows as the page (one function for both)
     const page = (await assignedList(repo, teacher, { classId }, now)).items;
     const work = await teacherAssignedWork(repo, teacher, classId);
@@ -144,7 +148,7 @@ describe("r78 📌 Student Skills = the Assigned page; cancelled there = gone ev
     const r = await cancelMany(repo, teacher, [{ kind: "SKILL", id: context }, { kind: "SKILL", id: reread }], now);
     assert.equal(r.done.length, 2);
 
-    assert.deepEqual(await cols(), AFTER, "the cancelled skills vanish from the grid");
+    assert.deepEqual(await cols(), noPlan(AFTER), "the cancelled skills vanish from the grid");
     assert.equal(classReport(await classSkills(repo, teacher, { classId }), LINKS, now).skillsAssigned, 3, "Class report numbers follow");
     const home = await studentHome(repo, me, now);
     assert.ok(!home.work.some((w) => w.assignmentId === context || w.assignmentId === reread), "not in My Work / home");
@@ -161,7 +165,7 @@ describe("r78 📌 Student Skills = the Assigned page; cancelled there = gone ev
     assert.ok(await repo.findUnique("Assignment", { id: context }), "the row is still in the database");
     // Undo brings everything back
     await restoreMany(repo, teacher, [{ kind: "SKILL", id: context }, { kind: "SKILL", id: reread }], now);
-    assert.deepEqual(await cols(), COUNTED);
+    assert.deepEqual(await cols(), noPlan(COUNTED));
     assert.equal((await studentHome(repo, me, now)).toDo, homeBefore.toDo);
     await cancelMany(repo, teacher, [{ kind: "SKILL", id: context }, { kind: "SKILL", id: reread }], now);
   });

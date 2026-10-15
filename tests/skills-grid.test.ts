@@ -131,7 +131,8 @@ describe("⭐ Skills grid", () => {
     await skillsGrid(b.repo, bt, {}, now);
     const c2 = counting(big.repo);
     await skillsGrid(c2.repo, bt, {}, now);
-    assert.ok(small <= 25, `reads: ${small}`);
+    // r84: + 1 read (the class's MAP Year plan row, for the Plans tab)
+    assert.ok(small <= 26, `reads: ${small}`);
     assert.ok(c2.calls() <= 20, `warm reads: ${c2.calls()}`);
   });
 

@@ -10,6 +10,7 @@ import { YearPlanBoard } from "@/components/map/year-plan-board";
 import { PendingButton } from "@/components/pending-button";
 import { StudentYearPlanView } from "@/components/map/student-year-plan";
 import { yearSendAction } from "./year-actions";
+import { ClassSignInOption } from "@/components/class-signin/strip";
 
 const chip = "inline-flex min-h-10 items-center gap-1 rounded-xl px-3 text-sm font-semibold ring-1";
 
@@ -19,7 +20,7 @@ const chip = "inline-flex min-h-10 items-center gap-1 rounded-xl px-3 text-sm fo
  * r68: ⬇ Download PDF (for the administration) · 📤 Send to students (their MAP page gets a "Year plan" tab) · 👁 Preview as
  * students (exactly their page, as one student of the class) · the questions behind each skill (on the board).
  */
-export async function YearTab({ actor, t, classId, preview, student }: { actor: Actor; t: TFn; classId: string; preview?: boolean; student?: string }) {
+export async function YearTab({ actor, t, classId, preview, student, signin = true }: { actor: Actor; t: TFn; classId: string; preview?: boolean; student?: string; signin?: boolean }) {
   let v: YearPlanView | null = null;
   try { v = await yearPlanView(repo, actor, classId); } catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
   if (!v) return <EmptyState icon="🗓️" title="Year plan" text="Choose one of your classes." />;
@@ -28,7 +29,9 @@ export async function YearTab({ actor, t, classId, preview, student }: { actor: 
   const hasSkills = v.weeks.some((w) => w.skills.length);
   const toolbar = (
     <div className="flex flex-wrap items-center gap-2" data-testid="year-toolbar">
-      {hasSkills && <a href={`/api/year-plan-pdf?${new URLSearchParams({ classId })}`} className={`${chip} bg-white text-brand-navy ring-slate-300 hover:ring-brand-teal`} data-testid="year-pdf">⬇ {t("Download PDF")}</a>}
+      {/* 🖨 r85: the class sign-in QR + code in the PDF's header (default on; signin=0 → off) */}
+      {hasSkills && v.canEdit && <ClassSignInOption on={signin} href={`${base}${signin ? "&signin=0" : ""}`} t={t} />}
+      {hasSkills && <a href={`/api/year-plan-pdf?${new URLSearchParams({ classId, print: "1" })}${signin ? "" : "&signin=0"}`} target="_blank" rel="noopener" className={`${chip} bg-white text-brand-navy ring-slate-300 hover:ring-brand-teal`} data-testid="year-pdf">⬇ {t("Download PDF")}</a>}
       {hasSkills && (preview
         ? <Link prefetch={false} href={base} className={`${chip} bg-white text-brand-navy ring-slate-300 hover:ring-brand-teal`}>← {t("Back to the plan")}</Link>
         : <Link prefetch={false} href={`${base}&preview=1`} className={`${chip} bg-white text-brand-navy ring-slate-300 hover:ring-brand-teal`} data-testid="year-preview">👁 {t("Preview as students")}</Link>)}

@@ -14,6 +14,7 @@ import { assertNafs } from "@/server/teacher/nafs-access";
 import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
 import { startOfDay } from "@/lib/assign-dates";
+import { failureMessage, isNextControl } from "@/server/lib/action-guard";
 
 export async function createPlanAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
@@ -91,8 +92,9 @@ export async function assignPlanAction(f: FormData): Promise<void> {
     });
     target = `/teacher/plans/${r.planId}?msg=${encodeURIComponent(`${t("Plan assigned: {skills} skill(s) to {students} student(s). It is in their My Plans and the skills are in their My Work.", { skills: r.skills, students: r.students })}${r.notes.length ? ` ${t("Note:")} ${r.notes.map((n) => t(n)).join(" ")}` : ""}`)}`;
   } catch (e) {
-    if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
-    target = `${back}&msg=${encodeURIComponent(t(e.message))}`;
+    // r82: any failure → a message on the page (never a frozen button / error page)
+    if (isNextControl(e)) throw e;
+    target = `${back}&msg=${encodeURIComponent(await failureMessage(e, "plans", "assignPlan", "/teacher/plans"))}`;
   }
   redirect(target);
 }
@@ -123,8 +125,9 @@ async function sendFromPlansPage(actor: Actor, f: FormData, kind: "nafs" | "cust
     msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
     tab = "sent";
   } catch (e) {
-    if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
-    msg = t(e.message);
+    // r82: any failure → a message on the page (never a frozen button / error page)
+    if (isNextControl(e)) throw e;
+    msg = await failureMessage(e, "plans", `send.${kind}`, "/teacher/plans");
   }
   redirect(`/teacher/plans?${new URLSearchParams({ tab, classId: form.classId, msg })}`);
 }

@@ -1,5 +1,7 @@
 /**
  * HTML → PDF with headless Chromium (playwright-core).
+ * r84: OFF by default — only with PDF_ENGINE=server (src/server/reports/runtime.ts). By default the same HTML is sent as
+ * a print page the user's browser saves as a PDF (src/reports/print-page.ts): no Chromium in the 512 MB server.
  *
  * Why a browser engine: Arabic needs contextual shaping (joined letters, lam-alef),
  * the Unicode bidirectional algorithm for mixed Arabic/English lines, and right-to-
@@ -79,6 +81,8 @@ export class Semaphore {
 }
 
 type Browser = import("playwright-core").Browser;
+/** r81: the server's memory (RSS, MB) under which Chromium may start on the 512 MB plan (PDF_START_MB overrides). */
+export const PDF_START_MB = Math.round((Number(process.env.WEB_MEMORY_MB) || 512) * 0.62);
 
 export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
   const gate = new Semaphore(opts.concurrency ?? 2);
@@ -122,7 +126,8 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
     async render(html, doc, fontStack, ropts) {
       // r70: starting Chromium (100+ MB) while the server is near its memory limit would crash it for every student —
       // the teacher is asked to try again in a minute instead (a browser already running is used normally)
-      if (!browser && memoryHigh()) throw new ReportBusyError();
+      // r81: Chromium needs ~150–200 MB of the same container — start it only while the server uses under PDF_START_MB
+      if (!browser && memoryHigh(Number(process.env.PDF_START_MB) || PDF_START_MB)) throw new ReportBusyError();
       const release = await gate.acquire(opts.queueTimeoutMs ?? 30_000);
       stopIdle();
       let b: Browser;

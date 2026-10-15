@@ -297,11 +297,11 @@ describe("🧠 r79 the kept MAP data: one build, rebuilt after a change, small",
     assert.equal(a, b2, "concurrent reads share one build");
     assert.ok(m.stats.calls > 5);
     m.stats = freshStats();
-    assert.equal(await later(9 * 60_000, () => groupPools(m, school, 4)), a, "kept 9 minutes later when nothing changed");
+    assert.equal(await later(4 * 60_000, () => groupPools(m, school, 4)), a, "kept 4 minutes later when nothing changed");
     assert.equal(m.stats.calls, 0);
     noteWrite("Question");
     assert.notEqual(await groupPools(m, school, 4), a, "built again after a question edit");
-    assert.notEqual(await later(11 * 60_000, () => groupPools(m, school, 4)), a, "and at most 10 minutes (other processes)");
+    assert.notEqual(await later(6 * 60_000, () => groupPools(m, school, 4)), a, "and at most 5 minutes (other processes)");
     const ix = await continuumIndex(m, school, 4, "READING");
     assert.equal(await continuumIndex(m, school, 4, "READING"), ix);
     noteWrite("LearningStatement");

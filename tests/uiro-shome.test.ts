@@ -198,10 +198,11 @@ describe("UI reorg Phase 2: Student Home", () => {
     assert.equal(cards.find((x) => x.subject === "READING")?.rit, 188, "the student's MAP card: the same RIT");
     assert.doesNotMatch(JSON.stringify(cards), FORBIDDEN_LEVEL_WORDS, "no descriptor on the student's MAP cards");
     assert.match(readFileSync(join(ROOT, "src/app/student/map/page.tsx"), "utf8"), /<MapDashboard cards=\{cards\} \/>/, "the dashboard is the MAP page");
-    assert.match(readFileSync(join(ROOT, "src/app/student/plans/page.tsx"), "utf8"), /redirect\("\/student"\)/, "My Plans redirects to My Work");
-    // b1-nav: MAP is back under Programs; My Plans left the menu (reached from My Reports); My Tests and My Reports are there
+    // owner r82: My Plans is a page again (every plan sent to me, by type) and back in the menu
+    assert.match(readFileSync(join(ROOT, "src/app/student/plans/page.tsx"), "utf8"), /studentPlans\(repo, actor/, "My Plans lists my plans");
+    // b1-nav: MAP is back under Programs; My Tests and My Reports are there
     const nav = navItemsFor("STUDENT").map((i) => i.href);
-    assert.ok(!nav.includes("/student/plans"));
+    assert.ok(nav.includes("/student/plans"));
     for (const h of ["/student/map", "/student/tests", "/student/work", "/student/reading"]) assert.ok(nav.includes(h), h);
     // no student without MAP scores breaks the dashboard
     assert.deepEqual(mapDashboardData(await myMap(repo, B)).subjects, []);

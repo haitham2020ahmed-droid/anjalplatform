@@ -67,11 +67,26 @@ export function releaseIdleContent(idleMs = CONTENT_IDLE_MS, now = Date.now()): 
 /** How long a parsed content file stays in memory after its last use. */
 export const CONTENT_IDLE_MS = 5 * 60_000;
 
+/**
+ * r81 (live: the server sat at ~400 MB RSS all night with no users after a busy evening — garbage V8 had no reason to
+ * collect): when the process was started with --expose-gc (scripts/start.mjs on plans up to 1 GB) and uses more than
+ * IDLE_GC_MB, a full collection runs at most every IDLE_GC_EVERY_MS from the sweeper's minute timer.
+ */
+export const IDLE_GC_MB = 300;
+export const IDLE_GC_EVERY_MS = 3 * 60_000;
+let lastGc = 0;
+export function idleGc(now = Date.now(), rssMb = Math.round(process.memoryUsage.rss() / 1048576)): boolean {
+  const gc = (globalThis as { gc?: () => void }).gc;
+  if (typeof gc !== "function" || rssMb < IDLE_GC_MB || now - lastGc < IDLE_GC_EVERY_MS) return false;
+  lastGc = now;
+  try { gc(); return true; } catch { return false; }
+}
+
 /** Starts the sweeper (once per process). */
 export function startCacheSweeper(everyMs = 60_000): void {
   const r = reg();
   if (r.timer) return;
-  r.timer = setInterval(() => { sweepCaches(); }, everyMs);
+  r.timer = setInterval(() => { sweepCaches(); idleGc(); }, everyMs);
   (r.timer as { unref?: () => void }).unref?.();
 }
 

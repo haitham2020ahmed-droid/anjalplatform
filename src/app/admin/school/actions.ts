@@ -12,6 +12,7 @@ import { addClass, addGrade, addStudentsToClass, resetClassPasswords } from "@/s
 import { moveStudent } from "@/server/admin/users";
 import { transferClass } from "@/server/teacher/support";
 import type { QuickResult } from "@/server/admin/quick-students";
+import { setTeachersCanAddStudents } from "@/server/teacher/class-students";
 
 export type SchoolResult = { ok?: boolean; error?: string; message?: string; count?: number; result?: QuickResult };
 const id = z.string().min(1).max(191);
@@ -28,6 +29,13 @@ async function run(fn: () => Promise<Omit<SchoolResult, "ok" | "error">>): Promi
   }
 }
 const ADMIN = { roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] as ("SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "classes:manage" as const };
+
+/** The switch "Teachers can add students" (School page). */
+export async function teachersAddStudentsAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "students:manage" });
+  await setTeachersCanAddStudents(repo, actor, f.get("on") === "1");
+  revalidatePath("/admin/school");
+}
 
 export async function addGradeAction(level: number): Promise<SchoolResult> {
   const actor = await requireActor(ADMIN);

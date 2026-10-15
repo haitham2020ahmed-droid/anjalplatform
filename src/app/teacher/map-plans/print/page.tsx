@@ -9,11 +9,14 @@ import { classPlans, type Subject } from "@/server/map/map-plan";
 import { planDoc } from "@/server/map/map-more";
 import { PrintFooter, PrintHeader, PrintPage, PrintStyles } from "@/components/print/print-kit";
 import { getT } from "@/i18n/server";
+import { ClassSignInOption, ClassSignInStrip } from "@/components/class-signin/strip";
+import { printQrForSheet } from "@/server/auth/class-print-qr";
+import { appOrigin } from "@/lib/plan-links";
 
 export const metadata = { title: "Print MAP plans" };
 
 /** 🖨 Every individual MAP plan of a class, one per page — print or save as PDF. (The 3-level group plan prints from Personalized plan.) */
-export default async function PrintMapPlansPage({ searchParams }: { searchParams: Promise<{ classId?: string; subject?: string; print?: string; copy?: string }> }) {
+export default async function PrintMapPlansPage({ searchParams }: { searchParams: Promise<{ classId?: string; subject?: string; print?: string; copy?: string; signin?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -24,6 +27,10 @@ export default async function PrintMapPlansPage({ searchParams }: { searchParams
   const docs = await Promise.all(plans.plans.map((p) => planDoc(repo, actor, p.id)));
   const { t } = await getT();
   const school = actor.schoolId ? String((await repo.findUnique("School", { id: actor.schoolId }))?.name ?? "") : "";
+  // 🖨 r85: the class sign-in QR + code at the top of each page (default on for the class's teacher; signin=0 → off)
+  const signinOn = sp.signin !== "0";
+  const signIn = signinOn && docs.length ? await printQrForSheet(repo, actor, classId, appOrigin()) : null;
+  const self = (o: { signin?: boolean; copy?: boolean } = {}) => `/teacher/map-plans/print?${new URLSearchParams({ classId, subject, ...((o.copy ?? studentCopy) ? { copy: "student" } : {}), ...((o.signin ?? signinOn) ? {} : { signin: "0" }) })}`;
   return (
     <AppShell name={String(me.displayName)}>
       <div className="print:hidden">
@@ -32,12 +39,14 @@ export default async function PrintMapPlansPage({ searchParams }: { searchParams
           <PrintButton />
           {/* 🔗 r79: the students' copy — every skill opens the student's own practice (the teachers' copy opens the skill page) */}
           <Link prefetch={false} href={`/teacher/map-plans/print?${new URLSearchParams({ classId, subject, ...(studentCopy ? {} : { copy: "student" }) })}`} data-testid="print-copy" className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 font-semibold text-brand-navy ring-1 ring-slate-300">{studentCopy ? t("Teachers' copy") : t("Students' copy")}</Link>
+          <ClassSignInOption on={signinOn} href={self({ signin: !signinOn })} t={t} />
         </PageHeader>
       </div>
       {docs.length > 0 && <PrintStyles extra={`.pk-map article{box-shadow:none;padding:4px 0 0}.pk-map article>header{border:0}`} />}
       {docs.map((d) => (
         <PrintPage key={d.id} className="pk-map" label={d.name}>
           <PrintHeader title={`${t("MAP plan")} · ${subject === "READING" ? "Reading" : "Language Usage"}`} subtitle={<bdi>{d.name} · {plans.className}</bdi>} school={school} t={t} />
+          <ClassSignInStrip s={signIn} t={t} />
           <PlanDocView d={d} forStudent={studentCopy} audience={studentCopy ? "student" : "staff"} />
           <PrintFooter t={t} right={<>{plans.className} · {d.term}</>} />
         </PrintPage>

@@ -12,19 +12,23 @@ import { renderHtml } from "../../reports/html";
 import type { ReportDoc } from "../../reports/model";
 import { RateLimitedError, REPORT_RATE, loadBranding, type ReportDeps } from "./service";
 import { yearPlanReport } from "../map/year-plan-share";
+import { printQrForSheet } from "../auth/class-print-qr";
+import { appOrigin } from "../../lib/plan-links";
 
 const ascii = (v: string) => v.normalize("NFKD").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "class";
 
 /** The report document (also used by the tests: the PDF renderer needs Chromium). */
-export async function yearPlanDoc(deps: Pick<ReportDeps, "repo" | "brandingDir" | "now">, actor: Actor, classId: string): Promise<ReportDoc> {
+export async function yearPlanDoc(deps: Pick<ReportDeps, "repo" | "brandingDir" | "now">, actor: Actor, classId: string, opts: { signin?: boolean } = {}): Promise<ReportDoc> {
   const { repo } = deps;
   const now = deps.now?.() ?? new Date();
   const r = await yearPlanReport(repo, actor, classId, now);
+  // 🖨 r85: the class's printable QR + class code in the header (default ON for the class's teacher; signin=0 → off)
+  const classSignIn = opts.signin === false ? null : await printQrForSheet(repo, actor, classId, appOrigin(), { now });
   const v = r.view;
   const { warning: _w, ...branding } = await loadBranding(repo, String(actor.schoolId), deps.brandingDir);
   const first = v.weeks[0], last = v.weeks[v.weeks.length - 1];
   return {
-    kind: "class", locale: "en", accent: "map", audience: "school", links: true,
+    kind: "class", locale: "en", accent: "map", audience: "school", links: true, classSignIn,
     title: "MAP Year plan", subtitle: `${v.className} · Grade ${v.grade} · ${first ? `${first.from} → ${last.to}` : ""}`,
     branding,
     meta: [
@@ -69,9 +73,9 @@ export async function yearPlanDoc(deps: Pick<ReportDeps, "repo" | "brandingDir" 
   };
 }
 
-export async function exportYearPlanPdf(deps: ReportDeps, actor: Actor, classId: string): Promise<{ bytes: Uint8Array; contentType: string; filename: string }> {
+export async function exportYearPlanPdf(deps: ReportDeps, actor: Actor, classId: string, opts: { signin?: boolean } = {}): Promise<{ bytes: Uint8Array; contentType: string; filename: string }> {
   const now = deps.now?.() ?? new Date();
-  const doc = await yearPlanDoc(deps, actor, classId);
+  const doc = await yearPlanDoc(deps, actor, classId, opts);
   const rl = await consumeRateLimit(deps.repo, `report:${actor.userId}`, REPORT_RATE.max, REPORT_RATE.windowMs, now);
   if (!rl.allowed) throw new RateLimitedError(Math.ceil(rl.retryAfterMs / 1000));
   if (!deps.pdf) throw new Error("PDF rendering is not configured.");

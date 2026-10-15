@@ -31,6 +31,8 @@ import { BAND_ORDER, bandLabel, dirOf, formatter, t, type Fmt, type LabelKey } f
 import type { Accent, Audience, CellValue, Column, Kpi, ReportDoc, Section, Tone } from "./model";
 import { BRAND, PLATFORM, SOURCE_COLORS } from "../components/print/tokens";
 import { isPlanHref, PLAN_LINKS_NOTE, PLAN_QR_NOTE, planQrSvg } from "../lib/plan-links";
+import { classSignInStripHtml, STRIP_CSS } from "../lib/class-signin-strip";
+import { makeT } from "../i18n";
 
 export class SafeHtml {
   constructor(readonly value: string) {}
@@ -435,8 +437,10 @@ export function renderHtml(doc: ReportDoc, opts: HtmlOptions): string {
       if (rest.length) parts.push(kpiGrid(f, s.items.length > rest.length ? t(doc.locale, "moreNumbers") : s.title, rest));
     } else parts.push(section(f, s, accent));
   });
-  const body = h`${header(doc, f)}${hasPlanLinks(doc) ? h`<p class="plinks-note">${PLAN_LINKS_NOTE[doc.locale === "ar" ? "ar" : "en"]}</p>` : ""}${parts}`;
-  return `<!doctype html><html lang="${doc.locale}" dir="${dirOf(doc.locale)}"><head><meta charset="utf-8"><title>${esc(doc.title)}</title><style>${opts.fontCss}\n${reportCss(opts.fontStack, accent)}</style></head><body>${body.value}</body></html>`;
+  // 🖨 r85: the class sign-in strip (printable QR + class code) right under the header
+  const strip = doc.classSignIn ? new SafeHtml(classSignInStripHtml(doc.classSignIn, makeT(doc.locale === "ar" ? "ar" : "en"))) : "";
+  const body = h`${header(doc, f)}${strip}${hasPlanLinks(doc) ? h`<p class="plinks-note">${PLAN_LINKS_NOTE[doc.locale === "ar" ? "ar" : "en"]}</p>` : ""}${parts}`;
+  return `<!doctype html><html lang="${doc.locale}" dir="${dirOf(doc.locale)}"><head><meta charset="utf-8"><title>${esc(doc.title)}</title><style>${opts.fontCss}\n${reportCss(opts.fontStack, accent)}${doc.classSignIn ? `\n${STRIP_CSS}` : ""}</style></head><body>${body.value}</body></html>`;
 }
 
 /** Chromium page footer (report title, confidentiality, page numbers). Rendered by Chromium in a separate tiny page. */

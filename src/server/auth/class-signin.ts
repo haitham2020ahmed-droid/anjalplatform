@@ -107,7 +107,7 @@ export async function teacherSignInClasses(repo: Repo, actor: Actor): Promise<{ 
 }
 
 /** The class, when this actor teaches it now; otherwise Forbidden. */
-async function taughtClass(repo: Repo, actor: Actor, classId: string): Promise<{ klass: Row; teacherId: string }> {
+export async function taughtClass(repo: Repo, actor: Actor, classId: string): Promise<{ klass: Row; teacherId: string }> {
   const t = await teacherRow(repo, actor);
   const link = t && classId ? (await repo.findMany("ClassTeacher", { classId, teacherId: t.id }, { take: 1 }))[0] ?? null : null;
   const klass = link ? await repo.findUnique("Class", { id: classId }) : null;
@@ -152,7 +152,7 @@ export async function closeClassSignIn(repo: Repo, actor: Actor, signInId: strin
 const isOpen = (row: Row | null, now: Date) => Boolean(row && !row.closedAt && toDate(row.expiresAt) > now);
 
 /** Active students of a class: { studentId, userId, name }. */
-async function classStudents(repo: Repo, classId: string, schoolId: string): Promise<{ studentId: string; userId: string; name: string }[]> {
+export async function classStudents(repo: Repo, classId: string, schoolId: string): Promise<{ studentId: string; userId: string; name: string }[]> {
   const members = await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] });
   if (!members.length) return [];
   const students = await repo.findMany("Student", { id: { in: members.map((m) => m.studentId) }, deletedAt: null }, { select: ["id", "userId", "schoolId"] });

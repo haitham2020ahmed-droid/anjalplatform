@@ -35,9 +35,9 @@ export interface BookletRead { valid: Booklet[]; invalid: { file: string; proble
 let dirOverride: string | null = null;
 let packDirHint: string | null = null;
 /** Tests: point the loader at a folder of small fixture booklets (null = the default). */
-export function useBookletDir(dir: string | null): void { dirOverride = dir; parsed.clear(); sigMemo = null; complete.clear(); }
+export function useBookletDir(dir: string | null): void { dirOverride = dir; parsed.clear(); catalog.clear(); sigMemo = null; complete.clear(); }
 /** load-packs: when the packs read from another folder (tests), the booklets are its "nafs-booklets" sub-folder. */
-export function bookletPackDir(dir: string | null): void { packDirHint = dir; parsed.clear(); sigMemo = null; complete.clear(); }
+export function bookletPackDir(dir: string | null): void { packDirHint = dir; parsed.clear(); catalog.clear(); sigMemo = null; complete.clear(); }
 export const bookletDir = () => dirOverride ?? (packDirHint ? join(packDirHint, "nafs-booklets") : join(process.cwd(), "data", "nafs", "booklets"));
 
 export function bookletFiles(dir = bookletDir()): string[] {
@@ -107,12 +107,8 @@ export function checkBooklet(raw: unknown, file: string): { booklet: Booklet | n
 
 // r68 memory: kept while used, released after 5 idle minutes
 const parsed = new IdleBox<{ sig: string; dir: string; read: BookletRead }>("nafs.booklets");
-/** Every booklet of the folder, checked (kept in memory until a file changes). */
-export function readBooklets(dir = bookletDir()): BookletRead {
-  const sig = bookletSignature(dir);
-  if (!sig) return { valid: [], invalid: [], files: [] };
-  const kept = parsed.get();
-  if (kept && kept.sig === sig && kept.dir === dir) return kept.read;
+/** Every booklet of the folder, read and checked now (nothing kept). */
+function scanBooklets(dir: string): BookletRead {
   const files = bookletFiles(dir);
   const read: BookletRead = { valid: [], invalid: [], files };
   const codes = new Set<string>();
@@ -125,8 +121,36 @@ export function readBooklets(dir = bookletDir()): BookletRead {
     codes.add(r.booklet.code);
     read.valid.push(r.booklet);
   }
+  return read;
+}
+/** Every booklet of the folder with its full text (loading them into a bank). Kept in memory until a file changes. */
+export function readBooklets(dir = bookletDir()): BookletRead {
+  const sig = bookletSignature(dir);
+  if (!sig) return { valid: [], invalid: [], files: [] };
+  const kept = parsed.get();
+  if (kept && kept.sig === sig && kept.dir === dir) return kept.read;
+  const read = scanBooklets(dir);
   parsed.set({ sig, dir, read });
   return read;
+}
+
+/**
+ * 🧠 r84 memory: what the NAFS center's lists, pickers and counts need from the files (code, title, kind, genre and
+ * the number of questions) WITHOUT the passages, stems and options (~4 MB for the booklets and the practice sets, kept
+ * 5 minutes after every visit before r84). The full text is read only to load the files into a bank.
+ */
+export interface SetInfo { code: string; title: string; kind: Booklet["kind"]; genre: string; questions: number; written: number }
+export interface SetCatalog { sig: string; dir: string; list: SetInfo[]; files: number; invalid: number }
+export const setInfoOf = (b: Booklet): SetInfo => ({ code: b.code, title: b.title, kind: b.kind, genre: b.genre, questions: b.questions.length, written: b.questions.filter((q) => q.type === "WRITTEN").length });
+const catalog = new IdleBox<SetCatalog>("nafs.booklets.catalog");
+export function bookletCatalog(dir = bookletDir()): SetCatalog | null {
+  const sig = bookletSignature(dir);
+  if (!sig) return null;
+  const kept = catalog.get();
+  if (kept && kept.sig === sig && kept.dir === dir) return kept;
+  const full = parsed.peek(); // a load running now has the full text in memory already: no second read
+  const read = full && full.sig === sig && full.dir === dir ? full.read : scanBooklets(dir);
+  return catalog.set({ sig, dir, list: read.valid.map(setInfoOf), files: read.files.length, invalid: read.invalid.length });
 }
 
 // ------------------------------------------------------------------ loading into a school's NAFS bank
@@ -186,10 +210,19 @@ export async function loadNafsBooklets(repo: Repo, schoolId: string, byUserId: s
 
 /** How many booklet questions the folder has and how many are in the school's bank already. */
 export async function bookletCount(repo: Repo, schoolId: string, dir = bookletDir()): Promise<{ questions: number; inBank: number; files: number; invalid: number }> {
-  const r = readBooklets(dir);
-  const questions = r.valid.reduce((a, b) => a + b.questions.length, 0);
-  const inBank = r.valid.length ? await repo.count("NafsBankItem", { schoolId, booklet: { in: r.valid.map((b) => b.code) } }) : 0;
-  return { questions, inBank, files: r.files.length, invalid: r.invalid.length };
+  const c = bookletCatalog(dir); // r84: the light catalog (no texts kept)
+  if (!c) return { questions: 0, inBank: 0, files: 0, invalid: 0 };
+  const questions = c.list.reduce((a, b) => a + b.questions, 0);
+  const inBank = c.list.length ? await repo.count("NafsBankItem", { schoolId, booklet: { in: c.list.map((b) => b.code) } }) : 0;
+  return { questions, inBank, files: c.files, invalid: c.invalid };
+}
+
+/** r84: the school's bank holds the files of this signature already (written by the loader after a full load). */
+export async function loadedWith(repo: Repo, schoolId: string, key: string, sig: string): Promise<boolean> {
+  const row = await repo.findUnique("SchoolSetting", { schoolId, key });
+  let v: unknown = row?.value;
+  if (typeof v === "string") { try { v = JSON.parse(v); } catch { v = null; } }
+  return Boolean(v && typeof v === "object" && (v as { sig?: unknown }).sig === sig);
 }
 
 const running = new Map<string, Promise<BookletLoad | null>>();
@@ -213,6 +246,9 @@ export function ensureNafsBooklets(repo: Repo, schoolId: string, byUserId: strin
   const p = (async () => {
     const sig = bookletSignatureCached();
     if (!sig || complete.get(schoolId) === sig) return null;
+    // r84 memory: the school's bank was loaded from exactly these files (the loader notes their signature) — nothing
+    // to read: the first visit after a deploy no longer parses every booklet file just to count its questions
+    if (await loadedWith(repo, schoolId, BOOKLET_SETTING, sig)) { complete.set(schoolId, sig); return null; }
     const c = await bookletCount(repo, schoolId);
     if (!c.questions || c.inBank >= c.questions) { complete.set(schoolId, sig); return null; }
     return loadNafsBooklets(repo, schoolId, byUserId);

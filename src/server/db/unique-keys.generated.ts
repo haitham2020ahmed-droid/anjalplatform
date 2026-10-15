@@ -4,6 +4,8 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   Session: [["id"]],
   ClassSignIn: [["id"], ["tokenHash"]],
   ClassSignInUse: [["id"]],
+  ClassPrintQr: [["id"], ["classId"], ["tokenHash"]],
+  ClassPrintSignIn: [["id"]],
   RolePermission: [["id"], ["role", "permission"]],
   School: [["id"], ["code"]],
   SchoolSetting: [["id"], ["schoolId", "key"]],

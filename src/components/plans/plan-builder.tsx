@@ -1,5 +1,6 @@
 import { StarAssign } from "@/components/assign/star-assign";
 import { SourceSelect } from "@/components/assign/source-select";
+import { ASSIGN_SOURCE_LABEL } from "@/lib/assign-source";
 import { PendingButton } from "@/components/pending-button";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -28,6 +29,20 @@ export const BTN_MAIN = `${BTN} bg-brand-navy text-white hover:bg-brand-purple`;
 export const BTN_SOFT = `${BTN} bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal`;
 const BOX = "min-h-11 rounded-xl border border-slate-300 bg-white px-3";
 const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
+
+/**
+ * r82 (owner, r74 rule): a program plan's Source is its program — RTI plan → RTI, NAFS → NAFS, MAP → MAP, Curriculum →
+ * Curriculum — shown, not asked (the server sets it too); only a custom plan has the Source select.
+ */
+export function PlanSourceFixed({ t, program }: { t: TFn; program: Program }) {
+  return (
+    <span className="flex flex-col text-sm font-semibold text-slate-700" data-testid="plan-source">
+      <span>{t("Source")}</span>
+      <input type="hidden" name="source" value={program} />
+      <span className="inline-flex min-h-11 items-center rounded-xl bg-slate-50 px-3 font-normal ring-1 ring-slate-200">{t(ASSIGN_SOURCE_LABEL[program])}</span>
+    </span>
+  );
+}
 
 /** Step 1: the class (links), then whole class / one student / a group, and page options (children). */
 export function WhoPicker({ t, classes, classId, classHref, students, form, children, suggested }: {
@@ -146,7 +161,7 @@ export function PlanBuilder(p: BuilderProps) {
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Plan name")}<input name="title" defaultValue={title} maxLength={191} className={BOX} /></label>
           <AssignDates t={t} start={form.startText} due={form.dueText} field={BOX} />
-          <SourceSelect t={t} field={BOX} />
+          {p.program ? <PlanSourceFixed t={t} program={p.program} /> : <SourceSelect t={t} field={BOX} />}
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Note to students (optional)")}<input name="note" defaultValue={form.note} maxLength={1000} className={BOX} /></label>
         </div>
         <PlanMasteredPrompt t={t} classId={p.carry.find(([k]) => k === "classId")?.[1] ?? ""} plan={p.plan} excluded={form.excludeMastered} />

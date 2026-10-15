@@ -6,6 +6,7 @@ import { shareDiagnosticAction } from "@/app/diagnostic/actions";
 import { gradeLabel } from "@/server/diagnostic/adaptive";
 import { RichInline } from "@/components/rich-inline";
 import { stripMarks } from "@/lib/inline-marks";
+import { withPrint } from "@/lib/print-href";
 
 export const heat = (p: number | null | undefined) => (p === null || p === undefined ? "bg-slate-50 text-slate-400" : p >= 75 ? "bg-emerald-100 text-emerald-900" : p >= 60 ? "bg-sky-100 text-sky-900" : p >= 40 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
 export const LEVEL_CHIP = { ABOVE: "bg-emerald-600 text-white", ON: "bg-sky-600 text-white", BELOW: "bg-rose-500 text-white" } as const;
@@ -19,7 +20,7 @@ export function DownloadBar({ testId, classId, studentId }: { testId: string; cl
   const b = "rounded-xl px-3.5 py-2 text-sm font-semibold ring-1";
   return (
     <div className="flex flex-wrap gap-2 print:hidden">
-      <a href={q("pdf")} className={`${b} bg-brand-navy text-white ring-brand-navy hover:bg-brand-purple`}>⬇ PDF report</a>
+      <a href={withPrint(q("pdf"))} target="_blank" rel="noopener" className={`${b} bg-brand-navy text-white ring-brand-navy hover:bg-brand-purple`}>⬇ PDF report</a>
       <a href={q("xlsx")} className={`${b} bg-white text-emerald-800 ring-emerald-300 hover:bg-emerald-50`}>⬇ Excel</a>
       {!studentId && <a href={q("csv")} className={`${b} bg-white text-slate-700 ring-slate-300 hover:bg-slate-50`}>⬇ CSV</a>}
     </div>

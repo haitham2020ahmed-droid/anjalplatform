@@ -30,9 +30,10 @@ export type MySkillsTab = "LEARNING" | "MASTERED" | "REVIEW" | "NOT_STARTED";
 export const MY_SKILLS_TABS: readonly MySkillsTab[] = ["MASTERED", "LEARNING", "REVIEW", "NOT_STARTED"];
 export const TAB_LABEL: Record<MySkillsTab, string> = { MASTERED: "Mastered", LEARNING: "Learning", REVIEW: "Review", NOT_STARTED: "Not started" };
 export const TAB_ICON: Record<MySkillsTab, string> = { MASTERED: "⭐", LEARNING: "◐", REVIEW: "🔄", NOT_STARTED: "☆" };
-export type Strand = "LITERATURE" | "INFORMATIONAL" | "VOCABULARY" | "GRAMMAR" | "WRITING";
-export const STRANDS: readonly Strand[] = ["LITERATURE", "INFORMATIONAL", "VOCABULARY", "GRAMMAR", "WRITING"];
-export const STRAND_LABEL: Record<Strand, string> = { LITERATURE: "Literature", INFORMATIONAL: "Informational", VOCABULARY: "Vocabulary", GRAMMAR: "Grammar", WRITING: "Writing" };
+/** r82: + NAFS — the area of the NAFS practice columns of the teacher's Student Skills (a student's My Skills never has it) */
+export type Strand = "LITERATURE" | "INFORMATIONAL" | "VOCABULARY" | "GRAMMAR" | "WRITING" | "NAFS";
+export const STRANDS: readonly Strand[] = ["LITERATURE", "INFORMATIONAL", "VOCABULARY", "GRAMMAR", "WRITING", "NAFS"];
+export const STRAND_LABEL: Record<Strand, string> = { LITERATURE: "Literature", INFORMATIONAL: "Informational", VOCABULARY: "Vocabulary", GRAMMAR: "Grammar", WRITING: "Writing", NAFS: "NAFS" };
 export const ACTION_LABEL: Record<MySkillsTab, string> = { MASTERED: "Practice again", LEARNING: "Continue", REVIEW: "Review now", NOT_STARTED: "Start" };
 
 /** The tab of a status (pure). */
@@ -57,6 +58,7 @@ const FAMILY = new Map((taxonomy as { families: TaxFamily[] }).families.map((f) 
 export function strandOf(key: string, skill: { category?: string; domain?: string } | null): Strand {
   const cat = s(skill?.category).toUpperCase(), dom = s(skill?.domain).toUpperCase();
   const fam = key.startsWith("fam:") ? FAMILY.get(key.slice(4)) : undefined;
+  if (key.startsWith("nafs:")) return "NAFS";
   if (cat === "LITERATURE") return "LITERATURE";
   if (cat === "INFORMATIONAL") return "INFORMATIONAL";
   if (cat === "VOCABULARY" || cat === "WORD_STUDY" || cat === "PHONICS_WORD_STUDY") return "VOCABULARY";

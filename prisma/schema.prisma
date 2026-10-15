@@ -255,6 +255,41 @@ model ClassSignInUse {
   @@index([studentId, day])
 }
 
+/// r85: a class's PRINTABLE QR (weekly plan sheet) + its 4-digit class code. One row per class. The QR link carries a
+/// 256-bit token = HMAC(APP_SECRET, linkSalt): only its SHA-256 (tokenHash) is stored, and the server can draw the same
+/// QR again for the class's teacher. "New link" = a new linkSalt (old printed QRs die). `code` is read only by the
+/// teacher's pages (and compared on the server at sign-in); it is never sent to a student page.
+model ClassPrintQr {
+  id            String    @id @default(cuid())
+  schoolId      String
+  classId       String    @unique
+  linkSalt      String    @db.VarChar(64)
+  tokenHash     String    @unique @db.VarChar(64)
+  code          String    @db.VarChar(4)
+  active        Boolean   @default(true)
+  createdById   String // User.id of the teacher who turned it on first
+  codeChangedAt DateTime
+  linkChangedAt DateTime
+  turnedOffAt   DateTime?
+  createdAt     DateTime  @default(now())
+}
+
+/// r85: a student who signed in from the class's printed QR (+ class code) — at school or at home. Every sign-in is a
+/// row (no once-a-day rule); the teacher sees today / this week.
+model ClassPrintSignIn {
+  id        String   @id @default(cuid())
+  printQrId String
+  schoolId  String
+  classId   String
+  studentId String
+  userId    String
+  day       String   @db.VarChar(10)
+  createdAt DateTime @default(now())
+
+  @@index([classId, createdAt])
+  @@index([studentId, createdAt])
+}
+
 /// Fine-grained permission grants on top of the role (e.g. a teacher allowed to edit the question bank).
 model RolePermission {
   id         String @id @default(cuid())

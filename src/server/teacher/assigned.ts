@@ -30,6 +30,8 @@ import { accessibleClasses } from "./assign";
 import { studentNames } from "../insights/student-data";
 import { TEST_MARK } from "../tests/runtime";
 import { activeCancels, cancelIndexOf } from "../student/cancelled-work";
+import { bookletSourceOf } from "../nafs/booklet-source";
+import { ASSIGN_SOURCE_LABEL } from "../../lib/assign-source";
 
 export const ASSIGNED_KINDS = ["SKILL", "PROGRESS_CHECK", "TEST", "MAP_TEST", "NAFS_TEST", "NAFS_PRACTICE", "LEARN", "WORDS", "READRISE", "WRITING", "FLUENCY", "EXIT_TICKET", "RESPOND", "PLAN", "LESSON"] as const;
 export type AssignedKind = (typeof ASSIGNED_KINDS)[number];
@@ -218,13 +220,15 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
     if (!given.length) return [];
     const ids = [...new Set(given.map((g) => s(g.testId)))];
     const [tests, results] = await Promise.all([
-      repo.findMany("NafsTest", { id: { in: ids }, deletedAt: null }, { select: ["id", "title"] }),
+      repo.findMany("NafsTest", { id: { in: ids }, deletedAt: null }, { select: ["id", "title", "settings"] }),
       repo.findMany("NafsResult", { testId: { in: ids }, classId: { in: [...new Set(given.map((g) => s(g.classId)))] } }, { select: ["testId", "classId", "studentId", "submittedAt"] }),
     ]);
     return given.filter((g) => tests.some((t) => t.id === g.testId)).map((g) => {
       const chosen = idList(g.studentIds);
       const who = chosen.length ? chosen : ofClass.get(s(g.classId)) ?? [];
-      return { kind: "NAFS_TEST" as const, id: s(g.id), title: s(tests.find((t) => t.id === g.testId)?.title), detail: null, classIds: [s(g.classId)], createdById: s(g.createdById), scope: chosen.length ? "students" as const : "class" as const,
+      // r82: a Ministry booklet given from the booklets panel shows its source (MAP · NAFS · Curriculum · Grammar · RTI)
+      const src = bookletSourceOf(tests.find((t) => t.id === g.testId)?.settings, s(g.classId));
+      return { kind: "NAFS_TEST" as const, id: s(g.id), title: s(tests.find((t) => t.id === g.testId)?.title), detail: src ? ASSIGN_SOURCE_LABEL[src] : null, classIds: [s(g.classId)], createdById: s(g.createdById), scope: chosen.length ? "students" as const : "class" as const,
         createdAt: iso(g.createdAt), dueAt: iso(g.dueAt), startAt: iso(g.openAt), students: mapOf(who, (sid) => results.some((r) => r.testId === g.testId && s(r.classId) === s(g.classId) && s(r.studentId) === sid && r.submittedAt)), keys: [`nafs_test:${s(g.id)}`] };
     });
   };
@@ -454,14 +458,14 @@ function liveOf(raw: readonly Raw[], cancels: readonly Row[]): LiveAssigned[] {
  * Everything live that was assigned in these classes (every teacher of the class: what the students really have), as the
  * Assigned page reads it. `kinds` narrows the read (Student Skills: SKILL + PLAN); `studentId` reads one student's links.
  */
-export async function assignedWorkOfClasses(repo: Repo, schoolId: string, classIds: readonly string[], opts: { kinds?: readonly AssignedKind[]; studentId?: string } = {}): Promise<LiveAssigned[]> {
+export async function assignedWorkOfClasses(repo: Repo, schoolId: string, classIds: readonly string[], opts: { kinds?: readonly AssignedKind[]; studentId?: string; /** r82: only what these creators assigned (a teacher's own Assigned page); null / absent = every teacher */ creators?: string[] | null } = {}): Promise<LiveAssigned[]> {
   const ids = [...new Set(classIds.map(s).filter(Boolean))];
   if (!schoolId || !ids.length) return [];
   const classes = await repo.findMany("Class", { id: { in: ids }, schoolId }, { select: ["id", "name", "gradeId", "schoolId"] });
   if (!classes.length) return [];
   const sc: Scope = { schoolId, admin: true, classes, mine: [] };
   const [raw, cancels] = await Promise.all([
-    collect(repo, sc, { kinds: new Set(opts.kinds ?? ASSIGNED_KINDS), creators: null, studentId: opts.studentId }),
+    collect(repo, sc, { kinds: new Set(opts.kinds ?? ASSIGNED_KINDS), creators: opts.creators?.length ? [...opts.creators] : null, studentId: opts.studentId }),
     activeCancels(repo, schoolId),
   ]);
   return liveOf(raw, cancels);
@@ -472,6 +476,21 @@ export async function teacherAssignedWork(repo: Repo, actor: Actor, classId: str
   const sc = await scopeOf(repo, actor);
   if (!sc.classes.some((c) => s(c.id) === s(classId))) throw new ForbiddenError("Not found, or not in your classes.");
   return assignedWorkOfClasses(repo, sc.schoolId, [classId], opts);
+}
+
+/**
+ * r82 (owner: "Student Skills = the ASSIGNED skills only — what I assigned"): whose work a viewer's Student Skills
+ * counts — exactly the rows of THEIR Assigned page. A teacher who teaches one of these classes: their own work (their
+ * User id and Teacher id, as the Assigned page filters it) — never a co-teacher's, an earlier teacher's or another
+ * class teacher's rows. A coordinator who does not teach the class, and the school admin: every teacher's (null).
+ */
+export async function viewerCreators(repo: Repo, actor: Actor, classIds: readonly string[]): Promise<string[] | null> {
+  if (actor.role !== "TEACHER") return null;
+  const want = new Set(classIds.map(s));
+  // the teacher's own classes (cached a few seconds: no read on a page that already listed them)
+  if (!(await accessibleClasses(repo, actor)).some((c) => want.has(s(c.id)))) return null;
+  const t = await repo.findUnique("Teacher", { userId: actor.userId });
+  return t ? [actor.userId, s(t.id)] : null;
 }
 
 /** r78: a cancel / undo shows at once in the reports that keep a cached scan (the early warning). */

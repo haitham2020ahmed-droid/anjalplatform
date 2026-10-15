@@ -8,11 +8,16 @@
  *   On track              everyone else (practising, or not started yet — "not started" is shown beside the name)
  *
  * The action plan (≤ 5 short points) is generated from the same numbers, each with a button to an existing action.
+ * r84: the Class report is the COMPREHENSIVE report — every assigned pair (single skills, Curriculum sections, NAFS, and
+ * every plan's skills), each student × skill ONCE (a skill both assigned alone and in a plan is one pair); plus a line per
+ * source and a line per plan (skills-plans.ts). The Skills Grid shows the column pairs only.
  */
 import type { StarStatus } from "./status";
 import { gridOf, isMasteredStar, isPractised, isSupportStar, isWeakForClass, masteredPct, onlySource, skillCounts, studentGuess, studentTrend, type ClassSkills, type GridSkill } from "./skills-grid";
 import { isGuessing, type Trend } from "./skills-trend";
 import { ASSIGN_SOURCES, ASSIGN_SOURCE_LABEL, type AssignSource } from "../../lib/assign-source";
+import { planCards } from "./skills-plans";
+import type { PlanType } from "./assigned-skills";
 
 export type StudentGroup = "SUPPORT" | "ON_TRACK" | "NEXT_LEVEL";
 export const GROUP_ORDER: readonly StudentGroup[] = ["SUPPORT", "ON_TRACK", "NEXT_LEVEL"];
@@ -89,13 +94,17 @@ export interface ClassReport {
    */
   trend: { gained: number; improved: number; stalled: { id: string; name: string }[]; down: number };
   guessing: { id: string; name: string }[];
+  /** r84: one line per source (% of its pairs mastered) and one per live plan (class achievement) */
+  bySource: { source: AssignSource; label: string; n: number; pct: number }[];
+  plans: { id: string; title: string; type: PlanType; pct: number; finished: boolean }[];
 }
 
 export interface ReportLinks { skill: (key: string) => string; plan: (studentIds: string[]) => string; student: (id: string) => string; source: (src: AssignSource) => string; assigned: string }
 
 /** The class report (pure). */
 export function classReport(d: ClassSkills, links: ReportLinks, now = new Date()): ClassReport {
-  const g = gridOf(d, { page: 1 });
+  // r84: every assigned pair — plans included (the Skills Grid alone shows only the column pairs)
+  const g = gridOf(d, { page: 1, all: true });
   const skills = g.skills;
   const rows: ReportRow[] = [];
   let pairs = 0, masteredPairs = 0, newStars = 0, gained = 0;
@@ -156,5 +165,7 @@ export function classReport(d: ClassSkills, links: ReportLinks, now = new Date()
     notStarted: idle.length, newStars, withWork: rows.length,
     trend: { gained, improved: rows.filter((r) => r.trend === "UP").length, stalled: stalled.map((x) => ({ id: x.id, name: x.name })), down: rows.filter((r) => r.trend === "DOWN").length },
     guessing: guessing.map((x) => ({ id: x.id, name: x.name })),
+    bySource,
+    plans: planCards(d).map((c) => ({ id: c.id, title: c.title, type: c.type, pct: c.pct, finished: c.status === "FINISHED" })),
   };
 }

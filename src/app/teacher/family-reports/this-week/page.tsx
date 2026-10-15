@@ -12,6 +12,7 @@ import { LANG_NAMES, makeT } from "@/i18n";
 import { saveFamilyWeekNoteAction } from "../actions";
 import { ReportIntro, ReportSummary } from "@/components/report-kit";
 import { familyWeekSummary } from "@/lib/report-summaries";
+import { ClassSignInOption } from "@/components/class-signin/strip";
 
 export const metadata = { title: "Family reports this week" };
 
@@ -20,7 +21,7 @@ export const metadata = { title: "Family reports this week" };
  * the family see it (English or Arabic), with the teacher's optional note per student, and Download PDF — one
  * student, or the whole class in one PDF (a page per student) to send by WhatsApp. The class's teacher or the admin.
  */
-export default async function FamilyWeekTeacherPage({ searchParams }: { searchParams: Promise<{ classId?: string; studentId?: string; lang?: string; msg?: string }> }) {
+export default async function FamilyWeekTeacherPage({ searchParams }: { searchParams: Promise<{ classId?: string; studentId?: string; lang?: string; msg?: string; signin?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const [me, { t }, sp] = await Promise.all([getActor(), getT(), searchParams]);
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
@@ -32,14 +33,18 @@ export default async function FamilyWeekTeacherPage({ searchParams }: { searchPa
   const items = batch?.items ?? [];
   const cur = items.find((w) => w.studentId === sp.studentId) ?? items[0] ?? null;
   const tp = makeT(lang); // the preview in the family's language
-  const href = (o: { classId?: string; studentId?: string; lang?: string }) => {
+  // 🖨 r85: the whole-class print carries the class sign-in QR + code (default on; signin=0 → off)
+  const signinOn = sp.signin !== "0";
+  const href = (o: { classId?: string; studentId?: string; lang?: string; signin?: boolean }) => {
     const p = new URLSearchParams();
-    const v = { classId, studentId: cur?.studentId, lang, ...o };
+    const v = { classId, studentId: cur?.studentId, lang, signin: signinOn, ...o };
     if (v.classId) p.set("classId", v.classId);
     if (v.studentId) p.set("studentId", v.studentId);
     if (v.lang === "ar") p.set("lang", "ar");
+    if (!v.signin) p.set("signin", "0");
     return `/teacher/family-reports/this-week?${p}`;
   };
+  const off = signinOn ? "" : "&signin=0";
   const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   const btn = "inline-flex min-h-11 items-center gap-2 rounded-xl px-4 font-semibold";
   return (
@@ -64,8 +69,9 @@ export default async function FamilyWeekTeacherPage({ searchParams }: { searchPa
               ))}
             </ul>
             <div className="mt-3 grid gap-2 border-t border-slate-200 pt-3">
-              <a href={`/api/family-week?classId=${encodeURIComponent(classId)}&lang=en`} className={`${btn} justify-center bg-brand-navy text-white`}>⬇ {t("Download all (one PDF)")} · {LANG_NAMES.en}</a>
-              <a href={`/api/family-week?classId=${encodeURIComponent(classId)}&lang=ar`} className={`${btn} justify-center bg-white text-brand-navy ring-1 ring-slate-300`}>⬇ {t("Download all (one PDF)")} · {LANG_NAMES.ar}</a>
+              <ClassSignInOption on={signinOn} href={href({ signin: !signinOn })} t={t} />
+              <a href={`/api/family-week?classId=${encodeURIComponent(classId)}&lang=en&print=1${off}`} target="_blank" rel="noopener" className={`${btn} justify-center bg-brand-navy text-white`}>⬇ {t("Download all (one PDF)")} · {LANG_NAMES.en}</a>
+              <a href={`/api/family-week?classId=${encodeURIComponent(classId)}&lang=ar&print=1${off}`} target="_blank" rel="noopener" className={`${btn} justify-center bg-white text-brand-navy ring-1 ring-slate-300`}>⬇ {t("Download all (one PDF)")} · {LANG_NAMES.ar}</a>
             </div>
           </aside>
           <div className="min-w-0">
@@ -74,7 +80,7 @@ export default async function FamilyWeekTeacherPage({ searchParams }: { searchPa
               <Link prefetch={false} href={href({ lang: "en" })} aria-current={lang === "en" ? "page" : undefined} className={chip(lang === "en")}>{LANG_NAMES.en}</Link>
               <Link prefetch={false} href={href({ lang: "ar" })} aria-current={lang === "ar" ? "page" : undefined} className={chip(lang === "ar")}>{LANG_NAMES.ar}</Link>
               <span className="flex-1" />
-              <a href={`/api/family-week?studentId=${encodeURIComponent(cur.studentId)}&lang=${lang}`} className={`${btn} bg-teal-700 text-white`}>⬇ {t("Download PDF")}</a>
+              <a href={`/api/family-week?studentId=${encodeURIComponent(cur.studentId)}&lang=${lang}&print=1`} target="_blank" rel="noopener" className={`${btn} bg-teal-700 text-white`}>⬇ {t("Download PDF")}</a>
             </div>
             <FamilyWeekStyles />
             <FamilyWeekPage w={cur} t={tp} lang={lang} />

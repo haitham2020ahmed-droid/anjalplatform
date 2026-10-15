@@ -31,8 +31,8 @@ const hasAr = (x: string) => (UI_STRINGS as readonly string[]).includes(x) && /[
 const LEVEL_WORDS = /\b(Below|On|Above) Level\b|\bTier\b|LEVEL_LABEL|Hardest|level=\{/;
 
 describe("student home: tiles, each page once", () => {
-  test("the main tiles: My Work, MAP, Curriculum Map, Second Chance, ReadMaster / ReadRise, Fluency Coach, Writing, My Tests", () => {
-    assert.deepEqual(STUDENT_HOME_TILES.map((x) => x.label), ["My Work", "MAP", "Curriculum Map", "Second Chance", "ReadMaster / ReadRise", "Fluency Coach", "Writing", "My Tests"]);
+  test("the main tiles: My Work, My Plans (owner r82), MAP, Curriculum Map, Second Chance, ReadMaster / ReadRise, Fluency Coach, Writing, My Tests", () => {
+    assert.deepEqual(STUDENT_HOME_TILES.map((x) => x.label), ["My Work", "My Plans", "MAP", "Curriculum Map", "Second Chance", "ReadMaster / ReadRise", "Fluency Coach", "Writing", "My Tests"]);
     assert.equal(new Set(STUDENT_HOME_TILES.map((x) => x.href)).size, STUDENT_HOME_TILES.length, "no tile twice");
     assert.ok(!STUDENT_HOME_TILES.some((x) => /respond/i.test(x.href + x.label)), "no Respond to Reading tile");
     for (const x of STUDENT_HOME_TILES) {

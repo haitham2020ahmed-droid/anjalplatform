@@ -7,6 +7,7 @@
 import type { FamilyWeek } from "../server/reports/family-week";
 import type { Lang, TFn } from "../i18n";
 import { isPlanHref, planHref, planQrSvg } from "../lib/plan-links";
+import { classSignInStripHtml, STRIP_CSS, type ClassSignInStrip } from "../lib/class-signin-strip";
 
 const esc = (v: unknown) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 /** content that may be English inside an Arabic page */
@@ -49,7 +50,7 @@ function dayOf(d: string, lang: Lang): string {
 }
 
 /** One student's page (an <article>). */
-export function familyWeekArticle(w: FamilyWeek, t: TFn, lang: Lang): string {
+export function familyWeekArticle(w: FamilyWeek, t: TFn, lang: Lang, signIn?: ClassSignInStrip | null): string {
   const dir = lang === "ar" ? "rtl" : "ltr";
   const list = (items: string[], empty: string) => (items.length ? `<ul>${items.map((x) => `<li>${iso(x)}</li>`).join("")}</ul>` : `<p class="fw-none">${esc(t(empty))}</p>`);
   // 🔗 r79: each thing to practise opens the student's practice of that skill (absolute platform link; QR on paper)
@@ -59,6 +60,7 @@ export function familyWeekArticle(w: FamilyWeek, t: TFn, lang: Lang): string {
   return `<article class="fw-page" dir="${dir}" lang="${lang}">
 <header class="fw-head"><div><h2>${esc(t("For my family: this week"))}</h2><p class="fw-who">${iso(w.name)}${w.className ? ` · ${esc(t("Class {c}", { c: w.className }))}` : ""}</p></div>
 <p class="fw-dates">${esc(t("From {from} to {to}", { from: dayOf(w.from, lang), to: dayOf(w.to, lang) }))}</p></header>
+${classSignInStripHtml(signIn, t)}
 ${first ? `<p class="fw-links">🔗 ${esc(t("Everything in this plan is clickable"))}</p>` : ""}
 <ul class="fw-tiles">${tiles.map(([n, l]) => `<li class="fw-tile"><b dir="ltr">${n}</b><span>${esc(t(l))}</span></li>`).join("")}</ul>
 <section class="fw-sec"><h3>${esc(t("Tasks I finished"))}</h3>${list(w.tasks, "No tasks finished yet this week.")}</section>
@@ -72,7 +74,8 @@ ${w.note ? `<section class="fw-sec"><h3>${esc(t("A note from my teacher"))}</h3>
 }
 
 /** A whole printable document (A4, a page per student) for the PDF renderer; fonts embedded by the caller. */
-export function familyWeekDocument(items: FamilyWeek[], t: TFn, lang: Lang, fonts: { css: string; stack: string }): string {
+/** r85: `signIn` = the class's printable QR + code in each page's header (a teacher's print of one class only). */
+export function familyWeekDocument(items: FamilyWeek[], t: TFn, lang: Lang, fonts: { css: string; stack: string }, signIn?: ClassSignInStrip | null): string {
   const dir = lang === "ar" ? "rtl" : "ltr";
   return `<!doctype html><html lang="${lang}" dir="${dir}"><head><meta charset="utf-8"><title>${esc(t("For my family: this week"))}</title>
 <style>${fonts.css}
@@ -81,5 +84,6 @@ html,body{margin:0;padding:0;background:#fff;font-family:${fonts.stack}}
 ${FAMILY_WEEK_CSS}
 .fw-page{border:none;border-radius:0;max-width:none;padding:0}
 .fw-page + .fw-page{break-before:page;page-break-before:always}
-</style></head><body>${items.map((w) => familyWeekArticle(w, t, lang)).join("\n")}</body></html>`;
+${signIn ? STRIP_CSS : ""}
+</style></head><body>${items.map((w) => familyWeekArticle(w, t, lang, signIn)).join("\n")}</body></html>`;
 }

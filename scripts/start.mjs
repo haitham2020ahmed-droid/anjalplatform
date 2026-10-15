@@ -83,7 +83,10 @@ function main() {
     catch { console.error("[start] Next.js is not installed: run `npm ci` (or `npm install`) first."); process.exit(1); }
     entry = [next, "start", ...rest];
   }
-  const args = [...nodeFlags(mem, nodeOptions), ...entry];
+  // r81: on small plans the cache sweeper may run a full garbage collection while the server is idle (cache/idle.ts),
+  // so memory left by a busy period is given back instead of sitting at ~400 MB until the next request
+  const gcFlag = memoryMb(mem) <= 1024 && !/--expose-gc/.test(nodeOptions) ? ["--expose-gc"] : [];
+  const args = [...nodeFlags(mem, nodeOptions), ...gcFlag, ...entry];
   console.log(`[start] ${args.filter((a) => a.startsWith("--")).join(" ") || "flags from NODE_OPTIONS"} · heap limit ${set ? "from NODE_OPTIONS" : `${heap} MB`} (memory: ${process.env.WEB_MEMORY_MB ? `WEB_MEMORY_MB=${process.env.WEB_MEMORY_MB}` : cgroupLimitMb() ? `container limit ${cgroupLimitMb()} MB` : `default ${DEFAULT_MB} MB`})`);
   // Update 46: glibc gives every thread (Node's thread pool, the database engine's threads) its own malloc arena; on a
   // small container the unused space of those arenas counts as used memory. Two arenas keep the RSS close to what

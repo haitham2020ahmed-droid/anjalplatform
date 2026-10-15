@@ -421,6 +421,6 @@ export const showClasses = (actor: Actor, classId: string | null, classes: numbe
 export interface CompareQuery { mode: CompareMode; classId?: string | null; a?: string | null; b?: string | null; from?: string | null; to?: string | null; preset?: string | null }
 const pairs = (q: CompareQuery): [string, string][] => [["mode", q.mode], ...(q.classId ? [["class", q.classId]] : []), ...(q.a ? [["a", q.a]] : []), ...(q.b ? [["b", q.b]] : []), ...(q.from ? [["from", q.from]] : []), ...(q.to ? [["to", q.to]] : []), ...(q.preset === "month" ? [["preset", "month"]] : [])] as [string, string][];
 export const compareHref = (q: CompareQuery) => `/teacher/nafs?${new URLSearchParams([["tab", "reports"], ["view", "compare"], ...pairs(q)])}`;
-export const compareDownload = (format: "xlsx" | "pdf", q: CompareQuery) => `/api/nafs/compare?${new URLSearchParams([["format", format], ...pairs(q).map(([k, v]) => [k === "class" ? "classId" : k, v] as [string, string])])}`;
+export const compareDownload = (format: "xlsx" | "pdf", q: CompareQuery) => `/api/nafs/compare?${new URLSearchParams([["format", format], ...pairs(q).map(([k, v]) => [k === "class" ? "classId" : k, v] as [string, string]), ...(format === "pdf" ? [["print", "1"] as [string, string]] : [])])}`;
 
 export const shortCode = (code: string | null | undefined) => (code ? MOE_BY_CODE.get(code)?.short ?? targetShort(code) : "—");

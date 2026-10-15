@@ -224,7 +224,7 @@ describe("🧠 r78 the kept NAFS data: one build, dropped by edits, small", () =
     assert.ok(a === b2 && b2 === c, "one build shared");
     const oneBuild = m.stats.calls;
     m.stats = freshStats();
-    assert.equal(await later(9 * 60_000, () => nafsIndex(m, school)), a, "kept for minutes when nothing changed");
+    assert.equal(await later(4 * 60_000, () => nafsIndex(m, school)), a, "kept for minutes when nothing changed");
     assert.equal(m.stats.calls, 0);
     noteWrite("Question"); // an edit through the app's data layer (the editor, an import, the AI bank …)
     const after = await nafsIndex(m, school);
@@ -240,7 +240,7 @@ describe("🧠 r78 the kept NAFS data: one build, dropped by edits, small", () =
     const m = N.b.S.m;
     const d1 = await nafsDashboardCached(m, N.g6, { classId: N.classId });
     const p = await createNafsPractice(N.b.S.repo, N.g6, { title: "Cache check", targets: ["MOE.S04"], classId: N.classId });
-    assert.equal(await later(5 * 60_000, () => nafsDashboardCached(m, N.g6, { classId: N.classId })), d1, "a new practice (no answers yet) keeps the plan");
+    assert.equal(await later(3 * 60_000, () => nafsDashboardCached(m, N.g6, { classId: N.classId })), d1, "a new practice (no answers yet) keeps the plan");
     noteWrite("NafsPracticeAnswer");
     const d2 = await nafsDashboardCached(m, N.g6, { classId: N.classId });
     assert.notEqual(d2, d1, "a student's answer builds it again");
@@ -249,8 +249,10 @@ describe("🧠 r78 the kept NAFS data: one build, dropped by edits, small", () =
   });
 
   test("a NAFS plan from Plans is NAFS work: its Source is set automatically (never refused for a missing one)", () => {
-    assert.match(read("src/server/plans/send.ts"), /input\.program === "NAFS" && !String\(input\.source \?\? ""\)\.trim\(\) \? "NAFS"/);
-    assert.match(read("src/server/plans/editor.ts"), /program \?\? ""\) === "NAFS"[\s\S]{0,80}requireSource\(nafs \? "NAFS" : sourceIn\)/);
+    // r82 (owner): every program plan's source is its program (NAFS → NAFS, RTI → RTI, MAP → MAP, Curriculum → Curriculum)
+    assert.match(read("src/server/plans/send.ts"), /const source = planSource\(input\.program, input\.source\);/);
+    assert.match(read("src/server/plans/editor.ts"), /const source = planSource\(program, sourceIn\);/);
+    assert.match(read("src/server/plans/batch-send.ts"), /if \(program\) return program;/);
   });
 });
 

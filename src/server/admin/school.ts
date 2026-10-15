@@ -18,7 +18,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { createClass } from "./settings";
 import { setStudentPasswordsToUsername } from "./student-cards";
 import { quickAddStudents, type QuickResult } from "./quick-students";
-import { cleanName, cleanUsername, createUser, schoolOf, setTeacherClasses } from "./users";
+import { assertUsernameFree, cleanName, cleanUsername, createUser, schoolOf, setTeacherClasses } from "./users";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 
@@ -125,7 +125,7 @@ export async function createTeacherWithClasses(repo: Repo, actor: Actor, input: 
   // check what can be checked before anything is written
   const username = cleanUsername(input.username);
   cleanName(input.displayName);
-  if (await repo.findUnique("User", { username })) throw new ValidationError(`Username "${username}" is already taken.`);
+  await assertUsernameFree(repo, schoolId, username);
   const extra = (input.newClasses ?? []).filter((c) => s(c.name).trim());
   if (extra.length > 20 || (input.classIds ?? []).length > 60) throw new ValidationError("Too many classes at once.");
   const ids = [...new Set((input.classIds ?? []).map(s).filter(Boolean))];

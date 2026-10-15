@@ -4,7 +4,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { ReportBusyError } from "@/reports/pdf";
 import { reportDeps } from "@/server/reports/runtime";
-import { contentDisposition, RateLimitedError } from "@/server/reports/service";
+import { reportFileResponse } from "@/server/reports/file-response";
+import { RateLimitedError } from "@/server/reports/service";
 import { cleanMode } from "@/server/nafs/compare";
 import { exportNafsCompare } from "@/server/nafs/compare-export";
 
@@ -24,7 +25,7 @@ export async function GET(req: Request) {
   const id = (k: string) => { const v = q.get(k); return v && /^[A-Za-z0-9_-]{1,64}$/.test(v) ? v : null; };
   try {
     const file = await exportNafsCompare(reportDeps(), actor, { mode: cleanMode(q.get("mode")), classId: id("classId"), a: id("a"), b: id("b"), from: q.get("from"), to: q.get("to"), preset: q.get("preset"), format });
-    return new NextResponse(Buffer.from(file.bytes), { headers: { "Content-Type": file.contentType, "Content-Disposition": contentDisposition(file.filename), "Content-Length": String(file.bytes.length), "Cache-Control": "no-store, private", "X-Content-Type-Options": "nosniff" } });
+    return reportFileResponse(req, file); // r84: a print page (default) or a file
   } catch (e) {
     if (e instanceof ValidationError) return new NextResponse(e.message, { status: 422 });
     if (e instanceof RateLimitedError) return new NextResponse(e.message, { status: 429, headers: { "Retry-After": String(e.retryAfterSeconds) } });

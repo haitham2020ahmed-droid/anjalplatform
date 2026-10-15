@@ -8,7 +8,7 @@
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo } from "../seeding/repo";
-import { createUser, schoolOf } from "./users";
+import { createUser, schoolOf, studentNumberClash, studentNumberHolder } from "./users";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const JOIN = new Set(["al", "el", "bin", "bint", "abu", "abd", "ibn", "bu"]);
@@ -49,6 +49,19 @@ export function nextNumbers(used: string[], n: number, year: number): string[] {
   return out;
 }
 
+/**
+ * Free student numbers of the school's series (AJ26-001 …) for new students: only this year's series is read, not the
+ * whole table. Used when an admin or a teacher leaves the number empty.
+ */
+export async function freeStudentNumbers(repo: Repo, schoolId: string, n: number, now: Date): Promise<string[]> {
+  const prefix = `AJ${String(now.getUTCFullYear() % 100).padStart(2, "0")}-`;
+  const used = await repo.findMany("Student", { schoolId, studentNumber: { contains: prefix } }, { select: ["studentNumber"] });
+  return nextNumbers(used.map((x) => s(x.studentNumber)), n, now.getUTCFullYear());
+}
+
+/** True for a database "this value is already used" error (a unique key), whichever database runs. */
+export const isUniqueClash = (e: unknown): boolean => /P2002|unique constraint|Duplicate entry/i.test(`${String((e as { code?: unknown })?.code ?? "")} ${String((e as { message?: unknown })?.message ?? e)}`);
+
 export interface QuickLine { name: string; number: string | null }
 /** One student per line: “Name” or “Name, number” (comma, tab or semicolon). Empty lines are skipped. */
 export function parseQuickLines(text: string): QuickLine[] {
@@ -88,7 +101,11 @@ export async function quickAddStudents(repo: Repo, actor: Actor, input: { classI
   for (const l of lines) {
     if (inClass.has(key(l.name))) { out.skipped.push({ name: l.name, reason: "already in this class" }); if (!l.number) fresh.shift(); continue; }
     const number = l.number ?? fresh.shift()!;
-    if (usedNumbers.has(number.toUpperCase())) { out.skipped.push({ name: l.name, reason: `student number ${number} is already used` }); continue; }
+    if (usedNumbers.has(number.toUpperCase())) {
+      const h = await studentNumberHolder(repo, schoolId, number);
+      out.skipped.push({ name: l.name, reason: h ? studentNumberClash(h, number).message : `student number ${number} is already used` });
+      continue;
+    }
     const username = pickUsername(l.name, taken);
     try {
       const r = await createUser(repo, actor, { role: "STUDENT", username, displayName: l.name, studentNumber: number, gradeLevel: grade, classId: input.classId }, now);

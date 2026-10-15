@@ -16,7 +16,8 @@ import type { StudentPlanView } from "@/server/curriculum-map/plans";
 import { StudyPlan } from "@/components/student/study-plan";
 import type { FullQuestion, MapLesson, QuestionLine } from "@/server/plans/question-pick";
 import { ProgramChip } from "./program-chip";
-import { BTN, BTN_MAIN, BTN_SOFT } from "./plan-builder";
+import { BTN, BTN_MAIN, BTN_SOFT, PlanSourceFixed } from "./plan-builder";
+import { PendingButton } from "@/components/pending-button";
 import {
   addQuestionsAction, addSectionAction, deleteDraftAction, duplicatePlanAction, pausePlanAction, questionAction, saveDetailsAction,
   saveStudentsAction, sectionAction, sendPlanAction, withdrawPlanAction,
@@ -463,7 +464,13 @@ export function SendStep({ t, v, canSend, classes }: { t: TFn; v: PlanEditorView
           <div className="mt-4 flex flex-wrap items-center justify-end gap-3">
             <Link href={`/teacher/plans/${v.id}?step=preview`} className={BTN_SOFT}>{t("Preview as student")}</Link>
             <form action={deleteDraftAction}><Keep planId={v.id} step="send" /><button className={`${BTN} bg-white text-red-700 ring-1 ring-red-200 hover:bg-red-50`}>{t("Delete draft")}</button></form>
-            {canSend && v.sections.length > 0 && <form action={sendPlanAction} className="flex flex-wrap items-end gap-2"><Keep planId={v.id} step="what" /><SourceSelect t={t} /><button className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button></form>}
+            {/* r82: a program plan's source is its program (RTI plan → RTI …); a custom plan: the teacher's choice. The
+                button answers at once ("Sending…", disabled: a second press never sends twice). */}
+            {canSend && v.sections.length > 0 && <form action={sendPlanAction} className="flex flex-wrap items-end gap-2" data-testid="plan-send">
+              <Keep planId={v.id} step="what" />
+              {v.program ? <PlanSourceFixed t={t} program={v.program} /> : <SourceSelect t={t} />}
+              <PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send" pendingLabel="Sending…" testId="plan-send-button" />
+            </form>}
           </div>
         )}
         {(v.status === "SENT" || v.status === "PAUSED") && canSend && (

@@ -15,10 +15,13 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertNafs } from "../teacher/nafs-access";
 import { accessibleClasses } from "../teacher/assign";
-import { DIFFICULTY_NAME, type Difficulty } from "./framework";
+import { DIFFICULTY_NAME, MAX_NAFS_MINUTES, type Difficulty } from "./framework";
 import { loadNafsQuestions, nafsIndex, usable } from "./bank";
 import { setChoices, MINISTRY_DEFAULT, type SetChoice } from "./build";
-import { assignNafsOnline, json, saveNafsTest } from "./tests";
+import { grade6Class, json, saveNafsTest } from "./tests";
+import { audit } from "../audit";
+import { requireSource, type AssignSource } from "../assign/source";
+import { withLock } from "../lib/key-lock";
 
 const s = (v: unknown) => String(v ?? "");
 /** One assignment sends at most this many booklets (a class does one or two at a time). */
@@ -112,13 +115,110 @@ export async function ensureBookletTests(repo: Repo, actor: Actor, codesIn: stri
   return out;
 }
 
-/** "Assign online": each chosen booklet to a Grade 6 class (or chosen students), its own time and dates. */
-export async function assignBooklets(repo: Repo, actor: Actor, input: { codes: string[]; classId: string; studentIds?: string[] | null; minutes?: number | null; openAt?: Date | null; dueAt?: Date | null }, now = new Date()): Promise<{ booklets: number; students: number; tests: string[] }> {
-  const made = await ensureBookletTests(repo, actor, input.codes, now);
-  let students = 0;
-  for (const m of made) students = (await assignNafsOnline(repo, actor, { testId: m.testId, classId: input.classId, studentIds: input.studentIds ?? null, timeLimitMin: input.minutes ?? null, openAt: input.openAt ?? null, dueAt: input.dueAt ?? null }, now)).students;
-  return { booklets: made.length, students, tests: made.map((m) => m.testId) };
+/** "Assign online" (one class; older callers): see assignBookletsTo. */
+export async function assignBooklets(repo: Repo, actor: Actor, input: { codes: string[]; classId: string; studentIds?: string[] | null; minutes?: number | null; openAt?: Date | null; dueAt?: Date | null; source?: string | null }, now = new Date()): Promise<{ booklets: number; students: number; tests: string[] }> {
+  const r = await assignBookletsTo(repo, actor, { codes: input.codes, classIds: [input.classId], studentIds: input.studentIds ?? null, minutes: input.minutes ?? null, openAt: input.openAt ?? null, dueAt: input.dueAt ?? null, source: input.source ?? "NAFS", mode: "ONLINE" }, now);
+  return { booklets: r.booklets, students: r.students, tests: r.tests.map((x) => x.testId) };
 }
+
+export type BookletMode = "ONLINE" | "PAPER";
+export interface BookletAssignInput {
+  codes: string[];
+  /** the teacher's Grade 6 class(es) */
+  classIds: string[];
+  /** only these students (of the chosen classes); null / empty = the whole class(es) */
+  studentIds?: string[] | null;
+  /** r74: REQUIRED (the NAFS center preselects NAFS; the teacher may change it) */
+  source: string | null | undefined;
+  minutes?: number | null; openAt?: Date | null; dueAt?: Date | null;
+  /** ONLINE: students take it in the platform · PAPER: ready to print (booklet, key, bubble sheets) */
+  mode: BookletMode;
+  /** one press of Assign: the same token again (a double press) returns the first answer — nothing is given twice */
+  token?: string | null;
+}
+export interface BookletAssignResult { mode: BookletMode; booklets: number; students: number; classes: number; source: AssignSource; tests: { code: string; testId: string }[] }
+
+/** The classes the booklets may be given to at once. */
+export const MAX_ASSIGN_CLASSES = 12;
+/** Recent presses (user + token → answer), bounded and short-lived. */
+const presses = new Map<string, { at: number; r: Promise<BookletAssignResult> }>();
+const PRESS_MS = 10 * 60_000;
+function remember(key: string, r: Promise<BookletAssignResult>, now: number): void {
+  for (const [k, v] of presses) { if (now - v.at > PRESS_MS || presses.size > 300) presses.delete(k); else break; }
+  presses.set(key, { at: now, r });
+  r.catch(() => presses.delete(key)); // a refused press can be corrected and sent again
+}
+
+/**
+ * 🇸🇦 r82 ASSIGN BOOKLETS (owner: "let me assign from here, even several booklets at once — and show the SOURCES"):
+ * the ticked booklets (1–10) → each one becomes (once) the school's test of that booklet, then
+ *   - ONLINE: given to every chosen class (whole class or chosen students) with its source (r74 — saved with the
+ *     booklet's test per class: settings.sourceByClass, no new column), its time and dates; ONE batch of notifications
+ *     for all the booklets; a booklet cancelled earlier on the Assigned page and given again comes back;
+ *   - PAPER: ready to print (booklet, key, bubble sheets) — nothing is sent to the students.
+ * Light: one class check per class, one read of the members, one write per booklet and class, the notifications in one
+ * batch. One at a time per school (a double press waits and finds the work already there; the same token returns the
+ * first answer, so the students are never notified twice).
+ */
+export async function assignBookletsTo(repo: Repo, actor: Actor, input: BookletAssignInput, now = new Date()): Promise<BookletAssignResult> {
+  await assertNafs(repo, actor);
+  if (!actor.schoolId) throw new ForbiddenError("No school.");
+  const source = requireSource(input.source);
+  const mode: BookletMode = input.mode === "PAPER" ? "PAPER" : "ONLINE";
+  const classIds = [...new Set((input.classIds ?? []).map(s).filter(Boolean))];
+  if (mode === "ONLINE" && !classIds.length) throw new ValidationError("Choose a class.");
+  if (classIds.length > MAX_ASSIGN_CLASSES) throw new ValidationError(`Choose at most ${MAX_ASSIGN_CLASSES} classes at a time.`);
+  const openAt = input.openAt ?? null, dueAt = input.dueAt ?? null;
+  if (openAt && dueAt && dueAt <= openAt) throw new ValidationError("The due date must be after the start date.");
+  let minutes: number | null = null;
+  if (input.minutes !== null && input.minutes !== undefined && s(input.minutes) !== "") {
+    minutes = Math.round(Number(input.minutes));
+    if (!Number.isFinite(minutes) || minutes < 1 || minutes > MAX_NAFS_MINUTES) throw new ValidationError(`The time must be 1 to ${MAX_NAFS_MINUTES} minutes.`);
+  }
+  const token = s(input.token).slice(0, 80);
+  const key = token ? `${actor.userId}|${token}` : "";
+  const seen = key ? presses.get(key) : undefined;
+  if (seen) return seen.r;
+  const run = withLock(`nafs-booklets:${actor.schoolId}`, async (): Promise<BookletAssignResult> => {
+    const made = await ensureBookletTests(repo, actor, input.codes, now);
+    const tests = made.map((m) => ({ code: m.code, testId: m.testId }));
+    if (mode === "PAPER") return { mode, booklets: made.length, students: 0, classes: 0, source, tests };
+    const classes: Row[] = [];
+    for (const id of classIds) classes.push(await grade6Class(repo, actor, id));
+    const members = await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => s(k.id)) }, leftAt: null }, { select: ["classId", "studentId"], take: 5000 });
+    const chosen = [...new Set((input.studentIds ?? []).map(s).filter(Boolean))];
+    if (chosen.some((x) => !members.some((m) => s(m.studentId) === x))) throw new ValidationError("Choose students of this class.");
+    const plan = classes.map((k) => {
+      const all = members.filter((m) => s(m.classId) === s(k.id)).map((m) => s(m.studentId));
+      const mine = chosen.length ? all.filter((x) => chosen.includes(x)) : null;
+      return { classId: s(k.id), studentIds: mine, who: mine ?? all };
+    }).filter((p) => !chosen.length || p.who.length);
+    const who = [...new Set(plan.flatMap((p) => p.who))];
+    const rows = await repo.findMany("NafsTest", { id: { in: tests.map((x) => x.testId) } }, { select: ["id", "settings"] });
+    const given: string[] = [];
+    for (const m of tests) {
+      const st = json<Record<string, unknown> | null>(rows.find((r) => s(r.id) === m.testId)?.settings, null) ?? {};
+      const by: Record<string, string> = { ...(st.sourceByClass && typeof st.sourceByClass === "object" ? (st.sourceByClass as Record<string, string>) : {}) };
+      for (const p of plan) {
+        by[p.classId] = source;
+        const row = await repo.upsert("NafsTestClass", { testId: m.testId, classId: p.classId }, { openAt, dueAt, timeLimitMin: minutes, studentIds: p.studentIds, releasedAt: null, createdById: actor.userId, createdAt: now }, { openAt, dueAt, timeLimitMin: minutes, studentIds: p.studentIds });
+        given.push(s(row.id));
+      }
+      await repo.updateMany("NafsTest", { id: m.testId }, { settings: { ...st, sourceByClass: by } });
+    }
+    // given again after a cancel on the Assigned page: it comes back (answers were never touched)
+    if (given.length) await repo.updateMany("AssignmentCancel", { kind: "NAFS_TEST", refId: { in: given }, restoredAt: null }, { restoredAt: now, restoredById: actor.userId }).catch(() => 0);
+    const st = who.length ? await repo.findMany("Student", { id: { in: who } }, { select: ["userId"] }) : [];
+    const names = tests.map((x) => x.code).join(", ");
+    if (st.length) await repo.createMany("Notification", st.map((x) => ({ userId: x.userId, type: "NEW_ASSIGNMENT", title: "New NAFS test", body: `${tests.length > 1 ? `${tests.length} NAFS booklets` : "NAFS booklet"}: ${names}.${dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : ""}`, link: "/student/nafs?part=tests", createdAt: now })));
+    await audit(repo, { actorId: actor.userId, action: "nafs.booklets.assign", entityType: "NafsTest", entityId: tests[0]?.testId ?? "", after: { booklets: tests.map((x) => x.code), classes: plan.map((p) => p.classId), students: who.length, chosen: chosen.length > 0, source, minutes }, at: now });
+    return { mode, booklets: tests.length, students: who.length, classes: plan.length, source, tests };
+  });
+  if (key) remember(key, run, now.getTime());
+  return run;
+}
+
+export { bookletSourceOf } from "./booklet-source";
 
 /** The booklet's test to report on: the one with the most results in the actor's classes (null = none given yet). */
 export async function bookletReportTest(repo: Repo, actor: Actor, code: string): Promise<{ testId: string | null; tests: number }> {

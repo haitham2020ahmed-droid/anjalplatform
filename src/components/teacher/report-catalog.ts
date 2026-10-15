@@ -57,7 +57,7 @@ const qs = (o: Record<string, string | number | undefined>) => new URLSearchPara
 const id = (v: string) => encodeURIComponent(v);
 /** /api/reports downloads (the route checks access): a PDF file, Excel and CSV. */
 const apiFiles = (kind: string, o: Record<string, string | number | undefined>): ReportFile[] =>
-  (["pdf", "xlsx", "csv"] as const).map((format) => ({ label: { pdf: "PDF file", xlsx: "Excel", csv: "CSV" }[format], href: `/api/reports?${qs({ kind, format, lang: "en", period: "TERM", ...o })}` }));
+  (["pdf", "xlsx", "csv"] as const).map((format) => ({ label: { pdf: "PDF file", xlsx: "Excel", csv: "CSV" }[format], href: `/api/reports?${qs({ kind, format, lang: "en", period: "TERM", ...o, ...(format === "pdf" ? { print: 1 } : {}) })}` }));
 
 /** The date range an address carries (?days=7|30|90 or ?range=LAST_7_DAYS|LAST_30_DAYS|TERM). */
 export function periodOf(q: URLSearchParams): ReportPeriod | undefined {
@@ -144,7 +144,7 @@ export const REPORTS: ReportDef[] = [
   // ---- Follow-up: early warning, alerts, interventions, family reports
   { key: "early-warning", category: "Follow-up", line: "alert", title: "🚨 Early warning", hint: "Drops, rises and up-down swings of every student, and who needs action now.",
     classUrl: (p) => `/teacher/reports/early-warning?${qs({ classId: p.classId })}`,
-    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }],
+    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId, print: 1 })}` }],
     match: on(/^\/teacher\/reports\/early-warning$/, "class") },
   { key: "family-reports", category: "Follow-up", line: "mail", title: "Family Reports", hint: "Monthly and weekly reports for parents: you add a note, the school admin approves.", send: true,
     classUrl: (p) => `/teacher/family-reports?${qs({ classId: p.classId })}`,

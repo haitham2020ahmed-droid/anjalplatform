@@ -10,6 +10,7 @@ import { shareManyAction } from "@/app/teacher/reports/actions";
 import { LineIcon } from "../ui/line-icon";
 import { NavSelect, PrintThisPage } from "./report-bar-client";
 import { carryQuery, DEFAULT_PERIOD, openReportUrl, REPORT_PERIODS, type ReportDef, type ReportMatch } from "./report-catalog";
+import { isPrintHref } from "@/lib/print-href";
 
 /**
  * The bar on top of every report (drawn by the page frame when the address is a report of the catalogue): back to
@@ -73,7 +74,7 @@ export async function ReportBar({ actor, report: r, at, search }: { actor: Actor
           <div className="absolute end-0 top-12 z-30 min-w-[14rem] rounded-xl bg-white p-1.5 shadow-xl ring-1 ring-slate-200">
             <PrintThisPage className="flex min-h-10 w-full items-center gap-2 rounded-lg px-3 text-start text-sm font-medium text-slate-700 hover:bg-slate-50" />
             {files.map((f) => (
-              <a key={f.href} href={f.href} download className="flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
+              <a key={f.href} href={f.href} {...(isPrintHref(f.href) ? { target: "_blank", rel: "noopener" } : { download: true })} className="flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
                 <LineIcon name="file" className="h-4 w-4" />{t(f.label)}
               </a>
             ))}

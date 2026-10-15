@@ -58,7 +58,7 @@ export async function DashboardTab({ actor, t, sp }: { actor: Actor; t: TFn; sp:
         <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("To")}<input type="date" name="to" defaultValue={r.to ?? ""} className={SEL} /></label>
         <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
         <a href={dashboardDownload("xlsx", classId, r)} className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">⬇ {t("Excel")}</a>
-        <a href={dashboardDownload("pdf", classId, r)} className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">⬇ {t("PDF")}</a>
+        <a href={dashboardDownload("pdf", classId, r)} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">⬇ {t("PDF")}</a>
         <PrintButton label={t("Print")} />
       </form>
       <nav aria-label={t("Dashboard")} className="flex flex-wrap gap-1.5 text-sm print:hidden">

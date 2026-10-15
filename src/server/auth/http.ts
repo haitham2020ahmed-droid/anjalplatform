@@ -65,6 +65,7 @@ export function isSameOriginPost(headers: { get(name: string): string | null }, 
 /**
  * Class QR sign-in (r76): the student pages are open without a session — /qr (type the short code), /qr/<token or
  * code> (the class's names) and /qr/signin (the form post). Exact paths only (never "/qrs…").
+ * r85: also the PRINTED class QR — /qr/c/<token> (names, then the class code) and /qr/c/signin (the form post).
  */
 export function isClassSignInPath(pathname: string): boolean {
   return pathname === "/qr" || pathname.startsWith("/qr/");

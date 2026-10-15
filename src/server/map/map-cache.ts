@@ -46,4 +46,4 @@ export function mapCache<T>(name: string, ms: number, max: number): MapCache<T> 
 }
 
 /** How long slowly-changing MAP data is kept at most (other processes' writes). */
-export const MAP_KEEP_MS = 10 * 60_000;
+export const MAP_KEEP_MS = 5 * 60_000; // r81: 10 → 5 minutes (512 MB plan)

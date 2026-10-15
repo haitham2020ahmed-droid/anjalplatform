@@ -19,6 +19,7 @@ import { mapTestHref } from "./href";
 import { STATUS_CHIP, STATUS_LABEL } from "./test-tab";
 import { RichInline } from "@/components/rich-inline";
 import { stripMarks } from "@/lib/inline-marks";
+import { withPrint } from "@/lib/print-href";
 
 type SP = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
@@ -49,7 +50,7 @@ export async function MapTestPage({ actor, t, id, sp }: { actor: Actor; t: TFn; 
     <>
       <ReportHeader back={{ href: `/teacher/map-center?${new URLSearchParams({ tab: "test", subject })}`, label: "MAP Test" }} icon="🧭" title={d.v.title}
         subtitle={`${t(d.v.kind === "AUTO" ? "Automatic MAP test (simulates MAP Growth)" : "Manual test")} · ${t(SUBJECT_NAME[subject])}`}
-        downloads={[{ href: dl("xlsx"), label: "Excel", icon: "📊" }, { href: dl("pdf"), label: "PDF", icon: "📄" }]}
+        downloads={[{ href: dl("xlsx"), label: "Excel", icon: "📊" }, { href: withPrint(dl("pdf")), label: "PDF", icon: "📄" }]}
         filters={d.v.subjects.length > 1 ? <div className="flex gap-2">{d.v.subjects.map((x) => <Link key={x} href={href({ subject: x })} className={`inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold ${x === subject ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{t(SUBJECT_NAME[x])}</Link>)}</div> : undefined}>
         {d.v.kind === "MANUAL" && <Link href={`${mapTestHref(id)}/preview`} className={BTN_SOFT}>👁 {t("Preview as students see it")}</Link>}
         {d.v.kind === "MANUAL" && <Link href={href({ view: "print" })} className={BTN_SOFT}>🖨 {t("Print with answer key")}</Link>}

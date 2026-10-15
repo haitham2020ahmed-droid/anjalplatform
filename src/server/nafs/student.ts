@@ -15,6 +15,7 @@ import { SKILL_BY_CODE } from "./framework";
 import { loadNafsQuestions, nafsIndex, type NafsKind } from "./bank";
 import { assignedTo, cleanAnswers, cleanScores, cleanTexts, gradeAnswers, json, markOf, type Answer } from "./tests";
 import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
+import { hiddenWorkKeys } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -36,17 +37,19 @@ export const nafsEndFor = (g: Row, t: Row, studentId: string, startedAt: unknown
 export interface MyNafsTest { id: string; title: string; questions: number; minutes: number | null; openAt: string | null; dueAt: string | null; startsLater: boolean; status: "TODO" | "IN_PROGRESS" | "DONE"; released: boolean; pct: number | null; practise: string[]; marking: boolean }
 
 /** The NAFS assignments of the student's classes that are for this student (online). */
-async function myGivenRows(repo: Repo, studentId: string): Promise<Row[]> {
+async function myGivenRows(repo: Repo, studentId: string, schoolId?: string | null): Promise<Row[]> {
   const classes = (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));
   if (!classes.length) return [];
   const given = await repo.findMany("NafsTestClass", { classId: { in: classes } }, { take: 200 });
-  return given.filter((g) => { const who = assignedTo(g); return !who || who.includes(studentId); });
+  // r82: cancelled on the teacher's Assigned page (for everyone or for this student) = gone from the NAFS icon too
+  const hidden = given.length && schoolId ? await hiddenWorkKeys(repo, studentId, schoolId) : new Set<string>();
+  return given.filter((g) => { const who = assignedTo(g); return (!who || who.includes(studentId)) && !hidden.has(`nafs_test:${s(g.id)}`); });
 }
 
 /** The NAFS tests assigned to the student. */
 export async function myNafsTests(repo: Repo, actor: Actor, now = new Date()): Promise<MyNafsTest[]> {
   const studentId = student(actor);
-  const given = await myGivenRows(repo, studentId);
+  const given = await myGivenRows(repo, studentId, actor.schoolId);
   if (!given.length) return [];
   const [tests, results] = await Promise.all([
     repo.findMany("NafsTest", { id: { in: [...new Set(given.map((g) => s(g.testId)))] }, deletedAt: null }, { select: ["id", "title", "questionIds", "timeLimitMin", "schoolId", "marks"] }),
@@ -83,7 +86,7 @@ export async function myNafsTests(repo: Repo, actor: Actor, now = new Date()): P
 /** The home badge: NAFS tests open now and not handed in yet. */
 export async function nafsToDoCount(repo: Repo, actor: Actor, now = new Date()): Promise<number> {
   if (actor.role !== "STUDENT" || !actor.studentId) return 0;
-  const given = await myGivenRows(repo, actor.studentId);
+  const given = await myGivenRows(repo, actor.studentId, actor.schoolId);
   if (!given.length) return 0;
   const [tests, done] = await Promise.all([
     repo.findMany("NafsTest", { id: { in: [...new Set(given.map((g) => s(g.testId)))] }, deletedAt: null }, { select: ["id"] }),

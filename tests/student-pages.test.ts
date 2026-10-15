@@ -3,7 +3,7 @@
  *  - the MAP dashboard data never shows a descriptor or Below / On / Above; points-to-goal math
  *  - programWork: the program's rows of My Work (MAP / RTI / NAFS / Curriculum)
  *  - studentMenuFlags: RTI only for Tier 2/3, NAFS only for students in a Grade 6 class
- *  - My Plans, Progress Report, My Skills and Family Report redirect; the new pages exist
+ *  - Progress Report, My Skills and Family Report redirect (r82: My Plans is a page again); the new pages exist
  *  - My Certificates: own certificates only
  */
 import { before, describe, test } from "node:test";
@@ -106,8 +106,9 @@ describe("student pages (b1): pure rules", () => {
     assert.equal(friendlyCertificateTitle({ kind: "MANUAL", title: "Star reader" }), "Star reader");
   });
 
-  test("redirects: My Plans → My Work; Progress Report and Family Report → My Reports (r68: My Skills is its own page again)", () => {
-    assert.match(read("src/app/student/plans/page.tsx"), /redirect\("\/student"\)/);
+  test("redirects: Progress Report and Family Report → My Reports (r68: My Skills is its own page again)", () => {
+    // owner r82: My Plans is its own page again (every plan sent to me, by type), no longer a redirect
+    assert.match(read("src/app/student/plans/page.tsx"), /studentPlans\(repo, actor/);
     assert.match(read("src/app/student/insights/page.tsx"), /redirect\("\/student\/reports/);
     assert.match(read("src/app/student/skills/page.tsx"), /mySkills\(/, "⭐ My Skills (owner r68): its own page, in the menu");
     assert.match(read("src/app/student/family/page.tsx"), /redirect\("\/student\/reports\?view=family"\)/);

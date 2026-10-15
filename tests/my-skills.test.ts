@@ -123,8 +123,10 @@ describe("⭐ My Skills (student)", () => {
     const me = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: sid }))!.userId }))!);
     const pv = await skillPlanForStudent(repo, me, s(np.id), now);
     assert.equal(pv.places[0].stars?.[0]?.status, "MASTERED", "⭐ in the NAFS plan");
-    // 4. the teacher's grid
-    const g = await skillsGrid(repo, teacher, { classId }, now);
+    // 4. the teacher's grid — r84: the skill reached this student through the NAFS PLAN, so it is on the Plans tab (and in
+    // By source / the Class report: `all`), not a Skills Grid column
+    assert.ok(!(await skillsGrid(repo, teacher, { classId }, now)).skills.some((k) => k.key === "fam:theme"), "r84: a plan's skill is not a Skills Grid column");
+    const g = await skillsGrid(repo, teacher, { classId, all: true }, now);
     assert.equal(g.cells[sid]["fam:theme"]?.status, "MASTERED", "⭐ in the teacher's Skills Grid");
     const col = g.skills.find((k) => k.key === "fam:theme")!;
     // r74: a column counts the students the skill is ASSIGNED to (here the NAFS assignment: this student)

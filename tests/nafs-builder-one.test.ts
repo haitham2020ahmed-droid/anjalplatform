@@ -266,6 +266,7 @@ describe("in the school's NAFS center", () => {
     const b = read("src/components/nafs/nafs-builder.tsx");
     assert.match(b, /keywords: `\$\{b\.genre\}/);
     assert.match(read("src/components/nafs/bank-tab.tsx"), /<Combo name="set"/);
-    assert.match(read("src/server/nafs/build.ts"), /readBooklets\(\)\.valid, \.\.\.readPracticeSets\(\)\.valid/);
+    // r84: from the light catalogs (titles, kinds, genres), never the files' full text
+    assert.match(read("src/server/nafs/build.ts"), /bookletCatalog\(\)\?\.list \?\? \[\]\), \.\.\.\(practiceCatalog\(\)\?\.list \?\? \[\]\)/);
   });
 });

@@ -120,6 +120,8 @@ export interface ReportDoc {
   links?: boolean;
   /** Footer text instead of "<title> · Confidential" (a document shared with students). */
   footer?: string;
+  /** 🖨 r85: the class's printable sign-in QR + class code in the header (a teacher's print of one class only). */
+  classSignIn?: { url: string; code: string; className: string } | null;
 }
 
 export function tableById(doc: ReportDoc, id: string): Extract<Section, { type: "table" }> | undefined {

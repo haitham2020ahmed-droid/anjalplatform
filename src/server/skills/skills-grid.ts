@@ -11,6 +11,12 @@
  * students). One star per student × skill everywhere (the same star in every source).
  * r78 (owner): "assigned" = EXACTLY the live rows of the teacher's Assigned page (assigned-skills.ts → teacher/assigned.ts
  * assignedWorkOfClasses): cancelled there = gone from every tab, number and report here.
+ * r82 (owner: "STILL all skills"): a teacher of the class sees only what THEY assigned (their own Assigned page;
+ * admin / coordinator: every teacher's), each assignment by the skill(s) the teacher CHOSE (chosen-skills.ts — never every
+ * skill of a set's questions); NAFS adaptive practice adds one column per target standard in a "NAFS" area (nafs-skills.ts).
+ * r84 (owner: "too crowded"): PLANS no longer add columns — the grid shows only the column pairs (single-skill assigns,
+ * Curriculum Map section assigns, a NAFS practice on ONE standard); a plan's skills are on the Plans tab
+ * (skills-plans.ts). By source and the Class report keep EVERY assigned pair (gridOf `all`), each student × skill once.
  * Light: members, names, the class's assignments (bounded, assigned-skills.ts) and the star rows of the assigned keys.
  */
 import type { Repo, Row } from "../seeding/repo";
@@ -23,7 +29,9 @@ import { MISMATCH_TEXT, selfCheckMismatch } from "./status-extras";
 import { countAnswers, countedSessions, engineOf, engineRows, fallbackFrom, readAnswers, starsMigrated, type Counted } from "./grid-fallback";
 import { isGuessing, rangeBounds, STAR_RANK, starFromAnswers, starFromHistory, TREND_BACK_DAYS, trendOf, type DateRange, type GuessCount, type StudentTrend, type Trend } from "./skills-trend";
 import { STRAND_LABEL, STRANDS, strandOf, type Strand } from "./my-skills";
-import { classAssignedSkills } from "./assigned-skills";
+import { classAssignedSkills, type PlanType } from "./assigned-skills";
+import { viewerCreators } from "../teacher/assigned";
+import { isNafsKey, nafsAnswers, nafsCells, nafsColumn, targetOfKey, type NafsCell } from "./nafs-skills";
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { shortStandard } from "../../lib/report-columns";
 import { ASSIGN_SOURCES, isAssignSource, type AssignSource } from "../../lib/assign-source";
@@ -132,7 +140,14 @@ export interface ClassSkills {
   guesses?: Record<string, Record<string, GuessCount>>;
   /** r75: the date filter (empty = the whole year) and the day the trend compares with */
   range?: DateRange; trendSince?: string;
+  /** r84: student → key → its column sources, for the pairs that are Skills Grid COLUMNS (absent = every pair is a column) */
+  cols?: Record<string, Record<string, AssignSource[]>>;
+  /** r84: the class's live plans (their pairs are in stars / pairs too) */
+  plans?: ClassPlan[];
 }
+
+/** r84: one live plan of the class: student → the plan's keys for them; `closed` = the teacher pressed "Close plan" */
+export interface ClassPlan { id: string; title: string; type: PlanType; sentAt: string; createdById: string; students: Record<string, string[]>; closed: boolean }
 
 const STATUS_READ = ["studentId", "skillKey", "level", "status", "skillId", "answered", "correct", "score", "startedAt", "masteredAt", "reviewDueAt", "needsSupportAt", "selfCheck", "updatedAt", "history"];
 /** at most this many star rows are read for one class (assigned pairs × levels) */
@@ -158,17 +173,23 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
   const schoolId = s(klass.schoolId);
   const ids = [...new Set(await classMembers(repo, classId))]; // r70 audit: each student once (a doubled membership row)
   if (!ids.length) return { ...empty, className: s(klass.name) };
-  const ix = await skillKeyIndex(repo, schoolId);
+  // r82: a teacher of the class sees what THEY assigned (their Assigned page); the admin / a coordinator: every teacher's
+  const [ix, creators] = await Promise.all([skillKeyIndex(repo, schoolId), viewerCreators(repo, actor, [classId])]);
   // r75: with dates, only the assignments made inside them
-  const [names, assigned, migrated, sidx] = await Promise.all([studentNames(repo, ids), classAssignedSkills(repo, classId, ids, ix, b.on ? { since: b.start, until: b.end } : undefined), starsMigrated(repo, schoolId), schoolSkillIndex(repo, schoolId)]);
-  const keys = [...assigned.sourcesOf.keys()];
+  const [names, assigned, migrated, sidx] = await Promise.all([studentNames(repo, ids), classAssignedSkills(repo, classId, ids, ix, b.on ? { since: b.start, until: b.end } : undefined, creators), starsMigrated(repo, schoolId), schoolSkillIndex(repo, schoolId)]);
+  const allKeys = [...assigned.sourcesOf.keys()];
+  // r82: the NAFS practice columns get their stars from the NAFS practice answers (nafs-skills.ts), never SkillStatus
+  const keys = allKeys.filter((k) => !isNafsKey(k));
+  const nafs = assigned.nafsPractices?.length && allKeys.some(isNafsKey)
+    ? nafsCells(await nafsAnswers(repo, assigned.nafsPractices, ids, b.end).catch(() => [] as Row[]), { end: b.end, cut, start: b.start, on: b.on })
+    : new Map<string, NafsCell>();
   // the star rows of the assigned keys, with their history (the trend reads it: no second query)
   const rows: Row[] = [];
   if (keys.length) for (let i = 0; i < ids.length && rows.length < STATUS_TAKE; i += 400) rows.push(...(await repo.findMany("SkillStatus", { studentId: { in: ids.slice(i, i + 400) }, ...(keys.length <= 400 ? { skillKey: { in: keys } } : {}) }, { select: STATUS_READ, take: STATUS_TAKE - rows.length })));
   const keySet = new Set(keys);
   const rowsOf = new Map<string, Row[]>();
   for (const r of rows) { if (!keySet.has(s(r.skillKey))) continue; const k = `${s(r.studentId)}|${s(r.skillKey)}`; (rowsOf.get(k) ?? rowsOf.set(k, []).get(k)!).push(r); }
-  const pairList = ids.flatMap((id) => [...(assigned.byStudent.get(id)?.keys() ?? [])].map((k) => [id, k] as const));
+  const pairList = ids.flatMap((id) => [...(assigned.byStudent.get(id)?.keys() ?? [])].filter((k) => !isNafsKey(k)).map((k) => [id, k] as const));
   // a star must be recomputed from the answers when its rows have no usable history (or, before the migration, no row)
   const recompute = (id: string, k: string, at: number) => { const pr = rowsOf.get(`${id}|${k}`); return pr?.length ? starFromHistory(pr, at) === null : !migrated; };
   const needAll = pairList.some(([id, k]) => recompute(id, k, cut) || (b.past && recompute(id, k, b.end)));
@@ -209,7 +230,16 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
   for (const id of ids) {
     stars[id] = {}; pairs[id] = {}; before[id] = {}; guesses[id] = {};
     for (const [k, src] of assigned.byStudent.get(id) ?? []) {
-      const cur = currentRows(rowsOf.get(`${id}|${k}`) ?? []).get(k);
+      if (isNafsKey(k)) {
+        // r82: a NAFS practice target — its star from the student's NAFS practice answers (nafs-skills.ts)
+        const c = nafs.get(`${id}|${k}`);
+        const v = c?.now ?? NOT_STARTED_VIEW(k);
+        stars[id][k] = c?.inRange ? { ...v, answered: c.inRange.answered, correct: c.inRange.correct } : b.on ? { ...v, answered: 0, correct: 0 } : v;
+        pairs[id][k] = ASSIGN_SOURCES.filter((x) => src.has(x));
+        before[id][k] = c?.before ?? "NOT_STARTED";
+        continue;
+      }
+      const cur =currentRows(rowsOf.get(`${id}|${k}`) ?? []).get(k);
       const row = cur ? viewOf(cur) : undefined;
       const real = row && (row.status !== "NOT_STARTED" || row.answered > 0 || row.updatedAt) ? row : undefined;
       let v = real ?? est.get(id)?.get(k);
@@ -224,7 +254,8 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
       const gc = guess.get(`${id}|${k}`); if (gc) guesses[id][k] = gc;
     }
   }
-  const skills = keys.map((key) => {
+  const skills = allKeys.map((key) => {
+    if (isNafsKey(key)) { const c = nafsColumn(key); return { key, name: c.name, skillId: null, strand: "NAFS" as Strand, code: c.code, short: c.short, sources: assigned.sourcesOf.get(key) ?? [] }; }
     const sid = assigned.skillIdOf.get(key) ?? ix.skillsOf.get(key)?.[0] ?? null;
     const row = sid ? sidx.skillOf.get(sid) ?? null : null;
     const name = ix.nameOf.get(key) ?? row?.name ?? key;
@@ -232,7 +263,38 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
     return { key, name, skillId: sid, strand: strandOf(key, row), code, short: shortStandard(code, name, 4).short, sources: assigned.sourcesOf.get(key) ?? [] };
   });
   const students = ids.map((id) => ({ id, name: names.get(id)?.name ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name));
-  return { classes, classId, className: s(klass.name), migrated, estimated, students, skills, stars, pairs, before, guesses, range, trendSince: empty.trendSince };
+  // r84: which pairs are Skills Grid columns, and the plans (with the teacher's "Close plan" flags: one row)
+  const cols: NonNullable<ClassSkills["cols"]> = {};
+  for (const id of ids) cols[id] = Object.fromEntries([...(assigned.cols?.get(id) ?? [])].filter(([k]) => stars[id]?.[k]).map(([k, src]) => [k, ASSIGN_SOURCES.filter((x) => src.has(x))]));
+  const closed = assigned.plans?.length ? await closedPlans(repo, schoolId, classId) : {};
+  const plans: ClassPlan[] = (assigned.plans ?? []).map((p) => ({
+    id: p.id, title: p.title, type: p.type, sentAt: new Date(p.sentAt || 0).toISOString(), createdById: p.createdById, closed: Boolean(closed[p.id]),
+    students: Object.fromEntries([...p.byStudent].map(([st, ks]) => [st, [...ks].filter((k) => stars[st]?.[k])] as const).filter(([, ks]) => ks.length)),
+  })).filter((p) => Object.keys(p.students).length);
+  return { classes, classId, className: s(klass.name), migrated, estimated, students, skills, stars, pairs, before, guesses, range, trendSince: empty.trendSince, cols, plans };
+}
+
+/** r84: the SchoolSetting row that keeps a class's closed plans (the teacher's "Close plan"): plan id → when */
+export const closedPlansKey = (classId: string) => `plans.closed:${classId}`;
+export async function closedPlans(repo: Repo, schoolId: string, classId: string): Promise<Record<string, string>> {
+  try {
+    const row = (await repo.findMany("SchoolSetting", { schoolId, key: closedPlansKey(classId) }, { take: 1 }))[0];
+    let v: unknown = row?.value;
+    if (typeof v === "string") v = JSON.parse(v);
+    return v && typeof v === "object" && !Array.isArray(v) ? v as Record<string, string> : {};
+  } catch { return {}; }
+}
+
+/** Pure (r84): only the Skills Grid COLUMN pairs (plans' skills leave the grid); a view without `cols` is unchanged. */
+export function columnsOnly(d: ClassSkills): ClassSkills {
+  if (!d.cols) return d;
+  const stars: ClassSkills["stars"] = {}, pairs: ClassSkills["pairs"] = {};
+  for (const st of d.students) {
+    stars[st.id] = {}; pairs[st.id] = {};
+    for (const k of Object.keys(d.cols[st.id] ?? {})) if (d.stars[st.id]?.[k]) { stars[st.id][k] = d.stars[st.id][k]; pairs[st.id][k] = d.cols[st.id][k]; }
+  }
+  const skills = d.skills.filter((k) => d.students.some((st) => pairs[st.id][k.key])).map((k) => ({ ...k, sources: ASSIGN_SOURCES.filter((x) => d.students.some((st) => pairs[st.id][k.key]?.includes(x))) }));
+  return { ...d, skills, stars, pairs };
 }
 
 /** Pure (r75): a student's trend over their assigned pairs in this view (null: nothing assigned / no trend data). */
@@ -270,10 +332,13 @@ export function skillCounts(d: ClassSkills, key: string): Pick<GridSkill, "maste
   };
 }
 
-/** Pure: the grid view of the class data (filters, column order, groups, row counts, page). */
-export function gridOf(d: ClassSkills, opts: { plan?: GridPlan; weakOnly?: boolean; strand?: Strand | null; page?: number } = {}): SkillsGrid {
+/**
+ * Pure: the grid view of the class data (filters, column order, groups, row counts, page). r84: the Skills Grid shows the
+ * COLUMN pairs only; `all` = every assigned pair, plans' skills included (By source's star grid, the Class report).
+ */
+export function gridOf(d: ClassSkills, opts: { plan?: GridPlan; weakOnly?: boolean; strand?: Strand | null; page?: number; all?: boolean } = {}): SkillsGrid {
   const plan: GridPlan = opts.plan ?? "ALL";
-  const v = onlySource(d, plan);
+  const v = onlySource(opts.all ? d : columnsOnly(d), plan);
   let skills: GridSkill[] = v.skills.map((k) => ({ key: k.key, name: k.name, skillId: k.skillId, strand: k.strand, code: k.code, short: k.short, sources: k.sources, ...skillCounts(v, k.key) }));
   if (opts.strand) skills = skills.filter((k) => k.strand === opts.strand);
   if (opts.weakOnly) skills = skills.filter((k) => isWeakForClass(k.mastered, k.total));
@@ -307,7 +372,7 @@ export function gridOf(d: ClassSkills, opts: { plan?: GridPlan; weakOnly?: boole
   };
 }
 
-export async function skillsGrid(repo: Repo, actor: Actor, opts: { classId?: string | null; plan?: GridPlan; weakOnly?: boolean; strand?: Strand | null; page?: number; range?: DateRange | null } = {}, now = new Date()): Promise<SkillsGrid> {
+export async function skillsGrid(repo: Repo, actor: Actor, opts: { classId?: string | null; plan?: GridPlan; weakOnly?: boolean; strand?: Strand | null; page?: number; range?: DateRange | null; all?: boolean } = {}, now = new Date()): Promise<SkillsGrid> {
   return gridOf(await classSkills(repo, actor, { classId: opts.classId, range: opts.range }, now), opts);
 }
 
@@ -325,6 +390,14 @@ export async function cellDetail(repo: Repo, actor: Actor, studentId: string, ke
     const m = await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] });
     const mine = new Set((await readableClasses(repo, actor)).map((c) => s(c.id)));
     if (!m.some((x) => mine.has(s(x.classId)))) throw new ForbiddenError("This student is not in your classes.");
+  }
+  if (isNafsKey(key)) {
+    // r82: a NAFS practice column — the student's NAFS practice answers of that target (one bounded read)
+    const ans = await repo.findMany("NafsPracticeAnswer", { studentId, target: targetOfKey(key) }, { select: ["practiceId", "studentId", "target", "difficulty", "correct", "at"], orderBy: [{ field: "at", dir: "desc" }], take: 500 }).catch(() => [] as Row[]);
+    const v = nafsCells(ans, { end: Number.MAX_SAFE_INTEGER, cut: Number.MAX_SAFE_INTEGER }).get(`${studentId}|${key}`)?.now ?? NOT_STARTED_VIEW(key);
+    const name = (await studentNames(repo, [studentId])).get(studentId)?.name ?? "Student";
+    const c = nafsColumn(key);
+    return { student: name, skill: [c.code, c.name].filter(Boolean).join(" "), key, view: v, accuracy: v.answered ? Math.round((100 * v.correct) / v.answered) : null, progressAt: v.updatedAt, reviews: [], history: [], mismatch: null };
   }
   const rows = await repo.findMany("SkillStatus", { studentId, skillKey: key });
   const r = currentRows(rows).get(key);

@@ -11,7 +11,8 @@ import { createNafsPractice, deleteNafsPractice } from "@/server/nafs/practice";
 import { nafsBankPage, retagNafsQuestion, reviewNafsDraft, saveNafsQuestion, setNafsFamilyLink, setNafsHidden, type BankPage, type BankSource, type NafsQuestionInput } from "@/server/nafs/bank";
 import { changeNafsTime, deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
 import { generateNafsDrafts, type AiNafsInput } from "@/server/nafs/ai";
-import { assignBooklets, ensureBookletTests } from "@/server/nafs/booklet-center";
+import { assignBookletsTo } from "@/server/nafs/booklet-center";
+import type { BookletAssignState } from "@/components/nafs/booklet-assign";
 import type { SimulationSettings } from "@/server/nafs/framework";
 import { log } from "@/server/monitoring/log";
 import { logError } from "@/server/teacher/extras";
@@ -317,33 +318,37 @@ export async function assignOnlineAction(form: FormData): Promise<void> {
 }
 
 /**
- * r69 Ministry booklets: the ticked booklets (one or several) → "Assign online" to a class / chosen students (each
- * booklet whole, its own time and dates), or "Get ready to print" (each booklet becomes a NAFS test: print, key, sheets).
+ * r82 Ministry booklets (owner: "pressing Assign does nothing"): the assign panel (the list's sticky bar or an opened
+ * booklet's Assign) → the ticked booklets (1–10, field "b") with their Source (required, r74; NAFS preselected), the
+ * class(es), whole class or chosen students, dates, time and mode (Online / Paper). The answer comes back IN the panel
+ * (never a redirect that lands far from the button): "Given to N students — in their NAFS icon", the print links of
+ * Paper, or a readable message. A double press: the button is disabled while it runs and the press token makes the
+ * server return the first answer (nothing is given twice).
  */
-export async function assignBookletsAction(form: FormData): Promise<void> {
-  const ret0 = str(form.get("back"));
-  const ret = ret0.startsWith("/teacher/nafs?") ? ret0 : "/teacher/nafs?tab=booklets";
+export async function assignBookletsNowAction(_prev: BookletAssignState | null, form: FormData): Promise<BookletAssignState> {
   const codes = form.getAll("b").map(String).filter(Boolean);
-  // on an error: back to the form with the booklets still ticked (the message before the #assign anchor)
-  const ticked = `${ret}${codes.map((c) => `&b=${encodeURIComponent(c)}`).join("")}`;
-  let msg = "";
   try {
     const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
     const { t } = await getT();
-    if (!codes.length) back(ret, t("Choose at least one booklet."));
-    let to = "";
-    if (str(form.get("do")) === "print") {
-      const made = await ensureBookletTests(repo, actor, codes);
-      to = `/teacher/nafs?tab=booklets&ready=${made.map((m) => encodeURIComponent(m.testId)).join(",")}&msg=${encodeURIComponent(t("{n} booklet(s) ready to print.", { n: made.length }))}`;
-    } else {
-      const sids = form.getAll("sid").map(String).filter(Boolean);
-      const r = await assignBooklets(repo, actor, { codes, classId: str(form.get("classId")), studentIds: sids.length ? sids : null, minutes: str(form.get("minutes")) ? Number(form.get("minutes")) : null, openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true) });
-      to = `${ret}&msg=${encodeURIComponent(t("{n} booklet(s) given online to {s} student(s). They find them in their NAFS icon.", { n: r.booklets, s: r.students }))}`;
-    }
+    if (!codes.length) return { ok: false, message: t("Choose at least one booklet.") };
+    const mode = str(form.get("mode")) === "PAPER" ? "PAPER" : "ONLINE";
+    const some = str(form.get("who")) === "some";
+    const sids = some ? form.getAll("sid").map(String).filter(Boolean) : [];
+    if (some && !sids.length) return { ok: false, message: t("Choose at least one student.") };
+    const classIds = form.getAll("classId").map(String).filter(Boolean);
+    if (mode === "ONLINE" && !classIds.length) return { ok: false, message: t("Choose a class.") };
+    const r = await assignBookletsTo(repo, actor, {
+      codes, classIds, studentIds: some ? sids : null, source: str(form.get("source")) || null, mode, token: str(form.get("token")) || null,
+      minutes: str(form.get("minutes")) ? Number(form.get("minutes")) : null, openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true),
+    });
     revalidatePath("/teacher/nafs");
-    redirect(to);
-  } catch (e) { if (isNextControl(e)) throw e; msg = await messageOf(e, "assignBooklets"); }
-  redirect(`${ticked}&msg=${encodeURIComponent(msg)}#assign`);
+    revalidatePath("/teacher/assigned");
+    if (r.mode === "PAPER") return { ok: true, message: t("{n} booklet(s) ready to print.", { n: r.booklets }), ready: r.tests, students: 0 };
+    return { ok: true, message: t("Given to {n} students — in their NAFS icon.", { n: r.students }), students: r.students, ready: [] };
+  } catch (e) {
+    if (isNextControl(e)) throw e;
+    return { ok: false, message: await messageOf(e, "assignBooklets") };
+  }
 }
 
 /** One assignment's time and open / due dates. */

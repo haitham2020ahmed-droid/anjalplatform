@@ -22,6 +22,7 @@ import { passageForText } from "../admin/passages";
 import { CONTENT_SKILLS, difficultyOfLevel, difficultyOfStats, domainOf, ensureNafsFramework, isDifficulty, isMoeCode, isNafsCode, isProcess, LEVEL_OF_DIFFICULTY, MOE_STANDARDS, NAFS_SKILLS, SKILL_BY_CODE, SKILL_OF_PROCESS, STATS_MIN_ATTEMPTS, standardFor, textTypeOf, type Difficulty, type NafsDomain, type NafsProcess } from "./framework";
 import { sweptWeakMap } from "../cache/idle";
 import { modelVersion } from "../cache/bank-version";
+import { heavyBuild } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 const on = (v: unknown) => v === true || v === 1 || v === "1" || v === "true";
@@ -76,10 +77,10 @@ const seeded = new WeakSet<object>();
  * minute, so nearly every click in the NAFS center read the whole linked bank again (~25 reads, ~10 000 rows).
  * Concurrent misses share one build; a few schools at most (swept by cache/idle).
  */
-const cache = sweptWeakMap<{ at: number; v: string; entries: NafsEntry[] }>("nafs.bank.cache", 10 * 60_000);
+const cache = sweptWeakMap<{ at: number; v: string; entries: NafsEntry[] }>("nafs.bank.cache", 5 * 60_000);
 const building = new WeakMap<object, Map<string, { v: string; p: Promise<NafsEntry[]> }>>();
-const INDEX_MS = 10 * 60_000;
-const MAX_SCHOOLS = 8;
+const INDEX_MS = 5 * 60_000; // r81: 10 → 5 minutes (512 MB plan)
+const MAX_SCHOOLS = 2; // r81: one school per server in practice (512 MB plan)
 /** The tables the index is built from (their write counters key the cache). */
 const INDEX_MODELS = ["Question", "Skill", "SkillFamily", "NafsSkillFamily", "NafsBankItem", "QuestionType", "Curriculum", "Grade"];
 const indexVersion = () => modelVersion(...INDEX_MODELS);
@@ -101,7 +102,8 @@ export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()):
   if (!b) { b = new Map(); building.set(repo, b); }
   const busy = b.get(schoolId);
   if (busy && busy.v === v) return busy.p;
-  const p: Promise<NafsEntry[]> = buildIndex(repo, schoolId).then((entries) => {
+  // r84: a big build — one at a time with the other big builds of this process (monitoring/memory.ts heavyBuild)
+  const p: Promise<NafsEntry[]> = heavyBuild(() => buildIndex(repo, schoolId)).then((entries) => {
     let m = cache.get(repo);
     if (!m) { m = new Map(); cache.set(repo, m); }
     m.delete(schoolId);
@@ -113,8 +115,20 @@ export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()):
   return p;
 }
 
+/**
+ * 🧠 r84 memory: the index is light — ids, codes, flags and numbers only (never a stem, an option or a passage: those
+ * are read for the rows actually shown, loadNafsQuestions). The codes, processes, standards, set codes and passage ids
+ * repeat thousands of times: one shared copy of each (the database driver makes a new string for every row).
+ */
+function interner(): (v: string | null) => string | null {
+  const seen = new Map<string, string>();
+  return (v) => { if (v === null) return null; const h = seen.get(v); if (h !== undefined) return h; seen.set(v, v); return v; };
+}
+
 async function buildIndex(repo: Repo, schoolId: string): Promise<NafsEntry[]> {
   await ensureFramework(repo);
+  const one = interner();
+  const shared = <T extends string | null>(v: T): T => one(v) as T;
   const [links, fams, mc, grades, items] = await Promise.all([
     repo.findMany("NafsSkillFamily", {}, { select: ["nafsCode", "familyId", "source"] }),
     repo.findMany("SkillFamily", {}, { select: ["id", "code", "category"] }),
@@ -160,7 +174,7 @@ async function buildIndex(repo: Repo, schoolId: string): Promise<NafsEntry[]> {
     const code = isNafsCode(it?.nafsCode) && domainOf(s(it?.nafsCode)) !== "PIRLS" ? s(it?.nafsCode) : firstContent ?? (fromProcess ? SKILL_OF_PROCESS[fromProcess] : null);
     if (!code) continue;
     const process = isProcess(it?.process) ? (s(it?.process) as NafsProcess) : fromProcess ?? SKILL_BY_CODE.get(code)!.process;
-    out.push({ id: s(q.id), nafsCode: code, process, domain: domainOf(code), passageId: q.passageId ? s(q.passageId) : null, own: false, hidden: on(it?.hidden), draft: false, copyOfId: null, cat: catOf.get(fam) ?? null, standard: standardFor(it?.standard, code, s(q.stem)), kind: "MCQ", booklet: null, bookletN: null, practiceSet: null, difficulty: diffOf(it, q) });
+    out.push({ id: s(q.id), nafsCode: shared(code), process: shared(process), domain: domainOf(code), passageId: shared(q.passageId ? s(q.passageId) : null), own: false, hidden: on(it?.hidden), draft: false, copyOfId: null, cat: catOf.get(fam) ?? null, standard: shared(standardFor(it?.standard, code, s(q.stem))), kind: "MCQ", booklet: null, bookletN: null, practiceSet: null, difficulty: diffOf(it, q) });
   }
   // the school's own questions and the NAFS model booklets' questions (platform content, loaded for the school)
   const own = items.filter((x) => on(x.own) || x.booklet);
@@ -175,10 +189,10 @@ async function buildIndex(repo: Repo, schoolId: string): Promise<NafsEntry[]> {
     const set = from && isPracticeSetCode(from) ? from : null;
     const booklet = from && !set ? from : null;
     out.push({
-      id: s(q.id), nafsCode: code, process: isProcess(it.process) ? (s(it.process) as NafsProcess) : SKILL_BY_CODE.get(code)!.process, domain: domainOf(code), passageId: q.passageId ? s(q.passageId) : null,
+      id: s(q.id), nafsCode: shared(code), process: shared(isProcess(it.process) ? (s(it.process) as NafsProcess) : SKILL_BY_CODE.get(code)!.process), domain: domainOf(code), passageId: shared(q.passageId ? s(q.passageId) : null),
       own: !from, hidden: on(it.hidden), draft: on(it.draft), copyOfId: it.copyOfId ? s(it.copyOfId) : null, cat: null,
-      standard: standardFor(it.standard, code, s(q.stem)), kind: kindOf(q.typeId), booklet, bookletN: from && it.bookletN !== null && it.bookletN !== undefined ? Number(it.bookletN) : null,
-      practiceSet: set, difficulty: isDifficulty(Number(it.difficulty)) ? (Number(it.difficulty) as Difficulty) : difficultyOfLevel(q.difficultyLevel),
+      standard: shared(standardFor(it.standard, code, s(q.stem))), kind: kindOf(q.typeId), booklet: shared(booklet), bookletN: from && it.bookletN !== null && it.bookletN !== undefined ? Number(it.bookletN) : null,
+      practiceSet: shared(set), difficulty: isDifficulty(Number(it.difficulty)) ? (Number(it.difficulty) as Difficulty) : difficultyOfLevel(q.difficultyLevel),
     });
   }
   return out;

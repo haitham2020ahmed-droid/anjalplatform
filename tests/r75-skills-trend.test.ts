@@ -189,8 +189,9 @@ describe("r75 ⭐ Student Skills: trend ⬆️➖⬇️, guessing ⚡, From – 
   test("the page: dates on every tab (From – To + presets), arrows and ⚡ by the names, 'In one line' + summary on every tab; EN + AR", () => {
     const src = read("src/app/teacher/reports/skills-grid/page.tsx");
     for (const x of ["<DatePresets", "<DateInputs range={range} t={t} />", 'name="from"', 'name="to"', "Whole year", 'data-testid="one-line"', "In one line", "<StudentMarks trend={st.trend} guessing={st.guessing}", "<StudentMarks trend={x.trend} guessing={x.guessing}", "<InfoTip text={TREND_RULE} />", "<InfoTip text={GUESS_RULE} />", "skillsClassSummary(r)", "skillsSourceSummary(cards", "skillsGridSummary(", "parseRange(sp.from, sp.to)", 'data-testid="report-trend"']) assert.ok(src.includes(x), x);
-    assert.equal(src.match(/<ReportSummary summary=\{/g)?.length, 3, "a summary at the end of each tab");
-    assert.equal(src.match(/<OneLine l=\{/g)?.length, 3, "one line at the top of each tab");
+    // r84: + the Plans tab (its one line; the summary of the opened plan)
+    assert.equal(src.match(/<ReportSummary summary=\{/g)?.length, 4, "a summary at the end of each tab");
+    assert.equal(src.match(/<OneLine l=\{/g)?.length, 4, "one line at the top of each tab");
     // the dates travel with every link and tab
     assert.match(src, /from: range\.from \?\? "", to: range\.to \?\? ""/);
     for (const k of [TREND_RULE, GUESS_RULE, GUESS_TIP, ...Object.values(TREND_WORD), "This month", "Last month", "This term", "Whole year", "From", "To", "Dates", "In one line", "Answering too fast: {n}", "{pct}% of stars won", R.scTrend, R.oneGrid, R.oneReport, R.oneSource]) has(k);

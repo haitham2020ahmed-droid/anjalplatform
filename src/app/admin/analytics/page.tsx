@@ -45,9 +45,9 @@ export default async function SchoolAnalytics() {
       <PageHeader back={{ href: "/admin", label: "Home" }} icon="chart" title="School Analytics" subtitle={`${d.period} · ${t("Platform answers only; imported MAP results are on each student's page.")}`}>
         <div className="flex flex-wrap items-center gap-1.5 print:hidden" aria-label={t("Downloads")}>
           <span className="text-xs font-semibold text-slate-500">{t("School summary")}</span>
-          {(["pdf", "xlsx", "csv"] as const).map((f) => <a key={`s${f}`} href={dl("school", f)} download className={btn}><LineIcon name="download" className="h-3.5 w-3.5" />{f === "xlsx" ? "Excel" : f.toUpperCase()}</a>)}
+          {(["pdf", "xlsx", "csv"] as const).map((f) => <a key={`s${f}`} href={dl("school", f)} {...(f === "pdf" ? { target: "_blank", rel: "noopener" } : { download: true })} className={btn}><LineIcon name="download" className="h-3.5 w-3.5" />{f === "xlsx" ? "Excel" : f.toUpperCase()}</a>)}
           <span className="ms-2 text-xs font-semibold text-slate-500">{t("Standards")}</span>
-          {(["pdf", "xlsx", "csv"] as const).map((f) => <a key={`t${f}`} href={dl("standards", f)} download className={btn}><LineIcon name="download" className="h-3.5 w-3.5" />{f === "xlsx" ? "Excel" : f.toUpperCase()}</a>)}
+          {(["pdf", "xlsx", "csv"] as const).map((f) => <a key={`t${f}`} href={dl("standards", f)} {...(f === "pdf" ? { target: "_blank", rel: "noopener" } : { download: true })} className={btn}><LineIcon name="download" className="h-3.5 w-3.5" />{f === "xlsx" ? "Excel" : f.toUpperCase()}</a>)}
         </div>
       </PageHeader>
 

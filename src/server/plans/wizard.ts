@@ -21,15 +21,16 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { requireSource } from "../assign/source";
+import { SOURCE_REQUIRED, type AssignSource } from "../assign/source";
+import { newRowId, pairsKey, planSource, recentTwin, sendLock, sendPartsBatch } from "./batch-send";
 import { isGrammarCode } from "../grammar/grammar";
-import { accessibleClasses, assertSchoolSkill, assignSkill, NO_CURRICULUM_MESSAGE, type Track } from "../teacher/assign";
+import { accessibleClasses, assertSchoolSkill, NO_CURRICULUM_MESSAGE, type Track } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
 import { autoItems, bandSettings, groupPools, mapProfiles, type GroupKey, type Subject } from "../map/map-plan";
 import { continuumFor, continuumIndex } from "../map/continuum";
 import { studentSkillPlans } from "../curriculum-map/plans";
 import { assignedSkills } from "../student/assigned";
-import { tagProgram, type Program } from "./program";
+import type { Program } from "./program";
 import { nafsAreaList as sharedNafsAreaList, nafsAreaSkills, publishedQuestionCounts } from "./nafs-areas";
 import { SOURCE_LABEL, sourceOfPlanKind, sourceOfWork, type SourceKey, type SourceLabel } from "../../lib/source-tags";
 import type { WorkKind } from "../../lib/work-kinds";
@@ -351,14 +352,21 @@ export interface AssignPlanResult { planId: string; skills: number; students: nu
 /** Builds the plan again on the server, applies the teacher's edits and assigns it. */
 export async function assignPlan(repo: Repo, actor: Actor, input: AssignPlanInput, now = new Date()): Promise<AssignPlanResult> {
   assertCan(actor, "assignments:create");
-  const source = requireSource(input.source);
+  // r74 + owner r82: MAP / NAFS / Curriculum / RTI plans are that program's work; a Custom plan needs the teacher's choice
+  const type = planTypeOf(input.type);
+  const source = planSource(type ? PROGRAM_OF_TYPE[type] : null, input.source);
+  if (!source) throw new ValidationError(SOURCE_REQUIRED);
+  return sendLock(actor, s(input.classId), () => assignPlanNow(repo, actor, input, source, now));
+}
+
+async function assignPlanNow(repo: Repo, actor: Actor, input: AssignPlanInput, source: AssignSource, now: Date): Promise<AssignPlanResult> {
   const p = await proposePlan(repo, actor, input);
   const keep = input.keep ? new Set(input.keep.map(String)) : null;
   const skills = p.skills.filter((k) => !keep || keep.has(k.id));
   const extra = [...new Set((input.add ?? []).map(String).filter(Boolean))].filter((id) => !skills.some((k) => k.id === id));
   if (extra.length) {
-    for (const id of extra) await assertSchoolSkill(repo, actor.schoolId, id); // any grade of THIS school
-    const rows = await skillRows(repo, actor.schoolId, extra);
+    const rows = await skillRows(repo, actor.schoolId, extra); // any grade of THIS school
+    for (const id of extra) if (!rows.has(id)) await assertSchoolSkill(repo, actor.schoolId, id); // says why (removed / another school)
     for (const id of extra) {
       const k = rows.get(id);
       if (k) skills.push({ ...k, track: trackFor(p.type, k.grammar), reason: "Added by the teacher", studentIds: p.students.map((x) => x.id) });
@@ -374,32 +382,33 @@ export async function assignPlan(repo: Repo, actor: Actor, input: AssignPlanInpu
   if (!skills.length) throw new ValidationError(p.notes.length ? `Nothing to assign. ${p.notes.join(" ")}` : "Choose at least one skill.");
   if (skills.length > MAX_PLAN_SKILLS) throw new ValidationError(`A plan can have at most ${MAX_PLAN_SKILLS} skills.`);
   const klass = await assertClassAccess(repo, actor, p.classId);
-  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
-  const classSize = await repo.count("ClassMembership", { classId: klass.id, leftAt: null });
+  const [gradeRow, memberRows] = await Promise.all([
+    repo.findUnique("Grade", { id: klass.gradeId }),
+    repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }),
+  ]);
+  const grade = Number(gradeRow?.level ?? 0);
   const title = (s(input.title).replace(/\s+/g, " ").trim() || p.title).slice(0, 191);
   const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
-  const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: KIND[p.type], targetCorrect: null, gradeLevel: grade, note, createdById: actor.userId, createdAt: now });
-  const assignmentIds: string[] = [];
-  const students = new Set<string>();
+  // Send twice = once (a double press, a reload): the first plan comes back
+  const twin = await recentTwin(repo, actor, { classId: s(klass.id), title, kind: KIND[p.type], pairs: pairsKey(skills.flatMap((k) => k.studentIds.map((st) => [st, k.id] as [string, string]))) }, now);
+  if (twin) return { planId: twin.planId, skills: twin.skills, students: twin.students, assignmentIds: twin.assignmentIds, notes: p.notes };
+  const planId = newRowId();
+  await repo.create("SkillPlan", { id: planId, schoolId: klass.schoolId, classId: klass.id, title, kind: KIND[p.type], targetCorrect: null, gradeLevel: grade, note, createdById: actor.userId, createdAt: now });
+  let r;
   try {
-    let order = 0;
-    for (const k of skills) {
-      const whole = k.studentIds.length === classSize;
-      const r = await assignSkill(repo, actor, { classId: p.classId, skillId: k.id, studentIds: whole ? undefined : k.studentIds, track: k.track, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${LABEL[p.type]}: ${title}`, source }, now);
-      assignmentIds.push(r.assignmentId);
-      for (const id of k.studentIds) students.add(id);
-      await repo.create("SkillPlanItem", { planId: plan.id, code: k.code.slice(0, 80), label: `${LABEL[p.type]} · Grade ${k.grade} · ${k.name}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
-    }
-    await tagProgram(repo, assignmentIds, PROGRAM_OF_TYPE[p.type]);
+    // r82: every skill in ONE batch (assignments, students, plan items, notifications), all or nothing
+    r = await sendPartsBatch(repo, actor, {
+      klass, members: memberRows.map((m) => s(m.studentId)), plan: { id: planId, title },
+      parts: skills.map((k) => ({ skillId: k.id, studentIds: k.studentIds, track: k.track, itemCode: k.code, itemLabel: `${LABEL[p.type]} · Grade ${k.grade} · ${k.name}` })),
+      dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${LABEL[p.type]}: ${title}`, program: PROGRAM_OF_TYPE[p.type], source,
+    }, now);
   } catch (e) {
-    // nothing half-made: remove the plan and the assignments made so far
-    if (assignmentIds.length) await repo.updateMany("Assignment", { id: { in: assignmentIds } }, { deletedAt: now });
-    await repo.deleteMany("SkillPlanItem", { planId: plan.id });
-    await repo.deleteMany("SkillPlan", { id: plan.id });
+    // nothing half-made: the plan goes too
+    await repo.deleteMany("SkillPlan", { id: planId }).catch(() => 0);
     throw e;
   }
-  await audit(repo, { actorId: actor.userId, action: "plan.assign", entityType: "SkillPlan", entityId: s(plan.id), after: { type: p.type, classId: p.classId, skills: skills.length, students: students.size }, at: now });
-  return { planId: s(plan.id), skills: skills.length, students: students.size, assignmentIds, notes: p.notes };
+  await audit(repo, { actorId: actor.userId, action: "plan.assign", entityType: "SkillPlan", entityId: planId, after: { type: p.type, classId: p.classId, skills: skills.length, students: r.students.size, source }, at: now });
+  return { planId, skills: skills.length, students: r.students.size, assignmentIds: r.assignmentIds, notes: p.notes };
 }
 
 // ------------------------------------------------------------------ NAFS (b): personalized after a practice test
@@ -470,18 +479,16 @@ export async function personalizeNafsPlanFromResults(repo: Repo, actor: Actor, i
     const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
     const title = `NAFS Plan (personal) · ${testTitle}`.slice(0, 191);
     const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: "NAFS", targetCorrect: null, gradeLevel: grade, note: `Skills missed in ${testTitle}`.slice(0, 1000), createdById: actor.userId, createdAt: now });
-    let order = 0;
-    const students = new Set<string>();
-    const sent: string[] = [];
-    for (const id of skillIds) {
-      const k = rows.get(id)!;
-      const who = [...new Set(missed.get(id)!)];
-      const r = await assignSkill(repo, actor, { classId: s(klass.id), skillId: id, studentIds: who, track: "NAFS", dueAt: input.dueAt ?? null, note: `NAFS practice: you missed this skill in ${testTitle}.`.slice(0, 1000), source: "NAFS" }, now);
-      for (const x of who) students.add(x);
-      sent.push(r.assignmentId);
-      await repo.create("SkillPlanItem", { planId: plan.id, code: k.code.slice(0, 80), label: `NAFS Plan · Grade ${k.grade} · ${k.name}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
-    }
-    await tagProgram(repo, sent, "NAFS");
+    const members = (await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
+    // r82: every missed skill in ONE batch
+    let sent;
+    try {
+      sent = await sendPartsBatch(repo, actor, {
+        klass, members, plan: { id: s(plan.id), title }, program: "NAFS", source: "NAFS", dueAt: input.dueAt ?? null, note: `NAFS practice: you missed this skill in ${testTitle}.`.slice(0, 1000),
+        parts: skillIds.map((id) => { const k = rows.get(id)!; return { skillId: id, studentIds: [...new Set(missed.get(id)!)].filter((x) => members.includes(x)), track: "NAFS" as const, itemCode: k.code, itemLabel: `NAFS Plan · Grade ${k.grade} · ${k.name}` }; }).filter((x) => x.studentIds.length),
+      }, now);
+    } catch (e) { await repo.deleteMany("SkillPlan", { id: plan.id }).catch(() => 0); throw e; }
+    const students = sent.students;
     await audit(repo, { actorId: actor.userId, action: "plan.nafs_personal", entityType: "SkillPlan", entityId: s(plan.id), after: { testId, skills: skillIds.length, students: students.size }, at: now });
     out.push({ classId: s(klass.id), planId: s(plan.id), skills: skillIds.length, students: students.size });
   }

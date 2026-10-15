@@ -52,3 +52,37 @@ export function runHeavy<T>(fn: () => Promise<T>): Promise<T> {
   G.__heavyTail = run.then(() => undefined, () => undefined);
   return run;
 }
+
+const GB = globalThis as unknown as { __buildTail?: Promise<void>; __buildsWaiting?: number };
+/** r84: how long a big cache build waits for the one running before it starts anyway (never a long stall). */
+export const BUILD_WAIT_MS = 3_000;
+
+/**
+ * 🧠 r84 first use after a deploy: the BIG in-memory builds (the school's NAFS index, a grade's MAP question pools, the
+ * Learning Continuum index) run one at a time in this process, so a fresh server never builds two of them side by side
+ * (each reads thousands of rows; two together were the peak that got a fresh 512 MB server killed).
+ *   - only a build waits: a request whose value is cached (or already being built: concurrent misses share one
+ *     promise) never comes here;
+ *   - its own lane, not runHeavy's queue: a build never waits behind the daily job or a school-wide scan;
+ *   - a build waits at most `maxWaitMs` (BUILD_WAIT_MS) for the one before it, then starts anyway: a student's next
+ *     question is never held for long.
+ */
+export function heavyBuild<T>(fn: () => Promise<T>, maxWaitMs = BUILD_WAIT_MS): Promise<T> {
+  const prev = GB.__buildTail;
+  let run: Promise<T>;
+  if (!prev) run = fn();
+  else {
+    GB.__buildsWaiting = (GB.__buildsWaiting ?? 0) + 1;
+    run = new Promise<void>((resolve) => {
+      const timer = setTimeout(resolve, maxWaitMs);
+      (timer as { unref?: () => void }).unref?.();
+      void prev.then(() => { clearTimeout(timer); resolve(); });
+    }).then(() => { GB.__buildsWaiting = (GB.__buildsWaiting ?? 1) - 1; return fn(); });
+  }
+  const tail: Promise<void> = run.then(() => undefined, () => undefined);
+  GB.__buildTail = tail;
+  void tail.then(() => { if (GB.__buildTail === tail) GB.__buildTail = undefined; });
+  return run;
+}
+/** Builds waiting for the lane now (tests and the memory log). */
+export const buildsWaiting = (): number => GB.__buildsWaiting ?? 0;

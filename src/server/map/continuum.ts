@@ -13,6 +13,7 @@ import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { groupPools, GROUPS, MAP_POOL_MODELS, type GroupKey, type Subject } from "./map-plan";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
+import { heavyBuild } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 export const CONTINUUM_HEADERS = ["Subject", "RIT Low", "RIT High", "Goal Area", "Sub-topic", "Statement", "Standards"] as const;
@@ -102,12 +103,30 @@ const indexCache = mapCache<ContinuumIndex>("map.continuum.index", MAP_KEEP_MS, 
 export function continuumIndex(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<ContinuumIndex> {
   return indexCache.get(repo, `${schoolId}|${grade}|${subject}`, contModels(), () => continuumIndexNow(repo, schoolId, grade, subject));
 }
+
+/**
+ * 🧠 r84 memory: the statements of a subject are the same for every grade — ONE light copy per subject, shared by every
+ * grade's index (before r84 each grade × subject index held its own full rows: every column, dates included). Only
+ * what the views read is kept (id, RIT band, goal area, sub-topic, statement, standards); the goal areas and sub-topics
+ * repeat hundreds of times: one shared copy of each.
+ */
+const STATEMENT_COLUMNS = ["id", "ritLow", "ritHigh", "goalArea", "topic", "statement", "standards", "sortOrder"];
+const statementCache = mapCache<Row[]>("map.continuum.statements", MAP_KEEP_MS, 2);
+function statements(repo: Repo, subject: Subject): Promise<Row[]> {
+  return statementCache.get(repo, subject, ["LearningStatement"], () => heavyBuild(async () => {
+    const rows = await repo.findMany("LearningStatement", { subject }, { select: STATEMENT_COLUMNS });
+    rows.sort((a, b) => Number(a.sortOrder) - Number(b.sortOrder));
+    const seen = new Map<string, string>();
+    const one = (v: unknown) => { const k = s(v); const h = seen.get(k); if (h !== undefined) return h; seen.set(k, k); return k; };
+    return rows.map((r) => ({ id: s(r.id), ritLow: Number(r.ritLow), ritHigh: Number(r.ritHigh), goalArea: one(r.goalArea), topic: one(r.topic), statement: s(r.statement), standards: one(r.standards) }));
+  }));
+}
 async function continuumIndexNow(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<ContinuumIndex> {
-  const [rows, pk] = await Promise.all([
-    repo.findMany("LearningStatement", { subject }),
-    groupPools(repo, schoolId, grade),
-  ]);
-  rows.sort((a, b) => Number(a.sortOrder) - Number(b.sortOrder));
+  // (the pools and the statements are their own builds: the lane below never waits for itself)
+  const [rows, pk] = await Promise.all([statements(repo, subject), groupPools(repo, schoolId, grade)]);
+  return heavyBuild(() => linkSkills(repo, rows, pk, grade));
+}
+async function linkSkills(repo: Repo, rows: Row[], pk: Awaited<ReturnType<typeof groupPools>>, grade: number): Promise<ContinuumIndex> {
   const skillIds = [...pk.skills.keys()];
   const links = skillIds.length ? await repo.findMany("SkillStandard", { skillId: { in: skillIds } }, { select: ["skillId", "standardId"] }) : [];
   const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : [];

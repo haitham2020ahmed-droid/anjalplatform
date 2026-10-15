@@ -107,3 +107,23 @@ describe("r68: caches give their memory back", () => {
     registerCache("test.noop", { sweep: () => 0, clear: () => undefined, size: () => 0 });
   });
 });
+
+// r81: idle full GC (the live server sat at ~400 MB all night after a busy evening)
+import { test as r81test } from "node:test";
+import r81assert from "node:assert/strict";
+r81test("r81: idle GC runs only with --expose-gc, above 300 MB, at most every 3 minutes", async () => {
+  const { idleGc, IDLE_GC_EVERY_MS } = await import("../src/server/cache/idle");
+  const g = globalThis as { gc?: () => void };
+  const had = g.gc; let n = 0;
+  g.gc = () => { n++; };
+  try {
+    const t0 = 10_000_000_000;
+    r81assert.equal(idleGc(t0, 200), false, "under 300 MB: nothing");
+    r81assert.equal(idleGc(t0, 400), true);
+    r81assert.equal(idleGc(t0 + 1000, 400), false, "not twice in 3 minutes");
+    r81assert.equal(idleGc(t0 + IDLE_GC_EVERY_MS + 1, 400), true);
+    r81assert.equal(n, 2);
+  } finally { g.gc = had; }
+  const src = (await import("node:fs")).readFileSync("scripts/start.mjs", "utf8");
+  r81assert.match(src, /--expose-gc/);
+});

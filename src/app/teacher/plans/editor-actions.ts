@@ -12,6 +12,7 @@ import { isProgram, type Program } from "@/server/plans/program";
 import { bulkEdit, createDraft, deleteDraft, duplicatePlan, editPlan, pausePlan, sendPlan, withdrawPlan, type BulkOp, type PlanEdit, type SectionSpec } from "@/server/plans/editor";
 import { isPlanLevel } from "@/server/plans/question-pick";
 import { draftFromSuggestion, startPlan } from "@/server/plans/start";
+import { failureMessage, isNextControl } from "@/server/lib/action-guard";
 
 const str = (f: FormData, k: string) => String(f.get(k) ?? "").trim();
 const dateOf = (v: string, end = true): Date | null => (/^\d{4}-\d{2}-\d{2}$/.test(v) ? new Date(`${v}T${end ? "23:59:59" : "00:00:00"}`) : null);
@@ -20,12 +21,16 @@ const ok = (e: unknown) => e instanceof ValidationError || e instanceof Forbidde
 /** Every action checks the session first, in its own body (contracts test). */
 const ACCESS: Parameters<typeof requireActor>[0] = { roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" };
 
-/** Runs one change and goes back to the plan (same step and place) with a message. */
+/**
+ * Runs one change and goes back to the plan (same step and place) with a message. r82: ANY failure (a refusal, the
+ * database, a timeout) comes back as a message on the page — never a thrown error, so the button never stays frozen
+ * on an error page (server/lib/action-guard.ts: known refusals keep their text, the rest is logged + "try again").
+ */
 async function back(f: FormData, job: () => Promise<string>): Promise<never> {
   const { t } = await getT();
   const planId = str(f, "planId");
   let msg: string;
-  try { msg = t(await job()); } catch (e) { if (!ok(e)) throw e; msg = `⚠️ ${t((e as Error).message)}`; }
+  try { msg = t(await job()); } catch (e) { if (isNextControl(e)) throw e; msg = `⚠️ ${await failureMessage(e, "plans", "editor", `/teacher/plans/${planId}`)}`; }
   const q = new URLSearchParams({ msg });
   for (const k of ["step", "add", "q", "as"]) if (str(f, k)) q.set(k, str(f, k));
   redirect(`/teacher/plans/${encodeURIComponent(planId)}?${q}${str(f, "anchor") ? `#${str(f, "anchor")}` : ""}`);

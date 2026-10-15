@@ -6,6 +6,8 @@ import { ClassSignInHost } from "@/components/class-signin/host";
 import { EmptyState } from "@/components/ui-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { teacherSignInClasses } from "@/server/auth/class-signin";
+import { printQrPanels, printSignInsView } from "@/server/auth/class-print-qr";
+import { PrintQrPanel } from "@/components/class-signin/print-panel";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "Class sign-in" };
@@ -26,6 +28,14 @@ export default async function ClassSignInPage({ searchParams }: { searchParams: 
   const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
   const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const base = (process.env.APP_URL ?? `${proto}://${host}`).replace(/\/$/, "");
+  // 🖨 r85: the printable QR + class code of each class (the picked one, or all of them on the chooser)
+  const panels = (await printQrPanels(repo, actor)).filter((p) => !pick || p.classId === pick.id);
+  const signedIn = await Promise.all(panels.map((p) => printSignInsView(repo, actor, p.classId)));
+  const printPanels = panels.length > 0 && (
+    <div className="mt-6 grid gap-4 lg:grid-cols-2">
+      {panels.map((p, i) => <PrintQrPanel key={p.classId} initial={p} base={base} signedIn={signedIn[i]} />)}
+    </div>
+  );
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher", label: "Home" }} icon="📱" title="Class sign-in"
@@ -46,6 +56,7 @@ export default async function ClassSignInPage({ searchParams }: { searchParams: 
           </ul>
         </section>
       )}
+      {!pick && printPanels}
       {pick && (
         <>
           {classes.length > 1 && (
@@ -57,6 +68,7 @@ export default async function ClassSignInPage({ searchParams }: { searchParams: 
             </nav>
           )}
           <ClassSignInHost key={pick.id} classId={pick.id} className={pick.name} base={base} />
+          {printPanels}
         </>
       )}
     </AppShell>

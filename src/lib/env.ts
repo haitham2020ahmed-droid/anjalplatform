@@ -29,6 +29,9 @@ const EnvSchema = z.object({
   REPORT_CHROMIUM_PATH: z.string().optional(), // empty = Playwright's bundled Chromium
   REPORT_PDF_CONCURRENCY: z.coerce.number().int().min(1).max(8).default(1),
   REPORT_CHROMIUM_NO_SANDBOX: z.enum(["true", "false"]).default("false"), // only for containers that cannot sandbox
+  // r84: "browser" (default) = PDFs are print pages saved by the user's browser (no Chromium on the server);
+  // "server" = the old headless Chromium inside the server (150–200 MB while it runs)
+  PDF_ENGINE: z.enum(["browser", "server"]).default("browser"),
   // AI-assisted question bank (optional; without a key the generator explains how to enable it)
   ANTHROPIC_API_KEY: z.string().optional(),
   AI_MODEL: z.string().default("claude-sonnet-5-5"),

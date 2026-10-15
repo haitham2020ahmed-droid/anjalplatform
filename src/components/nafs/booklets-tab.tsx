@@ -5,15 +5,14 @@ import { repo } from "@/server/auth/next";
 import { nafsClasses } from "@/server/nafs/tests";
 import { bookletList, bookletReportTest, MAX_ASSIGN_BOOKLETS, openBookletView } from "@/server/nafs/booklet-center";
 import { centerHref, subOf } from "@/server/nafs/center";
-import { codeName, MAX_NAFS_MINUTES } from "@/server/nafs/framework";
+import { codeName } from "@/server/nafs/framework";
 import { cleanCuts } from "@/server/nafs/reports";
 import { MINISTRY_DEFAULT } from "@/server/nafs/build";
-import { assignBookletsAction } from "@/app/teacher/nafs/actions";
 import { Combo } from "@/components/ui/combo";
 import { PrintButton } from "@/components/plans/print-button";
 import { CutFields, Legend, TestReport } from "./reports-tab";
 import { SubNav } from "./sub-nav";
-import { PendingButton } from "./pending-button";
+import { BookletPicker, OpenBookletAssign } from "./booklet-assign";
 import { RichInline } from "@/components/rich-inline";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line print:break-inside-avoid print:shadow-none";
@@ -40,7 +39,12 @@ export async function BookletsTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
 async function BookletList({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<string, string | undefined> }) {
   const [list, classes] = await Promise.all([bookletList(repo, actor, { q: sp.q, kind: sp.kind }), nafsClasses(repo, actor)]);
   const open = sp.book ? await openBookletView(repo, actor, sp.book).catch(() => null) : null;
-  const ticked = new Set([...many(sp.b as unknown), ...(open ? [open.code] : [])]);
+  const ticked = many(sp.b as unknown);
+  const back = { q: sp.q, kind: sp.kind };
+  const rows = list.map((b) => ({
+    code: b.code, title: b.title, openHref: centerHref("booklets", { book: b.code, ...back }), reportHref: b.results > 0 ? centerHref("booklets", { sub: "report", book: b.code }) : null,
+    meta: `${b.kind ? t(KIND[b.kind]) : ""}${b.genre ? ` · ${b.genre}` : ""} · ${t("{n} questions", { n: b.questions })}${b.written ? ` · ✍ ${b.written}` : ""}${b.tests.length ? ` · ${t("assigned")}` : ""}${b.results ? ` · ${t("{n} result(s)", { n: b.results })}` : ""}`,
+  }));
   const ready = many(sp.ready as unknown).slice(0, 10);
   return (
     <div className="grid gap-4">
@@ -67,7 +71,7 @@ async function BookletList({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<
             <span className="flex flex-wrap gap-1.5 print:hidden">
               <PrintButton label={t("Print")} />
               <Link href={centerHref("booklets", { sub: "report", book: open.code })} className={LINK}>📊 {t("Report")}</Link>
-              <a href="#assign" className="inline-flex min-h-10 items-center rounded-lg bg-teal-700 px-3 text-sm font-semibold text-white">{t("Assign")}</a>
+              <OpenBookletAssign code={open.code} classes={classes} minutes={MINISTRY_DEFAULT.minutes} initialOpen={sp.assign === "1"} />
               <Link href={centerHref("booklets", { q: sp.q, kind: sp.kind })} className="inline-flex min-h-10 items-center px-2 text-sm font-semibold text-muted">✕ {t("Close")}</Link>
             </span>
           </div>
@@ -104,49 +108,7 @@ async function BookletList({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<
         <button className="min-h-11 rounded-xl bg-brand-navy px-4 font-semibold text-white">{t("Show")}</button>
       </form>
       {!list.length ? <p className={`${CARD} text-center text-sm text-muted`}>{t("No model booklet here yet. They load in the background the first time NAFS opens: open this page again in a minute.")}</p> : (
-        <form action={assignBookletsAction} className="grid gap-4">
-          <input type="hidden" name="back" value={centerHref("booklets", { q: sp.q, kind: sp.kind })} />
-          <section className={CARD} aria-labelledby="bl-h">
-            <h2 id="bl-h" className="text-lg font-semibold text-ink">{t("The model booklets")} <span className="text-sm font-normal text-muted">({list.length})</span></h2>
-            <p className="text-sm text-muted">{t("Tick one or several booklets (up to {n}), then assign them below.", { n: MAX_ASSIGN_BOOKLETS })}</p>
-            <ul className="mt-2 divide-y divide-line">
-              {list.map((b) => (
-                <li key={b.code} className="flex flex-wrap items-center justify-between gap-2 py-2">
-                  <label className="flex min-w-0 flex-1 items-center gap-3">
-                    <input type="checkbox" name="b" value={b.code} defaultChecked={ticked.has(b.code)} className="h-5 w-5 shrink-0" />
-                    <span className="min-w-0">
-                      <span className="font-semibold text-ink"><span className="font-mono text-xs text-muted" dir="ltr">{b.code}</span> {b.title}</span>
-                      <span className="block text-xs text-muted">{b.kind ? t(KIND[b.kind]) : ""}{b.genre ? ` · ${b.genre}` : ""} · {t("{n} questions", { n: b.questions })}{b.written ? ` · ✍ ${b.written}` : ""}{b.tests.length ? ` · ${t("assigned")}` : ""}{b.results ? ` · ${t("{n} result(s)", { n: b.results })}` : ""}</span>
-                    </span>
-                  </label>
-                  <span className="flex gap-1.5">
-                    <Link href={centerHref("booklets", { book: b.code, q: sp.q, kind: sp.kind })} className={LINK}>{t("Open")}</Link>
-                    {b.results > 0 && <Link href={centerHref("booklets", { sub: "report", book: b.code })} className={LINK}>📊 {t("Report")}</Link>}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-          <section id="assign" className={`${CARD} ring-2 ring-teal-200`} aria-labelledby="as-h">
-            <h2 id="as-h" className="text-lg font-semibold text-ink">{t("Assign the ticked booklets")}</h2>
-            <p className="mt-1 text-sm text-ink-2">{t("Each booklet is given whole, in its own order (the passage and all its questions). Online: students find it in their NAFS icon; multiple-choice answers are graded automatically, written answers wait in Marking. On paper: print the booklet, the key and bubble sheets.")}</p>
-            {!classes.length ? <p className="mt-3 text-sm text-muted">{t("You have no Grade 6 class yet.")}</p> : (
-              <div className="mt-3 grid gap-3">
-                <div className="flex flex-wrap items-end gap-3">
-                  <div className="grid min-w-56 gap-1 text-sm font-semibold text-ink-2"><span>{t("Class")}</span><Combo name="classId" label={t("Class")} defaultValue={classes[0].id} options={classes.map((c) => ({ value: c.id, label: c.name, hint: t("{n} students", { n: c.students.length }) }))} /></div>
-                  <div className="grid min-w-60 flex-1 gap-1 text-sm font-semibold text-ink-2"><span>{t("Only these students (optional)")}</span><Combo multiple name="sid" label={t("Only these students (optional)")} placeholder={t("The whole class")} options={classes.flatMap((c) => c.students.map((x) => ({ value: x.id, label: x.name, group: c.name })))} /></div>
-                </div>
-                <div className="flex flex-wrap items-end gap-3">
-                  <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Time (minutes)")}<input type="number" name="minutes" min={1} max={MAX_NAFS_MINUTES} defaultValue={MINISTRY_DEFAULT.minutes} className={`${INPUT} w-24`} /></label>
-                  <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Opens (optional)")}<input type="date" name="openAt" className={INPUT} /></label>
-                  <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Due (optional)")}<input type="date" name="dueAt" className={INPUT} /></label>
-                  <PendingButton name="do" value="online" icon="💻" label="Assign online" pendingLabel="Assigning…" className="min-h-11 rounded-xl bg-teal-700 px-5 font-semibold text-white" />
-                  <button name="do" value="print" className="min-h-11 rounded-xl bg-surface px-5 font-semibold text-ink ring-1 ring-line">🖨 {t("Get ready to print")}</button>
-                </div>
-              </div>
-            )}
-          </section>
-        </form>
+        <BookletPicker rows={rows} classes={classes} minutes={MINISTRY_DEFAULT.minutes} max={MAX_ASSIGN_BOOKLETS} initialTicked={ticked} initialOpen={sp.assign === "1"} />
       )}
     </div>
   );

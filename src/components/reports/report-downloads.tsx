@@ -20,7 +20,7 @@ export function ReportDownloads({ title, report, formats = ["pdf", "xlsx", "csv"
           key={format}
           href={reportHref({ ...report, format, locale })}
           className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"
-          download
+          {...(format === "pdf" ? { target: "_blank", rel: "noopener" } : { download: true })}
         >
           {FORMAT_LABEL[format]}
         </a>

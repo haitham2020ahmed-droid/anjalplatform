@@ -31,6 +31,7 @@ import { paragraphsOf } from "./student";
 import { isRapidGuess } from "../practice/guessing";
 import { cellOf, classLine, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
 import { nafsRemoved } from "./removed";
+import { cancelIndex } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -255,7 +256,10 @@ export async function listNafsPractice(repo: Repo, actor: Actor, now = new Date(
   await assertNafs(repo, actor);
   const classes = await nafsClasses(repo, actor);
   if (!classes.length) return [];
-  const rows = await repo.findMany("NafsPractice", { schoolId: schoolOf(actor), classId: { in: classes.map((c) => c.id) }, deletedAt: null }, { select: ["id", "title", "targets", "classId", "studentIds", "maxQuestions", "timeLimitMin", "dueAt", "createdAt", "createdById"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
+  const cx = await cancelIndex(repo, schoolOf(actor));
+  // r82: a practice cancelled for everyone on the Assigned page is gone from the list too (Undo there brings it back)
+  const rows = (await repo.findMany("NafsPractice", { schoolId: schoolOf(actor), classId: { in: classes.map((c) => c.id) }, deletedAt: null }, { select: ["id", "title", "targets", "classId", "studentIds", "maxQuestions", "timeLimitMin", "dueAt", "createdAt", "createdById"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 }))
+    .filter((p) => cx.liveRef("NAFS_PRACTICE", s(p.id)));
   if (!rows.length) return [];
   const runs = await repo.findMany("NafsPracticeRun", { practiceId: { in: rows.map((r) => s(r.id)) } }, { select: ["practiceId", "state", "finishedAt"] });
   return rows.map((p) => {
@@ -325,7 +329,9 @@ async function myPracticeRows(repo: Repo, studentId: string): Promise<Row[]> {
   const classes = (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));
   if (!classes.length) return [];
   const rows = await repo.findMany("NafsPractice", { classId: { in: classes }, deletedAt: null }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
-  return rows.filter((p) => { const who = assignedTo(p); return !who || who.includes(studentId); });
+  // r82: cancelled on the teacher's Assigned page (for everyone or for this student) = gone from the student's NAFS too
+  const cx = rows.length ? await cancelIndex(repo, s(rows[0].schoolId)) : null;
+  return rows.filter((p) => { const who = assignedTo(p); return (!who || who.includes(studentId)) && (!cx || cx.liveRef("NAFS_PRACTICE", s(p.id), studentId)); });
 }
 
 export interface MyPractice { id: string; title: string; skills: string[]; asked: number; correct: number; max: number; minutes: number | null; dueAt: string | null; status: "TODO" | "IN_PROGRESS" | "DONE" }
@@ -358,6 +364,7 @@ async function myPractice(repo: Repo, actor: Actor, id: string): Promise<{ p: Ro
   if (!member || member.leftAt) throw new ForbiddenError("Practice not found.");
   const who = assignedTo(p);
   if (who && !who.includes(studentId)) throw new ForbiddenError("Practice not found.");
+  if (!(await cancelIndex(repo, s(p.schoolId))).liveRef("NAFS_PRACTICE", s(p.id), studentId)) throw new ForbiddenError("Your teacher cancelled this practice.");
   return { p, studentId };
 }
 

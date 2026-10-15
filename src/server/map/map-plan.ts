@@ -25,6 +25,7 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { mapLinkedQuestionIds } from "../questions/bank-scope";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
+import { heavyBuild } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -179,7 +180,8 @@ export type Pools = { pools: Map<GroupKey, PoolQ[]>; skills: Map<string, { id: s
 const POOL_MODELS = ["QuestionMapLink", "Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "CurriculumMapNode"];
 const poolCache = mapCache<Pools>("map.map-plan.poolCache", MAP_KEEP_MS, 8);
 export function groupPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
-  return poolCache.get(repo, `${schoolId}|${grade}`, POOL_MODELS, () => loadPools(repo, schoolId, grade));
+  // r84: a big build — one at a time with the other big builds of this process (monitoring/memory.ts heavyBuild)
+  return poolCache.get(repo, `${schoolId}|${grade}`, POOL_MODELS, () => heavyBuild(() => loadPools(repo, schoolId, grade)));
 }
 /** The tables the pools are built from (other MAP caches built on the pools use them too). */
 export const MAP_POOL_MODELS: readonly string[] = POOL_MODELS;
@@ -198,12 +200,14 @@ async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<P
   await ensureNationalNorms(repo);
   const norm = await nationalNorm(repo, grade, "FALL");
   const pools = new Map<GroupKey, PoolQ[]>(GROUPS.map((g) => [g.key, []]));
+  // 🧠 r84 memory: the pools are light (id, skill, RIT) and every question of a skill shares ONE copy of its skill id
+  const skillIdOf = new Map(skills.map((k) => [k.id, k.id] as const));
   for (const q of qs) {
     if (manual.has(s(q.typeId))) continue;
     let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
     const cal = (t as { rit?: { value?: number } } | null)?.rit?.value;
     const rit = Number.isFinite(Number(cal)) && cal ? Number(cal) : ritFromDifficulty(Number(q.difficultyLevel ?? 4), norm) ?? 200;
-    pools.get(groupOfSkill.get(s(q.skillId))!)!.push({ id: s(q.id), skillId: s(q.skillId), rit });
+    pools.get(groupOfSkill.get(s(q.skillId))!)!.push({ id: s(q.id), skillId: skillIdOf.get(s(q.skillId)) ?? s(q.skillId), rit });
   }
   const skillMap = new Map(skills.filter((k) => groupOfSkill.has(k.id)).map((k) => [k.id, { id: k.id, name: k.name, group: groupOfSkill.get(k.id)! }]));
   await linkByStandard(repo, schoolId, grade, pools, skillMap, norm);

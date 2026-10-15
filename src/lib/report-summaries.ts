@@ -158,6 +158,16 @@ export const R = {
   oneSource: "Weakest source: {source} ({pct}% of its stars won).",
   oneSourceOnly: "All the work comes from {source}: {pct}% of its stars won.",
   oneReport: "{on} of {total} students on track · {help} need support · {gained} new stars in 2 weeks.",
+  // r84 Student Skills → Plans: "In one line" and the opened plan's summary
+  onePlans: "{n} plans running · average achievement {pct}% · {idle} students have not started their plan.",
+  onePlansDone: "Every plan is finished: open Finished plans below to see them.",
+  plOverview: "{done} of {n} students finished every skill of this plan; the plan is {pct}% achieved.",
+  plWeak: "Hardest skill in this plan: {skill} ({pct}% mastered).",
+  plSupport: "{n} students need support in this plan.",
+  plIdle: "{n} students have not started this plan yet.",
+  plNextFollow: "Next step: follow up with the students who have not started.",
+  plNextReteach: "Next step: reteach {skill} to the students of this plan.",
+  plNextLevel: "Next step: move the students who finished to the next level.",
   // admin
   adActive: "{a} of {s} students practised this week.",
   adAlerts: "{n} alerts are not handled yet.",
@@ -876,6 +886,34 @@ export function skillsSourceOneLine(cards: readonly SourcesIn[]): Line | null {
 }
 /** "In one line" (r75): the Class report tab. */
 export const skillsReportOneLine = (v: { on: number; total: number; help: number; gained: number }): Line => line(R.oneReport, "info", v);
+
+// ── Student Skills → Plans (r84) ──────────────────────────────────────────────────────────────────────────────────────
+export interface SkillsPlansIn { status: string; pct: number; notStarted: number }
+/** "In one line" (r84): the Plans tab — the active plans, their average achievement, who has not started. */
+export function skillsPlansOneLine(cards: readonly SkillsPlansIn[]): Line | null {
+  if (!cards.length) return null;
+  const on = cards.filter((c) => c.status !== "FINISHED");
+  if (!on.length) return line(R.onePlansDone, "info");
+  return line(R.onePlans, "info", { n: on.length, pct: Math.round(on.reduce((a, c) => a + c.pct, 0) / on.length), idle: on.reduce((a, c) => a + c.notStarted, 0) });
+}
+export interface SkillsPlanIn { card: { pct: number }; rows: readonly { state: string }[]; skills: readonly { name: string; pct?: number; mastered: number; total: number }[] }
+/** The opened plan's summary (3–5 sentences); its action plan is the page's numbered list right after it. */
+export function skillsPlanSummary(v: SkillsPlanIn): Summary {
+  const n = v.rows.length, done = v.rows.filter((r) => r.state === "FINISHED").length;
+  const help = v.rows.filter((r) => r.state === "SUPPORT").length, idle = v.rows.filter((r) => r.state === "NOT_STARTED").length;
+  const weak = [...v.skills].filter((k) => k.total > 0 && k.mastered < k.total).sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0) || byName(a, b))[0];
+  const next = idle ? line(R.plNextFollow, "next") : weak ? line(R.plNextReteach, "next", { skill: weak.name }) : done ? line(R.plNextLevel, "next") : line(S.nextKeep, "next");
+  return {
+    lines: fit([
+      line(R.plOverview, done === n && n > 0 ? "good" : "info", { done, n, pct: v.card.pct }),
+      weak ? line(R.plWeak, "skill", { skill: weak.name, pct: weak.pct ?? 0 }) : null,
+      help ? line(R.plSupport, "help", { n: help }) : null,
+      idle ? line(R.plIdle, "help", { n: idle }) : null,
+      next,
+    ]),
+    actions: [],
+  };
+}
 
 export type { Named, Scored };
 /** Every report-specific sentence and label (each must be in en.ts and ar.ts). */

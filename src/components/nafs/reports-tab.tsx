@@ -194,7 +194,7 @@ function Exports({ t, q }: { t: TFn; q: URLSearchParams }) {
   return (
     <div className="flex flex-wrap gap-2 print:hidden">
       <a href={`/api/nafs/export?${q}&format=xlsx`} className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">⬇ {t("Excel")}</a>
-      <a href={`/api/nafs/export?${q}&format=pdf`} className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">⬇ {t("PDF")}</a>
+      <a href={`/api/nafs/export?${q}&format=pdf&print=1`} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">⬇ {t("PDF")}</a>
     </div>
   );
 }

@@ -37,6 +37,7 @@ import { studentRespondWork, type StudentRespondTask } from "../curriculum-map/r
 import { STUDY_PLAN_KINDS } from "../curriculum-map/plans";
 import { myStrategySurvey, OPEN_KEY, surveyTerm } from "../surveys/strategy";
 import { hiddenWorkKeys, placeCancelled, withoutCancelled } from "./cancelled-work";
+import { bookletSourceOf } from "../nafs/booklet-source";
 import { startedBy } from "../../lib/assign-dates";
 
 export { WORK_KIND_LABEL as KIND_LABEL, WORK_KINDS } from "../../lib/work-kinds";
@@ -99,17 +100,19 @@ function mapRows(m: MapTests): MyWorkItem[] {
 /** NAFS tests given to my class (or to me), online: Done once handed in. */
 async function nafsTestRows(repo: Repo, sid: string, classIds: string[], now: Date): Promise<MyWorkItem[]> {
   if (!classIds.length) return [];
-  const given = (await repo.findMany("NafsTestClass", { classId: { in: classIds } }, { select: ["id", "testId", "openAt", "dueAt", "studentIds"], take: 200 })).filter((g) => forMe(g, sid) && !(g.openAt && Date.parse(iso(g.openAt)!) > now.getTime()));
+  const given = (await repo.findMany("NafsTestClass", { classId: { in: classIds } }, { select: ["id", "testId", "classId", "openAt", "dueAt", "studentIds"], take: 200 })).filter((g) => forMe(g, sid) && !(g.openAt && Date.parse(iso(g.openAt)!) > now.getTime()));
   if (!given.length) return [];
   const ids = [...new Set(given.map((g) => s(g.testId)))];
   const [tests, results] = await Promise.all([
-    repo.findMany("NafsTest", { id: { in: ids }, deletedAt: null }, { select: ["id", "title"] }),
+    repo.findMany("NafsTest", { id: { in: ids }, deletedAt: null }, { select: ["id", "title", "settings"] }),
     repo.findMany("NafsResult", { studentId: sid, testId: { in: ids } }, { select: ["testId", "submittedAt"] }),
   ]);
   return given.filter((g) => tests.some((t) => t.id === g.testId)).map((g) => {
     const r = results.find((x) => x.testId === g.testId);
     const due = iso(g.dueAt);
-    return row("NAFS_TEST", s(g.id), `NAFS test — ${hideLevels(s(tests.find((t) => t.id === g.testId)?.title))}`, r?.submittedAt ? "Done" : r ? "In progress" : "Not started", `/student/nafs/sim/${s(g.id)}`, { source: "NAFS", dueAt: due, overdue: late(due, now), doneHref: "/student/nafs?part=results" });
+    const t = tests.find((x) => x.id === g.testId);
+    // r82: a booklet given with another source (r74) shows that source
+    return row("NAFS_TEST", s(g.id), `NAFS test — ${hideLevels(s(t?.title))}`, r?.submittedAt ? "Done" : r ? "In progress" : "Not started", `/student/nafs/sim/${s(g.id)}`, { source: bookletSourceOf(t?.settings, s(g.classId)) ?? "NAFS", dueAt: due, overdue: late(due, now), doneHref: "/student/nafs?part=results" });
   });
 }
 

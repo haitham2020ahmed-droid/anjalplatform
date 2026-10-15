@@ -299,7 +299,7 @@ export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, gra
 
 /** The download address of the map (the page's ⬇ button, the student's Curriculum page). */
 export function curriculumMapPdfHref(grade: number, copy: MapCopy, locale: MapLocale): string {
-  return `/api/curriculum-map-pdf?${new URLSearchParams({ grade: String(grade), copy, lang: locale })}`;
+  return `/api/curriculum-map-pdf?${new URLSearchParams({ grade: String(grade), copy, lang: locale, print: "1" })}`; // r84: a print page
 }
 
 // ------------------------------------------------------------------ send to students (a document share)

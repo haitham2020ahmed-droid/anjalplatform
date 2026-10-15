@@ -108,7 +108,8 @@ const STUBS: Record<string, unknown> = {
   "next/server": {
     after: (fn: () => unknown) => { const r = als.getStore(); if (r) r.after.push(fn); else setImmediate(() => void fn()); },
     connection: async () => undefined,
-    NextResponse: class { static json(b: unknown) { return b; } static redirect(u: unknown) { return u; } static next() { return null; } },
+    // (r84: a real Response underneath, so route handlers can be called and their status / headers / body read)
+    NextResponse: class extends (Response as unknown as new (body?: unknown, init?: unknown) => object) { static json(b: unknown) { return b; } static redirect(u: unknown) { return u; } static next() { return null; } },
   },
   "next/link": { __esModule: true, default: clientStub("next/link") },
   "next/image": { __esModule: true, default: clientStub("next/image") },
