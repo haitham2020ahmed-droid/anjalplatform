@@ -53,7 +53,7 @@
     "next": "^15.0.0",
     "papaparse": "^5.4.1",
     "pdfjs-dist": "^5.4.296",
-    "playwright-core": "1.56.0",
+    "playwright-core": "1.64.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.53.0",
@@ -62,7 +62,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@playwright/test": "1.56.0",
+    "@playwright/test": "1.64.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.0.0",
     "@types/papaparse": "^5.3.14",
