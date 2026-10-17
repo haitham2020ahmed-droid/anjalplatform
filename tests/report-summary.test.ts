@@ -304,6 +304,12 @@ describe("fewer columns", () => {
     assert.equal(tipOf("Accuracy", "own hint"), "own hint");
     assert.equal(tipOf("Unknown heading"), null);
   });
+
+  // r87: the Grade/school MAP overview table ("By grade" / "By class") had 4 columns with no tooltip coverage
+  // at all — "Tested", "National", "Flags" and "Percentile bands" fell through to a bare heading with no ⓘ.
+  test("the MAP overview table's columns all have a plain-words tooltip", () => {
+    for (const label of ["Tested", "National", "Flags", "Percentile bands", "Growth", "Met"]) assert.ok(tipOf(label), label);
+  });
 });
 
 describe("EN + AR", () => {

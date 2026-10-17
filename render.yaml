@@ -1,0 +1,39 @@
+# Render Blueprint (https://render.com/docs/blueprint-spec). This repo had no render.yaml before — the web
+# service, the optional jobs worker and this database backup job were all set up by hand in the Render dashboard
+# (see docs/DEPLOYMENT.md). This file is NOT required: Render keeps working exactly as it does today without it.
+# It exists so the backup Cron Job (the one new piece this adds) can be created with one click/sync instead of
+# typed in by hand, and so the whole setup is readable in the repo. If you already run the web service from the
+# dashboard (unmanaged by any render.yaml), either keep doing that and only add the `backup-db` job below through
+# the dashboard's own "New +" → "Cron Job" (simplest), or run `render blueprint sync` with THIS file — Render asks
+# before touching anything you already created by hand ("unmanaged" resources are left alone).
+#
+# What you (Haitham / the school's IT contact) still have to do yourself, even with this file:
+#   1. Set DATABASE_URL on the backup-db job (Render → the job → Environment) to the SAME value as the web
+#      service's DATABASE_URL — it is marked `sync: false` below so it is never read from this file or git.
+#   2. Decide where dumps go. By default this job just proves the database can be dumped and then throws the
+#      dump away (a Cron Job's disk is not kept between runs). To actually keep the dumps, set BACKUP_UPLOAD_CMD
+#      to a command that uploads to storage you set up yourself (see scripts/db/backup-db.sh) — there is no
+#      cloud storage wired in here, on purpose: this project does not have one to fabricate.
+#   3. Aiven's own daily backups + point-in-time recovery are the real safety net (docs/BACKUP-AND-RESTORE.md,
+#      section 1–4) — this job is an EXTRA copy, not a replacement, and only matters once step 2 is done.
+
+services:
+  - type: cron
+    name: backup-db
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    # the jobs image (not the web image): it has the Prisma CLI's engines and, since this update, mysqldump
+    dockerBuildArgs:
+      APP_TARGET: jobs
+    # overrides the jobs image's default command (the scheduler) for this one job
+    dockerCommand: sh scripts/db/backup-db.sh
+    schedule: "0 2 * * *" # 02:00 UTC daily — change to fit the school's quiet hours
+    plan: starter
+    envVars:
+      - key: DATABASE_URL
+        sync: false # set by hand in the Render dashboard — never put a real one in this file or in git
+      - key: BACKUP_RETAIN_DAYS
+        value: "7"
+      # - key: BACKUP_UPLOAD_CMD      # set this once storage is chosen (see note above); left unset on purpose
+      #   value: "aws s3 cp --storage-class STANDARD_IA"

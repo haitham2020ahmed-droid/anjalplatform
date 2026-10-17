@@ -15,7 +15,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { ValidationError } from "../src/server/curriculum-admin";
 import {
-  applyYearEdit, assignYearWeek, chooseYearSkills, classNeeds, editYearPlan, firstSunday, isShared, MAX_PER_WEEK, orderYearSkills, ritRange, spreadWeeks,
+  applyYearEdit, assignYearWeek, chooseYearSkills, classNeeds, editYearPlan, firstSunday, isShared, MAX_PER_WEEK, orderYearSkills, ritRange, setYearPlanMode, spreadWeeks,
   weekDates, WEEKS, yearPlanView, type Need, type YearSkill, type YearWeek,
 } from "../src/server/map/year-plan";
 import { cancelStar, endOfSchoolWeek, starAssign, starredSkills } from "../src/server/assign/star";
@@ -247,5 +247,63 @@ describe("🗓️ Year plan on the demo school", () => {
     const v2 = await yearPlanView(repo, admin, class2, now);
     assert.ok(v2.weeks.every((w) => !w.skills.length)); assert.ok(v2.notes.length);
     assert.equal(await repo.count("MapYearPlan", { classId: class2 }), 0);
+  });
+});
+
+describe("🗓️ Year plan: Automatic / Manual", () => {
+  let repo: SqliteRepo; let teacher: Actor; let classId = ""; let ids: string[] = [];
+  const now = new Date();
+  before(async () => {
+    ({ repo } = await demoDatabase({ classesPerGrade: 2, studentsPerClass: 8 }));
+    await publishGrade4Bank(repo);
+    teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.4a" }))!);
+    const t = (await repo.findUnique("Teacher", { userId: teacher.userId }))!;
+    classId = s((await repo.findMany("ClassTeacher", { teacherId: t.id }))[0].classId);
+    ids = (await repo.findMany("ClassMembership", { classId, leftAt: null })).map((m) => s(m.studentId)).sort();
+    const rits = [192, 194, 195, 196, 197, 198, 199, 226];
+    const fall = new Date("2026-09-20T08:00:00Z");
+    for (const [i, id] of ids.entries()) for (const subject of ["Reading", "Language Usage"]) {
+      await repo.create("MapResult", { studentId: id, subject, termName: "Fall 2026", testDate: fall, rit: rits[i % rits.length], goalName: null, importedAt: fall } as never);
+    }
+  });
+
+  test("a brand new plan starts Automatic", async () => {
+    const v = await yearPlanView(repo, teacher, classId, now);
+    assert.equal(v.mode, "AUTO");
+    assert.equal(v.saved, true);
+  });
+
+  test("moving a skill locks the plan to Manual by itself", async () => {
+    let v = await yearPlanView(repo, teacher, classId, now);
+    assert.equal(v.mode, "AUTO");
+    await editYearPlan(repo, teacher, classId, { op: "move", from: { week: 1, index: 0 }, to: { week: 1, index: 1 } }, now);
+    v = await yearPlanView(repo, teacher, classId, now);
+    assert.equal(v.mode, "MANUAL", "editing IS locking it");
+    const moved = v.weeks[0].skills.map((k) => k.skillId);
+    // Manual: opening it again does not rebuild it away
+    assert.deepEqual((await yearPlanView(repo, teacher, classId, now)).weeks[0].skills.map((k) => k.skillId), moved);
+  });
+
+  test("choosing Automatic again rebuilds it from the latest MAP data (the move above is gone)", async () => {
+    const v = await setYearPlanMode(repo, teacher, classId, "AUTO", now);
+    assert.equal(v.mode, "AUTO");
+    const fresh = await yearPlanView(repo, teacher, classId, now);
+    assert.equal(fresh.mode, "AUTO");
+    // a second open rebuilds again, deterministically, to the same thing (nothing in the source data changed)
+    assert.deepEqual((await yearPlanView(repo, teacher, classId, now)).weeks.map((w) => w.skills.map((k) => k.skillId)), fresh.weeks.map((w) => w.skills.map((k) => k.skillId)));
+  });
+
+  test("choosing Manual explicitly stops the rebuild even without an edit", async () => {
+    await setYearPlanMode(repo, teacher, classId, "MANUAL", now);
+    const before = await yearPlanView(repo, teacher, classId, now);
+    assert.equal(before.mode, "MANUAL");
+    // nothing to edit here (pure re-read): the saved weeks come back unchanged
+    const again = await yearPlanView(repo, teacher, classId, now);
+    assert.deepEqual(again.weeks.map((w) => w.skills.map((k) => k.skillId)), before.weeks.map((w) => w.skills.map((k) => k.skillId)));
+  });
+
+  test("only the class's own teacher may change the mode", async () => {
+    const other = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.4b" }))!);
+    await assert.rejects(setYearPlanMode(repo, other, classId, "AUTO", now), ForbiddenError);
   });
 });

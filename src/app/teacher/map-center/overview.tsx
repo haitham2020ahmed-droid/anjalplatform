@@ -19,7 +19,7 @@ export async function OverviewView({ actor, t, subject, term, classId }: { actor
   const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-300 hover:ring-brand-teal"}`;
   const link = (p: Record<string, string>) => `/teacher/map-center?${new URLSearchParams({ tab: "reports", view: "overview", classId, subject, ...(d.term ? { term: d.term } : {}), ...p })}`;
   const Table = ({ rows, title }: { rows: OverviewRow[]; title: string }) => (
-    <ReportSection title={title} icon={title === "By grade" ? "🏫" : "👥"}>
+    <ReportSection title={title} icon={title === "By grade" ? "🏫" : "👥"} hint={title === "By grade" ? "Every grade, side by side." : "Every class, side by side."}>
       <ReportTable label={title}
         cols={[{ key: "c", label: title === "By grade" ? "Grade" : "Class" }, { key: "n", label: "Tested", num: true }, { key: "m", label: "Mean RIT", num: true }, { key: "nat", label: "National", num: true, more: true }, { key: "d", label: "Diff", num: true, hint: "The class mean RIT minus the national mean: ▼ below, ▲ above." }, { key: "p", label: "Median %ile", num: true }, { key: "q", label: "Percentile bands", sort: false, className: "min-w-56", more: true }, { key: "g", label: "Growth", num: true }, { key: "met", label: "Met", num: true }, { key: "f", label: "Flags", num: true, more: true }]}
         rows={rows.map((r) => {
@@ -53,7 +53,7 @@ export async function OverviewView({ actor, t, subject, term, classId }: { actor
             { icon: "📉", label: "Below the national mean", value: d.classes.filter((r) => r.meanRit !== null && r.national !== null && r.meanRit < r.national).length, meaning: t("of {n} classes", { n: d.classes.length }), tone: d.classes.some((r) => r.meanRit !== null && r.national !== null && r.meanRit < r.national) ? "warn" : "good" },
             { icon: "🚩", label: "Flags", value: d.grades.reduce((n, r) => n + r.flagged, 0), meaning: "tests to check (retest flags)", tone: d.grades.some((r) => r.flagged) ? "warn" : "neutral" },
           ]} />
-          <Callout kind="meaning" className="mb-5" items={[t("Diff = the class mean RIT minus the national mean: ▼ below, ▲ above."), t("Percentile bands show how many students are in each fifth of the national scores.")]} />
+          <Callout kind="meaning" className="mb-5" items={[t("Diff = the class mean RIT minus the national mean: ▼ below, ▲ above."), t("Percentile bands show how many students are in each fifth of the national scores."), t("Growth = RIT points gained since the Fall test. Met = the share who grew at least as much as NWEA expected."), t("Flags are tests NWEA says to double-check, often because of fast guessing.")]} />
           <Table rows={d.grades} title="By grade" /><Table rows={d.classes} title="By class" />
         </>
       )}

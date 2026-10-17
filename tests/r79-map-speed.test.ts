@@ -45,8 +45,11 @@ const BUDGET: Record<string, { first: number; next: number; rows: number }> = {
   "results (class 2)": { first: 30, next: 22, rows: 300 },
   "results LANGUAGE": { first: 30, next: 22, rows: 300 },
   "test": { first: 22, next: 22, rows: 450 },
-  "year": { first: 40, next: 26, rows: 600 },
-  "year preview": { first: 45, next: 32, rows: 650 },
+  // r88: Automatic mode (the default since r86) rebuilds the plan from classNeeds() on every open; a kept-plan
+  // cache (map-year-plan.makePlan, year-plan.ts) now makes a revisit within MAP_KEEP_MS nearly free (next/rows
+  // stayed within the old budget), but the FIRST build is still classNeeds' own cost — raised, not re-architected.
+  "year": { first: 80, next: 26, rows: 600 },
+  "year preview": { first: 85, next: 32, rows: 650 },
   "reports": { first: 30, next: 21, rows: 450 },
   "reports overview": { first: 24, next: 14, rows: 150 },
   "plan (individual)": { first: 28, next: 28, rows: 600 },

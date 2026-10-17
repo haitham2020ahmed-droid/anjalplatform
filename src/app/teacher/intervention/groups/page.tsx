@@ -6,6 +6,7 @@ import { readableClasses } from "@/server/teacher/coordinators";
 import { classInterventions } from "@/server/insights/interventions";
 import { startInterventionAction } from "./actions";
 import { Combo } from "@/components/ui/combo";
+import { masterSkills } from "@/server/skills/master";
 
 export const metadata = { title: "Intervention groups" };
 
@@ -25,8 +26,9 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
   const st = members.length ? await repo.findMany("Student", { id: { in: members.map((m) => m.studentId) } }, { select: ["id", "userId"] }) : [];
   const users = st.length ? await repo.findMany("User", { id: { in: st.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const students = st.map((x) => ({ id: String(x.id), name: String(users.find((u) => u.id === x.userId)?.displayName ?? "Student") })).sort((a, b) => a.name.localeCompare(b.name));
-  const cur = klass ? (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0] : null;
-  const skills = cur ? (await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null }, { select: ["id", "name", "sequence"] })).sort((a, b) => Number(a.sequence) - Number(b.sequence)) : [];
+  // 🎯 the whole skill bank (every grade, Grammar, Vocabulary, Reading…), not just this class's own curriculum:
+  // an intervention often targets a skill below (or above) the student's grade level.
+  const skills = klass ? await masterSkills(repo, String(klass.schoolId ?? actor.schoolId)) : [];
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   return (
     <AppShell name={String(me.displayName)}>
@@ -39,7 +41,7 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
           <h2 className="text-lg font-bold text-brand-navy">Start a group · {String(klass.name)}</h2>
           <input type="hidden" name="classId" value={String(klass.id)} />
           <div className="grid gap-3 sm:grid-cols-3">
-            <label className="text-sm">Skill<Combo name="skillId" required label="Skill" options={skills.map((k) => ({ value: String(k.id), label: String(k.name) }))} className="mt-1" /></label>
+            <label className="text-sm">Skill<Combo name="skillId" required label="Skill" options={skills.map((k) => ({ value: k.id, label: k.name, group: `Grade ${k.grade}`, hint: k.kind !== "OTHER" ? k.kind : undefined }))} className="mt-1" /></label>
             <label className="text-sm">Days<input type="number" name="days" min={3} max={42} defaultValue={14} className="mt-1 block w-full rounded-lg border-slate-300" /></label>
             <label className="text-sm">Name (optional)<input name="title" maxLength={120} className="mt-1 block w-full rounded-lg border-slate-300" placeholder="Theme small group" /></label>
           </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState, useTransition } from "react";
 import { useT } from "@/i18n/client";
 import type { Pos, YearEdit, YearPlanView } from "@/server/map/year-plan";
-import { yearAssignWeekAction, yearEditAction, yearQuestionsAction } from "@/app/teacher/map-center/year-actions";
+import { yearAssignWeekAction, yearEditAction, yearModeAction, yearQuestionsAction } from "@/app/teacher/map-center/year-actions";
 import type { PreviewQuestion } from "@/server/map/year-plan-share";
 import { StarAssign } from "@/components/assign/star-assign";
 import { SourceSelect } from "@/components/assign/source-select";
@@ -58,6 +58,14 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
     } catch { setMsg({ ok: false, text: t("Something went wrong — try again") }); } finally { setAssigning(null); }
   });
   const swap = (p: Pos) => { if (!swapFrom) { setSwapFrom(p); return; } if (swapFrom.week !== p.week || swapFrom.index !== p.index) edit({ op: "swap", a: swapFrom, b: p }); setSwapFrom(null); };
+  const [modeBusy, setModeBusy] = useState(false);
+  const setMode = (mode: "AUTO" | "MANUAL") => start(async () => {
+    setMsg(null); setModeBusy(true);
+    try {
+      const r = await yearModeAction(v.classId, mode);
+      if (r.ok) { setV(r.value); setMsg({ ok: true, text: mode === "AUTO" ? t("Automatic: the plan is made again from the latest MAP data ✓") : t("Manual: the plan stays as you leave it.") }); } else setMsg({ ok: false, text: r.message });
+    } catch { setMsg({ ok: false, text: t("Something went wrong — try again") }); } finally { setModeBusy(false); }
+  });
   const s = v.summary;
   const weeks = onlyOpen ? v.weeks.filter((w) => w.skills.some((k) => !k.assignedId)) : v.weeks;
   return (
@@ -69,11 +77,20 @@ export function YearPlanBoard({ initial }: { initial: YearPlanView }) {
         <p className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><span className="block text-sm font-semibold text-brand-navy">{s.weakAreas.map((a) => `${a.icon} ${t(a.name)}`).join(" · ") || "—"}</span><span className="text-sm text-slate-600">{t("most shared needs")}</span></p>
       </div>
       {v.notes.map((n) => <p key={n} role="status" className="rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-900 ring-1 ring-amber-200">{t(n)}</p>)}
+      {v.canEdit && <p className="text-xs text-slate-500">{v.mode === "AUTO" ? <>🔄 {t("Automatic: the plan is rebuilt from the latest MAP data every time you open it.")}</> : <>🔒 {t("Manual: your own weeks are kept as you leave them until you choose Automatic again.")}</>}</p>}
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
       <div className="flex flex-wrap items-center gap-2">
         <label className="inline-flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" checked={onlyOpen} onChange={(e) => setOnlyOpen(e.target.checked)} />{t("Only weeks not assigned yet")}</label>
         {v.canEdit && <SourceSelect t={t} compact value={source} onChange={setSource} />}
-        {v.canEdit && <button type="button" className={`${btn} ms-auto min-h-10 px-3 text-sm`} disabled={busy} onClick={() => { if (window.confirm(t("Make the plan again from the latest MAP scores? Your changes to the weeks are replaced."))) edit({ op: "regenerate" }, t("The plan was made again ✓")); }}>🔄 {t("Make the plan again")}</button>}
+        {v.canEdit && (
+          <div role="group" aria-label={t("Automatic or Manual")} className="ms-auto inline-flex gap-1 rounded-xl bg-slate-100 p-0.5" data-testid="year-mode">
+            <button type="button" disabled={busy || modeBusy} aria-pressed={v.mode === "AUTO"} onClick={() => setMode("AUTO")}
+              className={`inline-flex min-h-9 items-center gap-1 rounded-lg px-3 text-xs font-semibold ${v.mode === "AUTO" ? "bg-brand-navy text-white" : "text-slate-600 hover:bg-white"}`}>🔄 {t("Automatic")}</button>
+            <button type="button" disabled={busy || modeBusy} aria-pressed={v.mode === "MANUAL"} onClick={() => setMode("MANUAL")}
+              className={`inline-flex min-h-9 items-center gap-1 rounded-lg px-3 text-xs font-semibold ${v.mode === "MANUAL" ? "bg-brand-navy text-white" : "text-slate-600 hover:bg-white"}`}>🔒 {t("Manual")}</button>
+          </div>
+        )}
+        {v.canEdit && <button type="button" className={`${btn} min-h-10 px-3 text-sm`} disabled={busy} onClick={() => { if (window.confirm(t("Make the plan again from the latest MAP scores? Your changes to the weeks are replaced."))) edit({ op: "regenerate" }, t("The plan was made again ✓")); }}>🔄 {t("Make the plan again")}</button>}
       </div>
       {swapFrom && <p role="status" className="rounded-xl bg-sky-50 px-4 py-2 text-sm text-sky-900">{t("Now press ⇄ on the skill to swap with.")} <button type="button" className="underline" onClick={() => setSwapFrom(null)}>{t("Cancel")}</button></p>}
       <ol className="space-y-2" aria-label={t("Weeks")}>

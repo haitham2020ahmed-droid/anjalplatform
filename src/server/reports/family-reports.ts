@@ -200,7 +200,12 @@ export async function createFamilyReport(repo: Repo, actor: Actor, input: { stud
   assertCan(actor, "assignments:create");
   await studentInfo(repo, actor, input.studentId, true);
   const name = (await studentNames(repo, [input.studentId])).get(input.studentId)?.name ?? "Student";
-  const content = input.kind === "AUTO" ? await autoContent(repo, actor, input.studentId, now) : manualTemplate(name);
+  // r87: autoContent pulls MAP, Diagnostic, ReadRise, the Fluency Coach plan and Writing together through several
+  // dynamic imports; an edge case in any one of them used to throw past this action's catch (which only knows
+  // ValidationError/ForbiddenError) and take down the whole "Prepare it for me" button with an unhandled error.
+  const content = input.kind === "AUTO"
+    ? await autoContent(repo, actor, input.studentId, now).catch(() => { throw new ValidationError("Could not prepare the report automatically this time. Try “I will write it” instead, or try again in a moment."); })
+    : manualTemplate(name);
   const title = `${input.kind === "AUTO" ? "Progress report" : "A note from the teacher"} · ${name} · ${now.toISOString().slice(0, 10)}`;
   const r = await repo.create("FamilyReport", { schoolId: s(actor.schoolId), studentId: input.studentId, kind: input.kind, title, content, refId: null, status: "DRAFT", createdById: actor.userId, createdAt: now, updatedAt: now });
   return s(r.id);

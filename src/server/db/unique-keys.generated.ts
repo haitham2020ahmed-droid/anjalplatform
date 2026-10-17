@@ -125,6 +125,8 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   FluencyCheck: [["id"]],
   WeeklyCheck: [["id"], ["studentId", "week"]],
   FluencyPractice: [["id"]],
+  DictationStudent: [["studentId"]],
+  DictationAttempt: [["id"], ["studentId", "day"]],
   FamilyReport: [["id"]],
   QuestionStandardFix: [["id"]],
   StudentProfile: [["studentId"]],

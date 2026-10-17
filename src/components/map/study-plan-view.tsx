@@ -6,6 +6,8 @@ import { StarAssign } from "@/components/assign/star-assign";
 import { groupStagesBySkill, planStarCount, type SkillGroup } from "@/lib/plan-groups";
 import { planHref } from "@/lib/plan-links";
 import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
+import { assignStudyPlanAction } from "@/app/map-report/actions";
+import { SourceSelect } from "@/components/assign/source-select";
 
 type T = (text: string, vars?: Record<string, string | number>) => string;
 const same: T = (text, vars) => (vars ? text.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? "")) : text);
@@ -24,11 +26,12 @@ export interface PlanStarAssign { classId: string; assigned: Record<string, stri
  * BY SKILL (owner r67): each skill once with its star (the ONE status, skills/status.ts), one Practise button (student)
  * or the ☆ quick-assign (teacher), the MAP statements it covers folded, standard codes small.
  */
-export function StudyPlanView({ d, first = true, link = false, hub = false, t = same, star }: { d: StudyPlanDoc; first?: boolean; link?: boolean; hub?: boolean; t?: T; star?: PlanStarAssign }) {
+export function StudyPlanView({ d, first = true, link = false, hub = false, t = same, star, canAssign = false }: { d: StudyPlanDoc; first?: boolean; link?: boolean; hub?: boolean; t?: T; star?: PlanStarAssign; /** the teacher may Assign ticked skills to this one student (owner: Personal plans need an Assign button too, like Group / Whole-class) */ canAssign?: boolean }) {
   const who = link ? "student" : "teacher";
   // r68: the whole plan's count (the same in the Full and the Short version)
   const count = d.counts ?? planStarCount(d.areas);
-  return (
+  const assign = hub && canAssign && Boolean(d.student.classId);
+  const body = (
     <>
       <ReportPage first={first} className="overflow-hidden !p-0">
         <div className="bg-gradient-to-br bg-linear-to-br from-brand-navy via-brand-navy to-brand-teal px-10 pb-12 pt-10 text-white print:px-10">
@@ -71,8 +74,31 @@ export function StudyPlanView({ d, first = true, link = false, hub = false, t = 
           </div>
         </div>
       </ReportPage>
-      {d.areas.filter((a) => a.stages.length).map((a) => <AreaPage key={a.group} a={a} d={d} link={link} hub={hub} t={t} star={star} />)}
+      {d.areas.filter((a) => a.stages.length).map((a) => <AreaPage key={a.group} a={a} d={d} link={link} hub={hub} t={t} star={star} canAssign={assign} />)}
+      {assign && <AssignBar d={d} t={t} />}
     </>
+  );
+  if (!assign) return body;
+  return (
+    <form action={assignStudyPlanAction}>
+      <input type="hidden" name="studentId" value={d.student.id} />
+      <input type="hidden" name="classId" value={d.student.classId ?? ""} />
+      <input type="hidden" name="subject" value={d.subject} />
+      {body}
+    </form>
+  );
+}
+
+/** 📤 The Assign bar at the end of the plan: ticked skills (every row above), a due date, Source → Assign. */
+function AssignBar({ d, t }: { d: StudyPlanDoc; t: T }) {
+  return (
+    <div className="mx-auto mt-6 flex max-w-4xl flex-wrap items-end gap-3 rounded-2xl bg-amber-50 p-4 text-sm ring-1 ring-amber-200 print:hidden">
+      <label>{t("Start")} <input type="date" name="startAt" className="mt-1 block rounded-md border border-slate-300 px-2 py-1" /></label>
+      <label>{t("Due")} <input type="date" name="dueAt" className="mt-1 block rounded-md border border-slate-300 px-2 py-1" /></label>
+      <SourceSelect t={t} field="mt-1 block rounded-md border border-slate-300 px-2 py-1 font-normal" className="!text-xs" />
+      <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">📤 {t("Assign ticked skills")}</button>
+      <span className="text-xs text-slate-500">{t("Ticked skills become one assignment each, for {name}: the questions adjust to their level.", { name: d.student.name })}</span>
+    </div>
   );
 }
 
@@ -80,7 +106,7 @@ function Tile({ label, value, sub, testId }: { label: string; value: string; sub
   return <div data-testid={testId} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200"><p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p><p className="text-3xl font-black text-brand-navy tabular-nums">{value}</p><p className="text-xs text-slate-600">{sub}</p></div>;
 }
 
-function AreaPage({ a, d, link, hub, t, star }: { a: StudyArea; d: StudyPlanDoc; link: boolean; hub: boolean; t: T; star?: PlanStarAssign }) {
+function AreaPage({ a, d, link, hub, t, star, canAssign = false }: { a: StudyArea; d: StudyPlanDoc; link: boolean; hub: boolean; t: T; star?: PlanStarAssign; canAssign?: boolean }) {
   const stages = groupStagesBySkill(a.stages);
   return (
     <ReportPage>
@@ -100,7 +126,7 @@ function AreaPage({ a, d, link, hub, t, star }: { a: StudyArea; d: StudyPlanDoc;
             </div>
             <p className="mt-1 break-after-avoid text-xs text-slate-500">{t(ui.note)}</p>
             <ul className="mt-2 divide-y divide-slate-100 rounded-xl ring-1 ring-slate-200">
-              {g.skills.map((k) => <SkillRow key={k.key} k={k} link={link} hub={hub} t={t} star={star} />)}
+              {g.skills.map((k) => <SkillRow key={k.key} k={k} link={link} hub={hub} t={t} star={star} canAssign={canAssign} />)}
             </ul>
             {g.unlinked.length > 0 && !link && (
               <details className="mt-2 text-sm text-slate-600">
@@ -117,11 +143,12 @@ function AreaPage({ a, d, link, hub, t, star }: { a: StudyArea; d: StudyPlanDoc;
 }
 
 /** One skill: star · name · statements (folded) · Practise (student) or ☆ quick-assign (teacher). */
-function SkillRow({ k, link, hub, t, star }: { k: SkillGroup; link: boolean; hub: boolean; t: T; star?: PlanStarAssign }) {
+function SkillRow({ k, link, hub, t, star, canAssign = false }: { k: SkillGroup; link: boolean; hub: boolean; t: T; star?: PlanStarAssign; canAssign?: boolean }) {
   const name = k.skill.name;
   return (
     <li data-testid="plan-skill" data-key={k.key} className="break-inside-avoid px-3 py-2">
       <div className="flex flex-wrap items-center gap-2">
+        {canAssign && <input type="checkbox" name="skill" value={k.skill.id} defaultChecked={k.star?.status !== "MASTERED"} className="h-4 w-4 print:hidden" aria-label={t("Assign {name}", { name })} />}
         <SkillStar info={k.star} who={link ? "student" : "teacher"} t={t} label={name} />
         {/* 🔗 r79: the skill's name is a link in every copy (staff → the skill page; student / family → practise it) */}
         <PlanA href={planHref({ kind: "skill", id: k.skill.id, from: "map" }, hub ? "staff" : link ? "student" : "family")} className="font-semibold text-brand-navy">{name}</PlanA>

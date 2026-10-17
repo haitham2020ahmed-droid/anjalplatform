@@ -47,7 +47,7 @@ const BUDGETS: Record<string, { first: number; next: number }> = {
   "src/app/practice/[skillId]/page.tsx": { first: 80, next: 43 },
   "src/app/teacher/page.tsx": { first: 50, next: 32 },
   "src/app/teacher/students/page.tsx": { first: 36, next: 41 },
-  "src/app/teacher/students/[studentId]/page.tsx": { first: 171, next: 96 }, // r67: + effort, skill stars and the strands/mistakes insights on the student file
+  "src/app/teacher/students/[studentId]/page.tsx": { first: 171, next: 98 }, // r67: + effort, skill stars and the strands/mistakes insights on the student file; r87c: + the By Source report (+2 calls)
   "src/app/teacher/classes/[classId]/page.tsx": { first: 61, next: 53 },
   "src/app/teacher/assignments/page.tsx": { first: 11, next: 11 },
   // r67 (owner): the Reports hub shows the teacher's week in two lines (stars, reviews due, weakest skill, minutes): 12 calls

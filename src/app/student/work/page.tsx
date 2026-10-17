@@ -32,7 +32,7 @@ export default async function MyWorkPage() {
     rows = await markMasteredWork(repo, sid, rows, stars.byKey);
     const ids = [...new Set(rows.map((r) => r.skillId).filter((x): x is string => Boolean(x)))];
     const keys = ids.length ? await skillKeysFor(repo, await studentSchool(repo, sid), ids) : new Map<string, string>();
-    rows = rows.map((r) => { const v = r.skillId ? stars.byKey.get(keys.get(r.skillId) ?? "") : undefined; return v ? { ...r, star: { status: v.status } } : r; });
+    rows = rows.map((r) => { const v = r.skillId ? stars.byKey.get(keys.get(r.skillId) ?? "") : undefined; return v ? { ...r, star: { status: v.status, score: v.score, answered: v.answered } } : r; });
   }
   const { progress } = myWorkView(rows, h.last);
   const label = t("{done} of {total} done", { done: progress.done, total: progress.total });

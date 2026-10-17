@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { AtAGlance, EmptyState, ReportHeader, InfoTip, ReportIntro, ReportSection, ReportSummary, type Glance } from "@/components/report-kit";
+import { AtAGlance, EmptyState, ReportHeader, ReportIntro, ReportSection, ReportSummary, type Glance } from "@/components/report-kit";
 import { classCompareSummary } from "@/lib/report-summaries";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -74,18 +74,20 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
               <PeerList rows={peers.challenge} empty="Nobody in this list right now." />
             </ReportSection>
           </div>
-          <ReportSection title="Each student against the class" icon="👥" hint={t("Teachers only: students and parents never see this.")}>
-            <div className="rk-box"><table className="w-full min-w-[520px] text-sm">
-              <thead><tr><th className="p-2 text-start">{t("Student")}</th><th className="p-2 text-start">{t("Position")} <InfoTip text="Above, around or below the middle of the class (practice accuracy)." /></th><th className="p-2 text-start">{t("Growth this month")} <InfoTip text="How many classmates this student is growing faster than, this month." /></th><th className="p-2 text-start">{t("New stars")}</th></tr></thead>
-              <tbody className="divide-y divide-slate-100">{peers.rows.map((r) => (
-                <tr key={r.studentId}>
-                  <td className="p-2"><Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link></td>
-                  <td className="p-2">{r.position ? t(r.position === "above" ? "Above the class middle" : r.position === "below" ? "Below the class middle" : "Around the class middle") : "—"}</td>
-                  <td className="p-2">{r.fasterThan === null ? "—" : <>{t("faster than {n}%", { n: r.fasterThan })} <span className={r.fasterThan >= 50 ? "text-emerald-700" : "text-rose-700"}>{r.fasterThan >= 50 ? "↑" : "↓"}</span></>}</td>
-                  <td className="p-2 tabular-nums" dir="ltr">{r.newStars}</td>
-                </tr>
-              ))}</tbody>
-            </table></div>
+          <ReportSection title="Each student against the class" icon="👥" hint={t("Teachers only: students and parents never see this. One line per student — no numbers to compare by hand.")}>
+            <ul className="space-y-2">{peers.rows.map((r) => {
+              const pill = r.position === "above" ? "bg-emerald-50 text-emerald-800 ring-emerald-200" : r.position === "below" ? "bg-rose-50 text-rose-800 ring-rose-200" : r.position === "around" ? "bg-sky-50 text-sky-800 ring-sky-200" : "bg-slate-50 text-slate-600 ring-slate-200";
+              const label = r.position === "above" ? "Above the class middle" : r.position === "below" ? "Below the class middle" : r.position === "around" ? "Around the class middle" : "Not enough answers yet";
+              return (
+                <li key={r.studentId} className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-white p-3 ring-1 ring-slate-200">
+                  <div className="min-w-0">
+                    <p><Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link> <span className={`ms-1 rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${pill}`}>{t(label)}</span></p>
+                    <p className="mt-0.5 text-sm text-slate-600" data-content lang="en">{r.sentence}</p>
+                  </div>
+                  {r.newStars > 0 && <span className="shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 ring-1 ring-amber-200" dir="ltr">⭐ {r.newStars}</span>}
+                </li>
+              );
+            })}</ul>
           </ReportSection>
           <ReportSummary summary={classCompareSummary(m, peers, klass.id)} />
         </>

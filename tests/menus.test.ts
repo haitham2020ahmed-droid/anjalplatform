@@ -59,7 +59,7 @@ describe("menus: short and tidy", () => {
 
   test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Reading, Learn, MAP, Reports; the rest folded under More", () => {
     const items = navItemsFor("TEACHER");
-    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Reading", "Learn", "MAP", "Reports"]);
+    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Reading", "Learn", "MAP", "Reports", "School Reports"]);
     assert.deepEqual(items.filter((i) => i.group).map((i) => i.group), items.filter((i) => i.group).map(() => MORE), "the rest is under More");
     assert.ok(items.every((i) => i.line), "every teacher entry has a line icon");
     const hrefs = new Set(items.map((i) => i.href));

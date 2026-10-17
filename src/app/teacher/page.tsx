@@ -5,6 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { maybeRunDaily } from "@/server/insights/daily";
 import { scanAlerts } from "@/server/insights/alerts";
+import { weeklyTeacherDigests } from "@/server/insights/weekly-digest";
 import { runAfterResponse } from "@/server/lib/after-response";
 import { teacherHomeData } from "@/server/teacher/home";
 import { AddStudentButton, SkillFinder } from "@/components/teacher/home-widgets";
@@ -35,12 +36,13 @@ const FIRST_ROWS = 5;
 export default async function TeacherHome({ searchParams }: { searchParams?: Promise<{ classId?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const sp = (await searchParams) ?? {};
-  // the daily learning job and the student-alert scan: AFTER the response (the page never waits for them),
-  // at most once a day / every 3 hours — as on the admin home
+  // the daily learning job, the student-alert scan and the weekly teacher reminder: AFTER the response (the page
+  // never waits for them), at most once a day / every 3 hours / once a week — as on the admin home
   const schoolId = actor.schoolId;
   if (schoolId) runAfterResponse("teacher.daily", async () => {
     await maybeRunDaily(repo, schoolId).catch(() => false);
     await scanAlerts(repo, schoolId).catch(() => 0);
+    await weeklyTeacherDigests(repo, schoolId).catch(() => 0);
   });
   const me = (await getActor())!.user;
   // the NAFS shortcut: the same request-cached answer the menu uses (no extra read)

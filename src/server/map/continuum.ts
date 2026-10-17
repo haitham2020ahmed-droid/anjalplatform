@@ -98,7 +98,7 @@ export interface ContinuumIndex { rows: Row[]; skillsByCode: Map<string, LinkedS
  * Year plan. Kept per school, grade and subject while the continuum, the grade's MAP pools and the standards are
  * unchanged (write counters; at most 10 min); a few at most (swept). Read only: callers never change it.
  */
-const contModels = (): string[] => ["LearningStatement", "SkillStandard", "Standard", ...MAP_POOL_MODELS];
+export const contModels = (): string[] => ["LearningStatement", "SkillStandard", "Standard", ...MAP_POOL_MODELS];
 const indexCache = mapCache<ContinuumIndex>("map.continuum.index", MAP_KEEP_MS, 9);
 export function continuumIndex(repo: Repo, schoolId: string, grade: number, subject: Subject): Promise<ContinuumIndex> {
   return indexCache.get(repo, `${schoolId}|${grade}|${subject}`, contModels(), () => continuumIndexNow(repo, schoolId, grade, subject));

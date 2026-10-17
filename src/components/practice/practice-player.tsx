@@ -8,7 +8,7 @@ import type { ClientQuestion } from "../../server/practice/items";
 import type { Feedback, PracticeView } from "../../server/practice/session";
 import { isAnswerReady, type AnswerValue } from "./answer-input";
 import { CELEBRATE, PracticeFrame, endText } from "./practice-frame";
-import { CelebrateFx } from "../feedback-fx/answer-fx";
+import { CelebrateFx, peekBestStreak } from "../feedback-fx/answer-fx";
 import { WordLookup } from "../learn/word-lookup";
 import { FlagButton } from "../learn/flag-button";
 import { BUSY_MESSAGE, sendAnswer } from "../../lib/answer-send";
@@ -87,7 +87,7 @@ export function PracticePlayer({ initial, unitHref, submit, hint }: { initial: P
   };
 
   if (ended) return <PracticeFinished />;
-  if (done) return <PracticeDone reason={done} href={unitHref} />;
+  if (done) return <PracticeDone reason={done} href={unitHref} skillName={view.skillName} answered={view.answered} correct={view.correct} />;
   return (
     <WordLookup>
       <PracticeFrame view={view} shownQuestion={shown} value={value} onChange={setValue} feedback={feedback}
@@ -116,9 +116,15 @@ export const DONE_REDIRECT_MS = 2000;
 /**
  * "Great job! ✓" after a finished practice (the work is already saved as Done on the server): about 2 seconds, then
  * back to My Work (or the page the practice was opened from). "Back to My Work" goes at once.
+ *
+ * A small end-of-session summary of what the student just did — the skill, accuracy, and the best run of right
+ * answers in a row this session (only shown when it is worth celebrating, ≥ 3) — plus the confetti every finish earns
+ * (not only a mastered one): a positive note to end on whatever the result.
  */
-export function PracticeDone({ reason, href }: { reason: string; href: string }) {
+export function PracticeDone({ reason, href, skillName, answered = 0, correct = 0 }: { reason: string; href: string; skillName?: string; answered?: number; correct?: number }) {
   const t = useT();
+  const streak = peekBestStreak();
+  const accuracy = answered > 0 ? Math.round((100 * correct) / answered) : null;
   useEffect(() => {
     const id = window.setTimeout(() => window.location.assign(href), DONE_REDIRECT_MS);
     return () => window.clearTimeout(id);
@@ -128,8 +134,16 @@ export function PracticeDone({ reason, href }: { reason: string; href: string })
       <p className="text-5xl text-emerald-600" aria-hidden="true">✓</p>
       <h2 className="mt-2 text-3xl font-bold text-brand-navy">{t("Great job! ✓")}</h2>
       <p className="mt-2 text-lg text-slate-700">{reason === "SKILL_FINISHED" ? t("You finished this skill! 🎉") : reason === "WORK_MASTERED" ? t("You mastered this skill — your work is Done! 🎉") : endText(reason)}</p>
-      {reason === "WORK_MASTERED" && <div className="mt-4"><CelebrateFx /></div>}
-      <p className="mt-1 text-sm text-slate-500">{t("Going back to My Work…")}</p>
+      <div className="mt-4"><CelebrateFx /></div>
+      {(answered > 0 || skillName) && (
+        <dl data-testid="practice-done-stats" className="mx-auto mt-5 grid max-w-xs grid-cols-2 gap-3 text-start">
+          {skillName && <div className="col-span-2 rounded-xl bg-slate-50 px-3 py-2"><dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t("Skill practised")}</dt><dd className="truncate text-sm font-bold text-brand-navy"><bdi>{skillName}</bdi></dd></div>}
+          {answered > 0 && <div className="rounded-xl bg-slate-50 px-3 py-2"><dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t("Questions")}</dt><dd className="text-xl font-extrabold text-brand-navy" dir="ltr">{answered}</dd></div>}
+          {accuracy !== null && <div className="rounded-xl bg-slate-50 px-3 py-2"><dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t("Accuracy")}</dt><dd className="text-xl font-extrabold text-brand-navy" dir="ltr">{accuracy}%</dd></div>}
+          {streak >= 3 && <div className="col-span-2 rounded-xl bg-amber-50 px-3 py-2 ring-1 ring-amber-200"><dt className="text-xs font-semibold uppercase tracking-wide text-amber-700">{t("Best streak")}</dt><dd className="text-xl font-extrabold text-amber-900">🔥 {t("{n} in a row", { n: streak })}</dd></div>}
+        </dl>
+      )}
+      <p className="mt-4 text-sm text-slate-500">{t("Going back to My Work…")}</p>
       <a href={href} className="mt-6 inline-flex min-h-[44px] items-center rounded-xl bg-brand-navy px-6 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{t("Back to My Work")}</a>
     </div>
   );

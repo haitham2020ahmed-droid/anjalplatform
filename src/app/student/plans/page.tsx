@@ -8,6 +8,7 @@ import { studentPage } from "@/server/auth/student-page";
 import { studentPlans, type StudentPlanCard } from "@/server/student/my-plans";
 import { getT } from "@/i18n/server";
 import type { TFn } from "@/i18n";
+import { PlanCompleteBanner } from "@/components/plans/plan-complete-banner";
 
 export const metadata = { title: "My Plans" };
 
@@ -57,7 +58,9 @@ function PlanCard({ t, p }: { t: TFn; p: StudentPlanCard }) {
           {p.dueAt && <span className="font-semibold text-amber-800">{t("Due {date}", { date: p.dueAt })}</span>}
         </p>
       </div>
-      {p.total > 0 && (
+      {p.total > 0 && pct === 100 ? (
+        <PlanCompleteBanner planKey={p.key} />
+      ) : p.total > 0 && (
         <div className="flex items-center gap-3">
           <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={p.total} aria-valuenow={p.done} aria-label={t("{done} of {total} done", { done: p.done, total: p.total })}>
             <div className="h-full rounded-full bg-brand-teal" style={{ width: `${pct}%` }} />

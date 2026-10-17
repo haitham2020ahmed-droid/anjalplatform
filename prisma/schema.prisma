@@ -2738,6 +2738,42 @@ model FluencyPractice {
   @@index([studentId, createdAt])
 }
 
+/// 📝 Daily Dictation (its own tab in the Fluency Coach): one listen-and-type item a day, with its own small
+/// up/down difficulty engine (src/server/dictation/engine.ts), separate from the Fluency Coach's WCPM level.
+model DictationStudent {
+  studentId  String   @id
+  schoolId   String
+  /// the bank tier (1..N, src/server/dictation/items.ts), never below 1 or above the bank's top tier
+  tier       Int
+  startTier  Int
+  updatedAt  DateTime @updatedAt
+
+  @@index([schoolId])
+}
+
+/// One day's Daily Dictation attempt (one row per student per calendar day — DICTATION_DAY_FORMAT in engine.ts).
+model DictationAttempt {
+  id          String   @id @default(cuid())
+  studentId   String
+  schoolId    String
+  /// the calendar day this attempt counts for (yyyy-mm-dd; configurable "now" in engine.ts, not real wall-clock in tests)
+  day         String   @db.VarChar(10)
+  itemId      String   @db.VarChar(20)
+  tier        Int
+  typed       String   @db.VarChar(500)
+  /// word-level diff ops: [{ kind: "ok"|"missing"|"extra"|"misspelled", text, typedText? }]
+  diff        Json
+  errorCount  Int
+  /// no errors at all
+  clean       Boolean
+  tierBefore  Int
+  tierAfter   Int
+  createdAt   DateTime @default(now())
+
+  @@unique([studentId, day])
+  @@index([studentId, createdAt])
+}
+
 /// 👪 A report for the family, prepared by the platform or written by the teacher. Teachers' reports reach the
 /// family only after a school admin approves them (status PENDING → APPROVED, or RETURNED with a note).
 model FamilyReport {

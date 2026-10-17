@@ -61,7 +61,9 @@ CMD ["node", "scripts/start.mjs", "--standalone"]
 # ----------------------------------------------------------------------- jobs
 FROM deps AS jobs
 ENV NODE_ENV=production
-RUN apt-get update && apt-get install -y --no-install-recommends tini && rm -rf /var/lib/apt/lists/*
+# default-mysql-client: gives `mysqldump` for scripts/db/backup-db.sh (the backup Cron Job runs this image
+# with its command overridden to `sh scripts/db/backup-db.sh` — see render.yaml and docs/BACKUP-AND-RESTORE.md)
+RUN apt-get update && apt-get install -y --no-install-recommends tini default-mysql-client && rm -rf /var/lib/apt/lists/*
 COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
 COPY --chown=node:node . .
 USER node

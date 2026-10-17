@@ -35,6 +35,12 @@ export function FamilyView({ d, first = true, summary }: { d: FamilyDoc; first?:
             ))}
           </div>
         </section>
+        {d.note && (
+          <section className="mt-5 break-inside-avoid rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200">
+            <h3 className="font-bold text-amber-900">📝 A note from {name}&apos;s teacher</h3>
+            <p className="mt-1 whitespace-pre-wrap text-[13px] text-amber-900">{d.note}</p>
+          </section>
+        )}
         {d.subjects.some((x) => x.areas.length) && (
           <section className="mt-5">
             <h3 className="rounded-lg bg-slate-100 px-3 py-1.5 font-bold text-brand-navy">🧩 Goal areas</h3>

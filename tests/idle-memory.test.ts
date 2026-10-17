@@ -127,3 +127,13 @@ r81test("r81: idle GC runs only with --expose-gc, above 300 MB, at most every 3 
   const src = (await import("node:fs")).readFileSync("scripts/start.mjs", "utf8");
   r81assert.match(src, /--expose-gc/);
 });
+
+// r86: black box — recent pages kept for the memory log
+r81test("r86: the memory log names the last pages opened (path + RSS), at most 8 kept", async () => {
+  const m = await import("../src/server/monitoring/memory");
+  for (let i = 0; i < 12; i++) m.notePath(`/teacher/page-${i}`);
+  const s = m.recentPaths();
+  r81assert.match(s, /\/teacher\/page-11/);
+  r81assert.doesNotMatch(s, /\/teacher\/page-3 /);
+  r81assert.equal(s.split(" | ").length, 6);
+});

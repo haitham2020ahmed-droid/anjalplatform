@@ -1,7 +1,7 @@
 "use server";
 import { repo, requireActor } from "@/server/auth/next";
 import { guardAction, guardCall } from "@/server/lib/action-guard";
-import { assignYearWeek, editYearPlan, yearPlanView, type YearEdit, type YearPlanView } from "@/server/map/year-plan";
+import { assignYearWeek, editYearPlan, setYearPlanMode, yearPlanView, type YearEdit, type YearPlanMode, type YearPlanView } from "@/server/map/year-plan";
 import { sendYearPlan, skillQuestionsPreview, type PreviewQuestion } from "@/server/map/year-plan-share";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
@@ -20,6 +20,14 @@ export async function yearEditAction(classId: string, edit: YearEdit): Promise<O
     const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
     await editYearPlan(repo, actor, String(classId ?? ""), edit);
     return { ok: true as const, value: await yearPlanView(repo, actor, String(classId ?? "")) };
+  });
+}
+
+/** 🔄/🔒 Automatic (rebuilds from MAP data every time it is opened) or Manual (the teacher's own weeks, locked). */
+export async function yearModeAction(classId: string, mode: YearPlanMode): Promise<Out<YearPlanView>> {
+  return guardCall("map", "yearMode", PATH, async () => {
+    const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+    return { ok: true as const, value: await setYearPlanMode(repo, actor, String(classId ?? ""), mode) };
   });
 }
 

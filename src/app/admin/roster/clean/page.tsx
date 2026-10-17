@@ -4,6 +4,7 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { parseScope, previewClean, rosterList, scopeQuery } from "@/server/admin/roster-clean";
 import { archiveRosterAction, deleteRosterAction, oneStudentAction } from "./actions";
+import { t } from "@/i18n/admin-confirm";
 
 export const metadata = { title: "Clear Roster" };
 
@@ -40,11 +41,11 @@ export default async function CleanRosterPage({ searchParams }: { searchParams: 
         <Section title="2a · Archive (Recommended)" icon="📦" tone="sky" hint="Students cannot sign in and leave their classes. Their answers, MAP scores and reports are kept, so nothing is lost.">
           <form action={archiveRosterAction}>{hidden}<button disabled={!p.students} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-50">📦 Archive {p.students} student(s)</button></form>
         </Section>
-        <Section title="2b · Delete Permanently" icon="🗑" tone="amber" hint="Removes the students and ALL their data (answers, MAP, levels, ReadMaster, games…). This cannot be undone: download the backup first.">
+        <Section title="2b · Delete ALL students + all their data" icon="🗑" tone="amber" hint={t("en", "bulkDelete.roster.warning")}>
           <a href={`/api/roster-backup?${q}`} className="inline-block rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Download backup (JSON)</a>
           <form action={deleteRosterAction} className="mt-3 space-y-2">{hidden}
-            <label className="block text-sm">Type <code className="rounded bg-red-50 px-1.5 py-0.5 font-bold text-red-800">{p.confirm}</code> to confirm<input name="confirm" autoComplete="off" required className="mt-1 w-full rounded-xl border border-red-300 px-3 py-2" /></label>
-            <button disabled={!p.students} className="rounded-xl bg-red-600 px-5 py-2.5 font-semibold text-white hover:bg-red-700 disabled:opacity-50">🗑 Delete permanently</button>
+            <label className="block text-sm">{t("en", "bulkDelete.roster.typeToConfirmLabel")} <code className="rounded bg-red-50 px-1.5 py-0.5 font-bold text-red-800">{p.confirm}</code> {t("en", "bulkDelete.roster.typeToConfirmSuffix")}<input name="confirm" autoComplete="off" required className="mt-1 w-full rounded-xl border border-red-300 px-3 py-2" /></label>
+            <button disabled={!p.students} className="rounded-xl bg-red-600 px-5 py-2.5 font-semibold text-white hover:bg-red-700 disabled:opacity-50">🗑 Delete ALL students + all their data</button>
           </form>
         </Section>
       </div>

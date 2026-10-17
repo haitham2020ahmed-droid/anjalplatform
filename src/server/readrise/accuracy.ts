@@ -1,12 +1,20 @@
 /**
  * 🎯 ReadRise accuracy (owner r69 item 3 — "more accurate than Achieve3000"):
  *
- *  1. RAPID GUESSES (the same rules as practice, src/server/practice/guessing.ts): the reader sends, for each of the
- *     8 questions, when it was first answered (ms after the questions opened). The FIRST answer is timed from when the
- *     article opened (reading time + its own time) against a third of the text's expected reading time by its word
- *     count; every other answer under 3 s is a rapid guess. A run with 2+ rapid answers is UNRELIABLE (teacher-only):
- *     it never moves the level, never counts toward the weekly goal and never feeds the skills. A client that claims
- *     more time than the server saw since the questions opened is scaled down to the server's time.
+ *  1. RAPID GUESSES: the reader sends, for each of the 8 questions, when it was first answered (ms after the
+ *     questions opened). The FIRST answer is timed from when the article opened (reading time + its own time)
+ *     against a third of the text's expected reading time by its word count — the same rule as practice
+ *     (src/server/practice/guessing.ts), because that one does need a fresh reading of the passage. Every OTHER
+ *     answer is judged against RR_ANSWER_GAP_MS, not practice's flat RAPID_GUESS_MS: unlike practice (one question
+ *     revealed at a time, so every answer needs its own "time to read this question"), the ReadRise reader shows
+ *     all 8 questions at once — a careful student who read them while finishing the passage, then clicks through
+ *     the ones already decided, naturally answers them a couple of seconds apart, not a fresh 3 s each (bug: this
+ *     used to reuse RAPID_GUESS_MS here too, so that completely normal click-through was flagged a rapid guess and
+ *     2+ such "guesses" made the whole run UNRELIABLE — which silently stopped the faster-down level rule from
+ *     ever firing on exactly the struggling-reader sessions it exists to catch: a low scorer who does not linger
+ *     over answers they do not understand). A run with 2+ rapid answers is UNRELIABLE (teacher-only): it never
+ *     moves the level, never counts toward the weekly goal and never feeds the skills. A client that claims more
+ *     time than the server saw since the questions opened is scaled down to the server's time.
  *  2. QUESTION TYPES: every ReadRise question carries a type (central idea, detail, inference, vocabulary, text
  *     structure, author's purpose, cause–effect, sequence, compare). A question without one (an older import, a
  *     school's file) gets one by a deterministic rule from its stem (inferQuestionType).
@@ -21,6 +29,12 @@ import { latestMapLexile, readRisePlaced, s } from "./engine";
 
 /** this many rapid answers in one run make it Unreliable */
 export const RR_UNRELIABLE_RAPID = 2;
+/**
+ * The gap threshold for every answer after the first (ms): all 8 questions are visible from the moment the quiz
+ * opens, so answering one soon after another is not "too fast to have read it" the way it would be in practice's
+ * one-question-at-a-time flow — only a near-instant click (well under practice's 3 s) is still a guess here.
+ */
+export const RR_ANSWER_GAP_MS = 1500;
 /** the longest answer time kept (3 hours) */
 const MAX_MS = 3 * 3_600_000;
 
@@ -67,7 +81,7 @@ export function rapidAnswers(i: RapidInput): RapidResult {
     const t = Math.round(o.t * k), d = Math.max(0, t - prev);
     prev = t;
     ms[String(o.n)] = d;
-    const isRapid = idx === 0 ? readMs + d < first : d < RAPID_GUESS_MS;
+    const isRapid = idx === 0 ? readMs + d < first : d < RR_ANSWER_GAP_MS;
     if (isRapid) rapid.push(o.n);
   });
   rapid.sort((a, b) => a - b);

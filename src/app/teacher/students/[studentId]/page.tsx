@@ -14,6 +14,10 @@ import { ResetPasswordButton } from "./reset-password-button";
 import { StudentAnalyticsView } from "@/components/analytics/student-analytics";
 import { MapComparisonView } from "@/components/analytics/map-comparison";
 import { ReportDownloads } from "@/components/reports/report-downloads";
+import { resolvePeriod } from "@/analytics/periods";
+import { loadCalendar } from "@/server/analytics/calendar";
+import { BySourceView } from "@/components/skills/by-source-view";
+import { bySourceReport } from "@/server/skills/skills-by-source";
 import { FamilyReportPanel } from "@/components/reports/family-report-panel";
 import { StudentProfileCard } from "@/components/insights/student-profile-card";
 import { EmptyState, SourceTag, StatusPill } from "@/components/ui-kit";
@@ -24,7 +28,7 @@ import { studentEffort } from "@/server/practice/guessing";
 import { MASTERED_AT, NEEDS_BELOW } from "@/server/teacher/student-profile";
 import type { MapSummary } from "@/server/insights/student-data";
 import { writingResults } from "@/server/writing/locked";
-import { studentFileInsights } from "@/server/insights/student-file-insights";
+import { studentFileInsights, type StudentFileInsights } from "@/server/insights/student-file-insights";
 import { TREND_ARROW } from "@/server/insights/language-strands";
 import { commentsFor } from "@/server/teacher/classroom";
 import { notesFor, quickComments } from "@/server/teacher/extras";
@@ -33,6 +37,9 @@ import { ReadRiseLevelChart } from "@/components/insights/readrise-level-chart";
 import { Combo } from "@/components/ui/combo";
 import { addCommentAction, addNoteAction, deleteCommentAction, deleteNoteAction } from "./comment-actions";
 
+// r87: the page degrades to this (every section shows its own "nothing yet" state) instead of crashing
+// when studentFileInsights throws for an edge case — see the Promise.all below.
+const EMPTY_INSIGHTS: StudentFileInsights = { strands: [], mistake: null, rootCauses: [], readRise: null, peer: null, alerts: [] };
 const day = (iso: string | null) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Riyadh" }) : "—");
 const mins = (m: number) => (m >= 60 ? `${Math.floor(m / 60)}h ${m % 60}m` : `${m}m`);
 
@@ -60,12 +67,18 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
   // 🧠 effort (r67, teacher-only): answers given with care in the last 30 days; Unreliable sessions (> 20 % guesses)
   const [writing, ins, comments, notes, quick, effort] = await Promise.all([
     classId ? writingResults(repo, actor, classId, { studentId, limit: 20 }).catch(() => null) : Promise.resolve(null),
-    studentFileInsights(repo, actor, studentId, { classId, name: String(d.name ?? "") }),
+    // r87: this was the one call in this Promise.all with no fallback — any edge case in it (mistake detection,
+    // the prerequisite graph, the class comparison…) took the whole student file down with it ("not working").
+    studentFileInsights(repo, actor, studentId, { classId, name: String(d.name ?? "") }).catch(() => EMPTY_INSIGHTS),
     commentsFor(repo, actor, studentId).catch(() => []),
     notesFor(repo, actor, studentId).catch(() => []),
     quickComments(repo, actor).catch(() => [] as string[]),
     studentEffort(repo, studentId).catch(() => null),
   ]);
+  // 🗒️ skills by source (new School Reports work): this student's school year, same period as the rest of the page
+  const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, String(actor.schoolId)));
+  const EMPTY_BY_SOURCE = { studentId, groups: [], summary: { totalSkills: 0, avgMastery: null, mastered: 0, developing: 0, needsSupport: 0, up: 0, down: 0, flat: 0 } };
+  const bySource = await bySourceReport(repo, actor, studentId, period).catch(() => EMPTY_BY_SOURCE);
   const myWriting = writing ? writing.tasks.filter((k) => writing.rows[0]?.pct[k.id] !== undefined).map((k) => ({ ...k, pct: writing.rows[0].pct[k.id] })) : [];
   const mastered = d.skills.filter((k) => k.score >= MASTERED_AT || /master/i.test(k.band)).sort((a, b) => b.score - a.score);
   const needed = d.skills.filter((k) => k.score < NEEDS_BELOW && !/master/i.test(k.band)).sort((a, b) => a.score - b.score);
@@ -348,6 +361,9 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
         <StudentAnalyticsView a={analytics} />
         <div className="mt-6"><StudentDetailView d={d} classHref={classId ? `/teacher/classes/${classId}` : "/teacher"} header={false} /></div>
       </section>
+      {/* 🗒️ skills by source (new) + a link into the comprehensive Final Report (/school-reports) */}
+      <div className="mt-8 scroll-mt-20"><BySourceView r={bySource} /></div>
+      <div className="mt-6"><a href={`/school-reports/final-report?studentId=${studentId}`} className="inline-flex min-h-10 items-center rounded-xl bg-brand-navy px-4 text-sm font-bold text-white hover:bg-brand-purple">🗒️ {t("Open Final Report")}</a></div>
       <div className="mt-8"><ResetPasswordButton userId={String(st.userId)} /></div>
     </AppShell>
   );

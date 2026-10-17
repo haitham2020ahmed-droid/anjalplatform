@@ -48,6 +48,9 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
     { label: "Good news", value: v.counts.GOOD, icon: SEVERITY_ICON.GOOD, tone: "good", meaning: t("A big rise or back on track"), href: link({ severity: "GOOD" }) },
   ];
   if (v.isAdmin) glance.push({ label: "Urgent not handled 7+ days", value: v.unhandled.length, icon: "⏳", tone: v.unhandled.length ? "bad" : "good", meaning: t("Nobody marked them handled for a week") });
+  // nothing at all to show (no rows, no drops, no group moves, no admin unhandled list): a plain explanation
+  // beats a grid of zero tiles — this is the normal state for a class with no trend data yet, not a crash.
+  const nothingFlagged = v.classes.length > 0 && !v.rows.length && !v.dropping.length && !v.moves.length && (!v.isAdmin || !v.unhandled.length);
 
   return (
     <AppShell name={String(me.displayName)}>
@@ -69,6 +72,10 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
       ) : null /* a teacher switches the class in the report bar on top */}
 
       {!v.classes.length ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : (
+        <>
+        {nothingFlagged ? (
+          <EmptyState icon="✅" title="No students currently flagged" text="Nothing to show yet. A pattern needs at least two results over time (MAP, checks, tests or practice) for a measure — it will fill in as the class takes tests and practises on the platform." />
+        ) : (
         <>
           <AtAGlance items={glance} />
           <div className="grid gap-5 lg:grid-cols-2">
@@ -114,6 +121,8 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
               <ul className="space-y-3">{v.rows.map((r) => <StudentRow key={r.studentId} r={r} t={t} school={school} keep={base} />)}</ul>
             )}
           </ReportSection>
+        </>
+        )}
           <p className="text-xs text-slate-500">{t("Updated {date}. The school is checked every 3 hours.", { date: v.scannedAt.slice(0, 16).replace("T", " ") })}</p>
           <ReportSummary summary={earlyWarningSummary(v)} />
         </>

@@ -14,7 +14,7 @@ import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { RR_LEVELS } from "../src/server/readrise/level";
 import { setLevelByTeacher, studentReadRiseSummary } from "../src/server/readrise/engine";
 import { finishReading, startRun, submitActivity, submitPostPoll, submitPrePoll, submitWriting } from "../src/server/readrise/student";
-import { MAP_GAP, RR_UNRELIABLE_RAPID, alertMapGap, firstAnswerThresholdMs, inferQuestionType, mapGap, normalizeQuestionType, QUESTION_TYPES, rapidAnswers } from "../src/server/readrise/accuracy";
+import { MAP_GAP, RR_ANSWER_GAP_MS, RR_UNRELIABLE_RAPID, alertMapGap, firstAnswerThresholdMs, inferQuestionType, mapGap, normalizeQuestionType, QUESTION_TYPES, rapidAnswers } from "../src/server/readrise/accuracy";
 import { validateArticle } from "../src/server/readrise/import";
 import { countedAnswers, readRisePracticeAnswers } from "../src/server/skills/status";
 import { gradeSkillFamilies } from "../src/server/practice/skill-evidence";
@@ -61,6 +61,22 @@ describe("🎯 ReadRise accuracy", () => {
     assert.deepEqual(rapidAnswers({ at: null, numbers, readSeconds: 120, words: 301 }).rapid, []);
     // junk times are ignored
     assert.deepEqual(rapidAnswers({ at: { 1: "x", 2: -5, 3: 1e12 }, numbers, readSeconds: 120, words: 301 }).rapid, []);
+  });
+
+  test("bug repro: all 8 questions are shown at once, so clicking through already-decided answers a couple of seconds apart is not a guess", () => {
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    assert.equal(RR_ANSWER_GAP_MS, 1500, "between the 1 s and 2 s already pinned by the other cases below");
+    // the student reads for 3 minutes, looks over all 8 questions for 40 s (they are all visible at once), then
+    // clicks through the ones already decided 2 s apart — a completely normal cadence, not a guess
+    const at: Record<string, number> = {};
+    for (let i = 1; i <= 8; i++) at[String(i)] = 40_000 + (i - 1) * 2_000;
+    const clickThrough = rapidAnswers({ at, numbers, readSeconds: 180, words: 380 });
+    assert.deepEqual([clickThrough.rapid, clickThrough.unreliable], [[], false], "2 s apart is not a rapid guess");
+    // a true rapid-guess burst (well under a second apart) is still caught
+    const guessed: Record<string, number> = {};
+    for (let i = 1; i <= 8; i++) guessed[String(i)] = 40_000 + (i - 1) * 400;
+    const guess = rapidAnswers({ at: guessed, numbers, readSeconds: 180, words: 380 });
+    assert.ok(guess.unreliable && guess.rapid.length >= 2, `still caught: ${guess.rapid}`);
   });
 
   test("question types: every library and placement question is tagged; a missing type comes from the stem (deterministic)", () => {

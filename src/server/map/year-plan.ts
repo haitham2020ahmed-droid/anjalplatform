@@ -33,8 +33,8 @@ import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { classMembers } from "../insights/student-data";
 import { safeIfBehind } from "../db/schema-errors";
-import { bandSettings, groupOf, groupPools, GROUPS, mapProfiles, ritBand, type GroupKey, type Subject } from "./map-plan";
-import { continuumFor, continuumIndex, groupOfGoal, hasContinuum } from "./continuum";
+import { bandSettings, groupOf, groupPools, GROUPS, mapProfiles, MAP_POOL_MODELS, MAP_PROFILE_MODELS, ritBand, type GroupKey, type Subject } from "./map-plan";
+import { contModels, continuumFor, continuumIndex, groupOfGoal, hasContinuum } from "./continuum";
 import { masterSkills } from "../skills/master";
 import { lessonCatalog } from "../learn/files";
 import { learnSkills, matchSkills } from "../learn/match";
@@ -263,14 +263,22 @@ async function yearStart(repo: Repo, klass: Row, now: Date): Promise<Date> {
 
 const json = <T,>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
 
+/** r88: the models makePlan() reads from (classNeeds' pools/profiles/continuum, the class roster, the academic
+ *  year) — kept while none of them change, so Automatic mode's "rebuild every open" does not mean "query every
+ *  open": a class reopened within MAP_KEEP_MS gets the kept plan, same as every other MAP page since r79. */
+const PLAN_MODELS: readonly string[] = [...MAP_POOL_MODELS, ...MAP_PROFILE_MODELS, ...contModels(), "ClassMembership", "AcademicYear"];
+const planCache = mapCache<{ weeks: YearWeek[]; needs: Need[]; startDate: Date; notes: string[] }>("map.year-plan.makePlan", MAP_KEEP_MS, 24);
+
 async function makePlan(repo: Repo, actor: Actor, klass: Row, grade: number, now: Date): Promise<{ weeks: YearWeek[]; needs: Need[]; startDate: Date; notes: string[] }> {
-  const c = await classNeeds(repo, actor.schoolId!, s(klass.id), grade);
-  const built = buildYearWeeks(c);
-  const notes: string[] = [];
-  if (!c.tested.READING && !c.tested.LANGUAGE) notes.push("No MAP scores yet for this class: enter or import them, then make the plan again.");
-  else if (!built.chosen) notes.push("No skill is shared by most of the class yet.");
-  if (built.leftOut) notes.push(`${built.leftOut} more shared skill(s) did not fit in 40 weeks of 3: add them to a week by hand.`);
-  return { weeks: built.weeks, needs: c.needs, startDate: await yearStart(repo, klass, now), notes };
+  return planCache.get(repo, s(klass.id), PLAN_MODELS, async () => {
+    const c = await classNeeds(repo, actor.schoolId!, s(klass.id), grade);
+    const built = buildYearWeeks(c);
+    const notes: string[] = [];
+    if (!c.tested.READING && !c.tested.LANGUAGE) notes.push("No MAP scores yet for this class: enter or import them, then make the plan again.");
+    else if (!built.chosen) notes.push("No skill is shared by most of the class yet.");
+    if (built.leftOut) notes.push(`${built.leftOut} more shared skill(s) did not fit in 40 weeks of 3: add them to a week by hand.`);
+    return { weeks: built.weeks, needs: c.needs, startDate: await yearStart(repo, klass, now), notes };
+  });
 }
 
 async function savedRow(repo: Repo, classId: string): Promise<Row | null> {
@@ -284,29 +292,71 @@ async function save(repo: Repo, actor: Actor, classId: string, data: { weeks: Ye
   else await repo.create("MapYearPlan", { schoolId: actor.schoolId!, classId, startDate: data.startDate ?? now, weeks: data.weeks as unknown as object, needs: (data.needs ?? []) as unknown as object, createdById: actor.userId, generatedAt: now, updatedAt: now });
 }
 
+export type YearPlanMode = "AUTO" | "MANUAL";
+/** r86: the SchoolSetting row that keeps a class's Year plan mode (Automatic / Manual), the `plans.closed` pattern. */
+export const yearPlanModeKey = (classId: string) => `year-plan.mode:${classId}`;
+
+/** Automatic (default): the plan rebuilds from the latest MAP data every time it is opened. Manual: the teacher's
+ *  own weeks are kept as they left them; nothing rebuilds it until they choose Automatic again (or press "Make the
+ *  plan again"). Moving / swapping / replacing / adding / removing a skill switches the plan to Manual by itself —
+ *  editing IS locking it. */
+export async function yearPlanMode(repo: Repo, schoolId: string, classId: string): Promise<YearPlanMode> {
+  const row = (await safeIfBehind("map.year-plan.mode", () => repo.findMany("SchoolSetting", { schoolId, key: yearPlanModeKey(classId) }, { take: 1 }), [] as Row[]))[0];
+  const v = row ? s((row.value as { mode?: unknown } | null)?.mode) : "";
+  if (v === "MANUAL" || v === "AUTO") return v;
+  // no explicit choice yet: a class whose plan was already made keeps behaving as it always has (frozen, i.e.
+  // Manual) — only a brand new plan starts life as Automatic, where there is nothing yet to lose by rebuilding.
+  return (await savedRow(repo, classId)) ? "MANUAL" : "AUTO";
+}
+
+/** The teacher switches the Year plan between Automatic and Manual. Automatic rebuilds it from the current MAP
+ *  data right away (replacing any manual edits); Manual just stops future rebuilds and keeps the plan as it is. */
+export async function setYearPlanMode(repo: Repo, actor: Actor, classId: string, mode: YearPlanMode, now = new Date()): Promise<YearPlanView> {
+  assertCan(actor, "assignments:create");
+  const { klass, canEdit } = await classAndGrade(repo, actor, classId);
+  if (!canEdit) throw new ForbiddenError("Only the class teacher can change the Year plan.");
+  const schoolId = s(klass.schoolId);
+  await repo.upsert("SchoolSetting", { schoolId, key: yearPlanModeKey(classId) }, { schoolId, key: yearPlanModeKey(classId), value: { mode }, updatedBy: actor.userId }, { value: { mode }, updatedBy: actor.userId });
+  await audit(repo, { actorId: actor.userId, action: "map.year_plan.mode", entityType: "MapYearPlan", entityId: classId, after: { mode }, at: now }).catch(() => undefined);
+  return yearPlanView(repo, actor, classId, now);
+}
+
 export interface YearPlanView {
-  classId: string; className: string; grade: number; canEdit: boolean; saved: boolean;
+  classId: string; className: string; grade: number; canEdit: boolean; saved: boolean; mode: YearPlanMode;
   weeks: (Omit<YearWeek, "skills"> & { from: string; to: string; due: string; current: boolean; skills: (YearSkill & { assignedId: string | null; lesson: { code: string; title: string } | null; /** ⭐ students of the class with the star */ mastered?: number })[] })[];
   summary: { shared: number; covered: number; inPlan: number; students: number; tested: Record<Subject, number>; weakAreas: { key: GroupKey; name: string; icon: string }[]; leftOut: number };
   candidates: Need[]; notes: string[];
 }
 
-/** The Year plan of a class: made (and kept) the first time its teacher opens it; the admin sees it read-only. */
+/**
+ * The Year plan of a class: made (and kept) the first time its teacher opens it; the admin sees it read-only.
+ * r86: in Automatic mode (the default) it is made AGAIN from the latest MAP data every time the class's teacher
+ * opens it (the ongoing auto-rebuild); in Manual mode the saved weeks are read as they are, never rebuilt here.
+ */
 export async function yearPlanView(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<YearPlanView> {
   const { klass, grade, canEdit } = await classAndGrade(repo, actor, classId);
+  const mode = await yearPlanMode(repo, s(klass.schoolId), classId);
   let row = await savedRow(repo, classId);
   let notes: string[] = [];
   let weeks: YearWeek[], needs: Need[], startDate: Date;
-  if (row) {
-    weeks = json<YearWeek[]>(row.weeks, []); needs = json<Need[]>(row.needs, []);
-    startDate = new Date(row.startDate instanceof Date ? row.startDate.toISOString() : s(row.startDate));
-  } else {
+  // r86: Automatic rebuilds it (from the latest MAP data) every time it is opened, even when a row is already
+  // saved; Manual reads the saved weeks as the teacher left them. A brand new plan is always made once, whatever
+  // the mode (there is nothing saved yet to show).
+  const firstEver = !row;
+  if (!row || mode === "AUTO") {
     const p = await makePlan(repo, actor, klass, grade, now);
     ({ weeks, needs, startDate, notes } = p);
     if (canEdit && weeks.some((w) => w.skills.length)) {
       await safeIfBehind("map.year-plan.save", () => save(repo, actor, classId, { weeks, needs, startDate, generated: true }, now), undefined);
       row = await savedRow(repo, classId);
+      // the FIRST plan a class ever gets is made under Automatic (nothing to lose yet): write that choice down
+      // explicitly, so the next open does not fall back to the "a saved plan with no explicit mode is Manual"
+      // guess meant only for classes whose plan predates this feature.
+      if (firstEver && row) await repo.upsert("SchoolSetting", { schoolId: klass.schoolId, key: yearPlanModeKey(classId) }, { schoolId: klass.schoolId, key: yearPlanModeKey(classId), value: { mode: "AUTO" }, updatedBy: actor.userId }, { value: { mode: "AUTO" }, updatedBy: actor.userId }).catch(() => undefined);
     }
+  } else {
+    weeks = json<YearWeek[]>(row.weeks, []); needs = json<Need[]>(row.needs, []);
+    startDate = new Date(row.startDate instanceof Date ? row.startDate.toISOString() : s(row.startDate));
   }
   const ids = [...new Set(weeks.flatMap((w) => w.skills.map((k) => k.skillId)))];
   const [stars, lessons, members] = await Promise.all([starredSkills(repo, classId, ids), lessonLinks(repo, actor.schoolId!, ids), classMembers(repo, classId)]);
@@ -324,7 +374,7 @@ export async function yearPlanView(repo: Repo, actor: Actor, classId: string, no
   const focus = new Map<GroupKey, number>();
   for (const n of shared) focus.set(n.group, (focus.get(n.group) ?? 0) + n.need);
   const view: YearPlanView = {
-    classId, className: s(klass.name), grade, canEdit, saved: Boolean(row),
+    classId, className: s(klass.name), grade, canEdit, saved: Boolean(row), mode,
     weeks: weeks.map((w) => {
       const d = weekDates(startDate, w.week);
       return { ...w, ...d, due: d.to, current: today >= Date.parse(`${d.from}T00:00:00Z`) - RIYADH && today < Date.parse(`${d.to}T00:00:00Z`) - RIYADH + 3 * DAY,
@@ -431,6 +481,11 @@ export async function editYearPlan(repo: Repo, actor: Actor, classId: string, e:
   };
   const next = applyYearEdit(weeks, e, skillOf);
   await save(repo, actor, classId, { weeks: next }, now);
+  // r86: moving / swapping / replacing / adding / removing a skill IS locking the plan — Automatic would otherwise
+  // rebuild it away again the next time the page is opened.
+  if (await yearPlanMode(repo, s(klass.schoolId), classId) === "AUTO") {
+    await repo.upsert("SchoolSetting", { schoolId: klass.schoolId, key: yearPlanModeKey(classId) }, { schoolId: klass.schoolId, key: yearPlanModeKey(classId), value: { mode: "MANUAL" }, updatedBy: actor.userId }, { value: { mode: "MANUAL" }, updatedBy: actor.userId });
+  }
 }
 
 /** "Assign this week": ☆ every skill of the week not assigned yet (due the end of that week). */

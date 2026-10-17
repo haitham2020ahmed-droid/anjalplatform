@@ -79,6 +79,11 @@ export const GLOSSARY: Record<string, string> = {
   "Standards, lowest first": "The standards with the lowest % of right answers first (5+ answers each).",
   Summary: "Computed from the numbers on this page: who is doing well, who needs help and what to do next.",
   "Action plan": "Buttons that open the page that does each next step.",
+  // r87: the Grade/school MAP overview table had no tooltip at all for these four columns
+  "Tested": "Students who have a MAP score for this subject and term.",
+  "National": "The national average RIT for students in the same grade and term (NWEA norms).",
+  "Flags": "Tests NWEA flagged to double-check — often fast guessing during the test.",
+  "Percentile bands": "How the tested students split into five equal national groups, from the lowest fifth to the highest fifth.",
 };
 
 /** The tooltip of a heading: its own hint, or the glossary's plain words, or nothing. */

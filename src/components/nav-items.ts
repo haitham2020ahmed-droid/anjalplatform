@@ -88,6 +88,7 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher/learn", label: "Learn", icon: "📘", line: "learn" },
   { href: "/teacher/map-center", label: "MAP", icon: "🗺️", line: "target" },
   { href: "/teacher/reports", label: "Reports", icon: "📊", line: "chart" },
+  { href: "/school-reports", label: "School Reports", icon: "🗒️", line: "file" },
   { href: "/teacher/week", label: "My Week", icon: "📅", line: "week", group: MORE },
   { href: "/teacher/messages", label: "Messages", icon: "📨", line: "mail", group: MORE },
   { href: "/teacher/games", label: "Live Challenge", icon: "🏁", line: "game", group: MORE },

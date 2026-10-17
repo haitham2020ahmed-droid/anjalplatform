@@ -131,4 +131,13 @@ describe("📈 on the demo school: never across classes, never to students or pa
     assert.match(read("src/app/teacher/reports/class/page.tsx"), /Never ranked against other classes/);
     assert.match(read("src/app/teacher/students/[studentId]/page.tsx"), /Compared with the class[\s\S]*Staff only/);
   });
+
+  // r87: "each student against the class" was a raw 4-column table — simplified to one plain-language line per
+  // student (the ready-made `sentence` field) plus a colour-coded position pill, no numbers to compare by hand.
+  test("'each student against the class' is plain language + a colour-coded pill, not a raw numbers table", () => {
+    const page = read("src/app/teacher/reports/class/page.tsx");
+    assert.match(page, /r\.sentence/, "shows the plain-language sentence");
+    assert.match(page, /r\.position === "above".*r\.position === "below".*r\.position === "around"/, "colour-codes the three positions (+ the no-data case)");
+    assert.doesNotMatch(page, /ReportTable/, "no raw numbers table on this page any more");
+  });
 });

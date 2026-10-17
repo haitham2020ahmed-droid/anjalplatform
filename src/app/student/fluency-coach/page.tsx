@@ -11,6 +11,7 @@ import { DrillReader } from "@/components/fluency/drill-reader";
 import { MyPlanCard } from "@/components/fluency/my-plan";
 import { ProsodyBars, TrialChart, WcpmChart } from "@/components/fluency/charts";
 import { aiEnv } from "@/server/ai/env";
+import { DictationTab } from "@/components/dictation/dictation-tab";
 
 export const metadata = { title: "Fluency Coach" };
 const TONE = { BELOW: "bg-rose-100 text-rose-900", ON: "bg-sky-100 text-sky-900", ABOVE: "bg-emerald-100 text-emerald-900" } as const;
@@ -30,8 +31,9 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
   const key = sp.key ? String(sp.key) : home.recommended;
   const session = live && kind && kind !== "DRILL" && key ? await coachSession(repo, actor, key, kind).catch(() => null) : null;
   const drill = live && kind === "DRILL" ? await drillFor(repo, actor) : null;
+  const dictation = live && sp.mode === "DICTATION";
   const rec = home.passages.find((p) => p.key === home.recommended);
-  const reading = Boolean(session || drill);
+  const reading = Boolean(session || drill || dictation);
   const g = home.goal;
 
   return (
@@ -48,6 +50,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
       {!home.enabled ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">The Fluency Coach is switched off by your school.</p>
         : !home.ready ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">The Fluency Coach is not ready yet: your school needs to connect its AI key. Ask your teacher.</p>
         : drill ? <DrillReader grid={drill} />
+        : dictation ? <DictationTab />
         : session && !session.offered ? (
           <section className="space-y-4 rounded-3xl bg-white p-6 ring-1 ring-slate-200">
             <p className="text-lg font-semibold text-brand-navy">🚀 {session.reason}</p>
@@ -100,6 +103,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
                 <Mode href={link(home.recommended, "ECHO")} tone="from-sky-500 to-cyan-500" title="🦜 Echo reading" text="Listen to one sentence, then say it the same way. The coach compares your phrasing and voice." />
                 <Mode href={link(home.recommended, "PHRASED")} tone="from-violet-500 to-fuchsia-500" title="🎼 Phrased reading" text="Read in word groups with / and // marks. The marks fade as you get better." />
                 <Mode href={link(null, "DRILL")} tone="from-amber-400 to-orange-500" title="⚡ 1-minute word drill" text="Rows of words with your sound patterns. Beat your score!" />
+                <Mode href="/student/fluency-coach?mode=DICTATION" tone="from-indigo-500 to-violet-600" title="📝 Daily Dictation" text="Listen to today's item, type what you hear, and see exactly what to fix." />
                 {home.repeatedOffered
                   ? <Mode href={link(home.recommended, "REPEATED")} tone="from-rose-500 to-pink-500" title="🔁 Repeated reading" text="Read the same passage up to 5 times, with a new goal each time." />
                   : <Mode href={home.passages.find((p) => p.level === "ABOVE")?.key ? link(home.passages.find((p) => p.level === "ABOVE")!.key, "PASSAGE") : "/student/readmaster"} tone="from-emerald-500 to-lime-500" title="🚀 Wider reading" text="You read above level! Read new, harder passages and articles." />}

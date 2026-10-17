@@ -2,7 +2,7 @@
  * Practice items: load from the DB into a scoring model, and build the SAFE
  * payload sent to the browser (no keys, no rationales, no explanations).
  */
-import { definitelyNeedsPassage } from "../../lib/passage-detect";
+import { definitelyNeedsPassage, isDanglingPassageRef } from "../../lib/passage-detect";
 import { createHash } from "node:crypto";
 import { combineGuidance, errorKey, isClassicErrorItem, readErrorResponse, storedParts, twoPartScores, scoreResponse, type BankItem, type BankOption, type QuestionTypeCode } from "../../imports/questions/validate";
 import { chosenMisconception } from "../../insights/misconceptions";
@@ -198,10 +198,15 @@ async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<Prac
   // 🧹 never served: a question that clearly needs a reading passage ("according to the passage", "in paragraph 3"…)
   // but has none attached (or its passage is missing / empty) — Update 55, it reached some students
   const noText = (q: Row) => { const p = q.passageId ? passage.get(str(q.passageId)) : undefined; return !(p && str(p.body).trim()) && definitelyNeedsPassage(str(q.stem)); };
+  // 🧹 standing defensive filter (r87): a question whose passageId is set but does not resolve to real text
+  // (blank passage, never filled in) is excluded here too, regardless of wording — this is the one place every
+  // served question passes through, so a question can never reach a student even before any cleanup run has
+  // caught it (src/server/admin/passage-cleanup.ts cleans up what already got served).
+  const orphaned = (q: Row) => isDanglingPassageRef(q.passageId ? str(q.passageId) : null, q.passageId ? str(passage.get(str(q.passageId))?.body ?? "") : null);
   // ⚡ each question's options / answers / explanations grouped once (was a scan of every row per question)
   const by = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = str(r.questionId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
   const optsOf = by(opts), answersOf = by(answers), explOf = by(expl);
-  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
+  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q) && !orphaned(q)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {

@@ -114,7 +114,7 @@ describe("admin review: only working tools", () => {
       const inMenu = menu.filter((i) => i.group === g.title).length;
       assert.ok(inMenu >= 2 && inMenu <= 6, `${g.title}: ${inMenu} menu entries`);
     }
-    assert.ok(ADMIN_TOOLS.length <= 65, `${ADMIN_TOOLS.length} tools in all (was 85)`);
+    assert.ok(ADMIN_TOOLS.length <= 67, `${ADMIN_TOOLS.length} tools in all (was 85; School Reports + Server status raised the 65 budget by 2)`);
   });
 
   test("every menu / home / All Admin Tools link opens an existing page", () => {

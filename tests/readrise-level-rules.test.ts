@@ -128,4 +128,46 @@ describe("📉📈 ReadRise level rules", () => {
       await afterResponseSettled();
     });
   });
+
+  describe("🐛 bug repro: the level must not freeze on real failing scores (owner report: stuck at 1000 through 25%/35%)", () => {
+    let repo: SqliteRepo; let teacher: Actor; let student: Actor; let arts: string[];
+    const lvl = async (s: Actor) => Number((await repo.findUnique("RRStudent", { studentId: s.studentId }))!.level);
+
+    /** a reading with REALISTIC answer timing: the reader shows all 8 questions at once, so a student who read them
+     * while finishing the passage naturally clicks through the ones already decided a couple of seconds apart —
+     * this must not be mistaken for rapid guessing (accuracy.ts) and must not stop the level from moving. */
+    async function readRealistic(s: Actor, articleId: string, right: number, now: Date) {
+      const v = await startRun(repo, s, articleId, {}, now);
+      await submitPrePoll(repo, s, v.runId, 1, now);
+      await finishReading(repo, s, v.runId, { readSeconds: 180 }, now);
+      const timingAt: Record<string, number> = {};
+      for (let i = 1; i <= 8; i++) timingAt[String(i)] = 40_000 + (i - 1) * 2_000;
+      const submitAt = new Date(now.getTime() + 40_000 + 7 * 2_000 + 1_000);
+      const r = await submitActivity(repo, s, v.runId, answers(right), submitAt, { at: timingAt });
+      await submitWriting(repo, s, v.runId, WRITING, submitAt);
+      await submitPostPoll(repo, s, v.runId, 2, submitAt);
+      return r;
+    }
+
+    before(async () => {
+      ({ repo } = await demoDatabase());
+      await seedTestEnvironment(repo, { root: process.cwd(), passwordHash: "x".repeat(60), practice: "none" });
+      teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "test.teacher.1" }))!);
+      student = await resolveActor(repo, (await repo.findUnique("User", { username: "test.student.001" }))!);
+      arts = [];
+      for (let i = 0; i < 4; i++) arts.push(await makeArticle(repo, `BUG-${i}`));
+    });
+
+    test("two realistically-timed, genuinely low first-try scores actually drop the level", async () => {
+      await setLevelByTeacher(repo, teacher, student.studentId!, 1000, "placement", at(0));
+      const r1 = await readRealistic(student, arts[0], 2, at(1)); // 25% → ≤ 25% → −100 at once
+      const run1 = (await repo.findUnique("RRRun", { id: r1.runId }))!;
+      assert.equal(run1.unreliable, false, "a normal click-through cadence is not Unreliable");
+      assert.equal(await lvl(student), 900, "the level must actually drop on a genuine ≤ 25% first try");
+      const r2 = await readRealistic(student, arts[1], 3, at(2)); // 38%, still below the window's own prior score
+      const run2 = (await repo.findUnique("RRRun", { id: r2.runId }))!;
+      assert.equal(run2.unreliable, false);
+      await afterResponseSettled();
+    });
+  });
 });

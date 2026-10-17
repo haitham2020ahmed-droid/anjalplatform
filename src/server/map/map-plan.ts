@@ -95,6 +95,7 @@ const pctFromNorm = (rit: number, n: { mean: number; sd: number } | null) => {
  * MAP score, a student, the bands or the norms change (write counters; at most 10 min); callers get their own copy.
  */
 const PROFILE_MODELS = ["MapResult", "Student", "Grade", "SchoolSetting", "BenchmarkReference", "MapGoalArea"];
+export const MAP_PROFILE_MODELS: readonly string[] = PROFILE_MODELS;
 const profileCache = mapCache<Map<string, MapProfile>>("map.map-plan.profiles", MAP_KEEP_MS, 24);
 export async function mapProfiles(repo: Repo, schoolId: string, studentIds: string[], subject: Subject): Promise<Map<string, MapProfile>> {
   if (!studentIds.length) return new Map();

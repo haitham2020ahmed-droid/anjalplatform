@@ -29,15 +29,36 @@ export const rssMb = (): number => Math.round(process.memoryUsage.rss() / MB);
 export const memoryHigh = (limitMb = Number(process.env.MEMORY_BUSY_MB) || MEMORY_BUSY_MB): boolean =>
   process.env.NODE_ENV === "production" && rssMb() > limitMb;
 
-const G = globalThis as unknown as { __memLog?: ReturnType<typeof setInterval>; __heavyTail?: Promise<void> };
+const G = globalThis as unknown as { __memLog?: ReturnType<typeof setInterval>; __heavyTail?: Promise<void>; __paths?: { at: number; path: string; rss: number }[]; __memStart?: number; __memLast?: number };
 
-/** Starts the 60-second memory log (once per process). */
-export function startMemoryLog(everyMs = 60_000, overMb = Number(process.env.MEMORY_LOG_MB) || MEMORY_LOG_MB): void {
+/**
+ * r86 "black box" (live: the server restarted ~1–2 min after a deploy with NO log line — killed between two 60 s
+ * samples): the last pages opened (path + RSS when they started) are kept, and the memory log now samples every 15 s,
+ * always logs during the first 5 minutes after a start ("memory.boot"), logs a sudden jump of 60 MB+ ("memory.jump")
+ * and anything over MEMORY_LOG_MB (now 350 MB) — each line names the last pages, so the next crash says what caused it.
+ */
+export function notePath(path: string | null | undefined): void {
+  if (!path) return;
+  const list = (G.__paths ??= []);
+  list.push({ at: Date.now(), path: String(path).slice(0, 80), rss: rssMb() });
+  if (list.length > 8) list.splice(0, list.length - 8);
+}
+export const recentPaths = (): string => (G.__paths ?? []).slice(-6).map((p) => `${new Date(p.at).toISOString().slice(11, 19)} ${p.path} (${p.rss})`).join(" | ");
+export const BOOT_LOG_MS = 5 * 60_000;
+export const JUMP_MB = 60;
+
+/** Starts the memory log (once per process): every 15 s, see above. */
+export function startMemoryLog(everyMs = 15_000, overMb = Number(process.env.MEMORY_LOG_MB) || 350): void {
   if (G.__memLog) return;
+  G.__memStart = Date.now();
   G.__memLog = setInterval(() => {
     const snap = memorySnapshot();
-    // r68: with the biggest caches, so the log says WHAT grew (src/server/cache/idle.ts)
-    if (snap.rssMB > overMb) log("warn", "memory.high", { ...snap, caches: cacheSizes().slice(0, 5).map((c) => `${c.name}:${c.size}`).join(" ") });
+    const last = G.__memLast ?? snap.rssMB;
+    G.__memLast = snap.rssMB;
+    const boot = Date.now() - (G.__memStart ?? 0) < BOOT_LOG_MS;
+    const event = snap.rssMB > overMb ? "memory.high" : snap.rssMB - last >= JUMP_MB ? "memory.jump" : boot ? "memory.boot" : null;
+    // r68: with the biggest caches, so the log says WHAT grew (src/server/cache/idle.ts); r86: and the last pages opened
+    if (event) log(event === "memory.boot" ? "info" : "warn", event, { ...snap, caches: cacheSizes().slice(0, 5).map((c) => `${c.name}:${c.size}`).join(" "), pages: recentPaths() });
   }, everyMs);
   (G.__memLog as { unref?: () => void }).unref?.();
 }
