@@ -58,9 +58,10 @@ export async function POST(req: Request) {
     const bytes = new Uint8Array(await file.arrayBuffer());
     let jobId: string;
     if (grammarGrade) {
-      // 🔤 the Grammar bank: the strict format's skills first (created or updated, placed on the Curriculum Map);
-      // the simple format matches the grade's EXISTING skills by name, creating a plain one (no map placement)
-      // only for a name that has none yet — so a grade starting from zero (Grade 5, Grade 6…) still gets one.
+      // 🔤 the Grammar bank: the strict format's skills first (created or updated); the simple format matches
+      // the grade's EXISTING skills by name, creating a plain one only for a name that has none yet — so a
+      // grade starting from zero (Grade 5, Grade 6…) still gets one. Either format places its skills on the
+      // Curriculum Map too, spread across the grade's live Units/Lessons.
       const wb = readGrammarWorkbook(bytes);
       let table: string[][];
       if (wb.format === "simple") { await ensureSimpleGrammarSkills(repo, actor, wb, grammarGrade); table = grammarSimpleTable(wb, grammarGrade); }

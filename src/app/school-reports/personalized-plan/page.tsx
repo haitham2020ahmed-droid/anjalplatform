@@ -5,6 +5,8 @@ import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { BAND_RULE, personalPlan, type PersonalPlan, type PlanGoal } from "@/server/map/personal-plan";
+import { classProfile } from "@/server/map/nwea-reports";
+import { InstructionalAreaPercentiles } from "@/components/map/instructional-area-percentiles";
 import { personalizedPlanForStudent } from "@/server/reports/school-reports";
 import { localeFrom, t } from "@/i18n/school-reports";
 
@@ -132,6 +134,10 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
     if (view === "class") { if (classId) cls = await personalPlan(repo, actor, classId, subject); }
     else if (studentId) p = await personalizedPlanForStudent(repo, actor, studentId, subject);
   } catch (e) { if (e instanceof ForbiddenError) error = e.message; else throw e; }
+  // 📊 "Instructional Area Achievement Percentiles" for the whole-class view only (the student view already gets its
+  // own, from `p.areaPercentiles`) — needs the comprehensive MAP file (each area's own band), so this is best-effort:
+  // no comprehensive file imported, or no class access, just leaves the chart off, never the page.
+  const classPercentiles = view === "class" && classId ? await classProfile(repo, actor, classId, subject).catch(() => null) : null;
   const q = (extra: Record<string, string>) => `/school-reports/personalized-plan?${new URLSearchParams({ studentId, classId, subject: subject.toLowerCase(), view, lang: L, ...extra })}`;
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`;
   return (
@@ -177,6 +183,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 )}
               </header>
               <InstructionalAreas rows={p.areaBreakdown} L={L} classAverageRit={null} nationalAverageRit={null} scope="student" />
+              <InstructionalAreaPercentiles rows={p.areaPercentiles} L={L} />
               <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                 <h2 className="text-xl font-extrabold text-brand-navy">🎯 {t(L, "personalizedPlan.goals")}</h2>
                 <GoalList goals={p.goals} L={L} />
@@ -249,6 +256,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 </div>
               </section>
               <PercentileDistribution rows={cls.percentileDistribution} L={L} />
+              {classPercentiles && <InstructionalAreaPercentiles rows={classPercentiles.areas} L={L} />}
               <InstructionalAreas rows={cls.areaBreakdown} L={L} classAverageRit={cls.classAverageRit} nationalAverageRit={cls.nationalAverageRit} scope="class" />
               {cls.bands.map((b) => (
                 <section key={b.band} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">

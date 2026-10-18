@@ -41,14 +41,21 @@ function zOf(p: number): number {
   return ((((((a[0] * r2 + a[1]) * r2 + a[2]) * r2 + a[3]) * r2 + a[4]) * r2 + a[5]) * r) / (((((b[0] * r2 + b[1]) * r2 + b[2]) * r2 + b[3]) * r2 + b[4]) * r2 + 1);
 }
 
-/** A goal-area cell → RIT: a number is kept; a descriptor becomes the RIT at its middle percentile. */
+/** A typed goal-area cell, if it is one of the five band words (case/spacing-insensitive) — `null` for a RIT number or range. */
+export function bandWord(raw: string): (typeof BANDS)[number] | null {
+  return BANDS.find((b) => b.toLowerCase() === s(raw).toLowerCase().replace(/[^a-z]/g, "")) ?? null;
+}
+
+/** A goal-area cell → RIT: a number is kept; a band word becomes the RIT at its middle percentile (the band word
+ *  itself is kept too — `saveMapEntry` stores it as that goal's `descriptor`, same as NWEA's own comprehensive
+ *  file, so "Instructional Area Achievement Percentiles" works from the roster too, not only a file upload). */
 export async function goalRit(repo: Repo, raw: string, grade: number, season: Season): Promise<string> {
   const v = s(raw);
   if (!v) return "";
   if (/^\d{3}$/.test(v)) return v;
   const range = v.match(/^(\d{3})\s*-\s*(\d{3})$/);
   if (range) return String(Math.round((Number(range[1]) + Number(range[2])) / 2));
-  const band = BANDS.find((b) => b.toLowerCase() === v.toLowerCase().replace(/[^a-z]/g, ""));
+  const band = bandWord(v);
   if (!band) throw new ValidationError(`Goal area “${v}”: write a RIT (e.g. 205) or Low, LoAvg, Avg, HiAvg or High.`);
   await ensureNationalNorms(repo);
   const n = await nationalNorm(repo, grade, season);
@@ -92,6 +99,9 @@ export async function saveMapEntry(repo: Repo, actor: Actor, input: { classId: s
   const goals = subjectGoals(input.subject);
   const table: string[][] = [[...H]];
   const errors: MapImportResult["errors"] = [];
+  // a goal cell typed as a band word (Low/LoAvg/Avg/HiAvg/High), by student and area key — the "Instructional Area
+  // Achievement Percentiles" chart's descriptor, written back onto the imported MapResult goal rows once they exist.
+  const bands: { studentId: string; areaKey: string; band: (typeof BANDS)[number] }[] = [];
   for (const r of input.rows) {
     const st = byId.get(r.studentId);
     if (!st) continue;   // not in this class: ignored
@@ -103,7 +113,14 @@ export async function saveMapEntry(repo: Repo, actor: Actor, input: { classId: s
     row[col(read ? "Reading Fall Percentile" : "Language Fall Percentile")] = s(r.percentile);
     if (input.season === "FALL") row[col(read ? "Reading Spring Projection" : "Language Spring Projection")] = s(r.projection);
     if (read) row[col("Fall Lexile")] = s(r.lexile);
-    try { for (const g of goals) row[col(g.header)] = await goalRit(repo, s(r.goals?.[g.code]), grid.grade, input.season); }
+    try {
+      for (const g of goals) {
+        const raw = s(r.goals?.[g.code]);
+        const band = bandWord(raw);
+        if (band) bands.push({ studentId: r.studentId, areaKey: g.code, band });
+        row[col(g.header)] = await goalRit(repo, raw, grid.grade, input.season);
+      }
+    }
     catch (e) { if (e instanceof ValidationError) { errors.push({ row: 0, message: `${st.name}: ${e.message}` }); continue; } throw e; }
     if (s(r.goals && Object.values(r.goals).join("")) && !s(r.rit)) { errors.push({ row: 0, message: `${st.name}: write the overall RIT too.` }); continue; }
     table.push(row);
@@ -119,6 +136,22 @@ export async function saveMapEntry(repo: Repo, actor: Actor, input: { classId: s
     if (latestFall && date.getTime() < latestFall) errors.push({ row: 0, message: `Warning: ${grid.term} is dated ${date.toISOString().slice(0, 10)}, before these students' Fall test (${new Date(latestFall).toISOString().slice(0, 10)}). If this is the ${SEASON_NAME[input.season]} test of the school year that started with that Fall, choose the year ${input.year + 1}.` });
   }
   const r = await importMapScores(repo, actor, table, input.year, now, { term: { name: grid.term, date } });
+  // the goal rows above don't carry a descriptor (they're plain RIT): write back the band word(s) the teacher
+  // actually typed, same field NWEA's own comprehensive file sets, so this chart works from the roster too.
+  if (bands.length) {
+    const studentIds = [...new Set(bands.map((b) => b.studentId))];
+    const areas = await repo.findMany("MapGoalArea", {}, { select: ["id", "code"] });
+    const codeOfArea = new Map(areas.map((a) => [s(a.id), s(a.code)]));
+    const keyOfCode = new Map(AREA_COLUMNS.flatMap((a) => a.codes.map((code) => [code, a.key] as const)));
+    const subj = read ? /read/i : /language/i;
+    const goalRows = (await repo.findMany("MapResult", { studentId: { in: studentIds }, termName: grid.term }))
+      .filter((x) => x.goalName && subj.test(s(x.subject)));
+    for (const row of goalRows) {
+      const key = keyOfCode.get(codeOfArea.get(s(row.goalAreaId)) ?? "");
+      const hit = key && bands.find((b) => b.studentId === s(row.studentId) && b.areaKey === key);
+      if (hit) await repo.updateMany("MapResult", { id: row.id }, { descriptor: hit.band });
+    }
+  }
   // like the file import: each student is told “Your MAP results are in” (readiness S-17)
   await notifyMapScores(repo, actor, r, now);
   // the file import numbers rows by line: here a name is clearer

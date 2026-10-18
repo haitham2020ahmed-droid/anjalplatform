@@ -32,19 +32,19 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
   }
 }
 
-export interface QuickAssignSkillInput { classId: string; skillId: string; /** empty/omitted = the whole class */ studentIds?: string[] }
+export interface QuickAssignSkillInput { classId: string; skillId: string; /** r74: the required Source (MAP, NAFS, Curriculum, Grammar, RTI) */ source?: string | null; /** empty/omitted = the whole class */ studentIds?: string[] }
 
 /**
- * ⭐ Quick Assign, from the new skill-plan view (owner's "press the star → assign" request): one named skill (not a
- * whole category), adaptive, to a whole class or to one/a few starred students, one click each. No Source picker —
- * the origin IS the Curriculum Map, so the assignment is tagged CURRICULUM automatically (same tag the map's other
- * actions use). A teacher who wants levels, dates or a chosen question set still has "More options…" to the full
- * /teacher/skill-assign page.
+ * ⭐ Quick Assign, from the skill-plan view (owner's "press the star → assign" request): one named skill (not a
+ * whole category), adaptive, to a whole class or to one/a few starred students, one click each — same required
+ * Source picker as every other assign window (r74 §1; defaults to CURRICULUM when the caller sends none, since
+ * the origin IS the Curriculum Map). A teacher who wants levels, dates or a chosen question set still has
+ * "More options…" to the full /teacher/skill-assign page.
  */
 export async function quickAssignSkillAction(input: QuickAssignSkillInput): Promise<{ ok: boolean; message: string }> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   try {
-    const r = await assignSkill(repo, actor, { classId: input.classId, skillId: input.skillId, studentIds: input.studentIds?.length ? input.studentIds : undefined, source: "CURRICULUM" });
+    const r = await assignSkill(repo, actor, { classId: input.classId, skillId: input.skillId, studentIds: input.studentIds?.length ? input.studentIds : undefined, source: input.source || "CURRICULUM" });
     return { ok: true, message: `Assigned ✓ ${r.students} student(s). They were notified.` };
   } catch (e) {
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };

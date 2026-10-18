@@ -7,6 +7,7 @@ import { workbookXlsx } from "../src/imports/questions/template-files";
 import { TEMPLATE_HEADERS } from "../src/imports/questions/template";
 import { analyzeImport } from "../src/server/admin/question-import";
 import { ensureGrammarSkills, ensureSimpleGrammarSkills, grammarLibrary, grammarSimpleTable, readGrammarWorkbook } from "../src/server/grammar/grammar";
+import { curriculumMapPdfData } from "../src/server/curriculum-map/map-pdf";
 import { demoDatabase } from "./helpers/db";
 
 /** One row of the "simple" Questions sheet, in TEMPLATE_HEADERS order. */
@@ -99,5 +100,34 @@ describe("🔤 Grammar bank: bootstrapping a grade that starts with zero grammar
     const r = await ensureSimpleGrammarSkills(repo, admin, wb, 6);
     assert.equal(r.created, 0);
     assert.equal((await repo.findMany("Skill", {})).length, before);
+  });
+
+  test("🗺️ the owner's real complaint: a simple-format upload also lands on the Curriculum Map, spread across the grade's live selections — not just the Grammar page", async () => {
+    // Grade 5 (Wonders, untouched by the earlier tests in this file) has its own live Units/Lessons seeded —
+    // before this fix, ensureSimpleGrammarSkills only ever wrote the Grammar-page catalog (SchoolSetting), so
+    // every one of these skills would still show "No platform skills linked yet." on the Curriculum Map.
+    const d5before = await curriculumMapPdfData(repo, admin.schoolId!, 5);
+    assert.ok(d5before, "grade 5 is seeded in the demo school");
+
+    // deliberately invented names, not any real curriculum skill, so this never collides with grade 5's own seeded skills
+    const names = ["Grammar Spread Check Alpha", "Grammar Spread Check Beta", "Grammar Spread Check Gamma", "Grammar Spread Check Delta"];
+    const wb = readGrammarWorkbook(simpleFile(
+      names.map((n) => simpleRow({ "Question Text": `Pick the correct option for ${n}.`, "Question Type": "Multiple Choice", "Option A": "a", "Option B": "b", "Correct Answer": "A", Grade: "5", Skill: `Grade 5 ${n}` })),
+    ));
+    const r = await ensureSimpleGrammarSkills(repo, admin, wb, 5);
+    assert.equal(r.skills, names.length);
+
+    const d5 = (await curriculumMapPdfData(repo, admin.schoolId!, 5))!;
+    const all5 = d5.units.flatMap((u) => u.sections);
+    const posOf = (name: string) => all5.findIndex((x) => x.skills.some((k) => k.name === name));
+    for (const n of names) assert.ok(posOf(n) >= 0, `${n}: now linked somewhere on the Curriculum Map, not "No platform skills linked yet."`);
+    // same file-order spread as the strict format: the first skill never lands after the last one
+    assert.ok(posOf(names[0]) <= posOf(names[names.length - 1]), "spread in file order, first skill at or before the last");
+
+    // uploading the same names again (idempotent re-import) doesn't throw and keeps them placed exactly once each
+    await ensureSimpleGrammarSkills(repo, admin, wb, 5);
+    const d5again = (await curriculumMapPdfData(repo, admin.schoolId!, 5))!;
+    const all5again = d5again.units.flatMap((u) => u.sections);
+    for (const n of names) assert.equal(all5again.flatMap((x) => x.skills).filter((k) => k.name === n).length, 1, `${n}: still linked exactly once after a repeat upload`);
   });
 });

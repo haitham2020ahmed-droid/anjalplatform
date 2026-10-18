@@ -1,12 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/i18n/client";
 import type { TFn } from "@/i18n";
 import type { QuickAssignSkillInput } from "@/app/admin/curriculum-map/actions";
 import type { RosterClass } from "./assign-button";
 import type { MapPdfSection, MapPdfSkill, MapPdfUnit } from "@/server/curriculum-map/map-pdf";
+import { SourceSelect } from "@/components/assign/source-select";
+import type { AssignSource } from "@/lib/assign-source";
 
 /**
  * 🗺️ The "skill plan" look of the Curriculum Map (owner: a reference screenshot of another platform's skill-plan
@@ -170,48 +172,62 @@ function SkillRow({ n, skill, canAssign, roster, quickAssign }: { n: number; ski
 function SuggestPanel({ skill, roster, quickAssign, onDone, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; onDone: () => void; onClose: () => void }) {
   const t = useT();
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
+  const [source, setSource] = useState<AssignSource | "">("");
   const [q, setQ] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [starred, setStarred] = useState<Set<string>>(new Set());
   const [msg, setMsg] = useState<string | null>(null);
   const klass = roster.find((c) => c.id === classId) ?? roster[0];
   const students = useMemo(() => (klass?.students ?? []).filter((s) => s.name.toLowerCase().includes(q.trim().toLowerCase())), [klass, q]);
+  // Escape closes the window, same as every other assign dialog on the platform
+  useEffect(() => {
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
+  }, [onClose]);
   const run = async (studentIds: string[] | undefined, key: string) => {
+    if (!source) { setMsg(t("Choose the source first.")); return; }
     setBusy(key); setMsg(null);
-    const r = await quickAssign({ classId, skillId: skill.id, studentIds });
+    const r = await quickAssign({ classId, skillId: skill.id, source, studentIds });
     setBusy(null);
     if (r.ok) { onDone(); if (studentIds) setStarred((s) => new Set([...s, ...studentIds])); setMsg(t("Assigned ✓")); } else setMsg(r.message);
   };
   return (
-    <div role="dialog" aria-label="Suggest this skill to" className="absolute bottom-full start-6 z-20 mb-1 w-72 rounded-2xl bg-white p-3 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
-      <div className="flex items-center justify-between gap-2">
-        <p className="font-bold text-brand-navy">{t("Suggest this skill to:")}</p>
-        <button type="button" onClick={onClose} aria-label="Close" className="text-lg leading-none text-slate-400 hover:text-slate-600">×</button>
-      </div>
-      {roster.length > 1 && (
-        <select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); }} className="mt-2 w-full rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-semibold">
-          {roster.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
-        </select>
-      )}
-      <div className="relative mt-2">
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Search students")} className="w-full rounded-lg border border-slate-300 px-3 py-1.5 pe-7 text-sm" />
-        <span className="pointer-events-none absolute end-2 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>
-      </div>
-      <ul className="mt-2 max-h-56 space-y-0.5 overflow-y-auto">
-        <li>
-          <button type="button" disabled={busy !== null} onClick={() => run(undefined, "all")} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start font-semibold hover:bg-slate-50 disabled:opacity-50">
-            <span aria-hidden="true">{busy === "all" ? "⏳" : "☆"}</span> {t("All students")}
-          </button>
-        </li>
-        {students.map((s) => (
-          <li key={s.id}>
-            <button type="button" disabled={busy !== null} onClick={() => run([s.id], s.id)} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start hover:bg-slate-50 disabled:opacity-50">
-              <span aria-hidden="true">{busy === s.id ? "⏳" : starred.has(s.id) ? "⭐" : "☆"}</span> <span className="truncate">{s.name}</span>
+    <div role="dialog" aria-modal="true" aria-label={t("Suggest this skill to:")} className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="max-h-[85vh] w-full max-w-xs overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl">
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <p className="font-bold text-brand-navy">{t("Suggest this skill to:")}</p>
+            <p className="mt-0.5 text-xs text-slate-500" dir="ltr">{skill.name}</p>
+          </div>
+          <button type="button" onClick={onClose} aria-label={t("Close")} className="text-xl leading-none text-slate-400 hover:text-slate-600">×</button>
+        </div>
+        {roster.length > 1 && (
+          <select value={classId} onChange={(e) => { setClassId(e.target.value); setStarred(new Set()); }} className="mt-3 w-full rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-semibold">
+            {roster.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+          </select>
+        )}
+        <SourceSelect t={t} value={source} onChange={setSource} className="mt-3" compact field="rounded-lg border border-slate-300 px-2 py-1.5 font-normal" />
+        <div className="relative mt-3">
+          <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Search students")} className="w-full rounded-lg border border-slate-300 px-3 py-1.5 pe-7 text-sm" />
+          <span className="pointer-events-none absolute end-2 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>
+        </div>
+        <ul className="mt-2 max-h-56 space-y-0.5 overflow-y-auto">
+          <li>
+            <button type="button" disabled={busy !== null || !source} onClick={() => run(undefined, "all")} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start font-semibold hover:bg-slate-50 disabled:opacity-50">
+              <span aria-hidden="true">{busy === "all" ? "⏳" : "☆"}</span> {t("All students")}
             </button>
           </li>
-        ))}
-      </ul>
-      {msg && <p role="status" className="mt-1 text-xs font-medium text-emerald-700">{msg}</p>}
+          {students.map((s) => (
+            <li key={s.id}>
+              <button type="button" disabled={busy !== null || !source} onClick={() => run([s.id], s.id)} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start hover:bg-slate-50 disabled:opacity-50">
+                <span aria-hidden="true">{busy === s.id ? "⏳" : starred.has(s.id) ? "⭐" : "☆"}</span> <span className="truncate">{s.name}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        {msg && <p role="status" className="mt-2 text-xs font-medium text-emerald-700">{msg}</p>}
+      </div>
     </div>
   );
 }

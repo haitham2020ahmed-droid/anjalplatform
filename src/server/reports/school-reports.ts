@@ -11,6 +11,7 @@ import { studentAnalytics } from "../analytics/reports";
 import { latestDiagnostic } from "../assessment/diagnostic";
 import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { bandOf, personalPlan, type Band, type PersonalPlan } from "../map/personal-plan";
+import { classProfile, studentAreaQuintiles, type AreaQuintileRow } from "../map/nwea-reports";
 import { bySourceReport, type BySourceReport } from "../skills/skills-by-source";
 import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
@@ -52,6 +53,10 @@ export interface StudentPersonalizedPlan {
   resources: string[]; monitoring: string[];
   /** Every instructional area's own RIT for this one student (not just their 3 weakest goals), weakest first. */
   areaBreakdown: PersonalPlan["areaBreakdown"];
+  /** "Instructional Area Achievement Percentiles" for this one student: which NWEA national-percentile band
+   *  (Low/LoAvg/Avg/HiAvg/High) each area's own descriptor falls in. Needs the comprehensive MAP data file; empty
+   *  (never thrown) when only a basic RIT-only import exists, or the class profile can't be read. */
+  areaPercentiles: AreaQuintileRow[];
 }
 
 /** The class's Personalized Plan, scoped to one student: their own RIT/percentile, and their band's goals/strengths/resources. */
@@ -65,12 +70,14 @@ export async function personalizedPlanForStudent(repo: Repo, actor: Actor, stude
   const p = await personalPlan(repo, actor, s(member.classId), subject);
   const row = p.bands.flatMap((b) => b.students.map((x) => ({ ...x, band: b.band }))).find((x) => x.studentId === studentId);
   const band = row ? p.bands.find((b) => b.band === row.band) ?? null : null;
+  const profile = await classProfile(repo, actor, s(member.classId), subject).catch(() => null);
   return {
     studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), className: p.className, grade, teacher: p.teacher, subject, term: p.term,
     band: band?.band ?? (row ? bandOf(row.percentile, null) : null), ritRange: band?.ritRange ?? null,
     rit: row?.rit ?? null, projection: row?.projection ?? null, percentile: row?.percentile ?? null,
     goals: band?.goals ?? [], strengths: band?.strengths ?? [], resources: band?.resources ?? [], monitoring: band?.monitoring ?? [],
     areaBreakdown: p.studentAreaBreakdown[studentId] ?? [],
+    areaPercentiles: profile ? studentAreaQuintiles(profile, studentId) : [],
   };
 }
 
@@ -192,7 +199,7 @@ export interface FinalReport {
   domains: { label: string; level: string }[];
   map: { date: string; subject: string; goal: string | null; rit: number; percentile: number | null }[];
   diagnostic: DiagnosticAnalysis | null;
-  plans: { subject: "READING" | "LANGUAGE"; band: Band | null; goals: string[]; strengths: string[] }[];
+  plans: { subject: "READING" | "LANGUAGE"; band: Band | null; goals: string[]; strengths: string[]; areaPercentiles: AreaQuintileRow[] }[];
   alerts: { message: string; nextAction: string }[];
   /** more skills declining than improving over the period (a regression / stability signal). */
   regressionSignal: boolean;
@@ -217,7 +224,7 @@ export async function finalReportForStudent(repo: Repo, actor: Actor, studentId:
   for (const subject of ["READING", "LANGUAGE"] as const) {
     try {
       const pp = await personalizedPlanForStudent(repo, actor, studentId, subject);
-      plans.push({ subject, band: pp.band, goals: pp.goals.map((g) => g.area), strengths: pp.strengths.map((g) => g.area) });
+      plans.push({ subject, band: pp.band, goals: pp.goals.map((g) => g.area), strengths: pp.strengths.map((g) => g.area), areaPercentiles: pp.areaPercentiles });
     } catch {
       // not enrolled in a class, or no MAP data for this subject yet: this subject's plan is skipped
     }

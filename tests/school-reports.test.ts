@@ -150,6 +150,26 @@ describe("🗒️ School Reports (per-student Personalized Plan, Diagnostic Anal
     assert.equal(mine.bySource.summary.totalSkills, report.bySource.summary.totalSkills);
   });
 
+  test("📊 Instructional Area Achievement Percentiles: empty (never thrown) with only a basic RIT-only import, populated once the comprehensive file's descriptor exists — and Final Report carries the same rows as Personalized Plan", async () => {
+    const studentId = roster[0].id;
+    // this file's before() only ran the basic Reading template import (no descriptor, and no Language data at all):
+    // best-effort means nothing to show for Language yet, not a crash
+    const basic = await personalizedPlanForStudent(repo, teacher, studentId, "LANGUAGE");
+    assert.deepEqual(basic.areaPercentiles, []);
+
+    // a comprehensive-file import (owner's real MAP export): the overall test row, plus a goal row with its own descriptor
+    await repo.create("MapResult", { studentId, testDate: new Date("2025-09-15"), subject: "Language Usage", goalName: null, rit: 180, ritSE: 3, achievementPercentile: 20, termName: "Fall 2025", importedAt: new Date() });
+    await repo.create("MapResult", { studentId, testDate: new Date("2025-09-15"), subject: "Language Usage", goalName: "Grammar: Subject-Verb Agreement", rit: 165, ritSE: 6, descriptor: "Low", termName: "Fall 2025", importedAt: new Date() });
+    const pp = await personalizedPlanForStudent(repo, teacher, studentId, "LANGUAGE");
+    const grammar = pp.areaPercentiles.find((r) => r.name === "Grammar")!;
+    assert.deepEqual(grammar.quintiles, [1, 0, 0, 0, 0], "this student's own Grammar descriptor is Low");
+
+    const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, teacher.schoolId!), new Date("2026-12-01T00:00:00Z"));
+    const report = await finalReportForStudent(repo, teacher, studentId, period);
+    const language = report.plans.find((x) => x.subject === "LANGUAGE")!;
+    assert.deepEqual(language.areaPercentiles, pp.areaPercentiles, "the Final Report shows the exact same rows as the Personalized Plan — no re-derivation");
+  });
+
   test("access control: a teacher who does not teach this student cannot build any of the three reports; their own school's admin can", async () => {
     const otherTeacher = await resolveActor(repo, (await repo.findUnique("User", { username: "test.teacher.2" }))!);
     const studentId = roster[0].id;

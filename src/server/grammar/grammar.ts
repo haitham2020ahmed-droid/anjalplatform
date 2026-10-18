@@ -112,9 +112,14 @@ export function grammarSimpleTable(wb: GrammarWorkbook, grade: number): string[]
  * importer's exact match, untouched). Each new skill gets a catalog entry (its own "lesson", titled with its
  * name) merged into the grade's lesson catalog, so the Grammar page lists it; a grade that already has a
  * catalog (from an earlier strict-format upload, or an earlier simple upload) keeps every entry it had — this
- * only adds to it, never replaces it. No Curriculum Map placement is made (no unit/week data exists for it):
- * same as the rest of the simple format, only the skill, its standards and the Grammar page list are touched.
+ * only adds to it, never replaces it.
  * Safe to call again on the same file: a name already created last time is found as "existing" and skipped.
+ *
+ * Map placement (owner request: a grade's own file should still show up on its Curriculum Map, not just the
+ * Grammar page): every distinct skill name of the file — new or already existing — is spread evenly across the
+ * grade's live Units/Lessons, in file order, same technique as the strict format's Grade 6 placement
+ * (`spreadPlace`/`curriculumMapPlaces`). A grade with no Units/Lessons yet is simply left off the map; the skill,
+ * its standards and its questions are unaffected either way.
  */
 export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: GrammarWorkbook, grade: number, now = new Date()): Promise<{ created: number; skills: number }> {
   assertCan(actor, "questions:publish");
@@ -140,7 +145,6 @@ export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: Gr
   const norm = (v: string) => s(v).toLowerCase().replace(/\s+/g, " ");
   const existingNames = new Set(existing.map((k) => norm(s(k.name))));
   const toCreate = names.filter((n) => !existingNames.has(norm(n)));
-  if (!toCreate.length) return { created: 0, skills: names.length };
   const fam = kindOf("Grammar & Usage");
   const goals = new Map((await repo.findMany("MapGoalArea", {})).map((a) => [s(a.code), s(a.id)]));
   const famData = { name: fam.name, domain: fam.domain, category: fam.category, mapGoalAreaId: goals.get(fam.goal) ?? null };
@@ -168,6 +172,20 @@ export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: Gr
     skills: [...prev.skills.filter((k) => !newSkills.some((n) => n.id === k.id)), ...newSkills],
   };
   await repo.upsert("SchoolSetting", { schoolId: actor.schoolId, key: settingKey(grade) }, { value: catalog, updatedBy: actor.userId, updatedAt: now }, { value: catalog, updatedBy: actor.userId, updatedAt: now });
+
+  // 🗺️ Place every one of the file's skills (new or already existing) on the Curriculum Map too, same spread as strict format.
+  const { flat } = await curriculumMapPlaces(repo, s(cur.id));
+  if (flat.length) {
+    const allSkills = created ? await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null }) : existing;
+    const byNorm = new Map(allSkills.map((k) => [norm(s(k.name)), k]));
+    for (const [i, name] of names.entries()) {
+      const row = byNorm.get(norm(name));
+      const place = row && spreadPlace(flat, i, names.length);
+      if (!row || !place) continue;
+      await repo.upsert("LessonSkill", { lessonId: s(place.id), skillId: row.id, label: name.slice(0, 191) }, { role: "GRAMMAR" }, { role: "GRAMMAR" });
+      await repo.upsert("UnitSkill", { unitId: s(place.unitId), skillId: row.id }, { order: i }, { order: i });
+    }
+  }
   return { created, skills: names.length };
 }
 
@@ -248,19 +266,36 @@ interface GrammarPlacement { lessonId: string; unitId: string; order: number }
  * A grammar lesson with no curriculum Unit/Lesson to land on (an empty grade) is simply left off the map;
  * the skill itself, its standards and its questions are unaffected either way.
  */
+interface MapPlaces { flat: Row[]; byUnit: Map<string, Row[]>; unitIdByNumber: Map<number, string> }
+
+/**
+ * Every Text Set / selection of the grade's curriculum, in unit order — the Grammar bank's one shared source for
+ * "where on the Curriculum Map" (both formats place their skills with this): strict format matches unit+week when
+ * it has one (`byUnit`/`unitIdByNumber`) and falls back to the proportional spread (`flat`) otherwise; simple
+ * format (no unit/week data at all) always uses the proportional spread.
+ */
+async function curriculumMapPlaces(repo: Repo, curriculumId: string): Promise<MapPlaces> {
+  const units = (await repo.findMany("Unit", { curriculumId }, { select: ["id", "number", "isActive", "deletedAt"] }))
+    .filter((u) => u.isActive !== false && !u.deletedAt).sort((a, b) => Number(a.number) - Number(b.number));
+  const lessons = units.length ? (await repo.findMany("Lesson", { unitId: { in: units.map((u) => s(u.id)) } }, { select: ["id", "unitId", "number", "weeks", "deletedAt"] })).filter((l) => !l.deletedAt) : [];
+  const byUnit = new Map<string, Row[]>();
+  for (const u of units) byUnit.set(s(u.id), lessons.filter((l) => s(l.unitId) === s(u.id)).sort((a, b) => Number(a.number) - Number(b.number)));
+  const flat = units.flatMap((u) => byUnit.get(s(u.id)) ?? []); // every Text Set / selection, in unit order
+  const unitIdByNumber = new Map(units.map((u) => [Number(u.number), s(u.id)]));
+  return { flat, byUnit, unitIdByNumber };
+}
+
+/** `flat[i]` for a skill `i` of `total`, spread evenly across the grade's selections in unit order (null when the grade has no Units/Lessons yet). */
+function spreadPlace(flat: Row[], i: number, total: number): Row | null {
+  return flat.length ? flat[Math.min(flat.length - 1, Math.floor((i * flat.length) / total))] : null;
+}
+
 async function grammarMapPlacement(repo: Repo, curriculumId: string, wb: GrammarWorkbook, grade: number): Promise<Map<string, GrammarPlacement>> {
   const out = new Map<string, GrammarPlacement>();
   const gLessons = wb.lessons.get(grade) ?? [];
   if (!gLessons.length) return out;
-  const units = (await repo.findMany("Unit", { curriculumId }, { select: ["id", "number", "isActive", "deletedAt"] }))
-    .filter((u) => u.isActive !== false && !u.deletedAt).sort((a, b) => Number(a.number) - Number(b.number));
-  if (!units.length) return out;
-  const lessons = (await repo.findMany("Lesson", { unitId: { in: units.map((u) => s(u.id)) } }, { select: ["id", "unitId", "number", "weeks", "deletedAt"] })).filter((l) => !l.deletedAt);
-  const byUnit = new Map<string, Row[]>();
-  for (const u of units) byUnit.set(s(u.id), lessons.filter((l) => s(l.unitId) === s(u.id)).sort((a, b) => Number(a.number) - Number(b.number)));
-  const flat = units.flatMap((u) => byUnit.get(s(u.id)) ?? []); // every Text Set / selection, in unit order
+  const { flat, byUnit, unitIdByNumber } = await curriculumMapPlaces(repo, curriculumId);
   if (!flat.length) return out;
-  const unitIdByNumber = new Map(units.map((u) => [Number(u.number), s(u.id)]));
   const place = (row: Row, order: number): GrammarPlacement => ({ lessonId: s(row.id), unitId: s(row.unitId), order });
 
   // Grades with a known unit + week (Wonders): the Text Set of that unit covering that week.
@@ -274,7 +309,7 @@ async function grammarMapPlacement(repo: Repo, curriculumId: string, wb: Grammar
 
   // No unit/week at all (StudySync): the same position among the grade's selections, in unit order.
   const noUnit = gLessons.filter((l) => !l.unit).sort((a, b) => a.number - b.number || a.id.localeCompare(b.id));
-  for (const [i, l] of noUnit.entries()) out.set(l.id, place(flat[Math.min(flat.length - 1, Math.floor((i * flat.length) / noUnit.length))], i));
+  for (const [i, l] of noUnit.entries()) { const row = spreadPlace(flat, i, noUnit.length); if (row) out.set(l.id, place(row, i)); }
   return out;
 }
 

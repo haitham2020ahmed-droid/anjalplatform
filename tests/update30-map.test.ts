@@ -7,6 +7,7 @@ import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
 import { AREA_COLUMNS, fromNweaCdf, importMapScores, MAP_TEMPLATE_HEADERS, mapTemplateRows } from "../src/server/map/student-map";
 import { mapEntryGrid, saveMapEntry } from "../src/server/map/map-entry";
+import { classProfile } from "../src/server/map/nwea-reports";
 import { continuumTableFromWords, type PdfWord } from "../src/server/map/continuum-pdf";
 import { demoDatabase } from "./helpers/db";
 
@@ -39,6 +40,11 @@ describe("Update 30 · MAP: 3 + 3 instructional areas (template and by hand), NW
     const row = again.rows.find((x) => x.studentId === st.studentId)!;
     assert.deepEqual([row.goals.grammar, row.goals.writing], ["199", "205"]);
     assert.ok(Number(row.goals.mech) < 199, "“Low” saved as a RIT");
+    // 📊 the typed band word isn't just converted and discarded: it's also kept as that goal's own descriptor,
+    // so "Instructional Area Achievement Percentiles" works from the roster, not only a file upload
+    const mechGoal = goals.find((x) => /mechanic/i.test(String(x.goalName)));
+    assert.equal(mechGoal?.descriptor, "Low");
+    assert.equal(goals.find((x) => /grammar/i.test(String(x.goalName)))?.descriptor ?? null, null, "a typed RIT number gets no descriptor (none was given)");
   });
 
   test("a file with NWEA's own area names (Language: Understand, Edit for Mechanics …) imports", async () => {
@@ -48,6 +54,13 @@ describe("Update 30 · MAP: 3 + 3 instructional areas (template and by hand), NW
     assert.equal(r.imported, 1, JSON.stringify(r.errors));
     const goals = (await repo.findMany("MapResult", { studentId: roster[1].id, termName: "Fall 2027" })).filter((x) => x.goalName);
     assert.equal(goals.length, 10, "5 Reading + 5 Language platform goals");
+    // 📊 the owner's real question: a plain file with only a RIT per instructional area (no NWEA comprehensive
+    // file, no typed band word) still reaches "Instructional Area Achievement Percentiles" — just as a ≈ estimate
+    // (the area RIT against the grade/season national norm), not NWEA's own band
+    const c = await classProfile(repo, teacher, classId, "READING", "Fall 2027");
+    const info = c.areas.find((a) => a.name === "Informational Text")!;
+    assert.deepEqual(info.quintiles, [0, 1, 0, 0, 0]);
+    assert.equal(info.estimated, true, "no descriptor was imported, so this band is a ≈ estimate");
   });
 
   test("NWEA comprehensive data file (fake rows): subject rows, growth, CGI, goals with descriptors", () => {
@@ -77,5 +90,30 @@ describe("Update 30 · MAP: 3 + 3 instructional areas (template and by hand), NW
     assert.equal(counts.Reading, 2);
     assert.deepEqual(table[1], ["Reading", "161", "170", "Literary Text: Key Ideas", "Theme", "Identifies the theme of a simple fable", "RL.3.2"]);
     assert.match(table[2][5], /from the beginning to the end of a story$/);
+  });
+
+  test("📊 a roster entered by hand with band words reaches the Instructional Area Achievement Percentiles chart (classProfile), end to end", async () => {
+    const g = await mapEntryGrid(repo, teacher, { classId, subject: "READING", season: "FALL", year: 2026 });
+    const [st1, st2] = g.rows;
+    const r = await saveMapEntry(repo, teacher, {
+      classId, subject: "READING", season: "FALL", year: 2026,
+      rows: [
+        { studentId: st1.studentId, rit: "190", percentile: "40", projection: "198", lexile: "", goals: { lit: "High", info: "190", vocab: "Avg" } },
+        { studentId: st2.studentId, rit: "175", percentile: "15", projection: "183", lexile: "", goals: { lit: "Low", info: "175", vocab: "Low" } },
+      ],
+    });
+    assert.equal(r.imported, 2, JSON.stringify(r.errors));
+    const c = await classProfile(repo, teacher, classId, "READING", "Fall 2026");
+    assert.ok(c.areaNames.includes("Literary Text") && c.areaNames.includes("Vocabulary"));
+    const lit = c.areas.find((a) => a.name === "Literary Text")!;
+    assert.deepEqual(lit.quintiles, [1, 0, 0, 0, 1], "one student typed High, the other Low — both kept, not just converted to a RIT");
+    const vocab = c.areas.find((a) => a.name === "Vocabulary")!;
+    assert.deepEqual(vocab.quintiles, [1, 0, 1, 0, 0], "Low and Avg");
+    // a goal typed as a plain RIT number (Informational Text, no band word) has no real NWEA descriptor — it still
+    // shows, from a ≈ estimate (the area RIT against the grade/season national norm), flagged `estimated`
+    const info = c.areas.find((a) => a.name === "Informational Text")!;
+    assert.deepEqual(info.quintiles, [1, 1, 0, 0, 0], "175 ≈ Low, 190 ≈ LoAvg against the Grade 4 Fall norm (mean 196, sd 18)");
+    assert.equal(info.estimated, true);
+    assert.equal(lit.estimated, false, "a typed band word is the real NWEA descriptor, not an estimate");
   });
 });

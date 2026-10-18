@@ -5,7 +5,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
-import { classProfile, cutScores, quintileOf, schoolOverview, setCutScores, studentProfile } from "../src/server/map/nwea-reports";
+import { classProfile, cutScores, medianQuintile, quintileOf, schoolOverview, setCutScores, studentAreaQuintiles, studentProfile } from "../src/server/map/nwea-reports";
 import { demoDatabase } from "./helpers/db";
 
 describe("📊 MAP reports in NWEA style (fake scores)", () => {
@@ -66,6 +66,24 @@ describe("📊 MAP reports in NWEA style (fake scores)", () => {
     assert.ok(fall.proficiency.length >= 1, "projected from the Spring goal and the cut");
     assert.equal(fall.growth.n, 0);
     await assert.rejects(classProfile(repo, other, classId, "READING"), ForbiddenError);
+  });
+
+  test("📊 Instructional Area Achievement Percentiles: the true ordinal median band from counts (never an invented exact percentile)", () => {
+    assert.equal(medianQuintile([12, 0, 0, 0, 0]), 0, "all 12 Low: the median is Low");
+    assert.equal(medianQuintile([0, 0, 0, 0, 0]), null, "nobody banded: no median");
+    assert.equal(medianQuintile([1, 1, 1, 0, 0]), 1, "3 students (Low, LoAvg, Avg): the middle one is LoAvg");
+    assert.equal(medianQuintile([0, 0, 0, 1, 1]), 3, "2 students (HiAvg, High): the lower of the two middle positions is HiAvg");
+  });
+
+  test("📊 one student's own row (studentAreaQuintiles): one-hot in their own band, same area list and order as the whole-class chart", async () => {
+    const c = await classProfile(repo, teacher, classId, "READING");
+    const rows = studentAreaQuintiles(c, ids[0]);
+    assert.deepEqual(rows.map((r) => r.name), c.areaNames, "same rows, same order as the class chart");
+    const info = rows.find((r) => r.name === "Informational Text")!;
+    assert.deepEqual(info.quintiles, [1, 0, 0, 0, 0], "this student's own Informational Text descriptor is Low (−7 of 6.5 SE)");
+    const lit = rows.find((r) => r.name === "Literary Text")!;
+    assert.deepEqual(lit.quintiles, [0, 0, 0, 1, 0], "this student's own Literary Text descriptor is HiAvg (+6)");
+    assert.equal(rows.reduce((n, r) => n + r.quintiles.reduce((x, y) => x + y, 0), 0), c.areaNames.length, "exactly one band set per area, never more than one");
   });
 
   test("School overview: grades and classes", async () => {
