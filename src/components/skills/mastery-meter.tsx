@@ -1,3 +1,4 @@
+"use client";
 /**
  * 🪜 A compact "stars filled x/5" meter for a skill's progress toward mastery, for places too tight for the full
  * BandMeter (My Work's compact rows): the same five steps and thresholds (lib/mastery-steps), five small dots, filled
