@@ -124,7 +124,10 @@ export function PracticeFrame(props: {
                 </button>
               )}
               {fb && fb.next.hasQuestion && paused && (
-                <a href={props.unitHref} data-testid="take-break" className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{props.unitHref === "/student" ? "Back to My Work" : "Back to my skills"}</a>
+                <>
+                  <a href={props.unitHref} data-testid="take-break" className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{props.unitHref === "/student" ? "Back to My Work" : "Back to my skills"}</a>
+                  <button type="button" data-testid="continue-practising-paused" onClick={props.onNext} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">Keep practising</button>
+                </>
               )}
               {fb && fb.next.hasQuestion && justDone && !paused && props.onFinish && (
                 <button type="button" data-testid="finish-work" onClick={props.onFinish} autoFocus className="rounded-xl bg-emerald-600 px-8 py-3 text-lg font-semibold text-white hover:bg-emerald-700">Stop for now</button>
