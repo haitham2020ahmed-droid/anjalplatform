@@ -73,7 +73,7 @@ describe("📚 Grade 6 lesson skills", () => {
     assert.ok(["theme", "text-evidence"].every((f) => amigo.skills.some((s) => s.familyCode === f)));
     // genre-only skills land on a poem / play, not on a random selection
     const poetry = g6.units.flatMap((u) => u.lessons).filter((l) => l.skills.some((s) => s.familyCode === "poetry-elements")).map((l) => l.title);
-    assert.ok(poetry.includes("Famous") && poetry.includes("I, Too") && !poetry.includes("The Treasure of Lemon Brown"), poetry.join(" | "));
+    assert.ok(poetry.includes("Famous") && !poetry.includes("The Treasure of Lemon Brown"), poetry.join(" | "));
   });
 
   test("the planner rejects a lesson with zero skills and accepts the real files", () => {

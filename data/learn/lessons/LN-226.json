@@ -1,0 +1,434 @@
+{
+  "code": "LN-226",
+  "title": "Text Structure",
+  "subject": "READING",
+  "goalArea": "Informational Text",
+  "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+  "standards": [
+    "RI.4.5",
+    "RI.5.5",
+    "RI.6.5",
+    "RI.7.5"
+  ],
+  "families": [
+    "text-structure"
+  ],
+  "skillNames": [
+    "Text Structure"
+  ],
+  "statements": [],
+  "levels": {
+    "1": {
+      "slides": [
+        {
+          "title": "How is this text organized?",
+          "text": "A **text structure** is how the author organizes ideas: like a cause leading to an effect, or a list of steps."
+        },
+        {
+          "title": "Cause and effect",
+          "text": "One thing (cause) makes another thing happen (effect). Signal words: because, so, as a result."
+        },
+        {
+          "title": "Compare and contrast",
+          "text": "The author shows how two things are the same or different. Signal words: but, however, both, unlike."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Read the signal words.\n2. Decide: does the text show a cause making an effect happen, or two things being compared?\n3. Name the structure and point to the signal word that proves it."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "It rained all night, so the river rose by morning.",
+            "role": "key"
+          },
+          {
+            "t": "Fish swam near the surface.",
+            "role": "detail"
+          }
+        ],
+        "explain": "**So** signals cause and effect: rain (cause) made the river rise (effect)."
+      },
+      "together": {
+        "passage": "The ice cream truck played loud music, so children ran outside with their coins. Some kids chose chocolate, while others picked strawberry. The truck stopped at the corner near the park.",
+        "stem": "What text structure does the first sentence use?",
+        "hint": "Look for the signal word 'so.' What happened because of the music?",
+        "good": "Right! The music (cause) made children run outside (effect), that's cause and effect.",
+        "options": [
+          "Cause and effect",
+          "Compare and contrast",
+          "A list of steps",
+          "A description of a place"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "The ice cream truck played loud music, so children ran outside with their coins.",
+          "Some kids chose chocolate, while others picked strawberry.",
+          "The truck stopped at the corner near the park."
+        ],
+        "proof": [
+          0
+        ],
+        "need": 1,
+        "stem": "The answer was cause and effect. Tap the ONE sentence with the signal word 'so.'",
+        "wrong": "This sentence is a detail, not the cause-and-effect sentence. Find the ONE sentence with 'so.'"
+      },
+      "checks": [
+        {
+          "passage": "The power went out, so the whole street went dark. Neighbors lit candles and talked on their porches.",
+          "stem": "What text structure does the first sentence use?",
+          "why": "'So' signals cause and effect: power going out caused the street to go dark.",
+          "options": [
+            "Compare and contrast",
+            "Cause and effect",
+            "Chronological order",
+            "A description"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "Cats sleep most of the day, but dogs are usually awake and active. Both animals, however, need fresh water every day.",
+          "stem": "What text structure does this passage mainly use?",
+          "why": "'But' and 'both however' show the author comparing cats and dogs.",
+          "options": [
+            "Cause and effect",
+            "A set of instructions",
+            "Compare and contrast",
+            "A list of steps"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "First, mix the flour and sugar. Next, add the eggs. Finally, bake for twenty minutes.",
+          "stem": "What text structure does this passage use?",
+          "why": "First, next and finally signal a sequence of steps in order.",
+          "options": [
+            "Cause and effect",
+            "Compare and contrast",
+            "A description of a kitchen",
+            "Sequence of steps"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Signal word hunt",
+        "text": "Circle the signal words: because/so (cause-effect), but/however (compare-contrast), first/next/finally (sequence). They tell you the structure.",
+        "example": "'First we ate, then we played.' First and then signal a SEQUENCE."
+      }
+    },
+    "2": {
+      "slides": [
+        {
+          "title": "More structures",
+          "text": "Besides cause-effect and compare-contrast, texts can use **problem-solution** (a problem, then a fix) or **description** (details about one topic)."
+        },
+        {
+          "title": "Problem and solution",
+          "text": "Signal words: problem, issue, solve, fix, answer."
+        },
+        {
+          "title": "Description",
+          "text": "No cause, comparison, or problem, just details about ONE topic, often with 'for example' or 'such as.'"
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Ask: is there a problem being solved? A comparison? A cause and effect? Or just details about one topic?\n2. Find the signal words that match.\n3. Name the structure."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Ants were gathering in the kitchen, so the family sealed every crack in the walls.",
+            "role": "key"
+          },
+          {
+            "t": "Within a week, the ants were gone.",
+            "role": "detail"
+          }
+        ],
+        "explain": "A problem (ants) is named, then a solution (sealing cracks) is given, that's problem-solution."
+      },
+      "together": {
+        "passage": "Many apartment buildings have a pest problem: ants gather in kitchens looking for crumbs. To solve this, building managers now seal cracks in the walls and ask residents to store food in sealed containers. Within a month of trying both fixes, most buildings reported far fewer ant sightings.",
+        "stem": "What text structure does this passage use?",
+        "hint": "Look for the word 'problem' and the phrase 'to solve this.'",
+        "good": "Right! The passage names a problem (ants) and then explains the solution (sealing cracks, sealed containers).",
+        "options": [
+          "Problem and solution",
+          "Compare and contrast",
+          "Chronological order of a building's history",
+          "A description of an apartment"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Many apartment buildings have a pest problem: ants gather in kitchens looking for crumbs.",
+          "To solve this, building managers now seal cracks in the walls and ask residents to store food in sealed containers.",
+          "Within a month of trying both fixes, most buildings reported far fewer ant sightings."
+        ],
+        "proof": [
+          0,
+          1
+        ],
+        "need": 2,
+        "stem": "The answer was problem and solution. Tap the 2 sentences that state the problem and the solution.",
+        "wrong": "This sentence reports the RESULT of the fixes, not the problem or the solution itself."
+      },
+      "checks": [
+        {
+          "passage": "Lions, tigers and leopards are all big cats. Lions live in groups, but tigers and leopards usually live alone. All three, however, are powerful hunters.",
+          "stem": "What text structure does this passage mainly use?",
+          "why": "The passage compares how lions, tigers and leopards are similar and different.",
+          "options": [
+            "Problem and solution",
+            "Compare and contrast",
+            "Cause and effect",
+            "Sequence of steps"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "Traffic jams near the school were causing students to arrive late. The school solved this by starting a staggered drop-off schedule, with different grades arriving at different times.",
+          "stem": "What text structure does this passage use?",
+          "why": "A problem (traffic jams) is named, then a solution (staggered schedule) is given.",
+          "options": [
+            "Description of a school",
+            "Compare and contrast",
+            "Problem and solution",
+            "Sequence of steps"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "The Sahara Desert is enormous, covering much of North Africa. It has towering sand dunes, rocky plateaus, and a few scattered oases. Daytime temperatures can be extremely hot, while nights can turn surprisingly cold.",
+          "stem": "What text structure does this passage use?",
+          "why": "The passage simply describes features of the Sahara Desert, with no problem, cause, or comparison.",
+          "options": [
+            "Problem and solution",
+            "Cause and effect",
+            "Compare and contrast",
+            "Description"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Four-structure sort",
+        "text": "For any paragraph, ask: problem and fix? cause and effect? two things compared? or just details about one topic? Match it to cause-effect, problem-solution, compare-contrast, or description.",
+        "example": "'The bridge was old and unsafe. The city built a new one.' This is problem-solution."
+      }
+    },
+    "3": {
+      "slides": [
+        {
+          "title": "Structure can change within a text",
+          "text": "A longer text might use ONE structure overall, but a single paragraph inside it can serve a different purpose."
+        },
+        {
+          "title": "Ask about each paragraph",
+          "text": "For each paragraph, ask: does it introduce a problem? Give a cause? Compare two things? Or add a detail to the whole?"
+        },
+        {
+          "title": "Name both",
+          "text": "You can name the OVERALL structure, and also describe what ONE paragraph contributes to it."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Identify the overall structure of the whole text.\n2. Look at a specific paragraph and ask how it fits into that overall pattern.\n3. Explain its specific role: does it state a problem, state the solution, or add supporting detail?"
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "The bridge's cables had rusted after decades of salty sea air.",
+            "role": "key"
+          },
+          {
+            "t": "As a result, inspectors closed the bridge to heavy trucks.",
+            "role": "key"
+          }
+        ],
+        "explain": "The first sentence gives the CAUSE (rust) and the second gives the EFFECT (closing the bridge), two different roles within the same problem-solution text."
+      },
+      "together": {
+        "passage": "Streetlights in Old Town have burned out faster than normal for the past two years, leaving several blocks dark at night. Because the lights use an outdated wiring system installed decades ago, sudden power surges during storms damage the bulbs.\n\nAs a result, residents have reported more near-accidents at night, and local shop owners say nighttime customers have dropped noticeably since the lights began failing.\n\nTo address the problem, the city council approved a plan to replace the old wiring with a modern, surge-protected system over the next six months. Workers will start with the three darkest blocks first, then move street by street until the whole district is finished.",
+        "stem": "What is the role of the second paragraph in this text's overall problem-solution structure?",
+        "hint": "Does paragraph two introduce a fix, or does it show what's going wrong because of the problem?",
+        "good": "Right! Paragraph two shows the effects of the broken lights, which strengthens the case for a solution in paragraph three.",
+        "options": [
+          "It describes the EFFECTS of the problem (accidents, fewer customers), building the case before the solution is given.",
+          "It introduces the solution the city council chose.",
+          "It compares Old Town to a different neighborhood.",
+          "It describes when the streetlights were first installed."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Because the lights use an outdated wiring system installed decades ago, sudden power surges during storms damage the bulbs.",
+          "As a result, residents have reported more near-accidents at night, and local shop owners say nighttime customers have dropped noticeably since the lights began failing.",
+          "To address the problem, the city council approved a plan to replace the old wiring with a modern, surge-protected system over the next six months.",
+          "Workers will start with the three darkest blocks first, then move street by street until the whole district is finished."
+        ],
+        "proof": [
+          1
+        ],
+        "need": 1,
+        "stem": "The answer was about the EFFECTS paragraph. Tap the ONE sentence that shows those effects.",
+        "wrong": "This sentence is about the cause or the solution, not the EFFECTS described in paragraph two."
+      },
+      "checks": [
+        {
+          "passage": "School cafeteria lines were taking over 20 minutes most days. Because there was only one working register, students waited far too long to eat before class. As a result, some students skipped lunch altogether. The school solved this by opening a second register during the busiest 30 minutes of lunch.",
+          "stem": "What is the role of the sentence 'As a result, some students skipped lunch altogether'?",
+          "why": "This sentence shows a consequence (effect) of the long lines, before the solution is introduced.",
+          "options": [
+            "It states the solution the school chose.",
+            "It shows an effect of the problem, making the case for why a solution was needed.",
+            "It compares two different schools.",
+            "It describes how the cafeteria looked before any problem existed."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A local pond had become clogged with algae, killing many fish. Chemical runoff from nearby lawns was feeding the algae's rapid growth. Volunteers responded by planting a buffer of native plants along the pond's edge to filter the runoff before it reached the water.",
+          "stem": "What is the role of the sentence about chemical runoff feeding algae growth?",
+          "why": "This sentence explains why the algae grew, the runoff is the cause of the problem.",
+          "options": [
+            "It describes the volunteers' solution.",
+            "It compares the pond to a lake.",
+            "It explains the CAUSE of the pond's problem.",
+            "It lists the steps volunteers took in order."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "A factory's machines often overheated during summer afternoons. Warm outside air combined with the machines' own heat pushed indoor temperatures past safe limits. Engineers solved this by installing ventilation fans that pull in cooler air during the hottest hours.",
+          "stem": "What is the role of the sentence about warm outside air combining with the machines' heat?",
+          "why": "This sentence gives the cause of the overheating, before the fix is described.",
+          "options": [
+            "It describes the engineers' solution.",
+            "It compares summer to winter temperatures.",
+            "It states the final result after fans were installed.",
+            "It explains WHY the overheating problem happened."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Paragraph job",
+        "text": "For one paragraph, ask: is its JOB to state the problem, explain a cause, show an effect, or give the solution? Naming its job helps you see how it fits the whole text's structure.",
+        "example": "A paragraph that starts with 'As a result...' usually has the job of showing an EFFECT."
+      }
+    },
+    "4": {
+      "slides": [
+        {
+          "title": "Structure is a choice",
+          "text": "Authors choose a structure on purpose. Starting with a problem before a solution builds urgency; starting with background before a cause-effect explains WHY something matters first."
+        },
+        {
+          "title": "Ask: why this order?",
+          "text": "If an author leads with a dramatic effect before explaining the cause, that order creates suspense or urgency."
+        },
+        {
+          "title": "Evaluate the choice",
+          "text": "Judge whether the chosen structure makes the text's point MORE convincing or clear, or whether a different order might have worked better."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Identify the structure used.\n2. Notice the ORDER the author chose (what comes first, second, last).\n3. Explain what effect that specific order has on the reader, urgency, clarity, suspense, or persuasion."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "An article opens with a dramatic image of a collapsed bridge before explaining the rusted cable that caused it.",
+            "role": "key"
+          },
+          {
+            "t": "This order grabs the reader's attention before the technical explanation.",
+            "role": "key"
+          }
+        ],
+        "explain": "Leading with the dramatic effect before the cause is a deliberate choice that hooks the reader first."
+      },
+      "together": {
+        "passage": "By the time the fire trucks arrived, the old grain silo was already half collapsed, smoke pouring from its cracked walls. Firefighters later traced the blaze to a faulty electrical panel that had been sparking for weeks, unnoticed because the silo was rarely inspected.\n\nOnly after describing the dramatic collapse does the article explain the cause: the neglected electrical panel. If the article had opened with \"an electrical panel sparked for weeks,\" the beginning would have felt dry and technical. Instead, opening with the vivid image of a half-collapsed, smoking silo grabs the reader's attention immediately, making them want to know what caused such dramatic damage.\n\nThe article then uses this attention to deliver its real message: regular inspections could have prevented the fire entirely. By saving the explanation for after the dramatic opening, the structure builds curiosity first and persuades the reader to care about inspection policy second.",
+        "stem": "Why does the author choose to describe the dramatic fire BEFORE explaining its cause, rather than the other way around?",
+        "hint": "Think about how starting with a vivid scene, rather than a technical explanation, affects a reader's attention.",
+        "good": "Right! Opening with the dramatic effect hooks the reader before the article makes its persuasive point about inspections.",
+        "options": [
+          "Leading with a vivid, dramatic effect grabs the reader's attention and builds curiosity, making the later explanation and persuasive point land more powerfully.",
+          "The order has no real effect on how the reader experiences the article.",
+          "Explaining the cause first would have been impossible to write clearly.",
+          "The author simply forgot to mention the cause until later in the article."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Only after describing the dramatic collapse does the article explain the cause: the neglected electrical panel.",
+          "If the article had opened with \"an electrical panel sparked for weeks,\" the beginning would have felt dry and technical.",
+          "Instead, opening with the vivid image of a half-collapsed, smoking silo grabs the reader's attention immediately, making them want to know what caused such dramatic damage.",
+          "The article then uses this attention to deliver its real message: regular inspections could have prevented the fire entirely."
+        ],
+        "proof": [
+          1,
+          2
+        ],
+        "need": 2,
+        "stem": "The claim was that the order grabs the reader's attention. Tap the 2 sentences that explain why.",
+        "wrong": "This sentence states the overall point or the order itself, find the TWO sentences that explain WHY that order grabs the reader's attention."
+      },
+      "checks": [
+        {
+          "passage": "The article opens by describing a stadium collapsing into chaos as fans screamed and ran. Only in the final paragraph does it explain that a structural inspection had been skipped for three years.",
+          "stem": "What effect does saving the cause for the final paragraph create?",
+          "why": "Delaying the cause keeps readers curious and makes the final persuasive point about inspections hit harder.",
+          "options": [
+            "It makes the article confusing and pointless.",
+            "It builds suspense and keeps readers engaged until the persuasive point about inspections lands at the end.",
+            "It proves the cause was unimportant to the story.",
+            "It has the same effect as explaining the cause first would have had."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A report begins with a chart showing rising hospital visits, then works backward to show the heatwave that caused them, and ends by recommending more public cooling centers.",
+          "stem": "Why might the report start with the effect (hospital visits) instead of the cause (the heatwave)?",
+          "why": "Opening with a striking effect grabs attention and sets up the explanation and recommendation that follow.",
+          "options": [
+            "Starting with the effect makes the chart impossible to understand.",
+            "It has no real purpose; any order would be the same.",
+            "Starting with the alarming result grabs attention and shows readers why the topic matters before explaining the cause.",
+            "It hides the heatwave from readers until the chart is explained."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "An essay about a bridge's failure spends its first half comparing the bridge to similar bridges that have NOT failed, then its second half zooms in on the cause unique to this bridge: corroded bolts.",
+          "stem": "How does comparing other bridges first help the essay's structure?",
+          "why": "Comparing to other bridges first highlights that this failure was unusual, making the specific cause stand out more.",
+          "options": [
+            "It has no effect on how the unique cause is understood.",
+            "It proves all bridges eventually fail the same way.",
+            "It replaces the need to explain the actual cause at all.",
+            "It shows the failure wasn't typical, making the unique cause (corroded bolts) feel more significant when it's finally revealed."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Why this order?",
+        "text": "When you notice an unusual order (effect before cause, problem described in detail before the fix), ask: what effect does that choice have on ME as a reader, curiosity, urgency, persuasion?",
+        "example": "A scary opening about a flood, then the explanation of the broken levee, builds more urgency than starting with 'the levee broke.'"
+      }
+    }
+  }
+}

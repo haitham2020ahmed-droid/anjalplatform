@@ -1,0 +1,438 @@
+{
+  "code": "LN-224",
+  "title": "Word Choice and Tone",
+  "subject": "READING",
+  "goalArea": "Literary Text",
+  "subtopic": "Analyze Point of View, Features, and Structure",
+  "standards": [
+    "RL.4.4",
+    "RL.5.4",
+    "RL.6.4",
+    "RL.7.4"
+  ],
+  "families": [
+    "word-choice-tone"
+  ],
+  "skillNames": [
+    "Word Choice and Tone"
+  ],
+  "statements": [],
+  "levels": {
+    "1": {
+      "slides": [
+        {
+          "title": "What is tone?",
+          "text": "**Tone** is the feeling the words give you. The same event can feel happy or scary, depending on the words the writer picks."
+        },
+        {
+          "title": "Strong words, strong feelings",
+          "text": "Some words feel **exciting** (zoomed, burst, cheered). Some words feel **calm** (strolled, rested, smiled)."
+        },
+        {
+          "title": "Find the clue word",
+          "text": "Look for one strong word in the sentence. Ask: does this word feel happy, scary, calm, or sad?"
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "To prove the tone, point to the **exact word** that creates the feeling.\n\n1. Find a strong word.\n2. Say what feeling it gives.\n3. That word is your proof."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "The dog growled at the stranger.",
+            "role": "key"
+          },
+          {
+            "t": "Its teeth showed.",
+            "role": "detail"
+          }
+        ],
+        "explain": "**Growled** is a strong, scary word. It gives the sentence a tense, frightening tone."
+      },
+      "together": {
+        "passage": "The kitten crept slowly across the dark room. Every shadow made it freeze. Its small heart pounded as it listened for any sound.",
+        "stem": "What tone do the words crept and pounded create?",
+        "hint": "Think about how crept and pounded make you feel. Are they calm words or tense words?",
+        "good": "Yes! Crept and pounded are tense words, so the tone feels nervous and careful.",
+        "options": [
+          "A nervous tone",
+          "A happy tone",
+          "A bored tone",
+          "A funny tone"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "The kitten crept slowly across the dark room.",
+          "Every shadow made it freeze.",
+          "Its small heart pounded as it listened for any sound."
+        ],
+        "proof": [
+          0,
+          2
+        ],
+        "need": 2,
+        "stem": "The answer was: a nervous tone. Tap 2 sentences with the tense words that prove it.",
+        "wrong": "This sentence also fits, but find the ones with the strongest nervous words: crept and pounded."
+      },
+      "checks": [
+        {
+          "passage": "Tom skipped happily down the sunny path, humming a cheerful tune.",
+          "stem": "What tone does skipped and humming create?",
+          "why": "Skipped and humming are light, happy actions, so the tone feels joyful.",
+          "options": [
+            "A sad tone",
+            "A joyful tone",
+            "A scary tone",
+            "An angry tone"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "The old door creaked open, and a cold wind howled through the hallway.",
+          "stem": "What tone does creaked and howled create?",
+          "why": "Creaked and howled are eerie sounds that create a spooky tone.",
+          "options": [
+            "A happy tone",
+            "A funny tone",
+            "A spooky tone",
+            "A calm tone"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "Lina sat quietly by the window, watching the gentle rain fall.",
+          "stem": "What tone does quietly and gentle create?",
+          "why": "Quietly and gentle are soft, calm words that create a peaceful tone.",
+          "options": [
+            "An exciting tone",
+            "An angry tone",
+            "A scary tone",
+            "A peaceful tone"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Feel the word",
+        "text": "Say a strong word from the story out loud. Ask yourself: does saying this word make me feel happy, scared, calm, or excited? That feeling is the tone.",
+        "example": "Say \"screamed.\" Does it feel calm or tense? Tense, so a sentence with \"screamed\" has a tense tone."
+      }
+    },
+    "2": {
+      "slides": [
+        {
+          "title": "Word choice shapes tone",
+          "text": "Writers choose words on purpose. A plain word (\"walked\") feels neutral. A vivid word (\"stumbled\", \"strutted\") adds a feeling."
+        },
+        {
+          "title": "Compare the words",
+          "text": "**stumbled** = clumsy, worried. **strutted** = proud, confident. Same action (walking), different tone!"
+        },
+        {
+          "title": "Ask why",
+          "text": "Ask: why did the author choose THIS word instead of a plain one? What feeling does it add?"
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find the vivid word.\n2. Think of a plain word that could replace it.\n3. Compare the feelings the two words give, that difference is your proof."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Khalid slammed his book shut and stormed out of the room.",
+            "role": "key"
+          },
+          {
+            "t": "His face was red.",
+            "role": "detail"
+          }
+        ],
+        "explain": "**Slammed** and **stormed** are much stronger than \"closed\" and \"walked.\" They show Khalid feels angry, giving the sentence an angry tone."
+      },
+      "together": {
+        "passage": "The waves crashed against the rocks, spraying salty foam high into the air. Seabirds shrieked overhead, circling the churning water below. A small boat bobbed helplessly, tossed from side to side by the restless sea.",
+        "stem": "What tone do the words crashed, shrieked, and churning create?",
+        "hint": "Think about what crashed, shrieked and churning usually describe. Are they gentle words?",
+        "good": "Yes! Crashed, shrieked and churning are rough, wild words, so the tone feels dangerous.",
+        "options": [
+          "A wild, dangerous tone",
+          "A calm, peaceful tone",
+          "A happy, playful tone",
+          "A boring, quiet tone"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "The waves crashed against the rocks, spraying salty foam high into the air.",
+          "Seabirds shrieked overhead, circling the churning water below.",
+          "A small boat bobbed helplessly, tossed from side to side by the restless sea."
+        ],
+        "proof": [
+          0,
+          1
+        ],
+        "need": 2,
+        "stem": "The answer was: a wild, dangerous tone. Tap the 2 sentences with the wildest action words.",
+        "wrong": "This sentence is true too, but find the two sentences with the wildest action words: crashed and shrieked."
+      },
+      "checks": [
+        {
+          "passage": "The puppy bounded across the yard, tail wagging, barking joyfully at everyone it saw.",
+          "stem": "What tone do bounded and joyfully create?",
+          "why": "Bounded and joyfully are energetic, happy words, creating a playful tone.",
+          "options": [
+            "A tense tone",
+            "A playful tone",
+            "A sad tone",
+            "A mysterious tone"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "The shadows lengthened as the old house groaned and settled in the silence.",
+          "stem": "What tone do groaned and silence create?",
+          "why": "Groaned and silence create an unsettling, eerie feeling.",
+          "options": [
+            "A cheerful tone",
+            "A busy tone",
+            "An eerie tone",
+            "A proud tone"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "The runners surged forward at the starting gun, the crowd roaring with excitement.",
+          "stem": "What tone do surged and roaring create?",
+          "why": "Surged and roaring show fast motion and loud excitement, creating a thrilling tone.",
+          "options": [
+            "A sleepy tone",
+            "A gloomy tone",
+            "A shy tone",
+            "A thrilling tone"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Word swap",
+        "text": "Replace a strong word in a sentence with a plain word (screamed becomes blew). Read both sentences aloud and discuss how the tone changes.",
+        "example": "\"The wind screamed.\" vs \"The wind blew.\" Screamed feels much more frightening than blew."
+      }
+    },
+    "3": {
+      "slides": [
+        {
+          "title": "Two tones, one event",
+          "text": "Authors can describe the SAME event with different word choices to create different tones, tense in one version, calm in another."
+        },
+        {
+          "title": "Spot the shift",
+          "text": "Watch for a word-choice shift between paragraphs or sentences: strong harsh verbs vs soft gentle verbs signal a tone change."
+        },
+        {
+          "title": "Name the tone with evidence",
+          "text": "Don't just say 'scary'; point to the EXACT words (verbs, adjectives) that create that feeling."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find the paragraph or sentence in question.\n2. Underline the strong word choices.\n3. Name the tone those specific words create, not just your general feeling."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Thunder cracked and the old shutters banged wildly against the house.",
+            "role": "key"
+          },
+          {
+            "t": "Inside, Grandmother hummed a quiet tune by candlelight.",
+            "role": "key"
+          }
+        ],
+        "explain": "**Cracked** and **banged wildly** feel violent and tense. **Hummed** and **quiet** feel calm and safe. The same storm, but two different tones in two sentences."
+      },
+      "together": {
+        "passage": "Black clouds smothered the sky, and the wind screamed through the palm trees outside the small clinic. Doctors rushed past the windows, their faces tight with worry, shouting instructions over the roar of the storm.\n\nInside the back room, however, Nurse Huda hummed quietly as she folded clean blankets, her hands slow and steady. She had weathered a hundred storms before, and she had learned that panic never helped a frightened patient.\n\nWhen the first patient arrived, soaked and trembling, Huda knelt beside him and spoke in a calm, low voice. \"You are safe now,\" she said gently, and for a moment the chaos outside seemed very far away.",
+        "stem": "How does the word choice in the first paragraph create a different tone than the word choice in the second paragraph?",
+        "hint": "Compare the verbs in each paragraph. Are they violent or gentle?",
+        "good": "Right! The harsh verbs outside create tension, while the soft verbs inside create calm, even during the same storm.",
+        "options": [
+          "Smothered and screamed in paragraph one feel tense and violent, while hummed and steady in paragraph two feel calm and controlled.",
+          "Both paragraphs use the same calm words, so the tone never changes.",
+          "Smothered and screamed are soft words, so paragraph one feels peaceful too.",
+          "The paragraphs describe two different storms happening in two different towns."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Black clouds smothered the sky, and the wind screamed through the palm trees outside the small clinic.",
+          "Doctors rushed past the windows, their faces tight with worry, shouting instructions over the roar of the storm.",
+          "Inside the back room, however, Nurse Huda hummed quietly as she folded clean blankets, her hands slow and steady.",
+          "She had weathered a hundred storms before, and she had learned that panic never helped a frightened patient.",
+          "When the first patient arrived, soaked and trembling, Huda knelt beside him and spoke in a calm, low voice."
+        ],
+        "proof": [
+          0,
+          2
+        ],
+        "need": 2,
+        "stem": "The answer was about contrasting word choice. Tap the 2 sentences that show the clearest contrast, one tense, one calm.",
+        "wrong": "This sentence is part of the story, but find the TWO sentences that most clearly show contrasting word choices, one tense, one calm."
+      },
+      "checks": [
+        {
+          "passage": "The crowd roared and surged toward the gates when the doors finally opened. Meanwhile, an usher calmly guided an elderly couple to their seats, unhurried despite the chaos.",
+          "stem": "How do the two sentences differ in tone?",
+          "why": "Roared and surged feel wild, while calmly and unhurried feel patient and composed.",
+          "options": [
+            "Both sentences feel exactly the same, calm and slow.",
+            "The first sentence feels chaotic and excited, while the second feels calm and patient.",
+            "The first sentence is about an elderly couple.",
+            "The second sentence describes a loud, roaring crowd."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "The old machine groaned and shuddered before grinding to a sudden halt. The technician sighed, pulled out her toolkit, and got to work without a word of complaint.",
+          "stem": "What tone does groaned and shuddered create in the first sentence?",
+          "why": "Groaned and shuddered describe a machine breaking down, creating a tense tone.",
+          "options": [
+            "A joyful, celebratory tone.",
+            "A peaceful, restful tone.",
+            "A tense, mechanical-failure tone.",
+            "A mysterious, magical tone."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "Fireworks exploded in bursts of gold and crimson, while the crowd gasped and cheered below.",
+          "stem": "What tone do exploded and cheered create?",
+          "why": "Exploded and cheered show bright bursts and happy crowd noise, creating an exciting, celebratory tone.",
+          "options": [
+            "A sleepy, dull tone.",
+            "A frightened, panicked tone.",
+            "A gloomy, sad tone.",
+            "An exciting, celebratory tone."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Contrast chart",
+        "text": "Draw two columns: 'Tense words' and 'Calm words.' Sort words from the text into each column. The column with more words in a paragraph tells you its tone.",
+        "example": "Tense: screamed, rushed, worry. Calm: hummed, steady, gently. Paragraph one feels tense; paragraph two feels calm."
+      }
+    },
+    "4": {
+      "slides": [
+        {
+          "title": "Tone shapes meaning",
+          "text": "A skilled writer's word choice doesn't just describe an event, it tells the reader how to FEEL about it, shaping meaning beyond the plain facts."
+        },
+        {
+          "title": "Subtle word choices",
+          "text": "Some tone shifts are subtle: 'said' vs 'muttered' vs 'declared' all mean roughly the same action, but each creates a very different impression of the speaker."
+        },
+        {
+          "title": "Analyze the effect",
+          "text": "Ask: if the author replaced this word with a neutral synonym, would the passage feel different? If yes, that word is doing tone work."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Identify the word doing the tone work.\n2. Think of a neutral synonym.\n3. Explain exactly how swapping would change the reader's impression, that comparison is your proof."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "\"Fine,\" she snapped, slamming the laptop shut.",
+            "role": "key"
+          },
+          {
+            "t": "She stood up and left the room.",
+            "role": "detail"
+          }
+        ],
+        "explain": "'Snapped' and 'slamming' (instead of 'said' and 'closing') show she is angry, not calm, even though 'fine' usually sounds agreeable."
+      },
+      "together": {
+        "passage": "Two students wrote about the same class trip to the history museum. Amal's essay called the morning \"a whirlwind of discovery,\" describing how the ancient pottery \"gleamed under soft museum lights\" and how her group \"devoured every placard, hungry for more details.\" Her final sentence declared the trip \"unforgettable.\"\n\nNoor's essay described the same morning very differently. She wrote that the bus ride was \"an endless crawl through traffic\" and that the museum's hallways \"dragged on, dim and silent.\" The pottery, she wrote, \"sat behind smudged glass, gathering dust.\" Her final sentence called the trip \"forgettable, like most school outings.\"\n\nBoth students visited the identical museum on the identical morning. Neither essay contains a single false fact. Yet a reader finishes Amal's essay eager to visit the museum, and finishes Noor's essay relieved she never has to go.",
+        "stem": "Since neither essay contains a false fact, how do Amal and Noor create such different tones about the same trip?",
+        "hint": "Compare specific word pairs each writer used for the same thing, like the bus ride or the pottery.",
+        "good": "Exactly! Word choice alone, not different facts, creates the opposite tones in these two true accounts.",
+        "options": [
+          "Each writer's specific word choices, such as 'whirlwind' and 'gleamed' versus 'crawl' and 'dim', shape how the reader feels about the same true events.",
+          "Amal visited a different, more exciting part of the museum than Noor did.",
+          "Noor's essay contains several facts that Amal's essay leaves out.",
+          "The tone difference happens only because Amal's essay is much longer."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Amal's essay called the morning \"a whirlwind of discovery,\" describing how the ancient pottery \"gleamed under soft museum lights.\"",
+          "Noor's essay described the same morning very differently.",
+          "She wrote that the bus ride was \"an endless crawl through traffic\" and that the museum's hallways \"dragged on, dim and silent.\"",
+          "Both students visited the identical museum on the identical morning.",
+          "Yet a reader finishes Amal's essay eager to visit the museum, and finishes Noor's essay relieved she never has to go."
+        ],
+        "proof": [
+          0,
+          2
+        ],
+        "need": 2,
+        "stem": "The claim was that word choice alone creates the tone difference. Tap the 2 sentences showing each writer's contrasting word choices.",
+        "wrong": "This sentence is true, but find the TWO sentences that actually show each writer's specific, contrasting word choices."
+      },
+      "checks": [
+        {
+          "passage": "The manager described the new policy as 'streamlined,' while an employee called the same policy 'rushed.'",
+          "stem": "What does the employee's word choice ('rushed') suggest about her opinion of the policy, compared with the manager's word ('streamlined')?",
+          "why": "'Rushed' has a negative connotation of carelessness, while 'streamlined' sounds efficient and positive, same policy, opposite impressions.",
+          "options": [
+            "She agrees completely with the manager's description.",
+            "She feels the policy was done too quickly and carelessly, unlike the manager's positive spin.",
+            "She believes the policy will take years to complete.",
+            "She has no opinion about the policy at all."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "The coach called the team's loss 'a valuable learning experience.' A reporter called it 'an embarrassing collapse.'",
+          "stem": "How do the coach's and reporter's word choices differ in tone about the same loss?",
+          "why": "'Valuable learning experience' reframes the loss positively, while 'embarrassing collapse' is harshly critical.",
+          "options": [
+            "Both word choices sound equally harsh and critical.",
+            "Both word choices sound equally encouraging and positive.",
+            "The coach's words sound encouraging and positive, while the reporter's words sound harsh and critical.",
+            "The coach is describing a win, not a loss."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "One reviewer wrote that the film was 'a bold, daring experiment.' Another wrote that it was 'a confusing mess.'",
+          "stem": "What tone does each reviewer's word choice create about the same film?",
+          "why": "'Bold, daring experiment' shows admiration, while 'confusing mess' shows frustration, about the exact same film.",
+          "options": [
+            "Both reviewers sound equally impressed by the film.",
+            "Both reviewers sound equally confused and frustrated.",
+            "Neither review expresses any feeling about the film.",
+            "The first sounds admiring and impressed; the second sounds frustrated and critical."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Swap test",
+        "text": "Pick a loaded word from the text. Swap it for a plain, neutral synonym. Read both versions aloud. If the feeling changes, that word was doing tone work.",
+        "example": "'She devoured the book' vs 'She read the book.' Devoured sounds eager and excited; read sounds neutral."
+      }
+    }
+  }
+}

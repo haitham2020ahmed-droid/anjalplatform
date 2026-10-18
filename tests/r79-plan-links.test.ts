@@ -157,7 +157,7 @@ describe("📘 Full curriculum map (PDF)", () => {
     assert.equal(data[4].units[0].sections[0].essentialQuestion, "How do people respond to natural disasters?");
     assert.ok(data[5].units.every((u) => u.sections.every((x) => x.essentialQuestion === null)));
     const g6 = data[6].units.flatMap((u) => u.sections);
-    assert.equal(g6.length, 42, "Grade 6: 42 StudySync selections");
+    assert.equal(g6.length, 23, "Grade 6: 23 StudySync selections");
     assert.ok(g6.every((x) => x.weeks.length === 0 && x.selections.length === 1 && x.selections[0].label === "Selection"));
     assert.equal(sectionLabel(g6[0]), "Selection 1");
     for (const g of [4, 5, 6]) assert.ok(data[g].units.every((u) => u.sections.some((x) => x.skills.length > 0)), `Grade ${g}: platform skills in every unit`);
@@ -175,7 +175,7 @@ describe("📘 Full curriculum map (PDF)", () => {
       for (const u of d.units) assert.ok(html.includes(`<h2>Unit ${u.number}</h2>`), `Unit ${u.number}`);
       assert.match(html, /<th scope="col">Textbook section<\/th><th scope="col">Platform skills<\/th>/);
       if (g < 6) { assert.match(html, /<b>Weeks 1 and 2:<\/b>/); assert.match(html, /<b>Week 5:<\/b>/); assert.match(html, /Shared Read:<\/span> <i>/); }
-      else assert.match(html, /<b>Selection 1:<\/b> <bdi dir="ltr">Eleven<\/bdi>/);
+      else assert.match(html, /<b>Selection 1:<\/b> <bdi dir="ltr">Amigo Brothers<\/bdi>/);
       if (g === 4) assert.match(html, /How do people respond to natural disasters\?/);
       const groups = MAP_CATEGORY_GROUPS.filter((c) => html.includes(`<h4>${c.en.replace(/&/g, "&amp;")}</h4>`));
       assert.ok(groups.length >= 4, `the platform's categories (${groups.map((x) => x.key)})`);

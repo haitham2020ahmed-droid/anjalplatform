@@ -24,7 +24,7 @@ test("seeds report progress while writing and produce the same data", async () =
   const reports: number[] = [];
   const repo = withProgress(emptyRepo(), (n) => reports.push(n), 250);
   const r = await seedCurriculum(repo, loadCurriculumInput(ROOT, "ALANJAL", "Al-Anjal Private Schools"));
-  assert.equal(r.skills, 191);
+  assert.equal(r.skills, 197); // Grade 6 now carries its real Curriculum Map content (23 Selections) instead of the old 42-lesson placeholder
   assert.ok(reports.length > 5 && reports.every((n, i) => n === (i + 1) * 250), "progress every 250 writes");
   console.log(`curriculum writes: ${repo.writes()}`);
   const q = withProgress(repo, () => undefined);

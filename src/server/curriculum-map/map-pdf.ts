@@ -153,9 +153,13 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const school = L === "ar" && b.nameAr ? b.nameAr : b.name;
   const how = (o.copy === "staff" ? w.howStaff : w.howStudent).map((x) => `<li>${esc(x)}</li>`).join("");
   const title = mapTitle(d, L);
+  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length, 0) + u.writing.length, 0);
+  const stats = `<div class="stats"><div class="stat"><b>${d.units.length}</b><span>${esc(L === "ar" ? "وحدات" : "Units")}</span></div><div class="stat"><b>${totalSkills}</b><span>${esc(L === "ar" ? "مهارة" : "Skills")}</span></div></div>`;
+  const toc = `<div class="toc">${d.units.map((u) => `<div class="toc-i"><span class="toc-n">${u.number}</span><span class="toc-t" dir="ltr">${esc(u.title)}</span></div>`).join("")}</div>`;
   const cover = `<section class="cover">
+  <div class="cover-glow"></div>
   <div class="cover-top"><div class="brand" dir="ltr">${PLATFORM.slice(0, 3)}<i>${PLATFORM.slice(3)}</i></div>${logo}</div>
-  <div class="cover-mid"><p class="school">${esc(school)}</p><h1>${esc(title)}</h1><p class="sub">${esc(w.sub)}</p><p class="copy">${esc(o.copy === "staff" ? w.copyStaff : w.copyStudent)}</p></div>
+  <div class="cover-mid"><p class="school">${esc(school)}</p><h1>${esc(title)}</h1><p class="sub">${esc(w.sub)}</p><p class="copy">${esc(o.copy === "staff" ? w.copyStaff : w.copyStudent)}</p>${stats}${toc}</div>
   <div class="howto"><p class="plinks">${esc(PLAN_LINKS_NOTE[L])}</p><h2>${esc(w.how)}</h2><ol>${how}</ol><p class="paper">${esc(w.paper)}</p></div>
 </section>`;
   const skillLi = (k: MapPdfSkill, n: number) => {
@@ -169,7 +173,7 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
     return MAP_CATEGORY_GROUPS.map((g) => {
       const ks = sec.skills.filter((k) => k.group === g.key);
       if (!ks.length) return "";
-      return `<div class="grp"><h4>${esc(L === "ar" ? g.ar : g.en)}</h4><ol>${ks.map((k) => skillLi(k, ++n)).join("")}</ol></div>`;
+      return `<div class="grp" data-cat="${g.key}"><h4>${esc(L === "ar" ? g.ar : g.en)}</h4><ol>${ks.map((k) => skillLi(k, ++n)).join("")}</ol></div>`;
     }).join("");
   };
   const left = (sec: MapPdfSection) => {
@@ -180,8 +184,8 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const units = d.units.map((u) => {
     const uhref = planHref({ kind: "curriculum-unit", grade: d.grade, unit: u.number }, aud, origin);
     const qr = uhref ? planQrSvg(uhref, 50, origin) : "";
-    return `<section class="unit"><div class="unit-h"><h2>${esc(fill(w.unit, { n: u.number }))}</h2>${qr && uhref ? `<a class="qr" href="${esc(uhref)}">${qr}</a>` : ""}</div>
-<table><colgroup><col style="width:44%"><col style="width:56%"></colgroup><thead><tr><th scope="col">${esc(w.textbook)}</th><th scope="col">${esc(w.skills)}</th></tr></thead><tbody>${u.sections.map((sec) => `<tr><td class="l">${left(sec)}</td><td class="r">${right(sec)}</td></tr>`).join("")}${u.writing.length ? `<tr class="uw"><td class="l"><p class="wk"><b>${esc(w.unitWriting)}:</b> ${esc(w.unitWritingNote)}</p></td><td class="r">${right({ skills: u.writing } as MapPdfSection)}</td></tr>` : ""}</tbody></table></section>`;
+    return `<section class="unit"><div class="unit-h"><span class="unit-badge">${u.number}</span><h2>${esc(fill(w.unit, { n: u.number }))}</h2><span class="unit-title" dir="ltr">${esc(u.title)}</span>${qr && uhref ? `<a class="qr" href="${esc(uhref)}">${qr}</a>` : ""}</div>
+<div class="map-card"><table><colgroup><col style="width:44%"><col style="width:56%"></colgroup><thead><tr><th scope="col">${esc(w.textbook)}</th><th scope="col">${esc(w.skills)}</th></tr></thead><tbody>${u.sections.map((sec) => `<tr><td class="l">${left(sec)}</td><td class="r">${right(sec)}</td></tr>`).join("")}${u.writing.length ? `<tr class="uw"><td class="l"><p class="wk"><b>${esc(w.unitWriting)}:</b> ${esc(w.unitWritingNote)}</p></td><td class="r">${right({ skills: u.writing } as MapPdfSection)}</td></tr>` : ""}</tbody></table></div></section>`;
   }).join("");
   const css = `
 @page { size: A4; margin: 12mm 12mm 16mm 12mm; }
@@ -189,42 +193,78 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; font-family: ${o.fontStack ?? "sans-serif"}; font-size: 9.5pt; line-height: 1.45; color: #1e293b; }
 bdi { unicode-bidi: isolate; }
-.cover { height: 265mm; display: flex; flex-direction: column; justify-content: space-between; padding: 14mm 12mm; border-radius: 14px; background: linear-gradient(150deg, ${navy} 0%, ${navy} 55%, ${teal} 100%); color: #fff; break-after: page; }
+
+/* ---------- cover ---------- */
+.cover { position: relative; height: 265mm; display: flex; flex-direction: column; justify-content: space-between; padding: 14mm 12mm; border-radius: 18px; overflow: hidden;
+  background: linear-gradient(150deg, ${navy} 0%, ${navy} 50%, ${teal} 100%); color: #fff; break-after: page; }
+.cover-glow { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(circle at 92% 6%, rgba(255,255,255,.16) 0, transparent 42%),
+    radial-gradient(circle at 6% 96%, rgba(255,255,255,.14) 0, transparent 38%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,.08) 0, transparent 46%); }
+.cover-top, .cover-mid, .howto { position: relative; z-index: 1; }
 .cover-top { display: flex; justify-content: space-between; align-items: center; }
 .brand { font-weight: 800; font-size: 20pt; letter-spacing: .02em; }
 .brand i { font-style: normal; color: #9be3e3; }
-.logo { width: 70px; height: 70px; object-fit: contain; background: #fff; border-radius: 14px; padding: 6px; }
-.logo-text { width: 70px; height: 70px; border-radius: 14px; background: #fff; color: ${navy}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22pt; }
-.school { margin: 0; font-size: 12pt; color: #cdeeee; font-weight: 700; }
-.cover h1 { margin: 6px 0 4px; font-size: 30pt; line-height: 1.15; }
+.logo { width: 70px; height: 70px; object-fit: contain; background: #fff; border-radius: 14px; padding: 6px; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+.logo-text { width: 70px; height: 70px; border-radius: 14px; background: #fff; color: ${navy}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22pt; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+.school { margin: 0; font-size: 12pt; color: #cdeeee; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.cover h1 { margin: 6px 0 4px; font-size: 31pt; line-height: 1.15; text-shadow: 0 2px 10px rgba(0,0,0,.15); }
 .sub { margin: 0; font-size: 13pt; color: #e2f5f5; }
-.copy { display: inline-block; margin-top: 12px; padding: 2px 12px; border-radius: 12px; background: rgba(255,255,255,.18); font-weight: 700; font-size: 9.5pt; }
-.howto { background: #fff; color: #1e293b; border-radius: 12px; padding: 12px 16px; }
-.howto h2 { margin: 2px 0 4px; font-size: 12pt; color: ${navy}; }
-.howto ol { margin: 0; padding-inline-start: 18px; }
-.plinks { margin: 0; color: ${blue}; font-weight: 700; }
-.paper { margin: 6px 0 0; color: #475569; font-size: 8.6pt; }
+.copy { display: inline-block; margin-top: 12px; padding: 3px 14px; border-radius: 999px; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35); font-weight: 700; font-size: 9.5pt; }
+.stats { display: flex; gap: 10px; margin-top: 14px; }
+.stat { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 12px; padding: 6px 16px; text-align: center; min-width: 76px; }
+.stat b { display: block; font-size: 17pt; line-height: 1.1; }
+.stat span { font-size: 7.6pt; color: #d7f3f3; text-transform: uppercase; letter-spacing: .05em; }
+.toc { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px 14px; margin-top: 14px; }
+.toc-i { display: flex; align-items: center; gap: 6px; font-size: 8.4pt; color: #eafbfb; }
+.toc-n { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 50%; background: rgba(255,255,255,.22); font-size: 7.4pt; font-weight: 800; flex: none; }
+.toc-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.howto { background: #fff; color: #1e293b; border-radius: 14px; padding: 13px 17px; box-shadow: 0 10px 26px rgba(0,0,0,.18); }
+.howto h2 { margin: 2px 0 6px; font-size: 12pt; color: ${navy}; }
+.howto ol { margin: 0; padding-inline-start: 20px; counter-reset: how; list-style: none; }
+.howto ol li { counter-increment: how; position: relative; margin: 3px 0; padding-inline-start: 4px; }
+.howto ol li::before { content: counter(how); position: absolute; inset-inline-start: -20px; top: 0; width: 15px; height: 15px; border-radius: 50%; background: ${teal}; color: #fff; font-size: 7.6pt; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.plinks { margin: 0 0 8px; color: ${blue}; font-weight: 700; }
+.paper { margin: 8px 0 0; color: #475569; font-size: 8.6pt; border-top: 1px dashed #cbd5e1; padding-top: 6px; }
+
+/* ---------- unit pages ---------- */
 .unit { break-before: page; }
-.unit-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 3px solid ${blue}; margin-bottom: 6px; break-after: avoid; }
-.unit-h h2 { margin: 0 0 4px; font-size: 22pt; color: ${blue}; }
-.qr { display: block; line-height: 0; }
+.unit-h { position: relative; display: flex; align-items: baseline; gap: 10px; border-bottom: 3px solid ${blue}; margin-bottom: 9px; padding-bottom: 6px; break-after: avoid; }
+.unit-badge { flex: none; width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, ${blue}, ${navy}); color: #fff; font-weight: 800; font-size: 13pt; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 8px rgba(0,0,0,.2); }
+.unit-h h2 { margin: 0; font-size: 20pt; color: ${navy}; }
+.unit-title { color: #64748b; font-size: 9.5pt; font-style: italic; }
+.qr { display: block; line-height: 0; margin-inline-start: auto; }
+.map-card { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(15,23,42,.08); border: 1px solid #e2e8f0; }
 table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 thead { display: table-header-group; }
-th { background: ${navy}; color: #fff; text-align: start; padding: 6px 10px; font-size: 10pt; }
-td { vertical-align: top; padding: 8px 10px; border-bottom: 1px solid ${teal}; }
+th { background: linear-gradient(135deg, ${navy}, ${blue}); color: #fff; text-align: start; padding: 7px 11px; font-size: 10pt; letter-spacing: .01em; }
+td { vertical-align: top; padding: 9px 11px; border-bottom: 1px solid #eef3f6; }
+tbody tr:nth-of-type(even) { background: #f8fafc; }
+tr.uw { background: #fdf6e8 !important; }
 tr { break-inside: auto; }
 .wk { margin: 0 0 4px; }
+.wk b { color: ${navy}; }
 .ts { margin: 0 0 4px; color: #475569; font-size: 8.8pt; }
 ul.sel { margin: 4px 0 0; padding: 0; list-style: none; font-size: 8.8pt; text-align: left; }
 ul.sel li { margin: 1px 0; }
 .sl { color: #64748b; }
-.grp { break-inside: avoid; margin-bottom: 7px; }
-.grp h4 { margin: 0 0 2px; font-size: 9.8pt; color: ${navy}; }
+.grp { break-inside: avoid; margin-bottom: 8px; padding-inline-start: 9px; border-inline-start: 3px solid #e2e8f0; }
+.grp[data-cat="vocabulary"] { border-inline-start-color: #8b5cf6; }
+.grp[data-cat="comprehension"] { border-inline-start-color: ${blue}; }
+.grp[data-cat="word-study"] { border-inline-start-color: #f59e0b; }
+.grp[data-cat="writing"] { border-inline-start-color: #ec4899; }
+.grp[data-cat="grammar"] { border-inline-start-color: #10b981; }
+.grp h4 { margin: 0 0 3px; font-size: 9.8pt; color: ${navy}; }
+.grp[data-cat="vocabulary"] h4::before { content: "🔤  "; }
+.grp[data-cat="comprehension"] h4::before { content: "📖  "; }
+.grp[data-cat="word-study"] h4::before { content: "🔎  "; }
+.grp[data-cat="writing"] h4::before { content: "✏️  "; }
+.grp[data-cat="grammar"] h4::before { content: "🧩  "; }
 .grp ol { margin: 0; padding: 0; list-style: none; }
 .grp li { margin: 2px 0; padding-inline-start: 18px; text-indent: -18px; }
-.n { display: inline-block; min-width: 16px; color: #334155; }
-a.plink { color: #1d4ed8; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: .6px; }
-.code { color: #94a3b8; font-size: 7.6pt; margin-inline-start: 3px; }
+.n { display: inline-block; min-width: 16px; color: #94a3b8; font-weight: 700; }
+a.plink { color: #1d4ed8; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(29,78,216,.35); }
+.code { display: inline-block; color: #fff; background: #94a3b8; font-size: 7pt; font-weight: 700; letter-spacing: .02em; border-radius: 6px; padding: 1px 6px; margin-inline-start: 4px; }
 .muted { color: #94a3b8; }
 `;
   return `<!doctype html><html lang="${L}" dir="${dir}"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${o.fontCss ?? ""}\n${css}</style></head><body>${cover}${units}</body></html>`;

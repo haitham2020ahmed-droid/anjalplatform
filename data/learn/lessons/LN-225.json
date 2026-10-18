@@ -1,0 +1,437 @@
+{
+  "code": "LN-225",
+  "title": "Evaluate Argument and Claims",
+  "subject": "READING",
+  "goalArea": "Informational Text",
+  "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+  "standards": [
+    "RI.4.8",
+    "RI.5.8",
+    "RI.6.8",
+    "RI.7.8"
+  ],
+  "families": [
+    "evaluate-argument"
+  ],
+  "skillNames": [
+    "Evaluate Argument and Claims"
+  ],
+  "statements": [],
+  "levels": {
+    "1": {
+      "slides": [
+        {
+          "title": "What is a claim?",
+          "text": "A **claim** is something the author wants you to believe. Good claims are backed up by **reasons**."
+        },
+        {
+          "title": "Strong or weak?",
+          "text": "A strong claim has **real evidence**: facts, numbers, or things that happened. A weak claim is just someone's **opinion** with no proof."
+        },
+        {
+          "title": "Check for proof",
+          "text": "Ask: did the author give a REASON for this claim, or is it just stated with no proof?"
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find the claim.\n2. Look for a reason right after it.\n3. If there's a reason, the claim is supported. If not, it's just an opinion."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Students should wear a hat outside because the sun is very strong here.",
+            "role": "key"
+          },
+          {
+            "t": "Everyone agrees school lunch is the best part of the day.",
+            "role": "detail"
+          }
+        ],
+        "explain": "The first sentence has a REASON (\"because the sun is very strong\"), so it's a strong, supported claim. The second sentence is just an opinion with no reason."
+      },
+      "together": {
+        "passage": "Our class should have a classroom plant because it will clean the air. A study found that plants help people feel calmer and focus better. Everyone just knows plants make rooms nicer, too.",
+        "stem": "Which sentence is a claim WITHOUT real evidence?",
+        "hint": "Look for a sentence that gives no study, fact, or reason, just says everyone agrees.",
+        "good": "Right! 'Everyone just knows' is an opinion with no real evidence behind it.",
+        "options": [
+          "Everyone just knows plants make rooms nicer, too.",
+          "Our class should have a classroom plant because it will clean the air.",
+          "A study found that plants help people feel calmer and focus better.",
+          "Plants need water and sunlight to grow."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Our class should have a classroom plant because it will clean the air.",
+          "A study found that plants help people feel calmer and focus better.",
+          "Everyone just knows plants make rooms nicer, too."
+        ],
+        "proof": [
+          0,
+          1
+        ],
+        "need": 2,
+        "stem": "The answer was: 'Everyone just knows plants make rooms nicer, too.' Tap 2 sentences that DO give a real reason or evidence.",
+        "wrong": "This sentence is the one with NO evidence, find the other two that DO give reasons or evidence."
+      },
+      "checks": [
+        {
+          "passage": "Our team should practice twice a week because last season we lost close games we could have won with more practice. Also, more practice is obviously the best idea ever.",
+          "stem": "Which sentence is NOT backed by a real reason?",
+          "why": "'Obviously the best idea ever' gives no real reason, it's just an opinion.",
+          "options": [
+            "Our team should practice twice a week.",
+            "Also, more practice is obviously the best idea ever.",
+            "We lost close games we could have won with more practice.",
+            "Practice happens after school on Tuesdays."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "The city should add more bike lanes. Bike lanes reduced accidents by 30 percent in a nearby city last year.",
+          "stem": "Which sentence gives real evidence for the claim?",
+          "why": "The 30 percent statistic is real, specific evidence for the claim.",
+          "options": [
+            "The city should add more bike lanes for everyone to use.",
+            "Bikes are a fun way for people to get around town.",
+            "Bike lanes reduced accidents by 30 percent in a nearby city last year.",
+            "Many cities around the world have streets that could be used."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "Homework should be shorter. Students obviously hate long homework, so it must be bad for them.",
+          "stem": "Why is 'students obviously hate long homework, so it must be bad for them' a weak claim?",
+          "why": "Disliking something doesn't prove it's bad, that's an assumption, not evidence.",
+          "options": [
+            "It includes a specific study about homework conducted at several nearby schools.",
+            "It gives an exact number of hours of homework assigned every single week.",
+            "It quotes a teacher's opinion directly, with her full name and title included.",
+            "It assumes something is true just because students dislike it, without real evidence."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Reason check",
+        "text": "After a claim, ask: WHY? If the text answers with a real reason or fact, the claim is supported. If it just repeats the claim or says 'everyone knows,' it's unsupported.",
+        "example": "Claim: 'Recess should be longer.' Reason: 'because students focus better afterward, a study found.' That's supported!"
+      }
+    },
+    "2": {
+      "slides": [
+        {
+          "title": "Not all evidence is equal",
+          "text": "Some evidence is strong (a measured study, a specific number). Some evidence is weak (one person's story, a guess)."
+        },
+        {
+          "title": "Weigh the evidence",
+          "text": "Ask: is this evidence big and reliable, or small and random?"
+        },
+        {
+          "title": "Watch for weak support",
+          "text": "Phrases like 'I heard that...' or 'one time...' are weaker than 'a study of 500 people found...'."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find the evidence given for a claim.\n2. Decide: is it a specific study or number, or just one story or guess?\n3. A claim with only weak evidence is less convincing, even if it has SOME support."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "A survey of 300 families found that most support a later school start time.",
+            "role": "key"
+          },
+          {
+            "t": "My cousin once said he liked sleeping in, so school should start later too.",
+            "role": "detail"
+          }
+        ],
+        "explain": "The survey of 300 families is strong evidence. One cousin's opinion is weak evidence, it's just one person's story."
+      },
+      "together": {
+        "passage": "Our school should expand the recycling program to every classroom. A city-wide study of 40 schools found that classroom recycling bins reduced total trash by nearly a third within one semester. Some students also argue that recycling is important because their neighbor said his street looks cleaner since bins were added there. The study gives numbers that can be checked and compared across many schools, not just one street.",
+        "stem": "Which piece of evidence is the STRONGEST support for expanding the recycling program?",
+        "hint": "Compare the study's size and numbers with the neighbor's one personal impression.",
+        "good": "Right! A measured study across 40 schools is far stronger than one neighbor's personal impression.",
+        "options": [
+          "The city-wide study of 40 schools showing trash reduced by nearly a third.",
+          "The neighbor's impression that his street looks cleaner.",
+          "The fact that recycling bins exist on some streets.",
+          "The opinion that recycling is generally a good idea."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Our school should expand the recycling program to every classroom.",
+          "A city-wide study of 40 schools found that classroom recycling bins reduced total trash by nearly a third within one semester.",
+          "Some students also argue that recycling is important because their neighbor said his street looks cleaner since bins were added there.",
+          "The study gives numbers that can be checked and compared across many schools, not just one street."
+        ],
+        "proof": [
+          1,
+          3
+        ],
+        "need": 2,
+        "stem": "The answer was the 40-school study. Tap 2 sentences that explain why the study is the stronger evidence.",
+        "wrong": "This sentence describes the weaker, one-person evidence, find the two sentences that explain why the STUDY is the stronger evidence."
+      },
+      "checks": [
+        {
+          "passage": "A nutritionist's report, based on tracking 1,000 students for a year, found that students who ate breakfast scored higher on tests. One parent also mentioned her son seems happier after breakfast.",
+          "stem": "Which evidence is stronger?",
+          "why": "Tracking 1,000 students for a year is far more reliable than one parent's personal comment.",
+          "options": [
+            "One parent's comment about her son.",
+            "The year-long report tracking 1,000 students.",
+            "The fact that breakfast exists.",
+            "The opinion that mornings are important."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A city engineer measured traffic for six months and found a new traffic light reduced accidents by half. A driver also said the light 'just feels safer' to her.",
+          "stem": "Why is the engineer's evidence stronger than the driver's comment?",
+          "why": "A six-month measured result is specific and checkable, unlike a personal feeling.",
+          "options": [
+            "It is shorter than the driver's comment, which took much longer to say.",
+            "It was written by a driver instead of an engineer who studies traffic.",
+            "It is a measured result over six months, not just one person's feeling.",
+            "It does not mention traffic lights at all, even though that is the whole topic."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "Doctors studied 500 patients and found a new medicine reduced headaches in most of them. A patient's friend said the medicine 'probably' works because headaches are common.",
+          "stem": "Which statement is the weaker piece of evidence?",
+          "why": "'Probably works' from a friend is a guess, much weaker than a 500-patient study.",
+          "options": [
+            "The study of 500 patients.",
+            "The fact that most patients had fewer headaches.",
+            "The report that doctors conducted the study.",
+            "The friend's comment that the medicine 'probably' works."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Big or small?",
+        "text": "For each piece of evidence, ask: how many people, places, or times does it cover? A study of hundreds is bigger, stronger evidence than one person's story, weaker evidence.",
+        "example": "'A study of 1,000 students' is strong. 'My friend said so' is weak."
+      }
+    },
+    "3": {
+      "slides": [
+        {
+          "title": "Spotting weak reasoning",
+          "text": "Some arguments use words like 'everyone knows' or 'obviously' to SOUND true without giving any real reason."
+        },
+        {
+          "title": "Generalizations",
+          "text": "A generalization claims something is true for a whole group, based on very little proof, that's a red flag."
+        },
+        {
+          "title": "Ask for the missing evidence",
+          "text": "If a claim would need a study, survey or specific example to be convincing, and none is given, treat it as weak."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find a claim using words like 'everyone,' 'obviously,' or 'always.'\n2. Check: is there a study, survey, or specific example right after it?\n3. If not, the claim is a weak generalization, not solid evidence."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "A survey of 50 schools found a measurable drop in reported teasing after uniforms were introduced.",
+            "role": "key"
+          },
+          {
+            "t": "Everyone knows students hate uniforms and will just rebel against them.",
+            "role": "key"
+          }
+        ],
+        "explain": "The survey of 50 schools is real evidence. 'Everyone knows... will just rebel' sounds confident but names no survey or example at all."
+      },
+      "together": {
+        "passage": "Many schools debate whether students should wear uniforms. Supporters argue uniforms reduce bullying about clothing choices, and a survey of 50 schools that adopted uniforms found a measurable drop in reported clothing-related teasing within the first year. Opponents respond that uniforms limit self-expression, pointing out that several student surveys show many teens value choosing their own clothes. However, one opponent simply states that everyone knows students hate uniforms and will just rebel against them, without citing any survey or example at all. That final claim sounds confident, but it offers no real evidence, unlike the measured surveys on both sides of the debate.",
+        "stem": "Which claim in the passage is weak because it offers no real evidence?",
+        "hint": "Look for the claim that uses 'everyone knows' instead of citing an actual survey or study.",
+        "good": "Right! That claim uses confident-sounding words but cites no real survey or example.",
+        "options": [
+          "The claim that everyone knows students hate uniforms and will just rebel against them.",
+          "The claim that a survey of 50 schools found less reported teasing.",
+          "The claim that one uniform costs less than many trendy outfits.",
+          "The claim that student surveys show teens value choosing their clothes."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Supporters argue uniforms reduce bullying about clothing choices, and a survey of 50 schools that adopted uniforms found a measurable drop in reported clothing-related teasing within the first year.",
+          "Opponents respond that uniforms limit self-expression, pointing out that several student surveys show many teens value choosing their own clothes.",
+          "However, one opponent simply states that everyone knows students hate uniforms and will just rebel against them, without citing any survey or example at all.",
+          "That final claim sounds confident, but it offers no real evidence, unlike the measured surveys on both sides of the debate."
+        ],
+        "proof": [
+          0,
+          1
+        ],
+        "need": 2,
+        "stem": "One claim had no evidence. Tap the 2 sentences that show OTHER claims actually backed by real surveys.",
+        "wrong": "This sentence IS the weak claim itself, find the two sentences that show OTHER claims actually backed by real surveys."
+      },
+      "checks": [
+        {
+          "passage": "A city council member said a new park would obviously make everyone happier, without mentioning any survey. Meanwhile, a separate report showed park visits increased community exercise by 20 percent in similar cities.",
+          "stem": "Which claim is the weaker one?",
+          "why": "'Obviously make everyone happier' cites no survey or study, unlike the 20 percent report.",
+          "options": [
+            "The report showing a 20 percent exercise increase.",
+            "The claim that the park would obviously make everyone happier.",
+            "The claim that other cities were studied.",
+            "The claim that parks involve community exercise."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A commercial claims everybody knows its toothpaste is the best. A separate dental study compared five toothpaste brands and measured cavity rates over one year.",
+          "stem": "Which is the stronger piece of evidence?",
+          "why": "A year-long comparative study is real evidence; 'everybody knows' is not.",
+          "options": [
+            "The commercial's claim that everybody agrees.",
+            "The toothpaste's price.",
+            "The dental study comparing five brands over one year.",
+            "The toothpaste's flavor."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "A student claims the new lunch menu is definitely worse, since of course everyone prefers the old one. A cafeteria report, however, tracked that food waste dropped 15 percent after the new menu began.",
+          "stem": "Why is the student's claim weaker than the cafeteria report?",
+          "why": "The student's claim relies on 'of course everyone' with no actual data, unlike the measured 15 percent report.",
+          "options": [
+            "The student's claim includes exact percentages from a real survey of students.",
+            "The cafeteria report has no real numbers backing up its findings at all.",
+            "The student's claim was published in a newspaper article many people read.",
+            "The student gives no survey or data, only a confident-sounding assumption."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Everyone knows... or do they?",
+        "text": "Whenever you see 'everyone knows,' 'obviously,' or 'always,' stop and ask: where's the proof? If none is given, treat the claim as weak, no matter how confident it sounds.",
+        "example": "'Everyone knows cats are better than dogs,' no proof given, so it's just an opinion stated confidently."
+      }
+    },
+    "4": {
+      "slides": [
+        {
+          "title": "Strong arguments address the other side",
+          "text": "The most convincing arguments don't ignore opposing views, they state them fairly, then respond with evidence."
+        },
+        {
+          "title": "Spot the concession",
+          "text": "A good writer may admit a small point to the other side ('it's true that...') before showing why their own claim still stands overall."
+        },
+        {
+          "title": "Judge the whole argument",
+          "text": "To evaluate an argument well, weigh ALL the evidence on both sides, not just the claims that support one view."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find each side's claims and evidence.\n2. Notice if the author acknowledges a fair point from the other side.\n3. Decide whether the author's own evidence still outweighs that point, and explain why."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Critics note the plan might cost more upfront.",
+            "role": "detail"
+          },
+          {
+            "t": "The town acknowledges this cost but shows savings over five years that more than make up for it.",
+            "role": "key"
+          }
+        ],
+        "explain": "Acknowledging the cost, then showing the savings, makes the town's overall argument feel more balanced and credible."
+      },
+      "together": {
+        "passage": "A town is debating whether to close a street to cars and turn it into a walking plaza. Supporters point to a nearby town where a similar plaza increased shop visits by 25 percent within a year, based on shop-owner reports collected by the town council. Opponents raise a fair concern: closing the street would force delivery trucks to take a longer route, adding about ten minutes to each delivery. Supporters acknowledge this is a real cost, but point out that the town already offers a side alley for deliveries during early morning hours, which most nearby stores already use for their regular deliveries. Weighing both sides, the delivery delay is a real but minor cost that already has a partial solution, while the 25 percent increase in shop visits is a large, measured benefit from a comparable town.",
+        "stem": "How does acknowledging the delivery-delay concern actually make the supporters' overall argument stronger?",
+        "hint": "Think about how acknowledging a fair point, then addressing it, affects how convincing an argument seems.",
+        "good": "Right! Acknowledging a real concern and responding to it makes an argument more credible than one that ignores the other side entirely.",
+        "options": [
+          "By admitting a real but minor cost and showing it already has a partial solution, the argument looks more balanced and credible than one that ignores opposing evidence.",
+          "It makes the argument weaker, since any concession proves the opponents are right.",
+          "It has no effect on the argument, since costs and benefits can't be compared.",
+          "It only matters because delivery trucks are mentioned twice in the passage."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Supporters point to a nearby town where a similar plaza increased shop visits by 25 percent within a year, based on shop-owner reports collected by the town council.",
+          "Opponents raise a fair concern: closing the street would force delivery trucks to take a longer route, adding about ten minutes to each delivery.",
+          "Supporters acknowledge this is a real cost, but point out that the town already offers a side alley for deliveries during early morning hours, which most nearby stores already use for their regular deliveries.",
+          "Weighing both sides, the delivery delay is a real but minor cost that already has a partial solution, while the 25 percent increase in shop visits is a large, measured benefit from a comparable town."
+        ],
+        "proof": [
+          2,
+          3
+        ],
+        "need": 2,
+        "stem": "The claim was that acknowledging the concern strengthens the argument. Tap the 2 sentences that show the response and the overall weighing of evidence.",
+        "wrong": "This sentence raises the opponents' concern, but find the TWO sentences that show how the supporters respond to it and weigh the overall evidence."
+      },
+      "checks": [
+        {
+          "passage": "A company proposes a four-day work week. Critics note it might require hiring more staff to cover the fifth day, raising costs. The company responds that a trial at another branch showed productivity per day rose enough to offset nearly all of that extra cost.",
+          "stem": "How does the company's response affect the strength of its argument?",
+          "why": "Responding to the specific concern with trial evidence makes the overall argument more convincing.",
+          "options": [
+            "It ignores the cost concern completely, without any mention of staffing at all.",
+            "It directly addresses the cost concern with evidence from an actual trial, making the argument stronger.",
+            "It proves the critics' concern was completely wrong with no real cost at all.",
+            "It has no connection to the critics' concern, and simply repeats the original proposal."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A school proposes starting later. Parents worry it will clash with their work schedules. The school acknowledges this, but shows survey data that 80 percent of families could adjust their morning routine with two weeks' notice.",
+          "stem": "Why does acknowledging the parents' concern help the school's case?",
+          "why": "Acknowledging the concern and showing data that most families can adapt strengthens the overall case.",
+          "options": [
+            "It shows the school ignored the parents completely, without reading their comments.",
+            "It proves 100 percent of families have no concerns at all about the schedule.",
+            "It shows the school considered a real downside and still found strong support for the change.",
+            "It has nothing to do with the parents' concern, and never addresses the schedule change."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "A city proposes a bike-share program. Critics say bikes could clutter sidewalks. The city responds with a plan for marked parking zones, based on a successful program in a similar city.",
+          "stem": "What makes the city's response to the critics' concern convincing?",
+          "why": "A specific plan backed by another city's real success directly answers the concern with evidence.",
+          "options": [
+            "It completely denies that clutter could ever happen on any sidewalk at all.",
+            "It avoids mentioning sidewalks at all, even though that is the critics' main concern.",
+            "It is based only on the city's own guess, with no comparison to another city or any real data.",
+            "It offers a specific plan backed by a comparable city's success, not just a dismissal of the concern."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Fair fight",
+        "text": "A strong argument treats the other side fairly: state their best point, then show evidence for why your side still holds up. Dismissing the other side without addressing it is a weaker argument.",
+        "example": "'Yes, it costs more upfront, but it saves money within two years, based on this report' is stronger than simply saying 'it's worth it.'"
+      }
+    }
+  }
+}

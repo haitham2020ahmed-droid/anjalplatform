@@ -4,7 +4,7 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { grammarLibrary } from "@/server/grammar/grammar";
-import { GrammarList } from "@/components/grammar/grammar-list";
+import { GrammarTabs } from "@/components/grammar/grammar-tabs";
 import { ImportUpload } from "../questions/import/upload-form";
 
 export const metadata = { title: "Grammar" };
@@ -42,7 +42,7 @@ export default async function GrammarPage({ searchParams }: { searchParams: Prom
 
       {!v.lessons.length
         ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{canImport ? "No grammar lessons yet. Load the Grammar bank above." : "No grammar lessons yet. Ask the admin to load the Grammar bank."}</p>
-        : <GrammarList lessons={v.lessons} isTeacher={isTeacher} />}
+        : <GrammarTabs lessons={v.lessons} isTeacher={isTeacher} grades={v.grades} />}
     </AppShell>
   );
 }

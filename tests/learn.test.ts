@@ -109,7 +109,7 @@ describe("Learn: lesson files and their check", () => {
 
   test("the planned topics explain every taxonomy family and every skill name of data/questions", () => {
     const topics = readTopics();
-    assert.equal(topics.length, 223); // r74 added LN-223 (agreement with compound subjects)
+    assert.equal(topics.length, 227); // Update 82 added LN-224..LN-227 (the Grade 6 curriculum rebuild's new skill families)
     const tax = JSON.parse(read("data/curriculum/taxonomy.json")) as { families: { code: string }[] };
     const fams = new Set(topics.flatMap((t) => t.families));
     for (const f of tax.families) assert.ok(fams.has(f.code), `a topic for family ${f.code}`);
@@ -346,7 +346,7 @@ describe("Learn in a school (demo data)", () => {
     assert.equal(c.withLesson, c.skills.filter((k) => k.lessons.length).length);
     assert.ok(c.withLesson > 0 && c.withLesson <= c.total);
     assert.equal(c.lessonsReady, 1);
-    assert.equal(c.lessonsPlanned, 224, "223 topics + the sample");
+    assert.equal(c.lessonsPlanned, 228, "227 topics + the sample");
     assert.ok(c.skills.find((k) => k.id === skillId)!.lessons.some((l) => l.code === "LN-000" && l.ready));
     assert.ok(c.groups.length >= 10 && c.groups.every((g) => g.covered <= g.statements));
     assert.ok(c.families.some((f) => f.code === "central-idea" && f.lessons >= 2));

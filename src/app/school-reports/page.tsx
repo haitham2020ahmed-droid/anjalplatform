@@ -57,7 +57,7 @@ export default async function SchoolReportsPage({ searchParams }: { searchParams
                 <h2 className="mt-2 text-lg font-bold text-brand-navy">{r.title}</h2>
                 <p className="mt-1 text-sm text-slate-600">{r.hint}</p>
                 {studentId ? (
-                  <Link href={`/school-reports/${r.href}?${new URLSearchParams({ studentId, lang: L })}`} className="mt-4 inline-block rounded-xl bg-brand-navy px-4 py-2 text-sm font-bold text-white hover:bg-brand-purple">
+                  <Link href={`/school-reports/${r.href}?${new URLSearchParams({ studentId, classId, lang: L })}`} className="mt-4 inline-block rounded-xl bg-brand-navy px-4 py-2 text-sm font-bold text-white hover:bg-brand-purple">
                     {t(L, "schoolReports.open")}
                   </Link>
                 ) : <p className="mt-4 text-sm text-slate-400">{t(L, "schoolReports.noStudents")}</p>}

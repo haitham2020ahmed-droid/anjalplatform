@@ -101,6 +101,51 @@ async function gradeCurriculum(repo: Repo, schoolId: string, grade: number): Pro
   return cur;
 }
 
+const json = <T,>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
+
+interface GrammarPlacement { lessonId: string; unitId: string; order: number }
+
+/**
+ * Where each grammar lesson's skills land on the Curriculum Map, in the book's own unit order (owner request:
+ * "link the Grammar bank into the Curriculum Map itself, per grade, matching unit order"):
+ *   unit + week known (Wonders, Grades 4–5)  → the Text Set of that unit whose weeks include that week
+ *                                               (falls back to spreading evenly over the unit's Text Sets
+ *                                               when no week is given or none matches)
+ *   no unit/week (StudySync, Grade 6: lessons are only numbered in sequence) → the same relative position
+ *     among the grade's selections, in unit order (lesson 1 of N → selection 1 of M, lesson N → selection M)
+ * A grammar lesson with no curriculum Unit/Lesson to land on (an empty grade) is simply left off the map;
+ * the skill itself, its standards and its questions are unaffected either way.
+ */
+async function grammarMapPlacement(repo: Repo, curriculumId: string, wb: GrammarWorkbook, grade: number): Promise<Map<string, GrammarPlacement>> {
+  const out = new Map<string, GrammarPlacement>();
+  const gLessons = wb.lessons.get(grade) ?? [];
+  if (!gLessons.length) return out;
+  const units = (await repo.findMany("Unit", { curriculumId }, { select: ["id", "number", "isActive", "deletedAt"] }))
+    .filter((u) => u.isActive !== false && !u.deletedAt).sort((a, b) => Number(a.number) - Number(b.number));
+  if (!units.length) return out;
+  const lessons = (await repo.findMany("Lesson", { unitId: { in: units.map((u) => s(u.id)) } }, { select: ["id", "unitId", "number", "weeks", "deletedAt"] })).filter((l) => !l.deletedAt);
+  const byUnit = new Map<string, Row[]>();
+  for (const u of units) byUnit.set(s(u.id), lessons.filter((l) => s(l.unitId) === s(u.id)).sort((a, b) => Number(a.number) - Number(b.number)));
+  const flat = units.flatMap((u) => byUnit.get(s(u.id)) ?? []); // every Text Set / selection, in unit order
+  if (!flat.length) return out;
+  const unitIdByNumber = new Map(units.map((u) => [Number(u.number), s(u.id)]));
+  const place = (row: Row, order: number): GrammarPlacement => ({ lessonId: s(row.id), unitId: s(row.unitId), order });
+
+  // Grades with a known unit + week (Wonders): the Text Set of that unit covering that week.
+  const withUnit = gLessons.filter((l) => l.unit > 0).sort((a, b) => a.unit - b.unit || a.week - b.week || a.number - b.number);
+  for (const [i, l] of withUnit.entries()) {
+    const unitLessons = byUnit.get(unitIdByNumber.get(l.unit) ?? "") ?? [];
+    if (!unitLessons.length) continue;
+    const byWeek = l.week > 0 ? unitLessons.find((x) => json<number[]>(x.weeks, []).includes(l.week)) : undefined;
+    out.set(l.id, place(byWeek ?? unitLessons[i % unitLessons.length], i));
+  }
+
+  // No unit/week at all (StudySync): the same position among the grade's selections, in unit order.
+  const noUnit = gLessons.filter((l) => !l.unit).sort((a, b) => a.number - b.number || a.id.localeCompare(b.id));
+  for (const [i, l] of noUnit.entries()) out.set(l.id, place(flat[Math.min(flat.length - 1, Math.floor((i * flat.length) / noUnit.length))], i));
+  return out;
+}
+
 /**
  * One Skill per grammar skill of the grade (created or updated, never deleted), each linked to its Common
  * Core standards (the skill's and its questions') and to a MAP Language goal area; the lesson catalog is saved.
@@ -111,6 +156,7 @@ export async function ensureGrammarSkills(repo: Repo, actor: Actor, wb: GrammarW
   const list = wb.skills.get(grade) ?? [];
   if (!list.length) throw new ValidationError(`The Grammar file has no Grade ${grade} skills.`);
   const cur = await gradeCurriculum(repo, actor.schoolId, grade);
+  const placeOnMap = await grammarMapPlacement(repo, s(cur.id), wb, grade);
   // families → MAP goal areas
   const goals = new Map((await repo.findMany("MapGoalArea", {})).map((a) => [s(a.code), s(a.id)]));
   const familyId = new Map<string, string>();
@@ -136,6 +182,11 @@ export async function ensureGrammarSkills(repo: Repo, actor: Actor, wb: GrammarW
     for (const [j, c] of codes.entries()) {
       const sid = stdId.get(c);
       if (sid) await repo.upsert("SkillStandard", { skillId: row.id, standardId: sid }, { isPrimary: j === 0 }, { isPrimary: j === 0 });
+    }
+    const place = placeOnMap.get(k.lesson);
+    if (place) {
+      await repo.upsert("LessonSkill", { lessonId: place.lessonId, skillId: row.id, label: k.name.slice(0, 191) }, { role: "GRAMMAR" }, { role: "GRAMMAR" });
+      await repo.upsert("UnitSkill", { unitId: place.unitId, skillId: row.id }, { order: place.order }, { order: place.order });
     }
   }
   const catalog = { lessons: wb.lessons.get(grade) ?? [], skills: list.map(({ id, code, lesson, kind, rule }) => ({ id, code, lesson, kind, rule })) };

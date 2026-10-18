@@ -13,9 +13,9 @@ import { studentAnalytics } from "../src/server/analytics/reports";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
 import { importMapScores, MAP_TEMPLATE_HEADERS } from "../src/server/map/student-map";
-import { bandOf } from "../src/server/map/personal-plan";
+import { bandOf, personalPlan } from "../src/server/map/personal-plan";
 import { bySourceReport, classifySkillSources, starsFor } from "../src/server/skills/skills-by-source";
-import { diagnosticAnalysisForStudent, finalReportForStudent, personalizedPlanForStudent, schoolReportsRoster, TIER_LABEL } from "../src/server/reports/school-reports";
+import { diagnosticAnalysisForClass, diagnosticAnalysisForStudent, finalReportForStudent, finalReportsForClass, personalizedPlanForStudent, schoolReportsRoster, TIER_LABEL } from "../src/server/reports/school-reports";
 import { demoDatabase } from "./helpers/db";
 import { simulatePractice } from "./helpers/practice";
 
@@ -62,6 +62,21 @@ describe("🗒️ School Reports (per-student Personalized Plan, Diagnostic Anal
     assert.equal(viaAdmin.band, p.band);
   });
 
+  test("Personalized Plan: the whole-class view (the school's own grouped format) agrees with each student's own view", async () => {
+    const whole = await personalPlan(repo, teacher, classId, "READING");
+    assert.equal(whole.classId, classId);
+    assert.deepEqual(whole.bands.map((b) => b.band), ["BELOW", "ON", "ABOVE"], "the three bands, in that order, every time");
+    for (const st of roster) {
+      const own = await personalizedPlanForStudent(repo, teacher, st.id, "READING");
+      if (!own.band) continue;
+      const row = whole.bands.find((b) => b.band === own.band)!.students.find((x) => x.studentId === st.id);
+      assert.ok(row, `${own.name}: listed in the ${own.band} band of the class view`);
+      assert.equal(row!.rit, own.rit, `${own.name}: same RIT in both views`);
+    }
+    // an admin builds the same whole-class view too
+    assert.deepEqual((await personalPlan(repo, admin, classId, "READING")).bands.map((b) => b.students.length), whole.bands.map((b) => b.students.length));
+  });
+
   test("Diagnostic Analysis report: no placement taken yet → a clear 'not taken' result, not a crash", async () => {
     const studentId = roster[1].id;
     const d = await diagnosticAnalysisForStudent(repo, teacher, studentId);
@@ -88,6 +103,20 @@ describe("🗒️ School Reports (per-student Personalized Plan, Diagnostic Anal
     assert.deepEqual(d.growthAreas, ["Vocabulary"]);
   });
 
+  test("Diagnostic Analysis: the whole-class view groups every student by tier, including those not yet tested", async () => {
+    const whole = await diagnosticAnalysisForClass(repo, teacher, classId);
+    assert.equal(whole.classId, classId);
+    assert.deepEqual(whole.tiers.map((x) => x.tier), ["ADVANCED", "PROFICIENT", "APPROACHING", "INTENSIVE"]);
+    const advanced = whole.tiers.find((x) => x.tier === "ADVANCED")!;
+    assert.ok(advanced.students.some((x) => x.studentId === roster[2].id), "the student with the Above-grade-level result is in Advanced");
+    assert.deepEqual(advanced.students.find((x) => x.studentId === roster[2].id)!.domains, { Reading: "Above grade level", Vocabulary: "Below grade level" });
+    assert.ok(whole.domains.includes("Reading") && whole.domains.includes("Vocabulary"));
+    assert.ok(whole.notTaken.some((x) => x.studentId === roster[1].id), "a student with no result yet is listed as not taken, not dropped");
+    assert.ok(!whole.tiers.flatMap((t) => t.students).some((x) => x.studentId === roster[1].id), "and not double-counted in a tier");
+    // an admin sees the same class grouping
+    assert.deepEqual((await diagnosticAnalysisForClass(repo, admin, classId)).notTaken.length, whole.notTaken.length);
+  });
+
   test("skills by source: classifies Grammar skills separately, and a star rating within 1-5", () => {
     assert.equal(starsFor(0), 1); assert.equal(starsFor(100), 5); assert.equal(starsFor(45), 3);
   });
@@ -109,6 +138,15 @@ describe("🗒️ School Reports (per-student Personalized Plan, Diagnostic Anal
     assert.equal(report.kpis.skillsMastered, a.skillsMastered);
     assert.equal(report.kpis.accuracyPct, a.accuracyPct);
     assert.equal(report.bySource.summary.totalSkills, src.summary.totalSkills);
+
+    // the whole-class Final Report: one entry per student, each the same as its own single-student report
+    const period2 = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, teacher.schoolId!), new Date("2026-12-01T00:00:00Z"));
+    const whole = await finalReportsForClass(repo, teacher, classId, period2);
+    assert.equal(whole.classId, classId);
+    assert.equal(whole.reports.length, roster.length);
+    const mine = whole.reports.find((r) => r.studentId === studentId)!;
+    assert.deepEqual(mine.kpis, report.kpis);
+    assert.equal(mine.bySource.summary.totalSkills, report.bySource.summary.totalSkills);
   });
 
   test("access control: a teacher who does not teach this student cannot build any of the three reports; their own school's admin can", async () => {

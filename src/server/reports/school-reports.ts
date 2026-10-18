@@ -9,10 +9,11 @@ import type { Period } from "../../analytics/periods";
 import { pairedGrowth, studentGrowth } from "../analytics/growth";
 import { studentAnalytics } from "../analytics/reports";
 import { latestDiagnostic } from "../assessment/diagnostic";
-import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
+import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { bandOf, personalPlan, type Band, type PersonalPlan } from "../map/personal-plan";
 import { bySourceReport, type BySourceReport } from "../skills/skills-by-source";
 import { accessibleClasses } from "../teacher/assign";
+import { assertClassAccess } from "../teacher/assignments";
 import { studentDetail } from "../teacher/queries";
 import type { Repo } from "../seeding/repo";
 
@@ -131,6 +132,46 @@ export async function diagnosticAnalysisForStudent(repo: Repo, actor: Actor, stu
   };
 }
 
+/** Every active student of a class, in name order (shared by the two whole-class reports below). */
+async function classStudentIds(repo: Repo, classId: string): Promise<string[]> {
+  const members = await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] });
+  if (!members.length) return [];
+  const students = await repo.findMany("Student", { id: { in: members.map((m) => s(m.studentId)) } }, { select: ["id", "userId"] });
+  const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
+  const nameOf = new Map(students.map((x) => [s(x.id), s(users.find((u) => s(u.id) === s(x.userId))?.displayName ?? "Student")]));
+  return members.map((m) => s(m.studentId)).sort((a, b) => (nameOf.get(a) ?? "").localeCompare(nameOf.get(b) ?? ""));
+}
+
+export interface DiagnosticClassReport {
+  classId: string; className: string; grade: number;
+  /** every domain label seen in the class, in the order each first appeared (for the master table's columns) */
+  domains: string[];
+  tiers: { tier: DiagnosticTier; label: string; students: { studentId: string; name: string; proficiency: string | null; domains: Record<string, string> }[] }[];
+  notTaken: { studentId: string; name: string }[];
+}
+
+/**
+ * The whole class's Diagnostic Analysis, grouped by tier (the school's own master-table format): every student
+ * once, with their domain levels side by side, so a teacher can see the whole class' placement at a glance.
+ */
+export async function diagnosticAnalysisForClass(repo: Repo, actor: Actor, classId: string): Promise<DiagnosticClassReport> {
+  assertCan(actor, "reports:read");
+  const klass = await assertClassAccess(repo, actor, classId);
+  const grade = Number((await repo.findUnique("Grade", { id: s(klass.gradeId) }))?.level ?? 0);
+  const ids = await classStudentIds(repo, classId);
+  const rows = await Promise.all(ids.map((id) => diagnosticAnalysisForStudent(repo, actor, id)));
+  const domains = [...new Set(rows.flatMap((r) => r.domains.map((x) => x.label)))];
+  const TIERS: DiagnosticTier[] = ["ADVANCED", "PROFICIENT", "APPROACHING", "INTENSIVE"];
+  const tiers = TIERS.map((tier) => ({
+    tier, label: TIER_LABEL[tier],
+    students: rows.filter((r) => r.tier === tier).map((r) => ({
+      studentId: r.studentId, name: r.name, proficiency: r.proficiency,
+      domains: Object.fromEntries(r.domains.map((x) => [x.label, x.level])),
+    })),
+  }));
+  return { classId, className: s(klass.name), grade, domains, tiers, notTaken: rows.filter((r) => r.tier === null).map((r) => ({ studentId: r.studentId, name: r.name })) };
+}
+
 // -------------------------------------------------------------- 3. Final Report (per student)
 
 export interface FinalReport {
@@ -185,4 +226,14 @@ export async function finalReportForStudent(repo: Repo, actor: Actor, studentId:
     diagnostic: diag, plans, alerts: d.alerts.map((x) => ({ message: x.message, nextAction: x.nextAction })),
     regressionSignal: growth.skills.length > 0 && declining > improving,
   };
+}
+
+/** Every student's Final Report of a class, one after another (print all / save as one PDF for the whole class). */
+export async function finalReportsForClass(repo: Repo, actor: Actor, classId: string, period: Period): Promise<{ classId: string; className: string; grade: number; reports: FinalReport[] }> {
+  assertCan(actor, "reports:read");
+  const klass = await assertClassAccess(repo, actor, classId);
+  const grade = Number((await repo.findUnique("Grade", { id: s(klass.gradeId) }))?.level ?? 0);
+  const ids = await classStudentIds(repo, classId);
+  const reports = await Promise.all(ids.map((id) => finalReportForStudent(repo, actor, id, period)));
+  return { classId, className: s(klass.name), grade, reports };
 }

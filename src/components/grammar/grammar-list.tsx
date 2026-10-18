@@ -1,10 +1,7 @@
 "use client";
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { GrammarLesson2 } from "@/server/grammar/grammar";
-
-/** the grammar item types named in the list (besides multiple choice) */
-const TYPE_LABELS: Record<string, string> = { ERROR_CORRECTION: "error correction", SENTENCE_ORDER: "sentence order", SENTENCE_COMBINE: "sentence combining" };
+import { GrammarRow } from "./grammar-row";
 
 /** 🔤 Every grammar lesson in one list, with a search by skill name (or lesson, standard, kind). */
 export function GrammarList({ lessons, isTeacher }: { lessons: GrammarLesson2[]; isTeacher: boolean }) {
@@ -24,20 +21,7 @@ export function GrammarList({ lessons, isTeacher }: { lessons: GrammarLesson2[];
       </label>
       {!shown.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No lesson matches “{q}”. Try another word.</p> : (
         <ul className="divide-y divide-slate-100 rounded-3xl bg-white px-5 shadow-sm ring-1 ring-slate-200">
-          {shown.map((k) => (
-            <li key={k.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
-              <div className="min-w-0 flex-1">
-                <p className="font-semibold text-slate-900"><span aria-hidden="true">{k.icon}</span> {k.name} <span className="ms-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">{k.kind}</span></p>
-                <p className="mt-0.5 text-xs text-slate-500">{k.lesson} · {k.standards.join(", ") || "No standard"} · {k.counts.total} questions{Object.entries(k.types ?? {}).filter(([t]) => TYPE_LABELS[t]).map(([t, n]) => ` · ${n} ${TYPE_LABELS[t]}`).join("")}</p>
-                {k.rule && <details className="mt-1 text-xs text-slate-600"><summary className="cursor-pointer font-semibold text-brand-teal">The rule</summary><p className="mt-1 max-w-3xl leading-relaxed">{k.rule}</p></details>}
-              </div>
-              <div className="flex flex-wrap items-center gap-1.5">
-                {k.counts.total > 0 && <Link href={`/teacher/preview?skillId=${k.id}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>}
-                {!isTeacher && <Link href={`/admin/questions?status=PUBLISHED&grade=${k.grade}&skill=${k.id}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Questions ({k.counts.total})</Link>}
-                {isTeacher && (k.counts.total > 0 ? <Link href={`/teacher/skill-assign?skillId=${k.id}`} className="rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-purple">⭐ Assign</Link> : <span className="text-xs text-slate-500">Questions coming soon</span>)}
-              </div>
-            </li>
-          ))}
+          {shown.map((k) => <GrammarRow key={k.id} k={k} isTeacher={isTeacher} />)}
         </ul>
       )}
     </div>
