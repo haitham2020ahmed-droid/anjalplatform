@@ -39,6 +39,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/visit", label: "Class Visit", icon: "👀", group: "school", perm: "reports:read" },
   { href: "/admin/logins", label: "Sign-Ins", icon: "🔑", group: "school" },
   { href: "/teacher/levels", label: "Student Levels", icon: "🎚", group: "school", perm: "students:read", schoolAdminOnly: true },
+  { href: "/admin/cancel-skill", label: "Cancel a Skill", icon: "🚫", group: "school", menu: true, hint: "Remove one skill from any student’s My Work", perm: "assignments:create" },
   { href: "/admin/roster/clean", label: "Clear Roster", icon: "🧹", group: "school", perm: "students:manage" },
 
   // ---- Content

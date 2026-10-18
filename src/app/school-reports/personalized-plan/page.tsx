@@ -22,6 +22,14 @@ function GoalList({ goals, L }: { goals: PlanGoal[]; L: "en" | "ar" }) {
           <ul className="ms-4 list-disc text-slate-700">
             {g.skills.map((k) => <li key={k.id}>{k.standards.length > 0 && <code className="me-1 text-xs text-emerald-800">{k.standards.join(", ")}</code>}{k.name}</li>)}
           </ul>
+          {g.continuumFocus.length > 0 && (
+            <div className="ms-4 mt-1 rounded-lg bg-sky-50 p-2 text-xs ring-1 ring-sky-100">
+              <p className="font-semibold text-sky-900">📘 {t(L, "personalizedPlan.continuumFocus")}</p>
+              <ul className="ms-4 list-disc text-sky-900">
+                {g.continuumFocus.map((f, i) => <li key={i}>{f.standards.length > 0 && <code className="me-1 text-sky-700">{f.standards.join(", ")}</code>}{f.text}</li>)}
+              </ul>
+            </div>
+          )}
         </li>
       ))}
     </ol>
@@ -123,9 +131,42 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 <h1 className="text-2xl font-extrabold text-brand-navy">{t(L, "personalizedPlan.title")} – {cls.className} – {subject === "READING" ? t(L, "common.subject.reading") : t(L, "common.subject.language")}</h1>
                 <p className="mt-1 text-slate-600">
                   {t(L, "common.grade")} {cls.grade} · {t(L, "common.teacher")} {cls.teacher || "—"} · MAP {cls.term ?? "—"}
+                  {cls.classAverageRit !== null && <span> · {t(L, "personalizedPlan.classAverage")}: <b className="text-brand-navy">{cls.classAverageRit}</b></span>}
                   {cls.notTested.length > 0 && <span className="text-amber-700"> · {cls.notTested.length} {t(L, "personalizedPlan.notTested")}</span>}
                 </p>
               </header>
+              <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
+                <h2 className="text-lg font-extrabold text-brand-navy">📊 {t(L, "personalizedPlan.mapLevels")}</h2>
+                <div className="mt-3 overflow-x-auto">
+                  <table className="w-full text-left text-sm">
+                    <thead><tr className="border-b text-slate-500">
+                      <th className="py-1 pe-2">{t(L, "personalizedPlan.mapLevels.tier")}</th>
+                      <th className="pe-2">{t(L, "personalizedPlan.mapLevels.rule")}</th>
+                      <th className="pe-2">{t(L, "personalizedPlan.mapLevels.ritRange")}</th>
+                      <th className="pe-2">{t(L, "personalizedPlan.mapLevels.students")}</th>
+                      <th>{t(L, "common.class")}</th>
+                    </tr></thead>
+                    <tbody>
+                      {cls.bands.map((b) => {
+                        const bandMid = b.students.length ? Math.round(b.students.reduce((n, st) => n + st.rit, 0) / b.students.length) : null;
+                        const pct = bandMid !== null && cls.classAverageRit ? Math.min(100, Math.max(6, Math.round((bandMid / (cls.classAverageRit * 1.3)) * 100))) : 0;
+                        const DOT = { BELOW: "bg-amber-500", ON: "bg-sky-500", ABOVE: "bg-emerald-500" } as const;
+                        return (
+                          <tr key={b.band} className="border-b last:border-0">
+                            <td className="py-1.5 pe-2 font-semibold">{TITLE[b.band]}</td>
+                            <td className="pe-2 text-slate-600">{BAND_RULE[b.band]}</td>
+                            <td className="pe-2 tabular-nums">{b.ritRange ?? "—"}</td>
+                            <td className="pe-2 tabular-nums">{b.students.length}</td>
+                            <td className="w-1/3">
+                              <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100"><div className={`h-full ${DOT[b.band]}`} style={{ width: `${pct}%` }} /></div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
               {cls.bands.map((b) => (
                 <section key={b.band} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                   <h2 className="text-xl font-extrabold text-brand-navy">{TITLE[b.band]} <span className="text-base font-normal text-slate-500">· {BAND_RULE[b.band]}{b.ritRange ? ` · RIT ${b.ritRange}` : ""} · {b.students.length} {t(L, "personalizedPlan.studentsInBand")}</span></h2>

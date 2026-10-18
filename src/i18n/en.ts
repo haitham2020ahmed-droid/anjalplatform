@@ -62,7 +62,7 @@ export const UI_STRINGS = [
   "Students & MAP Setup", "Clear Roster", "Settings", "Data Health", "Errors", "Connections", "Sign-Ins", "Backup",
   "Bank ↔ MAP", "Learning Continuum", "Fluency Coach", "My Plans", "My MAP Results", "My Reports", "My Skills", "Badges",
   "Family Report", "My Lessons", "Review", "My Words", "Writing", "Word Sounds Check", "My Reading Strategies", "Join a Game",
-  "My Tests", "RTI Program", "My Classes", "School Reports",
+  "My Tests", "RTI Program", "My Classes", "School Reports", "Cancel a Skill",
 
   // ---------------------------------------------------------------- page titles (PageHeader)
   "All Three Levels", "Assessment calendar", "Backup to Excel", "Build a Diagnostic", "Class AI", "Classify Curriculum Questions",

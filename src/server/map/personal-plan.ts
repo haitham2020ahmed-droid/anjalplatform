@@ -23,7 +23,15 @@ export function bandOf(percentile: number | null, diffFromNational: number | nul
 
 /** What happened since the decision: the group's answers on this goal's standards (last 28 days). */
 export interface GoalResult { practiced: number; students: number; answers: number; accuracy: number | null; trend: number | null }
-export interface PlanGoal { area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[]; result?: GoalResult }
+/** One statement of the MAP Growth Learning Continuum, shown as-is (no platform skill behind it — just the RIT-band text). */
+export interface ContinuumFocusItem { text: string; standards: string[] }
+export interface PlanGoal {
+  area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[]; result?: GoalResult;
+  /** What the Learning Continuum itself lists at this band (its own words): never capped to the platform's own skill count, so a goal
+   *  area with only a few platform skills still shows everything the continuum says is relevant at this RIT. Empty with no continuum, or
+   *  nothing imported for this goal area yet. */
+  continuumFocus: ContinuumFocusItem[];
+}
 
 /**
  * Within a goal area's candidate skills, the ones the MAP Growth Learning Continuum lists as active (Reinforce
@@ -40,6 +48,27 @@ export function continuumOrder<T extends { id: string }>(ix: ContinuumIndex | nu
   for (const stage of [v.reinforce, v.develop]) for (const stmt of stage?.statements ?? []) for (const k of stmt.skills) active.add(k.id);
   if (!active.size) return sk;
   return [...sk.filter((k) => active.has(k.id)), ...sk.filter((k) => !active.has(k.id))];
+}
+
+/**
+ * What the Learning Continuum itself says at this exact RIT, for a goal area — its own statements (Develop, the
+ * band the RIT falls in; Reinforce, the band below), in the continuum's own words with their CCSS codes. This is
+ * never limited by how many skills the school happens to already have on the platform for this goal area: a goal
+ * area with only 3–4 platform skills still shows everything the continuum lists at this RIT, so two bands that
+ * are genuinely different always read as different, even when the platform's own skill set is thin. No continuum,
+ * no matching group, no RIT, or nothing listed at this RIT: an empty list (nothing invented).
+ */
+export function continuumFocusFor(ix: ContinuumIndex | null, areaName: string, rit: number | null, max = 6): ContinuumFocusItem[] {
+  const group = groupOfGoal(areaName);
+  if (!ix || !group || rit === null) return [];
+  const v = continuumFor(ix, group, rit);
+  const out: ContinuumFocusItem[] = [];
+  for (const stage of [v.develop, v.reinforce]) for (const stmt of stage?.statements ?? []) {
+    if (out.some((x) => x.text.toLowerCase() === stmt.text.toLowerCase())) continue;
+    out.push({ text: stmt.text, standards: stmt.standards });
+    if (out.length >= max) return out;
+  }
+  return out;
 }
 
 /** A MAP goal area ↔ the CCSS standards that measure it (questions are linked to areas by their standard). */
@@ -60,7 +89,7 @@ export interface PlanBand {
   students: { studentId: string; name: string; rit: number; projection: number | null; percentile: number | null; rapidGuess: number | null }[];
   goals: PlanGoal[]; strengths: PlanGoal[]; resources: string[]; monitoring: string[];
 }
-export interface PersonalPlan { classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[] }
+export interface PersonalPlan { classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[]; classAverageRit: number | null }
 
 const RESOURCES: Record<Band, string[]> = {
   BELOW: ["🔁 Adaptive practice starting at Approaching, with the 🛟 support path (same skill, grade below)", "⭐ ReadMaster Approaching versions at the student's Lexile, with 🔊 Listen", "Small-group re-teaching of the goal skills; personalized worksheets"],
@@ -115,7 +144,8 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
       const sk = areaSkills.find((x) => x.areaId === s(a.id))?.skills ?? [];
       const meanRit = vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null;
       const ordered = continuumOrder(contIx, s(a.name), meanRit ?? midRit, sk);
-      return { area: s(a.name), areaId: s(a.id), meanRit, skills: ordered.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })) };
+      const continuumFocus = continuumFocusFor(contIx, s(a.name), meanRit ?? midRit);
+      return { area: s(a.name), areaId: s(a.id), meanRit, skills: ordered.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })), continuumFocus };
     });
     // NWEA's 2–5 / 6+ tests report one “Literary Text” (or “Informational Text”, “Writing”) score that was spread
     // over the platform's finer areas: areas of one family with the very same scores become ONE goal
@@ -124,8 +154,10 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
     for (const x of scored) {
       const fam = x.area.split(":")[0];
       const twin = merged.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && valuesOf(m.areaId.split("+")[0]) === valuesOf(x.areaId) && x.meanRit !== null);
-      if (twin) { twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`; twin.areaId += `+${x.areaId}`; twin.skills = [...twin.skills, ...x.skills].slice(0, 4); }
-      else merged.push({ ...x, skills: [...x.skills] });
+      if (twin) {
+        twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`; twin.areaId += `+${x.areaId}`; twin.skills = [...twin.skills, ...x.skills].slice(0, 4);
+        for (const f of x.continuumFocus) if (!twin.continuumFocus.some((y) => y.text.toLowerCase() === f.text.toLowerCase())) twin.continuumFocus.push(f);
+      } else merged.push({ ...x, skills: [...x.skills], continuumFocus: [...x.continuumFocus] });
     }
     const withData = merged.filter((x) => x.meanRit !== null).sort((a, b) => a.meanRit! - b.meanRit!);
     // no goal-area data yet: every area of the subject is a goal (weakest first is unknown)
@@ -149,5 +181,6 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
   const members = (await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)).filter((x) => !scored.has(x));
   const mstudents = members.length ? await repo.findMany("Student", { id: { in: members } }, { select: ["id", "userId"] }) : [];
   const musers = mstudents.length ? await repo.findMany("User", { id: { in: mstudents.map((x) => x.userId) } }, { select: ["displayName"] }) : [];
-  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort() };
+  const classAverageRit = v.rows.length ? Math.round(v.rows.reduce((n, r) => n + r.rit, 0) / v.rows.length) : null;
+  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort(), classAverageRit };
 }

@@ -298,7 +298,7 @@ describe("🔗 every plan PDF / print: clickable, absolute, the right reader's p
   });
 
   test("👥 MAP group plan (Word): each goal skill links to its skill page; note; QR per group", () => {
-    const p: PersonalPlan = { classId, className: "4A", grade: 4, teacher: "T", subject: "READING", term: "Fall 2026", notTested: [], bands: (["BELOW", "ON", "ABOVE"] as const).map((band) => ({ band, ritRange: "190–200", students: [], goals: [{ area: "Literature", areaId: "a1", meanRit: 195, skills: skills.slice(0, 2).map((k) => ({ id: k.id, name: k.name, standards: [] })) }], strengths: [], resources: [], monitoring: [] })) } as unknown as PersonalPlan;
+    const p: PersonalPlan = { classId, className: "4A", grade: 4, teacher: "T", subject: "READING", term: "Fall 2026", notTested: [], classAverageRit: 195, bands: (["BELOW", "ON", "ABOVE"] as const).map((band) => ({ band, ritRange: "190–200", students: [], goals: [{ area: "Literature", areaId: "a1", meanRit: 195, skills: skills.slice(0, 2).map((k) => ({ id: k.id, name: k.name, standards: [] })), continuumFocus: [] }], strengths: [], resources: [], monitoring: [] })) } as unknown as PersonalPlan;
     const html = personalPlanDoc(p, now);
     assert.match(html, /Everything in this plan is clickable/);
     for (const k of skills.slice(0, 2)) assert.ok(html.includes(`href="${ORIGIN}/skill/${k.id}"`), k.name);

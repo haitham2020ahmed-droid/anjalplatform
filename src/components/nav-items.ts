@@ -214,6 +214,7 @@ export const ADMIN_LINE: Record<string, LineIconName> = {
   "/admin/analytics": "growth", "/admin/term-report": "file", "/admin/report-approvals": "inbox", "/teacher/reports": "chart",
   "/admin/department": "building", "/admin/ai-dashboard": "sparkle", "/admin/settings": "settings", "/admin/ai-tools": "sparkle",
   "/admin/backup": "download", "/admin/data-health": "heart", "/admin/data-cleanup": "broom", "/admin/feedback": "chat",
+  "/admin/cancel-skill": "x",
 };
 
 /** The admin tools that are not in the side menu (found by name in the top bar). */

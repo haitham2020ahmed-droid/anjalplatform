@@ -7,7 +7,7 @@ import { apiActor, repo } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { analyzeImport, ImportFileError, shortDbMessage } from "@/server/admin/question-import";
-import { ensureGrammarSkills, grammarSimpleTable, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
+import { ensureGrammarSkills, ensureSimpleGrammarSkills, grammarSimpleTable, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
 import { log } from "@/server/monitoring/log";
 
 export const runtime = "nodejs";
@@ -58,11 +58,12 @@ export async function POST(req: Request) {
     const bytes = new Uint8Array(await file.arrayBuffer());
     let jobId: string;
     if (grammarGrade) {
-      // 🔤 the Grammar bank: the strict format's skills first (created or updated); the simple format reuses the
-      // grade's EXISTING skills instead (matched by the normal importer) and never creates or places a new one.
+      // 🔤 the Grammar bank: the strict format's skills first (created or updated, placed on the Curriculum Map);
+      // the simple format matches the grade's EXISTING skills by name, creating a plain one (no map placement)
+      // only for a name that has none yet — so a grade starting from zero (Grade 5, Grade 6…) still gets one.
       const wb = readGrammarWorkbook(bytes);
       let table: string[][];
-      if (wb.format === "simple") table = grammarSimpleTable(wb, grammarGrade);
+      if (wb.format === "simple") { await ensureSimpleGrammarSkills(repo, actor, wb, grammarGrade); table = grammarSimpleTable(wb, grammarGrade); }
       else { await ensureGrammarSkills(repo, actor, wb, grammarGrade); table = grammarTable(wb, grammarGrade); }
       if (table.length < 2) return reply({ error: `The Grammar file has no Grade ${grammarGrade} questions.`, stage: "file" }, 422);
       jobId = await analyzeImport(repo, actor, { fileName: `Grammar Grade ${grammarGrade} - ${file.name}`, bytes, target: "BANK", table });

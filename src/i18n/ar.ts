@@ -306,6 +306,7 @@ export const ar: Record<UiString, string> = {
   "Class Transfer": "نقل بين الفصول",
   "Students & MAP Setup": "إعداد الطلاب و MAP",
   "Clear Roster": "مسح قائمة الطلاب",
+  "Cancel a Skill": "إلغاء مهارة",
   "Settings": "الإعدادات",
   "Data Health": "سلامة البيانات",
   "Errors": "الأخطاء",
