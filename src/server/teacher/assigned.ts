@@ -80,6 +80,16 @@ async function inChunks<T>(ids: string[], f: (part: string[]) => Promise<T[]>): 
 }
 /** Newest rows of each kind read for the list. */
 const TAKE = 200;
+/**
+ * 🐛 fix (school report, Grade 5: "Assigned shows 0 skills, but the student's My Work still shows 2 Not-started
+ * skills"): SKILL + PROGRESS_CHECK rows are the most frequent kind — a class accumulates far more of these than any
+ * other kind over a term. The old cap (TAKE * 2 = 400) read only the newest 400 Assignment rows of the class; an
+ * older, never-touched, still-live skill fell out of that window and became invisible (and so uncancellable) on the
+ * Assigned page, while the student's own My Work (student/assigned.ts: every AssignmentStudent row, unbounded) kept
+ * showing it forever. Bounded higher so a class's whole-term history fits (matches ASSIGNED_TAKE in
+ * skills/assigned-skills.ts, which reads from the same rows for the same reason).
+ */
+const SKILL_TAKE = 2000;
 
 // ------------------------------------------------------------------ who may see / cancel
 
@@ -133,7 +143,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
     if (!want("SKILL") && !want("PROGRESS_CHECK") && !want("TEST") && !want("PLAN")) return [];
     const onlyKind = o.only ? [...o.kinds][0] : null;
     const [plain, tests, plans] = await Promise.all([
-      want("SKILL") || want("PROGRESS_CHECK") ? repo.findMany("Assignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "testId", "curriculumPlanId", "createdAt", "dueAt", "startAt"], ...newest, take: o.only ? 1 : TAKE * 2 }) : Promise.resolve([] as Row[]),
+      want("SKILL") || want("PROGRESS_CHECK") ? repo.findMany("Assignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "testId", "curriculumPlanId", "createdAt", "dueAt", "startAt"], ...newest, take: o.only ? 1 : SKILL_TAKE }) : Promise.resolve([] as Row[]),
       want("TEST") ? safeIfBehind("assigned.tests", () => repo.findMany("TeacherTest", { classId: { in: classIds }, deletedAt: null, ...by("createdById", []), ...one() }, { select: ["id", "classId", "createdById", "title", "testType", "createdAt", "dueAt", "openAt"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
       want("PLAN") ? safeIfBehind("assigned.plans", () => repo.findMany("SkillPlan", { classId: { in: classIds }, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "kind", "status", "createdAt", "dueAt", "startAt", "studentIds"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
     ]);

@@ -34,8 +34,9 @@ export default async function GrammarPage({ searchParams }: { searchParams: Prom
 
       {canImport && (
         <Section title="Load the Grammar bank" icon="📥" tone="amber" className="mb-6"
-          hint="Upload the Grammar Question Bank Excel file (sheets Questions, Skills, Lessons) of one grade; its lessons join the list and its questions open in the normal import preview. Importing the same file again adds nothing twice. Besides multiple choice, true/false and fill-in rows, the Questions sheet may hold error_correction (segments, error_index, correction), sentence_order (items) and sentence_combine (sentences, connector, accepted_answers) rows.">
+          hint="Upload the Grammar Question Bank Excel file of one grade; its questions open in the normal import preview. Importing the same file again adds nothing twice. Two file formats are accepted, detected automatically: the full format (sheets Questions, Skills, Lessons — new skills, placed on the Curriculum Map), or a simpler Questions-only file (optionally with a Curriculum sheet) whose Skill column names an EXISTING grammar skill of that grade — never a new one. Besides multiple choice, multi select, true/false and fill-in rows, the Questions sheet may hold error_correction (segments, error_index, correction), sentence_order (items) and sentence_combine (sentences, connector, accepted_answers) rows.">
           <nav aria-label="Grade of the file" className="mb-3 flex flex-wrap gap-2 text-sm">{v.grades.map((g) => <Link key={g} href={`/admin/grammar?load=${g}`} aria-current={g === loadGrade ? "page" : undefined} className={`rounded-full px-3 py-1 font-semibold ${g === loadGrade ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>File of Grade {g}</Link>)}</nav>
+          <p className="mb-3 text-sm"><a href="/api/question-imports/template?format=xlsx" className="font-semibold text-brand-navy underline">📥 Download a blank template (Questions + Curriculum)</a></p>
           <ImportUpload grammarGrade={loadGrade} accept=".xlsx" />
         </Section>
       )}

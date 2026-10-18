@@ -14,8 +14,8 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { readXlsx } from "../../imports/xlsx";
-import { shortStandard, TEMPLATE_HEADERS } from "../../imports/questions/template";
+import { listXlsxSheets, readXlsx } from "../../imports/xlsx";
+import { normHeader, shortStandard, TEMPLATE_COLUMNS, TEMPLATE_HEADERS, type ColumnKey } from "../../imports/questions/template";
 import { accessibleClasses } from "../teacher/assign";
 import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
@@ -47,7 +47,61 @@ export interface GrammarQuestionRow {
   /** sentence_combine: the short sentences (| separated) and the joining word; the accepted answers are accepted_answers (or answer) */
   sentences: string; connector: string;
 }
-export interface GrammarWorkbook { lessons: Map<number, GrammarLesson[]>; skills: Map<number, GrammarSkillInfo[]>; questions: GrammarQuestionRow[] }
+export interface GrammarWorkbook {
+  lessons: Map<number, GrammarLesson[]>; skills: Map<number, GrammarSkillInfo[]>; questions: GrammarQuestionRow[];
+  /**
+   * "strict": the original 3-sheet file (Lessons, Skills, Questions) — new Skill/LessonSkill/UnitSkill rows are
+   * created from it (ensureGrammarSkills), placed on the Curriculum Map by grammarMapPlacement.
+   * "simple": the school's real file — just a Questions sheet (Question Bank template columns, "Skill" holding
+   * a coarse name such as "Grade 4 Action Verbs") and, usually, an informational Curriculum sheet. NO new skill
+   * or map placement is ever created for this format: every row's Skill is matched to an EXISTING, already
+   * placed grammar skill of that grade by the normal importer (see grammarSimpleTable), or left for its safe
+   * Unclassified-style fallback — never guessed onto a new unit/week.
+   */
+  format: "strict" | "simple";
+  /** "simple" format only: the Questions sheet, header row first, with "Grade N " stripped off every Skill cell. */
+  simpleRows?: string[][];
+  /** "simple" format only: the column index of Grade in simpleRows (-1 if the sheet has none). */
+  simpleGradeCol?: number;
+}
+
+/** "Grade 4 Action Verbs" → "Action Verbs" (the real file's Skill column prefixes every name with its own grade). */
+const GRADE_PREFIX = /^grade\s*\d+\s*[:-]?\s*/i;
+const stripGradePrefix = (v: string) => s(v).replace(GRADE_PREFIX, "").trim();
+
+/** The column of one template field in a raw header row (same aliases as the Question Bank template). */
+function templateCol(header: string[], key: ColumnKey): number {
+  const spec = TEMPLATE_COLUMNS.find((c) => c.key === key)!;
+  return header.findIndex((h) => { const n = normHeader(h); return spec.aliases.includes(n) || normHeader(spec.header) === n; });
+}
+
+/**
+ * Reads the "simple" format: just a Questions sheet in the Question Bank template's columns (Question Text,
+ * Question Type, Option A-D, Correct Answer, Explanation, Grade, Skill, Standard, Difficulty Level, Cognitive
+ * Level, Passage/Text, Lexile, MAP Test, MAP Instructional Area, Use…), and usually an informational
+ * Curriculum sheet (an export of the school's EXISTING skill catalog — read by nobody: it only helps a human
+ * compare; the real source of truth is the live Skill rows the normal importer already matches against).
+ */
+function readSimpleGrammarWorkbook(buf: Buffer): GrammarWorkbook {
+  let rows: string[][];
+  try { rows = readXlsx(buf, { sheet: "Questions" }); } catch (e) { throw new ValidationError(`The Grammar file could not be read: ${(e as Error).message}`); }
+  if (!rows.length) throw new ValidationError("The Questions sheet of the Grammar file is empty.");
+  const header = rows[0].map((h) => s(h));
+  if (templateCol(header, "stem") < 0) throw new ValidationError("The Questions sheet of the Grammar file is missing the column: Question Text.");
+  const skillCol = templateCol(header, "skill");
+  const gradeCol = templateCol(header, "grade");
+  const body = rows.slice(1).map((r) => { const row = [...r]; if (skillCol >= 0) row[skillCol] = stripGradePrefix(row[skillCol] ?? ""); return row; });
+  return { lessons: new Map(), skills: new Map(), questions: [], format: "simple", simpleRows: [header, ...body], simpleGradeCol: gradeCol };
+}
+
+/** "simple" format only: the grade's rows (Questions sheet columns), ready for the normal Question Bank import. */
+export function grammarSimpleTable(wb: GrammarWorkbook, grade: number): string[][] {
+  if (wb.format !== "simple" || !wb.simpleRows?.length) return [];
+  const [header, ...rows] = wb.simpleRows;
+  const gradeCol = wb.simpleGradeCol ?? -1;
+  const filtered = gradeCol >= 0 ? rows.filter((r) => Number(s(r[gradeCol]).match(/\d+/)?.[0]) === grade) : rows;
+  return [header, ...filtered];
+}
 
 /** Splits "L.4.1f, W.4.5" into platform codes ("L.4.1.F", "W.4.5"). */
 const ccssList = (v: string) => s(v).split(/[,;]+/).map((x) => shortStandard(x)).filter(Boolean);
@@ -61,10 +115,20 @@ function sheet(buf: Buffer, name: string, needed: string[]): { rows: string[][];
   return { rows: rows.slice(1).filter((r) => r.some((c) => s(c))), col: (h) => head.indexOf(h) };
 }
 
-/** Reads the Grammar bank workbook (sheets Questions, Skills and Lessons). */
+/**
+ * Reads the Grammar bank workbook, in either of two accepted formats (detected from its sheet names,
+ * never a mode the admin has to pick):
+ *   strict  → sheets Questions, Skills and Lessons (the original format: new skills, placed on the map)
+ *   simple  → just a Questions sheet (the school's real files: existing skills only, see readSimpleGrammarWorkbook)
+ */
 export function readGrammarWorkbook(bytes: Uint8Array): GrammarWorkbook {
   const buf = Buffer.from(bytes);
-  if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new ValidationError("The Grammar bank must be the Excel (.xlsx) file with the sheets Questions, Skills and Lessons.");
+  if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new ValidationError("The Grammar bank must be the Excel (.xlsx) file with the sheets Questions, Skills and Lessons (or just a Questions sheet).");
+  const sheetNames = new Set(listXlsxSheets(buf).map((n) => n.trim().toLowerCase()));
+  if (!(sheetNames.has("lessons") && sheetNames.has("skills"))) {
+    if (!sheetNames.has("questions")) throw new ValidationError("The Grammar file has no Questions sheet.");
+    return readSimpleGrammarWorkbook(buf);
+  }
   const L = sheet(buf, "Lessons", ["grade", "lesson_id", "unit", "week", "title"]);
   const K = sheet(buf, "Skills", ["grade", "lesson_id", "skill_id", "skill", "skill_kind", "ccss"]);
   const Q = sheet(buf, "Questions", ["grade", "skill_id", "question_id", "level", "type", "ccss", "question", "option_a", "option_b", "answer", "explanation"]);
@@ -90,7 +154,7 @@ export function readGrammarWorkbook(bytes: Uint8Array): GrammarWorkbook {
     segments: at(r, "segments") || at(r, "sentence_parts"), errorIndex: at(r, "error_index") || at(r, "error_indexes"), correction: at(r, "correction") || at(r, "corrections"),
     items: at(r, "items") || at(r, "order_items"), sentences: at(r, "sentences") || at(r, "sentences_to_combine"), connector: at(r, "connector") || at(r, "joining_word"),
   }));
-  return { lessons, skills, questions };
+  return { lessons, skills, questions, format: "strict" };
 }
 
 async function gradeCurriculum(repo: Repo, schoolId: string, grade: number): Promise<Row> {
@@ -250,6 +314,16 @@ export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
     } else if (/^sentence[_ ]?combin/.test(q.type)) {
       type = "Sentence Combining"; answer = q.accepted || q.answer;
       extra["Sentences to Combine"] = q.sentences; extra["Joining Word"] = q.connector; opts = [];
+    }
+    else if (/^(multi[-_ ]?select|multiple[-_ ]?answer|select[-_ ]?all)/.test(q.type)) {
+      type = "Multi Select";
+      // the correct letters: answer_letter (several letters), else matched by text against the options
+      let letters = (q.letter.match(/[A-D]/g) ?? []) as string[];
+      if (!letters.length && q.answer) {
+        letters = q.answer.split(/[|,]/).map((p) => p.trim()).filter(Boolean)
+          .map((p) => { const i = opts.findIndex((o) => o.toLowerCase() === p.toLowerCase()); return i >= 0 ? LETTERS[i] : ""; }).filter(Boolean);
+      }
+      answer = [...new Set(letters)].join(", ");
     }
     else if (opts.length >= 2) {
       type = "Multiple Choice";

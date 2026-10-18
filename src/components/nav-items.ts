@@ -84,6 +84,10 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher/assigned", label: "Assigned", icon: "📌", line: "inbox" },
   { href: "/teacher/assessments", label: "Assessments", icon: "📝", line: "check" },
   { href: "/teacher/writing", label: "Writing", icon: "🖊", line: "pen" },
+  // 🔤 Grammar (owner request): the Grammar bank browsing/assign page (admin/grammar/page.tsx allows TEACHER too).
+  // Was only reachable via "Find a page" (OFF_MENU) — never shown as its own icon, so teachers could not find it
+  // to assign Grammar, and students in turn never saw a Grammar group in My Skills (nothing was ever assigned).
+  { href: "/admin/grammar", label: "Grammar", icon: "🔤", line: "words" },
   { href: "/teacher/reading", label: "Reading", icon: "📚", line: "book" },
   { href: "/teacher/learn", label: "Learn", icon: "📘", line: "learn" },
   { href: "/teacher/map-center", label: "MAP", icon: "🗺️", line: "target" },
@@ -130,7 +134,6 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/teacher/lessons", label: "Intervention Lessons", icon: "🧩" },
     { href: "/teacher/respond", label: "Respond to Reading", icon: "✍️" },
     { href: "/admin/dictionary", label: "Dictionary", icon: "📖" },
-    { href: "/admin/grammar", label: "Grammar", icon: "🔤" },
     { href: "/teacher/word-journal", label: "Word Journals", icon: "📒" },
     { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨" },
     { href: "/teacher/alerts", label: "Alerts", icon: "🔔" },

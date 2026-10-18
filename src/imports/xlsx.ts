@@ -92,6 +92,14 @@ function colIndex(ref: string): number {
   return n - 1;
 }
 
+/** The workbook's sheet names, in order (so a caller can tell which format a file uses before reading any sheet). */
+export function listXlsxSheets(buf: Buffer): string[] {
+  if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new Error("This is not a valid Excel (.xlsx) file.");
+  const entries = readZipEntries(buf);
+  const wb = readPart(buf, entries.get("xl/workbook.xml") ?? (() => { throw new Error("The Excel file has no workbook."); })());
+  return [...wb.matchAll(/<sheet\b[^>]*>/g)].map((m) => unescape(m[0].match(/\bname="([^"]*)"/)?.[1] ?? ""));
+}
+
 /**
  * Reads one worksheet. By default the first sheet in workbook order; with `sheet`, the sheet of that
  * name (case-insensitive) when the workbook has one, else the first sheet.

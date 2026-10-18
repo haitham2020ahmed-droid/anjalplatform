@@ -10,6 +10,7 @@ import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { ritView } from "./rit";
 import { gradeAreaSkills } from "./recommend";
+import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, type ContinuumIndex } from "./continuum";
 
 const s = (v: unknown) => String(v ?? "");
 export type Band = "BELOW" | "ON" | "ABOVE";
@@ -23,6 +24,23 @@ export function bandOf(percentile: number | null, diffFromNational: number | nul
 /** What happened since the decision: the group's answers on this goal's standards (last 28 days). */
 export interface GoalResult { practiced: number; students: number; answers: number; accuracy: number | null; trend: number | null }
 export interface PlanGoal { area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[]; result?: GoalResult }
+
+/**
+ * Within a goal area's candidate skills, the ones the MAP Growth Learning Continuum lists as active (Reinforce
+ * or Develop) at this RIT come first — so "the same goal area" differentiates by band instead of always handing
+ * out the same first few skills. No continuum, no matching goal-area group, no RIT, or nothing active at that
+ * RIT: the original (unordered) list, unchanged — never fewer skills than before.
+ */
+export function continuumOrder<T extends { id: string }>(ix: ContinuumIndex | null, areaName: string, rit: number | null, sk: T[]): T[] {
+  const group = groupOfGoal(areaName);
+  const s2 = (v: unknown) => String(v ?? "");
+  if (!ix || !group || rit === null || !ix.rows.some((r) => groupOfGoal(s2(r.goalArea)) === group)) return sk;
+  const v = continuumFor(ix, group, rit);
+  const active = new Set<string>();
+  for (const stage of [v.reinforce, v.develop]) for (const stmt of stage?.statements ?? []) for (const k of stmt.skills) active.add(k.id);
+  if (!active.size) return sk;
+  return [...sk.filter((k) => active.has(k.id)), ...sk.filter((k) => !active.has(k.id))];
+}
 
 /** A MAP goal area ↔ the CCSS standards that measure it (questions are linked to areas by their standard). */
 export function areaMatchesStandard(area: string, code: string): boolean {
@@ -84,14 +102,20 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
     return { practiced: new Set(mine.map((a) => s(a.studentId))).size, students: members.size, answers: mine.length, accuracy: acc(mine), trend: a1 !== null && a0 !== null && recent.length >= 5 && older.length >= 5 ? a1 - a0 : null };
   };
   const logs = ids.length ? (await repo.findMany("AuditLog", { entityType: "Student", action: "level.change", createdAt: { gte: d28 } })).filter((l) => ids.includes(s(l.entityId)) && (l.after as Record<string, unknown>)?.outcome === "CHANGED") : [];
+  // the continuum (if the school imported NWEA's), to pick each band's skills by RIT rather than always the same ones
+  const contIx = (await hasContinuum(repo, subject)) ? await continuumIndex(repo, actor.schoolId!, grade, subject) : null;
   const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
   const bands: PlanBand[] = (["BELOW", "ON", "ABOVE"] as Band[]).map((band) => {
     const rows = v.rows.filter((r) => bandOf(r.national?.percentile ?? null, r.national?.diff ?? null) === band);
     const mine = new Set(rows.map((r) => r.studentId));
+    const bandRits = rows.map((r) => r.rit);
+    const midRit = bandRits.length ? Math.round((Math.min(...bandRits) + Math.max(...bandRits)) / 2) : null;
     const scored = areas.map((a) => {
       const vals = goalRows.filter((g) => mine.has(s(g.studentId)) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
       const sk = areaSkills.find((x) => x.areaId === s(a.id))?.skills ?? [];
-      return { area: s(a.name), areaId: s(a.id), meanRit: vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null, skills: sk.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })) };
+      const meanRit = vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null;
+      const ordered = continuumOrder(contIx, s(a.name), meanRit ?? midRit, sk);
+      return { area: s(a.name), areaId: s(a.id), meanRit, skills: ordered.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })) };
     });
     // NWEA's 2–5 / 6+ tests report one “Literary Text” (or “Informational Text”, “Writing”) score that was spread
     // over the platform's finer areas: areas of one family with the very same scores become ONE goal
@@ -107,7 +131,7 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
     // no goal-area data yet: every area of the subject is a goal (weakest first is unknown)
     const goals = withData.length ? withData.slice(0, 3) : merged.slice(0, 3);
     const strengths = withData.length > 3 ? withData.slice(-2).reverse() : [];
-    const rits = rows.map((r) => r.rit);
+    const rits = bandRits;
     for (const g of [...goals, ...strengths]) g.result = resultOf(g.area, mine);
     let up = 0, down = 0;
     for (const l of logs) if (mine.has(s(l.entityId))) {

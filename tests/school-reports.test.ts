@@ -14,6 +14,7 @@ import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
 import { importMapScores, MAP_TEMPLATE_HEADERS } from "../src/server/map/student-map";
 import { bandOf, personalPlan } from "../src/server/map/personal-plan";
+import { CONTINUUM_HEADERS, importContinuum } from "../src/server/map/continuum";
 import { bySourceReport, classifySkillSources, starsFor } from "../src/server/skills/skills-by-source";
 import { diagnosticAnalysisForClass, diagnosticAnalysisForStudent, finalReportForStudent, finalReportsForClass, personalizedPlanForStudent, schoolReportsRoster, TIER_LABEL } from "../src/server/reports/school-reports";
 import { demoDatabase } from "./helpers/db";
@@ -155,5 +156,64 @@ describe("🗒️ School Reports (per-student Personalized Plan, Diagnostic Anal
     await assert.rejects(() => personalizedPlanForStudent(repo, otherTeacher, studentId), ForbiddenError);
     await assert.rejects(() => diagnosticAnalysisForStudent(repo, otherTeacher, studentId), ForbiddenError);
     await assert.doesNotReject(() => diagnosticAnalysisForStudent(repo, admin, studentId));
+  });
+});
+
+describe("🗒️ Personalized Plan: Academic Goals skills differentiate by RIT band once a Learning Continuum is imported", () => {
+  let repo: SqliteRepo; let teacher: Actor; let admin: Actor; let classId: string;
+  before(async () => {
+    ({ repo } = await demoDatabase());
+    await seedTestEnvironment(repo, { root: process.cwd(), passwordHash: "x".repeat(60), practice: "none" });
+    teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "test.teacher.1" }))!);
+    admin = await resolveActor(repo, (await repo.findUnique("User", { username: "test.admin" }))!);
+    const r = await teacherRoster(repo, teacher); classId = r[0].id;
+    const roster = r[0].students;
+    const H = [...MAP_TEMPLATE_HEADERS], at = (h: string) => H.indexOf(h);
+    // one Below-band student (percentile 8) and one Above-band student (percentile 75); each has a
+    // Vocabulary goal RIT placing them in a different continuum band (181–190 vs 191–200)
+    const rows: [number, number, number, number][] = [[8, 170, 165, 186], [75, 205, 210, 199]];
+    const table = [H];
+    for (let i = 0; i < rows.length; i++) {
+      const [pct, rit, theme, vocab] = rows[i];
+      const num = String((await repo.findUnique("Student", { id: roster[i].id }))!.studentNumber);
+      const row = H.map(() => ""); row[0] = num;
+      row[at("Reading Fall RIT")] = String(rit); row[at("Reading Fall Percentile")] = String(pct);
+      row[at("R: Literary Theme")] = String(theme); row[at("R: Vocabulary")] = String(vocab);
+      table.push(row);
+    }
+    assert.equal((await importMapScores(repo, teacher, table, 2026)).imported, 2);
+    // a small, made-up continuum (same shape as NWEA's): Vocabulary activates a different standard per band
+    const CONT = [
+      [...CONTINUUM_HEADERS],
+      ["Reading", "181", "190", "Vocabulary: Acquisition and Use", "Context, Multiple Meanings", "Determines the meaning of a word with multiple meanings in context", "L.4.4.a"],
+      ["Reading", "191", "200", "Vocabulary: Acquisition and Use", "Roots, Prefixes, Suffixes", "Uses a Greek or Latin root to work out a word's meaning", "L.4.4.b"],
+    ];
+    assert.equal((await importContinuum(repo, admin, CONT)).saved, 2);
+  });
+  test("the same Vocabulary goal area gets different skills for the Below band than for the Above band", async () => {
+    const plan = await personalPlan(repo, teacher, classId, "READING");
+    const below = plan.bands.find((b) => b.band === "BELOW")!;
+    const above = plan.bands.find((b) => b.band === "ABOVE")!;
+    const vocabBelow = [...below.goals, ...below.strengths].find((g) => /vocabulary/i.test(g.area));
+    const vocabAbove = [...above.goals, ...above.strengths].find((g) => /vocabulary/i.test(g.area));
+    assert.ok(vocabBelow, "Vocabulary is a goal (or strength) of the Below band");
+    assert.ok(vocabAbove, "Vocabulary is a goal (or strength) of the Above band");
+    assert.equal(vocabBelow!.meanRit, 186);
+    assert.equal(vocabAbove!.meanRit, 199);
+    const namesBelow = vocabBelow!.skills.map((k) => k.name);
+    const namesAbove = vocabAbove!.skills.map((k) => k.name);
+    assert.notDeepEqual(namesBelow, namesAbove, "Below and Above no longer get the exact same skill list for the same goal area");
+    assert.ok(namesBelow.some((n) => /multiple-meaning/i.test(n)), `Below (RIT 186, continuum band 181–190 → L.4.4.a) should prioritize "Multiple-Meaning Words"; got ${namesBelow.join(", ")}`);
+    assert.ok(namesAbove.some((n) => /greek and latin roots|prefixes|suffixes/i.test(n)), `Above (RIT 199, continuum band 191–200 → L.4.4.b) should prioritize an L.4.4.b skill; got ${namesAbove.join(", ")}`);
+    // never fewer skills than the old (unordered) behaviour would have returned
+    assert.equal(vocabBelow!.skills.length, 4);
+    assert.equal(vocabAbove!.skills.length, 4);
+  });
+  test("a goal area the continuum doesn't cover (Literary Text) still gets its skills, unchanged by the import", async () => {
+    const plan = await personalPlan(repo, teacher, classId, "READING");
+    for (const band of plan.bands) {
+      const lit = [...band.goals, ...band.strengths].find((g) => /literary/i.test(g.area));
+      if (lit) assert.ok(lit.skills.length > 0, `${band.band}: Literary Text keeps a non-empty skill list though the continuum has no Literary Text statements`);
+    }
   });
 });

@@ -205,7 +205,7 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
   test("teacher menu: short (Programs + More); Assessments added; tour targets; strings translated", () => {
     const items = navItemsFor("TEACHER");
     // owner's spec (Update 15): one entry per area, the occasional tools folded under More (+ Learn, owner-approved plan; + Assigned, owner r67)
-    assert.equal(items.filter((i) => !i.group).length, 12);
+    assert.equal(items.filter((i) => !i.group).length, 13);
     const hrefs = new Set(items.map((i) => i.href));
     for (const h of ["/teacher/students", "/teacher/plans", "/teacher/map-center", "/admin/curriculum-map", "/teacher/reports", "/teacher/reading"]) assert.ok(hrefs.has(h), h);
     // the school asked: no Question Bank entry for teachers (they assign skills from Find a skill, Plans and Assessments)
