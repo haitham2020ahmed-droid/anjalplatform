@@ -5,7 +5,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
 import { startOfDay } from "@/lib/assign-dates";
-import { approveAiDraft, assignReteach, createTask, dismissAiDraft, requestAiDraft, scoreResearchAnswers, scoreSubmission, type TaskKind } from "@/server/teacher/writing";
+import { approveAiDraft, assignReteach, cancelTask, createTask, dismissAiDraft, requestAiDraft, scoreResearchAnswers, scoreSubmission, type TaskKind } from "@/server/teacher/writing";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN")[], permission: "assignments:create" as const };
 const str = (f: FormData, k: string) => String(f.get(k) ?? "");
@@ -52,8 +52,10 @@ export async function scoreAction(f: FormData): Promise<void> {
 export async function approveAiAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const msg = await run(async () => {
+    const quotes = f.getAll("hQuote").map(String), fixes = f.getAll("hFix").map(String);
     const r = await approveAiDraft(repo, actor, str(f, "taskId"), str(f, "studentId"), {
       scores: prefixed(f, "s."), strengths: prefixed(f, "strength."), nextSteps: prefixed(f, "next."), codes: f.getAll("code").map(String).filter(Boolean),
+      highlights: quotes.map((quote, i) => ({ quote, fix: fixes[i] ?? "" })),
       summary: str(f, "summary"), comment: str(f, "comment") || null, moves: f.getAll("move").map(String).filter(Boolean),
     });
     return r === "REVISE" ? "✓ Approved. The student sees the feedback and revises." : "✓ Approved and scored. The student can see it.";
@@ -80,6 +82,17 @@ export async function researchScoreAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const msg = await run(async () => { await scoreResearchAnswers(repo, actor, str(f, "taskId"), str(f, "studentId"), prefixed(f, "r.")); return "✓ Research answers scored."; });
   redirect(back(f, msg));
+}
+
+export async function cancelTaskAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const classId = str(f, "classId");
+  let msg: string;
+  try {
+    const r = await cancelTask(repo, actor, str(f, "taskId"));
+    msg = `✓ “${r.title}” was cancelled. Work already submitted or scored stays in the history.`;
+  } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
+  redirect(`/teacher/writing?classId=${classId}&msg=${encodeURIComponent(msg)}`);
 }
 
 export async function reteachAction(f: FormData): Promise<void> {

@@ -158,4 +158,19 @@ describe("📚 Questions list on a 14,000-question bank", () => {
     for (const gone of ["MapPlacePicker", "editorOptions", "listQuestions(", "PrintToggle", "view=skills"]) assert.ok(!page.includes(gone), `removed: ${gone}`);
     for (const f of ["question-review", "question-flags", "item-quality", "bank-gaps", "questions/import", "questions/duplicates"]) assert.match(readFileSync(`src/app/admin/${f}/page.tsx`, "utf8"), /<BankTabs \/>/, f);
   });
+
+  test("⚠️ scope check: a question's own text that doesn't look related to its skill is flagged on the list, a real one for that skill is not", async () => {
+    const base = (await repo.findMany("Skill", { deletedAt: null }, { take: 1 }))[0]!;
+    const { id: _drop, code: _c, name: _n, ...rest } = base;
+    void _drop; void _c; void _n;
+    const skillId = s((await repo.create("Skill", { ...rest, code: "SCOPE.ap", name: "Active and Passive Voice", isActive: true })).id);
+    let type = await repo.findUnique("QuestionType", { code: "MULTIPLE_CHOICE" });
+    if (!type) type = await repo.create("QuestionType", { code: "MULTIPLE_CHOICE", name: "multiple choice", isAutoScored: true });
+    const now = new Date();
+    const onTopic = s((await repo.create("Question", { skillId, typeId: type.id, stem: "The window was broken by Sam.", content: {}, difficultyLevel: 3, irtB: 0, status: "PUBLISHED", createdAt: now, updatedAt: now })).id);
+    const offTopic = s((await repo.create("Question", { skillId, typeId: type.id, stem: "Which word correctly completes the sentence? Marcus sat ___ his brother at the game.", content: {}, difficultyLevel: 3, irtB: 0, status: "PUBLISHED", createdAt: now, updatedAt: now })).id);
+    const { rows } = await listBankPage(repo, admin, { skillId, status: "PUBLISHED" });
+    assert.equal(rows.find((r) => r.id === onTopic)?.scopeFlag, undefined);
+    assert.equal(rows.find((r) => r.id === offTopic)?.scopeFlag, true);
+  });
 });

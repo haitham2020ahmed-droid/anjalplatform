@@ -141,6 +141,29 @@ describe("🤖 AI draft: parse, clamp, privacy", () => {
     assert.equal(aiDraftValidator(FREE_RUBRIC)({ traits: Object.fromEntries(FREE_RUBRIC.traits.map((t) => [t.key, { score: -2, strength: "Good ideas.", nextStep: "Add more." }])), summary: "Good work." }).ok, true);
   });
 
+  test("inline highlights: only a quote that actually occurs in the student's text survives (a hallucinated quote is dropped, not a refusal)", () => {
+    const r = GENRE_RUBRICS.NARRATIVE;
+    const base = Object.fromEntries(r.traits.map((t) => [t.key, { score: 3, strength: "Clear events.", nextStep: "Add dialogue." }]));
+    const text = "I goes to the Store yesterday and buyed a loaf of bread.";
+    const v = aiDraftValidator(r, text);
+    const ok = v({
+      traits: base, summary: "A clear story.",
+      highlights: [
+        { quote: "I goes to the", fix: "I went to the" }, // present in the text → kept
+        { quote: "buyed a loaf", fix: "bought a loaf" }, // present → kept
+        { quote: "the dragon flew away", fix: "the dragon flies away" }, // never in the text → dropped
+        { quote: "", fix: "x" }, // empty quote → dropped
+      ],
+    });
+    assert.equal(ok.ok, true);
+    const d = (ok as { value: { highlights?: { quote: string; fix: string }[] } }).value;
+    assert.deepEqual(d.highlights?.map((h) => h.quote), ["I goes to the", "buyed a loaf"]);
+    // no text given (the old 1-arg call still works) → every highlight is dropped rather than throwing
+    const noText = aiDraftValidator(r)({ traits: base, summary: "A clear story.", highlights: [{ quote: "anything", fix: "x" }] });
+    assert.equal(noText.ok, true);
+    assert.deepEqual((noText as { value: { highlights?: unknown[] } }).value.highlights, []);
+  });
+
   test("only the text, the genre and the rubric are sent; error codes include the L1_* transfer codes", () => {
     const p = aiPayload("OPINION", GENRE_RUBRICS.OPINION, SAMPLE);
     assert.deepEqual(Object.keys(p).sort(), ["genre", "rubric", "scale", "writing"]);
@@ -325,6 +348,75 @@ describe("✍️ genre writing end to end", () => {
     assert.equal(await W.scoreSubmission(repo, teacher, id, students[4], { ideas: 0, organization: 3, language: 3, conventions: 3 }, null, now), "SCORED");
     assert.equal((await W.taskForStudent(repo, me, id)).mine.total, 9);
     assert.deepEqual((await W.taskForTeacher(repo, teacher, id)).subs.find((x) => x.studentId === students[4])!.reteach.map((r) => r.trait), ["ideas"]);
+  });
+
+  test("🖍️ AI inline highlights: a quote found in the essay survives, a hallucinated one is dropped, and the teacher's own edits (add/change/remove) replace them on approval", async () => {
+    // a fresh day: the previous test in this file deliberately exhausts WRITING_AI_PER_DAY for `now`
+    const now = new Date(Date.now() + 5 * 86_400_000);
+    const id = await W.createTask(repo, teacher, { classId, kind: "WRITE", title: "My trip", prompt: "Tell a story.", genre: "NARRATIVE", aiFeedback: true }, now);
+    const sid = students[0];
+    await W.saveWriting(repo, await studentActor(sid), id, SAMPLE, true, now, { checklist: all("NARRATIVE") });
+    const fakeWithHighlights: AiProvider = {
+      async complete(_system, user) {
+        const u = JSON.parse(user) as { rubric: { key: string }[] };
+        const traits = Object.fromEntries(u.rubric.map((t) => [t.key, { score: 3, strength: "Clear events.", nextStep: "Add dialogue." }]));
+        return JSON.stringify({
+          traits, conventions: [], summary: "Good story.",
+          highlights: [
+            { quote: "we watch the stars", fix: "we watched the stars" }, // actually in SAMPLE → kept
+            { quote: "a dragon flew over the house", fix: "x" }, // never in SAMPLE → dropped
+          ],
+        });
+      },
+    };
+    const out = await W.draftForSubmission(repo, id, sid, env, now, { gemini: () => fakeWithHighlights });
+    assert.equal(out.outcome, "PENDING", String(out.reason));
+    const before = (await W.taskForTeacher(repo, teacher, id)).subs.find((x) => x.studentId === sid)!.ai!;
+    assert.deepEqual(before.highlights, [{ quote: "we watch the stars", fix: "we watched the stars" }]);
+
+    // the teacher edits on approval: changes the fix, drops it, and adds a new one of their own
+    await W.approveAiDraft(repo, teacher, id, sid, {
+      scores: { focus: 3, organization: 3, craft: 3, conventions: 3 },
+      highlights: [{ quote: "drink tea", fix: "drink some tea" }],
+    }, now);
+    const approved = (await W.taskForStudent(repo, await studentActor(sid), id)).mine.ai!;
+    assert.deepEqual(approved.highlights, [{ quote: "drink tea", fix: "drink some tea" }], "the teacher's edited list replaces the AI's own");
+  });
+});
+
+describe("✖ cancelTask: a teacher removes a task from the class, keeping existing work in the history", () => {
+  let repo: SqliteRepo; let now: Date; let env: Record<string, never>;
+  let teacher: Actor, other: Actor; let classId: string; let students: string[];
+  const studentActor = async (id: string) => resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id }))!.userId }))!);
+  before(async () => {
+    now = new Date("2026-10-18T08:00:00Z"); env = {};
+    ({ repo } = await demoDatabase());
+    const actorFor = async (u: string) => resolveActor(repo, (await repo.findUnique("User", { username: u }))!);
+    teacher = await actorFor("demo.teacher.4a");
+    other = await actorFor("demo.teacher.5a");
+    classId = String((await readableClasses(repo, teacher))[0].id);
+    students = (await repo.findMany("ClassMembership", { classId, leftAt: null })).map((m) => String(m.studentId)).sort();
+  });
+
+  test("soft-deletes the task: gone from the class and student lists; a score already given stays readable; only the class's teacher can cancel", async () => {
+    const id = await W.createTask(repo, teacher, { classId, kind: "WRITE", title: "Cancel me", prompt: "Write anything.", genre: "FREE" }, now);
+    const sid = students[0];
+    await W.saveWriting(repo, await studentActor(sid), id, SAMPLE, true, now);
+    await W.scoreSubmission(repo, teacher, id, sid, { ideas: 3, organization: 3, language: 3, conventions: 3 }, "Nice work!", now);
+    assert.ok((await W.classTasks(repo, teacher, classId)).some((t) => t.id === id));
+
+    await assert.rejects(W.cancelTask(repo, other, id, now), ForbiddenError, "another teacher's class");
+    const r = await W.cancelTask(repo, teacher, id, now);
+    assert.equal(r.title, "Cancel me");
+
+    assert.ok(!(await W.classTasks(repo, teacher, classId)).some((t) => t.id === id), "gone from the class's task list");
+    assert.ok(!(await W.myTasks(repo, await studentActor(sid))).some((t) => t.id === id), "gone from the student's work list");
+    await assert.rejects(W.cancelTask(repo, teacher, id, now), ForbiddenError, "cancelling twice");
+    await assert.rejects(W.taskForTeacher(repo, teacher, id), ForbiddenError, "the teacher can no longer open it");
+
+    // the score the student already received stays in the raw data (never shown again through the normal views, but not erased)
+    const sub = await repo.findUnique("WritingSubmission", { taskId: id, studentId: sid });
+    assert.deepEqual([sub?.status, sub?.comment], ["SCORED", "Nice work!"]);
   });
 });
 

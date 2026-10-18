@@ -17,6 +17,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { normalizeSkillName, schoolSkillIndex } from "../questions/skill-questions";
+import { isScopeFlagged } from "./scope-check";
 import { STATUSES, type QuestionStatus } from "./questions";
 import { schoolOf } from "./users";
 import { sweptWeakMap } from "../cache/idle";
@@ -64,6 +65,8 @@ export interface BankListRow {
   status: QuestionStatus; origin: string; updatedAt: string; hasPassage: boolean; hasImage: boolean; mine: boolean;
   /** open flags (students' "not clear" reports, teachers' problem reports, staff flags) */
   flags?: number;
+  /** true = this question's own text doesn't look like it belongs to its skill (src/server/admin/scope-check.ts); otherwise unset (on-topic, or the skill has no rule yet) */
+  scopeFlag?: boolean;
 }
 
 const typeCache = new WeakMap<object, { v: string; p: Promise<Map<string, string>> }>();
@@ -161,11 +164,13 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
   const rows = found.map((q): BankListRow => {
     const sk = idx.skillOf.get(s(q.skillId));
     const level = Number(q.difficultyLevel ?? 0);
+    const stem = s(q.stem).replace(/\s+/g, " ").slice(0, 200);
     return {
-      id: s(q.id), stem: s(q.stem).replace(/\s+/g, " ").slice(0, 200), skill: sk?.name ?? "", skillId: s(q.skillId), grade: sk?.grade ?? 0,
+      id: s(q.id), stem, skill: sk?.name ?? "", skillId: s(q.skillId), grade: sk?.grade ?? 0,
       type: types.get(s(q.typeId)) ?? "", level, levelLabel: LEVEL_LABELS[level] ?? "", status: s(q.status) as QuestionStatus, origin: s(q.origin),
       updatedAt: iso(q.updatedAt), hasPassage: Boolean(q.passageId), hasImage: Boolean(q.imageId), mine: q.createdById === actor.userId,
       onMap: onMap.has(s(q.id)), ritBand: ritBand(ritOf(level || 4, sk?.grade ?? 0)), flags: flagsOf.get(s(q.id)) ?? 0,
+      scopeFlag: sk?.name ? isScopeFlagged(sk.name, stem) || undefined : undefined,
     };
   });
   return { rows, total, page, pages, per };

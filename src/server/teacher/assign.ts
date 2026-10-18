@@ -159,6 +159,16 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
 /** What the teacher reads when a skill cannot be assigned or planned yet. */
 export const NO_QUESTIONS_YET = "This skill has no questions yet.";
 
+/**
+ * Whether this class already has (any status, not deleted) a prior assignment of this skill — so the ⭐ Assign
+ * page can warn the teacher and let them choose to assign it again anyway or cancel, instead of silently
+ * duplicating the same work.
+ */
+export async function hasPriorSkillAssignment(repo: Repo, classId: string, skillId: string): Promise<boolean> {
+  const rows = await repo.findMany("Assignment", { classId, skillId, deletedAt: null }, { select: ["id"] });
+  return rows.length > 0;
+}
+
 /** Published questions a practice of this skill can use (the skill and its other grades' copies: the shared count). */
 export async function skillQuestionCount(repo: Repo, schoolId: string, skillId: string): Promise<number> {
   const { countQuestionsOfSkills } = await import("../questions/skill-questions");
@@ -532,6 +542,9 @@ export interface AssignQuestionsInput {
   curriculumPlanId?: string | null;
   /** MAP | RTI | CURRICULUM | NAFS (the Program choice), stored as Assignment.program */
   program?: string | null;
+  /** the skill this question set was built from (⭐ Assign, Ready set): kept on the Assignment so a later Assign
+   * can warn "already assigned before" even though the work itself is an ASSESSMENT, not a SKILL assignment */
+  skillId?: string | null;
   track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null;
   /** a teacher-built test: at most MAX_TEST_SET_QUESTIONS questions (instead of MAX_SET_QUESTIONS) */
   test?: boolean;
@@ -589,7 +602,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
     const target = input.adaptive?.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.adaptive.targetCorrect))) : null;
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? (target ? GOAL_SAFETY_CAP : Math.min(ids.length, input.adaptive.maxQuestions)) : ids.length, targetCorrect: target, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
-    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
+    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, ...(input.skillId ? { skillId: input.skillId } : {}), ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     if (!input.silent) await tx.createMany("Notification", students.map((st) => ({

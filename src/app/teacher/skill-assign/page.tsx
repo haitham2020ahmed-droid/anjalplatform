@@ -3,7 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { LevelBoard } from "@/components/teacher/level-board";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { accessibleClasses } from "@/server/teacher/assign";
+import { accessibleClasses, hasPriorSkillAssignment } from "@/server/teacher/assign";
 import { skillPool } from "@/server/teacher/skill-assign";
 import { suggestLevels } from "@/server/curriculum-map/auto-levels";
 import { assignSkillAction } from "./actions";
@@ -19,7 +19,7 @@ export const metadata = { title: "Assign a skill" };
  * ⭐ Assign a skill: 🤖 Automatic (default) or ✋ Manual (Below / On / Above board), optional due date, then
  * Program → which questions (the platform chooses, or the teacher picks) → Preview as student → Assign.
  */
-export default async function SkillAssignPage({ searchParams }: { searchParams: Promise<{ skillId?: string; classId?: string; lessonId?: string; manual?: string; msg?: string }> }) {
+export default async function SkillAssignPage({ searchParams }: { searchParams: Promise<{ skillId?: string; classId?: string; lessonId?: string; manual?: string; msg?: string; confirm?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -30,17 +30,21 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => Number(levelOfClass(b) === pool.skill.grade) - Number(levelOfClass(a) === pool.skill.grade) || String(a.name).localeCompare(String(b.name)));
   const k = classes.find((c) => c.id === sp.classId) ?? classes[0];
   const manual = sp.manual === "1";
+  const confirmed = sp.confirm === "1";
+  // ⚠️ this skill may already have been assigned to this class before: warn and let the teacher choose, rather
+  // than silently sending the same work again
+  const dup = k && !confirmed ? await hasPriorSkillAssignment(repo, String(k.id), pool.skill.id) : false;
   const isGrammar = /grammar|mechanic|usage|punctuat|capital/i.test(pool.skill.name);
   const sug = k ? await suggestLevels(repo, actor, String(k.id), { subject: isGrammar ? "LANGUAGE" : "READING" }) : null;
   const box = "rounded-lg border border-slate-300 px-3 py-2";
   const total = pool.byLevel.BELOW.length + pool.byLevel.ON.length + pool.byLevel.ABOVE.length;
   const link = (o: Record<string, string>) => {
-    const p = new URLSearchParams({ skillId: pool.skill.id, ...(k ? { classId: String(k.id) } : {}), ...(sp.lessonId ? { lessonId: sp.lessonId } : {}), ...(manual ? { manual: "1" } : {}), ...o });
+    const p = new URLSearchParams({ skillId: pool.skill.id, ...(k ? { classId: String(k.id) } : {}), ...(sp.lessonId ? { lessonId: sp.lessonId } : {}), ...(manual ? { manual: "1" } : {}), ...(confirmed ? { confirm: "1" } : {}), ...o });
     for (const [key, v] of [...p.entries()]) if (!v) p.delete(key);
     return `/teacher/skill-assign?${p}`;
   };
   // 🔎 Curriculum → Question Bank: the skill's questions grouped by lesson / skill / standard (a wrong lesson is ignored)
-  const found = k ? await findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, lessonId: sp.lessonId || null, classId: String(k.id) })
+  const found = k && !dup ? await findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, lessonId: sp.lessonId || null, classId: String(k.id) })
     .catch((e) => (e instanceof ValidationError && sp.lessonId ? findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, classId: String(k.id) }) : Promise.reject(e))) : null;
   return (
     <AppShell name={String(me.displayName)}>
@@ -48,7 +52,17 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
         <Link href={`/teacher/preview?skillId=${pool.skill.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      {!k ? <p className="text-slate-600">You have no class yet.</p> : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
+      {k && dup && (
+        <div className="mb-4 rounded-2xl bg-amber-50 p-5 ring-1 ring-amber-300">
+          <p className="font-semibold text-amber-900">⚠️ This skill was already assigned to {String(k.name)} before.</p>
+          <p className="mt-1 text-sm text-amber-800">You can assign it again (e.g. more practice, or a different level/date), or cancel and go back.</p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <Link href={link({ confirm: "1" })} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">✅ Assign it again</Link>
+            <Link href="/teacher" className="rounded-xl bg-white px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300 hover:ring-brand-teal">✖️ Cancel</Link>
+          </div>
+        </div>
+      )}
+      {!k ? <p className="text-slate-600">You have no class yet.</p> : dup ? null : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
         <form action={assignSkillAction} className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
           <input type="hidden" name="skillId" value={pool.skill.id} /><input type="hidden" name="classId" value={String(k.id)} /><input type="hidden" name="mode" value={manual ? "MANUAL" : "AUTOMATIC"} />
           <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
@@ -71,7 +85,7 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
           <div className="mt-5 border-t border-slate-100 pt-4"><SkillAssignSteps skillId={pool.skill.id} grammar={pool.skill.grammar} /></div>
         </form>
       )}
-      {k && found && <BankPanel found={found} classId={String(k.id)} link={link} />}
+      {k && !dup && found && <BankPanel found={found} classId={String(k.id)} link={link} />}
     </AppShell>
   );
 }

@@ -52,7 +52,6 @@ export async function quickAssignSkillAction(input: QuickAssignSkillInput): Prom
   }
 }
 
-
 export interface ScopeInput { grade: number; kind: SendScopeKind; codes?: string[] | null; classIds?: string[] }
 export interface ScopeSendInput extends ScopeInput { /** r74: the required Source */ source?: string | null; studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
 const day = (v: unknown, end: boolean): Date | null => (typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) ? new Date(`${v}T${end ? "23:59:59" : "00:00:00"}`) : null);

@@ -112,15 +112,17 @@ describe("no Arabic outside the translation files", () => {
   });
 });
 
-describe("Literise D1 fonts: Hanken Grotesk (interface), Young Serif (headings, numbers), IBM Plex Sans Arabic (Arabic)", () => {
-  test("the three fonts are loaded with next/font; Hanken Grotesk is the interface font, Young Serif the display font", () => {
+describe("Literise D1 fonts: Hanken Grotesk (interface), Young Serif (headings, numbers), IBM Plex Sans Arabic (Arabic), Nunito (Curriculum Map only)", () => {
+  test("the fonts are loaded with next/font; Hanken Grotesk is the interface font, Young Serif the display font, Nunito is scoped to .curriculum-map-ui", () => {
     const layout = read("src/app/layout.tsx");
-    assert.match(layout, /import \{ Hanken_Grotesk, IBM_Plex_Sans_Arabic, Young_Serif \} from "next\/font\/google"/);
+    assert.match(layout, /import \{ Hanken_Grotesk, IBM_Plex_Sans_Arabic, Nunito, Young_Serif \} from "next\/font\/google"/);
+    assert.match(layout, /variable: "--font-nunito"/);
     const css = read("src/app/globals.css");
     assert.match(css, /--font-display: var\(--font-young-serif\)/);
     assert.match(css, /--font-sans: var\(--font-hanken\)/);
     assert.match(css, /--font-mono: var\(--font-hanken\)/);
     assert.match(css, /\[lang="ar"\] \{ --font-sans: var\(--font-plex-arabic\)/);
+    assert.match(css, /\.curriculum-map-ui[\s\S]{0,80}var\(--font-nunito\)/, "Nunito is scoped to the Curriculum Map, not applied platform-wide");
     assert.doesNotMatch(layout, /Lexend|DM_Serif_Display/, "fonts no longer used are gone");
     assert.doesNotMatch(css, /Georgia|Times New Roman|Iowan/);
     const fontImports = files(join(ROOT, "src/app")).filter((f) => /from "next\/font\/google"/.test(readFileSync(f, "utf8")));

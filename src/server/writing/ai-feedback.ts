@@ -19,8 +19,12 @@ export const WRITING_AI_PER_DAY = 40;
 const TOOL = "writing-feedback";
 
 export interface AiTrait { score: number; strength: string; nextStep: string }
-export interface AiDraft { traits: Record<string, AiTrait>; conventions: { code: string; example: string }[]; summary: string; at?: string; by?: "AI" | "TEACHER" }
+/** An inline error found in the student's own words, with the AI's fix: shown highlighted over the essay text. */
+export interface AiHighlight { quote: string; fix: string }
+export interface AiDraft { traits: Record<string, AiTrait>; conventions: { code: string; example: string }[]; summary: string; highlights?: AiHighlight[]; at?: string; by?: "AI" | "TEACHER" }
 export type AiOutcome = "PENDING" | "OFF" | "LIMIT" | "FAILED";
+/** At most this many inline highlights per draft (keeps the essay readable and the prompt small). */
+export const MAX_HIGHLIGHTS = 8;
 
 /** The Saudi school day (UTC+3) of a moment, e.g. "2026-10-10". */
 export const schoolDay = (now: Date) => new Date(now.getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
@@ -40,18 +44,22 @@ export function aiPayload(genre: Genre, rubric: Rubric, text: string): Record<st
 
 export function aiSystem(rubric: Rubric): string {
   const codes = WRITING_ERROR_CODES.map((c) => `${c} (${MISCONCEPTION_BY_CODE.get(c)!.label})`).join("; ");
-  return `You help a teacher give feedback on writing by a Grade 4–6 student learning English (their first language is Arabic). Score each rubric trait from ${rubric.min} to ${rubric.max} using the level descriptors. For each trait write one strength and one next step: short, kind, simple English a child understands, addressed to the student as "you", pointing to their own words. Never mention a name, a grade level or other students. Then list up to 6 grammar or mechanics errors you see, each with one code from this list and a short example quoted from the writing: ${codes}. Reply with JSON only: {"traits": {"<key>": {"score": number, "strength": string, "nextStep": string}}, "conventions": [{"code": string, "example": string}], "summary": string}. The summary is two sentences for the student.`;
+  return `You help a teacher give feedback on writing by a Grade 4–6 student learning English (their first language is Arabic). Score each rubric trait from ${rubric.min} to ${rubric.max} using the level descriptors. For each trait write one strength and one next step: short, kind, simple English a child understands, addressed to the student as "you", pointing to their own words. Never mention a name, a grade level or other students. Then list up to 6 grammar or mechanics errors you see, each with one code from this list and a short example quoted from the writing: ${codes}. Also pick up to ${MAX_HIGHLIGHTS} short spots in the writing to highlight (spelling, grammar or punctuation mistakes): for each, quote the exact words from the student's writing (copy them exactly, up to 10 words) and give the corrected version of just that quote. Reply with JSON only: {"traits": {"<key>": {"score": number, "strength": string, "nextStep": string}}, "conventions": [{"code": string, "example": string}], "highlights": [{"quote": string, "fix": string}], "summary": string}. The summary is two sentences for the student.`;
 }
 
 /**
  * Validates (and tidies) the AI reply against the task's rubric and the allowed error codes: scores are rounded and
  * clamped to the rubric's scale, unknown trait keys and unknown error codes are dropped, texts are shortened. A
- * missing trait, a non-number score or an empty strength / next step is refused (the engine asks again).
+ * missing trait, a non-number score or an empty strength / next step is refused (the engine asks again). Highlight
+ * quotes that do not actually occur in the student's text (a hallucinated or paraphrased "quote") are dropped
+ * silently rather than refusing the whole draft, since the rest of the feedback is still useful.
  */
-export function aiDraftValidator(rubric: Rubric): Validator<AiDraft> {
+export function aiDraftValidator(rubric: Rubric, text = ""): Validator<AiDraft> {
   const allowed = new Set(WRITING_ERROR_CODES);
+  const norm = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
+  const haystack = norm(text);
   return (data) => {
-    const d = data as { traits?: Record<string, Partial<AiTrait>>; conventions?: unknown; summary?: unknown };
+    const d = data as { traits?: Record<string, Partial<AiTrait>>; conventions?: unknown; highlights?: unknown; summary?: unknown };
     if (!d || typeof d !== "object" || !d.traits || typeof d.traits !== "object") return { ok: false, error: "traits must be an object keyed by the rubric keys" };
     const traits: Record<string, AiTrait> = {};
     for (const t of rubric.traits) {
@@ -69,9 +77,14 @@ export function aiDraftValidator(rubric: Rubric): Validator<AiDraft> {
       const code = String(c?.code ?? "").trim().toUpperCase();
       if (allowed.has(code) && conventions.length < 6) conventions.push({ code, example: short(c?.example, 160) });
     }
+    const highlights: AiHighlight[] = [];
+    for (const h of Array.isArray(d.highlights) ? (d.highlights as { quote?: unknown; fix?: unknown }[]) : []) {
+      const quote = short(h?.quote, 160), fix = short(h?.fix, 160);
+      if (quote.length >= 2 && fix.length >= 1 && haystack.includes(norm(quote)) && highlights.length < MAX_HIGHLIGHTS) highlights.push({ quote, fix });
+    }
     const summary = short(d.summary, 400);
     if (summary.length < 5) return { ok: false, error: "summary must be a sentence or two" };
-    return { ok: true, value: { traits, conventions, summary } };
+    return { ok: true, value: { traits, conventions, highlights, summary } };
   };
 }
 
@@ -91,7 +104,7 @@ export async function draftAiFeedback(
   if (rs.reason && rs.waitMs > 0) return { outcome: "LIMIT", reason: rs.reason };
   const day = await consumeRateLimit(repo, `writing-ai:${input.schoolId}:${schoolDay(now)}`, WRITING_AI_PER_DAY, 86_400_000, now);
   if (!day.allowed) return { outcome: "LIMIT", reason: `Today's ${WRITING_AI_PER_DAY} AI writing drafts are used. Score by hand, or ask again tomorrow.` };
-  const r = await callJson(repo, { schoolId: input.schoolId, tool: TOOL, picked, items: 1 }, aiSystem(input.rubric), aiPayload(input.genre, input.rubric, input.text), aiDraftValidator(input.rubric), 1)
+  const r = await callJson(repo, { schoolId: input.schoolId, tool: TOOL, picked, items: 1 }, aiSystem(input.rubric), aiPayload(input.genre, input.rubric, input.text), aiDraftValidator(input.rubric, input.text), 1)
     .catch((e: Error) => ({ ok: false as const, error: e.message, stop: true }));
   if (!r.ok) return { outcome: "FAILED", reason: r.error || "The AI did not give a usable draft." };
   const draft: AiDraft = { ...r.value, at: now.toISOString(), by: "AI" };
