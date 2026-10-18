@@ -11,6 +11,10 @@
  *  Then    RRStudent { level = startLevel = result, source PLACEMENT } and an RRLevelChange "Placement".
  *  Retake  once per term, when a teacher (of the student) or a school admin allows it (teacherResetPlacement). The
  *          level stays until the new test finishes.
+ *  Checks  owner r69: THREE times a year (windows.ts): the first placement is the start of the year; in the middle
+ *          and end windows a placed student may take it again ("Check your reading level"). A check sets the level
+ *          (source PLACEMENT) but keeps the year's start (startLevel / placedAt), so growth runs start → middle → end;
+ *          every finished test stores its period (RRPlacement.period).
  */
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -18,6 +22,9 @@ import { ValidationError } from "../curriculum-admin";
 import { RR_MAX, RR_MIN } from "./level";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { RETAKE_REASON, assertStaffForStudent, ensureRRStudent, initialLevel, latestMapLexile, recordLevelChange, s, toDate } from "./engine";
+import { dueCheck, loadReadRiseWindows, periodOf, RR_PERIOD_NAME, type RRPeriod } from "./windows";
+import { alertMapGap } from "./accuracy";
+import { runAfterResponse } from "../lib/after-response";
 
 export { setLevelByTeacher } from "./engine";
 
@@ -79,15 +86,25 @@ export function blendWithMap(result: number, mapLexile: number | null): { level:
 
 const stepsOf = (p: Row): PlacementStep[] => (Array.isArray(p.steps) ? (p.steps as PlacementStep[]) : []);
 
-export async function placementStatus(repo: Repo, studentId: string): Promise<{ open: Row | null; last: Row | null; canStart: boolean }> {
+export interface PlacementStatus {
+  open: Row | null; last: Row | null; canStart: boolean;
+  /** a teacher allowed a retake after the last test */
+  retake: boolean;
+  /** the reading check that is open now (middle / end of year), else null */
+  due: RRPeriod | null;
+}
+
+export async function placementStatus(repo: Repo, studentId: string, now = new Date()): Promise<PlacementStatus> {
   const rows = (await repo.findMany("RRPlacement", { studentId })).sort((a, b) => toDate(b.startedAt).getTime() - toDate(a.startedAt).getTime());
   const open = rows.find((r) => !r.completedAt) ?? null;
   const last = rows.find((r) => r.completedAt) ?? null;
-  if (open) return { open, last, canStart: false };
-  if (!last) return { open, last, canStart: true };
+  if (open) return { open, last, canStart: false, retake: false, due: null };
+  if (!last) return { open, last, canStart: true, retake: false, due: null };
   const done = toDate(last.completedAt).getTime();
   const allowed = (await repo.findMany("RRLevelChange", { studentId })).some((c) => s(c.reason).startsWith(RETAKE_REASON) && toDate(c.createdAt).getTime() > done);
-  return { open, last, canStart: allowed };
+  // 🗓️ the middle / end of year reading check (windows.ts): open while its window is and it is not done yet
+  const due = allowed ? null : dueCheck(await loadReadRiseWindows(repo, s(last.schoolId), now), now, rows.filter((r) => r.completedAt).map((r) => toDate(r.completedAt)));
+  return { open, last, canStart: allowed || due !== null, retake: allowed, due };
 }
 
 function student(actor: Actor): string {
@@ -100,20 +117,23 @@ export interface PlacementView {
   placementId: string | null; stepNumber: number; maxSteps: number;
   passage: { id: string; title: string; text: string; questions: { stem: string; options: string[] }[] } | null;
   result: number | null; retake: boolean;
+  /** owner r69: the middle / end of year reading check that is open (null: the first placement or a retake) */
+  check?: RRPeriod | null;
 }
 
 /** What the student's placement page shows. Passages are injectable (tests). */
-export async function placementView(repo: Repo, actor: Actor, passages: PlacementPassage[] = loadPlacementPassages()): Promise<PlacementView> {
+export async function placementView(repo: Repo, actor: Actor, passages: PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<PlacementView> {
   const studentId = student(actor);
-  const st = await placementStatus(repo, studentId);
-  const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last) };
+  const st = await placementStatus(repo, studentId, now);
+  const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last), check: st.due };
   if (st.open) {
     const steps = stepsOf(st.open);
     const plan = placementPlan(Number(st.open.startLevel), steps, passages);
     if (!plan.passage) {
       // the passages ran out (or the file changed) after some answers: finish with what we have
       if (plan.done && steps.length) {
-        const fin = await finishPlacement(repo, st.open, new Date());
+        const fin = await finishPlacement(repo, st.open, now);
+        afterPlacement(repo, studentId, now);
         return { ...base, state: "DONE", result: fin.level, retake: false };
       }
       return { ...base, state: "NOT_AVAILABLE", placementId: s(st.open.id) };
@@ -128,11 +148,11 @@ export async function placementView(repo: Repo, actor: Actor, passages: Placemen
 /** Starts (or returns the open) placement. */
 export async function startPlacement(repo: Repo, actor: Actor, now = new Date()): Promise<string> {
   const studentId = student(actor);
-  const st = await placementStatus(repo, studentId);
+  const st = await placementStatus(repo, studentId, now);
   if (st.open) return s(st.open.id);
   if (!st.canStart) throw new ValidationError("You already have a ReadRise Level. Your teacher can let you take the placement again.");
   const init = await initialLevel(repo, studentId);
-  const row = await repo.create("RRPlacement", { studentId, schoolId: actor.schoolId, startLevel: init.level, steps: [], startedAt: now });
+  const row = await repo.create("RRPlacement", { studentId, schoolId: actor.schoolId, startLevel: init.level, steps: [], startedAt: now, period: st.due });
   return s(row.id);
 }
 
@@ -141,7 +161,7 @@ export interface PlacementAnswer { done: boolean; correct: number; result: numbe
 /** Scores one passage (3 answers A–D) and moves on; finishes the test when the rules say so. */
 export async function answerPlacement(repo: Repo, actor: Actor, placementId: string, passageId: string, answers: string[], passages: PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<PlacementAnswer> {
   const studentId = student(actor);
-  return repo.transaction(async (tx) => {
+  const res = await repo.transaction(async (tx): Promise<PlacementAnswer> => {
     const p = await tx.findUnique("RRPlacement", { id: placementId });
     if (!p || p.studentId !== studentId) throw new ForbiddenError("Placement not found.");
     if (p.completedAt) throw new ValidationError("This placement is finished.");
@@ -158,6 +178,8 @@ export async function answerPlacement(repo: Repo, actor: Actor, placementId: str
     const fin = await finishPlacement(tx, { ...p, steps: next }, now);
     return { done: true, correct, result: fin.level, note: fin.note };
   });
+  if (res.done) afterPlacement(repo, studentId, now);
+  return res;
 }
 
 async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: number; note: string | null }> {
@@ -165,11 +187,25 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
   const studentId = s(p.studentId);
   const raw = placementResult(steps, Number(p.startLevel));
   const { level, note } = blendWithMap(raw, await latestMapLexile(repo, studentId));
-  await repo.updateMany("RRPlacement", { id: p.id }, { result: level, completedAt: now });
+  const [windows, earlier] = await Promise.all([
+    loadReadRiseWindows(repo, s(p.schoolId), now),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null } }, { select: ["id"] }),
+  ]);
+  const period = periodOf(windows, now);
+  // 🗓️ a middle / end of year check keeps the year's start (growth start → middle → end); the first test (or a
+  // retake at the start of the year) sets the start
+  const recheck = earlier.some((r) => s(r.id) !== s(p.id)) && period !== "BOY";
+  await repo.updateMany("RRPlacement", { id: p.id }, { result: level, completedAt: now, period });
   const rr = await ensureRRStudent(repo, studentId, now);
-  await repo.updateMany("RRStudent", { studentId }, { level, startLevel: level, source: "PLACEMENT", placedAt: now });
-  await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: Number(rr.level), to: level, reason: `Placement: ${steps.length} passages, result ${level}${note ? ` (${note})` : ""}`, now });
+  await repo.updateMany("RRStudent", { studentId }, recheck ? { level, source: "PLACEMENT" } : { level, startLevel: level, source: "PLACEMENT", placedAt: now });
+  const what = recheck ? `Placement (${RR_PERIOD_NAME[period].toLowerCase()} reading check)` : "Placement";
+  await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: Number(rr.level), to: level, reason: `${what}: ${steps.length} passages, result ${level}${note ? ` (${note})` : ""}`, now });
   return { level, note };
+}
+
+/** ⚖️ ReadRise vs MAP after a finished placement: one alert for the teacher when they are far apart (after the response). */
+function afterPlacement(repo: Repo, studentId: string, now: Date): void {
+  runAfterResponse("readrise.map_gap", () => alertMapGap(repo, studentId, now).catch(() => false), { key: `readrise.map_gap|${studentId}` });
 }
 
 /**
@@ -178,7 +214,7 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
  */
 export async function teacherResetPlacement(repo: Repo, actor: Actor, studentId: string, reason = "", now = new Date()): Promise<{ allowedAt: Date; restarted?: boolean }> {
   const st = await assertStaffForStudent(repo, actor, studentId);
-  const status = await placementStatus(repo, studentId);
+  const status = await placementStatus(repo, studentId, now);
   // a test started and not finished: the teacher restarts it from the first passage (the answers so far are cleared;
   // the row stays, no level is set)
   if (status.open) {
@@ -186,7 +222,8 @@ export async function teacherResetPlacement(repo: Repo, actor: Actor, studentId:
     return { allowedAt: now, restarted: true };
   }
   if (!status.last) throw new ValidationError("The student has not taken the placement yet.");
-  if (status.canStart) throw new ValidationError("A retake is already allowed.");
+  if (status.retake) throw new ValidationError("A retake is already allowed.");
+  if (status.due) throw new ValidationError(`The ${RR_PERIOD_NAME[status.due].toLowerCase()} reading check is open: the student can take the placement now (a retake is already allowed).`);
   // this term (the current academic year's term that contains today), else the last 120 days
   const year = (await repo.findMany("AcademicYear", { schoolId: s(st.schoolId), isCurrent: true }))[0];
   const terms = year ? await repo.findMany("Term", { academicYearId: s(year.id) }) : [];

@@ -4,6 +4,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -12,8 +13,12 @@ export async function sentMapCodes(repo: Repo, actor: Actor): Promise<Map<string
   if (actor.role !== "TEACHER") return new Map();
   // Assignment.createdById is the Teacher row's id (not the user id)
   const t = await repo.findUnique("Teacher", { userId: actor.userId });
-  const as = await repo.findMany("Assignment", { createdById: { in: [actor.userId, ...(t ? [s(t.id)] : [])] }, track: "CURRICULUM", deletedAt: null }, { select: ["id", "assessmentId", "createdAt"] });
-  return codesOf(repo, as);
+  const [as, ix] = await Promise.all([
+    repo.findMany("Assignment", liveAssignmentWhere({ createdById: { in: [actor.userId, ...(t ? [s(t.id)] : [])] }, track: "CURRICULUM" }), { select: ["id", "assessmentId", "createdAt", "testId", "curriculumPlanId"] }),
+    cancelIndex(repo, actor.schoolId),
+  ]);
+  // r78: cancelled on Assigned = not "✓ Sent" any more
+  return codesOf(repo, as.filter((a) => ix.live(a)));
 }
 
 /**
@@ -23,7 +28,10 @@ export async function sentMapCodes(repo: Repo, actor: Actor): Promise<Map<string
 export async function sentCodesByClass(repo: Repo, classIds: string[]): Promise<Map<string, Map<string, Date>>> {
   const out = new Map<string, Map<string, Date>>(classIds.map((c) => [c, new Map()]));
   if (!classIds.length) return out;
-  const as = await repo.findMany("Assignment", { classId: { in: classIds }, track: "CURRICULUM", deletedAt: null }, { select: ["id", "classId", "assessmentId", "createdAt"] });
+  const all = await repo.findMany("Assignment", liveAssignmentWhere({ classId: { in: classIds }, track: "CURRICULUM" }), { select: ["id", "classId", "assessmentId", "createdAt", "testId", "curriculumPlanId"] });
+  const school = all.length ? s((await repo.findUnique("Class", { id: s(all[0].classId) }))?.schoolId) : "";
+  const ix = await cancelIndex(repo, school);
+  const as = all.filter((a) => ix.live(a));
   for (const c of classIds) {
     const mine = as.filter((a) => s(a.classId) === c);
     if (mine.length) out.set(c, await codesOf(repo, mine));

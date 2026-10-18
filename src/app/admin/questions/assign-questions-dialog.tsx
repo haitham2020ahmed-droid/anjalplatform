@@ -3,12 +3,15 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { assignQuestionsAction } from "@/app/teacher/actions";
 import { Combo } from "@/components/ui/combo";
 import { LineIcon } from "@/components/ui/line-icon";
+import { SourceSelect } from "@/components/assign/source-select";
+import { useT } from "@/i18n/client";
 
 export interface RosterClass { id: string; name: string; grade: number; students: { id: string; name: string }[] }
 
 /** ⭐ Assign selected questions: class, selected students or one student; optional title, dates and note. */
 export function AssignQuestionsDialog({ roster, questionIds, onDone, onClose, defaultTrack = "CURRICULUM" }: { roster: RosterClass[]; questionIds: string[]; onDone: () => void; onClose: () => void; defaultTrack?: "CURRICULUM" | "MAP" | "NAFS" }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const t = useT();
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
   const [mode, setMode] = useState<"class" | "students" | "one">("class");
   const [state, action, pending] = useActionState(assignQuestionsAction, {});
@@ -59,6 +62,7 @@ export function AssignQuestionsDialog({ roster, questionIds, onDone, onClose, de
             <div className="flex flex-wrap gap-3 text-sm">
               <label className="flex flex-col">Start date (optional)<input type="date" name="startAt" className={field} /></label>
               <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={field} /></label>
+              <SourceSelect t={t} field={field} />
             </div>
             <label className="flex flex-col text-sm">Note to students (optional)<textarea name="note" rows={2} maxLength={1000} className={field} /></label>
           </>

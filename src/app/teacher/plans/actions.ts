@@ -13,6 +13,8 @@ import { suggestNafsPlan } from "@/server/plans/nafs-suggest";
 import { assertNafs } from "@/server/teacher/nafs-access";
 import { fromFormData, readPlanForm, readQuestionPicks } from "@/server/plans/plan-form";
 import { applyEdits, picksOf, sendProgramPlan } from "@/server/plans/send";
+import { startOfDay } from "@/lib/assign-dates";
+import { failureMessage, isNextControl } from "@/server/lib/action-guard";
 
 export async function createPlanAction(f: FormData): Promise<void> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
@@ -23,7 +25,8 @@ export async function createPlanAction(f: FormData): Promise<void> {
     const r = await createSkillPlan(repo, actor, {
       classId, title: String(f.get("title") ?? ""), codes: f.getAll("codes").map(String),
       studentIds: f.get("who") === "some" ? f.getAll("studentIds").map(String) : undefined,
-      targetCorrect: Number(f.get("max")) || 20, dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null, note: String(f.get("note") ?? "") || null,
+      targetCorrect: Number(f.get("max")) || 20, dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null, startAt: startOfDay(f.get("startAt")), note: String(f.get("note") ?? "") || null,
+      source: String(f.get("source") ?? ""),
     });
     target = `/teacher/plans/${r.planId}?msg=${encodeURIComponent(`Plan assigned: ${r.items} place(s). Students were notified.${r.skipped.length ? ` Skipped: ${r.skipped.join(" · ")}` : ""}`)}`;
   } catch (e) {
@@ -85,11 +88,13 @@ export async function assignPlanAction(f: FormData): Promise<void> {
       skillIds: w.type === "CUSTOM" ? w.skillIds : [], add: w.type === "CUSTOM" ? [] : w.skillIds, keep: w.keep,
       title: String(f.get("title") ?? "") || null, note: String(f.get("note") ?? "") || null,
       dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null,
+      source: String(f.get("source") ?? ""),
     });
     target = `/teacher/plans/${r.planId}?msg=${encodeURIComponent(`${t("Plan assigned: {skills} skill(s) to {students} student(s). It is in their My Plans and the skills are in their My Work.", { skills: r.skills, students: r.students })}${r.notes.length ? ` ${t("Note:")} ${r.notes.map((n) => t(n)).join(" ")}` : ""}`)}`;
   } catch (e) {
-    if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
-    target = `${back}&msg=${encodeURIComponent(t(e.message))}`;
+    // r82: any failure → a message on the page (never a frozen button / error page)
+    if (isNextControl(e)) throw e;
+    target = `${back}&msg=${encodeURIComponent(await failureMessage(e, "plans", "assignPlan", "/teacher/plans"))}`;
   }
   redirect(target);
 }
@@ -116,12 +121,13 @@ async function sendFromPlansPage(actor: Actor, f: FormData, kind: "nafs" | "cust
       const members = (await repo.findMany("ClassMembership", { classId: form.classId, leftAt: null }, { select: ["studentId"] })).map((m) => String(m.studentId));
       plan = applyEdits([], null, added, form.studentIds.length ? form.studentIds : members);
     }
-    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered });
+    const r = await sendProgramPlan(repo, actor, { classId: form.classId, program: kind === "nafs" ? "NAFS" : null, title: form.title, picks: picksOf(plan), dueAt: form.dueAt, startAt: form.startAt, note: form.note, questionIds: readQuestionPicks(get, plan.map((k) => k.id)), excludeMastered: form.excludeMastered, source: form.source });
     msg = t("Plan ready: {skills} skill(s) for {students} student(s). They see it in My Plans and My Work.", { skills: r.skills, students: r.students });
     tab = "sent";
   } catch (e) {
-    if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e;
-    msg = t(e.message);
+    // r82: any failure → a message on the page (never a frozen button / error page)
+    if (isNextControl(e)) throw e;
+    msg = await failureMessage(e, "plans", `send.${kind}`, "/teacher/plans");
   }
   redirect(`/teacher/plans?${new URLSearchParams({ tab, classId: form.classId, msg })}`);
 }

@@ -100,7 +100,7 @@ describe("Update 18 · MAP", () => {
     assert.equal(edited.note, "Read slowly.");
     // preview as the student: not visible before sending
     await assert.rejects(planDoc(repo, await studentActor(students[0]), p0.id), ForbiddenError);
-    const r = await sendPlans(repo, teacher, [p0.id]);
+    const r = await sendPlans(repo, teacher, [p0.id], new Date(), "MAP");
     assert.equal(r.sent, 1);
     assert.ok(r.sets >= 2);
     const doc = await planDoc(repo, await studentActor(students[0]), p0.id);
@@ -111,7 +111,7 @@ describe("Update 18 · MAP", () => {
     const a = await repo.findMany("Assignment", { id: { in: doc.items.map((i) => i.assignmentId!) } });
     assert.ok(a.every((x) => x.track === "MAP"));
     // send the rest of the class at once
-    const all = await sendPlans(repo, teacher, (await classPlans(repo, teacher, classId, "READING")).plans.map((p) => p.id));
+    const all = await sendPlans(repo, teacher, (await classPlans(repo, teacher, classId, "READING")).plans.map((p) => p.id), new Date(), "MAP");
     assert.equal(all.sent, 3);
     assert.equal((await sentPlans(repo, students[1])).length, 1);
   });
@@ -129,7 +129,7 @@ describe("Update 18 · MAP", () => {
     const g = await smallGroups(repo, teacher, classId, "READING");
     const lit = g.find((x) => x.group === "LIT" && x.band === "171–180")!;
     assert.deepEqual(lit.students.map((x) => x.id).sort(), [students[0], students[1]].sort());
-    const r = await sendToGroup(repo, teacher, classId, { group: "LIT", low: lit.low, high: lit.high, studentIds: lit.students.map((x) => x.id) });
+    const r = await sendToGroup(repo, teacher, classId, { group: "LIT", low: lit.low, high: lit.high, studentIds: lit.students.map((x) => x.id), source: "MAP" });
     assert.ok(r.questions >= 3);
   });
 

@@ -2,6 +2,10 @@
 import { useEffect, useState } from "react";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
 import { Combo } from "@/components/ui/combo";
+import { AssignDates } from "@/components/assign/assign-dates";
+import { SourceSelect } from "@/components/assign/source-select";
+import type { AssignSource } from "@/lib/assign-source";
+import { useT } from "@/i18n/client";
 
 type Lv = "ABOVE" | "ON" | "BELOW";
 interface RosterLevel { level: Lv; from: string; reason: string }
@@ -26,7 +30,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   const [code, setCode] = useState("");
   const [levels, setLevels] = useState(false);
   useEffect(() => {
-    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setOpen(true); };
+    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setSource(""); setOpen(true); };
     window.addEventListener(EVENT, on);
     return () => window.removeEventListener(EVENT, on);
   }, []);
@@ -46,7 +50,11 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   const [picked, setPicked] = useState<Record<string, "ABOVE" | "ON" | "BELOW">>({});
   const [max, setMax] = useState(20);
   const [due, setDue] = useState("");
+  const [start, setStart] = useState("");
   const [busy, setBusy] = useState(false);
+  // r74: the required Source — always empty when the window opens (no default)
+  const [source, setSource] = useState<AssignSource | "">("");
+  const t = useT();
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
   const klass = classes.find((c) => c.id === classId);
   const all = klass?.students ?? [];
@@ -69,17 +77,17 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
     setBusy(true); setResult(null);
     // ✋ Manual: exactly the students given a level here, each starting at it; 🤖 Automatic: the class or the starred
     const r = mode === "MANUAL"
-      ? await assign({ classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null })
+      ? await assign({ source, classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null, startAt: start || null })
       : who === "all" && also.size
         ? await (async () => {
           const out: { ok: boolean; message: string }[] = [];
           for (const id of [classId, ...[...also].filter((x) => x !== classId)]) {
-            const one = await assign({ classId: id, code, mode: "ADAPTIVE", max, dueAt: due || null });
+            const one = await assign({ source, classId: id, code, mode: "ADAPTIVE", max, dueAt: due || null, startAt: start || null });
             out.push({ ok: one.ok, message: `${classes.find((c) => c.id === id)?.name ?? ""}: ${one.message}` });
           }
           return { ok: out.every((x) => x.ok), message: out.map((x) => x.message).join(" · ") };
         })()
-        : await assign({ classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null });
+        : await assign({ source, classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null, startAt: start || null });
     setBusy(false); setResult(r);
   };
   if (!classes.length) return null;
@@ -97,6 +105,7 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
                 <Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); setAlso(new Set()); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: `(${c.students.length})` }))} className="mt-1 font-normal" />
               </label>
             )}
+            <SourceSelect t={t} value={source} onChange={setSource} className="mt-3" field="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" />
             <fieldset className="mt-3">
               <legend className="font-semibold text-slate-700">How</legend>
               <div className="mt-1 grid gap-2 sm:grid-cols-2">
@@ -184,12 +193,12 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
             )}
             <div className="mt-3 flex flex-wrap gap-3">
               <label className="flex flex-col font-semibold text-slate-700">Correct answers to finish<input type="number" min={5} max={50} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
-              <label className="flex flex-col font-semibold text-slate-700">Due date (optional)<input type="date" value={due} onChange={(e) => setDue(e.target.value)} className="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
+              <AssignDates start={start} onStart={setStart} due={due} onDue={setDue} field="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" />
             </div>
             {result && <p role="status" className={`mt-3 rounded-lg px-3 py-2 ${result.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{result.message}</p>}
             <div className="mt-4 flex justify-end gap-2">
               <button type="button" onClick={() => setOpen(false)} className="rounded-xl px-4 py-2 font-semibold ring-1 ring-slate-300">{result?.ok ? "Done" : "Cancel"}</button>
-              {!result?.ok && <button type="button" onClick={send} disabled={busy || (mode === "MANUAL" ? !manualIds.length : who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : mode === "MANUAL" ? (manualIds.length ? `Assign to ${manualIds.length} student(s)` : "Choose a level first") : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
+              {!result?.ok && <button type="button" onClick={send} disabled={busy || !source || (mode === "MANUAL" ? !manualIds.length : who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : !source ? t("Choose the source first.") : mode === "MANUAL" ? (manualIds.length ? `Assign to ${manualIds.length} student(s)` : "Choose a level first") : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
             </div>
           </div>
         </div>

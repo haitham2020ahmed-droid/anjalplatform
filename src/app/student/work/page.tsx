@@ -26,13 +26,13 @@ export default async function MyWorkPage() {
   const sid = actor.studentId!;
   const [{ t }, h, stars] = await Promise.all([getT(), studentHome(repo, actor), safeIfBehind("work.stars", () => studentStarsSummary(repo, sid), null)]);
   // the review checks: settled / given after the response (the page never waits for them)
-  runAfterResponse("work.stars.fresh", () => keepStarsFresh(repo, sid));
+  runAfterResponse("work.stars.fresh", () => keepStarsFresh(repo, sid), { key: `work.stars.fresh|${sid}` });
   let rows = h.work;
   if (stars && stars.byKey.size) {
     rows = await markMasteredWork(repo, sid, rows, stars.byKey);
     const ids = [...new Set(rows.map((r) => r.skillId).filter((x): x is string => Boolean(x)))];
     const keys = ids.length ? await skillKeysFor(repo, await studentSchool(repo, sid), ids) : new Map<string, string>();
-    rows = rows.map((r) => { const v = r.skillId ? stars.byKey.get(keys.get(r.skillId) ?? "") : undefined; return v ? { ...r, star: { status: v.status } } : r; });
+    rows = rows.map((r) => { const v = r.skillId ? stars.byKey.get(keys.get(r.skillId) ?? "") : undefined; return v ? { ...r, star: { status: v.status, score: v.score, answered: v.answered } } : r; });
   }
   const { progress } = myWorkView(rows, h.last);
   const label = t("{done} of {total} done", { done: progress.done, total: progress.total });

@@ -5,6 +5,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { allowPlacementRetake, assignArticle, scoreWriting, setStudentLevel, unassignArticle } from "@/server/readrise/teacher";
+import { assignDatesOf } from "@/lib/assign-dates";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[] };
 const msgOf = (e: unknown) => { if (e instanceof ValidationError || e instanceof ForbiddenError) return e.message; throw e; };
@@ -20,6 +21,7 @@ function dueDate(raw: string): Date | null {
   return new Date(`${raw}T23:59:00+03:00`);
 }
 
+/** 📌 Assign articles to a class (r68: a start date and an end / due date). */
 export async function assignReadRiseAction(f: FormData): Promise<void> {
   const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
   const classId = id(f, "classId");
@@ -28,8 +30,10 @@ export async function assignReadRiseAction(f: FormData): Promise<void> {
     const articleIds = f.getAll("articleId").map(String).filter(Boolean).slice(0, 30);
     if (!articleIds.length) throw new ValidationError("Choose at least one article.");
     const due = dueDate(String(f.get("dueAt") ?? ""));
+    const dates = assignDatesOf(f);
+    if (dates.error) throw new ValidationError(dates.error);
     let created = 0;
-    for (const a of articleIds) if ((await assignArticle(repo, actor, classId, a, due)).created) created++;
+    for (const a of articleIds) if ((await assignArticle(repo, actor, classId, a, due, new Date(), dates.startAt)).created) created++;
     revalidatePath("/teacher/readrise");
     msg = `${created} article${created === 1 ? "" : "s"} assigned${articleIds.length - created ? `, ${articleIds.length - created} updated` : ""}${due ? ` · due ${String(f.get("dueAt"))}` : ""}. Each student reads the version of their level.`;
   } catch (e) { msg = msgOf(e); }

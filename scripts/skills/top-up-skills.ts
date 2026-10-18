@@ -9,7 +9,11 @@
  *  3. All-grades bank, 30 MAP-style questions per skill (span-skill-sets.json, skills the school has);
  *  4. Curriculum Map: the "Review" places (map seed), then Concept Vocabulary / Review questions (map-vocab-review-sets.json);
  *  5. Grammar extras (grammar-extra-sets.json, when the file is there; skills the school has);
- *  6. Question Check: hides from students every published question with a definite error (never deleted).
+ *  6. New skills (new-skill-sets.json, r73): Complex and Compound-Complex Sentences + Point of View (first, second, third
+ *     limited, third omniscient), created in Grades 4–6 when missing, 100 MAP-style questions each;
+ *  7. New skill (agreement-skill-sets.json, r74): Subject-Verb Agreement with Compound Subjects, created in Grades 4–6 when
+ *     missing, 100 MAP-style questions;
+ *  8. Question Check: hides from students every published question with a definite error (never deleted).
  * Original questions only. Safe to run again (questions already there are skipped; a full skill gets nothing).
  * The admin page shows this run's progress too (it is kept per school in the same place).
  */

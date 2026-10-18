@@ -176,12 +176,12 @@ describe("⭐ skill stars — on screen", () => {
       await put(ids[0], "fam:theme", "MASTERED", { masteredAt: now, skillId: theme });
       await put(ids[1], "fam:theme", "MASTERED", { masteredAt: now, skillId: theme });
       assert.deepEqual((await masteredAmong(repo, schoolId, ids, theme)).sort(), [ids[0], ids[1]].sort());
-      const r = await starAssign(repo, teacher, { kind: "SKILL", ref: theme, classId, excludeMastered: true }, now);
+      const r = await starAssign(repo, teacher, { source: "CURRICULUM", kind: "SKILL", ref: theme, classId, excludeMastered: true }, now);
       const got = (await repo.findMany("AssignmentStudent", { assignmentId: r.id })).map((x) => s(x.studentId)).sort();
       assert.deepEqual(got, ids.slice(2).sort(), "only the students who have not mastered it");
-      const p = await sendProgramPlan(repo, teacher, { classId, program: "MAP", picks: ids.map((studentId) => ({ studentId, skillId: theme })), excludeMastered: true }, now);
+      const p = await sendProgramPlan(repo, teacher, { source: "CURRICULUM", classId, program: "MAP", picks: ids.map((studentId) => ({ studentId, skillId: theme })), excludeMastered: true }, now);
       assert.equal(p.students, ids.length - 2);
-      const all = await sendProgramPlan(repo, teacher, { classId, program: "MAP", picks: ids.map((studentId) => ({ studentId, skillId: theme })), excludeMastered: false }, now);
+      const all = await sendProgramPlan(repo, teacher, { source: "CURRICULUM", classId, program: "MAP", picks: ids.map((studentId) => ({ studentId, skillId: theme })), excludeMastered: false }, now);
       assert.equal(all.students, ids.length, "No: everyone gets it");
     });
 

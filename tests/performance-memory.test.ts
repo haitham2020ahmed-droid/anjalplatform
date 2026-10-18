@@ -8,8 +8,8 @@ import type { Repo } from "../src/server/seeding/repo";
 
 describe("update 46: memory", () => {
   test("database URL gets a small pool unless it sets its own", () => {
-    assert.equal(withPoolLimit("mysql://u:p@h:3306/db"), "mysql://u:p@h:3306/db?connection_limit=5&pool_timeout=20");
-    assert.equal(withPoolLimit("mysql://u:p@h/db?ssl-mode=REQUIRED"), "mysql://u:p@h/db?ssl-mode=REQUIRED&connection_limit=5&pool_timeout=20");
+    assert.equal(withPoolLimit("mysql://u:p@h:3306/db"), "mysql://u:p@h:3306/db?connection_limit=8&pool_timeout=20");
+    assert.equal(withPoolLimit("mysql://u:p@h/db?ssl-mode=REQUIRED"), "mysql://u:p@h/db?ssl-mode=REQUIRED&connection_limit=8&pool_timeout=20");
     assert.equal(withPoolLimit("mysql://u:p@h/db?connection_limit=9&pool_timeout=5"), "mysql://u:p@h/db?connection_limit=9&pool_timeout=5");
     assert.equal(withPoolLimit(undefined), undefined);
   });

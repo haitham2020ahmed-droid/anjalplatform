@@ -38,6 +38,7 @@ export default async function CurriculumMapEditPage({ searchParams }: { searchPa
   const link = "rounded-xl bg-white px-3 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
   return (
     <AppShell name={String(me.displayName)}>
+      <div className="curriculum-map-ui">
       <PageHeader back={{ href: `/admin/curriculum-map?grade=${v.level ?? ""}`, label: "Back" }} title="Edit (admin)" subtitle="Questions are placed only on the places with an ID; they are also in the Question Bank.">
         <Link prefetch={false} href="/admin/questions/import?to=curriculum" className={link}>Import</Link>
         <Link href={`/admin/question-intelligence?tab=coverage&grade=${v.level ?? 4}`} className={link}>Coverage</Link>
@@ -108,6 +109,7 @@ export default async function CurriculumMapEditPage({ searchParams }: { searchPa
           )}
         </>
       )}
+      </div>
     </AppShell>
   );
 }

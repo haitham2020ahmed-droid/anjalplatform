@@ -4,6 +4,7 @@
  * device is chosen (src/lib/tts/voices.ts).
  */
 import { bestBrowserVoice } from "@/lib/tts/voices";
+import { stripMarks } from "@/lib/inline-marks";
 
 export const canSpeak = () => typeof window !== "undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined";
 
@@ -13,7 +14,7 @@ export function speakTexts(texts: string[], opts: { slow?: boolean; onEnd?: () =
   const synth = window.speechSynthesis;
   synth.cancel();
   const voice = bestBrowserVoice();
-  const list = texts.map((t) => t.trim()).filter(Boolean);
+  const list = texts.map((t) => stripMarks(t).trim()).filter(Boolean);
   list.forEach((t, k) => {
     const u = new SpeechSynthesisUtterance(t);
     u.lang = "en-US";

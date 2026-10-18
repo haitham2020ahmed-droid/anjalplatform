@@ -117,7 +117,7 @@ export async function assignTestAction(input: Omit<AssignTestInput, "openAt" | "
       classId: String(input?.classId ?? ""), type: String(input?.type ?? ""), title: String(input?.title ?? ""), levelMode: input?.levelMode,
       studentIds: Array.isArray(input?.studentIds) ? input.studentIds.map(String) : [], openAt: dateOf(input?.openAt), dueAt: dateOf(input?.dueAt, true),
       timeLimitMin: input?.timeLimitMin ?? null, shuffle: Boolean(input?.shuffle), questions: input?.questions ?? {}, templateId: input?.templateId ? String(input.templateId) : null,
-      marks: input?.marks && typeof input.marks === "object" ? input.marks : null,
+      marks: input?.marks && typeof input.marks === "object" ? input.marks : null, source: input?.source ? String(input.source) : null,
     });
     return { testId: r.testId };
   } catch (e) { if (known(e)) return { error: (e as Error).message }; throw e; }

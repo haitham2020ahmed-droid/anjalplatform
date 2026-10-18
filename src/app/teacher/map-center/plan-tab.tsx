@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section } from "@/components/page-header";
 import { EmptyState } from "@/components/ui-kit";
 import { BTN_MAIN, BTN_SOFT, PlanBuilder, WhoPicker } from "@/components/plans/plan-builder";
+import { PendingButton } from "@/components/pending-button";
 import { StudentPlanPreview } from "@/components/plans/student-preview";
 import { repo } from "@/server/auth/next";
 import { can, ForbiddenError, type Actor } from "@/server/auth/rbac";
@@ -32,15 +33,24 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
   const { get, getAll } = fromSearchParams({ ...sp, classId: klass.id });
   const form = readPlanForm(get, getAll, [subject]);
   const carry: [string, string][] = [["tab", "plan"], ["mode", "group"], ["classId", klass.id], ["subject", subject], ["who", form.who], ...form.studentIds.map((id) => ["sid", id] as [string, string])];
+  // ⚡ r79: only the view on screen is computed — the individual drafts, or the group suggestion (before: the group
+  // suggestion was made on every open, also when the individual plans were shown)
+  let drafts: MapDraft[] = [];
+  if (sp.mode !== "group") {
+    try { drafts = await mapDraftsForClass(repo, actor, klass.id); }
+    catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
+  }
+  const subjDrafts = drafts.filter((d) => d.subject === subject);
+  const mode = sp.mode === "group" || sp.mode === "individual" ? sp.mode : (subjDrafts.length ? "individual" : "group");
   const needsStudents = form.who !== "class" && !form.studentIds.length;
   let sug: MapSuggestion | null = null;
   let error: string | null = null;
-  if (!needsStudents) {
+  if (mode === "group" && !needsStudents) {
     try { sug = await suggestMapPlan(repo, actor, { classId: klass.id, studentIds: form.studentIds, subject }); }
     catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; error = e.message; }
   }
   const [added, results] = await Promise.all([
-    form.add.length ? skillsByIds(repo, actor, form.add) : Promise.resolve([]),
+    form.add.length && mode === "group" ? skillsByIds(repo, actor, form.add) : Promise.resolve([]),
     form.q && sug ? searchSkillsAnyGrade(repo, actor, form.q) : Promise.resolve([]),
   ]);
   const plan = sug ? applyEdits(sug.skills, form.keep, added, sug.students.map((s) => s.id)) : [];
@@ -52,11 +62,6 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
       <input type="radio" name="subject" value={v} defaultChecked={subject === v} className="sr-only" />{label}
     </label>
   );
-  let drafts: MapDraft[] = [];
-  try { drafts = await mapDraftsForClass(repo, actor, klass.id); }
-  catch (e) { if (!(e instanceof ForbiddenError)) throw e; }
-  const subjDrafts = drafts.filter((d) => d.subject === subject);
-  const mode = sp.mode === "group" || sp.mode === "individual" ? sp.mode : (subjDrafts.length ? "individual" : "group");
   const modeHref = (m: string) => `/teacher/map-center?${new URLSearchParams({ tab: "plan", mode: m, classId: klass.id, subject })}`;
   const modeBtn = (m: string, icon: string, label: string, hint: string) => (
     <Link href={modeHref(m)} aria-current={mode === m ? "page" : undefined} className={`flex flex-1 items-start gap-3 rounded-2xl p-4 ring-2 ${mode === m ? "bg-emerald-50 ring-emerald-500" : "bg-white ring-slate-200 hover:ring-brand-teal"}`}>
@@ -135,14 +140,14 @@ function IndividualPlans({ t, drafts, classId, className, subject }: { t: TFn; d
                   skills={d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.join(", ")}` : a.name))} note={d.note} />
                 <div className="flex flex-wrap justify-end gap-2">
                   <form action={dismissMapDraftAction}>{hidden(d.id)}<button className={BTN_SOFT}>{t("Dismiss")}</button></form>
-                  <form action={sendMapDraftAction}>{hidden(d.id)}<button className={BTN_MAIN}>{t("Send to {name}", { name: d.studentName })}</button></form>
+                  <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>
                 </div>
               </div>
             </details>
           </li>
         ))}
       </ul>
-      <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<button className={`${BTN_MAIN} px-8 text-lg`}>{t("Send all {n} plans", { n: drafts.length })}</button></form>
+      <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send all {n} plans" vars={{ n: drafts.length }} pendingLabel="Sending…" /></form>
     </Section>
   );
 }

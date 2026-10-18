@@ -3,12 +3,15 @@ import { useActionState, useState } from "react";
 import { createAssignmentAction } from "../../actions";
 import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
 import { Combo } from "@/components/ui/combo";
+import { SourceSelect } from "@/components/assign/source-select";
+import { useT } from "@/i18n/client";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 
 export function AssignmentForm({ classId, units, skills }: { classId: string; units: { id: string; label: string }[]; skills: SkillListRow[] }) {
   const [state, action, pending] = useActionState(createAssignmentAction, {});
   const [target, setTarget] = useState<"SKILL" | "UNIT">("SKILL");
+  const t = useT();
   return (
     <form action={action} className="mt-6 max-w-2xl space-y-5">
       <input type="hidden" name="classId" value={classId} />
@@ -28,8 +31,10 @@ export function AssignmentForm({ classId, units, skills }: { classId: string; un
         <label className="block font-medium">Unit<Combo name="unitId" label="Unit" defaultValue={units[0]?.id ?? ""} options={units.map((u) => ({ value: u.id, label: u.label }))} className="mt-1" /></label>
       )}
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block font-medium">Due date<input type="date" name="dueAt" className={input} /></label>
+        <label className="block font-medium">Start date<input type="date" name="startAt" className={input} /></label>
+        <label className="block font-medium">End (due) date<input type="date" name="dueAt" className={input} /></label>
         <label className="block font-medium">Target mastery<input type="number" name="targetMastery" min={40} max={100} defaultValue={75} className={input} /></label>
+        <SourceSelect t={t} field={`${input} font-normal`} className="font-medium" />
       </div>
       {state.error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-red-700">{state.error}</p>}
       <button disabled={pending} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white hover:bg-brand-purple disabled:opacity-60">{pending ? "Assigning…" : "Assign to class"}</button>

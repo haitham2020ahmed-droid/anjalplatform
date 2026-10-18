@@ -1,0 +1,460 @@
+{
+ "code": "LN-223",
+ "title": "Agreement with compound subjects",
+ "subject": "LANGUAGE",
+ "goalArea": "Grammar and Usage",
+ "subtopic": "Phrases, Clauses, Agreement, Sentences",
+ "standards": [
+  "L.4.1",
+  "L.5.1",
+  "L.6.1"
+ ],
+ "families": [
+  "subject-verb-agreement"
+ ],
+ "skillNames": [
+  "Subject-Verb Agreement with Compound Subjects"
+ ],
+ "statements": [
+  "L-0206",
+  "L-0208"
+ ],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Two subjects, one verb",
+     "text": "The **subject** tells who or what does the action.\n\nSometimes there are two subjects joined by **and**: “**Saud and Turki** run.”\n\nTwo or more subjects joined together make a **compound subject**."
+    },
+    {
+     "title": "And means more than one",
+     "text": "Two subjects joined by **and** are **more than one**, so the verb is plural.\n\n“The cat **and** the dog **play**.” (not plays)\n“My mother **and** my aunt **are** here.” (not is)"
+    },
+    {
+     "title": "Take the -s off",
+     "text": "With one subject, the verb often ends in **-s**: “Saud **runs**.”\n\nWith a compound subject joined by and, take the **-s** off: “Saud and Turki **run**.”\n\nUse **are**, **were** and **have** with and-subjects."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the verb.\n2. Ask: **who or what** does it? Look for two subjects joined by **and**.\n3. Two subjects with and = more than one → plural verb (no -s, are, have).\n4. Point to the words joined by and: they are your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Noura and Hessa bake bread with their grandmother.",
+      "role": "key"
+     },
+     {
+      "t": "The warm bread smells good.",
+      "role": "detail"
+     }
+    ],
+    "explain": "In sentence 1, **Noura and Hessa** are two people joined by and → **bake** (no -s).\n\nIn sentence 2, **the bread** is one thing → **smells**."
+   },
+   "together": {
+    "passage": "Fahad and his little brother ___ to the farm every Friday. The goats and the sheep run to meet them. The boys give the animals fresh hay. Then the two brothers sit under a palm tree.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "goes",
+     "go",
+     "is going",
+     "has gone"
+    ],
+    "answer": 1,
+    "hint": "Who goes to the farm? Count the people before the blank.",
+    "good": "Yes! **Fahad and his little brother** are two people joined by and → **go**."
+   },
+   "evidence": {
+    "sentences": [
+     "Fahad and his little brother ___ to the farm every Friday.",
+     "The goats and the sheep run to meet them.",
+     "The boys give the animals fresh hay.",
+     "Then the two brothers sit under a palm tree."
+    ],
+    "proof": [
+     0,
+     2,
+     3
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show more than one person goes to the farm.",
+    "wrong": "This sentence is about the animals. Find the sentences about the boys."
+   },
+   "checks": [
+    {
+     "passage": "The cup and the plate ___ on the table.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "is",
+      "are",
+      "was",
+      "has"
+     ],
+     "answer": 1,
+     "why": "**The cup and the plate** are two things joined by and → **are**."
+    },
+    {
+     "passage": "Reem and Dana ___ a song in class.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "sing",
+      "sings",
+      "is singing",
+      "has sung"
+     ],
+     "answer": 0,
+     "why": "**Reem and Dana** are two people → plural verb **sing** (no -s)."
+    },
+    {
+     "passage": "The cat and the bird ___ in the sun.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "sits",
+      "is sitting",
+      "sit",
+      "has sat"
+     ],
+     "answer": 2,
+     "why": "**The cat and the bird** are two animals joined by and → **sit**."
+    }
+   ],
+   "again": {
+    "title": "Count the subjects",
+    "text": "Point to each subject and count: one, two.\n\nIf you count **two or more**, use the verb that goes with **they**: they run, they are, they have.",
+    "example": "“Ali and Omar ___ (is / are) friends.” Ali and Omar = they → they are → **are**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Or and nor do not add up",
+     "text": "With **and**, the subjects add up. With **or** and **nor**, you choose **one** of them.\n\n“Fahad **or** Saud **opens** the door.” Only one person opens it."
+    },
+    {
+     "title": "The nearer subject decides",
+     "text": "When subjects are joined by **or**, **either…or**, **nor** or **neither…nor**, the verb agrees with the subject **closer to it**.\n\n“Either my sisters or my **mother** **cooks**.”\n“Either my mother or my **sisters** **cook**.”"
+    },
+    {
+     "title": "Neither…nor",
+     "text": "“**Neither** the cup **nor** the plates **are** clean.” → plates is nearer → are.\n\n“**Neither** the plates **nor** the cup **is** clean.” → cup is nearer → is."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the joining words: or, nor, either…or, neither…nor.\n2. Find the subject **right before the verb**.\n3. One or more? Choose the verb for that subject.\n4. Point to the nearer subject: it proves your answer."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Either the boys or their teacher carries the flag.",
+      "role": "key"
+     },
+     {
+      "t": "Neither the drums nor the flutes are too loud.",
+      "role": "key"
+     },
+     {
+      "t": "Everyone claps at the end.",
+      "role": "other"
+     }
+    ],
+    "explain": "Sentence 1: **teacher** is nearer to the verb → **carries**.\n\nSentence 2: **flutes** is nearer to the verb → **are**."
+   },
+   "together": {
+    "passage": "Our class is planting a garden at school. Every morning, someone must water the young plants. Either the girls in Group A or Maha ___ the plants before the first lesson. Neither the hose nor the buckets are too heavy to carry. By the end of the month, the first green leaves have appeared.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "water",
+     "are watering",
+     "waters",
+     "have watered"
+    ],
+    "answer": 2,
+    "hint": "Either…or: look at the subject right before the blank. Is it one person or more?",
+    "good": "Yes! **Maha** is nearer to the verb and is one person → **waters**."
+   },
+   "evidence": {
+    "sentences": [
+     "Our class is planting a garden at school.",
+     "Every morning, someone must water the young plants.",
+     "Either the girls in Group A or Maha ___ the plants before the first lesson.",
+     "Neither the hose nor the buckets are too heavy to carry.",
+     "By the end of the month, the first green leaves have appeared."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence that shows which subject is nearer to the blank.",
+    "wrong": "This sentence does not have the blank. Find the sentence with either…or."
+   },
+   "checks": [
+    {
+     "passage": "Neither the chairs nor the table ___ in the hall.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "are",
+      "is",
+      "were",
+      "have been"
+     ],
+     "answer": 1,
+     "why": "**Table** is nearer to the verb and is singular → **is**."
+    },
+    {
+     "passage": "Juice or milk ___ served with breakfast.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "are",
+      "were",
+      "is",
+      "have been"
+     ],
+     "answer": 2,
+     "why": "With or, the nearer subject decides. **Milk** is singular → **is**."
+    },
+    {
+     "passage": "Either Saud or his cousins ___ the camels at sunset.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "feeds",
+      "is feeding",
+      "has fed",
+      "feed"
+     ],
+     "answer": 3,
+     "why": "**Cousins** is nearer to the verb and is plural → **feed**."
+    }
+   ],
+   "again": {
+    "title": "Cover the first subject",
+    "text": "With or and nor, cover the first subject with your finger. Read only the subject next to the verb.\n\n“Either the coach or the **players** ___.” → the players ___ → **are**.",
+    "example": "“Neither the dog nor the **cats** ___ (likes / like) baths.” Cover the dog → the cats like → **like**."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Both…and adds up",
+     "text": "**Both…and** works like and: the verb is always plural.\n\n“**Both** Rakan **and** Ziyad **know** the answer.”"
+    },
+    {
+     "title": "Pronouns and not only…but also",
+     "text": "Pronouns follow the nearer-subject rule too:\n“Either they or **she** **has** the key.”\n“Neither he nor **you** **are** late.” (you always takes are)\n\n**Not only…but also** works like either…or: “Not only the students but also **the principal** **is** coming.”"
+    },
+    {
+     "title": "Extra phrases are not subjects",
+     "text": "**as well as, along with, together with** do not make a compound subject. Cross them out in your head:\n\n“The principal, along with the teachers, **greets** us.” → the principal greets us."
+    },
+    {
+     "title": "Each and every",
+     "text": "When **each** or **every** comes before a compound subject, think “one at a time” → singular verb.\n\n“**Every** boy and girl **has** a card.”\n“**Each** desk and chair **is** numbered.”"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Cross out phrases like as well as…, along with…, of the….\n2. Look at the joining words: and / both…and → plural; or / nor / not only…but also → nearer subject; each / every → singular.\n3. Point to the subject that decides the verb."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Mr. Nasser, along with his students, visits the museum.",
+      "role": "key"
+     },
+     {
+      "t": "Every painting and statue has a small card.",
+      "role": "key"
+     },
+     {
+      "t": "The students write notes in their books.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 1: cross out **along with his students** → Mr. Nasser **visits**.\n\nSentence 2: **every** + compound → one at a time → **has**."
+   },
+   "together": {
+    "passage": "Last week our class went on a trip to the national museum in Riyadh. Our teacher, as well as two parents, ___ the group through the halls. Every room and corridor had a map on the wall. Both the old swords and the clay jars caught our eyes. Not only the students but also the guide was surprised by a tiny gold coin. Before we left, each boy and girl wrote one new fact in a notebook.",
+    "stem": "Which words fit the blank?",
+    "options": [
+     "were leading",
+     "was leading",
+     "have led",
+     "are leading"
+    ],
+    "answer": 1,
+    "hint": "Cross out “as well as two parents.” Who is left?",
+    "good": "Yes! **As well as two parents** is extra. The subject is **our teacher** → **was leading**."
+   },
+   "evidence": {
+    "sentences": [
+     "Last week our class went on a trip to the national museum in Riyadh.",
+     "Our teacher, as well as two parents, ___ the group through the halls.",
+     "Every room and corridor had a map on the wall.",
+     "Both the old swords and the clay jars caught our eyes.",
+     "Not only the students but also the guide was surprised by a tiny gold coin.",
+     "Before we left, each boy and girl wrote one new fact in a notebook."
+    ],
+    "proof": [
+     1
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where an extra phrase comes between the subject and the blank.",
+    "wrong": "This sentence does not have the blank. Find the sentence with as well as."
+   },
+   "checks": [
+    {
+     "passage": "Both the pen and the notebook ___ in my bag.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "is",
+      "are",
+      "was",
+      "has been"
+     ],
+     "answer": 1,
+     "why": "**Both…and** always takes a plural verb → **are**."
+    },
+    {
+     "passage": "Each spoon and fork ___ been washed.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "have",
+      "are",
+      "were",
+      "has"
+     ],
+     "answer": 3,
+     "why": "**Each** before a compound subject means one at a time → **has**."
+    },
+    {
+     "passage": "Not only my brothers but also my father ___ to the match.",
+     "stem": "Which word fits the blank?",
+     "options": [
+      "goes",
+      "go",
+      "are going",
+      "have gone"
+     ],
+     "answer": 0,
+     "why": "With not only…but also, the nearer subject decides. **My father** is singular → **goes**."
+    }
+   ],
+   "again": {
+    "title": "Cross out, then look",
+    "text": "First cross out the extra words (as well as…, along with…). Then look at what is left:\n\nand / both…and → plural\nor / nor / not only…but also → the nearer subject\neach / every → singular",
+    "example": "“Hamad, along with his cousins, ___ (go / goes) camping.” Cross out → Hamad goes → **goes**."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "When and names one thing",
+     "text": "Sometimes two words joined by and name **one** thing, so the verb is singular:\n\n“**Macaroni and cheese is** my favorite meal.” (one dish)\n“Kalila and Dimna **is** a book of fables.” (one title)\n“My friend and neighbor, Ziyad, **lives** nearby.” (one person)"
+    },
+    {
+     "title": "When the subject comes after the verb",
+     "text": "“On the shelf **stand** a vase and a clock.” → subject: a vase and a clock → plural.\n“There **are** a pen and a ruler in the box.”\n\nTurn the sentence around to check: “A vase and a clock **stand** on the shelf.”"
+    },
+    {
+     "title": "Editing for agreement",
+     "text": "When you edit a paragraph, check every verb:\n\n1. Find its subject (cross out extra phrases; look after the verb, too).\n2. Name the rule: and, or / nor, each / every, one thing.\n3. Fix only the verb that breaks the rule."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the subject of each verb, even when it comes after the verb.\n2. Ask: does and join two separate things, or does it name one thing?\n3. Point to the words that prove it: a title, a dish, one person, or two separate things."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Kalila and Dimna is the oldest book on our shelf.",
+      "role": "key"
+     },
+     {
+      "t": "Beside it stand a dictionary and an atlas.",
+      "role": "key"
+     },
+     {
+      "t": "We read from them every evening.",
+      "role": "detail"
+     }
+    ],
+    "explain": "Sentence 1: **Kalila and Dimna** is one title → **is**.\n\nSentence 2: the subject comes after the verb: **a dictionary and an atlas** → two things → **stand**."
+   },
+   "together": {
+    "passage": "Every spring, our school holds a book fair in the library. This year, the librarian and her helpers worked for weeks to prepare. Near the entrance ___ a long table and three tall shelves of new books. The most popular title was Kalila and Dimna, a collection of old animal fables. Each student and teacher received a coupon for one free book. Neither the rain outside nor the long lines were able to keep the visitors away. By the end of the day, the fair had raised money for new computers.",
+    "stem": "Which word fits the blank?",
+    "options": [
+     "were",
+     "was",
+     "has been",
+     "is"
+    ],
+    "answer": 0,
+    "hint": "The sentence starts with a place. Look AFTER the blank: what was near the entrance?",
+    "good": "Yes! The subject comes after the verb: **a long table and three tall shelves**. Two things joined by and → **were**."
+   },
+   "evidence": {
+    "sentences": [
+     "Every spring, our school holds a book fair in the library.",
+     "This year, the librarian and her helpers worked for weeks to prepare.",
+     "Near the entrance ___ a long table and three tall shelves of new books.",
+     "The most popular title was Kalila and Dimna, a collection of old animal fables.",
+     "Each student and teacher received a coupon for one free book.",
+     "Neither the rain outside nor the long lines were able to keep the visitors away.",
+     "By the end of the day, the fair had raised money for new computers."
+    ],
+    "proof": [
+     2
+    ],
+    "need": 1,
+    "stem": "Tap the sentence where the subject comes after the blank.",
+    "wrong": "In this sentence the subject comes before its verb, or there is no blank. Find the sentence that starts with a place."
+   },
+   "checks": [
+    {
+     "passage": "Macaroni and cheese ___ on the lunch menu every Monday.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "are",
+      "were",
+      "is",
+      "have been"
+     ],
+     "answer": 2,
+     "why": "**Macaroni and cheese** names one dish → **is**."
+    },
+    {
+     "passage": "On the wall ___ a clock and a calendar.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "hang",
+      "hangs",
+      "is hanging",
+      "has hung"
+     ],
+     "answer": 0,
+     "why": "Turn it around: “A clock and a calendar **hang** on the wall.” Two things → **hang**."
+    },
+    {
+     "passage": "The captain and coach of our team, Mr. Saud, ___ proud of the players.",
+     "stem": "Which words fit the blank?",
+     "options": [
+      "are",
+      "were",
+      "have been",
+      "is"
+     ],
+     "answer": 3,
+     "why": "**Captain and coach** name one person, Mr. Saud → **is**."
+    }
+   ],
+   "again": {
+    "title": "One thing or two?",
+    "text": "Ask: is this **one** thing with a two-part name (a dish, a title, one person) or **two** separate things?\n\nOne thing → singular verb. Two things → plural verb.",
+    "example": "“Bread and butter ___ (is / are) my snack.” One snack → **is**. “The bread and the butter ___ (is / are) in the fridge.” Two things → **are**."
+   }
+  }
+ }
+}

@@ -23,8 +23,11 @@ import { safeIfBehind } from "../db/schema-errors";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { sourceOfAssignment } from "../../lib/assign-source";
 import { isGrammarCode } from "../grammar/grammar";
-import { assertSchoolSkill, assignSkill, cancelAssignment, pickedQuestionIds } from "../teacher/assign";
+import { assertSchoolSkill, cancelAssignment, pickedQuestionIds } from "../teacher/assign";
+import { SOURCE_REQUIRED, type AssignSource } from "../assign/source";
+import { planSource, sendPartsBatch, type BatchPart } from "./batch-send";
 import { assertClassAccess } from "../teacher/assignments";
 import { contentKeysForIds, Sitting } from "../questions/fresh";
 import { schoolSkillIndex } from "../questions/skill-questions";
@@ -492,65 +495,88 @@ export async function editPlan(repo: Repo, actor: Actor, planId: string, edit: P
 
 const LONG_LABEL = (program: Program | null, grade: number, name: string) => `${editorPlanLabel(program)} · Grade ${grade} · ${name}`.slice(0, 255);
 
-async function itemCode(repo: Repo, x: PlanSection): Promise<string> {
-  if (x.placeCode) return x.placeCode.slice(0, 80);
-  return s((await repo.findUnique("Skill", { id: x.skillId }))?.code).slice(0, 80) || x.skillId.slice(0, 80);
-}
-
-/** Sends a section: one skill assignment with the section's questions (or the platform's choice), and its plan item. */
-async function sendSection(repo: Repo, actor: Actor, p: LoadedPlan, x: PlanSection, order: number, now: Date, paused: boolean): Promise<string[]> {
+/** A section → one part of the batched send (plans/batch-send.ts): its students, questions, lesson and plan item. */
+function partOf(p: LoadedPlan, x: PlanSection, grammar: boolean, paused: boolean, order?: number): BatchPart {
   const who = (x.studentIds ?? p.planStudents).filter((id) => p.members.includes(id)).sort();
   if (!who.length) throw new ValidationError(`${x.label ?? x.skillName}: none of its students is in the class now.`);
-  const skill = await repo.findUnique("Skill", { id: x.skillId });
-  const r = await assignSkill(repo, actor, {
-    classId: s(p.klass.id), skillId: x.skillId, studentIds: who.length === p.members.length ? undefined : who, track: trackOfProgram(p.program, isGrammarCode(s(skill?.code))),
-    dueAt: d(p.row.dueAt), startAt: paused ? null : d(p.row.startAt), note: s(p.row.note) || `${editorPlanLabel(p.program)}: ${s(p.row.title)}`, program: p.program,
-    questionIds: x.auto ? null : x.questionIds,
-  }, now);
-  if (x.label) await repo.updateMany("Assignment", { id: r.assignmentId }, { title: x.label.slice(0, 191) });
-  if (paused) await repo.updateMany("Assignment", { id: r.assignmentId }, { startAt: PAUSE_UNTIL });
-  x.assignmentId = r.assignmentId;
-  await repo.create("SkillPlanItem", { planId: p.row.id, code: await itemCode(repo, x), label: LONG_LABEL(p.program, p.grade, x.label ?? x.skillName), assignmentIds: [r.assignmentId], order });
-  if (x.lesson && !paused) for (const id of who) await inviteToLesson(repo, id, x.skillId, "ASSIGNMENT", now).catch(() => false);
-  return who;
+  return {
+    skillId: x.skillId, studentIds: who, track: trackOfProgram(p.program, grammar), questionIds: x.auto ? null : x.questionIds, title: x.label,
+    lesson: x.lesson && !paused, itemCode: x.placeCode, itemLabel: LONG_LABEL(p.program, p.grade, x.label ?? x.skillName), ...(paused ? { startAt: PAUSE_UNTIL } : {}),
+    ...(order !== undefined ? { order } : {}),
+  };
 }
 
-/** ▶ Sends a draft: every section to its students. Nothing half-made on an error. */
-export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<{ planId: string; sections: number; students: number }> {
+/** Sends sections in ONE batch (r82): every part's assignment, students, plan item and lesson together. Sets x.assignmentId. */
+async function sendSections(repo: Repo, actor: Actor, p: LoadedPlan, xs: { x: PlanSection; order?: number }[], now: Date, paused: boolean, source: AssignSource, notify: boolean): Promise<Set<string>> {
+  if (!xs.length) return new Set();
+  const idx = await schoolSkillIndex(repo, s(p.klass.schoolId));
+  const parts = xs.map(({ x, order }) => partOf(p, x, isGrammarCode(s(idx.skillOf.get(x.skillId)?.code)), paused, order));
+  const r = await sendPartsBatch(repo, actor, {
+    klass: p.klass, members: p.members, plan: { id: s(p.row.id), title: s(p.row.title) }, parts, dueAt: d(p.row.dueAt), startAt: paused ? null : d(p.row.startAt),
+    note: s(p.row.note) || `${editorPlanLabel(p.program)}: ${s(p.row.title)}`, program: p.program, source, notify, noLessons: paused,
+  }, now);
+  xs.forEach(({ x }, i) => { x.assignmentId = r.byPart[i].assignmentId; });
+  return r.students;
+}
+
+/**
+ * ▶ Sends a draft: every section to its students, in one batch (r82). Nothing half-made on an error. Pressing Send
+ * twice (or two presses at once) sends once: the draft is claimed first (one conditional write), the second press
+ * is told the plan is on its way / sent.
+ */
+export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = new Date(), /** r74: the Source chosen next to Send (a program plan: its program) */ sourceIn?: string | null): Promise<{ planId: string; sections: number; students: number }> {
   assertCan(actor, "assignments:create");
+  // r74 + owner r82: a program plan's work is that program's (RTI → RTI, NAFS → NAFS, MAP → MAP, Curriculum →
+  // Curriculum); a custom plan needs the teacher's choice
+  const head = await repo.findUnique("SkillPlan", { id: String(planId ?? "") });
+  const program: Program | null = !head ? null : isProgram(head.program) ? head.program : programOfPlanKind(head.kind);
+  const source = planSource(program, sourceIn);
+  if (!source) throw new ValidationError(SOURCE_REQUIRED);
   const p = await loadPlan(repo, actor, planId);
   if (p.status !== "DRAFT") throw new ValidationError("This plan was sent already. Your changes reach the students as you make them.");
   assertProgramFitsGrade(p.program, p.grade);
   if (!p.doc.sections.length) throw new ValidationError("Add at least one skill or lesson to the plan.");
   const due = d(p.row.dueAt);
   if (due && due.getTime() < now.getTime() - 60_000) throw new ValidationError("The due date is in the past.");
-  // every listed question once in the whole plan, still published (checked again here)
+  // every listed question once in the whole plan (checked again here; published / of the school: in the batch)
   const all = planQuestionIds(p.doc);
-  const keys = await contentKeysForIds(repo, all);
-  const sit = new Sitting();
-  for (const id of all) { if (sit.has(id, keys.get(id) ?? [])) throw new ValidationError("The same question is in the plan twice. Remove one copy."); sit.add(id, keys.get(id) ?? []); }
-  for (const x of p.doc.sections) if (!x.auto) await pickedQuestionIds(repo, p.klass.schoolId, x.questionIds);
+  if (all.length) {
+    const keys = await contentKeysForIds(repo, all);
+    const sit = new Sitting();
+    for (const id of all) { if (sit.has(id, keys.get(id) ?? [])) throw new ValidationError("The same question is in the plan twice. Remove one copy."); sit.add(id, keys.get(id) ?? []); }
+  }
+  // 🔒 claim the draft (one conditional write): a second press finds it claimed and sends nothing
+  let claimed = await repo.updateMany("SkillPlan", { id: p.row.id, status: "DRAFT", sentAt: null }, { sentAt: now });
+  const was = d(p.row.sentAt);
+  if (!claimed && was && now.getTime() - was.getTime() > SEND_CLAIM_MS) claimed = await repo.updateMany("SkillPlan", { id: p.row.id, status: "DRAFT", sentAt: was }, { sentAt: now });
+  if (!claimed) throw new ValidationError("This plan is being sent. Wait a moment, then open it again.");
   const doc: PlanDoc = JSON.parse(JSON.stringify(p.doc));
-  const students = new Set<string>();
-  const made: string[] = [];
+  let students: Set<string>;
   try {
-    let order = 0;
-    for (const x of doc.sections) { for (const id of await sendSection(repo, actor, p, x, order++, now, false)) students.add(id); made.push(x.assignmentId!); }
+    students = await sendSections(repo, actor, p, doc.sections.map((x) => ({ x })), now, false, source, true);
   } catch (e) {
-    if (made.length) await repo.updateMany("Assignment", { id: { in: made } }, { deletedAt: now });
-    await repo.deleteMany("SkillPlanItem", { planId: p.row.id });
+    await repo.updateMany("SkillPlan", { id: p.row.id, status: "DRAFT" }, { sentAt: null }).catch(() => 0);
     throw e;
   }
   await repo.updateMany("SkillPlan", { id: p.row.id }, { status: "SENT", doc, sentAt: now, updatedAt: now, createdAt: now });
-  await audit(repo, { actorId: actor.userId, action: "plan.send", entityType: "SkillPlan", entityId: s(p.row.id), after: { program: p.program, sections: doc.sections.length, students: students.size }, at: now });
+  await audit(repo, { actorId: actor.userId, action: "plan.send", entityType: "SkillPlan", entityId: s(p.row.id), after: { program: p.program, sections: doc.sections.length, students: students.size, source }, at: now });
   return { planId: s(p.row.id), sections: doc.sections.length, students: students.size };
 }
+/** a claim older than this (the server stopped in the middle of a send) may be taken again */
+const SEND_CLAIM_MS = 3 * 60_000;
 
 /**
  * After an edit of a sent plan: the assignments follow the plan. New sections are sent, removed ones cancelled
  * (answers kept), changed ones updated in place (questions, students, dates, note). Returns how many students were
  * told about the change.
  */
+/** r74: the source of a sent plan = the source of its first sent part (older parts: inferred from the row); else its program. */
+async function sentPlanSource(repo: Repo, p: LoadedPlan, before: PlanDoc): Promise<string> {
+  const first = before.sections.find((x) => x.assignmentId)?.assignmentId;
+  const row = first ? await repo.findUnique("Assignment", { id: first }) : null;
+  return sourceOfAssignment(row ?? { program: p.program });
+}
+
 async function syncSent(repo: Repo, actor: Actor, p: LoadedPlan, before: PlanDoc, after: PlanDoc, now: Date): Promise<number> {
   const paused = p.status === "PAUSED";
   const touched = new Set<string>();
@@ -562,8 +588,12 @@ async function syncSent(repo: Repo, actor: Actor, p: LoadedPlan, before: PlanDoc
     for (const l of await repo.findMany("AssignmentStudent", { assignmentId: x.assignmentId }, { select: ["studentId"] })) touched.add(s(l.studentId));
   }
   let order = 0;
+  // r74: a part added to a SENT plan keeps the plan's source (the one chosen at Send; older plans: inferred); r82: batched
+  const fresh = after.sections.map((x, i) => ({ x, order: i })).filter(({ x }) => !x.assignmentId);
+  if (fresh.length) for (const id of await sendSections(repo, actor, p, fresh, now, paused, (await sentPlanSource(repo, p, before)) as AssignSource, false)) touched.add(id);
+  const isFresh = new Set(fresh.map(({ x }) => x.key));
   for (const x of after.sections) {
-    if (!x.assignmentId) { for (const id of await sendSection(repo, actor, p, x, order++, now, paused)) touched.add(id); continue; }
+    if (isFresh.has(x.key) || !x.assignmentId) { order++; continue; }
     const old = before.sections.find((y) => y.assignmentId === x.assignmentId);
     const who = (x.studentIds ?? p.planStudents).filter((id) => p.members.includes(id));
     const rows = await repo.findMany("AssignmentStudent", { assignmentId: x.assignmentId }, { select: ["studentId"] });

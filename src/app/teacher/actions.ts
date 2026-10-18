@@ -11,6 +11,7 @@ import { masteredInClasses } from "@/server/skills/status-extras";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
+import { startOfDay } from "@/lib/assign-dates";
 
 const id = z.string().min(1).max(191);
 
@@ -30,8 +31,9 @@ export async function createAssignmentAction(_: { error?: string }, f: FormData)
       classId, title: String(f.get("title") ?? ""), target,
       skillIds: target === "SKILL" ? f.getAll("skillIds").map(String) : undefined,
       unitId: target === "UNIT" ? String(f.get("unitId") ?? "") : undefined,
-      dueAt: due ? new Date(`${due}T23:59:00`) : null,
+      dueAt: due ? new Date(`${due}T23:59:00`) : null, startAt: startOfDay(f.get("startAt")),
       targetMastery: z.coerce.number().int().min(40).max(100).parse(f.get("targetMastery") ?? 75),
+      source: String(f.get("source") ?? ""),
     });
   } catch (e) {
     if (e instanceof ValidationError) return { error: e.message };
@@ -63,7 +65,7 @@ export async function assignSkillAction(_: { error?: string; message?: string; a
     // 📝 Save as draft: nothing reaches students; sent later from Weekly Assignments → Drafts
     if (f.get("intent") === "draft") {
       const ymd = (v: FormDataEntryValue | null) => (v && /^\d{4}-\d{2}-\d{2}$/.test(String(v)) ? String(v) : null);
-      await saveAssignDraft(repo, actor, { skillId: String(f.get("skillId") ?? ""), skillName: String(f.get("skillName") ?? "Skill"), classIds, studentIds: mode === "class" ? [] : picked, track: trackOf(f.get("track")), program: (programOf(f.get("program")) as string | null) ?? null, questionIds: parseQuestionIdsField(f.get("questionIds")) ?? null, startAt: ymd(f.get("startAt")), dueAt: ymd(f.get("dueAt")), note: String(f.get("note") ?? "") });
+      await saveAssignDraft(repo, actor, { skillId: String(f.get("skillId") ?? ""), skillName: String(f.get("skillName") ?? "Skill"), classIds, studentIds: mode === "class" ? [] : picked, track: trackOf(f.get("track")), program: (programOf(f.get("program")) as string | null) ?? null, source: String(f.get("source") ?? ""), questionIds: parseQuestionIdsField(f.get("questionIds")) ?? null, startAt: ymd(f.get("startAt")), dueAt: ymd(f.get("dueAt")), note: String(f.get("note") ?? "") });
       revalidatePath("/teacher/assignments");
       return { message: "Saved as a draft. Nothing was sent. Send it from Weekly Assignments → Drafts.", draft: true };
     }
@@ -81,6 +83,7 @@ export async function assignSkillAction(_: { error?: string; message?: string; a
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
       program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")),
       questionCount: f.get("questionCount") ? Number(f.get("questionCount")) : null,
+      source: String(f.get("source") ?? ""),
     });
     revalidatePath("/teacher/assignments");   // not the skills page: rebuilding it after every click made assigning slow
     return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}${r.classes > 1 ? ` in ${r.classes} classes` : ""}. They have been notified.`, assignmentIds: r.assignmentIds };
@@ -103,6 +106,7 @@ export async function assignQuestionsAction(_: { error?: string; message?: strin
       track: trackOf(f.get("track")),
       classId: String(f.get("classId") ?? ""), questionIds: f.getAll("questionIds").map(String), studentIds: mode === "class" ? [] : picked,
       title: String(f.get("title") ?? ""), startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
+      source: String(f.get("source") ?? ""),
     });
     revalidatePath("/teacher/assignments");
     return { message: `${r.questions} question${r.questions === 1 ? "" : "s"} assigned to ${r.students} student${r.students === 1 ? "" : "s"}. They have been notified.` };

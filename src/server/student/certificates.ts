@@ -22,6 +22,6 @@ export async function studentCertificates(repo: Repo, actor: Actor, lang = "en")
   const rows = await listCertificates(repo, actor, actor.studentId);
   return rows.map((c) => ({
     id: c.id, kind: c.kind, title: friendlyCertificateTitle(c), detail: c.kind === "LEVEL_UP" ? c.detail : null, date: c.date, byTeacher: c.byTeacher,
-    viewHref: `/api/certificates/${encodeURIComponent(c.id)}?format=html&lang=${lang}`, pdfHref: `/api/certificates/${encodeURIComponent(c.id)}?lang=${lang}`,
+    viewHref: `/api/certificates/${encodeURIComponent(c.id)}?format=html&lang=${lang}`, pdfHref: `/api/certificates/${encodeURIComponent(c.id)}?lang=${lang}&print=1`,
   }));
 }

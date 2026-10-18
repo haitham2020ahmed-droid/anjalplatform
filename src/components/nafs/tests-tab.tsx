@@ -41,7 +41,7 @@ export async function TestsTab({ actor, t }: { actor: Actor; t: TFn }) {
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   <Link href={`/teacher/nafs/tests/${x.id}`} className="inline-flex min-h-10 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white">{t("Open")}</Link>
-                  {x.results > 0 && <Link href={`/teacher/nafs?tab=reports&test=${x.id}`} className="inline-flex min-h-10 items-center rounded-lg bg-surface px-3 text-sm font-semibold text-ink ring-1 ring-line">{t("Reports")}</Link>}
+                  {x.results > 0 && <Link href={`/teacher/nafs?tab=test&sub=report&test=${x.id}`} className="inline-flex min-h-10 items-center rounded-lg bg-surface px-3 text-sm font-semibold text-ink ring-1 ring-line">{t("Reports")}</Link>}
                 </div>
               </li>
             ))}

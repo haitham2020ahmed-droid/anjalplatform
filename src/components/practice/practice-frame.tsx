@@ -14,6 +14,7 @@ import { FeedbackPanel } from "./feedback-panel";
 import { CelebrateFx } from "../feedback-fx/answer-fx";
 import { ListenButton } from "@/components/listen-button";
 import { PassageText, plainPassage } from "@/components/passage-text";
+import { RichInline } from "@/components/rich-inline";
 
 const END_TEXT: Record<string, string> = {
   COMPLETED: "Great work. You finished this practice set.",
@@ -46,6 +47,12 @@ export function PracticeFrame(props: {
   onFinish?: () => void;
   /** r67: after "take your time" the answer buttons wait a few seconds */
   locked?: boolean;
+  /** r68: the answer is being sent again by itself (weak connection, busy server) */
+  retrying?: boolean;
+  /** r68: every try failed: a small "Try again" inside the player (never a full-page error); the answer stays */
+  canRetry?: boolean;
+  /** the interface language's translate function (the frame itself is shared with server-drawn previews) */
+  t?: (text: string) => string;
 }) {
   const { view, shownQuestion: q, feedback: fb } = props;
   const finished = view.ended && (!fb || !fb.next.hasQuestion);
@@ -81,7 +88,7 @@ export function PracticeFrame(props: {
         <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
           {q.passage && (
             <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label="Reading passage">
-              <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2><ListenButton text={`${q.passage.title}. ${plainPassage(q.passage.text)}`} label="Listen to the text" /></div>
+              <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy"><RichInline text={q.passage.title} /></h2><ListenButton text={`${q.passage.title}. ${plainPassage(q.passage.text)}`} label="Listen to the text" /></div>
               <PassageText text={q.passage.text} />
             </article>
           )}
@@ -90,10 +97,16 @@ export function PracticeFrame(props: {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
             )}
-            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-lg font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-lg font-medium leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>}
             <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
             <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={!!fb || props.pending || Boolean(props.locked)} /></div>
-            {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
+            {props.retrying && <p role="status" data-testid="answer-retrying" className="mt-4 rounded-lg bg-sky-50 px-3 py-2 text-sky-800">{props.t ? props.t("Trying again…") : "Trying again…"}</p>}
+            {props.error && (
+              <div role="alert" className="mt-4 flex flex-wrap items-center gap-3 rounded-lg bg-red-50 px-3 py-2 text-red-700">
+                <span>{props.error}</span>
+                {props.canRetry && !fb && <button type="button" data-testid="answer-try-again" onClick={props.onCheck} disabled={props.pending} className="rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-red-800 ring-1 ring-red-300 disabled:opacity-50">{props.t ? props.t("Try again") : "Try again"}</button>}
+              </div>
+            )}
             {/* the 30–50 rule: mastered at 30+ → Done and the practice ends; 50 answers without mastery → Done, and the
                 student chooses "Stop for now" or "Keep practising" */}
             {justDone && (doneBy === "MASTERED"

@@ -1,0 +1,13 @@
+{
+  "_note": "Essential questions of each Text Set of the book (Wonders), keyed by grade, unit and the first week of the Text Set. Grade 4 only (from the Wonders Grade 4 alignment the owner supplied, r79). Grades 5 and 6: not available yet — the Full curriculum map shows the Text Set title instead.",
+  "grades": {
+    "4": {
+      "1": { "1": "How do people respond to natural disasters?", "3": "How do your actions affect others?", "5": "How can starting a business help others?" },
+      "2": { "1": "What helps an animal survive?", "3": "How do animal characters change familiar stories?", "5": "How are writers inspired by animals?" },
+      "3": { "1": "In what ways can you help your community?", "3": "How can one person make a difference?", "5": "In what ways can advances in science be helpful or harmful?" },
+      "4": { "1": "Why do we need government?", "3": "How do inventions and technology affect your life?", "5": "How do writers look at success in different ways?" },
+      "5": { "1": "What can you discover when you look closely at something?", "3": "In what ways do people show they care about each other?", "5": "How can learning about the past help you understand the present?" },
+      "6": { "1": "How have our energy resources changed over the years?", "3": "How do traditions connect people?", "5": "What shapes a person's identity?" }
+    }
+  }
+}

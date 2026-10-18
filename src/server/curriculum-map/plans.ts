@@ -8,6 +8,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { attachmentNodes, mapEpoch } from "./questions";
 import { modelVersion } from "../cache/bank-version";
@@ -15,6 +16,8 @@ import { remember } from "../cache/lru";
 import { assignFromMap } from "./levels";
 import { DEFAULT_TARGET_CORRECT } from "../teacher/assign";
 import { withLock } from "../lib/key-lock";
+import { sweptWeakMap } from "../cache/idle";
+import { hiddenWorkKeys, placeCancelled } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 /**
@@ -45,8 +48,9 @@ export async function planPlaces(repo: Repo, schoolId: string, grade: number): P
   return out;
 }
 
-export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId: string; title: string; codes: string[]; studentIds?: string[]; maxQuestions?: number; targetCorrect?: number; dueAt?: Date | null; note?: string | null }, now = new Date()): Promise<{ planId: string; items: number; skipped: string[] }> {
+export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId: string; title: string; codes: string[]; studentIds?: string[]; maxQuestions?: number; targetCorrect?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; note?: string | null; /** r74: REQUIRED source */ source: string | null | undefined }, now = new Date()): Promise<{ planId: string; items: number; skipped: string[] }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const title = s(input.title).replace(/\s+/g, " ").trim();
   if (!title) throw new ValidationError("Give the plan a title.");
@@ -62,7 +66,7 @@ export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId
     const place = all.find((p) => p.code === code);
     if (!place) { skipped.push(`${code}: not a place of Grade ${grade}`); continue; }
     try {
-      const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: code, studentIds: input.studentIds?.length ? input.studentIds : undefined, maxQuestions: input.maxQuestions, targetCorrect: input.targetCorrect ?? DEFAULT_TARGET_CORRECT, dueAt: input.dueAt ?? null, note: input.note ?? `Skill plan: ${title}`, mode: "ADAPTIVE" }, now);
+      const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: code, studentIds: input.studentIds?.length ? input.studentIds : undefined, maxQuestions: input.maxQuestions, targetCorrect: input.targetCorrect ?? DEFAULT_TARGET_CORRECT, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? `Skill plan: ${title}`, mode: "ADAPTIVE", source }, now);
       await repo.create("SkillPlanItem", { planId: plan.id, code, label: `${place.where} · ${place.label}`.slice(0, 255), assignmentIds: r.groups.map((g) => g.assignmentId), order: order++ });
     } catch (e) {
       if (e instanceof ValidationError) skipped.push(`${place.label} (${place.where}): ${e.message}`); else throw e;
@@ -138,12 +142,15 @@ export async function studentSkillPlans(repo: Repo, actor: Actor): Promise<Stude
   const st = await repo.findUnique("Student", { id: actor.studentId });
   const myClasses = new Set((await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId)));
   // drafts, paused and withdrawn plans are not shown to students (plan editor)
-  const plans = (await safeIfBehind("plans.student", repo.findMany("SkillPlan", { schoolId: st?.schoolId }), [] as Row[])).filter((p) => visibleToStudents(p));
+  const plans0 = (await safeIfBehind("plans.student", repo.findMany("SkillPlan", { schoolId: st?.schoolId }), [] as Row[])).filter((p) => visibleToStudents(p));
+  // 🚫 owner r68: a plan (or a place of it) the teacher cancelled is not shown (cached cancels: no read when none)
+  const hidden = await hiddenWorkKeys(repo, actor.studentId, s(st?.schoolId)).catch(() => new Set<string>());
+  const plans = plans0.filter((p) => !hidden.has(`plan:${s(p.id)}`));
   const out: StudentPlanSummary[] = [];
   // all the plans' places in one query (not one per plan)
   const allItems = plans.length ? await repo.findMany("SkillPlanItem", { planId: { in: plans.map((p) => p.id) } }) : [];
   for (const p of plans) {
-    const items = allItems.filter((i) => i.planId === p.id);
+    const items = allItems.filter((i) => i.planId === p.id && !placeCancelled(ids(i.assignmentIds), ids(i.assignmentIds).filter((a) => statusOf.has(a)), hidden));
     const curriculum = s(p.kind) === "CURRICULUM";
     if (curriculum && !myClasses.has(s(p.classId))) continue;
     const mineItems = curriculum ? items : items.filter((i) => ids(i.assignmentIds).some((a) => statusOf.has(a)));
@@ -210,8 +217,14 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
     // sections added to the map later (Review) join the plan
     if (await addMissingCurriculumParts(repo, plan)) items = (await planRows(repo, planId)).items;
   }
-  const mine = await repo.findMany("AssignmentStudent", { studentId: actor.studentId }, { select: ["assignmentId", "status", "progress"] });
+  const [mine, hidden] = await Promise.all([
+    repo.findMany("AssignmentStudent", { studentId: actor.studentId }, { select: ["assignmentId", "status", "progress"] }),
+    hiddenWorkKeys(repo, actor.studentId, s(plan.schoolId)).catch(() => new Set<string>()),
+  ]);
+  // 🚫 owner r68: a cancelled plan is gone; a cancelled place leaves the plan (for everyone, or for this student)
+  if (hidden.has(`plan:${s(plan.id)}`)) throw new ForbiddenError("Your teacher cancelled this plan.");
   const byId = new Map(mine.map((m) => [s(m.assignmentId), m]));
+  items = items.filter((it) => !placeCancelled(ids(it.assignmentIds), ids(it.assignmentIds).filter((a) => byId.has(a)), hidden));
   const sessions = await repo.findMany("PracticeSession", { studentId: actor.studentId, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount"] });
   const correctOf = new Map(sessions.map((x) => [s(x.assignmentId), Number(x.correctCount ?? 0)]));
   const skillKind = isSkillPlanKind(s(plan.kind));
@@ -296,7 +309,7 @@ export function partsWithQuestions(repo: Repo, schoolId: string, grade: number):
   p.catch(() => m!.delete(key));
   return p.then((x) => new Set(x));
 }
-const partsCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Set<string>> }>>();
+const partsCache = sweptWeakMap<{ v: string; at: number; p: Promise<Set<string>> }>("curriculum-map.plans.partsCache", 2 * 60_000);
 
 async function partsWithQuestionsNow(repo: Repo, schoolId: string, grade: number): Promise<Set<string>> {
   const nodes = (await attachmentNodes(repo, schoolId)).filter((n) => n.grade === grade);

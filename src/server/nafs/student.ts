@@ -14,6 +14,8 @@ import { hideLevels } from "../../lib/hide-levels";
 import { SKILL_BY_CODE } from "./framework";
 import { loadNafsQuestions, nafsIndex, type NafsKind } from "./bank";
 import { assignedTo, cleanAnswers, cleanScores, cleanTexts, gradeAnswers, json, markOf, type Answer } from "./tests";
+import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
+import { hiddenWorkKeys } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -28,21 +30,26 @@ function student(actor: Actor): string {
 }
 /** The assignment's time (minutes): its own, else the test's. */
 export const minutesFor = (g: Row, t: Row): number | null => (g.timeLimitMin ? Number(g.timeLimitMin) : t.timeLimitMin ? Number(t.timeLimitMin) : null);
+/** r69 live time: when this student's time is up (the limit from the first opening, the class's end time, the student's own extra minutes). */
+export const nafsEndFor = (g: Row, t: Row, studentId: string, startedAt: unknown): Date | null =>
+  effectiveEnd({ startedAt: (startedAt ?? null) as Date | string | null, minutes: minutesFor(g, t), extra: studentExtra(g.studentMinutes, studentId), endsAt: (g.endsAt ?? null) as Date | string | null });
 
 export interface MyNafsTest { id: string; title: string; questions: number; minutes: number | null; openAt: string | null; dueAt: string | null; startsLater: boolean; status: "TODO" | "IN_PROGRESS" | "DONE"; released: boolean; pct: number | null; practise: string[]; marking: boolean }
 
 /** The NAFS assignments of the student's classes that are for this student (online). */
-async function myGivenRows(repo: Repo, studentId: string): Promise<Row[]> {
+async function myGivenRows(repo: Repo, studentId: string, schoolId?: string | null): Promise<Row[]> {
   const classes = (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));
   if (!classes.length) return [];
   const given = await repo.findMany("NafsTestClass", { classId: { in: classes } }, { take: 200 });
-  return given.filter((g) => { const who = assignedTo(g); return !who || who.includes(studentId); });
+  // r82: cancelled on the teacher's Assigned page (for everyone or for this student) = gone from the NAFS icon too
+  const hidden = given.length && schoolId ? await hiddenWorkKeys(repo, studentId, schoolId) : new Set<string>();
+  return given.filter((g) => { const who = assignedTo(g); return (!who || who.includes(studentId)) && !hidden.has(`nafs_test:${s(g.id)}`); });
 }
 
 /** The NAFS tests assigned to the student. */
 export async function myNafsTests(repo: Repo, actor: Actor, now = new Date()): Promise<MyNafsTest[]> {
   const studentId = student(actor);
-  const given = await myGivenRows(repo, studentId);
+  const given = await myGivenRows(repo, studentId, actor.schoolId);
   if (!given.length) return [];
   const [tests, results] = await Promise.all([
     repo.findMany("NafsTest", { id: { in: [...new Set(given.map((g) => s(g.testId)))] }, deletedAt: null }, { select: ["id", "title", "questionIds", "timeLimitMin", "schoolId", "marks"] }),
@@ -79,7 +86,7 @@ export async function myNafsTests(repo: Repo, actor: Actor, now = new Date()): P
 /** The home badge: NAFS tests open now and not handed in yet. */
 export async function nafsToDoCount(repo: Repo, actor: Actor, now = new Date()): Promise<number> {
   if (actor.role !== "STUDENT" || !actor.studentId) return 0;
-  const given = await myGivenRows(repo, actor.studentId);
+  const given = await myGivenRows(repo, actor.studentId, actor.schoolId);
   if (!given.length) return 0;
   const [tests, done] = await Promise.all([
     repo.findMany("NafsTest", { id: { in: [...new Set(given.map((g) => s(g.testId)))] }, deletedAt: null }, { select: ["id"] }),
@@ -115,7 +122,9 @@ async function myGiven(repo: Repo, actor: Actor, id: string): Promise<{ g: Row; 
 }
 
 export interface BookletGroup { passage: { title: string; paragraphs: string[] } | null; questions: { n: number; stem: string; options: string[]; kind: NafsKind }[] }
-export interface Booklet { id: string; title: string; minutes: number | null; endsAt: string | null; done: boolean; answers: Answer[]; texts: Record<string, string>; groups: BookletGroup[]; total: number }
+export interface Booklet { id: string; title: string; minutes: number | null; endsAt: string | null; done: boolean; answers: Answer[]; texts: Record<string, string>; groups: BookletGroup[]; total: number;
+  /** r69 live time: the stamp the player polls with (the teacher's changes reach the timer) */
+  stamp: number }
 
 /** Paragraphs of a passage (blank lines or new lines), numbered in the page. */
 export function paragraphsOf(text: string): string[] {
@@ -150,7 +159,7 @@ export async function openBooklet(repo: Repo, actor: Actor, id: string, now = ne
   const started = d(r.startedAt) ?? now;
   const qs = await loadNafsQuestions(repo, ids);
   return {
-    id: s(g.id), title: hideLevels(s(t.title)), minutes, endsAt: minutes ? new Date(started.getTime() + minutes * 60_000).toISOString() : null, done: Boolean(r.submittedAt),
+    id: s(g.id), title: hideLevels(s(t.title)), minutes, endsAt: nafsEndFor(g, t, studentId, started)?.toISOString() ?? null, done: Boolean(r.submittedAt), stamp: liveStamp(liveKey("nafs", s(g.id))),
     answers: json<Answer[]>(r.answers, ids.map(() => null)), texts: json<Record<string, string>>(r.texts, {}) ?? {}, groups: bookletGroups(ids, qs), total: ids.length,
   };
 }
@@ -170,12 +179,26 @@ export async function saveBooklet(repo: Repo, actor: Actor, input: { id: string;
   const answers = cleanAnswers(input.answers, ids.length).map((a, i) => (key[i] < 0 ? null : a));
   const texts = cleanTexts(input.texts, key);
   const blanks = key.filter((k, i) => (k < 0 ? !texts[String(i)] : answers[i] === null)).length;
-  const minutes = minutesFor(g, t);
-  const late = minutes && d(r.startedAt) ? now.getTime() > d(r.startedAt)!.getTime() + minutes * 60_000 + GRACE_MS : false;
+  // r69: the live end (the teacher may have extended or shortened the time while the test runs)
+  const end = d(r.startedAt) ? nafsEndFor(g, t, studentId, r.startedAt) : null;
+  const late = end ? now.getTime() > end.getTime() + GRACE_MS : false;
   const submit = input.submit || Boolean(late);
   if (!submit) { await repo.updateMany("NafsResult", { id: r.id }, { answers, texts, updatedAt: now }); return { done: false, blanks }; }
   const marks = json<Record<string, number> | null>(t.marks, null);
   const gr = gradeAnswers(key, ids.map((id) => markOf(marks, id)), answers, {});
   await repo.updateMany("NafsResult", { id: r.id }, { answers, texts, writtenScores: {}, correct: gr.correct, points: gr.points, maxPoints: gr.maxPoints, submittedAt: now, updatedAt: now });
   return { done: true, blanks };
+}
+
+/**
+ * ⏱ r69 the player's poll: "same" while the teacher changed nothing (no database read — the stamp is in memory),
+ * else this student's end time now. Only for the student's own assignment.
+ */
+export async function bookletTime(repo: Repo, actor: Actor, id: string, stamp: number, now = new Date()): Promise<{ same: true } | { same: false; endsAt: string | null; stamp: number; done: boolean }> {
+  const cur = liveStamp(liveKey("nafs", s(id)));
+  if (Number(stamp) === cur) return { same: true };
+  const { g, t, studentId } = await myGiven(repo, actor, s(id));
+  const r = (await repo.findMany("NafsResult", { testId: t.id, studentId }, { select: ["startedAt", "submittedAt"] }))[0];
+  const end = nafsEndFor(g, t, studentId, r?.startedAt ?? now);
+  return { same: false, endsAt: end?.toISOString() ?? null, stamp: cur, done: Boolean(r?.submittedAt) };
 }

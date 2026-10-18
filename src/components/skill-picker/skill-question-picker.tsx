@@ -14,6 +14,8 @@ import { AUTO, LEVEL_FILTERS, MAX_PICKED, filterQuestions, isCorrectChoice, pick
 import { draftsOf, useSkillQuestions } from "./load";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
@@ -128,8 +130,8 @@ function QuestionRow({ q, checkable, checked, onToggle, onView }: { q: PickerQue
         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${LEVEL_CHIP[q.level] ?? "bg-slate-100 text-slate-700 ring-slate-200"}`}>{t(LEVEL_LABEL[q.level] ?? "Meeting")}</span>
         {q.passageTitle && <span className="text-xs text-slate-500" lang="en" data-content>{q.passageTitle}</span>}
       </span>
-      {onView ? <button type="button" onClick={(e) => { e.preventDefault(); onView(); }} className="mt-1 block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem || "—"}</button>
-        : <span className="mt-1 block text-slate-900" lang="en" dir="ltr" data-content>{q.stem || "—"}</span>}
+      {onView ? <button type="button" onClick={(e) => { e.preventDefault(); onView(); }} className="mt-1 block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem ? <RichInline text={q.stem} /> : "—"}</button>
+        : <span className="mt-1 block text-slate-900" lang="en" dir="ltr" data-content>{q.stem ? <RichInline text={q.stem} /> : "—"}</span>}
       {q.choices?.length ? (
         <ol className="mt-1 grid gap-0.5 text-sm" lang="en" dir="ltr">
           {q.choices.map((c, i) => {
@@ -143,7 +145,7 @@ function QuestionRow({ q, checkable, checked, onToggle, onView }: { q: PickerQue
   const view = onView ? <button type="button" onClick={onView} className="min-h-9 shrink-0 rounded-lg px-2.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">👁 {t("View")}</button> : null;
   return (
     <li className={`rounded-xl bg-white p-3 ring-1 ${checked ? "ring-2 ring-brand-teal" : "ring-slate-200"}`}>
-      {checkable && onView ? <div className="flex items-start gap-3"><input type="checkbox" checked={checked} onChange={onToggle} aria-label={t("Select question: {stem}", { stem: q.stem.slice(0, 80) })} className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" />{body}{view}</div>
+      {checkable && onView ? <div className="flex items-start gap-3"><input type="checkbox" checked={checked} onChange={onToggle} aria-label={t("Select question: {stem}", { stem: stripMarks(q.stem).slice(0, 80) })} className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" />{body}{view}</div>
         : checkable ? <label className="flex cursor-pointer items-start gap-3"><input type="checkbox" checked={checked} onChange={onToggle} className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" />{body}</label> : <div className="flex items-start gap-3">{body}{view}</div>}
     </li>
   );

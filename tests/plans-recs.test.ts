@@ -35,7 +35,7 @@ describe("skill plans, MAP recommendations, new students from MAP, Nafs", () => 
 
   test("Nafs work may go to a class of any grade (UI reorg access rules; it used to be Grade 6 only)", async () => {
     const mySchoolSkill = (await teacherCurriculum(repo, teacher, classId))!.units.flatMap((u) => u.skills)[0].id;
-    const g4 = await assignSkill(repo, teacher, { classId, skillId: mySchoolSkill, track: "NAFS" });
+    const g4 = await assignSkill(repo, teacher, { source: "NAFS", classId, skillId: mySchoolSkill, track: "NAFS" });
     assert.equal(String((await repo.findUnique("Assignment", { id: g4.assignmentId }))!.track), "NAFS");
     await repo.updateMany("Assignment", { id: g4.assignmentId }, { deletedAt: new Date() }); // keep the later counts of this suite as they were
     // a Grade 6 class and its teacher
@@ -44,14 +44,14 @@ describe("skill plans, MAP recommendations, new students from MAP, Nafs", () => 
     const t6 = await as(String((await repo.findUnique("Teacher", { id: (await repo.findMany("ClassTeacher", { classId: c6.id }))[0].teacherId }))!.userId));
     const cur6 = (await repo.findMany("Curriculum", { gradeId: g6.id }))[0];
     const s6 = (await repo.findMany("Skill", { curriculumId: cur6.id, isActive: true }))[0];
-    const r = await assignSkill(repo, t6, { classId: String(c6.id), skillId: String(s6.id), track: "NAFS" });
+    const r = await assignSkill(repo, t6, { source: "NAFS", classId: String(c6.id), skillId: String(s6.id), track: "NAFS" });
     assert.equal(String((await repo.findUnique("Assignment", { id: r.assignmentId }))!.track), "NAFS");
   });
 
   test("skill plan: places assigned together; the student opens it as a map, each place links to its questions", async () => {
     const places = await planPlaces(repo, admin.schoolId!, 4);
     assert.ok(places.some((g) => g.places.some((p) => p.code === "G4.U1.TS2.ACS" && /adaptive/.test(p.label))));
-    const r = await createSkillPlan(repo, teacher, { classId, title: "Unit 1 plan", codes: ["G4.U1.TS2.ACS", "G4.U1.TS2.CV", "G4.U1.TS3.ACS", "G9.NOPE"], maxQuestions: 5 });
+    const r = await createSkillPlan(repo, teacher, { source: "CURRICULUM", classId, title: "Unit 1 plan", codes: ["G4.U1.TS2.ACS", "G4.U1.TS2.CV", "G4.U1.TS3.ACS", "G9.NOPE"], maxQuestions: 5 });
     assert.equal(r.items, 2);
     assert.equal(r.skipped.length, 2, "an empty place and an unknown code are skipped with a reason");
     const staff = await skillPlanForStaff(repo, teacher, r.planId);
@@ -61,7 +61,7 @@ describe("skill plans, MAP recommendations, new students from MAP, Nafs", () => 
     assert.deepEqual((await studentSkillPlans(repo, st)).map((p) => [p.title, p.places, p.done]), [["Unit 1 plan", 2, 0]]);
     const view = await skillPlanForStudent(repo, st, r.planId);
     assert.ok(view.places.every((p) => /^\/quiz\//.test(p.href ?? "")) && view.places[0].unit.startsWith("Unit 1"));
-    await assert.rejects(createSkillPlan(repo, teacher, { classId, title: "Empty", codes: ["G4.U2.TS1.ACS"] }), /Nothing could be assigned/);
+    await assert.rejects(createSkillPlan(repo, teacher, { source: "CURRICULUM", classId, title: "Empty", codes: ["G4.U2.TS1.ACS"] }), /Nothing could be assigned/);
   });
 
   test("MAP: new students in the file are added to the class; recommendations follow the scores; assigned work reaches the student", async () => {
@@ -81,7 +81,7 @@ describe("skill plans, MAP recommendations, new students from MAP, Nafs", () => 
     assert.ok(low.skills.length > 0 && low.skills.length <= 4);
     const st = await studentActor(low.studentId);
     assert.ok(await myRecommendations(repo, st), "a student with no MAP work sees recommendations");
-    const done = await assignRecommendations(repo, teacher, classId, low.skills.slice(0, 2).map((k) => ({ studentId: low.studentId, skillId: k.id })));
+    const done = await assignRecommendations(repo, teacher, classId, low.skills.slice(0, 2).map((k) => ({ studentId: low.studentId, skillId: k.id })), null, "MAP");
     assert.deepEqual([done.assignments, done.students], [2, 1]);
     const mapWork = (await assignedSkills(repo, st)).items.filter((i) => i.track === "MAP");
     assert.equal(mapWork.length, 2);

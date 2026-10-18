@@ -191,7 +191,7 @@ describe("🔁 Review tests", () => {
     assert.equal(item.options!.findIndex((o) => o.correct), wrongIdx, "the copy has the teacher's key");
     // the copy replaces the original in the test, and the test is assigned as a Review
     const qs = [picks[3], copy.id, rep.id];
-    const r = await assignTest(repo, teacher, { classId, type: "REVIEW", title: "Unit 1 Review", levelMode: "SAME", questions: { SAME: qs }, marks: { [copy.id]: 2 } });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "REVIEW", title: "Unit 1 Review", levelMode: "SAME", questions: { SAME: qs }, marks: { [copy.id]: 2 } });
     const list = await teacherTests(repo, teacher);
     const row = list.find((x) => x.id === r.testId)!;
     assert.equal(row.type, "REVIEW");

@@ -14,20 +14,76 @@ import { listNafsPractice } from "./practice";
 
 const s = (v: unknown) => String(v ?? "");
 
-/** The center's tabs, in the owner's order (About NAFS is a small link at the top): Home · Dashboard · Practice · Tests ·
- * Question bank · Marking · Reports — every capability once, in one place. */
+/**
+ * The center's tabs, in the owner's order (r69 reorganisation; About NAFS is a small link at the top). Each of the first
+ * three holds its OWN report inside (one place each, no duplicates):
+ *   1. Adaptive          — Practice (give adaptive practice) · Report (per class, student, standard / skill: level
+ *                          reached Easy / Medium / Hard, accuracy, mastery, time, trend; one practice in detail)
+ *   2. NAFS test         — Create (the one builder + the tests) · Report (one test, all tests, progress, one student,
+ *                          item analysis, distractors, export)
+ *   3. Ministry booklets — the 100 model booklets: open one (passage + questions + answers), assign one or several
+ *                          (online or print), a Report per booklet
+ *   4. Reports           — the overall picture of EVERYTHING the students did in NAFS (the old Dashboard merged in) · Compare (up or down)
+ *   5. Suggested plan    — from the reports: the weakest standards per class / group / student, one-click assign
+ *   then Question bank and Marking (still needed: the bank behind every tool; written answers + bubble sheets).
+ */
 export const CENTER_TABS = [
-  { key: "home", label: "Home" },
-  { key: "dashboard", label: "Dashboard" },
-  { key: "practice", label: "Practice" },
-  { key: "tests", label: "Tests" },
+  { key: "adaptive", label: "Adaptive" },
+  { key: "test", label: "NAFS test" },
+  { key: "booklets", label: "Ministry booklets" },
+  { key: "reports", label: "Reports" },
+  { key: "plan", label: "Suggested plan" },
   { key: "bank", label: "Question bank" },
   { key: "marking", label: "Marking" },
-  { key: "reports", label: "Reports" },
 ] as const;
+export type CenterTab = (typeof CENTER_TABS)[number]["key"];
 
-/** Old tab keys that now live inside another tab (links keep working). */
-export const OLD_TABS: Record<string, string> = { sheets: "marking", create: "tests", adaptive: "practice" };
+/** The sub-tabs inside a tab (the first is the default). */
+export const SUB_TABS: Partial<Record<CenterTab, readonly { key: string; label: string }[]>> = {
+  adaptive: [{ key: "practice", label: "Practice" }, { key: "report", label: "Report" }],
+  test: [{ key: "create", label: "Create" }, { key: "report", label: "Report" }],
+  booklets: [{ key: "list", label: "Booklets" }, { key: "report", label: "Report" }],
+};
+/**
+ * The views inside 4. Reports (?view=): the overview, the full detail (the old Dashboard) and COMPARE (r75: did the
+ * students go up or down — Tests & Booklets · Practice · All; ?mode=tests|practice|all).
+ */
+export const REPORT_VIEWS = [{ key: "", label: "Overview" }, { key: "detail", label: "Full detail" }, { key: "compare", label: "Compare" }] as const;
+export const subOf = (tab: string, sub: string | null | undefined): string => {
+  const list = SUB_TABS[tab as CenterTab];
+  return list?.find((x) => x.key === sub)?.key ?? list?.[0]?.key ?? "";
+};
+export const centerHref = (tab: CenterTab, extra: Record<string, string | string[] | null | undefined> = {}): string => {
+  const q = new URLSearchParams([["tab", tab]]);
+  for (const [k, v] of Object.entries(extra)) for (const x of Array.isArray(v) ? v : [v]) if (x !== null && x !== undefined && x !== "") q.append(k, x);
+  return `/teacher/nafs?${q}`;
+};
+
+/** Old tab keys → the tab that holds the capability now (links keep working). */
+export const OLD_TABS: Record<string, string> = { sheets: "marking", create: "test", tests: "test", practice: "adaptive", home: "reports", dashboard: "reports" };
+
+/**
+ * The new address of an old center link (null = it is a current link). Every old link still works:
+ *   home → Reports · dashboard → Reports (the detail view) · practice → Adaptive (?open= → its Report) ·
+ *   tests / create → NAFS test · sheets → Marking#sheets · reports?view=test|across|trend|student or ?test= →
+ *   NAFS test → Report · reports?view=practice → Adaptive → Report.
+ */
+export function centerRedirect(sp: Record<string, string | string[] | undefined>): string | null {
+  const tab = typeof sp.tab === "string" ? sp.tab : "";
+  const keep = (drop: string[] = []) => Object.entries(sp).filter(([k, v]) => k !== "tab" && !drop.includes(k) && v !== undefined).flatMap(([k, v]) => (Array.isArray(v) ? v : [v as string]).map((x) => [k, x] as [string, string]));
+  const to = (pairs: [string, string][], hash = "") => `/teacher/nafs?${new URLSearchParams(pairs)}${hash}`;
+  if (tab === "sheets") return to([["tab", "marking"], ...keep()], "#sheets");
+  if (tab === "practice") return sp.open ? to([["tab", "adaptive"], ["sub", "report"], ...keep()]) : to([["tab", "adaptive"], ...keep()]);
+  if (tab === "tests" || tab === "create") return to([["tab", "test"], ...keep()]);
+  if (tab === "home") return to([["tab", "reports"], ...keep()]);
+  if (tab === "dashboard") return to([["tab", "reports"], ["view", "detail"], ...keep(["view"])]);
+  if (tab === "reports") {
+    if (sp.sub === "compare" && sp.view !== "compare") return to([["tab", "reports"], ["view", "compare"], ...keep(["sub", "view"])]);
+    if (sp.view === "practice") return to([["tab", "adaptive"], ["sub", "report"], ...(typeof sp.practice === "string" ? [["open", sp.practice] as [string, string]] : []), ...keep(["view", "practice"])]);
+    if (sp.view === "test" || sp.view === "across" || sp.view === "trend" || sp.view === "student" || (sp.test && sp.view !== "detail")) return to([["tab", "test"], ["sub", "report"], ...keep()]);
+  }
+  return null;
+}
 
 /**
  * The ONE NAFS test builder's link. The old six modes (?mode=FULL · SIMULATION · MINISTRY · AUTO · MANUAL · AI) are

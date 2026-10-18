@@ -1,6 +1,7 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 import type { StudentDetail } from "../../server/teacher/queries";
+import { RichInline } from "@/components/rich-inline";
 
 /** One student for the teacher: placement, skills, recent answers, and the engine's decisions (audit trail). */
 export function StudentDetailView({ d, classHref, header = true }: { d: StudentDetail; classHref: string; header?: boolean }) {
@@ -56,7 +57,7 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
                 <tr key={i} className="border-t border-slate-100 align-top">
                   <td className="whitespace-nowrap px-2 py-2 tabular-nums">{r.at.slice(5, 16).replace("T", " ")}</td>
                   <td className="px-2 py-2">{r.skill}</td>
-                  <td className="max-w-md px-2 py-2">{r.stem}</td>
+                  <td className="max-w-md px-2 py-2"><RichInline text={r.stem} /></td>
                   <td className="px-2 py-2">{r.answer}</td>
                   <td className="px-2 py-2">{r.correct ? <span className="font-semibold text-teal-700">Correct</span> : <span className="font-semibold text-amber-800">Incorrect</span>}{r.rapid ? <span className="block text-xs text-slate-500">very fast</span> : null}</td>
                   <td className="px-2 py-2 tabular-nums">{r.seconds}s</td>

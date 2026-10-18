@@ -15,6 +15,8 @@ import { createSkillAction, createStandardAction } from "../curriculum/manage-ac
 import { CcssNote } from "@/components/ccss-note";
 import { Combo } from "@/components/ui/combo";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
@@ -168,6 +170,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
       </label>
       <ImageField imageId={q.imageId ?? null} imageAlt={q.imageAlt ?? ""} readOnly={readOnly} onChange={(v) => set(v)} />
       <label className={label}>Question<textarea style={{ width: "100%" }} value={q.stem} onChange={(e) => set({ stem: e.target.value })} rows={5} maxLength={2000} className={field} /></label>
+      {stripMarks(q.stem) !== q.stem && <p className="rounded-lg bg-slate-50 px-3 py-2 text-slate-900 ring-1 ring-slate-200" data-content lang="en"><span className="me-2 text-xs font-semibold text-slate-500">{t("Preview")}:</span><RichInline text={q.stem} /></p>}
       {possibleMissingPassage(q.stem, Boolean((q.passageText ?? "").trim() || (q.passageText === undefined && q.passageId))) && (
         <p role="status" className="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900"><LineIcon name="alert" className="me-1 inline-block h-4 w-4 align-[-3px]" />This question mentions a passage, story or paragraph, but there is no passage. Add the text above, or reword the question. (A warning only: you can still save.)</p>
       )}

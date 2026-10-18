@@ -1,11 +1,13 @@
 import { AppShell } from "@/components/app-shell";
 import { ClassChips, Empty, exportsOf, fmtNum, fmtPct, pctTone, WindowChips, windowText } from "@/components/reports/report-ui";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { gamesSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classGamesReport } from "@/server/reports/games-report";
 import { windowOf } from "@/server/reports/report-access";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Live games report" };
 
@@ -26,6 +28,7 @@ export default async function GamesReportPage({ searchParams }: { searchParams: 
         subtitle="Participation, accuracy by skill and rapid guessing in the class's live games. An answer faster than the rapid-guess line (set from the game's time per question) is a guess: it is left out of accuracy."
         who={klass?.name} when={windowText(t, days)} downloads={klass ? exportsOf({ kind: "games", classId: klass.id, days, period: "TERM" }) : []}
         filters={<><ClassChips classes={classes} current={klass?.id ?? null} href={(id) => url(id)} />{klass && <WindowChips days={days} href={(d) => url(klass.id, d)} />}</>} />
+      <ReportIntro text="Who took part in the class's live games and how many answers were right, skill by skill." />
       {!r ? <Empty>You have no classes yet.</Empty> : (
         <div className="space-y-5">
           <AtAGlance items={[
@@ -58,7 +61,7 @@ export default async function GamesReportPage({ searchParams }: { searchParams: 
                 {r.missed.length ? (
                   <ol className="space-y-2">{r.missed.map((m) => (
                     <li key={m.questionId} className="min-w-0 rounded-xl bg-white p-3 ring-1 ring-slate-200 text-sm">
-                      <p className="font-medium text-slate-900 [overflow-wrap:anywhere]">{m.stem}</p>
+                      <p className="font-medium text-slate-900 [overflow-wrap:anywhere]"><RichInline text={m.stem} /></p>
                       <p className="mt-1 text-slate-600">{m.skill} · {m.answers} answers · <b className={pctTone(m.accuracy)}>{fmtPct(m.accuracy)}</b>{m.commonWrong ? <> · most chosen wrong answer: {m.commonWrong}</> : null}</p>
                     </li>
                   ))}</ol>
@@ -66,7 +69,7 @@ export default async function GamesReportPage({ searchParams }: { searchParams: 
               </ReportSection>
               <ReportSection title="Students" icon="👩‍🎓">
                 <ReportTable label="Students"
-                  cols={[{ key: "n", label: "Student" }, { key: "g", label: "Games", num: true }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true }, { key: "p", label: "Points", num: true }]}
+                  cols={[{ key: "n", label: "Student" }, { key: "g", label: "Games", num: true }, { key: "a", label: "Answers", num: true, more: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true }, { key: "p", label: "Points", num: true, more: true }]}
                   rows={r.students.map((s) => ({
                     id: s.studentId, flag: !s.games || (s.rapidPct ?? 0) >= 30 ? "warn" : undefined, sort: { n: s.name, g: s.games, acc: s.accuracy, r: s.rapidPct, p: s.points },
                     cells: { n: <bdi>{s.name}</bdi>, g: s.games || <span className="text-amber-700">! did not play</span>, a: s.answers, acc: <span className={`font-semibold ${pctTone(s.accuracy)}`}>{fmtPct(s.accuracy)}</span>,
@@ -75,11 +78,12 @@ export default async function GamesReportPage({ searchParams }: { searchParams: 
               </ReportSection>
               <ReportSection title="Games" icon="🗓">
                 <ReportTable label="Games"
-                  cols={[{ key: "d", label: "Date" }, { key: "g", label: "Game" }, { key: "q", label: "Questions", num: true }, { key: "p", label: "Players", num: true }, { key: "pa", label: "Participation", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true }]}
+                  cols={[{ key: "d", label: "Date" }, { key: "g", label: "Game" }, { key: "q", label: "Questions", num: true, more: true }, { key: "p", label: "Players", num: true, more: true }, { key: "pa", label: "Participation", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true, more: true }]}
                   rows={r.games.map((g) => ({ id: g.id, sort: { pa: g.participation, acc: g.accuracy, r: g.rapidPct }, cells: { d: g.date, g: <span className="font-medium">{g.title}</span>, q: g.questions, p: g.players, pa: fmtPct(g.participation), acc: <span className={`font-semibold ${pctTone(g.accuracy)}`}>{fmtPct(g.accuracy)}</span>, r: fmtPct(g.rapidPct) } }))} />
               </ReportSection>
             </>
           )}
+          <ReportSummary summary={gamesSummary(r, klass!.id)} />
         </div>
       )}
     </AppShell>

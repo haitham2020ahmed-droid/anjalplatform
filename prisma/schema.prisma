@@ -219,6 +219,77 @@ model Session {
   @@index([expiresAt])
 }
 
+/// r76 Class QR sign-in: one open QR of one class, shown by its teacher (src/server/auth/class-signin.ts).
+/// The QR link carries a random 256-bit token; only its SHA-256 is stored. `code` = the short code to type instead
+/// (6 letters/digits). Ends at expiresAt (10 minutes) or when the teacher closes it (closedAt).
+model ClassSignIn {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique @db.VarChar(64)
+  code      String    @db.VarChar(8)
+  schoolId  String
+  classId   String
+  teacherId String // Teacher.id of the teacher who opened it
+  expiresAt DateTime
+  closedAt  DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([code])
+  @@index([classId, createdAt])
+}
+
+/// r76: a student who signed in by tapping their name on a Class QR page. `day` = the school day (Riyadh,
+/// YYYY-MM-DD): the name stays off the list for the rest of that day (also on a re-opened QR) until the teacher
+/// signs the student out or lets them in again (signedOutAt).
+model ClassSignInUse {
+  id          String    @id @default(cuid())
+  signInId    String
+  schoolId    String
+  classId     String
+  studentId   String
+  userId      String
+  day         String    @db.VarChar(10)
+  createdAt   DateTime  @default(now())
+  signedOutAt DateTime?
+
+  @@index([classId, day])
+  @@index([studentId, day])
+}
+
+/// r85: a class's PRINTABLE QR (weekly plan sheet) + its 4-digit class code. One row per class. The QR link carries a
+/// 256-bit token = HMAC(APP_SECRET, linkSalt): only its SHA-256 (tokenHash) is stored, and the server can draw the same
+/// QR again for the class's teacher. "New link" = a new linkSalt (old printed QRs die). `code` is read only by the
+/// teacher's pages (and compared on the server at sign-in); it is never sent to a student page.
+model ClassPrintQr {
+  id            String    @id @default(cuid())
+  schoolId      String
+  classId       String    @unique
+  linkSalt      String    @db.VarChar(64)
+  tokenHash     String    @unique @db.VarChar(64)
+  code          String    @db.VarChar(4)
+  active        Boolean   @default(true)
+  createdById   String // User.id of the teacher who turned it on first
+  codeChangedAt DateTime
+  linkChangedAt DateTime
+  turnedOffAt   DateTime?
+  createdAt     DateTime  @default(now())
+}
+
+/// r85: a student who signed in from the class's printed QR (+ class code) — at school or at home. Every sign-in is a
+/// row (no once-a-day rule); the teacher sees today / this week.
+model ClassPrintSignIn {
+  id        String   @id @default(cuid())
+  printQrId String
+  schoolId  String
+  classId   String
+  studentId String
+  userId    String
+  day       String   @db.VarChar(10)
+  createdAt DateTime @default(now())
+
+  @@index([classId, createdAt])
+  @@index([studentId, createdAt])
+}
+
 /// Fine-grained permission grants on top of the role (e.g. a teacher allowed to edit the question bank).
 model RolePermission {
   id         String @id @default(cuid())
@@ -1066,6 +1137,9 @@ model Assignment {
   /// r67: the number of questions the teacher set for skill work (each student answers exactly this many counted
   /// answers); null = the 30–50 rule
   questionCount Int?
+  /// r74 (owner): where the work comes from — MAP | NAFS | CURRICULUM | GRAMMAR | RTI, chosen on every assign window
+  /// (required for new work); null = older rows (the source is inferred for display: lib/assign-source.ts)
+  source        String?  @db.VarChar(16)
 
   class      Class               @relation(fields: [classId], references: [id])
   createdBy  Teacher             @relation(fields: [createdById], references: [id])
@@ -1927,6 +2001,7 @@ model RespondAssignment {
   setCode     String    @db.VarChar(120)
   title       String    @db.VarChar(255)
   dueAt       DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   note        String?   @db.VarChar(1000)
   createdById String
   createdAt   DateTime  @default(now())
@@ -2170,7 +2245,7 @@ model QuestionFlag {
   studentId    String
   reason       String    @db.VarChar(40)
   note         String?   @db.VarChar(500)
-  /// OPEN | FIXED | DISMISSED
+  /// OPEN | FIXED | DISMISSED | REMOVED (r68: the question was deleted, hidden or archived)
   status       String    @default("OPEN") @db.VarChar(10)
   resolvedById String?
   resolvedAt   DateTime?
@@ -2283,6 +2358,10 @@ model MapSimWindow {
   /// MANUAL: how it was built { areas, ritLow, ritHigh }
   settings    Json?
   updatedAt   DateTime?
+  /// r69 live time: minutes per subject sitting from the student's start (null = untimed, like MAP Growth)
+  timeLimitMin Int?
+  /// r69 live time: extra minutes per student { "<studentId>": +5 | -5 … }
+  studentMinutes Json?
 
   @@index([schoolId, closesAt])
 }
@@ -2365,6 +2444,7 @@ model WritingTask {
   passage     String?   @db.Text
   minWords    Int?
   dueAt       DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   /// NARRATIVE | INFORMATIONAL | OPINION | HOW_TO | RESEARCH | FREE (genre rubric and checklist)
   genre       String    @default("FREE") @db.VarChar(14)
   /// the skill the writing practises (scores feed its mastery and reteach routing)
@@ -2655,6 +2735,42 @@ model FluencyPractice {
   percentile   Int?
   createdAt    DateTime @default(now())
 
+  @@index([studentId, createdAt])
+}
+
+/// 📝 Daily Dictation (its own tab in the Fluency Coach): one listen-and-type item a day, with its own small
+/// up/down difficulty engine (src/server/dictation/engine.ts), separate from the Fluency Coach's WCPM level.
+model DictationStudent {
+  studentId  String   @id
+  schoolId   String
+  /// the bank tier (1..N, src/server/dictation/items.ts), never below 1 or above the bank's top tier
+  tier       Int
+  startTier  Int
+  updatedAt  DateTime @updatedAt
+
+  @@index([schoolId])
+}
+
+/// One day's Daily Dictation attempt (one row per student per calendar day — DICTATION_DAY_FORMAT in engine.ts).
+model DictationAttempt {
+  id          String   @id @default(cuid())
+  studentId   String
+  schoolId    String
+  /// the calendar day this attempt counts for (yyyy-mm-dd; configurable "now" in engine.ts, not real wall-clock in tests)
+  day         String   @db.VarChar(10)
+  itemId      String   @db.VarChar(20)
+  tier        Int
+  typed       String   @db.VarChar(500)
+  /// word-level diff ops: [{ kind: "ok"|"missing"|"extra"|"misspelled", text, typedText? }]
+  diff        Json
+  errorCount  Int
+  /// no errors at all
+  clean       Boolean
+  tierBefore  Int
+  tierAfter   Int
+  createdAt   DateTime @default(now())
+
+  @@unique([studentId, day])
   @@index([studentId, createdAt])
 }
 
@@ -3112,6 +3228,13 @@ model RRRun {
   listened     Boolean   @default(false)
   startedAt    DateTime  @default(now())
   completedAt  DateTime?
+  /// owner r69 (accuracy): when the 8 questions opened (step 3), the answer time of each question and the rapid
+  /// guesses among them ({ ms: { "1": 5400, … }, rapid: [3, 4] }); 2+ rapid answers = an Unreliable run (teacher-only):
+  /// it never moves the level, never counts toward goals and never feeds the skills
+  quizAt       DateTime?
+  answerMs     Json?
+  rapidCount   Int       @default(0)
+  unreliable   Boolean   @default(false)
 
   @@index([studentId, completedAt])
   @@index([schoolId, completedAt])
@@ -3127,6 +3250,8 @@ model RRPlacement {
   /// [{ level, passageId, answers, correct }]
   steps       Json
   result      Int?
+  /// owner r69: the reading check of the school year it belongs to — BOY | MOY | EOY (null = an older row)
+  period      String?   @db.VarChar(3)
   startedAt   DateTime  @default(now())
   completedAt DateTime?
 
@@ -3140,6 +3265,7 @@ model RRClassArticle {
   articleId    String
   assignedById String
   dueAt        DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   createdAt    DateTime  @default(now())
 
   @@unique([classId, articleId])
@@ -3599,6 +3725,10 @@ model NafsTestClass {
   releasedAt  DateTime?
   /// this assignment's own time in minutes (null = the test's time)
   timeLimitMin Int?
+  /// r69 live time: the class's end time (no student's timer runs past it; null = none) — changed live by the teacher
+  endsAt      DateTime?
+  /// r69 live time: extra minutes per student { "<studentId>": +5 | -5 … } (a student's own extension or cut)
+  studentMinutes Json?
   /// only these students of the class (Student ids); null = the whole class
   studentIds  Json?
   createdById String
@@ -3793,6 +3923,7 @@ model LearnAssign {
   /// 1–4: the teacher's choice of level (null = automatic)
   level       Int?
   dueAt       DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   createdById String
   createdAt   DateTime  @default(now())
   deletedAt   DateTime?
@@ -3812,6 +3943,7 @@ model LearnAssignee {
   title     String    @db.VarChar(191)
   level     Int?
   dueAt     DateTime?
+  startAt     DateTime? // owner r68 §D: the day students see it (null: at once); dueAt is the end
   /// NOT_STARTED | IN_PROGRESS | DONE
   status    String    @default("NOT_STARTED") @db.VarChar(12)
   createdAt DateTime  @default(now())
@@ -3948,6 +4080,9 @@ model MapYearPlan {
   createdById String
   generatedAt DateTime @default(now())
   updatedAt   DateTime @default(now())
+  /// owner r68 §C: sent to the class's students (their MAP page shows a Year plan tab); null = teachers only
+  sentAt      DateTime?
+  sentById    String?
 
   @@index([schoolId])
 }

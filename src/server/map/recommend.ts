@@ -7,15 +7,26 @@ import { countGroups } from "../db/group-count";
 import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assignSkill } from "../teacher/assign";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 export interface Recommendation { studentId: string; name: string; rit: number | null; areas: { name: string; rit: number | null }[]; skills: { id: string; name: string; area: string; mastery: number | null }[] }
 
-/** Skills of a grade grouped by MAP goal area (skills with questions to practise). */
-export async function gradeAreaSkills(repo: Repo, schoolId: string, grade: number, includeEmpty = false): Promise<{ areaId: string; area: string; skills: { id: string; name: string }[] }[]> {
+type AreaSkills = { areaId: string; area: string; skills: { id: string; name: string }[] }[];
+/** ⚡ r79: the MAP plan suggestion reads it on every click: kept while the grade's skills and questions are unchanged. */
+const areaSkillsCache = mapCache<AreaSkills>("map.recommend.areaSkills", MAP_KEEP_MS, 8);
+const AREA_SKILL_MODELS = ["Grade", "Curriculum", "Skill", "SkillFamily", "MapGoalArea", "Question"];
+
+/** Skills of a grade grouped by MAP goal area (skills with questions to practise). Callers get their own copy. */
+export async function gradeAreaSkills(repo: Repo, schoolId: string, grade: number, includeEmpty = false): Promise<AreaSkills> {
+  return structuredClone(await areaSkillsCache.get(repo, `${schoolId}|${grade}|${includeEmpty ? 1 : 0}`, AREA_SKILL_MODELS, () => gradeAreaSkillsNow(repo, schoolId, grade, includeEmpty)));
+}
+async function gradeAreaSkillsNow(repo: Repo, schoolId: string, grade: number, includeEmpty: boolean): Promise<AreaSkills> {
   const gs = await repo.findMany("Grade", { schoolId, level: grade }, { select: ["id"] });
   const curs = gs.length ? await repo.findMany("Curriculum", { gradeId: { in: gs.map((g) => g.id) } }, { select: ["id"] }) : [];
   const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] }) : [];
@@ -39,7 +50,11 @@ async function recommendFor(repo: Repo, studentIds: string[], areaSkills: Awaite
     repo.findMany("AssignmentStudent", { studentId: { in: studentIds } }, { select: ["studentId", "assignmentId", "status"] }),
   ]);
   const openA = open.filter((o) => o.status !== "COMPLETED");
-  const aRows = openA.length ? await repo.findMany("Assignment", { id: { in: [...new Set(openA.map((o) => o.assignmentId))] }, deletedAt: null }, { select: ["id", "skillId", "track"] }) : [];
+  // r78: a skill whose assignment was cancelled on Assigned is not "already assigned"
+  const [aRows, ix] = await Promise.all([
+    openA.length ? repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(openA.map((o) => o.assignmentId))] } }), { select: ["id", "skillId", "track", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Record<string, unknown>[]),
+    cancelIndexForStudents(repo, studentIds),
+  ]);
   return studentIds.map((sid) => {
     // Reading overall for the RIT; goal areas of Reading AND Language Usage from the latest term
     const mine = results.filter((r) => s(r.studentId) === sid).sort((a, b) => t(b.testDate) - t(a.testDate));
@@ -51,7 +66,7 @@ async function recommendFor(repo: Repo, studentIds: string[], areaSkills: Awaite
       ? areaSkills.map((a) => ({ a, rit: goals.find((g) => s(g.goalAreaId) === a.areaId || s(g.goalName).toLowerCase().startsWith(a.area.toLowerCase().slice(0, 12)))?.rit ?? null })).filter((x) => x.rit !== null).sort((x, y) => Number(x.rit) - Number(y.rit))
       : areaSkills.map((a) => ({ a, rit: null as number | null }));
     const m = new Map(mastery.filter((x) => s(x.studentId) === sid).map((x) => [s(x.skillId), Math.round(Number(x.score))]));
-    const assigned = new Set(aRows.filter((a) => openA.some((o) => s(o.studentId) === sid && o.assignmentId === a.id)).map((a) => s(a.skillId)));
+    const assigned = new Set(aRows.filter((a) => ix.live(a, sid) && openA.some((o) => s(o.studentId) === sid && o.assignmentId === a.id)).map((a) => s(a.skillId)));
     const picks: Recommendation["skills"] = [];
     const areasOut: Recommendation["areas"] = [];
     for (const { a, rit } of (goals.length ? rankedAreas.slice(0, 2) : rankedAreas)) {
@@ -81,14 +96,15 @@ export async function classRecommendations(repo: Repo, actor: Actor, classId: st
 }
 
 /** Assigns the chosen (student, skill) pairs as MAP practice. */
-export async function assignRecommendations(repo: Repo, actor: Actor, classId: string, picks: { studentId: string; skillId: string }[], dueAt: Date | null = null): Promise<{ assignments: number; students: number }> {
+export async function assignRecommendations(repo: Repo, actor: Actor, classId: string, picks: { studentId: string; skillId: string }[], dueAt: Date | null = null, /** r74: REQUIRED source */ sourceIn?: string | null): Promise<{ assignments: number; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(sourceIn);
   await assertClassAccess(repo, actor, classId);
   if (!picks.length) throw new ValidationError("Tick at least one recommended skill.");
   const bySkill = new Map<string, string[]>();
   for (const p of picks) bySkill.set(p.skillId, [...(bySkill.get(p.skillId) ?? []), p.studentId]);
   let n = 0;
-  for (const [skillId, studentIds] of bySkill) { await assignSkill(repo, actor, { classId, skillId, studentIds: [...new Set(studentIds)], track: "MAP", dueAt, note: "Recommended from your MAP score" }); n++; }
+  for (const [skillId, studentIds] of bySkill) { await assignSkill(repo, actor, { classId, skillId, studentIds: [...new Set(studentIds)], track: "MAP", dueAt, note: "Recommended from your MAP score", source }); n++; }
   return { assignments: n, students: new Set(picks.map((p) => p.studentId)).size };
 }
 

@@ -7,7 +7,15 @@ export async function logRequestError(err: unknown, request: { path?: string }):
   } catch { /* never throw from the error hook */ }
 }
 
-/** ⭐ Skill stars: every school never migrated gets its statuses from the practice data (once, src/server/skills/status-extras.ts). Never throws. */
+/**
+ * 🚀 The one-time jobs after an update (r68: ON by default), 2 minutes after the start, one after another through the
+ * light job runner (src/server/jobs/startup.ts → runner.ts). Never throws.
+ */
+export function startBackgroundJobs(): void {
+  void import("./server/jobs/startup").then(({ scheduleStartupJobs }) => scheduleStartupJobs(async () => (await import("./server/auth/next")).repo)).catch(() => undefined);
+}
+
+/** ⭐ Skill stars: every school never migrated gets its statuses from the practice data (once, through the job runner). Never throws. */
 export async function migrateStarsInBackground(): Promise<void> {
   try {
     const [{ repo }, { migrateOnce }] = await Promise.all([import("./server/auth/next"), import("./server/skills/status-extras")]);
@@ -15,11 +23,11 @@ export async function migrateStarsInBackground(): Promise<void> {
   } catch { /* the next start (or the System check button) tries again */ }
 }
 
-/** ✏️ Old teacher copies become private (src/server/questions/private-copies.ts). Never throws. */
+/** ✏️ Old teacher copies become private (src/server/questions/private-copies.ts), through the job runner. Never throws. */
 export async function privatizeCopiesInBackground(): Promise<void> {
   try {
-    const [{ repo }, { privatizeOldCopiesOnce }] = await Promise.all([import("./server/auth/next"), import("./server/questions/private-copies")]);
-    await privatizeOldCopiesOnce(repo);
+    const [{ repo }, { runJobEverywhere }, { PRIVATIZE_JOB }] = await Promise.all([import("./server/auth/next"), import("./server/jobs/runner"), import("./server/jobs/startup")]);
+    await runJobEverywhere(repo, PRIVATIZE_JOB);
   } catch { /* the next start tries again */ }
 }
 

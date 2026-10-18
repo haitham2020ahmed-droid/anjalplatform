@@ -60,7 +60,7 @@ export function extract(fileName: string, bytes: Uint8Array): Extracted {
   const kind = detectKind(fileName, bytes);
   if (kind === "xlsx") {
     try {
-      return { kind, table: readXlsx(Buffer.from(bytes), { sheet: QUESTIONS_SHEET }), images: readXlsxImages(Buffer.from(bytes), { sheet: QUESTIONS_SHEET }) };
+      return { kind, table: readXlsx(Buffer.from(bytes), { sheet: QUESTIONS_SHEET, marks: true }), images: readXlsxImages(Buffer.from(bytes), { sheet: QUESTIONS_SHEET }) };
     } catch (e) {
       throw new ExtractError(`The Excel file could not be read: ${(e as Error).message}`);
     }

@@ -26,6 +26,17 @@ export const MASTERY_STEPS: readonly MasteryStep[] = [
 export const stepIndex = (band: string | null | undefined): number => Math.max(0, MASTERY_STEPS.findIndex((x) => x.band === band));
 export const stepLabel = (band: string | null | undefined): string => MASTERY_STEPS[stepIndex(band)].label;
 
+/** The band a plain 0–100 score falls in (the same thresholds the engine bands use): for places that only have the
+ *  score (e.g. SkillStatus.score on a skill's star row) and never computed theta/band themselves. */
+export function bandOfScore(score: number): MasteryBandName {
+  const v = Math.max(0, Math.min(100, Number(score) || 0));
+  if (v >= B.mastered) return "MASTERED";
+  if (v >= B.proficient) return "PROFICIENT";
+  if (v >= B.approaching) return "APPROACHING";
+  if (v >= B.developing) return "DEVELOPING";
+  return "BEGINNING";
+}
+
 /** The smallest fill shown for the current step, so the bar never looks empty (even at 0). */
 export const MIN_FILL = 0.12;
 

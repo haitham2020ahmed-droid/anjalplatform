@@ -11,6 +11,7 @@ import type { ClientQuestion } from "../../server/practice/items";
 import type { Feedback, PracticeView } from "../../server/practice/session";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "../practice/answer-input";
 import { ListenButton } from "../listen-button";
+import { RichInline } from "@/components/rich-inline";
 
 type Submit = (input: { sessionId: string; questionId: string; response: unknown }) => Promise<{ feedback?: Feedback; view?: PracticeView; error?: string }>;
 const ROUND = 10, SECONDS = 30;
@@ -85,16 +86,16 @@ export function SkillGame({ initial, submit, backHref }: { initial: PracticeView
       <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200" aria-hidden="true"><div className={`h-full transition-all duration-300 ${left <= 5 ? "bg-red-500" : "bg-brand-teal"}`} style={{ width: `${(left / SECONDS) * 100}%` }} /></div>
       {q && (
         <article className="mt-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-7">
-          {q.passage && <details className="mb-4 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200" open><summary className="cursor-pointer font-bold text-brand-navy">📖 {q.passage.title}</summary><p className="mt-2 whitespace-pre-line text-lg leading-relaxed text-slate-800">{q.passage.text}</p><ListenButton text={`${q.passage.title}. ${q.passage.text}`} label="Read aloud" className="mt-2" /></details>}
-          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-semibold leading-relaxed text-slate-900">{q.stem}</p>}
+          {q.passage && <details className="mb-4 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200" open><summary className="cursor-pointer font-bold text-brand-navy">📖 <RichInline text={q.passage.title} /></summary><p className="mt-2 whitespace-pre-line text-lg leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p><ListenButton text={`${q.passage.title}. ${q.passage.text}`} label="Read aloud" className="mt-2" /></details>}
+          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-semibold leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>}
           <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Read aloud" className="mt-2" />
           <div className="mt-4"><AnswerInput q={q} value={value} onChange={setValue} disabled={!!fb || pending} /></div>
           {error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
           {fb ? (
             <div role="status" className={`mt-5 rounded-2xl p-4 ${fb.correct ? "animate-pop bg-emerald-50 ring-2 ring-emerald-300" : "animate-shake bg-orange-50 ring-2 ring-orange-300"}`}>
               <p className={`text-2xl font-extrabold ${fb.correct ? "text-emerald-700" : "text-orange-700"}`}>{fb.correct ? `✅ Correct! +${gained}` : "💡 Not quite — try the next one!"}</p>
-              {!fb.correct && <p className="mt-1 text-slate-800">Answer: <b>{fb.correctAnswer}</b></p>}
-              {fb.whyCorrect && <p className="mt-1 text-sm text-slate-700">{fb.whyCorrect}</p>}
+              {!fb.correct && <p className="mt-1 text-slate-800">Answer: <b><RichInline text={fb.correctAnswer} /></b></p>}
+              {fb.whyCorrect && <p className="mt-1 text-sm text-slate-700"><RichInline text={fb.whyCorrect} /></p>}
               <button type="button" onClick={next} className="mt-3 w-full rounded-2xl bg-brand-navy py-3 text-lg font-extrabold text-white transition hover:bg-brand-purple active:scale-95">{n >= ROUND || !view.question ? "See my score 🏁" : "Next ▶"}</button>
             </div>
           ) : (

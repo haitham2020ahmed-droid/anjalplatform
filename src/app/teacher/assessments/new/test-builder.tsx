@@ -12,10 +12,13 @@ import { MapQuestionSource } from "./map-source";
 import { ReviewSource } from "./review-source";
 import { QuestionCopyEditor } from "@/components/tests/question-copy-editor";
 import { useT } from "@/i18n/client";
+import { SourceSelect } from "@/components/assign/source-select";
+import { SOURCE_REQUIRED, type AssignSource } from "@/lib/assign-source";
 import { EmptyState } from "@/components/ui-kit";
 import { SkillQuestionPicker, type PickerValue } from "@/components/skill-picker";
 import { SKILL_TABS, byName, filterSkills, questionBadge, type SkillTabFilter } from "@/lib/skill-picker";
 import { Combo } from "@/components/ui/combo";
+import { RichInline } from "@/components/rich-inline";
 
 const TYPES: { id: TestType; label: string }[] = [
   { id: "NAFS", label: "NAFS" }, { id: "MAP", label: "MAP" }, { id: "DIAGNOSTIC", label: "Diagnostic" },
@@ -53,6 +56,8 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
   const [levelMode, setLevelMode] = useState<LevelMode>(template?.spec.levelMode ?? "LEVEL");
   const [openAt, setOpenAt] = useState("");
   const [dueAt, setDueAt] = useState("");
+  // r74: the required Source of the work (always empty: no default)
+  const [workSource, setWorkSource] = useState<AssignSource | "">("");
   const [limit, setLimit] = useState(template?.spec.timeLimitMin ? String(template.spec.timeLimitMin) : "");
   const [shuffle, setShuffle] = useState(template?.spec.shuffle ?? false);
   const [preview, setPreview] = useState<TestPreview | null>(initialPreview);
@@ -220,8 +225,9 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
     if (!preview) return setMsg({ ok: false, text: t("Press Preview first.") });
     if (!previewed) return setMsg({ ok: false, text: t("Open “Preview as student” first: check the test as your students will see it, then assign it.") });
     if (who === "SOME" && !chosen.length) return setMsg({ ok: false, text: t("Choose at least one student, or choose the whole class.") });
+    if (!workSource) return setMsg({ ok: false, text: t(SOURCE_REQUIRED) });
     setBusy(true); setMsg(null);
-    const r = await assignTestAction({ classId, type, title: name, levelMode, studentIds: who === "SOME" ? chosen : [], openAt, dueAt, timeLimitMin: limit ? Number(limit) : null, shuffle, questions: questions(), templateId, marks: marksOut() });
+    const r = await assignTestAction({ classId, type, title: name, levelMode, studentIds: who === "SOME" ? chosen : [], openAt, dueAt, timeLimitMin: limit ? Number(limit) : null, shuffle, questions: questions(), templateId, marks: marksOut(), source: workSource });
     setBusy(false);
     if (r.error) return setMsg({ ok: false, text: t(r.error) });
     router.push(`/teacher/assessments/${r.testId}?msg=${encodeURIComponent(t("✓ Assigned. It is in your students' My Tests."))}`);
@@ -310,7 +316,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                     <span className="w-6 shrink-0 pt-0.5 text-end font-semibold text-slate-500">{i + 1}.</span>
                     <span className="min-w-0 flex-1 text-sm">
                       <span className="block text-xs font-semibold text-slate-500" lang="en" data-content>{q.section}</span>
-                      <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem}</button>
+                      <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content><RichInline text={q.stem} /></button>
                       <span className="text-xs text-slate-500">{q.typeLabel} · {t(LEVEL_SHORT[q.level])}{q.passageTitle ? <> · <span lang="en" data-content>📖 {q.passageTitle}</span></> : null}</span>
                     </span>
                     <span className="flex shrink-0 flex-wrap items-center justify-end gap-1">
@@ -365,6 +371,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
               <label className="mt-2 flex min-h-11 items-center gap-2"><input type="radio" name="level" checked={levelMode === "LEVEL"} onChange={() => { setLevelMode("LEVEL"); setPreview(null); }} className="h-5 w-5" /> {t("At each student's level (Approaching / Meeting / Exceeding)")}</label>
             </fieldset>
             <div className="grid gap-3">
+              <SourceSelect t={t} value={workSource} onChange={setWorkSource} field="mt-1 block min-h-11 rounded-xl px-3 font-normal ring-1 ring-slate-300" />
               <label className="font-semibold text-slate-700">{t("Open date")}<input type="date" value={openAt} onChange={(e) => setOpenAt(e.target.value)} className="mt-1 block min-h-11 rounded-xl px-3 font-normal ring-1 ring-slate-300" /></label>
               <label className="font-semibold text-slate-700">{t("Due date")}<input type="date" value={dueAt} onChange={(e) => setDueAt(e.target.value)} className="mt-1 block min-h-11 rounded-xl px-3 font-normal ring-1 ring-slate-300" /></label>
               <label className="font-semibold text-slate-700">{t("Time limit (minutes, optional)")}<input type="number" min={1} max={240} value={limit} onChange={(e) => setLimit(e.target.value)} className="mt-1 block min-h-11 w-28 rounded-xl px-3 font-normal ring-1 ring-slate-300" /></label>
@@ -390,7 +397,7 @@ export function TestBuilder({ skills, classes, names, template, preview: initial
                   {(list ?? []).map((x, i) => (
                     <li key={x.id} className="flex items-start gap-3 rounded-xl bg-slate-50 p-3">
                       <span className="font-semibold text-slate-500">{i + 1}.</span>
-                      <span className="flex-1"><span className="block text-xs font-semibold text-slate-500">{x.skill}</span><span data-content lang="en">{x.stem}</span></span>
+                      <span className="flex-1"><span className="block text-xs font-semibold text-slate-500">{x.skill}</span><span data-content lang="en"><RichInline text={x.stem} /></span></span>
                       <span className="flex shrink-0 flex-wrap gap-1">
                         <button type="button" disabled={i === 0} onClick={() => reorder(key, i, -1)} aria-label={t("Move question {n} up", { n: i + 1 })} className="min-h-11 min-w-11 rounded-xl text-slate-600 ring-1 ring-slate-300 disabled:opacity-30">▲</button>
                         <button type="button" disabled={i === (list ?? []).length - 1} onClick={() => reorder(key, i, 1)} aria-label={t("Move question {n} down", { n: i + 1 })} className="min-h-11 min-w-11 rounded-xl text-slate-600 ring-1 ring-slate-300 disabled:opacity-30">▼</button>

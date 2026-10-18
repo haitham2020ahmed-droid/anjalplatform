@@ -5,6 +5,8 @@
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
@@ -128,5 +130,18 @@ describe("👪 Family report: Writing, ReadRise, Fluency Coach plan — friendly
     assert.deepEqual(commentParts("Nice hook! Try to add a closing sentence."), { strength: "Nice hook!", next: "Try to add a closing sentence." });
     for (const fo of ["ACCURACY", "RATE", "PROSODY", "ENRICH"] as const) assert.equal(homeTips(fo).length, 2);
     assert.match(homeTips("ACCURACY", ["through"])[1], /through/);
+  });
+
+  // r87: "Prepare it for me" (kind: AUTO) pulls MAP, Diagnostic, ReadRise, the Fluency Coach plan and Writing
+  // together through several dynamic imports in autoContent(); an edge case in any one of them used to throw an
+  // error that createFamilyReport's caller (src/app/teacher/family-reports/actions.ts) cannot show nicely (it
+  // only recognises ValidationError / ForbiddenError), taking down the whole button. The ordinary path still
+  // creates a report normally; the failure path now surfaces a friendly, recognised ValidationError instead.
+  test("AUTO report generation: the ordinary path still works, and autoContent's own failures are never unhandled", async () => {
+    const id2 = await createFamilyReport(repo, teacher, { studentId: sid, kind: "AUTO" }, NOW);
+    assert.ok(id2, "the happy path is unaffected by the defensive wrapper");
+    const src = readFileSync(join(process.cwd(), "src/server/reports/family-reports.ts"), "utf8");
+    assert.match(src, /autoContent\(repo, actor, input\.studentId, now\)\.catch\(/, "autoContent() is never awaited unguarded in createFamilyReport");
+    assert.match(src, /throw new ValidationError\(/, "a thrown edge case becomes a ValidationError the UI already knows how to show");
   });
 });

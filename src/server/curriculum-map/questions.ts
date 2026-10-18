@@ -8,6 +8,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { remember } from "../cache/lru";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 export type QuestionUseKind = "PLACEMENT" | "MAP_TEST";
@@ -29,7 +30,7 @@ export interface AttachmentNode {
  * (per database and school). Assigning, bridging and the map page no longer rebuild hundreds of nodes each time.
  */
 const NODE_TTL_MS = 60_000;
-const nodeCache = new WeakMap<object, Map<string, { at: number; value: Promise<AttachmentNode[]> }>>();
+const nodeCache = sweptWeakMap<{ at: number; value: Promise<AttachmentNode[]> }>("curriculum-map.questions.nodeCache", 2 * 60_000);
 export function clearMapCache(): void { cacheEpoch++; }
 /** Changes whenever the map is re-seeded (other caches built on the map use it in their keys). */
 export const mapEpoch = (): number => cacheEpoch;

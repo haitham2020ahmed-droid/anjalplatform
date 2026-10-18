@@ -12,6 +12,7 @@ import { useT } from "@/i18n/client";
 import type { GameProps, LivePadProps, PlayQuestion, PowerEffect, PowerUpId } from "../types";
 import { PowerBar } from "../kit/power-bar";
 import { boardSpeed, checkBoard, helpPairs, link, lockIn, matchResponse, scrambleRights, unlink } from "./logic";
+import { RichInline } from "../../components/rich-inline";
 
 /** pair colours + a number on every card, so colour is never the only clue */
 const PAIR = [
@@ -218,14 +219,14 @@ export default function MatchIt({ questions, round }: GameProps) {
       <article className="flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200 sm:p-5">
         <Art />
         <div className="min-w-0">
-          <p dir="ltr" lang="en" className="text-lg font-semibold leading-snug text-slate-900 sm:text-xl">{q.stem}</p>
+          <p dir="ltr" lang="en" className="text-lg font-semibold leading-snug text-slate-900 sm:text-xl"><RichInline text={q.stem} /></p>
           <p className="mt-0.5 text-sm text-slate-600">{t("Tap a card, then its partner. Or drag one card onto the other.")}</p>
         </div>
       </article>
       {q.passage && (
         <details className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-          <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-          <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+          <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+          <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
         </details>
       )}
       {hint && <p className="rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}

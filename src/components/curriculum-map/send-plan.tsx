@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useT } from "@/i18n/client";
+import { SourceSelect } from "@/components/assign/source-select";
+import type { AssignSource } from "@/lib/assign-source";
 import { BTN } from "@/components/ui-kit/tokens";
 import type { SendPreview, SendScopeKind, SendScopeResult } from "@/server/curriculum-map/send-scope";
 import { Combo } from "@/components/ui/combo";
@@ -14,7 +16,7 @@ const BTN_LIGHT = `${BTN} bg-white text-brand-navy ring-1 ring-slate-300 hover:b
 export interface SendClass { id: string; name: string; students: { id: string; name: string }[] }
 export interface SendUnit { code: string; n: number; lessons: { code: string; name: string }[] }
 export interface ScopeInput { grade: number; kind: SendScopeKind; codes?: string[] | null; classIds?: string[] }
-export interface ScopeSendInput extends ScopeInput { studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
+export interface ScopeSendInput extends ScopeInput { source?: string | null; studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
 type PreviewFn = (input: ScopeInput) => Promise<{ ok: true; preview: SendPreview } | { ok: false; message: string }>;
 type SendFn = (input: ScopeSendInput) => Promise<{ ok: boolean; message: string; result?: SendScopeResult }>;
 
@@ -47,11 +49,15 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
   const [selection, setSelection] = useState(units[0]?.lessons[0]?.code ?? "");
   const [unit, setUnit] = useState(units[0]?.code ?? "");
   const [several, setSeveral] = useState<string[]>([]);
-  const [classIds, setClassIds] = useState<string[]>(classes.length === 1 ? [classes[0].id] : []);
+  const [rawClassIds, setClassIds] = useState<string[]>(classes.length === 1 ? [classes[0].id] : []);
+  // only the classes shown for THIS grade count (a class ticked under another grade's tab is never sent)
+  const classIds = rawClassIds.filter((id) => classes.some((c) => c.id === id));
   const [someStudents, setSomeStudents] = useState(false);
   const [picked, setPicked] = useState<string[]>([]);
   const [startAt, setStartAt] = useState("");
   const [dueAt, setDueAt] = useState("");
+  // r74: the required Source (always empty when the window opens)
+  const [source, setSource] = useState<AssignSource | "">("");
   const [pv, setPv] = useState<SendPreview | null>(null);
   const [exclude, setExclude] = useState<string[]>([]);
   const [resend, setResend] = useState(false);
@@ -65,7 +71,7 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
       if (d.kind === "SELECTION" && d.codes?.[0]) setSelection(d.codes[0]);
       if (d.kind === "UNIT" && d.codes?.[0]) setUnit(d.codes[0]);
       if (d.kind) setKind(d.kind);
-      setStep(d.kind ? 2 : 1); setPv(null); setExclude([]); setResend(false); setError(null); setDone(null); setOpen(true);
+      setStep(d.kind ? 2 : 1); setPv(null); setExclude([]); setResend(false); setError(null); setDone(null); setSource(""); setOpen(true);
     };
     window.addEventListener(EVENT, on);
     return () => window.removeEventListener(EVENT, on);
@@ -82,7 +88,7 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
   const scopeOk = kind === "PLAN" || codes.filter(Boolean).length > 0;
   const oneClass = classIds.length === 1 ? classes.find((c) => c.id === classIds[0]) ?? null : null;
   const studentIds = oneClass && someStudents ? picked : null;
-  const whoOk = classIds.length > 0 && (!studentIds || studentIds.length > 0) && (!startAt || !dueAt || startAt <= dueAt);
+  const whoOk = classIds.length > 0 && (!studentIds || studentIds.length > 0) && (!startAt || !dueAt || startAt <= dueAt) && Boolean(source);
   const flip = (xs: string[], x: string) => (xs.includes(x) ? xs.filter((y) => y !== x) : [...xs, x]);
   const scope: ScopeInput = { grade, kind, codes, classIds };
 
@@ -95,7 +101,7 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
   const doSend = async () => {
     setBusy(true); setError(null);
     try {
-      const r = await send({ ...scope, studentIds, exclude, resend, dueAt: dueAt || null, startAt: startAt || null });
+      const r = await send({ ...scope, studentIds, exclude, resend, dueAt: dueAt || null, startAt: startAt || null, source: source || null });
       if (r.ok) { setDone(r); setStep(4); router.refresh(); } else setError(r.message);
     } catch { setError(t("Something went wrong. Please try again.")); }
     finally { setBusy(false); }
@@ -186,6 +192,7 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
                 <label className="block"><span className="text-sm font-semibold text-slate-700">{t("Start date")}</span><input type="date" value={startAt} onChange={(e) => setStartAt(e.target.value)} className={input} /></label>
                 <label className="block"><span className="text-sm font-semibold text-slate-700">{t("Due date")}</span><input type="date" value={dueAt} min={startAt || undefined} onChange={(e) => setDueAt(e.target.value)} className={input} /></label>
               </div>
+              <SourceSelect t={t} value={source} onChange={setSource} field={input} />
             </div>
           ))}
 

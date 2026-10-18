@@ -8,6 +8,11 @@
  *   span     All-grades bank (30 per skill) — added to skills the school already has
  *   map      Curriculum Map — the Review places (map seed) first, then Concept Vocabulary / Review questions per place
  *   grammar  Grammar extras (grammar-extra-sets.json, same format as the skill sets) — skills the school already has
+ *   newSkills  New skills (r73: new-skill-sets.json) — creates "Complex and Compound-Complex Sentences" and "Point of View:
+ *            First, Second, Third Limited, Third Omniscient" in Grades 4–6 when missing (like the gap skills) and adds
+ *            their 100 MAP-style questions each (five RIT bands of 20 = one set per band, so a chunk stays short)
+ *   agreement  New skill (r74: agreement-skill-sets.json) — creates "Subject-Verb Agreement with Compound Subjects" in
+ *            Grades 4–6 when missing (like newSkills) and adds its 100 MAP-style questions (five sets of 20, one per RIT band)
  *   nafs     NAFS model booklets (data/nafs/booklets/NB-*.json) — passage + questions into the NAFS bank (Grade 6),
  *            one booklet file per chunk; an invalid file is skipped and reported (src/server/nafs/booklets.ts)
  *   nafsPractice  NAFS practice sets (data/nafs/practice/NP-*.json) — passage + 10 questions with a difficulty into the
@@ -28,6 +33,7 @@ import { topUpSkills, thinSkills } from "./min-per-skill";
 import { normalizeSkillName, schoolSkillIndex } from "./skill-questions";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
+import { sweptMap, sweptWeakMap } from "../cache/idle";
 import { readCacheFor } from "../db/read-cache-repo";
 import { bookletCount, bookletPackDir, bookletSignature, loadBookletsInto, readBooklets, type Booklet } from "../nafs/booklets";
 import { loadPracticeSetsInto, practiceCount, practicePackDir, practiceSignature, readPracticeSets } from "../nafs/practice-sets";
@@ -36,7 +42,7 @@ import { LEARN_PER_CHUNK, learnCount, loadLessonsInto } from "../learn/load";
 
 const s = (v: unknown) => String(v ?? "");
 
-export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "nafs" | "nafsPractice" | "learn";
+export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "newSkills" | "agreement" | "nafs" | "nafsPractice" | "learn";
 export interface PackDef {
   key: PackKey; title: string; hint: string; file: string; kind: "skills" | "topup" | "map" | "nafs" | "nafsPractice" | "learn";
   /** add only to skills the school already has (never create one) */
@@ -51,6 +57,8 @@ export const PACKS: readonly PackDef[] = [
   { key: "span", title: "All-grades bank (30 per skill)", hint: "MAP-style questions for the skills the school already has.", file: "span-skill-sets.json", kind: "skills", onlyExisting: true, perChunk: 3 },
   { key: "map", title: "Curriculum Map: Review places + Concept Vocabulary / Review questions", hint: "Adds the Review places, then the questions of each selection (Grades 4–6).", file: "map-vocab-review-sets.json", kind: "map", perChunk: 3 },
   { key: "grammar", title: "Grammar extras", hint: "More grammar questions for the skills the school already has.", file: "grammar-extra-sets.json", kind: "skills", onlyExisting: true, perChunk: 3 },
+  { key: "newSkills", title: "New skills: sentence types and point of view", hint: "Adds the skills Complex and Compound-Complex Sentences and Point of View (first, second, third limited, third omniscient) to Grades 4–6, with 100 MAP-style questions each.", file: "new-skill-sets.json", kind: "skills", perChunk: 2 },
+  { key: "agreement", title: "New skill: agreement with compound subjects", hint: "Adds the skill Subject-Verb Agreement with Compound Subjects (and, or, nor, both…and, either…or, neither…nor) to Grades 4–6, with 100 MAP-style questions.", file: "agreement-skill-sets.json", kind: "skills", perChunk: 2 },
   { key: "nafs", title: "NAFS model booklets", hint: "English NAFS model booklets (a text + its questions under the 13 Ministry standards) for the NAFS section's question bank.", file: "data/nafs/booklets", kind: "nafs", perChunk: 1 },
   { key: "nafsPractice", title: "NAFS practice sets", hint: "English NAFS practice sets (a short text + 10 questions with Easy / Medium / Hard) for the NAFS center's practice and tests.", file: "data/nafs/practice", kind: "nafsPractice", perChunk: 1 },
   { key: "learn", title: "Learn lessons", hint: "Short lessons that explain each skill (slides, an example, practice together and 3 checks) for the Learn section.", file: "data/learn/lessons", kind: "learn", perChunk: 1 },
@@ -76,17 +84,18 @@ export function packSignature(def: PackDef): string | null {
 }
 
 type Loaded = { sets: SkillSet[]; nodes?: undefined } | { nodes: MapSetNode[]; sets?: undefined };
-const fileCache = new Map<string, { sig: string; p: Promise<Loaded> }>();
+// r68 memory: a parsed pack (up to 3 MB of JSON) is released 10 minutes after its last use
+const fileCache = sweptMap<string, { sig: string; at: number; p: Promise<Loaded> }>("packs.files", 10 * 60_000, 6);
 /** The pack's content (read once per file version, kept for the next chunks), or null when the file is missing. */
 export async function loadPack(def: PackDef): Promise<Loaded | null> {
   if (def.kind === "nafs" || def.kind === "nafsPractice" || def.kind === "learn") return null; // read by src/server/nafs/booklets.ts / practice-sets.ts / learn/files.ts
   const sig = packSignature(def);
   if (!sig) return null;
   const hit = fileCache.get(def.key);
-  if (hit && hit.sig === sig) return hit.p;
+  if (hit && hit.sig === sig) { hit.at = Date.now(); return hit.p; }
   const rel = join(dirOf(), def.file);
   const p: Promise<Loaded> = def.kind === "map" ? loadMapSetsFile(rel).then((nodes) => ({ nodes })) : loadSkillSetsFile(rel).then((sets) => ({ sets }));
-  remember(fileCache, def.key, { sig, p }, 6);
+  remember(fileCache, def.key, { sig, at: Date.now(), p }, 6);
   p.catch(() => fileCache.delete(def.key));
   return p;
 }
@@ -213,7 +222,7 @@ const qkey = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const fp = (t: string) => createHash("sha1").update(qkey(t)).digest("base64").slice(0, 16);
 /** a pack's count (and the school's text fingerprints) is kept this long while the bank does not change */
 export const COUNT_TTL_MS = 5 * 60_000;
-const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<PackCount> }>>();
+const countCache = sweptWeakMap<{ v: string; at: number; p: Promise<PackCount> }>("questions.load-packs.countCache", 10 * 60_000);
 
 /**
  * How many of the pack's questions are already in the school's bank and how many are left (an estimate by question
@@ -246,7 +255,7 @@ async function countNafsPack(repo: Repo, schoolId: string, def: PackDef): Promis
 
 /** skills per read of the school's question texts (each read returns only their stems, by the skill index) */
 const STEM_SKILLS = 200;
-const stemCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Set<string>> }>>();
+const stemCache = sweptWeakMap<{ v: string; at: number; p: Promise<Set<string>> }>("questions.load-packs.stemCache", 10 * 60_000);
 /**
  * Fingerprints of the school's (not deleted) question texts, read ONCE for every pack of the page (by skill, indexed;
  * only the stem column — never passages, choices or content), turned into 16-character fingerprints as each part

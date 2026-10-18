@@ -6,6 +6,7 @@ import { useT } from "@/i18n/client";
 import { LineIcon } from "@/components/ui/line-icon";
 import type { StuckItem } from "@/server/admin/stuck-questions";
 import { autoClassifyBatchAction, type AutoBatch } from "./actions";
+import { RichInline } from "@/components/rich-inline";
 
 /**
  * 🪄 Auto-classify in batches with a progress bar: by standard → a same-grade skill, by Curriculum Map place → that
@@ -55,7 +56,7 @@ export function AutoClassify({ total }: { total: number }) {
           <p className="font-semibold text-brand-navy">{t("{c} classified · {r} still without a skill", { c: done.classified, r: done.remaining })}</p>
           {done.left.length > 0 && (
             <details className="mt-2 text-sm"><summary className="cursor-pointer text-slate-700">{t("Why some are left")}</summary>
-              <ul className="mt-2 space-y-1">{done.left.map((x) => <li key={x.id}><Link href={`/admin/questions/${x.id}`} className="font-medium text-brand-navy underline">{x.stem || x.id}</Link> <span className="text-slate-600">· {x.reason}</span></li>)}</ul>
+              <ul className="mt-2 space-y-1">{done.left.map((x) => <li key={x.id}><Link href={`/admin/questions/${x.id}`} className="font-medium text-brand-navy underline">{x.stem ? <RichInline text={x.stem} /> : x.id}</Link> <span className="text-slate-600">· {x.reason}</span></li>)}</ul>
             </details>
           )}
         </div>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { Feedback } from "../../server/practice/session";
 import { ExplainButton } from "./explain-button";
 import { AnswerFx } from "../feedback-fx/answer-fx";
+import { RichInline } from "../rich-inline";
 
 /**
  * Immediate feedback after every answer: reinforcement when right. When wrong, the 🧑‍🏫 tutor speaks first: it names
@@ -24,19 +25,19 @@ export function FeedbackPanel({ fb, questionId, fxKey }: { fb: Feedback; questio
         <span aria-hidden="true">{ok ? "✓" : fb.credit > 0 ? "◐" : "✗"}</span>{ok ? "Correct!" : fb.credit > 0 ? "Partly right." : "Not quite."}
       </h2>
       {ok ? (
-        <p className="mt-2 text-lg text-slate-800">{fb.whyCorrect}</p>
+        <p className="mt-2 text-lg text-slate-800"><RichInline text={fb.whyCorrect} /></p>
       ) : (
         <>
           {fb.tutor && (
             <div className="mt-3 rounded-2xl bg-white/80 p-4 ring-1 ring-indigo-200" data-testid="tutor">
               <p className="text-sm font-bold uppercase tracking-wider text-indigo-700">🧑‍🏫 Your tutor</p>
-              <p className="mt-1 text-lg text-slate-900">{fb.tutor.message}</p>
-              <p className="mt-2 font-semibold text-brand-navy">🤔 {fb.tutor.guidingQuestion}</p>
+              <p className="mt-1 text-lg text-slate-900"><RichInline text={fb.tutor.message} /></p>
+              <p className="mt-2 font-semibold text-brand-navy">🤔 <RichInline text={fb.tutor.guidingQuestion} /></p>
               {more ? (
                 <div className="mt-2 space-y-1.5 text-slate-800">
-                  <p><span className="font-semibold text-brand-purple">💡 Hint: </span>{fb.tutor.hint}</p>
-                  <p><span className="font-semibold text-brand-purple">📘 Example: </span>{fb.tutor.example}</p>
-                  <p><span className="font-semibold text-brand-purple">🧭 Next time: </span>{fb.tutor.strategy}</p>
+                  <p><span className="font-semibold text-brand-purple">💡 Hint: </span><RichInline text={fb.tutor.hint} /></p>
+                  <p><span className="font-semibold text-brand-purple">📘 Example: </span><RichInline text={fb.tutor.example} /></p>
+                  <p><span className="font-semibold text-brand-purple">🧭 Next time: </span><RichInline text={fb.tutor.strategy} /></p>
                 </div>
               ) : (
                 <button type="button" onClick={() => setMore(true)} className="mt-2 rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-semibold text-indigo-800 ring-1 ring-indigo-200">💡 Hint and an example</button>
@@ -45,17 +46,17 @@ export function FeedbackPanel({ fb, questionId, fxKey }: { fb: Feedback; questio
           )}
           {reveal ? (
             <dl className="mt-3 space-y-3 text-lg">
-              <div><dt className="text-sm font-semibold text-slate-600">Your answer</dt><dd className="text-slate-900">{fb.yourAnswer}</dd></div>
-              <div><dt className="text-sm font-semibold text-slate-600">Correct answer</dt><dd className="font-semibold text-brand-navy">{fb.correctAnswer}</dd></div>
-              <div><dt className="text-sm font-semibold text-slate-600">Why</dt><dd className="text-slate-900">{fb.whyCorrect}</dd></div>
-              {fb.whyYoursIsWrong && !fb.tutor && <div><dt className="text-sm font-semibold text-slate-600">Why your answer doesn&apos;t fit</dt><dd className="text-slate-900">{fb.whyYoursIsWrong}</dd></div>}
+              <div><dt className="text-sm font-semibold text-slate-600">Your answer</dt><dd className="text-slate-900"><RichInline text={fb.yourAnswer} /></dd></div>
+              <div><dt className="text-sm font-semibold text-slate-600">Correct answer</dt><dd className="font-semibold text-brand-navy"><RichInline text={fb.correctAnswer} /></dd></div>
+              <div><dt className="text-sm font-semibold text-slate-600">Why</dt><dd className="text-slate-900"><RichInline text={fb.whyCorrect} /></dd></div>
+              {fb.whyYoursIsWrong && !fb.tutor && <div><dt className="text-sm font-semibold text-slate-600">Why your answer doesn&apos;t fit</dt><dd className="text-slate-900"><RichInline text={fb.whyYoursIsWrong} /></dd></div>}
             </dl>
           ) : (
             <button type="button" onClick={() => setReveal(true)} className="mt-3 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300">I thought about it — show the answer</button>
           )}
         </>
       )}
-      {fb.tip && (ok || reveal) && <p className="mt-4 rounded-xl bg-white/70 px-4 py-3 text-slate-800"><span className="font-semibold text-brand-purple">Tip: </span>{fb.tip}</p>}
+      {fb.tip && (ok || reveal) && <p className="mt-4 rounded-xl bg-white/70 px-4 py-3 text-slate-800"><span className="font-semibold text-brand-purple">Tip: </span><RichInline text={fb.tip} /></p>}
       {!ok && reveal && questionId && <ExplainButton key={questionId} questionId={questionId} />}
       {fb.rapidGuess && <p className="mt-3 text-slate-700">That was very quick. Take your time to read each question; careful answers count more.</p>}
       <p className="mt-4 text-sm text-slate-600">

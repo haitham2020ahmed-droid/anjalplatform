@@ -7,6 +7,7 @@
  * each text: its measured level vs the student's level).
  */
 import Link from "next/link";
+import { RR_PERIOD_NAME, RR_PERIODS } from "@/server/readrise/windows";
 import { Section } from "@/components/page-header";
 import { AtAGlance } from "@/components/report-kit";
 import type { TFn } from "@/i18n";
@@ -65,6 +66,8 @@ export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; 
         { icon: "🔭", label: "Projected end of year", value: proj ? proj.mid : "—", meaning: proj ? t("range {low}–{high} · {conf}", { low: proj.low, high: proj.high, conf: t(CONF_LEVEL[proj.confidence]) }) : t("Needs 4 first-try readings over 2 weeks"), tone: "info" },
         { icon: "📚", label: "Words read", value: g.wordsRead.toLocaleString("en-US"), meaning: t("{n} readings · {w} a week (8 weeks)", { n: g.readings, w: g.avgPerWeek ?? 0 }), tone: "neutral" },
         { icon: "🧗", label: "Stretch success", value: fmt(g.stretch.pct, "%"), meaning: t("{n} of {m} stretch readings at 75%+", { n: g.stretch.succeeded, m: g.stretch.tried }), tone: (g.stretch.pct ?? 0) >= 75 ? "good" : "neutral" },
+        { icon: "🗓️", label: "Reading checks", value: RR_PERIODS.map((p) => g.checks[p]?.level ?? "—").join(" → "), meaning: RR_PERIODS.map((p) => t(RR_PERIOD_NAME[p])).join(" → "), tone: "info" },
+        ...(g.unreliableRuns ? [{ icon: "⚡", label: "Unreliable readings", value: g.unreliableRuns, meaning: t("2+ answers too fast to be read: the level did not move"), tone: "bad" as const }] : []),
       ]} />
 
       <div className="grid gap-6 xl:grid-cols-2">

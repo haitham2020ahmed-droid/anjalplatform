@@ -1,0 +1,432 @@
+{
+  "code": "LN-227",
+  "title": "Word Relationships (Part-Whole, Item-Category)",
+  "subject": "READING",
+  "goalArea": "Vocabulary",
+  "subtopic": "Vocabulary",
+  "standards": [
+    "L.4.5",
+    "L.5.5",
+    "L.6.5",
+    "L.7.5"
+  ],
+  "families": [
+    "word-relationships"
+  ],
+  "skillNames": [
+    "Word Relationships (Part-Whole, Item-Category)"
+  ],
+  "statements": [],
+  "levels": {
+    "1": {
+      "slides": [
+        {
+          "title": "Part of a whole",
+          "text": "Some words name a PART of something bigger. A **wheel** is part of a **car**."
+        },
+        {
+          "title": "Kind of a group",
+          "text": "Some words name a KIND of a bigger group. A **robin** is a kind of **bird**."
+        },
+        {
+          "title": "Find the match",
+          "text": "Ask: is the second word a PART of the first, or a KIND of the first? Then find a matching pair."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Decide: part-of or kind-of?\n2. Say the relationship as a sentence: 'A ___ is a part of a ___' or 'A ___ is a kind of ___.'\n3. Use that same sentence to check your answer."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "A petal is a part of a flower.",
+            "role": "key"
+          },
+          {
+            "t": "A rose is a kind of flower.",
+            "role": "key"
+          }
+        ],
+        "explain": "Petal and flower show PART-OF. Rose and flower show KIND-OF. Two different relationships with the same word, flower!"
+      },
+      "together": {
+        "passage": "A pedal is a part of a bicycle, the same way a sleeve is a part of a shirt. A sparrow is a kind of bird, the same way a trout is a kind of fish. A hammer and a wrench are both tools, but neither is a part of the other.",
+        "stem": "Which pair in the text shows a PART-OF relationship?",
+        "hint": "A part-of pair means one thing is a piece that belongs to the other, like pedal and bicycle.",
+        "good": "Right! A sleeve is a piece that belongs to a shirt, just like a pedal belongs to a bicycle.",
+        "options": [
+          "Sleeve and shirt",
+          "Sparrow and bird",
+          "Trout and fish",
+          "Hammer and wrench"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "A pedal is a part of a bicycle, the same way a sleeve is a part of a shirt.",
+          "A sparrow is a kind of bird, the same way a trout is a kind of fish.",
+          "A hammer and a wrench are both tools, but neither is a part of the other."
+        ],
+        "proof": [
+          0
+        ],
+        "need": 1,
+        "stem": "The answer was sleeve and shirt. Tap the ONE sentence that shows the part-of relationship.",
+        "wrong": "This sentence shows a KIND-OF or CATEGORY relationship, not PART-OF. Find the sentence about pedal and sleeve."
+      },
+      "checks": [
+        {
+          "passage": "A doorknob is a part of a door. A terrier is a kind of dog. A fork and a spoon are both utensils.",
+          "stem": "Which pair shows a PART-OF relationship?",
+          "why": "A doorknob is a piece that belongs to a door, that's part-of.",
+          "options": [
+            "Terrier and dog",
+            "Doorknob and door",
+            "Fork and spoon",
+            "Utensils and kitchen"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A keyboard is a part of a laptop. A maple is a kind of tree. A violin and a cello are both instruments.",
+          "stem": "Which pair shows a KIND-OF relationship?",
+          "why": "A maple is one specific kind of tree, that's kind-of.",
+          "options": [
+            "Keyboard and laptop",
+            "Violin and cello",
+            "Maple and tree",
+            "Instruments and music"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "A page is a part of a book. A salmon is a kind of fish. A hammer and a saw are both tools.",
+          "stem": "Which pair shows neither a part-of nor a kind-of relationship, just two items in the same category?",
+          "why": "A hammer and a saw are both separate tools, side by side in the same category, not one part of the other.",
+          "options": [
+            "Page and book",
+            "Salmon and fish",
+            "Tools and workshop",
+            "Hammer and saw"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Part or kind?",
+        "text": "Point to two related words. Ask: is the first one a PIECE of the second (part-of), or is the first one ONE EXAMPLE of the second (kind-of)?",
+        "example": "Wheel and car: wheel is a PART. Poodle and dog: poodle is a KIND."
+      }
+    },
+    "2": {
+      "slides": [
+        {
+          "title": "Category words",
+          "text": "A category word names a whole GROUP. Salmon, trout, and tuna all belong to the category **fish**."
+        },
+        {
+          "title": "Analogies",
+          "text": "An analogy shows the SAME relationship in two pairs: 'petal is to flower as pedal is to ___.'"
+        },
+        {
+          "title": "Match the relationship, not the topic",
+          "text": "The answer must match the SAME kind of relationship (part-of or kind-of), even if the topic is totally different."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Name the relationship in the first pair (part-of or kind-of).\n2. Check each answer choice: does it show the SAME relationship?\n3. Pick the one that matches, even if the topic changes."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Petal is to flower as pedal is to bicycle, because both show a small part belonging to a larger whole.",
+            "role": "key"
+          },
+          {
+            "t": "Sparrow is to bird as trout is to fish, because both show one example belonging to a bigger category.",
+            "role": "key"
+          }
+        ],
+        "explain": "The first analogy is part-of; the second is kind-of. Naming the relationship helps you solve a new analogy with a different topic."
+      },
+      "together": {
+        "passage": "Petal is to flower as pedal is to bicycle, because both show a small part belonging to a larger whole. Sparrow is to bird as trout is to fish, because both show one example belonging to a bigger category. Branch is to tree as handle is to door, because that pair also shows a part belonging to a whole.",
+        "stem": "Sleeve is to shirt as hinge is to ___. Which word completes the analogy with the SAME relationship (part-of)?",
+        "hint": "A hinge is a small part that belongs to a bigger whole, just like a sleeve belongs to a shirt. Which object usually has a hinge?",
+        "good": "Right! A hinge is a part of a door, matching the part-of relationship between sleeve and shirt.",
+        "options": [
+          "Door",
+          "Table",
+          "Cloud",
+          "Mountain"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Petal is to flower as pedal is to bicycle, because both show a small part belonging to a larger whole.",
+          "Sparrow is to bird as trout is to fish, because both show one example belonging to a bigger category."
+        ],
+        "proof": [
+          0
+        ],
+        "need": 1,
+        "stem": "The answer used the part-of relationship. Tap the ONE sentence with the matching analogy.",
+        "wrong": "That sentence explains the KIND-OF analogy, not the PART-OF one. Find the sentence about petal and pedal."
+      },
+      "checks": [
+        {
+          "passage": "Branch is to tree as handle is to door, because both show a part belonging to a whole.",
+          "stem": "What relationship does 'branch is to tree as handle is to door' show?",
+          "why": "A branch is a part of a tree, and a handle is a part of a door, both part-of.",
+          "options": [
+            "Kind-of",
+            "Part-of",
+            "Opposite meanings",
+            "Same meaning"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "Oak is to tree as guppy is to fish, because both show one example belonging to a category.",
+          "stem": "Collie is to dog as maple is to ___. Which word completes the analogy?",
+          "why": "A collie is a kind of dog, and a maple is a kind of tree, matching kind-of relationships.",
+          "options": [
+            "Leaf",
+            "Forest",
+            "Tree",
+            "Branch"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "Roof is to house as lid is to jar, because both show a part belonging to a whole.",
+          "stem": "Zipper is to jacket as button is to ___. Which word completes the analogy with the SAME relationship?",
+          "why": "A button is a part of a shirt, matching the part-of relationship between zipper and jacket.",
+          "options": [
+            "Fabric",
+            "Store",
+            "Closet",
+            "Shirt"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Same relationship, new topic",
+        "text": "Cover the second pair of an analogy. Say the relationship out loud using the first pair ('a part of,' 'a kind of'). Then find an answer that fits that SAME sentence.",
+        "example": "'Wheel is to car as ___ is to bicycle.' Say: 'A wheel is a part of a car, so I need a PART of a bicycle, pedal!'"
+      }
+    },
+    "3": {
+      "slides": [
+        {
+          "title": "Levels of a category",
+          "text": "Categories can have LEVELS: animal, mammal, dog, poodle. Each step is more SPECIFIC than the one before."
+        },
+        {
+          "title": "Broad vs narrow",
+          "text": "'Animal' is very broad. 'Poodle' is very narrow. The words in between (mammal, dog) are medium."
+        },
+        {
+          "title": "Order the levels",
+          "text": "To order words by specificity, ask: which word includes the MOST other words? That one is the broadest."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. List the words you're comparing.\n2. Ask which word is the biggest, most general category.\n3. Ask which word is the most specific, narrow example.\n4. Order the rest in between."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "Vehicle is the broadest of the four words, since it includes cars, trucks and motorcycles.",
+            "role": "key"
+          },
+          {
+            "t": "Sports car is the narrowest, naming one exact kind of car.",
+            "role": "key"
+          }
+        ],
+        "explain": "Vehicle sits at the top of the chain because it includes everything else; sports car sits at the bottom because it is the most specific."
+      },
+      "together": {
+        "passage": "Think about these four words: vehicle, car, sedan, and sports car. Vehicle is the broadest word, it includes cars, trucks, motorcycles, and more. Car is narrower than vehicle, since it is one specific kind of vehicle. Sedan is narrower still, since it is one specific kind of car. Sports car is the narrowest of all four, naming a very specific kind of car built for speed.",
+        "stem": "Which word in the passage is the BROADEST category?",
+        "hint": "Which word includes all the other three words inside it?",
+        "good": "Right! Vehicle includes cars, trucks, and motorcycles, making it the broadest category of the four.",
+        "options": [
+          "Vehicle",
+          "Car",
+          "Sedan",
+          "Sports car"
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Vehicle is the broadest word, it includes cars, trucks, motorcycles, and more.",
+          "Car is narrower than vehicle, since it is one specific kind of vehicle.",
+          "Sedan is narrower still, since it is one specific kind of car.",
+          "Sports car is the narrowest of all four, naming a very specific kind of car built for speed."
+        ],
+        "proof": [
+          0
+        ],
+        "need": 1,
+        "stem": "The answer was 'vehicle.' Tap the ONE sentence that explains why.",
+        "wrong": "This sentence is about a narrower word, not the broadest one. Find the sentence about 'vehicle.'"
+      },
+      "checks": [
+        {
+          "passage": "Consider animal, mammal, dog, and poodle. Animal is the broadest category of the four. Mammal is narrower, since not all animals are mammals. Dog is narrower still, since not all mammals are dogs. Poodle is the narrowest, naming one specific breed.",
+          "stem": "Which word is the NARROWEST in this chain?",
+          "why": "Poodle names one specific breed, making it the narrowest word in the chain.",
+          "options": [
+            "Animal",
+            "Poodle",
+            "Mammal",
+            "Dog"
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "Consider food, fruit, citrus fruit, and orange. Food is the broadest word here. Fruit is narrower than food. Citrus fruit is narrower than fruit. Orange is the narrowest, naming one specific citrus fruit.",
+          "stem": "Which word is narrower than 'fruit' but broader than 'orange'?",
+          "why": "Citrus fruit sits between the broad word fruit and the specific word orange.",
+          "options": [
+            "Food",
+            "Orange",
+            "Citrus fruit",
+            "Fruit"
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "Consider building, house, apartment, and studio apartment. Building is the broadest word. House and apartment are both narrower kinds of buildings. Studio apartment is the narrowest, naming one specific kind of apartment.",
+          "stem": "Which word is the BROADEST in this chain?",
+          "why": "Building includes houses, apartments, and every other kind of structure, making it the broadest.",
+          "options": [
+            "House",
+            "Apartment",
+            "Studio apartment",
+            "Building"
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Broad to narrow ladder",
+        "text": "Draw a ladder with four rungs. Write the broadest word on the top rung and the most specific word on the bottom rung. Fill in the middle rungs in order.",
+        "example": "Top: animal. Then: mammal. Then: dog. Bottom: poodle."
+      }
+    },
+    "4": {
+      "slides": [
+        {
+          "title": "Precision matters",
+          "text": "Using a word that's too broad can make writing vague. A more specific word in the same category paints a clearer picture."
+        },
+        {
+          "title": "Compare precision",
+          "text": "'The animal walked by' is vague. 'The golden retriever trotted by' is precise, because retriever is a much narrower word than animal."
+        },
+        {
+          "title": "Choose the right level",
+          "text": "The BEST word depends on purpose: sometimes broad is fine (a general statement), but specific is better when exact detail matters."
+        }
+      ],
+      "proof": {
+        "title": "Prove it from the text",
+        "text": "1. Find a broad category word in a sentence.\n2. Think of a narrower word from the same category that fits the context.\n3. Explain how the narrower word adds precision or detail."
+      },
+      "example": {
+        "sentences": [
+          {
+            "t": "\"An animal moved through the grass\" is vague.",
+            "role": "key"
+          },
+          {
+            "t": "\"A red fox slipped through the grass\" is precise, naming a specific narrow example.",
+            "role": "key"
+          }
+        ],
+        "explain": "Swapping the broad word animal for the narrow word fox makes the sentence far more vivid and exact."
+      },
+      "together": {
+        "passage": "A nature writer revised one paragraph of her article twice. In the first draft, she wrote: \"An animal moved through the plants near the water, and then a bird made a sound overhead.\" Her editor pointed out that this sentence told readers almost nothing specific. In the second draft, she replaced the broad words with narrow, precise ones: \"A red fox slipped through the reeds near the water, and then a heron's sharp cry rang out overhead.\" Animal became fox, a far narrower and more specific category. Plants became reeds, naming the exact kind of plant. The second draft helps readers picture an exact scene: a particular animal, a particular plant, a particular bird making a particular sound.",
+        "stem": "Why does replacing 'animal' with 'fox' and 'bird' with 'heron' make the second draft more effective?",
+        "hint": "Think about where fox fits compared to animal, and where heron fits compared to bird, in each word's category.",
+        "good": "Right! Fox and heron are specific, narrow members of the broad categories animal and bird, which makes the scene far more vivid.",
+        "options": [
+          "Fox and heron are much narrower, more specific words from the same categories, so they help readers picture an exact scene instead of a vague one.",
+          "The second draft describes a completely different, unrelated event.",
+          "Fox and heron are broader words than animal and bird.",
+          "The change makes no real difference to how readers picture the scene."
+        ],
+        "answer": 0
+      },
+      "evidence": {
+        "sentences": [
+          "Her editor pointed out that this sentence told readers almost nothing specific.",
+          "Animal became fox, a far narrower and more specific category.",
+          "Plants became reeds, naming the exact kind of plant.",
+          "The second draft helps readers picture an exact scene: a particular animal, a particular plant, a particular bird making a particular sound."
+        ],
+        "proof": [
+          1,
+          2
+        ],
+        "need": 2,
+        "stem": "The claim was about specific word swaps from broad to narrow. Tap the 2 sentences that describe those swaps.",
+        "wrong": "This sentence states the overall point, but find the TWO sentences that specifically explain the word swaps from broad to narrow."
+      },
+      "checks": [
+        {
+          "passage": "A chef's menu first read, 'comes with a vegetable side.' After feedback that this was too vague, the chef changed it to, 'comes with roasted asparagus.'",
+          "stem": "Why is 'roasted asparagus' more effective than 'a vegetable side'?",
+          "why": "Asparagus names one specific vegetable, which is far more informative than the broad word vegetable.",
+          "options": [
+            "Asparagus is a broader category than vegetable.",
+            "Asparagus is a specific, narrow example within the broad category vegetable, giving customers exact information.",
+            "The change describes a completely different dish.",
+            "There is no real difference between the two phrases."
+          ],
+          "answer": 1
+        },
+        {
+          "passage": "A travel brochure first said, 'enjoy local food at the market.' A reviewer suggested changing it to, 'enjoy fresh mangoes and grilled corn at the market.'",
+          "stem": "What makes the revised sentence more effective?",
+          "why": "Specific food names are narrower and more vivid than the broad phrase local food.",
+          "options": [
+            "Mangoes and corn are broader words than local food.",
+            "The revised sentence describes an entirely different market.",
+            "Mangoes and grilled corn are specific, narrow examples within the broad category local food, creating a clearer picture.",
+            "Both versions give readers exactly the same amount of detail."
+          ],
+          "answer": 2
+        },
+        {
+          "passage": "A report first stated, 'several vehicles were involved in the accident.' A later version specified, 'two delivery trucks and a sedan were involved in the accident.'",
+          "stem": "Why is the later version more precise?",
+          "why": "Naming the specific vehicle types is far more precise than the broad word vehicles.",
+          "options": [
+            "Delivery trucks and sedan are broader than vehicles.",
+            "The later version describes a different accident.",
+            "Both versions are equally precise.",
+            "Delivery trucks and sedan are specific, narrower words within the broad category vehicles, giving readers an exact picture."
+          ],
+          "answer": 3
+        }
+      ],
+      "again": {
+        "title": "Zoom in",
+        "text": "Take a broad word from a sentence (animal, food, building). Replace it with a narrower, more specific word from the same category. Notice how much clearer the sentence becomes.",
+        "example": "'A building stood on the corner' becomes 'A lighthouse stood on the corner.' Much clearer!"
+      }
+    }
+  }
+}

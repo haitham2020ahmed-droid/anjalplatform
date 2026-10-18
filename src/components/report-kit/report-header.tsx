@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useT } from "@/i18n/client";
 import { fmtDay } from "./tokens";
+import { isPrintHref } from "@/lib/print-href";
 
 /** 🖨 Print / Save as PDF (the browser's dialog). Hidden on paper. */
 export function PrintButton({ label = "Print" }: { label?: string }) {
@@ -53,7 +54,7 @@ export function ReportHeader({ back, icon, title, subtitle, who, when, filters, 
             <div className="flex flex-wrap items-center gap-2 print:hidden">
               {children}
               {downloads.map((d) => (
-                <a key={d.href} href={d.href} data-rk="download" {...(d.download === false ? {} : { download: true })}
+                <a key={d.href} href={d.href} data-rk="download" {...(d.download === false ? {} : isPrintHref(d.href) ? { target: "_blank", rel: "noopener" } : { download: true })}
                   className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">
                   <span aria-hidden="true">{d.icon ?? "⬇️"}</span>{t(d.label)}
                 </a>

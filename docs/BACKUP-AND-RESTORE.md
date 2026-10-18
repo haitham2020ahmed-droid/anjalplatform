@@ -84,6 +84,51 @@ gpg --encrypt --recipient "Al-Anjal ELA backups" alanjal-$(date +%F).sql.gz   # 
 To restore such a dump: create an empty Aiven service (or database), run
 `gunzip -c file.sql.gz | mysql -h … -u … -p <database>`, then follow steps 3.4–3.8.
 
+### 6a. Doing this automatically (`scripts/db/backup-db.sh` + a Render Cron Job)
+
+The command above is now also a script, so it can be run on a schedule instead of by hand:
+
+```sh
+DATABASE_URL="mysql://user:pass@host:port/db?ssl-mode=REQUIRED" npm run db:backup
+```
+
+It `mysqldump`s the database named in `DATABASE_URL`, gzips it to a timestamped file in `BACKUP_DIR`
+(default `./backups`), refuses to call a near-empty dump a success, and prunes local dumps older than
+`BACKUP_RETAIN_DAYS` (default 7). See the comments at the top of the script for every setting.
+
+**What it adds on top of Aiven's own backups (section 1–4):** a copy in the plain `mysqldump` / `.sql.gz`
+format, kept wherever you point it — useful if you ever want a dump outside Aiven entirely, or a quick
+local copy before a risky change, without opening the Aiven console.
+
+**What it does NOT do by itself: keep the dump anywhere durable.** On Render, a Cron Job's disk is thrown
+away as soon as the job finishes — without `BACKUP_UPLOAD_CMD` set to a real upload command (to storage
+*you* set up: an S3-compatible bucket, Backblaze B2, anything with a CLI), the job proves the database is
+dumpable and then discards the file. This repo does not wire up or invent a storage account — choose one,
+install its CLI in the job's image if it needs one, and set:
+
+```
+BACKUP_UPLOAD_CMD = aws s3 cp --storage-class STANDARD_IA     # example once a bucket + credentials exist
+```
+
+**`render.yaml`** (repo root) defines this as a Cron Job named `backup-db`, daily at 02:00 UTC, running
+the same Docker image as the scheduled-jobs worker with its command replaced by this script (that image
+now also installs the MySQL client, for `mysqldump`). The file is a convenience, not a requirement — the
+web service and the jobs worker keep working exactly as before whether or not it is used. To turn the
+backup job on:
+
+1. In the Render dashboard, either sync this blueprint (`render.yaml`) or create the Cron Job by hand
+   ("New +" → "Cron Job", same repo, Docker, build arg `APP_TARGET=jobs`, command
+   `sh scripts/db/backup-db.sh`, schedule `0 2 * * *`).
+2. Set `DATABASE_URL` on the job to the same value as the web service's (Render never reads secrets out
+   of `render.yaml` — this is always a manual step, by design).
+3. Decide where dumps go (see above) and set `BACKUP_UPLOAD_CMD`, or mount a persistent disk at
+   `BACKUP_DIR` — otherwise step 1–2 alone only prove the backup runs, they do not keep anything.
+4. After the first run, Render → the job → **Logs** shows "Wrote …" and the dump's size, or the exact
+   reason it failed (missing `mysqldump`, a bad `DATABASE_URL`, an upload failure).
+
+Until step 3 is done, treat Aiven's own backups (section 1–4) as the only real backup — which, for most
+schools, they already are.
+
 ## 7. Admin password recovery
 
 There is no “forgot password” e-mail for admins (the platform has no reset-link flow).

@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
   // gzip for pages, data and scripts (Next's default, kept on explicitly: Render does not compress for the app)
   compress: true,
+  // r70: no in-memory copy of rendered pages/data (Next keeps up to 50 MB by default) — every MB counts on the 512 MB plan
+  cacheMaxMemorySize: 0,
   async headers() {
     // Update 46: the logos and app icons (public/brand, public/icons) are cached by the browser for a day instead of
     // being asked for again on every page (their names never change; a new logo is uploaded through /api/school-logo)

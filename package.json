@@ -44,7 +44,8 @@
     "admin:create": "tsx scripts/admin/create-admin.ts",
     "jobs:learning": "tsx scripts/jobs/daily-learning.ts",
     "jobs:sort": "tsx scripts/jobs/sort-questions.ts",
-    "db:baseline:rebuild": "sh scripts/db/baseline-migration.sh --rebuild"
+    "db:baseline:rebuild": "sh scripts/db/baseline-migration.sh --rebuild",
+    "db:backup": "sh scripts/db/backup-db.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

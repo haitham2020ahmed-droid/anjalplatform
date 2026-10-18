@@ -3,22 +3,22 @@ import type { TFn } from "@/i18n";
 import type { Actor } from "@/server/auth/rbac";
 import { repo } from "@/server/auth/next";
 import { nafsClasses } from "@/server/nafs/tests";
-import { DEFAULT_PRACTICE_QUESTIONS, listNafsPractice, MAX_PRACTICE_QUESTIONS, nafsPracticeReport } from "@/server/nafs/practice";
+import { DEFAULT_PRACTICE_QUESTIONS, listNafsPractice, MAX_PRACTICE_QUESTIONS } from "@/server/nafs/practice";
 import { CONTENT_SKILLS, MOE_AREAS, MOE_STANDARDS, NAFS_DOMAINS } from "@/server/nafs/framework";
 import { createPracticeAction, deletePracticeAction } from "@/app/teacher/nafs/actions";
 import { Combo } from "@/components/ui/combo";
-import { PracticeReportView } from "./practice-report";
 import { TargetChecklist } from "./target-checklist";
 import { DifficultyPicker } from "./difficulty-picker";
 import { nafsGroups } from "./builder-starts";
+import { PendingButton } from "./pending-button";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line";
 const INPUT = "min-h-11 rounded-xl bg-surface px-3 ring-1 ring-line";
 
 /**
- * 🇸🇦 NAFS center — Tool 1: Adaptive practice. Give it (NAFS skills / Ministry standards, or the questions chosen in the
+ * 🇸🇦 NAFS center → Adaptive → Practice. Give it (NAFS skills / Ministry standards, or the questions chosen in the
  * Question bank; a Grade 6 class or chosen students; optional number of questions, time, due date), see the list, and
- * open one: per student and skill the difficulty reached, accuracy, secure or not, time spent.
+ * its results are in Adaptive → Report (per student and skill: the difficulty reached, accuracy, mastery, time).
  */
 export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Record<string, string | undefined> }) {
   const [list, classes] = await Promise.all([listNafsPractice(repo, actor), nafsClasses(repo, actor)]);
@@ -30,10 +30,8 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
   const preTargets = new Set(list0(sp.target as unknown).slice(0, 26));
   const preClass = classes.find((c) => c.id === sp.class)?.id;
   const preSids = list0(sp.sid as unknown).filter((id) => classes.some((c) => c.id === preClass && c.students.some((x) => x.id === id)));
-  const open = sp.open ? await nafsPracticeReport(repo, actor, sp.open).catch(() => null) : null;
   return (
     <div className="grid gap-4">
-      {open && <PracticeReportView r={open} t={t} closeHref="/teacher/nafs?tab=practice" />}
       <section className={CARD} aria-labelledby="pl-h">
         <h2 id="pl-h" className="text-lg font-semibold text-ink">{t("Adaptive practice given")}</h2>
         {!list.length ? <p className="mt-3 rounded-xl bg-surface-2 p-4 text-center text-sm text-muted">{t("No adaptive practice yet. Give the first one below.")}</p> : (
@@ -45,7 +43,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
                   <p className="text-sm text-muted">{x.className} · {t("{n} students", { n: x.students })} · {t("{n} started", { n: x.started })} · {t("{n} finished", { n: x.finished })} · {t("{n} mastered every skill", { n: x.allMastered })}{x.dueAt ? ` · ${t("Due {date}", { date: new Date(x.dueAt).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) })}` : ""}</p>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  <Link href={`/teacher/nafs?tab=practice&open=${encodeURIComponent(x.id)}`} className="inline-flex min-h-10 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white">{t("Results")}</Link>
+                  <Link href={`/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(x.id)}`} className="inline-flex min-h-10 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white">{t("Results")}</Link>
                   {x.mine && <form action={deletePracticeAction}><input type="hidden" name="id" value={x.id} /><button className="min-h-10 rounded-lg px-3 text-sm font-semibold text-rose-700 ring-1 ring-rose-200">{t("Remove")}</button></form>}
                 </div>
               </li>
@@ -63,7 +61,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
             <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Name")}<input name="title" required maxLength={150} defaultValue={t("NAFS practice")} className={INPUT} /></label>
             {preTargets.size > 0 && !picked.length && <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{t("Prefilled from the Dashboard: check the standards and the students, then give the practice.")}</p>}
             {picked.length > 0 ? (
-              <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{t("{n} chosen question(s) from the Question bank: the practice adapts inside them.", { n: picked.length })} <Link href="/teacher/nafs?tab=practice#give" className="font-semibold underline">{t("Clear")}</Link></p>
+              <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm text-teal-900 ring-1 ring-teal-200">{t("{n} chosen question(s) from the Question bank: the practice adapts inside them.", { n: picked.length })} <Link href="/teacher/nafs?tab=adaptive#give" className="font-semibold underline">{t("Clear")}</Link></p>
             ) : (
               <TargetChecklist name="target" pickName="pick" mcqOnly defaultValue={[...preTargets]} legend="What to practise"
                 groups={nafsGroups({ areas: MOE_AREAS, standards: MOE_STANDARDS, domains: NAFS_DOMAINS.filter((d) => d.code !== "PIRLS"), skills: CONTENT_SKILLS }, t)} />
@@ -83,7 +81,7 @@ export async function PracticeTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: 
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Questions per student")}<input type="number" name="max" min={1} max={MAX_PRACTICE_QUESTIONS} placeholder={String(DEFAULT_PRACTICE_QUESTIONS)} className={`${INPUT} w-28`} /></label>
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Time (minutes, optional)")}<input type="number" name="minutes" min={1} max={120} className={`${INPUT} w-28`} /></label>
               <label className="grid gap-1 text-sm font-semibold text-ink-2">{t("Due date (optional)")}<input type="date" name="dueAt" className={INPUT} /></label>
-              <button className="min-h-11 rounded-xl bg-teal-700 px-6 font-semibold text-white">{t("Give the practice")}</button>
+              <PendingButton label="Give the practice" pendingLabel="Assigning…" className="min-h-11 rounded-xl bg-teal-700 px-6 font-semibold text-white" />
             </div>
           </form>
         )}

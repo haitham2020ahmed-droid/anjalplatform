@@ -134,11 +134,11 @@ export async function seedTestEnvironment(repo: Repo, opts: { root: string; pass
     if (pool.length < 5) throw new Error(`Grade ${c.klass.gradeId}: not enough skills with questions for the test assignments.`);
     const ids = c.students.map((x) => s(x.studentId));
     const assignedAt = new Date(now.getTime() - DAY), longAgo = new Date(now.getTime() - 14 * DAY);
-    const whole = await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[0], dueAt: new Date(now.getTime() + 6 * DAY), note: "Practise until you finish." }, assignedAt);
-    await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[1] }, assignedAt); // no due date
-    const sel = await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[2], studentIds: ids.slice(0, 6), dueAt: new Date(now.getTime() + 3 * DAY) }, assignedAt);
-    await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[3], studentIds: [ids[6]], dueAt: new Date(now.getTime() + 10 * DAY) }, assignedAt);
-    const old = await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[4], dueAt: new Date(now.getTime() - 4 * DAY) }, longAgo); // assigned 2 weeks ago: overdue now
+    const whole = await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[0], dueAt: new Date(now.getTime() + 6 * DAY), note: "Practise until you finish.", source: "CURRICULUM" }, assignedAt);
+    await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[1], source: "CURRICULUM" }, assignedAt); // no due date
+    const sel = await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[2], studentIds: ids.slice(0, 6), dueAt: new Date(now.getTime() + 3 * DAY), source: "CURRICULUM" }, assignedAt);
+    await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[3], studentIds: [ids[6]], dueAt: new Date(now.getTime() + 10 * DAY), source: "CURRICULUM" }, assignedAt);
+    const old = await assignSkill(repo, teacher, { classId: s(c.klass.id), skillId: pool[4], dueAt: new Date(now.getTime() - 4 * DAY), source: "CURRICULUM" }, longAgo); // assigned 2 weeks ago: overdue now
     if (opts.practice === "none") continue;
     // Completed (before the due date) · In progress · Not started · Overdue — all from real practice
     practiceJobs.push(async () => {

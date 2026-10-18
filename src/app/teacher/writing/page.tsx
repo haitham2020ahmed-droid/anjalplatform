@@ -15,6 +15,7 @@ import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
 import { LineIcon } from "@/components/ui/line-icon";
 import { ITEM_PREVIEW } from "@/server/student/preview-as";
 import { approveAiAction, createTaskAction, dismissAiAction, reteachAction, requestAiAction, researchScoreAction, scoreAction } from "./actions";
+import { SourceSelect } from "@/components/assign/source-select";
 
 export const metadata = { title: "Writing & reading aloud" };
 
@@ -137,7 +138,7 @@ function SubmissionCard({ task, x }: { task: TaskView; x: Sub }) {
           <ul className="mt-1 space-y-1">{x.reteach.map((r) => (
             <li key={r.trait} className="flex flex-wrap items-center gap-2"><span><b>{r.traitName}</b> ({r.score}):</span>
               {r.skills.length ? r.skills.map((k) => (
-                <form key={k.id} action={reteachAction}><Hidden task={task} x={x} /><input type="hidden" name="skillId" value={k.id} /><input type="hidden" name="studentIds" value={x.studentId} /><button className="rounded-full bg-white px-3 py-1 font-semibold text-brand-navy ring-1 ring-amber-300 hover:ring-brand-teal">⭐ Assign “{k.name}”</button></form>
+                <form key={k.id} action={reteachAction}><Hidden task={task} x={x} /><input type="hidden" name="skillId" value={k.id} /><input type="hidden" name="studentIds" value={x.studentId} /><span className="inline-flex items-center gap-1"><SourceSelect compact /><button className="rounded-full bg-white px-3 py-1 font-semibold text-brand-navy ring-1 ring-amber-300 hover:ring-brand-teal">⭐ Assign “{k.name}”</button></span></form>
               )) : <span className="text-slate-500">no matching skill in this curriculum</span>}
             </li>
           ))}</ul>
@@ -245,7 +246,7 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
                 <li key={r.code}>
                   <p><b>{r.label}</b> <span className="text-slate-500">· {r.count}× · {r.students} student{r.students === 1 ? "" : "s"}</span></p>
                   {r.fix && <p className="text-xs text-slate-600">{r.fix}</p>}
-                  {task && <div className="mt-1 flex flex-wrap gap-1">{r.skills.map((k) => <form key={k.id} action={reteachAction}><input type="hidden" name="taskId" value={task.id} /><input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={k.id} /><button className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-900 ring-1 ring-amber-200">⭐ Assign “{k.name}” to the class</button></form>)}</div>}
+                  {task && <div className="mt-1 flex flex-wrap gap-1">{r.skills.map((k) => <form key={k.id} action={reteachAction}><input type="hidden" name="taskId" value={task.id} /><input type="hidden" name="classId" value={classId} /><input type="hidden" name="skillId" value={k.id} /><span className="inline-flex items-center gap-1"><SourceSelect compact /><button className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-900 ring-1 ring-amber-200">⭐ Assign “{k.name}” to the class</button></span></form>)}</div>}
                 </li>
               ))}</ol>
             )}

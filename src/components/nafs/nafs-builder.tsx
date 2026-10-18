@@ -12,6 +12,7 @@ import { Combo, type ComboOption } from "@/components/ui/combo";
 import { DifficultyPicker, difficultyValue } from "./difficulty-picker";
 import { TargetChecklist } from "./target-checklist";
 import { nafsGroups, STARTS, startOfMode, type BuilderStart } from "./builder-starts";
+import { RichInline } from "@/components/rich-inline";
 
 export type { BuilderStart } from "./builder-starts";
 
@@ -261,7 +262,7 @@ export function NafsBuilder(props: {
       difficulty: wholeBank ? dv : null, confirmUncovered: confirm,
     });
     if (r.error) return setError(r.error);
-    router.push(`/teacher/nafs?tab=practice&open=${encodeURIComponent(r.ok!.id)}&msg=${encodeURIComponent(t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.ok!.students }))}`);
+    router.push(`/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.ok!.id)}&msg=${encodeURIComponent(t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.ok!.students }))}`);
   });
 
   // ---------------------------------------------------------------- pieces
@@ -284,7 +285,7 @@ export function NafsBuilder(props: {
   const rowLine = (r: BuilderRow, i: number, withMove: boolean) => (
     <li key={r.id} className="rounded-xl bg-surface-2 p-3 ring-1 ring-line">
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <p className="min-w-0 flex-1 text-sm text-ink" lang="en" dir="ltr"><b>{r.n}.</b> {r.stem}</p>
+        <p className="min-w-0 flex-1 text-sm text-ink" lang="en" dir="ltr"><b>{r.n}.</b> <RichInline text={r.stem} /></p>
         <div className="flex flex-wrap items-center gap-1">
           {withMove && <><button type="button" onClick={() => move(i, -1)} className={`${BTN} ring-1 ring-line`} aria-label={t("Move up")}>↑</button><button type="button" onClick={() => move(i, 1)} className={`${BTN} ring-1 ring-line`} aria-label={t("Move down")}>↓</button></>}
           <button type="button" onClick={() => replace(r.id)} disabled={busy || (full && !r.standard)} className={`${BTN} text-teal-ink ring-1 ring-line disabled:opacity-40`}>{t("Replace")}</button>
@@ -504,10 +505,10 @@ export function NafsBuilder(props: {
                     return (
                       <li key={r.id} className="py-2">
                         <div className="flex items-start justify-between gap-2">
-                          <button type="button" aria-expanded={peek === r.id} onClick={() => setPeek(peek === r.id ? null : r.id)} className="min-w-0 flex-1 text-start text-sm text-ink" lang="en" dir="ltr">{r.stem} <span className="text-xs text-muted">· {r.standard ? `${codeName(r.standard, t)} · ` : ""}{t(DIFFICULTY_NAME[r.difficulty])} · {t(r.skill)}{r.kind === "WRITTEN" ? " · ✍" : ""}{r.hasPassage ? ` · 📄 ${r.passageTitle ?? ""}` : ""}</span></button>
+                          <button type="button" aria-expanded={peek === r.id} onClick={() => setPeek(peek === r.id ? null : r.id)} className="min-w-0 flex-1 text-start text-sm text-ink" lang="en" dir="ltr"><RichInline text={r.stem} /> <span className="text-xs text-muted">· {r.standard ? `${codeName(r.standard, t)} · ` : ""}{t(DIFFICULTY_NAME[r.difficulty])} · {t(r.skill)}{r.kind === "WRITTEN" ? " · ✍" : ""}{r.hasPassage ? ` · 📄 ${r.passageTitle ?? ""}` : ""}</span></button>
                           <button type="button" disabled={off || busy} onClick={() => addRow(r.id)} className={`${BTN} bg-teal-700 text-white disabled:opacity-40`}>{t(ids.includes(r.id) ? "Added" : "Add")}</button>
                         </div>
-                        {peek === r.id && r.options.length > 0 && <ol className="mt-1 grid gap-1 sm:grid-cols-2" lang="en" dir="ltr">{r.options.map((o, i) => <li key={i} className={`rounded-md px-2 py-1 text-xs ring-1 ${i === r.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> {o}</li>)}</ol>}
+                        {peek === r.id && r.options.length > 0 && <ol className="mt-1 grid gap-1 sm:grid-cols-2" lang="en" dir="ltr">{r.options.map((o, i) => <li key={i} className={`rounded-md px-2 py-1 text-xs ring-1 ${i === r.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> <RichInline text={o} /></li>)}</ol>}
                       </li>
                     );
                   })}
@@ -536,8 +537,8 @@ export function NafsBuilder(props: {
                 <ul className="grid gap-2">
                   {drafts.map((d) => (
                     <li key={d.id} className="rounded-xl bg-surface p-3 ring-1 ring-line">
-                      <p className="text-sm text-ink" lang="en" dir="ltr">{d.stem}</p>
-                      {d.options.length > 0 && <ol className="mt-1 grid gap-1 sm:grid-cols-2" lang="en" dir="ltr">{d.options.map((o, i) => <li key={i} className={`rounded-md px-2 py-1 text-xs ring-1 ${i === d.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> {o}</li>)}</ol>}
+                      <p className="text-sm text-ink" lang="en" dir="ltr"><RichInline text={d.stem} /></p>
+                      {d.options.length > 0 && <ol className="mt-1 grid gap-1 sm:grid-cols-2" lang="en" dir="ltr">{d.options.map((o, i) => <li key={i} className={`rounded-md px-2 py-1 text-xs ring-1 ${i === d.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> <RichInline text={o} /></li>)}</ol>}
                       {meta(d)}
                       <div className="mt-2 flex flex-wrap gap-2">
                         <button type="button" disabled={busy} onClick={() => approve([d.id])} className={`${BTN} bg-emerald-700 text-white`}>{t("Approve and add")}</button>

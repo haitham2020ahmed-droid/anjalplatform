@@ -47,7 +47,15 @@ export async function departmentSummary(repo: Repo, actor: Actor, now = new Date
   }
   const sum = (f: (c: DeptClass) => number) => classes.reduce((t, c) => t + f(c), 0);
   const from = new Date(now.getTime() - 7 * DAY);
-  return { week: weekKey(now), from: from.toISOString().slice(0, 10), to: now.toISOString().slice(0, 10), classes, weakest, totals: { students: sum((c) => c.students), active: sum((c) => c.activeWeek), answers: sum((c) => c.answersWeek), minutes: sum((c) => c.minutesWeek), alertsOpen: sum((c) => c.alertsOpen), alertsHandled: sum((c) => c.alertsHandled) } };
+  // r72 audit: the school totals count each student ONCE (a student in two classes was counted twice)
+  const everyone = [...new Set(gradeIdsOf.flat())];
+  const weekAgo = now.getTime() - 7 * DAY;
+  const one = (f: (p: PracticeStats) => number) => Math.round(everyone.reduce((t, id) => { const p = practice.get(id); return t + (p ? f(p) : 0); }, 0));
+  const totals = {
+    students: everyone.length, active: everyone.filter((id) => { const l = practice.get(id)?.lastActive; return !!l && new Date(l).getTime() >= weekAgo; }).length,
+    answers: one((p) => p.week.answers), minutes: one((p) => p.week.minutes), alertsOpen: sum((c) => c.alertsOpen), alertsHandled: sum((c) => c.alertsHandled),
+  };
+  return { week: weekKey(now), from: from.toISOString().slice(0, 10), to: now.toISOString().slice(0, 10), classes, weakest, totals };
 }
 
 /** The skills these students find hardest (last 30 days, 20+ answers, careful answers only). */

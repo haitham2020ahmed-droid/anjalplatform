@@ -10,6 +10,7 @@ import { assignSkillByLevel } from "../src/server/teacher/skill-assign";
 import { assignSkill } from "../src/server/teacher/assign";
 import { assignedSkills, isAssignedSkill } from "../src/server/student/assigned";
 import { loadSkillItems } from "../src/server/practice/items";
+import { curriculumMapPdfData } from "../src/server/curriculum-map/map-pdf";
 import { demoDatabase } from "./helpers/db";
 
 const Q_HEAD = ["grade", "lesson_id", "unit", "week", "lesson_number", "lesson_title", "skill_id", "skill", "skill_kind", "question_id", "level", "rit_band_approx", "type", "map_area", "ccss", "passage", "question", "option_A", "option_B", "option_C", "option_D", "answer", "answer_letter", "accepted_answers", "explanation", "source"];
@@ -90,7 +91,7 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
   test("⭐ Assign: the grammar skill appears in the student's assigned work and can be practised", async () => {
     const skillId = (await repo.findMany("Skill", { code: grammarCode(4, "G4-U1W1-S1") }))[0].id as string;
     const tv = await grammarView(repo, teacher, { classId });
-    const r = await assignSkill(repo, teacher, { classId, skillId, studentIds: [tv.students[0].id] });
+    const r = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [tv.students[0].id] });
     assert.equal(r.students, 1);
     const st = (await repo.findUnique("Student", { id: tv.students[0].id }))!;
     student = await resolveActor(repo, (await repo.findUnique("User", { id: st.userId }))!);
@@ -99,6 +100,38 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
     assert.ok(await isAssignedSkill(repo, student, skillId));
     assert.equal((await loadSkillItems(repo, skillId)).length, 12, "every published question is ready for adaptive practice");
     assert.equal((await grammarView(repo, teacher, { classId })).units[0].weeks[0].skills[0].openAssignments, 1);
+  });
+
+  test("🗺️ linked into the Curriculum Map itself, in the book's own unit order", async () => {
+    // Grades 4–5 (Wonders: unit + week known): both G4-U1W1 (week 1) and G4-U1W2 (week 2) land on Unit 1's
+    // Text Set 1 (weeks 1–2) — the same Text Set already loaded from grade-4.json's own reading skills.
+    const d4 = (await curriculumMapPdfData(repo, admin.schoolId!, 4))!;
+    const names = (u: number, s: number) => d4.units[u - 1].sections[s - 1].skills.filter((k) => k.group === "grammar").map((k) => k.name);
+    for (const n of ["Capital Letters", "Four Types of Sentences", "Sentences and Sentence Fragments"]) assert.ok(names(1, 1).includes(n), `${n}: Unit 1 / Text Set 1 (weeks 1–2)`);
+    for (const n of ["Capital Letters", "Four Types of Sentences", "Sentences and Sentence Fragments"]) assert.ok(!names(1, 2).includes(n), `${n}: not Text Set 2`);
+
+    // Grade 6 (StudySync: no unit/week, only a sequence) — the same relative position among the grade's
+    // selections, in unit order: lesson 1 of 4 -> the grade's 1st selection, lesson 4 of 4 -> its last.
+    const Q_HEAD6 = ["grade", "lesson_id", "unit", "week", "lesson_number", "lesson_title", "skill_id", "skill", "skill_kind", "question_id", "level", "rit_band_approx", "type", "map_area", "ccss", "passage", "question", "option_A", "option_B", "option_C", "option_D", "answer", "answer_letter", "accepted_answers", "explanation", "source"];
+    const q6 = (skillId: string, n: number) => ["6", skillId, "", "", String(n), "", skillId, "", "", `${skillId}-Q${n}`, "On", "", "mcq", "", "L.6.1a", "", "Pick the correct form.", "Right.", "Wrong.", "", "", "Right.", "A", "", "Because it's right.", "Book"];
+    const rows6: string[][] = [Q_HEAD6];
+    for (let i = 1; i <= 6; i++) rows6.push(q6(`G6-L${i}-S1`, i));
+    const wb6 = readGrammarWorkbook(workbookXlsx([
+      { name: "Questions", rows: rows6, widths: [10] },
+      { name: "Skills", widths: [10], rows: [["grade", "lesson_id", "lesson_title", "skill_id", "skill", "skill_kind", "ccss"],
+        ...Array.from({ length: 4 }, (_, i) => ["6", `G6-L${i + 1}`, `Lesson ${i + 1}`, `G6-L${i + 1}-S1`, `Grammar skill ${i + 1}`, "Grammar & Usage", "L.6.1a"])] },
+      { name: "Lessons", widths: [10], rows: [["grade", "lesson_id", "unit", "week", "lesson_number", "title"],
+        ...Array.from({ length: 4 }, (_, i) => ["6", `G6-L${i + 1}`, "0", "0", String(i + 1), `Lesson ${i + 1}`])] },
+    ]));
+    await ensureGrammarSkills(repo, admin, wb6, 6);
+    const d6 = (await curriculumMapPdfData(repo, admin.schoolId!, 6))!;
+    const all6 = d6.units.flatMap((u) => u.sections);
+    const unitOf = (name: string) => d6.units.find((u) => u.sections.some((x) => x.skills.some((k) => k.name === name)))!.number;
+    assert.equal(unitOf("Grammar skill 1"), d6.units[0].number, "the first grammar lesson -> the grade's first selection's unit");
+    assert.equal(unitOf("Grammar skill 4"), d6.units[d6.units.length - 1].number, "the last grammar lesson -> the grade's last selection's unit");
+    // in order: later grammar lessons never land on an earlier selection than an earlier one did
+    const posOf = (name: string) => all6.findIndex((x) => x.skills.some((k) => k.name === name));
+    for (let i = 1; i <= 3; i++) assert.ok(posOf(`Grammar skill ${i}`) <= posOf(`Grammar skill ${i + 1}`), `lesson ${i} before lesson ${i + 1}`);
   });
 
   test("🔤 one library: every grammar lesson in one list for every teacher; any lesson goes to any class", async () => {
@@ -110,7 +143,7 @@ describe("🔤 Grammar: one bank, real skills, assigned and practised like every
     const t5 = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.5a" }))!).catch(() => null);
     if (t5) {
       const c5 = (await grammarView(repo, t5, {})).classId;
-      if (c5) { const r = await assignSkillByLevel(repo, t5, { classId: c5, skillId, mode: "AUTOMATIC" }); assert.ok(r.groups.some((g) => g.students > 0)); }
+      if (c5) { const r = await assignSkillByLevel(repo, t5, { source: "CURRICULUM", classId: c5, skillId, mode: "AUTOMATIC" }); assert.ok(r.groups.some((g) => g.students > 0)); }
     }
   });
 });

@@ -32,7 +32,7 @@ export default async function NafsSimulationPage({ params }: { params: Promise<{
             <p className="mt-1 text-emerald-800">{t("Your teacher will share your score.")}</p>
             <Link href="/student/nafs?part=results" className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-5 font-semibold text-white">{t("My results")}</Link>
           </div>
-        ) : <NafsBooklet id={b.id} endsAt={b.endsAt} groups={b.groups} initial={b.answers} initialTexts={b.texts} total={b.total} />}
+        ) : <NafsBooklet id={b.id} endsAt={b.endsAt} stamp={b.stamp} groups={b.groups} initial={b.answers} initialTexts={b.texts} total={b.total} />}
     </AppShell>
   );
 }

@@ -336,7 +336,7 @@ export async function reteachChallenge(repo: Repo, actor: Actor, id: string, now
     skillId: k.skillId,
     below: summary.results.students.filter((st) => st.bySkill[k.skillId] && st.bySkill[k.skillId].total > 0 && st.bySkill[k.skillId].pct < RETEACH_BELOW_PCT).map((st) => ({ id: st.studentId, name: st.fullName || st.name })),
   }));
-  const r = await assignReteach(repo, actor, { classId: s(g.classId), note: `Reteach: ${s(g.title)}`.slice(0, 190), track: "CURRICULUM", skills }, now);
+  const r = await assignReteach(repo, actor, { classId: s(g.classId), note: `Reteach: ${s(g.title)}`.slice(0, 190), track: "CURRICULUM", source: "CURRICULUM", skills }, now);
   await repo.updateMany("LiveGame", { id: g.id }, { summary: { ...summary, reteachAt: now.toISOString() } });
   await audit(repo, { actorId: actor.userId, action: "live.reteach", entityType: "LiveGame", entityId: s(g.id), after: { assigned: r.assigned, students: r.who.size } });
   return { assigned: r.assigned, students: r.who.size, skipped: [...r.skipped] };

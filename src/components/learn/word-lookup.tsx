@@ -8,6 +8,9 @@ import { ListenButton } from "@/components/listen-button";
 const NO_MEANING = "Look at the sentence for clues. Ask your teacher.";
 const BLOCK = "p, li, h1, h2, h3, h4, h5, h6, td, th, figcaption, blockquote, dd, dt, article";
 const SKIP = "button, a, input, textarea, select, label, summary, [role=button], [data-nolookup]";
+/** Looked-up words this tab session (bug fix: a passage often repeats a word — this skips the round trip on a
+ * second tap and makes those feel instant; the AI lookup for a NEW word is still a network call). */
+const SESSION_CACHE = new Map<string, WordView>();
 
 /** The sentence around the tapped word (from its paragraph), so names and meanings fit the passage. */
 function sentenceOf(node: Node | null, word: string): string {
@@ -19,8 +22,8 @@ function sentenceOf(node: Node | null, word: string): string {
   return (parts.find((p) => new RegExp(`(^|[^A-Za-z])${esc}([^A-Za-z]|$)`).test(p)) ?? parts.find((p) => p.toLowerCase().includes(word.toLowerCase())) ?? "").slice(0, 400);
 }
 
-/** The word under a tap (inside a passage marked data-wordtap). */
-function wordAtPoint(x: number, y: number): { word: string; node: Node } | null {
+/** The word under a tap (inside a passage marked data-wordtap), with the element to anchor the popup to. */
+function wordAtPoint(x: number, y: number): { word: string; node: Node; el: Element | null } | null {
   const d = document as Document & { caretRangeFromPoint?: (x: number, y: number) => Range | null; caretPositionFromPoint?: (x: number, y: number) => { offsetNode: Node; offset: number } | null };
   let node: Node | null = null, off = 0;
   if (d.caretPositionFromPoint) { const p = d.caretPositionFromPoint(x, y); if (p) { node = p.offsetNode; off = p.offset; } }
@@ -32,7 +35,7 @@ function wordAtPoint(x: number, y: number): { word: string; node: Node } | null 
   while (a > 0 && isW(t[a - 1])) a--;
   while (b < t.length && isW(t[b])) b++;
   const word = t.slice(a, b).replace(/^['’-]+|['’-]+$/g, "");
-  return /[A-Za-z]/.test(word) && word.length <= 40 ? { word, node } : null;
+  return /[A-Za-z]/.test(word) && word.length <= 40 ? { word, node, el: node.parentElement } : null;
 }
 
 /**
@@ -43,26 +46,43 @@ function wordAtPoint(x: number, y: number): { word: string; node: Node } | null 
 export function WordLookup({ children, hint = true }: { children: React.ReactNode; hint?: boolean }) {
   const box = useRef<HTMLDivElement>(null);
   const last = useRef<{ w: string; at: number }>({ w: "", at: 0 });
+  // 🎯 bug fix: the popup used to freeze at the tap's screen (x, y) the instant it opened, so on a slow lookup a
+  // scroll in the meantime left it floating far from the word. It now tracks the tapped word's element live
+  // (recomputed on scroll/resize while open), so it always sits right under that word.
+  const anchorEl = useRef<Element | null>(null);
   const [w, setW] = useState<WordView | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pos, setPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  async function show(text: string, node: Node | null, rect: { left: number; bottom: number }) {
+  const place = () => {
+    const r = anchorEl.current?.getBoundingClientRect();
+    if (!r) return;
+    setPos({ x: Math.max(8, Math.min(r.left, window.innerWidth - 336)), y: r.bottom + 8 });
+  };
+  async function show(text: string, node: Node | null, el: Element | null, fallback: { left: number; bottom: number }) {
     if (text.toLowerCase() === last.current.w && Date.now() - last.current.at < 1200) return;
     last.current = { w: text.toLowerCase(), at: Date.now() };
-    setPos({ x: Math.max(8, Math.min(rect.left, window.innerWidth - 336)), y: rect.bottom + 8 });
-    setBusy(text); setError(null); setW(null);
+    anchorEl.current = el;
+    const r = el?.getBoundingClientRect();
+    setPos(r ? { x: Math.max(8, Math.min(r.left, window.innerWidth - 336)), y: r.bottom + 8 } : { x: Math.max(8, Math.min(fallback.left, window.innerWidth - 336)), y: fallback.bottom + 8 });
+    setError(null);
+    // ⚡ speed fix: a word already looked up this tab session shows at once — no second round trip
+    const cached = SESSION_CACHE.get(text.toLowerCase());
+    if (cached) { setBusy(null); setW(cached); return; }
+    setBusy(text); setW(null);
     const res = await lookupWordAction(text, sentenceOf(node, text)).catch(() => null);
     setBusy(null);
-    if (res && res.ok) setW(res.value); else setError(res ? res.error : NO_MEANING);
+    if (res && res.ok) { SESSION_CACHE.set(text.toLowerCase(), res.value); setW(res.value); } else setError(res ? res.error : NO_MEANING);
   }
   async function pick() {
     const sel = typeof window !== "undefined" ? window.getSelection() : null;
     const text = sel?.toString().trim() ?? "";
     if (!text || text.length > 40 || /\s/.test(text) || !/[a-z]/i.test(text)) return;
     if (!sel || !sel.rangeCount || !box.current?.contains(sel.anchorNode)) return;
-    await show(text, sel.anchorNode, sel.getRangeAt(0).getBoundingClientRect());
+    const range = sel.getRangeAt(0), r = range.getBoundingClientRect();
+    const el = sel.anchorNode ? (sel.anchorNode.nodeType === 1 ? (sel.anchorNode as Element) : sel.anchorNode.parentElement) : null;
+    await show(text, sel.anchorNode, el, r);
   }
   function tap(e: React.MouseEvent) {
     const target = e.target as Element | null;
@@ -71,8 +91,17 @@ export function WordLookup({ children, hint = true }: { children: React.ReactNod
     if (sel && !sel.isCollapsed) return;
     const hit = wordAtPoint(e.clientX, e.clientY);
     if (!hit || !box.current?.contains(hit.node)) return;
-    void show(hit.word, hit.node, { left: e.clientX - 20, bottom: e.clientY + 12 });
+    void show(hit.word, hit.node, hit.el, { left: e.clientX - 20, bottom: e.clientY + 12 });
   }
+  const open = Boolean(w || busy || error);
+  // keep the popup glued to its word while open, even if the page scrolls or resizes during a slow lookup
+  useEffect(() => {
+    if (!open) return;
+    window.addEventListener("scroll", place, { passive: true, capture: true });
+    window.addEventListener("resize", place);
+    return () => { window.removeEventListener("scroll", place, { capture: true }); window.removeEventListener("resize", place); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
   useEffect(() => {
     const close = (e: KeyboardEvent) => { if (e.key === "Escape") { setW(null); setError(null); } };
     window.addEventListener("keydown", close);
@@ -83,7 +112,6 @@ export function WordLookup({ children, hint = true }: { children: React.ReactNod
     if (w.audioUrl) { void new Audio(w.audioUrl).play().catch(() => undefined); return; }
     try { const u = new SpeechSynthesisUtterance(w.word); u.lang = "en-US"; const v = bestBrowserVoice(); if (v) u.voice = v; window.speechSynthesis.speak(u); } catch { /* no speech */ }
   };
-  const open = Boolean(w || busy || error);
   return (
     <div ref={box} onClick={tap} onDoubleClick={() => void pick()} onMouseUp={() => void pick()} onTouchEnd={() => setTimeout(() => void pick(), 50)}>
       {hint && <p className="mb-2 text-xs text-slate-500 print:hidden">📖 Tap or double-click any word to see its meaning.</p>}

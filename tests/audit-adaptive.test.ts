@@ -125,6 +125,8 @@ describe("2 · the Diagnostic Test seeds practice (Test School)", () => {
       if (resumeAfter !== undefined && i === resumeAfter) resumedMs = Number((await repo.findMany("QuestionAttempt", { studentId: st.studentId!, questionId: it.questionId }))[0].responseMs);
       i++;
     }
+    // the decision logs are written after each response (r68: in the bounded after-response queue)
+    await afterResponseSettled();
     return { resumedMs };
   }
   before(async () => {

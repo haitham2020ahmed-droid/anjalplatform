@@ -138,9 +138,9 @@ describe("practice: at least 30, at most 50 — never an early stop (the 4-quest
 
   test("the teacher's own count: exactly that many counted answers, then Done", async () => {
     const me = kids[2];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.count, studentIds: [me.studentId!], questionCount: 8 }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.count, studentIds: [me.studentId!], questionCount: 8 }, tick(0));
     assert.equal(Number((await repo.findUnique("Assignment", { id: assignmentId }))!.questionCount), 8);
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: skill.count, studentIds: [me.studentId!], questionCount: 2 }, tick(0)), /between 5 and 50/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.count, studentIds: [me.studentId!], questionCount: 2 }, tick(0)), /between 5 and 50/);
     let v: PracticeView = await startPractice(repo, me, skill.count, tick(0), seededRandom(5));
     let n = 0; let fb: Feedback | null = null;
     // one rapid guess on the way: it does not count toward the teacher's 8
@@ -158,7 +158,7 @@ describe("practice: at least 30, at most 50 — never an early stop (the 4-quest
 
   test("a skill with fewer than 30 questions in its whole pool: all of them, Done, and the teacher is told", async () => {
     const me = kids[3];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.small, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.small, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skill.small, tick(0), seededRandom(2));
     let n = 0;
     while (v.question && n < 20) { v = (await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question.questionId, response: n % 2 ? "A" : "B" }, tick(), seededRandom(n))).view; n++; }

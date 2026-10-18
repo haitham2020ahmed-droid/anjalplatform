@@ -43,7 +43,7 @@ describe("one place per page (menus, Home, hubs)", () => {
     for (const i of TEACHER_MENU) { assert.ok(isLineIcon(i.line), `${i.href}: line icon`); assert.ok(hasAr(i.label), i.label); }
     assert.equal(new Set(TEACHER_MENU.map((i) => i.line)).size, TEACHER_MENU.length, "one line icon per entry");
     assert.deepEqual(TEACHER_MENU.filter((i) => !i.group).map((i) => i.href),
-      ["/teacher", "/teacher/students", "/admin/curriculum-map", "/teacher/plans", "/teacher/assigned", "/teacher/assessments", "/teacher/writing", "/teacher/reading", "/teacher/learn", "/teacher/map-center", "/teacher/reports"]);
+      ["/teacher", "/teacher/students", "/admin/curriculum-map", "/teacher/plans", "/teacher/assigned", "/teacher/assessments", "/teacher/writing", "/admin/grammar", "/teacher/reading", "/teacher/learn", "/teacher/map-center", "/teacher/reports", "/school-reports"]);
     assert.ok(TEACHER_MENU.filter((i) => i.group).every((i) => i.group === MORE));
     // the calm side menu draws the line icons for teachers
     const nav = read("src/components/ui/side-nav.tsx");

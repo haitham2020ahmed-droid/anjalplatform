@@ -77,7 +77,7 @@ const dayKey = (now: Date) => `sort.questions.run.${new Date(now.getTime() + 3 *
  * (sure links only; the rest goes to review). Claims the day first, so it runs at most once per day per school.
  */
 export async function nightlySort(repo: Repo, schoolId: string, now = new Date()): Promise<{ ran: boolean; linked: number; review: number; processed: number }> {
-  const claimed = await repo.create("SchoolSetting", { schoolId, key: dayKey(now), value: { startedAt: now.toISOString() }, updatedBy: null }).then(() => true, () => false);
+  const claimed = await (await import("../jobs/runner")).claimSetting(repo, schoolId, dayKey(now), { startedAt: now.toISOString() });
   if (!claimed) return { ran: false, linked: 0, review: 0, processed: 0 };
   const last = (await repo.findMany("SchoolSetting", { schoolId, key: LAST_RUN_KEY }))[0];
   const raw = last ? (typeof last.value === "string" ? JSON.parse(last.value) : last.value) as { at?: string } | null : null;

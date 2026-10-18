@@ -10,12 +10,19 @@ export async function register(): Promise<void> {
     // one log line a minute while the server uses more than 400 MB (what grew before a crash)
     const { startMemoryLog } = await import("./server/monitoring/memory");
     startMemoryLog();
-    // ✏️ teachers' edited copies made before they became private: private now (once, in the background, never blocking)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.privatizeCopiesInBackground()).catch(() => undefined); }, 15_000).unref?.();
-    // 🛠 stuck questions (not under a skill, drafts, waiting): fixed once after the update, in the background (report: System check)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.fixStuckQuestionsInBackground()).catch(() => undefined); }, 60_000).unref?.();
-    // ⭐ skill stars computed from the practice already there (once, in the background, batched)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.migrateStarsInBackground()).catch(() => undefined); }, 30_000).unref?.();
+    // r68: expired cache entries are removed every minute and parsed content files are released when idle, so the
+    // memory comes back after a class (src/server/cache/idle.ts)
+    const { startCacheSweeper } = await import("./server/cache/idle");
+    startCacheSweeper();
+    // One-time background jobs after an update — ON by default again (r68), safely: 2 minutes after the start, ONE
+    // after another, in small batches with a memory gate and checkpoints, through the light job runner
+    // (src/server/jobs/runner.ts): privatizeCopiesInBackground → migrateStarsInBackground →
+    // fixStuckQuestionsInBackground (instrumentation-node.ts). BACKGROUND_JOBS=off switches them off.
+    const { backgroundJobsOn } = await import("./server/jobs/startup");
+    if (backgroundJobsOn()) {
+      const m = await import("./instrumentation-node");
+      m.startBackgroundJobs();
+    }
   }
 }
 

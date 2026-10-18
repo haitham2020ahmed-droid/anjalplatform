@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { TFn } from "@/i18n";
 import { NameList } from "@/components/name-list";
-import { ReportSection } from "@/components/report-kit";
+import { ReportIntro, ReportSection, ReportSummary } from "@/components/report-kit";
+import { mapResultsSummary } from "@/lib/report-summaries";
 import { EmptyState } from "@/components/ui-kit";
 import { DESC_STYLE, STATUS_STYLE } from "@/components/map/map-ui";
 import { repo } from "@/server/auth/next";
@@ -13,14 +14,16 @@ import { BTN_MAIN } from "@/components/plans/plan-builder";
 
 /** Results: the class's MAP scores for one subject — RIT, projection, each sub-area (RIT, band, descriptor). */
 export async function ResultsTab({ actor, t, classId, subject }: { actor: Actor; t: TFn; classId: string; subject: Subject }) {
-  const m = await classMatrix(repo, actor, classId, subject);
+  const m = await classMatrix(repo, actor, classId, subject, new Date(), { estimates: false });
   const groups = GROUPS.filter((g) => g.subject === subject);
   const isAdmin = actor.role !== "TEACHER" && can(actor, "settings:school");
   const bands = isAdmin ? await bandSettings(repo, actor.schoolId) : null;
   const enter = <Link href="/teacher/map-rit" className={BTN_MAIN}>{t("Enter scores")}</Link>;
-  if (!m.rows.length) return <EmptyState icon="🗺️" title="No MAP scores yet" text="Enter or import the class's MAP scores to see results and make plans." action={{ href: "/teacher/map-rit", label: "Enter scores" }} />;
+  const summary = mapResultsSummary(m.rows, { classId, subject, total: m.rows.length + m.noScores.length, areaName: (k) => groups.find((g) => g.key === k)?.name ?? k });
+  if (!m.rows.length) return <><ReportIntro text="Each student's MAP score and sub-area scores, lowest first." /><EmptyState icon="🗺️" title="No MAP scores yet" text="Enter or import the class's MAP scores to see results and make plans." action={{ href: "/teacher/map-rit", label: "Enter scores" }} /><ReportSummary summary={summary} /></>;
   return (
     <>
+      <ReportIntro text="Each student's MAP score and sub-area scores, lowest first." />
       <ReportSection title={`${m.className} · ${subject === "READING" ? t("Reading") : t("Language Usage")}`} icon="📊"
         hint={<>{m.rows[0]?.profile.term ?? ""} · {t("{n} with scores · lowest RIT first", { n: m.rows.length })}</>}>
         <div className="mb-3 flex justify-end print:hidden">{enter}</div>
@@ -43,6 +46,7 @@ export async function ResultsTab({ actor, t, classId, subject }: { actor: Actor;
         {m.noScores.length > 0 && <p className="mt-3 text-sm text-slate-500">{t("No scores yet:")} <NameList items={m.noScores} sep=", " />.</p>}
         <p className="mt-3 text-xs text-slate-500">{t("Red = the lowest sub-areas (focus) · green = strong. The plan tab suggests skills from the lowest sub-areas.")}</p>
       </ReportSection>
+      <ReportSummary summary={summary} />
       {bands && (
         <details className="mt-4 rounded-2xl bg-white ring-1 ring-slate-200 print:hidden">
           <summary className="flex min-h-11 cursor-pointer items-center px-4 font-semibold text-brand-navy">{t("RIT bands (admin)")}</summary>

@@ -24,6 +24,7 @@ import { logRecommendations } from "../insights/recommendation-log";
 import { misconceptionLabel } from "../../insights/misconceptions";
 import { planPath } from "../graph/learning-path";
 import { skillOfAssignment } from "../practice/completion";
+import { cancelIndexForStudents, liveAssignmentWhere } from "./cancelled-work";
 
 export interface NextStep {
   kind: "DIAGNOSTIC" | "WEEKLY_CHECK" | "PLAN" | "REVIEW" | "PRACTICE" | "DONE";
@@ -45,7 +46,12 @@ const d = (v: unknown): Date | null => (v === null || v === undefined || v === "
 export async function assignedSkillIds(repo: Repo, studentId: string, now = new Date()): Promise<{ all: Set<string>; open: string[] }> {
   const rows = await repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "status", "completedAt"] });
   if (!rows.length) return { all: new Set(), open: [] };
-  const list = await repo.findMany("Assignment", { id: { in: rows.map((r) => r.assignmentId) }, deletedAt: null }, { select: ["id", "skillId", "skillIds", "startAt", "dueAt", "assessmentId"] });
+  // r78: a skill whose assignment was cancelled on Assigned is not "assigned" any more
+  const [found, ix] = await Promise.all([
+    repo.findMany("Assignment", liveAssignmentWhere({ id: { in: rows.map((r) => r.assignmentId) } }), { select: ["id", "skillId", "skillIds", "startAt", "dueAt", "assessmentId", "testId", "curriculumPlanId"] }),
+    cancelIndexForStudents(repo, [studentId]),
+  ]);
+  const list = found.filter((a) => ix.live(a, studentId));
   const all = new Set<string>();
   const open: { id: string; due: number; overdue: boolean }[] = [];
   for (const a of list) {

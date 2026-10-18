@@ -4,7 +4,9 @@ import { EmptyState, StatusPill } from "@/components/ui-kit";
 import type { TFn } from "@/i18n";
 import { groupMyWork, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
 import { SkillStar } from "@/components/skills/skill-star";
+import { MasteryMeter } from "@/components/skills/mastery-meter";
 import type { StarInfo } from "@/lib/skill-stars";
+import { SourceChips } from "./my-work-list";
 
 type Row = StudentHome["work"][number];
 const STATUS: Record<Row["status"], "NOT_STARTED" | "IN_PROGRESS" | "DONE"> = { "Not started": "NOT_STARTED", "In progress": "IN_PROGRESS", Done: "DONE" };
@@ -30,12 +32,18 @@ export function WorkRing({ done, total, label }: { done: number; total: number; 
 
 /** One compact row: the title, its status and due date, one button. */
 function CompactCard({ r, t }: { r: Row; t: TFn }) {
+  const star = (r as Row & { star?: StarInfo }).star;
+  // a small "stars filled x/5" meter toward mastery, only while the skill is actively being learned (Mastered
+  // already shows its gold star; Not started has no progress yet to show)
+  const meter = star && star.status === "IN_PROGRESS" && typeof star.score === "number";
   return (
     <li data-testid="my-work-row" data-source={r.reteach ? "RETEACH" : r.sourceKey} data-kind={r.kind ?? "SKILL"} className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
       <div className="min-w-0 flex-1">
-        <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-brand-navy">{(r as Row & { star?: StarInfo }).star && <SkillStar info={(r as Row & { star?: StarInfo }).star!} who="student" t={t} label={r.skill} />}<bdi className="truncate">{r.skill}</bdi></p>
+        <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-brand-navy">{star && <SkillStar info={star} who="student" t={t} label={r.skill} />}<bdi className="truncate">{r.skill}</bdi></p>
         <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
+          {!r.kind && (r.sources?.length ?? 0) > 1 && <SourceChips sources={r.sources!} t={t} />}
           <StatusPill status={STATUS[r.status]} />
+          {meter && <MasteryMeter score={star!.score!} answered={star!.answered} />}
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="text-slate-600">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}
         </div>

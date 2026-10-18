@@ -22,7 +22,7 @@ import { evaluateRecommendations } from "./recommendation-log";
 import { evaluateInterventions } from "./interventions";
 import { buildProfiles } from "./student-profile";
 import { log } from "../monitoring/log";
-import { memoryHigh, rssMb, runHeavy } from "../monitoring/memory";
+import { memoryHigh, rssMb } from "../monitoring/memory";
 
 const DAY = 86_400_000;
 const s = (v: unknown) => String(v ?? "");
@@ -111,25 +111,34 @@ export async function scanDailyAlerts(repo: Repo, schoolId: string, now = new Da
 
 /** The daily job for one school. */
 export async function runDaily(repo: Repo, schoolId: string, now = new Date()): Promise<DailyResult> {
+  // r68: before each heavy step the job waits while the server is near its memory limit (src/server/jobs/runner.ts)
+  const { memoryGate } = await import("../jobs/runner");
+  const gate = () => memoryGate("daily");
   const students = (await repo.findMany("Student", { schoolId }, { select: ["id"] })).map((x) => s(x.id));
   const settings = await repo.findMany("SchoolSetting", { schoolId, key: { in: ["adaptive.engine", "mastery.thresholds"] } });
   const get = (k: string) => (settings.find((r: Row) => r.key === k)?.value ?? {}) as Record<string, unknown>;
   const cfg = resolveEngineConfig(get("adaptive.engine"), get("mastery.thresholds"));
+  await gate();
   const decayed = await decaySweep(repo, students, now, cfg.mastery);
   // platform-wide steps (not per school): once a day for all schools
+  await gate();
   const { tagged, prerequisites, recommendations } = await platformDaily(repo, now);
   // 🧠 question intelligence for questions added or changed since the last run (bounded)
   const { analyzeQuestions } = await import("../questions/intelligence");
+  await gate();
   const analysed = (await analyzeQuestions(repo, schoolId, { limit: 3000 }, now)).analysed;
   // 🔁 re-classify questions from students' first answers (+ alerts; weekly: IRT calibration, admin notice)
   const reclassified = (await (await import("../questions/reclassify")).questionDataDaily(repo, schoolId, now).catch((e) => { log("error", "reclassify.failed", { schoolId, error: e }); return null; }))?.changed ?? 0;
+  await gate();
   const interventions = await evaluateInterventions(repo, now, schoolId);
   // ⚖️ overall levels: evaluated every day, changed only when confirmed (hysteresis + decline check, Update 39B)
   const levels = await (await import("../curriculum-map/level-evidence")).refreshLevelStates(repo, schoolId, now).catch((e) => { log("error", "levels.refresh.failed", { schoolId, error: e }); return null; });
+  await gate();
   const profiles = await buildProfiles(repo, schoolId, now);
   // 🚨 early warning, then 🔁 the models learn from the outcomes so far
   const { computeRisks, trainRiskModel } = await import("../predict/risk");
   const { learnActionWeights } = await import("./learning-weights");
+  await gate();
   const risk = await computeRisks(repo, schoolId, now);
   await learnActionWeights(repo, schoolId, now).catch(() => null);
   // re-fit the risk model at most once a week (it reads a year of history)
@@ -137,9 +146,11 @@ export async function runDaily(repo: Repo, schoolId: string, now = new Date()): 
   if (!last || now.getTime() - time(last.trainedAt) >= 7 * DAY) await trainRiskModel(repo, schoolId, now).catch((e) => log("error", "risk.train.failed", { schoolId, error: e }));
   // 🚨 alerts are generated here every day (readiness I-4), not only when someone opens an alert list:
   // skill-support flags (InterventionAlert) for enrolled students, then the student alerts (one open per kind)
+  await gate();
   const alerts = await scanDailyAlerts(repo, schoolId, now).catch((e) => { log("error", "alerts.scan.failed", { schoolId, error: e }); return { interventions: 0, alerts: 0 }; });
   // 🧭 support tiers (RTI/MTSS): after the risks, which they read; a failure never stops the rest of the job
   const { computeTiers } = await import("../tiers/tiers");
+  await gate();
   const tiers = (await computeTiers(repo, schoolId, now).catch((e) => { log("error", "tiers.compute.failed", { schoolId, error: e }); return null; }))?.changed ?? 0;
   // 🔤 decoding screener invitations for Tier 2/3 students with low fluency and comprehension (never stops the job)
   await (await import("../word-study/screener")).queueDecodingScreens(repo, schoolId, now).catch((e) => log("error", "decoding.queue.failed", { schoolId, error: e }));
@@ -147,6 +158,7 @@ export async function runDaily(repo: Repo, schoolId: string, now = new Date()): 
   const nafsPlans = (await (await import("../tests/assessments")).autoPersonalizeNafsTests(repo, schoolId, now).catch((e) => { log("error", "nafs.personalize.failed", { schoolId, error: e }); return null; }))?.personalized ?? 0;
   // 🎖️ rewards (Games Part 3): coins, badges and automatic certificates for students active since yesterday — read
   // only on learning data; a failure never stops the rest of the job
+  await gate();
   const rewards = (await (await import("../motivation/sync")).syncSchoolRewards(repo, schoolId, now).catch((e) => { log("error", "rewards.sync.failed", { schoolId, error: e }); return null; }))?.students ?? 0;
   // 📅 month end: the monthly family reports as drafts for the teachers to review (first 7 days of a month, once)
   const monthly = await (await import("../reports/monthly-report")).generateMonthlyReports(repo, schoolId, now).catch((e) => { log("error", "monthly.reports.failed", { schoolId, error: e }); return 0; });
@@ -185,10 +197,10 @@ export const MAX_DAILY_RETRIES = 2;
 
 /** Claims today's run for the school: a new claim, or a stale one (started 2+ h ago, never finished). */
 async function claimDay(repo: Repo, schoolId: string, key: string, now: Date): Promise<boolean> {
-  try {
-    await repo.create("SchoolSetting", { schoolId, key, value: { startedAt: now.toISOString() }, updatedBy: null });
-    return true;
-  } catch {
+  // r68: read first — the usual "already claimed today" is no failed insert ("Unique constraint failed" in the log)
+  const { claimSetting } = await import("../jobs/runner");
+  if (await claimSetting(repo, schoolId, key, { startedAt: now.toISOString() })) return true;
+  {
     // already claimed today (unique schoolId + key): take it over only if that run crashed
     const row = (await repo.findMany("SchoolSetting", { schoolId, key }))[0];
     if (!row) return false;
@@ -216,7 +228,8 @@ export async function maybeRunDaily(repo: Repo, schoolId: string | null, now = n
   const key = `daily.run.${riyadhDay(now)}`;
   if (!(await claimDay(repo, schoolId, key, now))) return false;
   // one heavy job at a time in this process (never side by side with an alert scan or the library load)
-  void runHeavy(() => runDaily(repo, schoolId, now))
+  // r68: in the job runner's slot (never beside a startup job), with its memory gate between the steps
+  void (await import("../jobs/runner")).inJobSlot(`daily|${schoolId}`, () => runDaily(repo, schoolId, now))
     .then((r) => repo.upsert("SchoolSetting", { schoolId, key }, { value: { ...r, doneAt: new Date().toISOString() } }, { value: { ...r, doneAt: new Date().toISOString() } }).catch((e) => log("error", "daily.done_mark.failed", { schoolId, key, error: e })))
     .catch((e) => log("error", "daily.run.failed", { schoolId, key, error: e }));
   return true;

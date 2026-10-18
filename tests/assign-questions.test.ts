@@ -37,7 +37,7 @@ describe("⭐ assign chosen questions from the question list", () => {
   });
 
   test("assign 3 chosen questions to two students; only they are notified", async () => {
-    const r = await assignQuestions(repo, teacher, { classId, questionIds: chosen, studentIds: [student.studentId!, classmate.studentId!], title: "Central idea check", dueAt: new Date(Date.now() + 3 * 86_400_000), note: "Read carefully" });
+    const r = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: chosen, studentIds: [student.studentId!, classmate.studentId!], title: "Central idea check", dueAt: new Date(Date.now() + 3 * 86_400_000), note: "Read carefully" });
     assignmentId = r.assignmentId;
     assert.deepEqual([r.students, r.questions], [2, 3]);
     const n = (await listNotifications(repo, student)).find((x) => x.link === `/student/assignments/${assignmentId}`)!;
@@ -48,27 +48,27 @@ describe("⭐ assign chosen questions from the question list", () => {
   });
 
   test("the rules: own classes only, published questions only, 1–50 questions, teachers (or the admin for the class teacher)", async () => {
-    await assert.rejects(assignQuestions(repo, otherTeacher, { classId, questionIds: chosen }), ForbiddenError);
-    await assert.rejects(assignQuestions(repo, student, { classId, questionIds: chosen }), ForbiddenError);
+    await assert.rejects(assignQuestions(repo, otherTeacher, { source: "CURRICULUM", classId, questionIds: chosen }), ForbiddenError);
+    await assert.rejects(assignQuestions(repo, student, { source: "CURRICULUM", classId, questionIds: chosen }), ForbiddenError);
     // a school admin sends on behalf of the class's teacher (Update 22)
-    const byAdmin = await assignQuestions(repo, admin, { classId, questionIds: chosen });
+    const byAdmin = await assignQuestions(repo, admin, { source: "CURRICULUM", classId, questionIds: chosen });
     const t1 = (await repo.findMany("ClassTeacher", { classId }))[0];
     assert.equal(String((await repo.findUnique("Assignment", { id: byAdmin.assignmentId }))!.createdById), String(t1.teacherId));
     await repo.deleteMany("AssignmentStudent", { assignmentId: byAdmin.assignmentId });
     await repo.updateMany("Assignment", { id: byAdmin.assignmentId }, { deletedAt: new Date() });
-    await assert.rejects(assignQuestions(repo, teacher, { classId, questionIds: [] }), /at least one question/);
+    await assert.rejects(assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: [] }), /at least one question/);
     // a short answer (marked by a teacher) cannot go into a set
     const testAdmin = await resolveActor(repo, (await repo.findUnique("User", { username: "test.admin" }))!);
     const skillId = String((await repo.findUnique("Question", { id: chosen[0] }))!.skillId);
     const shortId = await createDraft(repo, testAdmin, { skillId, type: "SHORT_ANSWER", stem: "Explain the central idea in your own words.", level: 3, whyCorrect: "A good answer names the central idea.", answers: ["The central idea is…"] });
     await repo.updateMany("Question", { id: shortId }, { status: "PUBLISHED" });
-    await assert.rejects(assignQuestions(repo, teacher, { classId, questionIds: [...chosen, shortId] }), /short answer that a teacher must mark/);
+    await assert.rejects(assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: [...chosen, shortId] }), /short answer that a teacher must mark/);
     const draft = (await repo.findMany("Question", {})).find((q) => q.status !== "PUBLISHED");
-    if (draft) await assert.rejects(assignQuestions(repo, teacher, { classId, questionIds: [String(draft.id)] }), /Only published/);
+    if (draft) await assert.rejects(assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: [String(draft.id)] }), /Only published/);
     const g5 = (await repo.findMany("ClassMembership", {})).find((m) => m.classId !== classId)!;
-    await assert.rejects(assignQuestions(repo, teacher, { classId, questionIds: chosen, studentIds: [String(g5.studentId)] }), /only assign work to students in this class/);
+    await assert.rejects(assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: chosen, studentIds: [String(g5.studentId)] }), /only assign work to students in this class/);
     const demoQ = (await repo.findMany("Question", { status: "PUBLISHED" })).find((q) => !chosen.includes(String(q.id)) && String(q.externalRef ?? "").startsWith("DEMO"));
-    if (demoQ) await assert.rejects(assignQuestions(repo, teacher, { classId, questionIds: [String(demoQ.id)] }), /another school/);
+    if (demoQ) await assert.rejects(assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: [String(demoQ.id)] }), /another school/);
   });
 
   test("the student answers exactly those questions, in order, one attempt each, then sees the report", async () => {
@@ -104,7 +104,12 @@ describe("⭐ assign chosen questions from the question list", () => {
     let r = await submitQuizAnswer(repo, student, { assignmentId, questionId: chosen[0], response: right(chosen[0]) }, tick());
     assert.equal(r.feedback.correct, true);
     assert.ok(r.feedback.correctAnswer && r.feedback.whyCorrect, "the correct answer is shown after each question");
-    await assert.rejects(submitQuizAnswer(repo, student, { assignmentId, questionId: chosen[0], response: right(chosen[0]) }), /already answered/, "one attempt per question");
+    // one attempt per question: r68 — the same answer sent again (a retry after a lost reply) gets the saved result back
+    const attempts = await repo.count("QuestionAttempt", { studentId: student.studentId! });
+    const again = await submitQuizAnswer(repo, student, { assignmentId, questionId: chosen[0], response: right(chosen[0]) });
+    assert.equal(again.feedback.replayed, true, "one attempt per question");
+    assert.equal(again.feedback.correct, true, "the saved result");
+    assert.equal(await repo.count("QuestionAttempt", { studentId: student.studentId! }), attempts, "nothing written");
     assert.equal((await assignedSkills(repo, student)).items.find((i) => i.assignmentId === assignmentId)!.status, "IN_PROGRESS");
     v = await startQuiz(repo, student, assignmentId);
     assert.equal(v.question?.questionId, chosen[1], "continues where the student stopped");

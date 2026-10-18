@@ -23,11 +23,13 @@ import { safeIfBehind } from "../db/schema-errors";
 import { isHiddenSkill } from "../skills/master";
 import { readRisePlaced } from "../readrise/engine";
 import { mapSummaries, studentNames } from "./student-data";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import {
   DAY, DROPS, INVALID_WINDOW_DAYS, MAX_POINTS, MEASURES, MEASURE_KEYS, MIN_TEST_QUESTIONS, MIN_WEEK_ANSWERS, MOVES_DAYS, SCAN_CACHE_MS,
   SERIES_DAYS, SEVERITY_ORDER, SKILL_WEEKS, UNHANDLED_DAYS, detectPattern, groupName, judge,
   type MeasureFinding, type MeasureKey, type Pattern, type Point, type Severity,
 } from "./early-warning-rules";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v === null || v === undefined || v === "" ? NaN : new Date(s(v)).getTime());
@@ -48,7 +50,7 @@ interface SchoolScan { at: number; rows: WarningRow[]; moves: GroupMove[] }
 
 // ------------------------------------------------------------------ the school's read (chunked, bounded)
 
-const cache = new WeakMap<object, Map<string, SchoolScan>>();
+const cache = sweptWeakMap<SchoolScan>("insights.early-warning.cache", 30 * 60_000);
 /** Forget the cached scan (tests, or after a big import). */
 export function clearEarlyWarningCache(repo: Repo, schoolId?: string): void { if (schoolId) cache.get(repo)?.delete(schoolId); else cache.delete(repo); }
 
@@ -74,7 +76,7 @@ async function readSchool(repo: Repo, schoolId: string, now: Date): Promise<Scho
   const ids = [...classOf.keys()];
   const rows: WarningRow[] = [], moves: GroupMove[] = [];
   for (let i = 0; i < ids.length; i += EW_CHUNK) {
-    const r = await readChunk(repo, now, ids.slice(i, i + EW_CHUNK), classOf, classById, gradeOfClass);
+    const r = await readChunk(repo, now, ids.slice(i, i + EW_CHUNK), classOf, classById, gradeOfClass, schoolId);
     rows.push(...r.rows); moves.push(...r.moves);
   }
   rows.sort(rowOrder);
@@ -84,7 +86,7 @@ async function readSchool(repo: Repo, schoolId: string, now: Date): Promise<Scho
 const rowOrder = (a: WarningRow, b: WarningRow) => SEVERITY_ORDER[a.severity] - SEVERITY_ORDER[b.severity] || b.rules.length - a.rules.length || a.className.localeCompare(b.className) || a.name.localeCompare(b.name);
 
 /** Reads one round of students: a FIXED number of queries whatever the round's size (no query per student). */
-async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<string, string>, classById: Map<string, Row>, gradeOfClass: Map<string, number>): Promise<{ rows: WarningRow[]; moves: GroupMove[] }> {
+async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<string, string>, classById: Map<string, Row>, gradeOfClass: Map<string, number>, schoolId?: string): Promise<{ rows: WarningRow[]; moves: GroupMove[] }> {
   const t = now.getTime();
   const since = new Date(t - SERIES_DAYS * DAY);
   const classIds = [...new Set(ids.map((id) => classOf.get(id) ?? ""))].filter(Boolean);
@@ -122,7 +124,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     safeIfBehind("early-warning.readrise", () => repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "placedAt", "source"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => countGroups(repo, "RRRun", "studentId", { studentId: { in: ids }, completedAt: { gte: new Date(t - 28 * DAY) }, firstTry: true }), new Map<string, number>()),
     safeIfBehind("early-warning.checks", () => repo.findMany("ProgressCheck", { classId: { in: classIds }, createdAt: { gte: since } }, { select: ["assignmentId"] }), [] as Row[]),
-    repo.findMany("Assignment", { classId: { in: classIds }, testId: { not: null }, deletedAt: null, createdAt: { gte: since } }, { select: ["id"] }),
+    repo.findMany("Assignment", liveAssignmentWhere({ classId: { in: classIds }, testId: { not: null }, createdAt: { gte: since } }), { select: ["id", "testId"] }),
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "createdAt"] }),
     repo.findMany("StudentLevelState", { studentId: { in: ids }, declining: true }, { select: ["studentId"] }),
     repo.findMany("StudentAlert", { studentId: { in: ids }, kind: "INVALID_TEST", createdAt: { gte: new Date(t - INVALID_WINDOW_DAYS * DAY) } }, { select: ["studentId"] }),
@@ -165,10 +167,13 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     rrFlatSince.set(id, list.length ? time(list[list.length - 1].createdAt) : time(st.placedAt));
   }
   // progress checks and teacher tests: the student's finished set of each
+  // r78: a check or test cancelled on Assigned (for everyone, or for this student) is not counted
+  const ix = await cancelIndexForStudents(repo, ids, schoolId);
   const checkIds = new Set(checkRows.map((c) => s(c.assignmentId)));
-  const setIds = [...checkIds, ...testRows.map((a) => s(a.id))];
+  const setRow = new Map<string, Row>([...[...checkIds].map((id) => [id, { id }] as [string, Row]), ...testRows.map((a) => [s(a.id), a] as [string, Row])]);
+  const setIds = [...setRow.keys()].filter((id) => ix.live(setRow.get(id)!));
   const sessions = setIds.length ? await repo.findMany("PracticeSession", { assignmentId: { in: setIds }, studentId: { in: ids }, endedAt: { not: null } }, { select: ["studentId", "assignmentId", "correctCount", "questionCount", "endedAt"] }) : [];
-  for (const x of sessions) if (Number(x.questionCount) >= MIN_TEST_QUESTIONS) add(s(x.studentId), checkIds.has(s(x.assignmentId)) ? "CHECKS" : "TESTS", time(x.endedAt), pct(Number(x.correctCount), Number(x.questionCount)));
+  for (const x of sessions) if (ix.live(setRow.get(s(x.assignmentId)) ?? { id: s(x.assignmentId) }, s(x.studentId)) && Number(x.questionCount) >= MIN_TEST_QUESTIONS) add(s(x.studentId), checkIds.has(s(x.assignmentId)) ? "CHECKS" : "TESTS", time(x.endedAt), pct(Number(x.correctCount), Number(x.questionCount)));
 
   const declSet = new Set(declining.map((d) => s(d.studentId)));
   const invalidBy = new Map<string, number>();
@@ -236,7 +241,7 @@ export interface EarlyWarningView {
   /** admin: per class */
   byClass: { classId: string; className: string; teachers: string; urgent: number; watch: number; good: number; unhandled7: number }[];
   /** admin: urgent alerts not handled for UNHANDLED_DAYS+ days */
-  unhandled: { alertId: string; studentId: string; name: string; className: string; detail: string; days: number }[];
+  unhandled: { alertId: string; studentId: string; name: string; classId: string; className: string; detail: string; days: number }[];
   handledHidden: number;
   scannedAt: string;
 }
@@ -322,10 +327,10 @@ export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, n
     const old = await repo.findMany("StudentAlert", { schoolId, kind: EW_KIND, status: "OPEN", createdAt: { lte: new Date(now.getTime() - UNHANDLED_DAYS * DAY) } }, { select: ["id", "studentId", "classId", "detail", "createdAt"] });
     const oldIn = old.filter((a) => inScope.has(s(a.classId)));
     const oldNames = await studentNames(repo, [...new Set(oldIn.map((a) => s(a.studentId)))]);
-    unhandled = oldIn.map((a) => ({ alertId: s(a.id), studentId: s(a.studentId), name: oldNames.get(s(a.studentId))?.name ?? "Student", className: s(classes.find((c) => c.id === a.classId)?.name), detail: s(a.detail), days: Math.floor((now.getTime() - time(a.createdAt)) / DAY) })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
+    unhandled = oldIn.map((a) => ({ alertId: s(a.id), studentId: s(a.studentId), name: oldNames.get(s(a.studentId))?.name ?? "Student", classId: s(a.classId), className: s(classes.find((c) => c.id === a.classId)?.name), detail: s(a.detail), days: Math.floor((now.getTime() - time(a.createdAt)) / DAY) })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
     byClass = classes.filter((c) => inScope.has(c.id)).map((c) => {
       const mine = rows.filter((r) => r.classId === c.id);
-      return { classId: c.id, className: c.name, teachers: ct.filter((x) => x.classId === c.id).map((x) => teacherName.get(s(x.teacherId)) ?? "").filter(Boolean).join(", "), urgent: mine.filter((r) => r.severity === "URGENT").length, watch: mine.filter((r) => r.severity === "WATCH").length, good: mine.filter((r) => r.severity === "GOOD").length, unhandled7: unhandled.filter((u) => u.className === c.name).length };
+      return { classId: c.id, className: c.name, teachers: ct.filter((x) => x.classId === c.id).map((x) => teacherName.get(s(x.teacherId)) ?? "").filter(Boolean).join(", "), urgent: mine.filter((r) => r.severity === "URGENT").length, watch: mine.filter((r) => r.severity === "WATCH").length, good: mine.filter((r) => r.severity === "GOOD").length, unhandled7: unhandled.filter((u) => u.classId === c.id).length /* r72: by class id — two classes may share a name */ };
     });
   }
   return { isAdmin, classes, grades: gradeRows.map((g) => ({ id: s(g.id), level: Number(g.level) })).sort((a, b) => a.level - b.level), teachers, classId, rows: out, counts, dropping, moves, byClass, unhandled, handledHidden, scannedAt: new Date(scan.at).toISOString() };

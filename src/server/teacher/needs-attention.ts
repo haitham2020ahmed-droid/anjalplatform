@@ -12,6 +12,7 @@ import { studentNames } from "../insights/student-data";
 import { isHiddenSkill } from "../skills/master";
 import { starAttention, type StarAttention } from "../skills/status-extras";
 import { safeIfBehind } from "../db/schema-errors";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 export const NO_PRACTICE_DAYS = 7;
 export const STUCK_QUESTIONS = 15;
@@ -40,10 +41,13 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
   if (!classes.length) return { students: 0, workThisWeek: 0, needsAttention: 0, list: [] };
   const classIds = classes.map((c) => s(c.id));
   const weekAgo = new Date(now.getTime() - 7 * 86_400_000);
-  const [members, week] = await Promise.all([
+  // r78: "work this week" counts only live work (not cancelled on Assigned) — a bounded read, then the cancels
+  const [members, weekRows, ix] = await Promise.all([
     repo.findMany("ClassMembership", { classId: { in: classIds }, leftAt: null }, { select: ["classId", "studentId"] }),
-    repo.count("Assignment", { classId: { in: classIds }, deletedAt: null, createdAt: { gte: weekAgo } }),
+    repo.findMany("Assignment", liveAssignmentWhere({ classId: { in: classIds }, createdAt: { gte: weekAgo } }), { select: ["id", "testId", "curriculumPlanId"], take: 2000 }),
+    cancelIndex(repo, actor.schoolId ?? s(classes[0]?.schoolId)),
   ]);
+  const week = weekRows.filter((a) => ix.live(a)).length;
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   if (!ids.length) return { students: 0, workThisWeek: week, needsAttention: 0, list: [] };
   const [mastery, names, starList] = await Promise.all([

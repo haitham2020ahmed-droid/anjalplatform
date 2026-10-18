@@ -35,7 +35,7 @@ export default async function NafsGradePage({ params, searchParams }: { params: 
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/teacher/nafs/tests/${id}`, label: "Back" }} icon="📷" title="Grade bubble sheets" subtitle={`${test.title} · ${t("{n} questions", { n: test.questionIds.length })}`}>
-        <Link href={`/teacher/nafs?tab=reports&test=${id}${klass ? `&class=${klass.id}` : ""}`} className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">{t("Reports")}</Link>
+        <Link href={`/teacher/nafs?tab=test&sub=report&test=${id}${klass ? `&class=${klass.id}` : ""}`} className="inline-flex min-h-11 items-center rounded-xl bg-surface px-4 font-semibold text-ink ring-1 ring-line">{t("Reports")}</Link>
       </PageHeader>
       <form method="get" className="mb-4 flex flex-wrap items-end gap-2 print:hidden">
         <input type="hidden" name="mode" value={sp.mode ?? ""} />

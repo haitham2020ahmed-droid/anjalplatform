@@ -117,7 +117,7 @@ describe("Update 22 · MAP Skill Plan by RIT range", () => {
     assert.equal(v.ranges.reduce((t, r) => t + r.students.length, 0), ids.length);
     assert.ok(v.ranges.every((r) => r.skills > 0), "no empty range");
     const r = v.ranges.find((x) => x.students.length)!;
-    const a = await assignRange(repo, admin, { classId, group: "LIT", range: r.index, skillIds: r.areas.flatMap((x) => x.topics.flatMap((t) => t.skills.map((k) => k.id))), studentIds: r.students.map((x) => x.id) }, now);
+    const a = await assignRange(repo, admin, { source: "CURRICULUM", classId, group: "LIT", range: r.index, skillIds: r.areas.flatMap((x) => x.topics.flatMap((t) => t.skills.map((k) => k.id))), studentIds: r.students.map((x) => x.id) }, now);
     assert.equal(a.students, r.students.length);
     const asg = await repo.findUnique("Assignment", { id: a.assignmentId });
     assert.ok(asg?.createdById, "made on behalf of the class teacher");

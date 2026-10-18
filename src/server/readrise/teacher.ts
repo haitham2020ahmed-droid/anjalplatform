@@ -46,14 +46,16 @@ async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Prom
 }
 
 /** Puts an article on a class's list (students still read the version of their own level). Re-assigning updates the due date. */
-export async function assignArticle(repo: Repo, actor: Actor, classId: string, articleId: string, dueAt: Date | null, now = new Date()): Promise<{ created: boolean }> {
+export async function assignArticle(repo: Repo, actor: Actor, classId: string, articleId: string, dueAt: Date | null, now = new Date(), startAt: Date | null = null): Promise<{ created: boolean }> {
   await assertClassWrite(repo, actor, classId);
   const a = await repo.findUnique("RRArticle", { id: articleId });
   const hidden = await hiddenArticleIds(repo, actor.schoolId);
   if (!a || !canView(actor, a, hidden) || a.status !== "PUBLISHED" || hidden.has(articleId)) throw new ValidationError("Choose a published article from the library.");
   if (dueAt && Number.isNaN(dueAt.getTime())) throw new ValidationError("The due date is not valid.");
+  if (startAt && dueAt && dueAt.getTime() < startAt.getTime()) throw new ValidationError("The end (due) date must be on or after the start date.");
   const have = await repo.findUnique("RRClassArticle", { classId, articleId });
-  await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, createdAt: now }, { dueAt });
+  // r68: the start date (students see it from that day); assigning again updates both dates
+  await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, ...(startAt ? { startAt } : {}), createdAt: now }, { dueAt, startAt });
   await audit(repo, { actorId: actor.userId, action: "readrise.assign", entityType: "RRClassArticle", entityId: `${classId}:${articleId}`, after: { dueAt: dueAt?.toISOString() ?? null }, at: now });
   return { created: !have };
 }
@@ -108,7 +110,7 @@ export async function setStudentLevel(repo: Repo, actor: Actor, studentId: strin
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can set a ReadRise Level.");
   if (!Number.isFinite(level) || level < ENGINE.min || level > ENGINE.max) throw new ValidationError(`Enter a ReadRise Level from ${ENGINE.min} to ${ENGINE.max}.`);
   const why = reason.trim();
-  if (why.length < 3) throw new ValidationError("Write a short reason for the change (for example: “MAP Lexile 820 in the winter test”).");
+  if (why.length < 3) throw new ValidationError("Write a short reason for the change (for example: “MAP reading 820 in the winter test”).");
   const r = await setLevelByTeacher(repo, actor, studentId, level, why.slice(0, 250), now);
   await audit(repo, { actorId: actor.userId, action: "readrise.level.teacher", entityType: "RRStudent", entityId: studentId, before: { level: r.from }, after: { level: r.to, reason: why.slice(0, 250) }, at: now });
   return r;

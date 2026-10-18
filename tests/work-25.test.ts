@@ -57,7 +57,7 @@ describe("assigned skill work (was: the 25-question rule)", () => {
 
   test("25 answers no longer finish the work (the 30–50 rule): x of 30, accuracy and mastery kept apart", async () => {
     const me = kids[0];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.big, studentIds: [me.studentId!], targetMastery: 99 }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.big, studentIds: [me.studentId!], targetMastery: 99 }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skill.big, tick());
     assert.equal(v.work?.answered, 0);
     assert.equal(v.work?.of, ASSIGNMENT_MIN_QUESTIONS);
@@ -91,7 +91,7 @@ describe("assigned skill work (was: the 25-question rule)", () => {
 
   test("another grade's copy of an assigned skill and an older skillIds row are 'assigned' (no false message)", async () => {
     const me = kids[1];
-    await assignSkill(repo, teacher, { classId, skillId: skill.g5, studentIds: [me.studentId!] }, tick(0));
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.g5, studentIds: [me.studentId!] }, tick(0));
     assert.equal((await assignedSkillAccess(repo, me.studentId!, skill.g5, tick())).assigned, true);
     assert.equal((await assignedSkillAccess(repo, me.studentId!, skill.g4copy, tick())).assigned, true, "same family, another grade");
     // an older row keeps its skills in skillIds only
@@ -105,7 +105,7 @@ describe("assigned skill work (was: the 25-question rule)", () => {
   test("assigned for later: not open yet, with its start date", async () => {
     const me = kids[3];
     const startAt = new Date(clock + 3 * 86_400_000);
-    await assignSkill(repo, teacher, { classId, skillId: skill.g5, studentIds: [me.studentId!], startAt }, tick(0));
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.g5, studentIds: [me.studentId!], startAt }, tick(0));
     const acc = await assignedSkillAccess(repo, me.studentId!, skill.g5, tick());
     assert.equal(acc.assigned, false);
     assert.equal(acc.startsAt?.toISOString().slice(0, 10), startAt.toISOString().slice(0, 10));

@@ -16,15 +16,19 @@ import type { Repo, Row } from "../seeding/repo";
 import { mapLimit } from "../db/parallel";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
 import { classMembers, studentNames } from "../insights/student-data";
 import { isReportShared } from "../insights/parent-report";
-import { bandOf, seasonOf, type Season } from "./rit";
-import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfile, type Subject } from "./map-plan";
+import { audit } from "../audit";
+import { newRowId, sendPartsBatch } from "../plans/batch-send";
+import { bandOf, seasonOf, CLASS_BAND_RIT, type Season } from "./rit";
+import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfile, type Subject, type Descriptor } from "./map-plan";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
-import { buildRanges, skillPlan } from "./skill-plan";
+import { buildRanges, skillPlan, type PlanRange } from "./skill-plan";
 import { GROWTH_SD, normFor, pctOfZ } from "./norm-tables";
 import { skillKeysFor, statusesOfSkills, type StarView } from "../skills/status";
 import type { StarInfo } from "../../lib/skill-stars";
@@ -64,7 +68,7 @@ export interface PlanStatement { text: string; standards: string[]; skills: Plan
 export interface PlanTopic { name: string; statements: PlanStatement[] }
 export interface PlanStage { key: "REINFORCE" | "DEVELOP" | "INTRODUCE"; title: string; range: string; topics: PlanTopic[]; total: number; shown: number }
 export interface StudyArea { group: GroupKey; name: string; icon: string; rit: number | null; fromGoal: boolean; percentile: number | null; descriptor: string | null; focus: boolean; stages: PlanStage[]; skillsMastered: number; skillsLinked: number }
-export interface StudyPlanDoc { student: ReportStudent; subject: Subject; term: string | null; overall: { rit: number; percentile: number | null; descriptor: string | null; projection: number | null } | null; areas: StudyArea[]; source: "CONTINUUM" | "SKILLS"; full: boolean }
+export interface StudyPlanDoc { student: ReportStudent; subject: Subject; term: string | null; overall: { rit: number; percentile: number | null; descriptor: string | null; projection: number | null } | null; areas: StudyArea[]; source: "CONTINUUM" | "SKILLS"; full: boolean; /** r68: the whole plan's skills (the same in both versions) */ counts?: { mastered: number; total: number } }
 
 const STAGE_TITLE = { REINFORCE: "Reinforce", DEVELOP: "Develop", INTRODUCE: "Introduce" } as const;
 type Mastery = Map<string, { score: number; mastered: boolean; attempts: number }>;
@@ -106,11 +110,13 @@ export function anchorOf(code: string): string {
   const parts = s(code).replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase().split(".");
   return parts.length >= 3 ? `${parts[0]}.${parts[2]}` : parts.join(".");
 }
-const anchorCache = new Map<string, { at: number; map: Map<string, { id: string; name: string }[]> }>();
-/** The school's skills by Common Core anchor (one skill per family, the lowest grade first); cached 10 minutes. */
-async function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
-  const hit = anchorCache.get(schoolId);
-  if (hit && Date.now() - hit.at < 600_000) return hit.map;
+/** ⚡ r79: kept per school while its skills and standards are unchanged (at most 10 min; a few schools, swept). */
+const anchorCache = mapCache<Map<string, { id: string; name: string }[]>>("map.map-reports.anchors", MAP_KEEP_MS, 4);
+/** The school's skills by Common Core anchor (one skill per family, the lowest grade first). */
+function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
+  return anchorCache.get(repo, schoolId, ["Skill", "SkillFamily", "SkillStandard", "Standard", "Grade", "Curriculum"], () => anchorSkillsNow(repo, schoolId));
+}
+async function anchorSkillsNow(repo: Repo, schoolId: string): Promise<Map<string, { id: string; name: string }[]>> {
   const idx = await schoolSkillIndex(repo, schoolId);
   const ids = [...idx.ids].filter((id) => { const k = idx.skillOf.get(id)!; return k.isActive && !k.code.endsWith("curriculum-map-unclassified"); });
   const links: Row[] = [];
@@ -125,7 +131,6 @@ async function anchorSkills(repo: Repo, schoolId: string): Promise<Map<string, {
     const seen = famSeen.get(a) ?? new Set<string>(); if (seen.has(fam)) continue; seen.add(fam); famSeen.set(a, seen);
     map.set(a, [...(map.get(a) ?? []), { id: k.id, name: k.name }]);
   }
-  anchorCache.set(schoolId, { at: Date.now(), map });
   return map;
 }
 
@@ -157,7 +162,9 @@ export async function studyPlan(repo: Repo, actor: Actor, studentId: string, sub
     if (r) {
       if (ix && ix.rows.some((x) => groupOfGoal(s(x.goalArea)) === g.key)) {
         const v: ContinuumView = continuumFor(ix, g.key, r.rit);
-        area.stages = [stageOf("REINFORCE", v.reinforce, m, full ? null : 6, student.grade), stageOf("DEVELOP", v.develop, m, full ? null : 18, student.grade), stageOf("INTRODUCE", v.introduce, m, full ? null : 6, student.grade)].filter((x): x is PlanStage => Boolean(x));
+        // r68 Full / Short fix: every statement first (the stars and the counts see the WHOLE plan); the Short version
+        // is cut AFTER the stars are known (shortenStages below), so both versions count the same skills
+        area.stages = [stageOf("REINFORCE", v.reinforce, m, null, student.grade), stageOf("DEVELOP", v.develop, m, null, student.grade), stageOf("INTRODUCE", v.introduce, m, null, student.grade)].filter((x): x is PlanStage => Boolean(x));
         // a statement with no platform skill linked yet: the skills of the same Common Core anchor standard (e.g.
         // RI.2.5 → the school's RI.x.5 skills), so every line of the plan opens practice
         const anchors = await anchorSkills(repo, schoolId);
@@ -200,9 +207,35 @@ export async function studyPlan(repo: Repo, actor: Actor, studentId: string, sub
     for (const st of area.stages.filter((x) => x.key === "DEVELOP")) for (const t of st.topics) for (const x of t.statements) for (const k of x.skills) linked.set(k.key ?? k.id, k);
     area.skillsLinked = linked.size; area.skillsMastered = [...linked.values()].filter((k) => k.status === "MASTERED").length;
   }
+  // the plan's "8 of 20 skills mastered": counted on the whole plan, the same in the Full and the Short version
+  const seen = new Map<string, PlanSkillRef>();
+  for (const a of areas) for (const st of a.stages) for (const t of st.topics) for (const x of t.statements) for (const k of x.skills) if (!seen.has(k.key ?? k.id)) seen.set(k.key ?? k.id, k);
+  const counts = { mastered: [...seen.values()].filter((k) => k.status === "MASTERED").length, total: seen.size };
+  if (!full) for (const a of areas) a.stages = shortenStages(a.stages, student.grade);
   // weakest first: focus areas, then lower RIT
   areas.sort((a, b) => Number(b.focus) - Number(a.focus) || (a.rit ?? 999) - (b.rit ?? 999));
-  return { student, subject, term: p?.term ?? null, overall: p?.overall ? { rit: p.overall.rit, percentile: p.overall.percentile, descriptor: descriptor(p.overall.percentile), projection: p.fall?.projection ?? null } : null, areas, source: ix ? "CONTINUUM" : "SKILLS", full };
+  return { student, subject, term: p?.term ?? null, overall: p?.overall ? { rit: p.overall.rit, percentile: p.overall.percentile, descriptor: descriptor(p.overall.percentile), projection: p.fall?.projection ?? null } : null, areas, source: ix ? "CONTINUUM" : "SKILLS", full, counts };
+}
+
+/** the Short version: statements kept per stage */
+export const SHORT_LIMITS: Record<PlanStage["key"], number> = { REINFORCE: 6, DEVELOP: 18, INTRODUCE: 6 };
+/**
+ * The Short version of the stages (pure): the statements the student most needs NOW — skills without a ⭐ first (by the
+ * ONE skill status, not the old engine flag), the student's grade (± 1) first, every topic in turn. `shown` / `total` say
+ * how many are kept.
+ */
+export function shortenStages(stages: PlanStage[], grade = 0): PlanStage[] {
+  return stages.map((st) => {
+    const list = st.topics.flatMap((t) => t.statements.map((x) => ({ topic: t.name, x })));
+    const limit = SHORT_LIMITS[st.key];
+    if (list.length <= limit) return { ...st, shown: list.length, total: Math.max(st.total, list.length) };
+    const nearGrade = (x: PlanStatement) => x.standards.some((c) => { const g = Number(c.split(".")[1]); return Number.isFinite(g) && Math.abs(g - grade) <= 1; });
+    const need = (y: { x: PlanStatement }) => (grade && !nearGrade(y.x) ? 3 : 0) + (y.x.skills.length ? (y.x.skills.every((k) => k.status === "MASTERED") ? 2 : 0) : 1);
+    const keep = pickBalanced(list, (y) => y.topic, need, limit);
+    const topics: PlanTopic[] = [];
+    list.forEach((y, i) => { if (!keep.has(i)) return; let t = topics.find((z) => z.name === y.topic); if (!t) { t = { name: y.topic, statements: [] }; topics.push(t); } t.statements.push(y.x); });
+    return { ...st, topics, shown: keep.size, total: Math.max(st.total, list.length) };
+  });
 }
 
 /** Every student of a class (one PDF): the continuum, the profiles and mastery are loaded once. */
@@ -233,7 +266,29 @@ export interface FamilySubject {
   goal: { target: number; term: string } | null;
   areas: { name: string; icon: string; rit: number; descriptor: string | null }[];
 }
-export interface FamilyDoc { student: ReportStudent; term: string | null; subjects: FamilySubject[]; practice: { answers: number; accuracy: number | null; minutes: number; mastered: number; days: number } }
+export interface FamilyDoc { student: ReportStudent; term: string | null; subjects: FamilySubject[]; practice: { answers: number; accuracy: number | null; minutes: number; mastered: number; days: number }; /** the teacher's own words, edited before sending */ note: string | null }
+
+const mapFamilyNoteKey = (studentId: string) => `mapFamilyNote.${studentId}`;
+
+/** The teacher's note on this student's MAP Family Report, if one was written (edited before sending). */
+async function familyNote(repo: Repo, schoolId: string, studentId: string): Promise<string | null> {
+  const row = (await repo.findMany("SchoolSetting", { schoolId, key: mapFamilyNoteKey(studentId) }))[0];
+  let v: unknown = row?.value ?? null;
+  if (typeof v === "string") { try { v = JSON.parse(v); } catch { v = null; } }
+  const note = v && typeof v === "object" ? s((v as Record<string, unknown>).note).trim() : "";
+  return note || null;
+}
+
+/** Teacher / admin: write (or clear) the note that goes with this student's MAP Family Report, read before Send —
+ *  the only part of the report that is not computed straight from the MAP data. */
+export async function saveMapFamilyNote(repo: Repo, actor: Actor, studentId: string, note: string, now = new Date()): Promise<void> {
+  assertCan(actor, "assignments:create");
+  const student = await reportStudent(repo, actor, studentId);
+  const schoolId = s((await repo.findUnique("Student", { id: studentId }))?.schoolId) || s(actor.schoolId);
+  const clean = s(note).replace(/\s+/g, " ").trim().slice(0, 1000);
+  await repo.upsert("SchoolSetting", { schoolId, key: mapFamilyNoteKey(studentId) }, { value: { note: clean }, updatedBy: actor.userId, updatedAt: now }, { value: { note: clean }, updatedBy: actor.userId, updatedAt: now });
+  void student;
+}
 
 const shortLabel = (term: string, season: Season) => { const y = term.match(/(\d{4})/)?.[1] ?? ""; return `${season[0]}${season.slice(1).toLowerCase()} '${y.slice(2)}`; };
 const yearOf = (term: string, date: unknown) => Number(term.match(/(\d{4})/)?.[1] ?? new Date(time(date)).getUTCFullYear());
@@ -299,7 +354,8 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
   ]);
   const days = new Set(att.map((a) => new Date(time(a.createdAt)).toISOString().slice(0, 10))).size;
   const term = subjects.map((x) => x.latest?.term).filter(Boolean).sort().pop() ?? null;
-  return { student, term, subjects, practice: { answers: att.length, accuracy: att.length ? Math.round((att.filter((a) => a.isCorrect).length / att.length) * 100) : null, minutes: Math.round(att.reduce((t, a) => t + Number(a.responseMs ?? 0), 0) / 60000), mastered: mast, days } };
+  const note = await familyNote(repo, schoolId, studentId);
+  return { student, term, subjects, practice: { answers: att.length, accuracy: att.length ? Math.round((att.filter((a) => a.isCorrect).length / att.length) * 100) : null, minutes: Math.round(att.reduce((t, a) => t + Number(a.responseMs ?? 0), 0) / 60000), mastered: mast, days }, note };
 }
 
 export async function classFamilyReports(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<{ className: string; docs: FamilyDoc[] }> {
@@ -379,9 +435,139 @@ export async function groupStudyPlan(repo: Repo, actor: Actor, classId: string, 
   return { classId, className: s(klass.name), grade, subject, term, areas, noScores: ids.filter((id) => !profiles.get(id)?.overall).map((id) => names.get(id)?.name ?? "Student"), source: ix ? "CONTINUUM" : "SKILLS", canAssign, full };
 }
 
+// ------------------------------------------------------------------ Class Study Plan (Below / On / Above)
+
+/** The three performance bands teachers already think in — the same ones the Curriculum Map records from the
+ *  class average (src/server/map/rit.ts, levelsFromClassAverage) and the leveled-test wording (BELOW/ON/ABOVE,
+ *  src/server/tests/assessments.ts LEVELS). A "Personalized Plan" grouped by these three bands, inspired by the
+ *  school's own sample document: for each band, who is in it (RIT + the Spring projection), the RIT range itself
+ *  (straight from this class's MAP data, not a fixed cut-off) and the skills to develop. */
+export type PlanLevel = "BELOW" | "ON" | "ABOVE";
+export const PLAN_LEVEL_ORDER: PlanLevel[] = ["BELOW", "ON", "ABOVE"];
+export const PLAN_LEVEL_TITLE: Record<PlanLevel, string> = { BELOW: "Below level", ON: "On level", ABOVE: "Above level" };
+
+/** A student's overall achievement, collapsed from the five NWEA descriptors (Low/LoAvg → Below, Avg → On,
+ *  HiAvg/High → Above) — the very same 41st/60th percentile cut the school's own Personalized Plan Word document
+ *  already uses (src/server/map/personal-plan.ts, bandOf), so a student lands in the same band here as on that
+ *  download. Without a national descriptor yet (norms missing for the grade/season), the class's own average
+ *  stands in, with the same ±3 RIT band the Curriculum Map level already uses. */
+export function planLevelOf(desc: Descriptor | null, rit: number, classAvg: number): PlanLevel {
+  if (desc === "Low" || desc === "LoAvg") return "BELOW";
+  if (desc === "HiAvg" || desc === "High") return "ABOVE";
+  if (desc === "Avg") return "ON";
+  const diff = rit - classAvg;
+  return diff > CLASS_BAND_RIT ? "ABOVE" : diff < -CLASS_BAND_RIT ? "BELOW" : "ON";
+}
+
+export interface ClassBandArea { group: GroupKey; name: string; icon: string; topics: { name: string; statements: { text: string; standards: string[]; skills: { id: string; name: string; mastered: number }[] }[] }[]; skillIds: string[]; total: number; shown: number }
+export interface ClassBand {
+  key: PlanLevel; title: string; low: number; high: number; range: string;
+  students: { id: string; name: string; rit: number; projection: number | null }[];
+  avgRit: number; avgProjection: number | null; avgGrowth: number | null;
+  areas: ClassBandArea[];
+}
+export interface ClassBandPlanDoc { classId: string; className: string; grade: number; subject: Subject; term: string | null; bands: ClassBand[]; noScores: string[]; source: "CONTINUUM" | "SKILLS"; canAssign: boolean; full: boolean }
+
+/**
+ * The whole class in three groups — Below / On / Above level — one combined view (like the school's own
+ * Personalized Plan document, grouped instead of one student at a time): each band's RIT range from the actual
+ * MAP data, its students with their Spring projection and average growth, and the skills to develop, pooled across
+ * every goal area of the subject (the same continuum / RIT-range sources as the Personal and old Group plans).
+ */
+export async function classBandPlan(repo: Repo, actor: Actor, classId: string, subject: Subject, full = false): Promise<ClassBandPlanDoc> {
+  assertCan(actor, "reports:read");
+  const klass = await assertClassRead(repo, actor, classId);
+  let canAssign = true; try { await assertClassAccess(repo, actor, classId); } catch { canAssign = false; }
+  const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
+  const ids = await classMembers(repo, classId);
+  const [names, profiles, mastery, cont] = await Promise.all([studentNames(repo, ids), mapProfiles(repo, actor.schoolId!, ids, subject), masteryOf(repo, ids), hasContinuum(repo, subject)]);
+  const ix = cont ? await continuumIndex(repo, actor.schoolId!, grade, subject) : null;
+  const scored = ids.filter((id) => profiles.get(id)?.overall);
+  const classAvg = scored.length ? scored.reduce((t, id) => t + profiles.get(id)!.overall!.rit, 0) / scored.length : 0;
+  const levelOf = new Map(scored.map((id) => [id, planLevelOf(profiles.get(id)!.overall!.descriptor, profiles.get(id)!.overall!.rit, classAvg)] as const));
+
+  const groups = GROUPS.filter((g) => g.subject === subject);
+  // the SKILLS fallback (no continuum yet) uses the same six grade-wide RIT ranges as the MAP Skill Plan; one lookup
+  // per goal area, shared by every band below (buildRanges does not depend on which student is looking)
+  const fallbackRanges = new Map<GroupKey, PlanRange[]>();
+  for (const g of groups) if (!ix || !ix.rows.some((x) => groupOfGoal(s(x.goalArea)) === g.key)) fallbackRanges.set(g.key, await buildRanges(repo, actor.schoolId!, grade, g.key));
+
+  type MutStatement = { text: string; standards: string[]; skills: Map<string, { id: string; name: string }> };
+  type MutTopic = { name: string; statements: Map<string, MutStatement> };
+
+  const bands: ClassBand[] = [];
+  for (const key of PLAN_LEVEL_ORDER) {
+    const members = scored.filter((id) => levelOf.get(id) === key);
+    if (!members.length) continue;
+    const students = members
+      .map((id) => ({ id, name: names.get(id)?.name ?? "Student", rit: profiles.get(id)!.overall!.rit, projection: profiles.get(id)!.fall?.projection ?? null }))
+      .sort((a, b) => a.rit - b.rit || a.name.localeCompare(b.name));
+    const rits = students.map((x) => x.rit);
+    const projected = students.filter((x): x is { id: string; name: string; rit: number; projection: number } => x.projection !== null);
+    const avgRit = Math.round((10 * rits.reduce((t, x) => t + x, 0)) / rits.length) / 10;
+    const avgProjection = projected.length ? Math.round((10 * projected.reduce((t, x) => t + x.projection, 0)) / projected.length) / 10 : null;
+    const avgGrowth = avgProjection !== null ? Math.round((avgProjection - avgRit) * 10) / 10 : null;
+
+    const areas: ClassBandArea[] = [];
+    for (const g of groups) {
+      const topics = new Map<string, MutTopic>();
+      const useContinuum = Boolean(ix && ix.rows.some((x) => groupOfGoal(s(x.goalArea)) === g.key));
+      let total = 0;
+      for (const id of members) {
+        const p = profiles.get(id);
+        if (useContinuum) {
+          const r = areaRit(p, g.key); if (!r) continue;
+          const v = continuumFor(ix!, g.key, r.rit);
+          if (!v.develop) continue;
+          total = Math.max(total, v.develop.statements.length);
+          for (const x of v.develop.statements) {
+            let t = topics.get(x.topic); if (!t) { t = { name: x.topic, statements: new Map() }; topics.set(x.topic, t); }
+            let st = t.statements.get(x.text); if (!st) { st = { text: x.text, standards: x.standards, skills: new Map() }; t.statements.set(x.text, st); }
+            for (const k of x.skills) if (!st.skills.has(k.id)) st.skills.set(k.id, { id: k.id, name: k.name });
+          }
+        } else {
+          const rit = areaRit(p, g.key)?.rit;
+          if (rit === null || rit === undefined) continue;
+          const range = (fallbackRanges.get(g.key) ?? []).find((x) => rit >= x.low && rit <= x.high);
+          if (!range) continue;
+          for (const a of range.areas) {
+            let t = topics.get(a.name); if (!t) { t = { name: a.name, statements: new Map() }; topics.set(a.name, t); }
+            for (const topic of a.topics) for (const k of topic.skills) {
+              let st = t.statements.get(k.name); if (!st) { st = { text: k.name, standards: [], skills: new Map() }; t.statements.set(k.name, st); }
+              if (!st.skills.has(k.id)) st.skills.set(k.id, { id: k.id, name: k.name });
+            }
+          }
+        }
+      }
+      let topicList = [...topics.values()].map((t) => ({ name: t.name, statements: [...t.statements.values()].map((x) => ({ text: x.text, standards: x.standards, skills: [...x.skills.values()] })) }));
+      let allStmts = topicList.flatMap((t) => t.statements.map((x) => ({ topic: t.name, x })));
+      total = Math.max(total, allStmts.length);
+      let shown = allStmts.length;
+      // Short version: the same balanced pick the Personal and old Group plans use (grade-level first, every topic in turn)
+      if (!full && allStmts.length > 14) {
+        const near = (x: (typeof allStmts)[number]["x"]) => x.standards.some((c) => { const gg = Number(c.split(".")[1]); return Number.isFinite(gg) && Math.abs(gg - grade) <= 1; });
+        const keep = pickBalanced(allStmts, (y) => y.topic, (y) => (near(y.x) ? 0 : 3) + (y.x.skills.length ? 0 : 1), 14);
+        const kept = allStmts.filter((_, i) => keep.has(i));
+        topicList = [];
+        for (const y of kept) { let t = topicList.find((z) => z.name === y.topic); if (!t) { t = { name: y.topic, statements: [] }; topicList.push(t); } t.statements.push(y.x); }
+        shown = kept.length;
+      }
+      const skillIds = [...new Set(topicList.flatMap((t) => t.statements.flatMap((x) => x.skills.map((k) => k.id))))];
+      if (!skillIds.length) continue;
+      const withMastery = topicList.map((t) => ({ name: t.name, statements: t.statements.map((x) => ({ text: x.text, standards: x.standards, skills: x.skills.map((k) => ({ id: k.id, name: k.name, mastered: members.filter((sid) => mastery.get(sid)?.get(k.id)?.mastered).length })) })) }));
+      areas.push({ group: g.key, name: g.name, icon: g.icon, topics: withMastery, skillIds, total, shown });
+    }
+    const low = Math.round(Math.min(...rits)), high = Math.round(Math.max(...rits));
+    bands.push({ key, title: PLAN_LEVEL_TITLE[key], low, high, range: low === high ? `RIT ${low}` : `RIT ${low}–${high}`, students, avgRit, avgProjection, avgGrowth, areas });
+  }
+  const term = scored.map((id) => profiles.get(id)!.term).find(Boolean) ?? null;
+  return { classId, className: s(klass.name), grade, subject, term, bands, noScores: ids.filter((id) => !profiles.get(id)?.overall).map((id) => names.get(id)?.name ?? "Student"), source: ix ? "CONTINUUM" : "SKILLS", canAssign, full };
+}
+
 /** Sends a group its practice: the ticked skills, questions of the band and the band above (widened when too few). */
-export async function assignGroupSkills(repo: Repo, actor: Actor, input: { classId: string; group: GroupKey; low: number; high: number; skillIds: string[]; studentIds: string[]; count?: number; dueAt?: Date | null; title?: string }, now = new Date()): Promise<{ assignmentId: string; questions: number; students: number }> {
+export async function assignGroupSkills(repo: Repo, actor: Actor, input: { classId: string; group: GroupKey; low: number; high: number; skillIds: string[]; studentIds: string[]; count?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; title?: string; /** r74: REQUIRED */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; questions: number; students: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   if (!input.skillIds.length) throw new ValidationError("Tick at least one skill.");
   const members = new Set(await classMembers(repo, input.classId));
@@ -393,8 +579,40 @@ export async function assignGroupSkills(repo: Repo, actor: Actor, input: { class
   for (let w = 0; w < 4 && qs.length < 8; w++) { lo -= 10; hi += 10; qs = pool.filter((q) => q.rit >= lo && q.rit <= hi); }
   if (qs.length < 3) qs = pool;
   if (qs.length < 3) throw new ValidationError("Not enough questions for these skills yet (3 or more needed).");
-  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs.map((q) => q.id), title: input.title ?? `MAP group · ${groupOf(input.group).name} · RIT ${input.low}–${input.high}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null }, now);
+  const a = await assignQuestions(repo, actor, { classId: input.classId, studentIds, questionIds: qs.map((q) => q.id), title: input.title ?? `MAP group · ${groupOf(input.group).name} · RIT ${input.low}–${input.high}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.max(5, Math.min(input.count ?? 15, qs.length)) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, source }, now);
   return { assignmentId: a.assignmentId, questions: qs.length, students: studentIds.length };
+}
+
+/**
+ * Sends a student's Personal Study Plan: one skill assignment per ticked skill (same pattern as the Group and
+ * Whole-class plans' Assign — the skill becomes a normal, adaptive assignment, shown in My Work / My Plans).
+ */
+export async function assignStudyPlanSkills(repo: Repo, actor: Actor, input: { studentId: string; classId: string; skillIds: string[]; title?: string | null; dueAt?: Date | null; startAt?: Date | null; /** r74: REQUIRED */ source?: string | null }, now = new Date()): Promise<{ assignmentIds: string[]; skills: number }> {
+  assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
+  const klass = await assertClassAccess(repo, actor, input.classId);
+  const skillIds = [...new Set(input.skillIds.map(s).filter(Boolean))];
+  if (!skillIds.length) throw new ValidationError("Tick at least one skill.");
+  const members = await classMembers(repo, input.classId);
+  if (!members.includes(input.studentId)) throw new ForbiddenError("This student is not in this class.");
+  const skills = await repo.findMany("Skill", { id: { in: skillIds }, deletedAt: null }, { select: ["id", "name", "code"] });
+  if (!skills.length) throw new ValidationError("Choose at least one skill.");
+  const title = (input.title || "Personal Study Plan").slice(0, 191);
+  const planId = newRowId();
+  await repo.create("SkillPlan", { id: planId, schoolId: klass.schoolId, classId: klass.id, title, kind: "MAP", targetCorrect: null, gradeLevel: 0, note: null, createdById: actor.userId, createdAt: now });
+  let r;
+  try {
+    r = await sendPartsBatch(repo, actor, {
+      klass, members, plan: { id: planId, title },
+      parts: skills.map((k) => ({ skillId: s(k.id), studentIds: [input.studentId], track: "MAP" as const, itemCode: s(k.code), itemLabel: s(k.name) })),
+      dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: `Personal Study Plan: ${title}`, program: "MAP", source,
+    }, now);
+  } catch (e) {
+    await repo.deleteMany("SkillPlan", { id: planId }).catch(() => 0);
+    throw e;
+  }
+  await audit(repo, { actorId: actor.userId, action: "plan.assign", entityType: "SkillPlan", entityId: planId, after: { classId: klass.id, studentId: input.studentId, skills: skills.length, source }, at: now });
+  return { assignmentIds: r.assignmentIds, skills: skills.length };
 }
 
 /** For the hub: which reports a class can make now. */

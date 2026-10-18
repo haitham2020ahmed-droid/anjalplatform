@@ -21,7 +21,7 @@ const s = (v: unknown) => String(v ?? "");
 const json = (v: unknown): unknown => { if (typeof v !== "string") return v; try { return JSON.parse(v); } catch { return null; } };
 
 /** The skill ids a teacher-sent MAP plan gives the student (bounded: one student's SENT plans). */
-async function sentMapPlanSkills(repo: Repo, studentId: string): Promise<Set<string>> {
+export async function sentMapPlanSkills(repo: Repo, studentId: string): Promise<Set<string>> {
   const rows = await repo.findMany("MapPlan", { studentId, status: "SENT" }, { select: ["items"], take: 50 });
   const out = new Set<string>();
   for (const r of rows) {

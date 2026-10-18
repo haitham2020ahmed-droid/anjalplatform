@@ -18,6 +18,7 @@ import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, Scale
 import { classGrowth, studentGrowthReport } from "@/server/readrise/growth-report";
 import { ClassGrowthTab, StudentGrowthView } from "./_components/growth";
 import { allowReadRiseRetakeAction, assignReadRiseAction, scoreReadRiseWritingAction, setReadRiseLevelAction, unassignReadRiseAction } from "./actions";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "ReadRise" };
 
@@ -45,7 +46,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const studentId = typeof sp.student === "string" && /^[\w-]{1,64}$/.test(sp.student) ? sp.student : null;
   const header = (
     <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
-      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (75%+ up, under 50% down). <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
+      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (3 of the last 4 at 75%+: up 50 · one score of 25% or less, or two in a row under 50%: down 100). Readings with 2+ answers too fast to be read do not count. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
       who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM", ...(studentId ? { studentId } : {}) }).map((d) => ({ ...d, label: d.label })) : []}
       filters={classes.length ? <nav aria-label="Class" className="flex flex-wrap gap-2">
         {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass?.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}
@@ -176,7 +177,7 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
                           <form action={setReadRiseLevelAction} className="space-y-1.5">
                             <input type="hidden" name="classId" value={classId} /><input type="hidden" name="studentId" value={x.studentId} />
                             <label className="block font-semibold">New ReadRise Level<input type="number" name="level" required min={ENGINE.min} max={ENGINE.max} step={10} defaultValue={x.level ?? ""} className={`${field} mt-1 block w-full`} /></label>
-                            <label className="block font-semibold">Reason<input name="reason" required minLength={3} maxLength={250} placeholder="e.g. MAP Lexile 820 in the winter test" className={`${field} mt-1 block w-full`} /></label>
+                            <label className="block font-semibold">Reason<input name="reason" required minLength={3} maxLength={250} placeholder="e.g. MAP reading 820 in the winter test" className={`${field} mt-1 block w-full`} /></label>
                             <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Set level</button>
                           </form>
                           {(x.placed || x.placementOpen) && (
@@ -340,7 +341,7 @@ function AssignTab({ classId, canWrite, assigned, library }: { classId: string; 
                 ))}
               </div>
               <div className="flex flex-wrap items-end gap-3">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Due date (optional)<input type="date" name="dueAt" className={field} /></label>
+                <AssignDates field={field} />
                 <button className={btn}>Assign to the class</button>
               </div>
             </form>

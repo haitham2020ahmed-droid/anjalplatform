@@ -160,7 +160,7 @@ describe("🔎 Curriculum → Question Bank: questions for a curriculum skill", 
     const avg = (x: typeof set) => x.items.reduce((n, q) => n + q.difficultyLevel, 0) / x.items.length;
     assert.ok(avg(set) > avg(easy), "a strong class gets a harder set");
     assert.ok(!set.questionIds.includes(qDirect), "the easiest question (level 2) is left out for a strong class");
-    const r = await assignQuestions(repo, teacher, { classId, questionIds: set.questionIds, title: "Ready set" });
+    const r = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, questionIds: set.questionIds, title: "Ready set" });
     assert.equal(r.questions, set.questionIds.length);
   });
 

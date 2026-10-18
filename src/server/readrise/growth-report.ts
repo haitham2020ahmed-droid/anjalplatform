@@ -24,6 +24,7 @@ import {
 } from "./growth";
 import { visibleArticles } from "./student";
 import { questionKeys } from "./question-key";
+import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 
 const DAY = 86_400_000;
 const time = (v: unknown) => (v === null || v === undefined ? 0 : toDate(v).getTime());
@@ -159,6 +160,10 @@ export interface StudentGrowthReport extends StudentGrowthData {
   /** TEACHER VIEW ONLY: the level against the grade's expected range */
   position: "BELOW" | "WITHIN" | "ABOVE" | null;
   projectedPosition: "BELOW" | "WITHIN" | "ABOVE" | null;
+  /** owner r69: this school year's reading checks — start → middle → end (null = not taken) */
+  checks: Record<RRPeriod, { level: number; at: string } | null>;
+  /** readings with 2+ answers too fast to be read (they never moved the level) */
+  unreliableRuns: number;
 }
 
 /** 👩‍🏫 One student's growth evidence for a class the actor can read (teachers, coordinators, admins). */
@@ -166,10 +171,15 @@ export async function studentGrowthReport(repo: Repo, actor: Actor, classId: str
   const klass = await assertClassRead(repo, actor, classId);
   const member = await repo.findMany("ClassMembership", { classId, studentId, leftAt: null }, { select: ["studentId"], take: 1 });
   if (!member.length) throw new ForbiddenError("This student is not in the class.");
-  const d = await loadStudentGrowth(repo, studentId, now);
+  const [d, windows, placements, bad] = await Promise.all([
+    loadStudentGrowth(repo, studentId, now),
+    loadReadRiseWindows(repo, s(klass.schoolId), now),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null } }, { select: ["result", "period", "completedAt"], take: 50 }),
+    repo.count("RRRun", { studentId, unreliable: true }),
+  ]);
   const band = gradeBand(d.grade);
   return {
-    ...d, classId, className: s(klass.name), band,
+    ...d, classId, className: s(klass.name), band, checks: placementChecks(windows, placements), unreliableRuns: bad,
     position: d.level === null ? null : gradePosition(d.level, band),
     projectedPosition: d.projection ? gradePosition(d.projection.mid, band) : null,
   };

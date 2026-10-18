@@ -1,5 +1,6 @@
 "use client";
 import { TILES } from "@/components/game/tiles";
+import { RichInline } from "../../components/rich-inline";
 
 /**
  * Big answer tiles (colour + shape, so colour-blind players can tell them apart). Used by Quiz Race and by every
@@ -26,7 +27,7 @@ export function AnswerTiles({ options, hidden = [], disabled, onPick, reveal, bi
           <button key={o.label} type="button" data-label={o.label} disabled={disabled || gone || !!reveal} onClick={() => onPick(o.label)}
             className={`flex ${big ? "min-h-28 text-xl" : "min-h-16 text-lg"} items-center gap-3 rounded-2xl p-4 text-start font-semibold text-white shadow transition active:scale-[.98] ${TILES[i % 4].bg} ${gone ? "invisible" : ""} ${dim ? "opacity-35" : ""} ${isRight ? "ring-4 ring-emerald-300" : ""} ${isPicked && !isRight ? "ring-4 ring-white" : ""} disabled:cursor-default`}>
             <span aria-hidden="true" className="text-2xl">{TILES[i % 4].shape}</span>
-            <span dir="ltr" lang="en" className="flex-1">{o.text}</span>
+            <span dir="ltr" lang="en" className="flex-1"><RichInline text={o.text} /></span>
             {isRight && <span aria-hidden="true" className="text-2xl">✓</span>}
             {isPicked && !isRight && <span aria-hidden="true" className="text-2xl">✗</span>}
           </button>

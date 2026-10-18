@@ -39,17 +39,17 @@ describe("a teacher of two classes", () => {
   });
 
   test("one skill → both classes at once; picked students go to their own class; another teacher's class is refused", async () => {
-    const r = await assignSkillToClasses(repo, teacher, { classIds: [c1, c2], skillId });
+    const r = await assignSkillToClasses(repo, teacher, { source: "CURRICULUM", classIds: [c1, c2], skillId });
     assert.equal(r.classes, 2);
     assert.equal(r.students, 6);
     const rows = await repo.findMany("Assignment", { id: { in: r.assignmentIds } });
     assert.deepEqual(rows.map((a) => s(a.classId)).sort(), [c1, c2].sort());
     const roster = await teacherRoster(repo, teacher);
     const pick = [roster[0].students[0].id, roster[1].students[1].id];
-    const r2 = await assignSkillToClasses(repo, teacher, { classIds: [c1, c2], skillId, studentIds: pick });
+    const r2 = await assignSkillToClasses(repo, teacher, { source: "CURRICULUM", classIds: [c1, c2], skillId, studentIds: pick });
     assert.deepEqual([r2.classes, r2.students], [2, 2]);
     const before = await repo.count("Assignment", {});
-    await assert.rejects(assignSkillToClasses(repo, teacher, { classIds: [c1, other], skillId }), /do not teach/);
+    await assert.rejects(assignSkillToClasses(repo, teacher, { source: "CURRICULUM", classIds: [c1, other], skillId }), /do not teach/);
     assert.equal(await repo.count("Assignment", {}), before, "nothing written");
   });
 });

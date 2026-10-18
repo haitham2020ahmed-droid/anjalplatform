@@ -6,6 +6,7 @@ import { listDeletionRequests } from "@/server/admin/question-requests";
 import { decideDeletionAction, decideEditAction } from "../request-actions";
 import { listEditRequests } from "@/server/admin/question-edits";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Teacher requests" };
 
@@ -46,7 +47,7 @@ export default async function DeletionRequests({ searchParams }: { searchParams:
           <ul className="space-y-3">
             {list.map((r) => (
               <li key={r.id} className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
-                <Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-navy hover:underline">{r.stem}</Link>
+                <Link href={`/admin/questions/${r.id}`} className="font-semibold text-brand-navy hover:underline"><RichInline text={r.stem} /></Link>
                 <p className="mt-1 text-sm text-slate-600">Requested by <b>{r.request.byName}</b> on {r.request.at.slice(0, 10)}: “{r.request.reason}”</p>
                 <div className="mt-3 flex gap-2">
                   <form action={decideDeletionAction}><input type="hidden" name="questionId" value={r.id} /><input type="hidden" name="decision" value="approve" /><button className="rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"><LineIcon name="check" className="me-1 inline-block h-4 w-4 align-[-3px]" />Approve deletion</button></form>

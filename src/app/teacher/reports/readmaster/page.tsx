@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ReadingLevelLabel, ReadingScalesHelp } from "@/components/reading-level";
 import { chip, Empty, exportsOf, fmtNum, fmtPct, fmtSigned, pctTone, WindowChips, windowText } from "@/components/reports/report-ui";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { readMasterSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
@@ -67,6 +68,7 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
           </nav>
           <WindowChips days={days} href={(d) => url({ days: d })} />
         </>} />
+      <ReportIntro text="Who reads ReadMaster articles, their scores and how their reading level changes." />
       <ReadingScalesHelp className="mb-4" />
       {refused ? <Empty>{t("You cannot open this report.")}</Empty> : !r ? <Empty>You have no classes yet.</Empty> : (
         <div className="space-y-5">
@@ -95,7 +97,7 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
           {view === "students" && (
             <ReportSection title="By student" icon="👩‍🎓">
               <ReportTable label="By student" empty="No ReadMaster reads in this window."
-                cols={[{ key: "n", label: "Student" }, { key: "g", label: "Grade", num: true }, { key: "t", label: "Texts read", num: true }, { key: "c", label: "Counted", num: true }, { key: "p", label: "Practice", num: true }, { key: "a", label: "Avg score", num: true }, { key: "ls", label: "Reading Lexile start", num: true }, { key: "ln", label: "Now", num: true }, { key: "ch", label: "Change", num: true }, { key: "l", label: "Last read" }]}
+                cols={[{ key: "n", label: "Student" }, { key: "g", label: "Grade", num: true, more: true }, { key: "t", label: "Texts read", num: true }, { key: "c", label: "Counted", num: true, more: true }, { key: "p", label: "Practice", num: true, more: true }, { key: "a", label: "Avg score", num: true }, { key: "ls", label: "Reading Lexile start", num: true, more: true }, { key: "ln", label: "Now", num: true }, { key: "ch", label: "Change", num: true }, { key: "l", label: "Last read", more: true }]}
                 rows={r.students.map((x) => ({
                   id: x.studentId, flag: !x.texts || (x.change ?? 0) < 0 ? "warn" : undefined,
                   sort: { n: x.name, g: x.grade, t: x.texts, c: x.counted, p: x.practice, a: x.avgScore, ls: x.lexileStart, ln: x.lexileNow, ch: x.change, l: x.lastRead },
@@ -108,7 +110,7 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
           {view === "texts" && (
             <ReportSection title="By text" icon="📰" hint={t("Average score of each version: Approaching / Meeting / Exceeding (number of reads).")}>
               <ReportTable label="By text" empty="No ReadMaster reads in this window."
-                cols={[{ key: "t", label: "Text" }, { key: "g", label: "Grade", num: true }, { key: "s", label: "Skill" }, { key: "r", label: "Readers", num: true }, { key: "a", label: "Avg score", num: true }, { key: "b", label: "Approaching", num: true }, { key: "o", label: "Meeting", num: true }, { key: "ab", label: "Exceeding", num: true }, { key: "p", label: "Practice", num: true }]}
+                cols={[{ key: "t", label: "Text" }, { key: "g", label: "Grade", num: true, more: true }, { key: "s", label: "Skill" }, { key: "r", label: "Readers", num: true }, { key: "a", label: "Avg score", num: true }, { key: "b", label: "Approaching", num: true, more: true }, { key: "o", label: "Meeting", num: true, more: true }, { key: "ab", label: "Exceeding", num: true, more: true }, { key: "p", label: "Practice", num: true, more: true }]}
                 rows={r.texts.map((x) => ({
                   id: x.articleId, sort: { t: x.title, g: x.grade, s: x.skill, r: x.readers, a: x.avgScore, b: x.byLevel.BELOW.avg, o: x.byLevel.ON.avg, ab: x.byLevel.ABOVE.avg, p: x.practice },
                   cells: { t: <span dir="ltr" className="font-medium">{x.title}</span>, g: x.grade, s: <span dir="ltr">{x.skill}</span>, r: x.readers, a: score(x.avgScore),
@@ -124,7 +126,7 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
                 <div className="grid gap-5 lg:grid-cols-2">
                   <SimpleBar items={r.skills.map((x) => ({ label: x.skill, value: x.accuracy, note: t("{n} counted reads", { n: x.counted }) }))} />
                   <ReportTable label="By skill"
-                    cols={[{ key: "s", label: "Skill" }, { key: "t", label: "Texts", num: true }, { key: "r", label: "Readers", num: true }, { key: "c", label: "Counted", num: true }, { key: "a", label: "Accuracy", num: true }, { key: "p", label: "Practice", num: true }, { key: "pa", label: "Practice accuracy", num: true }]}
+                    cols={[{ key: "s", label: "Skill" }, { key: "t", label: "Texts", num: true, more: true }, { key: "r", label: "Readers", num: true }, { key: "c", label: "Counted", num: true, more: true }, { key: "a", label: "Accuracy", num: true }, { key: "p", label: "Practice", num: true, more: true }, { key: "pa", label: "Practice accuracy", num: true, more: true }]}
                     rows={r.skills.map((x) => ({ id: x.skill, sort: { s: x.skill, t: x.texts, r: x.readers, c: x.counted, a: x.accuracy, p: x.practice, pa: x.practiceAccuracy }, cells: { s: <span dir="ltr">{x.skill}</span>, t: x.texts, r: x.readers, c: x.counted, a: score(x.accuracy), p: x.practice, pa: fmtPct(x.practiceAccuracy) } }))} />
                 </div>
               ) : <p className="text-slate-600">{t("No ReadMaster reads in this window.")}</p>}
@@ -133,7 +135,7 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
           {view === "below" && (
             <ReportSection title="Reading below their level" icon="🧪" hint={t("Students who chose a version below their own level (Practice), most first.")}>
               <ReportTable label="Reading below their level" empty="No student chose a lower level in this window."
-                cols={[{ key: "n", label: "Student" }, { key: "g", label: "Grade", num: true }, { key: "lo", label: "Lower-level reads", num: true }, { key: "r", label: "All reads", num: true }, { key: "sh", label: "Share", num: true }, { key: "l", label: "Last lower read" }]}
+                cols={[{ key: "n", label: "Student" }, { key: "g", label: "Grade", num: true, more: true }, { key: "lo", label: "Lower-level reads", num: true }, { key: "r", label: "All reads", num: true, more: true }, { key: "sh", label: "Share", num: true }, { key: "l", label: "Last lower read", more: true }]}
                 rows={r.below.map((x) => ({ id: x.studentId, flag: (x.share ?? 0) >= 50 ? "warn" : undefined, sort: { n: x.name, g: x.grade, lo: x.lower, r: x.reads, sh: x.share, l: x.last }, cells: { n: studentLink(x.studentId, x.name), g: x.grade ?? "—", lo: x.lower, r: x.reads, sh: fmtPct(x.share), l: x.last ?? "—" } }))} />
             </ReportSection>
           )}
@@ -142,6 +144,7 @@ export default async function ReadMasterReportPage({ searchParams }: { searchPar
               {cls.types.length ? <SimpleBar items={cls.types.map((x) => ({ label: x.name, value: x.accuracy, note: t("{n} answers", { n: x.answers }) }))} /> : <p className="text-slate-600">No ReadMaster answers in this window.</p>}
             </ReportSection>
           )}
+          <ReportSummary summary={readMasterSummary(r, klass?.id ?? null, actor.role !== "TEACHER")} />
         </div>
       )}
     </AppShell>

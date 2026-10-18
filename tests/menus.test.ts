@@ -39,14 +39,15 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: Home, My Work, My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
-    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
+  // r68 (owner): ⭐ My Skills right after My Work
+  test("student: Home, My Work, My Skills, My Plans (owner r82), My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
+    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
     const items = navItemsFor("STUDENT", { rti: true, nafs: false });
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
+    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
     assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
     assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");
     assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no label twice in the menu");
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
+    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/skills", "/student/plans", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
   });
 
   test("student: never an RTI entry, whatever the flags (support work is ordinary work in My Work)", () => {
@@ -56,15 +57,39 @@ describe("menus: short and tidy", () => {
     for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
 
-  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Reading, Learn, MAP, Reports; the rest folded under More", () => {
+  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Grammar, Reading, Learn, MAP, Reports; the rest folded under More", () => {
     const items = navItemsFor("TEACHER");
-    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Reading", "Learn", "MAP", "Reports"]);
+    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Grammar", "Reading", "Learn", "MAP", "Reports", "School Reports"]);
     assert.deepEqual(items.filter((i) => i.group).map((i) => i.group), items.filter((i) => i.group).map(() => MORE), "the rest is under More");
     assert.ok(items.every((i) => i.line), "every teacher entry has a line icon");
     const hrefs = new Set(items.map((i) => i.href));
     for (const h of ["/teacher/rti-plan", "/teacher/tiers", "/teacher/data-meeting", "/teacher/map-rit", "/teacher/progress"]) assert.ok(!hrefs.has(h), `not in the menu: ${h}`);
     const pages = searchablePagesFor("TEACHER");
     for (const h of ["/teacher/plans/support", "/teacher/assessments", "/teacher/games", "/teacher/week", "/teacher/messages", "/teacher/map-rit"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
+  });
+
+  // Bug report: the 🔤 Grammar icon was missing from the teacher's menu — it was only in OFF_MENU (found by
+  // name, never shown as an icon), so a real teacher could never find it to assign Grammar, and in turn no
+  // student ever saw a "Grammar" group in My Skills (nothing had ever been assigned). Fixed by giving Grammar
+  // its own visible entry in TEACHER_MENU, same as it already has in the admin menu.
+  test("teacher: Grammar (🔤 /admin/grammar) is a visible icon, not just findable by name — for a real school with an active Grades 4-6 curriculum and no special flags", () => {
+    for (const opts of [{}, { rti: false, nafs: false }]) {
+      const items = navItemsFor("TEACHER", opts);
+      const grammar = items.find((i) => i.label === "Grammar");
+      assert.ok(grammar, "Grammar is a visible teacher menu icon");
+      assert.equal(grammar!.href, "/admin/grammar");
+      assert.equal(grammar!.icon, "🔤");
+      assert.ok(!grammar!.group, "Grammar is not folded under More");
+    }
+  });
+
+  // Students never get their own Grammar icon: a grammar skill is an ordinary Skill, and shows up in the
+  // "Grammar" strand of My Skills (my-skills.ts STRAND_LABEL.GRAMMAR) once the teacher assigns it — which the
+  // fix above makes possible in practice.
+  test("student: no separate Grammar nav icon (grammar skills surface inside My Skills instead)", () => {
+    const items = navItemsFor("STUDENT", { rti: false, nafs: false });
+    assert.ok(!items.some((i) => i.label === "Grammar"));
+    assert.ok(items.some((i) => i.label === "My Skills" && i.href === "/student/skills"), "where a student's assigned Grammar skills appear");
   });
 
   test("admin: five sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, no More", () => {

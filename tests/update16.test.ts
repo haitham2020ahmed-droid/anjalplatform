@@ -104,7 +104,7 @@ describe("Update 16", () => {
     for (const lv of ["BELOW", "ON", "ABOVE"]) for (let i = 0; i < 2; i++) ids.push(await createDraft(repo, admin, { skillId: "", type: "MULTIPLE_CHOICE", stem: `${lv} status question ${i} about the plot of the story`, level: 4, whyCorrect: "Because.", mapNodeCode: `${code}.${lv}`, options: [{ label: "A", text: `right ${lv}${i}`, correct: true, rationale: null }, { label: "B", text: `wrong ${lv}${i}`, correct: false, rationale: "No." }] }));
     await repo.updateMany("Question", { id: { in: ids } }, { status: "PUBLISHED" });
     assert.equal((await sectionStatuses(repo, teacher, classId)).get(code), undefined);
-    await assignFromMap(repo, teacher, { classId, categoryCode: code, dueAt: new Date(Date.now() + 86_400_000) });
+    await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: code, dueAt: new Date(Date.now() + 86_400_000) });
     const s1 = (await sectionStatuses(repo, teacher, classId)).get(code)!;
     assert.equal(s1.state, "IN_PROGRESS");
     assert.equal(s1.total, students.length);

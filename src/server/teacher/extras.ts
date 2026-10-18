@@ -7,6 +7,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { sourceOfAssignment } from "../../lib/assign-source";
 import { audit } from "../audit";
 import { assertClassAccess } from "./assignments";
 import { assertClassRead, readableClasses } from "./coordinators";
@@ -100,12 +101,14 @@ export async function copyAssignment(repo: Repo, actor: Actor, assignmentId: str
   if (s(from.gradeId) !== s(to.gradeId)) throw new ValidationError("Copy only to a class of the same grade.");
   if (s(a.classId) === toClassId) throw new ValidationError("Choose another class.");
   const track = (s(a.track) || "CURRICULUM") as "CURRICULUM" | "MAP" | "NAFS";
+  // r74: the copy keeps the original's source (older rows: inferred once)
+  const source = sourceOfAssignment(a);
   let id: string;
-  if (a.skillId) id = (await assignSkill(repo, actor, { classId: toClassId, skillId: s(a.skillId), dueAt, note: a.note ? s(a.note) : null, track }, now)).assignmentId;
+  if (a.skillId) id = (await assignSkill(repo, actor, { classId: toClassId, skillId: s(a.skillId), dueAt, note: a.note ? s(a.note) : null, track, source }, now)).assignmentId;
   else if (a.assessmentId) {
     const set = await repo.findUnique("Assessment", { id: a.assessmentId });
     const qs = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => s(x.questionId));
-    id = (await assignQuestions(repo, actor, { classId: toClassId, questionIds: qs, title: s(a.title), exactTitle: true, track, dueAt, note: a.note ? s(a.note) : null, ...(set?.isAdaptive ? { adaptive: { maxQuestions: Number(set.maxQuestions) || qs.length } } : {}) }, now)).assignmentId;
+    id = (await assignQuestions(repo, actor, { classId: toClassId, questionIds: qs, title: s(a.title), exactTitle: true, track, dueAt, note: a.note ? s(a.note) : null, ...(set?.isAdaptive ? { adaptive: { maxQuestions: Number(set.maxQuestions) || qs.length } } : {}), source }, now)).assignmentId;
   } else throw new ValidationError("This kind of assignment cannot be copied.");
   await audit(repo, { actorId: actor.userId, action: "assignment.copy", entityType: "Assignment", entityId: id, after: { from: assignmentId, toClassId }, at: now });
   return id;
@@ -168,12 +171,15 @@ export async function classChallenge(repo: Repo, schoolId: string, gradeId: stri
 // ------------------------------------------------------------------ 📈 MAP growth report (after Winter / Spring)
 
 export interface GrowthRow { studentId: string; name: string; fall: number; latest: number; latestTerm: string; growth: number; projected: number | null; expected: number | null; met: boolean | null; pctOfGoal: number | null }
-export interface GrowthClass { classId: string; className: string; grade: number; rows: GrowthRow[]; tested: number; met: number; avgGrowth: number | null; avgProjected: number | null }
+/** `tested` = students with a Fall and a later score; `measured` = those of them with an expected growth (met / not
+ *  met known): "% met" is met / measured — a student without an NWEA projection is never counted as "not met" (r72). */
+export interface GrowthClass { classId: string; className: string; grade: number; rows: GrowthRow[]; tested: number; measured: number; met: number; avgGrowth: number | null; avgProjected: number | null }
 
-export async function growthReport(repo: Repo, actor: Actor, subject: Subject = "READING"): Promise<GrowthClass[]> {
+export async function growthReport(repo: Repo, actor: Actor, subject: Subject = "READING", opts: { classId?: string } = {}): Promise<GrowthClass[]> {
   assertCan(actor, "reports:read");
   if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError();
-  const classes = (await readableClasses(repo, actor)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  // r79: the MAP Reports tab shows one class: only its rows are read (not every class of the school for an admin)
+  const classes = (await readableClasses(repo, actor)).filter((c) => !opts.classId || s(c.id) === opts.classId).sort((a, b) => s(a.name).localeCompare(s(b.name)));
   // ⚡ Update 57: every class's students, grades, names and MAP rows in four reads (before: four per class, in turn)
   const classIds = classes.map((c) => s(c.id));
   const [members, gradeRows] = await Promise.all([
@@ -192,7 +198,7 @@ export async function growthReport(repo: Repo, actor: Actor, subject: Subject = 
   for (const m of maps) { const k = s(m.studentId); const l = mapsOf.get(k); if (l) l.push(m); else mapsOf.set(k, [m]); }
   const out: GrowthClass[] = [];
   for (const c of classes) {
-    const ids = membersOf.get(s(c.id)) ?? [];
+    const ids = [...new Set(membersOf.get(s(c.id)) ?? [])];
     const grade = levelOf.get(s(c.gradeId)) ?? 0;
     const rows: GrowthRow[] = [];
     for (const id of ids) {
@@ -209,7 +215,7 @@ export async function growthReport(repo: Repo, actor: Actor, subject: Subject = 
     }
     rows.sort((a, b) => Number(a.met !== false) - Number(b.met !== false) || a.growth - b.growth);
     const avg = (xs: number[]) => (xs.length ? Math.round((10 * xs.reduce((t, x) => t + x, 0)) / xs.length) / 10 : null);
-    out.push({ classId: s(c.id), className: s(c.name), grade, rows, tested: rows.length, met: rows.filter((r) => r.met).length, avgGrowth: avg(rows.map((r) => r.growth)), avgProjected: avg(rows.filter((r) => r.expected !== null).map((r) => r.expected!)) });
+    out.push({ classId: s(c.id), className: s(c.name), grade, rows, tested: rows.length, measured: rows.filter((r) => r.met !== null).length, met: rows.filter((r) => r.met === true).length, avgGrowth: avg(rows.map((r) => r.growth)), avgProjected: avg(rows.filter((r) => r.expected !== null).map((r) => r.expected!)) });
   }
   return out;
 }

@@ -14,9 +14,10 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { readXlsx } from "../../imports/xlsx";
-import { shortStandard, TEMPLATE_HEADERS } from "../../imports/questions/template";
+import { listXlsxSheets, readXlsx } from "../../imports/xlsx";
+import { normHeader, shortStandard, TEMPLATE_COLUMNS, TEMPLATE_HEADERS, type ColumnKey } from "../../imports/questions/template";
 import { accessibleClasses } from "../teacher/assign";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "").trim();
 export const GRAMMAR_PREFIX = ".grammar.";
@@ -46,7 +47,129 @@ export interface GrammarQuestionRow {
   /** sentence_combine: the short sentences (| separated) and the joining word; the accepted answers are accepted_answers (or answer) */
   sentences: string; connector: string;
 }
-export interface GrammarWorkbook { lessons: Map<number, GrammarLesson[]>; skills: Map<number, GrammarSkillInfo[]>; questions: GrammarQuestionRow[] }
+export interface GrammarWorkbook {
+  lessons: Map<number, GrammarLesson[]>; skills: Map<number, GrammarSkillInfo[]>; questions: GrammarQuestionRow[];
+  /**
+   * "strict": the original 3-sheet file (Lessons, Skills, Questions) — new Skill/LessonSkill/UnitSkill rows are
+   * created from it (ensureGrammarSkills), placed on the Curriculum Map by grammarMapPlacement.
+   * "simple": the school's real file — just a Questions sheet (Question Bank template columns, "Skill" holding
+   * a coarse name such as "Grade 4 Action Verbs") and, usually, an informational Curriculum sheet. Never placed
+   * on the Curriculum Map (no unit/week data exists to place it on). But a grade starting with no grammar
+   * skills at all (Grade 5, Grade 6 before their first upload) would otherwise match nothing and show "No
+   * lessons" forever, so ensureSimpleGrammarSkills creates one plain Skill per distinct Skill name that has no
+   * EXISTING skill of that exact name yet (and a matching entry in the grade's lesson catalog, so the Grammar
+   * page lists it) — then the normal importer's exact-name match (grammarSimpleTable → the Question Bank
+   * import) places every row on a real skill, never a guess.
+   */
+  format: "strict" | "simple";
+  /** "simple" format only: the Questions sheet, header row first, with "Grade N " stripped off every Skill cell. */
+  simpleRows?: string[][];
+  /** "simple" format only: the column index of Grade in simpleRows (-1 if the sheet has none). */
+  simpleGradeCol?: number;
+}
+
+/** "Grade 4 Action Verbs" → "Action Verbs" (the real file's Skill column prefixes every name with its own grade). */
+const GRADE_PREFIX = /^grade\s*\d+\s*[:-]?\s*/i;
+const stripGradePrefix = (v: string) => s(v).replace(GRADE_PREFIX, "").trim();
+
+/** The column of one template field in a raw header row (same aliases as the Question Bank template). */
+function templateCol(header: string[], key: ColumnKey): number {
+  const spec = TEMPLATE_COLUMNS.find((c) => c.key === key)!;
+  return header.findIndex((h) => { const n = normHeader(h); return spec.aliases.includes(n) || normHeader(spec.header) === n; });
+}
+
+/**
+ * Reads the "simple" format: just a Questions sheet in the Question Bank template's columns (Question Text,
+ * Question Type, Option A-D, Correct Answer, Explanation, Grade, Skill, Standard, Difficulty Level, Cognitive
+ * Level, Passage/Text, Lexile, MAP Test, MAP Instructional Area, Use…), and usually an informational
+ * Curriculum sheet (an export of the school's EXISTING skill catalog — read by nobody: it only helps a human
+ * compare; the real source of truth is the live Skill rows the normal importer already matches against).
+ */
+function readSimpleGrammarWorkbook(buf: Buffer): GrammarWorkbook {
+  let rows: string[][];
+  try { rows = readXlsx(buf, { sheet: "Questions" }); } catch (e) { throw new ValidationError(`The Grammar file could not be read: ${(e as Error).message}`); }
+  if (!rows.length) throw new ValidationError("The Questions sheet of the Grammar file is empty.");
+  const header = rows[0].map((h) => s(h));
+  if (templateCol(header, "stem") < 0) throw new ValidationError("The Questions sheet of the Grammar file is missing the column: Question Text.");
+  const skillCol = templateCol(header, "skill");
+  const gradeCol = templateCol(header, "grade");
+  const body = rows.slice(1).map((r) => { const row = [...r]; if (skillCol >= 0) row[skillCol] = stripGradePrefix(row[skillCol] ?? ""); return row; });
+  return { lessons: new Map(), skills: new Map(), questions: [], format: "simple", simpleRows: [header, ...body], simpleGradeCol: gradeCol };
+}
+
+/** "simple" format only: the grade's rows (Questions sheet columns), ready for the normal Question Bank import. */
+export function grammarSimpleTable(wb: GrammarWorkbook, grade: number): string[][] {
+  if (wb.format !== "simple" || !wb.simpleRows?.length) return [];
+  const [header, ...rows] = wb.simpleRows;
+  const gradeCol = wb.simpleGradeCol ?? -1;
+  const filtered = gradeCol >= 0 ? rows.filter((r) => Number(s(r[gradeCol]).match(/\d+/)?.[0]) === grade) : rows;
+  return [header, ...filtered];
+}
+
+/**
+ * "simple" format only: one plain Skill per distinct Skill name of the grade's rows that has no EXISTING skill
+ * of that exact name yet (never touches a name that already matches one — those are left for the normal
+ * importer's exact match, untouched). Each new skill gets a catalog entry (its own "lesson", titled with its
+ * name) merged into the grade's lesson catalog, so the Grammar page lists it; a grade that already has a
+ * catalog (from an earlier strict-format upload, or an earlier simple upload) keeps every entry it had — this
+ * only adds to it, never replaces it. No Curriculum Map placement is made (no unit/week data exists for it):
+ * same as the rest of the simple format, only the skill, its standards and the Grammar page list are touched.
+ * Safe to call again on the same file: a name already created last time is found as "existing" and skipped.
+ */
+export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: GrammarWorkbook, grade: number, now = new Date()): Promise<{ created: number; skills: number }> {
+  assertCan(actor, "questions:publish");
+  if (!actor.schoolId) throw new ForbiddenError("Choose a school first.");
+  if (wb.format !== "simple") return { created: 0, skills: 0 };
+  const table = grammarSimpleTable(wb, grade);
+  if (table.length < 2) return { created: 0, skills: 0 };
+  const [header, ...rows] = table;
+  const skillCol = templateCol(header, "skill");
+  const stdCol = templateCol(header, "standard");
+  if (skillCol < 0) return { created: 0, skills: 0 };
+  const names: string[] = [];
+  const stdsByName = new Map<string, string[]>();
+  for (const r of rows) {
+    const name = s(r[skillCol]);
+    if (!name) continue;
+    if (!names.includes(name)) names.push(name);
+    if (stdCol >= 0) { const list = stdsByName.get(name) ?? []; for (const c of ccssList(s(r[stdCol]))) if (!list.includes(c)) list.push(c); stdsByName.set(name, list); }
+  }
+  if (!names.length) return { created: 0, skills: 0 };
+  const cur = await gradeCurriculum(repo, actor.schoolId, grade);
+  const existing = await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null });
+  const norm = (v: string) => s(v).toLowerCase().replace(/\s+/g, " ");
+  const existingNames = new Set(existing.map((k) => norm(s(k.name))));
+  const toCreate = names.filter((n) => !existingNames.has(norm(n)));
+  if (!toCreate.length) return { created: 0, skills: names.length };
+  const fam = kindOf("Grammar & Usage");
+  const goals = new Map((await repo.findMany("MapGoalArea", {})).map((a) => [s(a.code), s(a.id)]));
+  const famData = { name: fam.name, domain: fam.domain, category: fam.category, mapGoalAreaId: goals.get(fam.goal) ?? null };
+  const familyId = s((await repo.upsert("SkillFamily", { code: fam.family }, famData, famData)).id);
+  const stdId = new Map((await repo.findMany("Standard", {}, { select: ["id", "code"] })).map((x) => [shortStandard(s(x.code)), s(x.id)]));
+  const maxSeq = existing.reduce((m, k) => Math.max(m, Number(k.sequence) || 0), 9000);
+  const slug = (v: string) => s(v).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "skill";
+  let created = 0;
+  const newSkills: { id: string; code: string; lesson: string; kind: string; rule: string }[] = [];
+  const newLessons: GrammarLesson[] = [];
+  for (const [i, name] of toCreate.entries()) {
+    const code = grammarCode(grade, slug(name));
+    const data = { familyId, name: name.slice(0, 191), description: null, domain: fam.domain, category: fam.category, sequence: maxSeq + 1 + i, isActive: true, deletedAt: null };
+    const row = await repo.upsert("Skill", { curriculumId: cur.id, code }, data, data);
+    created++;
+    const codes = stdsByName.get(name) ?? [];
+    for (const [j, c] of codes.entries()) { const sid = stdId.get(c); if (sid) await repo.upsert("SkillStandard", { skillId: row.id, standardId: sid }, { isPrimary: j === 0 }, { isPrimary: j === 0 }); }
+    newSkills.push({ id: s(row.id), code, lesson: code, kind: fam.name, rule: "" });
+    newLessons.push({ id: code, unit: 0, week: 0, number: i, title: name, rule: "" });
+  }
+  const setting = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: settingKey(grade) }))[0];
+  const prev = json<{ lessons: GrammarLesson[]; skills: { id: string; code: string; lesson: string; kind: string; rule: string }[] }>(setting?.value, { lessons: [], skills: [] });
+  const catalog = {
+    lessons: [...prev.lessons.filter((l) => !newLessons.some((n) => n.id === l.id)), ...newLessons],
+    skills: [...prev.skills.filter((k) => !newSkills.some((n) => n.id === k.id)), ...newSkills],
+  };
+  await repo.upsert("SchoolSetting", { schoolId: actor.schoolId, key: settingKey(grade) }, { value: catalog, updatedBy: actor.userId, updatedAt: now }, { value: catalog, updatedBy: actor.userId, updatedAt: now });
+  return { created, skills: names.length };
+}
 
 /** Splits "L.4.1f, W.4.5" into platform codes ("L.4.1.F", "W.4.5"). */
 const ccssList = (v: string) => s(v).split(/[,;]+/).map((x) => shortStandard(x)).filter(Boolean);
@@ -60,10 +183,20 @@ function sheet(buf: Buffer, name: string, needed: string[]): { rows: string[][];
   return { rows: rows.slice(1).filter((r) => r.some((c) => s(c))), col: (h) => head.indexOf(h) };
 }
 
-/** Reads the Grammar bank workbook (sheets Questions, Skills and Lessons). */
+/**
+ * Reads the Grammar bank workbook, in either of two accepted formats (detected from its sheet names,
+ * never a mode the admin has to pick):
+ *   strict  → sheets Questions, Skills and Lessons (the original format: new skills, placed on the map)
+ *   simple  → just a Questions sheet (the school's real files: existing skills only, see readSimpleGrammarWorkbook)
+ */
 export function readGrammarWorkbook(bytes: Uint8Array): GrammarWorkbook {
   const buf = Buffer.from(bytes);
-  if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new ValidationError("The Grammar bank must be the Excel (.xlsx) file with the sheets Questions, Skills and Lessons.");
+  if (buf.length < 4 || buf.readUInt32LE(0) !== 0x04034b50) throw new ValidationError("The Grammar bank must be the Excel (.xlsx) file with the sheets Questions, Skills and Lessons (or just a Questions sheet).");
+  const sheetNames = new Set(listXlsxSheets(buf).map((n) => n.trim().toLowerCase()));
+  if (!(sheetNames.has("lessons") && sheetNames.has("skills"))) {
+    if (!sheetNames.has("questions")) throw new ValidationError("The Grammar file has no Questions sheet.");
+    return readSimpleGrammarWorkbook(buf);
+  }
   const L = sheet(buf, "Lessons", ["grade", "lesson_id", "unit", "week", "title"]);
   const K = sheet(buf, "Skills", ["grade", "lesson_id", "skill_id", "skill", "skill_kind", "ccss"]);
   const Q = sheet(buf, "Questions", ["grade", "skill_id", "question_id", "level", "type", "ccss", "question", "option_a", "option_b", "answer", "explanation"]);
@@ -89,7 +222,7 @@ export function readGrammarWorkbook(bytes: Uint8Array): GrammarWorkbook {
     segments: at(r, "segments") || at(r, "sentence_parts"), errorIndex: at(r, "error_index") || at(r, "error_indexes"), correction: at(r, "correction") || at(r, "corrections"),
     items: at(r, "items") || at(r, "order_items"), sentences: at(r, "sentences") || at(r, "sentences_to_combine"), connector: at(r, "connector") || at(r, "joining_word"),
   }));
-  return { lessons, skills, questions };
+  return { lessons, skills, questions, format: "strict" };
 }
 
 async function gradeCurriculum(repo: Repo, schoolId: string, grade: number): Promise<Row> {
@@ -98,6 +231,51 @@ async function gradeCurriculum(repo: Repo, schoolId: string, grade: number): Pro
   const cur = (await repo.findMany("Curriculum", { gradeId: g.id, isActive: true }))[0];
   if (!cur) throw new ValidationError(`Grade ${grade} has no curriculum yet: load the curriculum first.`);
   return cur;
+}
+
+const json = <T,>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
+
+interface GrammarPlacement { lessonId: string; unitId: string; order: number }
+
+/**
+ * Where each grammar lesson's skills land on the Curriculum Map, in the book's own unit order (owner request:
+ * "link the Grammar bank into the Curriculum Map itself, per grade, matching unit order"):
+ *   unit + week known (Wonders, Grades 4–5)  → the Text Set of that unit whose weeks include that week
+ *                                               (falls back to spreading evenly over the unit's Text Sets
+ *                                               when no week is given or none matches)
+ *   no unit/week (StudySync, Grade 6: lessons are only numbered in sequence) → the same relative position
+ *     among the grade's selections, in unit order (lesson 1 of N → selection 1 of M, lesson N → selection M)
+ * A grammar lesson with no curriculum Unit/Lesson to land on (an empty grade) is simply left off the map;
+ * the skill itself, its standards and its questions are unaffected either way.
+ */
+async function grammarMapPlacement(repo: Repo, curriculumId: string, wb: GrammarWorkbook, grade: number): Promise<Map<string, GrammarPlacement>> {
+  const out = new Map<string, GrammarPlacement>();
+  const gLessons = wb.lessons.get(grade) ?? [];
+  if (!gLessons.length) return out;
+  const units = (await repo.findMany("Unit", { curriculumId }, { select: ["id", "number", "isActive", "deletedAt"] }))
+    .filter((u) => u.isActive !== false && !u.deletedAt).sort((a, b) => Number(a.number) - Number(b.number));
+  if (!units.length) return out;
+  const lessons = (await repo.findMany("Lesson", { unitId: { in: units.map((u) => s(u.id)) } }, { select: ["id", "unitId", "number", "weeks", "deletedAt"] })).filter((l) => !l.deletedAt);
+  const byUnit = new Map<string, Row[]>();
+  for (const u of units) byUnit.set(s(u.id), lessons.filter((l) => s(l.unitId) === s(u.id)).sort((a, b) => Number(a.number) - Number(b.number)));
+  const flat = units.flatMap((u) => byUnit.get(s(u.id)) ?? []); // every Text Set / selection, in unit order
+  if (!flat.length) return out;
+  const unitIdByNumber = new Map(units.map((u) => [Number(u.number), s(u.id)]));
+  const place = (row: Row, order: number): GrammarPlacement => ({ lessonId: s(row.id), unitId: s(row.unitId), order });
+
+  // Grades with a known unit + week (Wonders): the Text Set of that unit covering that week.
+  const withUnit = gLessons.filter((l) => l.unit > 0).sort((a, b) => a.unit - b.unit || a.week - b.week || a.number - b.number);
+  for (const [i, l] of withUnit.entries()) {
+    const unitLessons = byUnit.get(unitIdByNumber.get(l.unit) ?? "") ?? [];
+    if (!unitLessons.length) continue;
+    const byWeek = l.week > 0 ? unitLessons.find((x) => json<number[]>(x.weeks, []).includes(l.week)) : undefined;
+    out.set(l.id, place(byWeek ?? unitLessons[i % unitLessons.length], i));
+  }
+
+  // No unit/week at all (StudySync): the same position among the grade's selections, in unit order.
+  const noUnit = gLessons.filter((l) => !l.unit).sort((a, b) => a.number - b.number || a.id.localeCompare(b.id));
+  for (const [i, l] of noUnit.entries()) out.set(l.id, place(flat[Math.min(flat.length - 1, Math.floor((i * flat.length) / noUnit.length))], i));
+  return out;
 }
 
 /**
@@ -110,6 +288,7 @@ export async function ensureGrammarSkills(repo: Repo, actor: Actor, wb: GrammarW
   const list = wb.skills.get(grade) ?? [];
   if (!list.length) throw new ValidationError(`The Grammar file has no Grade ${grade} skills.`);
   const cur = await gradeCurriculum(repo, actor.schoolId, grade);
+  const placeOnMap = await grammarMapPlacement(repo, s(cur.id), wb, grade);
   // families → MAP goal areas
   const goals = new Map((await repo.findMany("MapGoalArea", {})).map((a) => [s(a.code), s(a.id)]));
   const familyId = new Map<string, string>();
@@ -135,6 +314,11 @@ export async function ensureGrammarSkills(repo: Repo, actor: Actor, wb: GrammarW
     for (const [j, c] of codes.entries()) {
       const sid = stdId.get(c);
       if (sid) await repo.upsert("SkillStandard", { skillId: row.id, standardId: sid }, { isPrimary: j === 0 }, { isPrimary: j === 0 });
+    }
+    const place = placeOnMap.get(k.lesson);
+    if (place) {
+      await repo.upsert("LessonSkill", { lessonId: place.lessonId, skillId: row.id, label: k.name.slice(0, 191) }, { role: "GRAMMAR" }, { role: "GRAMMAR" });
+      await repo.upsert("UnitSkill", { unitId: place.unitId, skillId: row.id }, { order: place.order }, { order: place.order });
     }
   }
   const catalog = { lessons: wb.lessons.get(grade) ?? [], skills: list.map(({ id, code, lesson, kind, rule }) => ({ id, code, lesson, kind, rule })) };
@@ -198,6 +382,16 @@ export function grammarTable(wb: GrammarWorkbook, grade: number): string[][] {
     } else if (/^sentence[_ ]?combin/.test(q.type)) {
       type = "Sentence Combining"; answer = q.accepted || q.answer;
       extra["Sentences to Combine"] = q.sentences; extra["Joining Word"] = q.connector; opts = [];
+    }
+    else if (/^(multi[-_ ]?select|multiple[-_ ]?answer|select[-_ ]?all)/.test(q.type)) {
+      type = "Multi Select";
+      // the correct letters: answer_letter (several letters), else matched by text against the options
+      let letters = (q.letter.match(/[A-D]/g) ?? []) as string[];
+      if (!letters.length && q.answer) {
+        letters = q.answer.split(/[|,]/).map((p) => p.trim()).filter(Boolean)
+          .map((p) => { const i = opts.findIndex((o) => o.toLowerCase() === p.toLowerCase()); return i >= 0 ? LETTERS[i] : ""; }).filter(Boolean);
+      }
+      answer = [...new Set(letters)].join(", ");
     }
     else if (opts.length >= 2) {
       type = "Multiple Choice";
@@ -263,12 +457,15 @@ export async function grammarView(repo: Repo, actor: Actor, opts: { grade?: numb
   const setting = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: settingKey(grade) }))[0];
   const catalog = (setting?.value ?? {}) as { lessons?: GrammarLesson[]; skills?: { code: string; lesson: string; kind: string; rule: string }[] };
   const ids = skills.map((k) => s(k.id));
-  const [qs, links, assignments, members] = await Promise.all([
+  const [qs, links, allAssignments, members, ix] = await Promise.all([
     ids.length ? repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "difficultyLevel", "typeId"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("SkillStandard", { skillId: { in: ids } }) : Promise.resolve([] as Row[]),
-    klass ? repo.findMany("Assignment", { classId: klass.id, deletedAt: null }, { select: ["id", "skillId"] }) : Promise.resolve([] as Row[]),
+    klass ? repo.findMany("Assignment", liveAssignmentWhere({ classId: klass.id }), { select: ["id", "skillId", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]),
     klass ? repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
+    cancelIndex(repo, actor.schoolId),
   ]);
+  // r78: cancelled on Assigned = not "assigned" on the grammar page
+  const assignments = allAssignments.filter((a) => ix.live(a));
   const [stds, open, studs] = await Promise.all([
     links.length ? repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : Promise.resolve([] as Row[]),
     assignments.length ? repo.findMany("AssignmentStudent", { assignmentId: { in: assignments.map((a) => a.id) }, status: { in: ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"] } }, { select: ["assignmentId"] }) : Promise.resolve([] as Row[]),

@@ -57,7 +57,7 @@ const qs = (o: Record<string, string | number | undefined>) => new URLSearchPara
 const id = (v: string) => encodeURIComponent(v);
 /** /api/reports downloads (the route checks access): a PDF file, Excel and CSV. */
 const apiFiles = (kind: string, o: Record<string, string | number | undefined>): ReportFile[] =>
-  (["pdf", "xlsx", "csv"] as const).map((format) => ({ label: { pdf: "PDF file", xlsx: "Excel", csv: "CSV" }[format], href: `/api/reports?${qs({ kind, format, lang: "en", period: "TERM", ...o })}` }));
+  (["pdf", "xlsx", "csv"] as const).map((format) => ({ label: { pdf: "PDF file", xlsx: "Excel", csv: "CSV" }[format], href: `/api/reports?${qs({ kind, format, lang: "en", period: "TERM", ...o, ...(format === "pdf" ? { print: 1 } : {}) })}` }));
 
 /** The date range an address carries (?days=7|30|90 or ?range=LAST_7_DAYS|LAST_30_DAYS|TERM). */
 export function periodOf(q: URLSearchParams): ReportPeriod | undefined {
@@ -111,7 +111,7 @@ export const REPORTS: ReportDef[] = [
     classUrl: (p) => `/map-report/class/${id(p.classId)}/profile?subject=READING`,
     studentUrl: (p) => `/map-report/profile/${id(p.studentId)}`,
     match: either(on(/^\/map-report\/class\/(?<classId>[^/]+)\/profile$/, "class"), on(/^\/map-report\/profile\/(?<studentId>[^/]+)$/, "student")) },
-  { key: "map-groups", category: "Programs", line: "users", title: "Group study plan", hint: "Students of the same RIT band together for each sub-area, with the skills.",
+  { key: "map-groups", category: "Programs", line: "users", title: "Group study plan", hint: "The class grouped Below / On / Above level: each band's RIT range, growth projection and skills.",
     classUrl: (p) => `/map-report/class/${id(p.classId)}/groups?subject=READING`,
     files: (p) => [{ label: "3-level group plan (Word)", href: `/api/personal-plan-doc?${qs({ classId: p.classId, subject: "reading" })}` }],
     match: on(/^\/map-report\/class\/(?<classId>[^/]+)\/groups$/, "class") },
@@ -144,12 +144,12 @@ export const REPORTS: ReportDef[] = [
   // ---- Follow-up: early warning, alerts, interventions, family reports
   { key: "early-warning", category: "Follow-up", line: "alert", title: "🚨 Early warning", hint: "Drops, rises and up-down swings of every student, and who needs action now.",
     classUrl: (p) => `/teacher/reports/early-warning?${qs({ classId: p.classId })}`,
-    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }],
+    files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId, print: 1 })}` }],
     match: on(/^\/teacher\/reports\/early-warning$/, "class") },
   { key: "family-reports", category: "Follow-up", line: "mail", title: "Family Reports", hint: "Monthly and weekly reports for parents: you add a note, the school admin approves.", send: true,
     classUrl: (p) => `/teacher/family-reports?${qs({ classId: p.classId })}`,
     match: on(/^\/teacher\/family-reports$/, "class") },
-  { key: "map-family", category: "Follow-up", line: "family", title: "MAP family report", hint: "Achievement and growth for parents.",
+  { key: "map-family", category: "Follow-up", line: "family", title: "MAP family report", hint: "Achievement and growth for parents.", send: true,
     classUrl: (p) => `/map-report/class/${id(p.classId)}/family`,
     studentUrl: (p) => `/map-report/family/${id(p.studentId)}`,
     match: either(on(/^\/map-report\/class\/(?<classId>[^/]+)\/family$/, "class"), on(/^\/map-report\/family\/(?<studentId>[^/]+)$/, "student")) },
@@ -162,9 +162,9 @@ export const REPORTS: ReportDef[] = [
 export interface HubLink { key: string; category: ReportCategory; line: LineIconName; title: string; hint: string; href: (classId: string) => string; nafs?: boolean; pending?: boolean }
 export const HUB_LINKS: HubLink[] = [
   // ⭐ the Skills grid (the skill-status stars, every student × skill) — its page arrives from the skill-status branch
-  { key: "skills-grid", category: "My class", line: "star", title: "Skills grid", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
+  { key: "skills-grid", category: "My class", line: "star", title: "Student Skills", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
   { key: "nafs-reports", category: "Programs", line: "flag", title: "NAFS reports", hint: "NAFS tests and practice: results by student and skill.", href: () => "/teacher/nafs?tab=reports", nafs: true },
-  { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise growth", hint: "ReadRise levels over time and who is not reading.", href: (c) => `/teacher/readrise?${qs({ class: c, tab: "growth" })}` },
+  { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise report", hint: "ReadRise levels over the year, the reading checks, who is stuck or rising fast, accuracy by question type.", href: (c) => `/teacher/readrise/report${c ? `?${qs({ class: c })}` : ""}` },
   { key: "learn-results", category: "Programs", line: "learn", title: "Learn results", hint: "Each lesson: who finished, scores, who needs it again.", href: () => "/teacher/learn" },
   { key: "fluency", category: "Programs", line: "mic", title: "Reading Fluency", hint: "Words correct per minute and progress of every student.", href: (c) => `/teacher/fluency${c ? `?${qs({ classId: c })}` : ""}` },
   { key: "alerts", category: "Follow-up", line: "bell", title: "Alerts", hint: "Who needs attention now (practice, MAP flags, reviews due) and what was done.", href: (c) => `/teacher/alerts${c ? `?${qs({ classId: c })}` : ""}` },

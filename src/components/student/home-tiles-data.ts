@@ -9,6 +9,8 @@ export interface HomeTile { key: string; href: string; label: string; hint: stri
 
 export const STUDENT_HOME_TILES: readonly HomeTile[] = [
   { key: "work", href: "/student/work", label: "My Work", hint: "Everything your teacher gave you", line: "work", star: { bg: "var(--color-brand-navy)", fg: "#ffffff" } },
+  // 📋 My Plans (owner r82): every plan my teacher sent me, by type
+  { key: "plans", href: "/student/plans", label: "My Plans", hint: "Every plan your teacher sent you", line: "plans", star: { bg: "#ffe4d6", fg: "#8a3b12" } },
   { key: "map", href: "/student/map", label: "MAP", hint: "Your scores, goal and practice", line: "map", star: { bg: "#e4e0f8", fg: "#3b2f8f" } },
   { key: "curriculum", href: "/student/curriculum", label: "Curriculum Map", hint: "Your study plan", line: "curriculum", star: { bg: "#d6f0f0", fg: "#0f6666" } },
   { key: "second-chance", href: "/student/second-chance", label: "Second Chance", hint: "Try missed questions again", line: "retry", star: { bg: "#fde9a0", fg: "#6b4e00" } },

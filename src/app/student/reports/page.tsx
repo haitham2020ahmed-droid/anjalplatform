@@ -205,7 +205,7 @@ async function FamilyView({ actor, name, t, preview }: { actor: Actor; name: str
     studentDiagnosticReport(repo, actor, id).catch(() => null), coachSummary(repo, id), approvedForFamily(repo, actor, id).catch(() => []),
     familyWeek(repo, actor, id).catch(() => null), getT(),
   ]);
-  const pdf = (l: "en" | "ar") => `/api/family-week?lang=${l}${preview ? `&studentId=${encodeURIComponent(id)}` : ""}`;
+  const pdf = (l: "en" | "ar") => `/api/family-week?lang=${l}${preview ? `&studentId=${encodeURIComponent(id)}` : ""}&print=1`; // r84: a print page
   const hasMap = m.subjects.some((x) => x.profile.term);
   const card = "lift flex min-h-24 items-start gap-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200";
   const off = (icon: string, title: string, text: string) => <div className={`${card} opacity-70`}><span className="text-4xl" aria-hidden="true">{icon}</span><span><span className="block text-lg font-semibold text-slate-600">{t(title)}</span><span className="block text-sm text-slate-500">{t(text)}</span></span></div>;

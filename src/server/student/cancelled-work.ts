@@ -57,7 +57,100 @@ export async function hiddenWorkKeys(repo: Repo, studentId: string, schoolId: st
   return out;
 }
 
+/**
+ * Is this assignment (a skill, a set, a test set, a plan's place) cancelled for this student? The quiz player, the
+ * home's "Continue" and the plan pages ask (owner r68: a cancel is honoured everywhere the student sees work). One
+ * cached read; nothing when nothing is cancelled.
+ */
+export async function isCancelledForStudent(repo: Repo, studentId: string, schoolId: string | null | undefined, assignmentId: string): Promise<boolean> {
+  if (!assignmentId || !schoolId) return false;
+  const rows = await activeCancels(repo, schoolId);
+  if (!rows.length) return false;
+  const hidden = await hiddenWorkKeys(repo, studentId, schoolId);
+  return hidden.has(assignmentId) || hidden.has(`test:${assignmentId}`);
+}
+
+/**
+ * A plan's place is cancelled for the student: the student's own set(s) of it are hidden, or every set of the place is
+ * (a Curriculum Map place the student has not opened yet, cancelled for everyone).
+ */
+export const placeCancelled = (aids: readonly string[], mine: readonly string[], hidden: Set<string>): boolean =>
+  hidden.size > 0 && ((mine.length > 0 && mine.every((a) => hidden.has(a))) || (aids.length > 0 && aids.every((a) => hidden.has(a))));
+
 /** Rows of My Work (or any list keyed the same way) without the cancelled ones. */
 export function withoutCancelled<T extends { assignmentId: string }>(rows: T[], hidden: Set<string>): T[] {
   return hidden.size ? rows.filter((r) => !hidden.has(r.assignmentId)) : rows;
+}
+
+// ------------------------------------------------------------------ r78: ONE rule for "is this assignment live?"
+
+/**
+ * r78 (owner: "cancelled on Assigned = gone EVERYWHERE"). An Assignment row is live when BOTH flags say so:
+ *   1. the database flag: `deletedAt` is null (a hard cancel: the old Cancel button, a withdrawn plan's sections) —
+ *      every read puts it in its `where` through liveAssignmentWhere();
+ *   2. the soft cancel of the Assigned page (AssignmentCancel, not restored): for everyone, or for one student — the
+ *      row's own id among the cancel's keys (a skill / set / progress check, a test's set, a plan's place), its test
+ *      (TEST) or its plan (PLAN: also the places a student opens AFTER the cancel, by curriculumPlanId).
+ * Answers and stars stay in the database; only the assignment is no longer listed or counted.
+ */
+export function liveAssignmentWhere<W extends Record<string, unknown>>(where: W = {} as W): W & { deletedAt: null } {
+  return { ...where, deletedAt: null };
+}
+
+export interface CancelIndex {
+  /** nothing is cancelled in the school (the common case: callers skip all filtering) */
+  empty: boolean;
+  /** is this Assignment row (id, testId?, curriculumPlanId?, deletedAt?) live — for everyone, or for this student? */
+  live(a: Row, studentId?: string | null): boolean;
+  /** is this assigned thing of another kind (RESPOND, WRITING, NAFS_PRACTICE …: the Assigned kind + its row id) live? */
+  liveRef(kind: string, refId: string, studentId?: string | null): boolean;
+}
+
+interface Bucket { ids: Set<string>; tests: Set<string>; plans: Set<string> }
+const bucket = (): Bucket => ({ ids: new Set(), tests: new Set(), plans: new Set() });
+const NOTHING: CancelIndex = { empty: true, live: (a) => !a.deletedAt, liveRef: () => true };
+const indexes = new WeakMap<Row[], CancelIndex>();
+
+/** Pure: the cancel rows → the index (assignment ids are the keys without a ":" prefix). */
+export function cancelIndexOf(cancels: readonly Row[]): CancelIndex {
+  if (!cancels.length) return NOTHING;
+  const all = bucket(), one = new Map<string, Bucket>();
+  for (const c of cancels) {
+    const b = c.studentId ? (one.get(s(c.studentId)) ?? one.set(s(c.studentId), bucket()).get(s(c.studentId))!) : all;
+    for (const k of json<unknown[]>(c.keys, [])) { const key = s(k); if (key && !key.includes(":")) b.ids.add(key); }
+    if (c.kind === "SKILL" || c.kind === "PROGRESS_CHECK") b.ids.add(s(c.refId));
+    if (c.kind === "TEST") b.tests.add(s(c.refId));
+    if (c.kind === "PLAN") b.plans.add(s(c.refId));
+  }
+  const refs = new Set(cancels.map((c) => `${s(c.kind)}|${s(c.refId)}|${s(c.studentId)}`));
+  const hit = (b: Bucket | undefined, a: Row) => Boolean(b && (b.ids.has(s(a.id)) || (a.testId && b.tests.has(s(a.testId))) || (a.curriculumPlanId && b.plans.has(s(a.curriculumPlanId)))));
+  return {
+    empty: false,
+    live: (a, sid) => !a.deletedAt && !hit(all, a) && !(sid && hit(one.get(s(sid)), a)),
+    liveRef: (kind, refId, sid) => !refs.has(`${kind}|${refId}|`) && !(sid && refs.has(`${kind}|${refId}|${s(sid)}`)),
+  };
+}
+
+/** The school's cancel index (one cached read, shared with My Work). */
+export async function cancelIndex(repo: Repo, schoolId: string | null | undefined): Promise<CancelIndex> {
+  const rows = await activeCancels(repo, schoolId).catch(() => [] as Row[]);
+  if (!rows.length) return NOTHING;
+  let ix = indexes.get(rows);
+  if (!ix) indexes.set(rows, (ix = cancelIndexOf(rows)));
+  return ix;
+}
+
+/** The cancel index of the school of these students (one small read when the caller has no school id). */
+export async function cancelIndexForStudents(repo: Repo, studentIds: readonly string[], schoolId?: string | null): Promise<CancelIndex> {
+  let school = schoolId ?? null;
+  if (!school && studentIds.length) school = s((await repo.findUnique("Student", { id: studentIds[0] }))?.schoolId) || null;
+  return cancelIndex(repo, school);
+}
+
+/**
+ * Links (assignmentId, studentId) of live assignments only: `byId` holds the Assignment rows read (a link whose row is
+ * missing — deleted, or left out by liveAssignmentWhere — is dropped too).
+ */
+export function liveLinks<T extends Row>(links: readonly T[], byId: ReadonlyMap<string, Row>, ix: CancelIndex): T[] {
+  return links.filter((l) => { const a = byId.get(s(l.assignmentId)); return Boolean(a) && ix.live(a!, s(l.studentId)); });
 }

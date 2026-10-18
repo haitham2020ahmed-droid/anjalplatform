@@ -127,9 +127,9 @@ describe("Update 23 · study plans, family reports, group plans", () => {
     const d = await groupStudyPlan(repo, teacher, classId, "READING");
     for (const a of d.areas) assert.equal(a.bands.reduce((t, b) => t + b.students.length, 0), ids.length);
     const b = d.areas.find((a) => a.group === "LIT")!.bands.find((x) => x.skillIds.length)!;
-    const r = await assignGroupSkills(repo, teacher, { classId, group: "LIT", low: b.low, high: b.high, skillIds: b.skillIds, studentIds: b.students.map((x) => x.id) }, now);
+    const r = await assignGroupSkills(repo, teacher, { source: "CURRICULUM", classId, group: "LIT", low: b.low, high: b.high, skillIds: b.skillIds, studentIds: b.students.map((x) => x.id) }, now);
     assert.equal(r.students, b.students.length);
-    await assert.rejects(assignGroupSkills(repo, otherTeacher, { classId, group: "LIT", low: b.low, high: b.high, skillIds: b.skillIds, studentIds: b.students.map((x) => x.id) }, now), ForbiddenError);
+    await assert.rejects(assignGroupSkills(repo, otherTeacher, { source: "CURRICULUM", classId, group: "LIT", low: b.low, high: b.high, skillIds: b.skillIds, studentIds: b.students.map((x) => x.id) }, now), ForbiddenError);
   });
 
   test("who may open a student's reports", async () => {

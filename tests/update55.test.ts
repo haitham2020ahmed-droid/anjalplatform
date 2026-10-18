@@ -113,7 +113,7 @@ describe("Update 55", () => {
 
   test("📝 drafts reach nobody until sent; withdraw removes sent work; drafts are not test templates", async () => {
     const other = (await repo.findMany("Skill", { code: "G4.context-clues" }))[0];
-    const id = await saveAssignDraft(repo, teacher, { skillId: s(other.id), skillName: s(other.name), classIds: [classId], studentIds: [], track: "CURRICULUM", program: null, questionIds: null, startAt: null, dueAt: "2026-12-01", note: "" });
+    const id = await saveAssignDraft(repo, teacher, { skillId: s(other.id), skillName: s(other.name), classIds: [classId], studentIds: [], track: "CURRICULUM", source: "CURRICULUM", program: null, questionIds: null, startAt: null, dueAt: "2026-12-01", note: "" });
     assert.equal((await repo.findMany("Assignment", { skillId: s(other.id) })).length, 0, "a draft sends nothing");
     assert.equal((await listAssignDrafts(repo, teacher)).length, 1);
     assert.equal((await listTemplates(repo, teacher)).length, 0, "not shown among test templates");
@@ -122,7 +122,7 @@ describe("Update 55", () => {
     assert.equal((await listAssignDrafts(repo, teacher)).length, 0);
     assert.equal(await withdrawAssignments(repo, teacher, r.assignmentIds), 1);
     assert.ok((await repo.findUnique("Assignment", { id: r.assignmentIds[0] }))!.deletedAt, "withdrawn");
-    const id2 = await saveAssignDraft(repo, teacher, { skillId: s(other.id), skillName: "x", classIds: [classId], studentIds: [], track: "CURRICULUM", program: null, questionIds: null, startAt: null, dueAt: null, note: "" });
+    const id2 = await saveAssignDraft(repo, teacher, { skillId: s(other.id), skillName: "x", classIds: [classId], studentIds: [], track: "CURRICULUM", source: "CURRICULUM", program: null, questionIds: null, startAt: null, dueAt: null, note: "" });
     await deleteAssignDraft(repo, teacher, id2);
     assert.equal((await listAssignDrafts(repo, teacher)).length, 0);
   });

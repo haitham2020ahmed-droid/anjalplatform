@@ -49,6 +49,14 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
     assert.equal(p.notTested.length, roster.length - 4, "the rest of the class is listed as not tested");
   });
 
+  test("percentile distribution: the whole class bucketed into NWEA's 5 national-percentile ranges, fixed order", async () => {
+    const p = await personalPlan(repo, teacher, classId, "READING");
+    // percentiles 8, 35, 50, 75 → <21, 21-40, 41-60, 61-80; nobody above the 80th
+    assert.deepEqual(p.percentileDistribution, [
+      { range: ">80", count: 0 }, { range: "61-80", count: 1 }, { range: "41-60", count: 1 }, { range: "21-40", count: 1 }, { range: "<21", count: 1 },
+    ]);
+  });
+
   test("the intervention board: urgent, retest, beginner reader, not tested, inactive", async () => {
     const b = await interventionBoard(repo, teacher);
     const flagsOf = (i: number) => b.rows.find((r) => r.studentId === roster[i].id)!.flags.map((f) => f.flag);

@@ -9,6 +9,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { countGroups } from "../db/group-count";
 import { nationalNorm, seasonOf, type Season } from "../map/rit";
 import { bandOf as planBand } from "../map/personal-plan";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -218,14 +219,16 @@ export async function activityStats(repo: Repo, studentIds: string[], now: Date,
 export interface WorkStats { done: number; pending: number; late: number; total: number }
 
 /** Assignments of these students (question sets, skills and Respond to Reading). Late = past due and not done. */
-export async function workStats(repo: Repo, studentIds: string[], now = new Date()): Promise<Map<string, WorkStats>> {
+export async function workStats(repo: Repo, studentIds: string[], now = new Date(), schoolId?: string | null): Promise<Map<string, WorkStats>> {
   const out = new Map<string, WorkStats>(studentIds.map((id) => [id, { done: 0, pending: 0, late: 0, total: 0 }]));
   if (!studentIds.length) return out;
-  const rows = await repo.findMany("AssignmentStudent", { studentId: { in: studentIds } });
-  const as = rows.length ? await repo.findMany("Assignment", { id: { in: [...new Set(rows.map((r) => s(r.assignmentId)))] } }, { select: ["id", "dueAt", "deletedAt"] }) : [];
-  const due = new Map(as.filter((a) => !a.deletedAt).map((a) => [s(a.id), a.dueAt ? time(a.dueAt) : null]));
+  // r78: cancelled on Assigned (for everyone or this student) = not counted
+  const [rows, ix] = await Promise.all([repo.findMany("AssignmentStudent", { studentId: { in: studentIds } }, { select: ["assignmentId", "studentId", "status"] }), cancelIndexForStudents(repo, studentIds, schoolId)]);
+  const as = rows.length ? await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(rows.map((r) => s(r.assignmentId)))] } }), { select: ["id", "dueAt", "deletedAt", "testId", "curriculumPlanId"] }) : [];
+  const byId = new Map(as.map((a) => [s(a.id), a]));
+  const due = new Map(as.map((a) => [s(a.id), a.dueAt ? time(a.dueAt) : null]));
   for (const r of rows) {
-    if (!due.has(s(r.assignmentId))) continue;
+    if (!due.has(s(r.assignmentId)) || !ix.live(byId.get(s(r.assignmentId))!, s(r.studentId))) continue;
     const w = out.get(s(r.studentId))!; w.total++;
     const d = due.get(s(r.assignmentId));
     if (r.status === "COMPLETED") w.done++; else if (r.status === "OVERDUE" || (d !== null && d !== undefined && d < now.getTime())) w.late++; else w.pending++;
@@ -234,7 +237,7 @@ export async function workStats(repo: Repo, studentIds: string[], now = new Date
   const ra = rtr.length ? await repo.findMany("RespondAssignment", { id: { in: [...new Set(rtr.map((r) => s(r.assignmentId)))] } }, { select: ["id", "dueAt", "deletedAt"] }) : [];
   const rdue = new Map(ra.filter((a) => !a.deletedAt).map((a) => [s(a.id), a.dueAt ? time(a.dueAt) : null]));
   for (const r of rtr) {
-    if (!rdue.has(s(r.assignmentId))) continue;
+    if (!rdue.has(s(r.assignmentId)) || !ix.liveRef("RESPOND", s(r.assignmentId), s(r.studentId))) continue;
     const w = out.get(s(r.studentId))!; w.total++;
     const d = rdue.get(s(r.assignmentId));
     if (r.finishedAt) w.done++; else if (d !== null && d !== undefined && d < now.getTime()) w.late++; else w.pending++;

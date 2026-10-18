@@ -6,6 +6,8 @@
  */
 import type { ClientQuestion } from "../../server/practice/items";
 import { DictationInput } from "./dictation-input";
+import { RichInline } from "../rich-inline";
+import { stripMarks } from "../../lib/inline-marks";
 
 /** TWO_PART: Part A label and Part B label(s). ERROR_CORRECTION (newer items): tapped parts, “No error”, typed fixes. */
 export type TwoPartValue = { a?: string; b?: string | string[] };
@@ -37,7 +39,7 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
           {q.options!.map((o) => (
             <label key={o.label} className={choice(value === o.label, disabled)}>
               <input type="radio" name="answer" className="mt-1.5 h-5 w-5 accent-brand-teal" checked={value === o.label} onChange={() => onChange(o.label)} />
-              <span><span className="font-semibold text-brand-navy">{o.label}.</span> {o.text}</span>
+              <span><span className="font-semibold text-brand-navy">{o.label}.</span> <RichInline text={o.text} /></span>
             </label>
           ))}
         </fieldset>
@@ -51,7 +53,7 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
             <label key={o.label} className={choice(sel.includes(o.label), disabled)}>
               <input type="checkbox" className="mt-1.5 h-5 w-5 accent-brand-teal" checked={sel.includes(o.label)}
                 onChange={(e) => onChange(e.target.checked ? [...sel, o.label] : sel.filter((l) => l !== o.label))} />
-              <span><span className="font-semibold text-brand-navy">{o.label}.</span> {o.text}</span>
+              <span><span className="font-semibold text-brand-navy">{o.label}.</span> <RichInline text={o.text} /></span>
             </label>
           ))}
         </fieldset>
@@ -72,13 +74,13 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
       const [a, b] = blankParts(q.stem);
       return (
         <p className="text-xl leading-relaxed">
-          {a}
+          <RichInline text={a} />
           <select aria-label="Choose the word that fits" disabled={disabled} value={typeof value === "string" ? value : ""} onChange={(e) => onChange(e.target.value || null)}
             className="mx-1 rounded-lg border-2 border-brand-teal bg-white px-2 py-1 font-semibold text-brand-navy">
             <option value="">choose…</option>
-            {q.options!.map((o) => <option key={o.label} value={o.label}>{o.text}</option>)}
+            {q.options!.map((o) => <option key={o.label} value={o.label}>{stripMarks(o.text)}</option>)}
           </select>
-          {b}
+          <RichInline text={b} />
         </p>
       );
     }
@@ -86,10 +88,10 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
       const [a, b] = blankParts(q.stem);
       return (
         <p className="text-xl leading-relaxed">
-          {a}
+          <RichInline text={a} />
           <input aria-label="Type the missing word" disabled={disabled} value={typeof value === "string" ? value : ""} maxLength={60} autoComplete="off" spellCheck={false}
             onChange={(e) => onChange(e.target.value)} className="mx-1 w-44 rounded-lg border-2 border-brand-teal px-2 py-1 font-semibold text-brand-navy" />
-          {b}
+          <RichInline text={b} />
         </p>
       );
     }
@@ -106,10 +108,10 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
           {list.map((s, i) => (
             <li key={s} className="flex items-center gap-3 rounded-xl border-2 border-slate-200 bg-white px-3 py-2">
               <span className="w-6 text-center text-lg font-bold text-brand-teal">{i + 1}</span>
-              <span className="flex-1 text-lg">{s}</span>
+              <span className="flex-1 text-lg"><RichInline text={s} /></span>
               <span className="flex gap-1">
-                <button type="button" aria-label={`Move “${s}” up`} disabled={disabled || i === 0} onClick={() => move(i, -1)} className="h-10 w-10 rounded-lg border border-slate-300 disabled:opacity-30">▲</button>
-                <button type="button" aria-label={`Move “${s}” down`} disabled={disabled || i === list.length - 1} onClick={() => move(i, 1)} className="h-10 w-10 rounded-lg border border-slate-300 disabled:opacity-30">▼</button>
+                <button type="button" aria-label={`Move “${stripMarks(s)}” up`} disabled={disabled || i === 0} onClick={() => move(i, -1)} className="h-10 w-10 rounded-lg border border-slate-300 disabled:opacity-30">▲</button>
+                <button type="button" aria-label={`Move “${stripMarks(s)}” down`} disabled={disabled || i === list.length - 1} onClick={() => move(i, 1)} className="h-10 w-10 rounded-lg border border-slate-300 disabled:opacity-30">▼</button>
               </span>
             </li>
           ))}
@@ -123,7 +125,7 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
           {q.segments!.map((s, i) => (
             <button key={i} type="button" role="radio" aria-checked={value === i} disabled={disabled} onClick={() => onChange(i)}
               className={["rounded-lg border-2 px-3 py-2", value === i ? "border-red-400 bg-red-50 underline decoration-red-500 decoration-wavy" : "border-slate-200 bg-white hover:border-slate-300"].join(" ")}>
-              {s}
+              <RichInline text={s} />
             </button>
           ))}
         </div>
@@ -134,10 +136,10 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
         <div className="space-y-3">
           {q.left!.map((l) => (
             <label key={l} className="grid items-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-4 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-              <span className="text-lg font-semibold text-brand-navy">{l}</span>
+              <span className="text-lg font-semibold text-brand-navy"><RichInline text={l} /></span>
               <select disabled={disabled} value={map[l] ?? ""} onChange={(e) => onChange({ ...map, [l]: e.target.value })} className="rounded-lg border border-slate-300 px-2 py-2 text-lg">
                 <option value="">choose…</option>
-                {q.right!.map((r) => <option key={r} value={r}>{r}</option>)}
+                {q.right!.map((r) => <option key={r} value={r}>{stripMarks(r)}</option>)}
               </select>
             </label>
           ))}
@@ -151,22 +153,22 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
       return (
         <div className="space-y-5">
           <fieldset className="space-y-3" disabled={disabled}>
-            <legend className="mb-2 text-lg font-semibold text-brand-navy"><span className="me-2 rounded-md bg-brand-navy px-2 py-0.5 text-sm text-white">Part A</span>{p.a.stem}</legend>
+            <legend className="mb-2 text-lg font-semibold text-brand-navy"><span className="me-2 rounded-md bg-brand-navy px-2 py-0.5 text-sm text-white">Part A</span><RichInline text={p.a.stem} /></legend>
             {p.a.options.map((o) => (
               <label key={o.label} className={choice(v.a === o.label, disabled)}>
                 <input type="radio" name="part-a" className="mt-1.5 h-5 w-5 accent-brand-teal" checked={v.a === o.label} onChange={() => onChange({ ...v, a: o.label })} />
-                <span><span className="font-semibold text-brand-navy">{o.label}.</span> {o.text}</span>
+                <span><span className="font-semibold text-brand-navy">{o.label}.</span> <RichInline text={o.text} /></span>
               </label>
             ))}
           </fieldset>
           <fieldset className="space-y-3" disabled={disabled}>
-            <legend className="mb-2 text-lg font-semibold text-brand-navy"><span className="me-2 rounded-md bg-brand-purple px-2 py-0.5 text-sm text-white">Part B</span>{p.b.stem}</legend>
+            <legend className="mb-2 text-lg font-semibold text-brand-navy"><span className="me-2 rounded-md bg-brand-purple px-2 py-0.5 text-sm text-white">Part B</span><RichInline text={p.b.stem} /></legend>
             {p.b.multiple && <p className="text-slate-600">Choose all that apply.</p>}
             {p.b.options.map((o) => (
               <label key={o.label} className={choice(bSel.includes(o.label), disabled)}>
                 <input type={p.b.multiple ? "checkbox" : "radio"} name="part-b" className="mt-1.5 h-5 w-5 accent-brand-teal" checked={bSel.includes(o.label)}
                   onChange={(e) => onChange({ ...v, b: p.b.multiple ? (e.target.checked ? [...bSel, o.label] : bSel.filter((l) => l !== o.label)) : o.label })} />
-                <span><span className="font-semibold text-brand-navy">{o.label}.</span> {o.text}</span>
+                <span><span className="font-semibold text-brand-navy">{o.label}.</span> <RichInline text={o.text} /></span>
               </label>
             ))}
           </fieldset>
@@ -182,18 +184,18 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
             <thead>
               <tr>
                 <th scope="col" className="sr-only">Sentence</th>
-                {g.columns.map((c) => <th key={c.id} scope="col" className="px-2 py-2 text-center text-base font-semibold text-brand-navy">{c.text}</th>)}
+                {g.columns.map((c) => <th key={c.id} scope="col" className="px-2 py-2 text-center text-base font-semibold text-brand-navy"><RichInline text={c.text} /></th>)}
               </tr>
             </thead>
             <tbody>
               {g.rows.map((r) => (
                 <tr key={r.id} className="odd:bg-slate-50">
-                  <th scope="row" className="rounded-s-lg px-3 py-3 text-left font-normal text-slate-900">{r.text}</th>
+                  <th scope="row" className="rounded-s-lg px-3 py-3 text-left font-normal text-slate-900"><RichInline text={r.text} /></th>
                   {g.columns.map((c) => (
                     <td key={c.id} className="px-2 py-2 text-center">
                       <label className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full hover:bg-brand-teal/10">
                         <input type="radio" name={`grid-${r.id}`} disabled={disabled} className="h-5 w-5 accent-brand-teal" checked={map[r.id] === c.id}
-                          aria-label={`${r.text}: ${c.text}`} onChange={() => onChange({ ...map, [r.id]: c.id })} />
+                          aria-label={`${stripMarks(r.text)}: ${stripMarks(c.text)}`} onChange={() => onChange({ ...map, [r.id]: c.id })} />
                       </label>
                     </td>
                   ))}
@@ -219,7 +221,7 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
             {h.segments.map((x) => (
               <button key={x.id} type="button" aria-pressed={sel.includes(x.id)} disabled={disabled || (!sel.includes(x.id) && h.maxSelect > 1 && sel.length >= h.maxSelect)} onClick={() => toggle(x.id)}
                 className={["me-1 rounded-md px-1 text-left transition-colors", sel.includes(x.id) ? "bg-amber-200 underline decoration-amber-600 decoration-2" : "hover:bg-amber-50"].join(" ")}>
-                {x.text}
+                <RichInline text={x.text} />
               </button>
             ))}
           </p>
@@ -231,7 +233,7 @@ export function AnswerInput({ q, value, onChange, disabled }: { q: ClientQuestio
       return (
         <div className="space-y-3">
           <ol className="space-y-1 rounded-xl border-2 border-slate-200 bg-white p-4 text-xl" aria-label="Sentences to join">
-            {c.sentences.map((x, i) => <li key={i} className="flex gap-2"><span aria-hidden="true" className="font-semibold text-brand-teal">{i + 1}.</span><span>{x}</span></li>)}
+            {c.sentences.map((x, i) => <li key={i} className="flex gap-2"><span aria-hidden="true" className="font-semibold text-brand-teal">{i + 1}.</span><span><RichInline text={x} /></span></li>)}
           </ol>
           {c.connector && <p className="text-lg text-slate-700">Join them with <span className="rounded-md bg-amber-100 px-2 py-0.5 font-bold text-amber-900">{c.connector}</span>.</p>}
           <label className="block text-lg">
@@ -265,7 +267,7 @@ function ErrorCorrectionInput({ q, value, onChange, disabled }: { q: ClientQuest
         {q.segments!.map((s, i) => (
           <button key={i} type="button" aria-pressed={value.picks.includes(i)} disabled={disabled} onClick={() => tap(i)}
             className={["rounded-lg border-2 px-3 py-2", value.picks.includes(i) ? "border-red-400 bg-red-50 underline decoration-red-500 decoration-wavy" : "border-slate-200 bg-white hover:border-slate-300"].join(" ")}>
-            {s}
+            <RichInline text={s} />
           </button>
         ))}
         {m.noError && (
@@ -278,7 +280,7 @@ function ErrorCorrectionInput({ q, value, onChange, disabled }: { q: ClientQuest
       {m.multiple && <p className="text-slate-600">There may be more than one mistake.</p>}
       {m.typeFix && [...value.picks].sort((a, b) => a - b).map((i) => (
         <label key={i} className="block text-lg">
-          <span className="text-slate-700">Type “{q.segments![i]}” correctly:</span>
+          <span className="text-slate-700">Type “<RichInline text={q.segments![i]} />” correctly:</span>
           <input disabled={disabled} value={value.fixes[String(i)] ?? ""} maxLength={200} autoComplete="off" spellCheck={false}
             onChange={(e) => onChange({ ...value, fixes: { ...value.fixes, [String(i)]: e.target.value } })}
             className="mt-1 w-full rounded-lg border-2 border-brand-teal px-3 py-2 font-semibold text-brand-navy" />

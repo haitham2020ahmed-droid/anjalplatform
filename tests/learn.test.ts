@@ -109,7 +109,7 @@ describe("Learn: lesson files and their check", () => {
 
   test("the planned topics explain every taxonomy family and every skill name of data/questions", () => {
     const topics = readTopics();
-    assert.equal(topics.length, 222);
+    assert.equal(topics.length, 227); // Update 82 added LN-224..LN-227 (the Grade 6 curriculum rebuild's new skill families)
     const tax = JSON.parse(read("data/curriculum/taxonomy.json")) as { families: { code: string }[] };
     const fams = new Set(topics.flatMap((t) => t.families));
     for (const f of tax.families) assert.ok(fams.has(f.code), `a topic for family ${f.code}`);
@@ -134,7 +134,7 @@ describe("Learn: lesson files and their check", () => {
 
 function skillNamesOfQuestions(): string[] {
   const out = new Set<string>();
-  for (const f of ["gap-skill-sets.json", "topup-skill-sets.json", "span-skill-sets.json", "grammar-extra-sets.json", "map-skill-sets.json"]) {
+  for (const f of ["gap-skill-sets.json", "topup-skill-sets.json", "span-skill-sets.json", "grammar-extra-sets.json", "map-skill-sets.json", "new-skill-sets.json", "agreement-skill-sets.json"]) {
     try { for (const s of (JSON.parse(read(`data/questions/sets/${f}`)) as { sets?: { skill?: string }[] }).sets ?? []) if (s.skill) out.add(s.skill); } catch { /* missing pack */ }
   }
   return [...out];
@@ -346,7 +346,7 @@ describe("Learn in a school (demo data)", () => {
     assert.equal(c.withLesson, c.skills.filter((k) => k.lessons.length).length);
     assert.ok(c.withLesson > 0 && c.withLesson <= c.total);
     assert.equal(c.lessonsReady, 1);
-    assert.equal(c.lessonsPlanned, 223, "222 topics + the sample");
+    assert.equal(c.lessonsPlanned, 228, "227 topics + the sample");
     assert.ok(c.skills.find((k) => k.id === skillId)!.lessons.some((l) => l.code === "LN-000" && l.ready));
     assert.ok(c.groups.length >= 10 && c.groups.every((g) => g.covered <= g.statements));
     assert.ok(c.families.some((f) => f.code === "central-idea" && f.lessons >= 2));
@@ -370,8 +370,8 @@ describe("Learn in a school (demo data)", () => {
   });
 
   test("menus: Learn for students (after ReadRise) and teachers; the admin finds Learn by name", () => {
-    // My Words (the curriculum words moved there) and Fluency have their own entries (owner's request)
-    assert.deepEqual(navItemsFor("STUDENT", { nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"]);
+    // My Words (the curriculum words moved there) and Fluency have their own entries (owner's request) (r68: ⭐ My Skills after My Work)
+    assert.deepEqual(navItemsFor("STUDENT", { nafs: true }).map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"]);
     assert.ok(navItemsFor("TEACHER").some((i) => i.href === "/teacher/learn" && i.line));
     const admin = searchablePagesFor("SCHOOL_ADMIN").map((i) => i.href);
     for (const h of ["/teacher/learn", "/teacher/learn/review", "/teacher/learn/coverage"]) assert.ok(admin.includes(h), h);

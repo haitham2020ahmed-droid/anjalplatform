@@ -71,11 +71,16 @@ describe("database unique-key contract", () => {
 const PUBLIC_PAGES: Record<string, string> = {
   "src/app/login/page.tsx": "sign-in form",
   "src/app/change-password/page.tsx": "form only; changePasswordAction requires a session",
+  "src/app/qr/page.tsx": "Class QR sign-in (r76): type the short code; shows nothing but the form",
+  "src/app/qr/[key]/page.tsx": "Class QR sign-in (r76): an open QR's names only (random token or code, 10 minutes, rate limited)",
+  "src/app/qr/c/[token]/page.tsx": "Printed class QR (r85): a turned-on class's names only (256-bit token, stored hashed, rate limited); never the class code",
 };
 const PUBLIC_ROUTES: Record<string, string> = {
   "src/app/logout/route.ts": "POST, same-origin only, ends only the caller's own session",
   "src/app/api/health/route.ts": "health check for load balancers; returns only ok / unavailable",
   "src/app/login/submit/route.ts": "sign-in itself (POST, same-origin only, rate limited, lockout); a fixed address that survives deployments",
+  "src/app/qr/signin/route.ts": "Class QR sign-in (r76): POST, same-origin only, rate limited; an open QR of the class + an active student of that class",
+  "src/app/qr/c/signin/route.ts": "Printed class QR (r85): POST, same-origin only, rate limited; a turned-on QR + an active student of that class + the class code (5 wrong → that name locked 10 minutes)",
 };
 const PUBLIC_ACTIONS: Record<string, string> = {
   "src/app/login/actions.ts#loginAction": "sign-in itself (rate limited, lockout)",

@@ -385,14 +385,14 @@ export async function routeReteach(repo: Repo, schoolId: string, items: { studen
     const after = RECHECK_AFTER_DAYS[x.tier];
     const startAt = new Date(now.getTime() + after * DAY), dueAt = new Date(startAt.getTime() + RECHECK_OPEN_DAYS * DAY);
     try {
-      const practice = await assignSkill(repo, actor, { classId: t.classId, skillId: x.skillId, studentIds: [x.studentId], dueAt: startAt, note: "Extra practice on this skill, then a short re-check." }, now);
+      const practice = await assignSkill(repo, actor, { classId: t.classId, skillId: x.skillId, studentIds: [x.studentId], dueAt: startAt, note: "Extra practice on this skill, then a short re-check.", source: "RTI" }, now);
       // the re-check: 8 questions on the skill, spread over the pool (a different set for each student)
       const pool = (qBy.get(x.skillId) ?? []).map((q) => s(q.id)).sort();
       let recheck: { assignmentId: string; startAt: string; dueAt: string; questions: number } | null = null;
       if (pool.length >= 3) {
         const off = [...x.studentId].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % pool.length;
         const pick = Array.from({ length: Math.min(RECHECK_SIZE, pool.length) }, (_, k) => pool[(off + Math.floor((k * pool.length) / Math.min(RECHECK_SIZE, pool.length))) % pool.length]);
-        const set = await assignQuestions(repo, actor, { classId: t.classId, questionIds: [...new Set(pick)], studentIds: [x.studentId], title: `${RECHECK_TITLE}${skillName.get(x.skillId) ?? "skill"}`, exactTitle: true, startAt, dueAt, silent: true }, now);
+        const set = await assignQuestions(repo, actor, { classId: t.classId, questionIds: [...new Set(pick)], studentIds: [x.studentId], title: `${RECHECK_TITLE}${skillName.get(x.skillId) ?? "skill"}`, exactTitle: true, startAt, dueAt, silent: true, source: "RTI" }, now);
         recheck = { assignmentId: set.assignmentId, startAt: startAt.toISOString(), dueAt: dueAt.toISOString(), questions: set.questions };
       }
       await repo.create("TierChange", {

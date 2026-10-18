@@ -56,7 +56,7 @@ async function ownDraft(repo: Repo, actor: Actor, planId: string): Promise<Row> 
 /** Send: the teacher pressed Send after the preview (the only way a draft reaches the student). */
 export async function sendMapDraft(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<{ sets: number; skipped: string[] }> {
   await ownDraft(repo, actor, planId);
-  const r = await sendPlans(repo, actor, [s(planId)], now);
+  const r = await sendPlans(repo, actor, [s(planId)], now, "MAP"); // r74: an automatic MAP draft: its source is MAP
   if (!r.sent) throw new ValidationError("Nothing could be sent: these areas have no questions yet.");
   return { sets: r.sets, skipped: r.skipped };
 }

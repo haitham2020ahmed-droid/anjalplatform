@@ -3,16 +3,18 @@
  *
  *   startMemoryLog   every 60 s: when the process uses more than MEMORY_LOG_MB (400 MB RSS), one log line with
  *                    rss / heap / external / arrayBuffers, so a crash in Render's log is preceded by what grew.
- *   memoryHigh       true when the RSS is past MEMORY_BUSY_MB (380 MB): heavy background work (the daily job, the
+ *   memoryHigh       true when the RSS is past MEMORY_BUSY_MB (400 MB on 512 MB): heavy background work (the daily job, the
  *                    alert scan, the ReadMaster library) is not STARTED then — it starts on a later visit instead.
  *   runHeavy         heavy background work of this process runs one piece at a time (two admins opening the home
  *                    page at the same moment never run two school-wide scans side by side).
  */
 import { log } from "./log";
+import { cacheSizes } from "../cache/idle";
 
 const MB = 1048576;
 export const MEMORY_LOG_MB = 400;
-export const MEMORY_BUSY_MB = 380;
+/** r68: 78 % of the server's memory (400 MB on the 512 MB plan; WEB_MEMORY_MB on a bigger one) — the same line as the job runner's gate */
+export const MEMORY_BUSY_MB = Math.round((Number(process.env.WEB_MEMORY_MB) || 512) * 0.78);
 
 export function memorySnapshot(): { rssMB: number; heapUsedMB: number; heapTotalMB: number; externalMB: number; arrayBuffersMB: number } {
   const m = process.memoryUsage();
@@ -27,14 +29,36 @@ export const rssMb = (): number => Math.round(process.memoryUsage.rss() / MB);
 export const memoryHigh = (limitMb = Number(process.env.MEMORY_BUSY_MB) || MEMORY_BUSY_MB): boolean =>
   process.env.NODE_ENV === "production" && rssMb() > limitMb;
 
-const G = globalThis as unknown as { __memLog?: ReturnType<typeof setInterval>; __heavyTail?: Promise<void> };
+const G = globalThis as unknown as { __memLog?: ReturnType<typeof setInterval>; __heavyTail?: Promise<void>; __paths?: { at: number; path: string; rss: number }[]; __memStart?: number; __memLast?: number };
 
-/** Starts the 60-second memory log (once per process). */
-export function startMemoryLog(everyMs = 60_000, overMb = Number(process.env.MEMORY_LOG_MB) || MEMORY_LOG_MB): void {
+/**
+ * r86 "black box" (live: the server restarted ~1–2 min after a deploy with NO log line — killed between two 60 s
+ * samples): the last pages opened (path + RSS when they started) are kept, and the memory log now samples every 15 s,
+ * always logs during the first 5 minutes after a start ("memory.boot"), logs a sudden jump of 60 MB+ ("memory.jump")
+ * and anything over MEMORY_LOG_MB (now 350 MB) — each line names the last pages, so the next crash says what caused it.
+ */
+export function notePath(path: string | null | undefined): void {
+  if (!path) return;
+  const list = (G.__paths ??= []);
+  list.push({ at: Date.now(), path: String(path).slice(0, 80), rss: rssMb() });
+  if (list.length > 8) list.splice(0, list.length - 8);
+}
+export const recentPaths = (): string => (G.__paths ?? []).slice(-6).map((p) => `${new Date(p.at).toISOString().slice(11, 19)} ${p.path} (${p.rss})`).join(" | ");
+export const BOOT_LOG_MS = 5 * 60_000;
+export const JUMP_MB = 60;
+
+/** Starts the memory log (once per process): every 15 s, see above. */
+export function startMemoryLog(everyMs = 15_000, overMb = Number(process.env.MEMORY_LOG_MB) || 350): void {
   if (G.__memLog) return;
+  G.__memStart = Date.now();
   G.__memLog = setInterval(() => {
     const snap = memorySnapshot();
-    if (snap.rssMB > overMb) log("warn", "memory.high", snap);
+    const last = G.__memLast ?? snap.rssMB;
+    G.__memLast = snap.rssMB;
+    const boot = Date.now() - (G.__memStart ?? 0) < BOOT_LOG_MS;
+    const event = snap.rssMB > overMb ? "memory.high" : snap.rssMB - last >= JUMP_MB ? "memory.jump" : boot ? "memory.boot" : null;
+    // r68: with the biggest caches, so the log says WHAT grew (src/server/cache/idle.ts); r86: and the last pages opened
+    if (event) log(event === "memory.boot" ? "info" : "warn", event, { ...snap, caches: cacheSizes().slice(0, 5).map((c) => `${c.name}:${c.size}`).join(" "), pages: recentPaths() });
   }, everyMs);
   (G.__memLog as { unref?: () => void }).unref?.();
 }
@@ -49,3 +73,37 @@ export function runHeavy<T>(fn: () => Promise<T>): Promise<T> {
   G.__heavyTail = run.then(() => undefined, () => undefined);
   return run;
 }
+
+const GB = globalThis as unknown as { __buildTail?: Promise<void>; __buildsWaiting?: number };
+/** r84: how long a big cache build waits for the one running before it starts anyway (never a long stall). */
+export const BUILD_WAIT_MS = 3_000;
+
+/**
+ * 🧠 r84 first use after a deploy: the BIG in-memory builds (the school's NAFS index, a grade's MAP question pools, the
+ * Learning Continuum index) run one at a time in this process, so a fresh server never builds two of them side by side
+ * (each reads thousands of rows; two together were the peak that got a fresh 512 MB server killed).
+ *   - only a build waits: a request whose value is cached (or already being built: concurrent misses share one
+ *     promise) never comes here;
+ *   - its own lane, not runHeavy's queue: a build never waits behind the daily job or a school-wide scan;
+ *   - a build waits at most `maxWaitMs` (BUILD_WAIT_MS) for the one before it, then starts anyway: a student's next
+ *     question is never held for long.
+ */
+export function heavyBuild<T>(fn: () => Promise<T>, maxWaitMs = BUILD_WAIT_MS): Promise<T> {
+  const prev = GB.__buildTail;
+  let run: Promise<T>;
+  if (!prev) run = fn();
+  else {
+    GB.__buildsWaiting = (GB.__buildsWaiting ?? 0) + 1;
+    run = new Promise<void>((resolve) => {
+      const timer = setTimeout(resolve, maxWaitMs);
+      (timer as { unref?: () => void }).unref?.();
+      void prev.then(() => { clearTimeout(timer); resolve(); });
+    }).then(() => { GB.__buildsWaiting = (GB.__buildsWaiting ?? 1) - 1; return fn(); });
+  }
+  const tail: Promise<void> = run.then(() => undefined, () => undefined);
+  GB.__buildTail = tail;
+  void tail.then(() => { if (GB.__buildTail === tail) GB.__buildTail = undefined; });
+  return run;
+}
+/** Builds waiting for the lane now (tests and the memory log). */
+export const buildsWaiting = (): number => GB.__buildsWaiting ?? 0;

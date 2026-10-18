@@ -44,6 +44,8 @@ const EN = {
   confidential: "Confidential: student data",
   page: "Page",
   of: "of",
+  "print.save": "Save as PDF / Print",
+  "print.hint": "In the print window, choose “Save as PDF” to keep a file.",
   unit: "Unit",
   // student KPIs
   "kpi.questions": "Questions answered",
@@ -220,6 +222,8 @@ const AR: Record<LabelKey, string> = {
   confidential: "سرّي: بيانات طلاب",
   page: "صفحة",
   of: "من",
+  "print.save": "حفظ PDF / طباعة",
+  "print.hint": "في نافذة الطباعة اختر «حفظ بتنسيق PDF» للاحتفاظ بملف.",
   unit: "الوحدة",
   "kpi.questions": "الأسئلة المُجابة",
   "kpi.accuracy": "نسبة الإجابات الصحيحة",

@@ -3,6 +3,7 @@ import type { TFn } from "@/i18n";
 import { ReportSection } from "@/components/report-kit";
 import { EmptyState } from "@/components/ui-kit";
 import { BTN_MAIN } from "@/components/plans/plan-builder";
+import { PendingButton } from "@/components/pending-button";
 import { repo } from "@/server/auth/next";
 import type { Actor } from "@/server/auth/rbac";
 import { readableClasses } from "@/server/teacher/coordinators";
@@ -70,7 +71,7 @@ export async function TestTab({ actor, t, sp, subject }: { actor: Actor; t: TFn;
               <div className="mt-1 flex flex-wrap gap-3">{groups.map((g, i) => <label key={g.key} className="text-sm">{g.icon} {t(g.name)}<input name={`share_${g.key}`} type="number" min={0} max={100} defaultValue={even + (i < 100 - even * groups.length ? 1 : 0)} className="mt-1 block min-h-11 w-24 rounded-lg border border-slate-300 px-2" /></label>)}</div>
             </fieldset>
             <p className="text-xs text-slate-500 sm:col-span-3">{t("After it is made you can see the pool of each goal area and take any question out.")}</p>
-            <button className={`${BTN_MAIN} sm:col-span-3 sm:justify-self-start`}>{t("Make the automatic test")}</button>
+            <PendingButton className={`${BTN_MAIN} sm:col-span-3 sm:justify-self-start`} label="Make the automatic test" pendingLabel="Working…" />
           </form>
         </details>
         <details open={open === "manual"} className="rounded-3xl bg-white shadow-card ring-1 ring-slate-200 open:md:col-span-2">
@@ -88,7 +89,7 @@ export async function TestTab({ actor, t, sp, subject }: { actor: Actor; t: TFn;
             {who}
             {dates}
             <label className="font-semibold">{t("Before")}<select name="season" defaultValue={season} className={box}><option value="WINTER">{t("Winter MAP")}</option><option value="SPRING">{t("Spring MAP")}</option><option value="FALL">{t("Fall MAP")}</option></select></label>
-            <button className={`${BTN_MAIN} sm:col-span-3 sm:justify-self-start`}>✨ {t("Suggest for me")}</button>
+            <PendingButton className={`${BTN_MAIN} sm:col-span-3 sm:justify-self-start`} icon="✨" label="Suggest for me" pendingLabel="Building…" />
           </form>
         </details>
       </div>

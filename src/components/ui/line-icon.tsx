@@ -74,6 +74,7 @@ const PATHS = {
   eye: "M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Zm9.5 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z",
   x: "m6 6 12 12M18 6 6 18",
   archive: "M4 5h16v4H4V5Zm1 4v10h14V9M10 13h4",
+  qr: "M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h2v2h-2v-2Zm4 0h2m-2 4h2v2m-6 0h2M6.5 6.5h1m9 0h1m-11 10h1",
 } as const;
 
 export type LineIconName = keyof typeof PATHS;

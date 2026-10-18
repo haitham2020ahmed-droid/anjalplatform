@@ -11,6 +11,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 import { ForbiddenError } from "../auth/rbac";
+import type { JobDef } from "../jobs/runner";
 import { ValidationError } from "../curriculum-admin";
 import {
   currentRows, decideStatus, emptyCounts, historyOf, LEVEL_ROW, levelStart, ms, REVIEW_AFTER_DAYS, skillKeyIndex, skillKeysFor, skillStatusesFor, STAR_MAX_ANSWERS,
@@ -249,11 +250,12 @@ export async function recomputeStudents(repo: Repo, schoolId: string, studentIds
   if (!ids.length) return 0;
   const ix = opts.index ?? (await skillKeyIndex(repo, schoolId));
   const [attempts, mastery, existing] = await Promise.all([
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, rapidGuess: false }, { select: ["studentId", "sessionId", "skillId", "isCorrect", "source", "createdAt"] }),
+    repo.findMany("QuestionAttempt", { studentId: { in: ids }, rapidGuess: false }, { select: ["studentId", "sessionId", "skillId", "isCorrect", "source", "createdAt", "unreliable"] }),
     repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "isMastered"] }),
     repo.findMany("SkillStatus", { studentId: { in: ids } }),
   ]);
-  const mine = attempts.filter((a) => !s(a.source));
+  // r68 accuracy: an Unreliable session's answers (> 20 % rapid guesses) never count, as in countedAnswers
+  const mine = attempts.filter((a) => !s(a.source) && !a.unreliable);
   const sids = [...new Set(mine.map((a) => s(a.sessionId)))];
   const sessions: Row[] = [];
   for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId"] })));
@@ -352,24 +354,66 @@ export async function migrationReport(repo: Repo, schoolId: string): Promise<Mig
   return x && typeof x === "object" ? (x as MigrationReport) : null;
 }
 
-let started: Promise<number> | null = null;
-/** First start: every school that has never been migrated, once per process, in the background. Never throws. */
-export function migrateOnce(repo: Repo): Promise<number> {
-  started ??= (async () => {
-    let n = 0;
-    for (const sc of await repo.findMany("School", {}, { select: ["id"] })) {
-      if (await migrationReport(repo, s(sc.id))) continue;
-      await migrateSchool(repo, s(sc.id)); n++;
+/** Students per batch of the background job (r68: 25, each batch reads only these students' answers). */
+export const STARS_BATCH = 25;
+
+/**
+ * ⭐ The same migration as a light background job (src/server/jobs/runner.ts): students in batches of 25 by id (the
+ * cursor is the last student id, saved after every batch, so a restart resumes), then the report of migrateSchool.
+ * Same result as migrateSchool. A school migrated before (it has a report) is skipped, as before.
+ */
+export const STARS_JOB: JobDef<string> = {
+  name: "skill-stars",
+  version: "r67",
+  async skip(repo, schoolId) { return Boolean(await migrationReport(repo, schoolId)); },
+  async step(repo, schoolId, after, _state, now) {
+    const ids = (await repo.findMany("Student", { schoolId, deletedAt: null, ...(after ? { id: { gt: after } } : {}) }, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: STARS_BATCH })).map((x) => s(x.id));
+    if (!ids.length) return { cursor: after, done: true };
+    const written = await recomputeStudents(repo, schoolId, ids, now);
+    return { cursor: ids[ids.length - 1], done: ids.length < STARS_BATCH, progress: { students: ids.length, written } };
+  },
+  async finish(repo, schoolId, state, now) {
+    const universe = await skillUniverse(repo, schoolId).catch(() => 0);
+    const counts = emptyCounts();
+    let after: string | null = null, students = 0;
+    // the counts, 400 students at a time (never every student's rows at once)
+    for (let guard = 0; guard < 10_000; guard++) {
+      const ids: string[] = (await repo.findMany("Student", { schoolId, deletedAt: null, ...(after ? { id: { gt: after } } : {}) }, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: 400 })).map((x) => s(x.id));
+      if (!ids.length) break;
+      students += ids.length;
+      const { statusCounts } = await import("./status");
+      const part = await statusCounts(repo, ids);
+      for (const k of Object.keys(counts) as StarStatus[]) counts[k] += part[k];
+      after = ids[ids.length - 1];
+      if (ids.length < 400) break;
     }
-    return n;
-  })().catch(() => { started = null; return 0; });
-  return started;
+    const started = counts.IN_PROGRESS + counts.MASTERED + counts.NEXT_LEVEL + counts.NEEDS_REVIEW;
+    counts.NOT_STARTED = Math.max(0, universe * students - started);
+    const report: MigrationReport = { at: now.toISOString(), students, written: Number(state.progress.written ?? 0), counts, universe };
+    await repo.upsert("SchoolSetting", { schoolId, key: MIGRATION_KEY }, { schoolId, key: MIGRATION_KEY, value: report }, { value: report });
+    return { students, written: report.written };
+  },
+};
+
+/** First start: every school that has never been migrated, through the job runner (one batch at a time). Never throws. */
+export async function migrateOnce(repo: Repo): Promise<number> {
+  try {
+    const { runJobEverywhere } = await import("../jobs/runner");
+    return (await runJobEverywhere(repo, STARS_JOB)).filter((o) => o.ran).length;
+  } catch { return 0; }
 }
 
 /** Admin "Run again" (System check). */
 export async function runMigration(repo: Repo, actor: Actor, now = new Date()): Promise<MigrationReport> {
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Admins only.");
   return migrateSchool(repo, actor.schoolId!, now);
+}
+
+/** Admin "Compute skill stars again" (r68): queued as the background job (returns at once; System check shows it). */
+export async function queueMigration(repo: Repo, actor: Actor): Promise<void> {
+  if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Admins only.");
+  const { enqueueJob } = await import("../jobs/runner");
+  enqueueJob(repo, STARS_JOB, actor.schoolId!, { force: true });
 }
 
 /** The counts line of the System check page: "☆ x · ◐ y · ⭐ z · ☆⬆ 0 · 🔄 0". */

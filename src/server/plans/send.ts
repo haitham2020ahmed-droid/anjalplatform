@@ -8,18 +8,20 @@
  *   sentPlans       every plan the teacher sent (any program), with its program, students and progress
  *
  * Access: the class must be the teacher's own (assertClassAccess; a school admin any class of the school), every
- * student must be in that class, skills may come from any grade of the school (assignSkill checks both again).
+ * student must be in that class, skills may come from any grade of the school (plans/batch-send.ts checks both, and
+ * sends every skill in one batch — r82).
  * Nothing changes the adaptive engine, levels or mastery.
  */
-import type { Repo, Row } from "../seeding/repo";
+import type { Repo } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { SOURCE_REQUIRED } from "../assign/source";
 import { isGrammarCode } from "../grammar/grammar";
-import { assignSkill } from "../teacher/assign";
-import { familyIdsInSchool } from "../questions/skill-questions";
+import { schoolSkillIndex } from "../questions/skill-questions";
+import { newRowId, pairsKey, planSource, recentTwin, sendLock, sendPartsBatch, type BatchPart } from "./batch-send";
 import { assertClassAccess } from "../teacher/assignments";
-import { planKindOf, programOfPlanKind, tagProgram, trackOfProgram, type Program } from "./program";
+import { planKindOf, programOfPlanKind, trackOfProgram, type Program } from "./program";
 import { masteredBySkill } from "../skills/status-extras";
 
 const s = (v: unknown) => String(v ?? "");
@@ -51,9 +53,13 @@ export interface SendPlanInput {
   classId: string;
   /** the page it is sent from (null = a custom plan) */
   program: Program | null;
+  /** r74: REQUIRED — the Source chosen in the window */
+  source?: string | null;
   title?: string | null;
   picks: PlanPick[];
   dueAt?: Date | null;
+  /** r68: students see the plan's work from this day */
+  startAt?: Date | null;
   note?: string | null;
   /**
    * The questions the teacher picked for a skill ("I'll pick the questions"), by skill id; a skill not listed (or
@@ -65,75 +71,68 @@ export interface SendPlanInput {
 }
 export interface SendPlanResult { planId: string; skills: number; students: number; assignmentIds: string[] }
 
-/** Sends one plan: each skill to the students it is for, tagged with the program. Nothing half-made on an error. */
+/**
+ * Sends one plan: each skill to the students it is for, tagged with the program — in ONE batch (r82: a 30 × 10 plan
+ * is a few dozen database calls, not one full assign per skill). Nothing half-made on an error. The same Send twice
+ * (a double press, a reload) gives back the first plan instead of a second copy.
+ */
 export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanInput, now = new Date()): Promise<SendPlanResult> {
   assertCan(actor, "assignments:create");
   if (!input.classId) throw new ValidationError("Choose a class.");
+  // r74 + owner r82: a program plan's work is that program's (RTI → RTI, NAFS → NAFS, MAP → MAP, Curriculum →
+  // Curriculum); a custom plan needs the teacher's choice
+  const source = planSource(input.program, input.source);
+  if (!source) throw new ValidationError(SOURCE_REQUIRED);
   const klass = await assertClassAccess(repo, actor, input.classId); // a teacher: their own class only
-  const members = new Set((await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)));
-  const bySkill = new Map<string, Set<string>>();
-  for (const p of input.picks ?? []) {
-    if (!p?.studentId || !p?.skillId) continue;
-    if (!members.has(s(p.studentId))) throw new ForbiddenError("You can only send work to students in this class.");
-    bySkill.set(s(p.skillId), (bySkill.get(s(p.skillId)) ?? new Set()).add(s(p.studentId)));
-  }
-  if (!bySkill.size) throw new ValidationError("Choose at least one skill.");
-  // ⭐ "N students already mastered this skill — exclude them?" → Yes: a student never repeats a mastered skill
-  if (input.excludeMastered) {
-    const mastered = await masteredBySkill(repo, s(klass.schoolId), [...members], [...bySkill.keys()]);
-    for (const [skillId, who] of bySkill) { for (const id of mastered.get(skillId) ?? []) who.delete(id); if (!who.size) bySkill.delete(skillId); }
-    if (!bySkill.size) throw new ValidationError("Every student already mastered these skills.");
-  }
-  if (bySkill.size > MAX_SEND_SKILLS) throw new ValidationError(`A plan can have at most ${MAX_SEND_SKILLS} skills.`);
-  const skillRows = await repo.findMany("Skill", { id: { in: [...bySkill.keys()] } }, { select: ["id", "name", "code", "curriculumId"] });
-  const curs = skillRows.length ? await repo.findMany("Curriculum", { id: { in: [...new Set(skillRows.map((k) => s(k.curriculumId)))] } }, { select: ["id", "gradeId"] }) : [];
-  const grades = curs.length ? await repo.findMany("Grade", { id: { in: [...new Set(curs.map((c) => s(c.gradeId)))] } }, { select: ["id", "level"] }) : [];
-  const gradeOf = (k: Row) => Number(grades.find((g) => g.id === curs.find((c) => c.id === k.curriculumId)?.gradeId)?.level ?? 0);
-  const classGrade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
-  if (input.program === "NAFS" && classGrade !== 6) throw new ValidationError("NAFS plans are for Grade 6 classes only.");
-  const classSize = members.size;
-  const label = planLabel(input.program);
-  const title = (s(input.title).replace(/\s+/g, " ").trim() || `${label} · ${s(klass.name)}`).slice(0, 191);
-  const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
-  const plan = await repo.create("SkillPlan", { schoolId: klass.schoolId, classId: klass.id, title, kind: planKindOf(input.program), targetCorrect: null, gradeLevel: classGrade, note, createdById: actor.userId, createdAt: now,
-    status: "SENT", program: input.program ?? null, dueAt: input.dueAt ?? null, sentAt: now, updatedAt: now });
-  const assignmentIds: string[] = [];
-  const students = new Set<string>();
-  try {
-    let order = 0;
-    for (const [skillId, who] of bySkill) {
-      const k = skillRows.find((x) => s(x.id) === skillId);
-      if (!k) throw new ValidationError("Choose an active skill.");
-      const ids = [...who].sort();
-      const picked = await pickedOfSkill(repo, s(klass.schoolId), skillId, input.questionIds?.[skillId]);
-      const r = await assignSkill(repo, actor, {
-        classId: s(klass.id), skillId, studentIds: ids.length === classSize ? undefined : ids, track: trackOfProgram(input.program, isGrammarCode(k.code)), dueAt: input.dueAt ?? null, note: note ?? `${label}: ${title}`,
-        program: input.program ?? null, questionIds: picked?.length ? picked : null,
-      }, now);
-      assignmentIds.push(r.assignmentId);
-      for (const id of ids) students.add(id);
-      await repo.create("SkillPlanItem", { planId: plan.id, code: s(k.code).slice(0, 80), label: `${label} · Grade ${gradeOf(k)} · ${s(k.name)}`.slice(0, 255), assignmentIds: [r.assignmentId], order: order++ });
+  return sendLock(actor, s(klass.id), async () => {
+    const [memberRows, gradeRow, idx] = await Promise.all([
+      repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] }),
+      repo.findUnique("Grade", { id: klass.gradeId }),
+      schoolSkillIndex(repo, s(klass.schoolId)),
+    ]);
+    const members = new Set(memberRows.map((m) => s(m.studentId)));
+    const bySkill = new Map<string, Set<string>>();
+    for (const p of input.picks ?? []) {
+      if (!p?.studentId || !p?.skillId) continue;
+      if (!members.has(s(p.studentId))) throw new ForbiddenError("You can only send work to students in this class.");
+      bySkill.set(s(p.skillId), (bySkill.get(s(p.skillId)) ?? new Set()).add(s(p.studentId)));
     }
-    await tagProgram(repo, assignmentIds, input.program);
-  } catch (e) {
-    if (assignmentIds.length) await repo.updateMany("Assignment", { id: { in: assignmentIds } }, { deletedAt: now });
-    await repo.deleteMany("SkillPlanItem", { planId: plan.id });
-    await repo.deleteMany("SkillPlan", { id: plan.id });
-    throw e;
-  }
-  await audit(repo, { actorId: actor.userId, action: "plan.send", entityType: "SkillPlan", entityId: s(plan.id), after: { program: input.program, classId: s(klass.id), skills: assignmentIds.length, students: students.size }, at: now });
-  return { planId: s(plan.id), skills: assignmentIds.length, students: students.size, assignmentIds };
-}
-
-/** The teacher's picks for one skill: only questions of that skill (any grade's copy of it); none = null (automatic). */
-async function pickedOfSkill(repo: Repo, schoolId: string, skillId: string, ids: string[] | null | undefined): Promise<string[] | null> {
-  const want = [...new Set((ids ?? []).map(s).filter(Boolean))];
-  if (!want.length) return null;
-  const fam = new Set(await familyIdsInSchool(repo, schoolId, skillId));
-  const rows = await repo.findMany("Question", { id: { in: want } }, { select: ["id", "skillId"] });
-  const ok = new Set(rows.filter((q) => fam.has(s(q.skillId))).map((q) => s(q.id)));
-  if (want.some((id) => !ok.has(id))) throw new ValidationError("Choose questions of this skill only.");
-  return want;
+    if (!bySkill.size) throw new ValidationError("Choose at least one skill.");
+    // ⭐ "N students already mastered this skill — exclude them?" → Yes: a student never repeats a mastered skill
+    if (input.excludeMastered) {
+      const mastered = await masteredBySkill(repo, s(klass.schoolId), [...members], [...bySkill.keys()]);
+      for (const [skillId, who] of bySkill) { for (const id of mastered.get(skillId) ?? []) who.delete(id); if (!who.size) bySkill.delete(skillId); }
+      if (!bySkill.size) throw new ValidationError("Every student already mastered these skills.");
+    }
+    if (bySkill.size > MAX_SEND_SKILLS) throw new ValidationError(`A plan can have at most ${MAX_SEND_SKILLS} skills.`);
+    for (const id of bySkill.keys()) if (!idx.skillOf.get(id)?.isActive) throw new ValidationError("Choose an active skill.");
+    const classGrade = Number(gradeRow?.level ?? 0);
+    if (input.program === "NAFS" && classGrade !== 6) throw new ValidationError("NAFS plans are for Grade 6 classes only.");
+    const label = planLabel(input.program);
+    const title = (s(input.title).replace(/\s+/g, " ").trim() || `${label} · ${s(klass.name)}`).slice(0, 191);
+    const note = s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null;
+    const kind = planKindOf(input.program);
+    // Send twice = once
+    const twin = await recentTwin(repo, actor, { classId: s(klass.id), title, kind, pairs: pairsKey([...bySkill].flatMap(([k, who]) => [...who].map((st) => [st, k] as [string, string]))) }, now);
+    if (twin) return { planId: twin.planId, skills: twin.skills, students: twin.students, assignmentIds: twin.assignmentIds };
+    const planId = newRowId();
+    const parts: BatchPart[] = [...bySkill].map(([skillId, who]) => {
+      const k = idx.skillOf.get(skillId)!;
+      return { skillId, studentIds: [...who].sort(), track: trackOfProgram(input.program, isGrammarCode(k.code)), questionIds: input.questionIds?.[skillId] ?? null, itemCode: k.code, itemLabel: `${label} · Grade ${k.grade} · ${k.name}` };
+    });
+    // the plan row first (its id is in the items and notifications); removed again if the batch fails
+    await repo.create("SkillPlan", { id: planId, schoolId: klass.schoolId, classId: klass.id, title, kind, targetCorrect: null, gradeLevel: classGrade, note, createdById: actor.userId, createdAt: now,
+      status: "SENT", program: input.program ?? null, dueAt: input.dueAt ?? null, ...(input.startAt ? { startAt: input.startAt } : {}), sentAt: now, updatedAt: now });
+    let r;
+    try {
+      r = await sendPartsBatch(repo, actor, { klass, members: [...members], plan: { id: planId, title }, parts, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: note ?? `${label}: ${title}`, program: input.program, source, familyOnly: true }, now);
+    } catch (e) {
+      await repo.deleteMany("SkillPlan", { id: planId }).catch(() => 0);
+      throw e;
+    }
+    await audit(repo, { actorId: actor.userId, action: "plan.send", entityType: "SkillPlan", entityId: planId, after: { program: input.program, classId: s(klass.id), skills: r.assignmentIds.length, students: r.students.size, source }, at: now });
+    return { planId, skills: r.assignmentIds.length, students: r.students.size, assignmentIds: r.assignmentIds };
+  });
 }
 
 // ------------------------------------------------------------------ All plans sent

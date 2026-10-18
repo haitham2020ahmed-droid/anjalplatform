@@ -90,6 +90,12 @@ h1:not(.font-sans), h2:not([class*="text-xs"]):not([class*="text-sm"]):not([clas
 [lang="ar"] :is(h1, h2), [lang="ar"] .font-display { font-weight: 600; }
 .font-display { font-weight: 400; }
 
+/* 🗺️ Curriculum Map: a friendlier, rounder font (Nunito) instead of the serif/grotesk interface pair everywhere
+   else — matches the reference skill-plan layout the owner asked us to follow. Falls back to the normal Arabic/
+   Latin interface font for any glyph Nunito doesn't cover, so Arabic text in this page is unaffected. */
+.curriculum-map-ui, .curriculum-map-ui :is(input, select, textarea, button) { font-family: var(--font-nunito), var(--font-sans); }
+.curriculum-map-ui :is(h1, h2, h3) { font-family: var(--font-nunito), var(--font-sans); font-weight: 800; letter-spacing: 0; }
+
 /* 🎨 student theme: calm and elegant for every grade (2–12) — no cartoons, no bouncing (staff pages keep theme-playful) */
 .theme-calm .playful { display: none !important; }
 .theme-calm [class*="animate-float"], .theme-calm [class*="animate-pop"], .theme-calm [class*="animate-shake"] { animation: none !important; }
@@ -248,6 +254,8 @@ html[data-comfort="1"]:not([data-theme="night"]) body { background: #fbf7ee; }
   [dir="rtl"] .rk-box tr.rk-flag-warn > td:first-child { box-shadow: inset -4px 0 0 #fbbf24; }
   [dir="rtl"] .rk-box tr.rk-flag-good > td:first-child { box-shadow: inset -4px 0 0 #10b981; }
   @media (min-width: 640px) { .rk-box.rk-tall { max-height: 78vh; overflow: auto; } }
+  /* r70 fewer columns without script: .rk-more cells stay hidden until the box's "More details" box is ticked */
+  .rk-morebox:not(:has(.rk-more-toggle:checked)) .rk-more { display: none; }
   /* phones: every row is a card, every cell a "label: value" line */
   @media (max-width: 639.98px) {
     .rk-cards { overflow: visible; background: transparent; box-shadow: none; }

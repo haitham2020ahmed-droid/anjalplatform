@@ -39,6 +39,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/visit", label: "Class Visit", icon: "👀", group: "school", perm: "reports:read" },
   { href: "/admin/logins", label: "Sign-Ins", icon: "🔑", group: "school" },
   { href: "/teacher/levels", label: "Student Levels", icon: "🎚", group: "school", perm: "students:read", schoolAdminOnly: true },
+  { href: "/admin/cancel-skill", label: "Cancel a Skill", icon: "🚫", group: "school", menu: true, hint: "Remove one skill from any student’s My Work", perm: "assignments:create" },
   { href: "/admin/roster/clean", label: "Clear Roster", icon: "🧹", group: "school", perm: "students:manage" },
 
   // ---- Content
@@ -83,8 +84,9 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/term-report", label: "End-of-Term Report", icon: "🧾", group: "reports", home: true, menu: true, hint: "One printable report for leadership", perm: "reports:read" },
   { href: "/admin/report-approvals", label: "Reports to Approve", icon: "📨", group: "reports", home: true, menu: true, hint: "Family reports wait for you" },
   { href: "/teacher/reports", label: "Reports", icon: "📊", group: "reports", home: true, menu: true, hint: "Every report in one place", perm: "reports:read" },
+  { href: "/school-reports", label: "School Reports", icon: "🗒️", group: "reports", home: true, hint: "Personalized Plans, Diagnostic Analysis and the Final Report, per student", perm: "reports:read" },
   { href: "/admin/department", label: "Department Week", icon: "🏛", group: "reports", home: true, menu: true, hint: "Every class side by side this week", perm: "reports:read" },
-  { href: "/admin/ai-dashboard", label: "School Insights", icon: "🔮", group: "reports", home: true, hint: "Trends, predictions and what works" },
+  { href: "/admin/ai-dashboard", label: "School Insights", icon: "🔮", group: "reports", hint: "Trends, predictions and what works" },
   { href: "/admin/performance", label: "Teacher & Student Performance", icon: "🏆", group: "reports", perm: "analytics:school" },
   { href: "/admin/school-goals", label: "School Goals", icon: "🎯", group: "reports", perm: "settings:school" },
   { href: "/teacher/grade-summary", label: "Grade Summary", icon: "🧮", group: "reports" },
@@ -102,6 +104,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/connections", label: "Connections", icon: "🔌", group: "settings", perm: "reports:read" },
   { href: "/admin/errors", label: "Errors", icon: "🧯", group: "settings", perm: "settings:school" },
   { href: "/admin/system", label: "System check", icon: "🧱", group: "settings", hint: "Is the database up to date with the code?" },
+  { href: "/admin/server-status", label: "Server status", icon: "🖥", group: "settings", hint: "Memory, uptime and the database — a glance before something goes wrong" },
   { href: "/guide", label: "Help", icon: "❔", group: "settings" },
 ];
 

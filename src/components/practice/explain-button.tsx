@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { explainAction } from "@/app/explain/actions";
 import type { Explanation } from "@/server/ai/explain";
+import { RichInline } from "@/components/rich-inline";
 
 /** 🤖 After a wrong answer: a step-by-step explanation in simple English (AI when the school has it on). */
 export function ExplainButton({ questionId }: { questionId: string }) {
@@ -11,8 +12,8 @@ export function ExplainButton({ questionId }: { questionId: string }) {
   if (ex) return (
     <div className="mt-4 rounded-xl bg-indigo-50 px-4 py-3 text-slate-800 ring-1 ring-indigo-200" role="status" aria-live="polite">
       <p className="text-sm font-bold text-indigo-900">🤖 Let me explain</p>
-      <p className="mt-1">{ex.text}</p>
-      {ex.steps.length > 0 && <ol className="mt-2 list-decimal space-y-0.5 ps-5 text-sm">{ex.steps.map((x) => <li key={x}>{x}</li>)}</ol>}
+      <p className="mt-1"><RichInline text={ex.text} /></p>
+      {ex.steps.length > 0 && <ol className="mt-2 list-decimal space-y-0.5 ps-5 text-sm">{ex.steps.map((x) => <li key={x}><RichInline text={x} /></li>)}</ol>}
       {ex.tip && <p className="mt-2 text-sm"><b className="text-brand-purple">Next time: </b>{ex.tip}</p>}
     </div>
   );

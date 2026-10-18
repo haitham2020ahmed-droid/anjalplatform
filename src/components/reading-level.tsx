@@ -12,7 +12,7 @@ export const READING_SCALE_NAME: Record<ReadingScale, string> = { MAP: "MAP Lexi
 export const READING_SCALE_HELP: Record<ReadingScale, string> = {
   MAP: "MAP Lexile: from the official NWEA MAP Growth Reading test. It changes only when a new MAP test is taken.",
   READMASTER: "ReadMaster reading Lexile: ReadMaster's own level for choosing article versions. It starts from MAP and moves 30L after each article (75%+ up, under 50% down).",
-  READRISE: "ReadRise Level (estimate): ReadRise's own level on a Lexile-like scale from first-try article scores. It is an estimate, not an official Lexile measure.",
+  READRISE: "ReadRise Level (estimate): ReadRise's own reading level from the reading checks and first-try article scores. It is an estimate.",
 };
 export const READING_SCALES_NOTE = "Three reading numbers, three purposes: MAP Lexile is the official test result; ReadMaster reading Lexile and ReadRise Level (estimate) are each program's own working level for choosing texts. They are not the same scale and are not compared with each other.";
 

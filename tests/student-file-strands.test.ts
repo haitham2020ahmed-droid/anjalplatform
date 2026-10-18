@@ -122,4 +122,13 @@ describe("🧭 the student file on the demo school", () => {
     assert.doesNotMatch(page.slice(page.indexOf('id="readrise"'), page.indexOf('id="skills"')), /Lexile/);
     assert.match(read("src/server/insights/language-strands.ts"), /TEACHER-FACING ONLY/);
   });
+
+  // r87: of the six parallel calls that build the student file, this was the one with no .catch — an edge case
+  // in mistake detection, the prerequisite graph or the class comparison took the whole page down ("not working").
+  // It now degrades to an empty-but-valid StudentFileInsights shape like every other call in the same Promise.all.
+  test("studentFileInsights is never awaited unguarded: an edge case degrades the page, it does not crash it", () => {
+    const page = read("src/app/teacher/students/[studentId]/page.tsx");
+    assert.match(page, /studentFileInsights\(repo, actor, studentId,[\s\S]{0,120}?\.catch\(/, "the call has a .catch fallback");
+    assert.match(page, /EMPTY_INSIGHTS/, "and a typed empty-insights fallback value");
+  });
 });

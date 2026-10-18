@@ -8,6 +8,7 @@ import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
 import { archiveStudents, deleteStudentsPermanently, previewClean, rosterBackup } from "../src/server/admin/roster-clean";
 import { applyRoster, planRoster } from "../src/server/admin/roster-import";
+import { DEMO_SCHOOL_CODE } from "../src/server/seeding/demo";
 import { demoDatabase } from "./helpers/db";
 
 describe("🧹 clean roster", () => {
@@ -101,5 +102,26 @@ describe("🧹 clean roster", () => {
       assert.equal(await repo.count("ClassMembership", { studentId: st.id, leftAt: null }), 1, "in their new class");
     }
     assert.ok(res.credentialsCsv.includes(users[0].u.username as string), "their new password is in the credentials file");
+  });
+
+  test("whole-school DELETE wipes only the acting admin's school; the other school's students and data are untouched", async () => {
+    const demoSchool = (await repo.findUnique("School", { code: DEMO_SCHOOL_CODE }))!;
+    const demoStudentsBefore = await repo.findMany("Student", { schoolId: demoSchool.id });
+    assert.ok(demoStudentsBefore.length > 0, "the demo school has its own students to compare against");
+    const demoAnswersBefore = await repo.count("QuestionAttempt", { studentId: { in: demoStudentsBefore.map((x) => String(x.id)) } });
+    // deleteStudentsPermanently includes already-archived students in its scope; previewClean does not,
+    // so the confirmation code it expects is derived from ALL of the admin's own students (never archived ones).
+    const total = await repo.count("Student", { schoolId: admin.schoolId! });
+    await assert.rejects(deleteStudentsPermanently(repo, admin, { kind: "SCHOOL" }, "wrong code"), /type exactly: DELETE/);
+    const r = await deleteStudentsPermanently(repo, admin, { kind: "SCHOOL" }, `DELETE ${total} STUDENTS`);
+    assert.equal(r.students, total);
+    assert.equal(await repo.count("Student", { schoolId: admin.schoolId! }), 0, "the acting admin's own school is fully wiped");
+    // the other school (Demo International School) is a different schoolId end-to-end; it must be untouched
+    assert.equal(await repo.count("Student", { schoolId: demoSchool.id }), demoStudentsBefore.length, "other school's students untouched");
+    assert.equal(await repo.count("QuestionAttempt", { studentId: { in: demoStudentsBefore.map((x) => String(x.id)) } }), demoAnswersBefore, "other school's answers untouched");
+  });
+
+  test("teachers cannot run the roster wipe", async () => {
+    await assert.rejects(deleteStudentsPermanently(repo, teacher, { kind: "SCHOOL" }, "anything"), ForbiddenError);
   });
 });

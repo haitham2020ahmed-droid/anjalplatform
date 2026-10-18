@@ -14,6 +14,7 @@ import { scoringParams } from "../practice/scoring-params";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
@@ -23,8 +24,8 @@ import { ritFromDifficulty } from "../questions/tag-review";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { mapLinkedQuestionIds } from "../questions/bank-scope";
-import { modelVersion } from "../cache/bank-version";
-import { remember } from "../cache/lru";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
+import { heavyBuild } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -88,8 +89,22 @@ const pctFromNorm = (rit: number, n: { mean: number; sd: number } | null) => {
   return Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * z)))));
 };
 
-/** MAP profile of these students for one subject (latest term with scores; goal areas grouped as in NWEA reports). */
+/**
+ * MAP profile of these students for one subject (latest term with scores; goal areas grouped as in NWEA reports).
+ * ⚡ r79: Results, Reports, the plans, the Year plan and the MAP Test all read the same class's profiles: kept until a
+ * MAP score, a student, the bands or the norms change (write counters; at most 10 min); callers get their own copy.
+ */
+const PROFILE_MODELS = ["MapResult", "Student", "Grade", "SchoolSetting", "BenchmarkReference", "MapGoalArea"];
+export const MAP_PROFILE_MODELS: readonly string[] = PROFILE_MODELS;
+const profileCache = mapCache<Map<string, MapProfile>>("map.map-plan.profiles", MAP_KEEP_MS, 24);
 export async function mapProfiles(repo: Repo, schoolId: string, studentIds: string[], subject: Subject): Promise<Map<string, MapProfile>> {
+  if (!studentIds.length) return new Map();
+  const ids = [...new Set(studentIds)];
+  const kept = await profileCache.get(repo, `${schoolId}|${subject}|${[...ids].sort().join(",")}`, PROFILE_MODELS, () => mapProfilesNow(repo, schoolId, ids, subject));
+  return new Map(ids.filter((id) => kept.has(id)).map((id) => [id, structuredClone(kept.get(id) as MapProfile)]));
+}
+
+async function mapProfilesNow(repo: Repo, schoolId: string, studentIds: string[], subject: Subject): Promise<Map<string, MapProfile>> {
   const out = new Map<string, MapProfile>();
   if (!studentIds.length) return out;
   await ensureNationalNorms(repo);
@@ -159,19 +174,18 @@ export function orderAreas(p: MapProfile, accuracy: Map<GroupKey, number | null>
 export interface PoolQ { id: string; skillId: string; rit: number }
 /** Published, auto-marked questions of the grade's skills in this group, each with its (estimated or calibrated) RIT. */
 export type Pools = { pools: Map<GroupKey, PoolQ[]>; skills: Map<string, { id: string; name: string; group: GroupKey }> };
-/** Kept in memory per school and grade (speed: My MAP, the matrix and the plans all need it) until a question,
- *  skill or goal-area link changes in this process, and at most 60 s (other processes). */
-const poolCache = new WeakMap<object, Map<string, { at: number; v: string; p: Promise<Pools> }>>();
-const POOL_MODELS = ["QuestionMapLink", "Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "QuestionMapLink", "CurriculumMapNode"];
+/** Kept in memory per school and grade (speed: My MAP, the matrix, the plans, the Year plan and the MAP Test all need
+ *  it) until a question, skill or goal-area link changes in this process, and at most 10 minutes (other processes).
+ *  ⚡ r79: was 60 s, so nearly every click in the MAP center read the grade's whole bank again (~25 reads); a few
+ *  grades at most (swept by cache/idle). */
+const POOL_MODELS = ["QuestionMapLink", "Question", "Skill", "SkillFamily", "MapGoalArea", "QuestionType", "Curriculum", "Grade", "SkillStandard", "Standard", "CurriculumMapNode"];
+const poolCache = mapCache<Pools>("map.map-plan.poolCache", MAP_KEEP_MS, 8);
 export function groupPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
-  let m = poolCache.get(repo);
-  if (!m) poolCache.set(repo, (m = new Map()));
-  const key = `${schoolId}|${grade}`, v = modelVersion(...POOL_MODELS), hit = m.get(key);
-  if (hit && hit.v === v && Date.now() - hit.at < 60_000) return hit.p;
-  const p = loadPools(repo, schoolId, grade).catch((e) => { m!.delete(key); throw e; });
-  remember(m, key, { at: Date.now(), v, p }, 24);
-  return p;
+  // r84: a big build — one at a time with the other big builds of this process (monitoring/memory.ts heavyBuild)
+  return poolCache.get(repo, `${schoolId}|${grade}`, POOL_MODELS, () => heavyBuild(() => loadPools(repo, schoolId, grade)));
 }
+/** The tables the pools are built from (other MAP caches built on the pools use them too). */
+export const MAP_POOL_MODELS: readonly string[] = POOL_MODELS;
 async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
   const skills = await masterSkills(repo, schoolId, { grade });
   const fams = skills.length ? await repo.findMany("Skill", { id: { in: skills.map((k) => k.id) } }, { select: ["id", "familyId"] }) : [];
@@ -187,12 +201,14 @@ async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<P
   await ensureNationalNorms(repo);
   const norm = await nationalNorm(repo, grade, "FALL");
   const pools = new Map<GroupKey, PoolQ[]>(GROUPS.map((g) => [g.key, []]));
+  // 🧠 r84 memory: the pools are light (id, skill, RIT) and every question of a skill shares ONE copy of its skill id
+  const skillIdOf = new Map(skills.map((k) => [k.id, k.id] as const));
   for (const q of qs) {
     if (manual.has(s(q.typeId))) continue;
     let t: unknown = q.tags; if (typeof t === "string") { try { t = JSON.parse(t); } catch { t = null; } }
     const cal = (t as { rit?: { value?: number } } | null)?.rit?.value;
     const rit = Number.isFinite(Number(cal)) && cal ? Number(cal) : ritFromDifficulty(Number(q.difficultyLevel ?? 4), norm) ?? 200;
-    pools.get(groupOfSkill.get(s(q.skillId))!)!.push({ id: s(q.id), skillId: s(q.skillId), rit });
+    pools.get(groupOfSkill.get(s(q.skillId))!)!.push({ id: s(q.id), skillId: skillIdOf.get(s(q.skillId)) ?? s(q.skillId), rit });
   }
   const skillMap = new Map(skills.filter((k) => groupOfSkill.has(k.id)).map((k) => [k.id, { id: k.id, name: k.name, group: groupOfSkill.get(k.id)! }]));
   await linkByStandard(repo, schoolId, grade, pools, skillMap, norm);
@@ -410,29 +426,44 @@ export async function updatePlan(repo: Repo, actor: Actor, planId: string, input
 }
 
 /** Sends plans: each area becomes one adaptive set of the student's band (track MAP); the student is notified. */
-export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now = new Date()): Promise<{ sent: number; sets: number; skipped: string[] }> {
+export async function sendPlans(repo: Repo, actor: Actor, planIds: string[], now = new Date(), /** r74: REQUIRED source (teacher: the window's choice; automatic drafts: MAP) */ sourceIn?: string | null): Promise<{ sent: number; sets: number; skipped: string[] }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(sourceIn);
   const bands = await bandSettings(repo, actor.schoolId);
   let sent = 0, sets = 0; const skipped: string[] = [];
   const poolCache = new Map<number, Awaited<ReturnType<typeof groupPools>>>();
-  for (const planId of planIds) {
-    const r = await ownPlan(repo, actor, planId);
-    if (r.status !== "DRAFT") continue; // sent, or dismissed by the teacher
-    const klass = await repo.findUnique("Class", { id: r.classId });
-    const grade = Number((await repo.findUnique("Grade", { id: klass!.gradeId }))?.level ?? 0);
+  // ⚡ r79 ("Send all"): the plans, their classes (one access check each), grades and students in a few reads — not
+  // four or five reads per plan
+  const ids = [...new Set(planIds.map(s).filter(Boolean))].slice(0, 1000);
+  const rows = ids.length ? await repo.findMany("MapPlan", { id: { in: ids } }) : [];
+  const planOf = new Map(rows.map((r) => [s(r.id), r]));
+  const classOf = new Map<string, Row>(), gradeOf = new Map<string, number>();
+  for (const id of ids) {
+    const r = planOf.get(id);
+    if (!r || s(r.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Plan not found.");
+    if (!classOf.has(s(r.classId))) classOf.set(s(r.classId), await assertClassAccess(repo, actor, s(r.classId)));
+  }
+  const gIds = [...new Set([...classOf.values()].map((c) => s(c.gradeId)))];
+  for (const g of gIds.length ? await repo.findMany("Grade", { id: { in: gIds } }, { select: ["id", "level"] }) : []) gradeOf.set(s(g.id), Number(g.level ?? 0));
+  const drafts = ids.map((id) => planOf.get(id)!).filter((r) => r.status === "DRAFT");
+  const stRows = drafts.length ? await repo.findMany("Student", { id: { in: [...new Set(drafts.map((r) => s(r.studentId)))] } }, { select: ["id", "userId"] }) : [];
+  const userOf = new Map(stRows.map((x) => [s(x.id), x.userId]));
+  for (const r of drafts) { // sent, or dismissed by the teacher: skipped
+    const planId = s(r.id);
+    const grade = gradeOf.get(s(classOf.get(s(r.classId))?.gradeId)) ?? 0;
     if (!poolCache.has(grade)) poolCache.set(grade, await groupPools(repo, actor.schoolId!, grade));
     const pk = poolCache.get(grade)!;
     const assignmentIds: string[] = [];
     for (const it of (r.items ?? []) as PlanItem[]) {
       const pick = pickBand(pk.pools.get(it.group) ?? [], it.low, it.high, bands.size, it.skillIds);
       if (pick.ids.length < 3) { skipped.push(`${groupOf(it.group).name}: not enough questions yet`); continue; }
-      const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null }, now);
+      const a = await assignQuestions(repo, actor, { classId: s(r.classId), studentIds: [s(r.studentId)], questionIds: pick.ids, title: `MAP plan · ${groupOf(it.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(it.count, pick.ids.length) }, dueAt: r.dueAt ? new Date(time(r.dueAt)) : null, note: r.note ? s(r.note) : null, source }, now);
       assignmentIds.push(a.assignmentId); sets++;
     }
     if (!assignmentIds.length) continue;
     await repo.updateMany("MapPlan", { id: planId }, { status: "SENT", sentAt: now, assignmentIds, updatedAt: now });
-    const st = await repo.findUnique("Student", { id: r.studentId });
-    if (st) await repo.create("Notification", { userId: st.userId, type: "NEW_ASSIGNMENT", title: "🗺️ Your MAP plan is ready", body: "Open My MAP to see your plan and start practising.", link: "/student/map", readAt: null, createdAt: now });
+    const userId = userOf.get(s(r.studentId));
+    if (userId) await repo.create("Notification", { userId, type: "NEW_ASSIGNMENT", title: "🗺️ Your MAP plan is ready", body: "Open My MAP to see your plan and start practising.", link: "/student/map", readAt: null, createdAt: now });
     await audit(repo, { actorId: actor.userId, action: "map.plan.send", entityType: "MapPlan", entityId: planId, after: { sets: assignmentIds.length }, at: now });
     sent++;
   }
@@ -469,14 +500,15 @@ export async function smallGroups(repo: Repo, actor: Actor, classId: string, sub
 }
 
 /** One adaptive set for a small group (their area and band). */
-export async function sendToGroup(repo: Repo, actor: Actor, classId: string, input: { group: GroupKey; low: number; high: number; studentIds: string[]; count?: number; dueAt?: Date | null }, now = new Date()): Promise<{ assignmentId: string; questions: number }> {
+export async function sendToGroup(repo: Repo, actor: Actor, classId: string, input: { group: GroupKey; low: number; high: number; studentIds: string[]; count?: number; dueAt?: Date | null; /** r74: REQUIRED */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; questions: number }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, classId);
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const bands = await bandSettings(repo, actor.schoolId);
   const pick = pickBand((await groupPools(repo, actor.schoolId!, grade)).pools.get(input.group) ?? [], input.low, input.high, bands.size, null);
   if (pick.ids.length < 3) throw new ValidationError("Not enough questions for this area and band yet.");
-  const r = await assignQuestions(repo, actor, { classId, studentIds: input.studentIds, questionIds: pick.ids, title: `MAP group · ${groupOf(input.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(input.count ?? 15, pick.ids.length) }, dueAt: input.dueAt ?? null }, now);
+  const r = await assignQuestions(repo, actor, { classId, studentIds: input.studentIds, questionIds: pick.ids, title: `MAP group · ${groupOf(input.group).name}`, exactTitle: true, track: "MAP", adaptive: { maxQuestions: Math.min(input.count ?? 15, pick.ids.length) }, dueAt: input.dueAt ?? null, source }, now);
   return { assignmentId: r.assignmentId, questions: pick.ids.length };
 }
 
@@ -536,7 +568,8 @@ export async function estimateRits(repo: Repo, pk: Pools, studentIds: string[], 
   const ritOf = new Map<string, number>();
   for (const g of GROUPS.filter((x) => x.subject === subject)) for (const q of pk.pools.get(g.key) ?? []) ritOf.set(q.id, q.rit);
   const since = new Date(now.getTime() - 45 * 86_400_000);
-  const all = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess"] });
+  // r79: bounded (the newest answers first)
+  const all = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: since } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 30_000 });
   const by = new Map<string, Row[]>();
   for (const a of all) if (!a.rapidGuess && ritOf.has(s(a.questionId))) { const k = s(a.studentId); const l = by.get(k); if (l) l.push(a); else by.set(k, [a]); }
   const ready = [...by].filter(([, list]) => list.length >= 15).map(([id]) => id);

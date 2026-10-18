@@ -142,10 +142,10 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
     const other = multi!.skills.find((k) => k.grade !== 4 && k.questions > 0) ?? multi!.skills.find((k) => k.grade !== 4)!;
     const kid = (await repo.findUnique("User", { username: "roster.one" }))!;
     const st = (await repo.findUnique("Student", { userId: kid.id }))!;
-    await assignSkill(repo, teacher, { classId, skillId: other.id, studentIds: [String(st.id)] });
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: other.id, studentIds: [String(st.id)] });
     const work = await myWorkItems(repo, await resolveActor(repo, kid));
     assert.ok(work.some((w) => w.skillId === other.id), "the other grade's skill is in the student's My Work");
-    await assert.rejects(assignSkill(repo, teacher, { classId: otherClassId, skillId: other.id }), ForbiddenError);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId: otherClassId, skillId: other.id }), ForbiddenError);
     await assert.rejects(findSkillFamilies(repo, await actorFor("test.student.005"), "main idea", 4), ForbiddenError);
   });
 
@@ -153,11 +153,11 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
     const members = (await repo.findMany("ClassMembership", { classId, leftAt: null })).map((m) => String(m.studentId));
     // work assigned 3 days ago and not started
     const k = (await builderSkills(repo, teacher, { filter: "READING", grade: 4 }))[0];
-    const a = await assignSkill(repo, teacher, { classId, skillId: k.id }, new Date(now.getTime() - 3 * 86_400_000));
+    const a = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: k.id }, new Date(now.getTime() - 3 * 86_400_000));
     await repo.updateMany("Assignment", { id: a.assignmentId }, { createdAt: new Date(now.getTime() - 3 * 86_400_000) });
     // a test with a fresh result
     const p = await previewTest(repo, teacher, { skills: [{ skillId: k.id, count: 2 }], levelMode: "SAME" });
-    const tst = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Quiz A", levelMode: "SAME", questions: { SAME: p.versions.SAME!.map((q) => q.id) } });
+    const tst = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Quiz A", levelMode: "SAME", questions: { SAME: p.versions.SAME!.map((q) => q.id) } });
     const set = (await repo.findMany("Assignment", { testId: tst.testId }))[0];
     await repo.updateMany("AssignmentStudent", { assignmentId: set.id, studentId: members[0] }, { status: "COMPLETED", completedAt: now, progress: 1 });
     // a student suggested for RTI
@@ -205,7 +205,7 @@ describe("UI reorg Phase 3: Teacher Home, accounts, find-a-skill, attention, one
   test("teacher menu: short (Programs + More); Assessments added; tour targets; strings translated", () => {
     const items = navItemsFor("TEACHER");
     // owner's spec (Update 15): one entry per area, the occasional tools folded under More (+ Learn, owner-approved plan; + Assigned, owner r67)
-    assert.equal(items.filter((i) => !i.group).length, 11);
+    assert.equal(items.filter((i) => !i.group).length, 13);
     const hrefs = new Set(items.map((i) => i.href));
     for (const h of ["/teacher/students", "/teacher/plans", "/teacher/map-center", "/admin/curriculum-map", "/teacher/reports", "/teacher/reading"]) assert.ok(hrefs.has(h), h);
     // the school asked: no Question Bank entry for teachers (they assign skills from Find a skill, Plans and Assessments)

@@ -114,8 +114,10 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
     return { answers, correct, activeWeek, avgMastery: m.length ? Math.round(m.reduce((a, b) => a + b, 0) / m.length) : null };
   };
   const whole = sum(ids);
+  // r72 audit: a class counts its current students once (no removed student, no double membership row)
+  const known = new Set(ids);
   const byClass = new Map<string, string[]>();
-  for (const mm of members) (byClass.get(s(mm.classId)) ?? byClass.set(s(mm.classId), []).get(s(mm.classId))!).push(s(mm.studentId));
+  for (const mm of members) { const sid = s(mm.studentId); if (!known.has(sid)) continue; const l = byClass.get(s(mm.classId)) ?? byClass.set(s(mm.classId), []).get(s(mm.classId))!; if (!l.includes(sid)) l.push(sid); }
   const classRows: DashClass[] = classes.map((c) => {
     const list = byClass.get(s(c.id)) ?? [];
     const x = sum(list);

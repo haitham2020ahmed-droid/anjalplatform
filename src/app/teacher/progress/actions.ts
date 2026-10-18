@@ -12,7 +12,7 @@ export async function assignPlanAction(f: FormData): Promise<void> {
   let msg: string;
   try {
     const due = String(f.get("dueAt") ?? "");
-    const r = await assignRecommendations(repo, actor, classId, f.getAll("skill").map(String).filter(Boolean).map((skillId) => ({ studentId, skillId })), /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null);
+    const r = await assignRecommendations(repo, actor, classId, f.getAll("skill").map(String).filter(Boolean).map((skillId) => ({ studentId, skillId })), /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null, String(f.get("source") ?? ""));
     msg = `Assigned ✓ ${r.assignments} skill(s). The student starts each at their own level.`;
   } catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; msg = e.message; }
   redirect(`/teacher/progress/${studentId}?${new URLSearchParams({ subject, msg })}`);

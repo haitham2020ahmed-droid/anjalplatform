@@ -131,7 +131,7 @@ export const TEACHER_RULES = [
 
 // ------------------------------------------------------------------- header
 
-const normHeader = (h: string) => String(h ?? "").replace(/\(optional\)|\(required\)|\*/gi, "").toLowerCase().replace(/[_\s]+/g, " ").replace(/\s*\/\s*/g, "/").trim();
+export const normHeader = (h: string) => String(h ?? "").replace(/\(optional\)|\(required\)|\*/gi, "").toLowerCase().replace(/[_\s]+/g, " ").replace(/\s*\/\s*/g, "/").trim();
 
 export interface ParsedRow { row: number; cells: Partial<Record<ColumnKey, string>> }
 export type ParsedTable =

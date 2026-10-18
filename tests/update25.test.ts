@@ -55,7 +55,7 @@ describe("Update 25 · goals, the curriculum plan and the family", () => {
   });
 
   test("goal set: done at the goal of correct answers whatever the number answered; practice may go on", async () => {
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: CODE, studentIds: [roster[0].id], mode: "ADAPTIVE", targetCorrect: 5 });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: CODE, studentIds: [roster[0].id], mode: "ADAPTIVE", targetCorrect: 5 });
     const aid = r.groups[0].assignmentId;
     const st = await student(roster[0].id);
     let clock = Date.now(); let v = await startQuiz(repo, st, aid, new Date(clock));

@@ -7286,28 +7286,6 @@
 "mapArea": "Informational Text"
 },
 {
-"ref": "TOP-BOOKPARTSANDREFE-O05",
-"anchor": "RI.3.5",
-"level": "On",
-"dok": 2,
-"type": "Multiple Choice",
-"passageTitle": null,
-"passage": null,
-"stem": "Where would you look to find sources the author used?",
-"options": [
-"the table of contents",
-"the bibliography",
-"the cover",
-"the title page"
-],
-"correct": "B",
-"why": "Bibliographies list sources.",
-"grade": 4,
-"ccss": "RI.3.5",
-"mapTest": "Reading",
-"mapArea": "Informational Text"
-},
-{
 "ref": "TOP-BOOKPARTSANDREFE-A01",
 "anchor": "RI.3.5",
 "level": "Above",
@@ -7642,28 +7620,6 @@
 ],
 "correct": "C",
 "why": "Their words show opposite views.",
-"grade": 6,
-"ccss": "RL.6.6",
-"mapTest": "Reading",
-"mapArea": "Literary Text"
-},
-{
-"ref": "TOP-CHARACTERSWITHDI-O05",
-"anchor": "RL.6.6",
-"level": "On",
-"dok": 2,
-"type": "Multiple Choice",
-"passageTitle": null,
-"passage": null,
-"stem": "What does the author develop by contrasting characters' views?",
-"options": [
-"the title",
-"the illustrations",
-"only the setting",
-"the characters and the conflict"
-],
-"correct": "D",
-"why": "Contrasts develop characters and conflict.",
 "grade": 6,
 "ccss": "RL.6.6",
 "mapTest": "Reading",
@@ -22150,28 +22106,6 @@
 "mapArea": "Informational Text"
 },
 {
-"ref": "TOP-RHETORICINSEMINA-O04",
-"anchor": "RI.11-12.6",
-"level": "On",
-"dok": 2,
-"type": "Multiple Choice",
-"passageTitle": null,
-"passage": null,
-"stem": "Which appeal is based on the speaker's credibility?",
-"options": [
-"ethos",
-"rhyme",
-"pathos",
-"logos"
-],
-"correct": "A",
-"why": "Ethos is character.",
-"grade": 11,
-"ccss": "RI.11-12.6",
-"mapTest": "Reading",
-"mapArea": "Informational Text"
-},
-{
 "ref": "TOP-RHETORICINSEMINA-O05",
 "anchor": "RI.11-12.6",
 "level": "On",
@@ -35916,50 +35850,6 @@
 ],
 "correct": "A",
 "why": "PIE.",
-"grade": 4,
-"ccss": "RI.4.6",
-"mapTest": null,
-"mapArea": null
-},
-{
-"ref": "TOP-AUTHORSPURPOSE-B02",
-"anchor": "RI.4.6",
-"level": "Below",
-"dok": 1,
-"type": "Multiple Choice",
-"passageTitle": null,
-"passage": null,
-"stem": "A funny story about a talking cat is mainly written to—",
-"options": [
-"entertain",
-"inform",
-"explain a recipe",
-"persuade"
-],
-"correct": "A",
-"why": "Fun story.",
-"grade": 4,
-"ccss": "RI.4.6",
-"mapTest": null,
-"mapArea": null
-},
-{
-"ref": "TOP-AUTHORSPURPOSE-B03",
-"anchor": "RI.4.6",
-"level": "Below",
-"dok": 1,
-"type": "Multiple Choice",
-"passageTitle": null,
-"passage": null,
-"stem": "An article about how volcanoes form is written to—",
-"options": [
-"sell",
-"persuade",
-"entertain",
-"inform"
-],
-"correct": "D",
-"why": "Facts.",
 "grade": 4,
 "ccss": "RI.4.6",
 "mapTest": null,

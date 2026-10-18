@@ -270,4 +270,15 @@ describe("🚨 Early warning — teacher and admin (demo school)", () => {
     assert.match(home, /href="\/teacher\/reports\/early-warning"/, "a shortcut on the admin home");
     assert.match(home, /Urgent students not handled for 7\+ days/, "and a 'needs your attention' card when urgent students wait 7+ days");
   });
+
+  // r87: a class with no trend data yet (the usual demo-school state: structure but no activity) used to render
+  // as a grid of zero tiles, read as broken. The page now tells the teacher/admin plainly that nothing is flagged,
+  // distinct from "you do not teach any class yet".
+  test("a class with no rows, drops, moves or (for admins) unhandled list reads as 'nothing flagged', not a wall of zeros", () => {
+    const page = readFileSync(join(ROOT, "src/app/teacher/reports/early-warning/page.tsx"), "utf8");
+    assert.match(page, /nothingFlagged/, "a dedicated empty-but-taught case, not folded into the no-class case");
+    assert.match(page, /No students currently flagged/);
+    assert.ok(isUiString("No students currently flagged"));
+    assert.ok(isUiString("Nothing to show yet. A pattern needs at least two results over time (MAP, checks, tests or practice) for a measure — it will fill in as the class takes tests and practises on the platform."));
+  });
 });

@@ -20,7 +20,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { isHiddenSkill } from "../skills/master";
-import { applyRemap, planRemap, type RemapItem } from "../curriculum-map/remap-skills";
+import { applyRemap, ensureConceptVocabularySkills, planRemap, type RemapItem } from "../curriculum-map/remap-skills";
 import { RR_SKILL_MAP } from "../practice/skill-evidence";
 import { fileReview, LINK_CONFIDENCE, schoolFamilies, seedNafsLinks, settleReview, type NafsSeedResult } from "../nafs/nafs-links";
 import { schoolSkillIndex } from "./skill-questions";
@@ -145,6 +145,8 @@ export async function linkBank(repo: Repo, schoolId: string, opts: LinkOptions =
   for await (const page of hiddenIds.length ? pages(repo, "Question", { skillId: { in: hiddenIds }, deletedAt: null }, ["id", "skillId", "stem", "tags"], want) : pages(repo, "Question", {}, ["id"], [])) {
     summary.onHiddenBefore += page.length;
     const ids = page.map((q) => s(q.id));
+    // r68: a grade with Concept Vocabulary / Review questions waiting gets its Concept Vocabulary skill first
+    if (apply) await ensureConceptVocabularySkills(repo, schoolId, ids, actorId, now);
     const plan = await planRemap(repo, schoolId, { questionIds: ids });
     const fromFile = await importSkillText(repo, ids);
     const items: RemapItem[] = [];

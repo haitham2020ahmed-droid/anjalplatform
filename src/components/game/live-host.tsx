@@ -24,6 +24,8 @@ import { confetti } from "@/games/kit/confetti";
 import { BTN, BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { livePost, ordinal, useLiveFeed } from "./live-feed";
 import { reteachChallengeAction } from "@/app/games/live-actions";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 const MEDAL: Record<string, { icon: string; cls: string }> = {
   gold: { icon: "🥇", cls: "bg-amber-100 ring-amber-300" },
@@ -127,11 +129,11 @@ export function LiveHost({ initial, qr, joinUrl }: { initial: HostView; qr: { to
               <span className="rounded-full bg-white px-4 py-1.5 font-semibold text-brand-navy ring-1 ring-slate-200" data-testid="answered">{t("{n} of {total} answered", { n: v.answered, total: v.joined })}</span>
             </div>
             {v.paused && <p role="status" className="rounded-2xl bg-amber-50 p-3 text-center text-lg font-semibold text-amber-900 ring-1 ring-amber-200">⏸ {t("Paused")}</p>}
-            <h2 dir="ltr" lang="en" className="rounded-3xl bg-white p-6 text-center text-2xl font-semibold leading-snug text-slate-900 shadow ring-1 ring-slate-200 sm:text-3xl">{v.question.stem}</h2>
+            <h2 dir="ltr" lang="en" className="rounded-3xl bg-white p-6 text-center text-2xl font-semibold leading-snug text-slate-900 shadow ring-1 ring-slate-200 sm:text-3xl"><RichInline text={v.question.stem} /></h2>
             {v.levelMode === "LEVEL" && <p className="text-center text-sm text-slate-500">{t("Each student sees a question at their own level.")}</p>}
             <AnswerTiles big options={v.question.options ?? []} disabled onPick={() => {}} reveal={v.status === "REVEAL" ? { right: v.question.rightLabel, picked: null } : null} />
             {v.status === "REVEAL" && v.question.picks && (
-              <p className="text-center text-sm text-slate-600" dir="ltr">{(v.question.options ?? []).map((o) => `${o.text}: ${v.question!.picks![o.label] ?? 0}`).join(" · ")}</p>
+              <p className="text-center text-sm text-slate-600" dir="ltr">{(v.question.options ?? []).map((o) => `${stripMarks(o.text)}: ${v.question!.picks![o.label] ?? 0}`).join(" · ")}</p>
             )}
             <div className="flex flex-wrap justify-end gap-3">
               {v.status === "QUESTION" && <button type="button" onClick={() => act(v.paused ? "resume" : "pause")} disabled={busy} className={`${BTN_SECONDARY} ${big}`}>{v.paused ? `▶ ${t("Resume")}` : `⏸ ${t("Pause")}`}</button>}

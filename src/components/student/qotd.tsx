@@ -8,6 +8,7 @@ import { CoinIcon } from "@/components/motivation/avatar";
 import { useT } from "@/i18n/client";
 import { AnswerFx } from "@/components/feedback-fx/answer-fx";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
 
 export interface QotdResult { correct: boolean; coins: number; correctAnswer: string; why: string }
 
@@ -47,7 +48,7 @@ export function QuestionOfTheDay({ q, area, answered, result }: { q: ClientQuest
             {!done.correct && (
               <details className="min-w-0 basis-full sm:basis-auto">
                 <summary className="cursor-pointer font-semibold text-brand-teal">{t("See the answer")}</summary>
-                <p data-content lang="en" className="mt-1 text-slate-800"><b>{done.correctAnswer}</b>{done.why ? <> — {done.why}</> : null}</p>
+                <p data-content lang="en" className="mt-1 text-slate-800"><b><RichInline text={done.correctAnswer} /></b>{done.why ? <> — <RichInline text={done.why} /></> : null}</p>
               </details>
             )}
           </>
@@ -68,8 +69,8 @@ export function QuestionOfTheDay({ q, area, answered, result }: { q: ClientQuest
       {open && (
         <div id="qotd-body" className="rounded-b-[1.25rem] border-t border-amber-200/70 bg-surface px-4 pb-4 pt-3">
           <div data-content lang="en">
-            {q.passage && <details className="rounded-xl bg-slate-50 p-3 text-sm ring-1 ring-slate-200/70"><summary className="cursor-pointer font-semibold text-slate-700">{q.passage.title || "Read the text"}</summary><p className="mt-2 whitespace-pre-line">{q.passage.text}</p></details>}
-            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="mt-3 text-base font-medium text-slate-900">{q.stem}</p>}
+            {q.passage && <details className="rounded-xl bg-slate-50 p-3 text-sm ring-1 ring-slate-200/70"><summary className="cursor-pointer font-semibold text-slate-700"><RichInline text={q.passage.title || "Read the text"} /></summary><p className="mt-2 whitespace-pre-line"><RichInline text={q.passage.text} /></p></details>}
+            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="mt-3 text-base font-medium text-slate-900"><RichInline text={q.stem} /></p>}
             <div className="mt-3"><AnswerInput q={q} value={v} onChange={setV} disabled={busy} /></div>
           </div>
           <button type="button" disabled={busy || !isAnswerReady(q, v)}

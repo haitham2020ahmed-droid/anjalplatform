@@ -25,6 +25,15 @@ export async function consumeRateLimit(repo: Repo, key: string, max: number, win
   return { allowed: true, remaining: max - count - 1, retryAfterMs: 0 };
 }
 
+/** r85: the bucket as it is now, WITHOUT counting an attempt (a lock check). */
+export async function peekRateLimit(repo: Repo, key: string, max: number, windowMs: number, now = new Date()): Promise<RateResult> {
+  const b = await repo.findUnique("RateLimitBucket", { key });
+  const start = b ? new Date(String(b.windowStart instanceof Date ? b.windowStart.toISOString() : b.windowStart)) : null;
+  if (!b || !start || now.getTime() - start.getTime() >= windowMs) return { allowed: true, remaining: max, retryAfterMs: 0 };
+  const count = Number(b.count);
+  return count >= max ? { allowed: false, remaining: 0, retryAfterMs: windowMs - (now.getTime() - start.getTime()) } : { allowed: true, remaining: max - count, retryAfterMs: 0 };
+}
+
 export async function resetRateLimit(repo: Repo, key: string): Promise<void> {
   await repo.deleteMany("RateLimitBucket", { key });
 }

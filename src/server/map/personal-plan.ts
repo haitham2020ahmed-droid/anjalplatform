@@ -5,11 +5,12 @@
  * class grade's skills and CCSS standards; Areas of Strength = its 2 strongest areas; resources and progress
  * monitoring use the platform's adaptive tools.
  */
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { ritView } from "./rit";
 import { gradeAreaSkills } from "./recommend";
+import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, type ContinuumIndex } from "./continuum";
 
 const s = (v: unknown) => String(v ?? "");
 export type Band = "BELOW" | "ON" | "ABOVE";
@@ -22,7 +23,53 @@ export function bandOf(percentile: number | null, diffFromNational: number | nul
 
 /** What happened since the decision: the group's answers on this goal's standards (last 28 days). */
 export interface GoalResult { practiced: number; students: number; answers: number; accuracy: number | null; trend: number | null }
-export interface PlanGoal { area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[]; result?: GoalResult }
+/** One statement of the MAP Growth Learning Continuum, shown as-is (no platform skill behind it — just the RIT-band text). */
+export interface ContinuumFocusItem { text: string; standards: string[] }
+export interface PlanGoal {
+  area: string; areaId: string; meanRit: number | null; skills: { id: string; name: string; standards: string[] }[]; result?: GoalResult;
+  /** What the Learning Continuum itself lists at this band (its own words): never capped to the platform's own skill count, so a goal
+   *  area with only a few platform skills still shows everything the continuum says is relevant at this RIT. Empty with no continuum, or
+   *  nothing imported for this goal area yet. */
+  continuumFocus: ContinuumFocusItem[];
+}
+
+/**
+ * Within a goal area's candidate skills, the ones the MAP Growth Learning Continuum lists as active (Reinforce
+ * or Develop) at this RIT come first — so "the same goal area" differentiates by band instead of always handing
+ * out the same first few skills. No continuum, no matching goal-area group, no RIT, or nothing active at that
+ * RIT: the original (unordered) list, unchanged — never fewer skills than before.
+ */
+export function continuumOrder<T extends { id: string }>(ix: ContinuumIndex | null, areaName: string, rit: number | null, sk: T[]): T[] {
+  const group = groupOfGoal(areaName);
+  const s2 = (v: unknown) => String(v ?? "");
+  if (!ix || !group || rit === null || !ix.rows.some((r) => groupOfGoal(s2(r.goalArea)) === group)) return sk;
+  const v = continuumFor(ix, group, rit);
+  const active = new Set<string>();
+  for (const stage of [v.reinforce, v.develop]) for (const stmt of stage?.statements ?? []) for (const k of stmt.skills) active.add(k.id);
+  if (!active.size) return sk;
+  return [...sk.filter((k) => active.has(k.id)), ...sk.filter((k) => !active.has(k.id))];
+}
+
+/**
+ * What the Learning Continuum itself says at this exact RIT, for a goal area — its own statements (Develop, the
+ * band the RIT falls in; Reinforce, the band below), in the continuum's own words with their CCSS codes. This is
+ * never limited by how many skills the school happens to already have on the platform for this goal area: a goal
+ * area with only 3–4 platform skills still shows everything the continuum lists at this RIT, so two bands that
+ * are genuinely different always read as different, even when the platform's own skill set is thin. No continuum,
+ * no matching group, no RIT, or nothing listed at this RIT: an empty list (nothing invented).
+ */
+export function continuumFocusFor(ix: ContinuumIndex | null, areaName: string, rit: number | null, max = 6): ContinuumFocusItem[] {
+  const group = groupOfGoal(areaName);
+  if (!ix || !group || rit === null) return [];
+  const v = continuumFor(ix, group, rit);
+  const out: ContinuumFocusItem[] = [];
+  for (const stage of [v.develop, v.reinforce]) for (const stmt of stage?.statements ?? []) {
+    if (out.some((x) => x.text.toLowerCase() === stmt.text.toLowerCase())) continue;
+    out.push({ text: stmt.text, standards: stmt.standards });
+    if (out.length >= max) return out;
+  }
+  return out;
+}
 
 /** A MAP goal area ↔ the CCSS standards that measure it (questions are linked to areas by their standard). */
 export function areaMatchesStandard(area: string, code: string): boolean {
@@ -42,7 +89,38 @@ export interface PlanBand {
   students: { studentId: string; name: string; rit: number; projection: number | null; percentile: number | null; rapidGuess: number | null }[];
   goals: PlanGoal[]; strengths: PlanGoal[]; resources: string[]; monitoring: string[];
 }
-export interface PersonalPlan { classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[] }
+/** One MAP instructional (goal) area's class-wide average, across every student with a score — not limited to a band's 3 weakest. */
+export interface AreaBreakdownRow { area: string; meanRit: number | null; students: number }
+/** NWEA's own five national-percentile bands (not the school's 3 BELOW/ON/ABOVE bands), for the whole-class chart. */
+export type PercentileRange = ">80" | "61-80" | "41-60" | "21-40" | "<21";
+export interface PercentileRangeRow { range: PercentileRange; count: number }
+export interface PersonalPlan {
+  classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[];
+  classAverageRit: number | null;
+  /** NWEA's published national average RIT for this grade, season and subject (same source as each student's own national comparison) — one overall number; NWEA does not publish a national average per instructional area, so this isn't repeated per area. */
+  nationalAverageRit: number | null;
+  /** Every instructional area (not just the 3 weakest per band) with the whole class's average RIT, weakest first. */
+  areaBreakdown: AreaBreakdownRow[];
+  /** The same, per individual student (studentId → every instructional area's own RIT for that one student), for
+   *  the one-student Personalized Plan view. Only students with at least one MAP score for this subject/term. */
+  studentAreaBreakdown: Record<string, AreaBreakdownRow[]>;
+  /** How many of this class's scored students fall in each NWEA national-percentile range (>80 / 61–80 / 41–60 /
+   *  21–40 / <21), fixed order, for the whole-class "percentile distribution" chart. Recomputed from the live
+   *  roster and latest MAP scores every time this plan is generated, so it tracks students/data as they change.
+   *  Students with no national percentile (no national norm for this grade/term) aren't counted in any range. */
+  percentileDistribution: PercentileRangeRow[];
+}
+
+const PERCENTILE_RANGES: PercentileRange[] = [">80", "61-80", "41-60", "21-40", "<21"];
+function percentileRangeOf(p: number): PercentileRange {
+  return p > 80 ? ">80" : p >= 61 ? "61-80" : p >= 41 ? "41-60" : p >= 21 ? "21-40" : "<21";
+}
+/** Buckets a set of national percentiles into NWEA's five standard ranges, in fixed display order. */
+function percentileDistributionOf(percentiles: number[]): PercentileRangeRow[] {
+  const counts = new Map<PercentileRange, number>(PERCENTILE_RANGES.map((r) => [r, 0]));
+  for (const p of percentiles) counts.set(percentileRangeOf(p), (counts.get(percentileRangeOf(p)) ?? 0) + 1);
+  return PERCENTILE_RANGES.map((range) => ({ range, count: counts.get(range) ?? 0 }));
+}
 
 const RESOURCES: Record<Band, string[]> = {
   BELOW: ["🔁 Adaptive practice starting at Approaching, with the 🛟 support path (same skill, grade below)", "⭐ ReadMaster Approaching versions at the student's Lexile, with 🔊 Listen", "Small-group re-teaching of the goal skills; personalized worksheets"],
@@ -84,14 +162,21 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
     return { practiced: new Set(mine.map((a) => s(a.studentId))).size, students: members.size, answers: mine.length, accuracy: acc(mine), trend: a1 !== null && a0 !== null && recent.length >= 5 && older.length >= 5 ? a1 - a0 : null };
   };
   const logs = ids.length ? (await repo.findMany("AuditLog", { entityType: "Student", action: "level.change", createdAt: { gte: d28 } })).filter((l) => ids.includes(s(l.entityId)) && (l.after as Record<string, unknown>)?.outcome === "CHANGED") : [];
+  // the continuum (if the school imported NWEA's), to pick each band's skills by RIT rather than always the same ones
+  const contIx = (await hasContinuum(repo, subject)) ? await continuumIndex(repo, actor.schoolId!, grade, subject) : null;
   const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
   const bands: PlanBand[] = (["BELOW", "ON", "ABOVE"] as Band[]).map((band) => {
     const rows = v.rows.filter((r) => bandOf(r.national?.percentile ?? null, r.national?.diff ?? null) === band);
     const mine = new Set(rows.map((r) => r.studentId));
+    const bandRits = rows.map((r) => r.rit);
+    const midRit = bandRits.length ? Math.round((Math.min(...bandRits) + Math.max(...bandRits)) / 2) : null;
     const scored = areas.map((a) => {
       const vals = goalRows.filter((g) => mine.has(s(g.studentId)) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
       const sk = areaSkills.find((x) => x.areaId === s(a.id))?.skills ?? [];
-      return { area: s(a.name), areaId: s(a.id), meanRit: vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null, skills: sk.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })) };
+      const meanRit = vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null;
+      const ordered = continuumOrder(contIx, s(a.name), meanRit ?? midRit, sk);
+      const continuumFocus = continuumFocusFor(contIx, s(a.name), meanRit ?? midRit);
+      return { area: s(a.name), areaId: s(a.id), meanRit, skills: ordered.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })), continuumFocus };
     });
     // NWEA's 2–5 / 6+ tests report one “Literary Text” (or “Informational Text”, “Writing”) score that was spread
     // over the platform's finer areas: areas of one family with the very same scores become ONE goal
@@ -100,14 +185,16 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
     for (const x of scored) {
       const fam = x.area.split(":")[0];
       const twin = merged.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && valuesOf(m.areaId.split("+")[0]) === valuesOf(x.areaId) && x.meanRit !== null);
-      if (twin) { twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`; twin.areaId += `+${x.areaId}`; twin.skills = [...twin.skills, ...x.skills].slice(0, 4); }
-      else merged.push({ ...x, skills: [...x.skills] });
+      if (twin) {
+        twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`; twin.areaId += `+${x.areaId}`; twin.skills = [...twin.skills, ...x.skills].slice(0, 4);
+        for (const f of x.continuumFocus) if (!twin.continuumFocus.some((y) => y.text.toLowerCase() === f.text.toLowerCase())) twin.continuumFocus.push(f);
+      } else merged.push({ ...x, skills: [...x.skills], continuumFocus: [...x.continuumFocus] });
     }
     const withData = merged.filter((x) => x.meanRit !== null).sort((a, b) => a.meanRit! - b.meanRit!);
     // no goal-area data yet: every area of the subject is a goal (weakest first is unknown)
     const goals = withData.length ? withData.slice(0, 3) : merged.slice(0, 3);
     const strengths = withData.length > 3 ? withData.slice(-2).reverse() : [];
-    const rits = rows.map((r) => r.rit);
+    const rits = bandRits;
     for (const g of [...goals, ...strengths]) g.result = resultOf(g.area, mine);
     let up = 0, down = 0;
     for (const l of logs) if (mine.has(s(l.entityId))) {
@@ -125,5 +212,37 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
   const members = (await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)).filter((x) => !scored.has(x));
   const mstudents = members.length ? await repo.findMany("Student", { id: { in: members } }, { select: ["id", "userId"] }) : [];
   const musers = mstudents.length ? await repo.findMany("User", { id: { in: mstudents.map((x) => x.userId) } }, { select: ["displayName"] }) : [];
-  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort() };
+  const classAverageRit = v.rows.length ? Math.round(v.rows.reduce((n, r) => n + r.rit, 0) / v.rows.length) : null;
+  const nationalAverageRit = v.norm ? Math.round(v.norm.mean) : null;
+  // every instructional area (not just each band's 3 weakest) for a set of students — same family-merge the per-band
+  // goals use, so NWEA's one combined "Literary Text" / "Informational Text" / "Writing" score isn't shown twice
+  // under two platform sub-areas. `members: null` = every student with a score (the whole-class breakdown).
+  const areaBreakdown = areaBreakdownOf(areas, goalRows, null);
+  // the SAME breakdown, per individual student (owner: "Instructional Areas" in the one-student Personalized Plan
+  // too, not just the whole-class view) — every goal area's own RIT for that one student, "students" always 0 or 1.
+  const studentAreaBreakdown: Record<string, AreaBreakdownRow[]> = {};
+  for (const id of ids) studentAreaBreakdown[id] = areaBreakdownOf(areas, goalRows, new Set([id]));
+  const percentileDistribution = percentileDistributionOf(v.rows.map((r) => r.national?.percentile ?? null).filter((x): x is number => x !== null));
+  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort(), classAverageRit, nationalAverageRit, areaBreakdown, studentAreaBreakdown, percentileDistribution };
+}
+
+/** The whole-class (members: null) or one student's/group's (members: a set of studentIds) RIT per instructional
+ *  (goal) area, weakest first — areas NWEA reports as one combined score across the platform's finer sub-areas are
+ *  merged back into one row (same signature: same students, same RIT). */
+function areaBreakdownOf(areas: Row[], goalRows: Row[], members: Set<string> | null): AreaBreakdownRow[] {
+  const inScope = (g: Row) => !members || members.has(s(g.studentId));
+  const sigOf = (areaId: string) => goalRows.filter((g) => inScope(g) && s(g.goalAreaId) === areaId).map((g) => `${s(g.studentId)}:${g.rit}`).sort().join("|");
+  const raw = areas.map((a) => {
+    const vals = goalRows.filter((g) => inScope(g) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
+    return { area: s(a.name), areaId: s(a.id), meanRit: vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null, students: vals.length };
+  });
+  const out: AreaBreakdownRow[] = [];
+  for (const x of raw) {
+    const fam = x.area.split(":")[0];
+    const twin = out.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && x.meanRit !== null && sigOf(raw.find((r) => r.area === m.area)!.areaId) === sigOf(x.areaId));
+    if (twin) twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`;
+    else out.push({ area: x.area, meanRit: x.meanRit, students: x.students });
+  }
+  out.sort((a, b) => (a.meanRit ?? Infinity) - (b.meanRit ?? Infinity) || a.area.localeCompare(b.area));
+  return out;
 }

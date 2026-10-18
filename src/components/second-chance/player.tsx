@@ -1,4 +1,5 @@
 "use client";
+import { OFFLINE_MESSAGE } from "@/lib/answer-send";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
@@ -8,6 +9,7 @@ import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { useT } from "@/i18n/client";
 import { answerSecondChanceAction } from "@/app/student/second-chance/actions";
 import type { ChanceQuestion, ChanceResult, ChanceSource } from "@/server/second-chance/service";
+import { RichInline } from "@/components/rich-inline";
 
 const SOURCE: Record<ChanceSource, string> = { PRACTICE: "From practice", TEST: "From a test", READMASTER: "From ReadMaster", READRISE: "From ReadRise", QOTD: "From the Question of the Day", EXIT: "From an exit ticket", GAME: "From a game" };
 
@@ -49,8 +51,11 @@ export function SecondChancePlayer({ questions, total }: { questions: ChanceQues
   const check = async () => {
     setBusy(true); setErr(null);
     const sent = (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements ?? null : v;
-    const r = await answerSecondChanceAction(cur.key, sent);
-    setBusy(false);
+    // r68: the button is always released, and a failed request shows a message here (never the full-page error)
+    let r: Awaited<ReturnType<typeof answerSecondChanceAction>>;
+    try { r = await answerSecondChanceAction(cur.key, sent); }
+    catch { setErr(t(OFFLINE_MESSAGE)); return; }
+    finally { setBusy(false); }
     if (!r.ok) { setErr(r.error); return; }
     setRes(r.value); setTries((n) => n + 1);
     if (r.value.correct) setFixed((n) => n + 1);
@@ -67,13 +72,13 @@ export function SecondChancePlayer({ questions, total }: { questions: ChanceQues
       <div data-content lang="en" className="mt-3">
         {q.passage && (
           <details className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-            <summary className="min-h-11 cursor-pointer content-center font-semibold text-brand-navy">📖 {q.passage.title || "Read the text"}</summary>
-            <p className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+            <summary className="min-h-11 cursor-pointer content-center font-semibold text-brand-navy">📖 <RichInline text={q.passage.title || "Read the text"} /></summary>
+            <p className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
           </details>
         )}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         {q.image && <img src={q.image.url} alt={q.image.alt} className="mt-3 max-h-64 rounded-xl" />}
-        {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <h2 className="mt-3 text-xl font-medium text-slate-900">{q.stem}</h2>}
+        {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <h2 className="mt-3 text-xl font-medium text-slate-900"><RichInline text={q.stem} /></h2>}
         <div className="mt-4"><AnswerInput key={`${cur.key}:${tries}`} q={q} value={v} onChange={setV} disabled={busy || Boolean(res)} /></div>
       </div>
       {res && (
@@ -82,7 +87,7 @@ export function SecondChancePlayer({ questions, total }: { questions: ChanceQues
           {res.correct ? <p role="status" className="text-lg font-bold text-emerald-700">{fixedMsg}</p> : (
             <details className="rounded-xl bg-sky-50 p-3 ring-1 ring-sky-200">
               <summary className="min-h-11 cursor-pointer content-center font-semibold text-brand-teal">{t("See the answer")}</summary>
-              <p data-content lang="en" className="mt-1 text-slate-800"><b>{res.correctAnswer}</b>{res.why ? <> — {res.why}</> : null}</p>
+              <p data-content lang="en" className="mt-1 text-slate-800"><b><RichInline text={res.correctAnswer} /></b>{res.why ? <> — <RichInline text={res.why} /></> : null}</p>
             </details>
           )}
         </div>

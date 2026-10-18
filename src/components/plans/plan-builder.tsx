@@ -1,4 +1,7 @@
 import { StarAssign } from "@/components/assign/star-assign";
+import { SourceSelect } from "@/components/assign/source-select";
+import { ASSIGN_SOURCE_LABEL } from "@/lib/assign-source";
+import { PendingButton } from "@/components/pending-button";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { TFn } from "@/i18n";
@@ -12,6 +15,7 @@ import { AUTO, SkillQuestionPicker, dedupeSkillsByName, questionIdsField } from 
 import { StudentPlanPreview } from "./student-preview";
 import { builderDraftAction } from "@/app/teacher/plans/editor-actions";
 import { PlanMasteredPrompt } from "./mastered-prompt";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 /**
  * The program pages' plan builder (server-rendered, one GET form): 1 Who → 2 the suggested skills (untick to
@@ -25,6 +29,20 @@ export const BTN_MAIN = `${BTN} bg-brand-navy text-white hover:bg-brand-purple`;
 export const BTN_SOFT = `${BTN} bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal`;
 const BOX = "min-h-11 rounded-xl border border-slate-300 bg-white px-3";
 const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
+
+/**
+ * r82 (owner, r74 rule): a program plan's Source is its program — RTI plan → RTI, NAFS → NAFS, MAP → MAP, Curriculum →
+ * Curriculum — shown, not asked (the server sets it too); only a custom plan has the Source select.
+ */
+export function PlanSourceFixed({ t, program }: { t: TFn; program: Program }) {
+  return (
+    <span className="flex flex-col text-sm font-semibold text-slate-700" data-testid="plan-source">
+      <span>{t("Source")}</span>
+      <input type="hidden" name="source" value={program} />
+      <span className="inline-flex min-h-11 items-center rounded-xl bg-slate-50 px-3 font-normal ring-1 ring-slate-200">{t(ASSIGN_SOURCE_LABEL[program])}</span>
+    </span>
+  );
+}
 
 /** Step 1: the class (links), then whole class / one student / a group, and page options (children). */
 export function WhoPicker({ t, classes, classId, classHref, students, form, children, suggested }: {
@@ -122,7 +140,7 @@ export function PlanBuilder(p: BuilderProps) {
     const as = withWork.find((s) => s.id === form.previewAs) ?? withWork[0] ?? null;
     const mine = as ? p.plan.filter((k) => k.studentIds.includes(as.id)) : [];
     const title = form.title || p.defaultTitle;
-    const link = (id: string) => `${p.path}?${new URLSearchParams([...p.carry, ["edited", "1"], ["pkey", form.key], ...kept.map((k) => ["keep", k.id] as [string, string]), ...added.map((k) => ["add", k.id] as [string, string]), ...pickedPairs, ["step", "preview"], ["as", id], ["title", form.title], ["dueAt", form.dueText], ["note", form.note]])}`;
+    const link = (id: string) => `${p.path}?${new URLSearchParams([...p.carry, ["edited", "1"], ["pkey", form.key], ...kept.map((k) => ["keep", k.id] as [string, string]), ...added.map((k) => ["add", k.id] as [string, string]), ...pickedPairs, ["step", "preview"], ["as", id], ["title", form.title], ["dueAt", form.dueText], ["startAt", form.startText], ["note", form.note]])}`;
     return (
       <Section title="3 · Preview" icon="👀" hint={t("This is what {name} will see. Nothing is sent until you press Send.", { name: as?.name ?? t("the student") })}>
         {hiddenEdits}
@@ -142,19 +160,20 @@ export function PlanBuilder(p: BuilderProps) {
         )}
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Plan name")}<input name="title" defaultValue={title} maxLength={191} className={BOX} /></label>
-          <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Due date (optional)")}<input type="date" name="dueAt" defaultValue={form.dueText} className={BOX} /></label>
+          <AssignDates t={t} start={form.startText} due={form.dueText} field={BOX} />
+          {p.program ? <PlanSourceFixed t={t} program={p.program} /> : <SourceSelect t={t} field={BOX} />}
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Note to students (optional)")}<input name="note" defaultValue={form.note} maxLength={1000} className={BOX} /></label>
         </div>
         <PlanMasteredPrompt t={t} classId={p.carry.find(([k]) => k === "classId")?.[1] ?? ""} plan={p.plan} excluded={form.excludeMastered} />
         <p className="mt-3 text-sm text-slate-600">{t("{skills} skill(s) for {students} student(s).", { skills: p.plan.length, students: withWork.length })}{pickedPairs.length > 0 && <> {t("Your own questions: {n} skill(s). The others: the platform chooses at each student's level.", { n: pickedPairs.length })}</>}</p>
         <div className="mt-4 flex flex-wrap justify-end gap-3">
-          <button name="step" value="edit" className={BTN_SOFT}>{t("Change the skills")}</button>
+          <button name="step" value="edit" formNoValidate className={BTN_SOFT}>{t("Change the skills")}</button>
           {/* ✏️ the full editor: every question visible and editable, saved as a draft (nothing is sent) */}
           {p.canSend && as && <>
             <input type="hidden" name="draftSpec" value={JSON.stringify({ classId: p.carry.find(([k]) => k === "classId")?.[1] ?? "", program: p.program, skills: p.plan.map((k) => ({ id: k.id, studentIds: k.studentIds, reason: k.reason, picks: picks[k.id] ?? [] })) })} />
-            <button formAction={builderDraftAction} formMethod="post" className={BTN_SOFT}>{t("Save as draft and edit every question")}</button>
+            <button formAction={builderDraftAction} formMethod="post" formNoValidate className={BTN_SOFT}>{t("Save as draft and edit every question")}</button>
           </>}
-          {p.canSend && as && <button formAction={p.send} formMethod="post" className={`${BTN_MAIN} px-8 text-lg`}>{t("Send")}</button>}
+          {p.canSend && as && <PendingButton formAction={p.send} className={`${BTN_MAIN} px-8 text-lg`} label="Send" pendingLabel="Sending…" />}
         </div>
       </Section>
     );

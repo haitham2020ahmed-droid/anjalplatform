@@ -1,4 +1,4 @@
-import { classMembers } from "@/server/insights/student-data";
+import { countGroups } from "@/server/db/group-count";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ReportHeader } from "@/components/report-kit";
@@ -41,12 +41,14 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   const subject: Subject = /^lang/i.test(one(sp.subject)) ? "LANGUAGE" : "READING";
   const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
   // no class chosen: open the first class that has MAP scores (not just the first name)
+  // ⚡ r79: every class's students in one read and one count per student (was two reads per class, one after another)
   let firstWithScores: string | undefined;
   if (!one(sp.classId) && classes.length > 1) {
-    for (const c of classes) {
-      const ids = await classMembers(repo, c.id);
-      if (ids.length && (await repo.count("MapResult", { studentId: { in: ids.slice(0, 500) } })) > 0) { firstWithScores = c.id; break; }
-    }
+    const shown = classes.slice(0, 40);
+    const members = await repo.findMany("ClassMembership", { classId: { in: shown.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"], take: 3000 });
+    const ids = [...new Set(members.map((m) => String(m.studentId)))];
+    const scored = ids.length ? await countGroups(repo, "MapResult", "studentId", { studentId: { in: ids } }) : new Map<string, number>();
+    firstWithScores = shown.find((c) => members.some((m) => m.classId === c.id && (scored.get(String(m.studentId)) ?? 0) > 0))?.id;
   }
   const classId = classes.find((c) => c.id === one(sp.classId))?.id ?? firstWithScores ?? classes[0]?.id ?? "";
   const msg = one(sp.msg);
@@ -83,7 +85,7 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
       {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{msg}</p>}
       {!classes.length ? <EmptyState icon="🗺️" title="No classes yet" text="When the admin adds you to a class, its MAP scores appear here." /> :
         tab === "results" ? <ResultsTab actor={actor} t={t} classId={classId} subject={subject} /> :
-        tab === "year" ? <YearTab actor={actor} t={t} classId={classId} /> :
+        tab === "year" ? <YearTab actor={actor} t={t} classId={classId} preview={one(sp.preview) === "1"} student={one(sp.student) || undefined} signin={one(sp.signin) !== "0"} /> :
         tab === "test" ? <TestTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} /> :
         tab === "reports" ? (one(sp.view) === "overview" ? <OverviewView actor={actor} t={t} subject={subject} term={one(sp.term) || undefined} classId={classId} /> : <ReportsTab actor={actor} t={t} classId={classId} subject={subject} />) :
         <PlanTab actor={actor} t={t} sp={sp} classId={classId} subject={subject} />}

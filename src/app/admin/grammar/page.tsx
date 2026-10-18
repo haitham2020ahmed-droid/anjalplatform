@@ -4,7 +4,7 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { grammarLibrary } from "@/server/grammar/grammar";
-import { GrammarList } from "@/components/grammar/grammar-list";
+import { GrammarTabs } from "@/components/grammar/grammar-tabs";
 import { ImportUpload } from "../questions/import/upload-form";
 
 export const metadata = { title: "Grammar" };
@@ -34,15 +34,16 @@ export default async function GrammarPage({ searchParams }: { searchParams: Prom
 
       {canImport && (
         <Section title="Load the Grammar bank" icon="📥" tone="amber" className="mb-6"
-          hint="Upload the Grammar Question Bank Excel file (sheets Questions, Skills, Lessons) of one grade; its lessons join the list and its questions open in the normal import preview. Importing the same file again adds nothing twice. Besides multiple choice, true/false and fill-in rows, the Questions sheet may hold error_correction (segments, error_index, correction), sentence_order (items) and sentence_combine (sentences, connector, accepted_answers) rows.">
+          hint="Upload the Grammar Question Bank Excel file of one grade; its questions open in the normal import preview — confirm it there to add them to the bank. Importing the same file again adds nothing twice. Two file formats are accepted, detected automatically: the full format (sheets Questions, Skills, Lessons — new skills, placed on the Curriculum Map), or a simpler Questions-only file (optionally with a Curriculum sheet) whose Skill column names a skill of that grade — matched to one with that exact name if it already exists, or created fresh (no Curriculum Map placement) if it does not, so a grade with none yet still ends up with its skills and lessons. Besides multiple choice, multi select, true/false and fill-in rows, the Questions sheet may hold error_correction (segments, error_index, correction), sentence_order (items) and sentence_combine (sentences, connector, accepted_answers) rows.">
           <nav aria-label="Grade of the file" className="mb-3 flex flex-wrap gap-2 text-sm">{v.grades.map((g) => <Link key={g} href={`/admin/grammar?load=${g}`} aria-current={g === loadGrade ? "page" : undefined} className={`rounded-full px-3 py-1 font-semibold ${g === loadGrade ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>File of Grade {g}</Link>)}</nav>
+          <p className="mb-3 text-sm"><a href="/api/question-imports/template?format=xlsx" className="font-semibold text-brand-navy underline">📥 Download a blank template (Questions + Curriculum)</a></p>
           <ImportUpload grammarGrade={loadGrade} accept=".xlsx" />
         </Section>
       )}
 
       {!v.lessons.length
         ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{canImport ? "No grammar lessons yet. Load the Grammar bank above." : "No grammar lessons yet. Ask the admin to load the Grammar bank."}</p>
-        : <GrammarList lessons={v.lessons} isTeacher={isTeacher} />}
+        : <GrammarTabs lessons={v.lessons} isTeacher={isTeacher} grades={v.grades} />}
     </AppShell>
   );
 }

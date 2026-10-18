@@ -81,7 +81,7 @@ describe("guessing in practice", () => {
 
   test("a rapid guess counts for nothing: no count, no ability, no mastery, no coins — only logged", async () => {
     const me = kids[0];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skillId, tick(0));
     // one careful answer first
     let r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick());

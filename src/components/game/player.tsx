@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { PlayerView } from "@/server/game/live";
 import { TILES } from "./tiles";
+import { RichInline } from "@/components/rich-inline";
 
 /** A student's phone / laptop during a live game: big tiles, instant feedback, rank, podium. */
 export function GamePlayer({ initial, answer }: { initial: PlayerView; answer: (id: string, ix: number, choice: string) => Promise<{ correct?: boolean; points?: number; error?: string }> }) {
@@ -44,11 +45,11 @@ export function GamePlayer({ initial, answer }: { initial: PlayerView; answer: (
         ) : (
           <div className="space-y-4">
             <div className="flex items-center justify-between"><span className="font-semibold text-slate-600">Question {v.index + 1} / {v.total}</span><span className={`grid h-14 w-14 place-items-center rounded-full text-2xl font-black text-white ${left <= 5 ? "animate-pop bg-red-500" : "bg-brand-purple"}`}>{left}</span></div>
-            <h2 className="rounded-3xl bg-white p-5 text-center text-xl font-bold text-slate-900 shadow-sm ring-1 ring-slate-200">{v.question.stem}</h2>
+            <h2 className="rounded-3xl bg-white p-5 text-center text-xl font-bold text-slate-900 shadow-sm ring-1 ring-slate-200"><RichInline text={v.question.stem} /></h2>
             <div className="grid grid-cols-2 gap-3">
               {v.question.options.map((o, i) => (
                 <button key={o.label} onClick={() => pick(o.label)} disabled={busy} className={`flex min-h-28 flex-col items-center justify-center gap-2 rounded-3xl p-4 text-lg font-bold text-white shadow-lg transition hover:brightness-110 active:scale-95 disabled:opacity-70 ${TILES[i % 4].bg}`}>
-                  <span aria-hidden="true" className="text-3xl">{TILES[i % 4].shape}</span><span>{o.text}</span>
+                  <span aria-hidden="true" className="text-3xl">{TILES[i % 4].shape}</span><span><RichInline text={o.text} /></span>
                 </button>
               ))}
             </div>

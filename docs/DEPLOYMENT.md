@@ -209,7 +209,8 @@ port in its `PORT` variable; the Next.js server reads `PORT` and listens on `0.0
 | `DATABASE_URL` | an external **MySQL 8** database (Render's own managed databases are PostgreSQL, which this app does not use) |
 | `APP_SECRET` | 32+ random characters (`openssl rand -base64 32`) |
 | `APP_URL` | `https://<your-service>.onrender.com` (or your own domain) |
-| `REPORT_CHROMIUM_NO_SANDBOX` | `true` |
+| `REPORT_CHROMIUM_NO_SANDBOX` | `true` (only used with `PDF_ENGINE=server`) |
+| `PDF_ENGINE` | leave unset (= `browser`, r84): every "PDF" opens as a print page the user's browser saves as a PDF — no Chromium runs on the 512 MB server. `server` switches the old in-server Chromium back on (150–200 MB per launch) |
 | `GEMINI_API_KEY` | optional: AI question generation with Google Gemini (free tier; key from aistudio.google.com, starts with `AQ.`). Used when set. Only curriculum data is sent; free-tier prompts may be used by Google to improve its models |
 | `GEMINI_MODEL` | optional, default `gemini-3.5-flash` (e.g. `gemini-2.5-flash` if Google retires a model) |
 | `ANTHROPIC_API_KEY` | optional: AI question generation with Claude (only curriculum data is sent) |

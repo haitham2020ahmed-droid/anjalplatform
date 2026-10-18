@@ -7,12 +7,13 @@
 import type { Repo, Row } from "../seeding/repo";
 import type { Actor, Permission, Role } from "./rbac";
 import { authVersion } from "../cache/bank-version";
+import { sweptWeakMap } from "../cache/idle";
 
 /**
  * Resolved actors (permissions + scope), per database connection, for at most 60 s. Cleared at once
  * when users, roles, classes or memberships change (authVersion), so a change is never served stale.
  */
-const actorCache = new WeakMap<object, Map<string, { actor: Actor; version: number; at: number; role: string; schoolId: unknown }>>();
+const actorCache = sweptWeakMap<{ actor: Actor; version: number; at: number; role: string; schoolId: unknown }>("auth.actor.actorCache", 2 * 60_000);
 const ACTOR_TTL_MS = 60_000;
 
 export async function resolveActor(repo: Repo, user: Row): Promise<Actor> {

@@ -19,6 +19,7 @@ import { remember } from "../cache/lru";
 import { normalizeSkillName, schoolSkillIndex } from "../questions/skill-questions";
 import { STATUSES, type QuestionStatus } from "./questions";
 import { schoolOf } from "./users";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 export const PER_PAGE = 50;
@@ -170,7 +171,7 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
   return { rows, total, page, pages, per };
 }
 
-const countCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Record<string, number>> }>>();
+const countCache = sweptWeakMap<{ v: string; at: number; p: Promise<Record<string, number>> }>("admin.questions-list.countCache", 2 * 60_000);
 function cached(repo: Repo, key: string, fn: () => Promise<Record<string, number>>): Promise<Record<string, number>> {
   let m = countCache.get(repo); if (!m) countCache.set(repo, (m = new Map()));
   const v = modelVersion("Question", "Skill", "QuestionFlag"), hit = m.get(key);

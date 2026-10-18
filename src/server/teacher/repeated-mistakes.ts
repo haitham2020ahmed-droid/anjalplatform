@@ -8,6 +8,8 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { accessibleClasses } from "./assign";
 import { studentNames } from "../insights/student-data";
 import { answerEvents, RR_PREFIX, skillNames } from "../second-chance/service";
+import { TtlCache } from "../lib/ttl-cache";
+import { modelVersion } from "../cache/bank-version";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -77,7 +79,19 @@ export async function repeatedMistakes(repo: Repo, actor: Actor, opts: { classId
   })).sort((a, b) => b.skills.length - a.skills.length || a.name.localeCompare(b.name));
 }
 
+/**
+ * ⚡ "My Students" asks for this badge on every page load; underneath, repeatedMistakes() re-scans every
+ * QuestionAttempt/QotdAnswer/RRRun/PracticeSession row of the teacher's (or whole school's) students just to
+ * count skills, every single time. Cache it for a few seconds per actor scope, same pattern (and models) as
+ * studentsInScope() above — any new attempt/answer is seen at once by the next load once the cache expires.
+ */
+const HELP_CACHE_MS = 15_000;
+const helpCache = new WeakMap<object, TtlCache<Record<string, number>>>();
+
 /** studentId → the number of skills they need help with (for the badge on My Students). */
 export async function needsHelpCounts(repo: Repo, actor: Actor, now = new Date()): Promise<Record<string, number>> {
-  return Object.fromEntries((await repeatedMistakes(repo, actor, {}, now)).map((r) => [r.studentId, r.skills.length]));
+  const key = `${actor.role}|${actor.schoolId}|${actor.userId}|${modelVersion("QuestionAttempt", "QotdAnswer", "RRRun", "PracticeSession", "ClassMembership", "Student", "User")}`;
+  let c = helpCache.get(repo);
+  if (!c) helpCache.set(repo, (c = new TtlCache(HELP_CACHE_MS, 200)));
+  return c.getOrLoad(key, async () => Object.fromEntries((await repeatedMistakes(repo, actor, {}, now)).map((r) => [r.studentId, r.skills.length])));
 }

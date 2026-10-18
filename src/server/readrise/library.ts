@@ -13,6 +13,7 @@ import { audit } from "../audit";
 import { BANDS, LEVEL_TOLERANCE, type ArticleJson, type BandJson } from "./import";
 import { targetWords, type RRBand } from "./level";
 import { modelVersion } from "../cache/bank-version";
+import { sweptWeakValue } from "../cache/idle";
 
 export const HIDDEN_KEY = "readrise.hidden";
 const s = (v: unknown) => String(v ?? "");
@@ -72,7 +73,7 @@ async function versionStats(repo: Repo, ids: string[]): Promise<VersionStats> {
   return out;
 }
 
-const platformCache = new WeakMap<object, { v: string; at: number; p: Promise<{ rows: Row[]; stats: VersionStats }> }>();
+const platformCache = sweptWeakValue<{ v: string; at: number; p: Promise<{ rows: Row[]; stats: VersionStats }> }>("readrise.library.platformCache", 2 * 60_000);
 /**
  * ⚡ The platform library's list rows and version stats: the same for every school, so kept in memory per data
  * source until a write to RRArticle / RRVersion in this process (import, publish, delete, a new library file) and for

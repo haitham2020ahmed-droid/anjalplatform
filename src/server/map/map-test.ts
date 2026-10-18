@@ -32,6 +32,7 @@ import { renderHtml } from "../../reports/html";
 import { renderXlsx } from "../../reports/xlsx";
 import { consumeRateLimit } from "../auth/rate-limit";
 import { CONTENT_TYPES, loadBranding, RateLimitedError, REPORT_RATE, type ReportDeps } from "../reports/service";
+import { bumpLive, cleanShift, liveKey, studentExtra, withStudentExtra } from "../timing/live-time";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -292,8 +293,60 @@ export async function updateMapTest(repo: Repo, actor: Actor, id: string, input:
     data.draft = false; publish = true;
   }
   await repo.updateMany("MapSimWindow", { id: v.id }, data);
+  if (data.closesAt || data.opensAt) bumpLive(liveKey("map", v.id)); // r69: the players' timers follow the new end
   if (publish) await notifyStudents(repo, { ...w, ...data }, now);
   await audit(repo, { actorId: actor.userId, action: "maptest.update", entityType: "MapSimWindow", entityId: v.id, after: Object.fromEntries(Object.keys(data).filter((k) => k !== "updatedAt").map((k) => [k, k === "excludedIds" ? (data[k] as string[]).length : data[k]])), at: now });
+}
+
+/** MAP test time limits: minutes per subject sitting. */
+export const MAP_MINUTES = { min: 5, max: 240 } as const;
+
+/**
+ * ⏱ r69 LIVE TIME of a MAP test (the class teacher or an admin, any time — also while students are taking it):
+ *   minutes   set the time limit per sitting (null = untimed, like MAP Growth);
+ *   shift     add (+) or take away (−) minutes: for the whole test (its limit) or, with `studentId`, for one student;
+ *   closesAt  move the end (date and time; "end now" = now).
+ * The students' timers follow on their next poll; after the end the sitting is finished with the answers given.
+ */
+export async function changeMapTestTime(repo: Repo, actor: Actor, id: string, input: { minutes?: number | null; setMinutes?: boolean; shift?: number | null; studentId?: string | null; closesAt?: Date | null }, now = new Date()): Promise<{ minutes: number | null; closesAt: string }> {
+  const { w, v, scope, canEdit } = await loadTest(repo, actor, id, now);
+  if (!canEdit) throw new ForbiddenError("Only the class teacher can change this test.");
+  const data: Record<string, unknown> = { updatedAt: now };
+  let minutes = w.timeLimitMin ? Number(w.timeLimitMin) : null;
+  if (input.setMinutes) {
+    const m = input.minutes === null || input.minutes === undefined || s(input.minutes) === "" ? null : Math.round(Number(input.minutes));
+    if (m !== null && (!Number.isFinite(m) || m < MAP_MINUTES.min || m > MAP_MINUTES.max)) throw new ValidationError(`The time must be ${MAP_MINUTES.min} to ${MAP_MINUTES.max} minutes.`);
+    minutes = m; data.timeLimitMin = m;
+  } else if (input.closesAt !== undefined) {
+    const c = input.closesAt;
+    if (!(c instanceof Date) || Number.isNaN(c.getTime())) throw new ValidationError("Choose the end time.");
+    if (c.getTime() <= new Date(v.opensAt).getTime()) throw new ValidationError("The test must close after it opens.");
+    data.closesAt = c;
+  } else {
+    const shift = cleanShift(input.shift);
+    if (shift === null) throw new ValidationError("Choose how many minutes to add or take away.");
+    if (input.studentId) {
+      const sid = s(input.studentId);
+      const classes = classesIn(v, scope).map((c) => s(c.id));
+      const member = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes }, studentId: sid, leftAt: null }, { select: ["studentId"], take: 1 }) : [];
+      if (!member.length || (v.studentIds?.length && !v.studentIds.includes(sid))) throw new ValidationError("Choose a student who has this test.");
+      data.studentMinutes = withStudentExtra(w.studentMinutes, sid, shift);
+    } else {
+      if (minutes === null) throw new ValidationError("Set a time limit first (minutes).");
+      minutes = Math.max(MAP_MINUTES.min, Math.min(MAP_MINUTES.max, minutes + shift));
+      data.timeLimitMin = minutes;
+    }
+  }
+  await repo.updateMany("MapSimWindow", { id: v.id }, data);
+  bumpLive(liveKey("map", v.id));
+  await audit(repo, { actorId: actor.userId, action: "maptest.time", entityType: "MapSimWindow", entityId: v.id, after: { minutes, shift: input.shift ?? null, studentId: input.studentId ?? null, closesAt: data.closesAt ? (data.closesAt as Date).toISOString() : undefined }, at: now });
+  return { minutes, closesAt: data.closesAt ? (data.closesAt as Date).toISOString() : v.closesAt };
+}
+
+/** The students with extra (or fewer) minutes on this test (names for the test page). */
+export function extraMinutes(w: Row): { id: string; minutes: number }[] {
+  const o = jsonOf<Record<string, unknown>>(w.studentMinutes, {}) ?? {};
+  return Object.keys(o).map((id) => ({ id, minutes: studentExtra(o, id) })).filter((x) => x.minutes !== 0);
 }
 
 export type ItemOp = { op: "remove" | "up" | "down" | "replace"; id: string } | { op: "add"; id?: string | null; area?: GroupKey | null } | { op: "resuggest"; manual: ManualSettings };
@@ -355,16 +408,19 @@ export interface TestDetail {
   shares: Record<GroupKey, number>; plan: { key: GroupKey; name: string; icon: string; n: number }[];
   excluded: string[]; settings: ManualSettings | null;
   items: (ManualItem & { n: number; stem: string; name: string })[];
+  /** r69 live time: the students with extra (or fewer) minutes */
+  extra: { id: string; name: string; minutes: number }[];
 }
 
 export async function testDetail(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<TestDetail> {
   const { w, v, scope, canEdit } = await loadTest(repo, actor, id, now);
   const subject = v.subjects[0] ?? "READING";
   const list = v.kind === "MANUAL" ? manualItems(w) : [];
+  const extra = extraMinutes(w);
   const [started, stems, names] = await Promise.all([
     hasStarted(repo, v.id),
     list.length ? repo.findMany("Question", { id: { in: list.map((x) => x.id) } }, { select: ["id", "stem"] }) : Promise.resolve([] as Row[]),
-    v.studentIds?.length ? studentNames(repo, v.studentIds) : Promise.resolve(new Map<string, { name: string }>()),
+    v.studentIds?.length || extra.length ? studentNames(repo, [...new Set([...(v.studentIds ?? []), ...extra.map((x) => x.id)])]) : Promise.resolve(new Map<string, { name: string }>()),
   ]);
   const stem = new Map(stems.map((q) => [s(q.id), s(q.stem)]));
   const shares = sharesOf(subject, w);
@@ -376,6 +432,7 @@ export async function testDetail(repo: Repo, actor: Actor, id: string, now = new
     shares, plan: groupsOf(subject).map((g) => ({ key: g.key, name: g.name, icon: g.icon, n: plan.get(g.key) ?? 0 })),
     excluded: idList(w.excludedIds) ?? [], settings: v.kind === "MANUAL" ? jsonOf<ManualSettings | null>(w.settings, null) : null,
     items: list.map((x, i) => ({ ...x, n: i + 1, stem: stem.get(x.id) ?? "(question removed from the bank)", name: groupOf(x.area)?.name ?? x.area })),
+    extra: extra.map((x) => ({ ...x, name: names.get(x.id)?.name ?? "Student" })),
   };
 }
 

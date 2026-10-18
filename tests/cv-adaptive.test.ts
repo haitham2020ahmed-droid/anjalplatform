@@ -29,14 +29,14 @@ describe("📘 Concept Vocabulary: a place without map levels is adaptive when i
   });
 
   test("mixed difficulties → one adaptive set", async () => {
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS1.CV" });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS1.CV" });
     const a = await repo.findUnique("Assignment", { id: r.groups[0].assignmentId });
     assert.match(String(a!.title), /Concept Vocabulary \(adaptive: Approaching → Meeting → Exceeding\)/);
     assert.ok(r.notes.some((n) => /Adaptive by difficulty/.test(n)));
   });
 
   test("one difficulty only → a fixed set (as before)", async () => {
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.CV" });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.CV" });
     const a = await repo.findUnique("Assignment", { id: r.groups[0].assignmentId });
     assert.doesNotMatch(String(a!.title), /adaptive/);
   });

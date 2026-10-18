@@ -195,7 +195,7 @@ describe("📚 Test builder: Curriculum Map questions", () => {
     assert.equal(testFingerprint({ SAME: [mc[11], mc[10]] }), testFingerprint({ SAME: [mc[10], mc[11]], ON: [] }));
     // previews are never listed as templates; sending still uses the existing assignment flow
     assert.ok(!(await listTemplates(repo, teacher)).some((x) => x.title === "Unit 1 quiz"));
-    const r = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Unit 1 quiz", levelMode: "SAME", questions });
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Unit 1 quiz", levelMode: "SAME", questions });
     assert.equal(r.sets, 1);
   });
 

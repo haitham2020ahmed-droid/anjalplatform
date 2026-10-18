@@ -9,6 +9,8 @@ import { createPlanAction, sendCurriculumPlanAction } from "../actions";
 import { SelectAll } from "@/components/ui/select-all";
 import { EmptyState } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
+import { AssignDates } from "@/components/assign/assign-dates";
+import { SourceSelect } from "@/components/assign/source-select";
 
 export const metadata = { title: "Curriculum Map plans" };
 
@@ -87,8 +89,9 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
             <input type="hidden" name="classId" value={classId} />
             <div className="grid gap-3 md:grid-cols-3">
               <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700 md:col-span-2">{t("Title")}<input name="title" required maxLength={191} placeholder={`${t("Unit 1 plan")} · ${roster.className}`} className={box} /></label>
-              <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">{t("Due date (optional)")}<input type="date" name="dueAt" className={box} /></label>
             </div>
+            <AssignDates t={t} field={box} />
+            <SourceSelect t={t} field={box} className="max-w-xs" />
             <div className="space-y-3">
               <p className="text-sm font-semibold text-slate-700">{t("Places (Grade {n})", { n: roster.grade })}</p>
               {units.length === 0 && <EmptyState compact icon="🗺️" title="Nothing here yet" text="This grade has no curriculum yet — you can still assign skills from any grade." action={{ href: "/teacher/plans", label: "Plans" }} />}

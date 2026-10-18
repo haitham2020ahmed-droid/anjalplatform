@@ -7,6 +7,7 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { respondAssignPlan, type RespondPlan } from "@/server/curriculum-map/respond-assign";
 import { assignRespondAction } from "../actions";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "Assign Respond to Reading" };
 
@@ -39,7 +40,7 @@ export default async function AssignRespond({ searchParams }: { searchParams: Pr
             <div className="mt-2 grid gap-1 sm:grid-cols-3">{p.rows.map((r) => <label key={r.studentId} className="flex items-center gap-2"><input type="checkbox" name="skip" value={r.studentId} />{r.name}</label>)}</div>
           </details>
           <div className="mt-4 flex flex-wrap items-end gap-3 text-sm">
-            <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
+            <AssignDates field={box} />
             <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">

@@ -34,7 +34,7 @@ describe("📒 My Words: the curriculum words + the words I saved, in one place"
 
   test("menu: My Words and Fluency are their own entries; the reading hub keeps ReadMaster and ReadRise only", () => {
     const items = navItemsFor("STUDENT", { nafs: false });
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
+    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/skills", "/student/plans", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
     assert.deepEqual(items.slice(-2).map((i) => i.label), ["My Words", "Fluency"]);
     for (const i of items) assert.ok(i.line && AR[i.label as keyof typeof AR], `${i.label}: line icon and Arabic`);
     const pages = searchablePagesFor("STUDENT");

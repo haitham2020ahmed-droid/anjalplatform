@@ -54,7 +54,7 @@ describe("⭐ Assign: teacher assigns a skill", () => {
 
   test("assign to the entire class: every student gets a row and a notification", async () => {
     const before = await repo.count("Notification", { type: "NEW_ASSIGNMENT" });
-    const r = await assignSkill(repo, teacher, { classId, skillId, dueAt: new Date("2027-02-20T20:59:59Z"), note: "Read carefully." }, NOW);
+    const r = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, dueAt: new Date("2027-02-20T20:59:59Z"), note: "Read carefully." }, NOW);
     assert.equal(r.students, students.length);
     assert.equal(await repo.count("AssignmentStudent", { assignmentId: r.assignmentId, status: "NOT_STARTED" }), students.length);
     assert.equal((await repo.count("Notification", { type: "NEW_ASSIGNMENT" })) - before, students.length);
@@ -64,24 +64,24 @@ describe("⭐ Assign: teacher assigns a skill", () => {
   });
 
   test("assign to selected students and to one student; never to students outside the class", async () => {
-    const two = await assignSkill(repo, teacher, { classId, skillId, studentIds: [students[0].id, students[1].id] }, NOW);
+    const two = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [students[0].id, students[1].id] }, NOW);
     assert.equal(two.students, 2);
-    const one = await assignSkill(repo, teacher, { classId, skillId, studentIds: [students[2].id] }, NOW);
+    const one = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [students[2].id] }, NOW);
     assert.equal(one.students, 1);
     const outsider = (await repo.findMany("ClassMembership", { classId: otherClassId }))[0].studentId as string;
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId, studentIds: [outsider] }, NOW), /only assign work to students in this class/);
-    await assert.rejects(assignSkill(repo, otherTeacher, { classId, skillId }, NOW), ForbiddenError, "another teacher's class");
-    await assert.rejects(assignSkill(repo, student, { classId, skillId }, NOW), ForbiddenError, "students cannot assign");
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId, dueAt: new Date("2020-01-01") }, NOW), /in the past/);
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: "" }, NOW), /Choose a skill/);
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId, startAt: new Date("2027-03-01"), dueAt: new Date("2027-02-28") }, NOW), /after the start date/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [outsider] }, NOW), /only assign work to students in this class/);
+    await assert.rejects(assignSkill(repo, otherTeacher, { source: "CURRICULUM", classId, skillId }, NOW), ForbiddenError, "another teacher's class");
+    await assert.rejects(assignSkill(repo, student, { source: "CURRICULUM", classId, skillId }, NOW), ForbiddenError, "students cannot assign");
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, dueAt: new Date("2020-01-01") }, NOW), /in the past/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: "" }, NOW), /Choose a skill/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, startAt: new Date("2027-03-01"), dueAt: new Date("2027-02-28") }, NOW), /after the start date/);
     // UI reorg access rules: a skill of ANOTHER grade may be assigned to the teacher's own class (it used to be refused
     // with "this class's curriculum"); a removed skill is still refused
     const g5skill = (await teacherCurriculum(repo, otherTeacher))!.units[0].skills[0].id;
-    const cross = await assignSkill(repo, teacher, { classId, skillId: g5skill, studentIds: [students[0].id] }, NOW);
+    const cross = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g5skill, studentIds: [students[0].id] }, NOW);
     assert.equal(cross.students, 1);
     await repo.updateMany("Assignment", { id: cross.assignmentId }, { deletedAt: NOW }); // the next tests count this class's work
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: "no-such-skill" }, NOW), /Choose an active skill/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: "no-such-skill" }, NOW), /Choose an active skill/);
   });
 
   test("practice links to the assignment and moves the student from Not Started to In Progress to Completed", async () => {

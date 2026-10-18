@@ -12,6 +12,8 @@ export const STUDENT_WORD: Record<StarStatus, string> = { NOT_STARTED: "Not star
 /** the symbol of each status in plain text (PDF footers, CSV, the System check counts) */
 export const STAR_SYMBOL: Record<StarStatus, string> = { NOT_STARTED: "☆", IN_PROGRESS: "◐", MASTERED: "⭐", NEXT_LEVEL: "☆⬆", NEEDS_REVIEW: "🔄" };
 export const wordOf = (st: StarStatus, who: Audience): string => (who === "student" ? STUDENT_WORD : TEACHER_WORD)[st];
+/** The teacher's short level word of a star (the word next to the icon): "Needs support" when flagged, else TEACHER_WORD. */
+export const teacherWordOf = (x: { status: StarStatus; needsSupport?: boolean }): string => (x.needsSupport ? "Needs support" : TEACHER_WORD[x.status]);
 
 /** What each status means (teacher legend and guide). */
 export const TEACHER_MEANING: Record<StarStatus, string> = {

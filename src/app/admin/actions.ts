@@ -9,14 +9,16 @@ import { z } from "zod";
 import { env } from "@/lib/env";
 import { repo, requireActor } from "@/server/auth/next";
 import { ValidationError } from "@/server/curriculum-admin";
-import { createUser, linkParent, moveStudent, setTeacherClasses, unlinkParent, updateUser, MANAGED_ROLES } from "@/server/admin/users";
+import { AccountClashError, createUser, linkParent, moveStudent, setTeacherClasses, unlinkParent, updateUser, MANAGED_ROLES } from "@/server/admin/users";
+import { restoreStudents } from "@/server/admin/roster-clean";
 import { archiveClass, createClass, removeLogo, renameClass, saveAcademicYear, updateBranding, updateEngineSettings, uploadLogo } from "@/server/admin/settings";
 import { archiveQuestion, createDraft, reviewQuestion, reviseQuestion, submitForReview, updateDraft, type EditorInput } from "@/server/admin/questions";
 import { applyRoster, planRoster, type RosterPlan } from "@/server/admin/roster-import";
 import { createTeacherWithClasses } from "@/server/admin/school";
 import { parseNewClasses } from "@/app/admin/users/form-state";
 
-export type Result = { ok?: boolean; error?: string; message?: string; temporaryPassword?: string; id?: string };
+/** href: after an error about an account the admin cannot see in the list, a link that opens it (Restore is there). */
+export type Result = { ok?: boolean; error?: string; message?: string; temporaryPassword?: string; id?: string; href?: string; studentNumber?: string };
 const id = z.string().min(1).max(191);
 const str = (f: FormData, k: string) => String(f.get(k) ?? "");
 
@@ -26,7 +28,7 @@ async function run(paths: string[], fn: () => Promise<Partial<Result> | void>): 
     paths.forEach((p) => revalidatePath(p));
     return { ok: true, ...r };
   } catch (e) {
-    if (e instanceof ValidationError || (e as { status?: number }).status === 403 || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Some fields are missing or invalid." : (e as Error).message };
+    if (e instanceof ValidationError || (e as { status?: number }).status === 403 || e instanceof z.ZodError) return { error: e instanceof z.ZodError ? "Some fields are missing or invalid." : (e as Error).message, ...(e instanceof AccountClashError ? { href: e.href } : {}) };
     throw e;
   }
 }
@@ -49,8 +51,14 @@ export async function createUserAction(_: Result, f: FormData): Promise<Result> 
       role, username: str(f, "username"), displayName: str(f, "displayName"), email: str(f, "email") || null,
       studentNumber: str(f, "studentNumber"), gradeLevel: Number(f.get("gradeLevel") || 0), classId: str(f, "classId") || null, title: str(f, "title") || null,
     });
-    return { id: r.userId, temporaryPassword: r.temporaryPassword };
+    return { id: r.userId, temporaryPassword: r.temporaryPassword, ...(r.studentNumber ? { studentNumber: r.studentNumber } : {}) };
   });
+}
+
+/** ↩️ Restore a removed (archived) student from Users: sign-in back on, back in the class they left (roster-clean.ts). */
+export async function restoreStudentAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "students:manage" });
+  await run(["/admin/users", "/admin/school"], async () => { await restoreStudents(repo, actor, [id.parse(f.get("studentId"))]); });
 }
 
 export async function updateUserAction(_: Result, f: FormData): Promise<Result> {

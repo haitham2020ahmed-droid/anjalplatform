@@ -36,7 +36,9 @@ import { myTasks } from "../teacher/writing";
 import { studentRespondWork, type StudentRespondTask } from "../curriculum-map/respond-assign";
 import { STUDY_PLAN_KINDS } from "../curriculum-map/plans";
 import { myStrategySurvey, OPEN_KEY, surveyTerm } from "../surveys/strategy";
-import { hiddenWorkKeys, withoutCancelled } from "./cancelled-work";
+import { hiddenWorkKeys, placeCancelled, withoutCancelled } from "./cancelled-work";
+import { bookletSourceOf } from "../nafs/booklet-source";
+import { startedBy } from "../../lib/assign-dates";
 
 export { WORK_KIND_LABEL as KIND_LABEL, WORK_KINDS } from "../../lib/work-kinds";
 
@@ -48,7 +50,7 @@ const SUBJECT: Record<string, string> = { READING: "Reading", LANGUAGE: "Languag
 
 type Tasks = Awaited<ReturnType<typeof myTasks>>;
 /** Reads the home page already does (passed in so they are not read twice). */
-export interface Prefetched { map?: Promise<MapTests>; respond?: Promise<StudentRespondTask[]>; writing?: Promise<Tasks> }
+export interface Prefetched { map?: Promise<MapTests>; respond?: Promise<StudentRespondTask[]>; writing?: Promise<Tasks>; /** the cancelled keys (a plan's cancelled place leaves its count) */ hidden?: Promise<Set<string>> }
 
 function row(kind: WorkKind, key: string, title: string, status: WorkStatus, href: string, opts: { source?: SourceKey; dueAt?: string | null; overdue?: boolean; doneHref?: string } = {}): MyWorkItem {
   const source = opts.source ?? "CURRICULUM";
@@ -98,17 +100,19 @@ function mapRows(m: MapTests): MyWorkItem[] {
 /** NAFS tests given to my class (or to me), online: Done once handed in. */
 async function nafsTestRows(repo: Repo, sid: string, classIds: string[], now: Date): Promise<MyWorkItem[]> {
   if (!classIds.length) return [];
-  const given = (await repo.findMany("NafsTestClass", { classId: { in: classIds } }, { select: ["id", "testId", "openAt", "dueAt", "studentIds"], take: 200 })).filter((g) => forMe(g, sid) && !(g.openAt && Date.parse(iso(g.openAt)!) > now.getTime()));
+  const given = (await repo.findMany("NafsTestClass", { classId: { in: classIds } }, { select: ["id", "testId", "classId", "openAt", "dueAt", "studentIds"], take: 200 })).filter((g) => forMe(g, sid) && !(g.openAt && Date.parse(iso(g.openAt)!) > now.getTime()));
   if (!given.length) return [];
   const ids = [...new Set(given.map((g) => s(g.testId)))];
   const [tests, results] = await Promise.all([
-    repo.findMany("NafsTest", { id: { in: ids }, deletedAt: null }, { select: ["id", "title"] }),
+    repo.findMany("NafsTest", { id: { in: ids }, deletedAt: null }, { select: ["id", "title", "settings"] }),
     repo.findMany("NafsResult", { studentId: sid, testId: { in: ids } }, { select: ["testId", "submittedAt"] }),
   ]);
   return given.filter((g) => tests.some((t) => t.id === g.testId)).map((g) => {
     const r = results.find((x) => x.testId === g.testId);
     const due = iso(g.dueAt);
-    return row("NAFS_TEST", s(g.id), `NAFS test — ${hideLevels(s(tests.find((t) => t.id === g.testId)?.title))}`, r?.submittedAt ? "Done" : r ? "In progress" : "Not started", `/student/nafs/sim/${s(g.id)}`, { source: "NAFS", dueAt: due, overdue: late(due, now), doneHref: "/student/nafs?part=results" });
+    const t = tests.find((x) => x.id === g.testId);
+    // r82: a booklet given with another source (r74) shows that source
+    return row("NAFS_TEST", s(g.id), `NAFS test — ${hideLevels(s(t?.title))}`, r?.submittedAt ? "Done" : r ? "In progress" : "Not started", `/student/nafs/sim/${s(g.id)}`, { source: bookletSourceOf(t?.settings, s(g.classId)) ?? "NAFS", dueAt: due, overdue: late(due, now), doneHref: "/student/nafs?part=results" });
   });
 }
 
@@ -140,7 +144,7 @@ function respondRows(list: StudentRespondTask[], now: Date): MyWorkItem[] {
  * Study plans from the Curriculum Map sent to my class (their places are kept out of the single rows): the class's
  * curriculum plan counts all its places; a unit / chosen-places plan the places assigned to me. Done = every place done.
  */
-async function planRows(repo: Repo, classIds: string[], mine: Row[]): Promise<MyWorkItem[]> {
+async function planRows(repo: Repo, classIds: string[], mine: Row[], hidden: Set<string> = new Set()): Promise<MyWorkItem[]> {
   if (!classIds.length) return [];
   const plans = (await repo.findMany("SkillPlan", { classId: { in: classIds }, kind: { in: [...STUDY_PLAN_KINDS] } }, { select: ["id", "title", "kind", "status"], take: 50 })).filter((p) => !p.status || s(p.status) === "SENT");
   if (!plans.length) return [];
@@ -148,7 +152,8 @@ async function planRows(repo: Repo, classIds: string[], mine: Row[]): Promise<My
   const statusOfA = new Map(mine.map((r) => [s(r.assignmentId), s(r.status)]));
   const out: MyWorkItem[] = [];
   for (const p of plans) {
-    const all = items.filter((i) => i.planId === p.id).map((i) => json<unknown[]>(i.assignmentIds, []).map(s));
+    // 🚫 a place the teacher cancelled (its assignment, for everyone or for me) is not counted (owner r68)
+    const all = items.filter((i) => i.planId === p.id).map((i) => json<unknown[]>(i.assignmentIds, []).map(s)).filter((ids) => !placeCancelled(ids, ids.filter((a) => statusOfA.has(a)), hidden));
     const places = s(p.kind) === "CURRICULUM" ? all : all.filter((ids) => ids.some((a) => statusOfA.has(a)));
     if (!places.length) continue;
     const done = places.filter((ids) => ids.some((a) => statusOfA.get(a) === "COMPLETED")).length;
@@ -160,7 +165,8 @@ async function planRows(repo: Repo, classIds: string[], mine: Row[]): Promise<My
 /** ReadRise articles the teacher assigned to my classes: Done when my reading of it is finished. */
 async function readRiseRows(repo: Repo, sid: string, classIds: string[], now: Date): Promise<MyWorkItem[]> {
   if (!classIds.length) return [];
-  const given = await repo.findMany("RRClassArticle", { classId: { in: classIds } }, { select: ["articleId", "dueAt", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
+  // r68: an article assigned for later (its start date) is not in My Work before that day
+  const given = (await repo.findMany("RRClassArticle", { classId: { in: classIds } }, { select: ["articleId", "dueAt", "startAt", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 })).filter((g) => startedBy(g.startAt, now));
   if (!given.length) return [];
   const ids = [...new Set(given.map((g) => s(g.articleId)))];
   const [arts, runs] = await Promise.all([
@@ -198,7 +204,8 @@ async function lessonRows(repo: Repo, sid: string): Promise<MyWorkItem[]> {
  * row). The same lesson or selection given twice is one row (the latest due date).
  */
 async function learnRows(repo: Repo, sid: string, now: Date): Promise<MyWorkItem[]> {
-  const rows = await repo.findMany("LearnAssignee", { studentId: sid }, { select: ["kind", "ref", "title", "dueAt", "status", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
+  // r68: a lesson / words assigned for later (start date) wait until that day
+  const rows = (await repo.findMany("LearnAssignee", { studentId: sid }, { select: ["kind", "ref", "title", "dueAt", "startAt", "status", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 })).filter((r) => startedBy(r.startAt, now));
   const seen = new Set<string>();
   const out: MyWorkItem[] = [];
   for (const r of rows) {
@@ -244,7 +251,7 @@ export async function extraWorkItems(repo: Repo, actor: Actor, now = new Date(),
     safeIfBehind("work.respond", () => (pre.respond ?? studentRespondWork(repo, actor)).then((x) => respondRows(x, now)), none),
     safeIfBehind("work.exit", () => exitRows(repo, sid, classIds), none),
     safeIfBehind("work.lessons", () => lessonRows(repo, sid), none),
-    safeIfBehind("work.plans", () => planRows(repo, classIds, mine), none),
+    safeIfBehind("work.plans", async () => planRows(repo, classIds, mine, await (pre.hidden ?? Promise.resolve(new Set<string>()))), none),
     safeIfBehind("work.survey", () => surveyRows(repo, actor, classIds, now), none),
     safeIfBehind("work.learn", () => learnRows(repo, sid, now), none),
   ]);
@@ -263,8 +270,8 @@ export function sortWork<T extends Pick<MyWorkItem, "status" | "overdue" | "dueA
  * Work the teacher cancelled (for everyone or for me — "Assigned") is left out; its answers are kept.
  */
 export async function allWorkItems(repo: Repo, actor: Actor, now = new Date(), pre: Prefetched = {}): Promise<MyWorkItem[]> {
-  const [skills, extra, hidden] = await Promise.all([myWorkItems(repo, actor, now), extraWorkItems(repo, actor, now, pre),
-    actor.studentId ? hiddenWorkKeys(repo, actor.studentId, actor.schoolId) : Promise.resolve(new Set<string>())]);
+  const hiddenP = actor.studentId ? hiddenWorkKeys(repo, actor.studentId, actor.schoolId) : Promise.resolve(new Set<string>());
+  const [skills, extra, hidden] = await Promise.all([myWorkItems(repo, actor, now), extraWorkItems(repo, actor, now, { ...pre, hidden: hiddenP }), hiddenP]);
   const seen = new Set<string>();
   return sortWork(withoutCancelled([...skills, ...extra], hidden).filter((r) => (seen.has(r.assignmentId) ? false : (seen.add(r.assignmentId), true))));
 }

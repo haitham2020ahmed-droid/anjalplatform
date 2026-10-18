@@ -12,6 +12,7 @@ import type { Actor } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "./assignments";
 import { studentNames } from "../insights/student-data";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const time = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : String(v)).getTime() : 0);
@@ -48,19 +49,22 @@ export async function classToday(repo: Repo, actor: Actor, classId: string, now 
   const ids = await members(repo, classId);
   if (!ids.length) return { students: 0, doneToday: 0, needHelp: 0, notStarted: 0 };
   const today = riyadhMidnight(now);
-  const [sessions, finished, alerts, tiers, work] = await Promise.all([
+  const [sessions, finished, alerts, tiers, work, ix] = await Promise.all([
     inChunks(ids, (part) => repo.findMany("PracticeSession", { studentId: { in: part }, startedAt: { gte: today }, questionCount: { gt: 0 } }, { select: ["studentId"] })),
     inChunks(ids, (part) => repo.findMany("AssignmentStudent", { studentId: { in: part }, completedAt: { gte: today } }, { select: ["studentId"] })),
     repo.findMany("StudentAlert", { classId, status: "OPEN" }, { select: ["studentId"] }),
     inChunks(ids, (part) => repo.findMany("StudentTier", { studentId: { in: part }, tier: { gte: 2 } }, { select: ["studentId"] })),
-    repo.findMany("Assignment", { classId, deletedAt: null }, { select: ["id", "startAt", "createdAt", "curriculumPlanId"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 }),
+    repo.findMany("Assignment", liveAssignmentWhere({ classId }), { select: ["id", "startAt", "createdAt", "curriculumPlanId", "testId"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 }),
+    cancelIndex(repo, actor.schoolId),
   ]);
   const inClass = new Set(ids);
   const done = new Set([...sessions, ...finished].map((r) => s(r.studentId)).filter((x) => inClass.has(x)));
   const help = new Set([...alerts, ...tiers].map((r) => s(r.studentId)).filter((x) => inClass.has(x)));
-  const open = work.filter((a) => (!a.startAt || time(a.startAt) <= now.getTime()));
-  const waiting = open.length ? await inChunks(open.map((a) => s(a.id)), (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part }, status: { in: ["NOT_STARTED", "OVERDUE"] } }, { select: ["studentId", "progress"] })) : [];
-  const notStarted = new Set(waiting.filter((r) => Number(r.progress ?? 0) <= 0 && inClass.has(s(r.studentId))).map((r) => s(r.studentId)));
+  // r78: work cancelled on Assigned (for everyone or one student) is never "not started"
+  const open = work.filter((a) => (!a.startAt || time(a.startAt) <= now.getTime()) && ix.live(a));
+  const openById = new Map(open.map((a) => [s(a.id), a]));
+  const waiting = open.length ? await inChunks(open.map((a) => s(a.id)), (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part }, status: { in: ["NOT_STARTED", "OVERDUE"] } }, { select: ["assignmentId", "studentId", "progress"] })) : [];
+  const notStarted = new Set(waiting.filter((r) => Number(r.progress ?? 0) <= 0 && inClass.has(s(r.studentId)) && ix.live(openById.get(s(r.assignmentId)) ?? { id: s(r.assignmentId) }, s(r.studentId))).map((r) => s(r.studentId)));
   return { students: ids.length, doneToday: done.size, needHelp: help.size, notStarted: notStarted.size };
 }
 
@@ -81,10 +85,13 @@ export async function myWeek(repo: Repo, actor: Actor, classId: string, now = ne
   const start = schoolWeekStart(now).getTime();
   const end = start + 5 * DAY; // Sunday → Thursday
   const ids = await members(repo, classId);
-  const [rows, games] = await Promise.all([
-    repo.findMany("Assignment", { classId, deletedAt: null }, { select: ["id", "title", "startAt", "dueAt", "createdAt", "curriculumPlanId", "testId"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 300 }),
+  const [allRows, games, ix] = await Promise.all([
+    repo.findMany("Assignment", liveAssignmentWhere({ classId }), { select: ["id", "title", "startAt", "dueAt", "createdAt", "curriculumPlanId", "testId"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 300 }),
     repo.findMany("LiveGame", { classId, createdAt: { gte: new Date(start - 7 * DAY) } }, { select: ["id", "title", "status", "createdAt", "finishedAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 30 }),
+    cancelIndex(repo, actor.schoolId),
   ]);
+  // r78: cancelled on Assigned = not on the week, not "due", not "not started"
+  const rows = allRows.filter((a) => ix.live(a));
   const inWeek = (ms: number) => ms >= start && ms < end;
   const startOf = (a: Row) => time(a.startAt) || time(a.createdAt);
   const week = rows.filter((a) => inWeek(startOf(a)) || inWeek(time(a.dueAt)));
@@ -104,7 +111,9 @@ export async function myWeek(repo: Repo, actor: Actor, classId: string, now = ne
   const dueRows = week.filter((a) => inWeek(time(a.dueAt)) && !a.curriculumPlanId).slice(0, 30);
   const opened = week.filter((a) => startOf(a) <= now.getTime()).slice(0, 100);
   const allIds = [...new Set([...dueRows, ...opened].map((a) => s(a.id)))];
-  const asg = allIds.length ? await inChunks(allIds, (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part } }, { select: ["assignmentId", "studentId", "status", "progress"] })) : [];
+  const rowById = new Map(rows.map((a) => [s(a.id), a]));
+  const asg = (allIds.length ? await inChunks(allIds, (part) => repo.findMany("AssignmentStudent", { assignmentId: { in: part } }, { select: ["assignmentId", "studentId", "status", "progress"] })) : [])
+    .filter((r) => ix.live(rowById.get(s(r.assignmentId)) ?? { id: s(r.assignmentId) }, s(r.studentId)));
   const inClass = new Set(ids);
   const due = dueRows.map((a) => {
     const mine = asg.filter((r) => r.assignmentId === a.id && inClass.has(s(r.studentId)));

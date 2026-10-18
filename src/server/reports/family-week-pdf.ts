@@ -14,14 +14,17 @@ import type { ReportDoc } from "../../reports/model";
 import { makeT, type Lang } from "../../i18n";
 import { RateLimitedError, REPORT_RATE, loadBranding, type ReportDeps } from "./service";
 import { familyWeek, familyWeeks, type FamilyWeek } from "./family-week";
+import { printQrForSheet, type SheetSignIn } from "../auth/class-print-qr";
+import { appOrigin } from "../../lib/plan-links";
 
 const ascii = (v: string) => v.normalize("NFKD").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "student";
 
-export async function exportFamilyWeek(deps: ReportDeps, actor: Actor, req: { studentId?: string | null; classId?: string | null; lang: Lang }): Promise<{ bytes: Uint8Array; contentType: string; filename: string }> {
+export async function exportFamilyWeek(deps: ReportDeps, actor: Actor, req: { studentId?: string | null; classId?: string | null; lang: Lang; signin?: boolean }): Promise<{ bytes: Uint8Array; contentType: string; filename: string }> {
   const { repo } = deps;
   const now = deps.now?.() ?? new Date();
   let items: FamilyWeek[];
   let stem: string;
+  let signIn: SheetSignIn | null = null;
   if (req.studentId) {
     const w = await familyWeek(repo, actor, req.studentId, now);
     items = [w];
@@ -32,6 +35,9 @@ export async function exportFamilyWeek(deps: ReportDeps, actor: Actor, req: { st
     if (!b.items.length) throw new ValidationError("No students in this class yet.");
     items = b.items;
     stem = `family-week_class-${ascii(b.className)}_${b.week}`;
+    // 🖨 r85: the class's printable QR + class code in each page's header (default ON for a teacher's print of their class)
+    // (a student never reaches here — Forbidden above; printQrForSheet answers only the class's own teacher)
+    if (req.signin !== false && actor.role !== "PARENT") signIn = await printQrForSheet(repo, actor, req.classId, appOrigin(), { now });
   } else throw new ValidationError("Choose a class or a student.");
   const rl = await consumeRateLimit(repo, `report:${actor.userId}`, REPORT_RATE.max, REPORT_RATE.windowMs, now);
   if (!rl.allowed) throw new RateLimitedError(Math.ceil(rl.retryAfterMs / 1000));
@@ -41,7 +47,7 @@ export async function exportFamilyWeek(deps: ReportDeps, actor: Actor, req: { st
   const { warning: _w, ...branding } = await loadBranding(repo, String(actor.schoolId), deps.brandingDir);
   // the footer (page n of m) needs a document description; the content itself is the family page
   const doc: ReportDoc = { kind: "student", locale: req.lang, title: t("For my family: this week"), subtitle: "", branding, meta: [], sections: [], primaryTable: "", fileStem: stem, generatedAt: now, generatedBy: "", audience: "family" };
-  const bytes = await deps.pdf.render(familyWeekDocument(items, t, req.lang, fonts), doc, fonts.stack);
+  const bytes = await deps.pdf.render(familyWeekDocument(items, t, req.lang, fonts, signIn), doc, fonts.stack);
   await audit(repo, { actorId: actor.userId, action: "report.export", entityType: "FamilyWeek", entityId: req.studentId ?? req.classId ?? "", after: { kind: "family-week", lang: req.lang, students: items.length, week: items[0]?.week ?? null, bytes: bytes.length }, at: now });
   return { bytes, contentType: "application/pdf", filename: `${stem}${req.lang === "ar" ? "_ar" : ""}.pdf` };
 }

@@ -24,7 +24,7 @@ import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { cleanName, cleanUsername } from "../admin/users";
 import { readRosterFile } from "../admin/roster-import";
-import { nextNumbers } from "../admin/quick-students";
+import { freeStudentNumbers } from "../admin/quick-students";
 import { assertClassAccess } from "./assignments";
 import { remember } from "../cache/lru";
 
@@ -46,12 +46,7 @@ export async function ownClass(repo: Repo, actor: Actor, classId: string): Promi
   return assertClassAccess(repo, actor, classId);
 }
 
-/** Free student numbers (AJ26-001 …) for new students: only this year's series is read, not the whole table. */
-async function freshNumbers(repo: Repo, schoolId: string, n: number, now: Date): Promise<string[]> {
-  const prefix = `AJ${String(now.getUTCFullYear() % 100).padStart(2, "0")}-`;
-  const used = await repo.findMany("Student", { schoolId, studentNumber: { contains: prefix } }, { select: ["studentNumber"] });
-  return nextNumbers(used.map((x) => s(x.studentNumber)), n, now.getUTCFullYear());
-}
+const freshNumbers = freeStudentNumbers;
 
 interface NewStudent { username: string; name: string; number: string; hash: string }
 

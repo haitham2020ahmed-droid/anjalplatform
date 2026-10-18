@@ -7,7 +7,7 @@ import { apiActor, repo } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { analyzeImport, ImportFileError, shortDbMessage } from "@/server/admin/question-import";
-import { ensureGrammarSkills, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
+import { ensureGrammarSkills, ensureSimpleGrammarSkills, grammarSimpleTable, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
 import { log } from "@/server/monitoring/log";
 
 export const runtime = "nodejs";
@@ -58,10 +58,13 @@ export async function POST(req: Request) {
     const bytes = new Uint8Array(await file.arrayBuffer());
     let jobId: string;
     if (grammarGrade) {
-      // 🔤 the Grammar bank: its skills first (created or updated), then its questions through the normal preview
+      // 🔤 the Grammar bank: the strict format's skills first (created or updated, placed on the Curriculum Map);
+      // the simple format matches the grade's EXISTING skills by name, creating a plain one (no map placement)
+      // only for a name that has none yet — so a grade starting from zero (Grade 5, Grade 6…) still gets one.
       const wb = readGrammarWorkbook(bytes);
-      await ensureGrammarSkills(repo, actor, wb, grammarGrade);
-      const table = grammarTable(wb, grammarGrade);
+      let table: string[][];
+      if (wb.format === "simple") { await ensureSimpleGrammarSkills(repo, actor, wb, grammarGrade); table = grammarSimpleTable(wb, grammarGrade); }
+      else { await ensureGrammarSkills(repo, actor, wb, grammarGrade); table = grammarTable(wb, grammarGrade); }
       if (table.length < 2) return reply({ error: `The Grammar file has no Grade ${grammarGrade} questions.`, stage: "file" }, 422);
       jobId = await analyzeImport(repo, actor, { fileName: `Grammar Grade ${grammarGrade} - ${file.name}`, bytes, target: "BANK", table });
     } else jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes, target, defaultMapCode });

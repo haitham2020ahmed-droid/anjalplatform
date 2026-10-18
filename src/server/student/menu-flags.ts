@@ -7,6 +7,7 @@ import type { Repo } from "../seeding/repo";
 import { TtlCache } from "../lib/ttl-cache";
 import { rtiStatus } from "./student-home";
 import { nafsReady } from "../nafs/ready";
+import { cancelIndexForStudents, liveAssignmentWhere } from "./cancelled-work";
 
 export interface StudentMenuFlags { rti: boolean; nafs: boolean; /** the student's grade (the calm theme from Grade 7) */ grade?: number }
 
@@ -15,11 +16,13 @@ export const hasNafsPlan = cache(async (repo: Repo, studentId: string): Promise<
   const mine = await repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId"] });
   if (!mine.length) return false;
   const ids = mine.map((m) => m.assignmentId);
-  const [track, program] = await Promise.all([
-    repo.count("Assignment", { id: { in: ids }, track: "NAFS", deletedAt: null }),
-    repo.count("Assignment", { id: { in: ids }, program: "NAFS", deletedAt: null }),
+  // r78: NAFS work cancelled on Assigned does not open the menu
+  const [track, program, ix] = await Promise.all([
+    repo.findMany("Assignment", liveAssignmentWhere({ id: { in: ids }, track: "NAFS" }), { select: ["id", "testId", "curriculumPlanId"], take: 50 }),
+    repo.findMany("Assignment", liveAssignmentWhere({ id: { in: ids }, program: "NAFS" }), { select: ["id", "testId", "curriculumPlanId"], take: 50 }),
+    cancelIndexForStudents(repo, [studentId]),
   ]);
-  return track > 0 || program > 0;
+  return [...track, ...program].some((a) => ix.live(a, studentId));
 });
 
 /**

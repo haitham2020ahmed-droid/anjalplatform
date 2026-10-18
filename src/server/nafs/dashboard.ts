@@ -27,13 +27,16 @@ import { loadFonts } from "../../reports/fonts";
 import { renderHtml } from "../../reports/html";
 import { renderXlsx } from "../../reports/xlsx";
 import { audit } from "../audit";
+import { sweptMap } from "../cache/idle";
+import { modelVersion } from "../cache/bank-version";
+import { nafsRemovedVersion } from "./removed";
 import { consumeRateLimit } from "../auth/rate-limit";
 import { CONTENT_TYPES, loadBranding, RateLimitedError, REPORT_RATE, type ReportDeps } from "../reports/service";
 import { CONTENT_SKILLS, DIFFICULTIES, DIFFICULTY_NAME, isMoeCode, isNafsCode, MOE_BY_CODE, MOE_STANDARDS, PROCESS_NAME, PROCESSES, SKILL_BY_CODE, type Difficulty, type NafsProcess } from "./framework";
 import { nafsIndex, WRITTEN_TYPE, type NafsEntry } from "./bank";
 import { cleanScores, gradeAnswers, json, markOf, nafsClasses, type Answer, type NafsClass } from "./tests";
-import { roundPct } from "./reports";
 import type { RunState } from "./practice";
+import { classLine, MIN_ANSWERS, roundPct, strengthsWeaknesses, WEAKNESS_BELOW, type ClassLine, type NoneWhy } from "./strengths";
 
 const s = (v: unknown) => String(v ?? "");
 const ms = (v: unknown): number | null => { if (v === null || v === undefined || v === "") return null; const t = (v instanceof Date ? v : new Date(String(v))).getTime(); return Number.isFinite(t) ? t : null; };
@@ -52,10 +55,10 @@ export const NAFS_GROUPS: { key: GroupKey; name: string; min: number }[] = [
   { key: "SUPPORT", name: "Needs support", min: 0 },
 ];
 export const GROUP_NAME = Object.fromEntries(NAFS_GROUPS.map((g) => [g.key, g.name])) as Record<GroupKey, string>;
-/** A standard under this (the Meeting cut-off) is a weak standard of the student. */
-export const WEAK_BELOW = NAFS_GROUPS.find((g) => g.key === "MEETING")!.min;
-/** Fewer answered items than this on a standard: not enough to call it weak or strong. */
-export const MIN_STD_ITEMS = 2;
+/** A standard under this is a weak standard of the student — the ONE NAFS rule (strengths.ts, owner r70: < 60 %). */
+export const WEAK_BELOW = WEAKNESS_BELOW;
+/** Fewer answered items than this on a standard: not enough to call it weak or strong (strengths.ts). */
+export const MIN_STD_ITEMS = MIN_ANSWERS;
 const RANK: Record<GroupKey, number> = Object.fromEntries(NAFS_GROUPS.map((g, i) => [g.key, NAFS_GROUPS.length - i])) as Record<GroupKey, number>;
 export function groupOf(pct: number | null | undefined): GroupKey | null {
   if (pct === null || pct === undefined || !Number.isFinite(pct)) return null;
@@ -80,9 +83,9 @@ const inRange = (r: Range) => { const lo = r.from ? Date.parse(`${r.from}T00:00:
 // ------------------------------------------------------------------ prefilled actions
 
 const many = (k: string, list: string[]) => list.map((v) => [k, v] as [string, string]);
-/** "Assign adaptive practice on these standards": the Adaptive practice tab, prefilled (class, standards, students). */
+/** "Assign adaptive practice on these standards": the Adaptive tab (Practice), prefilled (class, standards, students). */
 export function practiceHref(classId: string, codes: string[], studentIds: string[] = []): string {
-  return `/teacher/nafs?${new URLSearchParams([["tab", "practice"], ["class", classId], ...many("target", codes), ...many("sid", studentIds)])}#give`;
+  return `/teacher/nafs?${new URLSearchParams([["tab", "adaptive"], ["class", classId], ...many("target", codes), ...many("sid", studentIds)])}#give`;
 }
 /** "Make a test on these standards": the ONE test builder (start: standards I choose), prefilled with them and the class. */
 export function testHref(classId: string, codes: string[]): string {
@@ -294,16 +297,17 @@ const PROC_KEYS = PROCESSES.map((p) => ({ key: p, short: p, name: PROCESS_NAME[p
 
 // ------------------------------------------------------------------ per student
 
-interface StudentAgg { all: Acc; std: Map<string, Acc>; tests: AttemptRow[]; attempts: AttemptRow[] }
+interface StudentAgg { all: Acc; right: number; std: Map<string, Acc>; tests: AttemptRow[]; attempts: AttemptRow[] }
 function perStudent(obs: Obs[], titles: Map<string, string>): Map<string, StudentAgg> {
   const by = new Map<string, Obs[]>();
   for (const o of obs) { const l = by.get(o.sid) ?? []; l.push(o); by.set(o.sid, l); }
   const out = new Map<string, StudentAgg>();
   for (const [sid, list] of by) {
     const all: Acc = { sum: 0, n: 0 }, std = new Map<string, Acc>();
-    for (const o of list) { if (o.credit === null) continue; all.sum += o.credit; all.n++; if (o.std) addTo(std, o.std, o.credit); }
+    let right = 0;
+    for (const o of list) { if (o.credit === null) continue; all.sum += o.credit; all.n++; if (o.credit === 1) right++; if (o.std) addTo(std, o.std, o.credit); }
     const attempts = attemptsOf(list, titles, (o) => `${o.kind}:${o.aid}`);
-    out.set(sid, { all, std, attempts, tests: attempts.filter((a) => a.kind === "TEST") });
+    out.set(sid, { all, right, std, attempts, tests: attempts.filter((a) => a.kind === "TEST") });
   }
   return out;
 }
@@ -322,7 +326,11 @@ export interface Dashboard {
   overview: { students: number; tested: number; testsTaken: number; tests: number; practiceSessions: number; practiceAnswers: number; avgScore: number | null; practicePct: number | null; trend: { delta: number; latest: { title: string; pct: number | null }; previous: { title: string; pct: number | null } } | null; waiting: number };
   standards: SkillRow[]; skills: SkillRow[]; processes: SkillRow[];
   missed: Missed[];
-  heat: { codes: string[]; students: { id: string; name: string; className: string; pct: number | null; n: number; cells: Record<string, { pct: number | null; n: number }> }[] };
+  /** r70: each student's score (tests and practice together), right / wrong (right + wrong = n), NAFS tests finished, top
+   * strength / weakness (strengths.ts) */
+  heat: { codes: string[]; students: { id: string; name: string; className: string; pct: number | null; n: number; right: number; wrong: number; tests: number; strength: string | null; weakness: string | null; strengthWhy: NoneWhy | null; weaknessWhy: NoneWhy | null; cells: Record<string, { pct: number | null; n: number }> }[] };
+  /** r70: the class line — the average of the students' scores (each once), students who finished a NAFS test (of the roster), strongest / weakest standard */
+  cls: ClassLine;
   attempts: AttemptRow[];
   practiceEffect: { code: string; short: string; practised: { delta: number | null; pairs: number }; notPractised: { delta: number | null; pairs: number } }[];
   students: { id: string; name: string; className: string; attempts: number; first: number | null; prev: number | null; latest: number | null; dPrev: number | null; dFirst: number | null }[];
@@ -378,9 +386,13 @@ async function buildDashboard(data: Loaded, classes: NafsClass[], all: NafsClass
   const codes = standards.map((x) => x.key);
   const heat: Dashboard["heat"] = {
     codes,
-    students: [...per].map(([id, a]) => ({ id, name: roster.get(id)!.name, className: roster.get(id)!.className, pct: pctOf(a.all), n: a.all.n, cells: Object.fromEntries(codes.filter((c) => a.std.has(c)).map((c) => [c, { pct: pctOf(a.std.get(c)), n: a.std.get(c)!.n }])) }))
-      .sort((a, b) => a.className.localeCompare(b.className) || a.name.localeCompare(b.name)),
+    students: [...per].map(([id, a]) => {
+      const cells = Object.fromEntries(codes.filter((c) => a.std.has(c)).map((c) => [c, { pct: pctOf(a.std.get(c)), n: a.std.get(c)!.n }]));
+      const sw = strengthsWeaknesses(cells);
+      return { id, name: roster.get(id)!.name, className: roster.get(id)!.className, pct: pctOf(a.all), n: a.all.n, right: a.right, wrong: a.all.n - a.right, tests: a.tests.length, strength: sw.top, weakness: sw.weak, strengthWhy: sw.topWhy, weaknessWhy: sw.weakWhy, cells };
+    }).sort((a, b) => a.className.localeCompare(b.className) || a.name.localeCompare(b.name)),
   };
+  const cls = classLine(heat.students.map((x) => ({ pct: x.pct, finished: x.tests > 0 })), Object.fromEntries(standards.map((x) => [x.key, { pct: x.pct, n: x.items }])), roster.size);
 
   // 3. tests vs practice: between two tests on a standard, did practising it move the next test?
   const eff = new Map<string, { p: number[]; np: number[] }>();
@@ -459,8 +471,30 @@ async function buildDashboard(data: Loaded, classes: NafsClass[], all: NafsClass
 
   return {
     scope: { classId, classes: all.map((c) => ({ id: c.id, name: c.name, students: c.students.length })), range, admin },
-    overview, standards, skills, processes, missed: missedAll, heat, attempts: classAttempts, practiceEffect, students, groups, noTest, weakest, movement, school,
+    overview, standards, skills, processes, missed: missedAll, heat, cls, attempts: classAttempts, practiceEffect, students, groups, noTest, weakest, movement, school,
   };
+}
+
+/**
+ * r69: the Reports and Suggested plan tabs read the same dashboard, kept per teacher and filter (a swept, bounded
+ * cache, given back by the sweeper), so moving between the two tabs computes it once.
+ * ⚡ r78: kept 10 minutes (was one) while no NAFS result, practice answer, NAFS tag or class roster was written in this
+ * process (write counters) and no NAFS test / practice was removed — the Suggested plan after an Assign, Reports ↔
+ * Plan, a reload: computed once. A new practice or test changes nothing here until a student answers (then the
+ * counters move and it is built again). At most 12 kept.
+ */
+const DASH_MS = 5 * 60_000; // r81: 10 → 5 minutes (512 MB plan)
+const DASH_MODELS = ["NafsResult", "NafsPracticeAnswer", "NafsBankItem", "ClassMembership", "ClassTeacher"];
+const dashCache = sweptMap<string, { at: number; d: Promise<Dashboard> }>("nafs.dashboard", DASH_MS, 12);
+export function nafsDashboardCached(repo: Repo, actor: Actor, opts: { classId?: string | null; from?: unknown; to?: unknown } = {}, now = Date.now()): Promise<Dashboard> {
+  const r = cleanRange(opts.from, opts.to);
+  const key = `${actor.userId}|${actor.role}|${opts.classId ?? ""}|${r.from ?? ""}|${r.to ?? ""}|${modelVersion(...DASH_MODELS)}|${nafsRemovedVersion()}`;
+  const had = dashCache.get(key);
+  if (had && now - had.at < DASH_MS) return had.d;
+  const d = nafsDashboard(repo, actor, opts);
+  dashCache.set(key, { at: now, d });
+  d.catch(() => dashCache.delete(key));
+  return d;
 }
 
 // ------------------------------------------------------------------ 5. one student's drill-down
@@ -494,8 +528,8 @@ export async function nafsStudentDashboard(repo: Repo, actor: Actor, studentId: 
     return { code: x.code, short: x.short, text: x.text, testPct: pctOf(t), testN: t.n, practicePct: pctOf(p), practiceN: p.n, pct: roundPct(t.sum + p.sum, t.n + p.n), n: t.n + p.n, first, latest, change: trend.length > 1 && first !== null && latest !== null ? latest - first : null, trend };
   });
   const enough = standards.filter((x) => x.n >= MIN_STD_ITEMS && x.pct !== null);
-  const strengths = [...enough].filter((x) => x.pct! >= WEAK_BELOW).sort((a, b) => b.pct! - a.pct! || a.code.localeCompare(b.code)).slice(0, 3).map((x) => x.code);
-  const weaknesses = [...enough].filter((x) => x.pct! < WEAK_BELOW).sort((a, b) => a.pct! - b.pct! || a.code.localeCompare(b.code)).slice(0, 3).map((x) => x.code);
+  // r70: the ONE rule (strengths.ts): strength ≥ 80 %, weakness < 60 %, at least 2 answers
+  const { strengths, weaknesses } = strengthsWeaknesses(standards.map((x) => [x.code, { pct: x.pct, n: x.n }] as [string, { pct: number | null; n: number }]));
   // practice history (newest first) with each target's state from the run
   const runOf = new Map(data.runs.map((r) => [s(r.practiceId), r]));
   const pAtt = attempts.filter((a) => a.kind === "PRACTICE");
@@ -548,8 +582,15 @@ export function dashboardDoc(d: Dashboard, base: Pick<ReportDoc, "branding" | "g
       { label: "Average score", value: o.avgScore, kind: "pct", glance: true, hint: "the mean of every test result" }, { label: "Practice % correct", value: o.practicePct, kind: "pct" },
       { label: "Change from the previous test", value: o.trend ? o.trend.delta : null, kind: "signed", tone: o.trend ? (o.trend.delta > 0 ? "good" : o.trend.delta < 0 ? "bad" : "neutral") : "neutral" },
       { label: "Written answers waiting for marking", value: o.waiting, kind: "int" },
+      { label: "Class average", value: d.cls.average, kind: "pct", hint: "the average of the students' scores (each student once)" },
+      { label: "Took a NAFS test", value: `${d.cls.finished} / ${d.cls.of}`, kind: "latin" },
+      { label: "Strongest standard", value: d.cls.strongest ? MOE_BY_CODE.get(d.cls.strongest)?.short ?? d.cls.strongest : "—", kind: "latin" },
+      { label: "Weakest standard", value: d.cls.weakest ? MOE_BY_CODE.get(d.cls.weakest)?.short ?? d.cls.weakest : "—", kind: "latin" },
     ] },
     { type: "bars", title: "Ministry standards (tests and practice)", items: d.standards.map((x) => ({ label: x.short, value: x.pct ?? 0, isolate: "latin" as const })), max: 100, kind: "pct" },
+    { type: "table", id: "scores", title: "Students", sheet: "Scores", empty: "No results yet.", note: "tests and practice together; Right + Wrong = the answers marked",
+      columns: [{ key: "name", label: "Student", kind: "name", width: 2 }, { key: "className", label: "Class", kind: "latin", nowrap: true }, { key: "pct", label: "Score", kind: "pct" }, { key: "right", label: "Right", kind: "int" }, { key: "wrong", label: "Wrong", kind: "int" }, { key: "tests", label: "Tests finished", kind: "int" }, { key: "strength", label: "Top strength", kind: "latin" }, { key: "weakness", label: "Top weakness", kind: "latin" }],
+      rows: d.heat.students.map((x) => ({ name: x.name, className: x.className, pct: x.pct, right: x.right, wrong: x.wrong, tests: x.tests, strength: x.strength ? MOE_BY_CODE.get(x.strength)?.short ?? x.strength : "—", weakness: x.weakness ? MOE_BY_CODE.get(x.weakness)?.short ?? x.weakness : "—" })) },
     dimTable("standards", "Ministry standards (S01–S13)", "Standards", d.standards),
     dimTable("skills", "NAFS skills", "NAFS skills", d.skills),
     dimTable("processes", "PIRLS reading processes", "PIRLS", d.processes),
@@ -613,6 +654,6 @@ export async function exportNafsDashboard(deps: ReportDeps, actor: Actor, req: {
 
 /** The download links of the dashboard (Excel / PDF) for the same class and dates. */
 export function dashboardDownload(format: "xlsx" | "pdf", classId: string | null, r: Range): string {
-  return `/api/nafs/dashboard?${new URLSearchParams([["format", format], ...(classId ? [["classId", classId]] : []), ...(r.from ? [["from", r.from]] : []), ...(r.to ? [["to", r.to]] : [])])}`;
+  return `/api/nafs/dashboard?${new URLSearchParams([["format", format], ...(classId ? [["classId", classId]] : []), ...(r.from ? [["from", r.from]] : []), ...(r.to ? [["to", r.to]] : []), ...(format === "pdf" ? [["print", "1"]] : [])])}`;
 }
 

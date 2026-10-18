@@ -4,6 +4,7 @@ import { card, field, h2, label } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listUsers, MANAGED_ROLES, type ManagedRole } from "@/server/admin/users";
 import { CreateUserForm } from "./create-user-form";
+import { restoreStudentAction, setActiveAction } from "../actions";
 import { getT } from "@/i18n/server";
 
 const ROLE_LABEL: Record<ManagedRole, string> = { SCHOOL_ADMIN: "School admin", TEACHER: "Teacher", STUDENT: "Student", PARENT: "Parent" };
@@ -35,7 +36,7 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
         <form className="mt-3 flex flex-wrap items-end gap-3" method="get">
           <label className={label}>Role<select name="role" defaultValue={role ?? ""} className={field}><option value="">All</option>{MANAGED_ROLES.map((r) => <option key={r} value={r}>{ROLE_LABEL[r]}</option>)}</select></label>
           <label className={label}>Search<input name="q" defaultValue={q.q ?? ""} placeholder="Name, username or number" className={field} /></label>
-          <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="inactive" value="1" defaultChecked={q.inactive === "1"} />Show deactivated</label>
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="inactive" value="1" defaultChecked={q.inactive === "1"} />{t("Show removed and inactive accounts")}</label>
           <button className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">Filter</button>
         </form>
         <div className="mt-4 overflow-x-auto">
@@ -44,12 +45,22 @@ export default async function UsersPage({ searchParams }: { searchParams: Promis
             <tbody>
               {users.map((u) => (
                 <tr key={u.userId} className="border-b last:border-0">
-                  <td className="py-2"><Link href={`/admin/users/${u.userId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{u.displayName}</bdi></Link></td>
+                  <td className="py-2">{u.removedOn ? <bdi className="font-semibold text-slate-500">{u.displayName}</bdi> : <Link href={`/admin/users/${u.userId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{u.displayName}</bdi></Link>}</td>
                   <td className="font-mono text-xs">{u.username}</td>
                   <td>{ROLE_LABEL[u.role]}{u.studentNumber ? ` · ${u.studentNumber}` : ""}</td>
                   <td>{u.role === "STUDENT" ? u.className ?? "—" : u.role === "TEACHER" ? u.classes.join(", ") || "—" : u.role === "PARENT" ? <bdi>{u.children.join(", ") || "—"}</bdi> : "—"}</td>
                   <td>{u.lastLoginAt ? u.lastLoginAt.slice(0, 10) : u.mustChangePassword ? "Not yet" : "—"}</td>
-                  <td>{u.isActive ? <span className="text-brand-teal">Active</span> : <span className="text-red-700">Deactivated</span>}</td>
+                  <td>
+                    {u.removedOn ? (
+                      <span className="flex flex-wrap items-center gap-2"><span className="text-red-700">{t("Removed on {date}", { date: u.removedOn })}</span>
+                        {u.studentId && <form action={restoreStudentAction}><input type="hidden" name="studentId" value={u.studentId} /><button className="min-h-9 rounded-lg bg-white px-2.5 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">↩️ {t("Restore")}</button></form>}
+                      </span>
+                    ) : u.isActive ? <span className="text-brand-teal">Active</span> : (
+                      <span className="flex flex-wrap items-center gap-2"><span className="text-red-700">Deactivated</span>
+                        <form action={setActiveAction}><input type="hidden" name="userId" value={u.userId} /><input type="hidden" name="active" value="true" /><button className="min-h-9 rounded-lg bg-white px-2.5 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t("Turn on again")}</button></form>
+                      </span>
+                    )}
+                  </td>
                 </tr>
               ))}
               {users.length === 0 && <tr><td colSpan={6} className="py-6 text-center text-slate-500">No users match.</td></tr>}

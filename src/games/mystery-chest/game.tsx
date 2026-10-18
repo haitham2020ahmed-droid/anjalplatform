@@ -11,6 +11,7 @@ import type { GameProps, LivePadProps, PowerEffect, PowerUpId, RoundApi } from "
 import { AnswerTiles } from "../kit/answer-tiles";
 import { PowerBar } from "../kit/power-bar";
 import { chestResponse, dealChests, LIVE_CHESTS_ENABLED, openChest, rivalTurn, SOLO_CHEST, type ChestPrize, type ChestResult } from "./chest";
+import { RichInline } from "../../components/rich-inline";
 
 export const RIVAL_NAME = "Bolt";
 /** visual / luck randomness (crypto source keeps the platform free of Math.random) */
@@ -153,12 +154,12 @@ export default function MysteryChest({ questions, round, level }: GameProps) {
           <article className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
             {q.passage && (
               <details className="mb-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-                <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-                <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+                <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+                <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
               </details>
             )}
             <p className="text-sm font-semibold text-amber-700">🎁 {t("A right answer opens a surprise chest")}</p>
-            <p dir="ltr" lang="en" className="mt-1 text-xl font-semibold leading-relaxed text-slate-900">{q.stem}</p>
+            <p dir="ltr" lang="en" className="mt-1 text-xl font-semibold leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>
             {hint && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
           </article>
           <AnswerTiles options={q.options ?? []} hidden={hidden} disabled={phase !== "ask" || round.over} onPick={pick} reveal={phase === "wrong" ? { right, picked } : null} />

@@ -2,7 +2,7 @@
  * Practice items: load from the DB into a scoring model, and build the SAFE
  * payload sent to the browser (no keys, no rationales, no explanations).
  */
-import { definitelyNeedsPassage } from "../../lib/passage-detect";
+import { definitelyNeedsPassage, isDanglingPassageRef } from "../../lib/passage-detect";
 import { createHash } from "node:crypto";
 import { combineGuidance, errorKey, isClassicErrorItem, readErrorResponse, storedParts, twoPartScores, scoreResponse, type BankItem, type BankOption, type QuestionTypeCode } from "../../imports/questions/validate";
 import { chosenMisconception } from "../../insights/misconceptions";
@@ -10,6 +10,7 @@ import type { CandidateItem } from "../../types/domain";
 import { mapLinkedQuestionIds, skillGrades, thetaShift } from "../questions/bank-scope";
 import type { Repo, Row } from "../seeding/repo";
 import { bankVersion } from "../cache/bank-version";
+import { sweptMap } from "../cache/idle";
 import { heldBackQuestionIds } from "../questions/held-back";
 import { skillFamilyIds } from "../questions/skill-questions";
 import { diagnoseSpelling } from "../word-study/spelling-diagnosis";
@@ -67,8 +68,10 @@ const str = (v: unknown) => String(v ?? "");
 const ITEM_CACHE_MS = 60_000;
 /** the question columns an item is built from (not the analysis / statistics columns) */
 const ITEM_COLUMNS = ["id", "externalRef", "skillId", "typeId", "passageId", "imageId", "stem", "content", "hint", "difficultyLevel", "estimatedSeconds", "irtA", "irtB", "irtC", "contentHash"] as const;
-const ITEM_CACHE_MAX = 500;
-const itemCache = new Map<string, { version: number; at: number; items: PracticeItem[] }>();
+// r68 memory: at most 80 pools (a class works on a handful of skills at a time); an expired pool is REMOVED by the
+// sweeper (before, an old pool stayed in memory until 500 had piled up — memory that never came back when idle)
+const ITEM_CACHE_MAX = 80;
+const itemCache = sweptMap<string, { version: number; at: number; items: PracticeItem[] }>("practice.pools", ITEM_CACHE_MS, ITEM_CACHE_MAX);
 
 /**
  * Load every PUBLISHED item for a skill (cached; batched on a miss: one query per table).
@@ -88,7 +91,6 @@ export async function loadSkillItems(repo: Repo, skillId: string, opts: { questi
   if (hit && hit.version === bankVersion() && Date.now() - hit.at < ITEM_CACHE_MS) return atLevelOf(repo, skillId, tag(structuredClone(hit.items)));
   const version = bankVersion();
   const items = await loadItemsForSkills(repo, fam.length ? fam : [skillId], { includeMapLinked: Boolean(opts.wholePool) });
-  if (itemCache.size >= ITEM_CACHE_MAX) itemCache.clear();
   itemCache.set(key, { version, at: Date.now(), items: structuredClone(items) });
   return atLevelOf(repo, skillId, tag(items));
 }
@@ -130,7 +132,7 @@ export async function loadItemsForSkills(repo: Repo, skillIds: string[], opts: {
  */
 const QUESTION_CACHE_MAX = 1000;
 const QUESTION_CACHE_LIST = 50;
-const questionCache = new Map<string, { version: number; at: number; item: PracticeItem }>();
+const questionCache = sweptMap<string, { version: number; at: number; item: PracticeItem }>("practice.questions", ITEM_CACHE_MS, QUESTION_CACHE_MAX);
 
 /** Specific PUBLISHED questions (a teacher's question set), in the order given. Missing ones are skipped. */
 export async function loadQuestionItems(repo: Repo, questionIds: string[]): Promise<PracticeItem[]> {
@@ -196,10 +198,15 @@ async function buildItems(repo: Repo, qs: Row[], holdBack = false): Promise<Prac
   // 🧹 never served: a question that clearly needs a reading passage ("according to the passage", "in paragraph 3"…)
   // but has none attached (or its passage is missing / empty) — Update 55, it reached some students
   const noText = (q: Row) => { const p = q.passageId ? passage.get(str(q.passageId)) : undefined; return !(p && str(p.body).trim()) && definitelyNeedsPassage(str(q.stem)); };
+  // 🧹 standing defensive filter (r87): a question whose passageId is set but does not resolve to real text
+  // (blank passage, never filled in) is excluded here too, regardless of wording — this is the one place every
+  // served question passes through, so a question can never reach a student even before any cleanup run has
+  // caught it (src/server/admin/passage-cleanup.ts cleans up what already got served).
+  const orphaned = (q: Row) => isDanglingPassageRef(q.passageId ? str(q.passageId) : null, q.passageId ? str(passage.get(str(q.passageId))?.body ?? "") : null);
   // ⚡ each question's options / answers / explanations grouped once (was a scan of every row per question)
   const by = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = str(r.questionId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
   const optsOf = by(opts), answersOf = by(answers), explOf = by(expl);
-  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
+  return qs.filter((q) => autoScored.has(str(q.typeId)) && !noText(q) && !orphaned(q)).map((q) => ({ ...toPracticeItem(q, optsOf.get(str(q.id)) ?? [], answersOf.get(str(q.id)) ?? [], explOf.get(str(q.id)) ?? [], typeCode, passage), image: q.imageId && imageAlt.has(str(q.imageId)) ? { id: str(q.imageId), alt: imageAlt.get(str(q.imageId))! } : null, skillKey: String(q.skillId) }));
 }
 
 function toPracticeItem(q: Row, opts: Row[], answers: Row[], expl: Row[], typeCode: Map<string, QuestionTypeCode>, passage: Map<string, Row>): PracticeItem {

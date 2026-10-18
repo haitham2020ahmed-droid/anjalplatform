@@ -20,6 +20,7 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { isHiddenSkill } from "../skills/master";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import { weekStart } from "../student/weekly";
 import { hideLevels } from "../../lib/hide-levels";
 import { homeTopicFor, type HomeTopic } from "./family-week-words";
@@ -102,9 +103,15 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "testId", "classId", "points", "maxPoints", "submittedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FamilyWeekNote", { studentId: { in: ids }, week: iso(since) }, { select: ["studentId", "note"] }).catch(() => [] as Row[]), // a database without the table yet: no notes
   ]);
-  const doneNow = done.filter((r) => inWeek(r.completedAt));
-  const aIds = [...new Set(doneNow.map((r) => s(r.assignmentId)))];
-  const assignments = aIds.length ? await repo.findMany("Assignment", { id: { in: aIds } }, { select: ["id", "title", "testId", "assessmentId"] }) : [];
+  const doneAll = done.filter((r) => inWeek(r.completedAt));
+  const aIds = [...new Set(doneAll.map((r) => s(r.assignmentId)))];
+  // r78: a task cancelled on Assigned is not one of the family's "tasks" (the answers stay; the task is not listed)
+  const [assignments, ix] = await Promise.all([
+    aIds.length ? repo.findMany("Assignment", liveAssignmentWhere({ id: { in: aIds } }), { select: ["id", "title", "testId", "assessmentId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]),
+    cancelIndexForStudents(repo, ids),
+  ]);
+  const liveById = new Map(assignments.map((a) => [s(a.id), a]));
+  const doneNow = doneAll.filter((r) => liveById.has(s(r.assignmentId)) && ix.live(liveById.get(s(r.assignmentId))!, s(r.studentId)));
   const tests = assignments.filter((a) => a.testId);
   const skillIds = [...new Set([...lessonRuns.map((r) => s(r.skillId)), ...attempts.map((a) => s(a.skillId)), ...mastery.map((m) => s(m.skillId))].filter(Boolean))];
   const articleIds = [...new Set(runs.map((r) => s(r.articleId)))];
@@ -152,12 +159,13 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     // things to practise: this week's hardest skills (3+ careful answers, under 70 %), then the skills not mastered yet
     const per = new Map<string, { n: number; ok: number }>();
     for (const a of mineAttempts) { if (a.rapidGuess || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
-    const hard = [...per].filter(([, o]) => o.n >= 3 && o.ok / o.n < 0.7).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => skillName.get(k)!);
-    const open = mastery.filter((m) => s(m.studentId) === id && skillName.has(s(m.skillId))).map((m) => skillName.get(s(m.skillId))!);
+    const hard = [...per].filter(([, o]) => o.n >= 3 && o.ok / o.n < 0.7).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => k);
+    const open = mastery.filter((m) => s(m.studentId) === id && skillName.has(s(m.skillId))).map((m) => s(m.skillId));
     const practise: HomeTopic[] = [];
-    for (const name of [...hard, ...open]) {
-      const t = homeTopicFor(name);
-      if (!practise.some((p) => p.key === t.key)) practise.push(t);
+    for (const skillId of [...hard, ...open]) {
+      const t = homeTopicFor(skillName.get(skillId)!);
+      // r79: the skill behind the topic — the printed page links it to the student's practice
+      if (!practise.some((p) => p.key === t.key)) practise.push({ ...t, skillId });
       if (practise.length >= 3) break;
     }
     if (practise.length < 2) for (const key of ["reading", "words"] as const) { const t = homeTopicFor(key); if (!practise.some((p) => p.key === t.key) && practise.length < 2) practise.push(t); }

@@ -9,12 +9,15 @@ import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
+import { TtlCache } from "../lib/ttl-cache";
+import { modelVersion } from "../cache/bank-version";
 import { levelsOf, practiceStats, studentNames, workStats, type PracticeStats, type WorkStats } from "./student-data";
 import { mapProfiles, type MapProfile } from "../map/map-plan";
 import { sentPlans, type PlanDoc } from "../map/map-more";
 import { commentsFor, dueMistakes, type CommentView } from "../teacher/classroom";
 import { notesFor } from "../teacher/extras";
 import { studentBadges } from "../student/badges";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { isReportShared } from "./parent-report";
 import { ALERT_INFO, type AlertKind } from "./alerts";
 import { matchesStudent, normalizeName } from "../../components/teacher/name-match";
@@ -34,8 +37,26 @@ async function allowedStudents(repo: Repo, actor: Actor): Promise<{ classIds: st
 
 export interface FoundStudent { id: string; name: string; number: string; username: string; grade: number; className: string }
 
+/**
+ * ⚡ "My Students" / the student search both call this on every keystroke; without a cache each call re-reads every
+ * Student, User, Class, Grade and ClassMembership row of the whole school (4–5 full-table round trips) just to
+ * filter it in JS a moment later. Read once per actor scope for a few seconds — any write to one of these models
+ * (an import, a roster change, a new sign-up) is seen at once by the next search (write counters, same pattern as
+ * accessibleClasses). Callers get copies, never the cached array itself.
+ */
+const SCOPE_CACHE_MS = 10_000;
+const scopeCache = new WeakMap<object, TtlCache<(FoundStudent & { classId: string })[]>>();
+
 /** Every student this person may open (teacher: own classes; admin: the school), with grade and class. */
 async function studentsInScope(repo: Repo, actor: Actor): Promise<(FoundStudent & { classId: string })[]> {
+  const key = `${actor.role}|${actor.schoolId}|${actor.userId}|${modelVersion("Student", "User", "Class", "Grade", "ClassMembership")}`;
+  let c = scopeCache.get(repo);
+  if (!c) scopeCache.set(repo, (c = new TtlCache(SCOPE_CACHE_MS, 200)));
+  const rows = await c.getOrLoad(key, () => readStudentsInScope(repo, actor));
+  return rows.map((r) => ({ ...r }));
+}
+
+async function readStudentsInScope(repo: Repo, actor: Actor): Promise<(FoundStudent & { classId: string })[]> {
   const scope = await allowedStudents(repo, actor);
   if (!scope.all && !scope.classIds.length) return [];
   const mem = await repo.findMany("ClassMembership", { leftAt: null, ...(scope.all ? {} : { classId: { in: scope.classIds } }) }, { select: ["studentId", "classId"] });
@@ -128,7 +149,9 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
   const profile = await repo.findUnique("StudentProfile", { studentId });
   const windows = sims.length ? await repo.findMany("MapSimWindow", { id: { in: [...new Set(sims.map((x) => s(x.windowId)).filter(Boolean))] } }, { select: ["id", "title"] }) : [];
   const tasks = subs.length ? await repo.findMany("WritingTask", { id: { in: subs.map((x) => x.taskId) } }, { select: ["id", "title", "kind", "genre", "locked", "rubric"] }) : [];
-  const asg = asgRows.length ? await repo.findMany("Assignment", { id: { in: asgRows.map((a) => a.assignmentId) }, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] }) : [];
+  // r78: cancelled on Assigned (for everyone or this student) = not in the student's file
+  const ix = await cancelIndex(repo, actor.schoolId);
+  const asg = asgRows.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: asgRows.map((a) => a.assignmentId) } }), { select: ["id", "title", "dueAt", "createdAt", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)) : [];
   const tickets = exitAns.length ? await repo.findMany("ExitTicket", { id: { in: [...new Set(exitAns.map((a) => s(a.ticketId)))] } }, { select: ["id", "title", "createdAt"] }) : [];
   const skills = mastery.length ? await repo.findMany("Skill", { id: { in: mastery.map((m) => m.skillId) } }, { select: ["id", "name"] }) : [];
   const tried = mastery.filter((m) => Number(m.attempts) >= 5).map((m) => ({ name: s(skills.find((k) => k.id === m.skillId)?.name), pct: Math.round((100 * Number(m.correct)) / Number(m.attempts)), answers: Number(m.attempts) }));
@@ -137,7 +160,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     id: studentId, name: s(user?.displayName), number: s(st.studentNumber), username: s(user?.username), grade: Number(grade?.level ?? 0), className: s(klass?.name), classId: klass ? s(klass.id) : null, teachers: tUsers.map((u) => s(u.displayName)),
     lastLogin: iso(user?.lastLoginAt), signIns30: logins.length, level: (profile && ["BELOW", "ON", "ABOVE"].includes(s(profile.level)) ? s(profile.level) as NonNullable<typeof lv>["level"] : null) ?? lv?.level ?? null, reportShared: shared,
     practice: practice.get(studentId)!, work: work.get(studentId)!, streakDays: 0,
-    skills: { strong: [...tried].sort((a, b) => b.pct - a.pct).filter((x) => x.pct >= 70).slice(0, 5), weak: [...tried].sort((a, b) => a.pct - b.pct).filter((x) => x.pct < 60).slice(0, 5), mastered: mastery.filter((m) => m.isMastered).length, started: mastery.length },
+    skills: { strong: [...tried].sort((a, b) => b.pct - a.pct).filter((x) => x.pct >= 80 /* r72: the one rule — strong = 80 %+ (was 70) */).slice(0, 5), weak: [...tried].sort((a, b) => a.pct - b.pct).filter((x) => x.pct < 60).slice(0, 5), mastered: mastery.filter((m) => m.isMastered).length, started: mastery.length },
     map: [reading.get(studentId)!, language.get(studentId)!].filter((p) => p.term), plans, draftPlans,
     tests: sims.sort((a, b) => time(b.startedAt) - time(a.startedAt)).map((x) => ({ title: s(windows.find((w) => w.id === x.windowId)?.title) || "MAP practice test", subject: s(x.subject), status: s(x.status), rit: x.resultRit === null || x.resultRit === undefined ? null : Number(x.resultRit), low: x.resultLow === null || x.resultLow === undefined ? null : Number(x.resultLow), high: x.resultHigh === null || x.resultHigh === undefined ? null : Number(x.resultHigh), answered: Number(x.answered), total: Number(x.total), rapid: Number(x.rapid), when: iso(x.finishedAt ?? x.startedAt) })),
     writing: subs.map((x) => { const t = tasks.find((y) => y.id === x.taskId); const sc = x.scores ? (typeof x.scores === "string" ? JSON.parse(x.scores) : x.scores) as Record<string, number> : null; const kind = s(t?.kind); return { taskId: s(x.taskId), title: s(t?.title), kind, status: s(x.status), total: sc ? Object.values(sc).reduce((a, b) => a + Number(b), 0) : null, max: t ? scoreMax(t) : kind === "READ_ALOUD" ? 12 : 16, pct: t ? scorePercent(t, x) : null, locked: isLocked(t), hasAudio: Boolean(x.audioType), when: iso(x.submittedAt) }; }),

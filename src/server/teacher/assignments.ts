@@ -7,6 +7,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { refreshQuestionSets, refreshSkillAssignments } from "./assign";
 
 export interface NewAssignment {
@@ -16,7 +17,11 @@ export interface NewAssignment {
   skillIds?: string[];
   unitId?: string;
   dueAt: Date | null;
+  /** r68: students see it from this day (null: at once) */
+  startAt?: Date | null;
   targetMastery?: number;
+  /** r74: REQUIRED — MAP | NAFS | CURRICULUM | GRAMMAR | RTI */
+  source: string | null | undefined;
 }
 
 /** Teacher of the class, or an admin of the class's school. */
@@ -46,6 +51,7 @@ async function targetSkills(repo: Repo, a: Row): Promise<string[]> {
 
 export async function createAssignment(repo: Repo, actor: Actor, input: NewAssignment, now = new Date()): Promise<Row> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const title = input.title.replace(/\s+/g, " ").trim();
   if (!title || title.length > 191) throw new ValidationError("Give the assignment a title (under 191 characters).");
@@ -70,7 +76,7 @@ export async function createAssignment(repo: Repo, actor: Actor, input: NewAssig
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!teacher) throw new ForbiddenError("Only teachers can create assignments.");
   const a = await repo.create("Assignment", {
-    classId: klass.id, createdById: teacher.id, title, target: input.target, unitId, skillIds, dueAt: input.dueAt, targetMastery, createdAt: now,
+    classId: klass.id, createdById: teacher.id, title, target: input.target, unitId, skillIds, dueAt: input.dueAt, ...(input.startAt ? { startAt: input.startAt } : {}), targetMastery, createdAt: now, source,
   });
   const members = await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null });
   for (const m of members) {

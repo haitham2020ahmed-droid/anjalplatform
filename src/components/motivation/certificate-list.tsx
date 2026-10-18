@@ -16,7 +16,7 @@ export async function CertificateList({ items, empty }: { items: CertificateRow[
             <span className="block text-sm text-slate-600"><span dir="ltr">{c.date}</span>{c.byTeacher ? <> · {t("From my teacher")}</> : null}</span>
           </span>
           <span className="flex shrink-0 flex-col gap-1 sm:flex-row">
-            <a href={`/api/certificates/${c.id}?lang=${lang}`} className="inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-3 text-sm font-semibold text-white">PDF</a>
+            <a href={`/api/certificates/${c.id}?lang=${lang}&print=1`} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center rounded-xl bg-brand-navy px-3 text-sm font-semibold text-white">PDF</a>
             <a href={`/api/certificates/${c.id}?format=html&lang=${lang}`} target="_blank" rel="noopener" className="inline-flex min-h-11 items-center rounded-xl bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300">{t("Print")}</a>
           </span>
         </li>

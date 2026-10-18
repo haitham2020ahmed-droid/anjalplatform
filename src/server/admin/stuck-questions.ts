@@ -1,9 +1,12 @@
 /**
  * 🛠 “Fix stuck questions” (owner, r67): ONE admin action for every question that is stuck in the bank — not under a
  * skill, a draft, or waiting for review. It runs on the school's own database in small batches (the page shows the
- * progress; the server never holds the bank in memory), never deletes anything, and is idempotent (a second run
+ * progress; the server never holds the bank in memory), never erases anything, and is idempotent (a second run
  * finds nothing new to do). Phases:
  *
+ *   0. passages  (r68) every question whose wording needs a passage / story / poem / chart / picture that is not
+ *                attached is removed from the platform: a SOFT delete by the admin delete rule (hidden everywhere,
+ *                students' answers kept; src/server/admin/missing-passage.ts). Listed in the report.
  *   1. classify  every question on a grade's hidden “Unclassified (Curriculum Map)” skill gets its real skill, by the
  *                platform's own link pass (src/server/questions/link-bank.ts — the same rules as Sort Questions):
  *                the skill named in the import file / tags, the question's standard → the same-grade skill linked to
@@ -29,6 +32,7 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { LEVEL_TO_B } from "../../config/engine";
 import { isHiddenSkill } from "../skills/master";
 import { ritOf } from "../questions/bank-scope";
+import type { JobDef } from "../jobs/runner";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const tagsOf = (v: unknown): Record<string, unknown> => {
@@ -46,9 +50,9 @@ const LIST_CAP = 200;
 export const FIX_LINK_THRESHOLD = 0.6;
 const REPORT_KEY = "questions.fixStuck.report";
 /** bump when the rules change: the background run happens once per version */
-export const AUTO_RUN_KEY = "questions.fixStuck.auto.r67";
+export const AUTO_RUN_KEY = "questions.fixStuck.auto.r68";
 
-export type Phase = "classify" | "repair" | "done";
+export type Phase = "passages" | "classify" | "repair" | "done";
 export interface Cursor { phase: Phase; after: string | null }
 export interface StuckItem { id: string; stem: string; reason: string }
 export interface StuckCounts { unclassified: number; drafts: number; waiting: number }
@@ -61,6 +65,8 @@ export interface FixReport {
   repaired: Record<string, number>; repairedQuestions: number;
   published: number;
   notPublished: StuckItem[]; notPublishedCount: number;
+  /** r68: removed because they need a passage / picture that is not attached (soft delete; first LIST_CAP) */
+  removedNoPassage?: number; removedList?: StuckItem[];
 }
 export interface StepResult { cursor: Cursor; processed: number; report: FixReport }
 
@@ -316,7 +322,22 @@ async function repairPublishPage(repo: Repo, actor: Actor, schoolId: string, sk:
 
 // ------------------------------------------------------------------ the run
 
-const emptyReport = (by: "admin" | "auto", before: StuckCounts, now: Date): FixReport => ({ startedAt: now.toISOString(), finishedAt: null, by, before, after: null, classified: 0, byVia: {}, left: [], leftCount: 0, repaired: {}, repairedQuestions: 0, published: 0, notPublished: [], notPublishedCount: 0 });
+const emptyReport = (by: "admin" | "auto", before: StuckCounts, now: Date): FixReport => ({ startedAt: now.toISOString(), finishedAt: null, by, before, after: null, classified: 0, byVia: {}, left: [], leftCount: 0, repaired: {}, repairedQuestions: 0, published: 0, notPublished: [], notPublishedCount: 0, removedNoPassage: 0, removedList: [] });
+
+// ------------------------------------------------------------------ 0. passages
+
+/** One batch: the questions of this page that need a missing passage are soft-deleted (the admin delete rule). */
+async function passagesPage(repo: Repo, actor: Actor, schoolId: string, after: string | null, report: FixReport, now: Date): Promise<{ next: string | null; processed: number }> {
+  const { missingPassagePage, removeMissingPassage } = await import("./missing-passage");
+  const r = await missingPassagePage(repo, schoolId, after);
+  if (r.items.length) {
+    const done = await removeMissingPassage(repo, actor, r.items.map((x) => x.id), now);
+    report.removedNoPassage = (report.removedNoPassage ?? 0) + done.removed;
+    report.removedList = report.removedList ?? [];
+    for (const x of r.items) if (report.removedList.length < LIST_CAP) report.removedList.push({ id: x.id, stem: x.stem.slice(0, 140), reason: x.reason });
+  }
+  return { next: r.next, processed: r.processed };
+}
 
 export async function lastFixReport(repo: Repo, schoolId: string): Promise<FixReport | null> {
   const row = (await repo.findMany("SchoolSetting", { schoolId, key: REPORT_KEY }, { take: 1 }))[0];
@@ -337,9 +358,15 @@ export async function fixStuckStep(repo: Repo, actor: Actor, cursor: Cursor | nu
   const sk = await schoolSkills(repo, schoolId);
   let report = cursor ? await lastFixReport(repo, schoolId) : null;
   if (!report || !cursor) report = emptyReport(opts.by ?? "admin", await stuckCounts(repo, schoolId), now);
-  let cur: Cursor = cursor ?? { phase: "classify", after: null };
+  let cur: Cursor = cursor ?? { phase: "passages", after: null };
   let processed = 0;
-  if (cur.phase === "classify") {
+  if (cur.phase === "passages") {
+    const r = await passagesPage(repo, actor, schoolId, cur.after, report, now);
+    processed = r.processed;
+    cur = r.next ? { phase: "passages", after: r.next } : { phase: "classify", after: null };
+    // reports already open on a removed question leave Flagged Questions too
+    if (!r.next) { const { sweepRemovedFlags } = await import("../questions/flags-removed"); await sweepRemovedFlags(repo, schoolId, now); }
+  } else if (cur.phase === "classify") {
     const r = await classifyPage(repo, schoolId, opts.by === "auto" ? null : actor.userId, sk, cur.after, report, now);
     processed = r.processed;
     cur = r.next ? { phase: "classify", after: r.next } : { phase: "repair", after: null };
@@ -369,24 +396,47 @@ export async function fixStuckQuestions(repo: Repo, actor: Actor, opts: { by?: "
  * school's first admin (its report is on System check). Claims the key first, so it runs once even with two servers.
  */
 export async function fixStuckOnce(repo: Repo, now = new Date()): Promise<number> {
-  let n = 0;
-  for (const school of await repo.findMany("School", {}, { select: ["id"] })) {
-    const schoolId = s(school.id);
-    const admin = (await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true, deletedAt: null }, { select: ["id"], orderBy: [{ field: "createdAt", dir: "asc" }], take: 1 }))[0];
-    if (!admin) continue;
-    const claimed = await repo.create("SchoolSetting", { schoolId, key: AUTO_RUN_KEY, value: { startedAt: now.toISOString() }, updatedBy: null }).then(() => true, () => false);
-    if (!claimed) continue;
-    const actor: Actor = { userId: s(admin.id), role: "SCHOOL_ADMIN", schoolId };
-    const report = await fixStuckQuestions(repo, actor, { by: "auto", now });
-    await repo.upsert("SchoolSetting", { schoolId, key: AUTO_RUN_KEY }, { value: { finishedAt: new Date().toISOString(), published: report.published, classified: report.classified } }, { value: { finishedAt: new Date().toISOString(), published: report.published, classified: report.classified } });
-    n++;
-  }
-  return n;
+  const { runJobEverywhere } = await import("../jobs/runner");
+  return (await runJobEverywhere(repo, FIX_STUCK_JOB, { now })).filter((o) => o.ran).length;
 }
 
-let started: Promise<number> | null = null;
+const firstAdmin = async (repo: Repo, schoolId: string): Promise<string | null> =>
+  s((await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true, deletedAt: null }, { select: ["id"], orderBy: [{ field: "createdAt", dir: "asc" }], take: 1 }))[0]?.id) || null;
+
+/**
+ * 🛠 The same run as a light background job (src/server/jobs/runner.ts): one batch per step (100 to classify, 40 to
+ * repair and publish), the cursor saved after each, so a restart resumes; once per update (AUTO_RUN_KEY is its
+ * checkpoint row, claimed per school, so two servers never run it twice). Acts as the school's first admin; schools
+ * without an admin are left for a later start (as before).
+ */
+export const FIX_STUCK_JOB: JobDef<Cursor> = {
+  name: "fix-stuck",
+  version: AUTO_RUN_KEY,
+  stateKey: AUTO_RUN_KEY,
+  async schools(repo) {
+    const out: string[] = [];
+    for (const sc of await repo.findMany("School", {}, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }] })) if (await firstAdmin(repo, s(sc.id))) out.push(s(sc.id));
+    return out;
+  },
+  async skip(repo, schoolId) {
+    // finished before the runner existed (the old mark: { finishedAt, published, classified })
+    const row = await repo.findUnique("SchoolSetting", { schoolId, key: AUTO_RUN_KEY });
+    const v = row ? (valueOf(row.value) as Record<string, unknown> | null) : null;
+    return Boolean(v && typeof v === "object" && v.finishedAt && v.version === undefined);
+  },
+  async step(repo, schoolId, cursor, _state, now) {
+    const admin = await firstAdmin(repo, schoolId);
+    if (!admin) return { cursor, done: true };
+    const r = await fixStuckStep(repo, { userId: admin, role: "SCHOOL_ADMIN", schoolId }, cursor, { by: "auto", now });
+    return { cursor: r.cursor.phase === "done" ? null : r.cursor, done: r.cursor.phase === "done", progress: { processed: r.processed } };
+  },
+  async finish(repo, schoolId) {
+    const r = await lastFixReport(repo, schoolId);
+    return { finishedAt: new Date().toISOString(), published: r?.published ?? 0, classified: r?.classified ?? 0 };
+  },
+};
+
 /** Once per server process (instrumentation): in the background, never throws. */
 export function fixStuckOnceInBackground(repo: Repo): Promise<number> {
-  started ??= fixStuckOnce(repo).catch(() => { started = null; return 0; });
-  return started;
+  return fixStuckOnce(repo).catch(() => 0);
 }

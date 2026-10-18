@@ -2,6 +2,7 @@
 /** @jsxImportSource react */
 import Link from "next/link";
 import type { FixReport } from "@/server/admin/stuck-questions";
+import { RichInline } from "@/components/rich-inline";
 
 const REPAIR_LABEL: Record<string, string> = {
   "answer key": "answer key restored from the stored data", "duplicate choice removed": "duplicate choices removed", "blank choice removed": "blank choices removed",
@@ -40,7 +41,16 @@ export function FixReportView({ report: r, t }: { report: FixReport; t: (s: stri
         <details className="rounded-xl bg-amber-50 p-3 ring-1 ring-amber-200" open={r.notPublished.length <= 10}>
           <summary className="cursor-pointer font-semibold text-amber-950">{t("Not published yet ({n}): open each one and fix it", { n: r.notPublishedCount })}</summary>
           <ul className="mt-2 space-y-1.5 text-sm">{r.notPublished.map((x) => (
-            <li key={x.id} className="flex flex-wrap items-baseline gap-x-2"><Link href={`/admin/questions/${x.id}`} className="font-semibold text-brand-navy underline">{t("Open in editor")}</Link><span className="text-slate-800">{x.stem || x.id}</span><span className="text-amber-900">· {x.reason}</span></li>
+            <li key={x.id} className="flex flex-wrap items-baseline gap-x-2"><Link href={`/admin/questions/${x.id}`} className="font-semibold text-brand-navy underline">{t("Open in editor")}</Link><span className="text-slate-800">{x.stem ? <RichInline text={x.stem} /> : x.id}</span><span className="text-amber-900">· {x.reason}</span></li>
+          ))}</ul>
+        </details>
+      )}
+      {(r.removedNoPassage ?? 0) > 0 && (
+        <details className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200" data-testid="fix-removed-no-passage">
+          <summary className="cursor-pointer font-semibold text-slate-800">{t("Removed: they need a passage or picture that is not attached ({n})", { n: r.removedNoPassage ?? 0 })}</summary>
+          <p className="mt-1 text-sm text-slate-600">{t("Hidden from the whole platform; students' answers are kept.")}</p>
+          <ul className="mt-2 space-y-1.5 text-sm">{(r.removedList ?? []).map((x) => (
+            <li key={x.id}><span className="text-slate-800">{x.stem ? <RichInline text={x.stem} /> : x.id}</span> <span className="text-slate-600">· {x.reason}</span></li>
           ))}</ul>
         </details>
       )}
@@ -49,7 +59,7 @@ export function FixReportView({ report: r, t }: { report: FixReport; t: (s: stri
           <summary className="cursor-pointer font-semibold text-slate-800">{t("Still without a skill ({n})", { n: r.leftCount })}</summary>
           <p className="mt-1 text-sm"><Link href="/admin/questions/unclassified" className="font-semibold text-brand-navy underline">{t("Choose their skills")}</Link></p>
           <ul className="mt-2 space-y-1.5 text-sm">{r.left.map((x) => (
-            <li key={x.id}><Link href={`/admin/questions/${x.id}`} className="font-medium text-brand-navy underline">{x.stem || x.id}</Link> <span className="text-slate-600">· {x.reason}</span></li>
+            <li key={x.id}><Link href={`/admin/questions/${x.id}`} className="font-medium text-brand-navy underline">{x.stem ? <RichInline text={x.stem} /> : x.id}</Link> <span className="text-slate-600">· {x.reason}</span></li>
           ))}</ul>
         </details>
       )}

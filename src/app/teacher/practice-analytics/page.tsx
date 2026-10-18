@@ -8,6 +8,7 @@ import { resolvePeriod, type PeriodName } from "@/analytics/periods";
 import { loadCalendar } from "@/server/analytics/calendar";
 import { practiceAnalytics } from "@/server/analytics/practice";
 import { DayBars, SkillDonut } from "@/components/analytics/practice-charts";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Practice Analytics" };
 const RANGES: [PeriodName, string][] = [["LAST_7_DAYS", "Last 7 days"], ["LAST_30_DAYS", "Last 30 days"], ["TERM", "This term"], ["SCHOOL_YEAR", "School year"]];
@@ -122,7 +123,7 @@ export default async function PracticeAnalyticsPage({ searchParams }: { searchPa
               {a.trouble.length > 0 && (
                 <section className="rk-callout mt-5 rounded-3xl bg-amber-50 p-5 ring-1 ring-amber-200">
                   <h2 className="font-bold text-amber-950">🚧 Trouble spots · questions most students missed</h2>
-                  <ul className="mt-2 space-y-1.5 text-sm">{a.trouble.map((x) => <li key={x.questionId} className="flex flex-wrap justify-between gap-2"><span><span className="text-slate-500">{x.skill}:</span> {x.stem}</span><b className="tabular-nums text-amber-900">{x.missedBy}/{x.tried} missed</b></li>)}</ul>
+                  <ul className="mt-2 space-y-1.5 text-sm">{a.trouble.map((x) => <li key={x.questionId} className="flex flex-wrap justify-between gap-2"><span><span className="text-slate-500">{x.skill}:</span> <RichInline text={x.stem} /></span><b className="tabular-nums text-amber-900">{x.missedBy}/{x.tried} missed</b></li>)}</ul>
                 </section>
               )}
             </>

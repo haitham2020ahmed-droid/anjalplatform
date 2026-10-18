@@ -29,6 +29,9 @@ import { isTargetCode, loadNafsQuestions, matchesTarget, nafsIndex, usable, type
 import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
 import { isRapidGuess } from "../practice/guessing";
+import { cellOf, classLine, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
+import { nafsRemoved } from "./removed";
+import { cancelIndex } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -243,6 +246,7 @@ async function ownPractice(repo: Repo, actor: Actor, id: string, edit = false): 
 export async function deleteNafsPractice(repo: Repo, actor: Actor, id: string, now = new Date()): Promise<void> {
   const p = await ownPractice(repo, actor, id, true);
   await repo.updateMany("NafsPractice", { id: p.id }, { deletedAt: now });
+  nafsRemoved();
   await audit(repo, { actorId: actor.userId, action: "nafs.practice.delete", entityType: "NafsPractice", entityId: id, at: now });
 }
 
@@ -252,7 +256,10 @@ export async function listNafsPractice(repo: Repo, actor: Actor, now = new Date(
   await assertNafs(repo, actor);
   const classes = await nafsClasses(repo, actor);
   if (!classes.length) return [];
-  const rows = await repo.findMany("NafsPractice", { schoolId: schoolOf(actor), classId: { in: classes.map((c) => c.id) }, deletedAt: null }, { select: ["id", "title", "targets", "classId", "studentIds", "maxQuestions", "timeLimitMin", "dueAt", "createdAt", "createdById"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
+  const cx = await cancelIndex(repo, schoolOf(actor));
+  // r82: a practice cancelled for everyone on the Assigned page is gone from the list too (Undo there brings it back)
+  const rows = (await repo.findMany("NafsPractice", { schoolId: schoolOf(actor), classId: { in: classes.map((c) => c.id) }, deletedAt: null }, { select: ["id", "title", "targets", "classId", "studentIds", "maxQuestions", "timeLimitMin", "dueAt", "createdAt", "createdById"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 }))
+    .filter((p) => cx.liveRef("NAFS_PRACTICE", s(p.id)));
   if (!rows.length) return [];
   const runs = await repo.findMany("NafsPracticeRun", { practiceId: { in: rows.map((r) => s(r.id)) } }, { select: ["practiceId", "state", "finishedAt"] });
   return rows.map((p) => {
@@ -269,10 +276,35 @@ export async function listNafsPractice(repo: Repo, actor: Actor, now = new Date(
   });
 }
 
-export interface PracticeCell { n: number; pct: number | null; reached: Difficulty | 0; level: Difficulty; mastered: boolean; seconds: number }
+export interface PracticeCell { n: number; right: number; pct: number | null; reached: Difficulty | 0; level: Difficulty; mastered: boolean; seconds: number }
+/** r70: each student's score, right, wrong (= asked − right), finished, top strength / weakness (strengths.ts). */
+export interface PracticeStudent { id: string; name: string; status: "NOT_STARTED" | "IN_PROGRESS" | "DONE"; asked: number; correct: number; right: number; wrong: number; finished: boolean; pct: number | null; seconds: number; end: RunState["end"] | null; cells: Record<string, PracticeCell>; strength: string | null; weakness: string | null; strengthWhy: NoneWhy | null; weaknessWhy: NoneWhy | null }
 export interface PracticeReport {
   id: string; title: string; className: string; targets: { code: string; short: string; name: string }[]; maxQuestions: number; minutes: number | null; dueAt: string | null;
-  students: { id: string; name: string; status: "NOT_STARTED" | "IN_PROGRESS" | "DONE"; asked: number; correct: number; pct: number | null; seconds: number; end: RunState["end"] | null; cells: Record<string, PracticeCell> }[];
+  students: PracticeStudent[];
+  /** r70: the class line (average of the students who answered, finished of those it was given to, strongest / weakest target) */
+  cls: ClassLine;
+}
+/** The report from the practice's runs (pure: the tests build it from rows). */
+export function practiceReportOf(meta: Omit<PracticeReport, "students" | "cls" | "targets">, targets: string[], students: { id: string; name: string }[], runs: Row[]): PracticeReport {
+  const rows: PracticeStudent[] = students.map((x) => {
+    const r = runs.find((y) => s(y.studentId) === x.id);
+    const st = r ? json<RunState | null>(r.state, null) : null;
+    const asked = Number(r?.asked ?? 0), correct = Number(r?.correct ?? 0);
+    const cells: Record<string, PracticeCell> = Object.fromEntries(targets.map((code) => {
+      const t = st?.targets[code];
+      return [code, { n: t?.n ?? 0, right: t?.right ?? 0, pct: t?.n ? roundPct(t.right, t.n) : null, reached: t?.reached ?? 0, level: t?.level ?? START_LEVEL, mastered: Boolean(t?.mastered), seconds: Math.round((t?.ms ?? 0) / 1000) }];
+    }));
+    const sw = strengthsWeaknesses(Object.fromEntries(Object.entries(cells).map(([k, c]) => [k, { pct: c.pct, n: c.n }])));
+    const status = !r ? "NOT_STARTED" as const : r.finishedAt ? "DONE" as const : "IN_PROGRESS" as const;
+    return {
+      id: x.id, name: x.name, status, asked, correct, right: correct, wrong: asked - correct, finished: status === "DONE",
+      pct: roundPct(correct, asked), seconds: Number(r?.seconds ?? 0), end: st?.end ?? null, cells,
+      strength: sw.top, weakness: sw.weak, strengthWhy: sw.topWhy, weaknessWhy: sw.weakWhy,
+    };
+  });
+  const pooled = Object.fromEntries(targets.map((code) => { const right = rows.reduce((a, x) => a + x.cells[code].right, 0), n = rows.reduce((a, x) => a + x.cells[code].n, 0); return [code, cellOf(right, n)]; }));
+  return { ...meta, targets: targets.map((code) => ({ code, short: targetShort(code), name: targetName(code) })), students: rows, cls: classLine(rows.map((x) => ({ pct: x.pct, finished: x.finished })), pooled, rows.length) };
 }
 /** Per student per target: the difficulty reached, accuracy, mastered or not, time spent (teacher-facing). */
 export async function nafsPracticeReport(repo: Repo, actor: Actor, id: string): Promise<PracticeReport> {
@@ -282,23 +314,7 @@ export async function nafsPracticeReport(repo: Repo, actor: Actor, id: string): 
   const who = assignedTo(p);
   const students = (klass?.students ?? []).filter((x) => !who || who.includes(x.id));
   const runs = students.length ? await repo.findMany("NafsPracticeRun", { practiceId: s(p.id), studentId: { in: students.map((x) => x.id) } }, { select: ["studentId", "state", "asked", "correct", "seconds", "finishedAt"] }) : [];
-  return {
-    id: s(p.id), title: s(p.title), className: klass?.name ?? "", maxQuestions: p.maxQuestions ? Number(p.maxQuestions) : DEFAULT_PRACTICE_QUESTIONS, minutes: p.timeLimitMin ? Number(p.timeLimitMin) : null, dueAt: iso(p.dueAt),
-    targets: targets.map((code) => ({ code, short: targetShort(code), name: targetName(code) })),
-    students: students.map((x) => {
-      const r = runs.find((y) => s(y.studentId) === x.id);
-      const st = r ? json<RunState | null>(r.state, null) : null;
-      const asked = Number(r?.asked ?? 0), correct = Number(r?.correct ?? 0);
-      return {
-        id: x.id, name: x.name, status: !r ? "NOT_STARTED" as const : r.finishedAt ? "DONE" as const : "IN_PROGRESS" as const, asked, correct,
-        pct: asked ? Math.round((100 * correct) / asked) : null, seconds: Number(r?.seconds ?? 0), end: st?.end ?? null,
-        cells: Object.fromEntries(targets.map((code) => {
-          const t = st?.targets[code];
-          return [code, { n: t?.n ?? 0, pct: t?.n ? Math.round((100 * t.right) / t.n) : null, reached: t?.reached ?? 0, level: t?.level ?? START_LEVEL, mastered: Boolean(t?.mastered), seconds: Math.round((t?.ms ?? 0) / 1000) }];
-        })),
-      };
-    }),
-  };
+  return practiceReportOf({ id: s(p.id), title: s(p.title), className: klass?.name ?? "", maxQuestions: p.maxQuestions ? Number(p.maxQuestions) : DEFAULT_PRACTICE_QUESTIONS, minutes: p.timeLimitMin ? Number(p.timeLimitMin) : null, dueAt: iso(p.dueAt) }, targets, students, runs);
 }
 
 // ------------------------------------------------------------------ the student: my practice, the next question, an answer
@@ -313,7 +329,9 @@ async function myPracticeRows(repo: Repo, studentId: string): Promise<Row[]> {
   const classes = (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));
   if (!classes.length) return [];
   const rows = await repo.findMany("NafsPractice", { classId: { in: classes }, deletedAt: null }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 });
-  return rows.filter((p) => { const who = assignedTo(p); return !who || who.includes(studentId); });
+  // r82: cancelled on the teacher's Assigned page (for everyone or for this student) = gone from the student's NAFS too
+  const cx = rows.length ? await cancelIndex(repo, s(rows[0].schoolId)) : null;
+  return rows.filter((p) => { const who = assignedTo(p); return (!who || who.includes(studentId)) && (!cx || cx.liveRef("NAFS_PRACTICE", s(p.id), studentId)); });
 }
 
 export interface MyPractice { id: string; title: string; skills: string[]; asked: number; correct: number; max: number; minutes: number | null; dueAt: string | null; status: "TODO" | "IN_PROGRESS" | "DONE" }
@@ -346,6 +364,7 @@ async function myPractice(repo: Repo, actor: Actor, id: string): Promise<{ p: Ro
   if (!member || member.leftAt) throw new ForbiddenError("Practice not found.");
   const who = assignedTo(p);
   if (who && !who.includes(studentId)) throw new ForbiddenError("Practice not found.");
+  if (!(await cancelIndex(repo, s(p.schoolId))).liveRef("NAFS_PRACTICE", s(p.id), studentId)) throw new ForbiddenError("Your teacher cancelled this practice.");
   return { p, studentId };
 }
 
@@ -417,9 +436,14 @@ export interface PracticeFeedback { correct: boolean; answer: number; explanatio
 export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: string; questionId: string; choice: unknown }, now = new Date()): Promise<PracticeFeedback> {
   const { p, studentId } = await myPractice(repo, actor, s(input.id));
   const r = (await repo.findMany("NafsPracticeRun", { practiceId: s(p.id), studentId }))[0];
-  if (!r || r.finishedAt) throw new ValidationError("This practice is finished.");
   const targets = json<string[]>(p.targets, []);
-  const state = json<RunState>(r.state, newRunState(targets));
+  const state = json<RunState>(r?.state, newRunState(targets));
+  // r68: the same answer sent again (the reply was lost on a busy server, the player retried): its saved result, nothing written
+  if (r && (r.finishedAt || !state.cur || state.cur.questionId !== s(input.questionId))) {
+    const replay = await savedNafsAnswer(repo, s(r.id), s(input.questionId), Boolean(r.finishedAt));
+    if (replay) return replay;
+  }
+  if (!r || r.finishedAt) throw new ValidationError("This practice is finished.");
   if (!state.cur || state.cur.questionId !== s(input.questionId)) throw new ValidationError("This question is not on your screen any more. Open the practice again.");
   const choice = input.choice === null || input.choice === undefined || s(input.choice) === "" ? null : Number(input.choice);
   if (choice === null || !Number.isInteger(choice) || choice < 0 || choice > 3) throw new ValidationError("Choose an answer.");
@@ -428,7 +452,7 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
   const correct = choice === q.correct;
   const started = d(state.cur.at);
   const ms = started ? Math.min(MAX_ANSWER_MS, Math.max(0, now.getTime() - started.getTime())) : 0;
-  await repo.create("NafsPracticeAnswer", { runId: s(r.id), practiceId: s(p.id), studentId, questionId: q.id, target: state.cur.target, difficulty: state.cur.difficulty, choice, correct, ms, at: now });
+  const answerRow = { runId: s(r.id), practiceId: s(p.id), studentId, questionId: q.id, target: state.cur.target, difficulty: state.cur.difficulty, choice, correct, ms, at: now };
   // 🎲 r67: a rapid guess (under 3 s) is only logged (the answer row above) — it counts for nothing: no level move,
   // no mastery, not toward the question count or accuracy
   const rapid = started !== null && isRapidGuess(ms);
@@ -438,8 +462,29 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
   const limit = p.timeLimitMin ? Number(p.timeLimitMin) * 60 : null;
   const why: RunState["end"] | null = targets.every((t) => next.targets[t]?.mastered) ? "MASTERED" : asked >= max ? "COUNT" : limit && seconds >= limit ? "TIME" : null;
   if (why) next = { ...next, end: why };
-  await repo.updateMany("NafsPracticeRun", { id: r.id }, { state: next, asked, correct: right, seconds, updatedAt: now, ...(why ? { finishedAt: now } : {}) });
+  // r68: guarded (the run moves once): two copies of the same answer at the same moment write it once; the loser gets
+  // the saved result
+  const moved = await repo.transaction(async (tx) => {
+    const n = await tx.updateMany("NafsPracticeRun", { id: r.id, asked: r.asked ?? 0, updatedAt: r.updatedAt, finishedAt: null }, { state: next, asked, correct: right, seconds, updatedAt: now, ...(why ? { finishedAt: now } : {}) });
+    if (n !== 1) return false;
+    await tx.create("NafsPracticeAnswer", answerRow);
+    return true;
+  });
+  if (!moved) {
+    const replay = await savedNafsAnswer(repo, s(r.id), q.id, false);
+    if (replay) return replay;
+    throw new ValidationError("This question is not on your screen any more. Open the practice again.");
+  }
   return { correct, answer: q.correct, explanation: q.explanation, done: Boolean(why) };
+}
+
+/** The saved result when this question is the run's LAST answer (a retry after a lost reply); null otherwise. */
+async function savedNafsAnswer(repo: Repo, runId: string, questionId: string, finished: boolean): Promise<PracticeFeedback | null> {
+  const last = (await repo.findMany("NafsPracticeAnswer", { runId }, { select: ["correct", "questionId"], orderBy: [{ field: "at", dir: "desc" }], take: 1 }))[0];
+  if (!last || String(last.questionId) !== questionId) return null;
+  const q = (await loadNafsQuestions(repo, [questionId]))[0];
+  if (!q) return null;
+  return { correct: Boolean(last.correct), answer: q.correct, explanation: q.explanation, done: finished };
 }
 
 /** The difficulty's English name (teacher-facing; translated in the page). */

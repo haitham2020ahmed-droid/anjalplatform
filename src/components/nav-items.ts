@@ -35,7 +35,11 @@ export function navItemsFor(role: string, opts: NavOpts = {}): NavItem[] {
 function studentMenu(opts: NavOpts): NavItem[] {
   return [
     { href: "/student", label: "Home", icon: "🏠", line: "home" },
-    { href: "/student/work", label: "My Work", icon: "📋", line: "work" },
+    { href: "/student/work", label: "My Work", icon: "✅", line: "work" },
+    // ⭐ My Skills (owner r68): right after My Work — Mastered · Learning · Review · Not started
+    STUDENT_SKILLS_PAGE,
+    // 📋 My Plans (owner r82): every plan the teacher sent me, by type (it had become a redirect and left the menu)
+    STUDENT_PLANS_PAGE,
     { href: "/student/tests", label: "My Tests", icon: "📝", line: "tests" },
     { href: "/student/map", label: "MAP", icon: "🗺️", line: "map" },
     { href: "/student/reading", label: "ReadMaster / ReadRise", icon: "📚", line: "reading" },
@@ -49,6 +53,10 @@ function studentMenu(opts: NavOpts): NavItem[] {
     ...(opts.nafs ? [STUDENT_NAFS_PAGE] : []),
   ];
 }
+/** The student's My Skills: every skill's ONE status in four tabs (src/app/student/skills, server/skills/my-skills.ts). */
+export const STUDENT_SKILLS_PAGE: NavItem = { href: "/student/skills", label: "My Skills", icon: "⭐", line: "star" };
+/** The student's My Plans: every live plan sent to me, grouped by type (src/app/student/plans, server/student/my-plans.ts). */
+export const STUDENT_PLANS_PAGE: NavItem = { href: "/student/plans", label: "My Plans", icon: "📋", line: "plans" };
 /** The student's Learn icon: lessons for every skill (src/app/student/learn); its "My Words" button opens My Words. */
 export const STUDENT_LEARN_PAGE: NavItem = { href: "/student/learn", label: "Learn", icon: "📘", line: "learn" };
 /** The student's My Words: the Curriculum Map words of Grades 4–6 + the words I saved (src/app/student/words). */
@@ -76,13 +84,19 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher/assigned", label: "Assigned", icon: "📌", line: "inbox" },
   { href: "/teacher/assessments", label: "Assessments", icon: "📝", line: "check" },
   { href: "/teacher/writing", label: "Writing", icon: "🖊", line: "pen" },
+  // 🔤 Grammar (owner request): the Grammar bank browsing/assign page (admin/grammar/page.tsx allows TEACHER too).
+  // Was only reachable via "Find a page" (OFF_MENU) — never shown as its own icon, so teachers could not find it
+  // to assign Grammar, and students in turn never saw a Grammar group in My Skills (nothing was ever assigned).
+  { href: "/admin/grammar", label: "Grammar", icon: "🔤", line: "words" },
   { href: "/teacher/reading", label: "Reading", icon: "📚", line: "book" },
   { href: "/teacher/learn", label: "Learn", icon: "📘", line: "learn" },
   { href: "/teacher/map-center", label: "MAP", icon: "🗺️", line: "target" },
   { href: "/teacher/reports", label: "Reports", icon: "📊", line: "chart" },
+  { href: "/school-reports", label: "School Reports", icon: "🗒️", line: "file" },
   { href: "/teacher/week", label: "My Week", icon: "📅", line: "week", group: MORE },
   { href: "/teacher/messages", label: "Messages", icon: "📨", line: "mail", group: MORE },
   { href: "/teacher/games", label: "Live Challenge", icon: "🏁", line: "game", group: MORE },
+  { href: "/teacher/class-signin", label: "Class sign-in", icon: "📱", line: "qr", group: MORE },
   { href: "/teacher/calendar", label: "Calendar", icon: "🗓️", line: "calendar", group: MORE },
   { href: "/guide", label: "Help", icon: "❔", line: "help", group: MORE },
 ];
@@ -95,7 +109,7 @@ export const NAFS_PAGE: NavItem = { href: "/teacher/nafs", label: "NAFS", icon: 
 /** The NAFS plan (a tab of Plans, also linked from the NAFS section's Reports): found by name by the same people. */
 export const NAFS_PLAN_PAGE: NavItem = { href: "/teacher/plans?tab=nafs", label: "NAFS plan", icon: "🧾" };
 /** The NAFS center's Dashboard (teachers of a Grade 6 class: their classes; admins: the whole school), found by name. */
-export const NAFS_DASHBOARD_PAGE: NavItem = { href: "/teacher/nafs?tab=dashboard", label: "NAFS dashboard", icon: "📊" };
+export const NAFS_DASHBOARD_PAGE: NavItem = { href: "/teacher/nafs?tab=reports", label: "NAFS reports", icon: "📊" };
 function teacherMenuWithNafs(): NavItem[] {
   const at = TEACHER_MENU.findIndex((i) => i.href === "/teacher/assessments") + 1;
   return [...TEACHER_MENU.slice(0, at), NAFS_PAGE, ...TEACHER_MENU.slice(at)];
@@ -120,7 +134,6 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/teacher/lessons", label: "Intervention Lessons", icon: "🧩" },
     { href: "/teacher/respond", label: "Respond to Reading", icon: "✍️" },
     { href: "/admin/dictionary", label: "Dictionary", icon: "📖" },
-    { href: "/admin/grammar", label: "Grammar", icon: "🔤" },
     { href: "/teacher/word-journal", label: "Word Journals", icon: "📒" },
     { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨" },
     { href: "/teacher/alerts", label: "Alerts", icon: "🔔" },
@@ -151,7 +164,6 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/student/decoding", label: "Word Sounds Check", icon: "🔤" },
     { href: "/student/strategy-survey", label: "My Reading Strategies", icon: "🧠" },
     { href: "/student/insights", label: "Progress Report", icon: "🌟" },
-    { href: "/student/skills", label: "My Skills", icon: "🧩" },
     { href: "/student/family", label: "Family Report", icon: "👪" },
     { href: "/play", label: "Join Live", icon: "🎮" },
     { href: "/guide", label: "Help", icon: "❔" },
@@ -202,6 +214,7 @@ export const ADMIN_LINE: Record<string, LineIconName> = {
   "/admin/analytics": "growth", "/admin/term-report": "file", "/admin/report-approvals": "inbox", "/teacher/reports": "chart",
   "/admin/department": "building", "/admin/ai-dashboard": "sparkle", "/admin/settings": "settings", "/admin/ai-tools": "sparkle",
   "/admin/backup": "download", "/admin/data-health": "heart", "/admin/data-cleanup": "broom", "/admin/feedback": "chat",
+  "/admin/cancel-skill": "x",
 };
 
 /** The admin tools that are not in the side menu (found by name in the top bar). */

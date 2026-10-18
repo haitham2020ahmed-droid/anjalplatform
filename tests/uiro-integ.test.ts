@@ -155,7 +155,7 @@ describe("UI reorg integration — wave 1 pieces work together", () => {
   test("a NAFS test personalizes each student's NAFS plan from the skills they missed (once; own classes only)", async () => {
     const [s1, s2] = await choiceSkills(4, 2);
     const p = await previewTest(repo, teacher, { skills: [{ skillId: s1.skillId, count: 3 }, { skillId: s2.skillId, count: 3 }], levelMode: "SAME" });
-    const t = await assignTest(repo, teacher, { classId, type: "NAFS", title: "NAFS practice 1", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, studentIds: [student.studentId!, classmate.studentId!] });
+    const t = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "NAFS", title: "NAFS practice 1", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, studentIds: [student.studentId!, classmate.studentId!] });
     await assert.rejects(personalizeNafsFromTest(repo, teacher, t.testId), ValidationError, "nobody finished yet");
     await take(student, await setOf(t.testId, student), new Set([s1.skillId])); // right on s1, wrong on s2
     await assert.rejects(personalizeNafsFromTest(repo, otherTeacher, t.testId), ForbiddenError, "another teacher's class");
@@ -172,7 +172,7 @@ describe("UI reorg integration — wave 1 pieces work together", () => {
     assert.ok((await testResults(repo, teacher, t.testId)).test.nafsPlanAt, "the results page shows it was done");
     assert.equal((await personalizeNafsFromTest(repo, teacher, t.testId)).already, true, "once per test");
     // only NAFS tests
-    const w = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Quiz X", levelMode: "SAME", questions: { SAME: p.versions.SAME!.slice(0, 2).map((x) => x.id) }, studentIds: [student.studentId!] });
+    const w = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Quiz X", levelMode: "SAME", questions: { SAME: p.versions.SAME!.slice(0, 2).map((x) => x.id) }, studentIds: [student.studentId!] });
     await assert.rejects(personalizeNafsFromTest(repo, teacher, w.testId), ValidationError);
   });
 
@@ -182,10 +182,10 @@ describe("UI reorg integration — wave 1 pieces work together", () => {
     const q = { SAME: p.versions.SAME!.map((x) => x.id) };
     const now = new Date();
     // A: everyone (one student) submitted, due date still ahead
-    const a = await assignTest(repo, teacher, { classId, type: "NAFS", title: "NAFS practice A", questions: q, studentIds: [classmate.studentId!], dueAt: new Date(now.getTime() + 7 * DAY) });
+    const a = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "NAFS", title: "NAFS practice A", questions: q, studentIds: [classmate.studentId!], dueAt: new Date(now.getTime() + 7 * DAY) });
     await take(classmate, await setOf(a.testId, classmate), new Set());
     // B: nobody submitted yet, due date ahead → waits
-    const b = await assignTest(repo, teacher, { classId, type: "NAFS", title: "NAFS practice B", questions: q, studentIds: [student.studentId!, classmate.studentId!], dueAt: new Date(now.getTime() + 3 * DAY) });
+    const b = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "NAFS", title: "NAFS practice B", questions: q, studentIds: [student.studentId!, classmate.studentId!], dueAt: new Date(now.getTime() + 3 * DAY) });
     const r1 = await autoPersonalizeNafsTests(repo, schoolId, now);
     assert.ok(r1.personalized >= 1);
     assert.ok((await repo.findUnique("TeacherTest", { id: a.testId }))!.nafsPlanAt, "A done (all submitted)");
@@ -207,7 +207,7 @@ describe("UI reorg integration — wave 1 pieces work together", () => {
     const otherGrade = own === 6 ? 5 : 6;
     const [g] = await choiceSkills(otherGrade, 1);
     const p = await previewTest(repo, teacher, { skills: [{ skillId: g.skillId, count: 3 }], levelMode: "SAME" });
-    const t = await assignTest(repo, teacher, { classId, type: "CHAPTER_TEST", title: "Cross-grade check", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, studentIds: [student.studentId!], skillIds: [g.skillId] });
+    const t = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CHAPTER_TEST", title: "Cross-grade check", questions: { SAME: p.versions.SAME!.map((x) => x.id) }, studentIds: [student.studentId!], skillIds: [g.skillId] });
     await take(student, await setOf(t.testId, student), new Set());
     const res = await testResults(repo, teacher, t.testId);
     assert.equal(res.skills[0].grade, otherGrade);
@@ -310,8 +310,9 @@ describe("Arabic interface strings for every wave-1 page", () => {
   });
 
   test("questions, passages and answers stay English inside the Arabic pages (marked as content)", () => {
-    assert.match(read("src/components/tests/test-review-view.tsx"), /data-content lang="en">\{x\.stem\}/);
-    assert.match(read("src/app/teacher/assessments/new/test-builder.tsx"), /<span data-content lang="en">\{x\.stem\}<\/span>/);
+    // r72: the text is shown with its underline / bold marks (<RichInline>), still marked as English content
+    assert.match(read("src/components/tests/test-review-view.tsx"), /data-content lang="en"><RichInline text=\{x\.stem\} \/>/);
+    assert.match(read("src/app/teacher/assessments/new/test-builder.tsx"), /<span data-content lang="en"><RichInline text=\{x\.stem\} \/><\/span>/);
     assert.match(read("src/components/listen-button.tsx"), /data-content lang="en" dir="ltr"/, "the follow-along words are content");
   });
 
