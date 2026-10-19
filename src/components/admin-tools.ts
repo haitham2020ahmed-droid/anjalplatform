@@ -87,7 +87,7 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/school-reports", label: "School Reports", icon: "🗒️", group: "reports", home: true, hint: "Personalized Plans, Diagnostic Analysis and the Final Report, per student", perm: "reports:read" },
   { href: "/admin/department", label: "Department Week", icon: "🏛", group: "reports", home: true, menu: true, hint: "Every class side by side this week", perm: "reports:read" },
   { href: "/admin/ai-dashboard", label: "School Insights", icon: "🔮", group: "reports", hint: "Trends, predictions and what works" },
-  { href: "/admin/performance", label: "Teacher & Student Performance", icon: "🏆", group: "reports", perm: "analytics:school" },
+  { href: "/admin/performance", label: "Teacher & Student Performance", icon: "🏆", group: "reports", home: true, menu: true, hint: "Every student's mastery, live — who needs attention", perm: "analytics:school" },
   { href: "/admin/school-goals", label: "School Goals", icon: "🎯", group: "reports", perm: "settings:school" },
   { href: "/teacher/grade-summary", label: "Grade Summary", icon: "🧮", group: "reports" },
   { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨", group: "reports" },
