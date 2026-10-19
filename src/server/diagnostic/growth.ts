@@ -8,6 +8,7 @@ import { readableClasses } from "../teacher/coordinators";
 import { studentNames } from "../insights/student-data";
 import { areaOfStandard, STRAND_LABEL, type Strand } from "./standards";
 import { asPeriod, codeFor, PERIODS, schoolYear, type Period } from "./test";
+import { isInvalidResult } from "../curriculum-map/level-evidence";
 
 const s = (v: unknown) => String(v ?? "");
 const json = <T>(v: unknown, dflt: T): T => { if (v === null || v === undefined || v === "") return dflt; if (typeof v !== "string") return v as T; try { return JSON.parse(v) as T; } catch { return dflt; } };
@@ -90,7 +91,11 @@ export function summarizeGrowth(rows: GrowthInput[], anchorLabel: (a: string) =>
 async function inputsFor(repo: Repo, tests: Row[], ids: string[], names: Map<string, { name: string }>, sharedOnly = false): Promise<GrowthInput[]> {
   if (!tests.length || !ids.length) return [];
   const scores = await repo.findMany("DiagnosticScore", { diagnosticId: { in: tests.map((t) => t.id) }, studentId: { in: ids } });
-  return scores.filter((r) => !sharedOnly || r.sharedAt).map((r) => {
+  // r85 audit: a DiagnosticScore with 30%+ rapid-guess answers is "invalid" everywhere else in the codebase
+  // (test.ts skips recordLevel/priors for it; tiers.ts, weekly-plan.ts, insights/alerts.ts all exclude it) — this
+  // growth panel (and the family/weekly reports built from it) used to still fold the invalid score into the class
+  // mean, the BOY→MOY delta and the "did not grow" list, showing a fabricated drop/spike from guessed answers.
+  return scores.filter((r) => (!sharedOnly || r.sharedAt) && !isInvalidResult(Number(r.rapid ?? 0), Number(r.total ?? 0))).map((r) => {
     const t = tests.find((x) => x.id === r.diagnosticId)!;
     return { studentId: s(r.studentId), name: names.get(s(r.studentId))?.name ?? "Student", period: asPeriod(t.period), pct: Number(r.pct), level: s(r.level) as Level, byStrand: json(r.byStrand, []), byStandard: json(r.byStandard, []) };
   });

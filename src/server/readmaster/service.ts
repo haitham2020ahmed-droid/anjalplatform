@@ -459,9 +459,15 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
     const ses = await repo.create("PracticeSession", { studentId: actor.studentId, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, endReason: "READMASTER", questionCount: items.length, correctCount: correct });
     for (const it of items) {
       if (!it.skillKey) continue;
+      // r85 audit (#6): msOf() fabricates a ~45s "safe" time when the client sent no real per-question time for
+      // this answer — feeding that invented time to the engine guaranteed isRapidAnswer() could never fire for it,
+      // silently hiding a genuine rapid guess from skill mastery/ability. With no real time, skip the mastery feed
+      // for this one answer entirely (insufficient evidence either way) instead of asserting it was answered slowly.
+      const realMs = tm.perQuestion.get(it.questionId);
+      if (realMs === undefined) continue;
       let credit = 0;
       try { credit = scoreResponse(it as never, normalizeResponse(it, responses[it.questionId])); } catch { credit = 0; }
-      await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: msOf(it), now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
+      await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: realMs, now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
     }
   }));
   return result;

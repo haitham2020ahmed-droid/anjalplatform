@@ -122,6 +122,21 @@ export async function awardCoins(repo: Repo, studentId: string, reason: CoinReas
     n = Math.max(0, Math.min(n, GAME_DAILY_CAP - used));
     // over the daily cap: the event is still recorded (0 coins) so badges like Team Player count it
     if (n === 0) { const ok = await insertLedger(repo, { studentId, amount: 0, reason, refId: ref, note: "daily game coins reached", createdById: opts.by ?? null, createdAt: now }); return { awarded: 0, balance: (await rewardChip(repo, studentId, now.getTime())).coins, duplicate: !ok }; }
+    const ok = await insertLedger(repo, { studentId, amount: n, reason, refId: ref, note: opts.note ?? null, createdById: opts.by ?? null, createdAt: now });
+    // r85 audit: two game/Live-Challenge events finishing within the same instant (two tabs, two near-simultaneous
+    // Live Challenges) could both read `used` before either inserted, each awarding up to the cap and together
+    // netting more than GAME_DAILY_CAP for the day. Re-check after inserting (same compensating-write spirit as
+    // shop.ts's buyItem negative-balance rollback) and trim only THIS row back down if the real total ran over.
+    if (ok) {
+      const after = await repo.findMany("CoinLedger", { studentId, reason: { in: GAME_REASONS }, createdAt: { gte: ksaMidnight(now) } }, { select: ["amount"], take: 200 });
+      const usedAfter = after.reduce((t, r) => t + Math.max(0, Number(r.amount) || 0), 0);
+      if (usedAfter > GAME_DAILY_CAP) {
+        const trimmed = Math.max(0, n - (usedAfter - GAME_DAILY_CAP));
+        if (trimmed !== n) { await repo.updateMany("CoinLedger", { studentId, reason, refId: ref }, { amount: trimmed }); n = trimmed; }
+      }
+    }
+    const { coins } = await recomputeCoins(repo, studentId);
+    return { awarded: ok ? n : 0, balance: coins, duplicate: !ok };
   }
   const ok = await insertLedger(repo, { studentId, amount: n, reason, refId: ref, note: opts.note ?? null, createdById: opts.by ?? null, createdAt: now });
   const { coins } = await recomputeCoins(repo, studentId);

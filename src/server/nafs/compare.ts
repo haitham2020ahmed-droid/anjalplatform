@@ -264,7 +264,11 @@ export const PRACTICE_MIN = 3;
 export function practicePeriods(o: { from?: unknown; to?: unknown; preset?: unknown; dataFrom?: number | null; dataTo?: number | null; now?: Date }): { a: Period; b: Period; range: Period; preset: PracticePreset } {
   const now = o.now ?? new Date();
   if (o.preset === "month") {
-    const y = now.getUTCFullYear(), m = now.getUTCMonth();
+    // r85 audit: shifted by the Riyadh offset (UTC+3, the convention used elsewhere in this codebase for school
+    // day/week/month boundaries) before reading the UTC year/month — without this, "this month" vs "last month"
+    // read the wrong month for the ~3 hours after local midnight on the 1st (21:00–23:59 UTC the day before).
+    const local = new Date(now.getTime() + 3 * 3_600_000);
+    const y = local.getUTCFullYear(), m = local.getUTCMonth();
     const thisStart = Date.UTC(y, m, 1), lastStart = Date.UTC(y, m - 1, 1);
     const a = { from: ymd(lastStart), to: ymd(thisStart - DAY_MS) }, b = { from: ymd(thisStart), to: ymd(now.getTime()) };
     return { a, b, range: { from: a.from, to: b.to }, preset: "month" };

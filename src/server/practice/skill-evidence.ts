@@ -80,13 +80,17 @@ export const firstFamily = (fam: Map<string, string>, list: string[] | undefined
 export async function skillHistoryWithEvidence(repo: Repo, studentId: string, skillId: string, items: Map<string, PracticeItem>, window = 60): Promise<ResponseEvidence[]> {
   const [rows, ext] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, skillId }, {
-      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess"],
+      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess", "unreliable"],
       orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: window,
     }),
     repo.findMany("SkillEvidence", { studentId, skillId }, { select: ["source", "refId", "credit", "difficultyB", "guessC", "weight", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: window }),
   ]);
-  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history
-  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess).map((r) => {
+  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history.
+  // r85 audit: `unreliable` (a whole session flagged >20% guesses — session.ts) MUST be excluded here too, the same
+  // way status.ts/level-evidence.ts/tiers.ts/growth-report.ts already do — without it, an answer from an Unreliable
+  // session that wasn't itself a rapid guess still fed theta/mastery/item-selection in full, even though the
+  // star/⭐ system for the exact same skill already refuses to count any answer from that session.
+  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess && !r.unreliable).map((r) => {
     const it = items.get(s(r.questionId));
     const w = ATTEMPT_SOURCE_WEIGHT[s(r.source)];
     return {

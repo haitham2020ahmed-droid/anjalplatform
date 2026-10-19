@@ -73,8 +73,12 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
   const since = new Date(now.getTime() - LOOKBACK_DAYS * DAY);
   const who = studentIds.length === 1 ? studentIds[0] : { in: studentIds };
   const [attempts, qotd, runs, open, exits, games, sims] = await Promise.all([
+    // "rapidGuess"/"unreliable" selected so these can be excluded below — r85 audit: every other reader of
+    // QuestionAttempt in this codebase (learn/auto.ts, skills/status.ts, teacher/interventions.ts, etc.) treats a
+    // rapid-guessed or Unreliable-session answer as no evidence either way; without this, a guessed-through wrong
+    // answer still got queued into the student's Second Chance review as a "mistake to fix."
     repo.findMany("QuestionAttempt", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { isCorrect: false } : {}) },
-      { select: ["studentId", "questionId", "skillId", "isCorrect", "createdAt", "sessionId", "source"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
+      { select: ["studentId", "questionId", "skillId", "isCorrect", "createdAt", "sessionId", "source", "rapidGuess", "unreliable"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
     repo.findMany("QotdAnswer", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { correct: false } : {}) },
       { select: ["studentId", "questionId", "skillId", "correct", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
     repo.findMany("RRRun", { studentId: who, startedAt: { gte: since } },
@@ -95,7 +99,7 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
 
   const out: AnswerEvent[] = [];
   for (const a of attempts) {
-    if (openTests.has(s(a.sessionId))) continue;
+    if (openTests.has(s(a.sessionId)) || a.rapidGuess || a.unreliable) continue;
     const src: ChanceSource = tests.has(s(a.sessionId)) ? "TEST" : s(a.source) === "READMASTER" ? "READMASTER" : "PRACTICE";
     out.push({ studentId: s(a.studentId), key: s(a.questionId), skillKey: s(a.skillId), correct: Boolean(a.isCorrect), at: time(a.createdAt), source: src });
   }

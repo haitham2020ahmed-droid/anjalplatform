@@ -2394,6 +2394,7 @@ export const ar: Record<UiString, string> = {
   "Previous": "السابق",
   "This question is not available.": "هذا السؤال غير متاح.",
   "Only the first {n} matching questions were selected. Narrow the filters for the rest.": "تم تحديد أول {n} سؤالًا مطابقًا فقط. ضيّق التصفية لتحديد الباقي.",
+  "Showing only the first {n} off-topic matches. Narrow the filters for the rest.": "يظهر أول {n} سؤال خارج عن الموضوع فقط. ضيّق التصفية لعرض الباقي.",
   "Unpublishing…": "جارٍ إلغاء النشر…",
   "Moving…": "جارٍ النقل…",
   "Flagging…": "جارٍ الإبلاغ…",
@@ -6095,6 +6096,7 @@ export const ar: Record<UiString, string> = {
   "Week {a}": "الأسبوع {a}",
   "Selection {n}": "النص {n}",
   "No platform skills linked yet.": "لا توجد مهارات مرتبطة بالمنصة بعد.",
+  "In the lesson plan, not yet on the platform": "في خطة الدرس، ولسه مش مضافة على المنصة",
   "Comprehension": "الفهم القرائي",
   "Spelling and word study": "الإملاء ودراسة الكلمة",
   "Grammar and punctuation": "القواعد وعلامات الترقيم",
@@ -6258,4 +6260,6 @@ export const ar: Record<UiString, string> = {
   "a readable Excel copy of the school's data": "نسخة Excel قابلة للقراءة من بيانات المدرسة",
   "recent application errors": "أخطاء التطبيق الأخيرة",
   "For how the database itself is backed up and restored, see docs/BACKUP-AND-RESTORE.md in the project.": "لمعرفة كيفية نسخ واستعادة قاعدة البيانات نفسها، راجع docs/BACKUP-AND-RESTORE.md في المشروع.",
+  "This week, your class": "هذا الأسبوع، فصلك",
+  "This week, the school": "هذا الأسبوع، المدرسة",
 };

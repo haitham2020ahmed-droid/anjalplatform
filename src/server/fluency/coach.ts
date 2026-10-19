@@ -584,6 +584,10 @@ export function makePlan(input: { level: Level; wcpm: number; expression: number
 
 const clampKind = (k: unknown, mode: CoachMode): PracticeKind => (PRACTICE_KINDS.includes(k as PracticeKind) ? (k as PracticeKind) : mode);
 const day = (x: unknown) => (d(x) ?? new Date(0)).toISOString().slice(0, 10);
+// r85 audit: for deciding whether "two 1-minute cold reads on the same day" should be averaged (riyadhDay below),
+// the school day must be Riyadh-local (UTC+3), the convention used elsewhere in this codebase for day boundaries
+// — `day()` above stays raw UTC since it is only used for display dates, where this doesn't matter.
+const riyadhDay = (x: unknown) => new Date((d(x) ?? new Date(0)).getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
 
 /** One prosody number (NAEP 1–4) for a reading: the mean of the four traits, else the overall expression score. */
 export function prosodyMean(traits: Record<string, unknown> | null | undefined, expression: unknown = null): number | null {
@@ -884,8 +888,8 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   // the official 1-minute check joins Reading Fluency (and from there every report); two the same day → the average
   let average: CoachResult["average"] = null;
   if (official) {
-    const today = now.toISOString().slice(0, 10);
-    const todays = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => day(c.checkedAt) === today);
+    const today = riyadhDay(now);
+    const todays = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => riyadhDay(c.checkedAt) === today);
     const first = todays.find((c) => !/average of 2/i.test(s(c.note)));
     if (first && todays.length === 1) {
       const reads = [Number(first.wcpm), n.wcpm];

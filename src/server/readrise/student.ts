@@ -120,7 +120,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   const [rr, { arts, versions }, runs, mems] = await Promise.all([
     ensureRRStudent(repo, studentId, now),
     visibleCatalog(repo, schoolId),
-    repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt"] }),
+    repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable"] }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
   const level = Number(rr.level);
@@ -142,7 +142,10 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
     const v = vs.find((x) => Number(x.level) === vl)!;
     const mine = runsBy.get(s(a.id)) ?? [];
     const main = mine.filter((r) => r.stretch !== true);
-    const first = main.find((r) => r.firstTry === true && r.score !== null && r.score !== undefined);
+    // r85 audit: don't show a score from an Unreliable (2+ rapid-guess) run on the library tile — it's excluded
+    // from level/mastery/goal logic everywhere else (engine.ts's countsForLevel), so the tile shouldn't make it
+    // look like a normal, counted result either. The article is still shown as DONE (below) since it was scored.
+    const first = main.find((r) => r.firstTry === true && r.score !== null && r.score !== undefined && r.unreliable !== true);
     const open = mine.some((r) => r.step !== "DONE");
     const done = main.some((r) => r.step === "DONE");
     const stretchDone = mine.some((r) => r.stretch === true && r.step === "DONE");

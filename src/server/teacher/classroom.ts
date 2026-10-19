@@ -24,8 +24,17 @@ const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)
 const DAY = 86_400_000;
 const parseIds = (v: unknown): string[] => (Array.isArray(v) ? (v as string[]) : typeof v === "string" ? (JSON.parse(v) as string[]) : []);
 
-/** Monday 00:00 UTC of the week of this date. */
-export function weekStart(d: Date): Date { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); t.setUTCDate(t.getUTCDate() - ((t.getUTCDay() + 6) % 7)); return t; }
+/** Monday 00:00 Riyadh time (UTC+3) of the week of this date.
+ * r85 audit: this used to compute the boundary from raw UTC date components with no Riyadh offset (like
+ * readrise/engine.ts's weekStart and student/weekly.ts's weekStart both apply) — for ~21:00–23:59 UTC every day
+ * (00:00–02:59 Riyadh) a weekly goal / exit-ticket read or write could land on the WRONG week's row. */
+const CLASSROOM_RIYADH = 3 * 3_600_000;
+export function weekStart(d: Date): Date {
+  const local = new Date(d.getTime() + CLASSROOM_RIYADH);
+  const t = new Date(Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate()));
+  t.setUTCDate(t.getUTCDate() - ((t.getUTCDay() + 6) % 7));
+  return new Date(t.getTime() - CLASSROOM_RIYADH);
+}
 
 async function myClassIds(repo: Repo, studentId: string): Promise<string[]> {
   return (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));

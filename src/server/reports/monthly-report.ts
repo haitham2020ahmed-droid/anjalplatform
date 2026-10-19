@@ -90,7 +90,7 @@ export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Pr
   const [students, stars, attempts, sessions, runs, fluency, open] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
     repo.findMany("StudentSkillMastery", { studentId: { in: ids }, masteredAt: range }, { select: ["studentId", "skillId", "masteredAt"] }),
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "isCorrect", "createdAt"], take: 40000 }),
+    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "isCorrect", "createdAt", "unreliable"], take: 40000 }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: range }, { select: ["studentId", "activeMs", "startedAt"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: range }, { select: ["studentId", "articleId", "completedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FluencyPractice", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "createdAt"] }).catch(() => [] as Row[]),
@@ -110,11 +110,15 @@ export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Pr
     const id = s(st.id);
     const a = attempts.filter((x) => s(x.studentId) === id), ss = sessions.filter((x) => s(x.studentId) === id && inMonth(x.startedAt));
     const days = new Set([...a.map((x) => new Date(time(x.createdAt)).toISOString().slice(0, 10)), ...ss.filter((x) => Number(x.activeMs) > 0).map((x) => new Date(time(x.startedAt)).toISOString().slice(0, 10))]).size;
-    const ok = a.filter((x) => x.isCorrect === true || x.isCorrect === 1).length;
+    // r85 audit: "unreliable" (a whole session flagged for too many guesses) is kept OUT of the accuracy % only —
+    // the "days/minutes/answers" effort counts below still count every answer, guessed or not, since those are
+    // meant to reflect effort, not performance.
+    const reliable = a.filter((x) => !x.unreliable);
+    const ok = reliable.filter((x) => x.isCorrect === true || x.isCorrect === 1).length;
     out.set(id, {
       name: userName.get(s(st.userId)) || "Student",
       mastered: [...new Set(stars.filter((r) => s(r.studentId) === id && stillMastered.get(id)?.has(s(r.skillId))).map((r) => skillName.get(s(r.skillId)) ?? "").filter(Boolean))],
-      days, minutes: Math.round(ss.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000), answers: a.length, accuracy: a.length >= 10 ? Math.round((100 * ok) / a.length) : null,
+      days, minutes: Math.round(ss.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000), answers: a.length, accuracy: reliable.length >= 10 ? Math.round((100 * ok) / reliable.length) : null,
       articles: [...new Set(runs.filter((r) => s(r.studentId) === id).map((r) => title.get(s(r.articleId)) ?? "").filter(Boolean))],
       fluencyReadings: fluency.filter((r) => s(r.studentId) === id).length,
       next: open.filter((r) => s(r.studentId) === id && Number(r.attempts ?? 0) > 0).map((r) => skillName.get(s(r.skillId)) ?? "").filter(Boolean).slice(0, 4),

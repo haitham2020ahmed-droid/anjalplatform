@@ -183,7 +183,17 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   const row = (await repo.findMany("SchoolSetting", { schoolId, key: SCAN_KEY }))[0];
   let last = 0; if (row) { let v: unknown = row.value; if (typeof v === "string") { try { v = JSON.parse(v); } catch { v = null; } } last = Number((v as { at?: number } | null)?.at ?? 0); }
   if (!force && now.getTime() - last < 3 * 3600_000) return 0;
-  await repo.upsert("SchoolSetting", { schoolId, key: SCAN_KEY }, { value: { at: now.getTime() }, updatedAt: now }, { value: { at: now.getTime() }, updatedAt: now });
+  // r85 audit: claim the scan window with a compare-and-set instead of an unconditional upsert — two staff opening
+  // alert pages within the same second (more than 3h after the last scan) both used to pass the staleness check
+  // above and then both run the whole (expensive) findAlerts() + StudentAlert writes concurrently, which could
+  // throw on the StudentAlert unique(studentId,key) constraint or send duplicate "N new alerts" notifications.
+  // Whoever's write loses the race (the row changed since we read it, or didn't exist and lost the create) skips
+  // this scan entirely — the other caller's scan already covers the same window.
+  const { claimSetting } = await import("../jobs/runner");
+  const claimed = row
+    ? (await repo.updateMany("SchoolSetting", { schoolId, key: SCAN_KEY, updatedAt: row.updatedAt }, { value: { at: now.getTime() }, updatedAt: now })) > 0
+    : await claimSetting(repo, schoolId, SCAN_KEY, { at: now.getTime() });
+  if (!claimed) return 0;
   const found = await findAlerts(repo, schoolId, now);
   // 🔴 early warning (early-warning.ts): each Urgent student is ONE open alert, raised by this same scan
   const { urgentFindings, EW_KIND } = await import("./early-warning");

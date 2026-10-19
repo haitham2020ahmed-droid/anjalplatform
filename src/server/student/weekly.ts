@@ -9,12 +9,17 @@ const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
 export const WEEKLY_PARTS_GOAL = 3;
 export const REVIEW_AFTER_DAYS = 14;
+const RIYADH = 3 * 3_600_000;
 
-/** Sunday 00:00 (UTC) of the week of `now`. */
+/** Sunday 00:00 Riyadh time (UTC+3) of the week of `now` — same convention as readrise/engine.ts's `weekStart`.
+ * r85 audit: this used to compute the Sunday boundary from raw UTC date components with no Riyadh offset, so
+ * for roughly 21:00–23:59 UTC every day (00:00–02:59 Riyadh) "this week" could be off by a whole week around the
+ * Sunday boundary — pulling in a stale extra week, or dropping the just-started week, from the family weekly
+ * report and "this week" stats. */
 export function weekStart(now: Date): Date {
-  const x = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-  x.setUTCDate(x.getUTCDate() - x.getUTCDay());
-  return x;
+  const local = new Date(now.getTime() + RIYADH);
+  const midnight = Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate());
+  return new Date(midnight - local.getUTCDay() * 86_400_000 - RIYADH);
 }
 
 export interface WeekStats { since: string; partsGoal: number; partsDone: number; parts: string[]; answers: number; correct: number; minutes: number; days: number; reached: boolean }

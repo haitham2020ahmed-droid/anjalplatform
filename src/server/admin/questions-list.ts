@@ -149,7 +149,10 @@ const ORDER: Record<SortKey, { field: string; dir: "asc" | "desc" }[]> = {
   easy: [{ field: "difficultyLevel", dir: "asc" }, { field: "updatedAt", dir: "desc" }, { field: "id", dir: "asc" }],
   hard: [{ field: "difficultyLevel", dir: "desc" }, { field: "updatedAt", dir: "desc" }, { field: "id", dir: "asc" }],
 };
-const COLUMNS = ["id", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "updatedAt", "passageId", "imageId", "createdById"] as const;
+// createdAt is selected (even though no row below reads it directly) because the scopeFlag branch of listBankPage
+// re-sorts its already-fetched rows in memory using ORDER["old"], which sorts by createdAt — without it selected,
+// that in-memory sort would silently no-op (the field would be undefined on every row).
+const COLUMNS = ["id", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "updatedAt", "createdAt", "passageId", "imageId", "createdById"] as const;
 
 /**
  * One page of the list (50 rows) and the number of matching questions. ⚠️ Off-topic view (f.scopeFlag): the flag
@@ -157,11 +160,11 @@ const COLUMNS = ["id", "stem", "skillId", "typeId", "difficultyLevel", "status",
  * whereOf — to skills with a scope rule, src/server/admin/scope-check.ts) bounded set once, filters, and pages
  * in memory, instead of the usual DB-level skip/take.
  */
-export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter): Promise<{ rows: BankListRow[]; total: number; page: number; pages: number; per: number }> {
+export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter): Promise<{ rows: BankListRow[]; total: number; page: number; pages: number; per: number; capped: boolean }> {
   assertCan(actor, "questions:read");
   const per = Math.min(100, Math.max(10, Math.floor(f.per ?? PER_PAGE)));
   const where = await whereOf(repo, actor, f);
-  if (!where) return { rows: [], total: 0, page: 1, pages: 1, per };
+  if (!where) return { rows: [], total: 0, page: 1, pages: 1, per, capped: false };
   const idxTypesOnMap = Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo), mapLinkedQuestionIds(repo)]);
   const iso = (v: unknown) => (v instanceof Date ? v : new Date(s(v))).toISOString();
   const toRow = (q: Row, idx: Awaited<ReturnType<typeof schoolSkillIndex>>, types: Map<string, string>, onMap: Set<string>, flagsOf: Map<string, number>): BankListRow => {
@@ -177,16 +180,37 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
     };
   };
   if (f.scopeFlag) {
+    // ⚠️ the SAME deterministic order + cap as bankStatusCounts's own scopeFlag branch (id asc, MATCH_MAX), so
+    // both read the exact same bounded row set and never disagree on "ALL" vs. this list's own total/pages —
+    // the requested sort (f.sort) is applied AFTER filtering, to the rows actually kept.
     const [found, [idx, types, onMap]] = await Promise.all([
-      repo.findMany("Question", where, { select: COLUMNS, orderBy: ORDER[f.sort ?? "new"] ?? ORDER.new, take: MATCH_MAX }),
+      repo.findMany("Question", where, { select: COLUMNS, orderBy: [{ field: "id", dir: "asc" }], take: MATCH_MAX }),
       idxTypesOnMap,
     ]);
-    const flagRows = found.length ? await repo.findMany("QuestionFlag", { questionId: { in: found.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["questionId"] }) : [];
+    const flaggedOf = (q: Row) => { const sk = idx.skillOf.get(s(q.skillId)); return sk?.name ? isScopeFlagged(sk.name, s(q.stem)) : false; };
+    const kept = found.filter(flaggedOf);
+    const ord = ORDER[f.sort ?? "new"] ?? ORDER.new;
+    // comparable(): Date → ms number, everything else left as-is (number/string compare fine via < / >); unknown
+    // column values are cast once here instead of fighting `unknown < unknown` at every comparison below.
+    const comparable = (v: unknown): number | string => (v instanceof Date ? v.getTime() : (v as number | string));
+    kept.sort((a, b) => {
+      for (const { field, dir } of ord) {
+        const av = a[field], bv = b[field];
+        if (av == null && bv == null) continue;
+        if (av == null) return dir === "asc" ? -1 : 1;
+        if (bv == null) return dir === "asc" ? 1 : -1;
+        const ac = comparable(av), bc = comparable(bv);
+        if (ac < bc) return dir === "asc" ? -1 : 1;
+        if (ac > bc) return dir === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+    const flagRows = kept.length ? await repo.findMany("QuestionFlag", { questionId: { in: kept.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["questionId"] }) : [];
     const flagsOf = new Map<string, number>();
     for (const fl of flagRows) flagsOf.set(s(fl.questionId), (flagsOf.get(s(fl.questionId)) ?? 0) + 1);
-    const all = found.map((q) => toRow(q, idx, types, onMap, flagsOf)).filter((r) => r.scopeFlag);
+    const all = kept.map((q) => toRow(q, idx, types, onMap, flagsOf));
     const total = all.length, pages = Math.max(1, Math.ceil(total / per)), page = Math.min(pages, Math.max(1, Math.floor(f.page ?? 1)));
-    return { rows: all.slice((page - 1) * per, page * per), total, page, pages, per };
+    return { rows: all.slice((page - 1) * per, page * per), total, page, pages, per, capped: found.length >= MATCH_MAX };
   }
   const total = await repo.count("Question", where);
   const pages = Math.max(1, Math.ceil(total / per));
@@ -197,7 +221,7 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
   const flagsOf = new Map<string, number>();
   for (const fl of flagRows) flagsOf.set(s(fl.questionId), (flagsOf.get(s(fl.questionId)) ?? 0) + 1);
   const rows = found.map((q) => toRow(q, idx, types, onMap, flagsOf));
-  return { rows, total, page, pages, per };
+  return { rows, total, page, pages, per, capped: false };
 }
 
 const countCache = sweptWeakMap<{ v: string; at: number; p: Promise<Record<string, number>> }>("admin.questions-list.countCache", 2 * 60_000);
@@ -220,8 +244,11 @@ export async function bankStatusCounts(repo: Repo, actor: Actor, f: BankListFilt
     if (f.scopeFlag) {
       // the flag is computed from text, not a database column: read the (already narrowed) bounded set once and
       // count the truly off-topic ones per status, instead of a plain DB count.
+      // ⚠️ same deterministic order + cap (id asc, MATCH_MAX) as listBankPage's scopeFlag branch, so this count and
+      // that list are always reading the identical bounded row set — otherwise, past MATCH_MAX rows, the two could
+      // scan different subsets (e.g. one ordered by "new") and disagree on totals for the exact same filter.
       const idx = await schoolSkillIndex(repo, schoolOf(actor));
-      const found = await repo.findMany("Question", where, { select: ["stem", "skillId", "status"], take: MATCH_MAX });
+      const found = await repo.findMany("Question", where, { select: ["stem", "skillId", "status"], orderBy: [{ field: "id", dir: "asc" }], take: MATCH_MAX });
       const flagged = found.filter((q) => { const sk = idx.skillOf.get(s(q.skillId)); return sk?.name ? isScopeFlagged(sk.name, s(q.stem)) : false; });
       const n = STATUSES.map((st) => flagged.filter((q) => s(q.status) === st).length);
       return { ...Object.fromEntries(STATUSES.map((st, i) => [st, n[i]])), ALL: n.reduce((a, b) => a + b, 0) };
@@ -307,19 +334,25 @@ export async function matchingIds(repo: Repo, actor: Actor, f: BankListFilter, o
     return sk ? isScopeFlagged(sk.name, s(r.stem)) : false;
   };
   const ids: string[] = [];
+  let scanCapped = false;
   if (where.id) {
-    // already limited to a list of ids (one map place, or one question)
+    // already limited to a list of ids (one map place, or one question) — no unbounded-scan risk here
     for (const r of await repo.findMany("Question", where, { select: [...cols], orderBy: [{ field: "id", dir: "asc" }], take: max + 1 })) if (keep(r)) ids.push(s(r.id));
   } else {
     let after = "";
-    while (ids.length <= max) {
+    let scanned = 0;
+    // ⚠️ bounded by rows SCANNED, not rows kept: with scopeFlag, `keep()` throws most rows away, so bounding only
+    // by ids.length would let this page scan the whole matching-skill set (thousands of rows) before stopping.
+    while (ids.length <= max && scanned < max) {
       const page = await repo.findMany("Question", after ? { ...where, id: { gt: after } } : where, { select: [...cols], orderBy: [{ field: "id", dir: "asc" }], take: 500 });
+      scanned += page.length;
       for (const r of page) if (keep(r)) ids.push(s(r.id));
       if (page.length < 500) break;
       after = s(page[page.length - 1].id);
     }
+    scanCapped = scanned >= max;
   }
-  return { ids: ids.slice(0, max), capped: ids.length > max };
+  return { ids: ids.slice(0, max), capped: ids.length > max || scanCapped };
 }
 
 // ------------------------------------------------------------------ bulk actions
@@ -403,6 +436,11 @@ export interface FlagDetail { id: string; by: string; role: string; reason: stri
 /** 🚩 Who flagged a question and why (newest first): students, teachers and staff. */
 export async function flagsOfQuestion(repo: Repo, actor: Actor, questionId: string): Promise<FlagDetail[]> {
   assertCan(actor, "questions:read");
+  // ⚠️ this only checked "questions:read" — any signed-in staff account, whatever school, could pass another
+  // school's questionId and read who flagged it (names + roles). Same ownership check as ownQuestions().
+  const idx = await schoolSkillIndex(repo, schoolOf(actor));
+  const [q] = await repo.findMany("Question", { id: s(questionId) }, { select: ["id", "skillId"] });
+  if (!q || !idx.ids.has(s(q.skillId))) throw new ForbiddenError("This question belongs to another school.");
   const rows = await repo.findMany("QuestionFlag", { questionId }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: 50 });
   if (!rows.length) return [];
   // a student's flag keeps the Student id; a teacher's / staff flag keeps the User id

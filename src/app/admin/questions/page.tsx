@@ -5,7 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { getT } from "@/i18n/server";
 import { STATUSES, type QuestionStatus } from "@/server/admin/questions";
-import { SORTS, bankBanners, bankStatusCounts, familiesMatching, familyOptions, listBankPage, moveTargets, type BankListFilter, type SortKey } from "@/server/admin/questions-list";
+import { MATCH_MAX, SORTS, bankBanners, bankStatusCounts, familiesMatching, familyOptions, listBankPage, moveTargets, type BankListFilter, type SortKey } from "@/server/admin/questions-list";
 import { countDeletionRequests } from "@/server/admin/question-requests";
 import { teacherRoster } from "@/server/teacher/assign";
 import { LEVEL_LABELS } from "@/config/engine";
@@ -158,6 +158,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
           {list.page > 1 && <Link href={qs({ page: list.page - 1 })} className="rounded-lg px-3 py-1.5 ring-1 ring-slate-300">← {t("Previous")}</Link>}
           <span>{t("Page {n} of {m}", { n: list.page, m: list.pages })} · {t("{n} questions", { n: list.total.toLocaleString("en") })}</span>
           {list.page < list.pages && <Link href={qs({ page: list.page + 1 })} className="rounded-lg px-3 py-1.5 ring-1 ring-slate-300">{t("Next")} →</Link>}
+          {list.capped && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">{t("Showing only the first {n} off-topic matches. Narrow the filters for the rest.", { n: MATCH_MAX.toLocaleString("en") })}</span>}
         </nav>
       </section>
     </AppShell>

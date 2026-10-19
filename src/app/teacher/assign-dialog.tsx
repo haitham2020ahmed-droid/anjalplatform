@@ -1,5 +1,6 @@
 "use client";
 import { useActionState, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { assignSkillAction, masteredCountAction, withdrawAssignmentsAction } from "./actions";
 import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
 import { useT } from "@/i18n/client";
@@ -16,9 +17,14 @@ const OPEN = "skill-assign:open", DONE = "skill-assign:done";
  * ⭐ Assign — fast: one small button per skill; ONE dialog per page (the class list is sent once).
  * Program (Curriculum by default) → the platform chooses or the teacher picks the questions → Preview as student →
  * Assign. Nothing is assigned until the teacher presses “Assign”; the page is not reloaded afterwards.
+ *
+ * `assigned` (optional, r85 audit): whether the page's own server data already says this skill has an open
+ * assignment — without it, `done` always started `false`, so a skill assigned a moment ago (in a PREVIOUS page
+ * load) looked never-assigned again after a refresh; the "✓ Assigned" look only ever came from this session's own
+ * DONE event. Callers that have this information server-side (openAssignments counts, etc.) should pass it.
  */
-export function AssignDialog({ skill }: { classId?: string; className?: string; skill: Skill; students?: unknown; track?: Track }) {
-  const [done, setDone] = useState(false);
+export function AssignDialog({ skill, assigned }: { classId?: string; className?: string; skill: Skill; students?: unknown; track?: Track; assigned?: boolean }) {
+  const [done, setDone] = useState(assigned ?? false);
   useEffect(() => {
     const on = (e: Event) => { if ((e as CustomEvent<string>).detail === skill.id) setDone(true); };
     window.addEventListener(DONE, on);
@@ -56,6 +62,7 @@ export function AssignSkillHost({ classId, className, students, track = "CURRICU
 
 function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; classId: string; classes: Klass[]; track: Track; close: () => void }) {
   const t = useT();
+  const router = useRouter();
   const [mode, setMode] = useState<"class" | "students" | "one">("class");
   // the page's class is ticked first; the teacher may add (or swap to) any other class of theirs
   const [chosen, setChosen] = useState<string[]>(() => [classes.some((c) => c.id === classId) ? classId : classes[0]?.id].filter(Boolean) as string[]);
@@ -76,7 +83,13 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
   }, [chosenKey, skill.id]);
   useEffect(() => {
     if (!state.message) return;
-    if (!state.draft) window.dispatchEvent(new CustomEvent(DONE, { detail: skill.id }));
+    if (!state.draft) {
+      window.dispatchEvent(new CustomEvent(DONE, { detail: skill.id }));
+      // 🔄 r85 audit: the page's own "assigned (N open)" text (and the new `assigned` prop AssignDialog takes) come
+      // from server data this dialog never re-fetches — without this, they'd still show the OLD count until the
+      // teacher reloaded the page by hand, even though the ✓ Assigned badge on the button itself updates at once.
+      router.refresh();
+    }
     // done: close by itself (a few seconds, so ↩ Withdraw can still be pressed)
     const t = setTimeout(close, state.assignmentIds?.length ? 6000 : 1500);
     return () => clearTimeout(t);

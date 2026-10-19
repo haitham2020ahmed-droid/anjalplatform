@@ -16,7 +16,7 @@ const s = (v: unknown) => String(v ?? "");
 /** two wrong answers on the same question */
 export const REPEAT_WRONG = 2;
 
-export interface HelpSkill { skillId: string; name: string; count: number; sample: string; assignable: boolean }
+export interface HelpSkill { skillId: string; name: string; count: number; sample: string; assignable: boolean; assigned: boolean }
 export interface HelpStudent { studentId: string; name: string; classId: string; skills: HelpSkill[] }
 
 export async function repeatedMistakes(repo: Repo, actor: Actor, opts: { classId?: string; studentId?: string } = {}, now = new Date()): Promise<HelpStudent[]> {
@@ -61,13 +61,25 @@ export async function repeatedMistakes(repo: Repo, actor: Actor, opts: { classId
   const samples = [...new Set(rows.flatMap((r) => [...r.skills.values()].map((k) => k[0])))];
   const bankSamples = samples.filter((k) => !k.startsWith(RR_PREFIX));
   const rrSamples = samples.filter((k) => k.startsWith(RR_PREFIX)).map((k) => k.slice(RR_PREFIX.length));
-  const [names, people, qs, rq] = await Promise.all([
+  // 🔄 r85 audit: this card's ⭐ Assign button (AssignDialog) used to always start as "not assigned" — even right
+  // after the teacher assigned it in a PREVIOUS page load — because nothing here told it otherwise. Read which
+  // (student, skill) pairs already have an open (not withdrawn) assignment, so the button opens already showing
+  // "✓ Assigned" and the teacher doesn't think they still need to act.
+  const assignable = allSkills.filter((k) => !k.startsWith(RR_PREFIX));
+  const [names, people, qs, rq, openAssign] = await Promise.all([
     skillNames(repo, allSkills),
     studentNames(repo, rows.map((r) => r.studentId)),
     bankSamples.length ? repo.findMany("Question", { id: { in: bankSamples } }, { select: ["id", "stem"] }) : Promise.resolve([]),
     rrSamples.length ? repo.findMany("RRQuestion", { id: { in: rrSamples } }, { select: ["id", "stem"] }) : Promise.resolve([]),
+    assignable.length
+      ? repo.findMany("Assignment", { skillId: { in: assignable }, classId: { in: [...new Set([...classOf.values()])] }, deletedAt: null }, { select: ["id", "skillId"] })
+      : Promise.resolve([]),
   ]);
   const stem = new Map<string, string>([...qs.map((q) => [s(q.id), s(q.stem)] as const), ...rq.map((q) => [RR_PREFIX + s(q.id), s(q.stem)] as const)]);
+  const assignmentIds = [...new Set(openAssign.map((a) => s(a.id)))];
+  const skillOfAssignment = new Map(openAssign.map((a) => [s(a.id), s(a.skillId)]));
+  const targets = assignmentIds.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: assignmentIds } }, { select: ["assignmentId", "studentId"] }) : [];
+  const assignedPairs = new Set(targets.map((tg) => `${s(tg.studentId)}|${skillOfAssignment.get(s(tg.assignmentId))}`));
   return rows.map((r) => ({
     studentId: r.studentId,
     name: people.get(r.studentId)?.name ?? "Student",
@@ -75,6 +87,7 @@ export async function repeatedMistakes(repo: Repo, actor: Actor, opts: { classId
     skills: [...r.skills].map(([skillId, keys]) => ({
       skillId, name: names.get(skillId) || "Other questions", count: keys.length,
       sample: (stem.get(keys[0]) ?? "").replace(/\s+/g, " ").slice(0, 160), assignable: !skillId.startsWith(RR_PREFIX),
+      assigned: assignedPairs.has(`${r.studentId}|${skillId}`),
     })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)),
   })).sort((a, b) => b.skills.length - a.skills.length || a.name.localeCompare(b.name));
 }

@@ -28,6 +28,7 @@ import { renderHtml } from "../../reports/html";
 import { renderXlsx } from "../../reports/xlsx";
 import { audit } from "../audit";
 import { sweptMap } from "../cache/idle";
+import { isRapidGuess, UNRELIABLE_SHARE } from "../practice/guessing";
 import { modelVersion } from "../cache/bank-version";
 import { nafsRemovedVersion } from "./removed";
 import { consumeRateLimit } from "../auth/rate-limit";
@@ -150,7 +151,11 @@ async function load(repo: Repo, schoolId: string, classIds: string[], range: Ran
   const pIds = practices.map((p) => s(p.id));
   const [tests, answers, idxList, runs] = await Promise.all([
     testIds.length ? safeIfBehind("nafs.dashboard", repo.findMany("NafsTest", { id: { in: testIds }, schoolId, deletedAt: null }, { select: ["id", "title", "questionIds", "marks"] }), [] as Row[]) : Promise.resolve([] as Row[]),
-    pIds.length ? safeIfBehind("nafs.dashboard", repo.findMany("NafsPracticeAnswer", { practiceId: { in: pIds }, ...who }, { select: ["practiceId", "studentId", "questionId", "target", "difficulty", "choice", "correct", "at"], orderBy: [{ field: "at", dir: "desc" }], take: MAX_ANSWERS }), [] as Row[]) : Promise.resolve([] as Row[]),
+    // r85 audit: "runId"/"ms" selected so rapid-guess + Unreliable-run answers can be excluded below, the same
+    // rule compare.ts already applies to the exact same table ("a practice with more than 20% rapid guesses is
+    // Unreliable: none of its answers count") — without this, the Dashboard's accuracy/most-missed/mastery numbers
+    // counted guessed-through answers the Compare page on the very same NAFS center already treats as noise.
+    pIds.length ? safeIfBehind("nafs.dashboard", repo.findMany("NafsPracticeAnswer", { practiceId: { in: pIds }, ...who }, { select: ["practiceId", "studentId", "questionId", "target", "difficulty", "choice", "correct", "at", "runId", "ms"], orderBy: [{ field: "at", dir: "desc" }], take: MAX_ANSWERS }), [] as Row[]) : Promise.resolve([] as Row[]),
     nafsIndex(repo, schoolId).catch(() => [] as NafsEntry[]),
     studentId && pIds.length ? safeIfBehind("nafs.dashboard", repo.findMany("NafsPracticeRun", { practiceId: { in: pIds }, studentId }, { select: ["practiceId", "state", "asked", "correct", "seconds", "startedAt", "finishedAt"] }), [] as Row[]) : Promise.resolve([] as Row[]),
   ]);
@@ -185,7 +190,13 @@ async function load(repo: Repo, schoolId: string, classIds: string[], range: Ran
     });
   }
   const pClass = new Map(practices.map((p) => [s(p.id), s(p.classId)]));
+  // r85 audit: same rule as compare.ts's comparePractice() — a run with more than UNRELIABLE_SHARE rapid guesses
+  // is Unreliable; none of ITS answers count (not just the individually-rapid ones).
+  const perRun = new Map<string, { n: number; g: number }>();
+  for (const x of answers) { const r = perRun.get(s(x.runId)) ?? { n: 0, g: 0 }; r.n++; if (isRapidGuess(Number(x.ms))) r.g++; perRun.set(s(x.runId), r); }
+  const unreliableRuns = new Set([...perRun].filter(([, r]) => r.n > 0 && r.g / r.n > UNRELIABLE_SHARE).map(([k]) => k));
   for (const x of answers) {
+    if (isRapidGuess(Number(x.ms)) || unreliableRuns.has(s(x.runId))) continue;
     const at = ms(x.at);
     if (at === null || !ok(at)) continue;
     const right = x.correct === true || x.correct === 1 || x.correct === "1" || x.correct === "true";

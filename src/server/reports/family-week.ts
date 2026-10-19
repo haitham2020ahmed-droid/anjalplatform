@@ -98,7 +98,11 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt", "assignmentId", "mode", "correctCount"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { gte: since } }, { select: ["studentId", "articleId", "readSeconds", "completedAt"] }),
     repo.findMany("LessonRun", { studentId: { in: ids }, finishedAt: { gte: since } }, { select: ["studentId", "skillId", "finishedAt"] }),
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "createdAt"] }),
+    // "unreliable" (r85 audit) is selected and filtered below for the same reason every other reader of
+    // QuestionAttempt excludes it: a session with too many guesses backfills unreliable:true onto its rows even
+    // when one particular answer wasn't itself flagged rapidGuess — without it, that noise could pick the wrong
+    // "practise at home" topic for the family.
+    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "unreliable", "createdAt"] }),
     repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: false }, { select: ["studentId", "skillId", "score"], orderBy: [{ field: "score", dir: "asc" }], take: ids.length * 8 }),
     repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "testId", "classId", "points", "maxPoints", "submittedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FamilyWeekNote", { studentId: { in: ids }, week: iso(since) }, { select: ["studentId", "note"] }).catch(() => [] as Row[]), // a database without the table yet: no notes
@@ -158,7 +162,7 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     const days = new Set([...mineSessions.filter((x) => Number(x.activeMs) > 0).map((x) => iso(new Date(time(x.startedAt)))), ...mineAttempts.map((a) => iso(new Date(time(a.createdAt)))), ...mineRuns.map((r) => iso(new Date(time(r.completedAt))))]).size;
     // things to practise: this week's hardest skills (3+ careful answers, under 70 %), then the skills not mastered yet
     const per = new Map<string, { n: number; ok: number }>();
-    for (const a of mineAttempts) { if (a.rapidGuess || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
+    for (const a of mineAttempts) { if (a.rapidGuess || a.unreliable || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
     const hard = [...per].filter(([, o]) => o.n >= 3 && o.ok / o.n < 0.7).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => k);
     const open = mastery.filter((m) => s(m.studentId) === id && skillName.has(s(m.skillId))).map((m) => s(m.skillId));
     const practise: HomeTopic[] = [];

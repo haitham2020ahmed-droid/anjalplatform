@@ -32,12 +32,17 @@ async function activeDays(repo: Repo, studentId: string, since: Date): Promise<n
 export async function streakAndPoints(repo: Repo, studentId: string, now = new Date()): Promise<{ streak: number; points: number; activeToday: boolean }> {
   const today = dayOf(now);
   // recent days only (runs on every student home load); points are lifetime totals, so they are COUNTED
-  const [recent, correct, articles, bonus] = await Promise.all([
+  const [recent, correct, articleRows, bonus] = await Promise.all([
     activeDays(repo, studentId, new Date(now.getTime() - STREAK_WINDOW_DAYS * DAY)),
     repo.count("QuestionAttempt", { studentId, isCorrect: true }),
-    repo.count("ReadMasterAttempt", { studentId }),
+    // r85 audit: "25 per ReadMaster article" must mean 25 per DISTINCT, COUNTED (non-practice) article — a raw
+    // repo.count() here counted every row, including repeated "Practice" reads of a below-level version of the
+    // SAME article (readmaster/service.ts never limits how many times a student re-reads at Practice level), so
+    // a student could farm unlimited points by repeatedly resubmitting the same practice read.
+    repo.findMany("ReadMasterAttempt", { studentId, practice: false }, { select: ["articleId"] }),
     repo.findMany("XpEvent", { studentId }, { select: ["points", "reason"] }),
   ]);
+  const articles = new Set(articleRows.map((r) => String(r.articleId))).size;
   let days = recent;
   let streak = streakFromDays(days, today);
   // a streak that reaches the window's start may be longer: read up to a year (same semantics, rare)
