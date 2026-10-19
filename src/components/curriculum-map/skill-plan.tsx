@@ -266,7 +266,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   // skill list clips overflow for its rounded corners — an `absolute` popover would get silently cut off for rows
   // near the top of that card. boxRef lets an outside click close it, since there is no full-screen backdrop any more.
   const boxRef = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState<{ left: number; bottom: number; width: number } | null>(null);
+  const [pos, setPos] = useState<{ left: number; top?: number; bottom?: number; width: number } | null>(null);
   useLayoutEffect(() => {
     const reposition = () => {
       const el = anchorRef.current;
@@ -282,8 +282,18 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
       if (r.bottom < 0 || r.top > window.innerHeight) { setPos(null); return; }
       const width = Math.min(320, window.innerWidth - 16);
       const left = Math.min(Math.max(8, r.left), window.innerWidth - width - 8);
-      const bottom = Math.max(8, window.innerHeight - r.top + 8); // 8px gap above the star
-      setPos({ left, bottom, width });
+      // 🧭 owner ("كل المهارات الا اعلي صفحه... مستطيل assign لا يظهر اصلا"): opening ABOVE the star only works
+      // when there's enough room above it. A star near the TOP of the page left most of the panel's own height
+      // pushed up past the top of the viewport — invisible and unreachable, even though a sliver of it still showed
+      // lower down. 300px is a rough floor for the panel's own shortest useful height (title, source picker, "All
+      // students"); below that, open BELOW the star instead, same as any ordinary popover flipping to fit.
+      if (r.top >= 300) {
+        const bottom = Math.max(8, window.innerHeight - r.top + 8); // 8px gap above the star
+        setPos({ left, bottom, width });
+      } else {
+        const top = Math.min(r.bottom + 8, window.innerHeight - 8); // 8px gap below the star
+        setPos({ left, top, width });
+      }
     };
     reposition();
     // keeps the panel glued to the star while the page (or a scrollable list inside it) moves — capture:true also
@@ -349,7 +359,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   };
   return (
     <div ref={boxRef} role="dialog" aria-modal="true" aria-label={t("Suggest this skill to:")}
-      style={pos ? { position: "fixed", left: pos.left, bottom: pos.bottom, width: pos.width, visibility: "visible" } : { position: "fixed", visibility: "hidden" }}
+      style={pos ? { position: "fixed", left: pos.left, ...(pos.bottom !== undefined ? { bottom: pos.bottom } : { top: pos.top }), width: pos.width, visibility: "visible" } : { position: "fixed", visibility: "hidden" }}
       className="z-50 max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
       <div className="flex items-start justify-between gap-2">
         <div>
