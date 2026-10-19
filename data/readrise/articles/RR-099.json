@@ -243,7 +243,8 @@
         "I named three steps in the right order.",
         "I told why each step is needed.",
         "I used at least two key words, such as filter or pump."
-      ]
+      ],
+      "modelAnswer": "First, the water flows through a filter made of sand and gravel, which traps dirt. Next, workers add a small amount of chlorine to kill germs that could make people sick. Finally, a pump pushes the clean water through pipes and into your home."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least three steps in order.",
         "I used details from the article, such as desalination or chlorine.",
         "I explained why each step matters."
-      ]
+      ],
+      "modelAnswer": "First, desalination plants remove the salt from sea water so it becomes fresh enough to drink. Next, the water goes through treatment, where screens catch trash and a sand filter traps tiny bits of dirt. Then workers add a small amount of chlorine to kill germs, and the clean water is stored in a reservoir until pumps push it through pipes into homes. Each step matters because without it, the water would still be too salty, too dirty, or unsafe to drink."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated my opinion clearly.",
         "I supported it with at least two details from the article.",
         "I explained how the details connect to saving water."
-      ]
+      ],
+      "modelAnswer": "I agree that conservation is everyone's responsibility, because the article shows how much effort goes into every drop of tap water before it ever reaches a home. Desalination plants must remove salt from sea water using costly coastal infrastructure, a process that uses significant energy before the water can even be treated. The water then goes through treatment to remove contaminants, from trash caught by screens to the dirt trapped by sand and gravel, before powerful pumps create the pressure needed to push it through pipes beneath entire cities. Since turning on a tap depends on this long chain of infrastructure and energy, wasting water wastes all of that invested effort, which is exactly why conservation should matter to everyone, not just engineers."
     }
   }
 }

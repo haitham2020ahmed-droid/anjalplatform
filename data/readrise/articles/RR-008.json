@@ -243,7 +243,8 @@
         "I told one good point of solar power.",
         "I told one problem and how people solve it.",
         "I used details from the article in full sentences."
-      ]
+      ],
+      "modelAnswer": "Solar power has a good point and a problem. One good point is that a solar panel can turn sunlight into electricity without making smoke or pollution. One problem is that desert dust can cover the panels and make much less power. To solve this problem, people built cleaning robots with soft brushes that sweep the dust off the panels. People also use a battery to store extra power for later, like at night."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two different challenges.",
         "I described a solution for each challenge.",
         "I used specific details from the article."
-      ]
+      ],
+      "modelAnswer": "Solar power faces two challenges in the desert, but people are working to solve both of them. The first challenge is dust, because desert winds leave dust on the panels, and dusty panels convert much less sunlight into power. Engineers solved this challenge by building cleaning robots with soft brushes that sweep the panels clean without using the region's limited water. The second challenge is darkness, since solar panels make no electricity at night. To solve this, large batteries provide storage for the extra renewable energy collected during the day, so people can still use it after sunset without creating pollution."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated my position.",
         "I used two advantages and two challenges from the article.",
         "I explained how the challenges might be managed."
-      ]
+      ],
+      "modelAnswer": "I believe countries in sunny regions should depend more on solar power, because its advantages outweigh its challenges. Regions like Saudi Arabia enjoy abundant sunshine almost every day of the year, and photovoltaic panels convert that sunlight into electricity while producing no air pollution, unlike burning oil, gas, or coal. Solar power is also renewable and increasingly affordable, since panel prices have dropped considerably over recent decades. However, solar energy is intermittent, since dust can accumulate on panels and reduce their efficiency, and panels generate nothing at all after dark. These challenges can be managed, though, since cleaning robots keep panels efficient and large batteries store daytime energy for use at night, which is why I think the advantages make solar power worth the investment."
     }
   }
 }

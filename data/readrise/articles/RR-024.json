@@ -243,7 +243,8 @@
         "I named the three things a plant needs.",
         "I told what the plant makes and why it matters.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A plant makes its own food using three things: sunlight, water, and carbon dioxide. Its roots take in water, and its green chlorophyll traps the energy from sunlight. The plant puts these things together to make a sugar called glucose, which gives it energy to grow. The plant also makes oxygen, which people and animals need to breathe."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what photosynthesis makes.",
         "I used at least two facts from the article.",
         "I connected the facts to people and animals."
-      ]
+      ],
+      "modelAnswer": "People and animals depend on photosynthesis for two important reasons. First, photosynthesis makes glucose, a sugar that gives the plant energy and nutrients, and many of the fruits, vegetables, and grains that people and animals eat come directly from this process happening inside the chlorophyll in leaves. Second, as the plant takes in carbon dioxide through its stomata, photosynthesis also releases oxygen into the air, and people and animals need that oxygen to breathe. Without plants carrying out photosynthesis, there would be neither enough food nor enough clean air for people and animals to survive."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the claim in my own words.",
         "I used evidence about both food and oxygen.",
         "I organized my answer with a clear beginning, middle, and end."
-      ]
+      ],
+      "modelAnswer": "The claim that animals ultimately depend on plants means that nearly everything animals need to survive can be traced back to photosynthesis happening inside a plant's chloroplasts. As a producer, a plant uses sunlight, water, and carbon dioxide entering through its stomata to create glucose, and this sugar either becomes the plant's own food or is eaten directly or indirectly by animals, which shows how all food ultimately comes from this process. At the same time, photosynthesis releases oxygen as a byproduct through the stomata, and since every animal needs oxygen to breathe, this gas connects plants to animal survival just as strongly as food does. Because plants are the ultimate source of both the food animals eat and the oxygen animals breathe, the article's claim that animals depend on them is accurate in two essential ways."
     }
   }
 }

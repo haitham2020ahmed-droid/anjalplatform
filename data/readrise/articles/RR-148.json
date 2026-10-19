@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I think robot jockeys are a good idea. Countries banned child jockeys because racing was dangerous for children and made them miss school, so using a robot jockey keeps children safe. A robot is also light, which still helps the camel race fast on the track, just like a young rider used to."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The problem was that young boys used to ride as jockeys because a light rider helped a camel run faster, but this racing was dangerous for children and made them miss school, so countries banned child jockeys. Robots solved this problem because a small, lightweight robot jockey could be strapped to the camel's back instead of a child. Using a remote control, the owner can still guide the camel during the festival race."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I agree that camel racing shows how a society can preserve its heritage while embracing new technology. Camel racing is an old heritage from festivals and weddings held across the Arabian Peninsula for generations, and Saudi Arabia still holds these festivals today. At the same time, technology changed the sport when countries banned child jockeys for safety and replaced them with lightweight robot jockeys controlled by remote control, so the tradition could continue safely. This combination shows that keeping an old heritage alive does not mean refusing new technology."
     }
   }
 }

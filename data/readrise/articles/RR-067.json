@@ -243,7 +243,8 @@
         "I named a skill I learned.",
         "I used two ideas from the article, like practice, mistakes, or sleep.",
         "I wrote full sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I learned how to ride a bicycle after falling down many times. Every time I practiced, the neurons in my brain built a stronger pathway, so the signals moved faster. Making mistakes also helped, because my brain adjusted and got a little better each time I tried again."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave at least three pieces of advice from the article.",
         "I explained why each idea helps the brain, using words like because.",
         "I used at least two key words, such as connection, review, or concentrate."
-      ]
+      ],
+      "modelAnswer": "First, practice a new skill often, because each time you use it, your brain's connections strengthen and signals travel faster along that pathway. Second, concentrate on one task at a time instead of switching between several, because this helps your brain focus and learn more deeply. Third, review what you learned in short sessions spread across several days, because your hippocampus turns new information into lasting memories, especially while you sleep."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained neuroplasticity with details about neurons and synapses.",
         "I described the role of sleep and the hippocampus, and at least one study habit.",
         "I connected the ideas with transition words such as furthermore, as a result, or because."
-      ]
+      ],
+      "modelAnswer": "When you learn something new, neuroplasticity lets neurons build new connections, or synapses, forming a pathway that gets stronger and faster each time you practice the skill. Furthermore, sleep plays a crucial role, because the hippocampus becomes especially active while you rest, helping store the day's new information as lasting memories your brain can later retrieve. As a result, a good study habit, like spreading short review sessions across several days instead of cramming the night before a test, works together with neuroplasticity and sleep to make learning truly stick."
     }
   }
 }

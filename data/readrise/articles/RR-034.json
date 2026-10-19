@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I think ants are very good team workers. The article says that when one ant finds food, it leaves a scent trail so other workers can follow it home. It also says that if an object is too heavy, several ants from the colony will work together to carry it."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each detail helps the colony."
-      ]
+      ],
+      "modelAnswer": "Ants share information mainly through chemical scent and touch instead of sound. When a worker finds food, it leaves a trail of pheromone as it returns home, and other workers detect this scent with their antennae and follow it straight to the meal, which lets the whole colony cooperate to gather food quickly. Ants also tap their antennae together when they meet, which seems to help them share news and work as one coordinated team."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the claim in my own words.",
         "I used at least three details from the article as evidence.",
         "I explained how each detail shows the colony working without a leader."
-      ]
+      ],
+      "modelAnswer": "A colony can function well without any ant giving orders because each ant simply reacts to signals and does its own job, and together those actions add up to organized cooperation. For example, a worker that finds food leaves a pheromone trail, and other ants follow that scent without needing to be told, which lets the whole colony find food efficiently. Likewise, when a load is too heavy for one ant, several ants cooperate automatically to carry it together, and worker ants naturally divide into roles such as caring for larvae, digging tunnels, or defending the nest. None of this requires a leader directing traffic; it shows how simple individual behaviors, repeated by thousands of ants, create complex teamwork for the whole colony."
     }
   }
 }

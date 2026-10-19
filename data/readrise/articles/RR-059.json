@@ -243,7 +243,8 @@
         "I chose one way that rock forms.",
         "I told the steps in the right order.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "Igneous rock forms when magma erupts from a volcano as hot lava. As the lava cools, it slowly hardens into solid igneous rock. Near Madinah, there are huge fields covered with this kind of black rock, showing how this is part of the ongoing rock cycle."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least two stages of the rock cycle in order.",
         "I used at least three key words correctly.",
         "I included facts from the article."
-      ]
+      ],
+      "modelAnswer": "I start as a tiny piece of sedimentary rock broken off a cliff by wind and rain, a process called erosion. The sediment that I become gets carried away and settles in layers at the bottom of a sea, where the weight above slowly presses me into solid sedimentary rock again. If heat and pressure later push down on me, I could change into a new metamorphic rock without ever melting."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the role of each source of energy.",
         "I supported my explanation with at least two examples from the article.",
         "I used key words such as weathering, erosion, and pressure correctly."
-      ]
+      ],
+      "modelAnswer": "Energy from inside the Earth keeps the rock cycle going by melting rock into magma, which later cools into igneous rock like the lava fields near Madinah, and by producing the heat and pressure that transform buried rock into metamorphic rock such as marble. Energy from the sun drives weathering and erosion at the surface, since hot days and cold nights crack rocks apart and wind and rain then carry the resulting sediment away to form layered sedimentary rock, like the cliffs near Riyadh. Together, these two energy sources make sure no rock stays the same forever, since any rock can eventually melt back into magma and begin the cycle again."
     }
   }
 }

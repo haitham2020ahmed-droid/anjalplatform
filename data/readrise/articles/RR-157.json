@@ -243,7 +243,8 @@
         "I told how the bird gets energy.",
         "I told how the bird saves energy.",
         "I used two details from the article."
-      ]
+      ],
+      "modelAnswer": "A hummingbird gets energy by drinking sweet nectar from flowers and eating small insects for protein. It saves energy at night by entering a sleep-like state called torpor, when its heart slows down and its body cools. Hovering to feed uses a lot of energy, so these birds must eat very often during the day."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why hummingbirds use so much energy.",
         "I described two ways they get or save energy.",
         "I used details from the article to support each point."
-      ]
+      ],
+      "modelAnswer": "A hummingbird uses a huge amount of energy because its wings beat more than fifty times a second so it can hover in one spot while it feeds. One way it deals with this is by eating nectar every few minutes all day long to refuel its body. Another way is by entering torpor at night, a deep sleep-like state where its heart rate slows down and its body cools, which saves energy until morning."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what makes hummingbird flight special.",
         "I explained the challenge its flight creates.",
         "I supported my explanation with at least three details from the article."
-      ]
+      ],
+      "modelAnswer": "A hummingbird's flight is its greatest strength because its rapid wingbeats let it hover, fly backward, and even move sideways, skills almost no other bird has. However, this remarkable flight comes with a serious challenge, since such constant hovering demands an extremely fast metabolism that forces the bird to eat every few minutes during the day just to survive. To cope with this challenge, the hummingbird enters torpor at night to slow its racing heart and save energy, and some species even manage a nonstop migration of about 800 kilometers across the Gulf of Mexico despite their tiny size."
     }
   }
 }

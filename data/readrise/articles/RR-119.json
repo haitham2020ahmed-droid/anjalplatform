@@ -243,7 +243,8 @@
         "I chose one place from the article.",
         "I gave a reason that uses a fact from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "I would most like to explore Europa, a moon of Jupiter, because the article says it has a huge salty ocean of water hidden under its icy shell. Scientists have already used a powerful telescope to study faraway planets too, but I think a moon with real liquid water is the most exciting place to search. I would love to know if a rover could ever land there the way Perseverance did on Mars."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why water matters for life.",
         "I used two places from the article as examples.",
         "I connected each example to water."
-      ]
+      ],
+      "modelAnswer": "Water is so important in the search for life because every living thing on Earth needs it, from the tiniest microbes to huge animals like camels, so scientists believe any life elsewhere would also depend on it. On Mars, the rover Perseverance is collecting rock samples from a crater that once held a lake, looking for evidence that microbes lived there billions of years ago when water still flowed on the surface. Scientists are also studying Europa, a moon of Jupiter with a salty ocean hidden beneath its ice that a spacecraft is now investigating, along with planets in the habitable zone of other stars, where the atmosphere might be just the right temperature for liquid water to exist."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose one approach and stated my claim clearly.",
         "I supported my claim with specific evidence from the article.",
         "I explained one limitation of my choice."
-      ]
+      ],
+      "modelAnswer": "I think searching for subsurface life on Europa is the approach most likely to succeed first, because this field of astrobiology already has strong evidence that liquid water, the clearest requirement for life, exists in a vast salty ocean beneath its icy shell. On Earth, extremophiles survive in boiling springs and on the dark ocean floor, which suggests that simple life could also endure in a similarly extreme, lightless subsurface ocean on an icy moon. The main limitation of this approach is that no spacecraft has yet drilled through Europa's thick ice to search directly for a biosignature, so for now scientists can only study the ocean indirectly through the water that occasionally sprays out through cracks. By comparison, searching for a biosignature on a distant exoplanet with a telescope is powerful but even more limited, since it relies on reading faint chemical signals in starlight from unimaginably far away rather than collecting an actual sample."
     }
   }
 }

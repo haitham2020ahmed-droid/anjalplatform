@@ -243,7 +243,8 @@
         "I told about a real or made-up story.",
         "I wrote at least two questions to check it.",
         "I used the word check correctly."
-      ]
+      ],
+      "modelAnswer": "Once my friend told me that a famous athlete had quit the team, but I was not sure it was true. I asked, is there real evidence for this, and who first heard the story, before I decided to check it myself and found out it was not true."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained solidarity in my own words.",
         "I gave a clear example from today.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Solidarity, in my own words, is the strong sense of loyalty and teamwork that holds a group together and helps it succeed. Ibn Khaldun explained that a group with strong solidarity can rise to power, but over several generations the feeling can fade and the group grows weak. A sports team today shows this idea well, because when every player feels loyal to the team and works together, the whole team becomes much stronger than any one player alone."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I agree.",
         "I used evidence from the article about solidarity and dynasties.",
         "I included an example from today and used key words correctly."
-      ]
+      ],
+      "modelAnswer": "I agree with Ibn Khaldun that solidarity helps a group rise while comfort can make it fall. The article explains that a group with strong solidarity, or shared loyalty, can rise to power, but as rulers in a dynasty grow comfortable over several generations, that feeling of solidarity fades and the group grows weak. I see the same pattern in a successful company today, where a small team that starts out working closely together can lose its drive once it becomes large and comfortable, echoing the pattern Ibn Khaldun first described centuries ago."
     }
   }
 }

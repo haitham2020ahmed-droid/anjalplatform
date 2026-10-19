@@ -6262,4 +6262,6 @@ export const ar: Record<UiString, string> = {
   "For how the database itself is backed up and restored, see docs/BACKUP-AND-RESTORE.md in the project.": "لمعرفة كيفية نسخ واستعادة قاعدة البيانات نفسها، راجع docs/BACKUP-AND-RESTORE.md في المشروع.",
   "This week, your class": "هذا الأسبوع، فصلك",
   "This week, the school": "هذا الأسبوع، المدرسة",
+  "This class already has this skill assigned — assign it again?": "هذا الفصل لديه هذه المهارة معيّنة من قبل — تعيّنها مرة أخرى؟",
+  "Assign again": "عيّنها مرة أخرى",
 };

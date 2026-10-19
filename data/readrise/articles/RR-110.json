@@ -243,7 +243,8 @@
         "I used two facts from the article.",
         "I explained why sharks are not monsters.",
         "I used at least two key words, such as predator or prey."
-      ]
+      ],
+      "modelAnswer": "Sharks are not monsters, they are predators that hunt to survive, just like lions or wolves do on land. The article says shark bites on people are extremely rare, even though sharks can smell a tiny bit of blood from far away and have rows of sharp teeth. Most sharks are just looking for their normal prey, like fish, not people, so you really do not need to be scared every time you see a fin in the water."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what balance means in the ocean.",
         "I used at least two details from the article.",
         "I explained what could happen if sharks disappeared."
-      ]
+      ],
+      "modelAnswer": "Sharks help keep the ocean in balance because, as top predators, they usually catch the sick or weak fish in a group, which keeps fish populations healthy overall. There are more than five hundred species of sharks, from tiny ones to the huge whale shark that only eats plankton, and each kind plays its own role in the ocean's food web. If sharks disappeared, the fish they normally hunt could grow out of control and the whole ocean could lose its balance, which shows that the real threat to the ocean is overfishing sharks, not the other way around."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated my position.",
         "I used at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I believe people should work much harder to protect sharks, because they are apex predators whose health is tied to the health of the whole ecosystem, since removing sick or weak fish helps keep ocean populations in balance. Despite their fearsome reputation, sharks are actually more vulnerable to humans than humans are to them, as people kill millions of sharks every year, often only for their fins, while shark bites on people remain extremely rare. Sharks also rely on remarkable senses, like detecting the faint vibrations of nearby fish, to survive as hunters, but none of these abilities protect them from large-scale fishing. Because losing apex predators can throw an entire ecosystem out of balance, protecting sharks is really about protecting the health of the whole ocean."
     }
   }
 }

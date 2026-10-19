@@ -243,7 +243,8 @@
         "I named at least three steps of the water cycle.",
         "I told what happens to the water in each step.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The water cycle has many steps. First, the sun heats water and evaporation turns it into vapor. Next, the vapor rises and cools, and condensation changes it into tiny drops that form clouds. Then the drops get heavy and fall as rain or snow, and this is called precipitation. This cycle keeps happening again and again."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I used at least two details from the article.",
         "I explained how each water source connects to the water cycle."
-      ]
+      ],
+      "modelAnswer": "Even though Saudi Arabia gets very little rain, the country still finds the water it needs in a few ways. One detail is that much of the water underground, called groundwater, collected long ago and people can still use it today. Another detail is that desalination plants along the Red Sea and the Arabian Gulf take salty seawater and remove the salt to make fresh water. Even dew forms on cool desert nights when vapor in the air condenses on plants and rocks. These sources connect to the water cycle because they all come from water that evaporated, condensed, or fell as precipitation at some point."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that desalination completely solves Saudi Arabia's water problem, so saving water still matters. Although desalination plants along the coasts can turn seawater into fresh water, this process requires enormous amounts of energy and cannot reach every region, especially towns located far from the coast that depend on an ancient aquifer that refills extremely slowly. In addition, natural precipitation and the condensation that forms dew are limited in this arid climate, so groundwater supplies are not easily replaced once they are used up. Because both desalinated water and natural groundwater are costly or slow to renew, I believe people should keep conserving water rather than assuming desalination alone will always be enough."
     }
   }
 }

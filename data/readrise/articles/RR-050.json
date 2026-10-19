@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like to be an astronaut one day. The article says astronauts get to live in microgravity, where everything seems to float, which sounds amazing to try. I would also like to do experiments on the space station like Rayyanah Barnawi and Ali AlQarni did."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The experiments done by students in Saudi Arabia were an important part of this mission because thousands of students did similar experiments in their classrooms at the same time the astronauts carried out experiments in orbit. Afterward, the students compared the results from Earth with the results from space, which let them take part in real scientific research alongside the mission's scientist, Rayyanah Barnawi."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "This mission could inspire students because it shows what hard work and study can achieve, since Rayyanah Barnawi became the first Saudi woman in space as a scientist who studies human cells. The article also explains that thousands of students in Saudi Arabia ran their own experiments in their classrooms while the astronauts conducted similar research aboard the International Space Station, giving students a direct connection to a historic research milestone and showing that they too could reach for the stars."
     }
   }
 }

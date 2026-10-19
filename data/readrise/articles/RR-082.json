@@ -243,7 +243,8 @@
         "I told why the wall was built.",
         "I gave two details from the article.",
         "I used at least two key words."
-      ]
+      ],
+      "modelAnswer": "People in China built the Great Wall to protect their land from groups that would invade and take food and animals. An emperor named Qin Shi Huang ordered workers to connect many older walls into one long wall. Soldiers stood in towers along the wall and sent a signal with smoke or fire if they saw danger."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the wall protected China.",
         "I used two details from the article.",
         "I used at least two key words, such as nomadic or dynasty."
-      ]
+      ],
+      "modelAnswer": "The Great Wall protected China because soldiers stood watch in its towers and sent a signal with smoke by day and fire by night whenever they spotted danger, warning soldiers in other towers along the wall. This let news of an attack spread quickly, even though nomadic riders from the north could move fast and try to invade Chinese villages. Each dynasty also added new sections, using mortar made of lime and sticky rice to hold the bricks firmly together, so the wall kept growing stronger over time."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I supported it with at least two pieces of evidence.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "I believe the Great Wall was worth the enormous effort, even though workers were conscripted and forced to do dangerous labor for centuries. This massive fortification stretched more than 21,000 kilometers along China's northern frontier, warning of danger through its network of signal towers and protecting countless villages from raids. It is a common misconception that the wall can be seen from the Moon, but its real achievement is more impressive: it stands today as a lasting piece of world heritage that still draws millions of visitors. Given how long it defended China and how much history it still teaches us, the effort that built it was worthwhile."
     }
   }
 }

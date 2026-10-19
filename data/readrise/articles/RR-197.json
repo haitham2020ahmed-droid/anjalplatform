@@ -243,7 +243,8 @@
         "I told how the pedals, chain, and wheel work.",
         "I told one way to stay safe.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "When I push the pedals, they turn a toothed wheel that pulls the chain, and the chain turns the back wheel so the bicycle rolls forward. One way to stay safe is to always wear a helmet, like the riders near AlUla do."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least two changes in bicycle design.",
         "I explained how each change helped riders.",
         "I used at least three details from the article."
-      ]
+      ],
+      "modelAnswer": "Early bicycles had no pedals at all, so riders pushed against the ground with their feet, which made riding slow and tiring. Later, inventors added pedals and a chain, and the safety bicycle design made both wheels the same size instead of one giant front wheel, which made the ride much more stable than the tall, unsteady early bikes. Adding air-filled tires and multiple gears, which make pedaling easier on hills or faster on flat ground, made cycling both safer and more comfortable."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least one way bicycle design uses science.",
         "I explained at least one way racers use science to save energy.",
         "I supported my explanation with three pieces of evidence."
-      ]
+      ],
+      "modelAnswer": "Science helps cyclists in many ways, starting with the bicycle's design. The chain-driven safety bicycle, with two equal-sized wheels, is far more stable and efficient than the old high-wheeled bikes, and air-filled, or pneumatic, tires make the ride smoother by absorbing bumps. Gears also use science, letting a rider choose a low gear that makes climbing hills easier or a high gear that lets them ride faster on flat ground. Professional racers in events like the Tour de France or the desert races near AlUla also rely on aerodynamic positions and careful training to build endurance over thousands of kilometers, showing that science shapes cycling from the machine itself to the rider's body."
     }
   }
 }

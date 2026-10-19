@@ -243,7 +243,8 @@
         "I told how a maglev floats.",
         "I told what friction does to a train with wheels.",
         "I used two details from the article."
-      ]
+      ],
+      "modelAnswer": "A maglev train floats because strong magnets push it up above the guideway, so its wheels never touch the track. Without wheels rubbing on rails, there is almost no friction, so the train can go faster and more quietly than a regular train."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how magnets make the train float.",
         "I explained how the guideway moves the train forward.",
         "I used at least three details from the article."
-      ]
+      ],
+      "modelAnswer": "A maglev train floats because powerful magnets in the train and the guideway push against each other, lifting the train between one and ten centimeters into the air. Magnets in the guideway also switch on and off in a pattern, pulling the train from the front and pushing it from behind so it glides forward with no engine on board. Because the train never touches the guideway, there is almost no friction, which lets the Shanghai maglev travel more than 400 kilometers an hour and a test train in Japan set a record of 603 kilometers an hour."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated my opinion.",
         "I explained at least one advantage and one challenge of maglevs.",
         "I supported my reasons with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "I think more countries should build maglev lines, because the advantages are impressive even though the challenges are real. Since maglev trains use levitation to float above the guideway, they have almost no friction from the track, which lets them travel extremely fast and quietly, as shown by the Shanghai maglev carrying passengers at over 400 kilometers an hour and a Japanese test train that set a world record of 603 kilometers an hour. The main challenge is that maglev propulsion needs its own expensive guideway built from scratch, since the trains cannot share ordinary rails like the Makkah-Madinah line does. Still, I believe the speed and comfort maglev trains offer make the investment in a dedicated guideway worthwhile for busy routes."
     }
   }
 }

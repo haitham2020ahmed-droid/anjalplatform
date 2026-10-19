@@ -243,7 +243,8 @@
         "I named one thing Al-Khwarizmi gave us.",
         "I told why it is important using a fact from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think the numbers we use today are the most important thing Al-Khwarizmi gave us. The article says he wrote a book about a number system with ten signs, including zero. Without this scholar's work, our math might still use harder, older number systems."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what Al-Khwarizmi did in his famous book.",
         "I used at least three details from the article.",
         "I connected the details to the title \"father of algebra.\""
-      ]
+      ],
+      "modelAnswer": "Al-Khwarizmi is called the father of algebra because he wrote a famous book that explained clear steps for solving an equation, a math sentence with a missing number. One key idea in his book was to keep both sides of the equation in balance, so whatever you did to one side, you had to do to the other. The word al-jabr from the title of his book was later translated into Latin and changed into the word algebra, which is why people still call him its father today."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I support or challenge the claim.",
         "I used specific evidence about at least two of his contributions.",
         "I explained how each piece of evidence connects to life today, with a clear conclusion."
-      ]
+      ],
+      "modelAnswer": "I support the claim that Al-Khwarizmi's ideas continue to operate all around us, because his contributions to algebra, numerals, and algorithms remain central to modern life. His systematic, step-by-step method for solving an equation became the foundation of algebra, a subject still taught in classrooms worldwide. He also wrote about the Indian number system, whose ten numerals, including zero, now form the basis of nearly every number written today. Finally, his own name, changed into the word algorithm, describes the instructions every computer follows, from phone apps to search engines. Since algebra, numerals, and algorithms are each so influential in daily life, this one scholar's ideas truly do operate all around us."
     }
   }
 }

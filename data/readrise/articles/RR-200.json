@@ -243,7 +243,8 @@
         "I told the steps in order.",
         "I used first, next, and last.",
         "I used words like aim and focus."
-      ]
+      ],
+      "modelAnswer": "First, the archer stands sideways to the target and places the arrow on the string. Next, she draws the string back to her anchor point and aims carefully at the gold. Last, she releases the string smoothly, using focus to keep her aim steady."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the steps in order.",
         "I explained why focus matters.",
         "I used words such as anchor, release, and target."
-      ]
+      ],
+      "modelAnswer": "An archer follows the same steps for every shot: standing sideways, placing the arrow, drawing the string back to the anchor under the chin, aiming at the target, and then releasing the string smoothly while holding still. Focus matters because calm breathing keeps the body steady, and repeating each step the exact same way every time improves accuracy, since even a small shake can send the arrow off course. Without focus, an archer could easily lose the careful release needed to hit the gold."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained both technique and concentration.",
         "I used three details from the article.",
         "I used words such as anchor, release, and fletching correctly."
-      ]
+      ],
+      "modelAnswer": "Technique and concentration work together closely in archery. An archer's technique includes standing sideways to the target, drawing the string back to the same anchor point every time, usually under the chin, and releasing the string smoothly while holding perfectly still, and the fletching on the back of each arrow keeps it flying straight through the air. Concentration matters just as much, because calm breathing keeps the body steady and repeating each step in exactly the same way builds the consistency needed for accuracy, especially since even a gentle wind can push the arrow off course. When technique and concentration work together, the archer gives the arrow the best possible chance of landing in the center of the target."
     }
   }
 }

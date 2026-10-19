@@ -243,7 +243,8 @@
         "I named one machine.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think the water pump was his most useful machine. Al-Jazari built pumps that lifted water from a river to fields and homes. Because of this machine, farmers no longer had to carry heavy buckets of water by hand."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two machines.",
         "I used details from the article.",
         "I told how each machine helped or amazed people."
-      ]
+      ],
+      "modelAnswer": "Al-Jazari's water pumps made farmers' lives easier, because the machines lifted water from a river straight to fields and homes, so no one had to carry heavy buckets anymore. He also designed an automaton shaped like a boat with four musicians that floated on a pool and played music, which surely amazed guests who had never seen a device move on its own before. Through these machines, Al-Jazari made ordinary tasks easier and also created entertainment that felt almost magical."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that Al-Jazari was one of the most important engineers in history, because his inventions were remarkably ingenious for his time. He designed water pumps powered by animals and flowing water that let farmers stop hauling buckets by hand, and he built an elephant clock whose crank mechanism used falling balls, whistling birds, and moving figures to mark every half hour. Perhaps most impressively, his book described fifty machines in such careful, almost programmable detail that people could recreate his inventions centuries later from the surviving manuscript. Because his ideas still influence machines today, his legacy as an engineer is well deserved."
     }
   }
 }

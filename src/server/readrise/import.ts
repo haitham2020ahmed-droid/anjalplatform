@@ -35,7 +35,7 @@ const MAX_TEXT = 20_000;
 
 export interface KeyWordJson { word: string; partOfSpeech?: string; definition: string; example: string }
 export interface QuestionJson { stem: string; options: string[]; answer: string; skill: string; why?: string; wrong?: Record<string, string> }
-export interface BandJson { keyWords: KeyWordJson[]; questions: QuestionJson[]; prompt: string; checklist?: string[] }
+export interface BandJson { keyWords: KeyWordJson[]; questions: QuestionJson[]; prompt: string; checklist?: string[]; /** ✍️ owner r##: a curated strong answer, shown to the student only after they submit their own */ modelAnswer?: string }
 export interface VersionJson { level: number; title: string; text: string; officialLexile?: number | null }
 export interface ArticleJson { code: string; title: string; topic: string; summary?: string; poll: string; versions: VersionJson[]; bands: Record<RRBand, BandJson> }
 
@@ -186,7 +186,9 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     else if (prompt.length > 2000) err(`prompt:${b}`, "The prompt is too long (2,000 characters at most).");
     const checklist = (Array.isArray(band.checklist) ? (band.checklist as unknown[]) : typeof band.checklist === "string" ? band.checklist.split("|") : []).map(str).filter(Boolean);
     if (prompt && !checklist.length) warn(`prompt:${b}`, "No checklist: add what a strong answer includes (students see it; teachers score with it).");
-    bands[b] = { keyWords, questions, prompt, checklist };
+    // ✍️ owner r##: optional — not every article has one yet; no error/warning when it is missing
+    const modelAnswer = str(band.modelAnswer);
+    bands[b] = { keyWords, questions, prompt, checklist, ...(modelAnswer ? { modelAnswer } : {}) };
   }
 
   if (errors.length) return { article: null, errors, warnings, checks };
@@ -243,7 +245,7 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
         // an empty rationale is left out (stored as NULL, as before)
         return { articleId: id, band: b, number: i + 1, stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(Object.keys(rationale).length ? { rationale } : {}) };
       })));
-      await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords })));
+      await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords, modelAnswer: art.bands[b].modelAnswer ?? null })));
       return id;
     }
     for (const ver of art.versions) {
@@ -260,7 +262,7 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
         const data: Row = { stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, rationale: Object.keys(rationale).length ? rationale : null };
         await tx.upsert("RRQuestion", { articleId: id, band: b, number: i + 1 }, data, data);
       }
-      const p: Row = { prompt: band.prompt, checklist: band.checklist ?? [], keyWords: band.keyWords };
+      const p: Row = { prompt: band.prompt, checklist: band.checklist ?? [], keyWords: band.keyWords, modelAnswer: band.modelAnswer ?? null };
       await tx.upsert("RRPrompt", { articleId: id, band: b }, p, p);
     }
     return id;

@@ -243,7 +243,8 @@
         "I named the injury.",
         "I wrote the steps in the right order.",
         "I used a key word such as bandage, bleed, or burn."
-      ]
+      ],
+      "modelAnswer": "I chose a small cut. First, I would wash my hands to stay clean. Next, I would rinse the cut with clean water. If it was bleeding, I would press a clean cloth on it until it stopped. Finally, I would cover the cut with a bandage to keep out germs."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described moving to shade, water, and rest.",
         "I explained the warning signs that mean calling for help.",
         "I used at least two key words."
-      ]
+      ],
+      "modelAnswer": "If a classmate became dizzy on a hot day, I would first help them move into the shade and let them rest. Then I would offer small sips of cool water so they could recover from feeling dizzy. I would call 997 for an ambulance right away if the classmate became confused or fainted, because that means it could be a serious injury that needs professional help."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained why assessing safety comes first.",
         "I gave two examples of first aid steps.",
         "I described signs that mean calling 997."
-      ]
+      ],
+      "modelAnswer": "A good first aider must always assess the situation first, because the top priority is making sure the area is safe before helping anyone. For example, with a bleeding cut, you should rinse it and apply pressure before covering it with a bandage to prevent infection. For a burn, you should cool the skin under running water for about twenty minutes instead of using ice or butter. If someone shows signs like confusion or fainting, possibly from heatstroke, that is when you must call 997 immediately instead of trying to handle it yourself."
     }
   }
 }

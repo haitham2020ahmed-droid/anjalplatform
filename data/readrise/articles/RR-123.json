@@ -243,7 +243,8 @@
         "I wrote two safety rules.",
         "I explained why each rule matters, using the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Rule one: never cross a wadi, or dry desert valley, when water is flowing through it, because a flash flood can sweep away a car in seconds. Rule two: always listen for a storm warning and move to higher ground right away, because rain falling far away in the mountains can send a flood rushing toward you even on a clear day. Following these rules keeps everyone safe, and afterward the desert often turns green as hidden seeds finally sprout."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in the correct order.",
         "I used at least three key words such as runoff, absorb, or sudden.",
         "I included a safety tip from the article."
-      ]
+      ],
+      "modelAnswer": "First, a powerful storm drops a huge amount of rain on the desert in a short time, but the sun-baked ground cannot absorb the water fast enough. Because the soil will not soak it up, the rain turns into runoff that rushes across the surface and pours downhill into a wadi. Within minutes, that trickle becomes a sudden, muddy flash flood strong enough to sweep away a car, even though many of Saudi Arabia's dams are built specifically to capture this floodwater for later use. Whenever an official warning is issued, people should move to higher ground immediately instead of trying to cross the flowing water."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated my position.",
         "I supported it with at least three details from the article.",
         "I used academic words such as arid, precipitation, or torrent."
-      ]
+      ],
+      "modelAnswer": "I believe cities in arid regions should still spend money on flood protection, even though precipitation is rare, because when rain finally does fall, it can arrive as a sudden and violent torrent with almost no warning. The article explains that because little vegetation grows in these dry regions to slow the water down, runoff rushes straight into a wadi and can turn a quiet valley into a flash flood within minutes, a danger that has nothing to do with how often it normally rains. At the same time, that same rare rainfall is precious, since it can recharge the underground aquifer and bring seeds buried in the sand back to life, so protection measures like dams actually capture a valuable resource rather than simply holding back a threat. Because a single flash flood can sweep away cars and endanger lives in minutes, the infrequency of rain in an arid city is exactly why preparation matters, not a reason to ignore it."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I named one simple machine.",
         "I told how it makes work easier.",
         "I gave a real example from my life."
-      ]
+      ],
+      "modelAnswer": "I will pick the lever. A lever is a simple machine that uses less force to lift something heavy. I have seen a lever used on a seesaw at the playground, where pushing down on one end lifts the other end up. A ramp and a pulley work in a similar way, by making it easier to move something without using as much force."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the machine works.",
         "I used the words effort and distance correctly.",
         "I included one detail from the article."
-      ]
+      ],
+      "modelAnswer": "A lever makes work easier by letting a person use less effort to lift a heavy load. The lever is a rigid bar that pivots on a fulcrum, and if you move the fulcrum closer to the load, you need even less effort to lift it, although your hand has to move over a longer distance to do so. An inclined plane, like a ramp, works in a similar way, because pushing a heavy object up a gentle ramp takes less effort than lifting it straight up, even though the object travels a greater distance along the slope. In the article, this trade between effort and distance is also what makes a wedge or an axle useful for making different kinds of work easier."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the trade between force and distance.",
         "I used at least one example from the article.",
         "I described how friction affects real machines."
-      ]
+      ],
+      "modelAnswer": "The article says machines involve an exchange because every simple machine trades the amount of force a person must exert for the distance over which that force is applied, rather than eliminating the work itself. For example, pushing a heavy cart up a ramp lets a person exert far less effort than lifting it straight up, but the advantage comes at the cost of moving the cart over a much longer distance along the slope. A screw, which is really an inclined plane wrapped around a thread, shows this exchange even more clearly, since turning it many times trades distance for the force needed to drive it into a surface. However, friction always works against this exchange in real machines, quietly resisting motion and wasting some of the effort as heat, which is why compound machines combining several simple machines, like bicycles, are carefully designed to keep friction as low as possible."
     }
   }
 }

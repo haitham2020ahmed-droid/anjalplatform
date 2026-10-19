@@ -243,7 +243,8 @@
         "I told what rubbing does to the tiny bits.",
         "I explained why the balloon sticks or the hair stands up.",
         "I used the words charge and attract correctly."
-      ]
+      ],
+      "modelAnswer": "When I rub a balloon on my hair, tiny bits move from my hair onto the balloon. This gives the balloon a charge. Because the balloon and my hair now have different charges, they attract each other, so the balloon sticks to the wall and my hair stands up."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how rubbing moves electrons.",
         "I used attract and repel correctly.",
         "I used details from the article as evidence."
-      ]
+      ],
+      "modelAnswer": "When I rub a balloon on my hair, electrons move from my hair to the balloon, so the balloon ends up with extra electrons and my hair has too few. The balloon and the wall have different charges, so they attract and the balloon sticks. But two hairs that lost electrons both have the same charge, so they repel and push apart from each other."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how charge builds up in each case.",
         "I explained what a spark is and how lightning compares.",
         "I supported my answer with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "In both cases, charge builds up because electrons move from one object to another until the objects are no longer neutral. When I shuffle across a carpet, extra electrons collect on my body, and when I touch a metal door handle, those electrons rush across the air in a sudden discharge that we feel as a spark. Lightning works the same way, but on a massive scale: a storm cloud builds up a huge imbalance of charge until it discharges as a giant spark between the cloud and the ground. The article also notes that dry air, with low humidity, makes these sparks more common because there is no moisture to let the charge leak away slowly."
     }
   }
 }

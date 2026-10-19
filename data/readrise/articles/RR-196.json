@@ -243,7 +243,8 @@
         "I chose one action.",
         "I explained the science with a detail from the article.",
         "I used at least one key word."
-      ]
+      ],
+      "modelAnswer": "When a player shoots the ball, it travels in a curved path called an arc before gravity pulls it back down toward the hoop. A high arc usually works best because the ball comes down at a steep angle, giving it a bigger opening in the hoop to fall through."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two science ideas.",
         "I used arc and backspin correctly.",
         "I connected the ideas to scoring a basket."
-      ]
+      ],
+      "modelAnswer": "A high arc helps a player score because the ball falls at a steep angle, so it has a bigger opening in the hoop to drop through compared to a flatter shot. Backspin also helps, because when the ball rotates backward and hits the rim, the spin slows it down, making it more likely to drop in instead of bouncing away. Together, a good arc and the right backspin give a shooter a much better chance of making the basket."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I responded clearly to my friend's claim.",
         "I explained at least three physics ideas from the article.",
         "I used key words such as trajectory, momentum, or friction correctly."
-      ]
+      ],
+      "modelAnswer": "Science has everything to do with sports, and basketball proves it. When a player shoots, the ball follows a curved trajectory shaped by gravity, and a higher arc lets the ball fall at a steeper angle with more room to drop through the hoop. Backspin also matters, since a ball spinning backward loses momentum when it strikes the rim, making it more likely to drop in rather than bounce away. Even the ball's bounce depends on physics, because the elastic rubber material inside flattens on impact and springs back, while friction between a player's shoes and the court floor lets them stop and change direction without slipping."
     }
   }
 }

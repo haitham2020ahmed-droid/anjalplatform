@@ -243,7 +243,8 @@
         "I clearly said which kind of money I chose.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think coins were the best idea because they were small, strong, and easy to count, unlike shells, which were not stamped with a clear value. Coins also let traders cross the desert with camel caravans and use the same money in markets along their route."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the changes in the right order.",
         "I used the words barter and currency correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Long ago, people used barter, trading one item directly for another, but this did not always work because both sides had to want what the other person had. To fix this problem, people began using shells, salt, grain, and eventually coins as a shared currency that almost everyone trusted and accepted. Today, Saudi Arabia uses a currency called the riyal, which shows how far money has come since the days of simple bartering."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what it means for money to depend on trust.",
         "I used at least three examples from the article.",
         "I organized my explanation in clear, complete sentences."
-      ]
+      ],
+      "modelAnswer": "Money works because people trust it, and the history of money in the article shows this trust growing stronger over time. At first, people used shells as money only because a whole community agreed they were valuable, even though shells have no real use on their own. Later, coins made of electrum carried a stamped mark showing their value, so traders crossing the desert in camel caravans could trust the coin's worth without weighing the metal themselves. Finally, when China introduced paper money, people had to trust an even lighter object with no precious metal at all, proving that money's value depends entirely on shared belief rather than the material itself."
     }
   }
 }

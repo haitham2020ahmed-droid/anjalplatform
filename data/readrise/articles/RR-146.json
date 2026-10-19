@@ -243,7 +243,8 @@
     "I wrote two ways to help bees.",
     "I used facts from the article to explain each way.",
     "I wrote complete sentences with capital letters and periods."
-   ]
+   ],
+   "modelAnswer": "One way I could help bees is planting more flowers at school, because bees need flowers to collect pollen and nectar for pollination. Another way is using fewer pesticides at home, since these chemicals can harm the wild bees that help crops grow."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I gave a clear explanation.",
     "I supported it with at least two details from the article.",
     "I used words such as pollinator, habitat, or pesticide correctly."
-   ]
+   ],
+   "modelAnswer": "Protecting bees is important for the food we eat because bees are excellent pollinators that carry nectar and pollen from flower to flower, helping plants make fruit and seeds. The article explains that about three out of four of the world's main food crops benefit from pollinators like bees, and almond trees depend on them almost completely. If bees lose their habitat or are harmed by pesticides, many of the foods we enjoy could become much harder to grow."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear position.",
     "I supported it with at least two pieces of evidence from the article.",
     "I explained how my evidence supports my position."
-   ]
+   ],
+   "modelAnswer": "I disagree that protecting bees is only a job for farmers and beekeepers. The article explains that bees face dangers like pesticides and the loss of habitat when farms and cities replace wildflowers, problems that ordinary people contribute to and can also help fix. For example, anyone can plant flowers, use fewer pesticides, and put out shallow dishes of water for bees, actions that do not require being a farmer or a beekeeper. Since scientists estimate that most of the world's food crops rely on pollinators, raising awareness and protecting bees is everyone's responsibility, not only the job of people working in orchards."
   }
  }
 }

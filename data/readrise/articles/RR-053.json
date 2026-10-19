@@ -243,7 +243,8 @@
     "I told where the water in an oasis comes from.",
     "I gave at least one way people use an oasis.",
     "I used at least one key word, like spring or well."
-   ]
+   ],
+   "modelAnswer": "An oasis gets its water from underground, and in some places it rises up on its own to form a spring. People also dig a well to reach the water below. Date palms give shade in an oasis, and people can rest, drink, and grow crops there."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained how groundwater collects in an aquifer.",
     "I described what can happen if too much water is pumped.",
     "I mentioned a way to save water, such as drip irrigation."
-   ]
+   ],
+   "modelAnswer": "An oasis gets its water from groundwater that collected in an underground aquifer long ago, when the climate was wetter. Some of this water is thousands of years old, so people must use it carefully, because if it is pumped faster than nature refills it, the springs can dry up. To avoid wasting water, many farmers now use drip irrigation, which sends water straight to each plant."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear position.",
     "I used evidence about aquifers, evaporation, or springs drying up.",
     "I used at least two key words, such as replenish or sustainable."
-   ]
+   ],
+   "modelAnswer": "I disagree that farmers in oases should pump more groundwater to grow more crops. The article explains that oasis water comes from an ancient aquifer that nature cannot quickly replenish, since much of it formed thousands of years ago in a wetter climate. If farmers pump faster than the aquifer is restored, springs can dry up completely and the desert heat will evaporate what little water remains at the surface. A more sustainable choice is for farmers to keep using drip irrigation, so this heritage settlement's water supply lasts for future generations."
   }
  }
 }

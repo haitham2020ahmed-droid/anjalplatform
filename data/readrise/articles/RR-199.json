@@ -243,7 +243,8 @@
         "I clearly named the sport I chose.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would most like to watch wheelchair basketball, because the article says it is fast and tough. I would also like to see goalball, where players who cannot see must listen closely to the bells inside the ball to block it from the goal."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained one way teamwork is part of the Games.",
         "I explained one way the Games are made fair or open to everyone.",
         "I supported my ideas with details from the article."
-      ]
+      ],
+      "modelAnswer": "Teamwork is part of the Paralympic Games because a blind runner and a guide are joined by a tether and run side by side, with the guide calling out turns, and when the pair wins, both of them receive a medal. The Games are also made fair and open to everyone, since the name Paralympic comes from the Greek word for beside, showing that the Games run parallel to the Olympics for athletes with many kinds of disabilities, from wheelchair athletes to blind sprinters."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that the Olympic and Paralympic Games should be combined into one event. The article explains that Paralympic sports are specially designed around different disabilities, such as goalball, where players who cannot see use the sound of bells inside the ball, or wheelchair basketball, which depends on the impairment classification of each athlete to keep competition fair. Combining the Games could make it harder to give each sport and classification the attention it deserves, especially since the Paralympic Games already include more than four thousand athletes competing in over twenty sports. Keeping the Games separate, held in the same city just weeks after the Olympics, lets each event celebrate its athletes fully while still showing how closely connected the two competitions are."
     }
   }
 }

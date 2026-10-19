@@ -243,7 +243,8 @@
         "I said the whale shark has gills.",
         "I gave one way to keep whale sharks safe.",
         "I used words from the article."
-      ]
+      ],
+      "modelAnswer": "The whale shark is a fish and not a whale because it breathes with gills instead of rising to the surface for air. It is endangered, so people can help keep it safe by never touching it and by keeping a respectful distance when they snorkel nearby."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the pads near the gills trap food.",
         "I gave one danger to whale sharks from the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "A whale shark is a filter feeder, which means it swims with its enormous mouth open and spongy filter pads near its gills trap plankton, fish eggs, and small fish as the water flows back out. One reason whale sharks are endangered is that fishing nets can trap them, since the article explains that boats, nets, and plastic pollution all put these gentle giants at risk."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described both photo identification and satellite tags.",
         "I connected the research to protecting the sharks.",
         "I used at least two key words such as aggregation, juvenile, or sustainable."
-      ]
+      ],
+      "modelAnswer": "Scientists study whale sharks in the Red Sea in two main ways. First, because every shark's pattern of spots and stripes is unique, researchers compare photographs to identify individual sharks during the spring aggregation of young whale sharks near Al-Lith. Second, researchers attach small electronic tags that reveal how these juvenile sharks migrate long distances in search of food. This research directly supports conservation, because understanding where and when whale sharks gather and travel helps people create more sustainable fishing and boating rules that protect the sharks from being struck or trapped."
     }
   }
 }

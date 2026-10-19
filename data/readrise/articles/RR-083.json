@@ -243,7 +243,8 @@
         "I named one old clock from the article.",
         "I told how it works.",
         "I told one problem with it."
-      ]
+      ],
+      "modelAnswer": "I would like to try a sundial. A sundial has a stick that stands up straight, and sunlight makes it cast a shadow onto marks that show the hours. One problem is that a sundial does not work at night or on a cloudy day."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described how both clocks worked.",
         "I explained the improvement with a reason.",
         "I used at least two key words such as accurate or mechanical."
-      ]
+      ],
+      "modelAnswer": "The sundial told time by using a stick that cast a shadow onto marked hours as the Sun moved across the sky. Centuries later, people invented mechanical clocks that used gears to turn the hands, and these worked even at night, unlike the sundial. The mechanical clock was an improvement because it did not depend on sunlight at all, even though early versions were not yet very accurate."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose one invention and stated my claim clearly.",
         "I compared it with at least one earlier method.",
         "I used evidence and key words from the article."
-      ]
+      ],
+      "modelAnswer": "I think Huygens's pendulum clock was the most important step in the history of timekeeping, because it was the first invention to make timekeeping truly precise. Earlier mechanical clocks used only gears and often lost many minutes every day, but a pendulum swings back and forth at a steady speed, which an engineer could use to regulate a clock far more reliably. This leap in accuracy eventually made it possible to build devices like quartz watches, whose crystals vibrate at a dependable rate, and even atomic clocks, which synchronize to the tiny movements of atoms. Without the pendulum proving that steady, repeating motion could measure time so exactly, modern timekeeping might have developed very differently."
     }
   }
 }

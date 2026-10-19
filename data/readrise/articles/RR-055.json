@@ -243,7 +243,8 @@
         "I wrote why the Nile is important to people.",
         "I used two facts from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "The Nile is called a river of life because it brings water to a land where there is mostly desert and little rain. Long ago the river flooded every summer and left behind rich soil so farmers could grow crops. Today the Aswan High Dam controls the water and even produces electricity for people living near the delta."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named one good result of the dam.",
         "I named one problem the dam caused.",
         "I used details from the article to explain each one."
-      ]
+      ],
+      "modelAnswer": "One good result of the Aswan High Dam is that it stopped the Nile's unpredictable summer floods and now produces electricity for the country. However, the dam also caused a problem: the silt that used to flow with the current and make the soil fertile now stays trapped behind the dam instead of reaching the fields. Because of this, farmers must add plant food to their land to replace the nutrients the river used to bring them."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the dam.",
         "I supported it with at least two pieces of evidence from the article.",
         "I mentioned a point on the other side and answered it."
-      ]
+      ],
+      "modelAnswer": "I believe building the Aswan High Dam was worth it. The dam created a reservoir at Lake Nasser that stores water and generates electricity, and it also stopped the unpredictable floods that could threaten farmland and towns along the river. Some people might argue the dam hurt agriculture because the sediment that naturally made the soil fertile now stays trapped behind it, but farmers have adapted by using fertilizer and irrigation to keep their crops healthy. Overall, the dam's steady water supply and power are worth more than the cost of replacing the lost sediment."
     }
   }
 }

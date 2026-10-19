@@ -243,7 +243,8 @@
         "I told the steps in order, from the light to the picture.",
         "I used at least two key words from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, light bounces off an object and travels into the camera through the aperture. Next, the lens bends the light so the rays come into focus at one sharp spot. Then the shutter opens for a moment, and the sensor's pixels measure the light to build the image."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named at least two ways a camera and an eye are alike.",
         "I used key words such as lens, aperture, or retina.",
         "I organized my answer with clear sentences."
-      ]
+      ],
+      "modelAnswer": "A camera and the human eye are alike in two ways. Both have a lens that bends light so it comes into focus, and both let light in through a small opening, since a camera uses an aperture while an eye has a similar opening that controls how much light gets in. A camera also has a sensor covered in pixels, which works much like the retina at the back of the eye, because both surfaces capture the light and turn it into a picture."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the steps in the correct order.",
         "I used refract, exposure, and digital correctly.",
         "I explained ideas clearly for a younger reader."
-      ]
+      ],
+      "modelAnswer": "When you take a photo, light first reflects off an object and enters the camera through a small opening called the aperture. The lens bends, or refracts, this light so the rays meet and come into focus, forming a sharp image instead of a blurry one. Then the shutter opens for a very short exposure, letting just enough light reach the sensor, which is covered with millions of tiny pixels. Each pixel measures the light that hits it, and together they combine into a digital photo that your phone can save and share."
     }
   }
 }

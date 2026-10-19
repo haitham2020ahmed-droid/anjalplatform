@@ -243,7 +243,8 @@
         "I described what I did as a worker.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Today I loaded a huge stone block onto a wooden sledge. First, I poured water on the sand so the sledge could slide more easily. Then my team and I pulled it up a long ramp toward the pyramid. By the end of the day, I was tired, but I was proud to be helping build a tomb for our pharaoh."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in order.",
         "I used at least three details from the article.",
         "I used order words such as first, next, and finally."
-      ]
+      ],
+      "modelAnswer": "First, workers cut huge blocks of limestone from a quarry right beside the pyramid. Next, they placed each block on a wooden sledge and poured water on the sand in front of it, because wet sand let the sledge slide more easily. Finally, they dragged the blocks up ramps to raise them higher, while skilled engineers carefully organized the whole process. This ancient system let people build a wonder of the world without any modern machines."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least three pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the pyramids are a testament to human skill and organization, because building the Great Pyramid required an extraordinary level of planning. First, paid laborers organized by skilled engineers moved more than two million stone blocks, some weighing more than a car, using only wooden sledges and wetted sand. Second, builders transported smooth limestone from across the river and heavy granite by boat all the way from Aswan, showing a precise system for sourcing different materials. Third, each side of the Great Pyramid faces almost exactly north, south, east, or west, an accuracy that still impresses archaeologists today. Such a massive, carefully coordinated monument could only have come from a highly organized civilization."
     }
   }
 }

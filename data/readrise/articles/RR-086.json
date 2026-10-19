@@ -243,7 +243,8 @@
         "I named two places Ibn Battuta visited.",
         "I told one problem he faced, using a fact from the article.",
         "I gave my opinion with a reason, in complete sentences."
-      ]
+      ],
+      "modelAnswer": "Ibn Battuta visited Egypt and China during his long journey. One problem he faced was that a ship he planned to sail on sank in a storm, and he lost nearly everything he owned. I would like to take a trip like his because I would love to see so many different countries, even though it sounds a little scary too."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least three events in the correct order.",
         "I used details from the article, such as places and dates.",
         "I used at least two key words from the lesson correctly."
-      ]
+      ],
+      "modelAnswer": "In 1325, Ibn Battuta left Tangier at the age of 21 to make the pilgrimage to Makkah for Hajj. Instead of going home afterward, he kept traveling for almost 30 years, working for a time as a judge for the sultan of Delhi in India. When he finally returned home in 1354, the sultan of Morocco asked a scholar named Ibn Juzayy to write down his stories in a book called the Rihla."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least two reasons the Rihla is valuable, using evidence from the article.",
         "I explained why historians read it carefully.",
         "I used precise vocabulary from the article and organized my answer in clear paragraphs."
-      ]
+      ],
+      "modelAnswer": "The Rihla is valuable today because it is a chronicle of an extraordinarily diverse world, describing more than 40 modern-day countries across Africa, Asia, and the Middle East that few other medieval travelers ever visited together. It also records the perilous realities of medieval travel, including storms, robbers, and a shipwreck that cost Ibn Battuta nearly everything he owned, giving historians rare details about the dangers people faced on these routes.\n\nHowever, historians must still read the Rihla carefully, because Ibn Battuta did not write the book himself; he dictated his memories to the scholar Ibn Juzayy many years after his journeys began, so some details may have faded or grown exaggerated with time. Despite this, the Rihla remains Ibn Battuta's lasting legacy, a text historians continue to study closely in order to understand the world he traveled through."
     }
   }
 }

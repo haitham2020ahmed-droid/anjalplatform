@@ -97,7 +97,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
     many("Student", (p) => ({ id: { in: p } }), ["id", "userId"]),
     many("RRStudent", (p) => ({ studentId: { in: p } })),
     many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt"]),
-    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt", "unreliable"]),
+    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "writingAiScore", "writingAiComment", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt", "unreliable"]),
     opts.map === false ? Promise.resolve([] as Row[]) : many("MapResult", (p) => ({ studentId: { in: p }, lexile: { not: null } }), ["studentId", "lexile", "testDate"]),
     many("RRPlacement", (p) => ({ studentId: { in: p } }), ["studentId", "completedAt"]),
   ]);
@@ -277,7 +277,7 @@ export async function pollReport(repo: Repo, actor: Actor, classId: string): Pro
 
 // ------------------------------------------------------------------ writing queue
 
-export interface WritingItem { runId: string; studentId: string; name: string; articleId: string; title: string; band: string; prompt: string; checklist: string[]; writing: string; completedAt: string | null; score: number | null }
+export interface WritingItem { runId: string; studentId: string; name: string; articleId: string; title: string; band: string; prompt: string; checklist: string[]; writing: string; completedAt: string | null; score: number | null; aiScore: number | null; aiComment: string | null }
 
 /** Written answers of a class waiting for a score (newest first); `scored` adds the 20 most recent scored ones. */
 export async function writingQueue(repo: Repo, actor: Actor, classId: string, opts: { scored?: boolean } = {}): Promise<{ pending: WritingItem[]; scored: WritingItem[] }> {
@@ -298,6 +298,8 @@ export async function writingQueue(repo: Repo, actor: Actor, classId: string, op
       runId: s(r.id), studentId: s(r.studentId), name: d.names.get(s(r.studentId)) ?? "Student", articleId: s(r.articleId), title: s(arts.find((a) => a.id === r.articleId)?.title) || "Article",
       band: s(r.band), prompt: s(p?.prompt), checklist: Array.isArray(checklist) ? checklist.map(String) : [], writing: s(r.writing),
       completedAt: r.completedAt ? new Date(r.completedAt as string).toISOString() : null, score: r.writingScore === null || r.writingScore === undefined ? null : Number(r.writingScore),
+      aiScore: r.writingAiScore === null || r.writingAiScore === undefined ? null : Number(r.writingAiScore),
+      aiComment: r.writingAiComment ? s(r.writingAiComment) : null,
     };
   };
   const by = (a: WritingItem, b: WritingItem) => s(b.completedAt).localeCompare(s(a.completedAt));

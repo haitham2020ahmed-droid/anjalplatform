@@ -243,7 +243,8 @@
         "I named two ways the wolf lives in the desert.",
         "I used facts from the article.",
         "I wrote full sentences."
-      ]
+      ],
+      "modelAnswer": "One way the Arabian wolf survives in the hot desert is that it hunts for food mostly at night, when the air is cooler. Another way is that its large ears let extra body heat escape so it can stay cool. These wolves often live together in a pack and raise their pups in a den."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described two features of the wolf.",
         "I explained how each feature helps it survive.",
         "I used key words such as nocturnal or habitat."
-      ]
+      ],
+      "modelAnswer": "The Arabian wolf is nocturnal, meaning it rests in the shade during the hot day and hunts at night, which helps it save water and energy in its dry desert habitat. It also has very large ears compared to its head, and extra body heat escapes through them, which keeps the wolf cool in extreme heat. As a predator, these features let it travel long distances at night to find hares, rodents, and other prey."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least two adaptations with evidence.",
         "I explained why conservation matters.",
         "I used words such as subspecies, nocturnal, or livestock correctly."
-      ]
+      ],
+      "modelAnswer": "As a desert subspecies, the Arabian wolf is well adapted to its harsh habitat: it is nocturnal, resting in rocky shade during the scorching day and hunting at night to conserve water and energy, and its pale, thin summer coat along with its oversized ears help it blend in and release heat. It also survives on whatever it can find, hunting small prey and scavenging carrion, so it rarely needs much water. Conservation is important for its future because the article explains these wolves are now rare, partly because farmers hunt them for attacking livestock, so protected areas are needed to keep this unique subspecies from disappearing."
     }
   }
 }

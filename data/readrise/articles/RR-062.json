@@ -243,7 +243,8 @@
         "I wrote three things to do.",
         "I told why each one helps my teeth.",
         "I used at least two key words."
-      ]
+      ],
+      "modelAnswer": "I brush my teeth twice a day because it removes plaque and keeps my enamel strong. I floss once a day to clean between my teeth where a toothbrush cannot reach. I also try not to eat too many sweets, because sugar can lead to a cavity."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps that cause a cavity.",
         "I gave two ways to prevent cavities.",
         "I used at least two key words, such as bacteria or fluoride."
-      ]
+      ],
+      "modelAnswer": "A cavity forms when bacteria in your mouth feed on sugar from food and drinks and produce acid, and over time this acid weakens the enamel and creates a hole, even in a strong molar. One way to prevent a cavity is to brush twice a day with toothpaste that has fluoride, since fluoride makes enamel stronger. Another way is to visit a dentist every six months so any early damage can be caught and treated."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly named one habit.",
         "I supported my choice with evidence from the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "I think brushing with fluoride toothpaste does the most to prevent tooth decay. Fluoride is a mineral that strengthens enamel, which matters most for permanent adult teeth that must last a lifetime, so a stronger enamel layer resists the acid that would otherwise erode it. Flossing, visiting the dentist, and even the traditional miswak stick's antibacterial substances all help too, but none of them rebuild enamel the way fluoride does, which is why I chose brushing as the most important daily habit."
     }
   }
 }

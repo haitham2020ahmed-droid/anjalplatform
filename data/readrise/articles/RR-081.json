@@ -243,7 +243,8 @@
         "I named two ways from the article.",
         "I chose the best idea and gave a reason.",
         "I used at least two key words, such as patient or ward."
-      ]
+      ],
+      "modelAnswer": "One way these hospitals helped sick people was giving free care to every patient, rich or poor. Another way was putting patients in a different ward depending on what sickness they had. I think free care was the best idea, because it meant that everyone could see a doctor, even a family with no money."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described my visit in a clear order.",
         "I included at least three accurate facts from the article.",
         "I used the words bimaristan and physician correctly."
-      ]
+      ],
+      "modelAnswer": "As soon as I arrive at the bimaristan, I am given a clean bed, healthy food, and fresh clothes, even though I have no money to pay. A physician examines me and sends me to the ward for my kind of disease, so I am not mixed in with every other patient. Workers in the pharmacy prepare my medicine, and when I am finally ready to leave, this generous hospital even gives me money so I can rest at home before going back to work."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the poll.",
         "I supported it with at least two accurate examples from the article.",
         "I used the words institution and diagnose or symptom correctly."
-      ]
+      ],
+      "modelAnswer": "I disagree with the poll, because the bimaristans show that this ancient institution already understood ideas hospitals still rely on today. For example, doctors in Baghdad had to pass an exam before they could treat patients, an early version of the licensing modern physicians still need before they can diagnose an illness. Al-Razi also tested where meat spoiled most slowly to decide the cleanest site for a hospital, a method that shows he was already thinking carefully about the causes behind symptoms of disease, long before germs were understood. These examples prove that hospitals from a thousand years ago still have real lessons to teach us today."
     }
   }
 }

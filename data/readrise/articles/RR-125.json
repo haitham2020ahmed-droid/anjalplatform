@@ -243,7 +243,8 @@
         "I named the foods in my breakfast.",
         "I used two facts from the article to explain my choices.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "For a healthy breakfast, I would eat a boiled egg, a slice of whole wheat bread, and a glass of milk. The egg and milk give me protein, which the article says helps me feel full and gives my body energy to start the day. Eating this breakfast would also help me focus better in class, since the article says kids who eat breakfast pay attention more easily than kids who skip it."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the difference between the two breakfasts.",
         "I used at least two details from the article.",
         "I wrote in complete sentences and checked my spelling."
-      ]
+      ],
+      "modelAnswer": "A breakfast of eggs and whole wheat bread is better than a sugary pastry because it gives your body steady, lasting energy instead of a quick burst that fades fast. The article explains that eggs contain protein, which helps you feel satisfied for longer, while whole wheat bread contains fiber, so its energy releases gradually through the whole morning. This steady supply of nutrients also helps your brain concentrate in class, but a sugary pastry gives a fast rise in energy that quickly falls, leaving you tired and hungry again before lunch."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated my position.",
         "I used at least two pieces of evidence from the article.",
         "I answered the concern about being busy and used correct grammar and punctuation."
-      ]
+      ],
+      "modelAnswer": "Even if you feel too busy to eat breakfast, skipping it is likely costing you more time and energy than it saves. After ten or more hours without food, your brain is running low on the glucose it needs, and studies described in the article show that students who skip breakfast often feel tired, irritable, and far hungrier before lunch, which makes it harder to maintain concentration in class. A refined, sugary snack is not much better, since it causes your energy to spike and then crash quickly, but a simple combination of protein and fiber-rich nutrients, like a boiled egg, whole wheat bread, and a few dates, can be prepared the night before in only a few minutes. A few minutes spent eating breakfast is a small price for the steady energy and focus it gives you the rest of the morning."
     }
   }
 }

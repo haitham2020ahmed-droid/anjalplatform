@@ -243,7 +243,8 @@
         "I told how Jabir tested his ideas.",
         "I told why his work still matters.",
         "I used two details from the article."
-      ]
+      ],
+      "modelAnswer": "Jabir tested his ideas with real experiments instead of just guessing, and he carefully wrote down what happened so other people could repeat his work. His careful methods, like distillation, still matter today, since workers in Taif use distillation to make rose water."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described Jabir's method.",
         "I explained why his method mattered.",
         "I used at least three details from the article."
-      ]
+      ],
+      "modelAnswer": "Jabir's way of working was different from simply guessing because he tested his ideas through actual experiments, mixing substances, heating them, and watching closely to see what happened, instead of just assuming an answer. This mattered because he also wrote down exactly what he did, so other scientists could repeat his experiments and trust the results, unlike earlier alchemists who mainly hoped to turn metal into gold without real proof. His careful methods, such as distillation and crystallization, produced real, reliable discoveries that later scientists could build on."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what alchemy failed to do.",
         "I explained how Jabir's methods helped create chemistry.",
         "I supported my explanation with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Alchemy failed at its most famous goal because, despite trying for a long time, alchemists never succeeded in turning ordinary metals into gold. Yet alchemy still helped create chemistry, because a scholar like Jabir ibn Hayyan used careful experiments rather than guesswork, testing and recording processes like distillation and crystallization that could purify liquids and form pure crystal substances. Both things can be true because the alchemists' specific goal of making gold was a failure, but their experimental methods and tools, like the alembic, became the foundation that real chemistry was built on, and we still use distillation today to make rose water in Taif and fresh drinking water from the sea."
     }
   }
 }

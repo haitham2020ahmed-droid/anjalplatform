@@ -243,7 +243,8 @@
         "I explained what a comet leaves behind.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A comet leaves a trail of debris along its orbit as it travels around the Sun. When Earth passes through that trail, the tiny bits of dust enter the atmosphere at incredible speed and burn up, which creates a bright streak of light called a meteor. That is how a comet can make a shooting star."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what each of the three words means.",
         "I used at least two details from the article.",
         "I showed how the three are connected."
-      ]
+      ],
+      "modelAnswer": "A comet is a large ball of ice, dust, and rock that travels around the Sun on a long orbit, leaving a trail of debris behind it as it goes. When Earth passes through that debris, tiny pieces enter the atmosphere at incredible speed and burn up, creating a bright streak called a meteor. If a larger rock survives that fiery trip and actually lands on the ground, it is then called a meteorite, so all three words describe different stages of the very same piece of debris from a comet."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described each stage of the journey in the correct order.",
         "I used precise evidence and vocabulary from the article.",
         "I explained what causes each change along the way."
-      ]
+      ],
+      "modelAnswer": "A single dust particle begins trapped in ice near a comet's nucleus, its solid center, while the comet travels through the freezing, dark part of its orbit far from the Sun. As the comet approaches the Sun, the surrounding ice warms and undergoes sublimation, changing directly into gas, which releases the dust particle into the glowing cloud and tail that always points away from the Sun. The comet then leaves this particle behind along its orbit as debris, and when Earth eventually passes through that trail, the particle plunges into the atmosphere at tremendous speed, where compressed, heated air makes it burn up and glow as the bright streak of light we call a meteor."
     }
   }
 }

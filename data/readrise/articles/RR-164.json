@@ -243,7 +243,8 @@
         "I told three true facts about the Milky Way.",
         "I said we need a dark place to see it.",
         "I used at least one key word, like galaxy or spiral."
-      ]
+      ],
+      "modelAnswer": "The Milky Way is our home galaxy, and it has more than one hundred billion stars inside it. It is shaped like a spiral, with long arms curling out from its center. To see it, you should go to a dark place far from city lights on a clear night."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described where the Sun is in the galaxy.",
         "I explained that the Sun orbits the center over a very long time.",
         "I used the words orbit and light-year correctly."
-      ]
+      ],
+      "modelAnswer": "Our Sun sits in one of the small spiral arms of the Milky Way, far away from the galaxy's crowded center. The whole galaxy is about 100,000 light-years across, and the Sun is pulled by gravity into a huge orbit around the center, where a giant black hole sits. One full orbit takes the Sun more than two hundred million years to complete."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described the spiral shape and the diameter in light-years.",
         "I explained the supermassive black hole at the center.",
         "I explained how light pollution affects viewing the Milky Way."
-      ]
+      ],
+      "modelAnswer": "The Milky Way is our home galaxy, a huge spiral-shaped collection of more than one hundred billion stars with a bulge in the middle and long curling arms, including the small arm where our own Sun sits. Astronomers estimate its diameter at about 100,000 light-years, meaning light itself takes that long to cross from one side to the other. At its very center lies a supermassive black hole whose powerful gravity controls how the whole galaxy slowly turns. Even though it fills the sky as a soft band of light, bright city lights create light pollution that can hide it completely, so clear observation of the Milky Way really only happens far from cities, such as in the dark desert skies of Saudi Arabia."
     }
   }
 }

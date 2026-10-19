@@ -243,7 +243,8 @@
         "I described at least two things a visitor would see.",
         "I included one true fact about Diriyah's history.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "As I walk through Diriyah, I see thick mud brick walls that keep the rooms cool, and I see the old palace sitting on a hill above the valley. I also learned that in 1727, Imam Muhammad bin Saud made Diriyah the capital of the first Saudi state, which is why people call it the birthplace of the nation."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why Diriyah is called the birthplace of a nation.",
         "I included at least three events in the correct time order.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Diriyah is called the birthplace of a nation because of important events in its history. First, the town was built in 1446 beside Wadi Hanifah. Next, in 1727, Imam Muhammad bin Saud made Diriyah the capital of the first Saudi state, which is why it is remembered as where the nation began. Later, in 1818, an army attacked and destroyed much of the town, but today experts have worked to restore it, and in 2010 it was named a World Heritage Site."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position about restoring Diriyah.",
         "I supported it with at least three pieces of evidence from the article.",
         "I used precise vocabulary, including at least two key words."
-      ]
+      ],
+      "modelAnswer": "I believe restoring Diriyah was worthwhile. First, the town's mud-brick architecture shows clever ventilation, since small openings near the tops of the thick walls let fresh air flow through and kept rooms cool in the desert heat, a heritage worth preserving. Second, Diriyah survived a serious siege in 1818 and was nearly destroyed, so restoring it honors the people who once lived and traded there as a prosperous town. Third, being named a World Heritage Site in 2010 shows that the whole world values this history, and the yearly Founding Day celebration helps commemorate the moment the first Saudi state began."
     }
   }
 }

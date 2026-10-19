@@ -243,7 +243,8 @@
         "I told one way friction helps.",
         "I told one way friction causes a problem.",
         "I used at least one key word, like surface, rough, or smooth."
-      ]
+      ],
+      "modelAnswer": "One way friction helps me is that it lets the brake on a bike grip the wheel so it can stop safely. Friction also helps my shoes grip a rough surface so I do not slip while walking. One problem friction causes is that it wears things out, like shoe soles getting thin over time. A smooth surface, like ice, has much less friction than a rough one, like sand."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how friction helps with an example.",
         "I explained how friction causes a problem with an example.",
         "I used key words such as force, resist, or lubricant."
-      ]
+      ],
+      "modelAnswer": "Friction is a force that can both help and cause a problem, depending on the situation. As a helper, friction lets the brake of a bicycle press against the wheel and resist its motion, slowing the wheel down until the bike stops safely. As a problem, friction between two rubbing surfaces wears things out over time, such as car tires slowly losing their tread from constantly rubbing against the road. To reduce this kind of damage, people use a lubricant, like oil or grease, so parts can slide past each other more smoothly."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I used at least two pieces of evidence from the article.",
         "I used precise words such as oppose, generate, or efficient."
-      ]
+      ],
+      "modelAnswer": "I do not think engineers should try to remove friction completely, because the evidence shows it is essential as well as inconvenient. Friction is a force that always opposes motion, and its value depends heavily on a surface's texture, since rough textures generate far more friction than smooth ones; without any friction at all, shoes could never grip the ground and brakes could never stop a moving vehicle. At the same time, friction does create real problems, wearing down tires and machine parts, which is why engineers already use a lubricant to make moving parts more efficient without eliminating friction entirely. Because friction is necessary for walking, braking, and countless everyday actions, I believe engineers should keep managing it carefully rather than trying to remove it altogether."
     }
   }
 }

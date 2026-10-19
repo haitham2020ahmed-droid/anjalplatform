@@ -243,7 +243,8 @@
         "I named a change that can go back, like melting ice.",
         "I named a change that cannot go back, like cooking an egg.",
         "I used a clue such as a new color, smell, or bubbles."
-      ]
+      ],
+      "modelAnswer": "Melting ice is a change that can go back, because the water can freeze into ice again. Cooking an egg is a change that cannot go back, because the egg turns white and firm and stays that way forever. I know cooking the egg is different because it made a new color that never changes back."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained that a physical change does not make a new substance.",
         "I explained that a chemical change makes a new substance.",
         "I gave one example of each from the article."
-      ]
+      ],
+      "modelAnswer": "A physical change does not make a new substance; it just changes the shape or form, like when ice melts into liquid water and could freeze back again. A chemical change is a reaction that makes a brand new substance that usually cannot go back, like when baking soda and vinegar react and make bubbles of carbon dioxide gas."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described one physical change and why it can be reversed.",
         "I described one chemical change and the new substance or clue it shows.",
         "I used details such as bubbles, color, smell, or protein from the article."
-      ]
+      ],
+      "modelAnswer": "Melting butter in a hot pan is a physical change, since it is reversible: the butter turns solid again once it cools in the fridge, with no new substance formed. Cooking an egg, however, is an irreversible chemical change, because the heat changes the protein in the egg white so it turns from clear to firm and white, and it can never return to its raw form. The clue that tells them apart is reversibility: one change can undo itself, while the other permanently transforms the molecules involved."
     }
   }
 }

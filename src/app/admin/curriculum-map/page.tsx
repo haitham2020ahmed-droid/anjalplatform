@@ -9,7 +9,7 @@ import { sendTargets } from "@/server/curriculum-map/send-plan";
 import { LessonCard } from "@/components/curriculum-map/lesson-card";
 import { SendPlanButton, SendPlanHost } from "@/components/curriculum-map/send-plan";
 import { getT } from "@/i18n/server";
-import { assignPlaceAction, quickAssignSkillAction, sendPreviewAction, sendScopeAction, shareMapPdfAction } from "./actions";
+import { assignPlaceAction, mapCodeSentAction, masteredCountAction, priorAssignmentAction, quickAssignSkillAction, sendPreviewAction, sendScopeAction, shareMapPdfAction } from "./actions";
 import { MapPdfBar } from "@/components/curriculum-map/map-pdf-bar";
 import { curriculumMapPdfHref, mapShareClasses } from "@/server/curriculum-map/map-pdf";
 import { MapAssignHost } from "@/components/curriculum-map/assign-button";
@@ -18,6 +18,7 @@ import { respondCodes } from "@/server/curriculum-map/respond";
 import { sentMapCodes, sentOn } from "@/server/curriculum-map/sent";
 import { skillPlanData } from "@/server/curriculum-map/skill-plan";
 import { SkillPlan } from "@/components/curriculum-map/skill-plan";
+import { assignedSkillIds } from "@/server/teacher/assign";
 
 export const metadata = { title: "Curriculum Map" };
 
@@ -51,6 +52,9 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
   // ✓ Sent: each section this teacher already assigned (any of its levels), with the latest date
   const sent: Record<string, string> = {};
   for (const u of v.units) for (const l of u.lessons) for (const sec of l.sections) { const d = sentOn(sentMap, sec.code); if (d) sent[sec.code.toUpperCase()] = d.toISOString().slice(0, 10); }
+  // ⭐ which skills already have an open assignment in one of these classes — so the skill-plan star still shows
+  // "assigned" after the page reloads, instead of resetting (it used to be client-only state)
+  const assigned = view === "plan" && canAssign && roster.length ? await assignedSkillIds(repo, roster.map((c) => c.id)).catch(() => new Set<string>()) : new Set<string>();
   // Respond to Reading Text Sets that have a writing task (the Grades 4–5 tasks load by themselves the first time)
   const respondSets = view === "lessons" && canAssign && actor.schoolId ? [...new Set([...(await respondCodes(repo, actor.schoolId).catch(() => new Set<string>()))].map((c) => c.replace(/\.(BELOW|ON|ABOVE)$/, "")))] : [];
   const unitIx = Math.min(Math.max(0, (Number(sp.unit) || 1) - 1), Math.max(0, v.units.length - 1));
@@ -80,7 +84,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
               <SkillPlan basePath="/admin/curriculum-map" grade={v.grade} grades={v.grades} unitIx={planUnitIx} units={plan.units}
                 pdfHref={curriculumMapPdfHref(v.grade, "staff", lang)} studentPdfHref={curriculumMapPdfHref(v.grade, "student", lang)}
                 reportHref={canAssign && roster[0] ? `/teacher/reports/skills-grid?classId=${encodeURIComponent(roster[0].id)}` : null}
-                canAssign={canAssign} roster={roster} quickAssign={quickAssignSkillAction} />
+                canAssign={canAssign} roster={roster} quickAssign={quickAssignSkillAction} assigned={assigned} priorAssignment={priorAssignmentAction} masteredCount={masteredCountAction} />
               {canSend && <div className="mt-3"><MapPdfBar grade={v.grade} href={curriculumMapPdfHref(v.grade, "staff", lang)} studentHref={curriculumMapPdfHref(v.grade, "student", lang)} classes={pdfClasses} share={shareMapPdfAction} showDownload={false} /></div>}
             </div>
           ) : <div className="mt-3"><EmptyState icon="🧭" title="Nothing here yet" text="The Curriculum Map has not been created yet." /></div>)}
@@ -119,7 +123,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                   </div>
                 </section>
               )}
-              {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} />}
+              {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} alreadySent={mapCodeSentAction} />}
             </>
           )}
           {canSend && <SendPlanHost key={v.grade} grade={v.grade} send={sendScopeAction} preview={sendPreviewAction}

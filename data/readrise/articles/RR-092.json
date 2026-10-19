@@ -243,7 +243,8 @@
         "I said what to do with an old phone.",
         "I used two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think you should recycle an old phone instead of throwing it away. The article says every phone has a little gold and other metal inside it, so recycling saves these useful materials. It also says a battery thrown in the trash can even catch fire, so it is safer to recycle it the right way."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the recycling steps in order.",
         "I gave at least one reason recycling is better than throwing away.",
         "I used key words such as electronic, valuable, and landfill."
-      ]
+      ],
+      "modelAnswer": "First, old electronic devices are collected and taken to a special factory. Next, workers take them apart and sort the pieces, and then the metals are separated, melted down, and cleaned so they can be used again. This is better than throwing the phone away, because electronics dumped in a landfill can leak harmful lead or mercury into the soil and water, while recycling saves the valuable metals inside instead of wasting them."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I used at least two pieces of evidence from the article.",
         "I explained how each piece of evidence supports my opinion."
-      ]
+      ],
+      "modelAnswer": "I agree that recycling is a sustainable alternative to mining, because the article shows how much it can save compared with digging new resources out of the ground. For example, a ton of old phones contains much more gold than a ton of rock from a gold mine, so recycling can extract more valuable metal with far less digging. In addition, mining new metal requires huge mines that damage the land and use a great deal of energy, while recycling simply reuses metals that already exist instead of harming more of the environment. Because recycling gets more value from materials we already have and avoids some of mining's toxic and destructive effects, it truly is a more sustainable choice."
     }
   }
 }

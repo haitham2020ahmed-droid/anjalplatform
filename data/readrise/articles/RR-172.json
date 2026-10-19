@@ -243,7 +243,8 @@
         "I explained what my lungs take in and what they let out.",
         "I gave one way to keep my lungs safe from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "My body needs to breathe because my lungs take in oxygen, which every part of my body needs to stay alive, and breathing out gets rid of a waste gas called carbon dioxide. One way to keep my lungs safe is to stay inside or wear a mask on days with a dust storm, so dust does not harm my lungs."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the path of air in the correct order.",
         "I explained what happens to oxygen and to carbon dioxide.",
         "I used words such as windpipe, diaphragm, and carbon dioxide."
-      ]
+      ],
+      "modelAnswer": "When I breathe in, air travels through my nose or mouth, down my windpipe, and into my two lungs, with the diaphragm muscle tightening and pulling down to make my chest bigger so air rushes in. Inside my lungs, oxygen moves from the air into my blood so it can be carried all over my body. At the same time, my blood brings back carbon dioxide, a waste gas, and I get rid of it every time I breathe out."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described the branching path from the windpipe to the alveoli.",
         "I explained how oxygen and carbon dioxide move through the capillaries.",
         "I used precise words such as inhale, exhale, bronchi, and alveoli."
-      ]
+      ],
+      "modelAnswer": "When I inhale, air travels down my windpipe, which splits into bronchi that branch again and again inside each lung until they reach tiny air sacs called alveoli. At the alveoli, oxygen passes into the blood through thin-walled capillaries that wrap around them, and the blood then carries that oxygen throughout my body. At the same time, carbon dioxide moves from the capillaries back into the alveoli, and I release it when I exhale, showing how this branching structure is perfectly built for exchanging gases with my blood."
     }
   }
 }

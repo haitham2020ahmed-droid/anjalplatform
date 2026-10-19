@@ -243,7 +243,8 @@
         "I named one robot from the article and its job.",
         "I told how it senses, thinks, or acts.",
         "I used complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I will pick the rover that explores Mars. A rover is a machine that drives across the surface of Mars and takes photos of rocks. It uses a sensor to notice what is around it, and a computer follows its program to decide what to do. Because Mars is so far away, the rover sometimes has to act on its own instead of waiting for people on Earth."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained one strength of robots with a detail from the article.",
         "I explained one limit of robots with a detail from the article.",
         "I told why people are still needed."
-      ]
+      ],
+      "modelAnswer": "Robots are very good at repetitive jobs, like the robot arms in factories that lift parts and paint car bodies the same way thousands of times without getting tired. However, robots are not good at solving new or unexpected problems, because they can only follow the instructions in their program exactly as written. For example, a surgeon can guide a precise robot arm during an operation, but the robot itself never makes the medical decisions. This is why engineers and other people are still needed to design, build, program, and repair robots."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear claim in my first sentence.",
         "I used at least two pieces of evidence, including one strength and one limit of robots.",
         "I explained how my evidence supports my claim."
-      ]
+      ],
+      "modelAnswer": "Robots cannot fully replace people, because although they excel at certain tasks, they still depend entirely on human design and judgment. One clear strength is precision: a robot arm guided by a surgeon can make extremely precise cuts during an operation, and factory robots can repeat the same motion thousands of times without ever tiring. However, every robot's actuators only follow the algorithm written into its program, so when a situation falls outside those instructions, the robot struggles, which is why a Mars rover must sometimes make autonomous decisions simply because Earth's signal takes too long to arrive. Because engineers and technicians are still needed to design, build, and repair every robot, and because robots cannot handle truly unexpected problems, I believe people will always remain essential partners rather than being replaced."
     }
   }
 }

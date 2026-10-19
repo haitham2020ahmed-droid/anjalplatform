@@ -243,7 +243,8 @@
         "I wrote two ways flamingos are special.",
         "I used details from the article.",
         "I used at least one key word, like wade or beak."
-      ]
+      ],
+      "modelAnswer": "One way a flamingo is different is that it has a bent beak that works like a filter to catch tiny shrimp from the water. Another way is that it likes to wade and stand in salty water on legs as thin as sticks. Flamingos also live and nest together in huge groups instead of alone."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the beak works like a filter.",
         "I explained how the food affects the bird's color.",
         "I used evidence from the article."
-      ]
+      ],
+      "modelAnswer": "A flamingo's bent beak works like a filter: the bird lowers its head upside down into the water, pumps water through the edges of its beak with its tongue, and traps tiny shrimp and algae inside. This diet of shrimp and algae actually contains a pink coloring, and as the flamingo eats, that color builds up in its feathers, which is why a gray chick slowly turns pink as it grows."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described how the beak filters food.",
         "I explained how carotenoid pigments make the feathers pink.",
         "I supported my explanation with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "A flamingo's unusual appearance comes directly from how it feeds. Its bent beak acts as a filter, pumping water from a salty lagoon through its edges to trap tiny shrimp and algae, which few other animals can eat. These foods contain a pigment called carotenoid, and as the flamingo digests them day after day, that pigment builds up in its feathers and slowly turns a gray chick into a bright pink adult. In this way, the flamingo's filtering beak and its diet are the direct cause of its famous pink color."
     }
   }
 }

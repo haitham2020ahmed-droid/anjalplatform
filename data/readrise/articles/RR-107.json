@@ -243,7 +243,8 @@
     "I named three things and said if each would float or sink.",
     "I used an idea from the article, like heavy for its size or hollow.",
     "I wrote in full sentences."
-   ]
+   ],
+   "modelAnswer": "I think a wooden spoon would float because wood is not very heavy for its size. I think a metal spoon would sink because metal is heavy for how small it is. I think an empty plastic bottle would float too, because it is hollow and full of air, just like a submarine that fills its tanks with air to rise."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained that the ship is hollow and full of air.",
     "I used density, buoyancy, and displace correctly.",
     "I connected the ship's shape to the upward push of water."
-   ]
+   ],
+   "modelAnswer": "A steel ship can float even though steel is much denser than water because of its shape. The ship is hollow and filled with air, so its wide hull pushes aside, or displaces, an enormous amount of water. The more water it displaces, the stronger the upward push of buoyancy becomes, and that buoyancy ends up strong enough to support the ship's heavy weight."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated Archimedes' principle in my own words.",
     "I explained how water density changes the amount of displacement needed.",
     "I used evidence from the article to support my answer."
-   ]
+   ],
+   "modelAnswer": "Archimedes' principle says that an object floating in water is pushed upward by a force equal to the weight of the water it displaces. Because salty water like that in the Dead Sea has a higher density than fresh water, each unit of displacement provides a stronger upward push, since the same volume of salty water weighs more. This means the ship does not need to displace as much water to support its weight, so its hull sits higher in the Dead Sea than it would in a freshwater lake, the same way an egg floats in salty water but sinks in tap water."
   }
  }
 }

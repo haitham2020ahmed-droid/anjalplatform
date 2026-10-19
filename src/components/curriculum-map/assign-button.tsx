@@ -1,11 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
 import { Combo } from "@/components/ui/combo";
 import { AssignDates } from "@/components/assign/assign-dates";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import { useT } from "@/i18n/client";
+import { PriorAssignedPrompt } from "@/components/assign/prior-assigned";
 
 type Lv = "ABOVE" | "ON" | "BELOW";
 interface RosterLevel { level: Lv; from: string; reason: string }
@@ -24,13 +26,15 @@ export function MapAssignButton({ code, label, levels }: { code: string; label: 
   );
 }
 
-/** The page's ONE assign window (the roster is sent once): whole class or starred students; adaptive or by level. */
-export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; assign: (input: PlaceAssignInput) => Promise<{ ok: boolean; message: string }> }) {
+/** The page's ONE assign window (the roster is sent once): whole class or starred students; adaptive or by level.
+ * `alreadySent` (optional): whether the chosen class already has this place sent — asks "assign it again?" first,
+ * the same question Skill plan and the full Assign page already ask. */
+export function MapAssignHost({ classes, assign, alreadySent }: { classes: RosterClass[]; assign: (input: PlaceAssignInput) => Promise<{ ok: boolean; message: string }>; alreadySent?: (input: { classId: string; code: string }) => Promise<{ sent: boolean }> }) {
   const [open, setOpen] = useState(false);
   const [code, setCode] = useState("");
   const [levels, setLevels] = useState(false);
   useEffect(() => {
-    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setSource(""); setOpen(true); };
+    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setSource(""); setConfirmed(false); setJustAssigned(false); setOpen(true); };
     window.addEventListener(EVENT, on);
     return () => window.removeEventListener(EVENT, on);
   }, []);
@@ -55,7 +59,25 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   // r74: the required Source — always empty when the window opens (no default)
   const [source, setSource] = useState<AssignSource | "">("");
   const t = useT();
+  const router = useRouter();
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  // ⭐ "already sent to this class — assign it again?" (the same question Skill plan and the full Assign page ask):
+  // re-checked whenever the chosen class or place changes, reset on every change so a confirm never carries over.
+  const [sent, setSent] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+  // 🐛 same fix as Skill plan's suggest panel: `send()`'s success calls router.refresh(), which hands this effect a
+  // new `alreadySent` reference and reruns it — and since the place genuinely IS now sent, `sent` would flip true
+  // right away and replace the whole form with "assign it again?" the instant the send succeeds. justAssigned
+  // suppresses that for the rest of this window's life for the chosen class/place.
+  const [justAssigned, setJustAssigned] = useState(false);
+  useEffect(() => {
+    let live = true;
+    setConfirmed(false);
+    if (!alreadySent || !classId || !code) { setSent(false); return; }
+    alreadySent({ classId, code }).then((r) => { if (live) setSent(r.sent); }).catch(() => undefined);
+    return () => { live = false; };
+  }, [classId, code, alreadySent]);
+  const blocked = sent && !confirmed && !justAssigned;
   const klass = classes.find((c) => c.id === classId);
   const all = klass?.students ?? [];
   const cat = (code.match(/\.(CV|ACS|RTR)(\.|$)/)?.[1] ?? null) as "CV" | "ACS" | "RTR" | null;
@@ -89,6 +111,11 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
         })()
         : await assign({ source, classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null, startAt: start || null });
     setBusy(false); setResult(r);
+    // 🔄 r85: "✓ Sent {date}" next to a section comes from the page's own server data (sentMapCodes), which this
+    // dialog never re-fetches on its own — without this, a section just assigned keeps showing its old ⭐ Assign
+    // button until the whole page is reloaded by hand. router.refresh() re-reads that data in the background
+    // (the dialog itself, still open on "Done", is untouched).
+    if (r.ok) { setJustAssigned(true); router.refresh(); }
   };
   if (!classes.length) return null;
   return (
@@ -102,10 +129,12 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
             </div>
             {classes.length > 1 && (
               <label className="mt-3 flex flex-col font-semibold text-slate-700">Class
-                <Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); setAlso(new Set()); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: `(${c.students.length})` }))} className="mt-1 font-normal" />
+                <Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); setAlso(new Set()); setJustAssigned(false); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: `(${c.students.length})` }))} className="mt-1 font-normal" />
               </label>
             )}
             <SourceSelect t={t} value={source} onChange={setSource} className="mt-3" field="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" />
+            {blocked ? <div className="mt-3"><PriorAssignedPrompt t={t} onYes={() => setConfirmed(true)} onNo={() => setOpen(false)} /></div> : (
+            <>
             <fieldset className="mt-3">
               <legend className="font-semibold text-slate-700">How</legend>
               <div className="mt-1 grid gap-2 sm:grid-cols-2">
@@ -200,6 +229,8 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
               <button type="button" onClick={() => setOpen(false)} className="rounded-xl px-4 py-2 font-semibold ring-1 ring-slate-300">{result?.ok ? "Done" : "Cancel"}</button>
               {!result?.ok && <button type="button" onClick={send} disabled={busy || !source || (mode === "MANUAL" ? !manualIds.length : who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : !source ? t("Choose the source first.") : mode === "MANUAL" ? (manualIds.length ? `Assign to ${manualIds.length} student(s)` : "Choose a level first") : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
             </div>
+            </>
+            )}
           </div>
         </div>
       )}

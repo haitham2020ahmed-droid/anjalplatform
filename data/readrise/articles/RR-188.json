@@ -243,7 +243,8 @@
         "I gave at least two reasons from the article.",
         "I used the word program correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "People remember Ada Lovelace because she wrote a program, a list of step-by-step instructions, for a machine that was never even built. People also remember her because she imagined that such a machine could do more than math someday, even make music."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what Ada was asked to do.",
         "I explained what she added and why it mattered.",
         "I used at least two key words from the article."
-      ]
+      ],
+      "modelAnswer": "Ada was only asked to translate an article about Babbage's engine from French into English, but she went far beyond that task. She added her own notes, which ended up about three times longer than the original article, and in one note she wrote out clear, step-by-step instructions showing how the engine could calculate a special set of numbers. Because that list of instructions is a program, many people consider her notes, not just her translation, to be her true achievement."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what Ada wrote and why it counts as a program.",
         "I used algorithm and visionary correctly.",
         "I connected her ideas to computers today."
-      ]
+      ],
+      "modelAnswer": "Ada Lovelace's work still matters today because, in her notes, she wrote out a step-by-step algorithm showing how Babbage's engine could calculate a set of numbers, which is why many people call her the first computer programmer even though the machine itself was never built. She was also a visionary, since she imagined that such a machine might one day do far more than math, even compose music, an idea that sounded impossible in her time but describes exactly what modern computers can do. Her early algorithm and her visionary thinking about what machines could become connect directly to the programs that run on every computer today."
     }
   }
 }

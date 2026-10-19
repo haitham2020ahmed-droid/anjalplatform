@@ -243,7 +243,8 @@
         "I named two safety rules from the article.",
         "I told why each rule keeps people safe.",
         "I used at least one key word, like outlet or wire."
-      ]
+      ],
+      "modelAnswer": "One rule is to never touch a plug or outlet with wet hands, because water lets electricity pass through it and that could hurt you. Another rule is to never push objects into an outlet, because that could send electricity through the object and into you. I also learned that every wire runs through a circuit with a breaker to help keep us safe."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what a conductor and an insulator are.",
         "I gave an example of each from the article.",
         "I explained why wires have copper inside and plastic outside."
-      ]
+      ],
+      "modelAnswer": "A conductor is a material that lets electricity pass through it easily, like the metal copper, while an insulator is a material that blocks electricity, like plastic or rubber. A household wire uses both materials together: copper sits at the center so electricity can flow to power an appliance, and a plastic insulator wraps around the outside so no one gets shocked by touching it. This combination lets electricity travel safely to wherever an appliance needs power, from the plant that first generated it all the way to my home."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what a circuit is and how a switch controls it.",
         "I described the roles of copper and plastic insulation.",
         "I explained how a breaker prevents overloads and fires."
-      ]
+      ],
+      "modelAnswer": "Electricity flows through a home inside a closed loop called a circuit, and a switch works by opening or closing a small gap in that loop to turn a light on or off. Inside the wires, copper acts as the conductor that lets electrons flow easily, while a layer of plastic insulation wraps around it to keep anyone who touches the wire from getting shocked. If too many appliances draw power at once, the circuit breaker detects the overload and switches off the power before the wire gets hot enough to start a fire. Together, these parts let electricity move efficiently through a house while keeping everyone inside safe."
     }
   }
 }

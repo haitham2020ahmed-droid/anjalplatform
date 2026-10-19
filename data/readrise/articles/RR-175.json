@@ -243,7 +243,8 @@
         "I wrote two tips from the article.",
         "I told why each tip helps my back.",
         "I used a word from the article, such as spine or posture."
-      ]
+      ],
+      "modelAnswer": "I will sit up tall with good posture, because slouching puts strain on my spine and muscles. I will also carry a lighter backpack with both straps, because a heavy backpack can hurt my back. These habits protect the discs that cushion my spine."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the job of the bones, the discs, and the muscles.",
         "I used at least two key words correctly.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "The spine is made of small bones called vertebrae stacked like building blocks, and they protect the nerves that carry messages between the brain and the rest of the body. Between the vertebrae, soft discs act like cushions, letting the spine bend and absorbing shock from running or jumping. However, bones and discs alone cannot hold the spine steady, so strong back and stomach muscles are needed to keep good posture and prevent strain."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that back problems only matter for adults, because the article explains habits that affect anyone's spine right now, no matter their age. For example, slouching with poor posture for a long time puts strain on the muscles and the flexible discs between the vertebrae, which can happen to a student hunched over a phone just as easily as to an adult. The article also warns that carrying a heavy backpack, something many young students do every day, is a common problem for the back, showing that protecting the core and spine matters starting in childhood, not just adulthood."
     }
   }
 }

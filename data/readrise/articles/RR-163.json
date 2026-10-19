@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would not like to visit Mercury, because it has no blanket of atmosphere to hold in heat, so its temperature swings from very hot to very cold. It is also covered with craters from crashing space rocks, which would make it a dangerous, rocky planet to walk around. Mercury is the closest and smallest planet, but that does not make it a safe place to visit."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why Mercury gets so cold.",
         "I used the words atmosphere and shadow correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Even though Mercury is the closest planet to the Sun, it still has ice because it has almost no atmosphere to spread heat around the planet. Deep inside some craters near its poles, there are patches of permanent shadow that sunlight never reaches, so those spots stay freezing cold. When spacecraft explored these dark craters, they found ice hidden safely in the shadow, away from Mercury's blazing daytime temperature."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what \"world of extremes\" means.",
         "I used at least three details from the article.",
         "I organized my explanation in clear, complete sentences."
-      ]
+      ],
+      "modelAnswer": "Mercury is called a world of extremes because nearly everything about it swings between opposite ends with nothing in between. Its rotation is extremely slow, so one day lasts about 176 Earth days, which is longer than its entire 88-day orbit around the Sun. Without an atmosphere to trap or spread heat, its daytime temperature can reach 430 degrees Celsius, hot enough to melt lead, while nighttime temperatures plunge to minus 180 degrees. Yet even on this scorching world, a spacecraft mission to study it found ice hidden in permanently shadowed craters near the poles, showing just how extreme and contradictory Mercury truly is."
     }
   }
 }

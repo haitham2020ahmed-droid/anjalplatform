@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I think dolphins are very smart. The article says a dolphin can find food in dark water by listening for echoes, which is a clever way to hunt. Dolphins in a pod also work together and herd fish into a tight ball, which shows they can think as a team."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each detail helps dolphins survive."
-      ]
+      ],
+      "modelAnswer": "Dolphins use sound in two important ways to survive. First, they use echolocation, sending out rapid clicks that bounce back as echoes, which lets them locate food even in dark or cloudy water where they could not simply see it. Second, each dolphin develops its own signature whistle that works like a name, so members of a pod can recognize each other and stay together, which helps them cooperate while hunting and stay safe from danger."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I think echolocation is the most important adaptation for a dolphin's survival. The article explains that by listening to the echoes of its own clicks, a dolphin can tell where an object is, how large it is, and even what shape it has, which lets it find food and avoid obstacles even in dark or cloudy water where sight alone would fail. While half-brain sleep and breathing through a blowhole are also essential, neither one helps a dolphin locate food the way echolocation does, so without it a dolphin's hunting would be far less effective."
     }
   }
 }

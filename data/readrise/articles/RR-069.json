@@ -243,7 +243,8 @@
         "I explained the steps the computer takes.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "To learn to spot a cat, a computer is trained using lots of data, like thousands of labeled photos. It looks for a pattern, such as pointed ears, that shows up again and again. If it makes a mistake, it adjusts its math and tries again until it gets better."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear reason.",
         "I used at least two details from the article.",
         "I explained how the details support my reason."
-      ]
+      ],
+      "modelAnswer": "People must check the work of AI because a computer only knows what its data teaches it, so if the data is wrong or unfair, the computer learns the wrong things. Even though AI can translate languages and predict which roads will be crowded, it can still recognize a pattern incorrectly and make a mistake. Checking its work makes sure the answers it gives are accurate before people trust them."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that artificial intelligence should be allowed to make important decisions on its own. Machine learning only knows what its training data teaches it, so if that data contains bias or unfair patterns, the resulting decisions could be wrong in ways nobody notices right away. The article explains that AI can make mistakes when its data is flawed, which is exactly why people must always check its work, an ethical responsibility that disappears if a computer is left to decide alone. Because AI is a powerful tool but not a perfect judge, people should stay in charge of important decisions."
     }
   }
 }

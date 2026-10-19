@@ -243,7 +243,8 @@
         "I wrote three tips.",
         "Each tip comes from the article.",
         "I explained why one of the tips helps."
-      ]
+      ],
+      "modelAnswer": "One tip is to make your password long, so it is hard to guess. Another tip is to put a symbol in it, like # or !. A third tip is to keep your password a secret and only tell your parents. I think the secret tip helps the most, because if nobody else knows it, no one can get into your account."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described two dangers from the article.",
         "I explained a way to stop each danger.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "One danger is that hackers use computer programs that try millions of guesses every second, so a short or common password gets cracked fast. I can stop this by using a long passphrase that joins unrelated words together, since that is much harder to guess. Another danger is a scam message that pretends to be from a real company and asks for your password. Because the article says a real company would never ask for it, I would never click the message and would tell a trusted adult instead."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose three habits from the article.",
         "I explained why each habit protects an account.",
         "I used precise evidence from the article."
-      ]
+      ],
+      "modelAnswer": "The first habit is creating a long passphrase made of several unrelated words, such as camel, lantern, mango, and cloud, because adding more characters makes it nearly impossible for a hacker's program to guess. The second habit is turning on two-step verification, which requires both a password and a code sent to your phone, so even if a phishing message tricks someone into revealing their password, the hacker still cannot get in. The third habit is never reusing one password across accounts, since a password stolen from one site could unlock every other account. Together, a strong passphrase, verification, and unique passwords protect a brand-new school account from the very first day."
     }
   }
 }

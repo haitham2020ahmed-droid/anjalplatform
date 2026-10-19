@@ -169,6 +169,18 @@ export async function hasPriorSkillAssignment(repo: Repo, classId: string, skill
   return rows.length > 0;
 }
 
+/**
+ * Skill ids that already have an open (not deleted) Assignment in any of these classes — so the Curriculum Map's
+ * skill-plan ⭐ keeps showing "assigned" after a page refresh, instead of resetting to ☆ every time (it used to be
+ * client-only state that forgot itself the moment the page reloaded).
+ */
+export async function assignedSkillIds(repo: Repo, classIds: string[]): Promise<Set<string>> {
+  const ids = [...new Set(classIds.filter(Boolean))];
+  if (!ids.length) return new Set();
+  const rows = await repo.findMany("Assignment", { classId: { in: ids }, skillId: { not: null }, deletedAt: null }, { select: ["skillId"] });
+  return new Set(rows.map((r) => s(r.skillId)).filter(Boolean));
+}
+
 /** Published questions a practice of this skill can use (the skill and its other grades' copies: the shared count). */
 export async function skillQuestionCount(repo: Repo, schoolId: string, skillId: string): Promise<number> {
   const { countQuestionsOfSkills } = await import("../questions/skill-questions");

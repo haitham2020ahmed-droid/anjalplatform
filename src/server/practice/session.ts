@@ -69,6 +69,11 @@ export interface PracticeView {
   question: ClientQuestion | null;
   answered: number;
   correct: number;
+  /** r## (owner: "53 answered and it never stopped — explain the number"): rapid guesses (guessing.ts) inside
+   *  `answered` above — counted for nothing (not the 30/50 rule, not accuracy, not mastery). Lets the practice
+   *  screen explain the gap between "answered" and what actually moved the student toward Done, instead of the
+   *  number just looking stuck. */
+  guessCount: number;
   mastery: number;
   band: string;
   ended: boolean;
@@ -394,7 +399,7 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
   }
   return {
     sessionId: String(s.id), skillId: String(s.skillId), skillName: String(skill.name), question,
-    answered: Number(s.questionCount), correct: Number(s.correctCount),
+    answered: Number(s.questionCount), correct: Number(s.correctCount), guessCount: Number(s.guessCount ?? 0),
     mastery: Math.round(Number(m?.score ?? 0)), band: String(m?.band ?? "BEGINNING"),
     ended: Boolean(s.endedAt), endReason: s.endReason ? String(s.endReason) : null,
     ...(work ? { work } : {}),
@@ -652,7 +657,11 @@ async function submitAnswerUnlocked(
   // same 30–50 rule counted in this session — mastered at 30+ ends it with the celebration; at 50 the student chooses
   const sessionRule = !workOpen;
   const sessionMastered = sessionRule && !rapid && counted >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
-  const sessionMax = sessionRule && !rapid && !sessionMastered && counted === ASSIGNMENT_MAX_QUESTIONS;
+  // r## hardening (owner: "a student answered 53 and it never stopped"): this used to fire only when `counted`
+  // landed on EXACTLY 50 (every other "done" check in this file — maxDone above, workGoalOf — uses >=). `counted`
+  // only ever rises by one at a time today, so this was never actually missed, but >= is the same safe invariant
+  // the rest of the file already uses, not a behavior change for the normal case.
+  const sessionMax = sessionRule && !rapid && !sessionMastered && counted >= ASSIGNMENT_MAX_QUESTIONS;
   if ((masteredDone || sessionMastered) && (!endReason || endReason === "COMPLETED")) { nextId = null; endReason = "WORK_MASTERED"; }
   // the teacher's count reached: exactly that many — the work is Done and this practice ends
   if (workOpen && count && maxDone && !endReason) { nextId = null; endReason = "COMPLETED"; }

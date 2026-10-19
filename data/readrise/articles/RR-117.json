@@ -243,7 +243,8 @@
         "I told what blocks the light in each eclipse.",
         "I told where the shadow falls in each one.",
         "I told how to watch each one safely."
-      ]
+      ],
+      "modelAnswer": "In a solar eclipse, the Moon moves between the Sun and the Earth along its orbit and blocks the sunlight, so the Moon's shadow falls on the Earth. You should never look right at the Sun during this eclipse, so you need special eclipse glasses. In a lunar eclipse, the Earth moves between the Sun and the Moon instead, so the Earth's shadow falls on the Moon, and this kind of eclipse is safe to watch with just your eyes."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained that the Sun, Earth, and Moon must align.",
         "I described the darkness and the corona.",
         "I included a safety rule."
-      ]
+      ],
+      "modelAnswer": "Eclipses do not happen every month because the Moon's orbit is slightly tilted, so the Sun, Earth, and Moon only align perfectly once in a while instead of every single month. During a total solar eclipse, the sky suddenly darkens for a few minutes, and if you are wearing certified eclipse glasses, you can safely see the corona, the Sun's glowing outer layer, shining around the black circle of the Moon. Sometimes the Moon covers only part of the Sun, which is called a partial eclipse, but astronomers can predict exactly when and where a total eclipse will happen years in advance."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the alignment for each eclipse.",
         "I described totality and the red Moon.",
         "I explained safe viewing for each."
-      ]
+      ],
+      "modelAnswer": "A total solar eclipse happens when the Moon lines up precisely between the Sun and the Earth, and totality lasts only a few minutes as the Moon's narrow shadow sweeps across a thin strip of the Earth's surface; because looking directly at the Sun can permanently damage your eyes, you must wear certified eclipse glasses the entire time. A total lunar eclipse happens when the Earth lines up between the Sun and the Moon instead, and the Moon can glow a coppery red because Earth's atmosphere refracts, or bends, some red sunlight into its shadow; this kind of eclipse is completely safe to watch with your bare eyes from anywhere on the night side of the Earth. These alignments are something of a coincidence made possible by the Moon's tilted orbit, which is also why eclipses, including an annular eclipse where a ring of sunlight remains visible, do not occur every single month."
     }
   }
 }

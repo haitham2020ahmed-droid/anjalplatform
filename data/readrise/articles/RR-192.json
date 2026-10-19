@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like a garden on my school's roof because the soil and plants would block heat from the sun and keep the rooms below cooler. The garden could also grow vegetables like tomatoes and peppers that students could pick and eat."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two different ways the gardens cool things down.",
         "I described at least one challenge, such as weight or leaks.",
         "I used words from the article such as concrete, evaporate, and layer."
-      ]
+      ],
+      "modelAnswer": "A rooftop garden cools a city in two ways: the soil acts like a thick blanket that blocks the sun's heat from reaching the roof, and the plants release water vapor through evaporation, which pulls heat out of the air around them. One challenge of building a rooftop garden is that wet soil is very heavy, so the roof needs to be strong enough to hold it, with one layer to stop leaks and another layer to let extra water drain away."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least two benefits from the article.",
         "I described at least two things that must be planned, such as weight, waterproofing, or irrigation.",
         "I used precise words such as urban, insulation, and biodiversity."
-      ]
+      ],
+      "modelAnswer": "A rooftop garden would bring real benefits to our school, since the concrete roof currently soaks up heat all day and releases it later, but a layer of soil and plants would shade the roof and cool the air through evaporation, reducing how much air conditioning the rooms below need. A garden would also create a habitat for bees, butterflies, and birds and would help with urban biodiversity, since few green spaces exist in a busy city. Before building one, though, we would need to plan carefully, because wet soil is heavy and requires strong insulation and support, plus a waterproof layer to stop leaks and a drainage layer so extra rainwater does not damage the roof, along with an irrigation system using plants that need little water."
     }
   }
 }

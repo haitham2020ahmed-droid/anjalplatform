@@ -243,7 +243,8 @@
         "I wrote two ways to save water.",
         "I told why each way helps.",
         "I used ideas from the article."
-      ]
+      ],
+      "modelAnswer": "One way my family can save water is turning off the tap while brushing our teeth, because a running tap can waste several liters every minute. Another way is taking short showers instead of filling a bath, since this uses much less water overall."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained where Saudi Arabia's water comes from.",
         "I used at least two facts from the article.",
         "I connected the facts to why saving water matters."
-      ]
+      ],
+      "modelAnswer": "Saving water is especially important in Saudi Arabia because the country has no rivers that flow all year and very little rain. Much of its water comes from desalination, which removes salt from sea water but costs a lot of energy, and the rest comes from groundwater that collected underground thousands of years ago and refills very slowly. Because these sources are limited and expensive, every family needs to conserve water so it does not run out."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose three habits from the article.",
         "I explained why each one saves water.",
         "I connected my ideas to Saudi Arabia's water sources."
-      ]
+      ],
+      "modelAnswer": "For my school's water-saving campaign, I would promote three habits from the article. First, turning off the tap while brushing teeth saves water because a running tap wastes several liters every minute. Second, watering plants in the early morning or evening reduces evaporation in the hot sun, so less water is lost before it reaches the roots. Third, using efficient water-saving devices on taps and showers reduces the amount of water that flows out without anyone changing their habits. These three habits matter because Saudi Arabia relies on expensive desalinated water and slow-renewing groundwater, so using water more sustainably protects a limited resource."
     }
   }
 }

@@ -3,10 +3,13 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { assignFromMap, setStudentLevels } from "@/server/curriculum-map/levels";
-import { assignSkill, DEFAULT_TARGET_CORRECT } from "@/server/teacher/assign";
+import { assignSkill, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
+import { assertClassAccess } from "@/server/teacher/assignments";
+import { masteredInClasses } from "@/server/skills/status-extras";
 import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
 import { getT } from "@/i18n/server";
 import { buildSendPreview, sendScope, type SendPreview, type SendScopeKind, type SendScopeResult } from "@/server/curriculum-map/send-scope";
+import { sentCodesByClass, sentOn } from "@/server/curriculum-map/sent";
 
 export interface PlaceAssignInput { /** r74: the required Source */ source?: string | null; classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null }
 
@@ -32,7 +35,7 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
   }
 }
 
-export interface QuickAssignSkillInput { classId: string; skillId: string; /** r74: the required Source (MAP, NAFS, Curriculum, Grammar, RTI) */ source?: string | null; /** empty/omitted = the whole class */ studentIds?: string[] }
+export interface QuickAssignSkillInput { classId: string; skillId: string; /** r74: the required Source (MAP, NAFS, Curriculum, Grammar, RTI) */ source?: string | null; /** empty/omitted = the whole class */ studentIds?: string[]; /** ⭐ "N students already mastered this skill — exclude them?" (the same Yes the Find-a-skill dialog sends) */ excludeMastered?: boolean }
 
 /**
  * ⭐ Quick Assign, from the skill-plan view (owner's "press the star → assign" request): one named skill (not a
@@ -44,12 +47,52 @@ export interface QuickAssignSkillInput { classId: string; skillId: string; /** r
 export async function quickAssignSkillAction(input: QuickAssignSkillInput): Promise<{ ok: boolean; message: string }> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   try {
-    const r = await assignSkill(repo, actor, { classId: input.classId, skillId: input.skillId, studentIds: input.studentIds?.length ? input.studentIds : undefined, source: input.source || "CURRICULUM" });
+    let studentIds = input.studentIds?.length ? input.studentIds : undefined;
+    // ⭐ r## (owner: the same "exclude mastered students" question the Find-a-skill dialog and the full Assign
+    // page already ask, now asked here too): same server-side filter assignSkillToClasses's caller uses — mastered
+    // students are dropped from the list BEFORE assignSkill ever sees them, not a flag it has to understand.
+    if (input.excludeMastered && actor.schoolId) {
+      const m = await masteredInClasses(repo, actor.schoolId, [input.classId], input.skillId, studentIds ?? []);
+      if (m.mastered.length) {
+        studentIds = m.reach.filter((id) => !m.mastered.includes(id));
+        if (!studentIds.length) return { ok: false, message: "Every student already mastered this skill." };
+      }
+    }
+    const r = await assignSkill(repo, actor, { classId: input.classId, skillId: input.skillId, studentIds, source: input.source || "CURRICULUM" });
     return { ok: true, message: `Assigned ✓ ${r.students} student(s). They were notified.` };
   } catch (e) {
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
     throw e;
   }
+}
+
+/** ⭐ How many students in this class already mastered this skill — Skill plan's "All students" asks before
+ * duplicating work they have already done, the same question the Find-a-skill dialog and the full Assign page ask. */
+export async function masteredCountAction(input: { classId: string; skillId: string }): Promise<{ count: number }> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  if (!input.classId || !input.skillId || !actor.schoolId) return { count: 0 };
+  try { await assertClassAccess(repo, actor, input.classId); } catch { return { count: 0 }; }
+  const m = await masteredInClasses(repo, actor.schoolId, [input.classId], input.skillId);
+  return { count: m.mastered.length };
+}
+
+/** ⭐ Whether the chosen class already has this skill assigned (any status, not deleted) — Skill plan's ⭐ asks
+ * before duplicating the same work, the same question the full /teacher/skill-assign page already asks. */
+export async function priorAssignmentAction(input: { classId: string; skillId: string }): Promise<{ assigned: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  if (!input.classId || !input.skillId) return { assigned: false };
+  try { await assertClassAccess(repo, actor, input.classId); } catch { return { assigned: false }; }
+  return { assigned: await hasPriorSkillAssignment(repo, input.classId, input.skillId) };
+}
+
+/** ⭐ Whether the chosen class already has this Curriculum Map place (section/category code) sent to it — the
+ * "⭐ Assign" window's "assign it again?" prompt, the same question Skill plan and the full Assign page already ask. */
+export async function mapCodeSentAction(input: { classId: string; code: string }): Promise<{ sent: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  if (!input.classId || !input.code) return { sent: false };
+  try { await assertClassAccess(repo, actor, input.classId); } catch { return { sent: false }; }
+  const m = await sentCodesByClass(repo, [input.classId]);
+  return { sent: sentOn(m.get(input.classId) ?? new Map(), input.code) !== null };
 }
 
 export interface ScopeInput { grade: number; kind: SendScopeKind; codes?: string[] | null; classIds?: string[] }

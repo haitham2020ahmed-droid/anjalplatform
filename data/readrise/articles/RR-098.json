@@ -243,7 +243,8 @@
         "I told what happens to the coral.",
         "I used two details from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "When the sea gets too hot, the coral pushes the algae out of its body. Without the algae, the coral turns white, and this is called bleaching. If the heat lasts too long, the coral can die, but if the water cools in time, it can recover."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what bleaching is.",
         "I described at least two ways a reef can recover.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "Bleaching happens when warm water makes a polyp push out the algae living inside it, leaving only its white skeleton showing. A reef can recover if the water cools down in time, because the algae can come back and give the coral its color again. A damaged reef can also recover when baby corals drift in and settle on clean rock, while fish like parrotfish eat away the seaweed that would otherwise cover the coral."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how warmer water causes bleaching.",
         "I described at least two things that help reefs recover.",
         "I supported my ideas with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Rising ocean temperatures are a serious problem for coral reefs because even a rise of just one or two degrees for several weeks can break the symbiotic relationship between a coral polyp and the algae living inside it, forcing the coral to expel the algae that normally feeds it and gives it color. Without that partnership, the coral is left starving, and if the high temperature continues too long, it can die completely and be covered in seaweed. Fortunately, reefs can recover in a few resilient ways: coral larvae can drift in and settle onto clean rock to start growing new polyps, and scientists in Saudi Arabia grow coral fragments in underwater nurseries before planting them onto damaged reefs. Because recovery depends on both nature's own processes and human help, protecting reefs from rising temperatures while supporting these recovery methods gives coral its best chance of survival."
     }
   }
 }

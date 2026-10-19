@@ -243,7 +243,8 @@
         "I wrote at least four steps.",
         "My steps are in the right order.",
         "Each step is clear enough for someone to follow."
-      ]
+      ],
+      "modelAnswer": "First, wet your toothbrush under the water. Next, add toothpaste to the brush. Then, brush every part of your teeth for two minutes. Finally, rinse your mouth and put the toothbrush away, just like following code in order."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "My steps are in a clear sequence.",
         "I included a loop that repeats something.",
         "I included an 'if ... then' condition."
-      ]
+      ],
+      "modelAnswer": "My algorithm for a simple game is: first, the player moves around the screen. Then, loop this step again and again until the player touches a coin or a wall. If the player touches a coin, then add one point to the score. If the player touches the wall, then the game is over."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least two coding skills from the article.",
         "I connected them to another school subject.",
         "I gave a specific example."
-      ]
+      ],
+      "modelAnswer": "Two skills from coding, decomposing problems and persistence, can help in math class just as much as they help in programming. When I face a hard word problem, I decompose it into smaller steps the same way a coder breaks a big program into an algorithm, which makes the logic behind the problem much easier to follow. Persistence matters too, because just like debugging a program that has a bug, I have to keep checking my math work step by step until I find my mistake and fix it, rather than giving up after the first wrong answer."
     }
   }
 }

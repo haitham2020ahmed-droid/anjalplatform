@@ -243,7 +243,8 @@
     "I said if I would like to use a solar oven.",
     "I gave two reasons from the article.",
     "I used at least two key words, like smoke or reflect."
-   ]
+   ],
+   "modelAnswer": "Yes, I would like to cook with a solar oven. One reason is that it makes no smoke, so it does not pollute the air like open fires do. Another reason is that the shiny reflectors trap sunlight inside the oven, which is a clean and free way to cook food."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained the job of the black inside, the clear lid, and the reflectors.",
     "I used absorb, insulation, and reflector correctly.",
     "I wrote my explanation in a clear order."
-   ]
+   ],
+   "modelAnswer": "The three parts of a box oven work together to capture the sun's heat. The black inside of the box helps absorb sunlight and turn it into heat, while the clear lid lets light in but keeps the heat from escaping. The insulation in the walls, like cardboard or wool, also stops heat from escaping, and the reflectors around the box bounce extra sunlight inside to make the oven even hotter."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I explained how each cooker turns sunlight into heat.",
     "I gave one advantage of each design using evidence from the article.",
     "I used precise words such as concentrate, thermal, and insulation."
-   ]
+   ],
+   "modelAnswer": "A box oven and a parabolic cooker both use sunlight, but in different ways. The box oven absorbs sunlight with its black interior and traps the heat using insulation and a clear lid, which slowly builds up thermal energy inside. A parabolic cooker instead uses a curved mirror to concentrate sunlight onto a single point, so it can boil water or fry food much faster than a box oven. One advantage of the box oven is that it is simple and holds heat steadily for slow cooking, while an advantage of the parabolic cooker is its speed, since the focused light heats food quickly. Both designs offer a sustainable alternative to fires that cause respiratory illness from smoke."
   }
  }
 }

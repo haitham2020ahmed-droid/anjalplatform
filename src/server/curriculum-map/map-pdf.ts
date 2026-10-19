@@ -58,7 +58,13 @@ export const MAP_CATEGORY_GROUPS: { key: string; en: string; ar: string; categor
 const groupOfCategory = (c: string) => MAP_CATEGORY_GROUPS.find((g) => g.categories.includes(c)) ?? MAP_CATEGORY_GROUPS[1];
 
 export interface MapPdfSkill { id: string; name: string; code: string; group: string }
-export interface MapPdfSection { number: number; weeks: number[]; essentialQuestion: string | null; title: string; genre: string | null; selections: { label: string; name: string }[]; skills: MapPdfSkill[] }
+export interface MapPdfSection {
+  number: number; weeks: number[]; essentialQuestion: string | null; title: string; genre: string | null; selections: { label: string; name: string }[]; skills: MapPdfSkill[];
+  /** r85: skill names the Curriculum Map itself names for this selection (Concept Vocabulary / Analyze Craft and
+   * Structure) that have no platform Skill linked yet — filled in by skill-plan.ts for the LIVE page only (never
+   * by this file / the printed PDF, which only ever lists skills a teacher can actually click into and assign). */
+  pending?: string[];
+}
 export interface MapPdfUnit { number: number; title: string; sections: MapPdfSection[]; /** the unit's writing skills (Wonders: one writing project per unit, not tied to one week) */ writing: MapPdfSkill[] }
 export interface MapPdfData { grade: number; book: string; units: MapPdfUnit[] }
 

@@ -798,6 +798,7 @@ export const UI_STRINGS = [
   "Related pages", "is the database up to date with the code?", "a readable Excel copy of the school's data", "recent application errors",
   "For how the database itself is backed up and restored, see docs/BACKUP-AND-RESTORE.md in the project.",
   "This week, your class", "This week, the school",
+  "This class already has this skill assigned — assign it again?", "Assign again",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

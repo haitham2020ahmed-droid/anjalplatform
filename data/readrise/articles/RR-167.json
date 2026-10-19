@@ -243,7 +243,8 @@
         "I told what builds a coral reef.",
         "I told how sand piles up to make an island.",
         "I used two details from the article."
-      ]
+      ],
+      "modelAnswer": "A coral reef is built by tiny animals called polyps, which make hard limestone cups that stack on top of each other over thousands of years. Waves and fish break off pieces of coral, and over time this broken coral and sand pile up on top of the reef. When the pile rises above the water, a new island forms."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how polyps build a reef.",
         "I explained how sand piles up to form an island.",
         "I used at least three details from the article."
-      ]
+      ],
+      "modelAnswer": "Tiny animals called polyps build a coral reef by making hard limestone skeletons around their soft bodies, and new polyps keep growing on top of the old skeletons so the reef slowly rises over thousands of years. Algae living inside the polyps help give the coral its bright colors and share food made from sunlight, but if the water gets too hot, the coral can lose its algae in a process called bleaching. Meanwhile, waves and parrotfish break coral into sand, and that sand piles up on top of the reef until it finally rises above the water and forms an island."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what the polyps and algae give each other.",
         "I explained what happens during bleaching.",
         "I supported my answer with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "A coral reef depends on a close symbiosis between coral polyps and the algae living inside them: the algae use sunlight to make food and share it with the polyps, while the polyps provide the algae a safe place to live and build the hard limestone skeletons that form the reef itself. When ocean water becomes too hot, however, this partnership breaks down through a process called bleaching, in which the coral expels its algae and turns white, losing both its color and its main food source. If the heat lasts too long, the coral can die completely, which threatens the incredible biodiversity, like the more than a thousand kinds of fish, that depends on the reef and its sediment of broken coral and sand."
     }
   }
 }

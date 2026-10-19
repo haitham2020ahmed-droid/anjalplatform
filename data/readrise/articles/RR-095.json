@@ -243,7 +243,8 @@
         "I named two things a runner must do.",
         "I used facts from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "A runner must train for several months to build up their muscles and endurance. They also need to eat foods like rice, bread, and pasta to have enough energy to finish the race."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave advice about training for endurance.",
         "I explained why water and pace matter.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "To build endurance, you should train for several months and run a little farther each week, taking rest days so your muscles can heal. During the race, remember to drink water often, especially on a hot day, since you will sweat and lose both water and salt. Finally, choose a steady pace instead of starting too fast, because runners who sprint early often run out of energy before the finish."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least three of the four ideas.",
         "I showed how the ideas connect to each other.",
         "I used evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Training builds the gradual increase in endurance a runner needs, since running a little farther each week strengthens the muscles enough to handle 42 kilometers. This training also increases how much glycogen, the sugar stored in muscles for fuel, a runner's body can use before it runs out late in the race and causes the feeling known as hitting the wall. Good hydration works alongside this fuel, because runners lose water and salt through sweat, so drinking during the race keeps muscles working properly even as glycogen stores drop. Finally, a smart pacing strategy ties everything together: a runner who starts too fast burns through glycogen and fluids far too quickly, while one who paces steadily uses training, fuel, and hydration efficiently enough to reach the finish line."
     }
   }
 }

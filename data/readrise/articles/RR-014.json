@@ -243,7 +243,8 @@
         "I named one clear action.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "My family can reuse a refillable water bottle instead of buying new plastic ones. This helps because plastic bottles are made at a factory where plastic pellets are melted and shaped, and making less plastic means fewer resources are used. It also helps because bottles that are not recycled can become litter that hurts animals in rivers and the sea. Reusing a bottle is one easy way to help."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each detail shows a problem for the environment."
-      ]
+      ],
+      "modelAnswer": "Plastic bottles can be a problem for the environment for a couple of important reasons. One detail is that plastic does not easily decompose the way food scraps do, so a bottle thrown away in a landfill can stay there for hundreds of years without breaking down completely. Another detail is that sunlight and waves only crack plastic into tiny pieces called microplastics, which animals like sea turtles and fish can accidentally eat. Even though bottles start as small plastic pellets at a factory, once they become trash they create a problem that lasts far longer than most people realize, which is why it helps so much to reduce how many bottles we use."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that recycling alone is enough to solve the plastic bottle problem, because the evidence shows plastic causes damage even before and after it reaches a recycling center. Plastic bottles are made from petroleum, a fossil fuel formed into a long-chain polymer that is intentionally durable and strong, which is exactly why it does not easily degrade once it becomes trash; a single bottle may persist for hundreds of years, slowly breaking into harmful microplastics rather than disappearing. In addition, many bottles never reach a recycling center at all, instead becoming litter that washes into rivers and oceans, so recycling programs cannot address plastic that was never collected in the first place. Because durability makes plastic both useful and dangerous, I believe reducing and reusing bottles matters just as much as recycling them."
     }
   }
 }

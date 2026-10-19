@@ -3157,6 +3157,9 @@ model RRPrompt {
   checklist Json?
   /// 5 key words taught before reading: [{ word, partOfSpeech, definition, example }]
   keyWords  Json?
+  /// ✍️ owner r##: a curated model (strong) answer to the writing prompt — shown to the student only AFTER they
+  /// submit their own writing (never before), so they see a strong example to compare against, not a script to copy
+  modelAnswer String? @db.Text
 
   @@unique([articleId, band])
 }
@@ -3215,6 +3218,11 @@ model RRRun {
   writingScore Int?
   writingComment String? @db.VarChar(1000)
   writingScoredById String?
+  /// 🤖 owner r##: an AI-drafted score + comment, saved right after the student submits (never shown to the
+  /// student) — the teacher's scoring screen pre-fills from these so they can accept or edit before saving the
+  /// real writingScore/writingComment. Never written again once writingScore is set (the teacher's save wins).
+  writingAiScore Int?
+  writingAiComment String? @db.VarChar(1000)
   /// the student's level before and after this article
   levelBefore  Int
   levelAfter   Int?

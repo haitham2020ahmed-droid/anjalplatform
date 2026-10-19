@@ -243,7 +243,8 @@
         "I named two ways microbes help.",
         "I used facts from the article.",
         "I used the word microbe or bacteria."
-      ]
+      ],
+      "modelAnswer": "One way microbes help people is that bacteria living in our gut help us digest our food and make vitamins. Another way is that yeast helps bakers make bread rise, and other bacteria help turn milk into yogurt. Microbes in the soil also break down dead leaves and return nutrients so new plants can grow. These tiny microbes do a lot of helpful work."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how microbes help people.",
         "I explained how microbes help plants.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Microbes, which are so small you need a microscope to see them, help both people and plants in important ways. Most microbes are harmless, and many bacteria that live in your gut help you digest fiber and food your body cannot break down by itself, while also making helpful vitamins. Microbes help plants too, since many microbes in the soil act as a decomposer, breaking down dead leaves and animals and returning important nutrients to the soil so new plants can grow. Because microbes support digestion in people and nutrient cycles for plants, the article calls them valuable partners rather than enemies."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the claim.",
         "I used evidence from at least three paragraphs.",
         "I explained why antibiotics should not be overused."
-      ]
+      ],
+      "modelAnswer": "I agree that microbes are valuable partners rather than enemies, because evidence from several paragraphs of the article shows how essential these tiny microorganisms truly are. In the human gut, bacteria digest food we cannot break down ourselves and produce helpful vitamins, while fermentation by yeast and other bacteria gives us risen bread, yogurt, and drinks like laban. In the soil, decomposer microbes break down dead plants and animals, returning nutrients such as nitrogen back into the ground so new life can grow, and Alexander Fleming's discovery of a mold that killed bacteria eventually led to penicillin, a medicine that has saved millions of lives. Even so, the article warns that overusing antibiotic medicine can be dangerous, because it can destroy helpful bacteria along with harmful ones and allow stronger germs to survive, which is why people should use antibiotics carefully rather than relying on them too often."
     }
   }
 }

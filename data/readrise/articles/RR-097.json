@@ -243,7 +243,8 @@
         "I answered the question.",
         "I used two details from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "People call Ibn Sina the doctor of doctors because he learned medicine so fast that older doctors came to learn from him by the time he was sixteen. He also found a cure for the ruler of Bukhara after the palace doctors had already failed."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least one of Ibn Sina's ideas about health.",
         "I used at least two details from the article.",
         "I connected his ideas to life today."
-      ]
+      ],
+      "modelAnswer": "Ibn Sina's idea that some diseases are contagious still helps people stay healthy today, because we now know to stay away from sick people so an illness does not spread. He also taught that clean water, good food, exercise, and sleep help protect the body, and physicians still give this same advice to patients today. These two simple ideas are still part of how doctors think about staying healthy."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I named one of Ibn Sina's ideas or contributions.",
         "I explained why I think it was important.",
         "I supported my explanation with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "I think Ibn Sina's idea that diseases can be contagious was his most important contribution, because it changed how people understood the spread of illness centuries before germs were discovered. The article explains that he recognized some diseases could pass from person to person, an insight that later scholars and physicians built upon as they developed ways to prevent outbreaks. His comprehensive book, The Canon of Medicine, worked almost like an encyclopedia of disease and treatment, and it was later translated into Latin so European doctors could study his contagious-disease theory for hundreds of years. Because this one influential idea shaped medical thinking across cultures and centuries, I believe it was Ibn Sina's single most important contribution to medicine."
     }
   }
 }

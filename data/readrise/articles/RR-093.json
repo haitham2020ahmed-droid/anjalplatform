@@ -243,7 +243,8 @@
     "I gave two reasons from the article.",
     "I told one way people help young trees live.",
     "I used at least one key word, like shade or roots."
-   ]
+   ],
+   "modelAnswer": "People plant trees in the desert because trees give shade, which makes the air cooler underneath them. Tree roots also hold the soil in place so the wind does not carry it away. To help young trees live, workers water them with a thin pipe and put up a fence to keep hungry animals away."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained why native trees are chosen.",
     "I described at least two ways workers protect young trees.",
     "I used at least two key words, such as nursery or drought."
-   ]
+   ],
+   "modelAnswer": "Experts choose native trees like the ghaf, acacia, and sidr because these trees have always grown in the region and their roots can stretch deep underground to survive drought. To help young trees survive, workers first grow each tree from a seed in a nursery, where they water it and protect it from the harsh sun. Later, after it is planted in the ground, a thin pipe drips water onto its roots, and a fence keeps away hungry goats and camels until the tree is strong enough to survive on its own."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear position.",
     "I used evidence about both benefits and challenges.",
     "I used at least two key words, such as restore or biodiversity."
-   ]
+   ],
+   "modelAnswer": "I think planting ten billion trees is an ambitious but not impossible goal for Saudi Arabia's Green Initiative, because the article describes both strong benefits and serious challenges. On the benefit side, trees could restore damaged land by holding soil in place against erosion, cooling the air with shade, and absorbing carbon dioxide while releasing oxygen, which supports greater biodiversity in an otherwise harsh environment. However, the challenges are real too: rain is rare, summer heat can burn young leaves, and some soil is too salty, so many seedlings need years of careful watering and protection before they can survive alone. Because the initiative accounts for these difficulties by using native, drought-tolerant trees and a nursery system to nurture them, the goal seems difficult but achievable given enough time and resources."
   }
  }
 }

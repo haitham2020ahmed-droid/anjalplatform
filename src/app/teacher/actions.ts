@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { createAssignment } from "@/server/teacher/assignments";
-import { assignQuestions, assignSkillToClasses, trackOf } from "@/server/teacher/assign";
+import { assignedSkillIds, assignQuestions, assignSkillToClasses, trackOf } from "@/server/teacher/assign";
 import { resolveAlert } from "@/server/teacher/interventions";
 import { masteredInClasses } from "@/server/skills/status-extras";
 import { assertClassAccess } from "@/server/teacher/assignments";
@@ -154,4 +154,15 @@ export async function masteredCountAction(input: { classIds: string[]; skillId: 
   try { for (const id of classIds) await assertClassAccess(repo, actor, id); } catch { return { count: 0 }; }
   const m = await masteredInClasses(repo, actor.schoolId!, classIds, String(input?.skillId ?? ""), (input?.studentIds ?? []).map(String));
   return { count: m.mastered.length };
+}
+
+/** ⭐ Whether any of the chosen classes already has this skill assigned — the "Find a skill" Assign dialog asks
+ * before duplicating the same work, the same question the full /teacher/skill-assign page already asks. */
+export async function priorAssignmentAction(input: { classIds: string[]; skillId: string }): Promise<{ assigned: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  const classIds = [...new Set((input?.classIds ?? []).map(String).filter(Boolean))].slice(0, 20);
+  if (!classIds.length || !input?.skillId) return { assigned: false };
+  try { for (const id of classIds) await assertClassAccess(repo, actor, id); } catch { return { assigned: false }; }
+  const ids = await assignedSkillIds(repo, classIds);
+  return { assigned: ids.has(String(input.skillId)) };
 }

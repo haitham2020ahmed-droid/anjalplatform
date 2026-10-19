@@ -1,8 +1,9 @@
 "use client";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { assignSkillAction, masteredCountAction, withdrawAssignmentsAction } from "./actions";
+import { assignSkillAction, masteredCountAction, priorAssignmentAction, withdrawAssignmentsAction } from "./actions";
 import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
+import { PriorAssignedPrompt } from "@/components/assign/prior-assigned";
 import { useT } from "@/i18n/client";
 import { BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import { SkillAssignSteps } from "@/components/skill-picker";
@@ -74,6 +75,10 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
   // ⭐ "N students already mastered this skill — exclude them?" (asked for the chosen classes; Yes / No)
   const [mastered, setMastered] = useState(0);
   const [exclude, setExclude] = useState<boolean | null>(null);
+  // ⭐ "This class already has this skill assigned — assign it again?" (same question as /teacher/skill-assign);
+  // re-checked whenever the chosen classes change, reset on every change so one confirm never carries over.
+  const [priorAssigned, setPriorAssigned] = useState(false);
+  const [confirmReassign, setConfirmReassign] = useState(false);
   const chosenKey = chosen.join(",");
   useEffect(() => {
     let live = true;
@@ -81,6 +86,13 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
     masteredCountAction({ classIds: chosenKey.split(",").filter(Boolean), skillId: skill.id }).then((r) => { if (live) setMastered(r.count); }).catch(() => undefined);
     return () => { live = false; };
   }, [chosenKey, skill.id]);
+  useEffect(() => {
+    let live = true;
+    setConfirmReassign(false);
+    priorAssignmentAction({ classIds: chosenKey.split(",").filter(Boolean), skillId: skill.id }).then((r) => { if (live) setPriorAssigned(r.assigned); }).catch(() => undefined);
+    return () => { live = false; };
+  }, [chosenKey, skill.id]);
+  const blocked = priorAssigned && !confirmReassign;
   useEffect(() => {
     if (!state.message) return;
     if (!state.draft) {
@@ -130,37 +142,42 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
           ))}
         </div>
       </fieldset>
-      {mode !== "class" && (
-        <div className="max-h-48 overflow-y-auto rounded-lg p-2 ring-1 ring-slate-200">
-          {students.length === 0 && <p className="text-sm text-slate-600">No students in this class.</p>}
-          {picked.map((c) => (
-            <div key={c.id}>
-              {picked.length > 1 && <p className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-500">{c.name}</p>}
-              {c.students.map((st) => <label key={st.id} className="flex items-center gap-2 py-0.5 text-sm"><input type={mode === "one" ? "radio" : "checkbox"} name="studentIds" value={st.id} />{st.name}</label>)}
+      {blocked && !state.message && <PriorAssignedPrompt t={t} onYes={() => setConfirmReassign(true)} onNo={close} />}
+      {!blocked && (
+        <>
+          {mode !== "class" && (
+            <div className="max-h-48 overflow-y-auto rounded-lg p-2 ring-1 ring-slate-200">
+              {students.length === 0 && <p className="text-sm text-slate-600">No students in this class.</p>}
+              {picked.map((c) => (
+                <div key={c.id}>
+                  {picked.length > 1 && <p className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-500">{c.name}</p>}
+                  {c.students.map((st) => <label key={st.id} className="flex items-center gap-2 py-0.5 text-sm"><input type={mode === "one" ? "radio" : "checkbox"} name="studentIds" value={st.id} />{st.name}</label>)}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )}
+          <details className="text-sm">
+            <summary className="cursor-pointer font-semibold text-slate-600">Dates and note (optional)</summary>
+            <div className="mt-2 space-y-2">
+              <div className="flex flex-wrap gap-3"><label className="flex flex-col">Start date<input type="date" name="startAt" className={field} /></label><label className="flex flex-col">Due date<input type="date" name="dueAt" className={field} /></label></div>
+              <label className="flex flex-col">Note to students<textarea name="note" rows={2} maxLength={1000} className={field} /></label>
+            </div>
+          </details>
+          {exclude && <input type="hidden" name="excludeMastered" value="1" />}
+          {mastered > 0 && !state.message && (exclude === null
+            ? <ExcludeMasteredPrompt count={mastered} t={t} onYes={() => setExclude(true)} onNo={() => setExclude(false)} />
+            : <p className="text-xs text-slate-600">⭐ {exclude ? t("Students who mastered this skill are left out.") : t("Students who mastered this skill get it too.")} <button type="button" onClick={() => setExclude(null)} className="font-semibold text-brand-teal underline">{t("Change")}</button></p>)}
+          {state.error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{state.error}</p>}
+          {state.message && <p role="status" className="animate-pop rounded-lg bg-teal-50 px-3 py-2 text-sm text-teal-900">✓ {withdrawn ?? state.message}</p>}
+          {state.message
+            ? <div className="flex justify-end gap-2">
+                {state.assignmentIds?.length && !withdrawn ? <button type="button" data-testid="assign-withdraw" onClick={() => void withdraw()} className={`${BTN_SECONDARY} text-rose-700`}>↩ {t("Withdraw")}</button> : null}
+                <button type="button" onClick={close} className={BTN_SECONDARY}>{t("Close")}</button>
+              </div>
+            : <SkillAssignSteps skillId={skill.id} track={skill.track ?? track} grammar={skill.track === "GRAMMAR"} trackField pending={pending}
+                cancel={<span className="flex gap-2"><button type="button" onClick={close} className={BTN_SECONDARY}>{t("Cancel")}</button><button type="submit" name="intent" value="draft" disabled={pending} data-testid="assign-draft" className={BTN_SECONDARY}>📝 {t("Save as draft")}</button></span>} />}
+        </>
       )}
-      <details className="text-sm">
-        <summary className="cursor-pointer font-semibold text-slate-600">Dates and note (optional)</summary>
-        <div className="mt-2 space-y-2">
-          <div className="flex flex-wrap gap-3"><label className="flex flex-col">Start date<input type="date" name="startAt" className={field} /></label><label className="flex flex-col">Due date<input type="date" name="dueAt" className={field} /></label></div>
-          <label className="flex flex-col">Note to students<textarea name="note" rows={2} maxLength={1000} className={field} /></label>
-        </div>
-      </details>
-      {exclude && <input type="hidden" name="excludeMastered" value="1" />}
-      {mastered > 0 && !state.message && (exclude === null
-        ? <ExcludeMasteredPrompt count={mastered} t={t} onYes={() => setExclude(true)} onNo={() => setExclude(false)} />
-        : <p className="text-xs text-slate-600">⭐ {exclude ? t("Students who mastered this skill are left out.") : t("Students who mastered this skill get it too.")} <button type="button" onClick={() => setExclude(null)} className="font-semibold text-brand-teal underline">{t("Change")}</button></p>)}
-      {state.error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{state.error}</p>}
-      {state.message && <p role="status" className="animate-pop rounded-lg bg-teal-50 px-3 py-2 text-sm text-teal-900">✓ {withdrawn ?? state.message}</p>}
-      {state.message
-        ? <div className="flex justify-end gap-2">
-            {state.assignmentIds?.length && !withdrawn ? <button type="button" data-testid="assign-withdraw" onClick={() => void withdraw()} className={`${BTN_SECONDARY} text-rose-700`}>↩ {t("Withdraw")}</button> : null}
-            <button type="button" onClick={close} className={BTN_SECONDARY}>{t("Close")}</button>
-          </div>
-        : <SkillAssignSteps skillId={skill.id} track={skill.track ?? track} grammar={skill.track === "GRAMMAR"} trackField pending={pending}
-            cancel={<span className="flex gap-2"><button type="button" onClick={close} className={BTN_SECONDARY}>{t("Cancel")}</button><button type="submit" name="intent" value="draft" disabled={pending} data-testid="assign-draft" className={BTN_SECONDARY}>📝 {t("Save as draft")}</button></span>} />}
     </form>
   );
 }

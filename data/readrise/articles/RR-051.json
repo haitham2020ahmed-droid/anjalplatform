@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like to visit the Empty Quarter. I would want to see the tall dunes that the wind makes in the sand. I would also like to see an oryx, because it can live a long time without a drink of water. I know it is very hot there, but I think it would still be fun to look around."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how both animals and people survive.",
         "I used at least two details from the article.",
         "I organized my ideas in a clear order."
-      ]
+      ],
+      "modelAnswer": "Animals in the Empty Quarter survive in different ways. The Arabian oryx can go a long time without drinking water, and sand cats, foxes, and lizards hide from the heat during the day. People have survived too: Bedouin travelers crossed this harsh landscape with camels for centuries, finding their way across the sand. Today people also use the desert's resources, since Saudi Arabia pumps oil from beneath the sand."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position on the poll statement.",
         "I supported my position with specific evidence from the article.",
         "I addressed at least one point someone might make against my view."
-      ]
+      ],
+      "modelAnswer": "I disagree that the Empty Quarter is too harsh to be worth exploring. Its history alone makes it worth studying: fossils of hippos prove that lakes once existed there, and Bedouin guides later led explorers like Bertram Thomas and Wilfred Thesiger across the dunes. The wildlife is also remarkable, since the Arabian oryx survives this arid land by getting moisture from the plants it eats rather than drinking. Someone might argue the extreme heat and lack of water make exploration too dangerous, but resources like the oil field at Shaybah show that people have learned to work there successfully, so careful expeditions are clearly possible."
     }
   }
 }

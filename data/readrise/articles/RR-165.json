@@ -243,7 +243,8 @@
         "I named two reasons from the article.",
         "I used the word desert or meteorite.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "The desert is a good place to find a meteorite because dark rocks are easy to spot against the light-colored sand. Also, the dry desert air makes the rocks rust very slowly, so an iron meteorite can last a long time without being worn away. There are even famous meteorite craters found in the desert, like the Wabar craters in Saudi Arabia."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave three reasons from the article.",
         "I explained why each reason helps people find meteorites.",
         "I used at least one key word correctly."
-      ]
+      ],
+      "modelAnswer": "Deserts are great places to find a meteorite for three reasons. First, a dark meteorite with its burnt crust stands out clearly against light-colored sand, making it easy to spot. Second, the dry desert air means the rocks rust very slowly, so they can survive on the surface for a very long time instead of rotting away. Third, there are few plants in a desert to hide a fallen meteoroid, unlike in a forest where it could be buried under leaves."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that meteorites are just interesting rocks with no real value, because the article shows they are actually ancient scientific treasures. Most meteorites formed about 4.5 billion years ago, making them older than almost any rock found on Earth, so scientists study them to learn how Earth and the other planets first formed. The article also describes the Wabar craters in Saudi Arabia, huge pits formed when a dense iron meteorite slammed into the desert, which shows in sharp contrast to an ordinary rock just how much force and history these objects carry."
     }
   }
 }

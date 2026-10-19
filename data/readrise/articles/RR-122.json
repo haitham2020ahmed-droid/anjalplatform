@@ -243,7 +243,8 @@
         "I said if I would like to visit.",
         "I told two things from the article.",
         "I used full sentences."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like to visit the Dead Sea, a salty lake that is shrinking a little every year. I would love to float easily on the water, since it is so full of salt that people can even read a newspaper while lying on their back. I would also want to see the white salt crystals along the shore before the lake shrinks any further."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the lake became salty.",
         "I gave at least one reason it is shrinking.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "The Dead Sea became so salty because the Jordan River constantly carries water and dissolved minerals into the lake, but no river flows back out, so under the hot sun the water evaporates while the salt and minerals stay behind, making the water denser and saltier over thousands of years. Almost nothing except tiny microbes can survive in water this salty. The lake is shrinking today mainly because people divert water from the Jordan River for farms and cities, and companies also evaporate lake water to collect minerals, so less water reaches the lake, the shoreline keeps moving back, and dangerous sinkholes sometimes open in the ground nearby."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I used at least two pieces of evidence from the article.",
         "I considered why people use the water and minerals."
-      ]
+      ],
+      "modelAnswer": "I believe people should reduce both the diversion of Jordan River water and the extraction of minerals from the Dead Sea, because the lake's water level is already dropping by more than a meter every year. The extremely high salt concentration is what makes the water so buoyant that visitors can float on the surface, but that same concentration depends on a steady inflow of water that human activity keeps cutting off. Companies that evaporate lake water to collect minerals like potash for fertilizer are speeding up this loss even more, and as the shoreline retreats, dangerous sinkholes keep opening in the exposed ground. Although agriculture and mineral extraction bring real economic benefits, I think protecting a lake with such a unique elevation and history is worth using a little less of its water."
     }
   }
 }

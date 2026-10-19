@@ -243,7 +243,8 @@
         "I explained two different ways from the article.",
         "I used at least two key words, such as serve, spin, or bounce.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A player can serve the ball with great force, sometimes faster than 200 kilometers an hour, giving the opponent less than a second to react. A player can also add spin to the ball, like topspin, which makes it dip sharply and bounce high in a way that is hard to predict."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how topspin and backspin are hit.",
         "I described what each spin does to the ball.",
         "I used at least three key words from the article."
-      ]
+      ],
+      "modelAnswer": "To hit topspin, a player brushes up the back of the ball, making it spin forward so it dips sharply into the court and then kicks up in a high bounce, which is useful for keeping a powerful shot inside the lines. To hit backspin, a player slices down under the ball instead, making it spin the other way so it floats, stays low, and skids when it lands, which can be useful for keeping the ball close to the net or surprising an opponent. A player might choose topspin to hit hard and still stay in bounds, or backspin to slow the ball down and make it tricky to return."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the steps of topspin in order.",
         "I used friction, rotation, and pressure correctly.",
         "I connected the science to winning points."
-      ]
+      ],
+      "modelAnswer": "Topspin helps a tennis player keep a fast shot inside the court through a careful combination of friction, rotation, and air pressure. As the racket's strings brush up the back of the ball, friction between the strings and the felt causes the ball to spin forward in rapid rotation. This forward rotation changes the air pressure around the ball, creating more pressure on top and less underneath, which pushes the ball downward and makes it dip sharply into the court even when hit with great force. Because of this dip, a player can swing hard for speed while topspin still pulls the ball back down to land safely inside the lines."
     }
   }
 }

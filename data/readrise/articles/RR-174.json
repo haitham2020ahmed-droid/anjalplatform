@@ -243,7 +243,8 @@
         "I gave three ways to care for a fever.",
         "I explained why one of them helps, like drinking water.",
         "I said when to tell a grown-up."
-      ]
+      ],
+      "modelAnswer": "My friend with a fever should rest and drink plenty of water, because sweating makes the body lose water. My friend should also wear light clothes to feel more comfortable while shivering or sweating. If the fever lasts more than three days, my friend should tell a grown-up, because some fevers caused by germs need a doctor."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained that germs cause an infection.",
         "I described how the immune system and brain raise the temperature.",
         "I explained why a higher temperature helps."
-      ]
+      ],
+      "modelAnswer": "When germs get inside the body and cause an infection, the immune system finds them and sends a message to the brain. The brain then raises the body's temperature, which is why a fever happens. This higher temperature helps because many germs cannot grow as quickly in a hot body, so the fever actually helps the immune system fight off the infection."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how the immune system signals the hypothalamus.",
         "I described why the body shivers and later sweats.",
         "I included at least one way to care for a fever safely."
-      ]
+      ],
+      "modelAnswer": "When germs enter the body and begin to multiply, the immune system detects them and sends a signal to the hypothalamus, the brain's thermostat that controls body temperature. The hypothalamus then raises the body's set temperature above the normal 37 degrees Celsius, and because the body thinks it should be hotter, a person shivers to generate more heat even though their temperature is already rising. Once the infection is under control and the fever breaks, the body sweats to cool back down, so it is important to drink plenty of fluids during this time to avoid dehydration."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like to make compost at home because it turns food waste into rich soil instead of trash. Decomposers like worms and tiny bacteria break the scraps down into dark, crumbly compost that helps plants grow."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two steps for making compost.",
         "I used details from the article to show why each step matters.",
         "I used linking words such as first, next, and because."
-      ]
+      ],
+      "modelAnswer": "First, you need to balance greens, like fruit peels, with browns, like dry leaves, because a pile with only one kind will not decompose well. Next, you must keep the pile moist and turn it every week or two, because decomposers like bacteria and fungi need both air and water to break down the scraps. These steps matter because without the right balance of greens, browns, air, and moisture, the pile will not turn into healthy, nutrient-rich compost."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I believe every school in Saudi Arabia should have a compost program. One piece of evidence is that compost adds nutrients to soil and helps sandy soil hold water, which is especially useful in a dry country where water is precious. Another piece of evidence is that composting keeps food out of landfills, where it would rot without air and release methane, a gas that traps heat around the Earth. Because composting both improves soil and reduces harmful methane, schools that start a compost program would be helping the environment in two important ways at once."
     }
   }
 }

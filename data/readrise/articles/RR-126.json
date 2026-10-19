@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would tell my friend two things to stay safe. First, play in the shade when you can, because the sun's rays are very strong at noon. Second, put on sunscreen before going outside, because it helps protect your skin from a sunburn."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One danger of the sun is ultraviolet rays, which can damage your skin and cause a sunburn; you can protect yourself by staying in the shade and wearing sunscreen. Another danger is dehydration, because your body loses water through sweat on hot days, so drinking water often can protect against it. I also learned that sand and water reflect rays back at you, so protection is still needed at the beach."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The article shows that the same sun that helps us also has a hidden danger. Sunlight gives us light and warmth and even helps our bodies make vitamin D, but it also sends out invisible ultraviolet rays that can damage the skin and cause sunburn, wrinkles, or even skin cancer over time. Heat from the sun can also cause dehydration, since the body loses water through sweat on hot days. Even surfaces like sand and water reflect ultraviolet rays back at you, which is why protection is still necessary even in the shade or on a cloudy day."
     }
   }
 }

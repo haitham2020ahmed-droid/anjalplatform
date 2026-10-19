@@ -243,7 +243,8 @@
         "I said whether I would like to live on the ISS.",
         "I gave two details from the article.",
         "I explained my reasons clearly."
-      ]
+      ],
+      "modelAnswer": "I would like to live on the International Space Station for a little while. On the station, everything can float because astronauts feel like they weigh nothing. Astronauts also do experiments in a laboratory that cannot be done on Earth, which sounds really interesting. I would also have to exercise for two hours every day to keep my bones and muscles strong. I think it would be fun to try, even though it also sounds hard."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named one challenge of living in microgravity.",
         "I explained how astronauts solve the challenge.",
         "I used evidence from the article."
-      ]
+      ],
+      "modelAnswer": "One challenge of living in microgravity on the space station is that astronauts' bones and muscles grow weaker because they do not have to hold up the body the way they do on Earth. To solve this problem, astronauts exercise for about two hours every day, running on a treadmill, riding a bike, and lifting with a weight machine to keep their bodies strong. This matters because the station stays in orbit for a long time, so astronauts need to stay healthy during the whole mission. Along with exercising, they also work together with astronauts from many countries in the laboratory, which shows how cooperation helps make life in space possible."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what international cooperation means for the ISS.",
         "I gave at least two pieces of evidence from the article.",
         "I explained how the evidence supports my answer."
-      ]
+      ],
+      "modelAnswer": "Cooperation is necessary for a project like the International Space Station because no single nation could continuously maintain such a massive, complex structure on its own. The station was assembled piece by piece from modules built by different countries, and it has been continuously occupied since 2000, which requires many nations to share the cost and responsibility of keeping it running. Astronauts rely on shared systems, such as machines that purify sweat and breath moisture into drinking water, since dehydrated food and heavy water supplies cannot easily be replaced from Earth. The article also notes that astronauts from Saudi Arabia and the United Arab Emirates traveled to the station in 2023 to conduct experiments, which shows how countries work together, sharing resources and knowledge, to keep this remarkable laboratory functioning smoothly."
     }
   }
 }

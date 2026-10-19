@@ -243,7 +243,8 @@
         "I told the steps in order.",
         "I used cable, motor, and shaft correctly.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "The elevator car sits inside a tall shaft. Strong cables hold up the car and go over a wheel at the top. A motor turns the wheel, and that pulls the car up. The car stops at the floor I want to reach."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what the counterweight does.",
         "I explained what the safety brake does.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "The counterweight is a heavy block on the other end of the cables, and it weighs almost as much as the car, so when the car goes up the counterweight goes down and helps balance it. This means the motor does not need as much power to lift people in a skyscraper. The safety brake protects riders because if a cable ever breaks, the brake grabs the rails and stops the car instead of letting it fall."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained traction and the counterweight.",
         "I described at least one safety feature.",
         "I used evidence from the article."
-      ]
+      ],
+      "modelAnswer": "An elevator works through traction, the grip between the steel cables and the wheel that lets the motor pull the car up or lower it down. A counterweight that is about as heavy as the car plus part of a load hangs on the other side of the cables, so as the car rises the counterweight falls, which is a key part of the mechanism that reduces the strain on the motor. For safety, Elisha Otis invented a brake in the 1850s that grabs the rails the moment a cable breaks, stopping the car before it can fall, and that invention is the evidence that made people trust elevators enough to build skyscrapers."
     }
   }
 }

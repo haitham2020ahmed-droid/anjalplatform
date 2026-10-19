@@ -243,7 +243,8 @@
         "I wrote two things I can do.",
         "I told why each one helps the ocean.",
         "I used a key word like plastic or recycle."
-      ]
+      ],
+      "modelAnswer": "I can use a cloth bag instead of a plastic one, because that means less plastic trash ends up in rivers and the ocean. I can also choose to recycle, because recycling keeps plastic out of the ocean where it can harm turtles and other animals."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the bottle's path from land to sea.",
         "I explained one way to stop it.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "A plastic bottle dropped as litter in a city can be blown by the wind or washed by rain into a river, and the river's current then carries it all the way out to the ocean. One way to stop this from happening is to use refillable bottles instead of throwing plastic ones away as litter in the first place, since bottles that never become trash can never reach the sea. Floating barriers placed in rivers can also catch litter like bottles before it travels any farther toward the ocean."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I used microplastic and prevention correctly.",
         "I supported my position with at least two pieces of evidence from the article."
-      ]
+      ],
+      "modelAnswer": "I believe prevention matters more than cleanup for protecting the ocean. The article explains that plastic trash never completely disappears, because sunlight and waves only break it into smaller and smaller pieces of microplastic that spread through the water and accumulate in giant garbage patches, which makes full cleanup nearly impossible once trash is already in the sea. While volunteers and special boats can remove some visible trash, prevention methods, like using cloth bags, refillable bottles, and recycling, stop plastic from becoming litter and reaching rivers in the first place, which is far more effective than trying to clean up microplastic that can never truly be fully removed."
     }
   }
 }

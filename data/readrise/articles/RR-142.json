@@ -243,7 +243,8 @@
         "I told all three steps in order.",
         "I used the words first, next, and then.",
         "I used facts from the article."
-      ]
+      ],
+      "modelAnswer": "First, Al-Biruni stood on the flat plain and measured the angle from the ground to the mountain's peak to find its height. Next, he climbed to the top of the mountain and measured the small angle to the horizon. Then he used mathematics to combine both measurements and figure out the radius of the Earth."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described both methods.",
         "I explained why his method was better.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "Earlier scholars measured the Earth by walking across flat land and measuring a very long distance, which needed many people and a lot of time. Al-Biruni's method was an improvement because he only needed one mountain, one person, and good tools. He measured the angle to the mountain's peak and the angle to the horizon, then used mathematics to find the Earth's radius, getting a result that was accurate to within one percent."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained his belief in my own words.",
         "I connected the belief to at least two parts of his method.",
         "I supported my ideas with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Al-Biruni believed that knowledge should be tested through careful observation rather than simply accepted. His measurement of the Earth shows this belief clearly, because instead of trusting earlier estimates, he carefully measured the angle from the plain to the mountain's peak, and then measured the tiny angle to the horizon from the summit. By combining these careful observations with trigonometry, he calculated the Earth's radius to be about 6,340 kilometers, an estimate that was off from today's accepted value by less than one percent. This precision proves that he trusted measurement over assumption."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I said that the Moon gets its light from the Sun.",
         "I said that the Moon moves around Earth.",
         "I said that we see more or less of the lit half."
-      ]
+      ],
+      "modelAnswer": "The Moon does not make its own light; it only reflects light from the Sun. As the Moon moves around Earth on its orbit, we see different amounts of the sunlit half, so the shape we see in the sky seems to change even though the Moon itself never changes."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I put the phases in the correct order.",
         "I used waxing, waning, and gibbous correctly.",
         "I explained that the Sun always lights half of the Moon."
-      ]
+      ],
+      "modelAnswer": "The Sun always lights exactly half of the Moon, and the cycle starts at the new Moon, when that lit half faces away from us so the Moon looks almost invisible. The bright part keeps growing, which is called waxing, through a crescent, a half Moon, a gibbous phase, and finally a full Moon. After that, the bright part shrinks, which is called waning, moving back through gibbous and crescent shapes until the cycle begins again at the next new Moon."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained that the Sun always lights one hemisphere of the Moon.",
         "I explained how the Moon's orbit changes what we see.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "My friend's idea that the Moon's dark part is Earth's shadow is a common misconception, but the article makes clear that the Sun always illuminates exactly one hemisphere of the Moon, the half that faces the Sun, while the opposite hemisphere simply stays in darkness because sunlight never reaches it. The real cause of the lunar phases is the Moon's orbit around Earth: as it travels along that path, we on Earth see different portions of its lit half, from a thin crescent to a full Moon and back again, which has nothing to do with Earth blocking sunlight."
     }
   }
 }

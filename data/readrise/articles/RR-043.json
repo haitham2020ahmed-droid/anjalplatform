@@ -243,7 +243,8 @@
         "I named something a rover can do.",
         "I used a fact from the article.",
         "I told why with a reason."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like to drive a rover on Mars. I would look for rocks that could show water once flowed there, because the article says some rocks could only have formed in water. That would be exciting because it could help us learn if Mars was ever a place life could live."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the problem with signals from Earth.",
         "I gave an example of a decision a rover makes.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "Rovers need to make some decisions by themselves because Mars is so distant that a radio signal from engineers on Earth can take up to 20 minutes to arrive, so the rover cannot simply wait for every instruction during its mission. For example, the article explains that a rover must steer around a boulder on its own rather than waiting for Earth to send a command, since by the time the signal arrived the rover could already be stuck."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two facts from the article.",
         "I explained one challenge that Mars presents."
-      ]
+      ],
+      "modelAnswer": "I think space agencies should keep sending robots to Mars rather than sending people right now. The article shows how effective autonomous rovers can be, since Opportunity was only built to work for 90 days but instead kept exploring for almost 15 years, and the rover Perseverance has already found evidence that water once flowed in Jezero Crater. One major challenge that supports this position is Mars's harsh, unbreathable environment, since the article notes that its thin air would not let people breathe, which makes sending a robot a far safer way to gather evidence while rovers continue helping astronauts get ready for a future human mission."
     }
   }
 }

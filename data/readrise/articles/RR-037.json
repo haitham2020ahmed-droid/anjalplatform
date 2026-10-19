@@ -243,7 +243,8 @@
         "I told two ways an octopus stays safe.",
         "I used facts from the article.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "An octopus has no bones, so it can squeeze through any gap that is bigger than its hard beak. It can also change the color of its skin in less than a second, which helps it hide from big fish like sharks. If a predator still finds it, the octopus can squirt a cloud of dark ink and shoot away."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how camouflage helps the octopus.",
         "I explained when and why it uses ink.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "An octopus's camouflage lets special cells in its skin change color in less than a second and even raise bumps to copy the texture of a rock or seaweed, so a predator swimming past may never notice it is there at all. If camouflage fails and a predator such as a shark spots it anyway, the intelligent octopus squirts a cloud of dark ink to confuse the attacker and then shoots away while the predator is distracted. Using camouflage first and ink only as a last resort shows how this clever mollusk layers its defenses to stay safe."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the octopus is the most impressive invertebrate in the sea. The article notes that although most of its neurons are packed into its arms rather than its brain, octopuses have still solved puzzles and unscrewed jars in aquariums, which demonstrates a genuine cognition unusual for a creature without a backbone. Its body is equally remarkable, since it can squeeze through any gap larger than its beak and instantly change both the color and the texture of its skin, abilities that together show a combination of intelligence and physical adaptation that few other sea animals can match."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think bees are very important to people. Bees live together in a colony and work very hard. Foragers collect nectar and turn it into honey in the hive. Bees also carry pollen from flower to flower, and this helps farmers grow their crops. That is why I think bees are important."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each detail connects to farming."
-      ]
+      ],
+      "modelAnswer": "Farmers depend on honeybees because bees help plants grow in two important ways. First, foragers in a colony collect nectar from flowers, and when the nectar evaporates in the hive, it becomes honey that bees use as food. Second, as foragers move from flower to flower, pollen sticks to their fuzzy bodies and causes pollination, which lets plants form fruits and seeds. Without this pollination, many of the crops that farmers grow would not produce enough fruits, vegetables, and nuts. That is why farmers often rent beehives and place them next to their fields."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that honeybees are more valuable for pollination than for honey, because so many crops depend on it. When a forager travels from blossom to blossom collecting nectar, pollen clings to its body and triggers pollination, allowing fruits, vegetables, and nuts to develop into a harvest. Farmers clearly recognize this value, since many of them rent entire hives and position them beside their fields specifically for pollination rather than for honey production. Honey is certainly a tasty reward, but without pollination, countless crops that feed people would never form at all, which is why I consider pollination the bee's most essential contribution."
     }
   }
 }

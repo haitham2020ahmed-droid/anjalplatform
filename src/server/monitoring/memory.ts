@@ -79,6 +79,24 @@ const GB = globalThis as unknown as { __buildTail?: Promise<void>; __buildsWaiti
 export const BUILD_WAIT_MS = 3_000;
 
 /**
+ * r## boot-memory guard (owner: a server that restarted ~1–2 min after a deploy — see the r86 note above
+ * startMemoryLog): right after this process starts, a heavy build (NAFS index, MAP pools, Learning Continuum) that
+ * would start while RSS is already past BOOT_DELAY_RSS_MB waits a short beat first, instead of piling a big
+ * in-memory build on top of a process that hasn't finished settling from its own startup. Outside the first
+ * BOOT_DELAY_WINDOW_MS, or whenever memory is comfortable, this is a no-op and the build starts exactly as before.
+ */
+export const BOOT_DELAY_WINDOW_MS = 2 * 60_000;
+export const BOOT_DELAY_RSS_MB = Math.round((Number(process.env.WEB_MEMORY_MB) || 512) * 0.65);
+const BOOT_SETTLE_MS = 4_000;
+
+async function settleIfBooting(): Promise<void> {
+  if (process.env.NODE_ENV !== "production") return;
+  const booting = Date.now() - (G.__memStart ?? 0) < BOOT_DELAY_WINDOW_MS;
+  if (!booting || rssMb() <= BOOT_DELAY_RSS_MB) return;
+  await new Promise<void>((resolve) => { const t = setTimeout(resolve, BOOT_SETTLE_MS); (t as { unref?: () => void }).unref?.(); });
+}
+
+/**
  * 🧠 r84 first use after a deploy: the BIG in-memory builds (the school's NAFS index, a grade's MAP question pools, the
  * Learning Continuum index) run one at a time in this process, so a fresh server never builds two of them side by side
  * (each reads thousands of rows; two together were the peak that got a fresh 512 MB server killed).
@@ -91,14 +109,14 @@ export const BUILD_WAIT_MS = 3_000;
 export function heavyBuild<T>(fn: () => Promise<T>, maxWaitMs = BUILD_WAIT_MS): Promise<T> {
   const prev = GB.__buildTail;
   let run: Promise<T>;
-  if (!prev) run = fn();
+  if (!prev) run = settleIfBooting().then(fn);
   else {
     GB.__buildsWaiting = (GB.__buildsWaiting ?? 0) + 1;
     run = new Promise<void>((resolve) => {
       const timer = setTimeout(resolve, maxWaitMs);
       (timer as { unref?: () => void }).unref?.();
       void prev.then(() => { clearTimeout(timer); resolve(); });
-    }).then(() => { GB.__buildsWaiting = (GB.__buildsWaiting ?? 1) - 1; return fn(); });
+    }).then(() => { GB.__buildsWaiting = (GB.__buildsWaiting ?? 1) - 1; return settleIfBooting().then(fn); });
   }
   const tail: Promise<void> = run.then(() => undefined, () => undefined);
   GB.__buildTail = tail;

@@ -243,7 +243,8 @@
         "I named at least two parts of a food label.",
         "I explained how each part helps me choose.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would check the serving size on the label first, because all the numbers only describe one serving, not the whole bag. I would also look at the sugar listed in the ingredients, because if sugar is near the top of the list, the food has a lot of it, and I want to choose the healthy snack."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave clear steps in order.",
         "I used the words calories and sodium correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, check the serving size so you know what all the numbers on the label describe. Next, look at the calories, which measure the energy the food gives your body, and check nutrients like sugar and sodium, since too much of either over time can harm your heart. Finally, compare two snacks side by side, and choose the one with less sugar and sodium for the healthier choice."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I agree or disagree.",
         "I used at least three details from the article.",
         "I organized my answer in clear, complete sentences."
-      ]
+      ],
+      "modelAnswer": "I disagree that the front of a package is enough to judge a food, because the article shows the front can be misleading with bright pictures and words like \"natural\" that do not tell you the real facts. The back of the label lists ingredients in descending order from largest to smallest amount, so if sugar is near the top, you are about to consume a lot of it, which the front never shows. The label also warns about allergens like nuts or milk and reminds shoppers to eat certain foods only in moderation, information that a pretty front picture simply cannot provide."
     }
   }
 }

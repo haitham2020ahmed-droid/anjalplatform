@@ -243,7 +243,8 @@
         "I wrote at least three bedtime steps.",
         "I explained why one step helps, using the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Here is my bedtime plan. First, I will turn off my screen about an hour before bed. Second, I will read a book instead. Third, I will keep my room dark and quiet. Turning off the screen helps because bright light from screens can trick my brain into staying awake instead of getting ready to rest."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly disagreed with the idea that sleep is wasted time.",
         "I used at least two facts from the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "I disagree that sleep is wasted time. While you sleep, your brain is actually busy sorting information and turning it into memory, so sleep helps you learn. Your body also makes a chemical called melatonin that helps you feel sleepy, and if you skip sleep you will not feel alert the next day. That is why I always keep a steady bedtime routine."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I supported it with at least three facts from the article.",
         "I used precise vocabulary, including at least two key words."
-      ]
+      ],
+      "modelAnswer": "I believe schools should teach students about sleep and screens, because many students do not realize how much screens affect their bodies. Our internal circadian clock uses light to know when it is day or night, and screens give off blue light that can confuse this clock and reduce the hormone melatonin, making it harder to fall asleep. Without enough sleep, students find it difficult to concentrate in class and may forget what they learned. If schools taught a consistent, screen-free bedtime routine, students would likely feel more alert and do better in school."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I explained one way to take the salt out, step by step.",
         "I gave a reason from the article why Saudi Arabia needs this water.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One way to get fresh water is to heat seawater. The heat makes steam rise, and the salt stays behind. Then the steam cools down and turns into fresh water. Saudi Arabia needs this water because it has no rivers and gets very little rain, so pipes carry the fresh water all the way to cities like Riyadh."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described how each method takes out the salt.",
         "I named at least one way they are alike and one way they are different.",
         "I used key words such as membrane, pressure, or brine correctly."
-      ]
+      ],
+      "modelAnswer": "The heat method boils seawater so steam rises and leaves the salt behind, and then the steam cools back into fresh water. The membrane method is different because pumps push seawater against a thin membrane with tiny holes, using strong pressure, so water passes through but salt cannot. Both methods are alike because they leave behind leftover brine that must be spread out carefully in the sea. One difference is that the membrane method uses less energy, which is why most new plants choose it."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least one benefit and two challenges using facts from the article.",
         "I chose the challenge I think matters most and gave a reason.",
         "I used precise words such as distillation, ecosystem, or sustainable correctly."
-      ]
+      ],
+      "modelAnswer": "Desalination gives Saudi Arabia a reliable water supply even though the country has no rivers and receives almost no rainfall. However, it also creates serious challenges: both distillation and the membrane method demand an enormous amount of energy, and the leftover brine can threaten the marine ecosystem if it is not dispersed carefully. In my view, the energy demand matters most, because an energy-hungry process is not truly sustainable unless it is powered by something renewable, which is why I think the new solar-powered plants are such an important step."
     }
   }
 }

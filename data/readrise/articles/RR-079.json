@@ -243,7 +243,8 @@
         "I named something at Hegra I would like to see.",
         "I gave at least two details from the article.",
         "I explained my reason in complete sentences."
-      ]
+      ],
+      "modelAnswer": "I would most like to see the lone tomb that was carved from one giant rock. The article says it was never finished at the bottom, which shows that workers carved it from the top down. I think it would be amazing to see how the Nabataeans used simple tools to carve such a huge shape out of sandstone."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why Hegra was important.",
         "I used at least two details from the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Hegra was important because it was a key stop on a trade route where caravans of camels carried incense from southern Arabia to the north. The Nabataeans also carved more than a hundred tombs into the rock there, and each one has an inscription above the entrance telling who owned it. These details show that Hegra was both a busy trading city and a place where the Nabataeans left behind a lasting record of their skill."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that Hegra's tombs teach us more about the Nabataeans than any book could, because the carved facades are physical evidence that no written record can fully replace. Each tomb's inscription names its owner, giving archaeologists exact proof of who lived in this kingdom and prospered there two thousand years ago. The unfinished tomb, carved from a single rock from the top down, even reveals the Nabataeans' building methods, a detail a simple written history would rarely describe so precisely. For these reasons, the tombs offer a direct, lasting heritage that goes beyond anything a book alone could tell us."
     }
   }
 }

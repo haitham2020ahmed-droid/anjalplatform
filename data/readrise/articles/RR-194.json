@@ -243,7 +243,8 @@
         "I named two tricks, like a thick stem or long roots.",
         "I told how each trick saves water.",
         "I used at least two key words, like store or spines."
-      ]
+      ],
+      "modelAnswer": "A cactus has a thick stem that stores water like a tank, so it can survive long periods without rain. It also has sharp spines instead of big leaves, which lose far less water than leaves would."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained three different adaptations.",
         "I used the words adaptation and evaporate correctly.",
         "I gave an example plant, like a cactus or an acacia tree."
-      ]
+      ],
+      "modelAnswer": "One adaptation is the cactus's thick stem, which stores water like a tank after a rainstorm, so the plant has water saved up for dry times. Another adaptation is the acacia tree's extremely long roots, which reach deep groundwater far under the sand that shallow-rooted plants cannot reach. A third adaptation is the waxy coating on many desert leaves, which works like a seal to stop water from evaporating out of the plant."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained three adaptations, such as stomata opening at night or dormant seeds.",
         "I used details and key words from the article.",
         "I described one way people can conserve water."
-      ]
+      ],
+      "modelAnswer": "Several adaptations help desert plants survive drought. A cactus stores water in its thick stem like a tank and has sharp spines instead of large leaves, since spines lose far less water through evaporation than broad leaves would. Some plants, like the acacia tree, grow roots deep enough to reach groundwater, while others spread shallow roots wide to soak up rain before the sun dries the sand, and some seeds simply stay dormant in the sand for years until rain finally arrives. People can use these ideas to conserve water by choosing native, drought-adapted plants like the acacia for landscaping instead of thirsty plants that need constant watering."
     }
   }
 }

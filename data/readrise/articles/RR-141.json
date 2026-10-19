@@ -243,7 +243,8 @@
         "I told about a time I kept trying.",
         "I connected my story to a fact about Zaha.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "One time, I kept practicing swimming even though I struggled with it at first. I think of Zaha Hadid, who refused to give up even though critics said her building designs were too strange to build. Just like her first major building finally got built after years of trying, I eventually learned to swim well because I did not quit."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named one building from the article.",
         "I described how it shows her curving style.",
         "I gave a reason it became famous."
-      ]
+      ],
+      "modelAnswer": "I chose the aquatics center Zaha Hadid designed for the 2012 Olympic Games in London. It shows her curving style because its roof is shaped like a wave instead of having flat walls and square corners like most buildings. I think it became famous because it looked like nothing anyone had imagined before, and it became a landmark that people wanted to see because of its innovative, flowing structure."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what makes someone a pioneer.",
         "I used specific evidence about her persistence and her ideas.",
         "I connected that evidence to her legacy."
-      ]
+      ],
+      "modelAnswer": "A pioneer is someone who dares to try something completely new, even when others doubt it will work. Zaha Hadid was a pioneer because of both her persistence and her unconventional ideas. She kept designing bold, curving buildings for years even though few of her early plans were ever built and critics said her fluid designs were too strange, yet she refused to give up until her fire station in Germany was finally completed in 1993. Her innovative use of geometry, with walls that bend like waves and roofs that sweep like dunes, changed what architecture could look like, and becoming the first woman to win the Pritzker Prize cemented her legacy as one of the most influential architects in history."
     }
   }
 }

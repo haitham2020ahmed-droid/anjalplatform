@@ -243,7 +243,8 @@
         "I described how the air felt.",
         "I used two facts from the article.",
         "I used the words humid or dry correctly."
-      ]
+      ],
+      "modelAnswer": "I remember a humid summer day near the coast when the air felt sticky and hot. The article explains that in humid air, sweat evaporates slowly, which is why a humid day feels hotter. On a dry day, the air has little water vapor, so sweat evaporates quickly and I feel cooler."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained evaporation and condensation in order.",
         "I used evaporate and condense correctly.",
         "I included the role of warm and cool air."
-      ]
+      ],
+      "modelAnswer": "First, warm sunlight heats the puddle, and the water begins to evaporate, turning from a liquid into invisible water vapor that rises into the air. As that moist air rises higher, it cools down, and cooler air cannot hold as much vapor, so the vapor begins to condense back into tiny drops. Those tiny drops gather together high in the sky and form a cloud."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained both evaporation and condensation.",
         "I connected humidity to how people feel.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Humidity connects the sea, the sky, and the human body through one continuous cycle of water molecules. Water evaporates from the sea and other sources, filling the air with vapor until it may even become saturated, and when that moist air cools, condensation turns the vapor back into drops that form dew, fog, or clouds. This same humidity also affects people: in coastal cities like Jeddah where the air holds more moisture, sweat evaporates slowly off the skin, so a humid day feels hotter and stickier than a dry one in Riyadh."
     }
   }
 }

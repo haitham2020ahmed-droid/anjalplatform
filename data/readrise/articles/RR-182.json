@@ -243,7 +243,8 @@
         "I clearly said whether I would like to visit.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like to visit Al-Balad because it is a historic port where ships once traded spices, cloth, and other goods from Africa and India. I would also like to see the tall coral stone houses with wooden roshan windows that let in the cool sea breeze."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two features that helped with the heat.",
         "I used details from the article, such as the roshan and narrow streets.",
         "I used words such as lattice and breeze correctly."
-      ]
+      ],
+      "modelAnswer": "The builders of Al-Balad made narrow streets so the tall houses on both sides would shade them during the hottest part of the day. They also built large wooden windows called roshan, each covered with a lattice that lets the cool sea breeze flow in while blocking the hot sun, so families stayed cool without being seen from outside. These historic design choices show how the merchants who built the heritage site planned carefully for the heat long before it was restored for visitors today."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how being a port affected Jeddah's history.",
         "I connected the sea to at least one building feature, such as coral stone or sea breezes.",
         "I used precise words such as pilgrim, ventilation, and preserve."
-      ]
+      ],
+      "modelAnswer": "Jeddah's location by the sea shaped Al-Balad's history, because ships from Africa, India, and other lands came to trade spices and cloth, and many pilgrims passed through on their way to Makkah, which made the town a busy center for hundreds of years. The sea also shaped the buildings themselves, since builders used blocks of coral stone cut from the sea to build tall houses, and they added intricate wooden lattice windows called roshan that provide ventilation by letting the cool sea breeze pass through while blocking the sun. Because Al-Balad's heritage grew directly from its role as a port, the city now works to preserve its old houses as a World Heritage Site."
     }
   }
 }

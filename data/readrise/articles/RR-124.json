@@ -243,7 +243,8 @@
     "I clearly said why soil is important.",
     "I used at least two facts from the article.",
     "I wrote complete sentences with capital letters and periods."
-   ]
+   ],
+   "modelAnswer": "Soil is important because almost all the food we eat depends on it growing in the ground. Soil is made partly of tiny bits of broken rock and humus, the soft material left over from dead plants and animals, and these ingredients give plants what they need to grow. Earthworms dig tunnels through its layers so air and water can reach plant roots, and without plants to hold it in place, wind and rain can wash soil away through erosion."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained at least two ways living things help soil.",
     "I used details from the article.",
     "I used words such as decompose, nutrient, or topsoil correctly."
-   ]
+   ],
+   "modelAnswer": "Living things help keep soil healthy in several important ways. Earthworms dig tunnels that let air and water reach plant roots, which keeps the topsoil loose and full of life. Bacteria and fungi decompose dead leaves and other matter, breaking them down and releasing nutrients that plants need to grow, in addition to the tiny mineral particles already in the soil. Farmers can boost this process even further by adding compost, a mixture of rotted food scraps and leaves, which gives decomposers even more material to work with."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear position.",
     "I supported it with at least two pieces of evidence from the article.",
     "I explained how my evidence supports my position."
-   ]
+   ],
+   "modelAnswer": "I completely disagree that soil is just dirt that does not need protecting, because the article shows it is actually a complex, living system that almost all of our food depends on. Soil forms extremely slowly through weathering, as heat, cold, rain, and plant roots gradually break solid rock into the fine texture we see in a handful of dirt, a process that can take a thousand years to build just one centimeter. A single handful of healthy soil can also contain more living organisms, including decomposer bacteria and fungi, than there are people on Earth, and these tiny creatures release the nutrients that plants need to survive. Because wind and rain can destroy through erosion in just a few seasons what nature spent centuries building, protecting soil is just as important as protecting any other precious natural resource."
   }
  }
 }

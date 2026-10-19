@@ -243,7 +243,8 @@
         "I named one way penguins stay warm.",
         "I gave at least two details from the article.",
         "I explained my reason in complete sentences."
-      ]
+      ],
+      "modelAnswer": "I think huddling helps penguins the most. The article says hundreds of birds press together during storms and take turns moving into the warm center of the group. This helps every penguin share warmth instead of facing the freezing wind alone."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what the mother does and what the father does.",
         "I used at least two details from the article.",
         "I told the steps in the right order."
-      ]
+      ],
+      "modelAnswer": "Emperor penguin parents divide the work of raising a chick between them. After the mother lays a single egg in winter, she passes it to the father, who balances it on his feet under a warm fold of skin and eats nothing for about two months while protecting it from predators and the cold. Meanwhile, the mother travels to the sea to feed, and she returns when the chick hatches so that both parents can then feed and care for it together."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that behaviors like huddling matter more than body features like blubber for penguin survival, because the article shows that both work together as a layered system of insulation. Under their skin, penguins already have a thick layer of blubber plus tightly packed feathers that block wind and water before any huddling even begins, so the body features provide a constant baseline of warmth every single day. Huddling is certainly important during extreme storms, since hundreds of birds take turns in the warm center of the group, but without the blubber and feathers underneath, huddling alone could not keep a penguin alive through Antarctica's brutal winter."
     }
   }
 }

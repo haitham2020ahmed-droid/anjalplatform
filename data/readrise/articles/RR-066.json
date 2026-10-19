@@ -243,7 +243,8 @@
         "I gave two tips from the article.",
         "I explained why each tip helps my eyes.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One tip from the article is to look at something far away every 20 minutes, because it lets the focus muscles in my eyes rest. Another tip is to blink more often while using a screen, because blinking keeps my eyes moist and stops them from feeling dry."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the causes of eye strain and dry eyes using details from the article.",
         "I described two helpful habits and why they work.",
         "I used at least two key words from the lesson correctly."
-      ]
+      ],
+      "modelAnswer": "Using a screen for a long time can cause eye strain because tiny muscles inside your eye must keep squeezing to focus on something close to your face, which eventually makes your eyes feel tired and your head ache. Screens also cause dry eyes because you blink less often while staring at them, so tears that normally keep your eyes moist get spread around less. One helpful habit is the 20-20-20 rule, looking far away every 20 minutes to let the focusing muscles relax. Another habit is spending time outdoors, which studies show makes children less likely to become nearsighted."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about screens and eye health.",
         "I supported my opinion with at least two pieces of evidence from the article.",
         "I used precise vocabulary from the article and organized my answer in clear paragraphs."
-      ]
+      ],
+      "modelAnswer": "I agree that screens can be bad for children's eyes if they are not used carefully, though the real problem is overuse rather than screens themselves.\n\nThe article explains that focusing on a close screen for long periods causes eye fatigue as tiny muscles strain to adjust the lens, and reduced blinking during screen time leaves eyes without enough moisture, making them dry and itchy. I think spending time outdoors matters most for protecting vision, since the article notes that children today experience myopia far more often than in the past, while those who play outside daily are less likely to become nearsighted. Turning screens off before bed is another important habit, since their bright light can interfere with the melatonin that helps you fall asleep."
     }
   }
 }

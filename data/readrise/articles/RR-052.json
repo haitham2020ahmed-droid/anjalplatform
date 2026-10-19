@@ -243,7 +243,8 @@
         "I told the steps to stay safe.",
         "I used two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "If an earthquake starts, I should drop to the floor and take cover under a sturdy desk. I should hold on until the shaking stops. This is important because a burst of energy makes the ground shake, and the shaking is usually strongest near the epicenter."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least three steps in order.",
         "I used words from the article such as plates, stress, and energy.",
         "I used order words like first, then, and finally."
-      ]
+      ],
+      "modelAnswer": "First, tectonic plates push against each other and their rough edges get stuck. Then, stress builds up in the rocks like a spring being squeezed tighter and tighter. Finally, the rocks slip all at once and release a burst of energy that travels through the ground and makes it shake. Scientists use a seismometer to record the shaking and give each quake a magnitude."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence connects to my opinion."
-      ]
+      ],
+      "modelAnswer": "I think it is more useful to prepare for earthquakes than to try to predict them. The article says nobody can predict exactly when an earthquake will happen, so instead engineers design reinforced buildings that can bend without breaking along a fault. Scientists also monitor the ground with instruments to understand seismic activity, but this does not tell them the exact moment friction between the plates will finally let go. Since we cannot know the timing, practicing safety steps ahead of time saves more lives than waiting for a prediction."
     }
   }
 }

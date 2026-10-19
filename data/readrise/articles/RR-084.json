@@ -243,7 +243,8 @@
         "I explained what al-Idrisi did with the facts.",
         "I said why one person's story might be wrong.",
         "I used a detail from the article."
-      ]
+      ],
+      "modelAnswer": "Al-Idrisi talked to many travelers and sailors and only kept a fact when several of them agreed. This was smart because one traveler could remember a story wrong or get mixed up about a place. By checking many people's stories, al-Idrisi could trust that his map showed the truth."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described who al-Idrisi talked to.",
         "I explained how he compared reports.",
         "I connected his method to the map's accuracy."
-      ]
+      ],
+      "modelAnswer": "Al-Idrisi talked with travelers, sailors, and merchants who arrived at busy ports and asked them about distant regions. He would compare their reports carefully, and he only kept a fact when several people agreed about it, leaving out any story that did not match. This careful method of checking many sources made his map far more accurate than earlier maps that were simply copied from old information."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained al-Idrisi's method using details from the article.",
         "I applied the method to a modern example.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Al-Idrisi, a careful cartographer, refused to trust a single traveler's account; instead, he gathered reports from many sailors and merchants and only recorded a fact once several independent sources agreed on it. I could use this same method to verify a surprising claim I read online today by searching for two or three other trustworthy websites and checking whether they report the same information. If only one source makes the claim and nothing else confirms it, I would treat it the way al-Idrisi treated an unconfirmed story, as something not yet proven. Just as his caution kept errors out of the manuscripts that preserved his work, cross-checking several sources today helps keep false information out of what I believe."
     }
   }
 }

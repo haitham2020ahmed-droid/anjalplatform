@@ -243,7 +243,8 @@
     "I told what happened to the oryx by 1972.",
     "I told how zoos and the reserve helped.",
     "I used at least one key word, like herd or reserve."
-   ]
+   ],
+   "modelAnswer": "By 1972, hunters had killed so many oryx that the animal was extinct in the wild. People helped by keeping a small herd safe in zoos, where the oryx could breed and grow in number. Later, Saudi Arabia and Oman let herds live free again in a protected reserve."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained why the oryx became extinct in the wild.",
     "I described how captivity and breeding helped.",
     "I included at least two details, such as dates or places."
-   ]
+   ],
+   "modelAnswer": "The Arabian oryx became extinct in the wild because hunters with guns and fast vehicles killed far too many of them, so by 1972 none remained free. Fortunately, a small number still survived in captivity in zoos, and people protected them and helped them breed until the population grew larger. Oman then released a herd back into the desert in 1982, and Saudi Arabia did the same in 1990, so the oryx could finally live free again."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear opinion about the project.",
     "I used evidence such as the 2011 status change and the setback in Oman.",
     "I used at least two key words, such as reintroduce or population."
-   ]
+   ],
+   "modelAnswer": "I believe the Arabian oryx project was largely a success, though not a perfectly smooth one. In 2011, an international conservation organization changed the oryx's official status from endangered to vulnerable, making it the first animal to recover this fully after vanishing completely from the wild, and today more than a thousand oryx live free again after being reintroduced to reserves in Saudi Arabia and Oman. However, the project faced a real setback when illegal hunters captured many oryx in Oman during the late 1990s and the population there shrank dramatically, which shows that protecting the population must continue long after the animals are released."
   }
  }
 }

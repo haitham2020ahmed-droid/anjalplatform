@@ -243,7 +243,8 @@
         "I explained what makes a high tide.",
         "I used two facts from the article.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "A high tide happens because the Moon's gravity pulls ocean water into a bulge. As the Earth spins around once a day, each shore passes through this bulge. When a beach on the shore is inside the bulge, it is high tide."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what spring tides are and what causes them.",
         "I explained what neap tides are and what causes them.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "Spring tides happen when the Sun, Moon, and Earth are aligned in a straight line, so their pulls combine and make extra-large tides. Neap tides happen when the Sun and Moon pull at right angles to each other, which makes the tides weaker than usual. Because scientists understand this pattern, they can predict the tidal range years ahead, which helps sailors know when it is safe to bring a ship into a harbor."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the Moon is more important to life on the coast than the Sun. The article explains that the Moon's gravitational pull is the main cause of tides, creating the bulges of water that produce high and low tide every day, while the Sun's pull is less than half as strong because it is so far away. Whether the Moon is aligned with the Sun or pulling at a nearly perpendicular angle also decides whether a coast gets an extra-large spring tide or a weaker neap tide, showing how closely coastal life follows the Moon's phase. Since sailors depend on predicted tides for navigation and some countries use the movement of tides as a renewable source of electricity, the Moon's daily influence clearly outweighs the Sun's."
     }
   }
 }

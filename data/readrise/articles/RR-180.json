@@ -243,7 +243,8 @@
         "I named one tool.",
         "I told what it does.",
         "I told how it saves water."
-      ]
+      ],
+      "modelAnswer": "One smart farm tool is the sensor. A sensor sits in the soil and checks how wet it is, then sends the information to a computer, which turns on the water only when the soil is too dry, so no water is wasted."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two technologies.",
         "I said how each one helps.",
         "I used words such as irrigation, sensor, or data."
-      ]
+      ],
+      "modelAnswer": "Drip irrigation helps a farm save water because thin pipes drip water directly onto each plant's roots, so very little is lost to the sun or sand. A soil sensor also helps because it sends data to a computer, which only turns on the water when the soil is actually dry instead of watering on a fixed schedule. Together, these technologies make sure every drop of water is used where it is needed most."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how two technologies work.",
         "I gave my opinion with reasons.",
         "I used words such as irrigation, evaporation, or nutrients correctly."
-      ]
+      ],
+      "modelAnswer": "Drip irrigation and soil sensors work together to conserve water in the desert, since the sensor's data tells a computer exactly when the soil is dry, and the irrigation pipes then drip water straight onto the roots instead of spraying it where it can evaporate in the heat. I believe these smart farming technologies are important for Saudi Arabia's future, because the article shows that hot summers, little rain, and poor sandy soil make growing food difficult, yet methods like hydroponics, which reuses water for roots growing without soil, prove that deserts can still produce millions of dates and greenhouses full of tomatoes and cucumbers."
     }
   }
 }

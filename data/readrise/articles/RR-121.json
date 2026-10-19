@@ -243,7 +243,8 @@
         "I wrote two safety rules.",
         "I explained each rule with a fact from the article.",
         "I used at least two key words, such as flood or wadi."
-      ]
+      ],
+      "modelAnswer": "One rule is to never cross a wadi, or dry valley, when water is flowing in it, because a sudden flood can sweep away cars and people. Another rule is to never camp inside a wadi during the rainy season, because rain falling in the desert mountains can cause a flood even when the sky above you is clear. The hard, dry ground cannot soak up the rain fast enough, so the water rushes into the valley instead."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how a wadi can be dangerous.",
         "I explained how a wadi can be helpful.",
         "I used details and key words from the article."
-      ]
+      ],
+      "modelAnswer": "A wadi can be dangerous because it is a dry channel that can transform within minutes into a sudden, fast-moving flash flood powerful enough to sweep away cars and people, even if the storm that caused it was far away in the mountains. A wadi can also be helpful, though, because after a flood passes, much of the water sinks into the ground and becomes groundwater that fills wells and feeds plants, and some wadis even form an oasis in the middle of the desert. People also build a dam across a wadi to capture floodwater so it can be used later instead of rushing away and being wasted."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I used at least two pieces of evidence from the article.",
         "I mentioned the other side and responded to it."
-      ]
+      ],
+      "modelAnswer": "I think the benefits of wadis matter more to people in Saudi Arabia than their dangers, even though both sides are real. In such an arid land, a wadi's ability to recharge groundwater after a storm, filling wells and nourishing an oasis, provides a water supply that desert communities have relied on for thousands of years, which is why towns and farms have always grown up beside them. It is true that a wadi can turn into a violent torrent carrying sediment, rocks, and branches with almost no warning, and this danger genuinely costs lives when people ignore the rules and cross flowing water. However, that danger can be managed through warnings, dams, and the simple choice to stay out of a wadi when water is flowing, while losing the water and recharge that wadis provide would threaten entire communities permanently."
     }
   }
 }

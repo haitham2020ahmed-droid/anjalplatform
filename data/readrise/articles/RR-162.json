@@ -243,7 +243,8 @@
         "I named two animals from the article.",
         "I told how each animal sends its message and what the message is for.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Vervet monkeys send a signal by making a different alarm call for each predator, which warns the group of danger so they know exactly how to react. Ants send a message by leaving a scent on the ground, which forms a trail that other ants follow to food. Both signals help the animals stay safe or find what they need."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described two different kinds of animal signals.",
         "I explained at least one way they are alike and one way they are different.",
         "I used examples and words from the article."
-      ]
+      ],
+      "modelAnswer": "Vervet monkeys communicate with sound by using a different alarm call to warn about each predator, while the Arabian wolf also communicates with sound by howling to call its pack together and defend its territory. Elephants, on the other hand, communicate with deep rumbles that are too low for humans to hear but can travel far to reach family members. All of these signals are alike because they use sound to send a message, but they are different because each sound warns of danger or location in its own particular way."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated my opinion.",
         "I supported it with at least two examples from the article.",
         "I used precise words such as interpret, distinct, and vocalization."
-      ]
+      ],
+      "modelAnswer": "I agree that animal signals act like a kind of language, because each one carries a distinct meaning that other animals can interpret and act on. For example, vervet monkeys use a different vocalization for each predator, and the monkeys that hear it know exactly whether to climb a tree, dive into bushes, or check the ground, almost like understanding separate words. Honeybees communicate in an equally specific way through a dance that tells other bees which direction and how far to fly for flowers, showing that these signals convey real information rather than random noise."
     }
   }
 }

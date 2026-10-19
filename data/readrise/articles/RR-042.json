@@ -243,7 +243,8 @@
         "I named two body parts or traits.",
         "I told how each one helps in the desert.",
         "I used facts from the article."
-      ]
+      ],
+      "modelAnswer": "The Arabian horse has wide nostrils that draw in plenty of air, which helps it breathe well in the hot desert. It also has black skin under its coat, and this dark skin protects the horse from the strong desert sun."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the desert shaped the breed.",
         "I gave two examples from the article.",
         "I used at least one key word, such as endurance or stamina."
-      ]
+      ],
+      "modelAnswer": "The harsh desert shaped the Arabian horse because food and water were scarce, and days were scorching while nights could be cold, so only the hardiest horses survived over many years. For example, the horse developed dark skin beneath its coat that protects it from the strong sun, and it also developed great endurance, giving it the stamina to win races that cover more than one hundred kilometers. These examples show how a difficult environment gradually produced an unusually tough breed."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the horse's importance in the past and today.",
         "I supported my answer with at least two pieces of evidence.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "The Arabian horse has been important to Saudi Arabia's past because for thousands of years the Bedouin depended on it for survival in the desert, even letting a prized mare sleep inside the family tent, which shows its deep place in the culture and lineage of the people. It remains important today because its distinctive bloodline lives on as an ancestor of many modern breeds, including the Thoroughbred, and Saudi Arabia now runs a special center near Riyadh to preserve this descendant breed for the future."
     }
   }
 }

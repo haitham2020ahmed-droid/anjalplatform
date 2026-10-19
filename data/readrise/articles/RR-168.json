@@ -243,7 +243,8 @@
         "I explained two different ways mountains grow.",
         "I used at least two key words from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One way mountains grow is when two plates of the Earth's crust collide and push the rock between them up into folds. Another way is when hot melted rock called lava pours out onto the surface and hardens, and layer by layer this builds up into a volcano. Both ways take a very long time to make a tall mountain."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why Everest is still rising.",
         "I explained what erosion does to mountains.",
         "I used at least three key words from the article."
-      ]
+      ],
+      "modelAnswer": "Mount Everest is still rising because the plate carrying India continues to collide with the plate carrying Asia, slowly pushing its summit a few millimeters higher every year. We know this mountain was once under the sea because climbers have found fossils of sea animals near its very top. At the same time, erosion from rain, wind, and ice is constantly wearing the mountain down, breaking rock apart and carrying it away, so the mountain's height is really a balance between these two opposite forces."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the steps of how the mountains formed in order.",
         "I used at least three key words correctly.",
         "I wrote clearly enough for a younger student to understand."
-      ]
+      ],
+      "modelAnswer": "Mountains like the Sarawat Mountains or Mount Everest form because giant tectonic plates making up Earth's crust are always moving, just very slowly. When two plates collide, they compress the rock between them, folding and pushing it upward in a process called uplift that can take millions of years to build a tall mountain. The Sarawat Mountains formed differently, through a rift, where a piece of land slowly tore away from Africa and rose up beside the Red Sea. Either way, it is the slow movement of tectonic plates that ultimately uplifts the rock into the mountains we see today."
     }
   }
 }

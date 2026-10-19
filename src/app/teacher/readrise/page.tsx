@@ -278,13 +278,18 @@ function WritingTab({ q, classId, canWrite }: { q: Awaited<ReturnType<typeof wri
                 <p className="mt-2 text-sm text-slate-700"><b>Prompt:</b> {w.prompt}</p>
                 {w.checklist.length > 0 && <ul className="mt-1 list-disc ps-5 text-xs text-slate-500">{w.checklist.map((c) => <li key={c}>{c}</li>)}</ul>}
                 <p className="mt-2 whitespace-pre-line rounded-xl bg-slate-50 p-3 text-slate-900">{w.writing}</p>
+                {w.aiScore !== null && (
+                  <p className="mt-2 rounded-lg bg-indigo-50 p-2 text-xs text-indigo-900 ring-1 ring-indigo-200">
+                    🤖 <b>AI suggestion — check before saving:</b> {w.aiScore}/4{w.aiComment ? ` · "${w.aiComment}"` : ""}
+                  </p>
+                )}
                 {canWrite ? (
                   <form action={scoreReadRiseWritingAction} className="mt-3 flex flex-wrap items-end gap-3 text-sm">
                     <input type="hidden" name="classId" value={classId} /><input type="hidden" name="runId" value={w.runId} />
                     <fieldset className="flex gap-1"><legend className="mb-1 font-semibold">Score</legend>
-                      {[0, 1, 2, 3, 4].map((n) => <label key={n} className="cursor-pointer"><input type="radio" name="score" value={n} required className="peer sr-only" /><span className="block rounded-lg px-3 py-1.5 font-bold ring-1 ring-slate-300 peer-checked:bg-brand-navy peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-teal">{n}</span></label>)}
+                      {[0, 1, 2, 3, 4].map((n) => <label key={n} className="cursor-pointer"><input type="radio" name="score" value={n} required defaultChecked={w.aiScore === n} className="peer sr-only" /><span className="block rounded-lg px-3 py-1.5 font-bold ring-1 ring-slate-300 peer-checked:bg-brand-navy peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-teal">{n}</span></label>)}
                     </fieldset>
-                    <label className="flex min-w-[16rem] flex-1 flex-col gap-1 font-semibold">Comment (optional)<input name="comment" maxLength={1000} className={field} placeholder="One thing done well, one thing to improve" /></label>
+                    <label className="flex min-w-[16rem] flex-1 flex-col gap-1 font-semibold">Comment (optional)<input name="comment" maxLength={1000} defaultValue={w.aiComment ?? ""} className={field} placeholder="One thing done well, one thing to improve" /></label>
                     <button className={btn}>Save score</button>
                   </form>
                 ) : <p className="mt-2 text-xs text-slate-500">Only the class&apos;s teachers score.</p>}

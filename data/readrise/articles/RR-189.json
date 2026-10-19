@@ -243,7 +243,8 @@
         "I clearly said what I learned.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "From Wangari Maathai, I learned that one simple idea, like planting trees, can solve a big problem. The Green Belt Movement she founded planted tens of millions of trees across Kenya, and she became the first African woman to win the Nobel Peace Prize."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the trees helped the land.",
         "I explained how the movement helped the women.",
         "I supported my ideas with details from the article."
-      ]
+      ],
+      "modelAnswer": "Planting trees helped the land because tree roots hold the soil in place and help rainwater soak into the ground, which stopped the erosion that was washing away the soil when forests were cleared. Planting trees also helped the women of Kenya, because the Green Belt Movement taught them to grow seedlings and paid them a small amount for each tree that survived, giving them income while also saving them from walking for hours to collect firewood. In both ways, the movement improved the environment and the lives of the women who built it."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I do not think one person's effort alone is enough to solve big environmental problems, but Wangari Maathai's story shows that one person's effort can start a movement big enough to matter. She founded the Green Belt Movement by teaching women to plant seedlings, and over the years that single idea grew into tens of millions of trees planted across Kenya, showing real change at a huge scale. Still, this result depended on an entire community of women working together for decades, which is really the lesson of the hummingbird story, that each small effort matters most when many people add theirs together."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I named my dream.",
         "I gave two steps I could take, like Mae did.",
         "I used at least two key words, such as dream or science."
-      ]
+      ],
+      "modelAnswer": "My big dream is to become a scientist who studies the ocean. Like Mae Jemison, I could work toward my dream by studying hard in school and reading many books about science. I could also watch documentaries about the ocean to learn more, just like Mae watched astronauts and dreamed of space."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained who or what inspired Mae.",
         "I explained how her story could inspire a student.",
         "I used at least two details and key words from the article."
-      ]
+      ],
+      "modelAnswer": "Mae Jemison was inspired by watching astronauts on television and by a science fiction show that featured a Black woman working on a spaceship. Her story could inspire a student today because even though some people doubted she could become a scientist, she studied chemical engineering, became a doctor, volunteered in two countries, and was chosen by NASA out of thousands of applicants. This shows a student that with hard work, a dream can really come true."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what a pioneer is.",
         "I gave at least two pieces of evidence about Mae.",
         "I explained how the evidence shows she is a pioneer."
-      ]
+      ],
+      "modelAnswer": "A pioneer is someone who overcomes barriers to do something that few or no people like them had done before. Mae Jemison fits this description because she became the first Black woman to travel to space, flying aboard the space shuttle Endeavour in 1992 despite living in a time when very few women or Black people worked as scientists. Her determination carried her from studying chemical engineering and medicine to being chosen by NASA out of about two thousand applicants, and once in orbit she conducted an experiment about weightlessness and the human body. This evidence shows that her mission broke barriers for the scientists who came after her."
     }
   }
 }

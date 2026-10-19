@@ -243,7 +243,8 @@
         "I put vegetables and fruit in half of the plate.",
         "I added a grain and a protein food.",
         "I said why one food is good for my body."
-      ]
+      ],
+      "modelAnswer": "I would make a balanced plate with half filled with vegetables and fruit, like tomatoes and carrots. I would add rice as my grain and chicken for protein. Protein is good for my body because it helps build strong muscles."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I included vegetables or fruit, a grain, and a protein.",
         "I named at least two nutrients, such as fiber or calcium.",
         "I explained what each nutrient does for the body."
-      ]
+      ],
+      "modelAnswer": "For a balanced family dinner, I would serve a big portion of vegetables for fiber, which helps digestion, along with brown rice for carbohydrates, which gives everyone energy. I would also add grilled chicken for protein to help build muscles, and a glass of milk for calcium to keep our bones strong. Each nutrient does a different job, so eating a variety of foods keeps the whole family healthy."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I used facts about nutrients and moderation from the article.",
         "I explained my reasons in complete sentences."
-      ]
+      ],
+      "modelAnswer": "I disagree with the idea that eating vegetables excuses eating sweets every day. Vegetables and fruit provide vitamins and minerals that help your body digest food properly, but they do not cancel out the sugar in sweets, which the article says should only be eaten in moderation. Different foods give different nutrients, so a healthy diet needs a true balance of vegetables, grains, and protein, not just vegetables plus daily sweets."
     }
   }
 }
