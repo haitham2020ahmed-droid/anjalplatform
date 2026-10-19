@@ -247,12 +247,14 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
       const el = anchorRef.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
-      // 🧭 owner: "خليها تظهر فوق skill نفسها مش في الوسط" — once the star that opened this panel scrolls off
-      // screen (above OR below the viewport), `bottom` used to clamp to the nearest edge, which left the panel
-      // floating in a spot that no longer lined up with any skill. Close it instead: a panel with nothing to point
-      // at is more confusing than no panel, and re-opening it (the ⭐ is still right there once scrolled back) is
-      // one click away.
-      if (r.bottom < 0 || r.top > window.innerHeight) { onClose(); return; }
+      // 🧭 owner: "يظهر فوق النجمة اللي دوست عليها دايمًا، من غير ما يختفي خالص وانا بعمل scroll" — once the star
+      // that opened this panel scrolls fully off screen (above OR below the viewport), `bottom` used to clamp to
+      // the nearest edge, which left the panel floating in a spot that no longer lined up with any skill (the first
+      // fix for that just closed the panel outright — but that made it vanish mid-scroll, needing another click to
+      // reopen). Hide it instead (pos → null, same "invisible but still open" state the JSX already renders) and
+      // keep recomputing on every scroll: the instant the star is back in view, it reappears right above it again,
+      // with no re-click needed.
+      if (r.bottom < 0 || r.top > window.innerHeight) { setPos(null); return; }
       const width = Math.min(320, window.innerWidth - 16);
       const left = Math.min(Math.max(8, r.left), window.innerWidth - width - 8);
       const bottom = Math.max(8, window.innerHeight - r.top + 8); // 8px gap above the star
@@ -267,7 +269,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
       window.removeEventListener("scroll", reposition, { capture: true });
       window.removeEventListener("resize", reposition);
     };
-  }, [anchorRef, onClose]);
+  }, [anchorRef]);
   useEffect(() => {
     const down = (e: MouseEvent) => { if (boxRef.current && !boxRef.current.contains(e.target as Node)) onClose(); };
     document.addEventListener("mousedown", down);
