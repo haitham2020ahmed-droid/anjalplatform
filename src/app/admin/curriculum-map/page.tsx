@@ -9,7 +9,7 @@ import { sendTargets } from "@/server/curriculum-map/send-plan";
 import { LessonCard } from "@/components/curriculum-map/lesson-card";
 import { SendPlanButton, SendPlanHost } from "@/components/curriculum-map/send-plan";
 import { getT } from "@/i18n/server";
-import { assignPlaceAction, mapCodeSentAction, masteredCountAction, priorAssignmentAction, quickAssignSkillAction, sendPreviewAction, sendScopeAction, shareMapPdfAction } from "./actions";
+import { assignPlaceAction, cancelSkillAssignmentAction, mapCodeSentAction, masteredCountAction, priorAssignmentAction, quickAssignSkillAction, sendPreviewAction, sendScopeAction, shareMapPdfAction } from "./actions";
 import { MapPdfBar } from "@/components/curriculum-map/map-pdf-bar";
 import { curriculumMapPdfHref, mapShareClasses } from "@/server/curriculum-map/map-pdf";
 import { MapAssignHost } from "@/components/curriculum-map/assign-button";
@@ -84,7 +84,7 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
               <SkillPlan basePath="/admin/curriculum-map" grade={v.grade} grades={v.grades} unitIx={planUnitIx} units={plan.units}
                 pdfHref={curriculumMapPdfHref(v.grade, "staff", lang)} studentPdfHref={curriculumMapPdfHref(v.grade, "student", lang)}
                 reportHref={canAssign && roster[0] ? `/teacher/reports/skills-grid?classId=${encodeURIComponent(roster[0].id)}` : null}
-                canAssign={canAssign} roster={roster} quickAssign={quickAssignSkillAction} assigned={assigned} priorAssignment={priorAssignmentAction} masteredCount={masteredCountAction} />
+                canAssign={canAssign} roster={roster} quickAssign={quickAssignSkillAction} assigned={assigned} priorAssignment={priorAssignmentAction} masteredCount={masteredCountAction} cancelAssignment={cancelSkillAssignmentAction} />
               {canSend && <div className="mt-3"><MapPdfBar grade={v.grade} href={curriculumMapPdfHref(v.grade, "staff", lang)} studentHref={curriculumMapPdfHref(v.grade, "student", lang)} classes={pdfClasses} share={shareMapPdfAction} showDownload={false} /></div>}
             </div>
           ) : <div className="mt-3"><EmptyState icon="🧭" title="Nothing here yet" text="The Curriculum Map has not been created yet." /></div>)}

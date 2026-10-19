@@ -44,9 +44,11 @@ export interface SkillPlanProps {
   priorAssignment?: (input: { classId: string; skillId: string }) => Promise<{ assigned: boolean }>;
   /** ⭐ how many students in the CHOSEN class already mastered this skill — the "exclude them?" prompt in SuggestPanel */
   masteredCount?: (input: { classId: string; skillId: string }) => Promise<{ count: number }>;
+  /** ⭐ un-star: cancel every open assignment of this skill for the CHOSEN class (students keep their answers) */
+  cancelAssignment?: (input: { classId: string; skillId: string }) => Promise<{ ok: boolean; message: string }>;
 }
 
-export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, studentPdfHref, reportHref, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount }: SkillPlanProps) {
+export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, studentPdfHref, reportHref, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: SkillPlanProps) {
   const t = useT();
   const router = useRouter();
   const unit = units[unitIx] as MapPdfUnit | undefined;
@@ -95,12 +97,12 @@ export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, stu
               </div>
               <div className="divide-y divide-slate-100">
                 {unit.sections.map((sec) => (
-                  <UnitSection key={`${unit.number}-${sec.number}`} sec={sec} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} />
+                  <UnitSection key={`${unit.number}-${sec.number}`} sec={sec} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
                 ))}
                 {unit.writing.length > 0 && (
                   <div className="px-5 py-4">
                     <p className="font-semibold text-slate-900">{t("Unit writing")}</p>
-                    <SkillGroups skills={unit.writing} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} />
+                    <SkillGroups skills={unit.writing} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
                   </div>
                 )}
               </div>
@@ -113,9 +115,11 @@ export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, stu
   );
 }
 
-function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount }: { sec: MapPdfSection; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"] }) {
+function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: { sec: MapPdfSection; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
   const t = useT();
-  const pending = sec.pending ?? [];
+  // a selection with no platform skills linked yet (no "No platform skills linked yet." placeholder row any more —
+  // owner: "شيل ده خالص" / "حذف اي شي زي كده" — it just doesn't appear in the Skill plan at all)
+  if (sec.skills.length === 0) return null;
   return (
     <div className="px-5 py-4">
       <p className="font-semibold text-slate-900" dir="ltr">
@@ -123,35 +127,7 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
         {sec.essentialQuestion ? `: ${sec.essentialQuestion}` : sec.title ? `: ${sec.title}` : ""}
       </p>
       {sec.essentialQuestion && sec.title && <p className="text-sm text-slate-500" dir="ltr">{sec.title}</p>}
-      {sec.skills.length === 0 && pending.length === 0 ? (
-        <p className="mt-2 text-sm text-slate-400">{t("No platform skills linked yet.")}</p>
-      ) : (
-        <>
-          <SkillGroups skills={sec.skills} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} />
-          <PendingSkills names={pending} t={t} />
-        </>
-      )}
-    </div>
-  );
-}
-
-/**
- * 🔗 r85: skill names the Lessons tab shows for this selection (the school's own Curriculum Map) that have no
- * platform Skill linked yet — plain text, not clickable or ⭐-assignable, so Skill plan and Lessons always name the
- * same selections and the same skills, even for content nobody has built questions for yet.
- */
-function PendingSkills({ names, t }: { names: string[]; t: TFn }) {
-  if (!names.length) return null;
-  return (
-    <div className="mt-2">
-      <p className="text-sm font-bold text-amber-700">⏳ {t("In the lesson plan, not yet on the platform")}</p>
-      <ul className="mt-1 space-y-1">
-        {names.map((n) => (
-          <li key={n} className="flex items-center gap-2 rounded-xl bg-amber-50/60 px-3 py-1.5 text-sm text-slate-600 ring-1 ring-amber-100">
-            <bdi dir="ltr" className="truncate">{n}</bdi>
-          </li>
-        ))}
-      </ul>
+      <SkillGroups skills={sec.skills} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
     </div>
   );
 }
@@ -163,7 +139,7 @@ function weeksLabel(sec: Pick<MapPdfSection, "weeks" | "number">, t: TFn): strin
   return t("Selection {n}", { n: sec.number });
 }
 
-function SkillGroups({ skills, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount }: { skills: MapPdfSkill[]; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"] }) {
+function SkillGroups({ skills, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: { skills: MapPdfSkill[]; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
   const t = useT();
   if (!skills.length) return null; // the caller (UnitSection) decides what to show instead: pending names or "No platform skills linked yet."
   let n = 0;
@@ -176,7 +152,7 @@ function SkillGroups({ skills, canAssign, roster, quickAssign, assigned, priorAs
           <div key={key}>
             <p className="text-sm font-bold text-brand-purple">{t(CATEGORY_LABEL[key])}</p>
             <ol className="mt-1 space-y-1">
-              {ks.map((k) => <SkillRow key={k.id} n={++n} skill={k} canAssign={canAssign} roster={roster} quickAssign={quickAssign} initDone={assigned?.has(k.id) ?? false} priorAssignment={priorAssignment} masteredCount={masteredCount} />)}
+              {ks.map((k) => <SkillRow key={k.id} n={++n} skill={k} canAssign={canAssign} roster={roster} quickAssign={quickAssign} initDone={assigned?.has(k.id) ?? false} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />)}
             </ol>
           </div>
         );
@@ -185,11 +161,16 @@ function SkillGroups({ skills, canAssign, roster, quickAssign, assigned, priorAs
   );
 }
 
-function SkillRow({ n, skill, canAssign, roster, quickAssign, initDone, priorAssignment, masteredCount }: { n: number; skill: MapPdfSkill; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; initDone: boolean; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"] }) {
+function SkillRow({ n, skill, canAssign, roster, quickAssign, initDone, priorAssignment, masteredCount, cancelAssignment }: { n: number; skill: MapPdfSkill; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; initDone: boolean; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
   const [open, setOpen] = useState(false);
   // starts from the server's own record (assignedSkillIds) so a refresh keeps showing ⭐ for a skill really assigned,
   // not just this tab's fleeting click
   const [done, setDone] = useState(initDone);
+  // ⭐ un-star ("لو شلت النجمه يتلغي"): after a successful remove, SuggestPanel calls router.refresh(), which
+  // recomputes `assigned` on the server and hands this row a fresh `initDone` — but useState only reads its
+  // argument on the FIRST render, so without this sync the star would stay filled until a full page reload even
+  // though the assignment really is gone. Keeps the star honest in both directions (assign AND remove).
+  useEffect(() => setDone(initDone), [initDone]);
   // 📍 the star's own on-screen position, so the suggest panel opens right above THIS star, not centered on the page
   const starRef = useRef<HTMLButtonElement>(null);
   return (
@@ -205,12 +186,12 @@ function SkillRow({ n, skill, canAssign, roster, quickAssign, initDone, priorAss
         <Link href={`/teacher/skill-assign?skillId=${encodeURIComponent(skill.id)}${roster[0] ? `&classId=${encodeURIComponent(roster[0].id)}` : ""}`} prefetch={false}
           className="text-sm font-medium text-blue-800 hover:underline" dir="ltr">{skill.name}</Link>
       </div>
-      {open && canAssign && <SuggestPanel skill={skill} roster={roster} quickAssign={quickAssign} priorAssignment={priorAssignment} masteredCount={masteredCount} anchorRef={starRef} onDone={() => setDone(true)} onClose={() => setOpen(false)} />}
+      {open && canAssign && <SuggestPanel skill={skill} roster={roster} quickAssign={quickAssign} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} anchorRef={starRef} onDone={() => setDone(true)} onRemoved={() => setDone(false)} onClose={() => setOpen(false)} />}
     </li>
   );
 }
 
-function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCount, anchorRef, onDone, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; anchorRef: RefObject<HTMLButtonElement | null>; onDone: () => void; onClose: () => void }) {
+function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCount, cancelAssignment, anchorRef, onDone, onRemoved, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; anchorRef: RefObject<HTMLButtonElement | null>; onDone: () => void; onRemoved: () => void; onClose: () => void }) {
   const t = useT();
   const router = useRouter();
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
@@ -236,6 +217,12 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   // full Assign page ask) — advisory, not blocking: a teacher who ignores it just assigns to everyone, as before.
   const [mastered, setMastered] = useState(0);
   const [exclude, setExclude] = useState<boolean | null>(null);
+  // ⭐ un-star ("لو شلت النجمه يتلغي"): a small, separate "Remove this assignment" action — not the Yes/No of
+  // PriorAssignedPrompt above (that one only answers "assign it again or not"; it never deletes anything). Offered
+  // only once priorAssigned is known true for the CHOSEN class, with its own confirm step so nothing is cancelled
+  // from a single click.
+  const [removeStep, setRemoveStep] = useState<"idle" | "confirm" | "busy">("idle");
+  const [removeMsg, setRemoveMsg] = useState<string | null>(null);
   const klass = roster.find((c) => c.id === classId) ?? roster[0];
   const students = useMemo(() => (klass?.students ?? []).filter((s) => s.name.toLowerCase().includes(q.trim().toLowerCase())), [klass, q]);
   // 📍 anchored right above the ⭐ that opened this panel (not a page-centered modal). Computed in JS from the
@@ -278,6 +265,8 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   useEffect(() => {
     let live = true;
     setConfirmed(false);
+    setRemoveStep("idle");
+    setRemoveMsg(null);
     if (!priorAssignment || !classId) { setPriorAssigned(false); return; }
     priorAssignment({ classId, skillId: skill.id }).then((r) => { if (live) setPriorAssigned(r.assigned); }).catch(() => undefined);
     return () => { live = false; };
@@ -304,6 +293,16 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
     // the moment the assign succeeds, not just until the next full reload.
     if (r.ok) { onDone(); setJustAssigned(true); setStarred((s) => new Set([...s, ...(studentIds ?? (klass?.students ?? []).map((x) => x.id))])); setMsg(t("Assigned ✓")); router.refresh(); } else setMsg(r.message);
   };
+  // ⭐ un-star ("لو شلت النجمه يتلغي"): cancels every open assignment of this skill for the CHOSEN class. A
+  // confirm step (removeStep "confirm" → "busy") so nothing is cancelled from the single star click that opened
+  // this panel — the person must open this panel AND explicitly confirm "Remove" before anything changes.
+  const removeNow = async () => {
+    if (!cancelAssignment) return;
+    setRemoveStep("busy"); setRemoveMsg(null);
+    const r = await cancelAssignment({ classId, skillId: skill.id });
+    if (r.ok) { onRemoved(); setPriorAssigned(false); setConfirmed(false); setJustAssigned(false); setRemoveStep("idle"); setRemoveMsg(t("Removed ✓")); router.refresh(); }
+    else { setRemoveStep("idle"); setRemoveMsg(r.message); }
+  };
   return (
     <div ref={boxRef} role="dialog" aria-modal="true" aria-label={t("Suggest this skill to:")}
       style={pos ? { position: "fixed", left: pos.left, bottom: pos.bottom, width: pos.width, visibility: "visible" } : { position: "fixed", visibility: "hidden" }}
@@ -320,6 +319,24 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
           {roster.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
         </select>
       )}
+      {/* ⭐ un-star ("لو شلت النجمه يتلغي"): offered only once this class is known to already have the skill
+          assigned — separate from the Yes/No below, which only decides whether to assign it AGAIN, never deletes. */}
+      {cancelAssignment && priorAssigned && (
+        removeStep === "confirm" ? (
+          <div className="mt-3 rounded-lg bg-rose-50 px-2.5 py-2 text-xs text-rose-950 ring-1 ring-rose-200">
+            <p>{t("Remove this assignment for {class}? Students stop seeing it; answers already given are kept.", { class: klass?.name ?? "" })}</p>
+            <div className="mt-1.5 flex gap-1.5">
+              <button type="button" disabled={(removeStep as string) === "busy"} onClick={removeNow} className="rounded-md bg-rose-700 px-2 py-0.5 font-semibold text-white disabled:opacity-50">{t("Remove")}</button>
+              <button type="button" onClick={() => setRemoveStep("idle")} className="rounded-md bg-white px-2 py-0.5 font-semibold text-brand-navy ring-1 ring-slate-300">{t("Cancel")}</button>
+            </div>
+          </div>
+        ) : (
+          <button type="button" disabled={removeStep === "busy"} onClick={() => setRemoveStep("confirm")} className="mt-2 text-xs font-semibold text-rose-700 underline disabled:opacity-50">
+            {removeStep === "busy" ? "⏳" : "🗑"} {t("Remove this assignment")}
+          </button>
+        )
+      )}
+      {removeMsg && <p role="status" className="mt-1.5 text-xs font-medium text-rose-700">{removeMsg}</p>}
       <SourceSelect t={t} value={source} onChange={setSource} className="mt-3" compact field="rounded-lg border border-slate-300 px-2 py-1.5 font-normal" />
       {blocked ? (
         <div className="mt-3"><PriorAssignedPrompt t={t} onYes={() => setConfirmed(true)} onNo={onClose} /></div>

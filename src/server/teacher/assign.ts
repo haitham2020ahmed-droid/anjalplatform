@@ -500,6 +500,18 @@ export async function cancelAssignment(repo: Repo, actor: Actor, assignmentId: s
   return { title: s(a.title), students: rows.length, completed };
 }
 
+/**
+ * ⭐ Skill plan's ⭐ un-star (owner: "لو شلت النجمه يتلغي"): cancel every open assignment of this skill for this
+ * class — usually one, cancelled all if more than one somehow exists. Each goes through cancelAssignment (same
+ * guarantee: students stop seeing it, answers already given are kept, the class's teacher or a school admin only).
+ */
+export async function cancelSkillAssignmentsForClass(repo: Repo, actor: Actor, classId: string, skillId: string, now = new Date()): Promise<{ cancelled: number }> {
+  const rows = await repo.findMany("Assignment", { classId, skillId, deletedAt: null }, { select: ["id"] });
+  let cancelled = 0;
+  for (const r of rows) { await cancelAssignment(repo, actor, s(r.id), now); cancelled++; }
+  return { cancelled };
+}
+
 export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<AssignmentDetail> {
   assertCan(actor, "assignments:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see assignment results.");

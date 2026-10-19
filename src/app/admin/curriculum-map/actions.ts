@@ -3,7 +3,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { assignFromMap, setStudentLevels } from "@/server/curriculum-map/levels";
-import { assignSkill, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
+import { assignSkill, cancelSkillAssignmentsForClass, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { masteredInClasses } from "@/server/skills/status-extras";
 import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
@@ -83,6 +83,22 @@ export async function priorAssignmentAction(input: { classId: string; skillId: s
   if (!input.classId || !input.skillId) return { assigned: false };
   try { await assertClassAccess(repo, actor, input.classId); } catch { return { assigned: false }; }
   return { assigned: await hasPriorSkillAssignment(repo, input.classId, input.skillId) };
+}
+
+/** ⭐ Skill plan's un-star ("لو شلت النجمه يتلغي"): cancel every open assignment of this skill for this class.
+ * Students stop seeing it; answers already given are kept. The class's teacher (or a school admin) only. */
+export async function cancelSkillAssignmentAction(input: { classId: string; skillId: string }): Promise<{ ok: boolean; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  try {
+    if (!input.classId || !input.skillId) return { ok: false, message: "Choose a class." };
+    await assertClassAccess(repo, actor, input.classId);
+    const r = await cancelSkillAssignmentsForClass(repo, actor, input.classId, input.skillId);
+    if (!r.cancelled) return { ok: false, message: "Nothing to remove — this class has no open assignment of this skill." };
+    return { ok: true, message: "Removed ✓ Students no longer see it; their answers are kept." };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
+    throw e;
+  }
 }
 
 /** ⭐ Whether the chosen class already has this Curriculum Map place (section/category code) sent to it — the

@@ -63,6 +63,27 @@ export async function rewardChip(repo: Repo, studentId: string, now = Date.now()
   return chipCache.getOrLoad(studentId, async () => chipOf(studentId, await repo.findUnique("StudentReward", { studentId })), now);
 }
 
+// ------------------------------------------------------------------ top bar: grade + class (so a teacher/admin
+// signed in as a student — or testing several accounts — can tell at a glance who they are looking at)
+
+export interface StudentGradeClass { grade: number | null; className: string | null }
+/** rarely changes within a school year: cached longer than the reward chip (writes never need to drop it) */
+const gradeClassCache = new TtlCache<StudentGradeClass>(600_000, 5000);
+
+/** Grade level + current class name, for the top bar next to the student's name. One cached read per 10 min. */
+export async function studentGradeClass(repo: Repo, studentId: string, now = Date.now()): Promise<StudentGradeClass> {
+  return gradeClassCache.getOrLoad(studentId, async () => {
+    const st = await repo.findUnique("Student", { id: studentId });
+    const [grade, memberships] = await Promise.all([
+      st?.gradeId ? repo.findUnique("Grade", { id: s(st.gradeId) }) : Promise.resolve(null),
+      repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"], take: 1 }),
+    ]);
+    const classId = memberships[0]?.classId ? s(memberships[0].classId) : null;
+    const klass = classId ? await repo.findUnique("Class", { id: classId }) : null;
+    return { grade: grade?.level ? Number(grade.level) : null, className: klass?.name ? s(klass.name) : null };
+  }, now);
+}
+
 /** Avatars + favorite badges of many students at once (Live Board, class list): one read per 400 students. */
 export async function emblemsFor(repo: Repo, studentIds: readonly string[]): Promise<Map<string, { avatar: AvatarConfig; badge: string | null }>> {
   const ids = [...new Set(studentIds.map(s))].slice(0, 2000);
